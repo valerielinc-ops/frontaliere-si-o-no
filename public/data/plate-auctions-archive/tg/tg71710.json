@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109718",
+      "sourceKey": "TG",
+      "sourceRecordId": "109718",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "71710",
+      "normalizedPlate": "TG71710",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 810,
+      "bidCount": 22,
+      "endsAt": "2026-09-23T17:00:00.000Z",
+      "closedAt": "2026-09-23T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109718",
+      "sourceFetchedAt": "2026-09-23T04:49:16.205Z",
+      "lastVerifiedAt": "2026-09-23T04:49:16.205Z",
+      "firstSeenAt": "2026-09-14T20:51:10.954Z",
+      "lastSeenAt": "2026-09-23T04:49:16.205Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "b1f4a05c9737"
+    }
+  ]
+}

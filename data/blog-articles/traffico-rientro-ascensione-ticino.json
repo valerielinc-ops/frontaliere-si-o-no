@@ -1,0 +1,40 @@
+{
+  "id": "traffico-rientro-ascensione-ticino",
+  "slug": "traffico-rientro-ascensione-ticino",
+  "publishedAt": "2026-05-17T23:22:17.660Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.211052335290019,
+    "confidence": 0.8,
+    "finalScore": 4.168841868232016,
+    "topK": [
+      {
+        "slug": "ponti-primaverili-traffico-ticino-2026",
+        "cosine": 0.8685087225483366
+      },
+      {
+        "slug": "ponti-primaverili-traffico-2026",
+        "cosine": 0.8550821237687586
+      },
+      {
+        "slug": "cina-spostamenti-frontalieri-primo-maggio",
+        "cosine": 0.8502133823350705
+      },
+      {
+        "slug": "ascensione-traffico-ticino-2026",
+        "cosine": 0.8425359760717116
+      },
+      {
+        "slug": "ascensione-pentecoste-viaggi-2026",
+        "cosine": 0.8352163982524367
+      }
+    ],
+    "score": 0.521105233529002,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

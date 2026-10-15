@@ -1,0 +1,245 @@
+{
+  "_what": "Misura prima/dopo con Codex vero della Fase 3 di scripts/send-newsletter.mjs (soggetti A/B), sugli stessi input: 4 lingue, la coorte più grande di ogni lingua con 3 lavori, lo stesso cambio e gli stessi briefing di Fase 2 (template statico, nessuna chiamata AI). before: composeLocaleSubjects + generateAISubject di origin/main (una chiamata per lingua × variante, Theme con l'apertura fissa del paragrafo dei lavori). after: composeLocaleSubjects + generateAISubjects di questa PR (una chiamata per lingua per entrambe le varianti, con jsonSchema; Theme senza l'apertura fissa).",
+  "_how": "I moduli veri (before: copia di origin/main:scripts/send-newsletter.mjs accanto all'originale; after: il file di questa PR), con la sola chiamata AI iniettata (`llm`) come `codex exec` reale: modello gpt-5.6-luna, model_reasoning_effort=max, profilo function del broker CI (model_instructions_file minimo, niente contesto di permessi e ambiente, web search e 13 feature dell'agente spente), --output-schema quando la chiamata porta jsonSchema, prompt costruito come _codexPrompt di ai-models.mjs. Tre richieste al massimo in volo, come codex-auth-broker.mjs --max-concurrency 3. Codex CLI 0.159.0 in locale (la CI pinna 0.153.4, stessi flag). Token da turn.completed.usage; tempo reale di orologio della fase. withFixedOpeningWords: soggetti che contengono concret/konkret, la parola dell'apertura fissa.",
+  "measuredAt": "2026-09-29",
+  "rows": [
+    {
+      "mode": "before",
+      "locales": 4,
+      "variants": 2,
+      "requests": 8,
+      "wallSeconds": 127.3,
+      "requestSeconds": [
+        23.2,
+        26.2,
+        33.5,
+        11.3,
+        13.8,
+        15.2,
+        19.2,
+        92.8
+      ],
+      "inputTokens": 49871,
+      "outputTokens": 10419,
+      "reasoningTokens": 10266,
+      "subjects": {
+        "de::concreto": "💼 Buchhaltungsjobs in Bellinzona warten auf dich",
+        "de::curioso": "💼 Suchst du etwas Konkretes in Bellinzona?",
+        "en::concreto": "💼 3 Lugano jobs to land your next role",
+        "en::curioso": "💼 Java in Lugano: is this your next move?",
+        "fr::concreto": "💼 3 entreprises à Lugano : décroche ton poste",
+        "fr::curioso": "💼 Comptable chez Fidinam à Lugano : pour toi ?",
+        "it::concreto": "💼 3 aziende assumono a Bellinzona: candidati ora",
+        "it::curioso": "💼 Chi assume a Bellinzona questa settimana?"
+      },
+      "onStaticFallback": [],
+      "withFixedOpeningWords": [
+        "de::curioso"
+      ],
+      "themes": {
+        "it": "Se cerchi qualcosa di concreto, questa settimana ci sono Impiegato/a amministrativo/a contabile pres",
+        "en": "Looking for something concrete? This week there's Software Engineer (Java) at Cornèr Banca in Lugano",
+        "de": "Auf der Suche nach etwas Konkretem? Diese Woche gibt es Sachbearbeiter/in Buchhaltung bei Swisscom i",
+        "fr": "Vous cherchez quelque chose de concret ? Cette semaine il y a Comptable chez Fidinam à Lugano, Techn"
+      },
+      "warnings": 0
+    },
+    {
+      "mode": "after",
+      "locales": 4,
+      "variants": 2,
+      "requests": 4,
+      "wallSeconds": 157.1,
+      "requestSeconds": [
+        42,
+        62.6,
+        30.3,
+        157.1
+      ],
+      "inputTokens": 25700,
+      "outputTokens": 14793,
+      "reasoningTokens": 14605,
+      "subjects": {
+        "de::concreto": "💼 1 Job für dich bei Swisscom in Bellinzona",
+        "de::curioso": "⚡ CHF wird stärker: Was bedeutet das für dich?",
+        "en::concreto": "📊 3 companies hiring in Lugano: find your fit",
+        "en::curioso": "⚡ CHF is strengthening: how much are you losing?",
+        "fr::concreto": "📊 3 postes à Lugano pour augmenter ton salaire",
+        "fr::curioso": "⚡ Le CHF monte : combien tu vas gagner ?",
+        "it::concreto": "📊 Un posto in banca a Bellinzona: scopri il netto",
+        "it::curioso": "🤔 A Bellinzona, il tuo netto cambia: sai perché?"
+      },
+      "onStaticFallback": [],
+      "withFixedOpeningWords": [],
+      "themes": {
+        "it": "Impiegato/a amministrativo/a contabile presso Banca dello Stato del Cantone Ticino a Bellinzona, Inf",
+        "en": "Software Engineer (Java) at Cornèr Banca in Lugano, Customer Service Specialist at Gucci Logistica i",
+        "de": "Sachbearbeiter/in Buchhaltung bei Swisscom in Bellinzona, Elektroinstallateur/in EFZ bei AIL Aziende",
+        "fr": "Comptable chez Fidinam à Lugano, Technicien de maintenance chez Hupac Intermodal à Chiasso et Assist"
+      },
+      "warnings": 0
+    },
+    {
+      "mode": "before",
+      "rep": 2,
+      "locales": 4,
+      "variants": 2,
+      "requests": 8,
+      "wallSeconds": 86.7,
+      "requestSeconds": [
+        17.1,
+        25.6,
+        12.2,
+        35.4,
+        13.2,
+        16.4,
+        42.2,
+        51.2
+      ],
+      "inputTokens": 49871,
+      "cachedInputTokens": 5888,
+      "outputTokens": 9234,
+      "reasoningTokens": 9080,
+      "subjects": {
+        "de::concreto": "💼 3 Buchhaltungsjobs in Bellinzona – bewirb dich",
+        "de::curioso": "💼 Bellinzona sucht Sachbearbeiter: passt es?",
+        "en::concreto": "💼 Find your Java role in Lugano today",
+        "en::curioso": "💼 Could this Java role in Lugano be your move?",
+        "fr::concreto": "💼 Décroche ton poste comptable à Lugano",
+        "fr::curioso": "💼 Un poste concret à Lugano : tu postules ?",
+        "it::concreto": "💼 Impieghi concreti a Bellinzona: candidati ora",
+        "it::curioso": "💼 Bellinzona: chi assume per un ruolo concreto?"
+      },
+      "onStaticFallback": [],
+      "withFixedOpeningWords": [
+        "fr::curioso",
+        "it::concreto",
+        "it::curioso"
+      ],
+      "themes": {
+        "it": "Se cerchi qualcosa di concreto, questa settimana ci sono Impiegato/a amministrativo/a contabile pres",
+        "en": "Looking for something concrete? This week there's Software Engineer (Java) at Cornèr Banca in Lugano",
+        "de": "Auf der Suche nach etwas Konkretem? Diese Woche gibt es Sachbearbeiter/in Buchhaltung bei Swisscom i",
+        "fr": "Vous cherchez quelque chose de concret ? Cette semaine il y a Comptable chez Fidinam à Lugano, Techn"
+      },
+      "warnings": 0
+    },
+    {
+      "mode": "after",
+      "rep": 2,
+      "locales": 4,
+      "variants": 2,
+      "requests": 4,
+      "wallSeconds": 217.1,
+      "requestSeconds": [
+        27.6,
+        52.4,
+        91.3,
+        217.1
+      ],
+      "inputTokens": 25700,
+      "cachedInputTokens": 5888,
+      "outputTokens": 20346,
+      "reasoningTokens": 20156,
+      "subjects": {
+        "de::concreto": "📊 3 Stellen in Bellinzona: finde deine Stelle",
+        "de::curioso": "⚡ CHF steigt: Was ändert sich für deinen Lohn?",
+        "en::concreto": "📊 3 Lugano jobs to grow your career",
+        "en::curioso": "⚡ CHF is strengthening: are you losing out?",
+        "fr::concreto": "📊 2 postes à Lugano pour augmenter ton salaire",
+        "fr::curioso": "🤔 À Lugano, quel poste te paie vraiment mieux ?",
+        "it::concreto": "📊 1 ruolo contabile a Bellinzona: simula il netto",
+        "it::curioso": "🤔 Ruolo contabile a Bellinzona: ti conviene?"
+      },
+      "onStaticFallback": [],
+      "withFixedOpeningWords": [],
+      "themes": {
+        "it": "Impiegato/a amministrativo/a contabile presso Banca dello Stato del Cantone Ticino a Bellinzona, Inf",
+        "en": "Software Engineer (Java) at Cornèr Banca in Lugano, Customer Service Specialist at Gucci Logistica i",
+        "de": "Sachbearbeiter/in Buchhaltung bei Swisscom in Bellinzona, Elektroinstallateur/in EFZ bei AIL Aziende",
+        "fr": "Comptable chez Fidinam à Lugano, Technicien de maintenance chez Hupac Intermodal à Chiasso et Assist"
+      },
+      "warnings": 0
+    },
+    {
+      "mode": "before",
+      "rep": 3,
+      "locales": 4,
+      "variants": 2,
+      "requests": 8,
+      "wallSeconds": 79.1,
+      "requestSeconds": [
+        16.5,
+        20.6,
+        22.9,
+        15,
+        14,
+        17.4,
+        24.8,
+        58.5
+      ],
+      "inputTokens": 49871,
+      "cachedInputTokens": 19456,
+      "outputTokens": 7474,
+      "reasoningTokens": 7319,
+      "subjects": {
+        "de::concreto": "💼 3 Stellen in Bellinzona: dein Buchhaltungsjob",
+        "de::curioso": "💼 Buchhaltung in Bellinzona: passt das zu dir?",
+        "en::concreto": "💼 Java Software Engineer in Lugano: apply now",
+        "en::curioso": "💼 Could this Java role in Lugano be yours?",
+        "fr::concreto": "💼 1 poste de comptable t'attend à Lugano",
+        "fr::curioso": "💼 Fidinam : comptable à Lugano, est-ce pour toi ?",
+        "it::concreto": "💼 3 aziende cercano te a Bellinzona",
+        "it::curioso": "🏦 Un ruolo concreto a Bellinzona? Scopri chi assume"
+      },
+      "onStaticFallback": [],
+      "withFixedOpeningWords": [
+        "it::curioso"
+      ],
+      "themes": {
+        "it": "Se cerchi qualcosa di concreto, questa settimana ci sono Impiegato/a amministrativo/a contabile pres",
+        "en": "Looking for something concrete? This week there's Software Engineer (Java) at Cornèr Banca in Lugano",
+        "de": "Auf der Suche nach etwas Konkretem? Diese Woche gibt es Sachbearbeiter/in Buchhaltung bei Swisscom i",
+        "fr": "Vous cherchez quelque chose de concret ? Cette semaine il y a Comptable chez Fidinam à Lugano, Techn"
+      },
+      "warnings": 0
+    },
+    {
+      "mode": "after",
+      "rep": 3,
+      "locales": 4,
+      "variants": 2,
+      "requests": 4,
+      "wallSeconds": 106.9,
+      "requestSeconds": [
+        43.9,
+        54.4,
+        88.5,
+        63.1
+      ],
+      "inputTokens": 25700,
+      "cachedInputTokens": 9728,
+      "outputTokens": 12098,
+      "reasoningTokens": 11910,
+      "subjects": {
+        "de::concreto": "📊 3 Firmen in Bellinzona: finde deine Stelle",
+        "de::curioso": "⚡ CHF wird stärker: was kostet dich das?",
+        "en::concreto": "📊 3 Lugano jobs to boost your career",
+        "en::curioso": "🤔 Java at Cornèr Banca: what does it require?",
+        "fr::concreto": "💼 2 postes à Lugano : décroche ton prochain emploi",
+        "fr::curioso": "⚡ Le CHF se renforce : combien gagnes-tu ?",
+        "it::concreto": "📊 3 aziende a Bellinzona: trova il tuo ruolo",
+        "it::curioso": "⚡ Il franco si rafforza: cosa cambia per te?"
+      },
+      "onStaticFallback": [],
+      "withFixedOpeningWords": [],
+      "themes": {
+        "it": "Impiegato/a amministrativo/a contabile presso Banca dello Stato del Cantone Ticino a Bellinzona, Inf",
+        "en": "Software Engineer (Java) at Cornèr Banca in Lugano, Customer Service Specialist at Gucci Logistica i",
+        "de": "Sachbearbeiter/in Buchhaltung bei Swisscom in Bellinzona, Elektroinstallateur/in EFZ bei AIL Aziende",
+        "fr": "Comptable chez Fidinam à Lugano, Technicien de maintenance chez Hupac Intermodal à Chiasso et Assist"
+      },
+      "warnings": 0
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "companyKey": "csgb",
+  "companyName": "csgb",
+  "companyHost": "csgb.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.csgb.ch/jobs/bauleiter-basel"
+  ],
+  "detailTemplate": "/jobs",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Bauleiter / Bauleiterin (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T09:58:00.603Z"
+}

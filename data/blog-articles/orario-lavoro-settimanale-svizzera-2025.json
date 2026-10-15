@@ -1,0 +1,19 @@
+{
+  "id": "orario-lavoro-settimanale-svizzera-2025",
+  "slug": "orario-lavoro-settimanale-svizzera-2025",
+  "publishedAt": "2026-05-23T14:02:52.943Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 74.49106622222223,
+    "confidence": 1,
+    "finalScore": 74.49106622222223,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 37.245533111111115,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

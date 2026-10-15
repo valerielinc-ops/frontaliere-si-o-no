@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43486",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43486",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "20278",
+      "normalizedPlate": "ZH20278",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1020,
+      "bidCount": 32,
+      "endsAt": "2026-09-23T17:00:00.000Z",
+      "closedAt": "2026-09-23T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43486",
+      "sourceFetchedAt": "2026-09-23T11:42:42.115Z",
+      "lastVerifiedAt": "2026-09-23T11:42:42.115Z",
+      "firstSeenAt": "2026-09-19T11:05:30.418Z",
+      "lastSeenAt": "2026-09-23T11:42:42.115Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "1e6bbde6dc43"
+    }
+  ]
+}

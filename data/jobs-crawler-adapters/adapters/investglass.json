@@ -1,0 +1,22 @@
+{
+  "companyKey": "investglass",
+  "companyName": "InvestGlass",
+  "companyHost": "investglass.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.investglass.com/careers",
+    "https://www.investglass.com/career",
+    "https://www.investglass.com/jobs",
+    "https://www.investglass.com/karriere",
+    "https://www.investglass.com/offene-stellen",
+    "https://www.investglass.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.955Z"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ticino-traffico-2024",
+  "slug": "ticino-traffico-2024",
+  "publishedAt": "2026-07-16T20:53:28.793Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 156.06649333333334,
+    "confidence": 1,
+    "finalScore": 156.06649333333334,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 39.016623333333335,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "crans-montana-ore-straordinarie-non-pagate",
+  "slug": "crans-montana-ore-straordinarie-non-pagate",
+  "publishedAt": "2026-05-09T19:20:07.446Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.192001077006349,
+    "confidence": 0.8,
+    "finalScore": 5.753600861605079,
+    "topK": [
+      {
+        "slug": "crans-montana-fondi-avvocati-vittime",
+        "cosine": 0.846131111047962
+      },
+      {
+        "slug": "crans-montana-fatture-scontro-roma-2026",
+        "cosine": 0.8409971966720334
+      },
+      {
+        "slug": "pagare-vittime-crans-montana-2026",
+        "cosine": 0.8401634303839517
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8386537172560421
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.838204377422823
+      }
+    ],
+    "score": 5.753600861605079,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

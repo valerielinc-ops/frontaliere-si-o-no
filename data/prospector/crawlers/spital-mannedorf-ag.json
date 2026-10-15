@@ -1,0 +1,21 @@
+{
+  "companyKey": "spital-mannedorf-ag",
+  "companyName": "Spital Männedorf AG",
+  "companyHost": "recruitingapp-2736.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2736.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Dipl. Pflegefachfrau HF (Palliative Care & Akutmedizin) 30-50% (m/w/d)",
+    "Koch EFZ 100% (m/w/d)",
+    "Lehrstelle Kauffrau / Kaufmann (KV) EFZ 2027",
+    "Mitarbeiterin Reinigung 70% (m/w/d)",
+    "Ergotherapie in der Akutgeriatrie 20-100% (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:28:59.524Z"
+}

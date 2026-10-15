@@ -1,0 +1,40 @@
+{
+  "id": "tassa-salute-ristorni-ticino",
+  "slug": "tassa-salute-ristorni-ticino",
+  "publishedAt": "2026-07-02T00:16:31.209Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.31712993979175,
+    "confidence": 0.8,
+    "finalScore": 3.4537039518334,
+    "topK": [
+      {
+        "slug": "assicurazione-dentaria-obbligatoria-ticino-2026",
+        "cosine": 0.8634259879583499
+      },
+      {
+        "slug": "tassa-salute-posizione-berna",
+        "cosine": 0.8574245332729538
+      },
+      {
+        "slug": "premi-non-oltre-10-percento",
+        "cosine": 0.8561968217442744
+      },
+      {
+        "slug": "stop-ristorni-mozione-partiti",
+        "cosine": 0.8558265648271982
+      },
+      {
+        "slug": "deduzione-ristorni-frontalieri-contraria-accordi-ch-roma",
+        "cosine": 0.8554722752651873
+      }
+    ],
+    "score": 3.4537039518334,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

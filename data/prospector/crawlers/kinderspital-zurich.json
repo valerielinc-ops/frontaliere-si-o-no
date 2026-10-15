@@ -1,0 +1,18 @@
+{
+  "companyKey": "kinderspital-zurich",
+  "companyName": "Kinderspital Zürich",
+  "companyHost": "recruitingapp-2316.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2316.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Jobs/1",
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Stellen",
+    "Alle Filter"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:29:05.759Z"
+}

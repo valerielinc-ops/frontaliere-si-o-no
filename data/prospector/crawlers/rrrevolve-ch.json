@@ -1,0 +1,21 @@
+{
+  "companyKey": "rrrevolve-ch",
+  "companyName": "RRREVOLVE AG",
+  "companyHost": "rrrevolve.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rrrevolve.ch/rrrevolve/jobs"
+  ],
+  "detailTemplate": "/rrrevolve/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Praktikum Verkauf Mode 80%-100% in Zürich Sammle Verkaufserfahrung im Bereich nachhaltiger Mode, in unseren Zürcher Filialen, für die Dauer von 3 bis 6 Monaten.",
+    "Verkaufsberater*in Mode 60% - 80% – St. Gallen (Innenstadt) – Pop-up-Store vom 01.09.2026 – 31.01.2027 Wir suchen dich: eine charismatische und offene Persönlic"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-01T11:41:50.727Z"
+}

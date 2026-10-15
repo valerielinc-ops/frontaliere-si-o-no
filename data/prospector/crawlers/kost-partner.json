@@ -1,0 +1,24 @@
+{
+  "companyKey": "kost-partner",
+  "companyName": "Kost + Partner AG",
+  "companyHost": "kost-partner.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kost-partner.ch/karriere/offene-stellen/"
+  ],
+  "detailTemplate": "/karriere/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Stellvertretende/-r Bereichsleitung Ingenieurbau Luzern 80 - 100% Details zu Stellvertretende/-r Bereichsleitung Ingenieurbau Luzern",
+    "Projektleiter/-in Nachhaltiges Bauen 80 - 100% Details zu Projektleiter/-in Nachhaltiges Bauen",
+    "Praktikant/-in Bauingenieurwissenschaften 100 - 100% Details zu Praktikant/-in Bauingenieurwissenschaften",
+    "Allrounder/-in / Hauswart/-in 100 - 100% Details zu Allrounder/-in / Hauswart/-in",
+    "Projektleiter/-in Bauberatung 60 - 100% Details zu Projektleiter/-in Bauberatung"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-20T10:08:28.656Z"
+}

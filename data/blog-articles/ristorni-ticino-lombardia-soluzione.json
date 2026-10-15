@@ -1,0 +1,19 @@
+{
+  "id": "ristorni-ticino-lombardia-soluzione",
+  "slug": "ristorni-ticino-lombardia-soluzione",
+  "publishedAt": "2026-07-02T09:42:09.680Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 145.48081208888888,
+    "confidence": 1,
+    "finalScore": 145.48081208888888,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 14.548081208888888,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

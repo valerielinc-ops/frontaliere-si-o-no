@@ -1,0 +1,532 @@
+/**
+ * Tests for scripts/lib/convit-job-parser.mjs
+ *
+ * Verifies that parseConvitDetailPage extracts the full job description from
+ * the HTML DOM when JSON-LD is absent or too short (< 350 chars), as seen on
+ * careers-page.com/convit-holding-gmbh detail pages.
+ */
+import { describe, expect, it } from 'vitest';
+import {
+  parseConvitDetailPage,
+  parseConvitListingPage,
+  isConvitListingPage,
+  extractConvitListingCodes,
+  createConvitListingSourceValidator,
+  buildConvitLocalizedContent,
+  dropConvitFabricatedText,
+  isConvitSwissRelevant,
+  inferConvitCanton,
+} from '../scripts/lib/convit-job-parser.mjs';
+import { fetchAllListings } from '../scripts/update-convit-jobs.mjs';
+
+// ─── Shared fixture helpers ────────────────────────────────────────────────────
+
+function careersPageDetailHtml({
+  title = 'Consulente previdenziale',
+  location = 'Biasca',
+  jsonLdLocation = location,
+  descriptionHtml = '',
+  jsonLdDescription = '',
+  datePosted = '2026-01-15',
+}: {
+  title?: string;
+  location?: string;
+  descriptionHtml?: string;
+  jsonLdDescription?: string;
+  jsonLdLocation?: string;
+  datePosted?: string;
+} = {}) {
+  const jsonLd = jsonLdDescription
+    ? `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "${title}",
+  "description": ${JSON.stringify(jsonLdDescription)},
+  "datePosted": "${datePosted}",
+  "jobLocation": { "address": { "addressLocality": "${jsonLdLocation}", "addressCountry": "CH" } }
+}
+</script>`
+    : '';
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head><title>${title}</title>
+${jsonLd}
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row">
+    <!--Job Description-->
+    <div class="col-md-3 col-lg-3">
+      <h4><strong>Stellenbeschreibung:</strong></h4>
+    </div>
+    <div class="col-md-9 col-lg-9 mb-4 mb-sm-3">
+      ${descriptionHtml}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-lg-3">
+      <h4><strong>Arbeitsplatz:</strong></h4>
+    </div>
+    <div class="col-md-9 col-lg-9 mb-4 mb-sm-3">
+      <h5><span class="fa fa-map-marker"></span> ${location}</h5>
+    </div>
+  </div>
+</div>
+<h1 class="job-position-break">${title}</h1>
+</body>
+</html>`;
+}
+
+// ─── Regression fixture: Consulente previdenziale per la vecchiaia ─────────────
+
+const CONVIT_VECCHIAIA_DESC_HTML = `
+<h4 class="redactor-styles">
+<p><strong>Consulente previdenziale per la vecchiaia &amp; 3a (entrata laterale) tempo indeterminato</strong></p>
+<p>Entrata laterale nella consulenza Finanza &amp; Previdenza – senza vendita di prodotti assicurativi. Focus su 3a/3b, piani d'investimento/ETF, fondi previdenziali e budgeting.</p>
+<p><strong>Punti chiave:</strong></p>
+<p>- Organizzazione: Convit International GmbH</p>
+<p>- Sede: Biasca, Svizzera (TI) · Homeoffice/ibrido possibile</p>
+<p>- Contratto: Tempo indeterminato · Grado: 10–100% · Lingua: IT (B2+)</p>
+<p>- Salario: CHF 1500–7500/mese OTE (fisso + bonus; in base a grado &amp; performance)</p>
+<p><strong>Formazione VBV gratuita:</strong></p>
+<p>- Formazione VBV inclusa e gratuita; dopo il percorso ottieni la certificazione VBV.</p>
+<p>- Adatto anche a cambi di carriera/entrata laterale (senza esperienza).</p>
+<p><strong>Profilo ricercato:</strong></p>
+<p>- Motivazione, autonomia, spirito imprenditoriale.</p>
+<p>- Disponibilità a lavorare in modo ibrido/homeoffice.</p>
+</h4>`;
+
+const CONVIT_VECCHIAIA_HTML = careersPageDetailHtml({
+  title: 'Consulente previdenziale per la vecchiaia & 3a (entrata laterale) tempo indeterminato',
+  location: 'Biasca',
+  descriptionHtml: CONVIT_VECCHIAIA_DESC_HTML,
+  jsonLdDescription: '', // no JSON-LD — regression case
+  datePosted: '2026-03-10',
+});
+
+// ─── Fixture with JSON-LD description ─────────────────────────────────────────
+
+const JSONLD_DESC = '<p><strong>Consulenza finanziaria online (entrata laterale)</strong></p><p>Entrata laterale nella consulenza Finanza &amp; Previdenza. Focus su 3a/3b, piani d\'investimento e fondi previdenziali.</p><p>Sede: Caslano, TI · Homeoffice/ibrido possibile.</p><p>Contratto: Tempo indeterminato · Grado 10–100% · Lingua IT (B2+).</p><p>Salario: CHF 1500–7500/mese OTE (fisso + bonus).</p><p>Formazione VBV gratuita inclusa nel percorso di inserimento.</p><p>Profilo: motivazione, autonomia, spirito imprenditoriale.</p>';
+
+const CONVIT_JSONLD_HTML = careersPageDetailHtml({
+  title: 'Consulenza finanziaria online (entrata laterale) Ibrido/Homeoffice',
+  location: 'Caslano',
+  descriptionHtml: `<h4 class="redactor-styles">${JSONLD_DESC}</h4>`,
+  jsonLdDescription: JSONLD_DESC,
+  datePosted: '2026-02-20',
+});
+
+// ─── Tests ────────────────────────────────────────────────────────────────────
+
+describe('convit-job-parser / parseConvitDetailPage', () => {
+  it('normalizes a street-address location to its source-backed municipality', () => {
+    const html = careersPageDetailHtml({
+      location: 'Via al Mulino 22a, 6814 Cadempino',
+      jsonLdLocation: 'Via al Mulino 22a, 6814 Cadempino',
+      descriptionHtml: CONVIT_VECCHIAIA_DESC_HTML,
+    });
+    const result = parseConvitDetailPage(html, '');
+
+    expect(result.location).toBe('Cadempino');
+  });
+
+  describe('regression: no JSON-LD, description only in DOM (7X4V6XR5 style)', () => {
+    const result = parseConvitDetailPage(CONVIT_VECCHIAIA_HTML, 'fallback title');
+
+    it('extracts title from h1', () => {
+      expect(result.title).toContain('Consulente previdenziale');
+    });
+
+    it('extracts location', () => {
+      expect(result.location).toBe('Biasca');
+    });
+
+    it('description length >= 350 chars (full body, not empty)', () => {
+      expect(result.description.length).toBeGreaterThanOrEqual(350);
+    });
+
+    it('description contains at least two content blocks', () => {
+      expect(result.description).toContain('Formazione VBV');
+      expect(result.description).toContain('Profilo ricercato');
+    });
+
+    it('description contains key Convit role details', () => {
+      expect(result.description).toContain('Finanza');
+      expect(result.description).toContain('Biasca');
+    });
+
+    it('leaves datePosted unknown when no source publication date is present', () => {
+      expect(result.datePosted).toBe('');
+    });
+  });
+
+  describe('when JSON-LD description is present and full-length', () => {
+    const result = parseConvitDetailPage(CONVIT_JSONLD_HTML, '');
+
+    it('uses JSON-LD description when it is sufficiently long', () => {
+      expect(result.description.length).toBeGreaterThanOrEqual(350);
+    });
+
+    it('description contains expected content from JSON-LD', () => {
+      expect(result.description).toContain('Finanza');
+      expect(result.description).toContain('Formazione VBV');
+    });
+
+    it('location is extracted from DOM', () => {
+      expect(result.location).toBe('Caslano');
+    });
+
+    it('uses the target zone from the title when the detail address is generic', () => {
+      const html = careersPageDetailHtml({
+        title: 'Consulente previdenziale (zona Chiasso)',
+        location: 'Via al Mulino 22a',
+        descriptionHtml: CONVIT_VECCHIAIA_DESC_HTML,
+      });
+      const genericAddressResult = parseConvitDetailPage(html, '');
+
+      expect(genericAddressResult.location).toBe('Chiasso');
+    });
+  });
+
+  describe('when JSON-LD description is short (< 350 chars)', () => {
+    const shortJsonLd = 'Breve introduzione al ruolo di consulente previdenziale presso Convit.';
+    const html = careersPageDetailHtml({
+      title: 'Consulente previdenziale',
+      location: 'Lugano',
+      descriptionHtml: CONVIT_VECCHIAIA_DESC_HTML,
+      jsonLdDescription: shortJsonLd,
+    });
+    const result = parseConvitDetailPage(html, '');
+
+    it('falls back to DOM extraction when JSON-LD is too short', () => {
+      expect(result.description.length).toBeGreaterThanOrEqual(350);
+    });
+
+    it('DOM description is richer than the short JSON-LD', () => {
+      expect(result.description).toContain('Formazione VBV');
+    });
+  });
+
+  describe('page with no description at all', () => {
+    const html = careersPageDetailHtml({
+      title: 'Ruolo sconosciuto',
+      location: 'Lugano',
+      descriptionHtml: '<p>Breve nota.</p>',
+      jsonLdDescription: '',
+    });
+    const result = parseConvitDetailPage(html, 'fallback');
+
+    it('returns empty string (not throw) when no full description is available', () => {
+      expect(typeof result.description).toBe('string');
+    });
+  });
+});
+
+describe('convit-job-parser / parseConvitListingPage', () => {
+  const listingHtml = `<!DOCTYPE html><html><body>
+<ul class="list-group">
+  <li class="list-group-item">
+    <a href="/convit-holding-gmbh/job/ABC123">
+      <span class="job-position-break">Consulente previdenziale senior</span>
+    </a>
+  </li>
+  <li class="list-group-item">
+    <a href="/convit-holding-gmbh/job/DEF456">
+      <span class="job-position-break">Tirocinante finanza e previdenza</span>
+    </a>
+  </li>
+</ul>
+</body></html>`;
+
+  it('extracts job codes and titles from listing page', () => {
+    const items = parseConvitListingPage(listingHtml);
+    expect(items).toHaveLength(2);
+    expect(items[0].code).toBe('ABC123');
+    expect(items[0].title).toBe('Consulente previdenziale senior');
+    expect(items[1].code).toBe('DEF456');
+  });
+
+  it('finds canonical detail links outside legacy list wrappers and ignores apply links', () => {
+    const html = `<!DOCTYPE html><html><body>
+      <div class="job-card">
+        <a href="/convit-holding-gmbh/job/GHI789/apply">Candidati</a>
+        <a href="/convit-holding-gmbh/job/GHI789">
+          <h3 class="job-title">Consulente previdenziale digitale</h3>
+        </a>
+      </div>
+      <section class="position-card">
+        <a href="https://www.careers-page.com/convit-holding-gmbh/job/JKL012/">
+          Responsabile amministrazione
+        </a>
+      </section>
+    </body></html>`;
+
+    const items = parseConvitListingPage(html);
+
+    expect(items).toHaveLength(2);
+    expect(items.map(({ code }) => code)).toEqual(['GHI789', 'JKL012']);
+    expect(items[0].title).toBe('Consulente previdenziale digitale');
+    expect(items[1].title).toBe('Responsabile amministrazione');
+  });
+
+  it('does not let an untitled duplicate suppress a later titled listing', () => {
+    const html = `<!DOCTYPE html><html><body>
+      <a href="/convit-holding-gmbh/job/MNO345"></a>
+      <a href="/convit-holding-gmbh/job/MNO345">Ruolo</a>
+    </body></html>`;
+
+    const items = parseConvitListingPage(html);
+
+    expect(items).toHaveLength(1);
+    expect(items[0].title).toBe('Ruolo');
+  });
+
+  it('builds correct detailUrl', () => {
+    const items = parseConvitListingPage(listingHtml);
+    expect(items[0].detailUrl).toBe('https://www.careers-page.com/convit-holding-gmbh/job/ABC123');
+  });
+
+  it('returns empty array for empty HTML', () => {
+    expect(parseConvitListingPage('')).toEqual([]);
+  });
+
+  it('recognizes a Convit listing shell and rejects a generic degraded page', () => {
+    expect(isConvitListingPage(
+      '<link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">',
+    )).toBe(true);
+    expect(isConvitListingPage(
+      '<link rel="canonical" href="/convit-holding-gmbh?page=2"><title>Access denied</title>',
+    )).toBe(true);
+    expect(isConvitListingPage(
+      '<link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh/job/ABC123"><title>Convit Holding GmbH</title>',
+    )).toBe(false);
+    expect(isConvitListingPage(
+      '<html><title>Convit Holding GmbH</title><body>access denied</body></html>',
+    )).toBe(false);
+    expect(isConvitListingPage('<title>Just a moment...</title><p>Checking your browser</p>')).toBe(false);
+  });
+
+  it('recognizes the live Manatal listing head, which has no canonical or og:url', () => {
+    // Shape of https://www.careers-page.com/convit-holding-gmbh on 2026-09-28.
+    const liveHead = `<html><head><title> Convit Holding GmbH | Career Page</title>
+      <meta property="og:site_name" content="Manatal" />
+      <meta property="og:title" content="Convit Holding GmbH | Career Page" /></head><body></body></html>`;
+    expect(isConvitListingPage(liveHead)).toBe(true);
+    // The generic Manatal 404 is titled just "Manatal".
+    expect(isConvitListingPage(
+      '<html><head><title>Manatal</title><meta property="og:site_name" content="Manatal" /></head></html>',
+    )).toBe(false);
+    // Employer title without the Manatal site name is not enough.
+    expect(isConvitListingPage('<html><head><title>Convit Holding GmbH | Career Page</title></head></html>')).toBe(false);
+  });
+
+  it('keeps canonical vacancy codes even when a listing title is missing', async () => {
+    const html = `<!DOCTYPE html><html><head>
+      <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
+    </head><body>
+      <a href="/convit-holding-gmbh/job/KNOWN"><span class="job-title">Known role</span></a>
+      <a href="/convit-holding-gmbh/job/ACTIVE"></a>
+    </body></html>`;
+    const parsedListings = parseConvitListingPage(html);
+    const listedCodes = extractConvitListingCodes(html);
+    const validate = createConvitListingSourceValidator(parsedListings, {
+      complete: true,
+      listedCodes,
+    });
+    const verdicts = await validate([
+      { id: 'known', url: 'https://www.careers-page.com/convit-holding-gmbh/job/KNOWN' },
+      { id: 'active', url: 'https://www.careers-page.com/convit-holding-gmbh/job/ACTIVE' },
+    ]);
+
+    expect(parsedListings).toHaveLength(1);
+    expect(listedCodes).toEqual(['KNOWN', 'ACTIVE']);
+    expect(verdicts.find(({ id }) => id === 'active')).toMatchObject({
+      id: 'active',
+      valid: true,
+      reason: 'still-in-convit-listing',
+    });
+  });
+
+  it('requires an empty terminal page and rejects a non-empty duplicate-only page', async () => {
+    const listingPage = (codes: string[]) => `<!DOCTYPE html><html><head>
+      <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
+    </head><body>${codes.map((code) => `<a href="/convit-holding-gmbh/job/${code}"><span class="job-title">Role ${code}</span></a>`).join('')}</body></html>`;
+    const pages = [listingPage(['A', 'B']), listingPage(['A']), listingPage(['C'])];
+    let calls = 0;
+    const noCount = async () => {
+      throw new Error('the official count must not be consulted for a non-repeating page');
+    };
+
+    await expect(fetchAllListings({
+      fetchPage: async () => pages[calls++],
+      sleepFn: async () => {},
+      fetchListingCount: noCount,
+    })).rejects.toThrow(/non-empty but added no new vacancy codes/);
+    expect(calls).toBe(2);
+
+    calls = 0;
+    const completeSnapshot = await fetchAllListings({
+      fetchPage: async () => [listingPage(['A']), listingPage([])][calls++],
+      sleepFn: async () => {},
+      fetchListingCount: noCount,
+    });
+    expect(completeSnapshot).toMatchObject({ complete: true });
+    expect(completeSnapshot.items.map(({ code }) => code)).toEqual(['A']);
+  });
+
+  it('ends the walk when Manatal ignores ?page, only if the official count agrees', async () => {
+    const listingPage = (codes: string[]) => `<!DOCTYPE html><html><head>
+      <link rel="canonical" href="https://www.careers-page.com/convit-holding-gmbh">
+    </head><body>${codes.map((code) => `<a href="/convit-holding-gmbh/job/${code}"><span class="job-title">Role ${code}</span></a>`).join('')}</body></html>`;
+    const repeated = listingPage(['A', 'B']);
+
+    let calls = 0;
+    const snapshot = await fetchAllListings({
+      fetchPage: async () => { calls += 1; return repeated; },
+      sleepFn: async () => {},
+      fetchListingCount: async () => 2,
+    });
+    expect(calls).toBe(2);
+    expect(snapshot).toMatchObject({ complete: true, listedCodes: ['A', 'B'] });
+    expect(snapshot.items.map(({ code }) => code)).toEqual(['A', 'B']);
+
+    // A truncated server render (Manatal says 3, the page lists 2) is never a
+    // complete snapshot.
+    await expect(fetchAllListings({
+      fetchPage: async () => repeated,
+      sleepFn: async () => {},
+      fetchListingCount: async () => 3,
+    })).rejects.toThrow(/official Manatal count \(3\) does not match the 2 listed vacancy codes/);
+  });
+
+  it('uses a complete listing snapshot to distinguish stale detail URLs from live listings', async () => {
+    const validate = createConvitListingSourceValidator([
+      { detailUrl: 'https://www.careers-page.com/convit-holding-gmbh/job/ABC123' },
+    ], { complete: true });
+    const verdicts = await validate([
+      { id: 'current', url: 'https://www.careers-page.com/convit-holding-gmbh/job/ABC123/' },
+      { id: 'stale', url: 'https://www.careers-page.com/convit-holding-gmbh/job/OLD999' },
+    ]);
+
+    expect(verdicts).toEqual([
+      { id: 'current', valid: true, reason: 'still-in-convit-listing' },
+      {
+        id: 'stale',
+        valid: false,
+        definitive: true,
+        reason: 'not-in-complete-convit-listing',
+      },
+    ]);
+  });
+
+  it('never treats an incomplete listing snapshot as proof that a URL disappeared', async () => {
+    const validate = createConvitListingSourceValidator([], { complete: false });
+    const [verdict] = await validate([
+      { id: 'unknown', url: 'https://www.careers-page.com/convit-holding-gmbh/job/OLD999' },
+    ]);
+    expect(verdict).toMatchObject({ valid: true, definitive: false });
+  });
+});
+
+describe('convit-job-parser / buildConvitLocalizedContent', () => {
+  it('builds Italian slug from title + company + location', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Consulente previdenziale senior',
+      location: 'Biasca',
+      canton: 'TI',
+      description: 'Descrizione completa del ruolo consulenziale.',
+    });
+    expect(result.slugByLocale.it).toContain('consulente-previdenziale-senior');
+    expect(result.slugByLocale.it).toContain('convit');
+  });
+
+  it('uses description from job when provided', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Analista finanziario',
+      location: 'Lugano',
+      canton: 'TI',
+      description: 'Analisi di portafogli previdenziali e consulenza 3a/3b.',
+    });
+    expect(result.descriptionByLocale.it).toContain('Analisi di portafogli');
+  });
+
+  it('removes the duplicated country/canton marker from the source description', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Consulente finanziario',
+      location: 'Agno',
+      canton: 'TI',
+      description: 'Profilo del ruolo. Sede: Agno, Svizzera (TI) · Homeoffice possibile.',
+    });
+
+    expect(result.descriptionByLocale.it).toContain('Sede: Agno ·');
+    expect(result.descriptionByLocale.it).not.toContain('Agno, Svizzera (TI)');
+  });
+
+  it('writes only the source slot: the other locales are left to the translation step', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Consulente previdenziale – cambio di carriera (zona Capolago)',
+      location: 'Capolago',
+      canton: 'TI',
+      description: 'Sei pronto a dare una svolta alla tua carriera e a intraprendere un percorso stimolante nel mondo della previdenza?',
+    });
+    expect(Object.keys(result.descriptionByLocale)).toEqual(['it']);
+    expect(result.description).toBe(result.descriptionByLocale.it);
+    expect(JSON.stringify(result)).not.toContain('is hiring for the');
+  });
+
+  it('keys the posting by its own language', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Financial advisor',
+      location: 'Zurich',
+      canton: 'ZH',
+      description: 'Advise private clients on occupational and private pension planning.',
+      sourceLang: 'en',
+    });
+    expect(result.descriptionByLocale).toEqual({ en: 'Advise private clients on occupational and private pension planning.' });
+  });
+
+  it('gives a posting without text no description instead of a sentence about Convit', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Analista finanziario',
+      location: 'Zurich',
+      canton: 'ZH',
+      description: '',
+    });
+    expect(result.description).toBe('');
+    expect(result.descriptionByLocale).toEqual({});
+    expect(result.slugByLocale.it).toContain('zurich');
+  });
+
+  it('accepts all Swiss cantons and keeps foreign locations out', () => {
+    expect(isConvitSwissRelevant('Zurich')).toBe(true);
+    expect(inferConvitCanton('Zurich')).toBe('ZH');
+    expect(isConvitSwissRelevant('Milano, Italia')).toBe(false);
+  });
+});
+
+describe('convit-job-parser / dropConvitFabricatedText', () => {
+  // Stored slots of the "cambio di carriera (zona Capolago)" job, slice of 2026-09-29.
+  it('drops the former builder sentences and keeps the posting', () => {
+    const job: any = {
+      sourceLang: 'it',
+      description: 'Sei pronto a dare una svolta alla tua carriera?',
+      descriptionByLocale: {
+        it: 'Sei pronto a dare una svolta alla tua carriera?',
+        en: 'Convit Holding GmbH is hiring for the Consulente previdenziale – cambio di carriera (zona Capolago) role based in Capolago. Financial and pension consulting in Ticino. Apply through the official Convit careers page.',
+        de: 'Convit Holding GmbH sucht derzeit für die Position Consulente previdenziale – cambio di carriera (zona Capolago) am Standort Capolago. Finanz- und Vorsorgeberatung im Tessin.',
+        fr: 'Convit Holding GmbH recrute actuellement pour le poste Consulente previdenziale – cambio di carriera (zona Capolago) basé à Capolago.',
+      },
+    };
+    expect(dropConvitFabricatedText(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({ it: 'Sei pronto a dare una svolta alla tua carriera?' });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves real translations alone', () => {
+    const job: any = { sourceLang: 'it', description: 'Testo.', descriptionByLocale: { it: 'Testo.', en: 'Text.' } };
+    expect(dropConvitFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.en).toBe('Text.');
+  });
+});

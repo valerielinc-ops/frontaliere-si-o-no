@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "_comment": "Historical mixed-vintage corpus ledger for validate:sitemap-pages. This is used only when post-deploy-validate-dist sets AUDIT_REASSEMBLED_CORPUS=1; local/source validation remains zero-tolerance. The ceiling is a measured rate, not an automatic exemption: future regressions above it fail and every run prints the observed rate.",
+  "source": {
+    "validationRun": "37504397408",
+    "buildRun": "37463757652",
+    "buildSha": "cb0c41c48280ea2ccbb915699ea60b919c129e1d",
+    "measuredAt": "2026-10-06T21:26:45Z",
+    "sampleRate": 1,
+    "note": "Seeded from the first complete validator measurement recorded in issue 11996. The build was 150 commits behind main; the current source fixes the emitting paths. Ceilings only descend after a fresh measured run confirms the improvement."
+  },
+  "checks": {
+    "audit:sitemap-canonicals": {
+      "ceilingRatePct": 0.062884,
+      "tolerance": { "relPct": 0, "absPp": 0, "minAbsDelta": 0 },
+      "measurement": {
+        "filesScanned": 233765,
+        "observedOffenders": 147,
+        "ratePct": 0.0628837
+      }
+    },
+    "validate:canonical": {
+      "ceilingRatePct": 0.056113,
+      "tolerance": { "relPct": 0, "absPp": 0, "minAbsDelta": 0 },
+      "measurement": {
+        "filesScanned": 261972,
+        "observedOffenders": 147,
+        "ratePct": 0.0561129
+      }
+    },
+    "validate:content-quality": {
+      "ceilingRatePct": 0.078711,
+      "tolerance": { "relPct": 0, "absPp": 0, "minAbsDelta": 0 },
+      "measurement": {
+        "filesScanned": 233768,
+        "observedOffenders": 184,
+        "ratePct": 0.0787105,
+        "excludedExternalUrls": 28222
+      }
+    }
+  }
+}

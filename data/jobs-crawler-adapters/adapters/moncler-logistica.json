@@ -1,0 +1,22 @@
+{
+  "companyKey": "moncler-logistica",
+  "companyName": "Moncler (logistica)",
+  "companyHost": "moncler.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.moncler.com/careers",
+    "https://www.moncler.com/career",
+    "https://www.moncler.com/jobs",
+    "https://www.moncler.com/karriere",
+    "https://www.moncler.com/offene-stellen",
+    "https://www.moncler.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.962Z"
+}

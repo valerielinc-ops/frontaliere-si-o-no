@@ -1,0 +1,359 @@
+{
+  "meta": {
+    "description": "Salari minimi vincolanti in Svizzera per i frontalieri: salari minimi legali cantonali (GE, BS, JU, NE, TI) e minimi dei principali contratti collettivi (edilizia, ristorazione, pulizie, personale interinale).",
+    "source": "Fonti ufficiali cantonali (leggi sul salario minimo di GE, BS, JU, NE, TI) e contratti collettivi nazionali/regionali (CNM edilizia, L-GAV ristorazione, GAV pulizia, GAV prestito di personale). Stima mensile = salario orario × 42 h/settimana × 52 / 12.",
+    "refreshScript": "scripts/update-minimum-wage-dataset.mjs",
+    "refreshCadence": "annual",
+    "year": 2026,
+    "monthlyFactor": 182,
+    "generatedAt": "2026-07-19"
+  },
+  "cantons": [
+    {
+      "id": "ge",
+      "code": "GE",
+      "name": {
+        "it": "Ginevra",
+        "en": "Geneva",
+        "de": "Genf",
+        "fr": "Genève"
+      },
+      "hourlyMin": 24.59,
+      "hourlyMax": 24.59,
+      "since": 2020,
+      "law": {
+        "it": "Legge sull’ispezione e le relazioni di lavoro (LIRT)",
+        "en": "Act on labour inspection and industrial relations (LIRT)",
+        "de": "Gesetz über die Arbeitsinspektion und die Arbeitsbeziehungen (LIRT)",
+        "fr": "Loi sur l’inspection et les relations du travail (LIRT)"
+      },
+      "source": "République et canton de Genève — Office cantonal de l’inspection et des relations du travail (OCIRT)",
+      "sourceUrl": "https://www.ge.ch/salaire-minimum-geneve",
+      "note": {
+        "it": "È il salario minimo legale più alto della Svizzera (e tra i più alti al mondo), indicizzato ogni anno al rincaro. Introdotto dopo il voto popolare del 2020.",
+        "en": "The highest statutory minimum wage in Switzerland (and one of the highest in the world), indexed to inflation every year. Introduced after the 2020 popular vote.",
+        "de": "Der höchste gesetzliche Mindestlohn der Schweiz (und einer der höchsten weltweit), jährlich an die Teuerung angepasst. Eingeführt nach der Volksabstimmung 2020.",
+        "fr": "Le salaire minimum légal le plus élevé de Suisse (et l’un des plus élevés au monde), indexé chaque année sur le renchérissement. Introduit après la votation populaire de 2020."
+      },
+      "year": 2026,
+      "monthlyMin": 4475,
+      "monthlyMax": 4475
+    },
+    {
+      "id": "bs",
+      "code": "BS",
+      "name": {
+        "it": "Basilea Città",
+        "en": "Basel-Stadt",
+        "de": "Basel-Stadt",
+        "fr": "Bâle-Ville"
+      },
+      "hourlyMin": 22.2,
+      "hourlyMax": 22.2,
+      "since": 2022,
+      "law": {
+        "it": "Legge sul salario minimo di Basilea Città",
+        "en": "Basel-Stadt Minimum Wage Act",
+        "de": "Gesetz über den Mindestlohn (Basel-Stadt)",
+        "fr": "Loi sur le salaire minimum (Bâle-Ville)"
+      },
+      "source": "Kanton Basel-Stadt — Amt für Wirtschaft und Arbeit (AWA)",
+      "sourceUrl": "https://www.awa.bs.ch/arbeitsverhaeltnisse/mindestlohn.html",
+      "note": {
+        "it": "In vigore dal 1° luglio 2022 dopo il voto popolare del 2021, con alcune eccezioni (agricoltura, tirocinio, apprendistato).",
+        "en": "In force since 1 July 2022 following the 2021 popular vote, with a few exceptions (agriculture, internships, apprenticeships).",
+        "de": "In Kraft seit 1. Juli 2022 nach der Volksabstimmung 2021, mit einigen Ausnahmen (Landwirtschaft, Praktika, Lehre).",
+        "fr": "En vigueur depuis le 1er juillet 2022 après la votation de 2021, avec quelques exceptions (agriculture, stages, apprentissage)."
+      },
+      "year": 2026,
+      "monthlyMin": 4040,
+      "monthlyMax": 4040
+    },
+    {
+      "id": "ju",
+      "code": "JU",
+      "name": {
+        "it": "Giura",
+        "en": "Jura",
+        "de": "Jura",
+        "fr": "Jura"
+      },
+      "hourlyMin": 21.4,
+      "hourlyMax": 21.4,
+      "since": 2018,
+      "law": {
+        "it": "Legge sul salario minimo cantonale",
+        "en": "Cantonal Minimum Wage Act",
+        "de": "Gesetz über den kantonalen Mindestlohn",
+        "fr": "Loi portant introduction d’un salaire minimum cantonal"
+      },
+      "source": "République et Canton du Jura — Service des arts et métiers et du travail",
+      "sourceUrl": "https://www.jura.ch/salaire-minimum",
+      "note": {
+        "it": "Uno dei primi cantoni ad adottare un salario minimo legale, indicizzato annualmente.",
+        "en": "One of the first cantons to adopt a statutory minimum wage, indexed annually.",
+        "de": "Einer der ersten Kantone mit gesetzlichem Mindestlohn, jährlich indexiert.",
+        "fr": "L’un des premiers cantons à adopter un salaire minimum légal, indexé annuellement."
+      },
+      "year": 2026,
+      "monthlyMin": 3895,
+      "monthlyMax": 3895
+    },
+    {
+      "id": "ne",
+      "code": "NE",
+      "name": {
+        "it": "Neuchâtel",
+        "en": "Neuchâtel",
+        "de": "Neuenburg",
+        "fr": "Neuchâtel"
+      },
+      "hourlyMin": 21.35,
+      "hourlyMax": 21.35,
+      "since": 2017,
+      "law": {
+        "it": "Legge cantonale sull’occupazione (LEmpl)",
+        "en": "Cantonal Employment Act (LEmpl)",
+        "de": "Kantonales Beschäftigungsgesetz (LEmpl)",
+        "fr": "Loi sur l’emploi et l’assurance-chômage (LEmpl)"
+      },
+      "source": "République et Canton de Neuchâtel — Service de l’emploi",
+      "sourceUrl": "https://www.ne.ch/salaire-minimum",
+      "note": {
+        "it": "Primo cantone svizzero a introdurre un salario minimo legale (2017), fissato appena sopra la soglia delle prestazioni complementari.",
+        "en": "The first Swiss canton to introduce a statutory minimum wage (2017), set just above the supplementary-benefits threshold.",
+        "de": "Erster Schweizer Kanton mit gesetzlichem Mindestlohn (2017), knapp über der Schwelle der Ergänzungsleistungen.",
+        "fr": "Premier canton suisse à instaurer un salaire minimum légal (2017), fixé juste au-dessus du seuil des prestations complémentaires."
+      },
+      "year": 2026,
+      "monthlyMin": 3886,
+      "monthlyMax": 3886
+    },
+    {
+      "id": "ti",
+      "code": "TI",
+      "name": {
+        "it": "Ticino",
+        "en": "Ticino",
+        "de": "Tessin",
+        "fr": "Tessin"
+      },
+      "hourlyMin": 20,
+      "hourlyMax": 20.5,
+      "since": 2021,
+      "law": {
+        "it": "Legge sul salario minimo cantonale (LSM)",
+        "en": "Cantonal Minimum Wage Act (LSM)",
+        "de": "Gesetz über den kantonalen Mindestlohn (LSM)",
+        "fr": "Loi sur le salaire minimum cantonal (LSM)"
+      },
+      "source": "Repubblica e Cantone Ticino — Divisione dell’economia (Ufficio dell’ispettorato del lavoro)",
+      "sourceUrl": "https://www4.ti.ch/dfe/de/sqel/servizi/salario-minimo",
+      "note": {
+        "it": "Applicato progressivamente dal dicembre 2021; è fissato in una fascia (a seconda del ramo economico) ed è il salario minimo legale più basso tra i cinque cantoni. Per i frontalieri è il riferimento più importante, dato che il Ticino concentra la maggior parte dei posti di frontiera.",
+        "en": "Phased in from December 2021; set as a band (depending on the economic sector) and the lowest statutory minimum among the five cantons. It is the key reference for cross-border workers, since Ticino concentrates most frontier jobs.",
+        "de": "Ab Dezember 2021 schrittweise eingeführt; als Bandbreite (je nach Branche) festgelegt und der niedrigste gesetzliche Mindestlohn der fünf Kantone. Für Grenzgänger die wichtigste Referenz, da das Tessin die meisten Grenzgängerstellen konzentriert.",
+        "fr": "Introduit progressivement dès décembre 2021 ; fixé sous forme de fourchette (selon la branche) et le plus bas salaire minimum légal des cinq cantons. C’est la référence principale pour les frontaliers, le Tessin concentrant la plupart des emplois frontaliers."
+      },
+      "year": 2026,
+      "monthlyMin": 3640,
+      "monthlyMax": 3731
+    }
+  ],
+  "ccls": [
+    {
+      "id": "edilizia",
+      "sector": {
+        "it": "Edilizia principale",
+        "en": "Construction (main sector)",
+        "de": "Bauhauptgewerbe",
+        "fr": "Construction (gros œuvre)"
+      },
+      "cclName": "Contratto nazionale mantello edilizia (CNM / LMV)",
+      "scope": {
+        "it": "Nazionale, di obbligatorietà generale",
+        "en": "National, universally applicable",
+        "de": "National, allgemeinverbindlich",
+        "fr": "National, force obligatoire"
+      },
+      "rows": [
+        {
+          "label": {
+            "it": "Manovale (classe C)",
+            "en": "Labourer (class C)",
+            "de": "Bauarbeiter (Klasse C)",
+            "fr": "Manœuvre (classe C)"
+          },
+          "amount": "4’747",
+          "unit": "month"
+        },
+        {
+          "label": {
+            "it": "Con formazione (classe Q/A)",
+            "en": "Skilled (class Q/A)",
+            "de": "Gelernt (Klasse Q/A)",
+            "fr": "Qualifié (classe Q/A)"
+          },
+          "amount": "5’187",
+          "unit": "month"
+        }
+      ],
+      "source": "Società Svizzera Impresari Costruttori (SSIC/SBV) — CNM edilizia",
+      "sourceUrl": "https://www.baumeister.ch/it/cnm",
+      "note": {
+        "it": "I minimi variano per zona salariale e classe professionale; è previsto un 13° salario. Cifre lorde mensili indicative del ramo.",
+        "en": "Minimums vary by wage zone and job class; a 13th salary applies. Indicative gross monthly figures for the sector.",
+        "de": "Die Mindestlöhne variieren nach Lohnzone und Berufsklasse; ein 13. Monatslohn gilt. Indikative Brutto-Monatswerte der Branche.",
+        "fr": "Les minimums varient selon la zone salariale et la classe professionnelle ; un 13e salaire s’applique. Montants mensuels bruts indicatifs de la branche."
+      }
+    },
+    {
+      "id": "ristorazione",
+      "sector": {
+        "it": "Alberghi e ristorazione",
+        "en": "Hotels and catering",
+        "de": "Gastgewerbe",
+        "fr": "Hôtellerie-restauration"
+      },
+      "cclName": "Contratto collettivo nazionale di lavoro alberghi/ristorazione (L-GAV)",
+      "scope": {
+        "it": "Nazionale, di obbligatorietà generale",
+        "en": "National, universally applicable",
+        "de": "National, allgemeinverbindlich",
+        "fr": "National, force obligatoire"
+      },
+      "rows": [
+        {
+          "label": {
+            "it": "Senza formazione",
+            "en": "Without vocational training",
+            "de": "Ohne Berufslehre",
+            "fr": "Sans formation"
+          },
+          "amount": "3’713",
+          "unit": "month"
+        },
+        {
+          "label": {
+            "it": "Con AFC (attestato di capacità)",
+            "en": "With federal VET diploma (EFZ)",
+            "de": "Mit EFZ",
+            "fr": "Avec CFC"
+          },
+          "amount": "4’528",
+          "unit": "month"
+        },
+        {
+          "label": {
+            "it": "Stage",
+            "en": "Internship",
+            "de": "Praktikum",
+            "fr": "Stage"
+          },
+          "amount": "2’390",
+          "unit": "month"
+        }
+      ],
+      "source": "L-GAV — Contratto collettivo nazionale di lavoro per il settore alberghiero e della ristorazione",
+      "sourceUrl": "https://www.l-gav.ch/it/",
+      "note": {
+        "it": "Minimi lordi mensili validi dal 1° gennaio 2026 su 13 mensilità. Il settore impiega molti frontalieri nel Mendrisiotto e nel Luganese.",
+        "en": "Gross monthly minimums valid from 1 January 2026, on 13 salaries. The sector employs many cross-border workers in the Mendrisiotto and Lugano areas.",
+        "de": "Brutto-Monatsminima gültig ab 1. Januar 2026, auf 13 Monatslöhne. Die Branche beschäftigt viele Grenzgänger im Mendrisiotto und im Raum Lugano.",
+        "fr": "Minimums mensuels bruts valables dès le 1er janvier 2026, sur 13 salaires. La branche emploie beaucoup de frontaliers dans le Mendrisiotto et la région de Lugano."
+      }
+    },
+    {
+      "id": "pulizie",
+      "sector": {
+        "it": "Settore della pulizia",
+        "en": "Cleaning sector",
+        "de": "Reinigungsbranche",
+        "fr": "Secteur du nettoyage"
+      },
+      "cclName": "Contratto collettivo per il settore della pulizia (GAV Reinigung)",
+      "scope": {
+        "it": "Regionale (Svizzera tedesca / romanda), di obbligatorietà generale",
+        "en": "Regional (German-/French-speaking Switzerland), universally applicable",
+        "de": "Regional (Deutsch-/Westschweiz), allgemeinverbindlich",
+        "fr": "Régional (Suisse alémanique/romande), force obligatoire"
+      },
+      "rows": [
+        {
+          "label": {
+            "it": "Personale non qualificato",
+            "en": "Unqualified staff",
+            "de": "Ungelerntes Personal",
+            "fr": "Personnel non qualifié"
+          },
+          "amount": "20–24",
+          "unit": "hour"
+        },
+        {
+          "label": {
+            "it": "Con AFC (pulizia)",
+            "en": "With federal VET diploma (cleaning)",
+            "de": "Mit EFZ (Gebäudereinigung)",
+            "fr": "Avec CFC (nettoyage)"
+          },
+          "amount": "25.80",
+          "unit": "hour"
+        }
+      ],
+      "source": "Contratto collettivo di lavoro per il settore della pulizia (Allpura / sindacati)",
+      "sourceUrl": "https://www.allpura.ch/",
+      "note": {
+        "it": "Il minimo orario del personale non qualificato dipende dalla regione; nei cantoni con salario minimo legale (GE, NE, TI…) si applica il valore più alto tra i due.",
+        "en": "The unqualified hourly minimum depends on the region; in cantons with a statutory minimum wage (GE, NE, TI…) the higher of the two applies.",
+        "de": "Der Stundenmindestlohn für Ungelernte hängt von der Region ab; in Kantonen mit gesetzlichem Mindestlohn (GE, NE, TI…) gilt der höhere der beiden Werte.",
+        "fr": "Le minimum horaire du personnel non qualifié dépend de la région ; dans les cantons avec salaire minimum légal (GE, NE, TI…) c’est le plus élevé des deux qui s’applique."
+      }
+    },
+    {
+      "id": "interinali",
+      "sector": {
+        "it": "Personale interinale (prestito di personale)",
+        "en": "Temporary agency work (staff leasing)",
+        "de": "Personalverleih (Temporärarbeit)",
+        "fr": "Travail temporaire (location de services)"
+      },
+      "cclName": "Contratto collettivo prestito di personale (GAV Personalverleih)",
+      "scope": {
+        "it": "Nazionale, di obbligatorietà generale",
+        "en": "National, universally applicable",
+        "de": "National, allgemeinverbindlich",
+        "fr": "National, force obligatoire"
+      },
+      "rows": [
+        {
+          "label": {
+            "it": "Non qualificato",
+            "en": "Unskilled",
+            "de": "Ungelernt",
+            "fr": "Non qualifié"
+          },
+          "amount": "21.22–22.39",
+          "unit": "hour"
+        },
+        {
+          "label": {
+            "it": "Qualificato",
+            "en": "Skilled",
+            "de": "Gelernt",
+            "fr": "Qualifié"
+          },
+          "amount": "25.86–27.62",
+          "unit": "hour"
+        }
+      ],
+      "source": "swissstaffing — GAV Personalverleih (prestito di personale)",
+      "sourceUrl": "https://www.gavdienstleistung.ch/",
+      "note": {
+        "it": "Il minimo dell’agenzia interinale segue una cascata: se il CCL dell’azienda utilizzatrice prevede un minimo più alto, si applica quello. Molti frontalieri iniziano con contratti interinali.",
+        "en": "The agency minimum follows a cascade: if the client company’s own CCL sets a higher floor, that one applies. Many cross-border workers start on temporary agency contracts.",
+        "de": "Der Verleih-Mindestlohn folgt einer Kaskade: Setzt der GAV des Einsatzbetriebs einen höheren Lohn, gilt dieser. Viele Grenzgänger beginnen mit Temporärverträgen.",
+        "fr": "Le minimum de l’agence suit une cascade : si la CCT de l’entreprise locataire fixe un plancher plus élevé, c’est celui-ci qui s’applique. Beaucoup de frontaliers débutent en intérim."
+      }
+    }
+  ]
+}

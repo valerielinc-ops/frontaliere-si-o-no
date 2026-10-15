@@ -1,0 +1,4175 @@
+{
+  "_source": "https://welches-spital.ch/schweiz/",
+  "_fetchedAt": "2026-05-10T08:39:17.234Z",
+  "_hospitalCount": 463,
+  "_userAgent": "FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)",
+  "hospitals": [
+    {
+      "name": "Universitätsspital Zürich (USZ)",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/universitaetsspital-zuerich-qualitaet/",
+      "type": "detail-page",
+      "_slug": "universitaetsspital-zuerich"
+    },
+    {
+      "name": "GZO Spital Wetzikon",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/gzo-spital-wetzikon-qualitaet/",
+      "type": "detail-page",
+      "_slug": "gzo-spital-wetzikon"
+    },
+    {
+      "name": "Kantonsspital Winterthur",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-winterthur-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-winterthur"
+    },
+    {
+      "name": "Klinik Hirslanden Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/klinik-hirslanden-zuerich-qualitaet/",
+      "type": "detail-page",
+      "_slug": "klinik-hirslanden-zuerich"
+    },
+    {
+      "name": "See­-Spital (Gruppe), Horgen",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/see-spital-qualitaet/",
+      "type": "detail-page",
+      "_slug": "see-spital"
+    },
+    {
+      "name": "Spital Bülach",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-buelach-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-buelach"
+    },
+    {
+      "name": "Spital Limmattal, Schlieren",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-limmattal-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-limmattal"
+    },
+    {
+      "name": "Spital Uster",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-uster-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-uster"
+    },
+    {
+      "name": "Spital Zollikerberg",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-zollikerberg-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-zollikerberg"
+    },
+    {
+      "name": "Stadtspital Triemli, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/stadtspital-triemli-qualitaet/",
+      "type": "detail-page",
+      "_slug": "stadtspital-triemli"
+    },
+    {
+      "name": "Stadtspital Waid, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/stadtspital-waid-qualitaet/",
+      "type": "detail-page",
+      "_slug": "stadtspital-waid"
+    },
+    {
+      "name": "Spital Männedorf",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-maennedorf-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-maennedorf"
+    },
+    {
+      "name": "Klinik im Park - Hirslanden, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/im-park-hirslanden-zuerich-qualitaet/",
+      "type": "detail-page",
+      "_slug": "im-park-hirslanden-zuerich"
+    },
+    {
+      "name": "Adus Medica, Dielsdorf",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=284",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Eulachklinik, Winterthur",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=287",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Pyramide am See, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=281",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Tiefenbrunnen, Zollikon",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=286",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Limmatklinik, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=283",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Privatklinik Lindberg, Winterthur",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/klinik-lindberg-qualitaet/",
+      "type": "detail-page",
+      "_slug": "klinik-lindberg"
+    },
+    {
+      "name": "Schulthess Klinik, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/schulthess-klinik-zuerich-qualitaet/",
+      "type": "detail-page",
+      "_slug": "schulthess-klinik-zuerich"
+    },
+    {
+      "name": "Universitätsklinik Balgrist, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/uniklinik-balgrist-zuerich-qualitaet/",
+      "type": "detail-page",
+      "_slug": "uniklinik-balgrist-zuerich"
+    },
+    {
+      "name": "Uroviva Klinik für Urologie, Bülach",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=282",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitäts-Kinderspital Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=290",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Lengg, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=291",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Susenberg, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=263",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Sune-­Egge, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=292",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "See­-Spital (Standort Horgen)",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=366",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "See­-Spital (Standort Kilchberg), Kilchberg (ZH)",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/see-spital-kilchberg-qualitaet/",
+      "type": "detail-page",
+      "_slug": "see-spital-kilchberg"
+    },
+    {
+      "name": "Vista Diagnostics, Zürich",
+      "canton": "ZH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=293",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "RehaClinic Limmattal, Schlieren",
+      "canton": "ZH",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=444",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Zürcher RehaZentrum Wald, Wald ZH",
+      "canton": "ZH",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=275",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Kilchberg, Kilchberg ZH",
+      "canton": "ZH",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=278",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Zollikerberg",
+      "canton": "ZH",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=277",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitätsklinik Balgrist, Zürich",
+      "canton": "ZH",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=280",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitätsspital Zürich (USZ)",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=248",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Winterthur",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=249",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Affoltern, Affoltern am Albis",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=261",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clienia Schlössli, Oetwil am See",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=267",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Integrierte Psychiatrie Winterthur - Zürcher Unterland (ipw)",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=268",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Integrierte Psychiatrie Winterthur - Zürcher Unterland (ipw), Kriseninterventionszentrum (KIZ)",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=447",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Integrierte Psychiatrie Winterthur - Zürcher Unterland, Standort Klinik Hard, Embrach",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=457",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kinderstation Brüschhalde der Psychiatrischen Universitätsklinik Zürich (PUK), Männedorf",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=471",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Universitätsklinik Zürich (PUK)",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=266",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Sanatorium Kilchberg, Kilchberg ZH",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=269",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Forel Klinik, Ellikon an der Thur",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=270",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Modellstation SOMOSA, Winterthur",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=273",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Privatklinik Hohenegg, Meilen",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=271",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Suchtfachklinik Zürich (Vormals Suchtbehandlung Frankental)",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=274",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Zentrum für Integrative Psychiatrie der PUK Zürich, Rheinau",
+      "canton": "ZH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=406",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Delphys, Zürich",
+      "canton": "ZH",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=289",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Zürcher Oberland, Bäretswil",
+      "canton": "ZH",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=288",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Winterthur",
+      "canton": "ZH",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=477",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Inselspital Bern (Teil der Insel Gruppe)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/inselspital-bern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "inselspital-bern"
+    },
+    {
+      "name": "Hirslanden Bern AG (Gruppe)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/hirslanden-bern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "hirslanden-bern"
+    },
+    {
+      "name": "Insel Gruppe Bern - nicht-universitär",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-netz-bern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-netz-bern"
+    },
+    {
+      "name": "Lindenhof AG (Gruppe), Bern",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/lindenhof-qualitaet/",
+      "type": "detail-page",
+      "_slug": "lindenhof"
+    },
+    {
+      "name": "Regionalspital Emmental AG (Gruppe), Burgdorf",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/regionalspital-emmental-qualitaet/",
+      "type": "detail-page",
+      "_slug": "regionalspital-emmental"
+    },
+    {
+      "name": "Spital STS Thun-Simmental-Saanenland (Gruppe)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-thun-simmental-saanenland-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-thun-simmental-saanenland"
+    },
+    {
+      "name": "Spitäler FMI Frutigen Meiringen Interlaken (Gruppe), Unterseen",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/fmi-frutigen-meiringen-interlaken-qualitaet/",
+      "type": "detail-page",
+      "_slug": "fmi-frutigen-meiringen-interlaken"
+    },
+    {
+      "name": "Spitalzentrum Biel",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spitalzentrum-biel-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spitalzentrum-biel"
+    },
+    {
+      "name": "SRO Spital Region Oberaargau AG (Gruppe), Langenthal",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/sro-spital-region-oberaargau-qualitaet/",
+      "type": "detail-page",
+      "_slug": "sro-spital-region-oberaargau"
+    },
+    {
+      "name": "Hirslanden Klinik Linde, Biel",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/privatklinik-linde-biel-qualitaet/",
+      "type": "detail-page",
+      "_slug": "privatklinik-linde-biel"
+    },
+    {
+      "name": "Hôpital de Moutier, Swiss Medical Network",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=399",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Stiftung Diaconis Palliative Care, Bern",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=66",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rehaklinik Tschugg AG",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=64",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Hohmad, Thun",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=61",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Privatklinik Siloah (Swiss Medical Network), Gümligen",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=437",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Siloah, Gümligen",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=60",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Engeriedspital (Lindenhof AG), Bern",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/engeriedspital-bern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "engeriedspital-bern"
+    },
+    {
+      "name": "Hôpital de St-Imier, Swiss Medical Network",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=300",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Beau-Site (Hirslanden Bern AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/beau-site-hirslanden-bern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "beau-site-hirslanden-bern"
+    },
+    {
+      "name": "Klinik Permanence (Hirslanden Bern AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=319",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Lindenhofspital (Lindenhof AG), Bern",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/lindenhofspital-bern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "lindenhofspital-bern"
+    },
+    {
+      "name": "Salem-Spital (Hirslanden Bern AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=370",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Sonnenhofspital (Lindenhof AG), Bern",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/sonnenhofspital-bern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "sonnenhofspital-bern"
+    },
+    {
+      "name": "Spital Aarberg (Teil der Insel Gruppe)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=326",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Burgdorf (Regionalspital Emmental AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=352",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Frutigen (Spitäler FMI AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-frutigen-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-frutigen"
+    },
+    {
+      "name": "Spital Interlaken (Spitäler FMI AG), Unterseen",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=354",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Langenthal (SRO Spital Region Oberaargau AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=355",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Langnau (Regionalspital Emmental AG), Langnau im Emmental",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=309",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Münsingen (Teil der Insel Gruppe)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=325",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Riggisberg (Teil der Insel Gruppe)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=327",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Thun (Spital Thun-Simmental-Saanenland AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-thun-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-thun"
+    },
+    {
+      "name": "Spital Tiefenau (Teil der Insel Gruppe), Bern",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=328",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Zweisimmen (Spital Thun-Simmental-Saanenland AG)",
+      "canton": "BE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-zweisimmen-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-zweisimmen"
+    },
+    {
+      "name": "Inselspital Bern (Teil der Insel Gruppe)",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=32",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Insel Gruppe Bern - nicht-universitär",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=33",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitalzentrum Biel",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=37",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik SGM Langenthal Psychosomatik, Psychiatrie, Psychotherapie",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=49",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Berner Reha Zentrum AG Heiligenschwendi",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=54",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Schönberg, Gunten",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=56",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Reha- und Kurklinik EDEN, Oberried am Brienzersee",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=58",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Reha-Pflegeklinik Eden, Ringgenberg BE",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=59",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rehaklinik Hasliberg, Hasliberg Hohfluh",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=57",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Belp (Teil der Insel Gruppe)",
+      "canton": "BE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=324",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Regionalspital Emmental AG (Gruppe), Burgdorf",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=38",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital STS Thun-Simmental-Saanenland (Gruppe)",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=36",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitäler FMI Frutigen Meiringen Interlaken (Gruppe), Unterseen",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=40",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "SRO Spital Region Oberaargau AG (Gruppe), Langenthal",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=39",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kinder- und Jugendpsychiatrie, Klink Neuhaus der Universitären Psychiatrischen Dienste Bern (UPD), Ittigen",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=474",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kinder- und Jugendpsychiatrie, Therapiezentrum Essstörungen der Universitären Psychiatrischen Dienste Bern (UPD), Moosseedorf",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=475",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Privatklinik Meiringen AG Zentrum für seelische Gesundheit",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=45",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatriezentrum Münsingen (PZM)",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=43",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatriezentrum Münsingen, PZM (Gruppe)",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=460",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitäre Psychiatrische Dienste (UPD), Gemeindepsychiatrisches Zentrum Bern West",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=463",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitäre Psychiatrische Dienste Bern (UPD), Ostermundigen",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=44",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitätsklinik für Psychiatrie und Psychotherapie (UPD), Bern",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=456",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Selhofen, Burgdorf",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=50",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Wysshölzli, Herzogenbuchsee",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=65",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Privatklinik Meiringen, Burnoutstation, Hasliberg Hohfluh",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=445",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Privatklinik Wyss, Münchenbuchsee",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=47",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Soteria Bern",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=53",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "südhang Klinik für Suchttherapien, Kirchlindach",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=48",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Lindenhofspital (Lindenhof AG), Bern",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=349",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatriezentrum Münsingen (PZM), Psychiatrie Biel, Kriseninterventionsstation",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=461",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Regionalspital Emmental AG, Alterspsychiatrie Burgdorf",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=462",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Regionalspital Emmental AG, Krisenintervention Burgdorf",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=51",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Zentrum für Psychiatrie und Psychotherapie Langenthal (SRO Spital Region Oberaargau AG)",
+      "canton": "BE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=52",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Luna Biel",
+      "canton": "BE",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=63",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Maternité Alpine, Zweisimmen",
+      "canton": "BE",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=429",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hirslanden Klinik St. Anna, Luzern",
+      "canton": "LU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/hirslanden-klinik-st-anna-qualitaet/",
+      "type": "detail-page",
+      "_slug": "hirslanden-klinik-st-anna"
+    },
+    {
+      "name": "Luzerner Kantonsspital, LUKS (Gruppe)",
+      "canton": "LU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/luzerner-kantonsspital-qualitaet/",
+      "type": "detail-page",
+      "_slug": "luzerner-kantonsspital"
+    },
+    {
+      "name": "Luzerner Kantonsspital, LUKS (Standort Kantonsspital Luzern)",
+      "canton": "LU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-luzern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-luzern"
+    },
+    {
+      "name": "Hirslanden Klinik St. Anna in Meggen",
+      "canton": "LU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=294",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Schweizer Paraplegiker-Zentrum Nottwil",
+      "canton": "LU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=145",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Sursee (Luzerner Kantonsspital)",
+      "canton": "LU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=298",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Wolhusen (Luzerner Kantonsspital)",
+      "canton": "LU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/luzerner-kantonsspital-wolhusen-qualitaet/",
+      "type": "detail-page",
+      "_slug": "luzerner-kantonsspital-wolhusen"
+    },
+    {
+      "name": "Luzerner Kantonsspital, LUKS (Gruppe)",
+      "canton": "LU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=137",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Luzerner Kantonsspital, LUKS (Standort Kantonsspital Luzern)",
+      "canton": "LU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=379",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Cereneo AG Neurorehabilitationsklinik, Vitznau",
+      "canton": "LU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=142",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Cereneo Hertenstein, Weggis",
+      "canton": "LU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=466",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Sonnmatt Luzern",
+      "canton": "LU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=419",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Wolhusen (Luzerner Kantonsspital)",
+      "canton": "LU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=295",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Jugendpsychiatrische Therapiestationen (LUPS), Kriens",
+      "canton": "LU",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=473",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik St. Urban (LUPS)",
+      "canton": "LU",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=422",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Luzerner Psychiatrie, LUPS (Gruppe), St. Urban",
+      "canton": "LU",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=139",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Therapiezentrum Meggen",
+      "canton": "LU",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=140",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Luzern (LUPS)",
+      "canton": "LU",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=423",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Terra Alta, Oberkirch LU",
+      "canton": "LU",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=144",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Schwyz",
+      "canton": "SZ",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-schwyz-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-schwyz"
+    },
+    {
+      "name": "Vista Augenklinik Pfäffikon SZ",
+      "canton": "SZ",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=465",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Schwyz",
+      "canton": "SZ",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=175",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "AMEOS Seeklinikum Brunnen",
+      "canton": "SZ",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=178",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Obwalden, Sarnen",
+      "canton": "OW",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-obwalden-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-obwalden"
+    },
+    {
+      "name": "Luzerner Psychiatrie (LUPS), Klinik Sarnen",
+      "canton": "OW",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=433",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Nidwalden, Stans",
+      "canton": "NW",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-nidwalden-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-nidwalden"
+    },
+    {
+      "name": "Bürgenstock Hotels AG - Waldhotel Health & Medical Excellence Rehabilitationsklinik, Obbürgen",
+      "canton": "NW",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=441",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Stans",
+      "canton": "NW",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=153",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Braunwald",
+      "canton": "GL",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=113",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Glarus",
+      "canton": "GL",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=114",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Glarus",
+      "canton": "GL",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=112",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Zuger Kantonsspital, Baar",
+      "canton": "ZG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/zuger-kantonsspital-qualitaet/",
+      "type": "detail-page",
+      "_slug": "zuger-kantonsspital"
+    },
+    {
+      "name": "AndreasKlinik - Hirslanden, Cham",
+      "canton": "ZG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/andreasklinik-cham-qualitaet/",
+      "type": "detail-page",
+      "_slug": "andreasklinik-cham"
+    },
+    {
+      "name": "Klinik Adelheid, Unterägeri",
+      "canton": "ZG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=247",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Triaplus AG (vorm. Psychiatrische Klinik Zugersee), Oberwil b. Zug",
+      "canton": "ZG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=245",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Meissenberg, Zug",
+      "canton": "ZG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=246",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "HFR - Hôpital fribourgeois (Gruppe)",
+      "canton": "FR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=94",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Jules Daler, Fribourg",
+      "canton": "FR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=95",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Générale Ste-Anne, SMN, Fribourg",
+      "canton": "FR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=97",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "HFR - Hôpital fribourgeois (Standort Meyriez-Murten)",
+      "canton": "FR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=418",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "HFR - Hôpital fribourgeois (Site Hôpital de Fribourg)",
+      "canton": "FR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=373",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "HFR - Hôpital fribourgeois (Site Hôpital de Riaz)",
+      "canton": "FR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=332",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Tafers (HFR - Hôpital fribourgeois)",
+      "canton": "FR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=302",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "HFR - Hôpital fribourgeois (Standort Billens)",
+      "canton": "FR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=388",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Intercantonal de la Broye - HIB (site Estavayer-le-Lac)",
+      "canton": "FR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=96",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau fribourgeois de santé mentale - RFSM Centre de soins hospitaliers, Fribourg, Villars-sur-Glâne",
+      "canton": "FR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=476",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau fribourgeois de santé mentale - RFSM Centre de soins hospitaliers, Marsens",
+      "canton": "FR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=98",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Maison de Naissance le Petit Prince, Villars-sur-Glâne",
+      "canton": "FR",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=99",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Solothurner Spitäler AG (Gruppe)",
+      "canton": "SO",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/solothurner-spitaeler-qualitaet/",
+      "type": "detail-page",
+      "_slug": "solothurner-spitaeler"
+    },
+    {
+      "name": "Privatklinik Obach, SMN, Solothurn",
+      "canton": "SO",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/privatklinik-obach-qualitaet/",
+      "type": "detail-page",
+      "_slug": "privatklinik-obach"
+    },
+    {
+      "name": "Pallas Kliniken AG (Gruppe), Olten",
+      "canton": "SO",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=174",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Bürgerspital Solothurn (Solothurner Spitäler AG)",
+      "canton": "SO",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/buergerspital-solothurn-qualitaet/",
+      "type": "detail-page",
+      "_slug": "buergerspital-solothurn"
+    },
+    {
+      "name": "Klinik Pallas (Standort Olten)",
+      "canton": "SO",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=303",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Dornach (Solothurner Spitäler AG)",
+      "canton": "SO",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=320",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Olten (Solothurner Spitäler AG)",
+      "canton": "SO",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=364",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Bürgerspital Solothurn (Solothurner Spitäler AG)",
+      "canton": "SO",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=365",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Solothurner Spitäler AG (Gruppe)",
+      "canton": "SO",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=172",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Dienste (Solothurner Spitäler AG)",
+      "canton": "SO",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=405",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitätsspital Basel (USB)",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/universitaetsspital-basel-qualitaet/",
+      "type": "detail-page",
+      "_slug": "universitaetsspital-basel"
+    },
+    {
+      "name": "St. Claraspital, Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/claraspital-basel-qualitaet/",
+      "type": "detail-page",
+      "_slug": "claraspital-basel"
+    },
+    {
+      "name": "Merian Iselin Klinik, Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/merian-iselin-basel-qualitaet/",
+      "type": "detail-page",
+      "_slug": "merian-iselin-basel"
+    },
+    {
+      "name": "Universitäts­Kinderspital beider Basel (UKBB)",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/universitaets-kinderspital-basel-ukbb-qualitaet/",
+      "type": "detail-page",
+      "_slug": "universitaets-kinderspital-basel-ukbb"
+    },
+    {
+      "name": "Adullam Spital (Gruppe), Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=91",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Felix Platter Spital, Standort Universitätsspital Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=427",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Felix Platter-Spital, Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=90",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Felix Platter-Spital (Gruppe), Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=426",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Palliativzentrum Hildegard, Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=92",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Schmerzklinik Basel",
+      "canton": "BS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=93",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Bethesda Spital, Basel",
+      "canton": "BS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=82",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "REHAB Basel",
+      "canton": "BS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=85",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Basel",
+      "canton": "BS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=469",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Adullam Spital (Standort Basel)",
+      "canton": "BS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=383",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Adullam Spital (Standort Riehen)",
+      "canton": "BS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=384",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kriseninterventionsstation (KIS) der Universitären Psychiatrischen Kliniken (UPK) am Universitätsspital Basel",
+      "canton": "BS",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=446",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Universitäre Psychiatrische Kliniken Basel (UPK)",
+      "canton": "BS",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=83",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Sonnenhalde, Riehen",
+      "canton": "BS",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=84",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Basel",
+      "canton": "BS",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=88",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Matthea Geburtshaus, Basel",
+      "canton": "BS",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=442",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Baselland (Gruppe), Liestal",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-baselland-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-baselland"
+    },
+    {
+      "name": "Klinik Arlesheim",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/klinik-arlesheim-qualitaet/",
+      "type": "detail-page",
+      "_slug": "klinik-arlesheim"
+    },
+    {
+      "name": "PALLIATIVKLINIK IM PARK, Arlesheim",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=78",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hirslanden Klinik Birshof, Münchenstein",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=71",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Praxisklinik Rennbahn, Muttenz",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=72",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Ergolz­-Klinik, Liestal",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=77",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Vista Klinik, Binningen",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=79",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Bruderholzspital (Kantonsspital Baselland)",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-bruderholz-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-bruderholz"
+    },
+    {
+      "name": "Kantonsspital Baselland (Standort Liestal)",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=369",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Laufen (Kantonsspital Baselland)",
+      "canton": "BL",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=304",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Baselland (Gruppe), Liestal",
+      "canton": "BL",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=67",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Bruderholzspital (Kantonsspital Baselland)",
+      "canton": "BL",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=368",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Arlesheim",
+      "canton": "BL",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=401",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrie Baselland, Liestal",
+      "canton": "BL",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=69",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik ESTA, Reinach BL",
+      "canton": "BL",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=70",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Ambra, Wittinsburg",
+      "canton": "BL",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=73",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Tagmond GmbH, Pratteln",
+      "canton": "BL",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=75",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitäler Schaffhausen (Gruppe)",
+      "canton": "SH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spitaeler-schaffhausen-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spitaeler-schaffhausen"
+    },
+    {
+      "name": "Kantonsspital Schaffhausen (Spitäler Schaffhausen)",
+      "canton": "SH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-schaffhausen-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-schaffhausen"
+    },
+    {
+      "name": "Privatklinik Belair, SMN, Schaffhausen",
+      "canton": "SH",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/privatklinik-belair-qualitaet/",
+      "type": "detail-page",
+      "_slug": "privatklinik-belair"
+    },
+    {
+      "name": "Spitäler Schaffhausen (Gruppe)",
+      "canton": "SH",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=170",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Schaffhausen (Spitäler Schaffhausen)",
+      "canton": "SH",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=353",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatriezentrum Breitenau (Spitäler Schaffhausen)",
+      "canton": "SH",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=404",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus Schaffhausen",
+      "canton": "SH",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=411",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Herisau (Spitalverbund AR)",
+      "canton": "AR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-herisau-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-herisau"
+    },
+    {
+      "name": "Spitalverbund AR, Spitäler Herisau, Heiden (Gruppe)",
+      "canton": "AR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spitalverbund-ar-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spitalverbund-ar"
+    },
+    {
+      "name": "Berit Klinik, Speicher",
+      "canton": "AR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=30",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Berit Klinik (Gruppe), Speicher",
+      "canton": "AR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=425",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hirslanden Klinik am Rosenberg, Heiden",
+      "canton": "AR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/hirslanden-klinik-rosenberg-qualitaet/",
+      "type": "detail-page",
+      "_slug": "hirslanden-klinik-rosenberg"
+    },
+    {
+      "name": "Augenklinik Dr. med. A. v. Scarpatetti, Teufen AR",
+      "canton": "AR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=31",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Berit Klinik Rehabilitation & Kur, Niederteufen",
+      "canton": "AR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=424",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Gais",
+      "canton": "AR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=27",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rheinburg-Klinik, Walzenhausen",
+      "canton": "AR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=28",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitalverbund AR, Spitäler Herisau, Heiden (Gruppe)",
+      "canton": "AR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=315",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitalverbund AR Psychiatrisches Zentrum, Herisau",
+      "canton": "AR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=26",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hofweissbad Klinik im Hof, Weissbad",
+      "canton": "AI",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=24",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hirslanden Klinik Aarau",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/hirslanden-klinik-aarau-qualitaet/",
+      "type": "detail-page",
+      "_slug": "hirslanden-klinik-aarau"
+    },
+    {
+      "name": "Kantonsspital Aarau",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-aarau-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-aarau"
+    },
+    {
+      "name": "Kantonsspital Baden AG (Gruppe)",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-baden-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-baden"
+    },
+    {
+      "name": "Gesundheitszentrum Fricktal (Gruppe), Rheinfelden",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/gesundheitszentrum-fricktal-qualitaet/",
+      "type": "detail-page",
+      "_slug": "gesundheitszentrum-fricktal"
+    },
+    {
+      "name": "Stiftung Spital Muri, Muri AG",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-muri-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-muri"
+    },
+    {
+      "name": "Asana Spital Leuggern",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/asana-leuggern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "asana-leuggern"
+    },
+    {
+      "name": "Spital Zofingen",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-zofingen-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-zofingen"
+    },
+    {
+      "name": "Klinik Barmelweid",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=22",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Villa im Park, Rothrist",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/klinik-villa-im-park-qualitaet/",
+      "type": "detail-page",
+      "_slug": "klinik-villa-im-park"
+    },
+    {
+      "name": "Kantonsspital Baden (Kantonsspital Baden AG)",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=377",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kreisspital Muri (Kantonsspital Baden AG)",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=378",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Laufenburg (Gesundheitszentrum Fricktal)",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=296",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Rheinfelden (Gesundheitszentrum Fricktal)",
+      "canton": "AG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=321",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "aarReha Klinik Schinznach Rehabilitation, Schinznach Bad",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=18",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "aarReha Schinznach, Klinik Zofingen",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=448",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Bad Schinznach AG Privat­Klinik Im Park, Schinznach Bad",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=19",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Reha Rheinfelden",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=17",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rehaklinik Bellikon",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=16",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Salina Rehaklinik, Rheinfelden",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=20",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care (Gruppe), Bad Zurzach",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=15",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Bad Zurzach",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=397",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Baden",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=396",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Rehaklinik Baden-Dättwil",
+      "canton": "AG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=454",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Dienste Aargau, Windisch",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=11",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "entero Klinik, Egliswil",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=430",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "entero Klinik, Entwöhnung Egliswil",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=431",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "entero Klinik, Entwöhnung Niederlenz",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=432",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "entero Klinik, Entzug Neuenhof",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=14",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Im Hasel, Gontenschwil",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=13",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Schützen Rheinfelden",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=12",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "ZURZACH Care Klinik für Schlafmedizin Bad Zurzach",
+      "canton": "AG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=10",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "HOCH Health Ostschweiz (Gruppe), St. Gallen",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-st-gallen-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-st-gallen"
+    },
+    {
+      "name": "Spitalregion Rheintal Werdenberg Sarganserland (Gruppe), Rebstein",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spitalregion-rheintal-werdenberg-sarganserland-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spitalregion-rheintal-werdenberg-sarganserland"
+    },
+    {
+      "name": "Hirslanden Klinik Stephanshorn, St. Gallen",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/klinik-stephanshorn-qualitaet/",
+      "type": "detail-page",
+      "_slug": "klinik-stephanshorn"
+    },
+    {
+      "name": "Spital Walenstadt (Kantonsspital Graubünden)",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=334",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitalregion Fürstenland Toggenburg (Gruppe), Wil SG",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spitalregion-fuerstenland-toggenburg-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spitalregion-fuerstenland-toggenburg"
+    },
+    {
+      "name": "Spital Linth (HOCH), Uznach",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-linth-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-linth"
+    },
+    {
+      "name": "Berit Klinik Goldach",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=464",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Berit Klinik Wattwil",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=323",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rosenklinik, Rapperswil-Jona",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=165",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Thurklinik, Goldach",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=166",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Ostschweizer Kinderspital, St. Gallen",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=167",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geriatrische Klinik St. Gallen",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=168",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Altstätten (HOCH)",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=308",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Flawil (Kantonsspital St. Gallen)",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=314",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Grabs (HOCH)",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=331",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Wil (HOCH), Wil (SG)",
+      "canton": "SG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=322",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinic Bad Ragaz",
+      "canton": "SG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=417",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kliniken Valens (Gruppe)",
+      "canton": "SG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=164",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Oberwaid AG Kurhotel & Privatklinik, St. Gallen",
+      "canton": "SG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=416",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kliniken Valens (Standort Rehazentrum Valens)",
+      "canton": "SG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=394",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kliniken Valens (Standort Rehazentrum Walenstadtberg)",
+      "canton": "SG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=395",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrie St. Gallen, Klinik Wil, Wil SG",
+      "canton": "SG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=160",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrie-Dienste Süd, Pfäfers",
+      "canton": "SG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=161",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Berit Klinik Alkoholkurzzeittherapie PSA Wattwil",
+      "canton": "SG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=468",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Sonnenhof Kinder­ & Jugendpsychiatrisches Zentrum, Ganterschwil",
+      "canton": "SG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=162",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrie St. Gallen Nord, Krisenintervention St. Gallen",
+      "canton": "SG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=434",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Therapiestation Romerhuus, Ostschweizer Kinderspital, St. Gallen",
+      "canton": "SG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=163",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Geburtshaus St. Gallen",
+      "canton": "SG",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=443",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Graubünden, Chur",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/kantonsspital-graubuenden-qualitaet/",
+      "type": "detail-page",
+      "_slug": "kantonsspital-graubuenden"
+    },
+    {
+      "name": "Kantonsspital Graubünden (Gruppe), Chur",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=478",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Regionalspital Surselva, Ilanz",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/regionalspital-surselva-qualitaet/",
+      "type": "detail-page",
+      "_slug": "regionalspital-surselva"
+    },
+    {
+      "name": "Center da Sanadad Savognin SA (Kreisspital Surses)",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=123",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Center da sandà Engiadina Bassa, Ospidal, Scuol",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=121",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Center da Sanda Val Müstair Akutabteilung, Sta. Maria V. M.",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=124",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Centro Sanitario Bregaglia, Promontogno",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=125",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Ospedale San Sisto Akutabteilung, Poschiavo",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=122",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Thusis",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-thusis-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-thusis"
+    },
+    {
+      "name": "Hochgebirgsklinik Davos, Davos Wolfgang",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/hochgebirgsklinik-davos-qualitaet/",
+      "type": "detail-page",
+      "_slug": "hochgebirgsklinik-davos"
+    },
+    {
+      "name": "Klinik Gut AG (Gruppe), St. Moritz",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=131",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Gut AG (Standort Chur)",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=410",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Gut AG (Standort Fläsch)",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=428",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Gut AG (Standort St. Moritz)",
+      "canton": "GR",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/klinik-gut-st-moritz-qualitaet/",
+      "type": "detail-page",
+      "_slug": "klinik-gut-st-moritz"
+    },
+    {
+      "name": "Hochgebirgsklinik Davos, Davos Wolfgang",
+      "canton": "GR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=133",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "reha andeer, Andeer",
+      "canton": "GR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=130",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rehaklinik Seewis, Seewis Dorf",
+      "canton": "GR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=129",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Zürcher RehaZentrum Davos, Davos Clavadel",
+      "canton": "GR",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=276",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Dienste Graubünden (PDGR), Klinik Waldhaus Chur",
+      "canton": "GR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=126",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Dienste Graubünden, PDGR (Gruppe), Chur",
+      "canton": "GR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=435",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Holistica Engiadina, Susch",
+      "canton": "GR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=127",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Dienste Graubünden (PDGR), Jugendpsychiatrische Station Chur",
+      "canton": "GR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=128",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Dienste Graubünden (PDGR), Klinik Beverin Cazis",
+      "canton": "GR",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=436",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Thurgau AG Kantonsspitäler Frauenfeld & Münsterlingen (Gruppe)",
+      "canton": "TG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spital-thurgau-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spital-thurgau"
+    },
+    {
+      "name": "Herz-­Neuro­-Zentrum Bodensee, Münsterlingen",
+      "canton": "TG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=189",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rehaklinik Zihlschlacht AG Neurologisches Rehabilitationszentrum",
+      "canton": "TG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=185",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Seeschau, Kreuzlingen",
+      "canton": "TG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=180",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Venenklinik Bellevue, Kreuzlingen",
+      "canton": "TG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=190",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Frauenfeld (Spital Thurgau AG)",
+      "canton": "TG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=371",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Kantonsspital Münsterlingen (Spital Thurgau AG)",
+      "canton": "TG",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=372",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Schloss Mammern",
+      "canton": "TG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/klinik-schloss-mammern-qualitaet/",
+      "type": "detail-page",
+      "_slug": "klinik-schloss-mammern"
+    },
+    {
+      "name": "Klinik St. Katharinental (Spital Thurgau AG), Diessenhofen",
+      "canton": "TG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=187",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Perlavita, Berlingen",
+      "canton": "TG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=188",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Rehaklinik Dussnang",
+      "canton": "TG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=186",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Tertianum Neutal Berlingen",
+      "canton": "TG",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=420",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clienia Littenheid",
+      "canton": "TG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=182",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Psychiatrische Klinik Münsterlingen (Spital Thurgau AG)",
+      "canton": "TG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=181",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Klinik Aadorf AG Klinische Psychotherapie",
+      "canton": "TG",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=183",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Gruppe), Bellinzona",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=191",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Cardiocentro Ticino (CCT), Lugano",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=198",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Santa Chiara, Locarno",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=193",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Luganese SA Sede San Rocco",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=195",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Sant'Anna, SMN, Sorengo",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=194",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Gruppe ospedaliero Moncucco Clinica Moncucco, Lugano",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=192",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Ospedale Malcantonese Fondazione Giuseppe Rossi, Castelrotto",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=197",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Ars Medica, SMN, Gravesano",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=203",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Dr. Spinedi c/o Clinica Santa Croce, Orselina",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=204",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica fondazione G. Varini, Orselina",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=196",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Ospedale di Acquarossa)",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=413",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Ospedale di Bellinzona)",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=345",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Ospedale di Faido)",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=414",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Ospedale di Locarno)",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=344",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Ospedale di Lugano)",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=301",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Ospedale di Mendrisio)",
+      "canton": "TI",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=336",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Hildebrand Centro di riabilitazione Brissago",
+      "canton": "TI",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=202",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EOC Ente ospedaliero cantonale (Clinica di Riabilitazione di Novaggio)",
+      "canton": "TI",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=387",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica psichiatrica cantonale, Mendrisio",
+      "canton": "TI",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=199",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Santa Croce, Orselina",
+      "canton": "TI",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=200",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinica Viarnetto, Pregassona",
+      "canton": "TI",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=201",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "CHUV Centre Hospitalier Universitaire Vaudois (Gruppe), Lausanne",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/chuv-qualitaet/",
+      "type": "detail-page",
+      "_slug": "chuv"
+    },
+    {
+      "name": "CHUV Centre Hospitalier Universitaire Vaudois (Standort Lausanne / Bugnon)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=381",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EHC Ensemble hospitalier de la Côte (Gruppe), Morges",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=208",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Etablissements Hospitaliers du Nord Vaudois - eHnv (Gruppe), Yverdon­-les-­Bains",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=207",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (Gruppe), Vevey",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=306",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Groupement Hospitalier de l`Ouest Lémanique - GHOL (Gruppe), Nyon",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=210",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hirslanden Lausanne (Gruppe)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=407",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Intercantonal de la Broye - HIB (Gruppe), Payerne",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=398",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Bois­Cerf SA - Hirslanden, Lausanne",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=216",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Cecil SA - Hirslanden, Lausanne",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=214",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de Genolier",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=215",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de La Source, Lausanne",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=212",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Intercantonal de la Broye - HIB (Standort Payerne)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=213",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Pays d`Enhaut, Château­d'Oex",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=218",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Pôle santé Vallée de Joux - Hôpital de la Vallée de Joux, Le Sentier",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=453",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau Santé Balcon du Jura Vaudois (RSBJ), Ste­Croix",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=233",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital de Lavaux, Cully",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=222",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique CIC Montreux, Clarens",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=226",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de Montchoisi, Lausanne",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=225",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Biotonus, Clinique Bon­Port SA centre de soins médicaux & esthétiques, Territet",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=235",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique la Prairie, Clarens",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=217",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Fondation Rive­Neuve Unité de Soins Palliatifs, Blonay",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=234",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Ophtalmique Jules Gonin Fondation Asile des Aveugles, Lausanne",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=236",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EHC Ensemble hospitalier de la Côte (Standort Hôpital de Morges)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=356",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Etablissements Hospitaliers du Nord Vaudois - eHnv (site Hôpital d'Yverdon-les-Bains)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=360",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Etablissements Hospitaliers du Nord Vaudois - eHnv (site Hôpital de la Vallée), Le Sentier",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=362",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Etablissements Hospitaliers du Nord Vaudois - eHnv (site Hôpital de Saint-Loupe), Pompaples",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=317",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Groupement Hospitalier de l`Ouest Lémanique - GHOL (Standort Hôpital de Nyon)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=346",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (site Aigle)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=305",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Montreux)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=311",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Rennaz)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=439",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Vevey Providence)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=412",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Vevey Samaritain)",
+      "canton": "VD",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=333",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "CHUV Centre Hospitalier Universitaire Vaudois (Gruppe), Lausanne",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=206",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Bois-Bougy, Nyon",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=385",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique la Lignière, Gland",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=221",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Valmont, Glion",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=223",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Institution de Lavigny",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=224",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EHC Ensemble hospitalier de la Côte (Standort Hôpital de Gilly)",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=358",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "EHC Ensemble hospitalier de la Côte (Standort Hôpital d´Aubonne)",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=357",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Etablissements Hospitaliers du Nord Vaudois - eHnv (site Hôpital de Chamblon)",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=361",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Etablissements Hospitaliers du Nord Vaudois - eHnv (site Hôpital d´Orbe)",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=363",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Groupement Hospitalier de l`Ouest Lémanique - GHOL (Standort Hôpital de Rolle)",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=347",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Mottex – Blonay)",
+      "canton": "VD",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=389",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique la Métairie, Nyon",
+      "canton": "VD",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=219",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Secteur Psychiatrique Est Fondation de Nant, Corsier-sur-Vevey",
+      "canton": "VD",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=220",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Secteur Psychiatrique Est Fondation de Nant (Gruppe), Corsier-sur-Vevey",
+      "canton": "VD",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=458",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Secteur Psychiatrique Est Fondation de Nant - Unité hospitalière Jaman, La Tour-de-Peilz",
+      "canton": "VD",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=459",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "CHUV - Centre de psychiatrie du Nord vaudois (CPNVD), Yverdon-les-Bains",
+      "canton": "VD",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=449",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "CHUV - Hôpital psychiatrique de Prangins",
+      "canton": "VD",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=450",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Valais - Centre hospitalier du Valais Romand CHVR, Sion",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=237",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitalzentrum Oberwallis - SZO (seit 2005 Teil von Spital Wallis), Visp",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/spitalzentrum-oberwallis-qualitaet/",
+      "type": "detail-page",
+      "_slug": "spitalzentrum-oberwallis"
+    },
+    {
+      "name": "Luzerner Höhenklinik Montana, Crans-Montana",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=141",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique CIC Saxon",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=409",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de Valère, SMN, Sion",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=242",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Valais (site Hôpital de Sierre)",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=330",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Valais / Spital Wallis (Standort Hôpital de Sion)",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=374",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Valais / Spital Wallis (site Hôpital de Martigny)",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=313",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Valais / Spital Wallis (Gruppe), Sion",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=312",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Monthey)",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=348",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Brig (Hôpital du Valais / Spital Wallis)",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=382",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spital Visp (Hôpital du Valais / Spital Wallis)",
+      "canton": "VS",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=359",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Spitalzentrum Oberwallis - SZO (seit 2005 Teil von Spital Wallis), Visp",
+      "canton": "VS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=238",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Berner Klinik Montana, Crans-Montana",
+      "canton": "VS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=55",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de Crans-Montana",
+      "canton": "VS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=105",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique romande de réadaptation SuvaCare (CRR), Sion",
+      "canton": "VS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=240",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Leukerbad Clinic (RZL Rehabilitationszentrum Leukerbad AG)",
+      "canton": "VS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=241",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Saint-Amé (Hôpital du Valais / Spital Wallis), St-Maurice",
+      "canton": "VS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=415",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Valais / Spital Wallis (site Centre Valaisan de Pneumologie Crans-Montana)",
+      "canton": "VS",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=386",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Valais / Spital Wallis (site Hôpital de Malévoz), Monthey",
+      "canton": "VS",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=467",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau Hospitalier Neuchâtelois RHNe (Gruppe)",
+      "canton": "NE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=146",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Volta, La Chaux-de-Fonds",
+      "canton": "NE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=150",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Montbrillant, La Chaux-de-Fonds",
+      "canton": "NE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=149",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital de la Providence, SMN Neuchâtel",
+      "canton": "NE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=147",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau Hospitalier Neuchâtelois RHNe (Standort La Chaux-de-Fonds)",
+      "canton": "NE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=338",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau Hospitalier Neuchâtelois RHNe (Standort Pourtalès)",
+      "canton": "NE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=337",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau Hospitalier Neuchâtelois RHNe (Standort La Chrysalide), La Chaux-de-Fonds",
+      "canton": "NE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=343",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau Hospitalier Neuchâtelois RHNe (Standort Le Locle)",
+      "canton": "NE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=341",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Réseau Hospitalier Neuchâtelois RHNe (Standort Val-de-Ruz), Fontaines NE",
+      "canton": "NE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=340",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "CNP Centre Neuchâtelois de psychiatrie (Gruppe), Marin-Epagnier",
+      "canton": "NE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=148",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "CNP Centre Neuchâtelois de psychiatrie (Standort Préfargier), Marin-Epagnier",
+      "canton": "NE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=403",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Maison de naissance Tilia, Neuchâtel",
+      "canton": "NE",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=151",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital des enfants des Hôpitaux Universitaires de Genève (HUG)",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=472",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (Gruppe)",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/hug-qualitaet/",
+      "type": "detail-page",
+      "_slug": "hug"
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (site principal)",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=390",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique des Grangettes, Chêne-Bougeries",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=103",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital de La Tour, Meyrin",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=101",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Générale-Beaulieu, Genève",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=102",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique et Permanence d'Onex",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=470",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de Carouge, Carouge GE",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=108",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de la Plaine, Genève",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=109",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique la Colline - Hirslanden, Genève",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=106",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Nouvelle Clinique Vert-Pré, Conches",
+      "canton": "GE",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=107",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (Gruppe)",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=100",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (Standort Beau-Séjour)",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=391",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique du Grand-Salève, Veyrier",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=440",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de Joli-Mont, Genève",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=111",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique de Maisonneuve, Châtelaine",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=408",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Les Hauts d'Anières",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=421",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (Standort Hôpital des Trois-Chêne), Thônex",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=392",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (Standort Loëx), Bernex",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=393",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (site Hôpital de Bellerive), Collonge-Bellerive",
+      "canton": "GE",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=451",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Les Hôpitaux Universitaires de Genève HUG (site Hôpital de psychiatrie Belle-Idée), Thônex",
+      "canton": "GE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=438",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique Belmont, Genève",
+      "canton": "GE",
+      "category": "Psychiatriekliniken / Spitäler mit Bereich Psychiatrie",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=2&hid=104",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Maison de naissance La Roseraie, Genève",
+      "canton": "GE",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=110",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Jura (Gruppe), Porrentruy",
+      "canton": "JU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=134",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Jura (Standort Delémont)",
+      "canton": "JU",
+      "category": "Akutsomatische Spitäler",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?hid=335",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Clinique le Noirmont, Le Noirmont",
+      "canton": "JU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=135",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Hôpital du Jura (Standort Porrentruy)",
+      "canton": "JU",
+      "category": "Rehabilitationskliniken, Spitäler mit Bereich Rehabilitation",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=1&hid=297",
+      "type": "review-only",
+      "_slug": null
+    },
+    {
+      "name": "Maison de naissance Les Cigognes, Vicques",
+      "canton": "JU",
+      "category": "Geburtshäuser",
+      "city": null,
+      "url": "https://welches-spital.ch/alle-bewertungen/?fc=3&hid=136",
+      "type": "review-only",
+      "_slug": null
+    }
+  ]
+}

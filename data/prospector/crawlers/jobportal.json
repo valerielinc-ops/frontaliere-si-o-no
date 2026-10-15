@@ -1,0 +1,20 @@
+{
+  "companyKey": "jobportal",
+  "companyName": "VetTrust AG",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/70bada86-f118-4388-8923-8d4034fbd8b4/507ec7f9-e0ea-11e2-4282-ddb4957e160c"
+  ],
+  "detailTemplate": "/application-process/70bada86-f118-4388-8923-8d4034fbd8b4/507ec7f9-e0ea-11e2-4282-ddb4957e160c",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Stelle für Spontanbewerbungen"
+  ],
+  "canton": "ZG",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-01T11:41:12.637Z"
+}

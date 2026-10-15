@@ -1,0 +1,40 @@
+{
+  "id": "iniziative-cassa-malati-ticino-2026",
+  "slug": "iniziative-cassa-malati-ticino-2026",
+  "publishedAt": "2026-05-12T21:21:42.857Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.142618877319997,
+    "confidence": 0.8,
+    "finalScore": 9.714095101855998,
+    "topK": [
+      {
+        "slug": "iniziative-casse-malati-dado-scissione-dossier",
+        "cosine": 0.8922210670193351
+      },
+      {
+        "slug": "iniziative-cassa-malati-costituzionalista-ticino",
+        "cosine": 0.8887393153760405
+      },
+      {
+        "slug": "riforma-cassa-malati-ticino-2029",
+        "cosine": 0.8749143675328135
+      },
+      {
+        "slug": "iniziative-cassa-malati-piano-lega-ticino",
+        "cosine": 0.8743572168141956
+      },
+      {
+        "slug": "iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps",
+        "cosine": 0.8703797596940224
+      }
+    ],
+    "score": 4.857047550927999,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

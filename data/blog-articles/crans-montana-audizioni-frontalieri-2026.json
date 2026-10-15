@@ -1,0 +1,40 @@
+{
+  "id": "crans-montana-audizioni-frontalieri-2026",
+  "slug": "crans-montana-audizioni-frontalieri-2026",
+  "publishedAt": "2026-05-10T11:11:08.447Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.805676961989001,
+    "confidence": 0.8,
+    "finalScore": 6.244541569591202,
+    "topK": [
+      {
+        "slug": "crans-montana-soccorso-denunciato",
+        "cosine": 0.8672974402210002
+      },
+      {
+        "slug": "crans-montana-incendio-riciclaggio-2026",
+        "cosine": 0.8666647913845812
+      },
+      {
+        "slug": "indagine-soccorsi-crans-montana-2026",
+        "cosine": 0.8665764074158299
+      },
+      {
+        "slug": "denuncia-soccorsi-crans-montana-2026",
+        "cosine": 0.8615981945661948
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.8507686151075813
+      }
+    ],
+    "score": 1.5611353923978004,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

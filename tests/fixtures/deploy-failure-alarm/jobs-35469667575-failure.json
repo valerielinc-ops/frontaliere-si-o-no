@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "name": "validate production promotion trigger",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "number": 1,
+          "conclusion": "success"
+        },
+        {
+          "name": "Checkout promotion gate",
+          "number": 2,
+          "conclusion": "success"
+        },
+        {
+          "name": "Reject non-main or unverified source",
+          "number": 3,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Checkout promotion gate",
+          "number": 6,
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "number": 7,
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "approve production promotion",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "number": 1,
+          "conclusion": "success"
+        },
+        {
+          "name": "Checkout promotion gate",
+          "number": 2,
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify required reviewers and environment attestation",
+          "number": 3,
+          "conclusion": "failure"
+        },
+        {
+          "name": "Post Checkout promotion gate",
+          "number": 6,
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "number": 7,
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "matrix-setup",
+      "conclusion": "skipped",
+      "steps": []
+    },
+    {
+      "name": "build-locale",
+      "conclusion": "skipped",
+      "steps": []
+    },
+    {
+      "name": "prep",
+      "conclusion": "skipped",
+      "steps": []
+    },
+    {
+      "name": "rearm",
+      "conclusion": "skipped",
+      "steps": []
+    }
+  ]
+}

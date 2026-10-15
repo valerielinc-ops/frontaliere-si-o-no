@@ -1,0 +1,40 @@
+{
+  "id": "impatriati-fiscalita-frontalieri",
+  "slug": "impatriati-fiscalita-frontalieri",
+  "publishedAt": "2026-05-08T19:59:16.731Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.948400820410434,
+    "confidence": 0.8,
+    "finalScore": 10.358720656328348,
+    "topK": [
+      {
+        "slug": "naspi-disoccupazione-frontalieri",
+        "cosine": 0.7759024603553393
+      },
+      {
+        "slug": "naspi-ex-frontalieri-2026",
+        "cosine": 0.7679194896526766
+      },
+      {
+        "slug": "confine-fiscale-nuovi-comuni",
+        "cosine": 0.7594817425736891
+      },
+      {
+        "slug": "frontalieri-confine-disparita-fiscale",
+        "cosine": 0.7584937737512354
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.7579083503541453
+      }
+    ],
+    "score": 1.0358720656328348,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

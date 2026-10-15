@@ -1,0 +1,276 @@
+import { describe, it, expect, afterEach, vi } from 'vitest';
+import {
+  BREITLING_KEY,
+  BREITLING_COMPANY_NAME,
+  isBreitlingJob,
+  isTrustedDomain,
+  parseLocation,
+  fetchAllBreitlingJobs,
+} from '../scripts/lib/breitling-job-parser.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+describe('Breitling crawler parser', () => {
+  // ── Constants ──
+  it('exports valid company key and name', () => {
+    expect(BREITLING_KEY).toBe('breitling');
+    expect(BREITLING_COMPANY_NAME).toBe('Breitling');
+  });
+
+  // ── isCompanyJob ──
+  describe('isBreitlingJob', () => {
+    it('matches by companyKey', () => {
+      expect(isBreitlingJob({ companyKey: 'breitling' })).toBe(true);
+    });
+
+    it('matches by company name', () => {
+      expect(isBreitlingJob({ company: 'Breitling' })).toBe(true);
+    });
+
+    it('matches by URL domain', () => {
+      expect(isBreitlingJob({ url: 'https://careers.breitling.com/job/sales-associate/1420-en_GB' })).toBe(true);
+    });
+
+    it('rejects unrelated jobs', () => {
+      expect(isBreitlingJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+    });
+
+    it('handles null/undefined gracefully', () => {
+      expect(isBreitlingJob(null)).toBe(false);
+      expect(isBreitlingJob(undefined)).toBe(false);
+      expect(isBreitlingJob({})).toBe(false);
+    });
+
+    // ── Collision guard ──
+    // Bucherer is a Swiss watch/jewellery RETAILER that sells Breitling
+    // watches and mentions the brand name in its own boilerplate
+    // company-description text ("...partner ufficiale di marchi come
+    // Rolex, Patek Philippe, Cartier e Breitling."). Its parser always
+    // sets `company: 'Bucherer'` literally, never 'Breitling', and its
+    // job URLs live on Bucherer's own domain/ATS — this must NOT match.
+    it('does not collide with Bucherer jobs that merely mention the Breitling brand', () => {
+      const buchererJob = {
+        company: 'Bucherer',
+        companyKey: 'bucherer',
+        title: 'Sales Associate Watches & Jewellery',
+        description: 'Bucherer è partner ufficiale di marchi come Rolex, Patek Philippe, Cartier e Breitling.',
+        url: 'https://www.bucherer.com/int/en/careers/sales-associate',
+      };
+      expect(isBreitlingJob(buchererJob)).toBe(false);
+    });
+  });
+
+  // ── isTrustedDomain ──
+  describe('isTrustedDomain', () => {
+    it('trusts primary domain', () => {
+      expect(isTrustedDomain('https://careers.breitling.com/job/sales-associate/1420-en_GB')).toBe(true);
+    });
+
+    it('trusts apex domain', () => {
+      expect(isTrustedDomain('https://breitling.com/careers')).toBe(true);
+    });
+
+    it('rejects other domains', () => {
+      expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
+    });
+
+    it('rejects the Bucherer domain', () => {
+      expect(isTrustedDomain('https://www.bucherer.com/int/en/careers')).toBe(false);
+    });
+
+    it('handles invalid URLs', () => {
+      expect(isTrustedDomain('')).toBe(false);
+      expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── slugify (imported from crawler-template) ──
+  describe('slugify', () => {
+    it('converts title to URL-safe slug', () => {
+      const slug = slugify('Sales Associate (90%) - Bern Boutique (f/m/x)');
+      expect(slug).toMatch(/^[a-z0-9-]+$/);
+    });
+
+    it('strips diacritics', () => {
+      expect(slugify('Spécialiste Payroll')).toBe('specialiste-payroll');
+    });
+
+    it('builds slug with company suffix inline', () => {
+      expect(slugify('Sales Associate breitling bern')).toBe('sales-associate-breitling-bern');
+    });
+
+    it('respects max length', () => {
+      const long = 'a'.repeat(200);
+      expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── Job Shape Validation ──
+  describe('job shape', () => {
+    // A minimal valid job for reference (mirrors what fetchAllBreitlingJobs emits)
+    const validJob = {
+      id: 'breitling-abc123',
+      slug: 'sales-associate-breitling-bern',
+      slugByLocale: { en: 'sales-associate-breitling-bern' },
+      company: 'Breitling',
+      companyKey: 'breitling',
+      title: 'Sales Associate (90%) - Bern Boutique (f/m/x)',
+      titleByLocale: { en: 'Sales Associate (90%) - Bern Boutique (f/m/x)' },
+      description: 'A test job description for validation, long enough to pass the minimum word count floor used by the parser as a safe-default guard against thin content.',
+      descriptionByLocale: { en: 'A test job description for validation, long enough to pass the minimum word count floor used by the parser as a safe-default guard against thin content.' },
+      location: 'Bern, BE',
+      canton: 'BE',
+      url: 'https://careers.breitling.com/job/sales-associate/1420-en_GB',
+      source: 'Breitling Dedicated Parser (SuccessFactors Unify)',
+      sourceLang: 'en',
+      crawledAt: new Date().toISOString(),
+      // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
+      addressLocality: 'Bern',
+      addressRegion: 'BE',
+      streetAddress: '',
+      postalCode: '',
+      addressCountry: 'CH',
+      country: 'CH',
+      employmentType: 'PART_TIME',
+      postedDate: new Date().toISOString().split('T')[0],
+    };
+
+    it('has all required fields', () => {
+      const required = [
+        'id', 'slug', 'slugByLocale', 'company', 'companyKey',
+        'title', 'titleByLocale', 'description', 'descriptionByLocale',
+        'location', 'canton', 'url', 'source', 'sourceLang', 'crawledAt',
+      ];
+      for (const field of required) {
+        expect(validJob).toHaveProperty(field);
+      }
+    });
+
+    it('has the fields required for job-page structured data (baseSalary source inputs)', () => {
+      // baseSalary itself is synthesized downstream from safe defaults; these
+      // are the per-job inputs the parser is responsible for supplying.
+      // postalCode/streetAddress may legitimately be empty when the source
+      // genuinely omits them (e.g. Bern boutique) — only checked for presence,
+      // not truthiness, here; Grenchen HQ postings do carry a real value.
+      const structuredDataInputs = [
+        'title', 'description', 'addressLocality', 'addressCountry',
+        'employmentType', 'postedDate',
+      ];
+      for (const field of structuredDataInputs) {
+        expect(validJob).toHaveProperty(field);
+        expect(validJob[field]).toBeTruthy();
+      }
+      expect(validJob).toHaveProperty('postalCode');
+      expect(validJob).toHaveProperty('streetAddress');
+    });
+
+    it('Grenchen HQ postings carry the verified real street address as safe default', () => {
+      const hqJob = {
+        ...validJob,
+        location: 'Grenchen, SO',
+        canton: 'SO',
+        addressLocality: 'Grenchen',
+        addressRegion: 'SO',
+        streetAddress: 'Léon Breitling-Strasse 2',
+        postalCode: '2540',
+      };
+      expect(hqJob.postalCode).toBeTruthy();
+      expect(hqJob.streetAddress).toBeTruthy();
+    });
+
+    it('slug only contains source locale', () => {
+      const locales = Object.keys(validJob.slugByLocale);
+      expect(locales).toHaveLength(1);
+      expect(locales[0]).toBe(validJob.sourceLang);
+    });
+
+    it('id starts with company key', () => {
+      expect(validJob.id).toMatch(/^breitling-/);
+    });
+
+    it('slug is URL-safe', () => {
+      expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── parseLocation (#7056: canton-only Zürich source vs. Solothurn HQ) ──
+  describe('parseLocation', () => {
+    it('resolves the canton-only Zürich form to Zürich/ZH, not Solothurn HQ', () => {
+      // Real observed jobLocationShort for the Zurich boutique: NO city
+      // token, just canton code, country, postal code.
+      expect(parseLocation('ZH, CHE, 8002')).toEqual({
+        city: 'Zürich',
+        canton: 'ZH',
+        postalCode: '8002',
+      });
+    });
+
+    it('still resolves the standard [city, canton, CHE, postalCode] form', () => {
+      expect(parseLocation('Bern, BE, CHE, ')).toEqual({
+        city: 'Bern',
+        canton: 'BE',
+        postalCode: '',
+      });
+    });
+
+    it('resolves other canton-only forms without inventing the HQ canton', () => {
+      expect(parseLocation('GE, CHE, 1201')).toEqual({
+        city: 'Genève',
+        canton: 'GE',
+        postalCode: '1201',
+      });
+    });
+
+    it('resolves the canton-only Luzern form to Luzern/LU, not Solothurn HQ', () => {
+      // Luzern boutique has active postings in data/jobs/by-crawler/breitling.json;
+      // if its source ever emits the canton-only shape (as Zürich's does), the
+      // city must not silently fall back to the Grenchen HQ.
+      expect(parseLocation('LU, CHE, 6002')).toEqual({
+        city: 'Luzern',
+        canton: 'LU',
+        postalCode: '6002',
+      });
+    });
+
+    it('falls back to HQ only for a genuinely empty location', () => {
+      expect(parseLocation('')).toEqual({
+        city: 'Grenchen',
+        canton: 'SO',
+        postalCode: '',
+      });
+    });
+  });
+});
+
+// Only the posting's own text is published (issue 5253). A body under 30
+// words used to get an invented Italian summary appended ("{title} presso
+// Breitling a {city}. Manifattura orologiera svizzera …") and a missing body
+// was replaced by it. Shapes of careers.breitling.com (recruiting search API
+// + Unify detail page).
+describe('fetchAllBreitlingJobs — published text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the body as it is and skips a posting without one', async () => {
+    const resp = (id: string, title: string) => ({
+      response: { id, unifiedStandardTitle: title, jobLocationShort: ['Grenchen, SO, CH, 2540'], unifiedStandardStart: '20/09/2026', currency: ['CHF'] },
+    });
+    vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
+      const u = String(url);
+      if (u.endsWith('/services/recruiting/v1/jobs')) {
+        const body = JSON.parse(init.body || '{}');
+        return new Response(JSON.stringify({ jobSearchResult: body.pageNumber ? [] : [resp('3001', 'Watchmaker'), resp('3002', 'Buyer')] }), { status: 200 });
+      }
+      if (u.includes('3001')) {
+        return new Response('<html><body><span itemprop="description"><p>You assemble and regulate chronograph movements in our Grenchen workshop. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.</p></span></body></html>', { status: 200 });
+      }
+      return new Response('<html><body><h1>Buyer</h1></body></html>', { status: 200 });
+    }));
+
+    const jobs = await fetchAllBreitlingJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Watchmaker']);
+    // An API start field without verified publication semantics is not datePosted.
+    expect(jobs[0]).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
+    expect(jobs[0].description).toBe('You assemble and regulate chronograph movements in our Grenchen workshop. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.');
+  }, 20_000);
+});

@@ -1,0 +1,23 @@
+{
+  "companyKey": "live",
+  "companyName": "live",
+  "companyHost": "live.solique.ch",
+  "platform": "solique.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://live.solique.ch/adullam/"
+  ],
+  "detailTemplate": "/adullam/job/details/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Arztsekretär/in 40 - 50 %",
+    "Assistenzärztinnen / Assistenzärzte 100 - %",
+    "Berufsbildner/in Pflegezentrum 60 - % </",
+    "Dipl. Pflegefachfrau / Pflegefachmann HF 80 - 100 %",
+    "Dipl. Pflegefachfrau / Pflegefachmann HF 80 - %"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-03T11:06:00.993Z"
+}

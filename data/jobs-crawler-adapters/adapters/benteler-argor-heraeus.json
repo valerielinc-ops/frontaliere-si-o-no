@@ -1,0 +1,22 @@
+{
+  "companyKey": "benteler-argor-heraeus",
+  "companyName": "Benteler (Argor-Heraeus)",
+  "companyHost": "argor.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.argor.com/careers",
+    "https://www.argor.com/career",
+    "https://www.argor.com/jobs",
+    "https://www.argor.com/karriere",
+    "https://www.argor.com/offene-stellen",
+    "https://www.argor.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.928Z"
+}

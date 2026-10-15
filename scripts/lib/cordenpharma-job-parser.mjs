@@ -1,0 +1,357 @@
+#!/usr/bin/env node
+/**
+ * CordenPharma job parser — Fetcher and job builder.
+ *
+ * CordenPharma is a pharmaceutical CDMO (Contract Development and
+ * Manufacturing Organization). Its two Swiss sites both sit in canton
+ * Basel-Landschaft (BL):
+ *   - CordenPharma Switzerland LLC — Eichenweg 1 A, 4410 Liestal
+ *   - CordenPharma Fribourg AG, Zweigniederlassung Ettingen — Brühlstrasse 50, 4107 Ettingen
+ *     (legal entity "Corden Pharma Fribourg SA" is registered in canton FR,
+ *     Villars-sur-Glâne, but the actual worksite — where employees report —
+ *     is the Ettingen branch in BL; jobs are scoped to the worksite, not the
+ *     registered office).
+ *
+ * Source: career.cordenpharma.com, a d.vinci-powered career portal.
+ * The location-filtered listing pages (/en/p/{site}/jobs) embed the full
+ * job list as a `DvinciData = {...}` JSON blob directly in a <script> tag —
+ * no separate public API call is needed. Per-job detail pages embed the
+ * description as server-rendered HTML inside `<div id="liquidDesign*Publication">`
+ * blocks (Introduction / Tasks / Profile / We-offer).
+ *
+ * Exports the 4 required functions for the crawler template:
+ *   - fetchAllCordenpharmaJobs()  — Fetch and parse all jobs
+ *   - isCordenpharmaJob()         — Match jobs belonging to this company
+ *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { createHash } from 'node:crypto';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+/* ── Constants ─────────────────────────────────────────────── */
+
+export const CORDENPHARMA_KEY = 'cordenpharma';
+export const CORDENPHARMA_COMPANY_NAME = 'CordenPharma';
+export const CORDENPHARMA_COMPANY_DOMAIN = 'cordenpharma.com';
+
+const HQ = getCompanyDefaults(CORDENPHARMA_KEY) || { city: 'Liestal', canton: 'BL', postalCode: '4410', addressRegion: 'BL' };
+
+// The portal is a global multi-country career site — only the two Swiss,
+// Basel-Landschaft worksites are in scope for this crawler.
+const SITE_URLS = [
+  'https://career.cordenpharma.com/en/p/liestal/jobs',
+  'https://career.cordenpharma.com/en/p/ettingen/jobs',
+];
+
+// Ground-truth per-site address, keyed by the d.vinci `locations[].id`.
+const SITE_ADDRESS = {
+  LIESTAL: { city: 'Liestal', canton: 'BL', postalCode: '4410', streetAddress: 'Eichenweg 1 A' },
+  ETTINGEN: { city: 'Ettingen', canton: 'BL', postalCode: '4107', streetAddress: 'Brühlstrasse 50' },
+};
+
+const SECTOR = 'Farmaceutico / CDMO';
+
+/* ── Helpers ───────────────────────────────────────────────── */
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+/* ── Company Matchers ──────────────────────────────────────── */
+
+/**
+ * Check if a job belongs to CordenPharma.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function isCordenpharmaJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === CORDENPHARMA_KEY ||
+    key.startsWith('cordenpharma') ||
+    company.includes('cordenpharma') ||
+    company.includes('corden pharma') ||
+    url.includes('cordenpharma.com')
+  );
+}
+
+/**
+ * Validate that a URL belongs to CordenPharma's domain (main site or the
+ * career.cordenpharma.com d.vinci-hosted subdomain).
+ */
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === CORDENPHARMA_COMPANY_DOMAIN || host.endsWith(`.${CORDENPHARMA_COMPANY_DOMAIN}`);
+  } catch {
+    return false;
+  }
+}
+
+/* ── Category Detection ────────────────────────────────────── */
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/\b(qualit|qa\b|qc\b|quality|validat)/.test(t)) return 'Qualità';
+  if (/\b(analytic|analista|laborator|scientist|chemist|chimic)/.test(t)) return 'Scienza';
+  if (/\b(produzion|operator|betriebsmechaniker|manufactur|process)/.test(t)) return 'Produzione';
+  if (/\b(ingegner|engineer|entwickl|synthesis|synthese|development)/.test(t)) return 'Ingegneria';
+  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
+  if (/\b(it\b|software|informatica|digital|system)/.test(t)) return 'IT';
+  if (/\b(hr\b|human|risorse|personal)/.test(t)) return 'Risorse Umane';
+  if (/\b(regolator|regulatory|pharmacovig)/.test(t)) return 'Qualità';
+  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
+  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
+  return 'Produzione';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(junior|jr)/.test(t)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|manager)/.test(t)) return 'senior';
+  return 'mid';
+}
+
+function detectEmploymentType(text = '') {
+  const t = normalize(text);
+  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'INTERN';
+  if (/\b(befristet|temporary|tempor|fixed.?term|cdd)/.test(t)) return 'CONTRACTOR';
+  return 'FULL_TIME';
+}
+
+/* ── Address resolution (canton-gated — see AGENTS.md sibling-pattern fix) ──
+ * Both Swiss sites are known ground truth (Liestal / Ettingen), keyed by the
+ * d.vinci `locations[].id`. If a listing ever carries an unrecognised site id
+ * (e.g. a non-Swiss location slipped through the location-filtered fetch),
+ * postalCode/streetAddress MUST NOT be silently backfilled with the wrong
+ * site's HQ address — only fall back to HQ when the inferred canton actually
+ * matches HQ.canton.
+ */
+export function resolveAddress(rawLoc = {}) {
+  const locId = String(rawLoc.id || '').toUpperCase();
+  const known = SITE_ADDRESS[locId] || null;
+  const city = (known?.city || rawLoc.city || rawLoc.name || '').trim();
+  const canton = known?.canton || '';
+  const postalCode = (known?.postalCode || rawLoc.postalCode || '').trim();
+  const streetAddress = (known?.streetAddress || rawLoc.streetAddress || '').trim();
+
+  return { city, canton, postalCode, streetAddress };
+}
+
+/* ── Detail page description extraction ───────────────────── */
+
+const DETAIL_SECTION_IDS = [
+  'liquidDesignIntroductionPublication',
+  'liquidDesignTasksPublication',
+  'liquidDesignProfilePublication',
+  'liquidDesignWeOfferPublication',
+];
+
+/**
+ * Extract the job description from a d.vinci detail page. Each content block
+ * is a `<div id="liquidDesign{Section}Publication">` rendered server-side and
+ * sequentially — slice from each section's opening tag to the next section
+ * (or end of the known sections) and strip HTML.
+ */
+function extractDetailDescription(html = '') {
+  const parts = [];
+  for (const id of DETAIL_SECTION_IDS) {
+    const marker = `id="${id}"`;
+    const markerIdx = html.indexOf(marker);
+    if (markerIdx === -1) continue;
+    const divStart = html.lastIndexOf('<div', markerIdx);
+    if (divStart === -1) continue;
+    const nextMarkerIdx = html.indexOf('id="liquidDesign', markerIdx + marker.length);
+    const sliceEnd = nextMarkerIdx !== -1 ? html.lastIndexOf('<div', nextMarkerIdx) : html.length;
+    const chunk = html.slice(divStart, sliceEnd > divStart ? sliceEnd : html.length);
+    const text = normalizeSpace(stripHtml(chunk));
+    if (text) parts.push(text);
+  }
+  return parts.join('\n\n');
+}
+
+async function fetchDetailPage(url) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const html = await fetchHtml(url, { timeoutMs });
+  return extractDetailDescription(html);
+}
+
+/* ── Fetch + Parse ─────────────────────────────────────────── */
+
+/**
+ * Fetch the site-filtered d.vinci listing page and extract the embedded
+ * `DvinciData.jobPublications` JSON blob — the whole listing is server-side
+ * rendered into the page's inline <script>, no separate API call needed.
+ */
+async function fetchSiteListings(siteUrl) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const html = await fetchHtml(siteUrl, { timeoutMs });
+  const match = html.match(/DvinciData\s*=\s*(\{[\s\S]*?\});?\s*<\/script>/);
+  if (!match) return [];
+
+  let data;
+  try {
+    data = JSON.parse(match[1]);
+  } catch {
+    return [];
+  }
+
+  const publications = Array.isArray(data?.jobPublications) ? data.jobPublications : [];
+  return publications
+    .map((pub) => {
+      const opening = pub?.jobOpening || {};
+      const rawLocation = Array.isArray(opening.locations) ? opening.locations[0] : null;
+      const address = rawLocation?.address || {};
+      return {
+        title: pub.position || opening.name || '',
+        url: pub.jobPublicationURL || '',
+        location: opening.location || rawLocation?.name || '',
+        language: pub.language || '',
+        employmentLabel: (opening.workingTimes || []).map((w) => w.name).join(', '),
+        // d.vinci publication startDate is availability of this published vacancy.
+        ...sourcePostingDateFields(pub.startDate),
+        rawLocation: {
+          id: rawLocation?.id || '',
+          name: rawLocation?.name || '',
+          city: address.city || '',
+          postalCode: address.zipCode || '',
+          streetAddress: address.address2 || address.address1 || '',
+        },
+      };
+    })
+    .filter((j) => j.title && j.url);
+}
+
+async function fetchJobListings() {
+  const all = [];
+  const seenUrls = new Set();
+  for (const siteUrl of SITE_URLS) {
+    console.log(`   Fetching ${siteUrl}`);
+    try {
+      const listings = await fetchSiteListings(siteUrl);
+      for (const listing of listings) {
+        if (seenUrls.has(listing.url)) continue;
+        seenUrls.add(listing.url);
+        all.push(listing);
+      }
+    } catch (err) {
+      console.warn(`⚠️ CordenPharma listing fetch failed for ${siteUrl}: ${err?.message || err}`);
+    }
+  }
+  return all;
+}
+
+/**
+ * Fetch all CordenPharma jobs.
+ * Returns an array of ParsedJob objects (source-locale only).
+ *
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
+ */
+export async function fetchAllCordenpharmaJobs() {
+  console.log(`🔍 Fetching CordenPharma jobs`);
+  console.log(`   Source: ${SITE_URLS.join(', ')}\n`);
+
+  const listings = await fetchJobListings();
+  if (!listings || listings.length === 0) {
+    console.warn('⚠️ No job listings returned.');
+    return [];
+  }
+
+  console.log(`  📋 Listings found: ${listings.length}`);
+
+  const jobs = [];
+  for (const listing of listings) {
+    const title = normalizeSpace(listing.title || '');
+    if (!title || title.length < 3) continue;
+
+    const { city, canton: siteCanton, postalCode, streetAddress } = resolveAddress(listing.rawLocation);
+    const location = normalizeSpace(listing.location || city || HQ.city);
+    const canton =
+      siteCanton ||
+      inferSwissTargetCanton(location) ||
+      inferAnyCanton(location) ||
+      HQ.canton;
+
+    const publicUrl = listing.url;
+
+    let descriptionText = '';
+    try {
+      descriptionText = await fetchDetailPage(publicUrl);
+    } catch (err) {
+      console.warn(`  ⚠️ Detail fetch failed for ${title}: ${err?.message || err}`);
+    }
+    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
+
+    // The detail text only (issue 5253). Under 50 words it used to get
+    // "<title> — CordenPharma, <location>." and a CordenPharma paragraph we
+    // wrote. Now a text under the shared 50-word floor is not published: the
+    // job gets no description and takes the thin-source path (quarantine).
+    const sourceLang = ['it', 'en', 'de', 'fr'].includes(listing.language)
+      ? listing.language
+      : detectLang(descriptionText || title, 'de');
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
+
+    const jobSlug = slugify(`${title} cordenpharma ${location}`);
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const employmentType = detectEmploymentType(listing.employmentLabel || title);
+
+    const job = {
+      // ── Required fields ──
+      id: `${CORDENPHARMA_KEY}-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: CORDENPHARMA_COMPANY_NAME,
+      companyKey: CORDENPHARMA_KEY,
+      companyDomain: CORDENPHARMA_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description,
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
+      location,
+      canton,
+      url: publicUrl,
+      source: 'CordenPharma Dedicated Parser (d.vinci)',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+
+      // ── Recommended fields ──
+      addressLocality: city || location,
+      addressRegion: canton || HQ.addressRegion,
+      streetAddress,
+      postalCode,
+      addressCountry: 'CH',
+      country: 'CH',
+      category: detectCategory(title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
+      experienceLevel: detectExperienceLevel(title),
+      sector: SECTOR,
+      currency: 'CHF',
+      featured: false,
+      ...mergeSourcePostingDates({}, listing),
+      applyUrl: publicUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    };
+
+    jobs.push(job);
+  }
+
+  console.log(`\n📋 Total ${CORDENPHARMA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  return jobs;
+}

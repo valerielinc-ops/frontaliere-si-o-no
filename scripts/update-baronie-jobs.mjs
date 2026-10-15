@@ -1,0 +1,528 @@
+#!/usr/bin/env node
+/**
+ * Dedicated Baronie (Chocolat Alprose SA / Baronie Switzerland SA) crawler runner.
+ *
+ * The company's careers page is at:
+ *   https://www.baronie.com/en/careers
+ *
+ * Job detail pages are at:
+ *   https://www.baronie.com/en/jobs/{slug}
+ *
+ * The company has offices in Belgium, Germany, UK, Switzerland (Caslano, TI),
+ * Netherlands, France, and others.  We only want jobs located in Switzerland.
+ *
+ * This crawler:
+ *   1. Scrapes the /en/careers page for all /en/jobs/ detail links.
+ *   2. Fetches each detail page and extracts structured content.
+ *   3. Filters to Swiss-only jobs (JSON-LD addressCountry=CH).
+ *   4. Merges into per-crawler scratch storage with stale translation cleanup;
+ *      mirrors to the optional public path when that workspace is present.
+ *   5. Translates and validates locale coverage.
+ */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  printPublishedJobUrls,
+  writeJobsSummary,
+  snapshotJobSlugs,
+  computeCrawlDiff,
+  printCrawlChangeSummary,
+  writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
+} from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
+  writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
+  assembleJobsDataset,
+  readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
+import {
+  translateMissingJobLocales,
+  validateDedicatedLocaleCoverage,
+  detectLang,
+  mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
+import {
+  fetchBaronieJobUrls,
+  fetchBaronieDetailPage,
+  buildBaronieLocalizedContent,
+  titleOverlap,
+  isSwissJob,
+  isBaronieDetailComplete,
+} from './lib/baronie-job-parser.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+
+/* ── Constants ─────────────────────────────────────────────── */
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const COMPANY_KEY = 'baronie';
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'baronie.json');
+
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
+const COMPANY_NAME = 'Baronie';
+const COMPANY_HOST = 'www.baronie.com';
+const COMPANY_DOMAIN = 'baronie.com';
+const CAREERS_URL = 'https://www.baronie.com/en/careers';
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
+const DETAIL_DELAY_MS = 800;
+
+/**
+ * A zero after discovering detail URLs is not a source-proven empty snapshot
+ * when any detail fetch failed: the source extraction was incomplete.
+ */
+export function classifyBaronieEmptyResult(detailFetchFailures = 0) {
+  return detailFetchFailures > 0 ? 'source-extraction-failed' : 'no-jobs-parsed';
+}
+
+/* ── Helpers ───────────────────────────────────────────────── */
+function readJson(filePath, fallback) {
+  try { return JSON.parse(fs.readFileSync(filePath, 'utf8')); }
+  catch { return fallback; }
+}
+
+function writeJson(filePath, value) {
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+function requirePublicMirror() {
+  const parent = path.dirname(PUBLIC_JOBS);
+  try {
+    return fs.statSync(parent).isDirectory();
+  } catch (error) {
+    if (error?.code === 'ENOENT') return false;
+    throw new Error('Baronie public mirror parent is unusable: ' + parent + ' (' + (error instanceof Error ? error.message : String(error)) + ')');
+  }
+}
+
+function removeStalePublicMirror() {
+  try {
+    fs.rmSync(PUBLIC_JOBS, { force: true });
+  } catch (error) {
+    throw new Error('Unable to remove stale Baronie public mirror ' + PUBLIC_JOBS + ': ' + (error instanceof Error ? error.message : String(error)));
+  }
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '').trim().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function isTargetJob(job = {}) {
+  const key = normalizeKey(job.companyKey || job.company || '');
+  const company = normalize(job.company || '');
+  const url = String(job.url || '').toLowerCase();
+  return (
+    key === COMPANY_KEY ||
+    key === 'chocolat-alprose-sa-baronie-switzerland-sa' ||
+    key === 'chocolat-alprose' ||
+    company.includes('baronie') ||
+    company.includes('alprose') ||
+    url.includes('baronie.com')
+  );
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === COMPANY_HOST || host.endsWith('.baronie.com');
+  } catch { return false; }
+}
+
+function inferCategory(title = '') {
+  const h = normalize(title);
+  if (/sales|account|commercial|vendite/i.test(h)) return 'sales';
+  if (/customer.*service|support/i.test(h)) return 'customer-service';
+  if (/sustainability|environment/i.test(h)) return 'sustainability';
+  if (/admin|segretari/i.test(h)) return 'administration';
+  if (/manager|lead|director|responsabile/i.test(h)) return 'management';
+  if (/engineer|tecnico|production/i.test(h)) return 'production';
+  return 'general';
+}
+
+function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
+
+/* ── Job Builder ───────────────────────────────────────────── */
+function buildBaronieJob(url, detail) {
+  const title = detail.detailTitle || '';
+  const city = detail.location || 'Caslano';
+  const company = detail.company || 'Chocolat Alprose SA / Baronie Switzerland SA';
+
+  const sourceLang = detectLang(detail.markdown || title, 'en');
+  const localized = buildBaronieLocalizedContent({
+    title,
+    location: city,
+    company,
+    detailMarkdown: detail.markdown,
+    sourceLang,
+  });
+
+  const job = {
+    title: localized.titleByLocale.it,
+    slug: localized.slugByLocale.it,
+    url,
+    applyUrl: url,
+    company,
+    companyKey: COMPANY_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    location: city,
+    addressLocality: city,
+    addressRegion: 'TI',
+    addressCountry: 'CH',
+    canton: DEFAULT_CANTON,
+    country: 'CH',
+    category: inferCategory(title),
+    sector: 'Alimentare / Cioccolato',
+    source: 'baronie-dedicated-crawler',
+    sourceLang,
+    ...sourcePostingDateFields(''),
+    employmentType: 'full-time',
+    contractType: 'permanent',
+    validThrough: '',
+    description: localized.description,
+    titleByLocale: localized.titleByLocale,
+    descriptionByLocale: localized.descriptionByLocale,
+    slugByLocale: localized.slugByLocale,
+  };
+
+  if (detail.markdown && detail.markdown.length > 100) {
+    job._enrichedFromDetail = true;
+  }
+
+  return job;
+}
+
+/* ── Merge ─────────────────────────────────────────────────── */
+// The paragraph the builder used to write in the `it` slot for a detail text of
+// 100 characters or less ("<company>, azienda svizzera del gruppo Baronie…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+const BARONIE_FABRICATED_RE = /azienda svizzera del gruppo Baronie specializzata nella produzione di cioccolato premium/;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (BARONIE_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropBaronieFabricatedText(job) {
+  return dropFabricatedDescription(job, BARONIE_FABRICATED_RE);
+}
+
+function jobMatchKey(job = {}) {
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
+}
+
+function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropBaronieFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented description from ${fossils} stored Baronie job(s); they will be retranslated`);
+  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
+
+  let added = 0;
+  let updated = 0;
+  const mergedTarget = discoveredJobs.map((job) => {
+    const prev = existingByKey.get(jobMatchKey(job));
+    if (!prev) {
+      added += 1;
+      const clean = { ...job };
+      delete clean._enrichedFromDetail;
+      return clean;
+    }
+    updated += 1;
+    const prevDesc = job._enrichedFromDetail ? {} : (prev.descriptionByLocale || {});
+    const srcLang = job.sourceLang || prev.sourceLang || null;
+    const clean = {
+      ...prev,
+      ...job,
+      ...mergeSourcePostingDates(prev, job),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, srcLang),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, { ...prevDesc, ...(job.descriptionByLocale || {}) }, 30, srcLang),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
+      needsRetranslation: job._enrichedFromDetail ? true : (prev.needsRetranslation || false),
+    };
+    delete clean._enrichedFromDetail;
+    return clean;
+  });
+
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  if (requirePublicMirror()) {
+    writeJson(PUBLIC_JOBS, allJobs);
+  } else {
+    // The scratch file remains the canonical downstream input
+    // (writeJobsCrawlerSlice/assemble read DATA_JOBS); never leave an old
+    // optional mirror that could be mistaken for this crawl's output.
+    removeStalePublicMirror();
+    console.warn('⚠️ Baronie public mirror unavailable; retained ' + DATA_JOBS + ' for downstream assembly.');
+  }
+
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'Baronie');
+  writeCrawlChangeSummaryToGH(diff, 'Baronie');
+  writeJobsSummary(mergedTarget, 'Baronie');
+  printPublishedJobUrls(mergedTarget, 'Baronie');
+  return { total: mergedTarget.length, added, updated, diff };
+}
+
+/* ── Adapter ───────────────────────────────────────────────── */
+function updateAdapterConfig(jobs) {
+  const seedMetaByUrl = {};
+  for (const job of jobs) {
+    seedMetaByUrl[job.url] = {
+      location: job.location,
+      canton: DEFAULT_CANTON,
+      company: job.company,
+      ...mergeSourcePostingDates({}, job),
+    };
+  }
+  writeJson(ADAPTER_PATH, {
+    companyKey: COMPANY_KEY,
+    companyName: COMPANY_NAME,
+    companyHost: COMPANY_HOST,
+    enabled: true,
+    priority: 10,
+    crawlerModes: ['html'],
+    seedUrls: [CAREERS_URL],
+    notes: 'Baronie (Chocolat Alprose SA) — chocolate manufacturer in Caslano, TI. Custom parser extracts structured content from detail pages. Only Swiss jobs are included.',
+    updatedAt: new Date().toISOString(),
+    seedMetaByUrl,
+  });
+}
+
+/* ── Validation ────────────────────────────────────────────── */
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_BARONIE_STRICT',
+    label: 'Baronie',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+    locales: LOCALES,
+    isTrustedDomain,
+    untrustedDomainReason: 'url_not_baronie_domain',
+    failWhenNoJobs: false,
+    noJobsMessage: 'No Baronie jobs found after dedicated crawl.',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'en'),
+  });
+}
+
+/* ── Main ──────────────────────────────────────────────────── */
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropBaronieFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
+  });
+}
+
+function writeBaronieFilteredEmptySummary(counts) {
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: 0,
+    lastFetchOutcome: counts.lastFetchOutcome,
+    abortKind: null,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: [],
+  });
+}
+
+export async function main() {
+  setCrawlerStartTime();
+  // `counts.discovered` (issue #5945) lets the summary-guard exit fallback
+  // report a non-zero pre-filter count when a later "0 Swiss jobs" early
+  // return skips writeSummaryCrawlerSlice() below — so check-crawler-health
+  // can classify "found jobs, filtered to 0" as healthy without needing a
+  // human to add this slug to EMPTY_OK_CRAWLERS first.
+  // `counts.parsed` (issue #7707): the post-parser, pre-pipeline count. Same
+  // role as in crawler-template — without it a run emptied by merge/validation
+  // (a NON-geographic drop) reads as `discovered > 0, written === 0`, exactly
+  // like a legitimate "found jobs, none Swiss" run, and check-crawler-health
+  // calls a broken crawler healthy.
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Baronie', counts);
+  console.log('═══════════════════════════════════════════════');
+  console.log('  Baronie — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Careers page: ${CAREERS_URL}\n`);
+
+  // 1. Discover job URLs
+  console.log('🔍 Fetching Baronie job listings...');
+  const jobUrls = await fetchBaronieJobUrls(TIMEOUT_MS);
+  counts.discovered = jobUrls.length;
+  console.log(`📋 Found ${jobUrls.length} job URLs`);
+  if (jobUrls.length === 0) {
+    counts.abortKind = classifyBaronieEmptyResult();
+    console.log('⚠️ No job URLs found — skipping.');
+    await cleanStoredJobsOnSoftExit();
+    return;
+  }
+
+  // 2. Fetch and parse each detail page
+  console.log('\n📄 Fetching detail pages...');
+  const parsed = [];
+  let detailFetchFailures = 0;
+  for (const url of jobUrls) {
+    const detail = await fetchBaronieDetailPage(url, TIMEOUT_MS);
+    if (isBaronieDetailComplete(detail)) {
+      const swiss = isSwissJob(detail);
+      console.log(`  ${swiss ? '✅' : '⏭️ '} ${detail.detailTitle || '(no title)'} → ${detail.location || '(no location)'} [${detail.sectionCount} sections, ${detail.markdown.length} chars]${swiss ? '' : ' — SKIPPED (not Swiss)'}`);
+      if (swiss) {
+        parsed.push({ url, detail });
+      }
+    } else {
+      detailFetchFailures += 1;
+      console.log(`  ⚠️ ${url} → detail page failed`);
+    }
+    if (parsed.length < jobUrls.length) await sleep(DETAIL_DELAY_MS);
+  }
+
+  console.log(`\n🇨🇭 Swiss jobs: ${parsed.length} / ${jobUrls.length} total`);
+  counts.parsed = parsed.length;
+  if (detailFetchFailures > 0 || parsed.length === 0) {
+    if (detailFetchFailures > 0) {
+      // A single unreadable detail makes the filtered result incomplete even
+      // when another Swiss detail was usable. Do not let a partial snapshot
+      // replace the stored slice or remove jobs that were not re-read.
+      counts.abortKind = classifyBaronieEmptyResult(detailFetchFailures);
+      console.log(`⚠️ ${detailFetchFailures} detail page(s) failed — preserving the stored slice and refusing partial publication.`);
+      return;
+    }
+
+    // Every detail page was parsed and classified, so this is a complete
+    // source-backed geographic filter result. Publish the heartbeat before
+    // preserving the prior slice; the exit guard would correctly classify
+    // an unreported early return as an incomplete run.
+    counts.lastFetchOutcome = 'filtered_empty';
+    writeBaronieFilteredEmptySummary(counts);
+    console.log('⚠️ No Swiss jobs found — skipping.');
+    await cleanStoredJobsOnSoftExit();
+    return;
+  }
+
+  // 3. Build job objects with title overlap guard
+  const jobs = parsed.map(({ url, detail }) => {
+    const job = buildBaronieJob(url, detail);
+    // Title overlap guard is informational (titles come from detail page h1)
+    if (detail.detailTitle && job.title) {
+      const overlap = titleOverlap(detail.detailTitle, job.title);
+      if (overlap < 0.6) {
+        console.warn(`  ⚠️ Title overlap ${(overlap * 100).toFixed(0)}% for ${url}`);
+      }
+    }
+    return job;
+  });
+
+  // 4. Deduplicate
+  const seenKeys = new Set();
+  const deduplicated = [];
+  for (const job of jobs) {
+    const key = `${normalize(job.title)}|${normalize(job.location)}`;
+    if (!seenKeys.has(key)) {
+      seenKeys.add(key);
+      deduplicated.push(job);
+    }
+  }
+  // What the pipeline below actually receives, so the summary's `parsed`
+  // measures the parser's output and not a count the merge never saw.
+  counts.parsed = deduplicated.length;
+  if (deduplicated.length < jobs.length) {
+    console.log(`\n🔄 Deduplicated: ${jobs.length} → ${deduplicated.length} unique`);
+  }
+
+  // 5. Merge
+  const { total, added, updated, diff} = mergeJobs(deduplicated);
+  updateAdapterConfig(deduplicated);
+
+  // 6. Translate missing locales
+  console.log('\n🌐 Running locale fill for Baronie jobs...');
+  await translateMissingJobLocales({
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+  });
+
+  // 7. Validate
+  validateLocales();
+
+  console.log('\n📊 === Baronie Job Stats ===');
+  console.log(`  🍫 Total Baronie jobs: ${total}`);
+  console.log(`  ➕ Added: ${added}`);
+  console.log(`  🔄 Updated: ${updated}`);
+
+  // Write per-crawler slice and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'Baronie',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: _sliceJobs.length,
+    newCount: diff.newJobs.length,
+    updatedCount: diff.updatedJobs.length,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: diff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: diff.newJobs.slice(0, 30),
+    updatedJobs: diff.updatedJobs.slice(0, 30),
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
+  });
+  await assembleJobsDataset();
+}
+
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => {
+    console.error(`❌ Baronie crawler failed: ${error?.stack || error}`);
+    process.exitCode = 1;
+  });
+}

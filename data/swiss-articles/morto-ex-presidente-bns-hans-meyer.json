@@ -1,0 +1,40 @@
+{
+  "id": "morto-ex-presidente-bns-hans-meyer",
+  "slug": "morto-ex-presidente-bns-hans-meyer",
+  "publishedAt": "2026-06-27T10:34:16.031Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.876306463933375,
+    "confidence": 0.8,
+    "finalScore": 10.3010451711467,
+    "topK": [
+      {
+        "slug": "bossi-morto-ticino-frontalieri",
+        "cosine": 0.8307393189600801
+      },
+      {
+        "slug": "ex-capo-esercito-kaiser-partner-privatbank",
+        "cosine": 0.8164783962863014
+      },
+      {
+        "slug": "addio-giovanni-salandin-cgil-frontalieri",
+        "cosine": 0.815756849806597
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8151561872745774
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8138061387749375
+      }
+    ],
+    "score": 5.15052258557335,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

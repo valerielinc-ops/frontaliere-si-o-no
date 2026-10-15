@@ -1,0 +1,7797 @@
+// Core page SEO metadata (lazy-loaded chunk)
+// This file is code-split from seoService.ts to reduce initial bundle size.
+// ~90 entries for main pages (calculator, comparators, guide, stats, etc.)
+// Claim original-publication and Dataset publication/update dates are omitted
+// when unverified. Review/article publication and temporalCoverage are separate facts.
+//
+// BUILD PLUGINS: vite.config.ts staticPagesPlugin and llmsTxtPlugin regex-parse
+// this file at build time. Keep the same format as other seo-*.ts entries.
+
+import type { SEOMetadata } from '../seoService';
+import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
+import { authorSeoPageEntries } from './authorProfileMetadata';
+
+const BASE_URL = 'https://frontaliereticino.ch';
+
+/**
+ * SpeakableSpecification for section landings and content pages.
+ * Voice assistants and AI readers use this to identify key passages
+ * for spoken answers and cited snippets.
+ */
+const SPEAKABLE_SECTION = {
+ "@type": "SpeakableSpecification",
+ "cssSelector": ["h1", "[data-speakable]", "article p:first-of-type"]
+} as const;
+
+const HOWTO_CALCULATOR = {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come calcolare lo stipendio netto da frontaliere Svizzera-Italia",
+ "description": "Guida passo-passo per calcolare il tuo stipendio netto come lavoratore frontaliere usando il simulatore fiscale gratuito di Frontaliere Ticino.",
+ "totalTime": "PT1M",
+ "step": [
+ { "@type": "HowToStep", "position": 1, "name": "Inserisci il salario lordo annuo", "text": "Inserisci il tuo salario lordo annuo in CHF nel campo dedicato.", "url": `${BASE_URL}/calcola-stipendio/` },
+ { "@type": "HowToStep", "position": 2, "name": "Seleziona stato civile e figli", "text": "Scegli stato civile (single, coniugato, genitore solo) e numero di figli per determinare la tabella d'imposta corretta (A, B, C o H).", "url": `${BASE_URL}/calcola-stipendio/` },
+ { "@type": "HowToStep", "position": 3, "name": "Scegli vecchio o nuovo frontaliere", "text": "Indica lo status fiscale verificato: attività qualificante come frontaliere tra il 31 dicembre 2018 e il 17 luglio 2023, Comune nell’elenco ufficiale e rientro in principio quotidiano. La data dell’ultimo contratto da sola non basta.", "url": `${BASE_URL}/calcola-stipendio/` },
+ { "@type": "HowToStep", "position": 4, "name": "Analizza i risultati", "text": "Visualizza il dettaglio di imposta alla fonte, contributi sociali (AVS, AC, LAA, LPP), eventuale IRPEF italiana e stipendio netto mensile in CHF e EUR.", "url": `${BASE_URL}/calcola-stipendio/` }
+ ]
+ };
+
+const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
+ calculator: {
+    title: 'Frontalieri Svizzera 2026: calcolo netto',
+ description: 'Frontalieri in Svizzera 2026: calcola il netto, confronta permessi G/B, guida fiscale Nuovo Accordo, LAMal, dogana. Simulatore ufficiale per nuovi e vecchi frontalieri.',
+ keywords: 'frontalieri svizzera, frontalieri ticino, simulazione tasse nuovi frontalieri, vecchi frontalieri calcolo, calcolo tasse frontalieri, simulazione netto frontalieri, imposta alla fonte ticino, stipendio frontaliere svizzera, calcolo tasse frontalieri oltre 20 km, nuovo accordo frontalieri 2026',
+    ogTitle: 'Frontalieri Svizzera 2026: calcolo netto',
+ ogDescription: 'La risorsa di riferimento per frontalieri in Svizzera: calcolo stipendio netto 2026, Nuovo Accordo fiscale, confronto permesso G/B, LAMal, dogana, oltre 700 articoli.',
+ canonicalPath: '/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "@id": `${BASE_URL}/#website`,
+ "name": "Frontaliere Ticino",
+ "url": `${BASE_URL}/`,
+ "description": "Strumento completo per frontalieri Svizzera-Italia: simulatore fiscale, pensione, guida e comparatori servizi",
+ "inLanguage": ["it", "en", "de", "fr"],
+ "speakable": SPEAKABLE_SECTION,
+ "potentialAction": {
+ "@type": "SearchAction",
+ "target": {
+ "@type": "EntryPoint",
+ "urlTemplate": `${BASE_URL}/?q={search_term_string}`
+ },
+ "query-input": "required name=search_term_string"
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Simulatore Fiscale Frontalieri",
+ "url": `${BASE_URL}/`,
+ "description": "Calcolo preciso delle tasse per frontalieri tra Svizzera e Italia secondo il nuovo accordo 2026",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": {
+ "@type": "Offer",
+ "price": "0",
+ "priceCurrency": "CHF"
+ },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+  {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://frontaliereticino.ch/#organization",
+  "additionalType": "https://schema.org/NewsMediaOrganization",
+  "name": "Frontaliere Ticino",
+  "url": "https://frontaliereticino.ch/",
+  "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
+   "https://www.facebook.com/frontaliereticino",
+   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://github.com/valerielinc-ops/frontaliere-si-o-no"
+  ],
+  "logo": {
+   "@type": "ImageObject",
+   "contentUrl": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+   "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://frontaliereticino.ch/#organization",
+    "name": "Frontaliere Ticino",
+    "url": "https://frontaliereticino.ch/"
+   },
+   "creditText": "Frontaliere Ticino",
+   "width": 512,
+   "height": 512
+  },
+  "foundingDate": "2023",
+  "contactPoint": {
+   "@type": "ContactPoint",
+   "contactType": "customer support",
+   "url": "https://frontaliereticino.ch/contattaci/",
+   "availableLanguage": [
+    "Italian",
+    "English",
+    "German",
+    "French"
+   ]
+  },
+  "areaServed": [
+   {
+    "@type": "Country",
+    "name": "Switzerland"
+   },
+   {
+    "@type": "Country",
+    "name": "Italy"
+   }
+  ],
+  "correctionsPolicy": "https://frontaliereticino.ch/correzioni/",
+  "ethicsPolicy": "https://frontaliereticino.ch/chi-siamo/#standard-giornalistici",
+  "ownershipFundingInfo": "https://frontaliereticino.ch/chi-siamo/#finanziamento",
+  "masthead": "https://frontaliereticino.ch/chi-siamo/#team",
+  "verificationFactCheckingPolicy": "https://frontaliereticino.ch/metodologia/#fact-checking",
+  "publishingPrinciples": "https://frontaliereticino.ch/metodologia/",
+  "actionableFeedbackPolicy": "https://frontaliereticino.ch/contattaci/",
+  "description": "La risorsa più completa per i lavoratori frontalieri tra Italia e Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e guide pratiche.",
+  "knowsAbout": [
+ "Cross-border worker taxation",
+ "Swiss withholding tax",
+ "Italian IRPEF",
+ "LAMal health insurance",
+ "Swiss pension system AVS LPP",
+ "CHF EUR exchange rates",
+ "Permit G Permit B",
+ "Canton Ticino employment"
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere qualificato dall’articolo 9 ha svolto attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023: il salario interessato è tassato esclusivamente in Svizzera. I nuovi frontalieri fiscali pagano l’80% dell’imposta alla fonte ordinaria svizzera e le imposte italiane con credito per quelle svizzere. Contano anche Comune di residenza ammesso e rientro in principio quotidiano, non soltanto la data dell’ultimo contratto. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Conviene lavorare come vecchio o nuovo frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dal salario, stato civile, figli e comune di residenza. Il vecchio regime è generalmente più vantaggioso per salari medio-alti (>CHF 60.000). Il nuovo regime può convenire con salari più bassi grazie alla franchigia €10.000. Usa il simulatore gratuito su frontaliereticino.ch per calcolare il tuo caso specifico." } },
+ { "@type": "Question", "name": "Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "L'imposta alla fonte in Ticino si calcola sul salario lordo annuo con aliquote progressive: 0% sotto CHF 18.000, dal 4% al 24% per redditi superiori, variando in base a stato civile (tabelle A singolo, B sposato mono-reddito, C sposato doppio reddito, H genitore solo) e numero di figli. Ogni figlio riduce l'aliquota di circa 1-2 punti percentuali." } },
+ { "@type": "Question", "name": "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere single senza figli con CHF 80.000 lordi/anno guadagna circa CHF 4.900-5.100/mese netti con il vecchio accordo (solo imposta alla fonte), oppure circa CHF 4.400-4.600/mese netti con il nuovo accordo (imposta alla fonte ridotta + IRPEF italiana con franchigia €10.000 e credito d'imposta). I contributi sociali svizzeri (AVS 5,3%, AC 1,1%, LAA, LPP) vengono detratti dal lordo." } },
+ { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
+ { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Il sistema distingue previdenza statale AVS, professionale LPP e individuale volontaria. Requisiti e prestazioni vanno verificati presso gli enti competenti. Il terzo pilastro non comporta una deduzione automatica per tutti i frontalieri. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
+ { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
+ { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone svizzero con la più alta concentrazione di frontalieri, che rappresentano circa il 30% della forza lavoro cantonale. Il numero cresce del 2-3% annuo. I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
+ { "@type": "Question", "name": "Cosa sono i ristorni fiscali?", "acceptedAnswer": { "@type": "Answer", "text": "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Quanto guadagna un frontaliere in Svizzera al mese?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere in Canton Ticino guadagna in media CHF 5.600 lordi al mese (mediana USS), pari a circa CHF 4.300–4.600 netti dopo imposta alla fonte e contributi AVS/LPP/AC. Profili qualificati (IT, ingegneria, farma, finanza) arrivano a CHF 7.000–9.000 lordi, mentre operai e commercio si attestano intorno a CHF 4.200–4.800. Usa il simulatore gratuito su frontaliereticino.ch per stimare il netto esatto in base a stato civile, figli e comune." } },
+ { "@type": "Question", "name": "Quali sono le differenze tra permesso G e permesso B?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G prevede domicilio all’estero e rientro almeno settimanale; il B è un permesso di dimora in Svizzera. Il titolo di soggiorno non determina da solo le imposte: per il G occorre distinguere vecchi frontalieri fiscalmente qualificati, nuovi e lavoratori fuori dai requisiti dell’accordo. Confronta residenza effettiva, reddito e costi familiari senza una soglia salariale universale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Dove trovare lavoro da frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Le principali fonti di offerte per frontalieri sono il portale JobRoom della Confederazione, job-board cantonali (lavoro.swiss), siti privati come jobs.ch, jobup.ch e indeed.ch, agenzie interinali (Adecco, Manpower, Randstad, Kelly) e la job-board dedicata ai frontalieri su frontaliereticino.ch/cerca-lavoro-ticino con ~6.000 annunci aggiornati quotidianamente da ricerche specifiche per Ticino." } }
+ ],
+ "speakable": SPEAKABLE_SECTION
+ },
+ HOWTO_CALCULATOR
+ ]
+ },
+
+ petition: {
+ title: 'Petizione dosso Stabio-Gaggiolo: chiediamo una soluzione sicura | Frontaliere Ticino',
+ description: 'Segnalazioni di code dopo il valico di Gaggiolo: chiediamo dati, valutazione tecnica e rimozione o abbassamento del dosso se sicuro.',
+ keywords: 'petizione dosso Stabio Gaggiolo, traffico frontalieri, code dogana Gaggiolo, via Gaggiolo, traffico Stabio',
+ ogTitle: 'Petizione per il dosso alla dogana di Stabio',
+ ogDescription: 'Chiediamo una verifica tecnica e una soluzione che riduca le code senza compromettere la sicurezza.',
+ h1: 'Petizione per una dogana di Stabio più scorrevole',
+ canonicalPath: '/petizione-dosso-stabio/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Petizione per il dosso alla dogana di Stabio-Gaggiolo",
+  "url": `${BASE_URL}/petizione-dosso-stabio/`,
+  "description": "Segnalazioni di code dopo il valico di Gaggiolo: chiediamo dati, valutazione tecnica e rimozione o abbassamento del dosso se sicuro.",
+  "inLanguage": "it",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
+ petitionEn: {
+ title: 'Stabio-Gaggiolo speed-bump petition: we ask for a safe solution | Frontaliere Ticino',
+ description: 'Reports of queues after the Gaggiolo crossing: we ask for data, a technical review and removal or lowering of the bump if safe.',
+ keywords: 'Stabio Gaggiolo speed bump petition, cross-border traffic, Gaggiolo customs queues, Stabio traffic',
+ ogTitle: 'Petition about the speed bump at Stabio customs',
+ ogDescription: 'We ask for a technical review and a solution that reduces queues without compromising safety.',
+ h1: 'A smoother Stabio customs crossing: sign the petition',
+ canonicalPath: '/en/stabio-speed-bump-petition/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Petition about the Stabio-Gaggiolo speed bump",
+  "url": `${BASE_URL}/en/stabio-speed-bump-petition/`,
+  "description": "Reports of queues after the Gaggiolo crossing: we ask for data, a technical review and removal or lowering of the bump if safe.",
+  "inLanguage": "en",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
+ petitionDe: {
+ title: 'Petition zur Schwelle Stabio-Gaggiolo: Wir fordern eine sichere Lösung | Frontaliere Ticino',
+ description: 'Meldungen über Staus nach dem Grenzübergang Gaggiolo: Wir fordern Daten, eine technische Prüfung und eine Entfernung oder Absenkung, falls sicher.',
+ keywords: 'Petition Schwelle Stabio Gaggiolo, Grenzverkehr, Stau Zoll Gaggiolo, Verkehr Stabio',
+ ogTitle: 'Petition zur Verkehrsschwelle am Zoll Stabio',
+ ogDescription: 'Wir fordern eine technische Prüfung und eine Lösung, die Staus verringert, ohne die Sicherheit zu beeinträchtigen.',
+ h1: 'Ein fliessenderer Grenzübergang Stabio: Petition unterschreiben',
+ canonicalPath: '/de/petition-geschwindigkeitsrampe-stabio/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Petition zur Schwelle am Grenzübergang Stabio-Gaggiolo",
+  "url": `${BASE_URL}/de/petition-geschwindigkeitsrampe-stabio/`,
+  "description": "Meldungen über Staus nach dem Grenzübergang Gaggiolo: Wir fordern Daten, eine technische Prüfung und eine Entfernung oder Absenkung, falls sicher.",
+  "inLanguage": "de",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
+ petitionFr: {
+ title: 'Pétition dos-d’âne Stabio-Gaggiolo : pour une solution sûre | Frontaliere Ticino',
+ description: 'Signalements de files après le passage de Gaggiolo : nous demandons des données, une expertise technique et le retrait ou l’abaissement si possible.',
+ keywords: 'pétition dos-d’âne Stabio Gaggiolo, trafic frontalier, files douane Gaggiolo, trafic Stabio',
+ ogTitle: 'Pétition sur le dos-d’âne à la douane de Stabio',
+ ogDescription: 'Nous demandons une expertise technique et une solution qui réduise les files sans compromettre la sécurité.',
+ h1: 'Un passage de Stabio plus fluide : signez la pétition',
+ canonicalPath: '/fr/petition-dos-d-ane-stabio/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pétition sur le dos-d’âne du passage Stabio-Gaggiolo",
+  "url": `${BASE_URL}/fr/petition-dos-d-ane-stabio/`,
+  "description": "Signalements de files après le passage de Gaggiolo : nous demandons des données, une expertise technique et le retrait ou l’abaissement si possible.",
+  "inLanguage": "fr",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
+ // ─── SEO landings: salary presets (long-tail) ─────────────,
+
+ 'glossario-impostaAllaFonte': {
+ title: 'Imposta alla fonte | Glossario Frontalieri',
+ description: 'Definizione di imposta alla fonte (Ticino) per frontalieri: come funziona, cosa incide sul netto e come leggerla in busta paga.',
+ keywords: 'imposta alla fonte ticino, franchigia frontalieri, tabella imposta alla fonte, netto frontalieri',
+ ogTitle: 'Imposta alla fonte — Glossario Frontalieri',
+ ogDescription: 'Cos\'è l\'imposta alla fonte in Ticino e perché conta per lo stipendio netto dei frontalieri.',
+ canonicalPath: '/glossario-frontaliere/imposta-alla-fonte/',
+ structuredData: [
+ {
+ '@context': 'https://schema.org',
+ '@type': 'DefinedTerm',
+ name: 'Imposta alla fonte',
+ description: 'Imposta alla fonte (Quellensteuer): trattenuta fiscale mensile applicata dal datore di lavoro svizzero direttamente sullo stipendio lordo dei frontalieri, con aliquote 2026 progressive da circa 0% a oltre il 24% secondo la tabella A, B, C o H.',
+ url: `${BASE_URL}/glossario-frontaliere/imposta-alla-fonte/`,
+ inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` },
+ },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è l'imposta alla fonte per i frontalieri in Ticino?", acceptedAnswer: { '@type': 'Answer', text: "L'imposta alla fonte (Quellensteuer) è la trattenuta fiscale che il datore di lavoro svizzero preleva ogni mese direttamente dallo stipendio lordo del frontaliere e versa al Canton Ticino. Sostituisce la dichiarazione dei redditi cantonale per chi non è residente e copre imposte federali, cantonali e comunali. Per il 2026, con il nuovo accordo Italia-Svizzera, i nuovi frontalieri pagano l'80% dell'aliquota ordinaria (riduzione del 20%)." } },
+ { '@type': 'Question', name: "Come si calcola l'imposta alla fonte in Canton Ticino?", acceptedAnswer: { '@type': 'Answer', text: "L'aliquota dipende da quattro variabili: salario lordo annuo, stato civile, numero di figli a carico e tabella applicabile (A single, B sposato mono-reddito, C doppio reddito, H genitore solo). Le aliquote sono progressive: circa 0% sotto CHF 18.000, 4% a CHF 40.000, 9–10% a CHF 80.000, fino al 24% oltre CHF 200.000. Ogni figlio riduce l'aliquota di 1–2 punti percentuali." } },
+ { '@type': 'Question', name: "Qual è la differenza tra imposta alla fonte e IRPEF per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "L’imposta alla fonte svizzera è trattenuta dal datore sul salario; l’IRPEF è l’imposta italiana sul reddito. I nuovi frontalieri fiscali sono soggetti a entrambe, con credito italiano per le imposte svizzere. Sul salario coperto dall’articolo 9, i vecchi frontalieri qualificati sono invece tassati esclusivamente in Svizzera. La sola data dell’ultimo contratto non distingue i due regimi. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Le tabelle dell'imposta alla fonte cambiano ogni anno?", acceptedAnswer: { '@type': 'Answer', text: "Per ogni anno fiscale va consultato il tariffario cantonale applicabile alla propria situazione. Per i nuovi frontalieri fiscali si applica l’80% dell’imposta alla fonte ordinaria: è una riduzione del 20%, non dell’80%. Verifica sul cedolino che il datore abbia usato la tariffa corretta per status e situazione familiare. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Posso chiedere un rimborso dell'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Una trattenuta errata va distinta dalla richiesta di deduzioni aggiuntive: verifica conteggio e termini di correzione con datore e autorità cantonale. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Il nuovo accordo 2026 ha cambiato l'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } }
+ ],
+ speakable: SPEAKABLE_SECTION,
+ }
+ ],
+ },
+
+ 'glossario-irpef': {
+ title: 'IRPEF | Glossario Frontalieri',
+ description: 'Definizione di IRPEF per frontalieri: base imponibile, scaglioni, addizionali e credito d\'imposta nel contesto Svizzera–Italia.',
+ keywords: 'irpef frontalieri, scaglioni irpef 2026, addizionale regionale comunale, credito imposta',
+ ogTitle: 'IRPEF — Glossario Frontalieri',
+ ogDescription: 'Cos\'è l\'IRPEF e come si applica ai frontalieri con il nuovo accordo.',
+ canonicalPath: '/glossario-frontaliere/irpef/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'IRPEF', description: 'IRPEF: imposta sul reddito delle persone fisiche in Italia. Per i frontalieri 2026, scaglioni dal 23% al 43% con franchigia di €10.000.', url: `${BASE_URL}/glossario-frontaliere/irpef/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è l'IRPEF e perché riguarda anche i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "L’IRPEF è l’imposta italiana sul reddito delle persone fisiche. Riguarda il salario svizzero dei nuovi frontalieri fiscali perché l’accordo prevede imposizione italiana con credito per l’imposta svizzera. Il salario dei vecchi frontalieri qualificati dall’articolo 9 resta invece soggetto alla sola imposizione svizzera. Non basta una data di assunzione per stabilire il regime. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Quali sono gli scaglioni IRPEF 2026 per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "Nel 2026 gli scaglioni IRPEF italiani sono: 23% fino a €28.000, 33% tra €28.000 e €50.000, 43% oltre €50.000. A questi si sommano addizionale regionale (1,23%–3,33%) e comunale (0–0,9%). Per i nuovi frontalieri, i primi €10.000 di reddito svizzero convertito in EUR sono esenti grazie alla franchigia." } },
+ { '@type': 'Question', name: "Come si dichiara il reddito svizzero nel 730 o nel Redditi PF?", acceptedAnswer: { '@type': 'Answer', text: "Il reddito lordo svizzero va convertito in euro al cambio medio annuo BCE dell'anno d'imposta e indicato nel quadro RC (lavoro dipendente estero) del Redditi PF o nel quadro C del 730. Va allegata copia della Lohnausweis svizzera. L'imposta alla fonte pagata in Svizzera si indica nel quadro CE come credito d'imposta per evitare la doppia tassazione." } },
+ { '@type': 'Question', name: "Come funziona il credito d'imposta per la doppia tassazione?", acceptedAnswer: { '@type': 'Answer', text: "Il credito d'imposta permette di detrarre dall'IRPEF italiana le imposte già pagate in Svizzera sullo stesso reddito. Il credito è limitato alla quota di IRPEF proporzionalmente riferita al reddito estero. In pratica si paga la differenza tra IRPEF italiana teorica e imposta alla fonte svizzera effettivamente versata, evitando la doppia imposizione come previsto dalla Convenzione contro le doppie imposizioni." } },
+ { '@type': 'Question', name: "Cos'è l'acconto IRPEF e devo pagarlo anche come frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "Sì. L'acconto IRPEF è un anticipo sulle tasse dell'anno in corso, pari al 100% dell'imposta dell'anno precedente (se superiore a €51,65), diviso in due rate: 40% a giugno e 60% a novembre. I nuovi frontalieri sono soggetti all'acconto a partire dal secondo anno di dichiarazione. Se non si paga, si applicano sanzioni e interessi." } },
+ { '@type': 'Question', name: "Il vecchio frontaliere paga IRPEF sul reddito svizzero?", acceptedAnswer: { '@type': 'Answer', text: "I vecchi frontalieri qualificati non pagano IRPEF italiana sul salario svizzero coperto dall’articolo 9; altri redditi e obblighi di monitoraggio vanno valutati separatamente. I nuovi frontalieri fiscali dichiarano il reddito anche in Italia con credito per l’imposta svizzera. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } }
+ ],
+ speakable: SPEAKABLE_SECTION,
+ }
+ ],
+ },
+
+ 'glossario-franchigia': {
+ title: 'Franchigia | Glossario Frontalieri',
+ description: 'Definizione di franchigia (es. 10.000€ per nuovi frontalieri): come influisce su imponibile, IRPEF e tasse complessive.',
+ keywords: 'franchigia 10000 nuovi frontalieri, imponibile irpef, accordo frontalieri 2026',
+ ogTitle: 'Franchigia — Glossario Frontalieri',
+ ogDescription: 'Cos\'è la franchigia e come influisce sulle tasse dei frontalieri.',
+ canonicalPath: '/glossario-frontaliere/franchigia/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Franchigia', description: 'Franchigia fiscale €10.000 per nuovi frontalieri dal 2024: reddito svizzero esente IRPEF fino a questa soglia. Nuovo accordo CH-IT.', url: `${BASE_URL}/glossario-frontaliere/franchigia/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
+ { '@type': 'Question', name: "Chi può usufruire della franchigia €10.000?", acceptedAnswer: { '@type': 'Answer', text: "La franchigia di 10.000 euro riguarda i redditi di lavoro dipendente prestato continuativamente e come oggetto esclusivo del rapporto in zone di frontiera o paesi limitrofi da residenti italiani, alle condizioni dell’articolo 4 della legge 83/2023. Non è limitata ai soli comuni entro 20 km. I vecchi frontalieri qualificati non ne hanno bisogno per il salario già esente da imposizione italiana ai sensi dell’articolo 9. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
+ { '@type': 'Question', name: "Come si applica in pratica la franchigia in dichiarazione?", acceptedAnswer: { '@type': 'Answer', text: "In dichiarazione dei redditi (Modello Redditi PF o 730), la franchigia si indica nel quadro RC riducendo il reddito imponibile svizzero di €10.000. L'operazione è automatica nei software CAF/commercialisti aggiornati. Se il reddito svizzero annuo è inferiore a €10.000, non si paga IRPEF sulla parte lavoro dipendente svizzero." } },
+ { '@type': 'Question', name: "La franchigia vale anche per la tredicesima e i bonus?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La franchigia si applica sul reddito complessivo da lavoro dipendente svizzero dichiarato in un anno fiscale, quindi include stipendio base, tredicesima, bonus, gratifiche e indennità tassabili. Non si applica invece ai redditi di capitale, a quelli da fabbricati o ai riscatti del 2° pilastro LPP, che seguono regole proprie." } },
+ { '@type': 'Question', name: "Se vivo oltre 20 km dal confine posso usare la franchigia?", acceptedAnswer: { '@type': 'Answer', text: "La distanza oltre i 20 km non esclude da sola la franchigia. L’articolo 4 della legge 83/2023 riguarda il lavoro dipendente prestato continuativamente e come oggetto esclusivo in zone di frontiera o Paesi limitrofi da residenti italiani. Verifica queste condizioni: sono distinte dalla definizione fiscale dell’accordo frontalieri. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
+ { '@type': 'Question', name: "La franchigia verrà mantenuta anche negli anni successivi?", acceptedAnswer: { '@type': 'Answer', text: "L'accordo bilaterale del 2020, ratificato nel 2023, prevede la franchigia come misura strutturale del nuovo regime. Non ha scadenza prevista, ma l'importo potrebbe essere rivalutato da futuri negoziati bilaterali. Al momento per il 2026 resta confermata a €10.000 annui per contribuente." } }
+ ],
+ speakable: SPEAKABLE_SECTION,
+ }
+ ],
+ },
+
+ 'glossario-ristorni': {
+ title: 'Ristorni | Glossario Frontalieri',
+ description: 'Definizione di ristorni fiscali: cosa sono, come funzionano tra Svizzera e comuni italiani di confine e perché sono rilevanti nel dibattito 2026.',
+ keywords: 'ristorni frontalieri, comuni confine ticino, tassa salute ristorni',
+ ogTitle: 'Ristorni — Glossario Frontalieri',
+ ogDescription: 'Cosa sono i ristorni fiscali e perché contano per i frontalieri.',
+ canonicalPath: '/glossario-frontaliere/ristorni/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.', url: `${BASE_URL}/glossario-frontaliere/ristorni/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cosa sono i ristorni fiscali per i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "I ristorni fiscali sono somme che la Confederazione Svizzera retrocede ai comuni italiani di confine come compensazione per i servizi pubblici erogati ai lavoratori frontalieri residenti in Italia. Storicamente la Svizzera restituiva il 38,8% dell'imposta alla fonte trattenuta ai vecchi frontalieri. I ristorni vengono gestiti dal Ministero dell'Economia italiano e distribuiti ai comuni in base al numero di frontalieri residenti." } },
+ { '@type': 'Question', name: "Chi riceve i ristorni: i frontalieri o i comuni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani di frontiera, non i singoli frontalieri. Il comune usa i ristorni per finanziare infrastrutture e servizi locali (scuole, strade, trasporti, servizi sociali). Il frontaliere non riceve denaro direttamente, ma beneficia indirettamente attraverso migliori servizi nel proprio comune di residenza. Alcuni comuni hanno azzerato l'addizionale IRPEF grazie ai ristorni." } },
+ { '@type': 'Question', name: "I ristorni cambiano con il nuovo accordo 2026?", acceptedAnswer: { '@type': 'Answer', text: "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Quali comuni italiani ricevono i ristorni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani entro 20 km dal confine svizzero nelle province di Como, Varese, Verbano-Cusio-Ossola, Sondrio (per il Canton Ticino e Grigioni) e i comuni confinanti per Canton Vallese e Giura. L'elenco è stabilito dalla Convenzione CH-IT del 1974 e aggiornato periodicamente. I principali beneficiari storici sono Como, Chiasso, Ponte Tresa, Luino e Varese." } },
+ { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "Negli ultimi anni la Svizzera ha retrocesso tra €70 milioni e €90 milioni l'anno all'Italia per i ristorni dei frontalieri. La quota è cresciuta con l'aumento del numero di frontalieri, ma si prevede una riduzione progressiva nel prossimo decennio per effetto del nuovo accordo che sposta il gettito direttamente nelle casse italiane tramite l'IRPEF." } },
+ { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "In misura molto ridotta. Per i nuovi frontalieri, la Svizzera trattiene solo l'80% dell'imposta alla fonte ordinaria e non c'è retrocessione significativa ai comuni italiani, perché l'Italia incassa direttamente l'IRPEF dal lavoratore. Il modello di finanziamento dei comuni di frontiera è in fase di ridisegno tramite negoziati bilaterali." } }
+ ],
+ speakable: SPEAKABLE_SECTION,
+ }
+ ],
+ },
+
+ 'glossario-lamal': {
+ title: 'LAMal | Glossario Frontalieri',
+ description: 'Definizione di LAMal: assicurazione sanitaria obbligatoria svizzera, premi, franchigie e modelli per frontalieri.',
+ keywords: 'lamal frontalieri, cassa malati ticino, franchigia assicurazione svizzera',
+ ogTitle: 'LAMal — Glossario Frontalieri',
+ ogDescription: 'Cos\'è LAMal e come scegliere franchigia e modello assicurativo.',
+ canonicalPath: '/glossario-frontaliere/lamal/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LAMal', description: 'LAMal: assicurazione malattia obbligatoria svizzera. Copre cure mediche, ospedaliere e farmaci. Per residenti in Italia si applicano premi per Paese di domicilio, modello standard e franchigia ordinaria.', url: `${BASE_URL}/glossario-frontaliere/lamal/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è la LAMal e perché riguarda i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "LAMal (Loi fédérale sur l'Assurance Maladie) è l'assicurazione sanitaria obbligatoria svizzera. Copre cure mediche, ospedaliere e farmaci. I frontalieri con permesso G devono assicurarsi entro 3 mesi dall'inizio del lavoro in Svizzera: possono scegliere LAMal svizzera oppure esercitare il diritto di opzione (opting-out) per il Servizio Sanitario Nazionale italiano." } },
+ { '@type': 'Question', name: "Quanto costa la LAMal per un frontaliere in Ticino nel 2026?", acceptedAnswer: { '@type': 'Answer', text: "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
+ { '@type': 'Question', name: "Cos'è il diritto di opzione e quando conviene?", acceptedAnswer: { '@type': 'Answer', text: "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
+ { '@type': 'Question', name: "Come si sceglie la franchigia LAMal più conveniente?", acceptedAnswer: { '@type': 'Answer', text: "La scelta dipende dal Paese di residenza. Per chi risiede in Italia la franchigia LAMal è quella ordinaria: CHF 300 per adulti e giovani adulti, CHF 0 per bambini. Non sono disponibili franchigie opzionali né modelli HMO o Telmed. Chi risiede in Svizzera può invece confrontare le franchigie opzionali offerte, considerando insieme premio e spese sanitarie a proprio carico. Fonte: https://www.bag.admin.ch/it/assicurazione-malattie-forme-particolari-dassicurazione" } },
+ { '@type': 'Question', name: "Qual è la differenza tra LAMal e LAMal complementare?", acceptedAnswer: { '@type': 'Answer', text: "La LAMal di base (obbligatoria) copre cure ambulatoriali, ospedaliere in reparto comune cantonale, farmaci LS e maternità. La LAMal complementare (LCA, facoltativa) aggiunge reparto semi-privato o privato in ospedale, medicine alternative, occhiali, dentista. I premi complementari variano da CHF 30 a CHF 400/mese e richiedono questionario sanitario di adesione." } },
+ { '@type': 'Question', name: "Posso cambiare cassa malati LAMal ogni anno?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La LAMal di base si può disdire entro il 30 novembre per cambiare cassa dal 1° gennaio successivo. La disdetta va inviata con raccomandata. Il cambio non comporta esami sanitari (franchise dei premi) perché la LAMal di base è obbligatoria e non discriminante. La LAMal complementare invece può rifiutare l'adesione in base allo stato di salute." } }
+ ],
+ speakable: SPEAKABLE_SECTION,
+ },
+ ],
+ },
+
+ 'glossario-cmu': {
+ title: 'CMU | Glossario Frontalieri',
+ description: 'Definizione di CMU (assicurazione sanitaria francese) nel contesto dei frontalieri: differenze rispetto a LAMal e SSN.',
+ keywords: 'cmu frontalieri, lamal vs cmu, assicurazione sanitaria frontalieri',
+ ogTitle: 'CMU — Glossario Frontalieri',
+ ogDescription: 'Cos\'è la CMU e in cosa differisce da LAMal per i frontalieri.',
+ canonicalPath: '/glossario-frontaliere/cmu/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'CMU', description: 'CMU (Couverture Maladie Universelle): assicurazione sanitaria pubblica francese, alternativa a LAMal per frontalieri in Francia.', url: `${BASE_URL}/glossario-frontaliere/cmu/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è la CMU e quando si applica ai frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "La CMU (Couverture Maladie Universelle, oggi PUMa — Protection Universelle Maladie) è il sistema sanitario pubblico francese. Si applica ai frontalieri residenti in Francia che lavorano in Svizzera e scelgono il diritto di opzione: invece di pagare la LAMal svizzera si iscrivono al sistema francese con un contributo proporzionale al reddito (circa 8% del reddito netto imponibile)." } },
+ { '@type': 'Question', name: "La CMU riguarda anche i frontalieri italiani?", acceptedAnswer: { '@type': 'Answer', text: "No. La CMU è esclusivamente francese. I frontalieri italiani residenti in Italia hanno un'alternativa differente: il diritto di opzione verso il SSN (Servizio Sanitario Nazionale) italiano. La differenza con la Francia è che in Italia il SSN è finanziato tramite fiscalità generale e non richiede un contributo aggiuntivo dedicato." } },
+ { '@type': 'Question', name: "Meglio LAMal o SSN per un frontaliere italiano?", acceptedAnswer: { '@type': 'Answer', text: "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en" } },
+ { '@type': 'Question', name: "Come si attiva il diritto di opzione verso il SSN?", acceptedAnswer: { '@type': 'Answer', text: "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
+ { '@type': 'Question', name: "Se scelgo il SSN posso farmi curare in Svizzera?", acceptedAnswer: { '@type': 'Answer', text: "Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en" } },
+ { '@type': 'Question', name: "Cosa succede se non scelgo entro 3 mesi?", acceptedAnswer: { '@type': 'Answer', text: "Se il frontaliere non esercita il diritto di opzione entro 3 mesi dall'inizio del lavoro, viene iscritto d'ufficio alla LAMal svizzera con una cassa malati a sorte scelta dal Cantone. La scelta LAMal di default può essere costosa: è fortemente consigliato confrontare le casse e scegliere attivamente prima della scadenza dei 3 mesi." } }
+ ],
+ speakable: SPEAKABLE_SECTION,
+ }
+ ],
+ },
+
+ 'glossario-permessoG': {
+ title: 'Permesso G | Glossario Frontalieri',
+ description: 'Definizione di permesso G: requisiti, diritti, tassazione e differenze rispetto al permesso B per frontalieri.',
+ keywords: 'permesso g frontalieri, permesso g vs b, tasse permesso g',
+ ogTitle: 'Permesso G — Glossario Frontalieri',
+ ogDescription: 'Cos\'è il permesso G e cosa cambia rispetto al permesso B.',
+ canonicalPath: '/glossario-frontaliere/permesso-g/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per frontalieri che risiedono in un Paese confinante e rientrano quotidianamente. Validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-g/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Quali sono i requisiti per ottenere il permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Per ottenere il permesso G devi avere cittadinanza UE/AELS, un contratto di lavoro con un datore svizzero e residenza in un paese confinante (Italia, Francia, Germania, Austria). È obbligatorio rientrare a casa almeno una volta a settimana. La domanda la fa il datore di lavoro tramite l'ufficio migrazione cantonale (in Ticino, la Sezione Popolazione). Il permesso G ha validità di 5 anni rinnovabili, legata al rapporto di lavoro." } },
+ { '@type': 'Question', name: 'Quali documenti servono per la domanda del permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Servono: contratto di lavoro firmato dal datore svizzero, documento di identità valido, certificato di residenza italiano, attestazione ISEE o stato di famiglia, modulo ufficiale cantonale compilato dal datore. La procedura richiede tipicamente 2-4 settimane in Ticino. Il costo del permesso è a carico del lavoratore (CHF 65-100 a seconda del cantone) ed è rilasciato in formato card biometrica da esibire al posto di confine quando richiesto." } },
+ { '@type': 'Question', name: 'Il permesso G permette di vivere in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "No: il permesso G autorizza solo a lavorare in Svizzera mantenendo la residenza nel paese confinante di origine, con rientro settimanale obbligatorio. Per vivere in Svizzera serve il permesso B (dimora annuale) o C (stabilimento), che comportano residenza fiscale svizzera e tassazione ordinaria invece di tassazione concorrente. Il permesso G decade se sposti la residenza in Svizzera o se smetti di rientrare settimanalmente nel paese d'origine." } },
+ { '@type': 'Question', name: 'Cosa succede al permesso G in caso di licenziamento o disoccupazione?', acceptedAnswer: { '@type': 'Answer', text: "In caso di cessazione del rapporto di lavoro, il permesso G perde validità entro pochi mesi (solitamente 3-6 a seconda del cantone e della durata del rapporto pregresso). Il frontaliere può iscriversi alla disoccupazione svizzera (cassa di compensazione AC) solo se si è trasferito in Svizzera; altrimenti fa domanda di NASpI in Italia, dove gli anni di contribuzione AC svizzera vengono totalizzati grazie agli accordi bilaterali UE-CH." } },
+ ],
+ },
+ ],
+ },
+
+ 'glossario-permessoB': {
+ title: 'Permesso B | Glossario Frontalieri',
+ description: 'Definizione di permesso B: requisiti, residenza, impatto fiscale e differenze rispetto al permesso G.',
+ keywords: 'permesso b frontalieri, residenza svizzera, permesso b vs g',
+ ogTitle: 'Permesso B — Glossario Frontalieri',
+ ogDescription: 'Cos\'è il permesso B e quando conviene rispetto al permesso G.',
+ canonicalPath: '/glossario-frontaliere/permesso-b/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso B', description: 'Permesso B: autorizzazione di dimora in Svizzera per cittadini UE/AELS. Consente residenza e lavoro in Svizzera, validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-b/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Qual è la differenza fiscale tra permesso B e permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Il permesso B comporta residenza e tassazione fiscale in Svizzera: si paga imposta ordinaria cantonale e federale sulla base di una dichiarazione annuale, con aliquote marginali fino al 40% circa per redditi alti in Ticino. Il permesso G mantiene residenza fiscale italiana, paga imposta alla fonte svizzera e (per nuovi frontalieri) IRPEF italiana con franchigia €10.000. La convenienza dipende da reddito, composizione familiare e costo della vita." } },
+ { '@type': 'Question', name: 'Chi può richiedere il permesso B in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "Possono richiedere il permesso B i cittadini UE/AELS con contratto di lavoro svizzero di durata superiore a 12 mesi, o chi dimostra mezzi sufficienti di sostentamento e copertura sanitaria. La durata iniziale è di 5 anni, rinnovabile. Dopo 5 anni di residenza continuativa si può chiedere il permesso C (stabilimento). È necessario trasferire la residenza anagrafica in Svizzera, iscriversi al comune e sottoscrivere LAMal obbligatoria entro 3 mesi dall'arrivo." } },
+ { '@type': 'Question', name: 'Conviene passare da permesso G a permesso B?', acceptedAnswer: { '@type': 'Answer', text: "Dipende dal profilo: per redditi alti (oltre CHF 120.000) e famiglie senza vincoli in Italia, il permesso B può risultare conveniente grazie a tassazione ordinaria favorevole e accesso pieno ai servizi svizzeri. Per redditi medi o per chi mantiene famiglia in Italia, il permesso G con nuova franchigia €10.000 resta spesso più vantaggioso. Simula il netto con il nostro calcolatore confronto G vs B prima di decidere: il costo della vita in CH è decisivo." } },
+ { '@type': 'Question', name: 'Il permesso B comporta la perdita dei diritti pensionistici italiani?', acceptedAnswer: { '@type': 'Answer', text: "No: i contributi INPS già versati in Italia restano validi e concorrono alla pensione tramite la totalizzazione UE. Con il permesso B continui a versare AVS (1° pilastro) e LPP (2° pilastro) in Svizzera. Al pensionamento riceverai pensioni pro-rata da entrambi i paesi, calcolate sui rispettivi anni di contribuzione. Per ottimizzare la previdenza è consigliabile massimizzare il 3° pilastro svizzero (3a) deducibile fiscalmente fino a CHF 7.258/anno." } },
+ ],
+ },
+ ],
+ },
+
+ 'glossario-avs': {
+ title: 'AVS | Glossario Frontalieri',
+ description: 'Definizione di AVS (1° pilastro): contributi, prestazioni e impatto sul netto dei frontalieri.',
+ keywords: 'avs svizzera, contributi avs, pensione frontalieri',
+ ogTitle: 'AVS — Glossario Frontalieri',
+ ogDescription: 'Cos\'è AVS e come incide su busta paga e pensione.',
+ canonicalPath: '/glossario-frontaliere/avs/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'AVS', description: 'AVS (Assicurazione Vecchiaia e Superstiti): primo pilastro previdenziale svizzero. Contributo del 5,3% sullo stipendio dei frontalieri.', url: `${BASE_URL}/glossario-frontaliere/avs/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è l'AVS e chi è tenuto a versare i contributi?", acceptedAnswer: { '@type': 'Answer', text: "L'AVS (Assicurazione Vecchiaia e Superstiti) è il primo pilastro del sistema pensionistico svizzero. Tutti i lavoratori dipendenti in Svizzera, compresi i frontalieri, versano il 5,3% del salario lordo; il datore di lavoro contribuisce con un altro 5,3%. Il prelievo è obbligatorio e compare automaticamente in busta paga sotto la voce AVS/AI/IPG (5,3% = 4,35% AVS + 0,7% AI + 0,25% IPG)." } },
+ { '@type': 'Question', name: "Quando ho diritto alla pensione AVS?", acceptedAnswer: { '@type': 'Answer', text: "L'età ordinaria di pensionamento AVS è 65 anni per gli uomini e, dal 2028, 65 anni anche per le donne (aumento graduale da 64). La rendita piena (scala 44) richiede 44 anni contributivi. Ogni anno mancante riduce la rendita di 1/44. Esempio 2026: rendita minima CHF 1.260/mese, rendita massima CHF 2.520/mese per coppie (o singoli sopra un certo reddito medio rivalutato)." } },
+ { '@type': 'Question', name: "Posso cumulare AVS e pensione INPS italiana?", acceptedAnswer: { '@type': 'Answer', text: "Sì, grazie alla totalizzazione prevista dall'Accordo CH-UE. I periodi contributivi svizzeri e italiani si sommano per raggiungere il diritto minimo a pensione in entrambi i Paesi. Ogni Stato paga però la propria quota in proporzione (pro-rata) agli anni di contribuzione effettivi. Non si ottiene quindi doppia pensione piena: si riceve la quota svizzera per gli anni AVS e la quota italiana per gli anni INPS." } },
+ { '@type': 'Question', name: "Cosa succede all'AVS se torno a lavorare in Italia?", acceptedAnswer: { '@type': 'Answer', text: "I contributi AVS versati restano accreditati a vita sul conto individuale AVS svizzero. Al compimento dei 65 anni si percepisce la pensione pro-rata direttamente in Italia tramite bonifico dalla Cassa di Compensazione. Non è possibile riscuotere l'AVS in anticipo come capitale (a differenza del 2° pilastro LPP): l'AVS si riceve solo sotto forma di rendita mensile." } },
+ { '@type': 'Question', name: "Come verifico i miei contributi AVS maturati?", acceptedAnswer: { '@type': 'Answer', text: "Si richiede l'estratto conto individuale (ECI) gratuito alla Cassa Cantonale di Compensazione del cantone dove si lavora (per il Ticino: IAS Ticino). È disponibile online sul portale AHV-eco.ch con autenticazione SwissID. L'estratto mostra i contributi anno per anno: è fondamentale controllarlo ogni 5 anni per individuare buchi contributivi prima che diventino irreversibili dopo 5 anni di prescrizione." } },
+ { '@type': 'Question', name: "Come influisce l'AVS sul netto in busta paga?", acceptedAnswer: { '@type': 'Answer', text: "L'AVS riduce il netto del 5,3% sul lordo lavoratore. Su CHF 80.000 lordi annui equivale a circa CHF 4.240/anno (CHF 353/mese) di contributi personali. Insieme ad AC (1,1%), AINF (circa 0,8%) e LPP (dal 7% al 18% secondo età), i contributi sociali svizzeri assorbono complessivamente tra il 12% e il 22% del lordo, prima ancora dell'imposta alla fonte." } }
+ ]
+ }
+ ],
+ },
+
+ 'glossario-lpp': {
+ title: 'LPP | Glossario Frontalieri',
+ description: 'Definizione di LPP (2° pilastro): aliquote per età, contributi e impatto sul netto dei frontalieri.',
+ keywords: 'lpp svizzera, secondo pilastro, contributi lpp per età',
+ ogTitle: 'LPP — Glossario Frontalieri',
+ ogDescription: 'Cos\'è LPP e come influisce su netto e pensione.',
+ canonicalPath: '/glossario-frontaliere/lpp/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LPP', description: 'LPP (Previdenza Professionale): secondo pilastro pensionistico svizzero. Contributi crescenti per età, dal 7% al 18% del salario coordinato.', url: `${BASE_URL}/glossario-frontaliere/lpp/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è il 2° pilastro LPP e chi deve aderirvi?", acceptedAnswer: { '@type': 'Answer', text: "La LPP (Previdenza Professionale Obbligatoria) è il 2° pilastro svizzero: un fondo pensione aziendale obbligatorio per tutti i dipendenti con salario AVS superiore a CHF 22.680 annui (soglia 2026). Ogni azienda aderisce a una cassa pensione che accumula contributi mensili in un conto individuale e li restituisce al pensionamento come rendita vitalizia o capitale. I frontalieri sono inclusi automaticamente." } },
+ { '@type': 'Question', name: "Quanto si contribuisce alla LPP ogni mese?", acceptedAnswer: { '@type': 'Answer', text: "I contributi LPP minimi per legge variano per età, applicati sul salario coordinato (lordo meno deduzione di coordinamento di CHF 26.460): 7% dai 25–34 anni, 10% dai 35–44, 15% dai 45–54, 18% dai 55–65. Il contributo è metà lavoratore e metà datore. Molte casse pensione (piani sovraobbligatori) prevedono percentuali più alte, quindi il contributo reale può arrivare al 20–25%." } },
+ { '@type': 'Question', name: "Posso riscuotere il 2° pilastro se rientro in Italia?", acceptedAnswer: { '@type': 'Answer', text: "In parte. Lasciando definitivamente la Svizzera per un Paese UE/AELS (come l'Italia), si può riscuotere solo la parte sovraobbligatoria come capitale. La parte obbligatoria resta su un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente non lavoratore dipendente, acquisto prima casa). Nel Liechtenstein o in altri cantoni il prelievo è possibile: pianificare il domicilio della cassa aiuta ad ottimizzare la tassazione." } },
+ { '@type': 'Question', name: "Come viene tassato il riscatto del 2° pilastro?", acceptedAnswer: { '@type': 'Answer', text: "Il capitale LPP prelevato in Svizzera è tassato con aliquota agevolata separata (tra 4% e 12% a seconda del cantone e dell'importo). Se il frontaliere si è trasferito in Italia prima del riscatto, in Italia il capitale è soggetto a tassazione IRPEF sulla parte redditi (non su contributi personali già tassati). La pianificazione cantonale del domicilio della cassa (es. Schwyz, Zugo) può ridurre sensibilmente l'imposizione svizzera." } },
+ { '@type': 'Question', name: "Cos'è il riscatto volontario LPP ed è deducibile?", acceptedAnswer: { '@type': 'Answer', text: "È un versamento alla cassa pensione per colmare lacune previdenziali, secondo le condizioni della cassa. Non garantisce un rimborso dell’imposta alla fonte. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Quanto vale in media il 2° pilastro accumulato a fine carriera?", acceptedAnswer: { '@type': 'Answer', text: "Dipende da stipendio, anni di contribuzione e rendimenti della cassa. Esempio: un frontaliere con CHF 80.000 lordi annui per 35 anni accumula tipicamente tra CHF 400.000 e CHF 700.000, che generano una rendita mensile di CHF 2.000–3.500 (aliquota di conversione 6–6,8%). Il 2° pilastro è quindi la componente più rilevante della pensione svizzera per profili di reddito medio-alto." } }
+ ]
+ }
+ ],
+ },
+
+ 'glossario-terzoPilastro': {
+ title: 'Terzo Pilastro | Glossario Frontalieri',
+ description: 'Definizione di 3° pilastro (3a/3b): deduzioni fiscali e previdenza complementare per chi lavora in Svizzera.',
+ keywords: 'terzo pilastro 3a, deduzione 3a 2026, previdenza svizzera',
+ ogTitle: 'Terzo Pilastro — Glossario Frontalieri',
+ ogDescription: 'Cos\'è il terzo pilastro e come si usa per ridurre le tasse.',
+ canonicalPath: '/glossario-frontaliere/terzo-pilastro/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Terzo Pilastro', description: 'Terzo pilastro (3a/3b): previdenza privata svizzera con vantaggi fiscali. La deducibilità dipende dallo status fiscale: non è automatica per i frontalieri fiscali dell’accordo Italia–Svizzera.', url: `${BASE_URL}/glossario-frontaliere/terzo-pilastro/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è il 3° pilastro e in cosa si differenzia dal 2°?", acceptedAnswer: { '@type': 'Answer', text: "Il secondo pilastro è previdenza professionale; il terzo è previdenza individuale volontaria. Il 3a è vincolato, mentre il 3b è previdenza libera. I vantaggi fiscali dipendono dalla situazione personale. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Un frontaliere può aprire un 3° pilastro svizzero?", acceptedAnswer: { '@type': 'Answer', text: "L’accesso al 3a va verificato con l’istituto previdenziale in base all’attività e all’assicurazione sociale. Aprire un conto non significa poter dedurre fiscalmente i versamenti. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Quanto fa risparmiare il 3° pilastro in tasse?", acceptedAnswer: { '@type': 'Answer', text: "Non esiste un risparmio fiscale automatico o uguale per tutti. Prima di stimarlo occorre verificare se i versamenti sono deducibili nel proprio regime fiscale. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Come si riscuote il 3a al pensionamento?", acceptedAnswer: { '@type': 'Answer', text: "Il 3a può essere prelevato come capitale al massimo 5 anni prima dell'età AVS (quindi dai 60 anni) e obbligatoriamente all'età ordinaria. Il capitale è tassato in Svizzera con aliquota agevolata separata (2–10% a seconda del cantone). Prelievi anticipati sono ammessi per: acquisto prima casa, avvio attività indipendente, partenza definitiva dalla Svizzera (per un Paese UE solo la parte sovraobbligatoria)." } },
+ { '@type': 'Question', name: "Meglio 3° pilastro svizzero o piano pensione italiano?", acceptedAnswer: { '@type': 'Answer', text: "Non c’è una scelta migliore per tutti: confronta accesso, costi, vincoli di prelievo e fiscalità dei versamenti e delle prestazioni nei due Paesi. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Cosa succede al 3° pilastro se rientro in Italia?", acceptedAnswer: { '@type': 'Answer', text: "Il conto 3a resta in Svizzera fino al pensionamento o fino al riscatto anticipato per partenza definitiva. Al rientro definitivo in Italia si può richiedere il prelievo totale del capitale con tassazione svizzera separata agevolata. In Italia il capitale è soggetto a tassazione solo sulla parte di rendimenti maturati (non su capitale versato), con regime convenzionale previsto dalla Convenzione contro la doppia imposizione." } }
+ ]
+ }
+ ],
+ },
+
+ 'glossario-tassoCambio': {
+ title: 'Tasso di Cambio | Glossario Frontalieri',
+ description: 'Definizione di tasso di cambio CHF/EUR: come incide su netto in EUR, tasse italiane e trasferimenti Svizzera–Italia.',
+ keywords: 'tasso di cambio chf eur, cambio valuta frontalieri, conversione chf eur',
+ ogTitle: 'Tasso di cambio — Glossario Frontalieri',
+ ogDescription: 'Cos\'è il tasso di cambio e perché conta per frontalieri e trasferimenti.',
+ canonicalPath: '/glossario-frontaliere/tasso-di-cambio/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Tasso di cambio CHF/EUR', description: 'Tasso di cambio CHF/EUR: rapporto franco svizzero-euro, fondamentale per calcolare netto in euro e tasse italiane dei frontalieri.', url: `${BASE_URL}/glossario-frontaliere/tasso-di-cambio/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: "Cos'è il tasso di cambio CHF/EUR per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "Il tasso di cambio CHF/EUR è il rapporto tra franco svizzero ed euro. Indica quanti euro corrispondono a 1 franco (o viceversa). Per un frontaliere è cruciale: determina quanto vale in euro lo stipendio ricevuto in CHF, quanto si pagano le tasse italiane convertendo il reddito svizzero, e quanto costa convertire ogni mese gli stipendi in euro per le spese in Italia. Oscillazioni dell'1% su uno stipendio di CHF 5.000 valgono €50 al mese." } },
+ { '@type': 'Question', name: "Quale tasso di cambio si usa in dichiarazione dei redditi italiana?", acceptedAnswer: { '@type': 'Answer', text: "L'Agenzia delle Entrate richiede il cambio medio annuo BCE dell'anno fiscale per convertire il reddito svizzero. Questo valore è pubblicato ufficialmente dall'Agenzia delle Entrate ogni anno (circolare dedicata). Non si usa il cambio giornaliero né quello della banca. Esempio: per il 2025 il cambio medio è circa CHF 1 = €1,04 (da confermare nelle tabelle ufficiali). Usare il cambio sbagliato è un errore frequente che può causare ricalcoli." } },
+ { '@type': 'Question', name: "Conviene cambiare CHF in EUR con la banca o con Wise?", acceptedAnswer: { '@type': 'Answer', text: "Wise e Revolut applicano il cambio interbancario con markup 0,25–0,5%, mentre banche tradizionali applicano markup 2–3%. Per un frontaliere che cambia CHF 5.000/mese, la differenza è CHF 100–150/mese, ovvero CHF 1.200–1.800/anno. PostFinance, UBS e Credit Suisse hanno spread più alti; N26 e Revolut offrono condizioni competitive. Molti frontalieri mantengono conto in CHF (svizzero) + conto in EUR (italiano o Wise)." } },
+ { '@type': 'Question', name: "Come proteggersi dal rischio di cambio CHF/EUR?", acceptedAnswer: { '@type': 'Answer', text: "Le strategie principali: 1) Mantenere un conto CHF svizzero e convertire solo il necessario ogni mese; 2) Diversificare negli strumenti a cambio forward (Wise, Interactive Brokers) per bloccare un tasso; 3) Tenere un cuscinetto di liquidità CHF per evitare conversioni forzate in periodi di franco debole; 4) Considerare il franco come valuta di riserva (storicamente rifugio), quindi meno volatile in valore reale." } },
+ { '@type': 'Question', name: "Il cambio CHF/EUR influisce sul mutuo in Italia?", acceptedAnswer: { '@type': 'Answer', text: "Sì, indirettamente. Le banche italiane valutano il reddito svizzero convertendolo in EUR al cambio attuale per calcolare la capacità di rimborso. Cambi sfavorevoli possono ridurre la somma concessa. Per mitigare, alcune banche accettano la media dei 12 cambi mensili ufficiali. Inoltre, chi ha un mutuo in euro paga con stipendio in franchi: un franco forte riduce la rata in termini relativi; un franco debole la aumenta." } },
+ { '@type': 'Question', name: "Il tasso di cambio è rimasto stabile negli ultimi anni?", acceptedAnswer: { '@type': 'Answer', text: "No. Il CHF/EUR ha oscillato sensibilmente: da 1,20 (2011–2014, con floor BNS), a parità a 1:1 nel 2022, fino a 0,93–0,96 nel 2024–2026 (franco forte). Ogni 5% di movimento equivale a circa €200–300/mese di variazione per un frontaliere medio. Monitorare il cambio è importante per pianificare risparmi, trasferimenti e momento ottimale per grandi conversioni CHF→EUR." } }
+ ]
+ }
+ ],
+ },
+
+ comparatori: {
+ title: 'Comparatori Servizi CH-IT | Frontaliere Ticino',
+ description: 'I frontalieri risparmiano 100–300 CHF/mese scegliendo bene: cambio valuta (Wise batte le banche del 2%), mobili con roaming da 19 €/mese. 8 confronti.',
+ keywords: 'cambio chf eur, cambio valuta svizzera, wise revolut confronto, operatori mobili svizzera, roaming svizzera italia, trasporti frontalieri, assicurazione sanitaria ticino, banche svizzera italia, traffico valichi doganali',
+ ogTitle: 'Comparatori Servizi Frontalieri',
+ ogDescription: 'Risparmia 100–300 CHF/mese sui servizi da frontaliere: cambio valuta, operatori mobili con roaming CH-IT, trasporti, assicurazioni sanitarie e conti bancari a confronto.',
+ canonicalPath: '/compara-servizi/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Comparatori Servizi Frontalieri",
+ "url": `${BASE_URL}/compara-servizi/`,
+ "description": "Strumenti di confronto per servizi essenziali per lavoratori frontalieri",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Strumenti di confronto frontalieri",
+ "numberOfItems": 8,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Cambio Valuta CHF/EUR", "url": `${BASE_URL}/compara-servizi/cambio-franco-euro/` },
+ { "@type": "ListItem", "position": 2, "name": "Operatori Mobili", "url": `${BASE_URL}/compara-servizi/confronta-operatori-mobili/` },
+ { "@type": "ListItem", "position": 3, "name": "Assicurazioni Sanitarie LAMal", "url": `${BASE_URL}/compara-servizi/confronta-casse-malati/` },
+ { "@type": "ListItem", "position": 4, "name": "Confronto Banche CH-IT", "url": `${BASE_URL}/compara-servizi/confronta-banche/` },
+ { "@type": "ListItem", "position": 5, "name": "Spesa Transfrontaliera", "url": `${BASE_URL}/compara-servizi/confronta-prezzi-spesa/` },
+ { "@type": "ListItem", "position": 6, "name": "Costo della Vita", "url": `${BASE_URL}/compara-servizi/costo-della-vita/` },
+ { "@type": "ListItem", "position": 7, "name": "Confronto Offerte Lavoro", "url": `${BASE_URL}/compara-servizi/confronta-offerte-lavoro/` },
+ { "@type": "ListItem", "position": 8, "name": "Bonus Ristrutturazione", "url": `${BASE_URL}/compara-servizi/calcola-bonus-ristrutturazione/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quali servizi possono confrontare i frontalieri su questo sito?", "acceptedAnswer": { "@type": "Answer", "text": "È possibile confrontare: tassi di cambio CHF/EUR (6 provider), operatori mobili con roaming Italia, assicurazioni sanitarie LAMal (14 casse malati), banche svizzere e italiane, prezzi della spesa transfrontaliera, costo della vita CH vs IT, e offerte di lavoro in Ticino." } },
+ { "@type": "Question", "name": "Quanto si risparmia confrontando i servizi per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il risparmio varia: sul cambio valuta fino a CHF 150/mese con Wise/Revolut vs banche tradizionali, sulla telefonia fino a CHF 30/mese con operatori low-cost, sull'assicurazione sanitaria fino a CHF 200/mese scegliendo la cassa malati giusta." } },
+ { "@type": "Question", "name": "I comparatori sono gratuiti?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, tutti i comparatori e gli strumenti di Frontaliere Ticino sono completamente gratuiti, senza registrazione richiesta. Il sito funziona anche offline come Progressive Web App." } },
+ { "@type": "Question", "name": "Come vengono aggiornati i dati dei comparatori?", "acceptedAnswer": { "@type": "Answer", "text": "I tassi di cambio sono aggiornati in tempo reale tramite API. I premi assicurativi e i costi dei servizi vengono aggiornati mensilmente o quando le tariffe cambiano. Le offerte di lavoro sono aggiornate quotidianamente dai siti delle aziende." } }
+ ]
+ }
+ ]
+ },
+
+ // ─── Section landing pages ──────────────────────────────────,
+
+ calcolatore: {
+ // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
+ // See docs/seo-semrush-growth-plan.md Task A.3.
+ title: 'Calcolo stipendio netto Svizzera 2026',
+ description: 'Calcola lo stipendio netto da frontaliere in Svizzera: imposta alla fonte, AVS, LPP, IRPEF e franchigia di 10.000 €. Simulatore gratuito aggiornato al 2026.',
+ keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
+ ogTitle: 'Calcolo stipendio netto Svizzera 2026',
+ ogDescription: 'Simula lo stipendio netto da frontaliere con imposta alla fonte, contributi AVS/LPP, IRPEF e franchigia di 10.000 €. Calcolo gratuito aggiornato al 2026.',
+ canonicalPath: '/calcola-stipendio/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolo Stipendio Netto Svizzera — Simulatore Frontalieri",
+ "url": `${BASE_URL}/calcola-stipendio/`,
+ "description": "Simulatore gratuito per il calcolo dello stipendio netto in Svizzera per frontalieri: AVS, imposta alla fonte Ticino, IRPEF con franchigia 10.000 EUR e confronto CHF/EUR. Nuovo Accordo fiscale 2026.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "isAccessibleForFree": true,
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Calcolatore Stipendio Frontaliere",
+ "url": `${BASE_URL}/calcola-stipendio/`,
+ "description": "Raccolta strumenti di calcolo per lavoratori frontalieri Svizzera-Italia",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Strumenti di calcolo frontalieri",
+ "numberOfItems": 8,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Confronto RAL CH-IT", "url": `${BASE_URL}/calcola-stipendio/confronta-retribuzione-ral/` },
+ { "@type": "ListItem", "position": 2, "name": "Simula Busta Paga", "url": `${BASE_URL}/calcola-stipendio/simula-busta-paga/` },
+ { "@type": "ListItem", "position": 3, "name": "Stima Bonus", "url": `${BASE_URL}/calcola-stipendio/stima-bonus-frontaliere/` },
+ { "@type": "ListItem", "position": 4, "name": "Congedo Parentale", "url": `${BASE_URL}/calcola-stipendio/verifica-congedo-parentale/` },
+ { "@type": "ListItem", "position": 5, "name": "Permesso G vs B", "url": `${BASE_URL}/guida-frontaliere/confronta-permesso-g-vs-b/` },
+ { "@type": "ListItem", "position": 6, "name": "What-If Simulator", "url": `${BASE_URL}/calcola-stipendio/cosa-cambia-se/` },
+ { "@type": "ListItem", "position": 7, "name": "Cambio Residenza", "url": `${BASE_URL}/calcola-stipendio/simula-cambio-residenza/` },
+ { "@type": "ListItem", "position": 8, "name": "Quanto Guadagneresti", "url": `${BASE_URL}/calcola-stipendio/quanto-guadagneresti-in-svizzera/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Come funziona il calcolatore stipendio per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Inserisci il tuo stipendio lordo annuo in CHF, stato civile, numero di figli, comune di residenza e tipo di frontaliere (nuovo o vecchio). Il simulatore calcola automaticamente contributi svizzeri (AVS, LPP, AC), imposta alla fonte ticinese, IRPEF italiana con franchigia, e mostra il netto mensile in CHF e EUR." } },
+ { "@type": "Question", "name": "Il calcolatore è aggiornato al 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, il calcolatore utilizza le aliquote 2026: tabelle imposta alla fonte Ticino, scaglioni IRPEF, contributi AVS 5.3%, LPP per fascia d'età, e il tasso di cambio CHF/EUR aggiornato in tempo reale. Il nuovo accordo fiscale (franchigia €10.000 per nuovi frontalieri) è pienamente integrato." } },
+ { "@type": "Question", "name": "Qual è la differenza tra gli strumenti disponibili?", "acceptedAnswer": { "@type": "Answer", "text": "Il simulatore principale calcola il netto da un lordo. 'Confronto RAL' paragona stipendi CH e IT. 'Busta Paga' simula una busta paga completa. 'What-If' mostra l'impatto di scenari alternativi (figli, cambio residenza, promozione). 'Permesso G vs B' confronta costi e benefici tra commuting e residenza." } },
+ { "@type": "Question", "name": "Il simulatore funziona anche per i vecchi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. Selezionando il regime dei vecchi frontalieri, il simulatore applica l’imposta svizzera senza IRPEF italiana sul salario coperto dall’articolo 9. Verifica di soddisfare i requisiti prima di scegliere il regime; non è una scelta libera fra due opzioni fiscali. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Conviene davvero fare il frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Per la maggior parte dei profili sì: con uno stipendio lordo CH di CHF 60.000 il netto mensile è circa 3.200–3.500 €, superiore di 800–1.200 € rispetto all'equivalente italiano. La convenienza dipende da stato civile, numero di figli, comune di residenza (addizionali IRPEF), distanza dal confine e costo dei trasporti. Usa il nostro simulatore 'What-If' per confrontare il tuo caso specifico con il reddito italiano attuale prima di decidere." } },
+ { "@type": "Question", "name": "Quanto si risparmia vivendo in Italia e lavorando in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere con stipendio mediano (CHF 5.600 lordi) e residenza a Varese o Como risparmia mediamente 1.500–2.200 € al mese rispetto a un residente svizzero con lo stesso lordo, grazie ad affitto ~60% inferiore, LAMal sostituita dal SSN (se opta) e spesa alimentare ~30% più bassa. Sottraendo 250–400 €/mese di trasporti (auto+carburante o abbonamento TILO), il risparmio netto reale è 1.100–1.800 €/mese." } },
+ { "@type": "Question", "name": "Come confrontare due offerte di lavoro CH con stipendi diversi?", "acceptedAnswer": { "@type": "Answer", "text": "Non confrontare solo il lordo: usa il simulatore 'Confronto RAL CH-IT' inserendo entrambi i lordi, lo stesso stato civile/figli e il comune di residenza. Confronta poi netto mensile in EUR, tredicesima (sempre obbligatoria in CH), contributi LPP (7–18% in base all'età), partecipazione LAMal del datore (se presente), e benefit (mensa, buoni pasto, auto aziendale). Una differenza di CHF 500 lordi può diventare solo 250–300 € netti." } }
+ ]
+ }
+  ,
+ HOWTO_CALCULATOR
+ ]
+ },
+
+ guide: {
+ title: 'Guida frontaliere Svizzera 2026: permesso G, tasse e dogana',
+ h1: 'Frontalieri Svizzera — guida completa 2026 a permesso G, tasse, dogana e primo giorno',
+ description: 'Guida frontalieri Svizzera 2026: permesso G, tasse, LAMal, dogana, auto e primo giorno. Requisiti, costi e strumenti pratici.',
+ keywords: 'frontalieri svizzera, guida frontaliere svizzera, permesso g come ottenerlo, nuovo accordo frontalieri 2026, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera, lamal frontalieri',
+ ogTitle: 'Guida frontaliere Svizzera 2026 — permesso G, tasse e dogana',
+ ogDescription: 'Guida frontalieri Svizzera 2026: permesso G, tasse, LAMal, dogana e auto. Requisiti, costi e checklist pratiche per iniziare.',
+ canonicalPath: '/guida-frontaliere/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Guida Frontaliere Svizzera-Italia",
+ "url": `${BASE_URL}/guida-frontaliere/`,
+ "description": "Guida completa per lavoratori frontalieri tra Svizzera e Italia",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Guide per frontalieri",
+ "numberOfItems": 9,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Permessi di Lavoro G e B", "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/` },
+ { "@type": "ListItem", "position": 2, "name": "Tempi Attesa Dogana", "url": `${BASE_URL}/traffico-dogane/` },
+ { "@type": "ListItem", "position": 3, "name": "Primo Giorno di Lavoro", "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/` },
+ { "@type": "ListItem", "position": 4, "name": "Tassa Salute Frontalieri 2026", "url": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/` },
+ { "@type": "ListItem", "position": 5, "name": "LAMal Frontalieri — Guida Pillar", "url": `${BASE_URL}/guida-frontaliere/lamal-frontalieri/` },
+ { "@type": "ListItem", "position": 6, "name": "Trasferire Auto in Svizzera", "url": `${BASE_URL}/guida-frontaliere/trasferire-auto-svizzera/` },
+ { "@type": "ListItem", "position": 7, "name": "Disoccupazione Transfrontaliera", "url": `${BASE_URL}/guida-frontaliere/disoccupazione-transfrontaliera/` },
+ { "@type": "ListItem", "position": 8, "name": "Mappa Comuni di Frontiera", "url": `${BASE_URL}/guida-frontaliere/mappa-confine/` },
+ { "@type": "ListItem", "position": 9, "name": "Costo Auto Pendolare", "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Cos'è un frontaliere e chi può diventarlo?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G riguarda il lavoro in Svizzera con residenza principale all’estero e rientro almeno settimanale. La definizione fiscale dell’accordo è distinta: richiede un comune nella fascia di confine, attività nella regione prevista e rientro in linea di principio quotidiano. Il solo permesso non determina il regime fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono i vantaggi di lavorare come frontaliere in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I vantaggi principali sono: stipendi 2-3 volte più alti che in Italia (mediana CHF 6.500/mese in Ticino), contributi previdenziali robusti (AVS + LPP + pillar 3a), copertura sanitaria LAMal eccellente, e possibilità di vivere in Italia con costi di vita inferiori."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona la dogana svizzera per i frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I frontalieri attraversano i valichi doganali con il permesso G. I tempi di attesa variano: 5-15 minuti in orari normali, fino a 45-60 minuti nelle ore di punta (7:00-8:30 e 17:00-18:30). I valichi principali sono Chiasso, Ponte Chiasso, Brogeda, Gaggiolo e Stabio."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto guadagna in media un frontaliere in Ticino?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Lo stipendio mediano lordo in Canton Ticino è di circa CHF 5.600/mese per i frontalieri (dati USS). Le posizioni qualificate (IT, ingegneria, finanza) superano CHF 7.000-9.000/mese. Il netto dopo imposta alla fonte e contributi sociali è circa il 75-82% del lordo."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il frontaliere ha diritto alla disoccupazione se perde il lavoro?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, il frontaliere licenziato ha diritto alla NASpI italiana. I contributi versati in Svizzera vengono totalizzati tramite il formulario PD U1, da richiedere alla cassa disoccupazione svizzera. La NASpI può durare fino a 24 mesi."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come diventare frontaliere in Svizzera passo per passo?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per diventare frontaliere serve: (1) cittadinanza UE/EFTA e residenza in un comune italiano entro 20 km dal confine svizzero; (2) un contratto di lavoro con un datore svizzero; (3) richiesta del permesso G all'Ufficio della migrazione del cantone di lavoro, allegando contratto e documento d'identità. Dopo ~30 giorni ricevi il permesso G, valido 5 anni e rinnovabile. Prima del primo giorno: apri conto svizzero, scegli tra LAMal e SSN entro 3 mesi, e iscrizione AIRE se cambi residenza."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali documenti servono per il permesso G?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per la domanda in Ticino segui la procedura SPOP e prepara i documenti richiesti, compresa la copia del documento d’identità certificata secondo le istruzioni cantonali. Presenta la richiesta prima di iniziare l’attività. Il requisito fiscale dei 20 km non è una condizione generale del permesso G UE/AELS. Rilascio e rinnovo per maggiorenni UE/AELS: CHF 75; altre categorie e pratiche hanno tariffe diverse. https://www4.ti.ch/di/spop/stranieri/richiesta-nuovo-g/"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Chi è il frontaliere secondo la legge svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G riguarda il lavoro in Svizzera con residenza principale all’estero e rientro almeno settimanale. La definizione fiscale dell’accordo è distinta: richiede un comune nella fascia di confine, attività nella regione prevista e rientro in linea di principio quotidiano. Il solo permesso non determina il regime fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ fisco: {
+ title: 'Calcolatore Imposte alla Fonte 2026 | Frontalieri',
+ description: 'Calcolatore imposte alla fonte Ticino 2026: nuovi frontalieri pagano 6–15% CH più IRPEF con franchigia 10.000 €. Vecchi mantengono regime pre-2024.',
+ keywords: 'tasse frontalieri 2026, calcolatore imposte alla fonte 2026, etax ticino 2026, dichiarazione redditi frontaliere, ristorni fiscali ticino, pensione frontaliere avs lpp, terzo pilastro 3a frontaliere, scadenze fiscali frontaliere, imposta alla fonte ticino, calcolo stipendio netto svizzera',
+ ogTitle: 'Calcolatore Imposte alla Fonte 2026 | Frontaliere Ticino',
+ ogDescription: 'Nuovo accordo 2026: calcola imposte alla fonte Ticino (6–15%) + IRPEF con franchigia 10.000 €. Guida completa a tasse, eTax, pensione AVS/LPP e previdenza.',
+ canonicalPath: '/tasse-e-pensione/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Fisco e Previdenza Frontalieri",
+ "url": `${BASE_URL}/tasse-e-pensione/`,
+ "description": "Strumenti e guide su fisco e previdenza per frontalieri Svizzera-Italia",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Strumenti fiscali e previdenziali",
+ "numberOfItems": 8,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Dichiarazione Redditi", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/` },
+ { "@type": "ListItem", "position": 2, "name": "Ristorni Fiscali", "url": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali/` },
+ { "@type": "ListItem", "position": 3, "name": "Calendario Scadenze", "url": `${BASE_URL}/tasse-e-pensione/scadenze-fiscali/` },
+ { "@type": "ListItem", "position": 4, "name": "Pianificatore Pensione AVS/LPP", "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/` },
+ { "@type": "ListItem", "position": 5, "name": "Simulatore Terzo Pilastro 3a", "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro/` },
+ { "@type": "ListItem", "position": 6, "name": "Quiz Fiscale", "url": `${BASE_URL}/tasse-e-pensione/quiz-fiscale/` },
+ { "@type": "ListItem", "position": 7, "name": "Festività Ticino", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/` },
+ { "@type": "ListItem", "position": 8, "name": "Credito d'Imposta", "url": `${BASE_URL}/tasse-e-pensione/credito-imposta/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come funziona la tassazione dei frontalieri nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto paga di tasse un frontaliere in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'imposta alla fonte in Canton Ticino varia dal 3% al 35% in base allo stipendio, stato civile e figli. Per un single con CHF 70.000 lordi l'aliquota è circa 10-12%. Per un coniugato con due figli e CHF 80.000 lordi, circa 5-7%. Le tabelle A (single), B (coniugato reddito unico), C (coniugato doppio reddito) e H (monoparentale) determinano l'aliquota."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il frontaliere deve pagare l'IRPEF in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I nuovi frontalieri (dal 17/07/2023) sì: dichiarano il reddito svizzero in Italia e pagano l'IRPEF, con una franchigia di €10.000 e il credito d'imposta per le tasse svizzere già pagate. I vecchi frontalieri (ante 17/07/2023) pagano solo in Svizzera per il periodo transitorio."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cos'è il terzo pilastro 3a e conviene al frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il 3a è previdenza individuale vincolata. La convenienza dipende da accesso, costi, vincoli e trattamento fiscale, non da un rimborso garantito. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si calcola la pensione di un frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La pensione del frontaliere ha 3 componenti: AVS svizzera (1° pilastro, max CHF 2.520/mese con 44 anni di contributi), LPP (2° pilastro, dipende dai contributi accumulati), e INPS italiana (per anni lavorati in Italia). I contributi si totalizzano grazie all'accordo bilaterale CH-UE."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Frontaliere: quanto paga di tasse totali tra Svizzera e Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Non esiste una percentuale totale valida per ogni stipendio: contano status fiscale, reddito e situazione familiare. I nuovi frontalieri fiscali pagano in Svizzera l’80% dell’aliquota ordinaria e sono tassati in Italia con credito per l’imposta svizzera. I vecchi qualificati ai sensi dell’articolo 9 conservano l’imposizione esclusiva svizzera sul salario interessato. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si compila il modello 730 da frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il nuovo frontaliere dichiara il reddito CH al quadro C (redditi da lavoro dipendente) convertito in EUR al cambio medio annuo BNS, compila il rigo RC6 per i contributi AVS deducibili, applica la franchigia €10.000 al rigo C14, e inserisce l'imposta alla fonte pagata al rigo CR10 per il credito d'imposta estero. Serve il certificato di salario CH (Lohnausweis) rilasciato dal datore entro gennaio. La scadenza 730 è il 30 settembre."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cosa succede se non dichiaro il reddito svizzero in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per un nuovo frontaliere l'omessa dichiarazione del reddito CH è evasione fiscale: scambio automatico di informazioni CRS tra CH e IT dal 2018 rende la scoperta quasi certa. Sanzioni: 120–240% dell'IRPEF non versata, più interessi legali (~3% annui), più obbligo di ravvedimento operoso. Per redditi sopra €50.000 scatta anche la denuncia penale (D.lgs 74/2000). Un vecchio frontaliere è esente dall'IRPEF ma deve comunque compilare il quadro RW se detiene conti CH."
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/`,
+ "claimReviewed": "I frontalieri pagano le tasse due volte, sia in Svizzera che in Italia",
+ "author": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino",
+ "url": BASE_URL
+ },
+ "datePublished": "2026-04-01",
+ "reviewRating": {
+ "@type": "Rating",
+ "ratingValue": "2",
+ "bestRating": "5",
+ "worstRating": "1",
+ "alternateName": "Parzialmente falso"
+ },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Opinione comune" },
+ "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/`,
+ "claimReviewed": "Con il nuovo accordo 2026 i frontalieri pagano più tasse",
+ "author": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino",
+ "url": BASE_URL
+ },
+ "datePublished": "2026-04-01",
+ "reviewRating": {
+ "@type": "Rating",
+ "ratingValue": "3",
+ "bestRating": "5",
+ "worstRating": "1",
+ "alternateName": "Dipende"
+ },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Opinione comune" },
+ "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/`,
+ "claimReviewed": "Il Permesso G costa meno del Permesso B",
+ "author": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino",
+ "url": BASE_URL
+ },
+ "datePublished": "2026-04-01",
+ "reviewRating": {
+ "@type": "Rating",
+ "ratingValue": "4",
+ "bestRating": "5",
+ "worstRating": "1",
+ "alternateName": "Generalmente vero"
+ },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Opinione comune" },
+ "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/`,
+ "claimReviewed": "I frontalieri non hanno diritto alla pensione svizzera",
+ "author": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino",
+ "url": BASE_URL
+ },
+ "datePublished": "2026-04-01",
+ "reviewRating": {
+ "@type": "Rating",
+ "ratingValue": "1",
+ "bestRating": "5",
+ "worstRating": "1",
+ "alternateName": "Falso"
+ },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Opinione comune" },
+ "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/`,
+ "claimReviewed": "La franchigia di 10.000€ è per tutti i frontalieri",
+ "author": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino",
+ "url": BASE_URL
+ },
+ "datePublished": "2026-04-01",
+ "reviewRating": {
+ "@type": "Rating",
+ "ratingValue": "2",
+ "bestRating": "5",
+ "worstRating": "1",
+ "alternateName": "Parzialmente falso"
+ },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Opinione comune" },
+ "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
+ }
+ }
+ ]
+ },
+
+ withholdingRates: {
+ title: 'Imposta alla fonte Ticino 2026: aliquote e tabelle',
+ description: 'Quanto pagate di imposta alla fonte in Ticino 2026? Aliquote reali (7%-18%) per tabella A, B, C, H da CHF 40.000 a 150.000, con simulatori per netto e busta paga.',
+ keywords: 'aliquote imposta alla fonte ticino 2026, tabella imposta alla fonte ticino, tabelle A B C H ticino, quellensteuer ticino 2026, imposta alla fonte frontalieri ticino',
+ ogTitle: 'Imposta alla Fonte Ticino 2026: Aliquote 7%-18% (A B C H)',
+ ogDescription: 'Aliquote reali (7%-18%) delle tabelle A, B, C e H del Ticino 2026, con simulatori per calcolare netto e busta paga dei frontalieri.',
+ canonicalPath: '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Aliquote imposta alla fonte Ticino 2026",
+ "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/`,
+ "description": "Guida pratica alle tabelle A, B, C e H del Ticino per frontalieri con esempi di aliquota, FAQ e link ai simulatori fiscali.",
+ "inLanguage": "it"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Strumenti collegati imposta alla fonte Ticino 2026",
+ "numberOfItems": 4,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Simulatore netto frontalieri", "url": `${BASE_URL}/` },
+ { "@type": "ListItem", "position": 2, "name": "Simula busta paga", "url": `${BASE_URL}/calcola-stipendio/simula-busta-paga/` },
+ { "@type": "ListItem", "position": 3, "name": "Credito d'imposta", "url": `${BASE_URL}/tasse-e-pensione/credito-imposta/` },
+ { "@type": "ListItem", "position": 4, "name": "Dichiarazione fiscale svizzera", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-svizzera/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Qual e la differenza tra tabella A, B, C e H?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La tabella A si usa di norma per persone sole senza figli. La B per coniugati con un solo reddito. La C per coniugati con due redditi. La H per genitori soli con figli a carico."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "La tabella dipende dal Comune italiano di residenza?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No. La tabella svizzera dipende soprattutto da stato civile e figli. Il Comune italiano conta per la fiscalita italiana, non per la classe di imposta alla fonte Ticino."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Perche la percentuale in busta paga puo differire dal simulatore?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Le cause piu comuni sono tabella errata, figli non registrati, tredicesima, bonus, periodo di paga o differenze tra lordo annuo e lordo mensile usato dal payroll."
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/`,
+ "claimReviewed": "Nel Canton Ticino l'imposta alla fonte 2026 usa quattro tabelle A, B, C, H assegnate in base a stato civile e figli a carico.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "AFC Ticino — Divisione delle contribuzioni" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tabelle-e-aliquote/", "name": "AFC Ticino — Tabelle e aliquote imposta alla fonte 2026" }
+ },
+ "reviewBody": "Tabelle cantonali AFC Ticino 2026 (art. 33 LT): A single senza figli, B coniugati monoreddito, C coniugati bireddito, H genitori soli con figli."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/`,
+ "claimReviewed": "La tabella di imposta alla fonte applicata al frontaliere dipende da stato civile e figli, non dal Comune italiano di residenza.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge tributaria cantonale (LT) Canton Ticino, art. 109" },
+ "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/434", "name": "Canton Ticino — Legge tributaria (LT) art. 107-117 imposta alla fonte" }
+ },
+ "reviewBody": "La LT Ticino (art. 107-117) assegna la tabella in base a stato civile e figli dichiarati al datore; il Comune italiano di residenza è irrilevante per il calcolo svizzero (rileva solo per la fiscalità italiana)."
+ }
+ ]
+ },
+
+ newFrontierTaxSim: {
+ // SEO target: query "simulazione tasse nuovi frontalieri" (rank ~2.9, CTR
+ // 29.7%). Title leads with the exact phrase + year + value-prop. H1 set
+ // explicitly so it differs from <title> (Semrush W3) while still carrying
+ // the verbatim query.
+ title: 'Simulazione tasse nuovi frontalieri 2026: calcolo netto',
+ h1: 'Simulazione tasse nuovi frontalieri 2026 — Accordo Italia-Svizzera',
+ description: 'Simulazione tasse nuovi frontalieri 2026: imposta alla fonte Ticino, IRPEF con franchigia €10.000 e credito d\'imposta. Simulatore gratuito, no registrazione.',
+ keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri, differenza vecchi nuovi frontalieri tasse, franchigia nuovi frontalieri',
+ ogTitle: 'Simulazione tasse nuovi frontalieri 2026 — Calcolo netto',
+ ogDescription: 'Simulazione tasse nuovi frontalieri 2026: imposta alla fonte CH + IRPEF Italia con franchigia €10.000 e credito d\'imposta. Calcolo gratuito, risultato in EUR.',
+ canonicalPath: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Simulazione Tasse Nuovi Frontalieri 2026",
+ "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/`,
+ "description": "Simulatore gratuito per il calcolo delle tasse dei nuovi frontalieri secondo il nuovo accordo fiscale Italia-Svizzera: imposta alla fonte, IRPEF con franchigia €10.000, credito d'imposta.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "dateModified": "2026-07-04T00:00:00+02:00",
+ "provider": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino",
+ "url": BASE_URL
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come simulare le tasse come nuovo frontaliere",
+ "description": "Guida al calcolo delle tasse per i nuovi frontalieri fiscali: imposta svizzera, IRPEF italiana e credito d’imposta nel simulatore gratuito di Frontaliere Ticino.",
+ "totalTime": "PT2M",
+ "step": [
+ { "@type": "HowToStep", "position": 1, "name": "Inserisci lo stipendio lordo annuo in CHF", "text": "Inserisci il tuo stipendio lordo annuo in franchi svizzeri. Il simulatore lo userà per calcolare contributi sociali (AVS 5,3%, LPP, AC 1,1%) e imposta alla fonte.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/` },
+ { "@type": "HowToStep", "position": 2, "name": "Seleziona stato civile e numero di figli", "text": "Scegli stato civile (celibe/nubile, coniugato, genitore solo) e indica i figli a carico. Questi dati determinano la tabella d'imposta alla fonte (A, B, C o H) e le detrazioni IRPEF.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/` },
+ { "@type": "HowToStep", "position": 3, "name": "Indica il comune di residenza in Italia", "text": "Il comune di residenza determina l'addizionale regionale e comunale IRPEF. I nuovi frontalieri residenti entro 20 km dal confine hanno le stesse regole fiscali di quelli oltre 20 km dal 2024.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/` },
+ { "@type": "HowToStep", "position": 4, "name": "Leggi il risultato: netto mensile in EUR", "text": "Il simulatore mostra il dettaglio completo: imposta alla fonte CH (80% dell'aliquota ordinaria), contributi sociali svizzeri, IRPEF italiana con franchigia €10.000, credito d'imposta per evitare la doppia tassazione, e lo stipendio netto mensile convertito in EUR.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come vengono tassati i nuovi frontalieri dal 2024?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Dal 2024 i nuovi frontalieri fiscali ammessi dall’accordo pagano l’80% dell’ordinaria imposta alla fonte svizzera e l’imposta italiana con credito per quella svizzera. Sono nuovi coloro che soddisfano la definizione fiscale ma non beneficiano dell’articolo 9 per attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023. La franchigia italiana di €10.000 richiede separatamente i requisiti della normativa italiana. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona il credito d'imposta per evitare la doppia tassazione?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Le imposte pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana tramite il credito d'imposta nel quadro CE della dichiarazione dei redditi. Il credito non può superare la quota di IRPEF relativa al reddito estero."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come calcolo lo stipendio netto come nuovo frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Usa il simulatore gratuito: inserisci lo stipendio lordo annuo in CHF, stato civile, figli e comune di residenza. Il calcolatore applica automaticamente contributi svizzeri (AVS, LPP, AC), imposta alla fonte Ticino, IRPEF con franchigia e credito d'imposta, mostrando il netto mensile in EUR."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si calcolano le tasse per i nuovi frontalieri 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il calcolo segue tre fasi: prima si sottraggono i contributi sociali svizzeri (AVS 5,3%, AC 1,1%, LPP in base all'età), poi si applica l'imposta alla fonte cantonale al 80% dell'aliquota ordinaria in base alla tabella A/B/C/H, infine si calcola l'IRPEF italiana sul reddito convertito in EUR meno la franchigia di €10.000, detraendo il credito d'imposta per le tasse già versate in Svizzera."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Qual è la franchigia per nuovi frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Differenza tra vecchi e nuovi frontalieri per le tasse?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i vecchi frontalieri qualificati dall’articolo 9 il salario coperto dal regime è imponibile soltanto in Svizzera. Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’imposta alla fonte ordinaria e l’Italia tassa il reddito con credito per l’imposta svizzera. L’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, la residenza e il rientro distinguono gli status: la differenza netta va simulata sul caso concreto. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ vita: {
+ title: 'Vita in Ticino per Frontalieri | Trasporti, Casa, Servizi',
+ description: 'Vivere in Ticino costa il 40–60% in più dell\'Italia ma elimina 1–2 ore di pendolarismo. Affitto Lugano da 1.500 CHF vs 600 € a Como. Guida pratica.',
+ keywords: 'vivere in ticino frontaliere, trasporti frontalieri svizzera, aziende ticino lavoro, scuole svizzera italiana, asili nido ticino, comuni frontiera svizzera italia, vivere svizzera vs italia',
+ ogTitle: 'Vita in Ticino per Frontalieri 2026 | Guida Pratica',
+ ogDescription: 'Vivere in Ticino costa il 40–60% in più dell\'Italia ma elimina il pendolarismo. Affitto a Lugano da 1.500 CHF vs 600 € a Como. Guida pratica: trasporti, casa, scuole, servizi e confronto permesso B vs G.',
+ canonicalPath: '/vivere-in-ticino/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Vita in Ticino per Frontalieri",
+ "url": `${BASE_URL}/vivere-in-ticino/`,
+ "description": "Guide e strumenti sulla vita quotidiana in Ticino per lavoratori frontalieri",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Guide vita in Ticino",
+ "numberOfItems": 8,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Trasporti Frontalieri", "url": `${BASE_URL}/vivere-in-ticino/trasporti-frontalieri/` },
+ { "@type": "ListItem", "position": 2, "name": "Vivere in Svizzera", "url": `${BASE_URL}/vivere-in-ticino/vivere-in-svizzera/` },
+ { "@type": "ListItem", "position": 3, "name": "Vivere in Italia", "url": `${BASE_URL}/vivere-in-ticino/vivere-in-italia/` },
+ { "@type": "ListItem", "position": 4, "name": "Aziende Svizzera Italiana", "url": `${BASE_URL}/vivere-in-ticino/aziende-svizzera-italiana/` },
+ { "@type": "ListItem", "position": 5, "name": "Scuole Svizzera Italiana", "url": `${BASE_URL}/vivere-in-ticino/scuole-svizzera-italiana/` },
+ { "@type": "ListItem", "position": 6, "name": "Attrazioni Ticino", "url": `${BASE_URL}/vivere-in-ticino/attrazioni-svizzera-italiana/` },
+ { "@type": "ListItem", "position": 7, "name": "Confronta Asili Nido", "url": `${BASE_URL}/vivere-in-ticino/confronta-asili-nido/` },
+ { "@type": "ListItem", "position": 8, "name": "Comuni di Frontiera", "url": `${BASE_URL}/vivere-in-ticino/comuni-di-frontiera/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Conviene vivere in Svizzera o in Italia come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dalle priorità: vivere in Svizzera (Permesso B) offre zero pendolarismo, servizi svizzeri e nessuna doppia tassazione, ma costi di vita 40-60% più alti. Vivere in Italia (Permesso G) riduce i costi fissi del 30-45%, mantiene il sistema sanitario SSN e permette di accedere a scuole pubbliche italiane, ma aggiunge 1-2 ore di pendolarismo giornaliero e la complessità fiscale del Nuovo Accordo 2026." } },
+ { "@type": "Question", "name": "Quali sono i migliori comuni italiani per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I comuni più scelti dai frontalieri sono quelli entro 20 km dal confine svizzero nelle province di Como, Varese e Verbano-Cusio-Ossola. Comuni come Cantù, Olgiate Comasco, Luino, Lavena Ponte Tresa e Ponte Tresa offrono buoni collegamenti, costi contenuti e servizi per famiglie. La classifica varia in base al valico di riferimento e al luogo di lavoro in Ticino." } },
+ { "@type": "Question", "name": "Quanto costa il pendolarismo da frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il costo medio del pendolarismo varia da CHF 200-400/mese in auto (carburante + autostrada + parcheggio) a CHF 100-250/mese con trasporto pubblico (abbonamento TILO/FerrovieNord). Il tempo medio di percorrenza è 45-90 minuti per tratta, con picchi nelle ore di punta ai valichi principali (Chiasso, Stabio, Gaggiolo)." } },
+ { "@type": "Question", "name": "Come funziona l'assicurazione sanitaria per i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Il SSN è finanziato dalla fiscalità e da trasferimenti pubblici: non è un premio assicurativo confrontabile con “contributi INPS inferiori”. Ticket ed eventuali contributi sanitari dipendono dal regime applicabile, da verificare con l’ASL. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en" } }
+ ]
+ }
+ ]
+ },
+
+ exchange: {
+ title: 'Cambio Franco Euro 2026: Tasso Oggi, Spread Wise vs Revolut',
+ h1: 'Cambio franco-euro 2026 — tasso in tempo reale, confronto spread, commissioni',
+ description: 'Cambio franco-euro 2026: tasso BNS in tempo reale, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
+ keywords: 'cambio franco euro, cambio chf eur oggi, cambio franco svizzero euro, tasso franco euro 2026, wise tasso cambio, revolut commissioni, spread cambio valuta, postfinance cambio valuta, ubs cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta, calcolo risparmio cambio',
+ ogTitle: 'Cambio Franco Euro 2026 — Tasso Oggi + Confronto Spread',
+ ogDescription: '💱 Cambio franco-euro 2026: tasso BNS in tempo reale, spread a confronto tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26), calcolatore commissioni.',
+ canonicalPath: '/compara-servizi/cambio-franco-euro/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Comparatore Cambio Franco Euro",
+ "url": `${BASE_URL}/compara-servizi/cambio-franco-euro/`,
+ "description": "Confronto tassi di cambio franco-euro in tempo reale tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26) con tabella spread e calcolatore commissioni.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ExchangeRateSpecification",
+ "name": "Franco svizzero (CHF) — Euro (EUR) cambio di riferimento",
+ "currency": "CHF",
+ "currentExchangeRate": {
+ "@type": "UnitPriceSpecification",
+ "price": EXCHANGE_RATE_EUR,
+ "priceCurrency": "EUR",
+ "referenceQuantity": {
+ "@type": "QuantitativeValue",
+ "value": "1",
+ "unitCode": "CHF"
+ }
+ },
+ "exchangeRateSpread": "0.3-3.0% a seconda del provider"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Qual è lo spread medio per cambiare franchi svizzeri in euro?", "acceptedAnswer": { "@type": "Answer", "text": "Lo spread medio sul cambio franco-euro varia dallo 0,3% dei servizi online (Wise, Revolut) fino al 3% delle banche tradizionali. Su uno stipendio frontaliere di CHF 5.000/mese la differenza tra spread 0,3% e spread 3% è di CHF 135 al mese (CHF 1.620 all'anno), una somma non trascurabile che giustifica l'apertura di un conto multivaluta online." } },
+ { "@type": "Question", "name": "Qual è il miglior servizio per cambiare franchi svizzeri in euro?", "acceptedAnswer": { "@type": "Answer", "text": "Wise e Revolut offrono generalmente i tassi più vantaggiosi con commissioni tra 0,3% e 0,5% sul tasso mid-market. PostFinance applica uno spread dell'1,5-2%, UBS e Credit Suisse dell'1-2,5%. Le casse Raiffeisen cantonali si fermano tipicamente all'1-1,5%. N26 applica un tasso vicino al mid-market con cambio mensile gratuito fino a €30.000 per i piani You/Metal." } },
+ { "@type": "Question", "name": "Quanto costa trasferire CHF in EUR con Wise?", "acceptedAnswer": { "@type": "Answer", "text": "Wise applica una commissione trasparente dello 0,3-0,6% sul tasso di cambio mid-market reale. Per un trasferimento di CHF 5.000 il costo tipico è CHF 15-30. Il servizio offre anche un conto multivaluta gratuito con IBAN svizzero e IBAN europeo, permettendo di ricevere lo stipendio in CHF e convertirlo a scelta del titolare." } },
+ { "@type": "Question", "name": "Conviene cambiare lo stipendio frontaliere in banca o con servizi online?", "acceptedAnswer": { "@type": "Answer", "text": "I servizi online come Wise e Revolut sono generalmente più convenienti. Su uno stipendio mensile di CHF 5.000 il risparmio rispetto a una banca tradizionale può essere di CHF 50-150 al mese. Tuttavia, le banche offrono strumenti aggiuntivi (piani d'investimento, mutui, conto business) che i servizi online non coprono. Una strategia ottimale è tenere il conto stipendio presso la banca svizzera e cambiare tramite Wise/Revolut solo la quota da trasferire in Italia." } },
+ { "@type": "Question", "name": "Quando è il momento migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Il tasso franco-euro fluttua quotidianamente. Storicamente il franco è stato forte (EUR/CHF sotto 0,95) nei periodi di instabilità finanziaria globale (2015-2017, 2020, 2022). Conviene impostare alert sui provider (Wise Rate Alerts, Revolut Rate Alert) per notifica al superamento di soglie predefinite. Evitare i cambi nei weekend e nelle ore notturne quando gli spread sono più ampi per bassa liquidità interbancaria." } },
+ { "@type": "Question", "name": "Quanto si risparmia usando Revolut Premium o Wise Borderless?", "acceptedAnswer": { "@type": "Answer", "text": "Revolut Premium (€9,99/mese) dà cambio al tasso mid-market illimitato e 3 prelievi ATM gratuiti al mese; Wise Borderless è gratuito con commissione per trasferimento. Per frontalieri che trasferiscono CHF 3.000-7.000/mese, Revolut Premium si ripaga oltre i CHF 3.500/mese di cambio grazie all'azzeramento dello spread; per importi minori Wise resta la scelta più economica." } },
+ { "@type": "Question", "name": "Le commissioni di cambio sono detraibili dalle tasse italiane?", "acceptedAnswer": { "@type": "Answer", "text": "No, le commissioni di cambio valuta applicate a spese personali (stipendio frontaliere convertito per spese familiari) non sono deducibili dall'IRPEF italiana. Possono invece essere spesabili per chi ha una partita IVA italiana o un'attività professionale: in quel caso la commissione rientra tra le spese bancarie deducibili al 100%. Conservare sempre l'estratto conto che dettaglia la commissione sul cambio per eventuale contraddittorio con l'Agenzia delle Entrate." } }
+ ]
+ }
+ ]
+ },
+
+ mobile: {
+ title: 'Operatori Mobili Svizzera e Italia | Frontaliere Ticino',
+ description: 'Confronta 17 operatori mobili IT+CH per frontalieri: Vodafone, Fastweb, ho. Mobile con Roam-Like-Home CH, Spusu, Wingo, Sunrise, Yallo. Costi reali maggio 2026.',
+ keywords: 'operatori mobili svizzera italia frontalieri, roaming svizzera, vodafone roam like home svizzera, fastweb mobile svizzera, spusu oltreconfine, ho mobile svizzera, swisscom salt sunrise yallo wingo, m-budget digitec connect, opzione svizzera tim windtre',
+ ogTitle: 'Operatori Mobili IT+CH per Frontalieri | Confronto 2026',
+ ogDescription: '📱 Confronta 17 operatori mobili IT+CH con roaming Italia↔Svizzera. Vodafone e Fastweb includono 32 GB CH, Spusu 10 GB CH a 9.98€/mese. Trova il piano migliore per frontalieri.',
+ canonicalPath: '/compara-servizi/confronta-operatori-mobili/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Operatori Mobili per Frontalieri",
+ "url": `${BASE_URL}/compara-servizi/confronta-operatori-mobili/`,
+ "description": "Confronto costi mensili di 17 operatori mobili italiani e svizzeri (8 IT + 9 CH) con roaming Italia↔Svizzera per frontalieri",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quale operatore italiano include il roaming in Svizzera per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Dal settembre 2025 Vodafone Italia (32 GB CH inclusi nel piano Start a 9.95€), Fastweb Mobile (32 GB CH a 9.95€) e ho. Mobile (Roam-Like-Home CH dall'8 settembre 2025) applicano le condizioni nazionali anche in Svizzera. Spusu Oltreconfine include 10 GB CH dedicati + 2000 min verso numeri CH a 9.98€/mese." } },
+ { "@type": "Question", "name": "Quanto costa un abbonamento mobile in Svizzera per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I piani CH per frontalieri partono da CHF 25/mese (Digitec Connect, 1 GB UE) e CHF 27.95/mese (Wingo Europe Go, 8 GB UE) fino a CHF 81.80/mese (Swisscom blue M, 40 GB UE). Un buon compromesso si trova attorno a CHF 29.90/mese con Yallo Europe o Sunrise Swiss Travel+ (illim 8 paesi UE inclusa IT)." } },
+ { "@type": "Question", "name": "Posso usare una SIM italiana in Svizzera come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, e dal settembre 2025 Vodafone, Fastweb e ho. Mobile non applicano più costi extra in Svizzera. Resta valido il limite di uso prevalente all'estero (oltre 4 mesi) oltre il quale l'operatore può applicare sovrapprezzi. Per uso prevalente in CH conviene un operatore svizzero." } },
+ { "@type": "Question", "name": "Qual è il piano mobile più economico con roaming per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Lato Italia il più economico è Spusu Oltreconfine a 9.98€/mese con 10 GB CH dedicati + 2000 min verso CH, seguito da Vodafone Start e Fastweb Mobile Start a 9.95€ con 32 GB CH inclusi. Lato Svizzera il più economico con roaming UE è Digitec Connect a CHF 25/mese (1 GB UE) o Wingo Europe Go a CHF 27.95/mese (8 GB UE)." } }
+ ]
+ }
+ ]
+ },
+
+ transport: {
+ title: 'Trasporti Frontalieri Ticino 2026 | Treno, Auto, Car-Sharing',
+ description: 'Calcola i costi reali di trasporto per frontalieri: auto (carburante, usura, pedaggi), treno (Trenitalia, FFS), bus transfrontalieri. Confronta convenienza.',
+ keywords: 'costi trasporto frontalieri, calcolo costi auto, abbonamento treno svizzera, trenitalia frontalieri, ffs ticino, pedaggi autostrada, costo benzina diesel, usura auto, trasporti pubblici frontalieri',
+ ogTitle: 'Calcolo Costi Trasporto Frontalieri | Auto vs Treno',
+ ogDescription: '🚗 Calcola i costi reali di trasporto per frontalieri. Confronta auto, treno e bus per trovare la soluzione più conveniente!',
+ canonicalPath: '/vivere-in-ticino/trasporti-frontalieri/',
+ h1: 'Trasporti frontalieri Ticino 2026 — treni TILO, auto, car-sharing e abbonamenti',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore Costi Trasporto Frontalieri",
+ "url": `${BASE_URL}/vivere-in-ticino/trasporti-frontalieri/`,
+ "description": "Calcola e confronta i costi reali di trasporto per frontalieri: auto, treno e bus",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ health: {
+ title: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
+ description: 'Premi LAMal per residenti in Italia e Svizzera: scegli il Paese di domicilio. Confronta i dati UFSP per età e copertura infortuni.',
+ keywords: 'premi lamal frontaliere 2026, casse malati frontaliere ticino, assicurazione sanitaria ticino, premi assicurazione frontalieri, helsana css confronto, swica visana sanitas, franchigia assicurazione svizzera, cassa malati frontalieri, premi lamal ticino',
+ ogTitle: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
+ ogDescription: 'Confronta separatamente i premi UFSP per residenti in Italia e in Svizzera. Il domicilio determina tariffe e modelli disponibili.',
+ canonicalPath: '/compara-servizi/confronta-casse-malati/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Comparatore Assicurazioni Sanitarie LAMal",
+ "url": `${BASE_URL}/compara-servizi/confronta-casse-malati/`,
+ "description": "Confronta premi assicurazione sanitaria LAMal di 14 assicuratori svizzeri in 7 cantoni",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "I frontalieri devono avere l'assicurazione sanitaria svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, i frontalieri hanno l'obbligo di assicurazione sanitaria LAMal in Svizzera entro 3 mesi dall'inizio del lavoro. In alternativa, possono esercitare il diritto di opzione per restare coperti dal SSN italiano." } },
+ { "@type": "Question", "name": "Quanto costa l'assicurazione LAMal per un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
+ { "@type": "Question", "name": "Qual è la cassa malati più economica per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
+ { "@type": "Question", "name": "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
+ { "@type": "Question", "name": "Cosa copre l'assicurazione LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal copre cure mediche, ospedaliere e farmaceutiche in Svizzera. Per cure in Italia, serve la carta europea di assicurazione malattia (CEAM). Per residenti in Italia si applica la franchigia ordinaria CHF300 per adulti e giovani adulti, CHF0 per bambini. Le franchigie opzionali non sono disponibili." } },
+ { "@type": "Question", "name": "La LAMal è davvero obbligatoria per tutti i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
+ { "@type": "Question", "name": "Come cambiare cassa malati frontaliere senza penali?", "acceptedAnswer": { "@type": "Answer", "text": "La disdetta dell'assicurazione base LAMal si può presentare due volte l'anno: entro il 30 novembre con effetto 1° gennaio (modifica franchigia o cambio cassa), o entro il 31 marzo con effetto 1° luglio (solo se il premio aumenta). La comunicazione va inviata per raccomandata con ricevuta di ritorno alla vecchia cassa e occorre aver già sottoscritto con la nuova: la mancanza di copertura anche di un solo giorno è sanzionata. Le assicurazioni complementari hanno disdetta libera con preavviso di 3 mesi al 31/12." } },
+ { "@type": "Question", "name": "LAMal o SSN: cosa conviene per la famiglia del frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Per famiglie con bambini il SSN italiano è quasi sempre più conveniente: il diritto di opzione copre anche coniuge e figli a carico senza premio aggiuntivo, mentre con LAMal ogni familiare paga il proprio premio (CHF 270–560/mese adulti, CHF 100–150 bambini). Risparmio annuo tipico per famiglia di 4: CHF 8.000–12.000. Il contro è che le cure in Svizzera con SSN richiedono CEAM e pagamento anticipato (poi rimborsato), mentre con LAMal si va direttamente in ospedale CH. Usa il comparatore LAMal vs SSN per stimare il tuo caso." } }
+ ]
+ }
+ ]
+ },
+
+ banks: {
+ title: 'Banche Svizzera e Italia | Confronto Conti per Frontalieri',
+ description: 'Confronta banche per frontalieri: UBS, Credit Suisse, PostFinance, Intesa Sanpaolo, UniCredit. Costi gestione conto, carte di credito, bonifici.',
+ keywords: 'banche svizzera, conto corrente ticino, ubs credit suisse postfinance, intesa sanpaolo unicredit, costi conto corrente, carte credito svizzera, bonifici internazionali, servizi bancari frontalieri',
+ ogTitle: 'Banche per Frontalieri | Confronto Conti CH-IT',
+ ogDescription: '🏦 Confronta 8 banche svizzere e italiane. Costi gestione, carte incluse e servizi per frontalieri. Scegli il conto migliore!',
+ canonicalPath: '/compara-servizi/confronta-banche/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Banche per Frontalieri",
+ "url": `${BASE_URL}/compara-servizi/confronta-banche/`,
+ "description": "Confronto conti correnti e servizi bancari tra banche svizzere e italiane per lavoratori frontalieri",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ pension: {
+ title: 'Pensione Frontalieri AVS e LPP | Calcolo Previdenza CH-IT',
+ description: 'Un frontaliere versa il 5,3% in AVS e il 5–9% in LPP. Con 30 anni a 70.000 CHF/anno, la rendita AVS è circa 1.800 CHF/mese. Calcola la pensione CH-IT.',
+ keywords: 'pensione frontalieri, calcolo lpp, avs svizzera, inps italia, secondo pilastro svizzera, contributi pensionistici, totalizzazione pensione, età pensionabile svizzera, previdenza frontalieri, cassa pensione ticino',
+ ogTitle: 'Pensione Frontalieri AVS e LPP | Calcolo Previdenza CH-IT',
+ ogDescription: 'Pensione frontalieri: AVS (5,3% del lordo) + LPP (5–9%) + INPS italiano. Con 30 anni a 70.000 CHF, la rendita AVS è circa 1.800 CHF/mese. Calcola la tua previdenza combinata CH-IT.',
+ canonicalPath: '/tasse-e-pensione/calcola-previdenza/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Pianificatore Pensione Frontalieri",
+ "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
+ "description": "Strumento per calcolare e pianificare la pensione dei lavoratori frontalieri tra Svizzera e Italia",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come si calcola la pensione AVS per un frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.260/mese, massima CHF 2.520/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Come sottolinea il Dott. Andrea Fiorini, consulente previdenziale: «Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS»."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I frontalieri UE possono riscuotere la parte sovraobbligatoria del 2° pilastro al momento della partenza. La parte obbligatoria resta in un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente, acquisto casa principale). Come consiglia il Dott. Andrea Fiorini, consulente previdenziale: «Prima del prelievo è fondamentale valutare la tassazione nel cantone di residenza della cassa pensione, che varia sensibilmente»."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona la totalizzazione dei contributi Svizzera-Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Grazie agli accordi bilaterali, i periodi contributivi in Svizzera e in Italia si sommano per raggiungere il diritto alla pensione in ciascun Paese. Ogni Stato paga la propria quota (pro-rata) in base agli anni effettivi di contribuzione."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "A che età va in pensione un frontaliere svizzero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'età pensionabile AVS in Svizzera è 65 anni per gli uomini e 65 anni per le donne (dal 2028, con aumento graduale da 64). È possibile anticipare la rendita AVS di massimo 2 anni con una riduzione del 6.8% annuo, o posticiparla fino a 5 anni con un aumento."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto contribuisce il datore di lavoro svizzero alla pensione LPP?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il datore paga almeno il 50% dei contributi LPP. Le aliquote crescono con l'età: 7% (25-34 anni), 10% (35-44), 15% (45-54), 18% (55-65) del salario assicurato. Molte aziende versano più del minimo legale."
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
+ "claimReviewed": "La rendita AVS massima in Svizzera nel 2026 è CHF 2.520 al mese (CHF 30.240 annui) con la scala 44 di contribuzione completa.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — AVS 1° pilastro" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/it", "name": "UFAS — Assicurazione vecchiaia e superstiti (AVS) 2026" }
+ },
+ "reviewBody": "Rendite AVS/AI in vigore dal 1° gennaio 2025 e invariate nel 2026 (promemoria AVS/AI 3.01, stato al 1° gennaio 2026): rendita minima CHF 1.260/mese, rendita massima CHF 2.520/mese alla scala 44 (art. 34 LAVS)."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
+ "claimReviewed": "Le aliquote LPP del 2° pilastro crescono con l'età: 7% (25-34), 10% (35-44), 15% (45-54), 18% (55-65) del salario assicurato.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge federale sulla previdenza professionale (LPP), art. 16" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1983/797_797_797/it", "name": "Fedlex — LPP art. 16 (accrediti di vecchiaia)" }
+ },
+ "reviewBody": "Aliquote minime LPP definite dall'art. 16 LPP: 7/10/15/18% per fasce 25-34/35-44/45-54/55-65. Le casse pensione possono applicare aliquote superiori (piani sovraobbligatori)."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
+ "claimReviewed": "Grazie alla totalizzazione bilaterale Italia-Svizzera i periodi contributivi AVS e INPS si sommano per raggiungere il diritto alla pensione in ciascun Paese (pro-rata).",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Accordo bilaterale sulla libera circolazione delle persone (ALC) — Regolamento (CE) 883/2004" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.50285.totalizzazione-internazionale-dei-periodi-assicurativi.html", "name": "INPS — Totalizzazione internazionale dei periodi assicurativi" }
+ },
+ "reviewBody": "Applicabile ai frontalieri italiani in Svizzera dall'entrata in vigore dell'ALC (1/6/2002) e confermato dal Regolamento (CE) 883/2004 e dalla decisione del Comitato misto CH-UE del 2012. Ogni Paese paga la quota pro-rata in base agli anni effettivi."
+ }
+ ]
+ },
+
+ stats: {
+ title: 'Statistiche Frontalieri e Lavoro Ticino | Frontaliere Ticino',
+ description: 'Oltre 78.000 frontalieri in Ticino (BFS 2024) e 4.000+ offerte attive. Statistiche aggiornate: aziende, località, settori in crescita e trend giornalieri.',
+ keywords: 'statistiche frontalieri, lavoro ticino, offerte lavoro ticino, aziende che assumono ticino, trend offerte lavoro, bfs frontalieri, annunci lavoro svizzera italiana, statistiche lavoro ticino 2026',
+ ogTitle: 'Statistiche Frontalieri e Lavoro Ticino | BFS e Job Board',
+ ogDescription: 'Oltre 78.000 frontalieri in Ticino (BFS 2024) e 4.000+ offerte lavoro attive. Statistiche aggiornate: aziende che assumono, località, settori in crescita e trend giornalieri.',
+ canonicalPath: '/statistiche/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Statistiche frontalieri e osservatorio lavoro Ticino 2026",
+ "url": `${BASE_URL}/statistiche/`,
+ "description": "Dati statistici sui frontalieri e osservatorio del job board Ticino con aziende, località e trend delle offerte",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Statistiche frontalieri e osservatorio offerte lavoro Ticino 2026",
+ "description": "Dati statistici sui frontalieri svizzeri-italiani e osservatorio del job board Ticino: numero permessi G, aziende attive, localities, trend offerte e statistiche BFS 2026.",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "temporalCoverage": "2024/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Numero frontalieri", "value": "~79.000 (2025)" },
+ { "@type": "PropertyValue", "name": "Offerte lavoro attive", "value": "Aggiornate quotidianamente" },
+ { "@type": "PropertyValue", "name": "Aziende attive", "value": "100+ aziende ticinesi" },
+ { "@type": "PropertyValue", "name": "Trend offerte", "value": "Variazione giornaliera annunci" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/` }]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone con la più alta concentrazione di frontalieri, circa il 30% della forza lavoro cantonale." } },
+ { "@type": "Question", "name": "Quali settori offrono più lavoro in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con più offerte attive nel job board sono: IT e sviluppo software, ingegneria meccanica ed elettrotecnica, sanità e pharma, finanza e banking, e costruzioni. Il settore IT ha visto la crescita maggiore negli ultimi 12 mesi." } },
+ { "@type": "Question", "name": "Come vengono calcolate le statistiche degli stipendi?", "acceptedAnswer": { "@type": "Answer", "text": "Le statistiche salariali combinano i dati ufficiali BFS (Indagine svizzera sulla struttura dei salari) con i salary range pubblicati negli annunci del job board. Le mediane e i range sono calcolati per settore, ruolo e livello di esperienza." } },
+ { "@type": "Question", "name": "Con quale frequenza vengono aggiornati i dati?", "acceptedAnswer": { "@type": "Answer", "text": "L'osservatorio del job board viene aggiornato due volte al giorno con i nuovi annunci. I dati BFS sui frontalieri vengono aggiornati trimestralmente. I prezzi benzina sono aggiornati ogni ora. Il tasso di disoccupazione SECO è aggiornato mensilmente." } }
+ ]
+ }
+ ]
+ },
+
+ feedback: {
+ title: 'Aiutaci a Migliorare | Segnalazioni e Suggerimenti',
+ description: 'Hai trovato un errore o vuoi proporre una nuova funzionalità? Apri una segnalazione su GitHub e aiutaci a migliorare il simulatore fiscale per frontalieri.',
+ keywords: 'segnalazione bug frontalieri, suggerimenti simulatore, feedback frontalieri, migliorare simulatore tasse',
+ ogTitle: 'Aiutaci a Migliorare | Frontaliere Ticino',
+ ogDescription: '🐛 Segnala un problema o suggerisci una funzionalità per il simulatore fiscale frontalieri CH-IT. Contribuisci al miglioramento!',
+ canonicalPath: '/supporto/',
+ // SearchAtlas "missing schema markup" (2026-06-15): the support/feedback page
+ // is a contact surface, so ContactPage (below) is the correct type, not a
+ // generic WebPage. NOTE: comments must stay OUTSIDE the structuredData literal
+ // — staticPagesPlugin's jsToJson text-parser does not strip `//` comments, so
+ // an inline comment makes JSON.parse throw and the whole SD block is silently
+ // dropped (regression that stripped this page's schema entirely).
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "ContactPage",
+ "name": "Aiutaci a Migliorare - Segnalazioni e Suggerimenti",
+ "url": `${BASE_URL}/supporto/`,
+ "description": "Segnala bug e suggerisci funzionalità per il simulatore fiscale frontalieri Svizzera-Italia su GitHub",
+ "inLanguage": "it"
+ }
+ },
+
+ // New sections,
+
+ whatif: {
+ title: 'Simulatore What-If Frontalieri | Scenari Cosa Cambia Se...',
+ description: 'Scopri come cambiano le tue tasse da frontaliere con scenari what-if: figlio in arrivo, cambio stipendio, stato civile, zona di residenza. Simulazione.',
+ keywords: 'what if frontalieri, simulatore scenari, cosa cambia se figlio, aumento stipendio frontaliere, detrazioni figli frontaliere, cambio stato civile tasse',
+ ogTitle: 'Simulatore What-If | Scenari Fiscali per Frontalieri',
+ ogDescription: '🔮 Scopri come cambiano le tue tasse con scenari what-if: figlio, stipendio, residenza. Simulazione in tempo reale!',
+ canonicalPath: '/calcola-stipendio/cosa-cambia-se/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Simulatore What-If Frontalieri",
+ "url": `${BASE_URL}/calcola-stipendio/cosa-cambia-se/`,
+ "description": "Simulazione scenari fiscali per frontalieri: come cambiano le tasse con figlio, stipendio diverso, stato civile",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Come funziona il simulatore What-If per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Inserisci il tuo scenario attuale (stipendio, stato civile, figli, residenza) e poi modifica una o più variabili per vedere in tempo reale come cambia il tuo netto. Ad esempio: cosa succede se arriva un figlio? Se cambi residenza? Se lo stipendio aumenta del 10%?" } },
+ { "@type": "Question", "name": "Quali scenari posso simulare?", "acceptedAnswer": { "@type": "Answer", "text": "Puoi simulare: nascita di un figlio (impatto su detrazioni e assegni), cambio stato civile (matrimonio/divorzio), aumento o diminuzione stipendio, cambio zona di residenza (entro/oltre 20 km dal confine), passaggio da vecchio a nuovo frontaliere, e variazione del tasso di cambio CHF/EUR." } },
+ { "@type": "Question", "name": "La simulazione What-If è affidabile?", "acceptedAnswer": { "@type": "Answer", "text": "La simulazione utilizza le stesse tabelle fiscali del calcolatore principale: aliquote imposta alla fonte Ticino 2026, scaglioni IRPEF, contributi AVS/LPP/AC. I risultati sono stime orientative, non consulenza fiscale professionale." } }
+ ]
+ }
+ ]
+ },
+
+ jobs: {
+ title: 'Confronta Offerte Lavoro Svizzera 2026 | Netto Reale',
+ description: 'Confronta fino a 4 offerte di lavoro in Svizzera: calcolo netto reale considerando tasse, costi trasporto, tempo viaggio, home office e benefit. Scopri.',
+ keywords: 'confronto offerte lavoro svizzera, stipendio netto reale frontaliere, calcolo netto lavoro ticino, costi pendolarismo frontaliere, home office frontaliere, benefit lavoro svizzera',
+ ogTitle: 'Confronto Offerte Lavoro Svizzera | Netto Reale Frontalieri',
+ ogDescription: '💼 Confronta offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, tempo e benefit inclusi.',
+ canonicalPath: '/compara-servizi/confronta-offerte-lavoro/',
+ h1: 'Confronta offerte di lavoro in Svizzera per frontalieri 2026 — netto reale CHF/EUR',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Offerte Lavoro Svizzera",
+ "url": `${BASE_URL}/compara-servizi/confronta-offerte-lavoro/`,
+ "description": "Confronta fino a 4 offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, benefit",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ calendar: {
+ title: 'Scadenze Fiscali Frontalieri 2026 | Tasse Canton Ticino',
+ description: 'Scadenze fiscali frontalieri 2026: tasse canton Ticino, imposta alla fonte, IRPEF, 730, Modello Redditi, AVS. Countdown, documenti necessari e sanzioni.',
+ keywords: 'scadenze fiscali frontalieri 2026, calendario tasse frontaliere, 730 frontalieri, modello redditi frontaliere, quadro rw svizzera, imposta alla fonte scadenza, irpef frontalieri',
+ ogTitle: 'Scadenze Tasse Frontalieri 2026 | Canton Ticino e Italia',
+ ogDescription: '📅 Scadenze tasse frontaliero canton Ticino 2026: IRPEF, 730, imposta alla fonte, AVS. Countdown e documenti necessari!',
+ canonicalPath: '/tasse-e-pensione/scadenze-fiscali/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Calendario Scadenze Fiscali 2026 per Frontalieri CH-IT",
+ "url": `${BASE_URL}/tasse-e-pensione/scadenze-fiscali/`,
+ "description": "Tutte le scadenze fiscali 2026 per frontalieri: IRPEF, 730, imposta alla fonte, AVS con countdown e documenti necessari",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quando scade la dichiarazione dei redditi per frontalieri in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il Modello 730 scade il 30 settembre 2026, il Modello Redditi PF (ex Unico) scade il 30 novembre 2026 per l'invio telematico. Il pagamento del saldo IRPEF e primo acconto scade il 30 giugno 2026."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Entro quando va richiesta la rettifica TDR in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La richiesta di rettifica dell'imposta alla fonte (TDR) va presentata entro il 31 marzo dell'anno successivo a quello fiscale. Per il reddito 2025, la scadenza è il 31 marzo 2026."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cosa succede se non dichiaro il reddito svizzero in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La mancata dichiarazione dei redditi esteri comporta sanzioni dal 120% al 240% dell'imposta dovuta, più interessi di mora. Per il quadro RW (monitoraggio conto svizzero) la sanzione va dal 3% al 15% delle somme non dichiarate."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quando viene emesso il certificato di salario svizzero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il Lohnausweis (certificato di salario) viene emesso dal datore di lavoro svizzero entro il 31 gennaio dell'anno successivo. È il documento base per la dichiarazione dei redditi sia in Italia sia per la TDR in Svizzera."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono le scadenze per il versamento dell'acconto IRPEF?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il primo acconto IRPEF (40%) scade il 30 giugno 2026. Il secondo acconto (60%) scade il 30 novembre 2026. Per importi inferiori a €257,52 l'acconto si versa in un'unica soluzione a novembre."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ permits: {
+ title: 'Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni',
+ description: 'Permesso G frontalieri 2026: residenza principale all’estero, contratto svizzero e rientro almeno settimanale. Confronta requisiti e costi con B, C e L.',
+ keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
+ ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
+ ogDescription: 'Permesso G: residenza principale all’estero, contratto CH e rientro almeno settimanale. Permesso B: dimora in Svizzera. Confronta G, B, C e L con requisiti, documenti e costi aggiornati 2026.',
+ canonicalPath: '/guida-frontaliere/permessi-di-lavoro/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
+ "description": "Guida completa ai permessi di lavoro in Svizzera: G (frontalieri), B (dimora), C (domicilio), L (breve durata)",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come richiedere il permesso G per frontalieri in Svizzera",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
+ "description": "Guida passo-passo per ottenere il permesso di lavoro G come frontaliere in Svizzera: requisiti, domanda, costi e rinnovo",
+ "totalTime": "P30D",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Trova un datore di lavoro svizzero",
+ "text": "Ottieni un contratto di lavoro con un datore con sede in Svizzera: è il requisito di base per richiedere il permesso G."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Verifica il requisito di residenza",
+ "text": "Per il G UE/AELS verifica il domicilio nell’UE/AELS e il rientro almeno settimanale. Le zone di frontiera per questa autorizzazione sono abolite; non confondere il requisito con la definizione fiscale dell’accordo."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Il datore presenta la domanda",
+ "text": "Il datore di lavoro svizzero inoltra la domanda di permesso G all'Ufficio della migrazione del cantone in cui si trova la sede di lavoro."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Ricevi il permesso G",
+ "text": "Una volta approvata la domanda ricevi il permesso G: costa circa CHF 65-85 e ha validità 5 anni per i contratti a tempo indeterminato (pari alla durata del contratto se a termine).",
+ "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Rinnova alla scadenza",
+ "text": "Verifica la scadenza del permesso e presenta la richiesta di rinnovo secondo la procedura del cantone competente, documentando il rapporto di lavoro. La prosecuzione del contratto non sostituisce gli adempimenti richiesti."
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quali sono i requisiti per ottenere il permesso G frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G UE/AELS riguarda chi risiede nell’UE/AELS, lavora in Svizzera e torna al domicilio estero almeno ogni settimana. Le zone di frontiera per questa autorizzazione sono abolite: il requisito fiscale dei 20 km è distinto. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto dura il permesso G e come si rinnova?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per cittadini UE/AELS, il G vale cinque anni con contratto indeterminato o superiore a un anno; per contratti inferiori a un anno la validità segue il contratto. Le attività fino a tre mesi per anno civile seguono la procedura di notifica. Il rinnovo richiede la procedura cantonale e la verifica delle condizioni. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Qual è la differenza tra permesso G e permesso B?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G prevede domicilio all’estero e rientro almeno settimanale; il B è un permesso di dimora in Svizzera. Il titolo di soggiorno non determina da solo le imposte: per il G occorre distinguere vecchi frontalieri fiscalmente qualificati, nuovi e lavoratori fuori dai requisiti dell’accordo. Confronta residenza effettiva, reddito e costi familiari senza una soglia salariale universale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Un frontaliere con permesso G può cambiare lavoro liberamente?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, con il permesso G un cittadino UE può cambiare datore di lavoro liberamente. Il nuovo datore deve però segnalare l'assunzione all'Ufficio della migrazione, che aggiornerà il permesso."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto costa il permesso G frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "In Ticino il rilascio e il rinnovo del G UE/AELS costano CHF 75 per un adulto e CHF 40 per un minorenne. Cambi di impiego, altre pratiche e cittadini di altri Stati hanno tariffe distinte: consulta la tabella SPOP. https://www4.ti.ch/di/spop/stranieri/richiesta-nuovo-g/"
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
+ "claimReviewed": "Il permesso G UE/AELS riguarda chi risiede nell’UE/AELS, lavora in Svizzera e torna al domicilio estero almeno ogni settimana. Le zone di frontiera per questa autorizzazione sono abolite: il requisito fiscale dei 20 km è distinto.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-10-03",
+ "dateModified": "2026-10-03",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Segreteria di Stato della migrazione (SEM) — Accordo UE-CH sulla libera circolazione" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html", "name": "SEM — Permesso G UE/AELS (frontalieri)" }
+ },
+ "reviewBody": "Il permesso G UE/AELS riguarda chi risiede nell’UE/AELS, lavora in Svizzera e torna al domicilio estero almeno ogni settimana. Le zone di frontiera per questa autorizzazione sono abolite: il requisito fiscale dei 20 km è distinto. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
+ "claimReviewed": "Per cittadini UE/AELS, il G vale cinque anni con contratto indeterminato o superiore a un anno; per contratti inferiori a un anno la validità segue il contratto. Le attività fino a tre mesi per anno civile seguono la procedura di notifica. Il rinnovo richiede la procedura cantonale e la verifica delle condizioni.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-10-03",
+ "dateModified": "2026-10-03",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Segreteria di Stato della migrazione (SEM)" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html", "name": "SEM — Permesso G UE/AELS (frontalieri)" }
+ },
+ "reviewBody": "Per cittadini UE/AELS, il G vale cinque anni con contratto indeterminato o superiore a un anno; per contratti inferiori a un anno la validità segue il contratto. Le attività fino a tre mesi per anno civile seguono la procedura di notifica. Il rinnovo richiede la procedura cantonale e la verifica delle condizioni. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
+ }
+ ]
+ },
+
+ pillar3: {
+ title: '3° Pilastro Svizzera 2026: Risparmio Fiscale fino a CHF 7\'258',
+ description: '3° pilastro svizzero 2026: calcola risparmio fiscale e crescita di 3a e 3b, fino a CHF 7\'258 deducibili l\'anno. Proiezione con rendimento composto.',
+ keywords: 'terzo pilastro svizzera, pilastro 3a calcolo, pilastro 3b, risparmio fiscale svizzera, previdenza privata svizzera, deduzione fiscale pilastro 3a, investimento pilastro svizzera',
+ ogTitle: 'Simulatore 3° Pilastro | Risparmio Fiscale Svizzera',
+ ogDescription: '💰 Calcola quanto risparmi con il 3° pilastro: deducibilità fiscale, proiezione rendimento e confronto 3a vs 3b.',
+ canonicalPath: '/tasse-e-pensione/simula-terzo-pilastro/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Simulatore 3° Pilastro Svizzera",
+ "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro/`,
+ "description": "Calcola risparmio fiscale e crescita del 3° pilastro svizzero (3a e 3b) con proiezione a lungo termine",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Qual è il limite massimo di versamento nel pilastro 3a nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il massimale dipende dall’affiliazione al secondo pilastro: verifica i limiti 2026 pubblicati dall’UFAS con il tuo istituto. Il limite di versamento non garantisce un beneficio fiscale. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Un frontaliere con permesso G può aprire un pilastro 3a?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L’accesso al 3a va verificato con l’istituto previdenziale in base all’attività e all’assicurazione sociale. Aprire un conto non significa poter dedurre fiscalmente i versamenti. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Qual è la differenza tra pilastro 3a e 3b?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il 3a è previdenza vincolata; il 3b è previdenza libera. Confronta vincoli, costi e condizioni del prodotto; la deduzione fiscale del 3a non è automatica per ogni frontaliere. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto si risparmia di tasse con il pilastro 3a?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Non esiste un risparmio fiscale automatico o uguale per tutti. Prima di stimarlo occorre verificare se i versamenti sono deducibili nel proprio regime fiscale. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come viene tassato il prelievo del pilastro 3a?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Al prelievo si paga un'imposta separata ridotta, generalmente tra il 5% e il 10% del capitale a seconda del Canton Ticino. Per i frontalieri che hanno lasciato la Svizzera, si applica un'imposta alla fonte sul capitale con possibilità di rimborso in base alla convenzione contro la doppia imposizione."
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro/`,
+ "claimReviewed": "Il limite massimo di versamento annuo al pilastro 3a per lavoratori con 2° pilastro nel 2026 è CHF 7.258.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — OPP 3" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/it", "name": "UFAS — Previdenza individuale vincolata (pilastro 3a)" }
+ },
+ "reviewBody": "Limite deducibile 2026 fissato dall'art. 7 OPP 3: CHF 7.258 per affiliati LPP; 20% del reddito netto fino a CHF 36.288 per indipendenti senza 2° pilastro."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro/`,
+ "claimReviewed": "La deduzione svizzera dei versamenti 3a non è automatica per i frontalieri fiscali dell’accordo Italia–Svizzera: la FAQ 5.3 AFC esclude la tassazione ordinaria ulteriore.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-10-03",
+ "dateModified": "2026-10-03",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Amministrazione federale delle contribuzioni (AFC)" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf", "name": "AFC — FAQ accordo frontalieri, punto 5.3" }
+ },
+ "reviewBody": "La deduzione svizzera dei versamenti 3a non è automatica per i frontalieri fiscali dell’accordo Italia–Svizzera: la FAQ 5.3 AFC esclude la tassazione ordinaria ulteriore."
+ }
+ ]
+ },
+
+ newsletter: {
+ title: 'Newsletter Frontalieri',
+ description: 'Iscriviti alla newsletter settimanale per frontalieri: cambio CHF/EUR, traffico ai valichi, novità fiscali e consigli per risparmiare. Gratuita e senza spam.',
+ keywords: 'newsletter frontalieri, cambio chf eur settimanale, aggiornamenti frontalieri, email frontalieri svizzera, traffico valichi email, novità tasse frontalieri',
+ ogTitle: 'Newsletter Frontalieri | Aggiornamenti Settimanali Gratuiti',
+ ogDescription: '📬 Iscriviti alla newsletter per frontalieri: cambio CHF/EUR, traffico ai valichi e novità fiscali ogni settimana!',
+ canonicalPath: '/newsletter/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Newsletter Frontalieri",
+ "url": `${BASE_URL}/newsletter/`,
+ "description": "Newsletter settimanale per frontalieri con cambio CHF/EUR, traffico valichi e novità fiscali",
+ "inLanguage": "it"
+ }
+ },
+
+ shopping: {
+ title: 'Prezzi Supermercato Svizzera vs Italia | Mappa e Confronto',
+ description: 'Confronta i prezzi della spesa tra Migros, Coop, Aldi in Svizzera e Esselunga, Lidl, Eurospin in Italia. Mappa interattiva di 40+ supermercati di frontiera.',
+ keywords: 'prezzi supermercato svizzera vs italia, migros prezzi, coop svizzera caro, spesa frontiera ticino, supermercati confine svizzera italia, esselunga como prezzi, lidl italia vs lidl svizzera, denner prezzi, shopping transfrontaliero, aldi svizzera prezzi, eurospin como, risparmio spesa frontaliere, limite doganale CHF 300, indice convenienza zona confine',
+ ogTitle: 'Prezzi Supermercato Svizzera vs Italia | Mappa e Confronto',
+ ogDescription: '🛒 Mappa 40+ supermercati di frontiera + confronto prezzi 25 prodotti CH vs IT. Indice di convenienza per zona: risparmio fino al 42%!',
+ canonicalPath: '/compara-servizi/confronta-prezzi-spesa/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Prezzi Supermercato Svizzera-Italia",
+ "url": `${BASE_URL}/compara-servizi/confronta-prezzi-spesa/`,
+ "description": "Mappa interattiva di 40+ supermercati di frontiera con confronto prezzi di 25 prodotti e indice di convenienza per zona",
+ "applicationCategory": "ShoppingApplication",
+ "operatingSystem": "Web Browser",
+ "offers": {
+ "@type": "Offer",
+ "price": "0",
+ "priceCurrency": "CHF"
+ },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quanto si risparmia facendo la spesa in Italia?",
+ "acceptedAnswer": { "@type": "Answer", "text": "In media, un carrello tipo di prodotti alimentari costa il 35-42% in meno in Italia rispetto alla Svizzera. I risparmi maggiori si registrano su carne, latticini e prodotti per la casa. La zona Chiasso-Como offre il miglior rapporto qualità-prezzo considerando la vicinanza al confine." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono i limiti doganali per la spesa in Italia?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Il limite di franchigia doganale è di CHF 300 per persona al giorno. Oltre questa soglia, si applicano dazi e IVA svizzera (8.1%). Per carne e latticini esistono limiti quantitativi specifici: max 1 kg di carne, 1 kg di burro. L'alcol è soggetto a limiti separati." }
+ },
+ {
+ "@type": "Question",
+ "name": "Qual è il supermercato più economico vicino al confine?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Eurospin e Lidl Italia offrono generalmente i prezzi più bassi per prodotti di marca propria. Per prodotti di marca, Esselunga e Carrefour hanno spesso promozioni competitive. Lato svizzero, Aldi e Denner sono le opzioni più convenienti." }
+ },
+ {
+ "@type": "Question",
+ "name": "Conviene fare benzina in Italia o in Svizzera?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Il prezzo della benzina è molto simile tra Italia e Svizzera (circa €1.75/L vs CHF 1.85/L). Considerando il tasso di cambio, la differenza è minima. Conviene fare benzina dove ci si trova, senza deviazioni apposta." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali prodotti conviene comprare in Svizzera?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Elettronica, abbigliamento tecnico e alcuni prodotti farmaceutici possono essere più convenienti in Svizzera grazie all'IVA più bassa (8.1% vs 22% in Italia). Anche Nespresso e cioccolato svizzero costano meno acquistati direttamente in Svizzera." }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'cost-of-living': {
+ title: 'Costo Vita Svizzera vs Italia 2026: Affitti e Spesa',
+ description: 'Costo vita Svizzera vs Italia 2026: affitti Lugano-Como, spesa, LAMal e trasporti. Tabelle per capire se conviene vivere in Italia o Ticino.',
+ keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera, costo vita lugano vs como',
+ ogTitle: 'Costo Vita Svizzera vs Italia 2026: Affitti e Spesa',
+ ogDescription: 'Confronto 2026 tra Lugano e Como: affitto, spesa, LAMal e trasporti per frontalieri ed espatriati.',
+ canonicalPath: '/compara-servizi/costo-della-vita/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Costo della Vita Svizzera-Italia",
+ "url": `${BASE_URL}/compara-servizi/costo-della-vita/`,
+ "description": "Confronto interattivo del costo della vita tra città di frontiera svizzere e italiane",
+ "abstract": "Il costo della vita in Svizzera è mediamente 40-60% più alto rispetto all'Italia: affitti, spesa e LAMal sono le voci con le differenze maggiori. Un bilocale a Lugano costa CHF 1.400-1.800/mese contro 500-800 € a Como. Per un frontaliere residente in Italia il differenziale si riduce al 10-20% grazie a salario CH + costi IT.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": {
+ "@type": "Offer",
+ "price": "0",
+ "priceCurrency": "CHF"
+ },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quanto costa vivere in Svizzera rispetto all'Italia?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Il costo della vita in Svizzera è mediamente 40-60% più alto rispetto all'Italia. Affitti, spesa alimentare e assicurazione sanitaria (LAMal) sono le voci con le differenze maggiori. Un bilocale a Lugano costa circa CHF 1.400-1.800/mese contro i 500-800€ a Como." }
+ },
+ {
+ "@type": "Question",
+ "name": "Conviene vivere in Italia e lavorare in Svizzera?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Per molti frontalieri sì: lo stipendio svizzero combinato con il costo della vita italiano permette un risparmio netto maggiore, specialmente su affitto e spesa. Tuttavia, vanno considerati i costi di trasporto, i tempi di viaggio e la tassazione applicabile." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono le città più economiche vicino al confine svizzero?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Tra le città italiane di frontiera, Varese e le aree della provincia di Como offrono costi contenuti con buoni collegamenti verso il Ticino. Lato svizzero, Mendrisio e Chiasso hanno costi leggermente inferiori a Lugano." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto costa vivere a Lugano da frontaliere nel 2026?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Vivere a Lugano come residente costa in media CHF 4.500–5.500 al mese per un single: bilocale CHF 1.400–1.800, LAMal CHF 380–500, spesa CHF 600–800, trasporti CHF 75 (Tessin-abo), utenze CHF 180–250, svaghi CHF 400–600. Un frontaliere che risiede a Como o Varese e lavora a Lugano sostiene circa il 40–50% in meno grazie ad affitto e spesa italiani, più CHF 80–150/mese di pendolarismo (treno TILO o auto+pedaggio autostradale)." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto costa un affitto a Chiasso o Mendrisio?",
+ "acceptedAnswer": { "@type": "Answer", "text": "A Mendrisio un bilocale di 50–60 m² costa CHF 1.100–1.500/mese (+ CHF 150–220 di spese accessorie Nebenkosten), a Chiasso CHF 1.050–1.400. Trilocali di 75–85 m² salgono a CHF 1.400–1.900 (Mendrisio) e CHF 1.300–1.750 (Chiasso). Si richiedono tipicamente 3 mensilità di cauzione bancaria, referenze datore di lavoro e estratto Betreibungsregister. Sono il 25–35% più economici rispetto a Lugano per la stessa tipologia." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto si spende mediamente per la spesa alimentare in Ticino?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Un single ticinese spende CHF 400–550/mese di spesa alimentare (Migros/Coop), una coppia CHF 650–850, una famiglia con 2 figli CHF 950–1.250. I discount Aldi e Lidl riducono il conto del 20–30%. Un frontaliere che fa la spesa in Italia (Como, Varese) risparmia il 30–40%: una spesa settimanale da 150 € in IT corrisponde a 210–240 CHF a Lugano. Attenzione al limite franchigia doganale CHF 150/persona/giorno." }
+ },
+ {
+ "@type": "Question",
+ "name": "Costo vita Svizzera vs Italia 2026: confronto Lugano-Como per un single?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Confronto 2026 costo vita Svizzera vs Italia per un single: un residente a Lugano spende CHF 4.500-5.500/mese (bilocale CHF 1.400-1.800, LAMal CHF 380-500, spesa Migros CHF 600-800, trasporti Tessin-abo CHF 75, utenze CHF 180-250, svaghi CHF 400-600); un residente a Como spende 2.100-2.700 €/mese (bilocale 500-800 €, SSN gratuito, spesa 350-500 €, abbonamento trasporti 35 €, utenze 120-180 €, svaghi 250-400 €). Un frontaliere ticinese che risiede a Como paga i costi italiani ma incassa lo stipendio svizzero: risparmia 40-50% rispetto al residente luganese, netto dei costi di pendolarismo (treno TILO CHF 80-150/mese). Fonti: [UST/BFS — Indice prezzi al consumo](https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi/indice-nazionale-prezzi-consumo.html), [ISTAT — Statistiche territoriali Como](https://www.istat.it/it/archivio/statistiche+territoriali)." }
+ },
+ {
+ "@type": "Question",
+ "name": "Costo vita Lugano vs Como: quanto costa davvero un frontaliere?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Il costo vita Lugano vs Como per un frontaliere che lavora a Lugano e risiede a Como si ferma su 2.300-2.900 €/mese netti nel 2026: affitto bilocale Como 500-800 €, utenze 120-180 €, spesa 350-500 € (possibile riduzione del 20% comprando metà in Svizzera entro franchigia doganale CHF 150/giorno), SSN gratuito + eventuale integrazione sanitaria 25-60 €/mese, trasporto pendolare TILO S10 Como-Lugano CHF 80-110 (abbonamento mensile), svaghi 250-400 €. A parità di qualità della vita, lo stesso profilo a Lugano costa CHF 4.500-5.500 (+95-110%). Il differenziale netto per un frontaliere è CHF 1.800-2.200/mese risparmiati. Il dato cambia con figli (scuola pubblica italiana gratuita vs Ticino con rette materna), animali (veterinario IT 30-50% meno) e assistenza anziani. Fonte: [USTAT — Osservatorio prezzi Canton Ticino](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)." }
+ },
+ {
+ "@type": "Question",
+ "name": "Perché il costo vita in Svizzera è più alto di quello in Italia?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Il costo vita in Svizzera è più alto di quello in Italia per 5 fattori strutturali quantificati da UST e ISTAT: (1) salari medi 2,1x l'Italia (CHF 6.788 mediano 2024 vs 2.369 € lordi mediani Istat 2024), che spingono al rialzo tutti i servizi labour-intensive (ristorazione, artigianato, sanità privata); (2) affitti regolamentati ma con indicizzazione al tasso di riferimento BNS (rent stress 25-30% su redditi medi); (3) LAMal obbligatoria pagata interamente dall'assicurato (CHF 380-500/mese a Lugano vs SSN gratuito IT); (4) IVA 8,1% (2024) contro il 22% italiano: la differenza si trasmette solo a metà perché i margini svizzeri restano piu' alti (prezzi 50-70% superiori); (5) produttività e QoL (infrastrutture, puntualità trasporti, sicurezza) premiate dal mercato del lavoro. Il frontaliere vive a cavallo dei due sistemi e ne ottimizza il differenziale: per questo il suo vantaggio economico è il piu' alto d'Europa. Fonte: [UST — Indice prezzi al consumo 2026](https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi/indice-nazionale-prezzi-consumo.html), [ISTAT — Stime dei prezzi al consumo 2026](https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo)." }
+ }
+ ],
+ "speakable": SPEAKABLE_SECTION
+ }
+ ]
+ },
+
+ livingCH: {
+ title: 'Vivere in Svizzera | Guida Completa e Residenti',
+ description: 'Tutto su vivere in Svizzera: costo della vita, affitti Canton Ticino, sistema sanitario LAMal, scuole, trasporti, tasse e burocrazia. Guida pratica per.',
+ keywords: 'vivere in svizzera, trasferirsi in svizzera, affitti ticino, costo vita svizzera, lamal assicurazione, scuole svizzera, sistema sanitario svizzera, burocrazia svizzera, residenza svizzera',
+ ogTitle: 'Vivere in Svizzera | Guida Completa per Frontalieri',
+ ogDescription: '🇨🇭 Guida completa su vivere in Svizzera: affitti, sanità, scuole, trasporti e burocrazia nel Canton Ticino.',
+ canonicalPath: '/vivere-in-ticino/vivere-in-svizzera/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Vivere in Svizzera: Guida Completa per Frontalieri e Residenti",
+ "url": `${BASE_URL}/vivere-in-ticino/vivere-in-svizzera/`,
+ "description": "Tutto su vivere in Svizzera: costo della vita, affitti, sanità LAMal, scuole e burocrazia nel Canton Ticino",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00"
+ }
+ },
+
+ livingIT: {
+ title: 'Vivere in Italia come Frontaliere | Frontaliere Ticino',
+ description: 'Vantaggi e svantaggi di vivere in Italia lavorando in Svizzera: costi più bassi, detrazioni fiscali, sanità SSN, scuole italiane, qualità della vita nelle.',
+ keywords: 'vivere in italia frontaliere, residenza italia vantaggi, como varese frontalieri, costi vivere italia, detrazioni frontalieri italia, sanità ssn frontalieri, province frontiera',
+ ogTitle: 'Vivere in Italia come Frontaliere | Vantaggi e Svantaggi',
+ ogDescription: '🇮🇹 Pro e contro di vivere in Italia lavorando in Svizzera: costi, detrazioni, sanità e qualità della vita.',
+ canonicalPath: '/vivere-in-ticino/vivere-in-italia/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Vivere in Italia come Frontaliere: Vantaggi e Svantaggi",
+ "url": `${BASE_URL}/vivere-in-ticino/vivere-in-italia/`,
+ "description": "Pro e contro di vivere in Italia lavorando in Svizzera: costi, detrazioni, sanità SSN nelle province di frontiera",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00"
+ }
+ },
+
+ border: {
+ title: 'Traffico Dogana Chiasso 2026: Attese e Brogeda Live',
+ description: 'Traffico dogana Chiasso 2026: tempi attesa live Brogeda A2, Chiasso Strada e Ponte Chiasso, webcam BAZG e valichi alternativi Gaggiolo e Ponte Tresa.',
+ keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera, coda brogeda',
+ ogTitle: 'Traffico Dogana Chiasso Brogeda | Tempi di Attesa e Code',
+ ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa live, webcam e valichi alternativi per evitare le code.',
+ canonicalPath: '/traffico-dogane/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Valichi di Frontiera Svizzera-Italia: Orari, Traffico e Percorsi",
+ "url": `${BASE_URL}/traffico-dogane/`,
+ "description": "Guida completa ai valichi doganali CH-IT: Chiasso, Ponte Tresa, Gaggiolo, Brogeda, Stabio con orari e percorsi alternativi",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "dateModified": "2026-10-03"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quali sono gli orari di apertura dei valichi di frontiera Svizzera-Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Brogeda Autostrada (Chiasso) è presidiata dal lunedì alla domenica, 24 ore su 24, per il traffico turistico. Gli orari di sdoganamento delle merci e degli altri uffici vanno verificati separatamente nel repertorio UDSC: non esiste un orario 6–22 valido per tutti i valichi minori. https://dst.bazg.admin.ch/dst/print?id=386&lang=4" } },
+ { "@type": "Question", "name": "Qual è il valico meno trafficato tra Svizzera e Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Non esiste un valico sempre meno trafficato. Confronta le osservazioni aggiornate nella tua direzione con il tempo aggiuntivo necessario per raggiungere un’alternativa e verifica gli orari del servizio doganale." } },
+ { "@type": "Question", "name": "A che ora c'è più traffico alla dogana di Chiasso?", "acceptedAnswer": { "@type": "Answer", "text": "Le ore di punta sono 7:00-8:30 (ingresso in Svizzera) e 17:00-18:30 (rientro in Italia). Il lunedì e il venerdì sono i giorni più trafficati." } },
+ { "@type": "Question", "name": "Come evitare le code alla frontiera Svizzera-Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Controlla traffico e orari prima di partire, confronta percorsi alternativi e valuta il treno quando adatto al tragitto. Viaggiare in treno non esclude eventuali controlli doganali; evita di interpretarlo come una garanzia di assenza di controlli." } },
+ { "@type": "Question", "name": "Traffico dogana Chiasso Brogeda: quanto si attende in media oggi?", "acceptedAnswer": { "@type": "Answer", "text": "Il tempo di attesa di oggi dipende dall’ora, dalla direzione e dagli eventi in corso. Consulta la pagina traffico dogane e controlla l’orario dell’ultima osservazione: un dato scaduto non descrive la coda attuale. Una media storica non può sostituire una misura aggiornata." } },
+ { "@type": "Question", "name": "Brogeda vs Ponte Chiasso vs Chiasso Strada: quale conviene nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Confronta il percorso completo, le condizioni del traffico e il tipo di veicolo. Brogeda Autostrada, a Chiasso, è presidiata 24 ore su 24 per il traffico turistico. Per gli altri uffici e per lo sdoganamento commerciale verifica gli orari del servizio specifico nel repertorio UDSC; non si può garantire un risparmio fisso di minuti. https://dst.bazg.admin.ch/dst/print?id=386&lang=4" } },
+ { "@type": "Question", "name": "Come vedo il traffico dogana Chiasso in tempo reale?", "acceptedAnswer": { "@type": "Answer", "text": "Apri la pagina traffico dogane e leggi fonte, direzione e orario dell’osservazione. Le stime di flusso e le webcam non sono la stessa misura: verifica la freschezza di ciascun dato. Gli orari degli uffici UDSC descrivono i servizi disponibili, non la lunghezza della coda." } }
+ ]
+ }
+ ]
+ },
+
+ 'car-cost': {
+ title: 'Costo Auto Pendolare Frontaliere Ticino 2026 | Tabelle',
+ description: 'Calcola i costi reali del pendolarismo come frontaliere: benzina, autostrada, usura auto, parcheggio, abbonamenti treno e bus transfrontalieri. Confronta.',
+ keywords: 'costi pendolarismo frontaliere, spese viaggio frontaliere, benzina frontaliere, autostrada svizzera costi, parcheggio dogana, treno frontalieri, bus transfrontaliero',
+ ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
+ ogDescription: '🚗 Calcola quanto spendi di pendolarismo: auto, treno, bus. Confronta le opzioni per risparmiare!',
+ canonicalPath: '/guida-frontaliere/costo-auto-pendolare/',
+ h1: 'Costo auto pendolare frontaliere Ticino 2026 — casi studio, tabelle km/CHF, treno',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore Costi Pendolarismo Frontaliere",
+ "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare/`,
+ "description": "Calcola costi reali del pendolarismo frontaliere: benzina, autostrada, usura auto, abbonamenti treno e bus",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ companies: {
+ title: 'Aziende che Assumono in Ticino 2026: Lista Settori',
+ h1: 'Aziende che assumono in Ticino 2026 — settori e stipendi',
+ description: 'Aziende che assumono in Ticino 2026: lista per settore (banche, farmaceutico, industria, ICT) con sede Lugano/Mendrisio/Chiasso e stipendi medi frontalieri.',
+ keywords: 'aziende che assumono in ticino, nomi ditte in svizzera che assumono, aziende canton ticino, aziende ticino lavoro, aziende che assumono svizzera italiana, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino, lista aziende ticino',
+ ogTitle: 'Aziende che Assumono in Ticino 2026 | Lista per Settore',
+ ogDescription: '🏢 Aziende che assumono in Ticino nel 2026: lista per settore e città, sedi Lugano/Mendrisio/Chiasso e stipendi medi frontalieri.',
+ canonicalPath: '/vivere-in-ticino/aziende-svizzera-italiana/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Aziende che Assumono in Ticino",
+ "url": `${BASE_URL}/vivere-in-ticino/aziende-svizzera-italiana/`,
+ "description": "Principali aziende che assumono frontalieri nel Canton Ticino: settori tecnologia, finanza, farmaceutico, industria e servizi",
+ "inLanguage": "it"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Aziende principali in Ticino",
+ "itemListElement": [
+ {
+ "@type": "ListItem",
+ "position": 1,
+ "item": { "@type": "Organization", "name": "UBS", "url": "https://www.ubs.com" }
+ },
+ {
+ "@type": "ListItem",
+ "position": 2,
+ "item": { "@type": "Organization", "name": "Banca dello Stato del Canton Ticino", "url": "https://www.bancastato.ch" }
+ },
+ {
+ "@type": "ListItem",
+ "position": 3,
+ "item": { "@type": "Organization", "name": "VF International", "url": "https://www.vfc.com" }
+ },
+ {
+ "@type": "ListItem",
+ "position": 4,
+ "item": { "@type": "Organization", "name": "Helsinn", "url": "https://www.helsinn.com" }
+ },
+ {
+ "@type": "ListItem",
+ "position": 5,
+ "item": { "@type": "Organization", "name": "IBSA Institut Biochimique", "url": "https://www.ibsa.ch" }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quali sono i nomi delle ditte in Svizzera che assumono frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 le principali ditte in Svizzera italiana che assumono frontalieri sono concentrate in 5 settori: banche-finanza (UBS, BancaStato, Raiffeisen Svizzera italiana, EFG), farmaceutico/biotech (Helsinn a Lugano, IBSA a Lamone, Cosmo Pharmaceuticals a Lainate-Mendrisio, Cerbios-Pharma a Barbengo), industria medtech (Medacta International a Castel San Pietro, Dätwyler a Schattdorf-Altdorf con stabilimento in Ticino), ICT e servizi (PostFinance, SUPSI, Swisscom business, Rhenus logistica a Stabio), retail-lusso (VF International a Stabio, Gucci Logistica a Cadempino). Per l'elenco completo ufficiale delle aziende autorizzate ad assumere frontalieri consulta [SECO — Registro aziende prestatrici](https://www.sem.admin.ch/sem/it/home/themen/arbeit.html)." } },
+ { "@type": "Question", "name": "Aziende in Canton Ticino: quante sono e dove cercarle nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel Canton Ticino sono registrate circa 36.700 aziende attive (fonte: [USTAT — Censimento aziende 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), di cui oltre 5.300 con almeno 10 dipendenti. Il 52% ha sede nel Distretto di Lugano, il 22% nel Mendrisiotto, l'11% nel Luganese-Malcantone e il 15% nel Bellinzonese-Locarnese. Per cercarle: Registro di Commercio (zefix.ch) per dati ufficiali, Orell-Füssli per bilanci, Moneyhouse per network aziendali, SUPSI Alumni per contatti diretti. Le offerte di lavoro aziendali sono raccolte su JobUp, JobScout24 e sul nostro aggregatore [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). I frontalieri italiani (oltre 74.000 secondo UST) rappresentano quasi il 30% della forza lavoro ticinese." } },
+ { "@type": "Question", "name": "Come candidarsi alle aziende svizzero-italiane che assumono frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per candidarsi efficacemente alle aziende svizzero-italiane nel 2026 servono 4 documenti: CV in formato Europass o svizzero (1-2 pagine, foto-tessera, dettaglio scolastico EFZ/maturità, lingue con livello CEFR), lettera di motivazione personalizzata per la ditta, copia del permesso G in corso di validità (o dichiarazione di richiesta), casellario giudiziale italiano tradotto. I canali principali: pagine carriere corporate (UBS Careers, Medacta Careers, Helsinn Careers), LinkedIn con filtro 'Canton Ticino', JobUp/JobScout24, agenzie interinali SECO-autorizzate (Adecco, Manpower, Randstad, Kelly Services). Per i lavoratori OSS/infermieri la candidatura passa per MEBEKO con riconoscimento titolo. Tempo medio di selezione: 3-6 settimane. Fonte: [SECO — Orientamento al mercato del lavoro](https://www.sem.admin.ch/sem/it/home/themen/arbeit.html)." } }
+ ]
+ }
+ ]
+ },
+
+ municipalities: {
+ title: '146 Comuni di Frontiera Svizzera 2026 | Mappa Interattiva',
+ description: 'Elenco completo dei 146 comuni italiani entro 20 km dal confine svizzero. Mappa interattiva con distanze, addizionale IRPEF e trasporti.',
+ keywords: 'comuni di frontiera, elenco comuni frontalieri svizzera 2026, comuni frontalieri svizzera mappa, comuni 20 km confine svizzera, comuni como varese frontiera, distanza valichi frontiera, mappa comuni frontiera',
+ ogTitle: '146 Comuni di Frontiera Svizzera — Mappa e Distanze',
+ ogDescription: 'Mappa interattiva dei 146 comuni italiani di frontiera. Distanze dai valichi, addizionale IRPEF e trasporti per frontalieri.',
+ canonicalPath: '/vivere-in-ticino/comuni-di-frontiera/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Mappa Comuni di Frontiera Italia-Svizzera",
+ "url": `${BASE_URL}/vivere-in-ticino/comuni-di-frontiera/`,
+ "description": "Mappa interattiva dei comuni italiani di frontiera con distanze dai valichi e informazioni utili",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Comuni Italiani di Frontiera",
+ "url": `${BASE_URL}/vivere-in-ticino/comuni-di-frontiera/`,
+ "description": "Elenco dei comuni italiani della fascia di frontiera con la Svizzera",
+ "inLanguage": "it"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Comuni Italiani di Frontiera",
+ "description": "Elenco dei comuni italiani situati nella fascia di frontiera con la Svizzera",
+ "numberOfItems": 146,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "item": { "@type": "City", "name": "Chiasso (confine)", "containedInPlace": { "@type": "AdministrativeArea", "name": "Como" } } },
+ { "@type": "ListItem", "position": 2, "item": { "@type": "City", "name": "Ponte Tresa", "containedInPlace": { "@type": "AdministrativeArea", "name": "Varese" } } },
+ { "@type": "ListItem", "position": 3, "item": { "@type": "City", "name": "Lavena Ponte Tresa", "containedInPlace": { "@type": "AdministrativeArea", "name": "Varese" } } },
+ { "@type": "ListItem", "position": 4, "item": { "@type": "City", "name": "Campione d'Italia", "containedInPlace": { "@type": "AdministrativeArea", "name": "Como" } } },
+ { "@type": "ListItem", "position": 5, "item": { "@type": "City", "name": "Luino", "containedInPlace": { "@type": "AdministrativeArea", "name": "Varese" } } }
+ ]
+ }
+ ]
+ },
+
+ places: {
+ title: 'Attrazioni Ticino 2026 | Cosa Visitare in Svizzera Italiana',
+ h1: 'Attrazioni in Ticino e Svizzera italiana 2026 — laghi, montagne, castelli UNESCO e grotti',
+ description: 'Guida ai posti più belli del Canton Ticino: montagne, laghi, città, cultura, attività per famiglie e shopping. Consigli per frontalieri che vivono e.',
+ keywords: 'posti da visitare ticino, cosa fare ticino, lugano attrazioni, monte san salvatore, lago lugano, bellinzona castelli unesco, foxtown mendrisio, swissminiatur, locarno film festival, grotti ticinesi',
+ ogTitle: 'Posti da Visitare in Ticino | Natura, Cultura e Famiglia',
+ ogDescription: '🏔️ Scopri i posti più belli del Canton Ticino: montagne, laghi, città, eventi e attività per famiglie. Guida per frontalieri!',
+ canonicalPath: '/vivere-in-ticino/attrazioni-svizzera-italiana/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Posti da Visitare in Ticino: Natura, Cultura e Attività",
+ "url": `${BASE_URL}/vivere-in-ticino/attrazioni-svizzera-italiana/`,
+ "description": "Guida ai posti più belli del Canton Ticino: montagne, laghi, città, cultura e attività per famiglie",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00"
+ }
+ },
+
+ schools: {
+ title: 'Scuole in Ticino | Nido, Infanzia, Elementare, Media, Liceo',
+ description: 'Guida alle scuole del Canton Ticino per frontalieri: nido, infanzia, elementare, media, liceo. Costi, orari e vicinanza ai valichi.',
+ keywords: 'scuole ticino frontalieri, nido svizzera costi, scuola infanzia ticino, scuola elementare ticino, scuola media mendrisio, liceo lugano, scuole vicino frontiera, costi scuola svizzera, asilo ticino',
+ ogTitle: 'Scuole in Ticino per Frontalieri | Guida Completa per Età',
+ ogDescription: '🎓 Guida alle scuole del Canton Ticino per frontalieri: tipi per età, costi, orari e scuole vicine ai valichi di frontiera.',
+ canonicalPath: '/vivere-in-ticino/scuole-svizzera-italiana/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Scuole in Ticino per Frontalieri: dalla Materna al Liceo",
+ "url": `${BASE_URL}/vivere-in-ticino/scuole-svizzera-italiana/`,
+ "description": "Guida completa alle scuole del Canton Ticino per frontalieri: nido, infanzia, elementare, media, liceo con costi e orari",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Scuole in Ticino per Frontalieri",
+ "description": "Elenco completo delle scuole nel Canton Ticino: nidi, scuole dell'infanzia, elementari, medie e superiori",
+ "numberOfItems": 63,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "item": { "@type": "EducationalOrganization", "name": "Nido comunale di Chiasso", "address": { "@type": "PostalAddress", "streetAddress": "Via Bossi 2a", "addressLocality": "Chiasso", "postalCode": "6830", "addressCountry": "CH" }, "telephone": "+41 91 695 06 80" } },
+ { "@type": "ListItem", "position": 2, "item": { "@type": "EducationalOrganization", "name": "Nido L'Aquilone", "address": { "@type": "PostalAddress", "streetAddress": "Via Penate 4", "addressLocality": "Mendrisio", "postalCode": "6850", "addressCountry": "CH" }, "telephone": "+41 91 646 43 21", "url": "https://www.nido-aquilone.ch" } },
+ { "@type": "ListItem", "position": 3, "item": { "@type": "EducationalOrganization", "name": "Nido Il Girotondo", "address": { "@type": "PostalAddress", "streetAddress": "Via Nassa 21", "addressLocality": "Lugano", "postalCode": "6900", "addressCountry": "CH" }, "telephone": "+41 91 923 56 78", "url": "https://www.ilgirotondo.ch" } },
+ { "@type": "ListItem", "position": 4, "item": { "@type": "EducationalOrganization", "name": "Scuola dell'infanzia Lugano Centro", "address": { "@type": "PostalAddress", "streetAddress": "Via Canova", "addressLocality": "Lugano", "postalCode": "6900", "addressCountry": "CH" } } },
+ { "@type": "ListItem", "position": 5, "item": { "@type": "EducationalOrganization", "name": "International School of Ticino", "address": { "@type": "PostalAddress", "streetAddress": "Via Ponteggia 23", "addressLocality": "Cadempino", "postalCode": "6814", "addressCountry": "CH" }, "telephone": "+41 91 971 29 65", "url": "https://www.isticino.com", "description": "Curriculum internazionale IB, inglese/italiano" } },
+ { "@type": "ListItem", "position": 6, "item": { "@type": "EducationalOrganization", "name": "TASIS - The American School in Switzerland", "address": { "@type": "PostalAddress", "streetAddress": "Via Collina d'Oro 15", "addressLocality": "Montagnola", "postalCode": "6926", "addressCountry": "CH" }, "telephone": "+41 91 960 51 51", "url": "https://www.tasis.ch", "description": "Scuola americana, boarding school dal 1956" } },
+ { "@type": "ListItem", "position": 7, "item": { "@type": "EducationalOrganization", "name": "Scuola media Chiasso", "address": { "@type": "PostalAddress", "streetAddress": "Via Livio 4", "addressLocality": "Chiasso", "postalCode": "6830", "addressCountry": "CH" }, "telephone": "+41 91 816 41 11" } },
+ { "@type": "ListItem", "position": 8, "item": { "@type": "EducationalOrganization", "name": "Scuola media Lugano 1 (Besso)", "address": { "@type": "PostalAddress", "streetAddress": "Via Besso 10", "addressLocality": "Lugano", "postalCode": "6900", "addressCountry": "CH" }, "telephone": "+41 91 816 41 81", "description": "Una delle scuole medie più grandi del cantone" } },
+ { "@type": "ListItem", "position": 9, "item": { "@type": "EducationalOrganization", "name": "Liceo cantonale di Lugano 1", "address": { "@type": "PostalAddress", "streetAddress": "Viale Carlo Cattaneo 4", "addressLocality": "Lugano", "postalCode": "6900", "addressCountry": "CH" }, "telephone": "+41 91 815 31 11", "url": "https://www.liceolugano.ch", "description": "Il più antico liceo del Ticino, fondato nel 1852" } },
+ { "@type": "ListItem", "position": 10, "item": { "@type": "EducationalOrganization", "name": "Liceo cantonale di Mendrisio", "address": { "@type": "PostalAddress", "streetAddress": "Via dei Fichi", "addressLocality": "Mendrisio", "postalCode": "6850", "addressCountry": "CH" }, "telephone": "+41 91 816 58 11", "url": "https://www.liceomendrisio.ch" } },
+ { "@type": "ListItem", "position": 11, "item": { "@type": "EducationalOrganization", "name": "Liceo cantonale di Bellinzona", "address": { "@type": "PostalAddress", "streetAddress": "Viale Franscini 31", "addressLocality": "Bellinzona", "postalCode": "6500", "addressCountry": "CH" }, "telephone": "+41 91 814 18 11", "url": "https://www.liceobellinzona.ch" } },
+ { "@type": "ListItem", "position": 12, "item": { "@type": "EducationalOrganization", "name": "Scuola cantonale di commercio (SCC)", "address": { "@type": "PostalAddress", "streetAddress": "Viale Franscini 32", "addressLocality": "Bellinzona", "postalCode": "6500", "addressCountry": "CH" }, "telephone": "+41 91 814 01 11", "url": "https://www.scc.ti.ch", "description": "Formazione commerciale AFC + maturità professionale" } },
+ { "@type": "ListItem", "position": 13, "item": { "@type": "EducationalOrganization", "name": "Centro professionale tecnico (CPT) Lugano-Trevano", "address": { "@type": "PostalAddress", "streetAddress": "Via Trevano", "addressLocality": "Canobbio", "postalCode": "6952", "addressCountry": "CH" }, "telephone": "+41 91 815 10 51", "url": "https://www.cpttrevano.ti.ch", "description": "Formazione tecnica: informatica, elettronica, meccanica" } }
+ ]
+ }
+ ]
+ },
+
+ unemployment: {
+ title: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1 2026',
+ description: 'Disoccupazione frontalieri: cosa fare dopo il licenziamento in Svizzera, PD U1, NASpI in Italia, importi 2026 e tempi.',
+ keywords: 'disoccupazione frontalieri, naspi frontalieri svizzera, disoccupazione svizzera ALV, PD U1 formulario, indennità disoccupazione frontaliere, naspi italia procedura, assicurazione disoccupazione svizzera, URC ticino, cassa disoccupazione',
+ ogTitle: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1',
+ ogDescription: 'Licenziamento in Svizzera? PD U1, NASpI Italia, importi e passaggi pratici per i frontalieri.',
+ canonicalPath: '/guida-frontaliere/disoccupazione-transfrontaliera/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Disoccupazione Frontalieri: NASpI Italia e AD Svizzera",
+ "url": `${BASE_URL}/guida-frontaliere/disoccupazione-transfrontaliera/`,
+ "description": "Guida completa alla disoccupazione per frontalieri: NASpI, AD/ALV, formulario PD U1, importi e procedure passo per passo",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il frontaliere con permesso G che perde il lavoro in Svizzera riceve la disoccupazione in Italia (NASpI), non in Svizzera. Il regolamento UE 883/2004 prevede che i lavoratori frontalieri in disoccupazione totale siano a carico del Paese di residenza. Come chiarisce il Prof. Roberto Bentivoglio, docente di diritto del lavoro all'USI: «Il frontaliere deve richiedere immediatamente il formulario PD U1 in Svizzera per non perdere il diritto alla NASpI»."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cos'è il formulario PD U1 e come si ottiene?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il PD U1 è il formulario europeo che certifica i periodi di assicurazione e contribuzione in Svizzera. Si richiede alla cassa di disoccupazione svizzera (es. URC Bellinzona) e serve per aprire la NASpI in Italia. Senza PD U1 l'INPS non può totalizzare i contributi svizzeri."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto prende di NASpI un frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La NASpI è pari al 75% dello stipendio medio mensile fino a €1.425,21, più il 25% della parte eccedente. Si riduce del 3% al mese dal 6° mese (8° mese per over-55). Lo stipendio svizzero viene convertito in EUR con il cambio ufficiale INPS. L'importo massimo 2026 è circa €1.550/mese."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Per quanti mesi si prende la NASpI dopo lavoro in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La durata della NASpI è pari alla metà delle settimane contributive negli ultimi 4 anni. Con 4 anni pieni di lavoro in Svizzera si ottengono fino a 24 mesi di NASpI. I contributi svizzeri vengono totalizzati tramite il formulario PD U1."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il frontaliere in NASpI può lavorare part-time in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, è possibile cumulare NASpI con lavoro part-time se il reddito annuo non supera €8.500. L'importo NASpI viene ridotto dell'80% del reddito da lavoro. Bisogna comunicare l'inizio dell'attività all'INPS entro 30 giorni."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Se ho lavorato in Svizzera, risulto disoccupato in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì: un frontaliere residente in Italia che ha lavorato in Svizzera e perde il lavoro risulta disoccupato in Italia secondo il Regolamento UE 883/2004. L'indennità di disoccupazione si richiede all'INPS (NASpI) entro 68 giorni dal licenziamento, presentando il formulario europeo PD U1 rilasciato dalla cassa svizzera (URC o Caisse de Chômage) che certifica i periodi assicurativi in Svizzera. L'iscrizione al Centro per l'Impiego italiano è obbligatoria entro 15 giorni. La disoccupazione svizzera (AD/ALV) non è dovuta perché il Paese competente è quello di residenza: provincie di Como, Varese, Lecco, Sondrio e VCO per i frontalieri fiscali ticinesi." }
+ },
+ {
+ "@type": "Question",
+ "name": "Disoccupazione Svizzera per frontalieri: importi e durata 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Nel 2026 la disoccupazione Svizzera per frontalieri totali si paga in Italia come NASpI: 75% dello stipendio medio mensile fino a €1.425,21 + 25% dell'eccedenza, con tetto mensile di circa €1.550 lordi. La durata è pari alla metà delle settimane di contribuzione negli ultimi 4 anni (fino a 24 mesi con PD U1). Il frontaliere in disoccupazione parziale (es. riduzione orario concordata col datore CH) riceve invece l'indennità svizzera AD/ALV pari al 70-80% dello stipendio con tetto CHF 12.350/mese per massimo 18 mesi (fonte: SECO, art. 8 LADI). La residenza fiscale italiana non cambia la durata." }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali documenti servono per la disoccupazione frontalieri Svizzera-Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per aprire la disoccupazione da lavoro in Svizzera servono: 1) lettera di licenziamento o disdetta datata dal datore svizzero; 2) certificato di salario annuo (Lohnausweis) degli ultimi 12 mesi; 3) formulario PD U1 rilasciato dalla cassa di disoccupazione svizzera competente (URC Ticino: Bellinzona, Lugano, Locarno, Mendrisio); 4) permesso G in corso di validità o scaduto; 5) documento d'identità; 6) IBAN italiano; 7) codice fiscale. La domanda NASpI si presenta online tramite portale INPS o patronato (CAF, ACLI, INCA). Tempo medio di prima erogazione: 45-60 giorni." }
+ }
+ ]
+ }
+ ]
+ },
+
+ // Deliberately Ticino-only, unlike the canton/country-agnostic data/borderCrossings.ts
+ // pipeline (#4541/#4543): this is a single hand-authored editorial page (dates, holiday
+ // names, legal basis all hardcoded for Canton Ticino), not a generated per-canton dataset.
+ // Generalizing it would mean authoring a full holiday calendar + legal-basis research for
+ // every canton, a separate content project, not a mechanical refactor of this schema block.
+ holidays: {
+ title: 'Festività Ticino 2026: Calendario e Ponti Ufficiali',
+ description: 'Festività Ticino 2026: calendario ufficiale dei 15 giorni festivi, ponti utili, lavoro festivo e confronto Italia-Svizzera per frontalieri.',
+ keywords: 'festività ticino, festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, calendario festività ticino 2026, calendario ufficiale giorni festivi ticino, festività canton ticino, giorni festivi canton ticino, festività cantonali ticino, ponti ticino 2026, ferie svizzera frontalieri, festività svizzere 2026, giorni festivi svizzera italia confronto, 1 agosto ticino 2026, pasqua ticino 2026, natale ticino 2026, assunzione ticino festivo',
+ ogTitle: 'Festività Ticino 2026: Calendario e Ponti Ufficiali',
+ ogDescription: '15 giorni festivi in Ticino, ponti utili, lavoro festivo e differenze con il calendario italiano.',
+ h1: 'Festività Ticino 2026: il calendario ufficiale completo del Canton Ticino',
+ canonicalPath: '/tasse-e-pensione/festivita-ticino/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Festività Ticino 2026: Calendario Completo dei Giorni Festivi del Canton Ticino",
+ "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
+ "abstract": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere più 11 festività cantonali cattoliche tipiche della Svizzera italiana. I frontalieri seguono il calendario svizzero (lex loci laboris), non quello italiano.",
+ "description": "Festività Ticino 2026: tutti i 15 giorni festivi ufficiali del Canton Ticino con date, giorno della settimana, ponti, differenze con il resto della Svizzera e impatto sulla busta paga del frontaliere",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00",
+ "keywords": "festività ticino 2026, giorni festivi ticino, calendario ticino 2026",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Giorni Festivi Canton Ticino 2026",
+ "description": "Elenco completo dei 15 giorni festivi riconosciuti nel Canton Ticino nel 2026",
+ "itemListOrder": "https://schema.org/ItemListOrderAscending",
+ "numberOfItems": 15,
+ "itemListElement": [
+ {"@type": "ListItem", "position": 1, "item": {"@type": "Schedule", "name": "Capodanno", "startDate": "2026-01-01", "endDate": "2026-01-01", "description": "Capodanno — giovedì 1 gennaio 2026. Festività federale svizzera, giorno non lavorativo in tutto il Ticino.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#1`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 2, "item": {"@type": "Schedule", "name": "San Berchtoldo (2 gennaio)", "startDate": "2026-01-02", "endDate": "2026-01-02", "description": "San Berchtoldo — venerdì 2 gennaio 2026. Festività facoltativa in alcuni comuni ticinesi, giorno di chiusura bancaria.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#2`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 3, "item": {"@type": "Schedule", "name": "Epifania", "startDate": "2026-01-06", "endDate": "2026-01-06", "description": "Epifania — martedì 6 gennaio 2026. Festività cantonale ticinese, riconosciuta anche in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#3`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 4, "item": {"@type": "Schedule", "name": "San Giuseppe", "startDate": "2026-03-19", "endDate": "2026-03-19", "description": "San Giuseppe — giovedì 19 marzo 2026. Festività cantonale ticinese, non riconosciuta nel resto della Svizzera.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#4`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 5, "item": {"@type": "Schedule", "name": "Venerdì Santo", "startDate": "2026-04-03", "endDate": "2026-04-03", "description": "Venerdì Santo — venerdì 3 aprile 2026. Festività cantonale ticinese; non è festivo federale ma è riconosciuto in Ticino.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#5`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 6, "item": {"@type": "Schedule", "name": "Lunedì dell'Angelo (Pasquetta)", "startDate": "2026-04-06", "endDate": "2026-04-06", "description": "Lunedì dell'Angelo (Pasquetta) — lunedì 6 aprile 2026. Festività federale svizzera, ottimo ponte con il weekend di Pasqua.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#6`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 7, "item": {"@type": "Schedule", "name": "Festa del Lavoro", "startDate": "2026-05-01", "endDate": "2026-05-01", "description": "Festa del Lavoro — venerdì 1 maggio 2026. Festività cantonale ticinese, non federale.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#7`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 8, "item": {"@type": "Schedule", "name": "Ascensione", "startDate": "2026-05-14", "endDate": "2026-05-14", "description": "Ascensione — giovedì 14 maggio 2026. Festività federale svizzera, cade sempre di giovedì (ottimo ponte).", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#8`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 9, "item": {"@type": "Schedule", "name": "Lunedì di Pentecoste", "startDate": "2026-05-25", "endDate": "2026-05-25", "description": "Lunedì di Pentecoste — lunedì 25 maggio 2026. Festività cantonale ticinese.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#9`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 10, "item": {"@type": "Schedule", "name": "Corpus Domini", "startDate": "2026-06-04", "endDate": "2026-06-04", "description": "Corpus Domini — giovedì 4 giugno 2026. Festività cantonale ticinese, cade sempre di giovedì (ottimo ponte).", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#10`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 11, "item": {"@type": "Schedule", "name": "SS. Pietro e Paolo", "startDate": "2026-06-29", "endDate": "2026-06-29", "description": "SS. Pietro e Paolo — lunedì 29 giugno 2026. Festività cantonale ticinese.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#11`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 12, "item": {"@type": "Schedule", "name": "Festa Nazionale Svizzera", "startDate": "2026-08-01", "endDate": "2026-08-01", "description": "Festa Nazionale Svizzera — sabato 1 agosto 2026. Festività federale, cade di sabato: non c'è recupero.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#12`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 13, "item": {"@type": "Schedule", "name": "Assunzione di Maria", "startDate": "2026-08-15", "endDate": "2026-08-15", "description": "Assunzione di Maria (Ferragosto) — sabato 15 agosto 2026. Festività cantonale ticinese, cade di sabato.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#13`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 14, "item": {"@type": "Schedule", "name": "Ognissanti", "startDate": "2026-11-01", "endDate": "2026-11-01", "description": "Ognissanti — domenica 1 novembre 2026. Festività cantonale ticinese, cade di domenica.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#14`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 15, "item": {"@type": "Schedule", "name": "Immacolata Concezione", "startDate": "2026-12-08", "endDate": "2026-12-08", "description": "Immacolata Concezione — martedì 8 dicembre 2026. Festività cantonale ticinese.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#15`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}}
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quanti giorni festivi ci sono in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere (Capodanno, Lunedì dell'Angelo, Ascensione, 1° Agosto, Natale, Santo Stefano) più le festività cantonali cattoliche tipiche della Svizzera italiana (Epifania, San Giuseppe, Venerdì Santo, Pentecoste, Corpus Domini, SS. Pietro e Paolo, Assunzione, Ognissanti, Immacolata)." } },
+ { "@type": "Question", "name": "Il 1° agosto 2026 è festivo in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, il 1° agosto 2026 è la Festa Nazionale Svizzera ed è un giorno festivo federale in tutto il Paese, Ticino incluso. Nel 2026 cade di sabato, quindi per chi non lavora il sabato non è previsto un giorno di recupero secondo il Codice delle Obbligazioni svizzero (art. 110 ss.): la maggior parte dei CCL ticinesi non prevede compensazione." } },
+ { "@type": "Question", "name": "Cosa succede se un festivo cade di sabato o domenica in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "In Svizzera, a differenza dell'Italia, se un festivo cade di sabato o domenica NON viene recuperato: il lavoratore perde semplicemente il beneficio del giorno libero. Nel 2026 questo capita a due festività ticinesi importanti: il 1° agosto (sabato) e il 15 agosto - Assunzione (sabato). Solo alcuni CCL di settore prevedono un giorno di recupero." } },
+ { "@type": "Question", "name": "Quali festività sono riconosciute in Ticino ma NON nel resto della Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Il Ticino, come cantone storicamente cattolico, riconosce 7 festività cantonali aggiuntive rispetto ai cantoni protestanti: Epifania (6/1), San Giuseppe (19/3), Corpus Domini, SS. Pietro e Paolo (29/6), Assunzione (15/8), Ognissanti (1/11), Immacolata (8/12). Questo significa che un frontaliere in Ticino ha in media 3-5 giorni festivi in più rispetto a chi lavora a Zurigo o Basilea." } },
+ { "@type": "Question", "name": "Le festività italiane (25 aprile, 2 giugno) valgono per il frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Il frontaliere segue il calendario festivo svizzero/ticinese perché il rapporto di lavoro è regolato dal diritto del lavoro svizzero (lex loci laboris). Le festività italiane (25 aprile Liberazione, 2 giugno Festa della Repubblica, santo patrono locale, 8 dicembre, ecc.) non sono riconosciute come giorni non lavorativi dal datore svizzero: per non andare al lavoro il frontaliere deve prendere un giorno di ferie ordinarie." } },
+ { "@type": "Question", "name": "Come viene pagato il frontaliere nei giorni festivi in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Il Codice delle Obbligazioni e la Legge sul Lavoro stabiliscono che il datore svizzero debba pagare i festivi che cadono in un giorno lavorativo anche se il lavoratore è assente. Il lavoratore in Stundenlohn (orario) riceve il compenso regolare, quello in salario mensile riceve lo stipendio pieno. Se il frontaliere lavora in un giorno festivo, la maggior parte dei CCL ticinesi prevede una maggiorazione del 50% o un giorno di recupero; alcuni settori (sanità, ospitalità, trasporti) arrivano al 100% di maggiorazione." } },
+ { "@type": "Question", "name": "Quali sono i ponti migliori per frontalieri nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i ponti più convenienti sono: Pasqua (Venerdì Santo 3 aprile + Pasquetta 6 aprile — già 4 giorni), Ascensione (giovedì 14 maggio, ponte con un giorno di ferie venerdì 15), Corpus Domini (giovedì 4 giugno, ponte con venerdì 5), SS. Pietro e Paolo (lunedì 29 giugno, weekend lungo). Meno fortunati i festivi 2026: il 1° agosto cade di sabato e il 15 agosto pure." } },
+ { "@type": "Question", "name": "Quanti giorni di ferie ha un frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Per legge svizzera (CO art. 329a) il minimo è 4 settimane (20 giorni lavorativi) all'anno per adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime." } },
+ { "@type": "Question", "name": "Qual è la festa del Canton Ticino più sentita?", "acceptedAnswer": { "@type": "Answer", "text": "La festa del Canton Ticino più sentita è il 1° agosto (Festa Nazionale Svizzera) con falò sulle montagne di Lugano, Mendrisio, Chiasso e Bellinzona, più il Ferragosto (Assunzione, 15 agosto) con processioni nei borghi cattolici del Mendrisiotto e del Malcantone. Storicamente anche San Giuseppe (19 marzo) è festa patronale in diversi comuni ticinesi. Il Canton Ticino non ha una festa 'cantonale' unica analoga al Giura: la sua identità festiva combina calendario federale svizzero e tradizioni cattoliche italofone." } },
+ { "@type": "Question", "name": "Quali sono i prossimi festivi in Ticino 2026?", "acceptedAnswer": { "@type": "Answer", "text": "I prossimi festivi in Ticino nel 2026 — partendo dalla metà dell'anno — sono: SS. Pietro e Paolo (lunedì 29 giugno), Festa Nazionale Svizzera (sabato 1 agosto), Assunzione (sabato 15 agosto), Ognissanti (domenica 1 novembre), Immacolata Concezione (martedì 8 dicembre), Natale (venerdì 25 dicembre) e Santo Stefano (sabato 26 dicembre). Tre di questi cadono nel weekend e non danno giorno di recupero nelle aziende ticinesi senza CCL migliorativo." } },
+ { "@type": "Question", "name": "I festivi in Ticino sono uguali a quelli della Svizzera italiana?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: il Canton Ticino e le valli italofone del Canton Grigioni (Mesolcina, Calanca, Bregaglia, Poschiavo) condividono lo stesso calendario festivo cattolico, con Epifania, San Giuseppe, Corpus Domini, Assunzione, Ognissanti e Immacolata. La differenza emerge rispetto ai cantoni protestanti (Zurigo, Berna, Basilea Città) dove queste ricorrenze non sono giorni festivi ufficiali. Un frontaliere trasferito da Lugano a Zurigo perde in media 5-7 giorni festivi all'anno." } }
+ ],
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
+ "claimReviewed": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere più 11 festività cantonali cattoliche.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-24",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Cancelleria dello Stato del Canton Ticino — Legge sui giorni festivi (LGF)" },
+ "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Canton Ticino — Legge concernente i giorni festivi ufficiali (art. 1)" }
+ },
+ "reviewBody": "Elenco ufficiale dei giorni festivi cantonali stabilito dalla Legge cantonale sui giorni festivi (art. 1) + festività federali art. 110 CO: totale 15 giorni nel 2026."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
+ "claimReviewed": "Il frontaliere italiano segue il calendario festivo svizzero (lex loci laboris), non quello italiano: le festività italiane non sono riconosciute come giorni non lavorativi dal datore svizzero.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-24",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Codice delle Obbligazioni svizzero (CO) art. 110 + Regolamento (CE) 883/2004" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it#art_110", "name": "Fedlex — CO art. 110 (giorni festivi ufficiali)" }
+ },
+ "reviewBody": "Principio lex loci laboris del diritto internazionale del lavoro: rapporto di lavoro e festività regolati dalla legge del luogo di esecuzione (Svizzera/Ticino). Confermato art. 11 Reg. (CE) 883/2004 + dottrina SECO."
+ }
+ ]
+ },
+
+ holidaysDe: {
+ title: 'Feiertage Tessin 2026: Offizieller Kalender Kanton Tessin',
+ description: 'Feiertage Tessin 2026: offizieller Kalender der 15 Feiertage, beste Brückentage, GAV-Zuschläge und Vergleich Italien vs. Schweiz für Grenzgänger.',
+ keywords: 'feiertage tessin, feiertage tessin 2026, kantonale feiertage tessin, feiertage kanton tessin 2026, kalender feiertage tessin, schweizer feiertage 2026, brückentage tessin 2026, 1 august tessin, ostern tessin 2026, weihnachten tessin 2026, mariä himmelfahrt tessin',
+ ogTitle: 'Feiertage Tessin 2026: Offizieller Kalender und Brückentage für Grenzgänger',
+ ogDescription: 'Offizieller Kalender der Tessiner Feiertage 2026: 15 Feiertage, Brückentage, GAV-Zuschläge bei Feiertagsarbeit und Auswirkungen auf den 13. Monatslohn der Grenzgänger.',
+ h1: 'Feiertage Tessin 2026: der vollständige offizielle Kalender des Kantons Tessin',
+ canonicalPath: '/de/steuern-und-vorsorge/tessin-feiertage/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Feiertage Tessin 2026: Vollständiger Kalender der Feiertage des Kantons Tessin",
+ "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
+ "abstract": "Der Kanton Tessin anerkennt 2026 insgesamt 15 offizielle Feiertage: 4 nationale Schweizer Feiertage und 11 kantonale katholische Feiertage, die für die italienische Schweiz typisch sind. Grenzgänger folgen dem Schweizer Kalender (lex loci laboris), nicht dem italienischen.",
+ "description": "Feiertage Tessin 2026: alle 15 offiziellen Feiertage des Kantons Tessin mit Datum, Wochentag, Brückentagen, Unterschieden zur übrigen Schweiz und Auswirkungen auf den Lohn des Grenzgängers",
+ "inLanguage": "de",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00",
+ "keywords": "feiertage tessin 2026, feiertage kanton tessin, kalender tessin 2026",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Feiertage Kanton Tessin 2026",
+ "description": "Vollständige Liste der 15 offiziellen Feiertage im Kanton Tessin im Jahr 2026",
+ "itemListOrder": "https://schema.org/ItemListOrderAscending",
+ "numberOfItems": 15,
+ "itemListElement": [
+ {"@type": "ListItem", "position": 1, "item": {"@type": "Schedule", "name": "Neujahr", "startDate": "2026-01-01", "endDate": "2026-01-01", "description": "Neujahr — Donnerstag, 1. Januar 2026. Schweizer Bundesfeiertag, arbeitsfrei im gesamten Tessin.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#1`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 2, "item": {"@type": "Schedule", "name": "Berchtoldstag (2. Januar)", "startDate": "2026-01-02", "endDate": "2026-01-02", "description": "Berchtoldstag — Freitag, 2. Januar 2026. In einigen Tessiner Gemeinden fakultativer Feiertag, Banken bleiben geschlossen.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#2`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 3, "item": {"@type": "Schedule", "name": "Dreikönigstag", "startDate": "2026-01-06", "endDate": "2026-01-06", "description": "Dreikönigstag — Dienstag, 6. Januar 2026. Kantonaler Tessiner Feiertag, in Italien ebenfalls anerkannt.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#3`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 4, "item": {"@type": "Schedule", "name": "Josefstag", "startDate": "2026-03-19", "endDate": "2026-03-19", "description": "Josefstag — Donnerstag, 19. März 2026. Kantonaler Tessiner Feiertag, im übrigen Schweizer Gebiet nicht anerkannt.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#4`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 5, "item": {"@type": "Schedule", "name": "Karfreitag", "startDate": "2026-04-03", "endDate": "2026-04-03", "description": "Karfreitag — Freitag, 3. April 2026. Kantonaler Tessiner Feiertag; kein Bundesfeiertag, aber im Tessin anerkannt.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#5`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 6, "item": {"@type": "Schedule", "name": "Ostermontag", "startDate": "2026-04-06", "endDate": "2026-04-06", "description": "Ostermontag — Montag, 6. April 2026. Schweizer Bundesfeiertag, ergibt zusammen mit Karfreitag und Wochenende vier freie Tage in Folge.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#6`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 7, "item": {"@type": "Schedule", "name": "Tag der Arbeit", "startDate": "2026-05-01", "endDate": "2026-05-01", "description": "Tag der Arbeit — Freitag, 1. Mai 2026. Kantonaler Tessiner Feiertag, kein Bundesfeiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#7`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 8, "item": {"@type": "Schedule", "name": "Auffahrt", "startDate": "2026-05-14", "endDate": "2026-05-14", "description": "Auffahrt (Christi Himmelfahrt) — Donnerstag, 14. Mai 2026. Schweizer Bundesfeiertag, fällt immer auf einen Donnerstag (idealer Brückentag).", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#8`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 9, "item": {"@type": "Schedule", "name": "Pfingstmontag", "startDate": "2026-05-25", "endDate": "2026-05-25", "description": "Pfingstmontag — Montag, 25. Mai 2026. Kantonaler Tessiner Feiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#9`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 10, "item": {"@type": "Schedule", "name": "Fronleichnam", "startDate": "2026-06-04", "endDate": "2026-06-04", "description": "Fronleichnam — Donnerstag, 4. Juni 2026. Kantonaler Tessiner Feiertag, fällt immer auf einen Donnerstag (idealer Brückentag).", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#10`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 11, "item": {"@type": "Schedule", "name": "Peter und Paul", "startDate": "2026-06-29", "endDate": "2026-06-29", "description": "Peter und Paul — Montag, 29. Juni 2026. Kantonaler Tessiner Feiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#11`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 12, "item": {"@type": "Schedule", "name": "Schweizer Bundesfeier", "startDate": "2026-08-01", "endDate": "2026-08-01", "description": "Schweizer Bundesfeier (Nationalfeiertag) — Samstag, 1. August 2026. Bundesfeiertag, fällt auf einen Samstag: kein Nachholtag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#12`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 13, "item": {"@type": "Schedule", "name": "Mariä Himmelfahrt", "startDate": "2026-08-15", "endDate": "2026-08-15", "description": "Mariä Himmelfahrt (Ferragosto) — Samstag, 15. August 2026. Kantonaler Tessiner Feiertag, fällt auf einen Samstag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#13`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 14, "item": {"@type": "Schedule", "name": "Allerheiligen", "startDate": "2026-11-01", "endDate": "2026-11-01", "description": "Allerheiligen — Sonntag, 1. November 2026. Kantonaler Tessiner Feiertag, fällt auf einen Sonntag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#14`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 15, "item": {"@type": "Schedule", "name": "Mariä Empfängnis", "startDate": "2026-12-08", "endDate": "2026-12-08", "description": "Mariä Empfängnis (Immaculata) — Dienstag, 8. Dezember 2026. Kantonaler Tessiner Feiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#15`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}}
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "de",
+ "mainEntity": [
+ { "@type": "Question", "name": "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Der Kanton Tessin anerkennt 2026 insgesamt 15 offizielle Feiertage: 4 Schweizer Bundesfeiertage (Neujahr, Ostermontag, Auffahrt, 1. August, Weihnachten, Stephanstag) plus die typisch katholischen Feiertage der italienischen Schweiz (Dreikönigstag, Josefstag, Karfreitag, Pfingsten, Fronleichnam, Peter und Paul, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis)." } },
+ { "@type": "Question", "name": "Ist der 1. August 2026 ein Feiertag im Tessin?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, der 1. August 2026 ist der Schweizer Nationalfeiertag und ein Bundesfeiertag, auch im Tessin. 2026 fällt er auf einen Samstag: Wer nicht samstags arbeitet, erhält gemäss Schweizer Obligationenrecht (Art. 110 ff.) keinen Nachholtag — die meisten Tessiner GAV sehen keine Kompensation vor." } },
+ { "@type": "Question", "name": "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?", "acceptedAnswer": { "@type": "Answer", "text": "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das zwei wichtige Tessiner Feiertage: den 1. August (Samstag) und den 15. August — Mariä Himmelfahrt (Samstag). Nur einige Branchen-GAV sehen einen Nachholtag vor." } },
+ { "@type": "Question", "name": "Welche Feiertage werden im Tessin anerkannt, im Rest der Schweiz aber NICHT?", "acceptedAnswer": { "@type": "Answer", "text": "Das Tessin als historisch katholischer Kanton anerkennt 7 zusätzliche kantonale Feiertage gegenüber den protestantischen Kantonen: Dreikönigstag (6.1.), Josefstag (19.3.), Fronleichnam, Peter und Paul (29.6.), Mariä Himmelfahrt (15.8.), Allerheiligen (1.11.) und Mariä Empfängnis (8.12.). Ein Grenzgänger im Tessin hat im Durchschnitt 3 bis 5 bezahlte Feiertage mehr als jemand in Zürich oder Basel." } },
+ { "@type": "Question", "name": "Gelten italienische Feiertage (25. April, 2. Juni) auch für Grenzgänger?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Grenzgänger richten sich nach dem Schweizer/Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, lokale Patronatsfeste, 8. Dezember etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen." } },
+ { "@type": "Question", "name": "Wie wird ein Grenzgänger im Tessin an Feiertagen bezahlt?", "acceptedAnswer": { "@type": "Answer", "text": "Obligationenrecht und Arbeitsgesetz verpflichten den Schweizer Arbeitgeber, Feiertage, die auf einen Arbeitstag fallen, auch bei Abwesenheit des Arbeitnehmers zu bezahlen. Im Stundenlohn Beschäftigte erhalten den üblichen Lohn, Monatslohnempfänger den vollen Lohn. Wer an einem Feiertag arbeitet, erhält in den meisten Tessiner GAV einen Zuschlag von 50 % oder einen Kompensationstag; manche Branchen (Gesundheit, Gastgewerbe, Transport) zahlen bis zu 100 %." } },
+ { "@type": "Question", "name": "Was sind die besten Brückentage für Grenzgänger 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Die besten Brückentage 2026 sind: Ostern (Karfreitag 3. April + Ostermontag 6. April — bereits 4 freie Tage), Auffahrt (Donnerstag 14. Mai, Brücke mit einem Ferientag am Freitag 15.5.), Fronleichnam (Donnerstag 4. Juni, Brücke mit Freitag 5.6.), Peter und Paul (Montag 29. Juni, langes Wochenende). Weniger glücklich: Der 1. August fällt 2026 auf einen Samstag, ebenso Mariä Himmelfahrt (15. August)." } },
+ { "@type": "Question", "name": "Wie viele Ferientage hat ein Grenzgänger in der Schweiz?", "acceptedAnswer": { "@type": "Answer", "text": "Nach Schweizer Recht (OR Art. 329a) beträgt das Minimum 4 Wochen (20 Arbeitstage) pro Jahr für Erwachsene und 5 Wochen für Arbeitnehmende unter 20 Jahren. Viele Tessiner GAV sehen nach einer gewissen Betriebszugehörigkeit (5–10 Jahre) 5 Wochen vor und 6 Wochen für Beschäftigte über 50. Feiertage zählen NICHT zur Ferienberechnung: sie kommen zu den Mindestferientagen hinzu." } },
+ { "@type": "Question", "name": "Welcher ist der bedeutendste Feiertag im Kanton Tessin?", "acceptedAnswer": { "@type": "Answer", "text": "Der bedeutendste Feiertag im Tessin ist der 1. August (Schweizer Bundesfeier) mit Höhenfeuern auf den Bergen rund um Lugano, Mendrisio, Chiasso und Bellinzona, gefolgt von Mariä Himmelfahrt (15. August) mit Prozessionen in den katholischen Dörfern des Mendrisiotto und Malcantone. Auch der Josefstag (19. März) ist in mehreren Tessiner Gemeinden Patronatsfest. Das Tessin hat keinen einzigen 'Kantonsfeiertag' wie der Jura: Seine Festkultur kombiniert Schweizer Bundeskalender mit italienisch-katholischen Traditionen." } },
+ { "@type": "Question", "name": "Welche sind die nächsten Feiertage im Tessin 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Die nächsten Feiertage im Tessin 2026 — ab Jahresmitte — sind: Peter und Paul (Montag 29. Juni), Schweizer Bundesfeier (Samstag 1. August), Mariä Himmelfahrt (Samstag 15. August), Allerheiligen (Sonntag 1. November), Mariä Empfängnis (Dienstag 8. Dezember), Weihnachten (Freitag 25. Dezember) und Stephanstag (Samstag 26. Dezember). Drei davon fallen aufs Wochenende und ergeben in Tessiner Betrieben ohne besseren GAV keinen Nachholtag." } },
+ { "@type": "Question", "name": "Sind die Feiertage im Tessin gleich wie in der italienischen Schweiz?", "acceptedAnswer": { "@type": "Answer", "text": "Ja: Der Kanton Tessin und die italienischsprachigen Täler des Kantons Graubünden (Misox, Calanca, Bergell, Puschlav) teilen denselben katholischen Feiertagskalender mit Dreikönigstag, Josefstag, Fronleichnam, Mariä Himmelfahrt, Allerheiligen und Mariä Empfängnis. Der Unterschied zeigt sich gegenüber den protestantischen Kantonen (Zürich, Bern, Basel-Stadt), wo diese Tage keine offiziellen Feiertage sind. Ein Grenzgänger, der von Lugano nach Zürich versetzt wird, verliert im Schnitt 5–7 Feiertage pro Jahr." } }
+ ],
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
+ "claimReviewed": "Der Kanton Tessin anerkennt 2026 insgesamt 15 offizielle Feiertage: 4 nationale Schweizer Feiertage und 11 kantonale katholische Feiertage.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-24",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Wahr" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Staatskanzlei Kanton Tessin — Gesetz über die offiziellen Feiertage (LGF)" },
+ "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Kanton Tessin — Gesetz über die offiziellen Feiertage (Art. 1)" }
+ },
+ "reviewBody": "Offizielle Liste der kantonalen Feiertage gemäss kantonalem Feiertagsgesetz (Art. 1) ergänzt durch Bundesfeiertage nach OR Art. 110: insgesamt 15 Tage im Jahr 2026."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
+ "claimReviewed": "Der italienische Grenzgänger folgt dem Schweizer Feiertagskalender (lex loci laboris) und nicht dem italienischen: Italienische Feiertage werden vom Schweizer Arbeitgeber nicht als arbeitsfreie Tage anerkannt.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-24",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Wahr" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Schweizerisches Obligationenrecht (OR) Art. 110 + Verordnung (EG) 883/2004" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_110", "name": "Fedlex — OR Art. 110 (offizielle Feiertage)" }
+ },
+ "reviewBody": "Grundsatz lex loci laboris des internationalen Arbeitsrechts: Arbeitsverhältnis und Feiertage richten sich nach dem Recht des Arbeitsortes (Schweiz/Tessin). Bestätigt durch Art. 11 Verordnung (EG) 883/2004 + Lehrmeinung SECO."
+ }
+ ]
+ },
+
+ ral: {
+ title: 'Confronto RAL Netta Svizzera vs Italia | Frontaliere 2026',
+ description: 'Calcolo stipendio netto frontaliere: confronta la RAL in Svizzera e Italia. Imposta alla fonte, IRPEF, contributi AVS e INPS a confronto. Simulazione 2026.',
+ keywords: 'ral netta italia svizzera, confronto stipendio netto, busta paga frontaliere, imposta alla fonte ticino, irpef vs imposta fonte, stipendio netto svizzera',
+ ogTitle: 'Stipendio Frontaliere Svizzera vs Italia | RAL Netta',
+ ogDescription: '💰 Stipendio frontaliere Svizzera vs Italia: confronta netto a parità di RAL. Imposta alla fonte, IRPEF e contributi.',
+ canonicalPath: '/calcola-stipendio/confronta-retribuzione-ral/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore RAL Netta Italia vs Svizzera",
+ "url": `${BASE_URL}/calcola-stipendio/confronta-retribuzione-ral/`,
+ "description": "Confronta lo stipendio netto a parità di RAL tra Italia e Svizzera: IRPEF, INPS, imposta alla fonte, contributi sociali svizzeri",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Qual è la differenza tra RAL italiana e salario lordo svizzero?", "acceptedAnswer": { "@type": "Answer", "text": "La RAL italiana (Retribuzione Annua Lorda) è il totale lordo prima di tasse e contributi sociali dipendente. In Svizzera, il concetto equivalente è il salario lordo annuo (Bruttolohn), ma la composizione cambia: l'INPS (9,19% dipendente) e l'IRPEF sono sostituiti da AVS (5,3%), AC (1,1%), LPP (variabile per età) e imposta alla fonte. A parità di RAL CHF 80.000, il netto svizzero è tipicamente più alto del 25–35%." } },
+ { "@type": "Question", "name": "Come si confronta il netto tra Italia e Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Il confronto corretto considera: 1) RAL in valuta locale (EUR in Italia, CHF in Svizzera), 2) Contributi sociali obbligatori, 3) Imposte (IRPEF+addizionali in Italia, imposta alla fonte in Svizzera), 4) Costo vita. Un frontaliere con CHF 70.000 lordi/anno ha netto circa CHF 4.600/mese; lo stesso professionista a Milano con €45.000 RAL ha circa €2.300/mese netti. La differenza reale dipende anche da affitto, trasporti e assicurazione." } },
+ { "@type": "Question", "name": "Per un nuovo frontaliere, il confronto cambia?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. Per confrontare stipendi italiani e svizzeri devi includere, oltre a contributi e imposta svizzera, l’imposta italiana con credito per le imposte svizzere. Per un nuovo frontaliere fiscale la trattenuta svizzera è l’80% dell’ordinaria. Franchigia, detrazioni, cambio e costi di viaggio incidono sul netto: non si può dedurre un vantaggio percentuale fisso dal solo status. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Il 13° stipendio è incluso nella RAL?", "acceptedAnswer": { "@type": "Answer", "text": "In Italia sì: la RAL di norma include 13esima (e 14esima dove prevista dal CCNL). In Svizzera la tredicesima non è obbligatoria per legge ma è tipicamente contrattuale: il contratto può indicare 12 mensilità più tredicesima (total package) oppure 13 mensilità esplicite. Verificare sempre il contratto e il CCL di settore: la differenza tra 12 e 13 mensilità vale circa CHF 5.000–7.000/anno." } },
+ { "@type": "Question", "name": "Come incide il comune di residenza italiana sul confronto?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri, il comune italiano di residenza determina l'addizionale comunale IRPEF (0–0,9%) e indirettamente altre imposte locali (IMU, TARI, TASI). Un frontaliere residente a Como (addizionale 0,8%) paga centinaia di euro in più rispetto a un residente in un comune con addizionale azzerata grazie ai ristorni. Il simulatore include i dati dei principali comuni di frontiera per un confronto preciso." } },
+ { "@type": "Question", "name": "Come si usa il confronto RAL per una trattativa salariale?", "acceptedAnswer": { "@type": "Answer", "text": "Simula il netto mensile in euro con il tuo lordo attuale e quello proposto dal datore svizzero. Aggiungi costi extra del frontalierato: LAMal o SSN, trasporti casa-lavoro, carburante, tempo pendolarismo. Chiedi incrementi di RAL svizzera che coprano almeno 120% del differenziale (sicurezza margine). Il confronto preciso evita decisioni emotive: molti pensano di guadagnare il doppio, ma il vantaggio reale netto è spesso del 30–60%." } }
+ ]
+ }
+ ]
+ },
+
+ 'parental-leave': {
+ title: 'Congedo Maternità e Paternità Frontalieri',
+ description: 'Calcolatore congedo maternità e paternità per frontalieri: IPG svizzera (14 settimane, 80%) vs INPS italiana (5 mesi, 80%). Importi, durata, documenti.',
+ keywords: 'congedo maternità frontalieri, congedo paternità svizzera, IPG svizzera, maternità INPS frontaliere, indennità maternità svizzera italia, congedo parentale frontaliere',
+ ogTitle: 'Congedo Maternità/Paternità per Frontalieri',
+ ogDescription: '👶 Calcola il congedo maternità e paternità per frontalieri: confronto IPG Svizzera vs INPS Italia, importi e documenti.',
+ canonicalPath: '/calcola-stipendio/verifica-congedo-parentale/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore Congedo Genitoriale Frontalieri",
+ "url": `${BASE_URL}/calcola-stipendio/verifica-congedo-parentale/`,
+ "description": "Calcola congedo maternità e paternità per frontalieri: IPG svizzera vs INPS italiana, importi e documenti",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quale congedo maternità spetta a una frontaliera in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "La frontaliera con contratto svizzero ha diritto all'IPG (Indennità Perdita Guadagno) federale: 14 settimane di maternità all'80% dello stipendio (max CHF 220/giorno, circa CHF 6.600/mese). Parte dal giorno del parto. Alcuni CCL ticinesi migliorano la copertura al 100% delle prime settimane. Il congedo può essere prolungato solo con accordo aziendale non retribuito." } },
+ { "@type": "Question", "name": "La frontaliera riceve anche qualcosa dall'INPS italiano?", "acceptedAnswer": { "@type": "Answer", "text": "No per il congedo obbligatorio di maternità: vige la lex loci laboris, quindi si applica il sistema svizzero. L'INPS italiano interviene solo se la frontaliera è disoccupata (al momento del parto) oppure a fine congedo svizzero nel periodo di congedo parentale facoltativo. Alcune mamme possono cumulare indennità miste se lavorano part-time anche in Italia: serve verifica con patronato." } },
+ { "@type": "Question", "name": "Quanto dura il congedo di paternità in Svizzera per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Dal 2021 il padre frontaliere ha diritto a 2 settimane (10 giorni lavorativi) di congedo di paternità all'80% del salario tramite IPG federale, da fruire entro 6 mesi dalla nascita. Il congedo è molto più breve di quello italiano (10 giorni svizzeri vs 10 giorni italiani + congedo parentale di 6 mesi facoltativo al 30%). Alcuni CCL migliorano a 3–4 settimane." } },
+ { "@type": "Question", "name": "Posso estendere il congedo con la normativa italiana?", "acceptedAnswer": { "@type": "Answer", "text": "Il congedo parentale italiano (fino a 10 mesi cumulabili tra i genitori, indennità INPS al 30% per primi 6 mesi, facoltativo) non si applica ai frontalieri perché in regime di lex loci laboris. Alcune aziende svizzere concedono però congedo parentale aziendale non retribuito fino a 12 mesi. La scelta tra rientrare a lavoro e prolungare in aspettativa è una decisione individuale economica." } },
+ { "@type": "Question", "name": "Come si calcola l'indennità IPG per la maternità?", "acceptedAnswer": { "@type": "Answer", "text": "L'IPG svizzera è l'80% del salario AVS medio degli ultimi mesi prima del parto, con massimo CHF 220/giorno (quindi massimo CHF 6.600/mese lordi). Il calcolo considera tutti i contributi AVS degli ultimi 12 mesi divisi per il numero di giorni lavorati. L'indennità è soggetta a imposta alla fonte come lo stipendio normale. Non ci sono contributi LPP sull'indennità (interruzione del 2° pilastro per il periodo)." } },
+ { "@type": "Question", "name": "Perdo il posto di lavoro se prendo il congedo maternità svizzero?", "acceptedAnswer": { "@type": "Answer", "text": "No. Il Codice delle Obbligazioni svizzero (art. 336c) proibisce il licenziamento durante la gravidanza e nelle 16 settimane successive al parto. Un licenziamento comunicato in questo periodo è nullo. Il rapporto di lavoro e il contratto continuano regolarmente. Anzi, al rientro il datore deve offrire mansioni compatibili con il ruolo precedente. Tutela simile ma non identica a quella italiana." } }
+ ]
+ }
+ ]
+ },
+
+ 'border-map': {
+ title: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live',
+ description: 'Mappa interattiva confine Svizzera-Italia: valichi del Ticino, tempi di attesa live, webcam e comuni italiani entro 20 km.',
+ keywords: 'mappa valichi ticino, mappa dogane svizzera italia, valichi confine ticino, chiasso brogeda mappa, gaggiolo ponte tresa mappa, webcam valichi confine, tempi attesa dogane ticino, comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
+ ogTitle: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live',
+ ogDescription: 'Mappa interattiva del confine Svizzera-Italia: valichi, tempi live, webcam e comuni di frontiera.',
+ canonicalPath: '/guida-frontaliere/mappa-confine/',
+ h1: 'Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Mappa Valichi e Comuni di Frontiera Italia-Svizzera",
+ "url": `${BASE_URL}/guida-frontaliere/mappa-confine/`,
+ "description": "Mappa interattiva dei valichi di confine Ticino-Italia con tempi di attesa, webcam live, orari, e comuni di frontiera con addizionali IRPEF",
+ "abstract": "La mappa confine Svizzera-Italia mostra 9 valichi doganali del Ticino (Chiasso-Brogeda A2, Chiasso Centro, Gaggiolo, Ponte Tresa, Bizzarone-Novazzano, Luino-Fornasette, Zenna-Dirinella, Chiasso Strada, Maslianico-Roggiana) con tempi d'attesa in tempo reale, webcam, orari e la lista dei comuni italiani entro 20 km di fascia di confine con le rispettive addizionali IRPEF.",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quanti valichi di confine ci sono tra Ticino e Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Il Ticino ha 9 valichi stradali principali verso l'Italia: Chiasso-Brogeda A2 (autostradale, il più trafficato), Chiasso Centro (Ponte Chiasso, SS35), Chiasso-Strada (alternativa a Brogeda), Gaggiolo/Cantello-Stabio (SS344), Ponte Tresa (SS233), Bizzarone-Novazzano, Luino-Fornasette, Zenna-Dirinella (Lago Maggiore), Maslianico-Roggiana. Tutti sono aperti 24 ore su 24, con orari di punta mattino 06:00-09:00 e sera 16:30-19:30." } },
+ { "@type": "Question", "name": "Qual è la fascia di 20 km per il nuovo accordo frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il requisito riguarda il Comune di residenza fiscale incluso nell’elenco ufficiale concordato dai due Stati, non la distanza della singola casa dal confine. La residenza nella fascia non basta: servono attività in Ticino, Grigioni o Vallese e rientro in linea di principio quotidiano. La distinzione vecchi/nuovi dipende inoltre dall’attività qualificante nel periodo 31 dicembre 2018–17 luglio 2023. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Quali valichi hanno meno coda al mattino?", "acceptedAnswer": { "@type": "Answer", "text": "I valichi con tempi medi d'attesa più bassi al mattino sono Zenna-Dirinella (2-5 min, Locarnese), Ponte Tresa (5-15 min, Luganese ovest), Luino-Fornasette (4-10 min, Malcantone) e Bizzarone-Novazzano (4-10 min, Mendrisiotto). Brogeda A2 e Chiasso Centro restano i più congestionati con 15-30 minuti di coda nelle fasce di punta. Verifica i tempi aggiornati sulle webcam BAZG/USTRA incorporate nelle schede di ogni valico." } },
+ { "@type": "Question", "name": "Come funzionano le addizionali IRPEF nei comuni di frontiera?", "acceptedAnswer": { "@type": "Answer", "text": "I comuni italiani entro la fascia 20 km applicano un'addizionale comunale IRPEF che va da 0% (comuni che azzerano grazie ai ristorni fiscali svizzeri) fino a 0,9%. Comuni con zero addizionale grazie ai ristorni: Maslianico, Bizzarone, Ronago, Cermenate. Comuni con addizionale massima: Como città (0,8%), Varese città (0,8%). Per un frontaliere con reddito CHF 80.000 la differenza tra 0% e 0,8% di addizionale è circa €570/anno di IRPEF in più. La scelta del comune di residenza ha quindi un impatto netto misurabile." } },
+ { "@type": "Question", "name": "Le webcam dei valichi sono in diretta?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: la mappa incorpora i feed live di BAZG (Ufficio federale della dogana e della sicurezza dei confini) e di USTRA (Ufficio federale delle strade) per i valichi autostradali Chiasso-Brogeda e Gaggiolo. I feed si aggiornano ogni 60-120 secondi. Per i valichi minori senza webcam ufficiale pubblichiamo i tempi medi calcolati dai dati storici BAZG delle ultime 12 settimane per ogni fascia oraria." } },
+ { "@type": "Question", "name": "Dove trovo una mappa del confine Italia-Svizzera aggiornata 2026?", "acceptedAnswer": { "@type": "Answer", "text": "La mappa del confine Italia-Svizzera 2026 di frontaliereticino.ch è aggiornata ogni settimana: incorpora i 9 valichi autorizzati del Canton Ticino (Chiasso-Brogeda A2, Chiasso Centro, Chiasso Strada, Gaggiolo-Stabio, Ponte Tresa, Bizzarone-Novazzano, Luino-Fornasette, Zenna-Dirinella, Maslianico-Roggiana) con coordinate geografiche esatte, tempi medi di attesa per fascia oraria e webcam live BAZG/USTRA. Copre anche la fascia dei 146 comuni italiani entro 20 km in linea d'aria, requisito per lo status di frontaliere fiscale secondo il Nuovo Accordo del 17 luglio 2023." } },
+ { "@type": "Question", "name": "Quali sono i valichi della mappa confine tra Lugano e l'Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Tra Lugano (centro urbano principale del Ticino) e il confine italiano la mappa mostra 5 valichi principali ordinati per distanza: Ponte Tresa (15 km, Malcantone), Gaggiolo-Stabio (18 km, Mendrisiotto nord), Bizzarone-Novazzano (20 km, Mendrisiotto), Chiasso Strada/Chiasso Centro (25 km, Mendrisiotto sud), Brogeda A2 autostradale (27 km). Tempi ottimali dal centro di Lugano: 25-35 min via autostrada A2 verso Como, 20-25 min verso Varese via Ponte Tresa in orari non di punta. Chiasso-Brogeda resta il valico più trafficato d'Europa con oltre 70.000 frontalieri al giorno." } },
+ { "@type": "Question", "name": "La mappa confine Svizzera-Italia mostra anche le dogane secondarie?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. La nostra mappa confine Svizzera-Italia distingue i 4 valichi principali aperti 24/7 (Chiasso-Brogeda A2, Chiasso Strada, Gaggiolo, Ponte Tresa) dalle 5 dogane secondarie con orari ridotti (Bizzarone-Novazzano 06:00-23:00, Luino-Fornasette 06:00-21:00, Zenna-Dirinella 06:00-22:00, Maslianico-Roggiana 05:00-23:00, Chiasso Centro 05:00-01:00). Per ogni valico indichiamo orari, stato attuale (aperto/chiuso/coda), tipologia di merci ammesse e restrizioni (es. Pizzamiglio/Maslianico non ammette camion > 3,5 t). Dati ufficiali UDSC/BAZG aggiornati mensilmente." } }
+ ],
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF",
+ "url": `${BASE_URL}/guida-frontaliere/mappa-confine/`,
+ "abstract": "La mappa confine Svizzera-Italia è lo strumento di riferimento per frontalieri: 9 valichi ticinesi, comuni italiani entro 20 km, addizionali IRPEF e ristorni fiscali in un unico colpo d'occhio.",
+ "description": "Mappa interattiva dei valichi Ticino-Italia (Chiasso-Brogeda, Chiasso Centro, Gaggiolo, Ponte Tresa, Bizzarone, Luino, Zenna, Maslianico, Chiasso Strada) con tempi d'attesa, webcam, orari, e lista dei comuni di frontiera con le addizionali IRPEF 2026.",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "datePublished": "2026-01-01T00:00:00+01:00",
+ "dateModified": "2026-01-01T00:00:00+01:00",
+ "keywords": "mappa confine italia svizzera, valichi ticino, comuni frontalieri 20 km, addizionali irpef frontiera",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso-Brogeda (A2)",
+ "alternateName": ["Brogeda", "Chiasso Autostrada", "Brogeda Merci"],
+ "description": "Principale valico autostradale A2 tra Como (Italia) e Ticino (Svizzera). Apertura 24h, dogana presente, copertura BAZG. Tempi medi attesa: 8-15 min mattina, 12-25 min sera.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8409, "longitude": 9.0376 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/chiasso-brogeda/oggi/`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso Centro (Ponte Chiasso)",
+ "alternateName": ["Ponte Chiasso", "Chiasso Strada"],
+ "description": "Valico stradale SS35 Como-Chiasso, 24h con dogana. Tempi medi attesa: 15-30 min mattina, 20-40 min sera. Alternativa consigliata: Brogeda autostrada.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8326, "longitude": 9.0340 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/chiasso-centro/oggi/`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Gaggiolo (Cantello-Stabio)",
+ "alternateName": ["Gaggiolo", "Stabio Confine", "Cantello-Stabio"],
+ "description": "Valico stradale SS344 Varese-Mendrisio, 24h con dogana. Traffico alto, seconda via d'accesso più importante al Mendrisiotto. Tempi medi attesa: 10-20 min mattina, 15-30 min sera.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8411, "longitude": 8.9134 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Stabio", "addressRegion": "TI", "postalCode": "6855", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/gaggiolo/oggi/`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Ponte Tresa",
+ "alternateName": ["Ponte Tresa", "Lavena Ponte Tresa"],
+ "description": "Valico stradale SS233 tra Lavena Ponte Tresa (Varese) e Ponte Tresa (Ticino), aperto 24h. Accesso a Luganese ovest e Malcantone. Tempi medi attesa: 5-15 min mattina.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.9670, "longitude": 8.8589 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Ponte Tresa", "addressRegion": "TI", "postalCode": "6988", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/ponte-tresa/oggi/`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Chiasso-Strada",
+ "alternateName": ["Chiasso Strada", "Strada Regina Brogeda"],
+ "description": "Valico stradale parallelo all'autostrada Brogeda, 24h senza dogana permanente. Utile come alternativa quando Brogeda A2 è congestionato. Tempi medi attesa: 5-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8361, "longitude": 9.0300 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "TI", "postalCode": "6830", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/chiasso-strada/oggi/`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Bizzarone-Novazzano",
+ "alternateName": ["Bizzarone", "Novazzano"],
+ "description": "Valico stradale tra Bizzarone (Como) e Novazzano (Ticino), 24h. Alternativa locale a Brogeda per accedere al Mendrisiotto. Tempi medi attesa: 4-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.8523, "longitude": 8.9748 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Novazzano", "addressRegion": "TI", "postalCode": "6883", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/bizzarone-novazzano/oggi/`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Luino-Fornasette",
+ "alternateName": ["Luino", "Fornasette"],
+ "description": "Valico stradale tra Luino (Varese) e Fornasette (Malcantone), aperto 24h. Accesso al Luganese nord-ovest e Valle del Vedeggio. Tempi medi attesa: 4-10 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 45.9931, "longitude": 8.7878 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Fornasette", "addressRegion": "TI", "postalCode": "6989", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/luino-fornasette/oggi/`
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "Place",
+ "name": "Valico di Zenna-Dirinella",
+ "alternateName": ["Zenna", "Dirinella"],
+ "description": "Valico stradale sul Lago Maggiore tra Zenna (Varese) e Dirinella (Gambarogno), aperto 24h. Accesso al Locarnese da sud. Tempi medi attesa: 2-5 min.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 46.1040, "longitude": 8.7579 },
+ "address": { "@type": "PostalAddress", "addressLocality": "Dirinella", "addressRegion": "TI", "postalCode": "6573", "addressCountry": "CH" },
+ "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
+ "url": `${BASE_URL}/traffico-dogane/zenna-dirinella/oggi/`
+ }
+ ]
+ },
+
+ morning: {
+ title: 'Buongiorno Frontaliere | Frontaliere Ticino',
+ description: 'Dashboard mattutino per frontalieri: meteo in tempo reale Lugano/Como, traffico ai valichi di frontiera, tasso di cambio CHF-EUR aggiornato e previsioni 3.',
+ keywords: 'meteo frontaliere, traffico valichi mattino, cambio chf eur oggi, previsioni meteo lugano como, buongiorno frontaliere, tempo reale frontiera, dashboard pendolare',
+ ogTitle: 'Buongiorno Frontaliere | Meteo + Traffico + Cambio',
+ ogDescription: '☀️ Dashboard mattutino per frontalieri: meteo Lugano/Como, traffico valichi e cambio CHF-EUR in tempo reale.',
+ canonicalPath: '/buongiorno-frontaliere/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Buongiorno Frontaliere - Dashboard Mattutino",
+ "url": `${BASE_URL}/buongiorno-frontaliere/`,
+ "description": "Dashboard mattutino per frontalieri con meteo, traffico valichi e tasso di cambio CHF-EUR in tempo reale",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Web Browser",
+ "offers": {
+ "@type": "Offer",
+ "price": "0",
+ "priceCurrency": "CHF"
+ },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Previsioni Meteo Lugano e Como per Frontalieri",
+ "url": `${BASE_URL}/buongiorno-frontaliere/`,
+ "description": "Previsioni meteo in tempo reale per Lugano (CH) e Como (IT): temperatura, umidità, vento, alba e tramonto",
+ "inLanguage": "it",
+ "about": [
+ {
+ "@type": "City",
+ "name": "Lugano",
+ "containedInPlace": { "@type": "Country", "name": "Switzerland" }
+ },
+ {
+ "@type": "City",
+ "name": "Como",
+ "containedInPlace": { "@type": "Country", "name": "Italy" }
+ }
+ ],
+ "mainEntity": {
+ "@type": "ItemList",
+ "name": "Servizi Dashboard Mattutino",
+ "itemListElement": [
+ {
+ "@type": "ListItem",
+ "position": 1,
+ "name": "Meteo in tempo reale Lugano e Como",
+ "description": "Temperatura, condizioni meteo, umidità, vento, alba e tramonto per entrambe le città"
+ },
+ {
+ "@type": "ListItem",
+ "position": 2,
+ "name": "Traffico valichi di frontiera",
+ "description": "Stato in tempo reale dei principali valichi doganali Italia-Svizzera con tempi di attesa"
+ },
+ {
+ "@type": "ListItem",
+ "position": 3,
+ "name": "Tasso di cambio CHF-EUR",
+ "description": "Tasso di cambio franco svizzero / euro aggiornato in tempo reale"
+ }
+ ]
+ }
+ }
+ ]
+ },
+
+ carTransfer: {
+ title: 'Importare Auto in Svizzera 2026: Dogana, Targhe e Costi',
+ description: 'Importare un\'auto in Svizzera 2026: dogana BAZG, collaudo MFK, targhe, patente e RC. Passaggi e costi reali.',
+ keywords: 'trasferire auto svizzera, immatricolare auto ticino, targhe svizzere, cambio patente svizzera, dogana veicolo, MFK collaudo, assicurazione auto svizzera, PRA radiazione',
+ ogTitle: 'Importare Auto in Svizzera | Guida Completa',
+ ogDescription: 'Come importare l\'auto in Svizzera: dogana, targhe, patente, assicurazione RC e costi.',
+ canonicalPath: '/guida-frontaliere/trasferire-auto-svizzera/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come trasferire l'auto dall'Italia alla Svizzera",
+ "url": `${BASE_URL}/guida-frontaliere/trasferire-auto-svizzera/`,
+ "description": "Guida passo-passo per importare e immatricolare un veicolo italiano in Svizzera",
+ "totalTime": "PT30M",
+ "step": [
+ { "@type": "HowToStep", "name": "Assicurazione svizzera", "text": "Stipulare un'assicurazione RC con una compagnia svizzera" },
+ { "@type": "HowToStep", "name": "Sdoganamento", "text": "Dichiarare il veicolo alla dogana svizzera con il modulo 18.44" },
+ { "@type": "HowToStep", "name": "Collaudo MFK", "text": "Superare il controllo tecnico svizzero presso la Sezione della Circolazione" },
+ { "@type": "HowToStep", "name": "Immatricolazione", "text": "Richiedere le targhe svizzere cantonali" },
+ { "@type": "HowToStep", "name": "Cambio patente", "text": "Convertire la patente italiana in patente svizzera entro 12 mesi" }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quanto costa sdoganare un'auto in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il costo dello sdoganamento comprende: dazio (CHF 12-15 per 100 kg di peso del veicolo), IVA svizzera (8,1% sul valore del veicolo incluso il dazio), e tassa per il modulo di sdoganamento (CHF 20). Per un'auto da 1.500 kg dal valore di CHF 20.000, il costo totale è di circa CHF 1.800-2.000."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Un frontaliere con permesso G può guidare con la patente italiana in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, il frontaliere con permesso G può guidare con la patente italiana in Svizzera senza limiti di tempo, purché mantenga la residenza in Italia. Solo chi trasferisce la residenza in Svizzera (permesso B) deve convertire la patente entro 12 mesi."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso guidare un'auto con targa italiana in Svizzera per andare al lavoro?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, il frontaliere residente in Italia può usare l'auto con targa italiana per il tragitto casa-lavoro in Svizzera. Non è necessario sdoganare il veicolo. L'auto deve però avere assicurazione RC valida anche in Svizzera (carta verde)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cos'è il collaudo MFK e quanto costa?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'MFK (Motorfahrzeugkontrolle) è il controllo tecnico obbligatorio svizzero, equivalente alla revisione italiana. Costa circa CHF 50-80. Verifica freni, luci, emissioni, pneumatici e sicurezza generale. Per auto importate dall'Italia, controllano anche la conformità alle norme svizzere."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto costa l'assicurazione auto in Svizzera rispetto all'Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'assicurazione RC svizzera costa mediamente CHF 800-1.500/anno, simile o leggermente più cara dell'Italia. Il bonus-malus italiano non viene riconosciuto, quindi si parte spesso da una classe intermedia. Le compagnie più economiche in Ticino sono generalmente Smile.direct e Vaudoise."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ residency: {
+ title: 'Trasferirsi in Svizzera: Simulatore Costi vs Italia 2026',
+ description: 'Simula il costo del cambio residenza tra Italia e Svizzera. Confronto affitto, spesa, assicurazione, costi una tantum e break-even point per frontalieri.',
+ keywords: 'cambio residenza frontaliere, trasferimento italia svizzera costi, vivere in svizzera costi, traslocare ticino, permesso B svizzera costi, break-even residenza',
+ ogTitle: 'Simulatore Cambio Residenza Italia ↔ Svizzera',
+ ogDescription: '🏠 Simula costi e risparmi del cambio residenza tra Italia e Svizzera: affitti, spese, break-even point.',
+ canonicalPath: '/calcola-stipendio/simula-cambio-residenza/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Simulatore Cambio Residenza Italia-Svizzera",
+ "url": `${BASE_URL}/calcola-stipendio/simula-cambio-residenza/`,
+ "description": "Simula il costo del cambio residenza tra Italia e Svizzera: confronto costi mensili, costi una tantum, break-even",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ salaryQuiz: {
+ title: 'Quiz: Quanto Guadagneresti in Svizzera? | Stipendio 2026',
+ description: 'Quiz interattivo per scoprire quanto guadagneresti come frontaliere in Svizzera: stima stipendio netto in base a professione, esperienza e settore. Gratis.',
+ keywords: 'quiz stipendio svizzera, quanto guadagnerei in svizzera, stipendio frontaliere per professione, stima stipendio ticino, lavoro svizzera stipendio netto, quanto si guadagna in svizzera',
+ ogTitle: 'Quiz Stipendio Svizzera | Quanto Guadagneresti?',
+ ogDescription: '🎯 Quiz interattivo: scopri quanto guadagneresti come frontaliere in Svizzera in base alla tua professione e esperienza.',
+ canonicalPath: '/calcola-stipendio/quanto-guadagneresti-in-svizzera/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Quiz Stipendio Frontaliere Svizzera",
+ "url": `${BASE_URL}/calcola-stipendio/quanto-guadagneresti-in-svizzera/`,
+ "description": "Quiz interattivo per stimare lo stipendio netto come frontaliere in Svizzera",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ payslip: {
+ title: 'Calcolo Imposta alla Fonte 2026 | Busta Paga Frontaliere',
+ description: 'Calcolatore imposta alla fonte 2026: busta paga frontaliere Svizzera con lordo, deduzioni AVS, AC, LPP e netto. Simulazione cedolino eTax per permesso G Ticino.',
+ keywords: 'simulazione tasse nuovi frontalieri, busta paga svizzera, cedolino svizzera frontaliere, calcolo stipendio netto svizzera, deduzioni AVS AC LPP, imposta alla fonte calcolo, stipendio frontaliere dettaglio, calcolatore imposte alla fonte 2026, etax ticino, calcolo imposta fonte ticino, nuovo accordo frontalieri 2026, calcolo tasse frontalieri oltre 20 km',
+ ogTitle: 'Calcolatore Imposta alla Fonte 2026 | Busta Paga Frontaliere',
+ ogDescription: '📄 Calcolo imposta alla fonte 2026: busta paga frontaliere Svizzera con deduzioni AVS, LPP e netto in dettaglio.',
+ canonicalPath: '/calcola-stipendio/simula-busta-paga/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Simulatore Busta Paga Svizzera",
+ "url": `${BASE_URL}/calcola-stipendio/simula-busta-paga/`,
+ "description": "Simula la busta paga svizzera con deduzioni AVS, AC, LAA, LPP e imposta alla fonte per frontalieri",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come simulare la busta paga del nuovo frontaliere Svizzera-Italia",
+ "url": `${BASE_URL}/calcola-stipendio/simula-busta-paga/`,
+ "description": "Guida passo-passo per simulare la busta paga del nuovo frontaliere Svizzera-Italia 2026 con imposta alla fonte Ticino, deduzioni AVS/LPP e confronto netto CH vs IT.",
+ "totalTime": "PT3M",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Inserisci lo stipendio lordo annuale in CHF",
+ "text": "Digita lo stipendio lordo annuale in franchi svizzeri (CHF) così come appare sul contratto di lavoro. Il simulatore calcola automaticamente il lordo mensile dividendo per 13 (tredicesima inclusa)."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Indica età, stato civile e figli a carico",
+ "text": "Seleziona età (determina l'aliquota LPP), stato civile (barème A celibe o B coniugato) e numero di figli a carico. Ogni figlio riduce l'imposta alla fonte di circa 1 punto percentuale."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Scegli la zona di residenza (entro o oltre 20 km)",
+ "text": "Indica se risiedi entro 20 km dal confine svizzero oppure oltre. Con il Nuovo Accordo 2026 i nuovi frontalieri entro 20 km pagano l'80% alla fonte in Svizzera e IRPEF in Italia con franchigia di €10.000, mentre oltre 20 km la trattenuta svizzera è al 100%."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Verifica le deduzioni sociali svizzere",
+ "text": "Controlla il dettaglio delle trattenute obbligatorie: AVS/AI/IPG (5,3%), AD disoccupazione (1,1%), AINF infortuni non professionali, IJM malattia e LPP (2° pilastro, aliquota per fascia d'età 25-65 anni).",
+ "url": `${BASE_URL}/guida-frontaliere/contributi-sociali/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Visualizza la simulazione dell'imposta alla fonte",
+ "text": "Consulta il calcolo dell'imposta alla fonte applicata secondo il barème cantonale ticinese A/B/C/H 2026, con la percentuale e l'importo in CHF su base mensile."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 6,
+ "name": "Confronta il netto CHF con il netto in euro in Italia",
+ "text": "Confronta il netto svizzero con quello italiano considerando IRPEF e credito d'imposta: questa è la cifra che effettivamente resta al nuovo frontaliere nel 2026.",
+ "url": `${BASE_URL}/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 7,
+ "name": "Esporta il cedolino in PDF",
+ "text": "Scarica il riepilogo della simulazione in PDF con tutte le trattenute AVS, AD, AINF, IJM, LPP e imposta alla fonte: utile per confrontarlo con la busta paga reale ricevuta dal datore di lavoro."
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Che cos'è il Nuovo Accordo frontalieri 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "È l’accordo fiscale Italia-Svizzera entrato in vigore il 17 luglio 2023 e applicabile dal 1° gennaio 2024, non un nuovo accordo stipulato nel 2026. Distingue i vecchi frontalieri qualificati dall’articolo 9, tassati solo in Svizzera sul salario interessato, dai nuovi frontalieri fiscali: per questi ultimi imposta svizzera all’80% dell’ordinaria e imposizione italiana con credito. La sola data di assunzione non determina lo status. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quando si è considerati 'nuovo frontaliere'?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "È nuovo frontaliere fiscale chi soddisfa la definizione dell’accordo ma non rientra nell’articolo 9. Per lo status di vecchio conta l’attività fiscalmente qualificata in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023, non la sola data di firma del contratto. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si calcola l'imposta alla fonte in Ticino nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'imposta alla fonte in Ticino è applicata dal datore di lavoro secondo il barème cantonale: A (celibe/nubile senza figli), B (coniugato/a unico reddito), C (coniugato/a doppio reddito) e H (famiglia monoparentale). L'aliquota dipende dal reddito mensile lordo e varia da circa 2% (CHF 3.000/mese) a 16% (oltre CHF 15.000/mese). Ogni figlio a carico riduce l'aliquota di circa 1 punto percentuale."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cosa cambia se vivo oltre 20 km dal confine svizzero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Risiedere fuori dai comuni dell’elenco dei 20 km esclude la definizione fiscale dell’accordo frontalieri, ma non il permesso G UE/AELS. La franchigia italiana di €10.000 ha condizioni proprie per lavoro dipendente continuativo ed esclusivo all’estero in zone di frontiera o Paesi limitrofi: non è esclusa dal solo superamento dei 20 km. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I contributi AVS e LPP sono deducibili in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. I contributi previdenziali obbligatori AVS/AI/IPG (5,3%) e LPP (2° pilastro) trattenuti in Svizzera sono deducibili dal reddito imponibile IRPEF nella dichiarazione italiana dei nuovi frontalieri, riducendo di fatto la base imponibile italiana. Conserva il certificato di salario annuale svizzero (Lohnausweis) per il commercialista."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso usare il simulatore anche se ho il Permesso B?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il simulatore di busta paga calcola le trattenute sociali (AVS, AD, AINF, IJM, LPP) e l'imposta alla fonte ticinese: sono le stesse voci presenti sul cedolino di un residente con permesso B che lavora in Ticino. Tuttavia, con permesso B non si applica il regime speciale del frontaliere (credito d'imposta italiano): il netto CHF è il tuo vero netto. Per un confronto fiscale G vs B usa il comparatore dedicato."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "L'imposta alla fonte è definitiva o posso recuperare qualcosa con la TDR?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Non confondere la correzione di una trattenuta errata con una tassazione ordinaria che consenta ulteriori deduzioni. Chiedi al Cantone quale procedura si applica al tuo caso. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il simulatore include la tredicesima e gli assegni familiari?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Lo stipendio lordo annuale inserito comprende già la tredicesima (si divide per 13 per il lordo mensile). Gli assegni familiari cantonali (circa CHF 200-300 al mese per figlio in Ticino) non sono invece inclusi nella simulazione perché non soggetti a trattenute sociali e imposta alla fonte: vanno sommati al netto calcolato."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'permit-compare': {
+ title: 'Permesso G vs B 2026: Tasse, Contributi e Costo della Vita',
+ description: 'Permesso G o B nel 2026? Confronta tasse, contributi e costo della vita Svizzera-Italia con la simulazione fiscale: calcolo netto e spese reali.',
+ keywords: 'permesso G vs B, confronto permesso frontaliere dimora, tasse permesso G, tasse permesso B svizzera, conviene trasferirsi svizzera, frontaliere vs residente',
+ ogTitle: 'Confronto Permesso G vs B Costo Vita | Conviene Trasferirsi?',
+ ogDescription: '⚖️ Confronto permesso G vs B costo vita: tasse, contributi e spese. Conviene vivere in Svizzera o pendolare?',
+ canonicalPath: '/guida-frontaliere/confronta-permesso-g-vs-b/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Permesso G vs B",
+ "url": `${BASE_URL}/guida-frontaliere/confronta-permesso-g-vs-b/`,
+ "description": "Confronto fiscale tra permesso G (frontaliere) e permesso B (dimora): tasse, contributi, costi",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web Browser",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Conviene di più il permesso G o il permesso B in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Dipende dallo stipendio e dalla situazione familiare. Con uno stipendio sopra CHF 80.000 il permesso B (residente) conviene spesso perché le aliquote svizzere sono più basse dell'IRPEF italiana. Con stipendio sotto CHF 60.000 il permesso G può essere vantaggioso grazie al costo della vita più basso in Italia."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Un frontaliere con permesso G paga le tasse in Italia e in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G da solo non determina il regime fiscale. I nuovi frontalieri che soddisfano l’accordo pagano l’80% dell’imposta alla fonte ordinaria svizzera e le imposte italiane con credito per quelle svizzere. Per i vecchi frontalieri qualificati dall’articolo 9, il salario interessato resta imponibile soltanto in Svizzera: il 2033 chiude la compensazione tra Stati, non questo trattamento. Altri redditi e obblighi dichiarativi vanno valutati separatamente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto si risparmia sull'affitto vivendo in Italia con permesso G?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Un appartamento a Como o Varese costa circa €600-900/mese, contro CHF 1.200-1.800/mese per un equivalente a Lugano o Bellinzona. Il risparmio sull'affitto è di circa €500-800/mese, parzialmente compensato dai costi di trasporto (benzina, autostrada, tempo di viaggio)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso passare da permesso G a permesso B e viceversa?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. Per passare da G a B basta trasferire la residenza in Svizzera e richiedere il permesso B. Per il contrario, ci si cancella dal comune svizzero e si ripristina la residenza in Italia. Attenzione: il cambio ha conseguenze fiscali significative (anno di transizione tassato pro-rata)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il permesso B dà diritto alla pensione svizzera piena?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Entrambi i permessi (G e B) danno diritto ai contributi AVS e LPP. La differenza è che con il permesso B si possono versare contributi AVS facoltativi aggiuntivi e si ha accesso completo al sistema previdenziale svizzero. La pensione AVS piena richiede 44 anni di contributi indipendentemente dal tipo di permesso."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ firstDay: {
+ title: 'Primo Giorno da Frontaliere 2026: Checklist Permesso G e AIRE',
+ description: 'Primo giorno da frontaliere 2026: checklist interattiva con ogni passaggio, permesso G, iscrizione AIRE, conto bancario svizzero e assicurazione LAMal.',
+ keywords: 'primo giorno frontaliere, checklist frontaliere, guida frontaliere passo passo, permesso G procedura, AIRE iscrizione, conto bancario svizzero, assicurazione LAMal',
+ ogTitle: 'Primo Giorno da Frontaliere | Checklist Interattiva',
+ ogDescription: '🚀 Checklist gamificata per il primo giorno da frontaliere: tutti i passaggi da seguire passo per passo.',
+ canonicalPath: '/guida-frontaliere/primo-giorno-lavoro/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Primo Giorno da Frontaliere: Guida Completa",
+ "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/`,
+ "description": "Checklist completa per il primo giorno da frontaliere: permesso G, AIRE, banca, assicurazione, trasporti",
+ "totalTime": "P30D",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Richiedere il Permesso G",
+ "text": "Richiedi il permesso di lavoro G presso il Cantone Ticino. Servono contratto di lavoro, documento d'identità valido e prova di residenza nella zona di frontiera (entro 20 km).",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Iscriversi all'AIRE",
+ "text": "Se ti trasferisci in Svizzera, iscriviti all'AIRE (Anagrafe Italiani Residenti all'Estero) presso il consolato italiano competente entro 90 giorni."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Aprire un Conto Bancario Svizzero",
+ "text": "Apri un conto corrente in Svizzera (PostFinance, Raiffeisen, UBS o Credit Suisse) per ricevere lo stipendio in CHF.",
+ "url": `${BASE_URL}/compara-servizi/confronta-banche/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Scegliere l'Assicurazione Sanitaria",
+ "text": "Scegli tra LAMal svizzera e SSN italiano (diritto d'opzione). Confronta i premi tra le 14 casse malati disponibili per il Canton Ticino.",
+ "url": `${BASE_URL}/compara-servizi/confronta-casse-malati/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Organizzare il Trasporto Quotidiano",
+ "text": "Pianifica il tragitto casa-lavoro: auto, treno TILO, bus, o combinazione. Controlla i tempi ai valichi e calcola i costi di pendolarismo.",
+ "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 6,
+ "name": "Comprendere il Regime Fiscale",
+ "text": "Informati sul regime fiscale applicabile: imposta alla fonte in Svizzera e, per i nuovi frontalieri (dal 17/07/2023), anche IRPEF in Italia con franchigia di €10.000.",
+ "url": `${BASE_URL}/calcola-stipendio/`
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quali documenti servono per il primo giorno di lavoro in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per il primo giorno servono: carta d'identità o passaporto valido, permesso G (o ricevuta della richiesta), contratto di lavoro firmato, coordinate bancarie svizzere (IBAN), attestato di assicurazione sanitaria (LAMal o SSN), e codice fiscale italiano."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto tempo ci vuole per ottenere il permesso G?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per cittadini UE il permesso G viene rilasciato in 5-10 giorni lavorativi dalla richiesta del datore di lavoro. Si può iniziare a lavorare con la ricevuta della richiesta. Il permesso fisico (formato tessera) arriva per posta in 2-4 settimane."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Devo aprire un conto bancario svizzero per lo stipendio?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, la maggior parte dei datori di lavoro svizzeri richiede un conto in Svizzera per l'accredito dello stipendio in CHF. Le banche più usate dai frontalieri sono PostFinance (economica, ~CHF 5/mese), Raiffeisen e le banche cantonali. Servono permesso G, contratto di lavoro e documento d'identità."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Meglio scegliere LAMal svizzera o SSN italiano come assicurazione?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il frontaliere deve iscriversi all'AIRE?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No, il frontaliere con permesso G che mantiene la residenza in Italia non deve iscriversi all'AIRE. L'iscrizione è obbligatoria solo per chi trasferisce la residenza in Svizzera (permesso B). Il frontaliere rimane residente fiscale in Italia."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ forum: {
+ title: 'Community Frontalieri | Domande e Risposte tra Frontalieri',
+ description: 'Forum della community dei frontalieri: fai domande su tasse, permessi, assicurazioni, pensione, trasporti. Risposte da altri frontalieri con esperienza diretta.',
+ keywords: 'forum frontalieri, domande frontaliere, community frontalieri, Q&A frontaliere, aiuto frontalieri Svizzera Italia',
+ ogTitle: 'Community Frontalieri - Domande e Risposte',
+ ogDescription: '💬 Fai domande e rispondi ad altri frontalieri su tasse, permessi, assicurazioni e molto altro.',
+ canonicalPath: '/community/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Community Frontalieri",
+ "url": `${BASE_URL}/community/`,
+ "description": "Forum della community dei frontalieri: domande e risposte su tasse, permessi, assicurazioni",
+ "inLanguage": "it",
+ "about": {
+ "@type": "Thing",
+ "name": "Forum Frontalieri Svizzera-Italia"
+ }
+ }
+ },
+
+ dashboard: {
+ title: 'Dashboard Personale | Storico Simulazioni Frontaliere',
+ description: 'Dashboard personale per frontalieri: salva le tue simulazioni fiscali, confronta risultati nel tempo, esporta report PDF. Tieni traccia del tuo percorso da.',
+ keywords: 'dashboard frontaliere, storico simulazioni, confronto simulazioni fiscali, report PDF frontaliere, salva simulazione frontaliere',
+ ogTitle: 'Dashboard Personale Frontaliere',
+ ogDescription: '📊 Salva, confronta e esporta le tue simulazioni fiscali. Dashboard personale per frontalieri.',
+ canonicalPath: '/profilo/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Dashboard Personale Frontaliere",
+ "url": `${BASE_URL}/profilo/`,
+ "description": "Dashboard personale per frontalieri: salva simulazioni fiscali, confronta risultati nel tempo, esporta PDF",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ quiz: {
+ title: 'Quiz Fiscale Frontalieri 2026 | Testa le Conoscenze',
+ h1: 'Quiz fiscale frontalieri 2026 — 20 domande sulle tasse CH-IT con risposte spiegate',
+ description: 'Quiz settimanale sulla fiscalità transfrontaliera Svizzera-Italia. Verifica le tue conoscenze su tasse, deduzioni, permessi e normative per frontalieri.',
+ keywords: 'quiz frontalieri, test fiscale, quiz tasse svizzera, quiz permesso G, frontalieri ticino quiz, test conoscenze frontaliere',
+ ogTitle: 'Quiz Fiscale Frontalieri | Testa le Tue Conoscenze',
+ ogDescription: 'Quiz settimanale sulla fiscalità transfrontaliera! Verifica le tue conoscenze su tasse, deduzioni e permessi per frontalieri in Ticino.',
+ canonicalPath: '/tasse-e-pensione/quiz-fiscale/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Quiz",
+ "name": "Quiz Settimanale Frontalieri",
+ "url": `${BASE_URL}/tasse-e-pensione/quiz-fiscale/`,
+ "description": "Quiz interattivo settimanale sulla fiscalità e normative per lavoratori frontalieri Svizzera-Italia",
+ "educationalLevel": "intermediate",
+ "about": {
+ "@type": "Thing",
+ "name": "Fiscalità Frontalieri Svizzera-Italia"
+ },
+ "provider": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino"
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come funziona il quiz fiscale settimanale per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Ogni settimana il quiz seleziona 5 domande a scelta multipla da un pool su fiscalità svizzera e italiana, contributi AVS/LPP, assicurazione LAMal e permessi di lavoro G/B. Ogni risposta include una spiegazione dettagliata del meccanismo, così il quiz funziona sia da verifica che da strumento di apprendimento."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Qual è l'aliquota AVS a carico del lavoratore frontaliere in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'aliquota AVS (1° pilastro) a carico del lavoratore è del 5,3% dello stipendio lordo. Il datore di lavoro versa un importo identico, per un contributo complessivo del 10,6%."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanti pilastri ha il sistema previdenziale svizzero e cosa coprono?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il sistema svizzero si basa su 3 pilastri: AVS/AI (1° pilastro, previdenza statale obbligatoria), LPP (2° pilastro, previdenza professionale tramite il datore di lavoro) e il risparmio individuale volontario (3° pilastro, 3a/3b)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I frontalieri possono scegliere tra LAMal svizzera e SSN italiano?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì: entro 3 mesi dall'inizio del rapporto di lavoro i frontalieri esercitano il diritto di opzione tra la LAMal svizzera e il Servizio Sanitario Nazionale italiano. La scelta non può essere modificata liberamente: il Cantone di lavoro verifica le condizioni per un nuovo esercizio."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Ogni quanto va rinnovato il permesso G per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per cittadini UE/AELS con contratto indeterminato o superiore a un anno il permesso G dura normalmente cinque anni; per contratti più brevi la validità segue la durata. Verifica la scadenza e segui la procedura cantonale di rinnovo: il rapporto di lavoro in corso non elimina gli adempimenti richiesti. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ taxCredit: {
+ title: 'Credito d\'Imposta Frontalieri 2026: Calcolo Doppia Imposizione',
+ description: 'Credito d\'imposta frontalieri 2026: calcola quanto recuperi dalle imposte italiane per evitare la doppia tassazione Svizzera-Italia. Simulatore gratuito.',
+ keywords: 'credito imposta frontalieri, doppia imposizione svizzera italia, imposta alla fonte credito, IRPEF frontaliere, tasse frontaliere 2026',
+ ogTitle: 'Credito d\'Imposta Doppia Imposizione | Frontaliere Ticino',
+ ogDescription: 'Calcola il credito d\'imposta per evitare la doppia tassazione come frontaliere. Scopri quanto risparmi con il nostro calcolatore gratuito.',
+ canonicalPath: '/tasse-e-pensione/credito-imposta/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore Credito d'Imposta Frontalieri",
+ "url": `${BASE_URL}/tasse-e-pensione/credito-imposta/`,
+ "description": "Calcola il credito d'imposta per evitare la doppia tassazione Svizzera-Italia per lavoratori frontalieri",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come funziona il credito d'imposta per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il credito d'imposta evita la doppia imposizione: le tasse pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana nel quadro CE della dichiarazione dei redditi. Il credito è limitato alla quota di imposta italiana corrispondente al reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «È essenziale conservare il certificato di salario svizzero (Lohnausweis) come prova dell'imposta alla fonte pagata»."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Qual è la differenza tra credito d'imposta per vecchi e nuovi frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sul salario svizzero coperto dall’articolo 9, il vecchio frontaliere qualificato non deve IRPEF italiana e quindi non usa il credito per quel reddito. Ciò non elimina eventuali obblighi italiani per altri redditi o monitoraggio. Il nuovo frontaliere fiscale dichiara il reddito in Italia e può scomputare l’imposta svizzera nei limiti del credito spettante; l’80% riguarda l’imposta alla fonte ordinaria svizzera, non un limite generale al credito italiano. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "In quale quadro della dichiarazione si indica il credito d'imposta?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il credito d'imposta per le imposte pagate all'estero si indica nel Quadro CE del Modello Redditi PF (Persone Fisiche). Si riportano il reddito prodotto all'estero e l'imposta estera definitiva pagata."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il credito d'imposta può superare l'IRPEF dovuta?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No, il credito d'imposta non può eccedere la quota di IRPEF proporzionale al reddito estero. Se l'imposta svizzera è superiore alla quota IRPEF, la differenza non è rimborsabile ma può essere riportata nelle 8 dichiarazioni successive."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Devo convertire l'imposta svizzera da CHF a EUR?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, l'imposta alla fonte pagata in CHF va convertita in EUR usando il tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Per il 2025 il tasso medio è indicativo di circa 0,94 EUR per CHF."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ jobboard: {
+ title: 'Offerte di lavoro in Ticino 2026 | Aggiornate ogni giorno',
+ description: 'Cerca offerte di lavoro in Ticino per frontalieri: filtra per città, settore e contratto, confronta le posizioni e candidati direttamente alle aziende.',
+ keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, lavoro in svizzera per italiani, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni, case anziani ticino offerte di lavoro',
+ ogTitle: 'Offerte di lavoro in Ticino 2026 | Aggiornate ogni giorno',
+ ogDescription: 'Offerte di lavoro in Ticino per frontalieri: filtra per città, settore e contratto e candidati direttamente alle aziende.',
+ canonicalPath: '/cerca-lavoro-ticino/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Offerte di Lavoro in Ticino",
+ "url": `${BASE_URL}/cerca-lavoro-ticino/`,
+ "description": "Bacheca lavoro con offerte aggiornate per frontalieri in Ticino. Posizioni in diversi settori: tecnologia, finanza, farmaceutica, sanit\u00e0, industria.",
+ "abstract": "La bacheca raccoglie offerte di lavoro delle aziende ticinesi con un conteggio aggiornato degli annunci attivi nelle città principali (Lugano, Mendrisio, Bellinzona, Locarno, Chiasso) e nei settori chiave per frontalieri: farmaceutica, finanza, IT, sanità, logistica e industria.",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION,
+ "about": {
+ "@type": "Thing",
+ "name": "Offerte di Lavoro Ticino"
+ },
+ "provider": {
+ "@type": "Organization",
+ "name": "Frontaliere Ticino",
+ "url": BASE_URL
+ },
+ "mainEntity": {
+ "@type": "ItemList",
+ "name": "Offerte di Lavoro in Canton Ticino",
+ "description": "Elenco aggiornato di offerte di lavoro in Canton Ticino per frontalieri italiani",
+ "itemListOrder": "https://schema.org/ItemListOrderDescending",
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Lavoro Lugano", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-lugano/` },
+ { "@type": "ListItem", "position": 2, "name": "Lavoro Mendrisio", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-mendrisio/` },
+ { "@type": "ListItem", "position": 3, "name": "Lavoro Bellinzona", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-bellinzona/` },
+ { "@type": "ListItem", "position": 4, "name": "Lavoro Locarno", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-locarno/` },
+ { "@type": "ListItem", "position": 5, "name": "Lavoro Chiasso", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-chiasso/` }
+ ]
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "@id": `${BASE_URL}/cerca-lavoro-ticino/#website`,
+ "name": "Offerte di Lavoro Ticino \u2014 Frontaliere Ticino",
+ "url": `${BASE_URL}/cerca-lavoro-ticino/`,
+ "potentialAction": {
+ "@type": "SearchAction",
+ "target": {
+ "@type": "EntryPoint",
+ "urlTemplate": `${BASE_URL}/cerca-lavoro-ticino?q={search_term_string}`
+ },
+ "query-input": "required name=search_term_string"
+ }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Come trovare offerte di lavoro in Ticino per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Su Frontaliere Ticino puoi consultare offerte aggiornate quotidianamente da oltre 100 aziende ticinesi. Filtra per settore (banche, tech, farmaceutica, sanità), località (Lugano, Mendrisio, Bellinzona) e tipo di contratto. Ogni offerta include stima salariale e link diretto per candidarti." } },
+ { "@type": "Question", "name": "Quali sono i settori con più offerte di lavoro in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con più offerte per frontalieri in Ticino sono: farmaceutica e life science, servizi finanziari e bancari, tecnologia e IT, sanità e ospedaliero, logistica e trasporti, industria e manifattura. Le aziende farmaceutiche nel Mendrisiotto offrono le posizioni meglio retribuite." } },
+ { "@type": "Question", "name": "Serve il permesso G per lavorare in Ticino come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G riguarda il lavoro in Svizzera con residenza principale all’estero e rientro almeno settimanale. La definizione fiscale dell’accordo è distinta: richiede un comune nella fascia di confine, attività nella regione prevista e rientro in linea di principio quotidiano. Il solo permesso non determina il regime fiscale. https://www4.ti.ch/di/spop/stranieri/richiesta-nuovo-g/" } },
+ { "@type": "Question", "name": "Quanto guadagna un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio medio di un frontaliere in Ticino varia per settore: farmaceutica CHF 85.000-120.000/anno, finanza CHF 80.000-110.000, IT CHF 75.000-100.000, sanità CHF 65.000-90.000, commercio CHF 55.000-70.000. Usa il nostro simulatore fiscale gratuito per calcolare il netto dopo tasse svizzere e italiane." } },
+ { "@type": "Question", "name": "Quante offerte di lavoro ci sono in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Il numero di offerte attive in Canton Ticino è indicato nella pagina e viene aggiornato dal catalogo degli annunci. Le posizioni coprono Lugano, Mendrisio, Bellinzona, Locarno e Chiasso, con annunci in tutti i settori principali: farmaceutica, finanza, IT, sanità, logistica e industria." } },
+ { "@type": "Question", "name": "Quali sono le offerte di lavoro più richieste in Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i profili più richiesti in Ticino sono: sviluppatori software e specialisti IT, infermieri e operatori sociosanitari (OSS), tecnici di laboratorio farmaceutico, contabili e analisti finanziari, e ingegneri meccanici. Le posizioni nel settore pharma e life science offrono le retribuzioni più alte, seguite da finanza e tecnologia." } },
+ { "@type": "Question", "name": "Come candidarsi per offerte di lavoro in Ticino come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Cerca tra le offerte filtrando per settore, località o tipo di contratto. Ogni annuncio include un link diretto alla candidatura ufficiale sul sito dell'azienda. Non serve creare un account: selezioni l'offerta, clicchi 'Candidati' e vieni reindirizzato alla pagina HR dell'azienda. Il tuo datore di lavoro avvierà la pratica per il permesso G." } },
+ { "@type": "Question", "name": "Ci sono posti vacanti in Ticino per italiani?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, in Ticino ci sono centinaia di posti vacanti accessibili a cittadini italiani grazie al permesso G per frontalieri. Settori con più offerte: farmaceutica (Mendrisiotto), finanza (Lugano), IT e sanità. Frontaliere Ticino pubblica quotidianamente i posti vacanti da oltre 100 aziende ticinesi con link diretto alla candidatura." } },
+ { "@type": "Question", "name": "Dove cercare lavoro a Lugano?", "acceptedAnswer": { "@type": "Answer", "text": "Lugano è il polo economico del Ticino con la più alta concentrazione di offerte. I principali datori di lavoro a Lugano includono banche (BSI, BancaStato, EFG), società IT, studi legali e aziende di consulenza. Su Frontaliere Ticino puoi filtrare le offerte per località Lugano e candidarti direttamente sul sito aziendale." } },
+ { "@type": "Question", "name": "Come trovare offerte di lavoro in Svizzera per italiani?", "acceptedAnswer": { "@type": "Answer", "text": "Il Canton Ticino è la destinazione principale per italiani che cercano lavoro in Svizzera, grazie alla lingua italiana e alla vicinanza geografica. Su Frontaliere Ticino trovi le offerte attive delle aziende ticinesi, con il conteggio aggiornato nella pagina. Puoi cercare per settore, località e tipo di contratto. Ogni annuncio include stipendio stimato e link diretto per candidarti." } }
+ ],
+ "speakable": SPEAKABLE_SECTION
+ }
+ ]
+ },
+
+ applicationConcierge: {
+ title: 'Automatizza la ricerca di lavoro in Svizzera | Frontaliere Ticino',
+ h1: 'Automatizza la tua ricerca di lavoro in Svizzera',
+ description: 'Automatizza la ricerca di lavoro in Svizzera: troviamo ruoli adatti e prepariamo candidature su misura. Può aumentare le probabilità di ottenere un colloquio.',
+ keywords: 'automatizza ricerca lavoro Svizzera, automazione ricerca lavoro, candidature su misura, candidatura automatica, trovare lavoro in Svizzera, colloquio di lavoro',
+ ogTitle: 'Automatizza la ricerca di lavoro in Svizzera',
+ ogDescription: 'Troviamo ruoli adatti e prepariamo candidature su misura. Una candidatura mirata può aumentare le probabilità di ottenere un colloquio.',
+ canonicalPath: '/automatizza-ricerca-lavoro-svizzera/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Automatizzazione della ricerca di lavoro in Svizzera",
+ "serviceType": "Servizio di candidatura assistita",
+ "url": `${BASE_URL}/automatizza-ricerca-lavoro-svizzera/`,
+ "description": "Per 30 giorni cerchiamo posizioni compatibili con il profilo e prepariamo candidature su misura. Una candidatura mirata può aumentare le probabilità di ottenere un colloquio, senza garantire risposte o assunzioni.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/automatizza-ricerca-lavoro-svizzera/` },
+ "inLanguage": "it"
+ }
+ },
+
+ applicationConciergeEn: {
+ title: 'Automate Your Job Search in Switzerland | Frontaliere Ticino',
+ h1: 'Automate your job search in Switzerland',
+ description: 'Automate your job search in Switzerland: we find suitable roles and prepare tailored applications. This can improve your chances of reaching an interview.',
+ keywords: 'automate job search Switzerland, automated job search, tailored applications, automatic job applications, find a job in Switzerland, job interview',
+ ogTitle: 'Automate your job search in Switzerland',
+ ogDescription: 'We find suitable roles and prepare tailored applications. A targeted application can improve your chances of reaching an interview.',
+ canonicalPath: '/en/automate-job-search-switzerland/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Automated job search in Switzerland",
+ "serviceType": "Assisted job application service",
+ "url": `${BASE_URL}/en/automate-job-search-switzerland/`,
+ "description": "For 30 days we find positions that match your profile and prepare tailored applications. A targeted application can improve your chances of reaching an interview, without guaranteeing replies or hiring.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/en/automate-job-search-switzerland/` },
+ "inLanguage": "en"
+ }
+ },
+
+ applicationConciergeDe: {
+ title: 'Automatisiere deine Jobsuche in der Schweiz | Frontaliere Ticino',
+ h1: 'Automatisiere deine Jobsuche in der Schweiz',
+ description: 'Automatisiere deine Jobsuche in der Schweiz: Wir finden passende Jobs und erstellen gezielte Bewerbungen. Das kann die Chancen auf ein Vorstellungsgespräch erhöhen.',
+ keywords: 'Jobsuche Schweiz automatisieren, automatisierte Jobsuche, Bewerbung nach Mass, automatische Bewerbung, Arbeit in der Schweiz finden, Vorstellungsgespräch',
+ ogTitle: 'Automatisiere deine Jobsuche in der Schweiz',
+ ogDescription: 'Wir finden passende Stellen und erstellen Bewerbungen nach Mass. Eine gezielte Bewerbung kann deine Chancen auf ein Vorstellungsgespräch verbessern.',
+ canonicalPath: '/de/arbeitssuche-schweiz-automatisieren/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Automatisierte Jobsuche in der Schweiz",
+ "serviceType": "Unterstützung bei Bewerbungen",
+ "url": `${BASE_URL}/de/arbeitssuche-schweiz-automatisieren/`,
+ "description": "30 Tage lang finden wir passende Stellen und erstellen Bewerbungen nach Mass. Eine gezielte Bewerbung kann die Chancen auf ein Vorstellungsgespräch verbessern, ohne Antworten oder eine Anstellung zu garantieren.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/de/arbeitssuche-schweiz-automatisieren/` },
+ "inLanguage": "de"
+ }
+ },
+
+ applicationConciergeFr: {
+ title: 'Automatisez votre recherche d’emploi en Suisse | Frontaliere Ticino',
+ h1: 'Automatisez votre recherche d’emploi en Suisse',
+ description: 'Automatisez votre recherche d’emploi en Suisse : nous trouvons des postes adaptés et préparons des candidatures ciblées. Cela peut aider à obtenir un entretien.',
+ keywords: 'automatiser recherche emploi Suisse, recherche emploi automatisée, candidature sur mesure, candidature automatique, trouver travail Suisse, entretien emploi',
+ ogTitle: 'Automatisez votre recherche d’emploi en Suisse',
+ ogDescription: 'Nous trouvons des postes adaptés et préparons des candidatures sur mesure. Une candidature ciblée peut augmenter vos chances d’obtenir un entretien.',
+ canonicalPath: '/fr/automatiser-recherche-emploi-suisse/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Recherche d’emploi automatisée en Suisse",
+ "serviceType": "Service d’accompagnement aux candidatures",
+ "url": `${BASE_URL}/fr/automatiser-recherche-emploi-suisse/`,
+ "description": "Pendant 30 jours, nous trouvons des postes adaptés à votre profil et préparons des candidatures sur mesure. Une candidature ciblée peut augmenter vos chances d’obtenir un entretien, sans garantir de réponse ni d’embauche.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/fr/automatiser-recherche-emploi-suisse/` },
+ "inLanguage": "fr"
+ }
+ },
+
+ // ─── Glossario SEO ──────────────────────────────────────────────────────,
+
+ glossario: {
+ title: 'Glossario Frontaliere 2026 | 52 Termini CH-IT',
+ h1: 'Glossario frontaliere Svizzera-Italia 2026 — 52 termini fiscali, previdenziali e sanitari spiegati',
+ description: 'Glossario completo per frontalieri: 52 termini fiscali, previdenziali, assicurativi e legali spiegati in modo semplice. AVS, LPP, LAMal, imposta alla.',
+ keywords: 'glossario frontaliere, termini fiscali svizzera, avs significato, lpp secondo pilastro, lamal frontaliere, imposta alla fonte spiegazione, irpef frontaliere, glossario lavoro svizzera',
+ ogTitle: 'Glossario Frontaliere | 52 Termini Spiegati',
+ ogDescription: 'Tutti i termini che un frontaliere deve conoscere: glossario completo con spiegazioni semplici di AVS, LPP, LAMal, imposta alla fonte, IRPEF e altro.',
+ canonicalPath: '/glossario-frontaliere/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "DefinedTermSet",
+ "name": "Glossario Frontaliere Svizzera-Italia",
+ "url": `${BASE_URL}/glossario-frontaliere/`,
+ "description": "Raccolta di 52 termini fiscali, previdenziali, assicurativi e legali per lavoratori frontalieri",
+ "speakable": SPEAKABLE_SECTION
+ }
+ },
+
+ dialetto: {
+ title: 'Parole in Dialetto Ticinese | 64 Espressioni e Vocabolario',
+ description: 'Parole in dialetto ticinese: 64 espressioni, vocabolario, proverbi e modi di dire. Saluti, cibo, lavoro e natura — il vocabolario essenziale per capire il Ticino.',
+ keywords: 'parole in dialetto ticinese, dialetto ticinese, espressioni ticinesi, vocabolario ticinese, proverbi ticino, lingua ticinese frontalieri, bundi ciau, polenta ticinese, grotto ticino, dialetto lombardo svizzera, modi di dire ticinesi',
+ ogTitle: 'Parole in Dialetto Ticinese | Espressioni e Vocabolario',
+ ogDescription: 'Parole ed espressioni in dialetto ticinese: 64 vocaboli, saluti, proverbi e modi di dire. Il vocabolario del Ticino spiegato ai frontalieri.',
+ canonicalPath: '/dialetto-ticinese/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Dialetto Ticinese — Espressioni e Proverbi",
+ "url": `${BASE_URL}/dialetto-ticinese/`,
+ "description": "Raccolta di 64 espressioni, proverbi e parole del dialetto ticinese per lavoratori frontalieri",
+ "inLanguage": "it"
+ }
+ },
+
+ faq: {
+ title: 'Domande Frequenti Frontalieri | FAQ Tasse e Lavoro CH-IT',
+ description: 'Le 30 domande più frequenti sui frontalieri Svizzera-Italia: tasse, permessi, assicurazione LAMal, pensione AVS/LPP, comuni entro 20 km e nuovo accordo 2026.',
+ keywords: 'domande frequenti frontalieri, faq frontaliere svizzera, tasse frontalieri domande, permesso g domande, lamal frontaliere faq, pensione frontaliere domande, nuovo accordo frontalieri faq',
+ ogTitle: 'FAQ Frontalieri 2026 | 30 Domande e Risposte',
+ ogDescription: 'Le 30 domande più frequenti sui frontalieri Svizzera-Italia: tasse, permessi, LAMal, pensione e nuovo accordo 2026.',
+ canonicalPath: '/domande-frequenti-frontalieri/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "name": "Domande Frequenti Frontalieri Svizzera-Italia",
+ "url": `${BASE_URL}/domande-frequenti-frontalieri/`,
+ "description": "Le 30 domande più frequenti su tasse, permessi, assicurazione e pensione per lavoratori frontalieri.",
+ "inLanguage": "it",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Che differenza c'è tra permesso G e permesso B per un frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G è per lavoratori che risiedono in un Paese UE/AELS e lavorano in Svizzera, tornando al domicilio almeno una volta a settimana. Il permesso B è per chi si trasferisce a vivere in Svizzera. Con il G si pagano le tasse tramite imposta alla fonte in Svizzera e si dichiara in Italia; con il B si è fiscalmente residenti in Svizzera."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona il nuovo accordo fiscale frontalieri 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Devo pagare le tasse in Italia se lavoro in Svizzera come frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, se sei un nuovo frontaliere (dal 2024) devi dichiarare i redditi anche in Italia. Esiste una franchigia di 10.000 EUR: sotto questa soglia non paghi IRPEF aggiuntiva. Sopra, l'imposta italiana viene calcolata con credito per quanto già versato in Svizzera."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cos'è la LAMal e come funziona per i frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i residenti in Italia assicurati LAMal si applicano premi del Paese di domicilio, modello standard e franchigia ordinaria; HMO, Telmed e franchigie opzionali non sono disponibili. Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://www.bag.admin.ch/it/cure-allestero-per-gli-assicurati-che-vivono-allestero"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si calcola la pensione di un frontaliere svizzero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La pensione si compone di tre pilastri: AVS (1° pilastro, pensione statale), LPP (2° pilastro, previdenza professionale) e Pilastro 3a (risparmio volontario con vantaggi fiscali). I contributi AVS e LPP vengono trattenuti in busta paga. Al pensionamento si può richiedere la rendita o il capitale del 2° pilastro."
+ }
+ }
+ ]
+ }
+ },
+
+ // ─── Sitemap navigational page ──────────────────────────────────────,
+
+ sitemap: {
+ title: 'Mappa del Sito | Frontaliere Ticino',
+ description: 'Mappa del sito Frontaliere Ticino: tutti gli strumenti, calcolatori, guide e risorse per lavoratori frontalieri Svizzera-Italia organizzati per categoria.',
+ keywords: 'mappa del sito frontaliere ticino, strumenti frontalieri svizzera, calcolatori frontaliere, guide frontaliere italia svizzera',
+ ogTitle: 'Mappa del Sito | Frontaliere Ticino',
+ ogDescription: 'Tutti gli strumenti e risorse per frontalieri Svizzera-Italia in un\'unica pagina.',
+ canonicalPath: '/mappa-del-sito/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Mappa del Sito — Frontaliere Ticino",
+ "url": `${BASE_URL}/mappa-del-sito/`,
+ "description": "Indice completo di tutti gli strumenti, calcolatori, guide e risorse per lavoratori frontalieri Svizzera-Italia.",
+ "inLanguage": "it",
+ },
+ },
+
+ // ─── Contracts / CCNL Guide ──────────────────────────────────────,
+
+ contracts: {
+ title: 'Contratti Lavoro Svizzera — CCNL e CCL Ticino',
+ description: 'Confronto completo dei contratti collettivi svizzeri e italiani per frontalieri: edilizia, metalmeccanica, commercio, ristorazione, sanità. Ore, ferie.',
+ keywords: 'contratto lavoro svizzera, CCNL ticino, CCL svizzera, diritti lavoratore frontaliere, ore lavoro svizzera, ferie svizzera, tredicesima svizzera, contratti collettivi ticino, GAV tessin',
+ ogTitle: 'Contratti Lavoro Svizzera — CCNL e CCL Ticino',
+ ogDescription: 'Confronto completo dei contratti collettivi svizzeri e italiani: ore, ferie, tredicesima, preavviso per 5 settori chiave.',
+ canonicalPath: '/contratti-lavoro-svizzera/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Contratti Collettivi Svizzera vs Italia",
+ "url": `${BASE_URL}/contratti-lavoro-svizzera/`,
+ "description": "Database interattivo dei contratti collettivi ticinesi (edilizia, metalmeccanica, commercio, ristorazione, sanità) con confronto CCNL italiano.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "All",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ },
+
+ // ─── TFR / Liquidazione Frontaliere Calculator ──────────────────────────,
+
+ 'tfr-calculator': {
+ title: 'TFR e Liquidazione Frontaliere — Svizzera vs Italia',
+ description: 'Calcolatore TFR per frontalieri: in Svizzera il TFR non esiste. Confronto 2° pilastro LPP vs TFR italiano su N anni. Simulazione contributi, rivalutazione, FAQ.',
+ keywords: 'TFR frontaliere svizzera, liquidazione frontaliere, buonuscita frontaliere, 2 pilastro svizzera, LPP frontaliere, TFR italia vs svizzera, previdenza professionale frontaliere, cassa pensione frontaliere, trattamento fine rapporto svizzera',
+ ogTitle: 'TFR e Liquidazione Frontaliere — Svizzera vs Italia',
+ ogDescription: 'In Svizzera il TFR non esiste! Confronta il 2° pilastro (LPP) con il TFR italiano. Simulazione su N anni per frontalieri.',
+ canonicalPath: '/tfr-liquidazione-frontaliere/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore TFR vs LPP per Frontalieri",
+ "url": `${BASE_URL}/tfr-liquidazione-frontaliere/`,
+ "description": "Simulatore TFR italiano vs 2° pilastro svizzero (LPP/BVG) per lavoratori frontalieri. Confronto su N anni di contributi.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "All",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Perdo il TFR lavorando in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No, in Svizzera il TFR non esiste. Al suo posto c'è il 2° pilastro (LPP/BVG), un meccanismo di previdenza professionale obbligatorio."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso recuperare il 2° pilastro se torno in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. Lasciando definitivamente la Svizzera, si può richiedere la liquidazione della parte obbligatoria del 2° pilastro."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il 2° pilastro svizzero è più conveniente del TFR italiano?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Dipende dallo stipendio, dall'età e dalla durata del rapporto. Per stipendi medio-alti e lunghe carriere in Svizzera, il 2° pilastro accumula importi superiori al TFR italiano."
+ }
+ }
+ ]
+ }
+ ],
+ },
+
+ // ─── Permit Quiz (B vs G) ─────────────────────────────────────────────,
+
+ 'permit-quiz': {
+ title: 'Quiz Permesso B o G — Quale Scegliere? | Frontaliere',
+ description: 'Quiz interattivo per frontalieri: rispondi a 8 domande sulla tua situazione e scopri se è meglio il Permesso B (residenza) o G (frontaliere) per lavorare.',
+ keywords: 'meglio permesso b o g, quiz permesso svizzera, permesso b o g frontaliere, scelta permesso svizzera, permesso b vantaggi, permesso g vantaggi, confronto permesso b g, permesso lavoro svizzera frontaliere',
+ ogTitle: 'Quiz: Meglio Permesso B o G? Scoprilo in 2 Minuti',
+ ogDescription: 'Rispondi a 8 domande e scopri quale permesso svizzero è più adatto alla tua situazione: Permesso B (residenza) o G (frontaliere).',
+ canonicalPath: '/quiz-permesso-b-o-g/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Quiz Permesso B o G per Frontalieri",
+ "url": `${BASE_URL}/quiz-permesso-b-o-g/`,
+ "description": "Quiz interattivo per scegliere tra Permesso B (residenza) e Permesso G (frontaliere) in Svizzera. 8 domande personalizzate.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "All",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Qual è la differenza tra Permesso B e Permesso G?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il Permesso B è per chi risiede in Svizzera, il Permesso G è per i frontalieri che vivono in Italia e lavorano in Svizzera tornando al domicilio almeno una volta a settimana."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Conviene di più il Permesso B o G per le tasse?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Dipende dallo stipendio, dalla situazione familiare e dal comune di residenza. Per stipendi alti, il Permesso B può offrire aliquote più basse grazie alla tassazione ordinaria."
+ }
+ }
+ ]
+ }
+ ],
+ },
+
+ // ─── Frontaliere Readiness Wizard ─────────────────────────────────────,
+
+ 'frontaliere-wizard': {
+ title: 'Sei Pronto a Diventare Frontaliere? Test in 2 Minuti | Frontaliere',
+ description: 'Test di prontezza per aspiranti frontalieri: 7 domande su confine, permesso G, lavoro, famiglia e lingua, poi un piano personalizzato con i passi da fare.',
+ keywords: 'diventare frontaliere, come diventare frontaliere svizzera, test frontaliere, sei pronto frontaliere, piano frontaliere, iniziare a lavorare in svizzera, primi passi frontaliere, guida nuovo frontaliere',
+ ogTitle: 'Sei Pronto a Diventare Frontaliere? Scoprilo in 2 Minuti',
+ ogDescription: 'Rispondi a 7 domande e ricevi il tuo punteggio di prontezza + un piano personalizzato con i passi da fare per iniziare a lavorare in Svizzera.',
+ canonicalPath: '/sei-pronto-a-diventare-frontaliere/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Sei Pronto a Diventare Frontaliere?",
+ "url": `${BASE_URL}/sei-pronto-a-diventare-frontaliere/`,
+ "description": "Wizard di qualificazione per aspiranti frontalieri: 7 domande, punteggio di prontezza e piano d'azione personalizzato con link a guide, comparatori e calcolatori.",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "All",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come faccio a sapere se sono pronto a diventare frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Rispondi alle 7 domande del wizard su distanza dal confine, permesso G, situazione lavorativa, famiglia, settore, lingua e preparazione finanziaria: otterrai un punteggio di prontezza e un piano personalizzato con i passi concreti da seguire."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono i primi passi per lavorare in Svizzera come frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "In genere: verificare il tipo di permesso (B o G), trovare un lavoro in Svizzera, calcolare lo stipendio netto, aprire un conto in CHF, scegliere l'assicurazione malattia e organizzare il tragitto ai valichi di frontiera. Il wizard ordina questi passi in base alla tua situazione."
+ }
+ }
+ ]
+ }
+ ],
+ },
+
+ // ─── Tredicesima / Quattordicesima Calculator ────────────────────────,
+
+ 'tredicesima': {
+ title: 'Calcolo Tredicesima Frontaliere — Svizzera vs Italia',
+ description: 'Calcolatore tredicesima e quattordicesima per frontalieri: calcola la tua mensilità extra con confronto 13° stipendio svizzero vs tredicesima italiana.',
+ keywords: 'calcolo tredicesima frontaliere, tredicesima svizzera, 13 stipendio svizzera, quattordicesima frontaliere, mensilità extra frontaliere, 13esima svizzera frontaliere, tredicesima italia vs svizzera',
+ ogTitle: 'Calcolatore Tredicesima e Quattordicesima per Frontalieri',
+ ogDescription: 'Calcola la tua tredicesima e quattordicesima mensilità come frontaliere. Confronto 13° stipendio svizzero vs tredicesima italiana.',
+ canonicalPath: '/calcolo-tredicesima-frontaliere/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore Tredicesima per Frontalieri",
+ "url": `${BASE_URL}/calcolo-tredicesima-frontaliere/`,
+ "description": "Calcola tredicesima e quattordicesima mensilità per lavoratori frontalieri. Confronto 13° stipendio svizzero vs tredicesima italiana con pro-rata.",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "All",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "La tredicesima è obbligatoria per i frontalieri in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "La tredicesima non è obbligatoria per legge in Svizzera, ma è ampiamente diffusa nei CCL (contratti collettivi di lavoro) e nei contratti individuali del Canton Ticino. Molti settori la prevedono contrattualmente: banche, assicurazioni, pubblica amministrazione e molte aziende del settore industriale. Verifica sempre il tuo contratto: se è prevista, viene versata tipicamente a dicembre insieme allo stipendio del mese o come mensilità separata." } },
+ { "@type": "Question", "name": "Come si calcola la tredicesima del frontaliere assunto a metà anno?", "acceptedAnswer": { "@type": "Answer", "text": "La tredicesima si calcola in pro-rata sui mesi effettivamente lavorati nell'anno: salario mensile lordo diviso 12, moltiplicato per i mesi di servizio. Un frontaliere assunto il 1° giugno con CHF 6.000 lordi/mese riceverà 7/12 di una mensilità come tredicesima, cioè CHF 3.500 lordi. Anche la tredicesima è soggetta a imposta alla fonte, contributi AVS/AI/IPG (5,3%), AC (1,1%) e LPP se sopra la soglia contributiva LPP." } },
+ { "@type": "Question", "name": "Esiste la quattordicesima per i frontalieri in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "La quattordicesima è rara in Svizzera ma esiste in alcuni settori e aziende come bonus di produzione o come mensilità contrattuale. Più comune è il bonus a discrezione del datore di lavoro, legato ai risultati aziendali o individuali, che può equivalere a una mensilità supplementare. A differenza dell'Italia dove quattordicesima e premi sono più diffusi, in Svizzera i bonus sono volatili e non garantiti, quindi non vanno considerati reddito fisso nel calcolo della busta paga." } },
+ { "@type": "Question", "name": "La tredicesima svizzera va dichiarata in Italia dal nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: la tredicesima è parte integrante del reddito da lavoro dipendente e va inclusa nel totale annuo dichiarato nel Modello Redditi PF (quadro RC). Per i nuovi frontalieri nel regime concorrente, rientra nel reddito imponibile IRPEF, al netto della franchigia di €10.000 e del credito d'imposta per le tasse pagate in Svizzera. Il Lohnausweis emesso dal datore di lavoro riporta già l'importo annuo complessivo inclusivo di tredicesima e bonus." } },
+ ]
+ }
+ ],
+ },
+
+ // ─── Weekly Digest ───────────────────────────────────────────────────,
+
+ 'weekly-digest': {
+ title: 'Digest Settimanale Frontaliere | Frontaliere Ticino',
+ description: 'Ricevi ogni lunedì il digest settimanale per frontalieri: tasso di cambio CHF/EUR aggiornato, articoli selezionati, strumento della settimana e offerte di.',
+ keywords: 'digest settimanale frontaliere, newsletter frontalieri, tasso cambio settimanale, news frontaliere ticino, offerte lavoro ticino, aggiornamenti frontalieri',
+ ogTitle: 'Digest Settimanale per Frontalieri',
+ ogDescription: 'Ogni lunedì: tasso CHF/EUR, articoli, strumento della settimana e offerte di lavoro in Ticino per frontalieri.',
+ canonicalPath: '/digest-settimanale/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Digest Settimanale Frontaliere",
+ "url": `${BASE_URL}/digest-settimanale/`,
+ "description": "Digest settimanale con informazioni essenziali per lavoratori frontalieri: tasso di cambio, articoli, strumenti e offerte di lavoro.",
+ "inLanguage": "it",
+ }
+ ],
+ },
+
+ // ─── Tool of the Week ────────────────────────────────────────────────,
+
+ 'tool-of-week': {
+ title: 'Strumento della Settimana per Frontalieri',
+ description: 'Scopri lo strumento della settimana: ogni settimana mettiamo in evidenza un calcolatore o comparatore diverso per frontalieri. Condividi sui social!',
+ keywords: 'strumento settimana frontaliere, calcolatori frontalieri, comparatori frontalieri, tools frontaliere ticino, strumenti gratuiti frontalieri',
+ ogTitle: 'Strumento della Settimana | Frontaliere Ticino',
+ ogDescription: 'Ogni settimana uno strumento diverso in evidenza per frontalieri: calcolatori, comparatori e simulatori gratuiti.',
+ canonicalPath: '/strumento-della-settimana/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Strumento della Settimana per Frontalieri",
+ "url": `${BASE_URL}/strumento-della-settimana/`,
+ "description": "Ogni settimana uno strumento diverso per frontalieri: calcolatori stipendio, comparatori assicurazione, simulatori pensione e altro.",
+ "inLanguage": "it",
+ }
+ ],
+ },
+
+ // ─── Comparatori missing entries ──────────────────────────────────────────,
+
+ 'tax-return': {
+ title: 'Dichiarazione Redditi Frontalieri 2026 | Italia e Svizzera',
+ description: 'Dichiarazione redditi frontalieri 2026: Italia (730, Redditi PF, credito d\'imposta) e Svizzera (imposta alla fonte, rettifica, TDR). Guida con scadenze.',
+ keywords: 'dichiarazione redditi frontaliere, 730 frontaliere, credito imposta svizzera, quadro CE, redditi svizzeri italia, modello unico frontaliere, scadenze fiscali frontaliere, imposta alla fonte, rettifica quellensteuer, TDR frontaliere',
+ ogTitle: 'Dichiarazione Redditi Frontalieri 2026 | Italia e Svizzera',
+ ogDescription: 'Dichiarazione redditi frontalieri 2026: guida Italia (730, quadro CE) e Svizzera (imposta alla fonte, rettifica, TDR). Passo passo con scadenze.',
+ canonicalPath: '/tasse-e-pensione/dichiarazione-redditi/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Compilare la Dichiarazione dei Redditi da Frontaliere",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/`,
+ "description": "Guida passo passo alla dichiarazione dei redditi per lavoratori frontalieri Svizzera-Italia: documenti, deduzioni, scadenze e FAQ.",
+ "totalTime": "PT2H",
+ "estimatedCost": {
+ "@type": "MonetaryAmount",
+ "currency": "EUR",
+ "value": "0"
+ },
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Panoramica e regime fiscale",
+ "text": "Comprendi il regime fiscale applicabile: nuovo accordo 2026 con franchigia €10.000 per nuovi frontalieri, o vecchio accordo per frontalieri ante-2024. Verifica se devi usare il Modello Redditi PF.",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Raccolta documenti",
+ "text": "Raccogli tutti i documenti necessari: Lohnausweis (certificato di salario), attestato LPP, attestato pillar 3a, ricevute spese mediche, abbonamento trasporti, attestato assicurazione sanitaria, CU.",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Calcolo deduzioni",
+ "text": "Distingui la dichiarazione italiana dalla procedura svizzera. Verifica le deduzioni ammesse per il tuo status e i documenti richiesti; i frontalieri fiscali dell’accordo non accedono automaticamente alla TOU per dedurre il 3a.",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Scadenze fiscali 2026",
+ "text": "Rispetta le scadenze: certificato stipendio (31/01), CU precompilato (31/03), precompilata online (30/04), invio 730 (30/06), invio Redditi PF (30/09), acconto IRPEF (30/11).",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Compilazione e invio",
+ "text": "Compila il Modello Redditi PF con quadro RC per redditi di lavoro dipendente, quadro CE per il credito d'imposta sulle tasse svizzere, e quadro RW per il monitoraggio del conto bancario svizzero.",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/`
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Devo dichiarare il reddito svizzero in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, tutti i redditi esteri vanno dichiarati nel quadro RW e nel quadro RC/RL della dichiarazione."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso usare il 730 o devo fare il Modello Redditi PF?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La sola assenza di un sostituto d’imposta italiano non esclude il modello 730: esiste il 730 senza sostituto. La scelta fra 730 e Redditi PF dipende dai redditi da dichiarare e dai requisiti previsti dalle istruzioni dell’anno. Verifica la tua posizione e il trattamento del reddito svizzero prima di scegliere il modello. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona il credito d'imposta per le tasse pagate in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'imposta alla fonte pagata in CH si detrae dall'IRPEF italiana, evitando la doppia imposizione."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cos'è la franchigia di €10.000?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Con il nuovo accordo 2026, i primi €10.000 di reddito sono esenti da IRPEF italiana per i nuovi frontalieri."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Devo dichiarare il conto bancario svizzero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì, il conto svizzero va dichiarato nel quadro RW per il monitoraggio fiscale. Non paghi IVAFE sui conti."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'tax-return-italia': {
+ title: 'Dichiarazione Redditi Italia Frontalieri | 730 e Redditi PF',
+ description: 'Dichiarazione redditi Italia frontalieri 2026: Modello 730, Redditi PF, IRPEF con franchigia €10.000, credito d\'imposta, quadro CE e RW.',
+ keywords: 'dichiarazione redditi frontaliere italia, 730 frontaliere, redditi PF frontaliere, credito imposta svizzera, quadro CE, quadro RW, IRPEF frontaliere, franchigia 10000, scadenze fiscali italia 2026',
+ ogTitle: 'Dichiarazione Redditi Italia Frontalieri | 730 e Redditi PF',
+ ogDescription: 'Guida alla dichiarazione dei redditi in Italia per frontalieri: 730, Redditi PF, IRPEF, credito d\'imposta e scadenze 2026.',
+ canonicalPath: '/tasse-e-pensione/dichiarazione-redditi-italia/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Compilare la Dichiarazione dei Redditi in Italia da Frontaliere",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-italia/`,
+ "description": "Guida alla dichiarazione dei redditi italiana per frontalieri: documenti, deduzioni IRPEF, credito d'imposta e scadenze 2026.",
+ "totalTime": "PT2H",
+ "estimatedCost": { "@type": "MonetaryAmount", "currency": "EUR", "value": "0" },
+ "step": [
+ { "@type": "HowToStep", "position": 1, "name": "Verifica regime fiscale", "text": "Nuovo accordo 2026 con franchigia €10.000 o vecchio accordo. Usa il Modello Redditi PF.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-italia/` },
+ { "@type": "HowToStep", "position": 2, "name": "Raccogli documenti", "text": "Lohnausweis, CU, attestato LPP, ricevute spese mediche e trasporti.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-italia/` },
+ { "@type": "HowToStep", "position": 3, "name": "Calcola deduzioni", "text": "Verifica con le istruzioni del modello italiano quali contributi e spese sono deducibili o detraibili. Non trasferire nella dichiarazione italiana i limiti di deduzione svizzeri.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-italia/` },
+ { "@type": "HowToStep", "position": 4, "name": "Compila e invia", "text": "Quadro RC per redditi, quadro CE per credito d'imposta, quadro RW per conto svizzero. Scadenza 730: 30/06, Redditi PF: 30/09.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-italia/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Il frontaliere deve fare il 730 o il Modello Redditi PF?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La sola assenza di un sostituto d’imposta italiano non esclude il modello 730: esiste il 730 senza sostituto. La scelta fra 730 e Redditi PF dipende dai redditi da dichiarare e dai requisiti previsti dalle istruzioni dell’anno. Verifica la tua posizione e il trattamento del reddito svizzero prima di scegliere il modello. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si compila il quadro RW per il conto svizzero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Nel quadro RW si dichiara il conto corrente svizzero indicando: codice 1 (depositi), codice Stato 071 (Svizzera), valore massimo raggiunto nell'anno e saldo al 31/12. Se il saldo medio supera €5.000 si paga l'IVAFE (€34,20/anno)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona il credito d'imposta nel quadro CE?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Nel quadro CE si indica l'imposta alla fonte svizzera pagata, convertita in euro al cambio medio annuo. Il credito d'imposta riduce l'IRPEF dovuta fino a concorrenza: non può mai superare l'IRPEF italiana calcolata sul reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «L'eventuale eccedenza del credito può essere riportata nelle otto dichiarazioni successive»."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quale tasso di cambio uso per convertire lo stipendio CHF in EUR?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Si usa il cambio medio annuo pubblicato dall'Agenzia delle Entrate (provvedimento di gennaio dell'anno successivo). Per il 2025, il tasso viene pubblicato a gennaio 2026. Non si usa il cambio del giorno di pagamento."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'tax-return-svizzera': {
+ title: 'Imposta alla Fonte Svizzera 2026: Rettifiche e Procedure',
+ description: 'Imposta alla fonte svizzera per frontalieri: distinguere errori di trattenuta, rettifiche e condizioni di accesso alla tassazione ordinaria.',
+ keywords: 'dichiarazione fiscale svizzera frontaliere, imposta alla fonte ticino, TDR frontaliere, rettifica quellensteuer, deduzioni cantonali ticino, pillar 3a, LPP',
+ ogTitle: 'Dichiarazione Fiscale Svizzera Frontalieri',
+ ogDescription: 'Guida alle procedure fiscali svizzere: imposta alla fonte, rettifiche e distinzione dalla tassazione ordinaria ulteriore.',
+ canonicalPath: '/tasse-e-pensione/dichiarazione-redditi-svizzera/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Dichiarazione Fiscale in Svizzera per Frontalieri",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-svizzera/`,
+ "description": "Come verificare la trattenuta svizzera e individuare la procedura applicabile al proprio status fiscale.",
+ "totalTime": "PT1H30M",
+ "estimatedCost": { "@type": "MonetaryAmount", "currency": "CHF", "value": "0" },
+ "step": [
+ { "@type": "HowToStep", "position": 1, "name": "Verifica imposta alla fonte", "text": "Controlla la percentuale applicata dal datore di lavoro sulla base della tabella A/B/C/H del Canton Ticino.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-svizzera/` },
+ { "@type": "HowToStep", "position": 2, "name": "Verifica la procedura applicabile", "text": "Distingui una trattenuta errata dalla tassazione ordinaria ulteriore. La FAQ 5.3 AFC esclude la TOU per i frontalieri fiscali dell’accordo Italia–Svizzera.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-svizzera/` },
+ { "@type": "HowToStep", "position": 3, "name": "Deduzioni cantonali", "text": "Per le categorie fuori dall’accordo verifica con l’autorità fiscale l’eventuale accesso alla procedura ordinaria e alle deduzioni. Non presumere che il permesso G dia accesso alla TOU.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-svizzera/` },
+ { "@type": "HowToStep", "position": 4, "name": "Presenta la richiesta e attendi la decisione", "text": "Segui la procedura e i termini indicati dall’autorità cantonale per il tuo caso. La presentazione della domanda non garantisce un rimborso.", "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi-svizzera/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Cos'è la TDR per frontalieri svizzeri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Non confondere la correzione di una trattenuta errata con una tassazione ordinaria che consenta ulteriori deduzioni. Chiedi al Cantone quale procedura si applica al tuo caso. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Entro quando si presenta la TDR?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Verifica con l’autorità cantonale il termine della procedura effettivamente applicabile: una correzione della trattenuta non equivale a una richiesta di TOU. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali deduzioni posso richiedere con la TDR?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Non esiste un elenco di deduzioni aggiuntive applicabile a tutti i frontalieri. Occorre distinguere la dichiarazione italiana, il regime svizzero e la correzione di errori nella trattenuta. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come viene calcolato il rimborso della rettifica?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'Ufficio di tassazione ricalcola l'imposta alla fonte includendo le deduzioni dichiarate. La differenza tra l'imposta trattenuta dal datore di lavoro e quella ricalcolata viene rimborsata direttamente sul conto bancario, generalmente entro 3-6 mesi."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Il frontaliere con permesso G deve fare la dichiarazione ordinaria in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G non determina da solo la procedura fiscale. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU; superare CHF 120.000 non comporta automaticamente questa procedura. Per categorie diverse verifica gli obblighi con l’autorità cantonale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ nursery: {
+ title: 'Confronta Asili Nido Ticino vs Italia 2026 | Costi',
+ description: 'Confronta asili nido tra Ticino e Italia: costi mensili, orari, criteri di ammissione, sussidi disponibili. Calcola il costo reale della custodia per.',
+ keywords: 'asili nido ticino, asili nido como, costi asilo svizzera, asili frontalieri, custodia bambini ticino, confronto asili nido, sussidi asilo svizzera italia',
+ ogTitle: 'Asili Nido Ticino vs Italia | Confronto per Frontalieri',
+ ogDescription: '👶 Confronta costi, orari e sussidi asili nido tra Ticino e Italia per famiglie di frontalieri.',
+ canonicalPath: '/vivere-in-ticino/confronta-asili-nido/',
+ h1: 'Confronta asili nido Ticino vs Italia 2026 — costi, orari e liste d\'attesa',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Asili Nido Ticino-Italia",
+ "url": `${BASE_URL}/vivere-in-ticino/confronta-asili-nido/`,
+ "description": "Confronto costi e disponibilità asili nido tra Canton Ticino e Italia per famiglie di frontalieri",
+ "applicationCategory": "LifestyleApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Asili Nido nel Canton Ticino",
+ "description": "Elenco degli asili nido nel Canton Ticino con costi, orari e disponibilità",
+ "numberOfItems": 10,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "item": { "@type": "ChildCare", "name": "Nido Comunale Lugano", "address": { "@type": "PostalAddress", "addressLocality": "Lugano", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 06:30-18:30", "priceRange": "CHF 400-2200/mese" } },
+ { "@type": "ListItem", "position": 2, "item": { "@type": "ChildCare", "name": "Nido Comunale Bellinzona", "address": { "@type": "PostalAddress", "addressLocality": "Bellinzona", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 06:45-18:30", "priceRange": "CHF 350-2000/mese" } },
+ { "@type": "ListItem", "position": 3, "item": { "@type": "ChildCare", "name": "Nido Comunale Locarno", "address": { "@type": "PostalAddress", "addressLocality": "Locarno", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:00-18:00", "priceRange": "CHF 380-2100/mese" } },
+ { "@type": "ListItem", "position": 4, "item": { "@type": "ChildCare", "name": "Nido Comunale Mendrisio", "address": { "@type": "PostalAddress", "addressLocality": "Mendrisio", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 06:30-18:30", "priceRange": "CHF 350-1900/mese" } },
+ { "@type": "ListItem", "position": 5, "item": { "@type": "ChildCare", "name": "Nido Comunale Chiasso", "address": { "@type": "PostalAddress", "addressLocality": "Chiasso", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:00-18:00", "priceRange": "CHF 300-1800/mese" } },
+ { "@type": "ListItem", "position": 6, "item": { "@type": "ChildCare", "name": "Asilo Nido Piccoli Passi", "address": { "@type": "PostalAddress", "addressLocality": "Lugano", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:00-19:00", "priceRange": "CHF 1800-2800/mese" } },
+ { "@type": "ListItem", "position": 7, "item": { "@type": "ChildCare", "name": "Centro Infanzia Girotondo", "address": { "@type": "PostalAddress", "addressLocality": "Manno", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:00-18:30", "priceRange": "CHF 1600-2500/mese" } },
+ { "@type": "ListItem", "position": 8, "item": { "@type": "ChildCare", "name": "Nido Aziendale USI/SUPSI", "address": { "@type": "PostalAddress", "addressLocality": "Lugano", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:30-18:00", "priceRange": "CHF 800-1800/mese" } },
+ { "@type": "ListItem", "position": 9, "item": { "@type": "ChildCare", "name": "Micro-nido Il Sole", "address": { "@type": "PostalAddress", "addressLocality": "Bellinzona", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:00-18:00", "priceRange": "CHF 1500-2300/mese" } },
+ { "@type": "ListItem", "position": 10, "item": { "@type": "ChildCare", "name": "Nido Familiare Le Stelle", "address": { "@type": "PostalAddress", "addressLocality": "Locarno", "addressRegion": "Ticino", "addressCountry": "CH" }, "openingHours": "Mo-Fr 07:30-18:00", "priceRange": "CHF 1400-2200/mese" } }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quanto costa un asilo nido in Ticino rispetto all'Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Le tariffe comunali ticinesi variano da circa CHF 300 a CHF 2'200 al mese secondo reddito familiare, con una retta media piena attorno a CHF 1'800-2'200. In Italia (province di Como e Varese) i nidi comunali partono da 200-300 euro al mese con ISEE bassi e arrivano a 550-650 euro a tariffa piena; i nidi privati italiani costano mediamente 550-800 euro al mese. A parità di fascia di reddito, un nido privato italiano costa circa un terzo di un nido privato ticinese."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Le famiglie di frontalieri hanno diritto a sussidi in Ticino?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I Comuni ticinesi applicano tariffe ridotte solo ai residenti in Svizzera. I figli di frontalieri residenti in Italia pagano normalmente la tariffa piena. Alcuni nidi aziendali (USI/SUPSI, ospedali, banche) e cooperative offrono posti riservati o convenzioni con sconti per dipendenti frontalieri: conviene sempre verificare con l'ufficio HR del datore di lavoro svizzero."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso detrarre fiscalmente le spese del nido in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. In Italia il frontaliere residente può detrarre le spese per asili nido pubblici o privati fino a un massimo di 632 euro per figlio (detrazione al 19%). Esiste inoltre il Bonus Asilo Nido INPS fino a 3'000 euro annui a seconda dell'ISEE. Le spese per un nido svizzero non sono detraibili in Italia, ma possono essere deducibili in Svizzera per i frontalieri soggetti a tassazione ordinaria (ex-Permesso B o nuovi frontalieri con redditi extra)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si entra in un nido comunale ticinese?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'iscrizione va presentata direttamente al servizio infanzia del Comune (Lugano, Bellinzona, Locarno, Mendrisio, Chiasso): si compila la graduatoria, si documentano reddito e situazione lavorativa, si attende la conferma di posto. La priorità va ai residenti in Ticino; gli esterni vengono ammessi solo se restano posti liberi. Le liste d'attesa più lunghe sono a Lugano e Mendrisio, dove i tempi possono superare i 6-12 mesi."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Conviene mandare il bambino al nido in Italia o in Ticino?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Dipende dal costo orario, dalla flessibilità e dai tempi di percorrenza. Il nido italiano costa meno in termini assoluti e consente di lasciare il bambino vicino ai nonni, ma richiede un secondo spostamento mattutino; il nido aziendale ticinese costa di più ma permette di avere il bambino sul luogo di lavoro e orari 07:00-19:00. Per chi lavora a Lugano con partenza da Como, il break-even è attorno ai CHF 1'500 al mese: sopra quella cifra un nido italiano conviene sempre."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ bonus: {
+ title: 'Calcolo Bonus e Tredicesima Frontalieri | Tassazione CH-IT',
+ description: 'Calcola la tassazione del bonus e della tredicesima per frontalieri: come viene tassato in Svizzera e dichiarato in Italia. Simulazione con imposta alla.',
+ keywords: 'bonus frontaliere, tredicesima frontaliere, tassazione bonus svizzera, gratifica frontaliere, bonus natale frontaliere, tasse bonus ticino',
+ ogTitle: 'Calcolo Bonus e Tredicesima Frontalieri',
+ ogDescription: '💰 Calcola la tassazione netta del bonus e della tredicesima per frontalieri Svizzera-Italia.',
+ canonicalPath: '/calcola-stipendio/stima-bonus-frontaliere/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore Bonus Frontalieri",
+ "url": `${BASE_URL}/calcola-stipendio/stima-bonus-frontaliere/`,
+ "description": "Calcola la tassazione di bonus e tredicesima per lavoratori frontalieri",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ renovation: {
+ title: 'Bonus Ristrutturazione Casa | Detrazioni Frontalieri Italia',
+ description: 'Guida ai bonus ristrutturazione casa per frontalieri residenti in Italia: superbonus, ecobonus, bonus mobili, bonus facciate. Calcola subito le detrazioni.',
+ keywords: 'bonus ristrutturazione frontaliere, detrazioni casa frontaliere, superbonus frontaliere, ecobonus italia, bonus mobili, ristrutturazione casa italia',
+ ogTitle: 'Bonus Ristrutturazione Casa per Frontalieri',
+ ogDescription: '🏗️ Calcola le detrazioni per ristrutturazione casa disponibili per frontalieri residenti in Italia.',
+ canonicalPath: '/compara-servizi/calcola-bonus-ristrutturazione/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calcolatore Bonus Ristrutturazione",
+ "url": `${BASE_URL}/compara-servizi/calcola-bonus-ristrutturazione/`,
+ "description": "Calcola le detrazioni per ristrutturazione casa disponibili per frontalieri residenti in Italia",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ // ─── Stats sub-tabs ───────────────────────────────────────────────────────,
+
+ salaryCompare: {
+ title: 'Stipendi Frontalieri Svizzera | 60 Professioni × 15 Settori',
+ description: 'Stipendio medio frontaliere Svizzera 2026: confronta 60 professioni in 15 settori con range min-max. IT, finanza, pharma, ingegneria, sanità. Lordi, netti.',
+ keywords: 'stipendio medio svizzera per settore, stipendi ticino 2026, salario informatica svizzera, confronto stipendi frontaliere, stipendio svizzera italia, salario settore ticino, stipendio frontaliere 2026, range salariale svizzera, professioni svizzera stipendi, sondaggio stipendi frontalieri',
+ ogTitle: 'Stipendi Frontalieri Svizzera | 60 Professioni × 15 Settori',
+ ogDescription: 'Confronta stipendi di 60 professioni in 15 settori tra Svizzera e Italia. Range salariali, netti e parità potere d\'acquisto 2026.',
+ canonicalPath: '/statistiche/confronta-stipendi/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Confronto Stipendi Frontalieri Svizzera-Italia 2026",
+ "url": `${BASE_URL}/statistiche/confronta-stipendi/`,
+ "description": "Database salariale con 60 professioni in 15 settori: range min-mediano-max per livello junior, mid e senior. Dati Svizzera (CHF) e Italia (EUR) per lavoratori frontalieri.",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "temporalCoverage": "2023/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Stipendio mediano", "value": "CHF per settore e livello" },
+ { "@type": "PropertyValue", "name": "Settore economico", "value": "15 settori" },
+ { "@type": "PropertyValue", "name": "Livello esperienza", "value": "Junior, Mid, Senior" },
+ { "@type": "PropertyValue", "name": "Range salariale", "value": "Min-Mediano-Max in CHF e EUR" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/confronta-stipendi/` }]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quali sono gli stipendi medi in Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio mediano in Ticino varia da CHF 48.000-55.000 per posizioni entry-level nel commercio/ristorazione fino a CHF 125.000-200.000+ per ruoli senior nella finanza, pharma e IT." } },
+ { "@type": "Question", "name": "Quanto guadagna un informatico frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Un Software Developer frontaliere in Ticino guadagna mediamente CHF 72.000 lordi da junior, CHF 95.000 da mid-level e CHF 125.000+ da senior." } },
+ { "@type": "Question", "name": "Conviene fare il frontaliere dal punto di vista economico?", "acceptedAnswer": { "@type": "Answer", "text": "Nella maggior parte dei settori, il frontaliere guadagna dal 100% al 200% in più rispetto all'Italia, anche considerando i costi di trasporto. Con la PPP, il vantaggio si riduce al 30-80%." } },
+ { "@type": "Question", "name": "Come vengono tassati gli stipendi dei frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I frontalieri con permesso G pagano l'imposta alla fonte in Ticino (3-18%) più contributi sociali svizzeri. Con il Nuovo Accordo 2026, l'80% delle imposte resta in Svizzera." } },
+ { "@type": "Question", "name": "Quali settori pagano di più in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori più remunerativi sono: Finanza (mediana senior CHF 145.000), Consulenza (CHF 150.000), Pharma (CHF 135.000) e IT (CHF 125.000)." } }
+ ]
+ }
+ ]
+ },
+
+ livability: {
+ title: 'Migliori Comuni di Frontiera 2026 | Classifica Qualità',
+ description: 'Classifica dei migliori comuni italiani di frontiera dove vivere come frontaliere: qualità della vita, distanza dalla dogana, servizi, costi, trasporti e.',
+ keywords: 'migliori comuni frontiera, comuni frontalieri classifica, vivere como varese, qualità vita frontaliere, comuni vicino svizzera, dove vivere frontaliere',
+ ogTitle: 'Migliori Comuni di Frontiera | Classifica 2026',
+ ogDescription: '🏡 Classifica dei migliori comuni italiani di frontiera: qualità della vita, distanza dogana e servizi.',
+ canonicalPath: '/statistiche/migliori-comuni-frontiera/',
+ h1: 'Migliori comuni di frontiera per frontalieri 2026 — classifica qualità e metodologia',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Classifica Migliori Comuni di Frontiera 2026",
+ "url": `${BASE_URL}/statistiche/migliori-comuni-frontiera/`,
+ "description": "Classifica dei migliori comuni italiani di frontiera per qualità della vita, servizi e distanza dalla dogana",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "temporalCoverage": "2024/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Qualità della vita", "value": "Indice composito per comune" },
+ { "@type": "PropertyValue", "name": "Distanza dalla dogana", "value": "km dal valico più vicino" },
+ { "@type": "PropertyValue", "name": "Costo della vita", "value": "Indice relativo affitti e servizi" },
+ { "@type": "PropertyValue", "name": "Servizi disponibili", "value": "Scuole, trasporti, sanità" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/migliori-comuni-frontiera/` }]
+ }
+ },
+
+ jobsObservatory: {
+ title: 'Osservatorio stipendi e lavori piu cercati in Ticino',
+ description: 'Osservatorio aggiornato ogni giorno su stipendi, ruoli piu richiesti, aziende che assumono e localita piu attive nel lavoro in Ticino. Dati collegati alle.',
+ keywords: 'stipendi ticino, lavori piu cercati ticino, aziende che assumono ticino, offerte lavoro ticino oggi, osservatorio lavoro ticino, stipendi frontalieri ticino',
+ ogTitle: 'Osservatorio stipendi e lavori in Ticino',
+ ogDescription: 'Dati giornalieri su stipendi osservati negli annunci, ruoli piu pubblicati, aziende che assumono e localita piu attive nel mercato del lavoro ticinese.',
+ canonicalPath: '/statistiche/osservatorio-stipendi-lavori-ticino/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Osservatorio stipendi e lavori in Ticino",
+ "url": `${BASE_URL}/statistiche/osservatorio-stipendi-lavori-ticino/`,
+ "description": "Osservatorio giornaliero del job board Frontaliere Ticino con trend annunci, aziende attive, localita piu dinamiche e salary range osservati nelle offerte.",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "temporalCoverage": "2024/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Numero annunci attivi", "value": "Conteggio offerte per azienda e località" },
+ { "@type": "PropertyValue", "name": "Range salariale", "value": "CHF lordi annui osservati negli annunci" },
+ { "@type": "PropertyValue", "name": "Distribuzione settoriale", "value": "Ruoli più richiesti per settore" },
+ { "@type": "PropertyValue", "name": "Tendenze località", "value": "Comuni più attivi per volume annunci" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/jobs-stats.json` }]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Come vengono calcolati i ruoli piu richiesti in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "La pagina usa il volume di annunci attivi e pubblicati nel job board Frontaliere Ticino per mostrare ruoli, aziende e localita piu dinamici." } },
+ { "@type": "Question", "name": "Gli stipendi mostrati sono netti o lordi?", "acceptedAnswer": { "@type": "Answer", "text": "L osservatorio usa i salary range annuali lordi presenti negli annunci e ne calcola medie e mediane osservate per aziende, localita e ruoli." } },
+ { "@type": "Question", "name": "Con quale frequenza viene aggiornato l osservatorio?", "acceptedAnswer": { "@type": "Answer", "text": "L osservatorio viene aggiornato ogni giorno quando il job board viene rigenerato con i nuovi annunci, le rimozioni e gli aggiornamenti." } }
+ ]
+ }
+ ]
+ },
+
+ trafficHistory: {
+ title: 'Storico Traffico Dogane Svizzera-Italia | Dati e Tendenze',
+ description: 'Storico del traffico ai valichi di frontiera Svizzera-Italia: grafici, tendenze settimanali e mensili, confronto tra dogane. Dati per pianificare gli.',
+ keywords: 'storico traffico dogane, traffico valichi svizzera italia, storico code frontiera, tendenze traffico chiasso, traffico gaggiolo stabio, dati traffico frontaliere, orari migliori frontiera',
+ ogTitle: 'Storico Traffico Dogane | Dati e Tendenze Frontiera CH-IT',
+ ogDescription: '📈 Storico traffico ai valichi Svizzera-Italia: grafici, tendenze e confronto tra dogane per pianificare gli spostamenti.',
+ canonicalPath: '/statistiche/storico-traffico-dogane/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Storico Traffico Dogane Svizzera-Italia",
+ "url": `${BASE_URL}/statistiche/storico-traffico-dogane/`,
+ "description": "Dati storici del traffico ai valichi di frontiera tra Svizzera e Italia con tendenze e confronti",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "temporalCoverage": "2020/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Volume veicoli", "value": "Transiti giornalieri per valico" },
+ { "@type": "PropertyValue", "name": "Tendenze settimanali", "value": "Distribuzione traffico per giorno della settimana" },
+ { "@type": "PropertyValue", "name": "Tendenze mensili", "value": "Variazione stagionale del traffico" },
+ { "@type": "PropertyValue", "name": "Confronto valichi", "value": "Ranking valichi per volume" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/storico-traffico-dogane/` }]
+ }
+ },
+
+ unemploymentStats: {
+ title: 'Disoccupazione Svizzera — Tasso SECO | Frontaliere Ticino',
+ description: 'Tasso di disoccupazione Svizzera SECO: trend mensile 10 anni, media annuale, minimo e massimo storico. Dati aggiornati mensilmente da arbeit.swiss per.',
+ keywords: 'disoccupazione svizzera, tasso disoccupazione SECO, arbeitslosenquote schweiz, unemployment rate switzerland, mercato lavoro svizzero, frontalieri, arbeit.swiss',
+ ogTitle: 'Disoccupazione Svizzera — Tasso SECO 10 Anni',
+ ogDescription: 'Trend mensile della disoccupazione svizzera dal 2016: grafici interattivi, KPI e confronto annuale. Fonte SECO.',
+ canonicalPath: '/statistiche/disoccupazione-svizzera/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Tasso di Disoccupazione Svizzera",
+ "url": `${BASE_URL}/statistiche/disoccupazione-svizzera/`,
+ "description": "Serie storica mensile del tasso di disoccupazione registrata in Svizzera (SECO) dal 2016",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "isBasedOn": { "@type": "CreativeWork", "name": "Statistiche del mercato del lavoro della SECO", "url": "https://www.seco.admin.ch" },
+ "temporalCoverage": "2016/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Tasso di disoccupazione", "value": "Percentuale mensile registrata SECO" },
+ { "@type": "PropertyValue", "name": "Media annuale", "value": "Tasso medio per anno solare" },
+ { "@type": "PropertyValue", "name": "Minimo storico", "value": "Valore più basso nel periodo" },
+ { "@type": "PropertyValue", "name": "Massimo storico", "value": "Valore più alto nel periodo" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/switzerland-unemployment-rate.json` }]
+ }
+ },
+
+ mortgageComparison: {
+ title: 'Confronto Mutui Italia vs Svizzera | Frontaliere Ticino',
+ description: 'Simula e confronta mutuo italiano vs ipoteca svizzera: rata mensile, interessi totali, vantaggi fiscali. Include Tragbarkeit, equity 20%, detraibilità.',
+ keywords: 'mutuo frontaliere, mutuo svizzera tasso, mutuo casa frontaliere italia svizzera, confronto mutui, ipoteca svizzera, Tragbarkeit, rata mutuo, tasso ipotecario, SARON, Euribor',
+ ogTitle: 'Confronto Mutui Italia vs Svizzera — Simulatore',
+ ogDescription: '🏠 Confronta rata mensile, interessi e detrazioni fiscali di un mutuo italiano vs ipoteca svizzera. Simulatore per frontalieri.',
+ canonicalPath: '/statistiche/confronto-mutui/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Confronto Mutui Italia vs Svizzera",
+ "url": `${BASE_URL}/statistiche/confronto-mutui/`,
+ "description": "Pagina di confronto tra mutui italiani e ipoteche svizzere per frontalieri: rata mensile, interessi totali, vantaggi fiscali, Tragbarkeit",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ }
+ },
+
+ fuelPrices: {
+ title: 'Prezzi Benzina Italia-Svizzera | Frontaliere Ticino',
+ description: 'Confronto prezzi benzina tra comuni di confine italiani e stazioni svizzere vicine: dati ufficiali Italia, confronto IT-CH, ranking e risparmio stimato su.',
+ keywords: 'prezzi benzina italia svizzera, dove conviene fare benzina ticino, prezzo benzina como svizzera, prezzo benzina varese ticino, carburanti confine, confronto benzina italia svizzera, mrprezzi confine',
+ ogTitle: 'Prezzi Benzina Italia-Svizzera | Dove Conviene Oggi',
+ ogDescription: 'Confronta i prezzi benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.',
+ canonicalPath: '/statistiche/prezzi-benzina-confine/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Prezzi benzina al confine Italia-Svizzera",
+ "url": `${BASE_URL}/statistiche/prezzi-benzina-confine/`,
+ "description": "Dataset comparativo dei prezzi benzina tra comuni di confine italiani e stazioni svizzere dell'area di frontiera.",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "temporalCoverage": "2024/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Prezzo benzina Italia", "value": "EUR/litro per comune di confine" },
+ { "@type": "PropertyValue", "name": "Prezzo benzina Svizzera", "value": "CHF/litro stazioni vicine" },
+ { "@type": "PropertyValue", "name": "Differenza prezzo", "value": "Risparmio percentuale IT vs CH" },
+ { "@type": "PropertyValue", "name": "Ranking stazioni", "value": "Classifica per prezzo più conveniente" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/api/fuel-prices/` }]
+ }
+ },
+
+ healthPremiums: {
+ title: 'Premi Malattia per Comune | Confronto Cantonale Svizzera',
+ description: 'Confronta i premi della cassa malati per comune svizzero: differenze cantonali, evoluzione storica e risparmio potenziale cambiando comune di residenza.',
+ keywords: 'premi malattia svizzera comune, cassa malati confronto comune, premi LAMal 2025, differenze cantonali cassa malati, assicurazione malattia svizzera frontalieri, premi malattia ticino',
+ ogTitle: 'Premi Malattia per Comune | Frontaliere Ticino',
+ ogDescription: 'Scopri come variano i premi della cassa malati tra comuni svizzeri e quanto potresti risparmiare cambiando comune di residenza.',
+ canonicalPath: '/statistiche/premi-malattia-comuni/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Premi cassa malati per comune svizzero",
+ "url": `${BASE_URL}/statistiche/premi-malattia-comuni/`,
+ "description": "Dataset dei premi LAMal per comune e cantone svizzero, con evoluzione storica e confronto tra fasce d'età.",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "temporalCoverage": "2024/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Premio mensile LAMal", "value": "CHF/mese per comune e fascia d'età" },
+ { "@type": "PropertyValue", "name": "Differenza cantonale", "value": "Variazione premio tra cantoni" },
+ { "@type": "PropertyValue", "name": "Evoluzione storica", "value": "Trend premi negli ultimi anni" },
+ { "@type": "PropertyValue", "name": "Risparmio potenziale", "value": "Differenza cambiando comune di residenza" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/health-premiums.json` }]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/statistiche/premi-malattia-comuni/`,
+ "claimReviewed": "I premi LAMal variano sensibilmente tra cantoni e comuni svizzeri a parità di fascia d'età e modello assicurativo.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale della sanità pubblica (UFSP) — Premi dell'assicurazione malattie" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.priminfo.admin.ch/it/praemien", "name": "UFSP — Priminfo, confronto premi LAMal per regione" }
+ },
+ "reviewBody": "Dati ufficiali UFSP Priminfo 2026: variazione regionale documentata fino a +120% tra cantone con premio mediano più basso (Appenzello Interno) e più alto (Basilea Città), e differenze significative tra regioni di premio nello stesso cantone."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/statistiche/premi-malattia-comuni/`,
+ "claimReviewed": "Il residente in Svizzera può risparmiare centinaia di franchi l'anno cambiando comune o regione di premio all'interno dello stesso cantone.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge federale sull'assicurazione malattie (LAMal) art. 61 + OAMal art. 91" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1995/1328_1328_1328/it", "name": "Fedlex — LAMal art. 61 (fissazione dei premi per regione)" }
+ },
+ "reviewBody": "Art. 61 LAMal e art. 91 OAMal: le casse malati possono fissare premi diversi per regioni di premio riconosciute dall'UFSP. Esempio verificato 2026: in Canton Ticino passaggio Regione 1 (Lugano) → Regione 2 (comuni montani) comporta risparmio CHF 40-80/mese = CHF 500-1.000/anno per adulto."
+ }
+ ]
+ },
+
+ ristorni: {
+ title: 'Ristorni Fiscali Frontalieri 2026: Importi per Comune Italiano',
+ description: 'Ristorni fiscali frontalieri 2026: importi aggiornati per comune italiano, andamento storico e confronto tra le province di confine con la Svizzera.',
+ keywords: 'ristorni fiscali frontalieri, compensi fiscali svizzera italia, ristorni comuni italiani, ristorni como varese, ristorni frontalieri importo',
+ ogTitle: 'Ristorni Fiscali Frontalieri | Statistiche per Comune',
+ ogDescription: '💶 Statistiche sui ristorni fiscali: importi per comune, andamento storico e confronto tra province.',
+ canonicalPath: '/tasse-e-pensione/ristorni-fiscali/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Ristorni Fiscali Frontalieri per Comune",
+ "url": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali/`,
+ "description": "Statistiche sui ristorni fiscali versati ai comuni italiani di frontiera",
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "temporalCoverage": "2020/2026",
+ "variableMeasured": [
+ { "@type": "PropertyValue", "name": "Importo ristorni", "value": "EUR per comune italiano di frontiera" },
+ { "@type": "PropertyValue", "name": "Andamento storico", "value": "Trend annuale importi versati" },
+ { "@type": "PropertyValue", "name": "Confronto provinciale", "value": "Distribuzione per provincia (Como, Varese, VCO)" },
+ { "@type": "PropertyValue", "name": "Totale annuo", "value": "Somma complessiva ristorni versati" }
+ ],
+ "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali/` }]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Cosa sono i ristorni fiscali per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I ristorni fiscali sono compensi che la Svizzera versa all'Italia, pari al 40% dell'imposta alla fonte trattenuta ai frontalieri. Questi fondi vengono distribuiti ai comuni italiani di residenza dei frontalieri per finanziare servizi locali."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Chi riceve i ristorni fiscali?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I ristorni vengono versati ai comuni italiani situati nella fascia di 20 km dal confine svizzero. I comuni principali beneficiari sono nelle province di Como, Varese, Verbano-Cusio-Ossola e Sondrio."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto vale un ristorno fisale per comune?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'importo varia molto: comuni con molti frontalieri come Lavena Ponte Tresa, Porlezza o Ponte Chiasso ricevono centinaia di migliaia di euro, mentre comuni più piccoli ricevono importi inferiori. Il totale annuo supera i 90 milioni di euro."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I ristorni continueranno con il nuovo accordo 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come posso sapere quanto riceve il mio comune dai ristorni?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La nostra pagina mostra i dati storici dei ristorni per ogni comune italiano di frontiera. I dati vengono aggiornati annualmente in base alle comunicazioni ufficiali tra i due Stati."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ // ─── Standalone pages ─────────────────────────────────────────────────────,
+
+ contact: {
+ title: 'Contattaci | Frontaliere Ticino',
+ description: 'Contatta il team di Frontaliere Ticino: segnalazioni, suggerimenti, collaborazioni. Rispondiamo a domande su tasse frontalieri, simulatore fiscale e strumenti.',
+ keywords: 'contatti frontaliere, assistenza frontaliere, contattaci frontaliere, supporto simulatore fiscale, segnalazione frontaliere',
+ ogTitle: 'Contattaci | Frontaliere Ticino',
+ ogDescription: '✉️ Contatta il team di Frontaliere Ticino per domande, suggerimenti o collaborazioni.',
+ canonicalPath: '/contattaci/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "ContactPage",
+ "name": "Contatti Frontaliere Ticino",
+ "url": `${BASE_URL}/contattaci/`,
+ "description": "Pagina contatti per il servizio Frontaliere Ticino"
+ }
+ },
+
+ 'for-employers': {
+ title: 'Pubblica offerte di lavoro per frontalieri | Frontaliere Ticino',
+ description: 'Raggiungi i frontalieri che cercano lavoro in Ticino: pubblica un’offerta con pagina SEO dedicata, presenza su Google for Jobs e promozione newsletter.',
+ keywords: 'pubblicare offerte lavoro ticino, assumere frontalieri, annunci lavoro ticino, recruiting frontalieri, pubblica offerta ticino',
+ ogTitle: 'Pubblica offerte di lavoro per frontalieri',
+ ogDescription: 'Raggiungi i candidati Italia–Ticino con un annuncio gratuito o sponsorizzato.',
+ h1: 'Raggiungi i frontalieri che cercano lavoro in Ticino',
+ canonicalPath: '/per-le-aziende/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Pubblicazione offerte di lavoro per frontalieri",
+ "url": `${BASE_URL}/per-le-aziende/`,
+ "description": "Servizio per pubblicare offerte di lavoro e raggiungere candidati frontalieri tra Italia e Ticino.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
+ 'for-employers-en': {
+ title: 'Post jobs for cross-border workers | Frontaliere Ticino',
+ description: 'Reach cross-border workers looking for jobs in Ticino: publish a listing with a dedicated SEO page, Google for Jobs presence and newsletter promotion.',
+ keywords: 'post jobs Ticino, hire cross-border workers, Ticino job ads, cross-border recruitment',
+ ogTitle: 'Post jobs for cross-border workers',
+ ogDescription: 'Reach Italy–Ticino candidates with a free or sponsored job listing.',
+ h1: 'Reach the cross-border workers looking for jobs in Ticino',
+ canonicalPath: '/en/for-employers/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Job advertising for cross-border workers",
+ "url": `${BASE_URL}/en/for-employers/`,
+ "description": "A service for publishing job listings and reaching cross-border candidates between Italy and Ticino.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/en/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
+ 'for-employers-de': {
+ title: 'Stellen für Grenzgänger ausschreiben | Frontaliere Ticino',
+ description: 'Erreichen Sie Grenzgänger auf Jobsuche im Tessin: Schalten Sie eine Anzeige mit eigener SEO-Seite, Google-for-Jobs-Präsenz und Newsletter-Promotion.',
+ keywords: 'Stellen ausschreiben Tessin, Grenzgänger einstellen, Stellenanzeigen Tessin, Recruiting Grenzgänger',
+ ogTitle: 'Stellen für Grenzgänger ausschreiben',
+ ogDescription: 'Erreichen Sie Kandidaten zwischen Italien und dem Tessin mit einer kostenlosen oder gesponserten Anzeige.',
+ h1: 'Erreichen Sie die Grenzgänger, die im Tessin Arbeit suchen',
+ canonicalPath: '/de/fuer-unternehmen/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Stellenanzeigen für Grenzgänger",
+ "url": `${BASE_URL}/de/fuer-unternehmen/`,
+ "description": "Service zum Veröffentlichen von Stellenanzeigen für Grenzgänger zwischen Italien und dem Tessin.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/de/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
+ 'for-employers-fr': {
+ title: 'Publiez des offres pour les frontaliers | Frontaliere Ticino',
+ description: 'Touchez les frontaliers à la recherche d’un emploi au Tessin : publiez une annonce avec page SEO dédiée, présence Google for Jobs et promotion newsletter.',
+ keywords: 'publier offre emploi Tessin, recruter frontaliers, annonces emploi Tessin, recrutement frontalier',
+ ogTitle: 'Publiez des offres pour les frontaliers',
+ ogDescription: 'Touchez les candidats Italie–Tessin avec une annonce gratuite ou sponsorisée.',
+ h1: 'Touchez les frontaliers à la recherche d’un emploi au Tessin',
+ canonicalPath: '/fr/pour-les-entreprises/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Publication d’offres pour les frontaliers",
+ "url": `${BASE_URL}/fr/pour-les-entreprises/`,
+ "description": "Service pour publier des offres d’emploi et toucher les candidats frontaliers entre l’Italie et le Tessin.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/fr/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
+ consulting: {
+ title: 'Consulenza Fiscale Frontalieri | Tasse CH-IT 2026',
+ description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale nuovo accordo 2026.',
+ keywords: 'consulenza fiscale frontalieri, consulenza frontaliere, consulente fiscale frontaliere, ottimizzazione fiscale svizzera italia, dichiarazione redditi frontaliere, esperto frontaliero, consulenza fiscale frontalieri svizzera',
+ ogTitle: 'Consulenza Fiscale per Frontalieri Svizzera',
+ ogDescription: '🎯 Consulenza fiscale per frontalieri Svizzera-Italia: ottimizzazione tasse, dichiarazione redditi e pianificazione. Prenota gratis.',
+ canonicalPath: '/consulenza/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Consulenza Fiscale Frontalieri",
+ "url": `${BASE_URL}/consulenza/`,
+ "description": "Servizio di consulenza fiscale specializzata per lavoratori frontalieri Svizzera-Italia",
+ "provider": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "serviceType": "Consulenza Fiscale"
+ }
+ },
+
+ partners: {
+ title: 'Servizi Partner | Professionisti per Frontalieri',
+ description: 'Servizi partner selezionati per frontalieri: commercialisti, consulenti fiscali, assicuratori, agenzie immobiliari, servizi bancari specializzati per.',
+ keywords: 'servizi frontalieri, commercialista frontaliere, consulente frontaliere, assicurazione frontaliere, partner frontalieri',
+ ogTitle: 'Servizi Partner per Frontalieri',
+ ogDescription: '🤝 Professionisti selezionati per frontalieri: commercialisti, assicuratori, consulenti fiscali e servizi bancari.',
+ canonicalPath: '/servizi-partner/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Servizi Partner per Frontalieri",
+ "url": `${BASE_URL}/servizi-partner/`,
+ "description": "Raccolta di servizi professionali selezionati per lavoratori frontalieri",
+ "inLanguage": "it"
+ }
+ },
+
+ gamification: {
+ title: 'Gamification | Livelli e Obiettivi Frontalieri',
+ description: 'Sistema di gamification per frontalieri: guadagna punti XP esplorando il simulatore fiscale, completa obiettivi, sblocca livelli. Impara divertendoti sulle.',
+ keywords: 'gamification frontaliere, obiettivi frontaliere, livelli frontaliere, punti XP frontaliere, impara tasse giocando',
+ ogTitle: 'Gamification | Livelli e Obiettivi',
+ ogDescription: '🏆 Guadagna XP e sblocca livelli esplorando gli strumenti per frontalieri!',
+ canonicalPath: '/gamificazione/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Gamification Frontaliere",
+ "url": `${BASE_URL}/gamificazione/`,
+ "description": "Sistema di gamification con livelli, obiettivi e punti XP per frontalieri",
+ "inLanguage": "it"
+ }
+ },
+
+ privacy: {
+ title: 'Informativa Privacy Frontalieri 2026 | Frontaliere Ticino',
+ description: 'Informativa sulla privacy di Frontaliere Ticino: trattamento dati personali, cookie, analytics, diritti degli utenti. Conforme GDPR e LPD svizzera.',
+ keywords: 'privacy frontaliere, GDPR frontaliere, cookie policy, trattamento dati personali, informativa privacy',
+ ogTitle: 'Informativa Privacy Frontalieri 2026 | Frontaliere Ticino',
+ ogDescription: '🔒 Informativa sulla privacy: come trattiamo i tuoi dati. Conforme GDPR e LPD.',
+ canonicalPath: '/privacy/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Informativa Privacy",
+ "url": `${BASE_URL}/privacy/`,
+ "description": "Informativa sulla privacy di Frontaliere Ticino",
+ "inLanguage": "it"
+ }
+ },
+
+ terms: {
+ title: 'Termini di Servizio | Frontaliere Ticino',
+ description: 'Termini e condizioni di utilizzo di Frontaliere Ticino: disclaimer, responsabilità, proprietà intellettuale e regole di utilizzo.',
+ keywords: 'termini di servizio frontaliere, condizioni uso, disclaimer frontaliere ticino, termini e condizioni',
+ ogTitle: 'Termini di Servizio | Frontaliere Ticino',
+ ogDescription: 'Termini e condizioni di utilizzo della piattaforma Frontaliere Ticino.',
+ canonicalPath: '/termini-di-servizio/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Termini di Servizio",
+ "url": `${BASE_URL}/termini-di-servizio/`,
+ "description": "Termini e condizioni di utilizzo di Frontaliere Ticino",
+ "inLanguage": "it"
+ }
+ },
+
+ 'email-confirmed': {
+ title: 'Benvenuto Frontaliere! | Frontaliere Ticino',
+ description: 'Iscrizione confermata! Sei ufficialmente un frontaliere informato. Scopri i nostri strumenti: calcola stipendio, cerca lavoro in Ticino e leggi le guide.',
+ keywords: 'benvenuto frontaliere, iscrizione newsletter, conferma email frontaliere, strumenti frontalieri, calcola stipendio svizzera',
+ ogTitle: 'Benvenuto, Frontaliere! | Frontaliere Ticino',
+ ogDescription: '🎉 La tua email è confermata! Esplora stipendio netto, offerte di lavoro in Ticino e guide pratiche per frontalieri.',
+ canonicalPath: '/benvenuto-frontaliere/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Benvenuto Frontaliere",
+ "url": "https://frontaliereticino.ch/benvenuto-frontaliere/",
+ "description": "Pagina di benvenuto per i nuovi iscritti alla newsletter di Frontaliere Ticino",
+ "inLanguage": "it"
+ }
+ },
+
+ 'data-deletion': {
+ title: 'Eliminazione Dati | Frontaliere Ticino',
+ description: 'Richiedi l\'eliminazione dei tuoi dati personali dal servizio Frontaliere Ticino. Procedura conforme al GDPR e alla LPD svizzera.',
+ keywords: 'eliminazione dati, cancellazione dati personali, GDPR diritto oblio, richiesta eliminazione, cancella account frontaliere',
+ ogTitle: 'Eliminazione Dati | Frontaliere Ticino',
+ ogDescription: '🗑️ Richiedi l\'eliminazione dei tuoi dati personali. Procedura conforme GDPR.',
+ canonicalPath: '/eliminazione-dati/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Eliminazione Dati Personali",
+ "url": `${BASE_URL}/eliminazione-dati/`,
+ "description": "Procedura per richiedere l'eliminazione dei dati personali",
+ "inLanguage": "it"
+ }
+ },
+
+ 'api-status': {
+ title: 'Stato API | Frontaliere Ticino',
+ description: 'Stato in tempo reale dei servizi API utilizzati da Frontaliere Ticino: cambio valuta, traffico valichi, Firebase, reCAPTCHA. Verifica la disponibilità dei.',
+ keywords: 'stato api frontaliere, servizi api, status page frontaliere, disponibilità servizi, uptime frontaliere',
+ ogTitle: 'Stato API | Frontaliere Ticino',
+ ogDescription: '🔧 Stato in tempo reale dei servizi API: cambio valuta, traffico, Firebase e reCAPTCHA.',
+ canonicalPath: '/stato-api/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Stato dei Servizi API",
+ "url": `${BASE_URL}/stato-api/`,
+ "description": "Stato in tempo reale dei servizi API utilizzati da Frontaliere Ticino",
+ "inLanguage": "it",
+ "about": {
+ "@type": "WebAPI",
+ "name": "API Frontaliere Ticino",
+ "documentation": `${BASE_URL}/stato-api/`
+ }
+ }
+ },
+
+ // ─── Blog / Articoli ─────────────────────────────────────────────────────,
+
+ blog: {
+ title: 'Articoli Frontaliere 2026 | Guide Pratiche Svizzera-Italia',
+ description: 'Articoli e guide aggiornate per frontalieri: stipendio netto, nuovo accordo fiscale 2024, LAMal vs CMI, terzo pilastro 3a, migliori comuni, costo della.',
+ keywords: 'articoli frontalieri, guida frontaliere 2026, blog frontaliere svizzera italia, stipendio netto svizzera, nuovo accordo fiscale, lamal cmi frontaliere, terzo pilastro frontaliere',
+ ogTitle: 'Articoli Frontaliere 2026 | Guide Pratiche',
+ ogDescription: 'Articoli aggiornati per frontalieri: stipendio netto, tasse, assicurazioni, pensione e vita pratica per chi lavora in Svizzera.',
+ canonicalPath: '/articoli-frontaliere/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Articoli per Frontalieri",
+ "url": `${BASE_URL}/articoli-frontaliere/`,
+ "description": "Raccolta di articoli e guide pratiche per lavoratori frontalieri Svizzera-Italia",
+ "inLanguage": "it",
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Articoli Frontaliere",
+ "numberOfItems": 3642,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
+ { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
+ { "@type": "ListItem", "position": 3, "name": "LAMal vs CMI: quale scegliere", "url": `${BASE_URL}/articoli-frontaliere/lamal-vs-cmi-frontaliere/` },
+ { "@type": "ListItem", "position": 4, "name": "Primo giorno da frontaliere", "url": `${BASE_URL}/articoli-frontaliere/primo-giorno-lavoro-svizzera/` },
+ { "@type": "ListItem", "position": 5, "name": "Tredicesima netta frontaliere", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-netta-frontaliere/` },
+ { "@type": "ListItem", "position": 6, "name": "Terzo pilastro 3a frontaliere", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-frontaliere/` },
+ { "@type": "ListItem", "position": 7, "name": "Migliori comuni per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/migliori-comuni-frontalieri/` },
+ { "@type": "ListItem", "position": 8, "name": "Costo vita Ticino vs Lombardia", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-ticino-vs-lombardia/` },
+ { "@type": "ListItem", "position": 9, "name": "Tassa salute e tensioni Ticino", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino/` },
+ { "@type": "ListItem", "position": 10, "name": "Comprare casa in Italia dal Ticino", "url": `${BASE_URL}/articoli-frontaliere/comprare-casa-italia-confine-ticino/` },
+ { "@type": "ListItem", "position": 11, "name": "Franco forte: impatto sullo stipendio", "url": `${BASE_URL}/articoli-frontaliere/franco-forte-effetti-stipendio-frontalieri/` },
+ { "@type": "ListItem", "position": 12, "name": "CU 2026: novità per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/cu-2026-scadenze-telelavoro-frontalieri/` },
+ { "@type": "ListItem", "position": 13, "name": "Telelavoro Italia-Svizzera ratificato", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-italia-svizzera-ratifica/` },
+ { "@type": "ListItem", "position": 14, "name": "Accordo telelavoro: ratifica definitiva", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-accordo-italia-svizzera-ratifica-definitiva/` },
+ { "@type": "ListItem", "position": 15, "name": "Stop ristorni per tassa salute", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-ticino-chiede-stop-ristorni-italia/` },
+ { "@type": "ListItem", "position": 16, "name": "Regole telelavoro e CU frontalieri", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-cu-2026-telelavoro-45-giorni-regole-definitive/` },
+ { "@type": "ListItem", "position": 17, "name": "Smood chiude in Ticino", "url": `${BASE_URL}/articoli-frontaliere/smood-chiude-attivita-ticino-impatto-lavoro-frontalieri/` },
+ { "@type": "ListItem", "position": 18, "name": "Disoccupazione Svizzera gennaio 2026", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-svizzera-gennaio-2026-dati-ticino-frontalieri/` },
+ { "@type": "ListItem", "position": 19, "name": "Riscaldamento casa Ticino: nuove norme", "url": `${BASE_URL}/articoli-frontaliere/riscaldamento-casa-ticino-norme-energetiche-risparmio/` },
+ { "@type": "ListItem", "position": 20, "name": "Sostituzione caldaia Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/sostituzione-caldaia-ticino-norme-2026-risparmio/` },
+ { "@type": "ListItem", "position": 21, "name": "Mostra Hic Sunt Leones: confini Svizzera", "url": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri/` },
+ { "@type": "ListItem", "position": 22, "name": "Carnevale 2026 Lugano: laboratori bambini", "url": `${BASE_URL}/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri/` },
+ { "@type": "ListItem", "position": 23, "name": "Arte e anima del Ticino: mostra al LAC", "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano/` },
+ { "@type": "ListItem", "position": 24, "name": "Arca Russa a Chiasso: cultura per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri/` },
+ { "@type": "ListItem", "position": 25, "name": "Mostra RSI: storia del Ticino", "url": `${BASE_URL}/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri/` },
+ { "@type": "ListItem", "position": 26, "name": "Vacanze Carnevale: laboratori bambini Lugano", "url": `${BASE_URL}/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano/` },
+ { "@type": "ListItem", "position": 27, "name": "Mostra 'TRA-S-PARENZE' di Daniela Rebuzzi a Cas...", "url": `${BASE_URL}/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino/` },
+ { "@type": "ListItem", "position": 28, "name": "Corpi in Prestito: Mostra d'Arte a Serocca d'Agno", "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino/` },
+ { "@type": "ListItem", "position": 29, "name": "La storia del Ticino in mostra: l'archivio RSI ...", "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo/` },
+ { "@type": "ListItem", "position": 30, "name": "Began with Rauschenberg Exhibition in Bruzella", "url": `${BASE_URL}/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri/` },
+ { "@type": "ListItem", "position": 31, "name": "Collettiva Nakba a Giubiasco", "url": `${BASE_URL}/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino/` },
+ { "@type": "ListItem", "position": 32, "name": "Conference on Fabrizio De André's 'Anime salve'...", "url": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri/` },
+ { "@type": "ListItem", "position": 33, "name": "Mostra 'Sentimento e osservazione' al MASI Lugano", "url": `${BASE_URL}/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino/` },
+ { "@type": "ListItem", "position": 34, "name": "RSI's \"Una Storia\": Ticino's history in 60 year...", "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo/` },
+ { "@type": "ListItem", "position": 35, "name": "Carnevale Chièscia Bòsc 2026 in Valle di Blenio", "url": `${BASE_URL}/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio/` },
+ { "@type": "ListItem", "position": 36, "name": "Federal Tribunal Overturns Ticino's B Permit De...", "url": `${BASE_URL}/articoli-frontaliere/permesso-b-integrazione-tribunale-federale-ticino/` },
+ { "@type": "ListItem", "position": 37, "name": "Imposizione Individuale e l'Impatto sul Lavoro ...", "url": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-svizzera-impatto-lavoro-ticino-frontalieri/` },
+ { "@type": "ListItem", "position": 38, "name": "Ristorni Frontalieri al Centro dello Scontro tr...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-berna-tassa-salute/` },
+ { "@type": "ListItem", "position": 39, "name": "Rent vs. Commute Time: The Frontalieri Dilemma", "url": `${BASE_URL}/articoli-frontaliere/pendolarismo-affitto-tempo-dilemma-frontalieri-ticino/` },
+ { "@type": "ListItem", "position": 40, "name": "Ticino Center-Right Demands Suspension of Cross...", "url": `${BASE_URL}/articoli-frontaliere/centrodestra-ticino-stop-ristorni-frontalieri-tassa-salute/` },
+ { "@type": "ListItem", "position": 41, "name": "Frontalieri in Ticino in Calo a Fine 2025", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/` },
+ { "@type": "ListItem", "position": 42, "name": "Irregular Entries in Chiasso Decline", "url": `${BASE_URL}/articoli-frontaliere/calo-entrate-irregolari-migranti-chiasso-ticino/` },
+ { "@type": "ListItem", "position": 43, "name": "The Debate on Cross-Border Workers and Salaries...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-stipendi-ticino-polemica-crescente/` },
+ { "@type": "ListItem", "position": 44, "name": "Ticino-Lombardy Clash Over Cross-Border Worker ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-lombardia-tassa-salute/` },
+ { "@type": "ListItem", "position": 45, "name": "Financing the 13th AVS pension: VAT and salary ...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-aumento-iva-contributi-salariali-frontaliere/` },
+ { "@type": "ListItem", "position": 46, "name": "Financing the 13th AVS Pension: Contributions a...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-misto-contributi-iva/` },
+ { "@type": "ListItem", "position": 47, "name": "Finanziamento 13esima AVS: Aumento Contributi e...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-scontro-iva-contributi/` },
+ { "@type": "ListItem", "position": 48, "name": "Ticino Businesses Alarmed by Potential Tax Retu...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-imprese-ticino-allarme-calo-frontalieri/` },
+ { "@type": "ListItem", "position": 49, "name": "Undeclared Cash Seized at Swiss-Italian Border", "url": `${BASE_URL}/articoli-frontaliere/denaro-non-dichiarato-dogana-cosa-rischi-frontaliere/` },
+ { "@type": "ListItem", "position": 50, "name": "The Frontier Worker and Salary Debate in Ticino", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-salari-dibattito-ticino-il-cane-che-si-morde-la-coda/` },
+ { "@type": "ListItem", "position": 51, "name": "Finanziamento 13esima AVS: Scontro tra Aumento ...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendio-iva/` },
+ { "@type": "ListItem", "position": 52, "name": "Ticino Parties Demand Suspension of Tax Restitu...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-partiti-ticino-chiedono-stop-ristorni/` },
+ { "@type": "ListItem", "position": 53, "name": "Ticino Politics Demands Suspension of Tax Resti...", "url": `${BASE_URL}/articoli-frontaliere/stop-ristorni-tassa-salute-mozione-politica-ticino/` },
+ { "@type": "ListItem", "position": 54, "name": "Conti Federali Svizzeri e Prospettive Fiscali", "url": `${BASE_URL}/articoli-frontaliere/conti-federali-2025-aumento-iva-impatto-frontalieri-ticino/` },
+ { "@type": "ListItem", "position": 55, "name": "Finanziamento 13esima AVS: Impatto su Stipendi ...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri-ticino/` },
+ { "@type": "ListItem", "position": 56, "name": "Tensioni sui ristorni tra Ticino e Lombardia", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-reazione-lombardia-tassa-salute/` },
+ { "@type": "ListItem", "position": 57, "name": "Allarme truffa del falso bancario in Ticino", "url": `${BASE_URL}/articoli-frontaliere/truffa-falso-bancario-ticino-allarme-polizia/` },
+ { "@type": "ListItem", "position": 58, "name": "Swiss Government Analyzes Impact of Proposed 10...", "url": `${BASE_URL}/articoli-frontaliere/dazi-usa-10-percento-conseguenze-economia-ticino/` },
+ { "@type": "ListItem", "position": 59, "name": "Collaborazione Varini-Hildebrand: otto persone ...", "url": `${BASE_URL}/articoli-frontaliere/sanita-ticino-accordo-varini-hildebrand-8-posti-a-rischio/` },
+ { "@type": "ListItem", "position": 60, "name": "Fictitious Part-Time Contracts in Ticino: An Ar...", "url": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-architetti-part-time-fittizi/` },
+ { "@type": "ListItem", "position": 61, "name": "Finanziamento 13esima AVS: Aumento Contributi d...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-aumento-contributi-2026/` },
+ { "@type": "ListItem", "position": 62, "name": "Finanziamento 13a AVS: Rischio Aumento Contribu...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri/` },
+ { "@type": "ListItem", "position": 63, "name": "Swiss Police Data Sharing Reform", "url": `${BASE_URL}/articoli-frontaliere/scambio-dati-polizia-svizzera-impatto-ticino/` },
+ { "@type": "ListItem", "position": 64, "name": "Financing the 13th AVS Pension: A Mix of Salary...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendi-iva/` },
+ { "@type": "ListItem", "position": 65, "name": "The misleading narrative of the decline in cros...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-settori-qualificati/` },
+ { "@type": "ListItem", "position": 66, "name": "Financing the 13th AVS pension: salary contribu...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-aumento-contributi-iva-impatto-stipendio/` },
+ { "@type": "ListItem", "position": 67, "name": "Permesso S e Salari Bassi in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/permesso-s-stipendi-bassi-impatto-lavoro-ticino/` },
+ { "@type": "ListItem", "position": 68, "name": "Lombardy Reacts to Ticino's Tax Return Block Mo...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-reazione-lombardia-mozione-ticino/` },
+ { "@type": "ListItem", "position": 69, "name": "Finanziamento 13esima AVS: Scontro su Aumento C...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-contributi-iva-impatto-frontalieri/` },
+ { "@type": "ListItem", "position": 70, "name": "Water Tariff Increase in Mendrisiotto Mitigated", "url": `${BASE_URL}/articoli-frontaliere/costo-acqua-mendrisiotto-aumento-tariffe-2026/` },
+ { "@type": "ListItem", "position": 71, "name": "Rafforzata la cooperazione giudiziaria tra Sviz...", "url": `${BASE_URL}/articoli-frontaliere/cooperazione-giudiziaria-svizzera-italia-impatto-frontalieri-ticino/` },
+ { "@type": "ListItem", "position": 72, "name": "Licenziamenti nel settore sanitario del Locarnese", "url": `${BASE_URL}/articoli-frontaliere/sanita-locarnese-collaborazione-varini-hildebrand-licenziamenti/` },
+ { "@type": "ListItem", "position": 73, "name": "Aumento Legionellosi in Ticino", "url": `${BASE_URL}/articoli-frontaliere/legionellosi-ticino-tasso-piu-alto-svizzera/` },
+ { "@type": "ListItem", "position": 74, "name": "Prezzi Dinamici: Rivoluzione o Trappola per i F...", "url": `${BASE_URL}/articoli-frontaliere/prezzi-dinamici-ticino-rivoluzione-o-trappola-per-frontalieri/` },
+ { "@type": "ListItem", "position": 75, "name": "Lugano's Protest Management Sparks Controversy", "url": `${BASE_URL}/articoli-frontaliere/lugano-manifestazioni-polemica-regole-uguali-per-tutti/` },
+ { "@type": "ListItem", "position": 76, "name": "Map of Municipal IRPEF Surcharges for Cross-Bor...", "url": `${BASE_URL}/articoli-frontaliere/mappa-addizionale-irpef-comuni-confine-frontalieri-tasse/` },
+ { "@type": "ListItem", "position": 77, "name": "Mappa dell'Addizionale Comunale IRPEF per i Lav...", "url": `${BASE_URL}/articoli-frontaliere/addizionale-irpef-comuni-confine-mappa-tasse-frontalieri-2026/` },
+ { "@type": "ListItem", "position": 78, "name": "Guida ai Congedi Parentali per Frontalieri in T...", "url": `${BASE_URL}/articoli-frontaliere/maternita-paternita-frontaliere-svizzera-italia-guida-2026/` },
+ { "@type": "ListItem", "position": 79, "name": "Swiss Payslip Deductions for Cross-Border Worke...", "url": `${BASE_URL}/articoli-frontaliere/guida-contributi-sociali-svizzeri-busta-paga-frontaliere/` },
+ { "@type": "ListItem", "position": 80, "name": "Costo della Vita a Lugano per Frontalieri 2026", "url": `${BASE_URL}/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026/` },
+ { "@type": "ListItem", "position": 81, "name": "Permesso G Frontalieri: Vantaggi e Svantaggi 2026", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontalieri-ticino-2026/` },
+ { "@type": "ListItem", "position": 82, "name": "Guida al Calcolo della Pensione per Frontalieri...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps-guida-completa/` },
+ { "@type": "ListItem", "position": 83, "name": "Nuovo Accordo Fiscale 2026: Simulazione Pratica...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-nuovo-accordo-fiscale-2026-simulazione/` },
+ { "@type": "ListItem", "position": 84, "name": "LAMal or CMI for cross-border workers in 2026: ...", "url": `${BASE_URL}/articoli-frontaliere/lamal-o-cmi-frontaliere-quale-conviene-2026/` },
+ { "@type": "ListItem", "position": 85, "name": "Credito d'imposta per frontalieri: come evitare...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-doppia-imposizione-credito-imposta-come-funziona/` },
+ { "@type": "ListItem", "position": 86, "name": "Il costo reale dell'auto per il pendolare front...", "url": `${BASE_URL}/articoli-frontaliere/costo-auto-pendolare-frontaliere-ticino-2026/` },
+ { "@type": "ListItem", "position": 87, "name": "Guida al Congedo Parentale per Frontalieri 2026", "url": `${BASE_URL}/articoli-frontaliere/congedo-parentale-frontaliere-svizzera-italia-guida-2026/` },
+ { "@type": "ListItem", "position": 88, "name": "Costo Auto Pendolare Frontaliere Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/costo-auto-frontaliere-ticino-guida-completa-2026/` },
+ { "@type": "ListItem", "position": 89, "name": "Guida alla Dichiarazione dei Redditi 2026 per F...", "url": `${BASE_URL}/articoli-frontaliere/guida-dichiarazione-redditi-730-frontalieri-ticino/` },
+ { "@type": "ListItem", "position": 90, "name": "Documents for Cross-Border Workers in Switzerland", "url": `${BASE_URL}/articoli-frontaliere/documenti-necessari-lavoro-svizzera-frontaliere-ticino/` },
+ { "@type": "ListItem", "position": 91, "name": "Guida ai costi 2026 degli asili nido in Ticino ...", "url": `${BASE_URL}/articoli-frontaliere/asilo-nido-svizzera-frontaliere-ticino-costi-guida/` },
+ { "@type": "ListItem", "position": 92, "name": "Locarno Reaches 20% Secondary Home Limit, Halti...", "url": `${BASE_URL}/articoli-frontaliere/locarno-stop-nuove-residenze-secondarie-quota-20/` },
+ { "@type": "ListItem", "position": 93, "name": "Swiss Cost of Living Report: Where to Live Cheaper", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-ticino/` },
+ { "@type": "ListItem", "position": 94, "name": "Audit Federale Rivela Lacune nella Sicurezza su...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-svizzera-audit-federale-falle-conflitti-suva/` },
+ { "@type": "ListItem", "position": 95, "name": "The Cost of Living Across Swiss Municipalities", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-cari-economici/` },
+ { "@type": "ListItem", "position": 96, "name": "Underpaid Architects in Mendrisio: Unpaid Overt...", "url": `${BASE_URL}/articoli-frontaliere/architetti-sottopagati-ticino-mendrisio-testimonianza/` },
+ { "@type": "ListItem", "position": 97, "name": "Calo Frontalieri in Ticino: colpa dell'economia...", "url": `${BASE_URL}/articoli-frontaliere/calo-frontalieri-ticino-economia-non-tassa-salute/` },
+ { "@type": "ListItem", "position": 98, "name": "Italian High Court Recognizes Maternity Benefit...", "url": `${BASE_URL}/articoli-frontaliere/maternita-frontaliere-cassazione-riconosce-indennita-inps/` },
+ { "@type": "ListItem", "position": 99, "name": "Galenica closes Bichsel subsidiary, 170 jobs at...", "url": `${BASE_URL}/articoli-frontaliere/galenica-chiude-bichsel-170-posti-a-rischio-impatto-ticino/` },
+ { "@type": "ListItem", "position": 100, "name": "New 15% US Tariffs: Analyzing the Impact on Tic...", "url": `${BASE_URL}/articoli-frontaliere/dazi-trump-usa-impatto-export-ticino-lavoro/` }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Ogni quanto vengono aggiornati gli articoli per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene costantemente aggiornati i contenuti evergreen sulla fiscalità, la LAMal, l'AVS e il nuovo accordo sul telelavoro. Ogni articolo riporta la data di ultima revisione nella parte alta della pagina."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Gli articoli coprono anche le novità del nuovo accordo fiscale 2024?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì: tassazione concorrente, Comuni ammessi, status dei vecchi frontalieri, ristorni e telelavoro. Il telelavoro fiscale a domicilio fino al 25% segue una disciplina distinta dai 45 mancati rientri annui per motivi professionali: questi ultimi non sono un contingente di giorni di lavoro da remoto. https://www.bsv.admin.ch/it/newnsb/KIyFJwwqspqaOcHDaT7u0 https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Posso usare gli articoli per confrontare Permesso G e Permesso B?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Certo. Oltre al calcolatore dedicato, pubblichiamo articoli che analizzano pro e contro del trasferimento in Svizzera: costo della vita, LAMal, AVS/LPP, cassa pensioni, ricongiungimento familiare e impatto fiscale per coppie con redditi misti italo-svizzeri."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Dove trovo le statistiche aggiornate su stipendi e mercato del lavoro frontaliero?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Gli articoli rimandano alle pagine 'Statistiche' che aggregano i dati USTAT, SECO, INPS e Banca d'Italia: frontalieri attivi per settore, salari mediani, tempi di attesa ai valichi, tasso di cambio CHF/EUR storico e andamento delle offerte di lavoro settimanali."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Gli articoli sostituiscono una consulenza professionale?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No. I contenuti sono redatti con cura e citano sempre le fonti ufficiali (AFC, AFD, INPS, BAG, DSS), ma non sostituiscono il parere di un commercialista, di un patronato o di un broker LAMal. Per decisioni patrimoniali importanti consigliamo sempre una consulenza dedicata."
+ }
+ }
+ ]
+ }
+ ]
+ },
+ 'blog-borse-in-rosso-prezzo-petrolio-ticino': {
+ title: 'Borse in rosso e prezzo del petrolio in rialzo: cosa',
+ description: 'Scopri come l\'aumento del prezzo del petrolio influisce sui frontalieri e sulla vita economica in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, borse, rosso, prezzo, petrolio',
+ ogTitle: 'Borse in rosso e aumento prezzi petrolio | Frontaliere',
+ ogDescription: 'Analisi dell\'impatto dell\'aumento del prezzo del petrolio sui frontalieri in Ticino.',
+ canonicalPath: '/articoli-frontaliere/borse-in-rosso-prezzo-petrolio-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Economia - Borse in rosso e prezzo del petrolio in rialzo",
+ "description": "Scopri come l'aumento del prezzo del petrolio influisce sui frontalieri e sulla vita economica in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/borse-in-rosso-prezzo-petrolio-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista di Lugano con lago e montagne circostanti."
+ },
+ "datePublished": "2026-03-03T14:39:51+00:00",
+ "dateModified": "2026-03-03T14:39:51+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-in-rosso-prezzo-petrolio-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-frontaliers-sabotage-varese-successo': {
+ title: 'Frontaliers Sabotage conquista Varese: sold out al MIV',
+ description: 'La prima italiana di Frontaliers Sabotage al cinema MIV di Varese registra un sold out. Successo per la saga dei frontalieri anche in Italia. Dati aggiornati',
+ keywords: 'frontalieri, ticino, svizzera, italia, frontaliers, sabotage, conquista, varese',
+ ogTitle: 'Frontaliers Sabotage: un successo oltre confine',
+ ogDescription: 'La saga dei frontalieri conquista anche Varese. Scopri di più sul successo di Frontaliers Sabotage',
+ canonicalPath: '/articoli-frontaliere/frontaliers-sabotage-varese-successo/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Frontaliers Sabotage conquista Varese: sold out al MIV",
+ "description": "La prima italiana di Frontaliers Sabotage al cinema MIV di Varese registra un sold out. Successo per la saga dei frontalieri anche in Italia. Dati aggiornati",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/frontaliers-sabotage-varese-successo.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Panorama di Lugano al tramonto sul lago"
+ },
+ "datePublished": "2026-03-04T07:43:28+00:00",
+ "dateModified": "2026-03-04T07:43:28+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliers-sabotage-varese-successo/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-disoccupazione-svizzera-2026': {
+ title: 'Disoccupazione in Svizzera: crescita e cause nel 2026',
+ description: 'Nel 2026, la disoccupazione in Svizzera cresce più che nell\'UE, con il settore bancario in difficoltà. Dati aggiornati 2026 per frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, crescita, cause, cresce',
+ ogTitle: 'Disoccupazione in Svizzera: crescita e cause nel 2026',
+ ogDescription: 'Nel 2026, la disoccupazione in Svizzera cresce più che nell\'UE, con il settore bancario in difficoltà.',
+ canonicalPath: '/articoli-frontaliere/disoccupazione-svizzera-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Disoccupazione in Svizzera: crescita e cause nel 2026",
+ "description": "Nel 2026, la disoccupazione in Svizzera cresce più che nell'UE, con il settore bancario in difficoltà. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista di Bellinzona con i suoi castelli storici e la vita cittadina."
+ },
+ "datePublished": "2026-03-04T08:11:51+00:00",
+ "dateModified": "2026-03-04T08:11:51+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-svizzera-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-infermieri-svizzera-frontalieri-ticino': {
+ title: 'La Svizzera cerca infermieri: 137mila annunci per',
+ description: 'La Svizzera cerca infermieri: 137mila annunci per frontalieri. Scopri le opportunità e le sfide per il Ticino e per i frontalieri che lavorano nel settore',
+ keywords: 'frontalieri, ticino, svizzera, italia, cerca, infermieri, 137mila, annunci',
+ ogTitle: 'Infermieri frontalieri: la sfida del Ticino',
+ ogDescription: 'La Svizzera cerca infermieri frontalieri. Scopri le implicazioni per il Ticino e le opportunità per i lavoratori frontalieri nel settore sanitario.',
+ canonicalPath: '/articoli-frontaliere/infermieri-svizzera-frontalieri-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "La carenza di infermieri in Svizzera e le sue implicazioni per il Ticino",
+ "description": "La Svizzera cerca infermieri: 137mila annunci per frontalieri. Scopri le opportunità e le sfide per il Ticino e per i frontalieri che lavorano nel settore",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/infermieri-svizzera-frontalieri-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Infermieri al lavoro in un ospedale del Ticino"
+ },
+ "datePublished": "2026-03-04T10:17:08+00:00",
+ "dateModified": "2026-03-04T10:17:08+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-svizzera-frontalieri-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-successo-farmaceutica-ticino': {
+ title: 'Farmaceutica: successo globale, preoccupazioni svizzere',
+ description: 'Scopri come Roche e Novartis hanno registrato risultati record e cosa significa per la Svizzera e i frontalieri in Ticino. Dati aggiornati 2026 per frontalieri',
+ keywords: 'frontalieri, ticino, svizzera, italia, farmaceutica, successo, globale, preoccupazioni',
+ ogTitle: 'Successo farmaceutica in Svizzera: cosa significa per i',
+ ogDescription: 'Le due principali aziende farmaceutiche svizzere, Roche e Novartis, registrano risultati record. Scopri le implicazioni per la Svizzera e i frontalieri in',
+ canonicalPath: '/articoli-frontaliere/successo-farmaceutica-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Farmaceutica: successi e sfide per la Svizzera",
+ "description": "Scopri come Roche e Novartis hanno registrato risultati record e cosa significa per la Svizzera e i frontalieri in Ticino. Dati aggiornati 2026 per frontalieri",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/successo-farmaceutica-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Panorama di Lugano con vista sul lago"
+ },
+ "datePublished": "2026-03-04T12:09:08+00:00",
+ "dateModified": "2026-03-04T12:09:08+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/successo-farmaceutica-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-utile-bns-2025-ticino': {
+ title: 'Utile della BNS a 26,1 miliardi di franchi: Impatti sul',
+ description: 'La BNS chiude il 2025 con un utile di 26,1 miliardi, impatti significativi per il Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, utile, miliardi, franchi, impatti',
+ ogTitle: 'Utile della BNS a 26,1 miliardi di franchi',
+ ogDescription: 'Impatto positivo per il Canton Ticino e i frontalieri dopo l\'utile della BNS nel 2025.',
+ canonicalPath: '/articoli-frontaliere/utile-bns-2025-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Utile della BNS a 26,1 miliardi di franchi",
+ "description": "La BNS chiude il 2025 con un utile di 26,1 miliardi, impatti significativi per il Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/utile-bns-2025-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Bellinzona con i suoi castelli storici."
+ },
+ "datePublished": "2026-03-04T14:22:12+00:00",
+ "dateModified": "2026-03-04T14:22:12+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/utile-bns-2025-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-banche-ticino-disoccupazione': {
+ title: 'Le banche svizzere assumono meno, la disoccupazione cresce',
+ description: 'Scopri come il calo degli annunci di lavoro nelle banche svizzere e l\'aumento della disoccupazione potrebbero influire sui frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, assumono, meno',
+ ogTitle: 'Il mercato del lavoro bancario in Svizzera in declino',
+ ogDescription: 'Le banche svizzere pubblicano meno annunci di lavoro, mentre la disoccupazione nel settore aumenta. Cosa significa per i frontalieri in Ticino?',
+ canonicalPath: '/articoli-frontaliere/banche-ticino-disoccupazione/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Le banche svizzere assumono meno, cresce la disoccupazione",
+ "description": "Scopri come il calo degli annunci di lavoro nelle banche svizzere e l'aumento della disoccupazione potrebbero influire sui frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/banche-ticino-disoccupazione.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Panorama di Lugano con grafico in calo"
+ },
+ "datePublished": "2026-03-04T17:38:10+00:00",
+ "dateModified": "2026-03-04T17:38:10+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-ticino-disoccupazione/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-medio-vedeggio-gruppo-lavoro-aggregazione': {
+ title: 'Medio Vedeggio: nasce il gruppo di lavoro per',
+ description: 'Bedano, Cadempino, Gravesano e Lamone creano un gruppo di lavoro per uno studio aggregativo con conclusione prevista entro il 2028. Dati aggiornati 2026 per',
+ keywords: 'frontalieri, ticino, svizzera, italia, medio, vedeggio, nasce, gruppo',
+ ogTitle: 'Medio Vedeggio, nasce il gruppo di lavoro per l’aggregazione',
+ ogDescription: 'Quattro comuni ticinesi avviano uno studio per la fusione entro il 2028, rafforzando la Valle del Vedeggio nel contesto cantonale.',
+ canonicalPath: '/articoli-frontaliere/medio-vedeggio-gruppo-lavoro-aggregazione/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Medio Vedeggio, nasce il gruppo di lavoro per l’aggregazione",
+ "description": "Bedano, Cadempino, Gravesano e Lamone creano un gruppo di lavoro per uno studio aggregativo con conclusione prevista entro il 2028. Dati aggiornati 2026 per",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/medio-vedeggio-gruppo-lavoro-aggregazione.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica del Medio Vedeggio con i comuni di Bedano, Cadempino, Gravesano e Lamone in Ticino"
+ },
+ "datePublished": "2026-03-04T20:08:46+00:00",
+ "dateModified": "2026-03-04T20:08:46+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/medio-vedeggio-gruppo-lavoro-aggregazione/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-lugano-airport-fondi-salvati-2026': {
+ title: 'Lugano Airport è salvo: il Nazionale boccia il taglio dei',
+ description: 'Il Consiglio Nazionale respinge il taglio dei contributi federali a Lugano Airport, garantendo sicurezza e sviluppo nel Ticino e per i frontalieri.',
+ keywords: 'frontalieri, ticino, svizzera, italia, lugano, airport, salvo, nazionale',
+ ogTitle: 'Lugano Airport salva i fondi federali 2026',
+ ogDescription: 'Il Consiglio Nazionale boccia il taglio dei fondi per Lugano Airport, assicurando investimenti e sicurezza per il Cantone Ticino e i frontalieri.',
+ canonicalPath: '/articoli-frontaliere/lugano-airport-fondi-salvati-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Lugano Airport è salvo: il Nazionale boccia il taglio dei fondi",
+ "description": "Il Consiglio Nazionale respinge il taglio dei contributi federali a Lugano Airport, garantendo sicurezza e sviluppo nel Ticino e per i frontalieri.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lugano-airport-fondi-salvati-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica dell'aeroporto di Lugano con il lago e la città sullo sfondo in Ticino."
+ },
+ "datePublished": "2026-03-04T21:05:31+00:00",
+ "dateModified": "2026-03-04T21:05:31+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-airport-fondi-salvati-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-made-in-italy-doganali-ticino-2026': {
+ title: 'Made in Italy: revisione norme doganali e impatto sul',
+ description: 'Il Comitato delle Regioni spinge per una nuova normativa doganale per tutelare il Made in Italy. Impatti e opportunità per Ticino e frontalieri nel 2026.',
+ keywords: 'frontalieri, ticino, svizzera, italia, made, italy, revisione, norme',
+ ogTitle: 'Made in Italy: revisione doganale e impatti su Ticino 2026',
+ ogDescription: 'Scopri come la revisione delle norme doganali UE sul Made in Italy interessa il Canton Ticino e i frontalieri nel 2026.',
+ canonicalPath: '/articoli-frontaliere/made-in-italy-doganali-ticino-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Made in Italy, il Comitato delle Regioni accoglie la richiesta di Anci e",
+ "description": "Il Comitato delle Regioni spinge per una nuova normativa doganale per tutelare il Made in Italy. Impatti e opportunità per Ticino e frontalieri nel 2026.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/made-in-italy-doganali-ticino-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Lugano con lago e montagne sullo sfondo in una giornata limpida di primavera"
+ },
+ "datePublished": "2026-03-04T23:07:46+00:00",
+ "dateModified": "2026-03-04T23:07:46+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/made-in-italy-doganali-ticino-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-mercato-lavoro-ticino-q4-2025': {
+ title: 'Mercato del lavoro Ticino: dati e trend quarto trimestre',
+ description: 'Scopri i dati e le analisi sul mercato del lavoro in Ticino nel quarto trimestre 2025, con focus su frontalieri e trend occupazionali. Dati aggiornati 2026 per',
+ keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, trend',
+ ogTitle: 'Mercato lavoro Ticino Q4 2025 | Frontaliere Ticino',
+ ogDescription: 'Analisi dettagliata sul mercato del lavoro ticinese nel Q4 2025, con dati su frontalieri, salari e permessi di lavoro.',
+ canonicalPath: '/articoli-frontaliere/mercato-lavoro-ticino-q4-2025/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Notiziario statistico Ustat: Il mercato del lavoro, Ticino, quarto",
+ "description": "Scopri i dati e le analisi sul mercato del lavoro in Ticino nel quarto trimestre 2025, con focus su frontalieri e trend occupazionali. Dati aggiornati 2026 per",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/mercato-lavoro-ticino-q4-2025.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Lugano con lavoratori frontalieri che attraversano un ponte, simbolo dell’economia ticinese"
+ },
+ "datePublished": "2026-03-05T05:06:52+00:00",
+ "dateModified": "2026-03-05T05:06:52+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-ticino-q4-2025/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-dichiarazione-imposta-digitale-ticino-26': {
+ title: 'Dichiarazione d’imposta sempre più digitale in Ticino nel',
+ description: 'Scopri come la dichiarazione d’imposta 2025 in Ticino diventa sempre più digitale con oltre 100\'000 utenti online e nuove funzionalità per i frontalieri.',
+ keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, imposta, sempre, digitale',
+ ogTitle: 'Dichiarazione d’imposta digitale in Ticino oltre 100\'000',
+ ogDescription: 'Dal 2026 la dichiarazione imposta ticinese è sempre più digitale con nuove opportunità online per frontalieri e residenti al confine.',
+ canonicalPath: '/articoli-frontaliere/dichiarazione-imposta-digitale-ticino-26/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Dichiarazione d’imposta sempre più digitale",
+ "description": "Scopri come la dichiarazione d’imposta 2025 in Ticino diventa sempre più digitale con oltre 100'000 utenti online e nuove funzionalità per i frontalieri.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/dichiarazione-imposta-digitale-ticino-26.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Lugano con il lago e le montagne sullo sfondo in Ticino"
+ },
+ "datePublished": "2026-03-05T08:01:20+00:00",
+ "dateModified": "2026-03-05T08:01:20+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposta-digitale-ticino-26/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-tilo-25-milioni-passeggeri-2025': {
+ title: 'TILO sfonda quota 25 milioni di passeggeri nel 2025',
+ description: 'TILO raggiunge 25 milioni di passeggeri nel 2025, con crescita del 50% dal 2019 e record a Lugano e Milano Centrale. Dati aggiornati 2026 per frontalieri in',
+ keywords: 'frontalieri, ticino, svizzera, italia, tilo, sfonda, quota, milioni',
+ ogTitle: 'TILO supera 25 milioni di passeggeri nel 2025',
+ ogDescription: 'La rete ferroviaria TILO registra un aumento del 50% dei passeggeri dal 2019, confermando il ruolo chiave per il Canton Ticino e i lavoratori frontalieri.',
+ canonicalPath: '/articoli-frontaliere/tilo-25-milioni-passeggeri-2025/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "FerroviaRaggiunti i 25 milioni di passeggeri per TILO nel 2025",
+ "description": "TILO raggiunge 25 milioni di passeggeri nel 2025, con crescita del 50% dal 2019 e record a Lugano e Milano Centrale. Dati aggiornati 2026 per frontalieri in",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tilo-25-milioni-passeggeri-2025.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Stazione di Lugano affollata con passeggeri TILO nel 2025, vista urbana del Canton Ticino"
+ },
+ "datePublished": "2026-03-05T10:11:48+00:00",
+ "dateModified": "2026-03-05T10:11:48+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-25-milioni-passeggeri-2025/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-tassa-salute-lombardia-rinvio': {
+ title: 'Tassa salute, la Lombardia rinvia: cosa significa per i',
+ description: 'La Lombardia rinvia l\'applicazione della tassa sulla salute. Scopri cosa significa per i frontalieri che lavorano in Lombardia e vivono in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, rinvia',
+ ogTitle: 'Tassa salute: la Lombardia rinvia, cosa cambia per i',
+ ogDescription: 'Scopri come la decisione della Lombardia sulla tassa salute impatta sui frontalieri che lavorano nella regione e vivono in Ticino.',
+ canonicalPath: '/articoli-frontaliere/tassa-salute-lombardia-rinvio/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Tassa salute Lombardia: la decisione che cambia tutto per i frontalieri",
+ "description": "La Lombardia rinvia l'applicazione della tassa sulla salute. Scopri cosa significa per i frontalieri che lavorano in Lombardia e vivono in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tassa-salute-lombardia-rinvio.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Frontalieri che si recano al lavoro a Locarno"
+ },
+ "datePublished": "2026-03-05T12:12:19+00:00",
+ "dateModified": "2026-03-05T12:12:19+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-lombardia-rinvio/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-tilo-record-passeggeri-2025': {
+ title: 'TILO raggiunge i 25 milioni di passeggeri nel 2025',
+ description: 'TILO raggiunge un nuovo record con 25 milioni di passeggeri nel 2025. Scopri l\'incremento del traffico ferroviario in Ticino. Dati aggiornati 2026.',
+ keywords: 'frontalieri, ticino, svizzera, italia, tilo, raggiunge, milioni, passeggeri',
+ ogTitle: 'TILO: 25 milioni di passeggeri nel 2025',
+ ogDescription: 'La società ferroviaria TILO raggiunge un nuovo record con 25 milioni di passeggeri nel 2025. L\'incremento è del 3,7% rispetto al 2024.',
+ canonicalPath: '/articoli-frontaliere/tilo-record-passeggeri-2025/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "TILO raggiunge i 25 milioni di passeggeri nel 2025",
+ "description": "TILO raggiunge un nuovo record con 25 milioni di passeggeri nel 2025. Scopri di più sull'incremento del traffico ferroviario in Ticino. Dati aggiornati 2026 per",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tilo-record-passeggeri-2025.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Panoramica di Lugano con stazione ferroviaria"
+ },
+ "datePublished": "2026-03-05T14:46:54+00:00",
+ "dateModified": "2026-03-05T14:46:54+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-record-passeggeri-2025/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-trasporti-lombardia-ticino-record-tilo': {
+ title: 'Trasporti Lombardia-Ticino: Tilo batte record con 25',
+ description: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7%. Scopri i vantaggi per frontalieri.',
+ keywords: 'frontalieri, ticino, svizzera, italia, trasporti, lombardia-ticino, tilo, batte',
+ ogTitle: 'Tilo: record di passeggeri tra Lombardia e Ticino',
+ ogDescription: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all\'anno precedente. Scopri di più su',
+ canonicalPath: '/articoli-frontaliere/trasporti-lombardia-ticino-record-tilo/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Tilo: record di passeggeri tra Lombardia e Ticino",
+ "description": "I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all'anno precedente. Scopri i vantaggi",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/trasporti-lombardia-ticino-record-tilo.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Treno Tilo in viaggio verso il Canton Ticino."
+ },
+ "datePublished": "2026-03-05T21:55:24+00:00",
+ "dateModified": "2026-03-05T21:55:24+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasporti-lombardia-ticino-record-tilo/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-confusione-tassa-salute-frontalieri': {
+ title: 'Tassa Salute: Confusione tra Politica e Realtà',
+ description: 'Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative',
+ keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, confusione, politica',
+ ogTitle: 'Tassa Salute: Confusione tra Politica e Realtà',
+ ogDescription: 'Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative',
+ canonicalPath: '/articoli-frontaliere/confusione-tassa-salute-frontalieri/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Tassa Salute: Confusione tra Politica e Realtà",
+ "description": "Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cassa-malati-tassa-salute.webp`,
+ "width": 1200,
+ "height": 675,
+ "caption": "Vista del valico di Brogeda tra Ticino e Italia con traffico e paesaggi naturali"
+ },
+ "datePublished": "2026-03-06T00:03:53+00:00",
+ "dateModified": "2026-03-06T00:03:53+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confusione-tassa-salute-frontalieri/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-carburante-ticino-costo-aumenti': {
+ title: 'Il costo del carburante in Ticino si impenna: un problema',
+ description: 'Aumenti fino a 14 centesimi su diesel e benzina in Ticino, riflesso della crisi energetica mondiale. La politica e il mercato influiscono sui prezzi locali.',
+ keywords: 'frontalieri, ticino, svizzera, italia, costo, carburante, impenna, problema',
+ ogTitle: 'Il costo del carburante in Ticino si impenna: un problema',
+ ogDescription: 'Aumenti fino a 14 centesimi su diesel e benzina in Ticino, riflesso della crisi energetica mondiale. La politica e il mercato influiscono sui prezzi locali.',
+ canonicalPath: '/articoli-frontaliere/carburante-ticino-costo-aumenti/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Il costo del carburante in Ticino si impenna: un problema",
+ "description": "Aumenti fino a 14 centesimi su diesel e benzina in Ticino, riflesso della crisi energetica mondiale. La politica e il mercato influiscono sui prezzi locali.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/carburante-ticino-costo-aumenti.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Stazione di rifornimento a Lugano, auto in attesa di carburante, paesaggio Ticino."
+ },
+ "datePublished": "2026-03-06T10:00:10+00:00",
+ "dateModified": "2026-03-06T10:00:10+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburante-ticino-costo-aumenti/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-cpi-caso-hospita-rivalutazione-periti': {
+ title: 'CPI e Caso Hospita: richiesta di rivalutazione dei periti',
+ description: 'La Commissione parlamentare d’inchiesta del Canton Ticino chiede una revisione della nomina dei periti nel caso Hospita, evidenziando possibili conflitti di int',
+ keywords: 'frontalieri, ticino, svizzera, italia, caso, hospita, richiesta, rivalutazione',
+ ogTitle: 'CPI e Caso Hospita: richiesta di rivalutazione dei periti',
+ ogDescription: 'La Commissione parlamentare d’inchiesta del Canton Ticino chiede una revisione della nomina dei periti nel caso Hospita, evidenziando possibili conflitti di int',
+ canonicalPath: '/articoli-frontaliere/cpi-caso-hospita-rivalutazione-periti/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "CPI e Caso Hospita: richiesta di rivalutazione dei periti",
+ "description": "La Commissione parlamentare d’inchiesta del Canton Ticino chiede una revisione della nomina dei periti nel caso Hospita, evidenziando possibili conflitti di int",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cpi-caso-hospita-rivalutazione-periti.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Paesaggio montano nel Ticino con valico e strada, scenario realistico"
+ },
+ "datePublished": "2026-03-06T11:19:03+00:00",
+ "dateModified": "2026-03-06T11:19:03+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cpi-caso-hospita-rivalutazione-periti/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-casellario-giudiziale-ue-ticino': {
+ title: 'Canton Grigioni: Impossibile richiedere il casellario',
+ description: 'Il Canton Grigioni chiarisce che non è possibile richiedere il casellario giudiziale per cittadini UE, sollevando interrogativi sulla sicurezza.',
+ keywords: 'frontalieri, ticino, svizzera, italia, canton, grigioni, impossibile, richiedere',
+ ogTitle: 'Canton Grigioni: Impossibile richiedere il casellario giu',
+ ogDescription: 'Il Canton Grigioni chiarisce che non è possibile richiedere sistematicamente il casellario giudiziale per cittadini dell\'UE, sollevando interrogativi sulla sicu',
+ canonicalPath: '/articoli-frontaliere/casellario-giudiziale-ue-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Canton Grigioni: Impossibile richiedere il casellario giu",
+ "description": "Il Canton Grigioni chiarisce che non è possibile richiedere sistematicamente il casellario giudiziale per cittadini dell'UE, sollevando interrogativi sulla sicu",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/casellario-giudiziale-ue-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista storica di Bellinzona, Ticino con architettura affascinante al tramonto."
+ },
+ "datePublished": "2026-03-06T14:11:24+00:00",
+ "dateModified": "2026-03-06T14:11:24+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casellario-giudiziale-ue-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-salario-minimo-per-il-controprogetto-la-strada-e-in-discesa': {
+ title: 'Salario minimo: il controprogetto è in discesa',
+ description: 'Il Canton Ticino è vicino a un\'intesa sul salario minimo sociale, con una proposta che potrebbe essere discussa in Gran Consiglio ad aprile. L\'accordo prevede',
+ keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, controprogetto, discesa',
+ ogTitle: 'Salario minimo: il Canton Ticino verso un accordo',
+ ogDescription: 'Il Canton Ticino è vicino a un\'intesa sul salario minimo sociale, con una proposta che potrebbe essere discussa in Gran Consiglio ad aprile. L\'accordo prevede',
+ canonicalPath: '/articoli-frontaliere/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Salario minimo: il Canton Ticino verso un accordo",
+ "description": "Il Canton Ticino è vicino a un'intesa sul salario minimo sociale, con una proposta che potrebbe essere discussa in Gran Consiglio ad aprile. L'accordo prevede",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Panoramica di Lugano, con il lago e gli edifici moderni."
+ },
+ "datePublished": "2026-03-06T16:10:57+00:00",
+ "dateModified": "2026-03-06T16:10:57+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-tassa-salute-lombardia-frontalieri': {
+ title: 'Tassa sulla salute: Lombardia non applicherà il',
+ description: 'Scopri le ultime notizie sulla tassa sulla salute e l\'impatto per i frontalieri in Lombardia e Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, lombardia',
+ ogTitle: 'Tassa sulla salute: Lombardia non applicherà il contributo?',
+ ogDescription: 'Giacomo Zamperini chiarisce che se altre regioni non applicano la tassa sulla salute, la Lombardia seguirà lo stesso esempio.',
+ canonicalPath: '/articoli-frontaliere/tassa-salute-lombardia-frontalieri/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Tassa sulla salute: Lombardia non applicherà il contributo?",
+ "description": "Scopri le ultime notizie sulla tassa sulla salute e l'impatto per i frontalieri in Lombardia e Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tassa-salute-lombardia-frontalieri.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica del Lago di Lugano con montagne sullo sfondo."
+ },
+ "datePublished": "2026-03-06T18:10:25+00:00",
+ "dateModified": "2026-03-06T18:10:25+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-lombardia-frontalieri/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-franco-forte-problemi-economici': {
+ title: 'Il franco forte: opportunità e sfide per il Ticino',
+ description: 'L\'attuale forza del franco svizzero solleva interrogativi sull\'economia ticinese e il futuro dei frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, franco, forte, opportunità, sfide',
+ ogTitle: 'Il franco forte: opportunità e sfide per il Ticino',
+ ogDescription: 'L\'attuale forza del franco svizzero solleva interrogativi sull\'economia ticinese e il futuro dei frontalieri.',
+ canonicalPath: '/articoli-frontaliere/franco-forte-problemi-economici/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Il franco forte: opportunità e sfide per il Ticino",
+ "description": "L'attuale forza del franco svizzero solleva interrogativi sull'economia ticinese e il futuro dei frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/franco-forte-problemi-economici.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Bellinzona con i suoi castelli storici."
+ },
+ "datePublished": "2026-03-06T20:06:08+00:00",
+ "dateModified": "2026-03-06T20:06:08+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-forte-problemi-economici/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-carburante-prezzo-salito-opportunismo': {
+ title: 'Aumento dei Prezzi della Benzina in Ticino: Opportunismo?',
+ description: 'L\'aumento dei prezzi della benzina in Ticino è legato a dinamiche di mercato e opportunismo aziendale. Scopri di più. Dati aggiornati 2026 per frontalieri in',
+ keywords: 'frontalieri, ticino, svizzera, italia, aumento, prezzi, benzina, opportunismo',
+ ogTitle: 'Aumento Prezzo Benzina in Ticino',
+ ogDescription: 'Scopri le cause dell\'aumento dei prezzi della benzina in Ticino e le implicazioni per i frontalieri.',
+ canonicalPath: '/articoli-frontaliere/carburante-prezzo-salito-opportunismo/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Aumento dei Prezzi della Benzina in Ticino: Opportunismo?",
+ "description": "L'aumento dei prezzi della benzina in Ticino è legato a dinamiche di mercato e opportunismo aziendale. Scopri di più. Dati aggiornati 2026 per frontalieri in",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/carburante-prezzo-salito-opportunismo.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista del Lago di Lugano con montagne circostanti, rappresentante l'influenza svizzera e italiana."
+ },
+ "datePublished": "2026-03-06T21:06:25+00:00",
+ "dateModified": "2026-03-06T21:06:25+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburante-prezzo-salito-opportunismo/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-frontalieri-tassa-salute-teatro': {
+ title: 'Frontalieri e tassa salute: cancellatela e basta',
+ description: 'La Lombardia frena sulla tassa salute per i frontalieri, con riflessi sulla gestione politica e sociale del confine. Dati aggiornati 2026 per frontalieri in',
+ keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, cancellatela, basta',
+ ogTitle: 'Frontalieri e tassa salute: cancellatela e basta',
+ ogDescription: 'La Lombardia frena sulla tassa salute per i frontalieri, con riflessi sulla gestione politica e sociale del confine.',
+ canonicalPath: '/articoli-frontaliere/frontalieri-tassa-salute-teatro/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Frontalieri e tassa salute: cancellatela e basta",
+ "description": "La Lombardia frena sulla tassa salute per i frontalieri, con riflessi sulla gestione politica e sociale del confine. Dati aggiornati 2026 per frontalieri in",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/frontalieri-tassa-salute-teatro.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Lugano con lago e montagne."
+ },
+ "datePublished": "2026-03-06T22:04:08+00:00",
+ "dateModified": "2026-03-06T22:04:08+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-teatro/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-disoccupazione-stabile-svizzera-2026': {
+ title: 'Disoccupazione stabile al 3,2% in Svizzera: i dati di',
+ description: 'La disoccupazione in Svizzera rimane al 3,2%. Scopri i dati e le implicazioni per il Canton Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, stabile, dati, febbraio',
+ ogTitle: 'Disoccupazione stabile al 3,2% in Svizzera',
+ ogDescription: 'Il mercato del lavoro in Svizzera e Ticino: tassi di disoccupazione e indennità.',
+ canonicalPath: '/articoli-frontaliere/disoccupazione-stabile-svizzera-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Disoccupazione stabile al 3,2% in Svizzera",
+ "description": "La disoccupazione in Svizzera rimane al 3,2%. Scopri i dati e le implicazioni per il Canton Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/disoccupazione-stabile-svizzera-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Lugano con montagne sullo sfondo."
+ },
+ "datePublished": "2026-03-06T23:12:41+00:00",
+ "dateModified": "2026-03-06T23:12:41+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-stabile-svizzera-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-dazi-usa-rimborsi-ritardi': {
+ title: 'Dazi USA: Rimborsi in Ritardo, Cosa Succede ai',
+ description: 'L\'agenzia della Dogana americana sta lavorando a un sistema di rimborsi per i dazi illegali, ma i frontalieri potrebbero dover attendere fino a un mese. Scopri',
+ keywords: 'frontalieri, ticino, svizzera, italia, dazi, rimborsi, ritardo, cosa',
+ ogTitle: 'Dazi USA: Rimborsi in Ritardo per i Frontalieri',
+ ogDescription: 'L\'agenzia della Dogana americana sta lavorando a un sistema di rimborsi per i dazi illegali, ma i frontalieri potrebbero dover attendere fino a un mese. Scopri',
+ canonicalPath: '/articoli-frontaliere/dazi-usa-rimborsi-ritardi/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Dazi USA: Rimborsi in Ritardo per i Frontalieri",
+ "description": "L'agenzia della Dogana americana sta lavorando a un sistema di rimborsi per i dazi illegali, ma i frontalieri potrebbero dover attendere fino a un mese. Scopri",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/dazi-usa-rimborsi-ritardi.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Acquirenti soddisfatti escono da Foxtown, il famoso outlet di Mendrisio, con i loro acquisti."
+ },
+ "datePublished": "2026-03-06T23:56:51+00:00",
+ "dateModified": "2026-03-06T23:56:51+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dazi-usa-rimborsi-ritardi/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-votazioni-8-marzo-iniziativa-ssr-aperto': {
+ title: 'Votazioni del 8 marzo: l’incerto sull’Iniziativa SSR in',
+ description: 'Il 8 marzo i cittadini svizzeri si pronunceranno su quattro temi cruciali, con l’Iniziativa SSR ancora in bilico tra sì e no. Analisi e dettagli pratici per i f',
+ keywords: 'frontalieri, ticino, svizzera, italia, votazioni, marzo, incerto, sull',
+ ogTitle: 'Votazioni del 8 marzo: l’incerto sull’Iniziativa SSR in T',
+ ogDescription: 'Il 8 marzo i cittadini svizzeri si pronunceranno su quattro temi cruciali, con l’Iniziativa SSR ancora in bilico tra sì e no. Analisi e dettagli pratici per i f',
+ canonicalPath: '/articoli-frontaliere/votazioni-8-marzo-iniziativa-ssr-aperto/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Votazioni del 8 marzo: l’incerto sull’Iniziativa SSR in T",
+ "description": "Il 8 marzo i cittadini svizzeri si pronunceranno su quattro temi cruciali, con l’Iniziativa SSR ancora in bilico tra sì e no. Analisi e dettagli pratici per i f",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/votazioni-8-marzo-iniziativa-ssr-aperto.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Valico di Gaggiolo in Ticino con vista sul confine italo-svizzero durante le votazioni del 8 marzo."
+ },
+ "datePublished": "2026-03-07T04:47:30+00:00",
+ "dateModified": "2026-03-07T04:47:30+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-8-marzo-iniziativa-ssr-aperto/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-ticino-spitex-contributo-pressione': {
+ title: 'Ticino Spitex: Nuove tariffe e pressione sul settore',
+ description: 'Dal 2026 nuove tariffe per le cure a domicilio in Ticino, con contributi utenti. Crescita volumi e sfide di sostenibilità per Cantone e Comuni. Dati aggiornati',
+ keywords: 'frontalieri, ticino, svizzera, italia, spitex, nuove, tariffe, pressione',
+ ogTitle: 'Ticino Spitex: Tariffe e Pressioni sul Settore',
+ ogDescription: 'Dal 2026 nuove tariffe per le cure a domicilio in Ticino con contributi degli utenti. Crescita rapida del settore mette sotto pressione Cantone e Comuni.',
+ canonicalPath: '/articoli-frontaliere/ticino-spitex-contributo-pressione/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Chiedi info su tariffe e contributi Spitex",
+ "description": "Dal 2026 nuove tariffe per le cure a domicilio in Ticino, con contributi utenti. Crescita volumi e sfide di sostenibilità per Cantone e Comuni. Dati aggiornati",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ticino-spitex-contributo-pressione.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Valico di Gaggiolo in Ticino con vista su Lugano e il Lago Maggiore"
+ },
+ "datePublished": "2026-03-07T06:05:59+00:00",
+ "dateModified": "2026-03-07T06:05:59+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-spitex-contributo-pressione/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-stalking-swiss-2026-ticino': {
+ title: 'Dal 2026: lo stalking diventa reato in Svizzera e Ticino',
+ description: 'Dal 2026, la Svizzera ha inserito lo stalking tra i reati punibili penalmente. Un cambiamento che interessa anche il Canton Ticino e i frontalieri, con implicaz',
+ keywords: 'frontalieri, ticino, svizzera, italia, stalking, diventa, reato, inserito',
+ ogTitle: 'Dal 2026: lo stalking diventa reato in Svizzera e Ticino',
+ ogDescription: 'Dal 2026, la Svizzera ha inserito lo stalking tra i reati punibili penalmente. Un cambiamento che interessa anche il Canton Ticino e i frontalieri, con implicaz',
+ canonicalPath: '/articoli-frontaliere/stalking-swiss-2026-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Dal 2026: lo stalking diventa reato in Svizzera e Ticino",
+ "description": "Dal 2026, la Svizzera ha inserito lo stalking tra i reati punibili penalmente. Un cambiamento che interessa anche il Canton Ticino e i frontalieri, con implicaz",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/stalking-swiss-2026-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Valico frontaliero in Ticino con controlli di sicurezza, scena realistica"
+ },
+ "datePublished": "2026-03-07T07:52:55+00:00",
+ "dateModified": "2026-03-07T07:52:55+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stalking-swiss-2026-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-pirati-strada-ticino-italiani-2026': {
+ title: 'Ticino: Due automobilisti italiani tra i pirati della',
+ description: 'Polizia cantonale di Ticino ferma due automobilisti italiani per violazioni gravi, tra cui velocità oltre il doppio dei limiti, in controlli tra gennaio e febbr',
+ keywords: 'frontalieri, ticino, svizzera, italia, automobilisti, italiani, pirati, strada',
+ ogTitle: 'Ticino: Due automobilisti italiani tra i pirati della str',
+ ogDescription: 'Polizia cantonale di Ticino ferma due automobilisti italiani per violazioni gravi, tra cui velocità oltre il doppio dei limiti, in controlli tra gennaio e febbr',
+ canonicalPath: '/articoli-frontaliere/pirati-strada-ticino-italiani-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Ticino: Due automobilisti italiani tra i pirati della str",
+ "description": "Polizia cantonale di Ticino ferma due automobilisti italiani per violazioni gravi, tra cui velocità oltre il doppio dei limiti, in controlli tra gennaio e febbr",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/pirati-strada-ticino-italiani-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Auto in transito sul valico di Gaggiolo, confine tra Italia e Svizzera, con paesaggio ticinese sullo sfondo"
+ },
+ "datePublished": "2026-03-07T09:01:01+00:00",
+ "dateModified": "2026-03-07T09:01:01+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pirati-strada-ticino-italiani-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-comuni-locarno-futuro-aggregazione': {
+ title: 'Sette Comuni del Locarnese sul Futuro: Aggregazione o',
+ description: 'Un laboratorio coinvolge Locarno, Losone, Minusio e altri per discutere sulla collaborazione regionale. La sfida: mantenere il benessere o restare indipendenti.',
+ keywords: 'frontalieri, ticino, svizzera, italia, sette, comuni, locarnese, futuro',
+ ogTitle: 'Sette Comuni del Locarnese sul Futuro: Aggregazione o Aut',
+ ogDescription: 'Un laboratorio coinvolge Locarno, Losone, Minusio e altri per discutere sulla collaborazione regionale. La sfida: mantenere il benessere o restare indipendenti.',
+ canonicalPath: '/articoli-frontaliere/comuni-locarno-futuro-aggregazione/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Sette Comuni del Locarnese sul Futuro: Aggregazione o Aut",
+ "description": "Un laboratorio coinvolge Locarno, Losone, Minusio e altri per discutere sulla collaborazione regionale. La sfida: mantenere il benessere o restare indipendenti.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/comuni-locarno-futuro-aggregazione.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Panorama di Locarno con Lago Maggiore e montagne, scena fotorealistica DSLR."
+ },
+ "datePublished": "2026-03-07T09:56:44+00:00",
+ "dateModified": "2026-03-07T09:56:44+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-locarno-futuro-aggregazione/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-costi-cure-domicilio-ticino-2026': {
+ title: 'Ticino: dal 2026 si pagherà per le cure a domicilio',
+ description: 'Dal 1° aprile 2026 in Ticino entra in vigore la partecipazione ai costi per le cure a domicilio, con un contributo massimo di 15 franchi al giorno.',
+ keywords: 'frontalieri, ticino, svizzera, italia, pagherà, cure, domicilio, aprile',
+ ogTitle: 'Ticino: dal 2026 si pagherà per le cure a domicilio',
+ ogDescription: 'Dal 1° aprile 2026 in Ticino entra in vigore la partecipazione ai costi per le cure a domicilio, con un contributo massimo di 15 franchi al giorno.',
+ canonicalPath: '/articoli-frontaliere/costi-cure-domicilio-ticino-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Ticino: dal 2026 si pagherà per le cure a domicilio",
+ "description": "Dal 1° aprile 2026 in Ticino entra in vigore la partecipazione ai costi per le cure a domicilio, con un contributo massimo di 15 franchi al giorno.",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/costi-cure-domicilio-ticino-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Infermiere che assiste una persona anziana a domicilio a Lugano, Ticino"
+ },
+ "datePublished": "2026-03-07T10:53:30+00:00",
+ "dateModified": "2026-03-07T10:53:30+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-cure-domicilio-ticino-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-lugano-park-ride-bus-sovvenzioni-2026': {
+ title: 'Lugano: Park and Ride poco usati, bus sovvenzionati in',
+ description: 'Nel 2024 Lugano ha speso 1,2 milioni in sovvenzioni per abbonamenti bus, mentre i park and ride registrano scarsa frequentazione e alti costi. Dati aggiornati',
+ keywords: 'frontalieri, ticino, svizzera, italia, lugano, park, ride, poco',
+ ogTitle: 'Lugano: Park and Ride poco usati, bus sovvenzionati in cr',
+ ogDescription: 'Nel 2024 Lugano ha speso 1,2 milioni in sovvenzioni per abbonamenti bus, mentre i park and ride registrano scarsa frequentazione e alti costi.',
+ canonicalPath: '/articoli-frontaliere/lugano-park-ride-bus-sovvenzioni-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Lugano: Park and Ride poco usati, bus sovvenzionati in cr",
+ "description": "Nel 2024 Lugano ha speso 1,2 milioni in sovvenzioni per abbonamenti bus, mentre i park and ride registrano scarsa frequentazione e alti costi. Dati aggiornati",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lugano-park-ride-bus-sovvenzioni-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista urbana di Lugano con autobus e parcheggio park and ride poco utilizzato"
+ },
+ "datePublished": "2026-03-07T11:41:11+00:00",
+ "dateModified": "2026-03-07T11:41:11+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-park-ride-bus-sovvenzioni-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-crisi-turismo-golfo-persico': {
+ title: 'Crisi in Medio Oriente: Impatto sul Turismo Svizzero',
+ description: 'La crisi nel Golfo Persico modifica le rotte turistiche svizzere, con voli sospesi e carburante alle stelle. Scopri l\'impatto economico. Dati aggiornati 2026',
+ keywords: 'frontalieri, ticino, svizzera, italia, crisi, medio, oriente, impatto',
+ ogTitle: 'Crisi Medio Oriente: Impatto sul Turismo Svizzero',
+ ogDescription: 'La crisi nel Golfo Persico sta modificando le rotte turistiche svizzere. Voli sospesi e carburante alle stelle: scopri l\'impatto economico.',
+ canonicalPath: '/articoli-frontaliere/crisi-turismo-golfo-persico/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Crisi Medio Oriente: Impatto sul Turismo Svizzero",
+ "description": "La crisi nel Golfo Persico modifica le rotte turistiche svizzere, con voli sospesi e carburante alle stelle. Scopri l'impatto economico. Dati aggiornati 2026",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/crisi-turismo-golfo-persico.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica del Lago di Lugano durante il tramonto, con riflessi sull'acqua."
+ },
+ "datePublished": "2026-03-07T13:54:36+00:00",
+ "dateModified": "2026-03-07T13:54:36+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-turismo-golfo-persico/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-turisti-ticinesi-bloccati-medio-oriente': {
+ title: 'Turisti ticinesi bloccati in Medio Oriente: «Soli e senza',
+ description: 'Circa 400 turisti svizzeri rimangono bloccati in Medio Oriente senza comunicazioni ufficiali. Scopri di più su questa emergenza. Dati aggiornati 2026 per',
+ keywords: 'frontalieri, ticino, svizzera, italia, turisti, ticinesi, bloccati, medio',
+ ogTitle: 'Turisti ticinesi bloccati in Medio Oriente',
+ ogDescription: 'Circa 400 turisti svizzeri rimangono bloccati in Medio Oriente senza comunicazioni ufficiali. Scopri di più su questa emergenza.',
+ canonicalPath: '/articoli-frontaliere/turisti-ticinesi-bloccati-medio-oriente/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Turisti ticinesi bloccati in Medio Oriente: «Soli e senza risposte»",
+ "description": "Circa 400 turisti svizzeri rimangono bloccati in Medio Oriente senza comunicazioni ufficiali. Scopri di più su questa emergenza. Dati aggiornati 2026 per",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/turisti-ticinesi-bloccati-medio-oriente.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Turisti svizzeri in attesa di informazioni in un valico di frontiera."
+ },
+ "datePublished": "2026-03-07T14:54:22+00:00",
+ "dateModified": "2026-03-07T14:54:22+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turisti-ticinesi-bloccati-medio-oriente/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-svizzeri-bloccati-medio-oriente': {
+ title: '5.200 svizzeri bloccati in Medio Oriente',
+ description: 'La guerra in Medio Oriente ha bloccato 5.200 cittadini svizzeri. Swiss ha organizzato un volo speciale per il rimpatrio. Dati aggiornati 2026 per frontalieri in',
+ keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, bloccati, medio, oriente',
+ ogTitle: 'Svizzeri bloccati in Medio Oriente',
+ ogDescription: 'La guerra in Medio Oriente ha bloccato 5.200 cittadini svizzeri. Swiss ha organizzato un volo speciale per il rimpatrio.',
+ canonicalPath: '/articoli-frontaliere/svizzeri-bloccati-medio-oriente/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Svizzeri bloccati in Medio Oriente",
+ "description": "La guerra in Medio Oriente ha bloccato 5.200 cittadini svizzeri. Swiss ha organizzato un volo speciale per il rimpatrio. Dati aggiornati 2026 per frontalieri in",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/svizzeri-bloccati-medio-oriente.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Volo di rimpatrio da Mascate, Oman, verso Zurigo, Svizzera."
+ },
+ "datePublished": "2026-03-07T15:51:15+00:00",
+ "dateModified": "2026-03-07T15:51:15+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-bloccati-medio-oriente/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-ticino-prevenzione-incendi-scuole-2026': {
+ title: 'Ticino rafforza la sicurezza nelle scuole dopo',
+ description: 'Il DECS lavora su misure antincendio nelle scuole ticinesi dopo Crans-Montana. Consigli pratici e aggiornamenti. Dati aggiornati 2026 per frontalieri in Ticino.',
+ keywords: 'frontalieri, ticino, svizzera, italia, rafforza, sicurezza, nelle, scuole',
+ ogTitle: 'Ticino rafforza sicurezza scuole | Frontaliere Ticino',
+ ogDescription: 'Il DECS lavora su misure antincendio nelle scuole ticinesi dopo Crans-Montana. Consigli pratici e aggiornamenti.',
+ canonicalPath: '/articoli-frontaliere/ticino-prevenzione-incendi-scuole-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Ticino rafforza la sicurezza nelle scuole dopo Crans-Montana",
+ "description": "Il DECS lavora su misure antincendio nelle scuole ticinesi dopo Crans-Montana. Consigli pratici e aggiornamenti. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "image": {
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ticino-prevenzione-incendi-scuole-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Scuole di Ticino con segni di sicurezza antincendio. Vista aerea con montagne in sfondo."
+ },
+ "datePublished": "2026-03-07T17:00:20+00:00",
+ "dateModified": "2026-03-07T17:00:20+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-prevenzione-incendi-scuole-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-varese-india-export-2026': {
+ title: 'Varese: Export India Cresce del 46% | Frontaliere',
+ description: 'Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro. Dati aggiornati 2026 per frontalieri',
+ keywords: 'frontalieri, ticino, svizzera, italia, varese, punta, oriente, export',
+ ogTitle: 'Varese: Export India Cresce del 46% | Frontaliere',
+ ogDescription: 'Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro.',
+ canonicalPath: '/articoli-frontaliere/varese-india-export-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Varese punta a Oriente: l’export verso l’India cresce del 46%",
+ "description": "Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro. Dati aggiornati 2026 per frontalieri",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/varese-india-export-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Impresa varesina che esporta macchinari e prodotti chimici in India. Vista panoramica dal Lago di Lugano."
+ },
+ "datePublished": "2026-03-07T17:48:07+00:00",
+ "dateModified": "2026-03-07T17:48:07+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-india-export-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-autotrasporto-rincari-confine-2026': {
+ title: 'Rincari carburante: rischio fermo autotrasportatori al',
+ description: 'Aumenti di carburante segnalati a marzo 2026: +0,30 €/l in 3 giorni. CNA Fita parla di speculazione e chiede credito d\'imposta. Impatti su Brogeda e Chiasso.',
+ keywords: 'frontalieri, ticino, svizzera, italia, rincari, carburante, rischio, fermo',
+ ogTitle: 'Rincari carburante e rischio fermo autotrasportatori al',
+ ogDescription: 'CNA Fita denuncia speculazione: aumento 0,30 €/l in 3 giorni; per 100.000 km/anno aggravio >13.000 euro. Misure richieste al Governo.',
+ canonicalPath: '/articoli-frontaliere/autotrasporto-rincari-confine-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Economia - Carburanti: allarme autotrasportatori, CNA Fita parla di",
+ "description": "Aumenti di carburante segnalati a marzo 2026: +0,30 €/l in 3 giorni. CNA Fita parla di speculazione e chiede credito d'imposta. Impatti su Brogeda e Chiasso.",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/autotrasporto-rincari-confine-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Camion parcheggiato vicino al valico di Chiasso con vista sul paesaggio del Ticino al tramonto"
+ },
+ "datePublished": "2026-03-08T10:57:24+00:00",
+ "dateModified": "2026-03-08T10:57:24+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autotrasporto-rincari-confine-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-carburanti-rincari-confine-ticino': {
+ title: 'Rincaro carburanti: che impatto sui frontalieri ticinesi',
+ description: 'Benzina oltre 1,8 €/l in alcune regioni italiane: impatto sui frontalieri Ticino-Lombardia e consigli pratici per risparmiare. Dati aggiornati 2026 per',
+ keywords: 'frontalieri, ticino, svizzera, italia, rincaro, carburanti, impatto, ticinesi',
+ ogTitle: 'Rincaro carburanti: impatto sui frontalieri ticinesi',
+ ogDescription: 'Prezzi in Italia in rialzo (benzina >1,8 €/l); cosa cambia per chi lavora tra Canton Ticino e Lombardia e come ridurre i costi.',
+ canonicalPath: '/articoli-frontaliere/carburanti-rincari-confine-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Carburanti, l'ondata di rincari continua: schizzano i prezzi per benzina",
+ "description": "Benzina oltre 1,8 €/l in alcune regioni italiane: impatto sui frontalieri Ticino-Lombardia e consigli pratici per risparmiare. Dati aggiornati 2026 per",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/carburanti-rincari-confine-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Stazione di servizio al confine Ticino-Lombardia con auto in attesa e cartelloni prezzi al mattino"
+ },
+ "datePublished": "2026-03-08T11:45:19+00:00",
+ "dateModified": "2026-03-08T11:45:19+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-rincari-confine-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-votazioni-imposizione-ticino-2026': {
+ title: 'Voti 8 marzo: No al taglio canone, Sì all\'imposizione | Frontaliere Ticino',
+ description: 'Primi spogli dell\'8 marzo: Ticino orientato verso il No all\'iniziativa \'200 franchi bastano\' e un possibile Sì per l\'imposizione individuale; analisi e',
+ keywords: 'frontalieri, ticino, svizzera, italia, voti, marzo, taglio, canone',
+ ogTitle: 'Voti 8 marzo: No canone e Sì all\'imposizione individuale',
+ ogDescription: 'Primi risultati del voto del 8 marzo 2026: tendenze su canone, imposizione individuale, contante e Fondo clima. Impatti per il Ticino e per i frontalieri.',
+ canonicalPath: '/articoli-frontaliere/votazioni-imposizione-ticino-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Un chiaro No ai '200 franchi bastano', si profila un Sì per",
+ "description": "Primi spogli dell'8 marzo: Ticino orientato verso il No all'iniziativa '200 franchi bastano' e un possibile Sì per l'imposizione individuale; analisi e",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/votazioni-imposizione-ticino-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Elettori davanti a un seggio a Bellinzona con bandiere svizzere e scatole per le schede, luce invernale naturale."
+ },
+ "datePublished": "2026-03-08T13:59:41+00:00",
+ "dateModified": "2026-03-08T13:59:41+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-imposizione-ticino-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-imposizione-individuale-ticino-2026': {
+ title: 'Svizzera: tassazione individuale, cosa cambia per il',
+ description: 'La Svizzera approva la tassazione individuale (08.03.2026). Cosa cambia per frontalieri e Comuni in Ticino: deduzioni figli, dichiarazioni, passi pratici.',
+ keywords: 'frontalieri, ticino, svizzera, italia, tassazione, individuale, cosa, cambia',
+ ogTitle: 'Tassazione individuale: impatto Ticino',
+ ogDescription: 'Il voto del 08.03.2026 introduce l\'imposizione individuale: guida per frontalieri, Comuni e datori di lavoro in Ticino.',
+ canonicalPath: '/articoli-frontaliere/imposizione-individuale-ticino-2026/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Svizzera: svolta fiscale con l'imposizione individuale, effetti per il",
+ "description": "La Svizzera approva la tassazione individuale (08.03.2026). Cosa cambia per frontalieri e Comuni in Ticino: deduzioni figli, dichiarazioni, passi pratici.",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/imposizione-individuale-ticino-2026.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Veduta fotorealistica di Lugano con pendolare sul lungolago e skyline al mattino"
+ },
+ "datePublished": "2026-03-08T15:03:13+00:00",
+ "dateModified": "2026-03-08T15:03:13+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-ticino-2026/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ 'blog-no-iniziativa-antidumping-ticino': {
+ title: 'Ticino: No all\'iniziativa antidumping, soddisfazione per | Frontaliere Ticino',
+ description: 'Il Consiglio di Stato del Ticino approva il rifiuto dell\'iniziativa antidumping e della riduzione del canone SSR. Dati aggiornati 2026 per frontalieri in',
+ keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, antidumping, soddisfazione, consiglio',
+ ogTitle: 'No all\'iniziativa antidumping | Frontaliere Ticino',
+ ogDescription: 'Il Consiglio di Stato del Ticino si soddisfa per il rifiuto dell\'iniziativa antidumping e per il canone SSR.',
+ canonicalPath: '/articoli-frontaliere/no-iniziativa-antidumping-ticino/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Ticino: No all'iniziativa antidumping e al canone a 200",
+ "description": "Il Consiglio di Stato del Ticino approva il rifiuto dell'iniziativa antidumping e della riduzione del canone SSR. Dati aggiornati 2026 per frontalieri in",
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/no-iniziativa-antidumping-ticino.webp`,
+ "width": 1344,
+ "height": 756,
+ "caption": "Vista panoramica di Lugano con lago e montagne."
+ },
+ "datePublished": "2026-03-08T15:50:38+00:00",
+ "dateModified": "2026-03-08T15:50:38+00:00",
+ "inLanguage": "it",
+ "author": {"@id": "https://frontaliereticino.ch/#organization"},
+ "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+ "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/no-iniziativa-antidumping-ticino/`,
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true
+ }
+ },
+
+ guidaCompleta: {
+ title: 'Lavoro frontaliere Svizzera 2026: permesso G, tasse e netto',
+ description: 'Lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione Nuovo Accordo, stipendio netto, AVS/LPP, LAMal e dichiarazione redditi in un\'unica guida.',
+ keywords: 'lavoro frontaliere svizzera 2026, guida completa frontaliere, permesso G svizzera, nuovo accordo frontalieri, imposta alla fonte ticino, frontaliere italia svizzera, lavorare in svizzera dall italia, tassazione frontalieri 2026, assicurazione LAMal frontalieri, pendolare svizzera italia',
+ ogTitle: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026',
+ ogDescription: 'La guida definitiva per frontalieri Svizzera-Italia: permessi, tasse, previdenza, sanità, trasporti e dichiarazione dei redditi. Aggiornata 2026.',
+ canonicalPath: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Lavoro Frontaliere Svizzera 2026: Permesso G, Tasse e Stipendio Netto",
+ "description": "La guida definitiva per lavoratori frontalieri Italia-Svizzera: permesso G, regime fiscale nuovo accordo, contributi sociali AVS/LPP, assicurazione LAMal, pendolarismo e dichiarazione dei redditi. Aggiornata al 2026.",
+ "url": `${BASE_URL}/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/`,
+ "datePublished": "2026-03-31T08:00:00+02:00",
+ "dateModified": "2026-03-31T08:00:00+02:00",
+ "inLanguage": "it",
+ "author": { "@id": "https://frontaliereticino.ch/#organization" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/`,
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/og-guida-frontaliere.png`,
+ "width": 1200,
+ "height": 630
+ },
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true,
+ "wordCount": 3500,
+ "about": [
+ { "@type": "Thing", "name": "Lavoro frontaliere", "sameAs": "https://it.wikipedia.org/wiki/Lavoratore_frontaliero" },
+ { "@type": "Thing", "name": "Canton Ticino", "sameAs": "https://it.wikipedia.org/wiki/Canton_Ticino" },
+ { "@type": "Thing", "name": "Imposta alla fonte", "sameAs": "https://it.wikipedia.org/wiki/Imposta_alla_fonte" }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quali sono i requisiti per lavorare come frontaliere in Svizzera nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per lavorare come frontaliere in Svizzera serve: cittadinanza UE/AELS, residenza in un comune italiano (preferibilmente entro 20 km dal confine per il regime transitorio), un contratto di lavoro con datore svizzero, e il permesso G rilasciato dal Cantone. Il permesso G ha validità 5 anni per contratti a tempo indeterminato e viene rilasciato in 5-10 giorni lavorativi dalla richiesta."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona la tassazione dei frontalieri con il nuovo accordo 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto costa l'assicurazione sanitaria LAMal per i frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanti frontalieri lavorano in Canton Ticino e quanto guadagnano?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Circa 79.000 frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (BFS 2025), rappresentando circa il 30% della forza lavoro cantonale. Il salario mediano lordo in Ticino e di circa CHF 5.200/mese (CHF 62.400/anno). I settori principali sono manifattura, costruzioni, finanza, sanita, ospitalita e IT. Il numero cresce del 2-3% annuo."
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come diventare frontaliere: guida passo-passo",
+ "description": "Tutti i passaggi necessari per iniziare a lavorare come frontaliere in Svizzera dall'Italia, dal contratto al primo stipendio.",
+ "totalTime": "P60D",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Trovare un lavoro in Svizzera",
+ "text": "Cerca offerte di lavoro in Canton Ticino su portali specializzati (jobs.ch, jobscout24.ch, LinkedIn). Il Ticino offre circa 79.000 posizioni frontaliere nei settori manifattura, finanza, IT, sanita e costruzioni.",
+ "url": `${BASE_URL}/cerca-lavoro-ticino/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Firmare il contratto di lavoro",
+ "text": "Firma il contratto con il datore di lavoro svizzero. Verifica che includa: salario lordo annuo, percentuale di impiego, data di inizio, contributi LPP e assicurazioni. Il datore avvia la richiesta del permesso G."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Ottenere il permesso G",
+ "text": "Il datore di lavoro richiede il permesso G presso l'ufficio della migrazione cantonale. Per cittadini UE il rilascio avviene in 5-10 giorni lavorativi. Si puo iniziare a lavorare con la ricevuta della richiesta.",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Scegliere l'assicurazione sanitaria",
+ "text": "Entro 3 mesi dall'inizio del lavoro, scegli tra LAMal svizzera (270-560 CHF/mese) e SSN italiano (gratuito). La scelta non si modifica liberamente; verifica eventuali nuovi eventi con il Cantone di lavoro. Confronta i premi su frontaliereticino.ch.",
+ "url": `${BASE_URL}/compara-servizi/confronta-casse-malati/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Aprire un conto bancario svizzero",
+ "text": "Apri un conto in Svizzera (PostFinance, Raiffeisen, UBS) per ricevere lo stipendio in CHF. Servono permesso G, contratto di lavoro e documento d'identita.",
+ "url": `${BASE_URL}/compara-servizi/confronta-banche/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 6,
+ "name": "Organizzare il pendolarismo",
+ "text": "Pianifica il tragitto casa-lavoro: auto (costo medio 300-500 EUR/mese), treno TILO, o combinazione. Verifica i tempi ai valichi di confine nelle ore di punta (6:30-8:30 e 17:00-18:30).",
+ "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 7,
+ "name": "Comprendere il regime fiscale",
+ "text": "Informati sul regime fiscale applicabile: vecchio o nuovo accordo, imposta alla fonte svizzera, eventuale IRPEF italiana, franchigia 10.000 EUR e credito d'imposta. Usa il simulatore gratuito per calcolare il tuo netto.",
+ "url": `${BASE_URL}/calcola-stipendio/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 8,
+ "name": "Presentare la dichiarazione dei redditi",
+ "text": "Verifica gli obblighi e le scadenze italiane per il tuo status. In Svizzera distingui un errore di trattenuta dalla TOU, esclusa per i frontalieri fiscali dell’accordo Italia–Svizzera.",
+ "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi/`
+ }
+ ]
+ }
+ ]
+ },
+
+ 'tassazione-hub': {
+ title: 'Tassazione Frontalieri Svizzera 2026: Guida Completa',
+ description: 'Tassazione frontalieri Italia-Svizzera 2026: nuovo accordo, doppia imposizione, aliquote Ticino, deduzioni, permesso G/B e dichiarazione redditi.',
+ keywords: 'tassazione svizzera, tassazione frontalieri svizzera, doppia tassazione svizzera, permesso g, nuovo accordo frontalieri, tassazione nuovi frontalieri 2023, aliquote imposta alla fonte ticino 2026, franchigia 10000 euro frontalieri, credito imposta frontalieri, irpef frontalieri',
+ ogTitle: 'Tassazione Frontalieri Svizzera 2026 — Guida Completa',
+ ogDescription: 'Tutto sulla tassazione dei frontalieri nel 2026: nuovo accordo Italia-Svizzera, doppia imposizione, permesso G vs B, aliquote Ticino, deduzioni fiscali e dichiarazione redditi.',
+ canonicalPath: '/guida-tassazione-frontalieri-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Tassazione Frontalieri Svizzera 2026: Guida Completa",
+ "description": "Guida esaustiva alla tassazione dei frontalieri Italia-Svizzera nel 2026: Nuovo Accordo del 17 luglio 2023, doppia imposizione, confronto permesso G vs B, aliquote d'imposta alla fonte Ticino, deduzioni fiscali, casi particolari e dichiarazione dei redditi.",
+ "url": `${BASE_URL}/guida-tassazione-frontalieri-2026/`,
+ "datePublished": "2026-04-22T08:00:00+02:00",
+ "dateModified": "2026-04-22T08:00:00+02:00",
+ "inLanguage": "it",
+ "author": { "@id": "https://frontaliereticino.ch/#organization" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "mainEntityOfPage": `${BASE_URL}/guida-tassazione-frontalieri-2026/`,
+ "image": {
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/og-guida-frontaliere.png`,
+ "width": 1200,
+ "height": 630
+ },
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+ "isAccessibleForFree": true,
+ "wordCount": 2800,
+ "about": [
+ { "@type": "Thing", "name": "Tassazione frontalieri", "sameAs": "https://it.wikipedia.org/wiki/Lavoratore_frontaliero" },
+ { "@type": "Thing", "name": "Imposta alla fonte", "sameAs": "https://it.wikipedia.org/wiki/Imposta_alla_fonte" },
+ { "@type": "Thing", "name": "Doppia imposizione", "sameAs": "https://it.wikipedia.org/wiki/Doppia_imposizione" },
+ { "@type": "Thing", "name": "Canton Ticino", "sameAs": "https://it.wikipedia.org/wiki/Canton_Ticino" }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Qual è la differenza fiscale tra vecchi e nuovi frontalieri nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si evita la doppia imposizione fiscale Italia-Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La doppia imposizione è evitata grazie all'Accordo CH-IT del 23 dicembre 2020 (RS 0.642.045.43), che stabilisce la tassazione concorrente per i nuovi frontalieri: il reddito svizzero viene tassato in entrambi i paesi, ma l'Italia concede un credito d'imposta pari alle imposte versate in Svizzera, fino a concorrenza dell'IRPEF dovuta sulla quota di reddito estero. Inoltre, i primi 10.000 EUR di reddito svizzero sono esenti da IRPEF (franchigia)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono le aliquote dell'imposta alla fonte in Canton Ticino nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Le aliquote dell'imposta alla fonte Ticino 2026 variano in base allo stato civile e al numero di figli, secondo quattro tabelle principali: A (celibe/nubile senza figli), B (celibe/nubile con figli), C (coniugato/a), H (famiglia monoparentale). Per un reddito lordo di CHF 72.000 con tabella A, l'aliquota effettiva è circa 11-13%. Per i nuovi frontalieri, l'aliquota è ridotta all'80% di quella ordinaria. Le tabelle ufficiali sono pubblicate dalla Divisione delle contribuzioni del Cantone Ticino."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quale permesso conviene: G o B per motivi fiscali?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G prevede domicilio all’estero e rientro almeno settimanale; il B è un permesso di dimora in Svizzera. Il titolo di soggiorno non determina da solo le imposte: per il G occorre distinguere vecchi frontalieri fiscalmente qualificati, nuovi e lavoratori fuori dai requisiti dell’accordo. Confronta residenza effettiva, reddito e costi familiari senza una soglia salariale universale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali deduzioni fiscali possono richiedere i frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Non esiste un elenco di deduzioni aggiuntive applicabile a tutti i frontalieri. Occorre distinguere la dichiarazione italiana, il regime svizzero e la correzione di errori nella trattenuta. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si calcola il credito d'imposta per le tasse pagate in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il credito d'imposta si calcola come rapporto tra reddito estero e reddito complessivo, moltiplicato per l'IRPEF lorda dovuta. Il limite massimo del credito è la minore tra (a) l'imposta svizzera effettivamente pagata e (b) la quota proporzionale di IRPEF relativa al reddito svizzero. La franchigia di 10.000 EUR (art. 1 c. 175 L.213/2023) riduce la base imponibile prima del calcolo. Il credito si richiede nel Modello 730/Redditi PF compilando il Quadro CE (redditi esteri)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il telelavoro è regolato dall'Accordo integrativo del 6 giugno 2024: fino al 25% del tempo lavorativo dall'Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Per i lavoratori con meno del 50% di attività a domicilio, il permesso G resta valido."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono gli errori fiscali più comuni dei frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Confondere permesso e status fiscale, applicare automaticamente franchigie o deduzioni e presumere un rimborso svizzero può produrre conteggi errati. Verifica separatamente gli obblighi nei due Paesi e conserva certificato di salario e attestazioni delle imposte. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come si compila la dichiarazione dei redditi per frontalieri nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Parti dal certificato di salario e dalle attestazioni dell’imposta svizzera, poi verifica regime, reddito imponibile, franchigia e credito d’imposta secondo le istruzioni italiane dell’anno. Non presumere che una ricevuta TOU sia un documento richiesto a ogni frontaliere. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come funziona il regime dei vecchi frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Cosa cambia con il Nuovo Accordo del 17 luglio 2023?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+ {
+ "@type": "ListItem",
+ "position": 1,
+ "name": "Home",
+ "item": `${BASE_URL}/`
+ },
+ {
+ "@type": "ListItem",
+ "position": 2,
+ "name": "Tassazione Frontalieri 2026",
+ "item": `${BASE_URL}/guida-tassazione-frontalieri-2026/`
+ }
+ ]
+ }
+ ]
+ },
+
+ 'sindacati': {
+ title: 'Sindacati Frontalieri Svizzera 2026 | Guida',
+ description: 'UNIA, Syndicom, SEV, OCST: sindacati per frontalieri in Ticino. Costi, sedi, servizi legali, CCL e assistenza su licenziamento, busta paga e controversie.',
+ keywords: 'sindacati frontalieri, unia ticino, ocst, syndicom, sev, sindacato svizzero, contratto collettivo, ccl, diritti lavoratori frontalieri, assistenza legale',
+ ogTitle: 'Sindacati per Frontalieri in Ticino — Guida Completa',
+ ogDescription: 'UNIA, Syndicom, SEV, OCST: costi, sedi e servizi per frontalieri. Consulenza legale, contratti collettivi e tutela dei diritti.',
+ canonicalPath: '/sindacati-frontalieri/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Sindacati per Frontalieri in Svizzera",
+ "url": `${BASE_URL}/sindacati-frontalieri/`,
+ "description": "Guida ai principali sindacati svizzeri per lavoratori frontalieri: UNIA, Syndicom, SEV, OCST. Costi, servizi e contatti Ticino.",
+ "inLanguage": "it",
+ "mainEntity": {
+ "@type": "ItemList",
+ "numberOfItems": 4,
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "UNIA — Sindacato svizzero", "url": "https://www.unia.ch/it" },
+ { "@type": "ListItem", "position": 2, "name": "Syndicom — Media e comunicazione", "url": "https://syndicom.ch/it" },
+ { "@type": "ListItem", "position": 3, "name": "SEV — Sindacato del personale dei trasporti", "url": "https://sev-online.ch/it" },
+ { "@type": "ListItem", "position": 4, "name": "OCST — Organizzazione Cristiano-Sociale Ticinese", "url": "https://www.ocst.com" }
+ ]
+ }
+ }
+ ],
+ },
+
+ 'chi-siamo': {
+ title: 'Chi Siamo — Frontaliere Ticino: la Guida dei Frontalieri',
+ description: 'Scopri chi siamo: Frontaliere Ticino è la piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Svizzera. Tassazione, permessi.',
+ keywords: 'frontaliere ticino, chi siamo, piattaforma frontalieri, lavoratori transfrontalieri svizzera italia',
+ ogTitle: 'Chi Siamo — Frontaliere Ticino: La Guida per i Lavoratori Frontalieri',
+ ogDescription: 'Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.',
+ canonicalPath: '/chi-siamo/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "AboutPage",
+ "name": "Chi Siamo — Frontaliere Ticino",
+ "url": `${BASE_URL}/chi-siamo/`,
+ "mainEntity": { "@id": `${BASE_URL}/#organization` },
+ "description": "Piattaforma informativa per frontalieri italiani in Svizzera",
+ "inLanguage": "it"
+ },
+  {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://frontaliereticino.ch/#organization",
+  "additionalType": "https://schema.org/NewsMediaOrganization",
+  "name": "Frontaliere Ticino",
+  "url": "https://frontaliereticino.ch/",
+  "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
+   "https://www.facebook.com/frontaliereticino",
+   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://github.com/valerielinc-ops/frontaliere-si-o-no"
+  ],
+  "logo": {
+   "@type": "ImageObject",
+   "contentUrl": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+   "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://frontaliereticino.ch/#organization",
+    "name": "Frontaliere Ticino",
+    "url": "https://frontaliereticino.ch/"
+   },
+   "creditText": "Frontaliere Ticino",
+   "width": 512,
+   "height": 512
+  },
+  "foundingDate": "2023",
+  "contactPoint": {
+   "@type": "ContactPoint",
+   "contactType": "customer support",
+   "url": "https://frontaliereticino.ch/contattaci/",
+   "availableLanguage": [
+    "Italian",
+    "English",
+    "German",
+    "French"
+   ]
+  },
+  "areaServed": [
+   {
+    "@type": "Country",
+    "name": "Switzerland"
+   },
+   {
+    "@type": "Country",
+    "name": "Italy"
+   }
+  ],
+  "correctionsPolicy": "https://frontaliereticino.ch/correzioni/",
+  "ethicsPolicy": "https://frontaliereticino.ch/chi-siamo/#standard-giornalistici",
+  "ownershipFundingInfo": "https://frontaliereticino.ch/chi-siamo/#finanziamento",
+  "masthead": "https://frontaliereticino.ch/chi-siamo/#team",
+  "verificationFactCheckingPolicy": "https://frontaliereticino.ch/metodologia/#fact-checking",
+  "publishingPrinciples": "https://frontaliereticino.ch/metodologia/",
+  "actionableFeedbackPolicy": "https://frontaliereticino.ch/contattaci/",
+  "description": "Guida completa per i lavoratori frontalieri in Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e offerte di lavoro.",
+  "knowsAbout": [
+ "Fiscalità frontalieri Svizzera-Italia",
+ "Nuovo accordo fiscale 2026",
+ "Previdenza sociale AVS/LPP",
+ "Assicurazione malattia LAMal/CMB",
+ "Permesso G e permesso B",
+ "Mercato del lavoro Ticino"
+ ]
+ }
+ ],
+ },
+
+ 'correzioni': {
+ title: 'Correzioni — Politica di rettifica e registro pubblico | Frontaliere Ticino',
+ description: 'Come segnalare un errore a Frontaliere Ticino e consultare le rettifiche presenti nel registro pubblico.',
+ keywords: 'correzioni frontaliere ticino, errata corrige, rettifica articolo, policy correzione, trasparenza editoriale',
+ ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
+ ogDescription: 'Come segnalare un errore e consultare le rettifiche presenti nel registro pubblico.',
+ canonicalPath: '/correzioni/',
+ // Italian metadata is parsed from this registry. Non-Italian static pages
+ // and the React page use buildCorrezioniSeo(locale), sharing localized copy.
+ // This literal omits lastReviewed; the builder adds only a recorded log date.
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Correzioni — Frontaliere Ticino",
+ "url": `${BASE_URL}/correzioni/`,
+ "description": "Politica di correzione pubblica e registro cronologico delle rettifiche pubblicate da Frontaliere Ticino.",
+ "inLanguage": "it",
+ "isPartOf": { "@id": `${BASE_URL}/#website` },
+ "publisher": { "@id": `${BASE_URL}/#organization` },
+ "about": {
+ "@type": "CreativeWork",
+ "name": "Editorial corrections policy"
+ }
+ }
+ ],
+ },
+
+ 'metodologia': {
+ title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ description: "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
+ keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
+ ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ ogDescription: 'Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.',
+ canonicalPath: '/metodologia/',
+ // SearchAtlas "missing schema markup" (2026-06-15): this editorial-process
+ // page is an About page (mirrors the /about/ alias which already uses
+ // AboutPage), so AboutPage (below) is the correct type, not a generic WebPage.
+ // NOTE: comments must stay OUTSIDE the structuredData literal — jsToJson does
+ // not strip `//`, so an inline comment makes JSON.parse throw and the SD is
+ // silently dropped.
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "AboutPage",
+ "name": "Metodologia editoriale — Come scriviamo gli articoli",
+ "url": `${BASE_URL}/metodologia/`,
+ "description": "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
+ "lastReviewed": "2026-10-03T00:00:00+02:00",
+ "inLanguage": "it",
+ "isPartOf": { "@id": `${BASE_URL}/#website` },
+ "about": {
+ "@type": "CreativeWork",
+ "name": "Editorial methodology and AI-assistance disclosure"
+ },
+ "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ ],
+ },
+
+ // ─── English E-E-A-T alias pages ─────────────────────────────────────────
+ // Root-level English paths so SEO crawlers (squirrelscan, Bing) find
+ // About / Contact / Privacy pages using English URL heuristics.
+ // NOTE: the blank line below is REQUIRED — staticPagesPlugin's seoMap
+ // parser regex only matches entries preceded by a blank line (consumes
+ // \n\n as the 2-char whitespace prefix it needs to anchor on).
+
+ 'about': {
+ title: 'About Us — Frontaliere Ticino: Cross-Border Workers Guide',
+ description: 'Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland. Tax simulation, permits, health insurance, pension planning.',
+ keywords: 'frontaliere ticino, about us, cross-border workers platform, swiss italian workers',
+ ogTitle: 'About Us — Frontaliere Ticino: Cross-Border Workers Guide',
+ ogDescription: 'The leading platform for Italian cross-border workers in Switzerland: tax simulation, permits, job board, and more.',
+ canonicalPath: '/about/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "AboutPage",
+ "name": "About Us — Frontaliere Ticino",
+ "url": `${BASE_URL}/about/`,
+ "mainEntity": { "@id": `${BASE_URL}/#organization` },
+ "description": "Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland",
+ "inLanguage": "en"
+ },
+    {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://frontaliereticino.ch/#organization",
+  "additionalType": "https://schema.org/NewsMediaOrganization",
+  "name": "Frontaliere Ticino",
+  "url": "https://frontaliereticino.ch/",
+  "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
+   "https://www.facebook.com/frontaliereticino",
+   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://github.com/valerielinc-ops/frontaliere-si-o-no"
+  ],
+  "logo": {
+   "@type": "ImageObject",
+   "contentUrl": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
+   "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+   "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://frontaliereticino.ch/#organization",
+    "name": "Frontaliere Ticino",
+    "url": "https://frontaliereticino.ch/"
+   },
+   "creditText": "Frontaliere Ticino",
+   "width": 512,
+   "height": 512
+  },
+  "foundingDate": "2023",
+  "contactPoint": {
+   "@type": "ContactPoint",
+   "contactType": "customer support",
+   "url": "https://frontaliereticino.ch/contattaci/",
+   "availableLanguage": [
+    "Italian",
+    "English",
+    "German",
+    "French"
+   ]
+  },
+  "areaServed": [
+   {
+    "@type": "Country",
+    "name": "Switzerland"
+   },
+   {
+    "@type": "Country",
+    "name": "Italy"
+   }
+  ],
+  "correctionsPolicy": "https://frontaliereticino.ch/correzioni/",
+  "ethicsPolicy": "https://frontaliereticino.ch/chi-siamo/#standard-giornalistici",
+  "ownershipFundingInfo": "https://frontaliereticino.ch/chi-siamo/#finanziamento",
+  "masthead": "https://frontaliereticino.ch/chi-siamo/#team",
+  "verificationFactCheckingPolicy": "https://frontaliereticino.ch/metodologia/#fact-checking",
+  "publishingPrinciples": "https://frontaliereticino.ch/metodologia/",
+  "actionableFeedbackPolicy": "https://frontaliereticino.ch/contattaci/",
+  "description": "The comprehensive guide for cross-border workers in Switzerland: tax simulator, pension planning, health insurance, currency exchange, and job board."
+ }
+ ],
+ },
+
+ 'contact-alias': {
+ title: 'Contact Us | Frontaliere Ticino',
+ description: 'Contact the Frontaliere Ticino team: suggestions, bug reports, collaborations. We answer questions about taxes, fiscal simulation, and cross-border tools.',
+ keywords: 'contact frontaliere, support frontaliere, cross-border workers support, frontaliere ticino contact',
+ ogTitle: 'Contact Us | Frontaliere Ticino',
+ ogDescription: '✉️ Contact the Frontaliere Ticino team for questions, suggestions, or collaborations.',
+ canonicalPath: '/contact/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "ContactPage",
+ "name": "Contact Frontaliere Ticino",
+ "url": `${BASE_URL}/contact/`,
+ "description": "Contact page for Frontaliere Ticino cross-border workers platform",
+ "inLanguage": "en"
+ },
+ },
+
+ 'privacy-policy-alias': {
+ title: 'Privacy Policy | Frontaliere Ticino',
+ description: 'Privacy policy of Frontaliere Ticino: personal data processing, cookies, analytics, user rights. Compliant with GDPR and Swiss DPA.',
+ keywords: 'privacy policy frontaliere, GDPR frontaliere, cookie policy, data processing, privacy information',
+ ogTitle: 'Privacy Policy | Frontaliere Ticino',
+ ogDescription: '🔒 Privacy policy: how we process your data. Compliant with GDPR and Swiss DPA.',
+ canonicalPath: '/privacy-policy/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Privacy Policy — Frontaliere Ticino",
+ "url": `${BASE_URL}/privacy-policy/`,
+ "description": "Privacy policy of Frontaliere Ticino",
+ "inLanguage": "en"
+ },
+ },
+
+ // ───────────────────────────────────────────────────────────────
+ // Workstream C — Nuove landing pages SEO (SemRush growth plan)
+ // ───────────────────────────────────────────────────────────────
+
+ 'tassa-salute-frontalieri': {
+ title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
+ h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
+ description: 'Tassa salute frontalieri 2026: chi paga il contributo SSN, come si calcola il 3–6% sul salario netto e perché importi e scadenze dipendono dalla Regione.',
+ keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
+ ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
+ ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',
+ canonicalPath: '/guida-frontaliere/tassa-salute-frontalieri/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Tassa salute frontalieri 2026: importo, esenzioni e funzionamento",
+ "description": "Contributo sanitario previsto dalla legge italiana 213/2023 e dal decreto 14 novembre 2025: condizioni, quota sul netto e competenze regionali.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": "2026-10-03",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Cos'è la tassa salute per i frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il contributo al SSN è previsto dalla legge italiana 213/2023, articolo 1, commi 237–239, e dal decreto 14 novembre 2025. Riguarda le categorie previste dalla legge, compresi i vecchi frontalieri dell'articolo 9 che hanno esercitato l'opzione per l'assistenza italiana, e i familiari a carico. Non è un'imposta svizzera sui soli nuovi frontalieri."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto è la tassa salute frontalieri nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La legge prevede il 3–6% del salario netto svizzero, con quota familiare progressiva e limiti di 30–200 euro per mese lavorato, raddoppiabili in caso di omesso pagamento o comunicazione. La quota annuale è definita dalla Regione o Provincia autonoma competente: per importo e scadenza 2026 occorre consultare il relativo provvedimento, non applicare automaticamente il 6%."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I vecchi frontalieri devono pagare la tassa salute?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "I vecchi frontalieri non sono esclusi: la legge richiama espressamente quelli dell'articolo 9, paragrafo 1, che hanno esercitato il diritto d'opzione per il SSN. Occorre verificare copertura sanitaria, condizioni personali e provvedimenti territoriali; il solo permesso G o la data di assunzione non bastano."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Chi incassa materialmente la tassa salute frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il decreto 14 novembre 2025 prevede un versamento annuale degli interessati direttamente alla Regione o alla Provincia autonoma di Bolzano tramite gli strumenti di pagamento dell'articolo 5 del Codice dell'amministrazione digitale. Non prevede una trattenuta del datore svizzero o un trasferimento tramite la Confederazione."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "La tassa salute è detraibile in dichiarazione dei redditi?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Non va inserito automaticamente nel credito per le imposte pagate in Svizzera: si tratta di un contributo al servizio sanitario italiano. Prima di indicarlo in dichiarazione verifica le istruzioni fiscali applicabili al tuo caso con il CAF o un professionista, conservando ricevute e avviso dell'ente competente."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Tassa salute e LAMal sono la stessa cosa?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No. La LAMal riguarda l'assicurazione malattie svizzera; il contributo sanitario italiano dipende dalle categorie e dalle condizioni stabilite dalla legge. Non si può affermare che ogni nuovo frontaliere debba pagare entrambi: va verificato il diritto d'opzione e il proprio inquadramento sanitario."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'lamal-frontalieri': {
+ title: 'LAMal Frontalieri 2026: Premi, Costi e Diritto d\'Opzione',
+ h1: 'LAMal frontalieri 2026 — diritto d\'opzione, premi, casse malati, come scegliere',
+ description: 'LAMal frontalieri 2026: premi, costo mensile e diritto d\'opzione tra assicurazione svizzera e SSN. Confronto casse malati e scadenze.',
+ keywords: 'lamal frontalieri, assicurazione malattia frontalieri, casse malati frontalieri, diritto di opzione lamal, premi lamal ticino, franchigia lamal, SSN o lamal frontalieri',
+ ogTitle: 'LAMal Frontalieri 2026 — Premi e Diritto d\'Opzione',
+ ogDescription: 'LAMal frontalieri 2026: premi, diritto d\'opzione e confronto con il SSN italiano.',
+ canonicalPath: '/guida-frontaliere/lamal-frontalieri/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "LAMal frontalieri 2026: diritto d'opzione, premi, casse malati",
+ "description": "Guida pillar completa alla LAMal (Legge federale sull'assicurazione malattia) per frontalieri: come funziona il diritto d'opzione tra LAMal e SSN, premi aggiornati 2026 delle casse malati del Canton Ticino, franchigie, rimborsi e scadenze.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": "2026-04-22",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/lamal-frontalieri/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Cos'è la LAMal e come si applica ai frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "La LAMal (Legge federale sull'assicurazione malattia, entrata in vigore nel 1996) è l'assicurazione sanitaria obbligatoria svizzera. I frontalieri hanno il diritto d'opzione: possono scegliere entro tre mesi dall'inizio del rapporto di lavoro se aderire alla LAMal svizzera o rimanere coperti dal Servizio Sanitario Nazionale italiano. La scelta non può essere modificata liberamente; verifica eventuali nuovi eventi con il Cantone di lavoro. Per scegliere il SSN occorre una domanda formale di esenzione all’autorità competente del Cantone di lavoro."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanto costa la LAMal a un frontaliere nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Meglio scegliere LAMal o SSN italiano come frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en"
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Si può cambiare cassa malati dopo aver scelto la LAMal?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. Un eventuale nuovo esercizio del diritto di opzione verso il SSN italiano va verificato con il Cantone di lavoro in base agli eventi e ai requisiti applicabili. Il cambio di cassa malati all'interno del sistema LAMal è possibile una volta all'anno: comunicando la disdetta entro il 30 novembre con effetto dal 1° gennaio dell'anno successivo (franchigia ordinaria) o entro il 31 marzo ed il 30 settembre per le franchigie opzionali. Il nuovo assicuratore LAMal non può rifiutare l'adesione per motivi di salute: è obbligato per legge ad accettare chiunque rispetti i requisiti di residenza e attività."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I familiari del frontaliere sono coperti dalla LAMal?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì. Se il frontaliere sceglie la LAMal, anche coniuge e figli non attivi residenti in Italia devono iscriversi obbligatoriamente alla LAMal svizzera (premio ridotto per i figli fino a 18 anni e giovani adulti 19-25 anni in formazione). Solo il coniuge che ha un proprio lavoro in Italia o risulta iscritto autonomamente al SSN può restare escluso dalla LAMal. Questo è un aspetto spesso sottovalutato nel calcolo del costo reale della scelta LAMal per famiglie numerose."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "La LAMal è detraibile dalle tasse italiane?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Per i nuovi frontalieri (dal 17/07/2023) i premi LAMal effettivamente versati in Svizzera sono deducibili fino a €3.000 annui ai fini IRPEF italiana, come previsto dall'art. 3 del Nuovo Accordo. La deduzione va indicata nel Quadro RP del modello Redditi PF conservando le ricevute della cassa malati e l'attestazione annuale del premio versato. Per i vecchi frontalieri la LAMal non è deducibile in Italia, ma non essendo tassati in Italia, non ne hanno beneficio diretto."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'outlet-fox-town-mendrisio': {
+ title: 'Fox Town Outlet Mendrisio — Orari, Sconti, Come Arrivare 2026',
+ h1: 'Fox Town Mendrisio — l\'outlet della Svizzera italiana: orari, marchi, sconti 2026',
+ description: 'Guida Fox Town Mendrisio: orari, oltre 160 marchi di lusso, sconti 30-70%, come arrivare da Como e Varese, parcheggio gratuito, ristoranti e cashback frontalieri.',
+ keywords: 'fox town mendrisio, outlet svizzera, outlet mendrisio, outlet ticino, fox town orari, fox town marchi, outlet lusso svizzera, outlet vicino confine italiano, outlet fox town sconti',
+ ogTitle: 'Fox Town Mendrisio — Outlet Svizzera di Lusso 2026',
+ ogDescription: '🛍️ Oltre 160 marchi di lusso scontati 30-70% a soli 3 km dal confine italiano. Orari, parcheggio, ristoranti e consigli per risparmiare a Fox Town Mendrisio.',
+ canonicalPath: '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "ShoppingCenter",
+ "name": "Fox Town Factory Stores Mendrisio",
+ "url": `${BASE_URL}/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/`,
+ "description": "Outlet di lusso nel Canton Ticino con oltre 160 marchi scontati del 30-70% tutto l'anno. A 3 km dalla dogana italiana di Chiasso.",
+ "address": {
+ "@type": "PostalAddress",
+ "streetAddress": "Via Angelo Maspoli 18",
+ "addressLocality": "Mendrisio",
+ "addressRegion": "Ticino",
+ "postalCode": "6850",
+ "addressCountry": "CH"
+ },
+ "geo": {
+ "@type": "GeoCoordinates",
+ "latitude": 45.866,
+ "longitude": 8.981
+ },
+ "openingHoursSpecification": [
+ {
+ "@type": "OpeningHoursSpecification",
+ "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+ "opens": "11:00",
+ "closes": "19:00"
+ }
+ ],
+ "priceRange": "€€-€€€€",
+ "publicAccess": true,
+ "smokingAllowed": false,
+ "currenciesAccepted": "CHF, EUR",
+ "paymentAccepted": "Cash, Credit Card"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Quali sono gli orari di Fox Town Mendrisio nel 2026?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town Mendrisio è aperto tutti i giorni dell'anno, compresi domeniche e festivi, dalle 11:00 alle 19:00. Chiude solo il 25 dicembre (Natale) e il 1° gennaio (Capodanno) mattina. L'orario dei ristoranti e del Casinò interno è esteso fino a tarda notte. Nei periodi di saldi (gennaio e luglio) gli orari possono essere prolungati per eventi speciali — verificare sempre sul sito ufficiale prima della visita."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanti marchi ci sono a Fox Town e che sconti si trovano?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town ospita oltre 160 boutique di marchi internazionali di fascia alta e di lusso: Gucci, Prada, Burberry, Armani, Dolce & Gabbana, Bottega Veneta, Moncler, Tod's, Versace, Balenciaga, Valentino, Fendi, Salvatore Ferragamo, Saint Laurent e molti altri. Gli sconti permanenti vanno dal 30% al 70% sul prezzo di listino, con punte fino al 90% durante i saldi di gennaio e luglio e sulle collezioni di due stagioni precedenti."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Come arrivare a Fox Town Mendrisio dall'Italia?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town si trova in Via Angelo Maspoli 18, 6850 Mendrisio, a soli 3 km dal valico doganale di Chiasso-Brogeda (uscita autostrada A2 Svizzera — corrispondente alla A9 italiana). Da Como il tragitto è di circa 25 km (30 minuti); da Milano Centrale circa 60 km (50 minuti in autostrada). Il parcheggio è gratuito con oltre 2.500 posti auto. In treno: stazione Mendrisio San Martino (linea TILO) a 800 metri, collegata con navetta gratuita."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Serve la carta di credito o si paga in euro a Fox Town?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Tutti i negozi accettano euro (EUR) oltre ai franchi svizzeri (CHF). Il tasso di cambio applicato dai negozi è generalmente meno favorevole di quello di mercato, quindi conviene pagare in CHF se si dispone di un conto svizzero o di una carta multivaluta (Revolut, Wise, N26). Tutte le carte di credito principali (Visa, Mastercard, Amex) sono accettate. Ai turisti non residenti in Svizzera è possibile richiedere il rimborso IVA svizzera (7,7%) presso il banco Tax Refund all'uscita, per acquisti superiori a CHF 300."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I frontalieri hanno sconti particolari a Fox Town?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Fox Town non offre uno sconto dedicato ai frontalieri ma esiste la Fox Town Privilege Card (gratuita, richiedibile online e all'info point) che dà diritto a sconti aggiuntivi del 5-10% in boutique selezionate, promozioni riservate via email e accesso alla lounge con WiFi e bevande gratuite. I pagamenti con carte di credito svizzere beneficiano in modo indiretto del tasso CHF-EUR e del cashback delle carte. Alcuni marchi (soprattutto orologi e gioielli) applicano uno sconto IVA immediato ai residenti in Italia."
+ }
+ }
+ ]
+ }
+ ]
+ },
+
+ 'ponti-2026-ticino': {
+ title: 'Ponti 2026 Ticino: Calendario Festivi e Chiusure Frontiera',
+ h1: 'Ponti 2026 in Ticino — calendario completo festività, long weekend e chiusure dogana',
+ description: 'Calendario ponti 2026 in Ticino per frontalieri: date ufficiali festività svizzere e italiane, long weekend, ferie scolastiche, giorni di chiusura dogana e pagamento.',
+ keywords: 'ponti 2026 ticino, festività 2026 ticino, calendario frontalieri 2026, ponti svizzera 2026, giorni rossi ticino, long weekend 2026, vacanze frontalieri 2026',
+ ogTitle: 'Ponti 2026 Ticino — Calendario Festività + Chiusure Frontiera',
+ ogDescription: '📅 Calendario ponti 2026 per frontalieri: festività svizzere e italiane, long weekend, chiusure dogana e info utili per pianificare ferie e rientri.',
+ canonicalPath: '/vita-in-ticino/ponti-2026-ticino/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Ponti 2026 Ticino: calendario festività e long weekend per frontalieri",
+ "description": "Calendario ufficiale dei ponti 2026 in Ticino con date di festività svizzere e italiane, long weekend, informazioni su chiusure dogana e pagamento stipendi per i frontalieri.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": "2026-04-22",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/ponti-2026-ticino/`,
+ "speakable": SPEAKABLE_SECTION
+ }
+ ]
+ },
+
+ 'vacanze-scolastiche-ticino-2026': {
+ title: 'Calendario Scolastico Ticino 2026-2027: Vacanze e Date DECS',
+ h1: 'Vacanze scolastiche Ticino 2026-2027 — calendario ufficiale DECS, ferie, carnevale, estate',
+ description: 'Calendario scolastico Ticino 2026-2027: date ufficiali DECS, inizio e fine scuola, vacanze di Carnevale, Pasqua, estate, autunno e Natale.',
+ keywords: 'calendario scolastico ticino 2026, calendario scolastico ticino 2026/27, calendario scolastico ticino 2027, vacanze scolastiche ticino 2026, vacanze scolastiche ticino 2027, fine scuola ticino 2026, DECS ticino, carnevale ticino 2027, estate scuole ticino, vacanze pasqua ticino',
+ ogTitle: 'Calendario Scolastico Ticino 2026-2027: Vacanze e Date DECS',
+ ogDescription: 'Date ufficiali DECS: inizio e fine scuola, vacanze di Carnevale, Pasqua, estate, autunno e Natale per famiglie frontaliere.',
+ canonicalPath: '/vita-in-ticino/vacanze-scolastiche-ticino-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Vacanze scolastiche Ticino 2026-2027: calendario DECS ufficiale",
+ "description": "Calendario ufficiale delle vacanze scolastiche in Canton Ticino per l'anno 2026-2027 pubblicato dal DECS: carnevale, Pasqua, estate, autunno, Natale.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-22",
+ "dateModified": "2026-04-22",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/vacanze-scolastiche-ticino-2026/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quando inizia la scuola in Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Per l'anno scolastico 2026-2027 le lezioni in tutte le scuole del Canton Ticino iniziano lunedì 31 agosto 2026, secondo il calendario ufficiale DECS. Fanno eccezione alcune scuole professionali con calendari specifici." } },
+ { "@type": "Question", "name": "Quando finisce la scuola in Ticino nel 2027?", "acceptedAnswer": { "@type": "Answer", "text": "L'anno scolastico 2026-2027 termina mercoledì 16 giugno 2027 per tutte le scuole dell'obbligo del Canton Ticino. Le vacanze estive iniziano quindi da giovedì 17 giugno 2027." } },
+ { "@type": "Question", "name": "Quali sono le vacanze di Carnevale in Ticino nel 2027?", "acceptedAnswer": { "@type": "Answer", "text": "Le vacanze di Carnevale 2027 in Ticino vanno da sabato 6 febbraio a domenica 14 febbraio 2027 (una settimana), secondo il calendario DECS." } },
+ { "@type": "Question", "name": "Quando sono le vacanze di Pasqua 2027 per le scuole ticinesi?", "acceptedAnswer": { "@type": "Answer", "text": "Le vacanze di Pasqua 2027 nelle scuole del Canton Ticino vanno da venerdì 26 marzo a domenica 4 aprile 2027. La domenica di Pasqua cade il 28 marzo 2027." } },
+ { "@type": "Question", "name": "Quando sono le vacanze di Natale e autunnali in Ticino 2026-2027?", "acceptedAnswer": { "@type": "Answer", "text": "Le vacanze autunnali vanno da sabato 31 ottobre a domenica 8 novembre 2026; le vacanze di Natale da giovedì 24 dicembre 2026 a mercoledì 6 gennaio 2027. Tutte le date sono stabilite dal DECS del Canton Ticino." } },
+ { "@type": "Question", "name": "Il calendario scolastico ticinese è uguale a quello italiano?", "acceptedAnswer": { "@type": "Answer", "text": "No. Le scuole italiane di confine (Como, Varese, Valtellina) seguono un calendario diverso, con inizio a metà settembre, vacanze estive più lunghe e nessuna vacanza autunnale. I genitori frontalieri con figli nei due sistemi devono incrociare le date per trovare finestre di ferie comuni." } }
+ ]
+ }
+ ]
+ },
+
+ // ── Sprint 2 pillar pages ─────────────────────────────────────
+ pillarTasseSvizzere: {
+ title: 'Tasse svizzere frontalieri 2026: aliquote e credito',
+ description: 'Tasse svizzere frontalieri 2026: imposta alla fonte Ticino, aliquote del Nuovo Accordo, doppia imposizione e credito d\'imposta, con esempi pratici e FAQ.',
+ keywords: 'tasse svizzere, tasse frontalieri, imposta alla fonte ticino, nuovo accordo 2026, doppia imposizione italia svizzera, dichiarazione redditi frontaliere, credito imposta frontaliere',
+ ogTitle: 'Tasse Svizzere per Frontalieri 2026 — Guida Completa',
+ ogDescription: 'Imposta alla fonte Ticino, Nuovo Accordo 2026, doppia imposizione e credito d\'imposta: tutto quello che serve a un frontaliere italiano per capire le tasse svizzere.',
+ canonicalPath: '/tasse-e-pensione/tasse-svizzere-frontalieri/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Tasse Svizzere Frontalieri 2026: Aliquote e Credito d'Imposta",
+ "description": "Guida completa alle tasse svizzere per frontalieri italiani: imposta alla fonte, Nuovo Accordo 2026, dichiarazione in Italia, credito d'imposta.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-23",
+ "dateModified": "2026-04-23",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quanto pagano di tasse i frontalieri in Svizzera nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "L’imposta dipende dalla tariffa cantonale, dal reddito e dalla situazione familiare. Per i nuovi frontalieri fiscali si applica l’80% dell’ordinaria imposta alla fonte svizzera, a cui si affianca l’imposta italiana con credito. I vecchi qualificati dall’articolo 9 restano tassati solo in Svizzera sul salario interessato. Usa il tariffario dell’anno e il tuo status documentato, non una percentuale media generalizzata. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Qual è la differenza fra nuovi e vecchi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Cos'è il credito d'imposta per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il credito d'imposta permette al nuovo frontaliere di detrarre dall'IRPEF italiana l'imposta alla fonte già versata in Svizzera. Si compila nel quadro CE del 730/Redditi allegando l'attestazione dell'imposta svizzera (art. 15 Convenzione Italia-Svizzera). Evita la doppia imposizione sullo stesso reddito." } },
+ { "@type": "Question", "name": "Le tasse svizzere sono più basse di quelle italiane?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, mediamente le aliquote svizzere sono più basse soprattutto sui redditi medio-alti. Un lordo di CHF 80.000 produce un netto di circa CHF 65.000 in Ticino (18% di prelievo totale) mentre in Italia un lordo equivalente in euro avrebbe un'aliquota IRPEF del 35-38% più INPS. Il vantaggio fiscale è il principale motivo per fare il frontaliere." } },
+ { "@type": "Question", "name": "Come si calcola l'imposta alla fonte in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "L'imposta alla fonte è una ritenuta mensile applicata dal datore di lavoro svizzero secondo le tabelle A/B/C/H del Canton Ticino: A per single senza figli, B per single con figli, C per coniugati, H per monoparentali. L'aliquota è progressiva e dipende dal reddito lordo mensile, dalla confessione religiosa e dal numero di figli a carico." } },
+ { "@type": "Question", "name": "Devo presentare la dichiarazione dei redditi in Italia da frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "I vecchi frontalieri qualificati non pagano IRPEF italiana sul salario svizzero coperto dall’articolo 9; altri redditi e obblighi di monitoraggio vanno valutati separatamente. I nuovi frontalieri fiscali dichiarano il reddito anche in Italia con credito per l’imposta svizzera. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Cosa succede se cambio datore di lavoro in Svizzera nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il cambio di datore non comporta automaticamente la perdita del regime dei vecchi frontalieri. Contano la precedente attività come frontaliere fiscale nel periodo 31 dicembre 2018–17 luglio 2023 e il rispetto delle condizioni applicabili. Verifica con il nuovo datore la documentazione per la tariffa corretta. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Come si recupera l'imposta alla fonte pagata in eccesso in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Occorre distinguere un errore nella trattenuta dalla tassazione ordinaria ulteriore (TOU). Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 dell’AFC esclude la TOU: superare CHF 120.000 non dà automaticamente accesso a questa procedura. Per una trattenuta errata verifica il conteggio con il datore e la procedura e i termini con l’autorità fiscale cantonale; non esiste un rimborso fisso garantito. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
+ "claimReviewed": "L'imposta alla fonte in Canton Ticino per frontalieri varia dal 3% al 35% in base a reddito, stato civile e figli (2026).",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "AFC — Divisione delle contribuzioni Ticino" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/", "name": "AFC Ticino — Imposta alla fonte: tabelle A/B/C/H 2026" }
+ },
+ "reviewBody": "Tabelle cantonali AFC Ticino 2026: aliquote progressive dal 3% (redditi bassi, coniugati con figli) al 35% (redditi molto alti) per tabelle A, B, C, H."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
+ "claimReviewed": "La franchigia IRPEF di 10.000 euro annui riguarda i redditi di lavoro dipendente frontaliero qualificati dalla normativa italiana; non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "dateModified": "2026-10-03",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Legge 13 giugno 2023 n. 83 — Ratifica Accordo Italia-Svizzera" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-06-13;83", "name": "Legge n. 83/2023 — Ratifica ed esecuzione dell'Accordo tra la Repubblica italiana e la Confederazione svizzera" }
+ },
+ "reviewBody": "L’articolo 4 della legge 83/2023 innalza a 10.000 euro la franchigia sui redditi di lavoro dipendente frontaliero qualificati dalla norma italiana, dal periodo di imposta 2024. La franchigia non è limitata ai soli comuni entro 20 km. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
+ "claimReviewed": "Il credito d'imposta per frontalieri elimina la doppia imposizione fra Svizzera e Italia.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Convenzione Italia-Svizzera contro le doppie imposizioni (art. 15 e 24)" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/schede/normativa/convenzione-per-evitare-le-doppie-imposizioni-italia-svizzera", "name": "Agenzia Entrate — Convenzione Italia-Svizzera contro le doppie imposizioni" }
+ },
+ "reviewBody": "L'art. 24 della Convenzione Italia-Svizzera 9/3/1976 (ratificata con L. 943/1978) prevede il credito d'imposta: l'imposta alla fonte pagata in Svizzera si detrae dall'IRPEF italiana sullo stesso reddito, evitando la doppia imposizione."
+ }
+ ]
+ },
+
+ pillarLavoroLugano: {
+ title: 'Lavoro a Lugano per Frontalieri 2026 — Offerte e Stipendi',
+ description: 'Lavoro a Lugano per frontalieri: settori che assumono (banche, sanità, logistica), stipendi medi CHF, aziende principali, come arrivare da Como e Varese.',
+ keywords: 'lavoro lugano, lavoro frontalieri lugano, offerte lavoro lugano, stipendi lugano, aziende lugano, lavoro banca lugano, lavoro logistica lugano, lavoro sanità lugano',
+ ogTitle: 'Lavoro a Lugano per Frontalieri — Offerte, Stipendi, Aziende',
+ ogDescription: 'Cerchi lavoro a Lugano come frontaliere? Settori, stipendi medi, top aziende, come arrivare dai valichi e tutte le posizioni aperte della settimana.',
+ canonicalPath: '/vita-in-ticino/lavoro-a-lugano/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Lavoro a Lugano per Frontalieri 2026 — Offerte, Stipendi e Settori",
+ "description": "Guida completa al mercato del lavoro di Lugano per frontalieri italiani: settori che assumono, stipendi medi, aziende principali, logistica del pendolarismo.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-23",
+ "dateModified": "2026-04-23",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/lavoro-a-lugano/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quali settori assumono di più a Lugano?", "acceptedAnswer": { "@type": "Answer", "text": "A Lugano i settori più attivi sono: banche e finanza (UBS, Credit Suisse, BancaStato, EFG), sanità pubblica e privata (Ente Ospedaliero Cantonale, Clinica Moncucco, Clinica Sant'Anna), logistica e trasporti (Rhenus, DHL, Planzer), retail di lusso (via Nassa), ICT, studi di commercialisti e avvocati internazionali." } },
+ { "@type": "Question", "name": "Qual è lo stipendio medio a Lugano per un frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio medio lordo a Lugano varia per settore: impiegato di banca junior CHF 70.000-80.000, infermiere in corsia CHF 75.000-90.000, ingegnere software CHF 90.000-110.000, commercialista CHF 80.000-100.000, operatore logistico CHF 55.000-65.000. Il netto per un frontaliere nuovo (dopo imposta alla fonte e conguaglio IRPEF Italia) è circa il 78-84% del lordo." } },
+ { "@type": "Question", "name": "Come arrivare a Lugano da Como o Varese?", "acceptedAnswer": { "@type": "Answer", "text": "I valichi principali per Lugano sono Chiasso-Brogeda (15 minuti dal centro), Gaggiolo (18 minuti) e Stabio (20 minuti). In treno TiLo copre Como-Lugano in 35 minuti e Varese-Lugano in 55 minuti. In auto, negli orari di punta, meglio partire prima delle 6:30 dal confine per evitare code al valico." } },
+ { "@type": "Question", "name": "Servono il permesso G e la patente italiana per lavorare a Lugano?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, per lavorare come frontaliere a Lugano serve il permesso G rilasciato dal datore di lavoro svizzero tramite l'Ufficio della migrazione. La patente italiana è valida per guidare l'auto immatricolata in Italia fino al confine; se si guida un'auto svizzera aziendale serve la patente per targhe svizzere." } },
+ { "@type": "Question", "name": "Quante aziende assumono a Lugano ogni settimana?", "acceptedAnswer": { "@type": "Answer", "text": "Il mercato del lavoro di Lugano pubblica mediamente 80-120 nuove posizioni a settimana aperte a frontalieri italiani. La job board di Frontaliere Ticino aggiorna settimanalmente l'elenco delle aziende che assumono con link diretto alle candidature. Le posizioni vanno da junior a management, con concentrazione in banking, healthcare e ICT." } },
+ { "@type": "Question", "name": "Quali sono le migliori zone di Lugano dove lavorare da frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il centro (Piazza Riforma, Via Nassa, Quartiere di Besso) concentra banche e studi professionali ed è ben servito dal treno TiLo e dal Park&Ride. Il distretto di Cornaredo-Trevano ospita cliniche private, SUPSI e ICT; Pregassona e Viganello sono ideali per sanità pubblica (EOC Civico). La zona industriale di Manno-Bioggio è hub logistico/manifatturiero con ampi parcheggi aziendali, ma meno collegata ai valichi di Chiasso." } },
+ { "@type": "Question", "name": "Serve il tedesco o il francese per lavorare a Lugano?", "acceptedAnswer": { "@type": "Answer", "text": "No, a Lugano l'italiano è lingua ufficiale del Cantone Ticino e copre oltre il 90% delle posizioni aperte ai frontalieri. L'inglese è richiesto nella finanza internazionale, nell'ICT e in alcune multinazionali farmaceutiche. Il tedesco è un plus per banche federali (UBS, ZKB) e per chi vuole crescere verso la Svizzera interna; il francese è raramente richiesto a Lugano tranne che in ruoli federali e nelle assicurazioni pan-svizzere." } },
+ { "@type": "Question", "name": "Si può lavorare in smart working a Lugano come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, ma con limiti. L'accordo Italia-Svizzera del 23/12/2023 consente fino al 25% di telelavoro dall'Italia senza compromettere lo status fiscale di frontaliere. Oltre il 25% si perde la qualifica di frontaliere con conseguenze su imposta alla fonte, ristorni e residenza fiscale. I datori svizzeri a Lugano spesso offrono 1 giorno di smart working a settimana, compatibile con il limite del 25%." } }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/vita-in-ticino/lavoro-a-lugano/`,
+ "claimReviewed": "Nel Canton Ticino lavorano oltre 74.000 frontalieri italiani (2025), con Lugano tra le principali piazze di destinazione.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale di statistica (UST) — Statistica dei frontalieri (STAF)" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito/attivita-professionale-orario-lavoro.html", "name": "UST — Statistica dei lavoratori frontalieri stranieri (STAF)" }
+ },
+ "reviewBody": "Fonte ufficiale UST/BFS (Statistica STAF): il Canton Ticino conta oltre 74.000 frontalieri attivi nel 2° trimestre 2025, di cui circa il 90% italiani."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/vita-in-ticino/lavoro-a-lugano/`,
+ "claimReviewed": "A Lugano i settori più attivi nell'assumere frontalieri sono banche/finanza, sanità pubblica e privata, logistica, ICT e retail di lusso.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "USTAT — Ufficio di statistica del Canton Ticino, Mercato del lavoro" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28", "name": "USTAT — Lavoro e reddito in Canton Ticino" }
+ },
+ "reviewBody": "Dati USTAT e osservatorio mercato del lavoro cantonale: concentrazione di occupazione frontaliera nel terziario avanzato luganese (banche UBS/BancaStato/EFG, EOC, cliniche private, Rhenus/Planzer, SUPSI/ICT)."
+ }
+ ]
+ },
+
+ pillarNuovaLegge2026: {
+ title: 'Nuova Legge Frontalieri 2026 — Cosa Cambia, Tabelle, Impatti',
+ description: 'Nuova legge frontalieri 2026: Nuovo Accordo Italia-Svizzera, impatto su tasse e stipendio netto, nuovi vs vecchi frontalieri, tabelle IRPEF ed esempi.',
+ keywords: 'nuova legge frontalieri 2026, nuovo accordo frontalieri, accordo italia svizzera 2026, tasse frontalieri 2026, nuovi frontalieri 2023, vecchi frontalieri, franchigia 10000',
+ ogTitle: 'Nuova Legge Frontalieri 2026 — Guida Completa al Nuovo Accordo',
+ ogDescription: 'Nuovo Accordo fiscale Italia-Svizzera: cosa cambia nel 2026, chi è nuovo e chi è vecchio frontaliere, tabelle IRPEF, impatto sul netto mensile.',
+ canonicalPath: '/tasse-e-pensione/nuova-legge-frontalieri-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "NewsArticle",
+ "headline": "Nuova Legge Frontalieri 2026 — Cosa Cambia nel Nuovo Accordo",
+ "description": "Analisi completa della nuova legge frontalieri 2026: regime nuovi vs vecchi, franchigia €10.000, credito d'imposta, impatti sullo stipendio netto.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-23",
+ "dateModified": "2026-04-23",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Cosa cambia con la nuova legge frontalieri 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Chi è considerato nuovo frontaliere secondo il Nuovo Accordo?", "acceptedAnswer": { "@type": "Answer", "text": "È nuovo frontaliere fiscale chi soddisfa la definizione dell’accordo ma non può beneficiare dell’articolo 9 per attività qualificante nel periodo 31 dicembre 2018–17 luglio 2023. La definizione richiede residenza in un comune dell’elenco ufficiale entro 20 km, lavoro in Ticino, Grigioni o Vallese e rientro in linea di principio quotidiano. Il solo cambio di datore non determina il regime. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "La franchigia di €10.000 è cumulabile con altre deduzioni?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, la franchigia di €10.000 si somma alle normali deduzioni IRPEF italiane (no tax area, detrazioni per lavoro dipendente, detrazioni familiari). Viene applicata come riduzione della base imponibile ai fini IRPEF, non come credito d'imposta. Va indicata nel quadro CE del modello Redditi PF o 730." } },
+ { "@type": "Question", "name": "Quanto pagherò in più rispetto al vecchio regime?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dal reddito. Per un lordo svizzero di CHF 70.000 un nuovo frontaliere paga circa CHF 2.000-4.000 di IRPEF italiana residua rispetto al vecchio regime, a seconda della situazione familiare. Il simulatore di Frontaliere Ticino calcola l'impatto preciso considerando aliquota alla fonte, franchigia, credito d'imposta e aliquote IRPEF italiane per scaglioni." } },
+ { "@type": "Question", "name": "Cosa succede ai vecchi frontalieri dopo il 2033?", "acceptedAnswer": { "@type": "Answer", "text": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "La nuova legge si applica anche a chi lavora fuori Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, il Nuovo Accordo 2020 si applica ai frontalieri italiani in tutti i cantoni di confine (Ticino, Grigioni, Vallese). Chi lavora nei Grigioni o in Vallese come frontaliere nuovo è soggetto alle stesse regole: imposta alla fonte svizzera, IRPEF italiana con franchigia di 10.000 euro, credito d'imposta. Ticino resta il cantone con il maggior numero di frontalieri italiani (oltre 74.000 nel 2025), seguito da Basilea-città e Ginevra per francofoni." } },
+ { "@type": "Question", "name": "Cambia qualcosa per la tredicesima e i bonus dei nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "No, la tredicesima e i bonus di risultato sono tassati come il resto del reddito lordo svizzero: imposta alla fonte al momento del pagamento e inclusi nella base IRPEF italiana del nuovo frontaliere. La franchigia di 10.000 euro si applica al reddito complessivo annuo (stipendio + tredicesima + bonus) e non può essere frazionata per singola voce. Nella dichiarazione 730/Redditi va indicato l'importo lordo totale percepito nell'anno." } },
+ { "@type": "Question", "name": "I contributi LPP del 2° pilastro sono deducibili in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Distingui i contributi obbligatori LPP dai riscatti volontari e dai versamenti 3a. Per il trattamento italiano verifica le istruzioni vigenti con il certificato di salario; una deduzione svizzera non prova una deduzione italiana. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
+ "claimReviewed": "Il Nuovo Accordo fiscale Italia-Svizzera è entrato in vigore il 17 luglio 2023 e ha introdotto il regime dei \"nuovi frontalieri\" pienamente applicato dal 2024.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Accordo Italia-Svizzera relativo all'imposizione dei lavoratori frontalieri, firmato 23/12/2020, in vigore 17/07/2023" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.esteri.it/wp-content/uploads/2021/01/ACCORDO-FRONTALIERI-ITALIA-SVIZZERA.pdf", "name": "Ministero degli Esteri — Accordo Italia-Svizzera sui lavoratori frontalieri (23/12/2020)" }
+ },
+ "reviewBody": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
+ "claimReviewed": "I frontalieri possono lavorare in telelavoro dall'Italia fino al 25% del tempo senza perdere lo status fiscale di frontaliere.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Accordo amichevole Italia-Svizzera sul telelavoro dei frontalieri, 23/12/2023" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.finanze.gov.it/it/inevidenza/Accordo-amichevole-Italia-Svizzera-telelavoro-frontalieri/", "name": "MEF — Accordo amichevole Italia-Svizzera sul telelavoro dei lavoratori frontalieri (23/12/2023)" }
+ },
+ "reviewBody": "L'accordo amichevole Italia-Svizzera del 23/12/2023 consente fino al 25% di telelavoro dall'Italia senza compromettere lo status fiscale di frontaliere né l'applicazione dell'Accordo fiscale 2020."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
+ "claimReviewed": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Agenzia delle Entrate — Circolare n. 25/E del 2024" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/-/circolare-n-25-e-del-18-luglio-2024", "name": "Agenzia Entrate — Circolare n. 25/E del 18 luglio 2024, nuovo regime frontalieri" }
+ },
+ "reviewBody": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ ]
+ },
+
+ pillarOssSvizzera: {
+ title: 'OSS in Svizzera 2026 — Stipendi, Riconoscimento Titolo, Offerte',
+ description: 'OSS (operatore socio-sanitario) in Svizzera per italiani: stipendi medi, riconoscimento SRK, offerte in Ticino, formazione, confronto con OSS Italia.',
+ keywords: 'oss svizzera, operatore socio sanitario svizzera, oss ticino, stipendio oss svizzera, riconoscimento titolo oss srk, lavoro oss lugano, lavoro oss bellinzona',
+ ogTitle: 'OSS in Svizzera — Stipendi, Riconoscimento SRK, Offerte 2026',
+ ogDescription: 'Vuoi lavorare come OSS in Svizzera? Stipendi, riconoscimento titolo SRK, aziende sanitarie che assumono frontalieri italiani, iter pratico.',
+ canonicalPath: '/vita-in-ticino/oss-svizzera/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "OSS in Svizzera 2026 — Guida a Stipendi, Riconoscimento Titolo e Offerte",
+ "description": "Lavorare come OSS in Svizzera: equivalenza titoli, procedura SRK, stipendi per fascia di esperienza, aziende sanitarie che assumono frontalieri.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-23",
+ "dateModified": "2026-04-23",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/oss-svizzera/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Cos'è un OSS e come si chiama in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "L'OSS italiano (operatore socio-sanitario) corrisponde in Svizzera alla figura dell'Assistente di cura AFC (FaGe, Fachfrau Gesundheit in tedesco; ASSC, Assistente socio-sanitario in italiano ticinese). È una professione sanitaria regolamentata con formazione triennale che si occupa di igiene, mobilizzazione, somministrazione farmaci sotto supervisione infermieristica." } },
+ { "@type": "Question", "name": "Qual è lo stipendio di un OSS in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "In Ticino un OSS neoassunto guadagna CHF 55.000-62.000 lordi annui, che salgono a CHF 65.000-75.000 con 5+ anni di esperienza. Nelle cliniche private e negli ospedali pubblici cantonali la tredicesima è obbligatoria e le indennità per turni notturni e festivi aggiungono CHF 300-600 al mese." } },
+ { "@type": "Question", "name": "Come si fa riconoscere il titolo OSS italiano in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Il riconoscimento avviene tramite la Croce Rossa Svizzera (SRK/CRS) con domanda online, traduzione giurata del diploma e del curriculum formativo, pagamento della tassa (circa CHF 900-1.100). La SRK valuta se il titolo è direttamente equivalente all'AFC/ASSC o se richiede un periodo di adattamento o provvedimenti compensativi. Tempistiche medie: 4-6 mesi." } },
+ { "@type": "Question", "name": "Quali strutture assumono OSS italiani in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Le principali strutture che assumono frontalieri OSS sono: Ente Ospedaliero Cantonale (Ospedale Civico Lugano, Ospedale Beata Vergine Mendrisio, Ospedale San Giovanni Bellinzona), Cliniche private (Moncucco, Luganese, Sant'Anna), Case per anziani (Cigno Bianco, Serena, ecc.), agenzie di cure a domicilio (Spitex, SCuDo). La job board aggiornata raccoglie le posizioni settimanalmente." } },
+ { "@type": "Question", "name": "Conviene fare l'OSS in Svizzera invece che in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, se si ha accesso ai valichi ticinesi. Lo stipendio netto mensile di un OSS in Svizzera (frontaliere) è circa €2.800-3.400, contro €1.300-1.600 in Italia per un ruolo equivalente. Il differenziale netto compensa ampiamente i costi di pendolarismo e il carico fiscale del nuovo regime. Il mercato svizzero è inoltre stabile e in costante crescita per effetto dell'invecchiamento della popolazione." } },
+ { "@type": "Question", "name": "Quanto dura la formazione ASSC in Svizzera e si può fare da frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "L'AFC ASSC (Assistente socio-sanitario) dura 3 anni ed è erogata in formato duale: 2-3 giorni settimanali di pratica in struttura sanitaria ticinese e 1-2 giorni in scuola professionale (CPS Lugano, CSIA Mendrisio). I frontalieri possono iscriversi se trovano un apprendistato con datore ticinese: il salario di apprendista parte da CHF 900-1.200 mensili al primo anno e arriva a CHF 1.600-1.900 al terzo anno. Il diploma finale è riconosciuto a livello federale svizzero." } },
+ { "@type": "Question", "name": "Quali sono le differenze tra OSS, ASSC e infermiere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "L'ASSC (Assistente socio-sanitario, equivalente all'OSS italiano) ha una formazione AFC di 3 anni e svolge mansioni di cura di base, igiene, mobilizzazione e somministrazione farmaci sotto supervisione. L'infermiere SSS (Scuola Specializzata Superiore, 3 anni post-AFC) o SUP-Bachelor (3 anni universitari) ha autonomia clinica, pianifica le cure, gestisce casi complessi. Gli stipendi sono progressivi: ASSC CHF 55-70k; infermiere SSS CHF 72-85k; infermiere SUP CHF 78-95k." } },
+ { "@type": "Question", "name": "Quali turni lavorano gli OSS in Ticino e come sono retribuiti?", "acceptedAnswer": { "@type": "Answer", "text": "Gli ASSC/OSS in ospedale Ticino lavorano turni di 8-8,5 ore nei tre cicli mattino (6:30-15:00), pomeriggio (13:30-22:00) e notte (21:30-7:00). Il CCL Sanità Ticino prevede indennità del +25% per il turno notturno, +50% per festivi/domenicali, +15% per servizio di picchetto. Un ASSC con 3 turni notturni/settimana guadagna CHF 400-700 in più al mese. Il CCL garantisce inoltre almeno 11 ore di riposo tra turni e 2 week-end liberi al mese." } }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/vita-in-ticino/oss-svizzera/`,
+ "claimReviewed": "Un OSS neoassunto in Ticino guadagna CHF 55.000-62.000 lordi annui, che salgono a CHF 65.000-75.000 con 5+ anni di esperienza.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "CCL Sanità Ticino 2024-2026 — Ente Ospedaliero Cantonale + OCST" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.eoc.ch/Lavorare-in-EOC.html", "name": "EOC — Condizioni di lavoro e grilles salariali Sanità Ticino" }
+ },
+ "reviewBody": "Conforme al CCL Sanità Ticino (EOC, OCST/VPOD/SCS, cliniche private). Classe salariale ASSC classe 7-8 a 13 mensilità."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/vita-in-ticino/oss-svizzera/`,
+ "claimReviewed": "Il riconoscimento del titolo OSS italiano in Svizzera avviene tramite la Croce Rossa Svizzera (SRK) in 4-6 mesi con tassa di circa CHF 900-1.100.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Croce Rossa Svizzera (SRK/CRS) — Ufficio riconoscimento titoli" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.redcross.ch/it/offerta/riconoscimento-di-diplomi-esteri", "name": "Croce Rossa Svizzera — Riconoscimento di diplomi esteri in professioni sanitarie" }
+ },
+ "reviewBody": "Procedura ufficiale SRK per professioni sanitarie (Assistente di cura, FaGe/ASSC, infermiere): tassa 2026 CHF 800-1.200, tempi medi 4-6 mesi con documenti completi."
+ }
+ ]
+ },
+
+ pillarStipendiChVsIt: {
+ title: 'Stipendi Svizzera vs Italia 2026 — Confronto per Settore',
+ description: 'Confronto stipendi Svizzera vs Italia 2026: tabelle per settore (infermiere, ingegnere, banca, logistica), netto reale, costo vita, ROI del frontaliere.',
+ keywords: 'stipendi svizzera italia, confronto stipendi ticino lombardia, differenza stipendio svizzera italia, stipendi per settore svizzera, costo della vita lugano milano, vale la pena fare il frontaliere',
+ ogTitle: 'Stipendi Svizzera vs Italia 2026 — Confronto per Settore',
+ ogDescription: 'Quanto si guadagna in più in Svizzera? Tabelle per settore, netto reale post-tasse, costo della vita Lugano vs Milano, matrice di decisione.',
+ canonicalPath: '/statistiche/stipendi-svizzera-vs-italia/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Stipendi Svizzera vs Italia 2026 — Confronto Completo per Settore",
+ "description": "Confronto dettagliato degli stipendi Svizzera-Italia nel 2026 per settore e ruolo, con netto reale post-imposte e costo della vita.",
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "datePublished": "2026-04-23",
+ "dateModified": "2026-04-23",
+ "inLanguage": "it",
+ "mainEntityOfPage": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Di quanto sono più alti gli stipendi in Svizzera rispetto all'Italia?", "acceptedAnswer": { "@type": "Answer", "text": "In media gli stipendi lordi svizzeri sono 2-2,5 volte superiori a quelli italiani per ruoli equivalenti. Un infermiere italiano guadagna circa €28.000 lordi annui contro CHF 78.000 in Ticino (circa €81.000). Un ingegnere junior italiano €32.000 contro CHF 95.000 in Svizzera. Il differenziale netto post-tasse è circa 1,8-2,2x a favore della Svizzera." } },
+ { "@type": "Question", "name": "Il costo della vita a Lugano è più alto di Milano?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, Lugano ha un costo della vita circa il 30-40% più alto di Milano per affitti, ristoranti e servizi. Tuttavia il frontaliere che vive in Italia sostiene i costi italiani (più bassi) e incassa lo stipendio svizzero: è questa l'equazione economica che rende il pendolarismo conveniente. I costi transfrontalieri (trasporto, LAMal, cambio valuta) riducono il vantaggio di circa CHF 400-600 al mese." } },
+ { "@type": "Question", "name": "Quali settori hanno il differenziale più ampio?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con differenziale maggiore sono: sanità (infermieri, OSS, tecnici di laboratorio) con +150-180%; finanza e banking con +120-160%; ingegneria e ICT con +100-140%; logistica e operai specializzati con +80-120%. I settori con differenziale più ridotto sono retail base e ristorazione (+40-70%) dove tuttavia la differenza resta significativa." } },
+ { "@type": "Question", "name": "Vale sempre la pena fare il frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Non sempre. Conviene se: si vive entro 40-50 km dal confine, si ha un ruolo qualificato (differenziale ampio), la famiglia accetta il pendolarismo di 1-3 ore al giorno, e il netto incrementale supera i €1.000/mese rispetto al lavoro equivalente in Italia. Non conviene se: si lavora in ruoli base con differenziale minimo, se il tragitto supera i 70 km, o se si ha bisogno di flessibilità oraria elevata. Il simulatore di Frontaliere Ticino calcola il break-even." } },
+ { "@type": "Question", "name": "Le tasse in Svizzera cancellano il vantaggio stipendiale?", "acceptedAnswer": { "@type": "Answer", "text": "Il vantaggio netto dipende da salario, contributi, imposte, assicurazione, cambio e costi di pendolarismo. Per i nuovi frontalieri fiscali il confronto deve includere anche l’imposta italiana con credito per quella svizzera. I vecchi qualificati restano tassati esclusivamente in Svizzera sul salario dell’articolo 9, senza passaggio automatico nel 2034. Usa il simulatore con i tuoi dati. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { "@type": "Question", "name": "Quanto vale il potere d'acquisto reale dei salari svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Considerando il costo della vita, il potere d'acquisto reale di un lordo svizzero CHF 80.000 per un frontaliere residente in Italia equivale a circa 55.000-58.000 € di potere d'acquisto italiano, cioè circa 1,7-1,8x un lordo italiano di 34.000 €. Per un residente ticinese (permesso B) il differenziale scende a 1,3-1,4x per l'impatto di affitti (CHF 1.600-2.200 per un trilocale a Lugano) e LAMal obbligatoria. Il vantaggio è massimo per chi mantiene la residenza italiana." } },
+ { "@type": "Question", "name": "In quali ruoli non conviene diventare frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il frontalierato conviene meno per: ruoli base nella ristorazione e nel retail non specializzato (cameriere, addetto vendite, banconista), dove il differenziale lordo è +40-60% e viene eroso dai costi di pendolarismo (benzina CHF 200-400/mese, usura auto, assicurazione). Anche il lavoro interinale breve (<6 mesi) raramente conviene per i costi di attivazione permesso G, LAMal e la perdita di NASpI italiana. Ruoli full-remote o senior con stipendi italiani sopra €55k lordi possono avere un vantaggio marginale in Svizzera solo se accoppiati a un alto differenziale di settore." } }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
+ "claimReviewed": "Il salario lordo mediano in Svizzera è circa 2-2,5 volte superiore a quello italiano per ruoli equivalenti.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "Ufficio federale di statistica (UST) — Rilevazione svizzera della struttura dei salari (RSS)" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito.html", "name": "UST — Livello dei salari in Svizzera (RSS)" }
+ },
+ "reviewBody": "Incrocio fonti UST-RSS 2024 (salario lordo mediano CH CHF 6.788/mese = CHF 88.244/anno) e ISTAT \"Retribuzioni contrattuali\" 2024 (mediana IT €30.720): rapporto lordo 2,2-2,4x per ruoli equivalenti."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
+ "claimReviewed": "Il costo della vita a Lugano è circa il 30-40% superiore a quello di Milano per affitti, ristoranti e servizi.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "UST/IPC — Indice svizzero dei prezzi al consumo + ISTAT NIC Milano" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi/indice-nazionale-prezzi-consumo.html", "name": "UST — Indice svizzero dei prezzi al consumo (IPC)" }
+ },
+ "reviewBody": "Confronto IPC Lugano vs NIC Milano 2025 su panieri affitto, ristorazione e servizi: differenziale medio +32% (affitti +38%, ristorazione +35%, beni alimentari +25%)."
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ClaimReview",
+ "url": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
+ "claimReviewed": "L'aliquota fiscale totale svizzera (imposta alla fonte + oneri sociali) per un frontaliere con CHF 80.000 lordi è circa il 18-22%.",
+ "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "datePublished": "2026-04-23",
+ "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
+ "itemReviewed": {
+ "@type": "Claim",
+ "author": { "@type": "Organization", "name": "AFC Ticino — Divisione delle contribuzioni, Tabelle imposta alla fonte 2026" },
+ "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tabelle-e-aliquote/", "name": "AFC Ticino — Tabelle e aliquote imposta alla fonte 2026" }
+ },
+ "reviewBody": "Calcolo verificato per tabella A single, CHF 80.000 lordi: imposta alla fonte TI 11-13% + AVS/AI/IPG 5,3% + AD 1,1% + LAINF ~1% + LPP ~7% ≈ 25% totale deduzioni; il netto dell'imposta pura (escluso LPP che è previdenza) è 18-22%."
+ }
+ ]
+ },
+
+  // ─── Author profile pages (Google News A1 — E-E-A-T) ─────────────────────
+  // Derived from the registry (data/authors.ts), never copied by hand: the
+  // copies that lived here kept the superseded expertise text after the
+  // registry was corrected (PR 11327). The SPA, the static build
+  // (build-plugins/shared/authorEditorial.ts) and llms.txt all read the same
+  // resolver, services/seo/authorProfileMetadata.ts. Guard:
+  // tests/author-metadata-single-source.test.ts.
+  ...authorSeoPageEntries(),
+
+};
+
+export default SEO_PAGES_METADATA;

@@ -1,0 +1,40 @@
+{
+  "id": "piscina-niederuzwil-rianimata",
+  "slug": "piscina-niederuzwil-rianimata",
+  "publishedAt": "2026-06-29T13:33:53.531Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.9187816373505076,
+    "confidence": 0.8,
+    "finalScore": 5.535025309880407,
+    "topK": [
+      {
+        "slug": "dramma-canton-ticino-bimbo-annega-piscina",
+        "cosine": 0.8648477046688134
+      },
+      {
+        "slug": "tragedia-vico-morcote-bimbo-piscina",
+        "cosine": 0.8618309155539009
+      },
+      {
+        "slug": "vico-morcote-tragedia-bambino-pool",
+        "cosine": 0.8471875026746959
+      },
+      {
+        "slug": "bambino-annegato-morcote-30-aprile-2026",
+        "cosine": 0.8439056470610016
+      },
+      {
+        "slug": "fuga-ammoniaca-chiasso-pista-ghiaccio",
+        "cosine": 0.8346645950286957
+      }
+    ],
+    "score": 5.535025309880407,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

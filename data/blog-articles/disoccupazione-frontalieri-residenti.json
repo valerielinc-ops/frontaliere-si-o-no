@@ -1,0 +1,40 @@
+{
+  "id": "disoccupazione-frontalieri-residenti",
+  "slug": "disoccupazione-frontalieri-residenti",
+  "publishedAt": "2026-05-11T01:48:51.853Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.071301473782004,
+    "confidence": 0.8,
+    "finalScore": 8.857041179025604,
+    "topK": [
+      {
+        "slug": "frontalieri-disoccupazione-svizzera-2026",
+        "cosine": 0.8198680819682432
+      },
+      {
+        "slug": "disoccupazione-ticino-aprile-2026",
+        "cosine": 0.8076359040505309
+      },
+      {
+        "slug": "naspi-disoccupazione-frontalieri",
+        "cosine": 0.8017933799231215
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.797898890582335
+      },
+      {
+        "slug": "strumenti-comune-chiasso-assunzione-residenti",
+        "cosine": 0.7977842101367121
+      }
+    ],
+    "score": 8.857041179025604,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

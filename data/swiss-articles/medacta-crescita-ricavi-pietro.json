@@ -1,0 +1,40 @@
+{
+  "id": "medacta-crescita-ricavi-pietro",
+  "slug": "medacta-crescita-ricavi-pietro",
+  "publishedAt": "2026-07-31T08:21:15.810Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.085843022494302,
+    "confidence": 0.8,
+    "finalScore": 5.668674417995442,
+    "topK": [
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.8464816367417014
+      },
+      {
+        "slug": "commercio-dettaglio-ricavi-ticino-2026",
+        "cosine": 0.8352182130771739
+      },
+      {
+        "slug": "farmaci-competitiva-europa",
+        "cosine": 0.8338343955402402
+      },
+      {
+        "slug": "successo-farmaceutica-ticino",
+        "cosine": 0.8324527485942004
+      },
+      {
+        "slug": "tax-free-come-cresce",
+        "cosine": 0.8315779525414582
+      }
+    ],
+    "score": 5.668674417995442,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

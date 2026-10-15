@@ -1,0 +1,40 @@
+{
+  "id": "tasse-frontalieri-ticino-2026",
+  "slug": "tasse-frontalieri-ticino-2026",
+  "publishedAt": "2026-05-11T03:26:14.180Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.113824679652224,
+    "confidence": 0.8,
+    "finalScore": 8.091059743721779,
+    "topK": [
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8083715097656983
+      },
+      {
+        "slug": "tassa-transito-svizzera-2023",
+        "cosine": 0.7974650488613004
+      },
+      {
+        "slug": "tasse-aeree-kerosene-2026",
+        "cosine": 0.7946106107822152
+      },
+      {
+        "slug": "tassa-salute-frontalieri-accordo-frontalieri",
+        "cosine": 0.7942318335299735
+      },
+      {
+        "slug": "tasse-mance-frontalieri-ticino",
+        "cosine": 0.7941784024510301
+      }
+    ],
+    "score": 4.045529871860889,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

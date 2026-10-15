@@ -1,0 +1,24 @@
+{
+  "companyKey": "dq-solutions",
+  "companyName": "DQ Solutions",
+  "companyHost": "dq-solutions.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.dq-solutions.ch/de/unternehmen/stellenangebote"
+  ],
+  "detailTemplate": "/de/unternehmen/stellenangebote/stellenangebote-abacus-detailseite",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "Details",
+    "Details",
+    "Details",
+    "Details",
+    "Details"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-08T09:12:22.801Z"
+}

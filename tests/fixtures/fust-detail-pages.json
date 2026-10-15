@@ -1,0 +1,63 @@
+{
+  "api": {
+    "total": 5,
+    "jobs": [
+      {
+        "id": "10166403",
+        "title": "Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»",
+        "attributes": { "70": ["Fust"], "30": ["Regione di Basilea"], "40": ["A tempo determinato"] },
+        "links": { "directlink": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a6989ea0-ac14-4b56-80c9-a2159dc98f13" }
+      },
+      {
+        "id": "10163387",
+        "title": "Detailhandelsfachfrau:mann EFZ «Gestalten von Einkaufserlebnissen»",
+        "attributes": { "70": ["Fust"], "30": ["Berna"], "40": ["A tempo determinato"] },
+        "links": { "directlink": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/eb70bde3-96b7-4ae2-b674-917132e6a54a" }
+      },
+      {
+        "id": "10164740",
+        "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
+        "attributes": { "70": ["Fust"], "30": ["Vaud"], "40": ["A tempo determinato"] },
+        "links": { "directlink": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6" }
+      },
+      {
+        "id": "10140123",
+        "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+        "attributes": { "70": ["Fust"], "30": ["Ticino"], "40": ["A tempo indeterminato"] },
+        "links": { "directlink": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/f964b578-aef3-441d-8430-b83c229a24db" }
+      },
+      {
+        "id": "10100000",
+        "title": "Wrapper non canonico",
+        "attributes": { "70": ["Fust"], "30": ["Zurigo"] },
+        "links": { "directlink": "https://apply.example.test/redirect?job=10100000" }
+      }
+    ]
+  },
+  "details": [
+    {
+      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a6989ea0-ac14-4b56-80c9-a2159dc98f13",
+      "workplace": "Oberwil",
+      "canton": "BL",
+      "html": "<script>var utag_data = { job_arbeitsort: 'Oberwil', job_art: 'Stellenangebot' };</script><h4 data-type=\"section-title\">Arbeitsort</h4><p>Oberwil</p>"
+    },
+    {
+      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/eb70bde3-96b7-4ae2-b674-917132e6a54a",
+      "workplace": "Niederwangen bei Bern",
+      "canton": "BE",
+      "html": "<script>var utag_data = { job_arbeitsort: 'Niederwangen bei Bern' };</script><h4 data-type=\"section-title\">Arbeitsort</h4><p>Niederwangen bei Bern</p>"
+    },
+    {
+      "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6",
+      "workplace": "Crissier & environs",
+      "canton": "VD",
+      "html": "<script>var utag_data = { job_arbeitsort: 'Crissier &amp; environs' };</script><script type=\"application/ld+json\">{\"@context\":\"http://schema.org\",\"@type\":\"JobPosting\",\"title\":\"Gestionnaire du commerce de détail CFC\",\"description\":\"Conseil adapté aux besoins de notre clientèle, vente et location d'appareils multimédias, gestion de l'assortiment et traitement des commandes de réparation.\",\"hiringOrganization\":{\"@type\":\"Organization\",\"name\":\"Fust | Swiss Household Services AG\"},\"jobLocation\":{\"@type\":\"Place\",\"address\":{\"@type\":\"PostalAddress\",\"addressCountry\":\"Suisse\",\"addressLocality\":\"Oberbüren\",\"addressRegion\":\"Oberbüren\"}}}</script><h4 data-type=\"section-title\">Lieu de travail</h4><p>Crissier &amp; environs</p>"
+    },
+    {
+      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/f964b578-aef3-441d-8430-b83c229a24db",
+      "workplace": "Bellinzona",
+      "canton": "TI",
+      "html": "<h4 data-type=\"section-title\">Luogo di lavoro</h4><p>Bellinzona</p>"
+    }
+  ]
+}

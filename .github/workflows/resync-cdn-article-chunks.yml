@@ -1,0 +1,228 @@
+name: Resync CDN article chunks
+
+# Manual lever to bring the CDN's article chunks back in sync with `main`
+# without waiting for a full deploy.
+#
+# Why it exists: publish-article-chunks.mjs normally runs inside
+# fast-publish-article.yml, i.e. only when an article is published. If the CDN
+# and `main` ever diverge for another reason — a failed upload, a partial run,
+# or (2026-07-29, #4881) a bug that published the registry without its
+# translations — there was no way to force a resync short of a full deploy,
+# which can take hours and is frequently superseded by newer runs.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Build and validate the chunks without uploading'
+        type: boolean
+        default: false
+
+concurrency:
+  group: resync-cdn-article-chunks
+  cancel-in-progress: false
+
+jobs:
+  resync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: shard-secrets-overflow
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON unset — Remote Config secrets unavailable"
+          fi
+
+      - name: Load secrets from Remote Config (R2 + CF)
+        run: node scripts/load-rc-env.mjs
+
+      # A resync writes BOTH section registries, so acquire both R2 leases in
+      # the stable order used by the lock helper. This participates in the same
+      # mutex as fast-publish without using a GitHub section concurrency group
+      # that could cancel a pending article run.
+      - name: Acquire article chunk section locks
+        id: acquire_chunk_locks
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
+
+      # The resync critical section can include both registries and their
+      # companion uploads. Keep both R2 leases alive until final cleanup;
+      # renewal is compare-and-swap and fails closed if either lease changes
+      # owner.
+      - name: Renew article chunk section locks
+        id: renew_chunk_locks
+        if: steps.acquire_chunk_locks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/resync-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/resync-article-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          # Do not wrap the renewer in setsid: on a runner process-group leader
+          # setsid forks, so $! would point at an exited wrapper instead of the
+          # live renewer that the later checks and cleanup must supervise.
+          env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew \
+            --section frontaliere,svizzera \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # The lock prevents overlap with fast-publish, but this checkout may
+      # have been created before a newer main commit. Refresh it after taking
+      # the lock so the resync publishes the current origin/main snapshot
+      # instead of silently skipping or replacing both registries with old
+      # data.
+      - name: Check resync source is current
+        id: check_chunk_source
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale article chunk resync from $SOURCE_SHA to current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::article chunk resync refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+            echo "Resync source refreshed to current origin/main $SOURCE_SHA"
+          else
+            echo "Resync source $SOURCE_SHA is current on main"
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      # The renew step only proves that the watcher started. Refuse to begin a
+      # CDN mutation if it has already reported lease loss while the source was
+      # being refreshed.
+      - name: Verify article chunk lock before publication
+        id: verify_chunk_lock_before_publish
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.check_chunk_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/resync-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/resync-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Recheck article chunk source before publication
+        id: recheck_chunk_source_before_publish
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.verify_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale article chunk resync from $SOURCE_SHA to current origin/main $MAIN_SHA before publication"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::article chunk resync refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      # Publish the named-export registry and all of its translation/slug
+      # companions in strict mode. The script validates the standalone ESM
+      # contract, observes each R2 upload's success marker, and requires the
+      # targeted purge before declaring the resync complete (#5819).
+      - name: Publish article chunks
+        id: publish_chunks
+        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.recheck_chunk_source_before_publish.outcome == 'success' && steps.recheck_chunk_source_before_publish.outputs.current == 'true')
+        run: |
+          npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Verify article chunk lock after resync
+        id: verify_chunk_lock_after_publish
+        if: always() && steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/resync-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/resync-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Release both leases even when strict publication fails. The first
+      # DELETE is ETag-guarded; stop the watcher and retry once so a heartbeat
+      # racing that DELETE cannot leave this owner's lease behind.
+      - name: Release article chunk section locks
+        if: always() && steps.acquire_chunk_locks.outcome == 'success'
+        env:
+          LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/resync-article-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"

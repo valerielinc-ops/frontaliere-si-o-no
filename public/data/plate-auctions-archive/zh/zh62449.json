@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43605",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43605",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "62449",
+      "normalizedPlate": "ZH62449",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 540,
+      "bidCount": 16,
+      "endsAt": "2026-10-14T17:00:00.000Z",
+      "closedAt": "2026-10-14T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43605",
+      "sourceFetchedAt": "2026-10-14T11:58:08.114Z",
+      "lastVerifiedAt": "2026-10-14T11:58:08.114Z",
+      "firstSeenAt": "2026-10-08T06:11:46.094Z",
+      "lastSeenAt": "2026-10-14T11:58:08.114Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "f23e1854d20d"
+    }
+  ]
+}

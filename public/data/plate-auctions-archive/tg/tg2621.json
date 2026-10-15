@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109609",
+      "sourceKey": "TG",
+      "sourceRecordId": "109609",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "2621",
+      "normalizedPlate": "TG2621",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 1,
+      "endsAt": "2026-09-30T17:00:00.000Z",
+      "closedAt": "2026-09-30T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109609",
+      "sourceFetchedAt": "2026-09-29T22:19:51.599Z",
+      "lastVerifiedAt": "2026-09-29T22:19:51.599Z",
+      "firstSeenAt": "2026-09-19T11:04:58.654Z",
+      "lastSeenAt": "2026-09-29T22:19:51.599Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0698c670d1d9"
+    }
+  ]
+}

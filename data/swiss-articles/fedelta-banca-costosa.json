@@ -1,0 +1,40 @@
+{
+  "id": "fedelta-banca-costosa",
+  "slug": "fedelta-banca-costosa",
+  "publishedAt": "2026-07-29T01:21:48.339Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.035392437824283,
+    "confidence": 0.8,
+    "finalScore": 7.228313950259427,
+    "topK": [
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8583916705485839
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.84881733226005
+      },
+      {
+        "slug": "cpb-forfettario-semplificato-soglia-150mila",
+        "cosine": 0.844316865583565
+      },
+      {
+        "slug": "tassa-salute-frontalieri-accordo-frontalieri",
+        "cosine": 0.8431894477926148
+      },
+      {
+        "slug": "carnago-forza-italia-pendolarismo",
+        "cosine": 0.8420654040087956
+      }
+    ],
+    "score": 7.228313950259427,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

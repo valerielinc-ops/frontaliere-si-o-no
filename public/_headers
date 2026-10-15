@@ -1,0 +1,69 @@
+# Cache headers for GitHub Pages
+# ALL bundler assets have STABLE filenames (index-entry.js, App.js, index.css,
+# seo-static.css, ... — see vite.config.ts chunkFileNames/assetFileNames) so the
+# prerendered pages never churn on a bundle rehash and cached HTML never 404s
+# on a rotated name. Stable names mean bytes change UNDER the same URL on every
+# code-deploy -> NOTHING under /assets/ may ever be served `immutable`; the
+# short max-age + revalidation mirrors what GitHub Pages serves live today
+# (max-age=600 + ETag — Pages ignores _headers; this rule is honored once the
+# site moves to a _headers-reading CDN, e.g. Cloudflare Pages).
+/assets/*
+  Cache-Control: public, max-age=600, must-revalidate
+
+# Icons — cache for 1 month
+/icons/*
+  Cache-Control: public, max-age=2592000
+
+# HTML — short cache with revalidation
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Manifest — short cache
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600
+
+# Sitemap — cache for 1 day
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+
+# Robots.txt — cache for 1 day
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# AI-readable site descriptions — cache for 1 day
+/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex
+
+/llms-full.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex
+
+/.well-known/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+# IndexNow key — long cache
+/*.txt
+  Cache-Control: public, max-age=2592000
+
+# Security headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+  # same-origin-allow-popups: allows Firebase Auth popup windows to call
+  # window.close() and postMessage back to the opener.  Without this,
+  # COOP: same-origin would silently block the handshake and leave the
+  # user stuck on a blank popup.  Note: the auth.frontaliereticino.ch
+  # handler page must also NOT set COOP:same-origin (Firebase controls that).
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  # GitHub Pages ignores _headers; Cloudflare applies the enforcing policy in
+  # scripts/cf-locale-failover-setup.mjs. Keep this report-only fallback in
+  # sync so direct/static-host previews exercise the same compatibility policy.
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests

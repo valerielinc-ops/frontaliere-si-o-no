@@ -1,0 +1,40 @@
+{
+  "id": "svizzeri-scelgono-capitale-pensione",
+  "slug": "svizzeri-scelgono-capitale-pensione",
+  "publishedAt": "2026-05-30T02:26:36.748Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.153087303555166,
+    "confidence": 0.8,
+    "finalScore": 4.122469842844133,
+    "topK": [
+      {
+        "slug": "svizzeri-ottimisti-finanze-2026",
+        "cosine": 0.858847883925861
+      },
+      {
+        "slug": "indipendenza-finanziaria-ticino",
+        "cosine": 0.8551773989454353
+      },
+      {
+        "slug": "franco-svizzero-a-valori-record-2026",
+        "cosine": 0.8516642034179824
+      },
+      {
+        "slug": "lavoratori-pensionati-svizzera-2026",
+        "cosine": 0.8500649951841872
+      },
+      {
+        "slug": "pensioni-svizzere-all-estero-numerose-ma-modeste",
+        "cosine": 0.8480831638301832
+      }
+    ],
+    "score": 1.0306174607110332,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "esplosione-miniera-colombia-4-morti",
+  "slug": "esplosione-miniera-colombia-4-morti",
+  "publishedAt": "2026-05-11T00:17:06.652Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 17.77223829484426,
+    "confidence": 0.8,
+    "finalScore": 14.21779063587541,
+    "topK": [
+      {
+        "slug": "fuoriuscita-ammoniaca-rapelli-stabio",
+        "cosine": 0.7727060128193156
+      },
+      {
+        "slug": "infortunio-locarnese-operaio-frontaliero-decede",
+        "cosine": 0.7710507538283474
+      },
+      {
+        "slug": "crans-montana-soccorso-denunciato",
+        "cosine": 0.7659665061902999
+      },
+      {
+        "slug": "crans-montana-ore-straordinarie-non-pagate",
+        "cosine": 0.7655319382481379
+      },
+      {
+        "slug": "indagine-soccorsi-crans-montana-2026",
+        "cosine": 0.7624125623115132
+      }
+    ],
+    "score": 14.21779063587541,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

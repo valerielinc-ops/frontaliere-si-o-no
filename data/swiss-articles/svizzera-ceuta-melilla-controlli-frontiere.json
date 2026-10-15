@@ -1,0 +1,40 @@
+{
+  "id": "svizzera-ceuta-melilla-controlli-frontiere",
+  "slug": "svizzera-ceuta-melilla-controlli-frontiere",
+  "publishedAt": "2026-08-01T23:15:03.191Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.504224685204197,
+    "confidence": 0.8,
+    "finalScore": 4.403379748163358,
+    "topK": [
+      {
+        "slug": "sicurezza-frontalieri-ticino-2024",
+        "cosine": 0.8459583833100804
+      },
+      {
+        "slug": "frontalieri-disoccupazione-ue-svizzera-2026",
+        "cosine": 0.8453487471082656
+      },
+      {
+        "slug": "quadri-interpella-consiglio-frontiere-tasse",
+        "cosine": 0.8449350837107759
+      },
+      {
+        "slug": "berna-limita-acquisto-immobili-stranieri-2026",
+        "cosine": 0.8380586723171959
+      },
+      {
+        "slug": "blocco-ristorni-ticino-politica-2026",
+        "cosine": 0.8372484914857617
+      }
+    ],
+    "score": 1.1008449370408395,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "chiude-bachmann-krawatten-zurigo",
+  "slug": "chiude-bachmann-krawatten-zurigo",
+  "publishedAt": "2026-07-24T09:05:35.528Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.771180951653403,
+    "confidence": 0.8,
+    "finalScore": 7.8169447613227225,
+    "topK": [
+      {
+        "slug": "croce-rossa-160-anni-tagli-educatori",
+        "cosine": 0.8494718917163525
+      },
+      {
+        "slug": "unitas-ottantesimo-futuro-ticino",
+        "cosine": 0.8488743260736844
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8466149500663862
+      },
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8457983929101243
+      },
+      {
+        "slug": "ultimo-svizzero-rientra-incendio-crans-montana",
+        "cosine": 0.8420183485164116
+      }
+    ],
+    "score": 7.8169447613227225,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

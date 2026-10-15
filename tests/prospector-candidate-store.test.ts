@@ -1,0 +1,238 @@
+/**
+ * Prospector candidate retention — rejected verdicts are durable tombstones,
+ * while genuinely transient/dead candidates still age out of the queue.
+ */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+import {
+  loadCandidates,
+  MAX_REJECTED_TOMBSTONES,
+  isTraceRetryDue,
+  pruneTerminal,
+  reopenRejectedCandidate,
+  reviveRetryableDeadCandidate,
+  scheduleTraceRetry,
+  saveCandidates,
+  setStatus,
+  upsertCandidate,
+} from '../scripts/lib/prospector/candidate-store.mjs';
+
+const DAY_MS = 86_400_000;
+const OLD = new Date(Date.now() - 91 * DAY_MS).toISOString();
+
+function storeWith(candidates: Record<string, any>, rejectedTombstones: Record<string, any> = {}) {
+  return { version: 1, updatedAt: null, candidates, rejectedTombstones };
+}
+
+describe('prospector candidate store — rejected tombstones (#6903)', () => {
+  it('compacts an old rejected record and blocks the same key after rediscovery', () => {
+    const key = 'mpi-age.de.umantis.com';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'rejected',
+        country: 'DE',
+        reason: 'source esplicitamente esclusa',
+        validationHistory: [{ verdict: 'bad', score: 0.1 }],
+        firstSeenAt: OLD,
+        updatedAt: OLD,
+        rejectedAt: OLD,
+      },
+    });
+
+    expect(pruneTerminal(store, 90)).toBe(1);
+    expect(store.candidates[key]).toBeUndefined();
+    expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+
+    const rediscovered = upsertCandidate(
+      store,
+      { key, name: 'MPI AGE', country: 'DE' },
+      'seco',
+    );
+    expect(rediscovered).toEqual({ key, created: false });
+    expect(store.candidates[key]).toBeUndefined();
+  });
+
+  it('keeps dead retention separate: an old dead candidate may be rediscovered', () => {
+    const key = 'temporary.example';
+    const store = storeWith({
+      [key]: { key, status: 'dead', firstSeenAt: OLD, updatedAt: OLD },
+    });
+
+    expect(pruneTerminal(store, 90)).toBe(1);
+    expect(store.rejectedTombstones[key]).toBeUndefined();
+    expect(upsertCandidate(store, { key, name: 'Temporary' }, 'seco')).toEqual({ key, created: true });
+    expect(store.candidates[key].status).toBe('new');
+  });
+
+  it('records a tombstone as soon as a rejection is written and remains idempotent', () => {
+    const key = 'wrong-source.example';
+    const store = storeWith({
+      [key]: { key, status: 'promoted', name: 'Wrong source' },
+    });
+
+    setStatus(store, key, 'rejected', {
+      reason: 'la pagina appartiene a un altro datore',
+      rejectedAt: OLD,
+    }, null);
+    const { updatedAt, rejectedAt } = store.candidates[key];
+
+    expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+    expect(upsertCandidate(store, { key, name: 'Rediscovered name' }, 'osm')).toEqual({ key, created: false });
+    expect(store.candidates[key].status).toBe('rejected');
+    expect(store.candidates[key].name).toBe('Wrong source');
+    expect(store.candidates[key].updatedAt).toBe(updatedAt);
+    expect(store.candidates[key].rejectedAt).toBe(rejectedAt);
+  });
+
+  it('does not reopen a rejected verdict through an ordinary status transition', () => {
+    const key = 'terminal.example';
+    const store = storeWith({
+      [key]: { key, status: 'rejected', rejectedAt: OLD, updatedAt: OLD, reason: 'terminal' },
+    });
+    const before = structuredClone(store.candidates[key]);
+
+    expect(setStatus(store, key, 'new', { name: 'Recovered' }, null)).toEqual(before);
+    expect(store.candidates[key]).toEqual(before);
+    expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+  });
+
+  it('reopens only after a new source-adapter validation and only once per version', () => {
+    const key = 'rh-expert.ch';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'rejected',
+        rejectedAt: OLD,
+        updatedAt: OLD,
+        validationHistory: [{ verdict: 'bad', sourceAdapterVersion: null }],
+      },
+    }, { [key]: { rejectedAt: OLD } });
+
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v1', null)).toBeNull();
+    expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+
+    store.candidates[key].validationHistory.push({
+      verdict: 'good',
+      sourceAdapterVersion: 'rh-expert-ch-dedicated-v1',
+    });
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v1', null))
+      .toMatchObject({ status: 'validated', reopenedSourceAdapterVersion: 'rh-expert-ch-dedicated-v1' });
+    expect(store.rejectedTombstones[key]).toBeUndefined();
+    expect(store.candidates[key].rejectedAt).toBeUndefined();
+
+    setStatus(store, key, 'rejected', { validationHistory: store.candidates[key].validationHistory }, null);
+    store.candidates[key].validationHistory.push({
+      verdict: 'good',
+      sourceAdapterVersion: 'rh-expert-ch-dedicated-v1',
+    });
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v1', null)).toBeNull();
+    expect(store.rejectedTombstones[key]).toBeDefined();
+
+    store.candidates[key].validationHistory.push({
+      verdict: 'good',
+      sourceAdapterVersion: 'rh-expert-ch-dedicated-v2',
+    });
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v2', null))
+      .toMatchObject({ status: 'validated', reopenedSourceAdapterVersion: 'rh-expert-ch-dedicated-v2' });
+  });
+
+  it('persists legacy tombstones without carrying diagnostic payload', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-candidate-store-'));
+    const file = path.join(dir, 'candidates.json');
+    const key = 'legacy.example';
+    const store = storeWith({
+      [key]: { key, status: 'rejected', firstSeenAt: OLD, updatedAt: OLD, reason: 'old' },
+    });
+
+    pruneTerminal(store, 90);
+    saveCandidates(store, file);
+    const loaded = loadCandidates(file);
+
+    expect(loaded.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+    expect(JSON.stringify(loaded)).not.toContain('validationHistory');
+    expect(upsertCandidate(loaded, { key, name: 'Legacy' }, 'seco')).toEqual({ key, created: false });
+  });
+
+  it('bounds the tombstone inventory deterministically by retaining the newest keys', () => {
+    const store = storeWith({});
+    for (let i = 0; i < MAX_REJECTED_TOMBSTONES + 2; i++) {
+      const key = `rejected-${String(i).padStart(5, '0')}.example`;
+      store.candidates[key] = { key, status: 'rejected', firstSeenAt: OLD, updatedAt: OLD };
+      setStatus(store, key, 'rejected', {
+        rejectedAt: new Date(Date.now() - (MAX_REJECTED_TOMBSTONES + 2 - i) * 1000).toISOString(),
+      }, null);
+    }
+
+    expect(Object.keys(store.rejectedTombstones)).toHaveLength(MAX_REJECTED_TOMBSTONES);
+    expect(store.rejectedTombstones['rejected-00000.example']).toBeUndefined();
+    expect(store.rejectedTombstones[`rejected-${String(MAX_REJECTED_TOMBSTONES + 1).padStart(5, '0')}.example`]).toBeDefined();
+  });
+});
+
+describe('prospector candidate store — retryable trace failures', () => {
+  it('schedules bounded retry metadata without changing a candidate out of new', () => {
+    const candidate = { key: 'temporary.example', status: 'new', traceAttempts: 0 };
+    const now = Date.now();
+    const patch = scheduleTraceRetry(candidate, 'sito irraggiungibile', now);
+
+    expect(patch).toMatchObject({
+      reason: 'sito irraggiungibile',
+      traceRetryable: true,
+      traceAttempts: 1,
+      traceLastAttemptAt: new Date(now).toISOString(),
+      traceRetryAt: new Date(now + DAY_MS).toISOString(),
+    });
+    expect(isTraceRetryDue({ ...candidate, ...patch }, now)).toBe(false);
+    expect(isTraceRetryDue({ ...candidate, ...patch }, Date.parse(patch.traceRetryAt))).toBe(true);
+  });
+
+  it('reopens an old unreachable verdict when a discovery source sees it again', () => {
+    const key = 'mediamarkt.ch';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'dead',
+        name: 'MediaMarkt',
+        domain: key,
+        reason: 'sito irraggiungibile',
+        traceRetryable: true,
+        firstSeenAt: OLD,
+        updatedAt: OLD,
+      },
+    });
+
+    const revived = reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null);
+    expect(revived).toMatchObject({ status: 'new', reason: 'riscontro dopo una nuova scoperta' });
+    expect(store.candidates[key].traceRetryAt).toBeNull();
+  });
+
+  it('does not revive a permanent dead response because its old reason sounds transient', () => {
+    const key = 'gone.example';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'dead',
+        domain: key,
+        reason: 'sito irraggiungibile',
+        traceRetryable: false,
+      },
+    });
+
+    reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null);
+    expect(store.candidates[key].status).toBe('dead');
+  });
+
+  it('reopens a non-retryable dead verdict only when a new careers URL arrives', () => {
+    const key = 'employer.ch';
+    const store = storeWith({
+      [key]: { key, status: 'dead', reason: 'nessuna pagina carriere', domain: key },
+    });
+
+    reviveRetryableDeadCandidate(store, key, { careersUrl: 'https://careers.employer-group.com/jobs' }, null);
+    expect(store.candidates[key].status).toBe('new');
+    expect(store.candidates[key].careersUrl).toBe('https://careers.employer-group.com/jobs');
+  });
+});

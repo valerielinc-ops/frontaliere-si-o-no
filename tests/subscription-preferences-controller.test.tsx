@@ -1,0 +1,657 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import React from 'react';
+import { render, screen, waitFor, fireEvent, cleanup } from '@testing-library/react';
+import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
+import { isAddressSuppressed, isCrossChannelStop } from '../services/emailSuppression.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
+
+// Mock the service module BEFORE importing the component.
+vi.mock('@/services/newsletterSubscribers', () => ({
+ getFullSubscriptionStatus: vi.fn(),
+ toggleNewsletterSubscription: vi.fn(),
+ toggleAutologin: vi.fn(),
+ deleteJobAlert: vi.fn(),
+ updateJobAlert: vi.fn(),
+ createJobAlert: vi.fn(),
+ setDailyBriefFrequency: vi.fn(),
+ upsertUnifiedEmailSubscriber: vi.fn(),
+ isNewsletterOptOutBinding: vi.fn(() => false),
+ // A VALUE, not a function: the daily-brief card maps over it to render its
+ // options, so a mock that omits it takes the whole component down with it.
+ DAILY_BRIEF_FREQUENCIES: ['daily', 'every-2', 'every-3', 'every-5', 'weekly', 'off'],
+}));
+
+// Force a known locale so STRINGS lookup is deterministic.
+let currentLocale: 'it' | 'en' | 'de' | 'fr' = 'en';
+vi.mock('@/services/i18n', async () => {
+ const actual = await vi.importActual<any>('@/services/i18n');
+ return {
+ ...actual,
+ getLocale: () => currentLocale,
+ };
+});
+
+import SubscriptionPreferencesController from '../components/preferences/SubscriptionPreferencesController';
+import * as subs from '@/services/newsletterSubscribers';
+
+const okStatus = (overrides: any = {}) => ({
+ success: true,
+ email: 'user@example.com',
+ newsletter: { subscribed: true, autologinEnabled: true, ...(overrides.newsletter || {}) },
+ alerts: overrides.alerts ?? [],
+});
+
+const sampleAlert = (overrides: any = {}) => ({
+ id: 'alert1',
+ keywords: ['Software Engineer'],
+ locations: ['Lugano'],
+ sectors: [],
+ frequency: 'weekly',
+ active: true,
+ paused: false,
+ createdAt: 1714300000000,
+ ...overrides,
+});
+
+describe('SubscriptionPreferencesController — token mode', () => {
+ beforeEach(() => {
+ currentLocale = 'en';
+ vi.clearAllMocks();
+ });
+
+ afterEach(() => cleanup());
+
+ it('does not fetch subscriber data when the signed token is missing', async () => {
+ render(<SubscriptionPreferencesController mode="token" email="reader@example.com" token="" />);
+ await waitFor(() => expect(screen.getByRole('alert')).toBeTruthy());
+ expect(subs.getFullSubscriptionStatus).not.toHaveBeenCalled();
+ });
+
+ it('renders a loading state initially', () => {
+ (subs.getFullSubscriptionStatus as any).mockReturnValue(new Promise(() => {})); // never resolves
+ render(
+ <SubscriptionPreferencesController
+ mode="token"
+ email="user@example.com"
+ token="abc123"
+ />,
+ );
+ // Loader2 has aria-hidden; we look for the loading wrapper which uses 'animate-spin'
+ expect(document.querySelector('.animate-spin')).not.toBeNull();
+ });
+
+ it('shows "no alerts" empty-state when alerts is empty', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(okStatus({ alerts: [] }));
+ render(
+ <SubscriptionPreferencesController
+ mode="token"
+ email="user@example.com"
+ token="abc123"
+ />,
+ );
+ await waitFor(() => {
+ expect(screen.getByText(/haven't saved any searches yet/)).toBeTruthy();
+ });
+ });
+
+ it('calls toggleNewsletterSubscription when newsletter toggle is clicked', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(okStatus({ alerts: [] }));
+ (subs.toggleNewsletterSubscription as any).mockResolvedValue({ success: true, subscribed: false });
+ render(
+ <SubscriptionPreferencesController
+ mode="token"
+ email="user@example.com"
+ token="abc123"
+ />,
+ );
+ await waitFor(() =>
+ expect(screen.getByText(/Newsletter subscription/)).toBeTruthy(),
+ );
+ // The newsletter toggle is the first toggle button (aria-label = newsletterTitle)
+ const toggle = screen.getByRole('button', { name: /Newsletter subscription/ });
+ fireEvent.click(toggle);
+ await waitFor(() => {
+ expect(subs.toggleNewsletterSubscription).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ false,
+ );
+ });
+ });
+
+ it('calls deleteJobAlert when alert delete is confirmed', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert()] }),
+ );
+ (subs.deleteJobAlert as any).mockResolvedValue({ success: true, alertId: 'alert1' });
+ render(
+ <SubscriptionPreferencesController
+ mode="token"
+ email="user@example.com"
+ token="abc123"
+ />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+ // First click reveals the confirmation prompt; the trash button has aria-label "Delete"
+ const triggerBtn = screen.getByRole('button', { name: /^Delete$/ });
+ fireEvent.click(triggerBtn);
+ // After confirming, the visible "Delete" word changes to a confirm text + a Delete button.
+ await waitFor(() => expect(screen.getByText(/Delete this alert\?/)).toBeTruthy());
+ // There may be two "Delete" buttons (the now-disabled trigger + the confirm). Pick the
+ // one inside the confirmation cluster — the last one in the DOM order.
+ const allDeleteBtns = screen.getAllByText(/^Delete$/);
+ fireEvent.click(allDeleteBtns[allDeleteBtns.length - 1]);
+ await waitFor(() => {
+ expect(subs.deleteJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ );
+ });
+ });
+
+ it('shows error UI when getFullSubscriptionStatus fails', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue({
+ success: false,
+ error: 'invalid_token',
+ });
+ render(
+ <SubscriptionPreferencesController
+ mode="token"
+ email="user@example.com"
+ token="abc123"
+ />,
+ );
+ await waitFor(() => {
+ expect(screen.getByRole('alert')).toBeTruthy();
+ });
+ });
+
+ it.each(['it', 'en', 'de', 'fr'] as const)(
+ 'renders locale-correct empty alert label for %s',
+ async (locale) => {
+ currentLocale = locale;
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(okStatus({ alerts: [] }));
+ render(
+ <SubscriptionPreferencesController
+ mode="token"
+ email="user@example.com"
+ token="abc123"
+ locale={locale}
+ />,
+ );
+ const matchers: Record<typeof locale, RegExp> = {
+ it: /nessuna ricerca salvata/,
+ en: /haven't saved any searches yet/,
+ de: /noch keine Suche gespeichert/,
+ fr: /aucune recherche enregistr\u00e9e/,
+ };
+ await waitFor(() => {
+ expect(screen.getByText(matchers[locale])).toBeTruthy();
+ });
+ cleanup();
+ },
+ );
+});
+
+describe('SubscriptionPreferencesController — edit + create + frequency', () => {
+ beforeEach(() => {
+ currentLocale = 'en';
+ vi.clearAllMocks();
+ });
+
+ afterEach(() => cleanup());
+
+ it('renders the frequency segmented control and calls updateJobAlert when toggled', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ frequency: 'weekly' })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), frequency: 'daily' },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ // The "daily" button is rendered by FrequencyToggle
+ const dailyBtn = screen.getAllByRole('button', { name: /^daily$/ })[0];
+ fireEvent.click(dailyBtn);
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ expect.objectContaining({ frequency: 'daily', frequencyOverride: true }),
+ );
+ });
+ });
+
+ it('shows the auto badge for engine-managed alerts and pins on manual frequency change', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ frequency: 'weekly', frequencyOverride: false })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), frequency: 'daily', frequencyOverride: true },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+ // Scoped: the daily-brief card (#5415) has its own "Automatic" option, so an
+ // unscoped getByText now matches two different controls.
+ expect(screen.getAllByText('Automatic').length).toBeGreaterThan(0);
+ expect(screen.queryByText('manually pinned')).toBeNull();
+
+ fireEvent.click(screen.getAllByRole('button', { name: /^daily$/ })[0]);
+ await waitFor(() => expect(screen.getByText('manually pinned')).toBeTruthy());
+ });
+
+ it('resets a pinned alert back to engine-managed via the reset-to-auto button', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ frequency: 'daily', frequencyOverride: true })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), frequency: 'daily', frequencyOverride: false },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('manually pinned')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /Switch back to automatic/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ expect.objectContaining({ frequencyOverride: false }),
+ );
+ });
+ // Scoped for the same reason as above: two cards now offer an "Automatic".
+ await waitFor(() => expect(screen.queryByText('manually pinned')).toBeNull());
+ });
+
+ it('pauses an alert via the pause button, writing `paused` never `active` (issue #4298 follow-up fix)', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ paused: false })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), paused: true },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Pause$/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ { paused: true },
+ );
+ });
+ await waitFor(() => expect(screen.getByText('Paused')).toBeTruthy());
+ // The alert must stay in the list — pausing never removes/hides it.
+ expect(screen.getByText('Software Engineer')).toBeTruthy();
+ });
+
+ it('resumes a paused alert via the resume button, still visible from get_full_status (issue #4298 follow-up fix)', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ paused: true })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), paused: false },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ // Regression guard: a paused alert returned by get_full_status must render,
+ // not be silently dropped.
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+ expect(screen.getByText('Paused')).toBeTruthy();
+
+ fireEvent.click(screen.getByRole('button', { name: /^Resume$/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ { paused: false },
+ );
+ });
+ await waitFor(() => expect(screen.queryByText('Paused')).toBeNull());
+ });
+
+ it('reverts the optimistic pause when updateJobAlert fails', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ paused: false })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({ success: false, error: 'write_failed' });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Pause$/ }));
+ await waitFor(() => {
+ expect(screen.getByRole('alert')).toBeTruthy();
+ });
+ // Reverted: still shows the "Pause" action, not "Paused".
+ expect(screen.getByRole('button', { name: /^Pause$/ })).toBeTruthy();
+ expect(screen.queryByText('Paused')).toBeNull();
+ });
+
+ it('opens the edit form populated from the alert and saves on Save', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({
+ alerts: [
+ sampleAlert({
+ keywords: ['Software Engineer'],
+ locations: ['Lugano'],
+ sectors: ['Banca'],
+ }),
+ ],
+ }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: {
+ ...sampleAlert(),
+ keywords: ['Senior Engineer'],
+ locations: ['Lugano'],
+ sectors: ['Banca'],
+ },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Edit$/ }));
+
+ // Inputs prefilled.
+ const keywordsInput = screen.getByDisplayValue('Software Engineer') as HTMLInputElement;
+ expect(keywordsInput).toBeTruthy();
+ fireEvent.change(keywordsInput, { target: { value: 'Senior Engineer' } });
+
+ const saveBtn = screen.getByRole('button', { name: /^Save$/ });
+ fireEvent.click(saveBtn);
+
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ expect.objectContaining({
+ keywords: ['Senior Engineer'],
+ locations: ['Lugano'],
+ sectors: ['Banca'],
+ frequency: 'weekly',
+ }),
+ );
+ });
+ });
+
+ it('the Add form validates that at least keywords or locations is non-empty', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(okStatus({ alerts: [] }));
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText(/Add new alert/)).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /Add new alert/ }));
+ // Save with all empty.
+ fireEvent.click(screen.getByRole('button', { name: /^Save$/ }));
+ await waitFor(() => {
+ expect(screen.getByText(/Enter at least one keyword or location/)).toBeTruthy();
+ });
+ expect(subs.createJobAlert).not.toHaveBeenCalled();
+ });
+
+ it('Add form calls createJobAlert with collected fields', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(okStatus({ alerts: [] }));
+ (subs.createJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: {
+ id: 'new-alert-1',
+ keywords: ['Python'],
+ locations: ['Lugano'],
+ sectors: [],
+ frequency: 'weekly',
+ active: true,
+ createdAt: null,
+ },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText(/Add new alert/)).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /Add new alert/ }));
+
+ const inputs = screen.getAllByRole('textbox') as HTMLInputElement[];
+ // Order: keywords, locations, sectors
+ fireEvent.change(inputs[0], { target: { value: 'Python' } });
+ fireEvent.change(inputs[1], { target: { value: 'Lugano' } });
+
+ fireEvent.click(screen.getByRole('button', { name: /^Save$/ }));
+
+ await waitFor(() => {
+ expect(subs.createJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ expect.objectContaining({
+ keywords: ['Python'],
+ locations: ['Lugano'],
+ sectors: [],
+ frequency: 'weekly',
+ }),
+ );
+ });
+ });
+
+ it('Add button is hidden and limit message shown when 10 alerts exist', async () => {
+ const tenAlerts = Array.from({ length: 10 }, (_, i) =>
+ sampleAlert({ id: `alert${i}`, keywords: [`Job ${i}`] }),
+ );
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: tenAlerts }),
+ );
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Job 0')).toBeTruthy());
+
+ expect(screen.queryByRole('button', { name: /Add new alert/ })).toBeNull();
+ expect(screen.getByText(/You've reached the 10-alert limit/)).toBeTruthy();
+ });
+
+ it('shows error UI when updateJobAlert returns success:false during edit save', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert()] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({ success: false, error: 'write_failed' });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Edit$/ }));
+ fireEvent.click(screen.getByRole('button', { name: /^Save$/ }));
+
+ await waitFor(() => {
+ expect(screen.getByRole('alert')).toBeTruthy();
+ expect(screen.getByText(/Saving failed/)).toBeTruthy();
+ });
+ });
+});
+
+describe('SubscriptionPreferencesController — auth-mode source check', () => {
+ // Auth mode reads/writes Firestore directly; mocking the firebase SDK comprehensively
+ // is brittle, so we rely on a source-grep to guarantee both code paths exist.
+ const sourcePath = path.resolve(
+ __dirname,
+ '../components/preferences/SubscriptionPreferencesController.tsx',
+ );
+ const src = fs.readFileSync(sourcePath, 'utf8');
+
+ it('source contains token-mode entry-points', () => {
+ expect(src).toMatch(/getFullSubscriptionStatus\(/);
+ expect(src).toMatch(/toggleNewsletterSubscription\(/);
+ expect(src).toMatch(/deleteJobAlert\(/);
+ });
+
+ it('keeps advertising reactivation scoped to the advertising sender', () => {
+  const start = src.indexOf('const handleToggleAds');
+  const end = src.indexOf('const handleStopAll', start);
+  const toggle = src.slice(start, end);
+  expect(toggle).toContain('advertising_reactivated_at');
+  expect(toggle).toContain('setAdvertisingEnabled(email, token, next)');
+  expect(toggle).toContain('authSetAdvertisingOptOut(email, next)');
+  expect(toggle).not.toContain('authToggleNewsletter(email, next)');
+  expect(src).toContain("status: 'unsubscribed'` alone");
+
+  const writerStart = src.indexOf('async function authSetAdvertisingOptOut');
+  const writerEnd = src.indexOf('async function authStopAllEmails', writerStart);
+  const writer = src.slice(writerStart, writerEnd);
+  expect(writer).toContain('ADVERTISING_REACTIVATED_AT_FIELD');
+  expect(writer).not.toMatch(/all_email(?:s)?_opted_out:\s*false/);
+  expect(writer).not.toMatch(/global_email_opted_out:\s*false/);
+ });
+
+ it('uses the sender suppression predicate for the displayed advertising state', () => {
+  expect(src).toContain("import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';");
+  expect(src).toContain('advertisingEnabled: !isAdvertisingSuppressed(data)');
+ });
+
+ it('source contains auth-mode Firestore helpers', () => {
+ expect(src).toMatch(/authLoadFullStatus/);
+ expect(src).toMatch(/authToggleNewsletter/);
+ expect(src).toMatch(/authToggleAutologin/);
+ expect(src).toMatch(/authDeleteAlert/);
+ expect(src).toMatch(/authUpdateAlert/);
+ expect(src).toMatch(/authCreateAlert/);
+ expect(src).toMatch(/import\(['"]firebase\/firestore['"]\)/);
+ expect(src).toMatch(/deleteDoc\(/);
+ expect(src).toMatch(/account_deleted_at:\s*deleteField\(\)/);
+ expect(src).toMatch(/authCreateAlert\(userId, email, values\)/);
+ expect(src).not.toMatch(/emailConsentGiven/);
+ });
+
+ it('does not let the auth autologin preference create a central subscriber', () => {
+  const autoStart = src.indexOf('async function authToggleAutologin');
+  const autoEnd = src.indexOf('async function authUpdateAlert', autoStart);
+  const auto = src.slice(autoStart, autoEnd);
+  expect(auto).toContain('const existingSubscriber = await getDoc(subscriberRef);');
+  expect(auto).toContain("throw new Error('subscriber_not_found')");
+ });
+
+ it('keeps a tombstoned auth subscriber unsubscribed so the newsletter toggle can re-opt in', () => {
+  expect(src).toMatch(/const accountDeleted = isAccountDeletedSubscriber\(data\)/);
+  expect(src).toMatch(/isAccountDeletedSubscriber/);
+  expect(src).toMatch(/!accountDeleted && !optOutBinding/);
+  expect(src).toMatch(/authToggleNewsletter\(email, next, userId\)/);
+ });
+
+ // Saving a listing activates a never-decided saved-jobs digest (owner
+ // decision 2026-10-02), so every "off" here must be an explicit, durable stop.
+ it('records an explicit saved-jobs digest stop that a later save respects', () => {
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setEnd = src.indexOf('\n}\n', setStart);
+  const setter = src.slice(setStart, setEnd);
+  // Turning it off needs no subscriber record: the check lives in the "on" branch.
+  const enabledBranch = setter.indexOf('if (enabled) {');
+  expect(enabledBranch).toBeGreaterThan(-1);
+  expect(setter.indexOf("throw new Error('subscriber-not-created')")).toBeGreaterThan(enabledBranch);
+  // An existing stop keeps its provenance.
+  expect(setter).toMatch(/savedJobsDigest\?\.optedOut === true\) return;/);
+  expect(setter).toMatch(/optedOut:\s*!enabled/);
+
+  const stopStart = src.indexOf('const handleStopAll');
+  const stopAll = src.slice(stopStart, src.indexOf('authSetSavedJobsDigest(userId, email, false)', stopStart) + 60);
+  // Stop-all writes the off even when the digest was never on yet.
+  expect(stopAll).toMatch(/if \(digestAvailable && userId\) \{\s*try \{\s*await authSetSavedJobsDigest\(userId, email, false\);/);
+  expect(stopAll).not.toMatch(/digestAvailable && userId && digestEnabled/);
+ });
+
+ // Owner decision 2026-10-03: the digest reaches a verified account with no
+ // central row (the sender creates the digest's own record). The switch must
+ // turn it back on for that account without creating a newsletter subscription.
+ it('re-enables the saved-jobs digest without subscribing an account that has no newsletter relationship (no row, digest record, legacy row)', () => {
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setEnd = src.indexOf('\n}\n', setStart);
+  const setter = src.slice(setStart, setEnd);
+  // The branch is "no newsletter relationship", not "no document": the
+  // digest's own record and a legacy row with no relationship take it too.
+  const noRowBranch = setter.indexOf('if (!subscriberData || !hasSubscriptionBasis(subscriberData)) {');
+  const elseBranch = setter.indexOf('} else {', noRowBranch);
+  expect(noRowBranch).toBeGreaterThan(-1);
+  expect(elseBranch).toBeGreaterThan(noRowBranch);
+  const noRow = setter.slice(noRowBranch, elseBranch);
+  // A stop on the row still wins; only a missing row with an unverified
+  // address fails; everything else falls through to the account-preference write.
+  expect(noRow).toContain("if (subscriberData && (isAddressSuppressed(subscriberData.status) || isCrossChannelStop(subscriberData))) {");
+  expect(noRow).toContain("throw new Error('email-suppressed');");
+  expect(noRow).toContain("if (!subscriberData && !emailVerified) throw new Error('subscriber-not-created');");
+  expect(noRow).not.toContain('upsertUnifiedEmailSubscriber');
+  // The central writer (a subscription) runs only on an existing row.
+  expect(setter.indexOf('upsertUnifiedEmailSubscriber')).toBeGreaterThan(elseBranch);
+  expect(src).toContain('await authSetSavedJobsDigest(userId, email, next, emailVerified);');
+ });
+
+ // Review acceptance (2026-10-04): a bounced digest record takes the
+ // no-relationship branch and is refused there, before any preference write.
+ it('refuses to re-enable the digest on a suppressed record that has no relationship', () => {
+  const bouncedDigestRecord = { saved_jobs_digest_anchor: { created_at: 1 }, status: 'bounced' };
+  expect(hasSubscriptionBasis(bouncedDigestRecord)).toBe(false);
+  expect(isAddressSuppressed(bouncedDigestRecord.status)).toBe(true);
+  expect(isCrossChannelStop(bouncedDigestRecord)).toBe(true);
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setter = src.slice(setStart, src.indexOf('\n}\n', setStart));
+  // The refusal comes before the account-preference write.
+  expect(setter.indexOf("throw new Error('email-suppressed');")).toBeLessThan(setter.indexOf('savedJobsDigest: {'));
+ });
+
+ it('shows the saved-jobs digest as on only when the sender would send it', () => {
+  const loadStart = src.indexOf('async function authLoadSavedJobsDigest');
+  const loadEnd = src.indexOf('\n}\n', loadStart);
+  const loader = src.slice(loadStart, loadEnd);
+  // Same stop predicate as isSavedJobsDigestEligible in
+  // scripts/send-saved-jobs-digest.mjs, not a narrower list of global fields.
+  expect(loader).toContain('!isCrossChannelStop(subscriberData)');
+  expect(loader).toContain('(Boolean(subscriberData) || emailVerified)');
+ });
+
+ it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {
+ expect(src).toMatch(/handleTogglePause/);
+ expect(src).toMatch(/onTogglePause/);
+ // Regression guard: authLoadFullStatus MUST skip active===false docs —
+ // `active` is solely the soft-delete flag; a soft-deleted alert must
+ // never resurrect as "paused" (that would un-opt-out a user).
+ expect(src).toMatch(/if \(a\.active === false\) return;/);
+ // Regression guard: pause/resume must go through the dedicated `paused`
+ // field, never `active` — the two must never collide again.
+ expect(src).toMatch(/paused:\s*nextPaused/);
+ expect(src).not.toMatch(/active:\s*nextActive/);
+ });
+});

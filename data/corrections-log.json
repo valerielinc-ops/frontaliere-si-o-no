@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "policy": {
+    "sla_hours": 48,
+    "types": ["factual", "typo", "clarification"],
+    "contactEmail": "redazione@frontaliereticino.ch"
+  },
+  "entries": []
+}

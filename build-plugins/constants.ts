@@ -1,0 +1,1323 @@
+/**
+ * Shared constants for Vite build plugins.
+ *
+ * BUILD_ID: per-build timestamp. Emitted to dist/build-id.txt by buildIdPlugin
+ * and read at runtime (staleness checks). NOT injected as a Vite `define` —
+ * baking it into the bundle changed the entry hash every build → ~100% page
+ * churn (see vite.config define removal).
+ *
+ * Honors `process.env.DEPLOY_BUILD_ID` when set, so a multi-runner deploy
+ * (the per-locale MATRIX build) can pass ONE canonical id to every shard build
+ * — otherwise each runner's `Date.now()` would diverge and the IT shard's
+ * build-id.txt (the one GitHub Pages serves + the one staged into the
+ * sitemaps-bundle for wait-for-pages-propagation.mjs) could differ from the
+ * sitemaps-bundle copy, breaking the propagation gate. The monolith deploy
+ * leaves the env unset → behaviour is byte-identical to the old timestamp.
+ * The override is sanitised to digits only so it stays a numeric stamp,
+ * preserving the `>=` (monotonic) comparison in wait-for-pages-propagation.mjs.
+ * COMMIT_HASH / SHORT_COMMIT_HASH: build commit. Emitted to dist/commit-hash.txt
+ * and read at runtime (version badge fetches it). Also NOT a `define`, same reason.
+ * BASE_URL: canonical site origin used across all static-page generators.
+ *
+ * BUILD_DATE_STAMP: UTC "today" (YYYY-MM-DD) derived from BUILD_ID rather than a
+ * fresh `new Date()` (#5911). On the matrix deploy the it/en/de/fr shards are 4
+ * independent, multi-hour processes; a plugin that computed `new Date()` itself
+ * at whatever wall-clock moment it happened to run could see a different UTC day
+ * on different shards, which is dangerous for any generator that uses "today" to
+ * decide WHETHER to emit a page (not just to stamp `lastmod`) — a page emitted on
+ * one shard's date and skipped on another's leaves the other shards' unconditional
+ * hreflang alternates pointing at a target that was never built. BUILD_ID is
+ * already minted once per deploy run in matrix-setup and shared via
+ * DEPLOY_BUILD_ID, so deriving the date from it keeps every shard's "today"
+ * identical for free, with the same monolith-build fallback behaviour as BUILD_ID.
+ */
+
+import { createHash } from 'node:crypto';
+import { execSync } from 'child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import {
+  AUTOMATION_SCREEN_HEIGHT,
+  AUTOMATION_SCREEN_WIDTH,
+  AUTOMATION_TIME_ZONES,
+  AUTOMATION_LANGUAGE,
+  AUTOMATION_LANGUAGE_CHROME_MAJORS,
+  AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS,
+  AUTOMATION_LANGUAGE_TIME_ZONES,
+  BOT_UA_PATTERNS,
+} from '../services/botPatterns';
+// Single source of truth for the ads-consent storage contract (#5842). Imported
+// rather than re-typed so the inline static loader below and the SPA gate in
+// AdSenseBanner/GptAdSlot cannot drift apart: the emitted loader string is
+// derived from these constants at build time. Safe to import here — every DOM
+// access in that module is behind a `typeof window === 'undefined'` guard, so
+// module scope is inert under Node.
+import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
+import { AD_PAGE_TEMPLATE_INLINE_FN } from '../services/adPageTemplate';
+import { isManualSlot } from '../services/adSlotKinds';
+import { observeManualAd } from '../services/manualAdLifecycle';
+import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '../services/adsenseSlots';
+import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
+import {
+  POSTHOG_EVENT_SAMPLE_RATE,
+  POSTHOG_LOCAL_DEV_HOSTS,
+  POSTHOG_QUOTA_EXEMPT_EVENTS,
+  POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
+} from '../services/posthogQuota';
+import {
+  FIRST_PARTY_ASSET_FRAME_PATTERN,
+  GOOGLE_IOS_APP_UA_PATTERN,
+  WEBKIT_ORIGIN_REDACTED_FRAME,
+  ORIGIN_REDACTED_MIN_FRAMES,
+  INDEXED_DB_ERROR_PATTERN,
+  STACK_OVERFLOW_MESSAGE_PATTERN,
+} from '../services/benignErrorPatterns';
+import {
+  AD_BLOCKER_TRIGGER_PATTERN_SOURCE,
+  CALL_TIME_SKEW_PATTERNS,
+  CHUNK_LOAD_ERROR_PATTERN_SOURCE,
+  MODULE_LINK_SKEW_PATTERNS,
+} from '../services/resilientImport';
+import { adSlotHtml, STATIC_AD_UNIQUE_PLACEMENTS } from './lib/adSlotHtml';
+import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
+import { clampMetaDescription } from './shared/titleSuffix';
+import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
+import { JOB_BOARD_SECTION_PATHNAME_RX } from '../scripts/lib/jobBoardSections.mjs';
+import { AD_PAGE_DIAG_FN } from './shared/adPageDiagInline';
+
+/**
+ * Regex-source strings interpolated into SELF_HEAL_SCRIPT_CONTENT below,
+ * generated at BUILD TIME (this file runs under Node/Vite, not the browser)
+ * from resilientImport.ts's exported pattern lists. This is the fix for
+ * issue #3216 item 1: the emitted early-boot.js script previously carried a
+ * HAND-COPIED subset of these patterns that had drifted (missing 'Importing
+ * a module script failed', WebKit's generic module-load-failure wording) —
+ * generating the source from the shared arrays instead makes that drift
+ * impossible by construction (AGENTS.md §Non-Negotiables #6).
+ */
+const CALL_TIME_SKEW_SOURCE = CALL_TIME_SKEW_PATTERNS.map((re) => re.source).join('|');
+const MODULE_LINK_SKEW_SOURCE = MODULE_LINK_SKEW_PATTERNS.map((re) => re.source).join('|');
+const CHUNK_LOAD_ERROR_SOURCE = CHUNK_LOAD_ERROR_PATTERN_SOURCE;
+const AD_BLOCKER_SOURCE = AD_BLOCKER_TRIGGER_PATTERN_SOURCE;
+const INDEXED_DB_ERROR_SOURCE = INDEXED_DB_ERROR_PATTERN.source;
+
+/**
+ * Same regex-source-generation technique as above, applied to the PostHog
+ * `before_send` benign-noise filter (issue #3406/#3407 fix): the static-page
+ * PostHog init snippet below (POSTHOG_INIT_CONTENT) is plain externalised JS
+ * that cannot `import` services/posthog-error-filter.ts, so its filter logic
+ * is generated from the SAME source arrays the React/SPA init
+ * (services/posthog.ts) uses. Before this fix, POSTHOG_INIT_CONTENT had NO
+ * `before_send` at all — a sibling-drift bug (AGENTS.md §Non-Negotiables #6):
+ * PR #2733 (2026-06-22) added the benign-noise deny-list only to the SPA
+ * path, never to this raw-JS twin, so every static SEO page (the dominant
+ * traffic surface) sent unfiltered exceptions, including confirmed-benign
+ * "Script error." noise.
+ */
+const POSTHOG_BENIGN_SOURCE = BENIGN_MESSAGES.map((re) => re.source).join('|');
+const POSTHOG_THIRD_PARTY_STACK_SOURCE = THIRD_PARTY_STACK_ORIGINS.map((re) => re.source).join('|');
+/**
+ * Stack-SHAPE counterpart of the origin list above (#4173): interpolated
+ * from services/benignErrorPatterns.ts so the static-page ES5 filter and the
+ * SPA TypeScript filter cannot drift on the frame pattern.
+ */
+const POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE = WEBKIT_ORIGIN_REDACTED_FRAME.source;
+const POSTHOG_GOOGLE_IOS_APP_UA_SOURCE = GOOGLE_IOS_APP_UA_PATTERN.source;
+const POSTHOG_FIRST_PARTY_ASSET_FRAME_SOURCE = FIRST_PARTY_ASSET_FRAME_PATTERN.source;
+const POSTHOG_STACK_OVERFLOW_MESSAGE_SOURCE = STACK_OVERFLOW_MESSAGE_PATTERN.source;
+
+const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
+export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
+export const BUILD_DATE_STAMP = new Date(Number(BUILD_ID)).toISOString().slice(0, 10);
+// Kept in the HTML head as well as build-id.txt so error telemetry can identify
+// the document/chunk pair synchronously, including errors raised before the
+// async metadata fetch in services/buildInfo.ts completes.
+export const BUILD_ID_META_TAG = `<meta name="ft-build-id" content="${BUILD_ID}">`;
+// Static SEO pages (HEAD_PREFIX) carry the same marker by default. Its value
+// changes on EVERY build, so a page whose content did not change still gets a
+// new blob: with SHARD_PUSH_MODE=delta, 64 of the 73 changed unmanifested
+// pages on the glarona-en shard (deploy 35440963700) differed ONLY by this
+// meta. STATIC_BUILD_ID_META=off (repository variable, unset = legacy) drops it
+// from static pages only: the Vite shell index.html keeps it through
+// buildIdPlugin, and services/buildInfo.ts falls back to /build-id.txt, which
+// names the build whose stable-named bundle the page actually executes.
+export const STATIC_BUILD_ID_META_ENABLED = process.env.STATIC_BUILD_ID_META !== 'off';
+export const STATIC_BUILD_ID_META_TAG = STATIC_BUILD_ID_META_ENABLED ? BUILD_ID_META_TAG : '';
+// Build id a reused static page must carry: null means "strip the marker".
+export const STATIC_PAGE_BUILD_ID: string | null = STATIC_BUILD_ID_META_ENABLED ? BUILD_ID : null;
+
+/**
+ * Fail-fast guard for the externalised stylesheets that live in
+ * `public/assets/` (Vite copies the public/ tree to dist/ at the start of
+ * the build, so the file lands in dist/assets/ under the same name). The
+ * read at module-load time keeps the historical invariant that a missing
+ * source file fails the build immediately instead of shipping ~822k pages
+ * whose `<link>` 404s.
+ *
+ * The filenames are STABLE (no content hash) like every other bundler
+ * asset — see vite.config.ts `chunkFileNames`/`assetFileNames` for the full
+ * rationale (the serving stack revalidates at max-age=600, so a content
+ * change propagates without a rename, while a rename re-churned ~822k
+ * prerendered pages and 404'd from HTML cached under the old name). This
+ * invariant is pinned by `tests/stable-asset-names.test.ts`.
+ */
+export function readPublicAsset(relPath: string): string {
+  // Walk up from `build-plugins/constants.ts` to the repo root.
+  // process.cwd() is unreliable (depends on how Vite was invoked); the
+  // file's own location is the stable anchor.
+  // __dirname is not available in ESM — resolve via import.meta.url.
+  const here = path.dirname(new URL(import.meta.url).pathname);
+  let dir = here;
+  while (dir !== '/' && !fs.existsSync(path.join(dir, 'package.json'))) {
+    dir = path.dirname(dir);
+  }
+  return fs.readFileSync(path.join(dir, 'public', 'assets', relPath), 'utf-8');
+}
+
+function assertPublicAssetExists(relPath: string): void {
+  readPublicAsset(relPath);
+}
+
+assertPublicAssetExists('seo-static.css');
+assertPublicAssetExists('bridge.css');
+
+export const SEO_STATIC_CSS_FILENAME = 'seo-static.css';
+export const SEO_STATIC_CSS_LINK = `<link rel="stylesheet" href="/assets/${SEO_STATIC_CSS_FILENAME}">`;
+export const BRIDGE_CSS_FILENAME = 'bridge.css';
+export const BRIDGE_CSS_LINK = `<link rel="stylesheet" href="/assets/${BRIDGE_CSS_FILENAME}">`;
+
+/**
+ * Cross-origin preconnect to the asset CDN (the frontaliere-cdn Pages site).
+ *
+ * On deploy builds every render-blocking resource on static + locale-shard
+ * pages — index.css, seo-static.css, the SPA bundle, early-boot.js,
+ * gtag-init.js — is rebased to `${ASSET_CDN}` (cdn.frontaliereticino.ch) by
+ * vite.config.ts `renderBuiltUrl`. Without an early hint the browser only
+ * opens that cross-origin socket when it reaches the stylesheet `<link>` ~8.6
+ * KB into the `<head>` (after the JSON-LD blocks), paying a full DNS+TCP+TLS
+ * round-trip (~50-300 ms) BEFORE the blocking CSS can even start downloading —
+ * and static pages carry NO `modulepreload` to the CDN to warm it first.
+ * Emitting one `<link rel="preconnect">` as an early head hint overlaps that
+ * handshake with head parsing → shaves the round-trip off first paint on every
+ * page in every locale.
+ *
+ * `crossorigin` makes it an anonymous (uncredentialed) connection — the same
+ * mode the CDN stylesheet/script/font fetches use — so the warmed socket is
+ * reused for all of them (HTTP/2 coalesces the no-cors seo-static.css onto the
+ * same uncredentialed connection). A single hint therefore covers every CDN
+ * fetch; no `dns-prefetch` fallback is emitted (preconnect already resolves
+ * DNS, and the ~57 extra bytes ride on ~822k pages).
+ *
+ * Built from process.env.ASSET_CDN (deploy builds only — the same env that
+ * drives renderBuiltUrl). Empty string on dev / non-CDN builds, where assets
+ * stay same-origin and no preconnect is needed. constants.ts is build-only
+ * (it already imports child_process/node:fs), so reading process.env here is
+ * safe — no client bundle pulls it in.
+ */
+const ASSET_CDN_ORIGIN = ((): string => {
+  const raw = (process.env.ASSET_CDN || '').trim().replace(/\/+$/, '');
+  if (!raw) return '';
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return '';
+  }
+})();
+export const CDN_PRECONNECT_HINT = ASSET_CDN_ORIGIN
+  ? `<link rel="preconnect" href="${ASSET_CDN_ORIGIN}" crossorigin>`
+  : '';
+
+/**
+ * Generate a lightweight canonical bridge page for alias URLs.
+ * These pages avoid GitHub Pages redirect quirks while keeping the canonical target explicit
+ * without shipping a hard noindex/meta-refresh combination that can accumulate in Search Console.
+ */
+/**
+ * Inline <script> added to every static bridge/archive page.
+ * If the URL carries SPA-relevant query params (newsletter confirmation,
+ * auth tokens, unsubscribe, etc.), save the full URL in sessionStorage and
+ * redirect to / so the React app can process the action.
+ *
+ * IMPORTANT: tracking + autologin params (`ne`, `ac`) are intentionally NOT
+ * in the trigger set. They appear on EVERY newsletter content link (article,
+ * job detail, company hub) and are processed in-place by `App.tsx` after
+ * hydration — App.tsx exchanges `ac` for a fresh auth token and strips both
+ * params from the URL via `history.replaceState`. Triggering a redirect on
+ * `ne`/`ac` destroys the static document the user just landed on (and any
+ * window-seeded data like `__EXPIRED_JOB_DATA__` / `__BRIDGE_TARGET_SLUG__`)
+ * because `location.replace('/')` loads a fresh `index.html` that no longer
+ * has those globals — soft-landing pages then fall back to the generic
+ * "annuncio non trovato" view instead of the rich expired-job content.
+ */
+/**
+ * Plain JS body (no <script> wrapper) — written to dist/assets/spa-action-redirect.js
+ * by staticScriptsPlugin and referenced via <script src="..."> from SPA_ACTION_REDIRECT_SCRIPT.
+ * Externalising this snippet saves ~150 B/page across ~200k SEO pages (~30 MB dist).
+ */
+export const SPA_ACTION_REDIRECT_SCRIPT_CONTENT = `(function(){var p=new URLSearchParams(location.search);if(p.get('action')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')){sessionStorage.redirect=location.href;location.replace('/');}})();`;
+
+/**
+ * Plain JS body for the dark-mode init — written to dist/assets/dark-mode-init.js
+ * by staticScriptsPlugin. Adds 'dark' class to <html> before first paint to avoid
+ * FOUC on dark-mode pages. Used by soft-landing + staticPagesPlugin templates.
+ * Externalising drops ~140 B/page across the ~100k pages that emit it (~14 MB dist).
+ *
+ * Loaded synchronously (no defer/async) — must run before paint so dark-mode
+ * styles in seo-static.css apply on first render.
+ */
+export const DARK_MODE_INIT_CONTENT = `(function(){if(localStorage.theme==='dark'||((!('theme' in localStorage))&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})();`;
+
+/**
+ * Plain JS body for cross-chunk version-skew self-heal — written to
+ * dist/assets/early-boot.js (via EARLY_BOOT_CONTENT below) by staticScriptsPlugin.
+ *
+ * Previously this recovery logic existed ONLY as an inline <script> in the root
+ * index.html, registered before the deferred SPA module script so it could catch
+ * link-time errors that fire before React ever mounts. Every OTHER static page
+ * (job-detail, soft-landing, hub, landing, etc. — generated by jobsSeoPagesPlugin
+ * / staticPagesPlugin / seoPageShell) already loads early-boot.js via
+ * EARLY_BOOT_SCRIPT (aliased as SPA_ACTION_REDIRECT_SCRIPT / DARK_MODE_SCRIPT)
+ * before their own module entry script, but that file only ever contained
+ * dark-mode-init + spa-action-redirect — so a cold deep-link (e.g. a job-alert
+ * email click) hitting a version-skewed chunk on one of those pages had NOTHING
+ * listening for it: the SyntaxError killed module instantiation before React (and
+ * therefore ErrorBoundary) ever existed, permanently stranding the user on the
+ * static shell. Concatenating this content here fixes every such page at once.
+ *
+ * Mirrors the recovery in resilientImport.ts (isVersionSkewError /
+ * isModuleLinkSkewMessage / isChunkLoadError) and the historical inline
+ * index.html script. The message regexes are no longer hand-copied: this
+ * file (build-plugins/constants.ts, which runs under Node/Vite at BUILD
+ * TIME) imports resilientImport.ts's exported pattern arrays
+ * (CALL_TIME_SKEW_PATTERNS / MODULE_LINK_SKEW_PATTERNS /
+ * CHUNK_LOAD_ERROR_SUBSTRINGS) and inlines their `.source`/escaped text into
+ * the raw script below via template interpolation — see
+ * CALL_TIME_SKEW_SOURCE / MODULE_LINK_SKEW_SOURCE / CHUNK_LOAD_ERROR_SOURCE
+ * above. Only the EMITTED early-boot.js (this string's runtime output)
+ * cannot `import` resilientImport.ts — it runs before any module JS loads —
+ * so the patterns are baked in as literal regex text at build time instead
+ * of drifting as a second hand-maintained copy (issue #3216 item 1;
+ * AGENTS.md §Non-Negotiables #6).
+ *
+ * `_swReloadCount` (sessionStorage) is the SAME reload-budget key used by
+ * resilientImport.ts and index.html, so all recovery surfaces share one budget
+ * per browser session, regardless of which page/shell fires it. Stored as a
+ * JSON map `{ [signature]: attempts }` (via `fcb`, mirroring
+ * consumeReloadBudget in resilientImport.ts) rather than a flat counter, so
+ * each DISTINCT stale chunk/message gets its own MAX_RELOADS(=2) attempts —
+ * capped overall by MAX_TOTAL_RELOADS(=6) — instead of one shared session-wide
+ * slot that a single earlier, unrelated skew event could permanently exhaust.
+ *
+ * Issue #3149 hardening (mirrored across all three copies, keep in sync):
+ * (1) raises the Resource Timing buffer cap to 1000 as the very first
+ *     statement in the IIFE — this script runs before the module entry
+ *     script on every static page, so the raise lands before the bulk of
+ *     page resources load, preventing the buffer (spec-floor default 250)
+ *     from silently evicting a version-skewed chunk's timing entry over a
+ *     long-lived SPA session; (2) the DOM-scan enumeration fallback in
+ *     `bust()` now always unions with Resource Timing results instead of
+ *     only running when it comes back empty (still cannot recover chunks
+ *     loaded via dynamic import(), which never leave a DOM node — the
+ *     buffer raise is the mitigation for those); (3) the refetch uses
+ *     `credentials:'same-origin'` (not the old `'omit'`) to match the
+ *     spec-default credentials mode of a `<script type="module">` with no
+ *     `crossorigin` attribute in both deploy shapes (CDN cross-origin and
+ *     same-origin fallback when `ASSET_CDN` is unset).
+ */
+export const SELF_HEAL_SCRIPT_CONTENT = String.raw`(function(){try{if(window.performance&&typeof performance.setResourceTimingBufferSize==='function'){performance.setResourceTimingBufferSize(1000);}}catch(e){}var FR_MAX_RELOADS=2;var FR_MAX_TOTAL_RELOADS=6;function fcb(sig){var b={};try{var p=JSON.parse(sessionStorage.getItem('_swReloadCount')||'{}');if(p&&typeof p==='object'&&!Array.isArray(p))b=p;}catch(e){}var k=String(sig||'unknown').slice(0,150);var t=0;for(var x in b)if(Object.prototype.hasOwnProperty.call(b,x))t+=b[x];var c=b[k]||0;if(c>=FR_MAX_RELOADS||t>=FR_MAX_TOTAL_RELOADS)return false;b[k]=c+1;try{sessionStorage.setItem('_swReloadCount',JSON.stringify(b));}catch(e){}return true;}if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});});}function bust(){function rl(){try{location.reload();}catch(e){}}function cc(){if(!('caches' in window))return Promise.resolve();return caches.keys().then(function(ns){return Promise.all(ns.map(function(n){return caches.delete(n);}));}).catch(function(){});}var urls=[];try{var es=(window.performance&&performance.getEntriesByType)?performance.getEntriesByType('resource'):[];for(var i=0;i<es.length;i++){var n=es[i].name||'';if(/\/assets\/.+\.(js|css)(\?|$)/.test(n))urls.push(n);}}catch(e){}try{var els=document.querySelectorAll('script[src*="/assets/"], link[href*="/assets/"]');for(var j=0;j<els.length;j++){var u=els[j].src||els[j].href;if(u)urls.push(u);}}catch(e){}var uq=[];for(var k=0;k<urls.length;k++)if(uq.indexOf(urls[k])===-1)uq.push(urls[k]);if(!uq.length||typeof fetch!=='function'){cc().then(rl,rl);return;}var done=false;function fin(){if(done)return;done=true;rl();}setTimeout(fin,4000);cc().then(function(){return Promise.all(uq.map(function(u){return fetch(u,{cache:'reload',mode:'cors',credentials:'same-origin'}).catch(function(){});}));}).then(fin,fin);}window.addEventListener('unhandledrejection',function(e){var r=e.reason;var m=r instanceof Error?r.message:String(r||'');if(/${INDEXED_DB_ERROR_SOURCE}/i.test(m)){e.preventDefault();}});window.addEventListener('error',function(e){if(e.target&&(e.target.tagName==='SCRIPT'||e.target.tagName==='LINK')){var src=e.target.src||e.target.href||'';var tt=e.target.tagName==='SCRIPT'?'script':'link';var isAsset=src.indexOf('/assets/')!==-1;var adB=/${AD_BLOCKER_SOURCE}/i.test(src);try{var errs=JSON.parse(sessionStorage.getItem('_resourceErrors')||'[]');errs.push({type:tt,url:src.slice(0,300),pagePath:location.pathname+location.search,adBlocked:adB,triggeredReload:false,ts:new Date().toISOString()});if(errs.length>20)errs=errs.slice(-20);sessionStorage.setItem('_resourceErrors',JSON.stringify(errs));}catch(ex){}if(!isAsset)return;if(adB)return;if(!fcb(src)){try{var bl=JSON.parse(sessionStorage.getItem('_resourceErrors')||'[]');if(bl.length>0)bl[bl.length-1].triggeredReload='blocked';sessionStorage.setItem('_resourceErrors',JSON.stringify(bl));}catch(ex){}return;}try{var e2=JSON.parse(sessionStorage.getItem('_resourceErrors')||'[]');if(e2.length>0)e2[e2.length-1].triggeredReload=true;sessionStorage.setItem('_resourceErrors',JSON.stringify(e2));}catch(ex){}try{sessionStorage.setItem('_forceReloadInfo',JSON.stringify({source:'index_html_script',reason:'stale_chunk_'+tt,resource:src.slice(0,300),pagePath:location.pathname+location.search,timestamp:new Date().toISOString()}));}catch(ex){}try{sessionStorage.setItem('_swErrorInfo',JSON.stringify({resource:src,pagePath:location.pathname+location.search,timestamp:new Date().toISOString()}));}catch(ex){}bust();}},true);window.addEventListener('error',function(e){if(e.target&&e.target!==window&&e.target.tagName)return;if(location.hostname==='localhost'||location.hostname==='127.0.0.1')return;var err=e.error;var nm=(err&&err.name)||'';var m=(err&&err.message)||e.message||'';var sc=nm==='TypeError'&&/${CALL_TIME_SKEW_SOURCE}/i.test(m);var sl=/${MODULE_LINK_SKEW_SOURCE}/.test(m);if(!sc&&!sl)return;if(!fcb(m))return;try{sessionStorage.setItem('_forceReloadInfo',JSON.stringify({source:'index_html_skew',reason:'version_skew_typeerror',resource:m.slice(0,300),pagePath:location.pathname+location.search,timestamp:new Date().toISOString()}));}catch(ex){}bust();});window.addEventListener('unhandledrejection',function(e){if(location.hostname==='localhost'||location.hostname==='127.0.0.1')return;var reason=(e.reason&&e.reason.message)||String(e.reason||'');if(!/${CHUNK_LOAD_ERROR_SOURCE}/.test(reason)&&!/${MODULE_LINK_SKEW_SOURCE}/.test(reason))return;var adB=/${AD_BLOCKER_SOURCE}/i.test(reason);try{var errs=JSON.parse(sessionStorage.getItem('_resourceErrors')||'[]');errs.push({type:'dynamic_import',url:reason.slice(0,300),pagePath:location.pathname+location.search,adBlocked:adB,triggeredReload:false,ts:new Date().toISOString()});if(errs.length>20)errs=errs.slice(-20);sessionStorage.setItem('_resourceErrors',JSON.stringify(errs));}catch(ex){}if(adB)return;if(!fcb(reason)){try{var bl=JSON.parse(sessionStorage.getItem('_resourceErrors')||'[]');if(bl.length>0)bl[bl.length-1].triggeredReload='blocked';sessionStorage.setItem('_resourceErrors',JSON.stringify(bl));}catch(ex){}return;}try{var e2=JSON.parse(sessionStorage.getItem('_resourceErrors')||'[]');if(e2.length>0)e2[e2.length-1].triggeredReload=true;sessionStorage.setItem('_resourceErrors',JSON.stringify(e2));}catch(ex){}try{sessionStorage.setItem('_forceReloadInfo',JSON.stringify({source:'index_html_import',reason:'dynamic_import_failure',resource:reason.slice(0,300),pagePath:location.pathname+location.search,timestamp:new Date().toISOString()}));}catch(ex){}try{sessionStorage.setItem('_swErrorInfo',JSON.stringify({resource:reason.slice(0,300),pagePath:location.pathname+location.search,timestamp:new Date().toISOString(),type:'dynamic_import'}));}catch(ex){}bust();});})();`;
+
+/**
+ * Combined early-boot script — concatenates dark-mode-init (which MUST run
+ * before paint to apply the `dark` class), spa-action-redirect (which is
+ * cheap to run synchronously), and the version-skew self-heal handlers (must
+ * register before any module JS loads). Replaces THREE separate `<script src>`
+ * tags per static page with ONE tag pointing at `/assets/early-boot.js`.
+ *
+ * Order of concatenation matters: dark-mode FIRST (must paint with the
+ * correct theme), then spa-action-redirect (sets sessionStorage and may
+ * `location.replace('/')` away — running it after dark-mode keeps the
+ * theme decision committed for the next page), then self-heal last (only
+ * registers event listeners, so order relative to the other two is safe).
+ */
+export const EARLY_BOOT_CONTENT = `${DARK_MODE_INIT_CONTENT}${SPA_ACTION_REDIRECT_SCRIPT_CONTENT}${SELF_HEAL_SCRIPT_CONTENT}`;
+export const EARLY_BOOT_FILENAME = 'early-boot.js';
+export const EARLY_BOOT_SCRIPT = `<script src="/assets/${EARLY_BOOT_FILENAME}"></script>`;
+
+/**
+ * Range-selector wiring for the fuel history chart, shared by every page under
+ * /prezzi-benzina/ + /prezzi-diesel/ (4 locales × 2 fuels). Previously a ~600 B
+ * inline IIFE repeated on every chart page; externalising it to one cached
+ * `/assets/fuel-chart.js` strips that per-page weight across the whole fuel
+ * corpus and lets the browser cache it once.
+ *
+ * Self-wires ALL `[data-fuel-history-chart]` blocks on the page (no
+ * `currentScript.previousElementSibling` dependency), guarded by a global flag
+ * so a duplicate tag (a page with >1 chart) is a no-op. Button visuals follow
+ * the `aria-selected` attribute via seo-static.css; roving `tabindex` and
+ * panel `aria-hidden` state stay synchronized with the active range;
+ * content/stats visibility is toggled with the `.s-on` class.
+ */
+export const FUEL_CHART_SCRIPT_CONTENT = `(function(){if(window.__fuelChartWired)return;window.__fuelChartWired=1;function wire(root){var btns=root.querySelectorAll('[data-range-btn]');var contents=root.querySelectorAll('[data-range-content]');var statsEls=root.querySelectorAll('[data-range-stats]');function setActive(r){btns.forEach(function(b){var active=b.getAttribute('data-range-btn')===r;b.setAttribute('aria-selected',active?'true':'false');b.setAttribute('tabindex',active?'0':'-1');});contents.forEach(function(c){var active=c.getAttribute('data-range-content')===r;c.classList.toggle('s-on',active);c.setAttribute('aria-hidden',active?'false':'true');});statsEls.forEach(function(s){s.classList.toggle('s-on',s.getAttribute('data-range-stats')===r);});}function moveFrom(b,key){var index=Array.prototype.indexOf.call(btns,b);var next=-1;if(key==='ArrowRight')next=(index+1)%btns.length;else if(key==='ArrowLeft')next=(index+btns.length-1)%btns.length;else if(key==='Home')next=0;else if(key==='End')next=btns.length-1;if(next<0)return;var target=btns[next];setActive(target.getAttribute('data-range-btn'));target.focus();}var initial=null;btns.forEach(function(b){if(b.getAttribute('aria-selected')==='true')initial=b.getAttribute('data-range-btn');b.addEventListener('click',function(){setActive(b.getAttribute('data-range-btn'));});b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Home'||e.key==='End'){e.preventDefault();moveFrom(b,e.key);}});});if(!initial&&btns.length)initial=btns[0].getAttribute('data-range-btn');if(initial)setActive(initial);}document.querySelectorAll('[data-fuel-history-chart]').forEach(wire);})();`;
+export const FUEL_CHART_SCRIPT_FILENAME = 'fuel-chart.js';
+export const FUEL_CHART_SCRIPT_TAG = `<script src="/assets/${FUEL_CHART_SCRIPT_FILENAME}" defer></script>`;
+
+/**
+ * Back-compat shims for callers that still reference the legacy split-script
+ * constants by name (e.g., constants.ts itself in the canonical-bridge / flat
+ * redirect helpers). These now point at the merged EARLY_BOOT_SCRIPT — the
+ * spa-action-redirect behaviour is included, dark-mode is harmless on bridge
+ * pages, and the browser-cached early-boot.js is shared across all surfaces.
+ */
+export const SPA_ACTION_REDIRECT_SCRIPT = EARLY_BOOT_SCRIPT;
+export const DARK_MODE_SCRIPT = EARLY_BOOT_SCRIPT;
+
+export function buildCanonicalBridgePage(options: {
+ canonicalUrl: string;
+ pathLabel: string;
+ title?: string;
+ description?: string;
+ body?: string;
+ ctaLabel?: string;
+ lang?: string;
+ noindex?: boolean;
+ hreflangEntries?: Array<{ hreflang: string; href: string }>;
+}): string {
+ const {
+ canonicalUrl,
+ pathLabel,
+ title = 'Pagina aggiornata | Frontaliere Ticino',
+ description = 'Questa URL ha una versione canonica aggiornata su Frontaliere Ticino.',
+ body = 'Questa URL ha una versione aggiornata. Apri la pagina canonica per consultare il contenuto corretto.',
+ ctaLabel = 'Apri la pagina corretta',
+ lang = 'it',
+ noindex = false,
+ hreflangEntries,
+ } = options;
+
+ // Indexable bridges are real SERP entry points, so they get the same
+ // preview qualifiers as any other indexable page (see normalizeRobotsDirective).
+ const robotsContent = noindex ? 'noindex,follow' : ROBOTS_INDEX_ENHANCED_CONTENT;
+ const hreflangHtml = hreflangEntries && hreflangEntries.length > 0
+ ? '\n' + hreflangEntries.map(e => ` <link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`).join('\n')
+ : '';
+
+ return `<!DOCTYPE html>
+<html lang="${lang}">
+ <head>${REDIRECT_STUB_MARKER}
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>${title}</title>
+ <meta name="description" content="${clampMetaDescription(description, undefined, lang)}">
+ <meta name="robots" content="${robotsContent}">
+ <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
+ ${ANALYTICS_SNIPPET}
+ ${SPA_ACTION_REDIRECT_SCRIPT}
+ ${BRIDGE_CSS_LINK}
+ </head>
+ <body>
+ <main class="card">
+ <div class="logo">
+ <img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">
+ <span>Frontaliere Ticino</span>
+ </div>
+ <h1>${title}</h1>
+ <p>${body}</p>
+ <a href="${pathLabel}" class="btn">${ctaLabel}</a>
+ </main>
+ <div class="footer">&copy; 2026 Frontaliere Ticino</div>
+ </body>
+</html>`;
+}
+
+export interface FlatRedirectOgMeta {
+ title: string;
+ description: string;
+ image: string;
+ lang?: string;
+}
+
+export function buildFlatRedirect(
+ canonicalUrl: string,
+ trailingSlashPath: string,
+ og?: FlatRedirectOgMeta,
+): string {
+ const esc = (s: string) =>
+ s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+ const lang = og?.lang ?? 'it';
+ const title = og ? `${esc(og.title)} | Frontaliere Ticino` : 'Versione canonica disponibile | Frontaliere Ticino';
+ // Clamp before escaping: truncating after esc() could amputate an HTML entity
+ // (e.g. "&am…"). The SERP budget applies to both the <meta description> and the
+ // og:description below. This bridge is always noindex, but clamping keeps the
+ // emit path consistent with every other generator (the deferred #2230 sibling).
+ const desc = og ? esc(clampMetaDescription(og.description, undefined, lang)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
+ const ogTags = og
+ ? `
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="${canonicalUrl}">
+ <meta property="og:title" content="${esc(og.title)}">
+ <meta property="og:description" content="${desc}">
+ <meta property="og:image" content="${esc(og.image)}">
+ <meta property="og:image:alt" content="${esc(og.title)}">
+ <meta property="og:site_name" content="Frontaliere Ticino">
+ <meta property="fb:app_id" content="891036063797338">`
+ : '';
+ return `<!DOCTYPE html>
+<html lang="${lang}">
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>${title}</title>
+ <meta name="description" content="${desc}">
+ <meta name="robots" content="noindex,follow">
+ <link rel="canonical" href="${canonicalUrl}">${ogTags}
+ ${ANALYTICS_SNIPPET}
+ ${BRIDGE_CSS_LINK}
+ </head>
+ <body>
+ <main class="card">
+ <div class="logo">
+ <img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">
+ <span>Frontaliere Ticino</span>
+ </div>
+ <h1>Versione canonica disponibile</h1>
+ <p>Questa e una versione alias dell URL. Per contenuto e metadata aggiornati usa la versione canonica con slash finale.</p>
+ <a href="${trailingSlashPath}" class="btn">Apri la versione canonica</a>
+ </main>
+ <div class="footer">&copy; 2026 Frontaliere Ticino</div>
+ </body>
+</html>`;
+}
+
+let _commitHash = 'unknown';
+try {
+ _commitHash = execSync('git rev-parse HEAD').toString().trim();
+} catch { /* CI or shallow clone — safe to ignore */ }
+
+export const COMMIT_HASH = _commitHash;
+export const SHORT_COMMIT_HASH = COMMIT_HASH.slice(0, 8);
+
+export const BASE_URL = 'https://frontaliereticino.ch';
+
+/**
+ * GA4 measurement ID — same as Firebase Analytics measurementId.
+ * Used in the lightweight gtag.js snippet injected into static HTML pages
+ * so that page views are tracked even for users who bounce before React hydrates.
+ */
+export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
+
+/**
+ * Lightweight gtag.js snippet for static HTML pages.
+ *
+ * WHY: Users who bounce before React hydrates and Firebase Analytics
+ * initializes would have no page_view at all. This inline snippet fires
+ * a page_view immediately on load, capturing those sessions.
+ *
+ * PERFORMANCE: gtag.js is loaded with `async` and the config uses
+ * `transport_type: 'beacon'` so it doesn't block page rendering or
+ * interfere with SPA hydration.
+ *
+ * The static page_view carries the same emission identity that the hydrated
+ * React page_view reuses. This keeps the bounce-safe static signal and the
+ * Firebase signal deduplicable without suppressing either producer when the
+ * gtag library is blocked.
+ */
+/**
+ * Plain JS body for the gtag init — written to both the content-addressed
+ * dist/assets/gtag-init-<hash>.js and the legacy dist/assets/gtag-init.js by
+ * staticScriptsPlugin. The googletagmanager loader stays inline (it's already
+ * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
+ */
+export const ANALYTICS_EMISSION_ID_FACTORY_JS = `function(){try{if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function')return crypto.randomUUID();}catch(e){}return Date.now()+'-'+Math.random().toString(36).slice(2);}`;
+export const GTAG_INIT_CONTENT = `(function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon',send_page_view:false});gtag('event','page_view',{page_path:location.pathname,page_location:location.href,page_title:document.title,emission_id:emissionId});})();`;
+export const GTAG_INIT_FILENAME = 'gtag-init.js';
+// New HTML references a content-addressed filename so a stale edge copy of
+// this identity-bearing producer cannot satisfy a page that references newer
+// bytes. The stable alias remains emitted for already-published HTML (#9403).
+export const GTAG_INIT_CONTENT_HASH = createHash('sha256')
+  .update(GTAG_INIT_CONTENT)
+  .digest('hex')
+  .slice(0, 12);
+export const GTAG_INIT_VERSIONED_FILENAME = `gtag-init-${GTAG_INIT_CONTENT_HASH}.js`;
+export const GTAG_INIT_URL = `/assets/${GTAG_INIT_VERSIONED_FILENAME}`;
+// gtag-init.js only pushes the GA4 page_view onto window.dataLayer; it does
+// NOT need to run before paint. `defer` takes it off the render-blocking path
+// (it ran synchronously in <head> before) so first paint no longer waits on a
+// cross-origin script fetch — the deferred order still runs it before the
+// async gtag/js library consumes the queue. The library tag stays `async`.
+/**
+ * Cloudflare Web Analytics (RUM/CWV field data) — MANUAL snippet: the
+ * zone-level auto-inject never provisions its injection ruleset on this zone
+ * (apex HTML flows through the locale-router Worker), so every emitted page
+ * ships the beacon directly. Appended to GTAG_SNIPPET so all static emitters
+ * get it by construction; index.html carries its own copy for the SPA.
+ * The token is public by design (it is meant to appear in served HTML).
+ * The `version` key is REQUIRED: without it beacon.min.js posts to the
+ * decommissioned central ingest (cloudflareinsights.com → HTML 404); with it
+ * the beacon posts same-origin /cdn-cgi/rum (zone ingest — excluded from the
+ * trailing-slash-301 rule, which was silently 301-killing beacon POSTs). #3503
+ */
+export const CF_BEACON_SNIPPET = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1268b58e83f74d22a2136ff48e0746b7", "version": "2024.6.1"}'></script>`;
+
+/**
+ * The gtag.js library tag alone, without the `gtag-init.js` config bootstrap.
+ * Extracted out of GTAG_SNIPPET (AGENTS.md #6 — single source, no copy-paste)
+ * so a page that must call `gtag('config', ...)` itself (e.g.
+ * affiliateRedirectPlugin.ts, which gates its redirect on the pageview's
+ * `event_callback`) can load the library without ALSO getting the deferred
+ * `gtag-init.js` config call — two `config` calls for the same measurement ID
+ * each fire their own automatic page_view (`send_page_view` isn't sticky
+ * across calls), which would double-count every redirect.
+ */
+export const GTAG_LOADER_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>`;
+
+export const GTAG_SNIPPET = `${GTAG_LOADER_SNIPPET}
+ <script defer src="${GTAG_INIT_URL}"></script>
+ ${CF_BEACON_SNIPPET}`;
+
+/**
+ * PostHog EU Cloud init snippet for standalone static pages that don't load the
+ * SPA bundle (self-healing bridges, flat redirects, salary-hub landing pages,
+ * legacy "pagina spostata" pages). Mirrors the config used by services/posthog.ts
+ * but with `capture_pageview: true` so pageviews fire without React.
+ *
+ * The snippet guards against double-init via `e.__SV`, so it's safe to include
+ * on pages that may later hydrate with the SPA bundle — the React import path
+ * (services/posthog.ts) detects the existing `window.posthog` instance.
+ *
+ * Keys mirror services/posthog.ts — keep in sync if the key ever rotates.
+ */
+export const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
+export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
+
+/**
+ * Client-side bot-detection literals shared by every static inline script.
+ *
+ * `BOT_PATTERNS_LITERAL` serialises services/botPatterns.ts `BOT_UA_PATTERNS`.
+ * `BOT_GATE_FN` is the inline-JS twin of services/botPatterns.ts `isLikelyBot()`
+ * — a function-expression string returning `true` for bot sessions. It is the
+ * SINGLE source for the bot gate in BOTH static inline scripts below
+ * (`ADSENSE_LOADER_CONTENT` + `POSTHOG_INIT_CONTENT`), so the logic is never
+ * copy-pasted. Behaviour is kept aligned with the TS `isLikelyBot()` by
+ * tests/bot-gate-parity.test.ts (same UA matrix, identical verdicts).
+ *
+ * Why a string and not the TS function: these run inside externalised plain-JS
+ * assets emitted at build time (no module graph), so the detection must be
+ * embedded literally. botPatterns.ts stays the source of truth for the pattern
+ * list and for the automation screen/language signature constants (interpolated below);
+ * only the wrapper logic is necessarily re-expressed here.
+ */
+const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
+const AUTOMATION_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_TIME_ZONES);
+const AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_CHROME_MAJORS);
+const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS);
+const AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_TIME_ZONES);
+const POSTHOG_LOCAL_DEV_HOSTS_LITERAL = JSON.stringify(POSTHOG_LOCAL_DEV_HOSTS);
+const POSTHOG_QUOTA_EXEMPT_EVENTS_LITERAL = JSON.stringify(POSTHOG_QUOTA_EXEMPT_EVENTS);
+const POSTHOG_LOCAL_HOST_GATE_FN = `function(){var h=String(window.location&&window.location.hostname||'').toLowerCase();return ${POSTHOG_LOCAL_DEV_HOSTS_LITERAL}.indexOf(h)>=0;}`;
+export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}var S=window.screen;if(S&&S.width===${AUTOMATION_SCREEN_WIDTH}&&S.height===${AUTOMATION_SCREEN_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&String(navigator.language||'').toLowerCase().indexOf('en')===0){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_TIME_ZONES_LITERAL}.indexOf(tz)>=0)return true;}if(String(navigator.language||'').toLowerCase()===${JSON.stringify(AUTOMATION_LANGUAGE)}&&ua.indexOf('chrome/')>=0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return ua.indexOf(token)<0;})&&ua.indexOf('mobile')<0&&(ua.indexOf('windows nt')>=0||ua.indexOf('macintosh')>=0)&&${AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL}.indexOf(parseInt(ua.split('chrome/')[1]||'',10))>=0){var ltz='';try{ltz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL}.indexOf(ltz)>=0)return true;}return false;}`;
+
+/**
+ * Plain JS body for the PostHog snippet — written to dist/assets/posthog-init.js
+ * by staticScriptsPlugin. The previous inline version was 1.2 KB embedded in every
+ * static page using ANALYTICS_SNIPPET (~14k bridges + ~600 static-pages = ~17 MB).
+ * After externalising, per-page cost drops from ~1.2 KB → ~80 B (the <script src> tag).
+ *
+ * BOT GATE: the entire stub-install + `posthog.init` runs only when `BOT_GATE_FN`
+ * reports a real user. On static pages this snippet sets `capture_pageview:true`,
+ * so without the gate every bot hit on a bridge/landing page fired a $pageview —
+ * a large slice of the free-tier 1M/mo event budget at zero analytics value.
+ * Mirrors the SPA gate in services/posthog.ts `ensurePostHog()`.
+ *
+ * `before_send` (issue #3406/#3407 fix, see POSTHOG_BENIGN_SOURCE comment
+ * above): re-implements `createExceptionFilter()` from
+ * services/posthog-error-filter.ts in plain ES5 — extracts
+ * `$exception_values`/`$exception_list` message text and drops the event on
+ * a BENIGN_MESSAGES match, then falls back to a resolved-stack-frame check
+ * that drops exceptions whose ENTIRE stack lives in a known third-party
+ * script origin (THIRD_PARTY_STACK_ORIGINS). Wrapped in try/catch to fail
+ * OPEN — a filter bug must never break PostHog init or hide a real error.
+ * The #8773 Google-iOS injected recursion guard is generated from the same
+ * message, user-agent and first-party-asset patterns as the SPA filter.
+ * The quota wrapper below samples complete sessions at the same deterministic
+ * rate as services/posthogQuota.ts while exempting replay snapshots,
+ * identity events, and the low-cardinality L5 decision events. Exceptions
+ * still pass through the benign-stack filter below before they are accepted.
+ */
+const POSTHOG_BEFORE_SEND_FN = `function(ev){try{if(!ev||ev.event!=='$exception')return ev||null;var p=ev.properties||{};var rv=p.$exception_values||p.$exception_list;var msgs=[];if(Array.isArray(rv)){for(var i=0;i<rv.length;i++){var v=rv[i];if(typeof v==='string')msgs.push(v);else if(v&&typeof v==='object'&&typeof v.value==='string')msgs.push(v.value);}}var blob=msgs.join(' | ');if(blob&&/${POSTHOG_BENIGN_SOURCE}/i.test(blob))return null;var list=p.$exception_list;var origins=[];if(Array.isArray(list)){for(var j=0;j<list.length;j++){var exc=list[j];var frames=exc&&exc.stacktrace&&exc.stacktrace.frames;if(Array.isArray(frames)){for(var k=0;k<frames.length;k++){var fr=frames[k];var fn=fr&&(fr.filename||(fr.junk_drawer&&fr.junk_drawer.raw_frame&&fr.junk_drawer.raw_frame.filename));if(fn)origins.push(fn);}}}}if(origins.length>0){var allTP=true;for(var m=0;m<origins.length;m++){if(!/${POSTHOG_THIRD_PARTY_STACK_SOURCE}/i.test(origins[m])){allTP=false;break;}}if(allTP)return null;}var raw='';if(origins.length===0){var key=String(blob||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);var buf=window.__frRawStacks||[];for(var q=buf.length-1;q>=0;q--){var ek=String(buf[q][0]||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);if(key&&ek&&(key.indexOf(ek)>=0||ek.indexOf(key)>=0)){raw=buf[q][1];break;}}}var stack=origins.length>0?origins.join(' '):raw;if(/${POSTHOG_GOOGLE_IOS_APP_UA_SOURCE}/.test(window.navigator.userAgent||'')&&/${POSTHOG_STACK_OVERFLOW_MESSAGE_SOURCE}/i.test(blob)&&!/${POSTHOG_FIRST_PARTY_ASSET_FRAME_SOURCE}/.test(stack))return null;if(raw){var fr=raw.split('\\n'),cl=[];for(var z=0;z<fr.length;z++){var tl=fr[z].replace(/^\\s+|\\s+$/g,'');if(tl)cl.push(tl);}if(cl.length>=${ORIGIN_REDACTED_MIN_FRAMES}){var allRed=true;for(var y=0;y<cl.length;y++){if(!/${POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE}/.test(cl[y])){allRed=false;break;}}if(allRed)return null;}}return ev;}catch(e){return ev||null;}}`;
+const POSTHOG_QUOTA_BEFORE_SEND_FN = `function(ev){if(!ev)return null;var e=ev.event;if(${POSTHOG_QUOTA_EXEMPT_EVENTS_LITERAL}.indexOf(e)>=0)return ev;if(e==='$exception')return (${POSTHOG_BEFORE_SEND_FN})(ev);var p=ev.properties||{};var sampleKey=p.$session_id||p.distinct_id||ev.distinct_id;if(!sampleKey&&${POSTHOG_EVENT_SAMPLE_RATE}<=0)return null;if(sampleKey){var sampleText=String(sampleKey),sampleHash=2166136261;for(var i=0;i<sampleText.length;i++){sampleHash^=sampleText.charCodeAt(i);sampleHash=Math.imul(sampleHash,16777619);}if((sampleHash>>>0)/4294967296>=${POSTHOG_EVENT_SAMPLE_RATE})return null;}return (${POSTHOG_BEFORE_SEND_FN})(ev);}`;
+export const POSTHOG_INIT_CONTENT = `if(!(${POSTHOG_LOCAL_HOST_GATE_FN})()&&!(${BOT_GATE_FN})()){window.__frRawStacks=window.__frRawStacks||[];function __frRec(m,st){if(!st)return;window.__frRawStacks.push([String(m||''),String(st)]);if(window.__frRawStacks.length>8)window.__frRawStacks.shift();}window.addEventListener('error',function(e){var er=e&&e.error;if(er&&er.stack)__frRec(er.message||e.message,er.stack);});window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(r&&r.stack)__frRec(r.message,r.stack);});!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage',session_recording:{sampleRate:${POSTHOG_SESSION_REPLAY_SAMPLE_RATE}},before_send:${POSTHOG_QUOTA_BEFORE_SEND_FN}});}`;
+export const POSTHOG_INIT_FILENAME = 'posthog-init.js';
+export const POSTHOG_SNIPPET = `<script defer src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
+
+/**
+ * Google AdSense loader snippet. Included in every statically-generated page
+ * (job detail, hubs, fuel, health premiums, orphan queries, etc.) so Auto Ads
+ * can serve on pages that do not mount the <AdSenseBanner> React component.
+ * The client ID must match the meta `google-adsense-account` in index.html.
+ *
+ * LAZY LOADING (2026-04-23): adsbygoogle.js is no longer eagerly injected in
+ * <head>. Semrush flagged 8129 "uncompressed JS" notices because every static
+ * crawl fetched the script synchronously. Instead we ship:
+ *  - preconnect hints to pagead2 so when we do load it's fast
+ *  - google-adsense-account meta (required for AdSense site verification)
+ *  - an inline IntersectionObserver loader that injects the script and pushes
+ *    each <ins class="adsbygoogle"> slot the first time it scrolls within
+ *    200px of the viewport. If no slot ever becomes visible, the script is
+ *    never loaded — Semrush/Google crawlers stop seeing it in audits.
+ *  - a first-interaction trigger (scroll/touchstart/pointerdown/keydown/
+ *    mousemove, once+passive) that loads the script on the first real user
+ *    engagement. This closes the biggest Auto Ads leak: quick-bounce mobile
+ *    sessions (75% of traffic) that tap/scroll but leave before the idle
+ *    fallback fires, so the anchor/vignette overlays never serve. Crawlers
+ *    don't interact, so the Semrush "no synchronous JS" benefit is preserved.
+ *  - a requestIdleCallback fallback that still loads the script after idle so
+ *    Auto Ads (anchor, vignette, in-page) continue to earn on pages with no
+ *    manual <ins> slots and no interaction.
+ */
+export const ADSENSE_CLIENT_ID = 'ca-pub-8628054934855353';
+export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`;
+
+/**
+ * Publisher id (no `ca-` prefix) for the Funding Choices endpoints, derived
+ * from {@link ADSENSE_CLIENT_ID} so it never drifts from the AdSense account.
+ * Declared BEFORE ADSENSE_LOADER_CONTENT, which now interpolates it.
+ */
+export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-8628054934855353
+
+/**
+ * CMP → ads-gate bridge (#5842 exit, CMP-single-surface rework).
+ *
+ * The Google Funding Choices message (the blocking TCF popup) is the ONE
+ * consent surface of the site. This IIFE maps its outcome onto the existing
+ * `frontaliere_ads_consent` gate, so every consumer of that gate — the
+ * ADSENSE_LOADER_CONTENT twin below, <AdSenseBanner>, <GptAdSlot>, Prebid,
+ * the Consent Mode v2 derivation in services/consentService.ts, and the
+ * CommunicationsConsentBanner sequencing — keeps working unchanged, with the
+ * CMP as the writer instead of the removed custom banner.
+ *
+ * Mechanics:
+ *  - registers on `googlefc.callbackQueue` with CONSENT_DATA_READY — the
+ *    documented FC integration point; the queue accepts pushes before AND
+ *    after the FC loader runs, so ordering against the loader cannot race;
+ *  - if CONSENT_DATA_READY fires and `__tcfapi` was never installed, FC
+ *    decided no TCF framework applies to this visitor (non-EEA regions, US
+ *    opt-out regimes) → granted. Without this branch the whole non-TCF
+ *    audience would sit on a `null` gate forever — the CMP never shows them
+ *    a message to answer (found in review, round 1);
+ *  - `__tcfapi('addEventListener')` then observes the TCF v2.2 state: only
+ *    `tcloaded` / `useractioncomplete` count (while the popup is open —
+ *    `cmpuishown` — nothing is written and the gate stays closed, fail-closed
+ *    as before);
+ *  - `gdprApplies === false` (visitor outside the message's jurisdictions —
+ *    FC decides, not us) → granted; TCF Purpose 1 consent (store/access
+ *    information on a device — the bit without which AdSense cannot serve
+ *    personalized ads at all) → granted;
+ *  - without Purpose 1, `denied` is written ONLY on `useractioncomplete` (the
+ *    visitor just answered and did not grant) or on `tcloaded` when the local
+ *    gate says `granted` and the TC string refutes it (stale grant). A bare
+ *    `tcloaded`/undetermined `gdprApplies` writes NOTHING: fabricating a
+ *    permanent `denied` out of an unanswered or indeterminate state was
+ *    review round-1's second bug — it also let the communications panel
+ *    render behind the still-open CMP dialog;
+ *  - symmetrically, every NON-interactive grant path (`__tcfapi` absent,
+ *    `gdprApplies === false`, Purpose 1 read back from a stored TC string on
+ *    `tcloaded`) respects a locally-stored `denied`: that value can only come
+ *    from the privacy-page revocation surface, and for a non-TCF visitor no
+ *    CMP message will ever re-ask — an unconditional grant there would silently
+ *    undo an explicit art. 7.3 GDPR / art. 6 nLPD revocation on the very next
+ *    pageview (review round-2). Only `useractioncomplete` — the visitor
+ *    answering the (re-opened) message — may flip a `denied` back;
+ *  - a decision is persisted + broadcast with the exact storage key, value
+ *    literals and CustomEvent name of services/adsConsent.ts, imported here
+ *    so they cannot drift; the `prev===v` short-circuit keeps the every-load
+ *    `tcloaded` from re-dispatching a no-op event on each pageview;
+ *  - idempotent via `window.__ftFcConsentBridge`: the SPA shell and the
+ *    static loader can both carry it on one document safely.
+ *
+ * index.html carries a byte-identical inline copy (it cannot import this
+ * module); tests/ads-consent-gate.test.tsx pins the two with a `toContain`
+ * on this exact string.
+ */
+/**
+ * FC MESSAGING loader, extracted as ONE shared string (review round 2): the
+ * protocol — `/i/pub-XXX?ers=1` URL, `data-fc-loader` dedup marker, the
+ * `googlefcPresent` signal iframe, and crucially NO crossOrigin (Google FC
+ * `/i/pub-XXX` serves no ACAO header; `crossOrigin='anonymous'` kills the CMP
+ * and with it the whole TCF string — the 2026-05-04 regression) — must not be
+ * re-typed per carrier. ADSENSE_LOADER_CONTENT interpolates this; index.html
+ * and OFFERWALL_FC_SNIPPET carry the small static copies, and
+ * tests/index-html-fc-loader.test.ts + the storage-contract suite pin all of
+ * them against the same invariants.
+ */
+export const FC_ENSURE_JS = `function ensureFc(){if(document.querySelector('script[data-fc-loader]'))return;var f=document.createElement('script');f.async=true;f.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';f.setAttribute('data-fc-loader','1');document.head.appendChild(f);(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var fr=document.createElement('iframe');fr.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';fr.style.display='none';fr.name='googlefcPresent';document.body.appendChild(fr);}else{setTimeout(sig,0);}}})();}`;
+
+export const FC_CONSENT_BRIDGE_JS = `(function(){if(window.__ftFcConsentBridge)return;window.__ftFcConsentBridge=1;function prev(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){return null;}}function record(g){var v=g?'${ADS_CONSENT_GRANTED}':'${ADS_CONSENT_DENIED}';if(prev()===v)return;try{window.localStorage.setItem('${ADS_CONSENT_STORAGE_KEY}',v);}catch(e){}try{window.dispatchEvent(new CustomEvent('${ADS_CONSENT_CHANGE_EVENT}',{detail:v}));}catch(e){}}function grant(act){if(act||prev()!=='${ADS_CONSENT_DENIED}')record(true);}var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]){grant(act);return;}if(act){record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);});}});})();`;
+
+/**
+ * Ad-block bridge, twin of FC_CONSENT_BRIDGE_JS above and of the copy in
+ * index.html. Funding Choices runs Google's own ad-blocker detection on every
+ * page that loads it, and it is about twice as good as our local probe
+ * (measured 2026-06-16..08-17 against Ad Manager: ~5% extension rate vs 2.5%).
+ * AD_BLOCK_DATA_READY fires once and can fire before React mounts, so the
+ * answer is stashed on window for services/adBlockDetection.ts to read.
+ *
+ * This has to live in the shared loader, not only in index.html: the ~200k
+ * generated SEO and job pages never clone index.html, and AdBlockGate mounts on
+ * every route. Without it here the gate falls back to the weak local probe on
+ * exactly the pages where it fires and where the ad revenue is.
+ *
+ * `eq()` is load-bearing, not defensive noise. Both getters are already guarded
+ * against being absent, but a bare `===` also matches `undefined` against
+ * `undefined`: a status the getter returns as undefined, compared to an enum
+ * member Funding Choices has not populated, reads as BOTH
+ * `blocked: true` (a visitor who blocks nothing) and `adsAllowed: true` (a
+ * visitor who blocks everything) — the two worst answers this bridge can give,
+ * from one missing check. tests/adblock-bridge-parity.test.ts executes both
+ * copies against that state; a substring parity check does not see it.
+ */
+/** Event name the client listens on; shared contract with services/adBlockDetection.ts. */
+export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
+
+/**
+ * Click-only Offerwall gate (2026-09-24; every job-board section and
+ * off-board suppression since 2026-09-26, owner decision).
+ *
+ * The Offerwall is the AdSense one, the only rewarded demand the site has,
+ * and it must appear only when the visitor clicks "Candidati", never on entry
+ * to a page. AdSense includes the whole site, so the gate decides where it
+ * may open. Funding Choices calls `controlledMessagingFunction` twice per
+ * page view: first with an empty MessageTypeEnum, then with
+ * OFFERWALL/AD_BLOCKING populated. The live enum values are strings
+ * ({OFFERWALL:"offerwall"}, read on the job board 2026-09-27); a number is
+ * accepted too. A number-only check (#9974) read the live enum as missing and
+ * sent `proceed(false)` for every visitor, dropping the Offerwall and the CMP
+ * site-wide. The first enum-less call is a one-shot bootstrap allowance; if
+ * the enum is still missing on a later call, the gate fails closed because a
+ * type-specific Offerwall suppression is not possible. The second call also
+ * carries the GDPR
+ * consent message: holding it for a visitor with no consent decision kept
+ * the CMP off screen until the release (live probe, 24-09). So:
+ *  - off the job-board sections (JOB_BOARD_SECTION_PATHNAME_RX: every canton,
+ *    the Switzerland aggregator, it/en/de/fr) it suppresses only the
+ *    Offerwall (`proceed(false,[OFFERWALL])`; the CMP and the ad-block
+ *    message still show) and marks the gate `off_board`. It never proceeds
+ *    the Offerwall there: "Candidati" does not exist on those pages;
+ *  - on a job-board section the call is HELD only when a decision is stored
+ *    on both sides: `frontaliere_ads_consent` (our bridge) AND a TC string in
+ *    Funding Choices' own `FCCDCF` cookie (before consent its TC slot is null;
+ *    a TCF v2 string always starts with "C"). Our key alone outlives the
+ *    Funding Choices cookie, and a held re-prompt would hide the CMP for the
+ *    whole SPA session. Otherwise it suppresses only the Offerwall (the CMP
+ *    shows at once; no Offerwall on that page view) and marks the gate
+ *    `suppressed` so the click can report why.
+ * A visitor who lands off the board and navigates to a job in the SPA marks
+ * the entry as waiting for a fresh Offerwall callback. When Funding Choices
+ * delivers that destination-route callback, it is held when consent is still
+ * available, so `window.__ftOfferwallGate.release()` can open the Offerwall
+ * on the destination route. Leaving the board still suppresses the held
+ * callback and returns to `off_board`. `release()`
+ * (services/offerwallClickGate.ts, from the rewarded application offer)
+ * proceeds a held call. Live probe on the job board
+ * with consent stored: holding only that call left the TCF signal and the
+ * first AdSense request on schedule (11.9 s vs 7.7-16.5 s in two controls),
+ * while holding the first call pushed the first ad request from 16.5 s to
+ * 32.9 s — so the first call always proceeds. Cost: an ad-block recovery
+ * message on job-board pages also waits for the click.
+ *
+ * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET,
+ * ADSENSE_LOADER_CONTENT and GPT_LOADER_CONTENT (build-plugins/jobBoardGpt.ts,
+ * deferred but ordered before DOMContentLoaded), so every page that loads
+ * Funding Choices installs it before user interaction. The loader matters most:
+ * most job-board URLs (listing, company, search, sector pages) and every
+ * static page without the snippet load Funding Choices only through it. The
+ * first copy to run installs the gate and the others step aside.
+ * tests/offerwall-click-gate-parity.test.ts executes the copies and pins the
+ * path regex of the inline twin.
+ */
+export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.__ftOfferwallGateInstalled)return;var previousControlledMessagingFunction=g.controlledMessagingFunction;function isJobBoardPath(){var p=window.location&&window.location.pathname||'';return /${JOB_BOARD_SECTION_PATHNAME_RX.source}/.test(p);}function hasConsentDecision(){var d=false;try{d=!!window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){}if(d){var c=(window.document&&window.document.cookie||'').match(/(?:^|;\\s*)FCCDCF=([^;]*)/),v='';try{v=c?decodeURIComponent(c[1]):'';}catch(e){}d=/\\x22C[A-Za-z0-9_-]{20,}/.test(v);}return d;}function captureDecision(a,t){return{allow:a!==false,types:Array.isArray(t)?t.slice():undefined};}function appendTypes(t,e){for(var i=0;i<(e||[]).length;i++)if(t.indexOf(e[i])===-1)t.push(e[i]);}function mergeDecisions(p,q){var a=p||{allow:true},b=q||{allow:true};if(a.allow&&b.allow)return{allow:true};if(!a.allow&&(!a.types||!a.types.length))return{allow:false};if(!b.allow&&(!b.types||!b.types.length))return{allow:false};var t=[];appendTypes(t,a.types);appendTypes(t,b.types);return{allow:false,types:t};}function deliver(m,p,q){var d=mergeDecisions(p,q);if(d.allow)m.proceed(true);else if(d.types&&d.types.length)m.proceed(false,d.types);else m.proceed(false);}function hold(w,e,o){w.held=w.held||[];w.held.push(e);w.offerwall=o;w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++)try{deliver(h[i].message,h[i].previous,{allow:true});}catch(e){}return true;};}function syncRoute(){var w=window.__ftOfferwallGate;if(!w)return;if(isJobBoardPath()){if(w.state==='off_board'&&w.reacquire){w.reacquire=undefined;w.state=hasConsentDecision()?'idle':'suppressed';w.held=[];w.release=undefined;w.offerwall=undefined;}return;}if(w.state==='held'){var h=w.held.splice(0),o=w.offerwall!==undefined?w.offerwall:(g.MessageTypeEnum||{}).OFFERWALL;for(var i=0;i<h.length;i++)try{deliver(h[i].message,h[i].previous,o===undefined?{allow:false}:{allow:false,types:[o]});}catch(e){}}w.state='off_board';w.held=[];w.release=undefined;w.offerwall=undefined;w.reacquire=undefined;}function watchRoutes(){var h=window.history;if(h)['pushState','replaceState'].forEach(function(k){var original=h[k];if(typeof original!=='function')return;h[k]=function(){var r=original.apply(this,arguments);syncRoute();return r;};});if(typeof window.addEventListener==='function')window.addEventListener('popstate',syncRoute);}function handleControlledMessaging(m,p){var E=g.MessageTypeEnum||{};if(typeof E.OFFERWALL!=='number'&&typeof E.OFFERWALL!=='string'){if(g.__ftOfferwallBootstrapComplete){deliver(m,p,{allow:false});return;}g.__ftOfferwallBootstrapComplete=true;deliver(m,p,{allow:true});return;}syncRoute();if(!isJobBoardPath()){var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'off_board',held:[]};w.reacquire=true;deliver(m,p,{allow:false,types:[E.OFFERWALL]});return;}if(!hasConsentDecision()){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'suppressed',held:[]};deliver(m,p,{allow:false,types:[E.OFFERWALL]});return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){deliver(m,p,{allow:true});return;}hold(w,{message:m,previous:p},E.OFFERWALL);}g.controlledMessagingFunction=function(m){var self=this,done=false,finish=function(p){if(done)return;done=true;handleControlledMessaging(m,p||{allow:false});};if(typeof previousControlledMessagingFunction!=='function'){finish({allow:true});return;}var delegated=Object.create(m);delegated.proceed=function(a,t){finish(captureDecision(a,t));};var result;try{result=previousControlledMessagingFunction.call(self,delegated);}catch(e){finish({allow:false});return;}if(result&&typeof result.then==='function')result.then(function(){if(!done)finish({allow:false});},function(){finish({allow:false});});};g.__ftOfferwallGateInstalled=true;watchRoutes();})();`;
+
+export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('${FC_ADBLOCK_SIGNAL_EVENT}'));}catch(e){}}catch(e){}}});})();`;
+
+/**
+ * Inline lazy-loader injected at the bottom of every static page (and also
+ * emitted from index.html). Runs once per page and:
+ *  -1. Installs FC_JOBBOARD_OFFERWALL_GATE_JS before its deferred Funding
+ *     Choices carrier can load, so on every static page the Offerwall waits for
+ *     "Candidati" (job-board sections) or stays suppressed (every other
+ *     page), not only where OFFERWALL_FC_SNIPPET is injected.
+ *  0.3. Starts the per-page ad diagnosis (AD_PAGE_DIAG_CALL → one GA4
+ *     `ad_page_diag` per page view), before every early return below so a
+ *     page view without ads still reports which gate stopped them.
+ *  0.5. Reader no-ads entitlement (#3655, part 2/2 of #2961): if
+ *     localStorage `reader_noads_active` is `'true'`, the loader also returns
+ *     immediately — the static-HTML counterpart to the same check in
+ *     <AdSenseBanner> (services/readerEntitlement.ts
+ *     `hasActiveReaderNoAdsEntitlement()`). Per-visitor only, set/cleared by
+ *     services/readerEntitlement.ts's Firestore listener — NEVER a
+ *     global/per-route toggle (AGENTS.md Non-Negotiable #7).
+ *  0.7. Consent (CMP-single-surface rework of #5842/#5894): the loader
+ *     embeds FC_CONSENT_BRIDGE_JS, ensures the Funding Choices MESSAGING
+ *     loader is present (idle-deferred like index.html's loadFc; the
+ *     `data-fc-loader` dedup makes it a no-op on blog-detail pages where
+ *     OFFERWALL_FC_SNIPPET already injected it parse-time), and gates ONLY
+ *     the ad-serving path on `frontaliere_ads_consent === 'granted'`. The CMP
+ *     popup is the consent surface, so it must load BEFORE consent exists —
+ *     that is not a leak, it is the collector. With no decision (or a denial)
+ *     the loader wires NO ad listeners/observers; it waits on the gate's
+ *     CustomEvent + cross-tab `storage` and arms the ad path the moment the
+ *     CMP grants — same-tab, no reload, which is what protects the very first
+ *     SEO pageview's revenue.
+ *  0.8. Bot gate: `BOT_GATE_FN` (shared with POSTHOG_INIT_CONTENT, the inline-JS
+ *     twin of services/botPatterns.ts `isLikelyBot()`) runs AFTER the
+ *     consent-only bootstrap above. It still returns before any ad-serving
+ *     script can load, matching `<AdSenseBanner>`'s `SKIP_FOR_BOT` and extending
+ *     the filter to Auto Ads (Anchor / In-page / Vignette), while leaving the CMP
+ *     visible to synthetic visitors and real readers whose ad path is suppressed.
+ *     ~95% of revenue comes from Auto Ads, so the bot gate remains fail-closed
+ *     for ads; Funding Choices is a consent surface, not an ad-serving script.
+ *     See services/botPatterns.ts for the shared pattern source.
+ *     (rootMargin 200px) — on first visible slot, loads adsbygoogle.js.
+ *  2. Falls back to requestIdleCallback for pages without manual slots so Auto
+ *     Ads still serve. Browsers lacking requestIdleCallback (legacy iOS Safari
+ *     < 16.4 — has IntersectionObserver since 12.2 but no rIC until 16.4) use
+ *     `ricFb`, which defers the ad fetch past the `load` event (i.e. after LCP)
+ *     instead of a flat sub-second setTimeout. A fixed 0.8–1.2s timeout could
+ *     fire the script *before* LCP on slow connections, regressing LCP; gating
+ *     on `load` bounds that structurally. Engaged users are unaffected — the
+ *     first-interaction triggers load the script immediately regardless. The
+ *     index.html googlefc loader uses the same `ricFb` load-gating for its
+ *     no-rIC path, so both static-shell ad/CMP fetch paths are load-gated (not
+ *     timer-gated). AdSenseBanner.tsx keeps a flat 1.5s no-rIC timer because it
+ *     runs in a post-hydration effect (already after LCP), so it needs no gate.
+ *  3. On script load, pushes {} once for every `<ins>` currently in the DOM.
+ *     NOTE: `adsbygoogle.push({})` is NOT bound to a specific slot — each push
+ *     fills the next not-yet-statused `<ins>` in DOM order. So the push COUNT
+ *     must equal the number of `<ins>` (push-per-ins), never a filtered subset,
+ *     or trailing slots (e.g. the end-of-list multiplex) would be left
+ *     unprocessed. Off-device/hidden units are avoided upstream by emitting a
+ *     single responsive `<ins>` per in-feed point (see `infeedAdListItemHtml`),
+ *     not by skipping pushes here.
+ */
+/** Manual slot state is shared with the SPA. A response deadline marks a
+ * pending request; only explicit no-fill/script failures collapse, offscreen.
+ * The static carrier consumes the same function over HTTP on corpus pages. */
+const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=(function(){function __name(fn){return fn;}return ${observeManualAd.toString()};})();
+var staticAdManual=${isManualSlot.toString()};
+var staticAdTemplate=${AD_PAGE_TEMPLATE_INLINE_FN};
+var staticAdPlacements=${JSON.stringify(STATIC_AD_UNIQUE_PLACEMENTS)};
+var staticAdWatches=new Map();
+function staticAdIsTarget(el){return staticAdManual(el)&&!el.closest('[data-ft-ad-state]');}
+function staticAdWatch(el){
+ if(!staticAdIsTarget(el))return null;
+ if(staticAdWatches.has(el))return staticAdWatches.get(el);
+ var path=location.pathname,template=staticAdTemplate(path,document),placement=el.getAttribute('data-ad-placement')||staticAdPlacements[JSON.stringify([el.getAttribute('data-ad-slot'),el.getAttribute('data-ad-format'),el.getAttribute('data-ad-layout')||''])]||el.getAttribute('data-ad-slot');
+ var box=el.closest('.ft-infeed-ad')||el;
+ var state=observeManualAd(el,box,${AD_FILL_TIMEOUT_MS},function(next,reason){
+   el.setAttribute('data-ft-static-ad-state',next);
+   if(next==='collapsed')el.setAttribute('data-ft-static-ad-collapsed','');
+   else if(next==='filled'||next==='loading')el.removeAttribute('data-ft-static-ad-collapsed');
+ },function(event,metrics){
+   if(typeof window.gtag==='function')window.gtag('event',event,Object.assign({slot:el.getAttribute('data-ad-slot'),ad_format:el.getAttribute('data-ad-format'),page_path:path,page_template:template,placement:placement,render_path:'static',network:'adsense'},metrics));
+ });
+ staticAdWatches.set(el,state);return state;
+}
+function staticAdWatchAll(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++)if(staticAdIsTarget(slots[i]))staticAdWatch(slots[i]);}
+function staticAdArm(){function start(){staticAdWatchAll();new MutationObserver(function(){staticAdWatches.forEach(function(watch,el){if(!el.isConnected){watch.stop();staticAdWatches.delete(el);}});}).observe(document.body,{childList:true,subtree:true});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();}
+function staticAdResolveManualFailure(reason){function resolve(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++){var watch=staticAdWatch(slots[i]);if(watch)watch.fail(reason);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',resolve,{once:true});else resolve();}
+var staticScriptFailed=false;function staticAdScriptFailed(){staticScriptFailed=true;staticAdResolveManualFailure('script_failed');}`;
+
+/**
+ * Consent-only part of the static loader. It intentionally runs before the
+ * ad-serving bot gate: Funding Choices is the surface that collects consent,
+ * while the bot gate must continue to suppress every ad-serving script.
+ * `hasAdsDecision()` opens AdSense once the visitor answered, either way, like
+ * `isAdSenseAllowed()` in services/adsConsent.ts: without Purpose 1 consent
+ * Google serves Limited Ads from the same TC string.
+ */
+const FC_CMP_BOOTSTRAP = `${FC_CONSENT_BRIDGE_JS}${FC_ADBLOCK_BRIDGE_JS}function hasAdsDecision(){try{var v=window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');return v==='${ADS_CONSENT_GRANTED}'||v==='${ADS_CONSENT_DENIED}';}catch(e){return false;}}${FC_ENSURE_JS}function scheduleFc(){(window.requestIdleCallback||ricFb)(ensureFc,{timeout:4000});}`;
+
+/**
+ * Per-page ad diagnosis (`ad_page_diag`, services/adPageDiag.ts), started
+ * before the no-ads and bot-gate early returns so those page views report why
+ * no ad ran (`ad_path`). Its bot verdict is BOT_GATE_FN itself, evaluated when
+ * the snapshot is taken. Read-only and fail-open: it never touches the ad path.
+ */
+const AD_PAGE_DIAG_CALL = `(${AD_PAGE_DIAG_FN})(function(){return(${BOT_GATE_FN})();});`;
+
+/**
+ * Plain JS body for the AdSense lazy loader — written to dist/assets/adsense-loader.js
+ * by staticScriptsPlugin. This was the LARGEST inline script in every static page:
+ * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
+ * from ~2200 B to ~90 B (the <script src=...> tag).
+ */
+const ADSENSE_LOADER_TEMPLATE = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})()){staticAdResolveManualFailure('reader_entitlement');return;}${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;var watch=staticAdWatch(el);try{(window.adsbygoogle=window.adsbygoogle||[]).push({});if(watch)watch.request();}catch(e){if(watch)watch.fail('push_failed');}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle')).filter(staticAdIsTarget);for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(existing.getAttribute('data-loaded')==='1'||(window.adsbygoogle&&window.adsbygoogle.loaded))armSlots();else if(existing.getAttribute('data-failed')==='1')staticAdScriptFailed();else{existing.addEventListener('load',armSlots,{once:true});existing.addEventListener('error',staticAdScriptFailed,{once:true});}return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){s.setAttribute('data-loaded','1');armSlots();};s.onerror=function(){s.setAttribute('data-failed','1');staticAdScriptFailed();};document.head.appendChild(s);}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
+export const ADSENSE_LOADER_CONTENT = ADSENSE_LOADER_TEMPLATE;
+export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
+export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
+
+/**
+ * Funding Choices MESSAGING loader, injected into the <head> of in-scope
+ * STATIC pages. The article carrier remains inline; the cacheable job-board
+ * carrier is ordered with `defer` so it runs before DOMContentLoaded without
+ * blocking the parser. The custom newsletter choice is disabled globally;
+ * on every job-board section FC_JOBBOARD_OFFERWALL_GATE_JS holds the native
+ * Offerwall until the visitor clicks "Candidati", and on article and every
+ * other page it suppresses the Offerwall alone (the CMP still shows).
+ *
+ * WHY THIS EXISTS (2026-06-16): static SSG HTML (article pages and the Italian
+ * job-board pages) does not carry index.html's inline Funding Choices block.
+ * On those pages the only Funding Choices loader that ever runs is the
+ * network-code one pulled in by
+ * adsbygoogle.js AFTER hydration — it fetches the Offerwall /f/ message (200)
+ * but never instantiates the overlay. The publisher-id
+ * MESSAGING loader (`/i/pub-XXX`) — the one index.html uses on SPA roots and the
+ * one that actually renders FC messages — is absent. Injecting the pub-id
+ * loader in the head, before hydration and before adsbygoogle's network-code
+ * loader claims the singleton FC instance, brings article pages to parity with
+ * index.html's proven render path. (#2312 injected the same loader
+ * POST-hydration via the React gate and it never rendered, because FC was
+ * already singleton-initialised by the network-code loader.)
+ *
+ * MUST stay aligned with index.html's loadFc() on the essentials
+ * (same pub-id loader URL, `data-fc-loader` dedup marker, NO crossOrigin — see
+ * tests/index-html-fc-loader.test.ts for the CORS rationale — googlefcPresent
+ * signal, requestIdleCallback/DOMContentLoaded deferral for LCP). No
+ * application custom-choice registry is emitted here. NOTE (CMP-
+ * single-surface rework): the FC loader is deliberately consent-UNGATED here,
+ * in index.html and in FC_ENSURE_JS alike — FC is the CMP, i.e. the surface
+ * that COLLECTS the advertising consent. The #5894 experiment of putting a
+ * fail-closed ADS_CONSENT_GRANTED read in front of it deadlocked cold
+ * visitors (a CMP gated behind its own output can never collect anything) and
+ * stacked a duplicate prompt for everyone else. Do NOT re-add a consent read
+ * in front of any FC loader copy. The drift guard lives in
+ * tests/offerwall-static-fc-snippet.test.ts. The loader stays consent-UNGATED
+ * (it is the CMP surface that collects consent) and makes no application
+ * custom-choice callback.
+ *
+ * The anti-adblock fallback IIFE that index.html also runs from loadFc() is
+ * deliberately NOT included here — it is a separate feature, out of scope for
+ * the Offerwall render fix.
+ */
+/**
+ * Script body shared by the inline article carrier and the cacheable job-board
+ * asset. Keeping the body in one value prevents the two carriers
+ * from drifting while removing several KB from every job-board HTML page.
+ */
+export const OFFERWALL_FC_SCRIPT_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();`;
+
+export const OFFERWALL_FC_SNIPPET = `<script>${OFFERWALL_FC_SCRIPT_CONTENT}</script>`;
+
+/**
+ * Above-the-fold manual slot for drive-by SEO landings (health premiums,
+ * fuel daily, border wait) — pages with 7-11s median sessions whose only
+ * manual unit was the end-of-page ARTICLE_END_MULTIPLEX, far below the
+ * fold (2026-06 revenue deep dive). A slot near the primary data area makes
+ * the adsense lazy loader's IntersectionObserver fire at first paint, so
+ * adsbygoogle.js loads immediately instead of waiting for the idle
+ * fallback. Markup comes from adSlotHtml('FT_DRIVEBY_ATF_DISPLAY') so format
+ * and the CLS-reserving min-height stay driven by the services/adsenseSlots
+ * registry — never hand-roll the <ins> here (PR #1910 review).
+ *
+ * The registry's FT_DRIVEBY_ATF_DISPLAY entry currently mirrors the ACTIVE
+ * HOMEPAGE_MID_DISPLAY slot id because the AdSense Management API forbids
+ * ad-unit creation (403 PERMISSION_DENIED, verified 2026-06-18 even with a
+ * full adsense write-scope token — console-only for this account). The owner
+ * isolates drive-by reporting from the homepage by creating the dedicated
+ * console unit and swapping that one slot id in services/adsenseSlots.ts —
+ * this snippet needs no further change (issue #1911 item 1).
+ */
+export const DRIVEBY_AD_SNIPPET = `<div class="my-6">
+    ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true })}
+  </div>`;
+
+export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
+ <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+ <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+ ${ADSENSE_LAZY_LOADER}`;
+
+/**
+ * Partnerize Partner Tag — programma affiliato Wise (tag id
+ * `c98741ed-da90-49d5-a83f-d66821a170e5`).
+ *
+ * Il codice in `PARTNERIZE_TAG_CONTENT` e' quello consegnato da Partnerize,
+ * VERBATIM: la documentazione ("The Partnerize Tag for Partners: Implementation
+ * and Optimization") chiede di non modificarlo, perche' ogni edit puo' rompere
+ * l'attribuzione. Non riscriverlo, non minificarlo, non sostituire il `tid` con
+ * una costante interpolata: se Partnerize rigenera lo snippet si sostituisce il
+ * blocco intero.
+ *
+ * Cosa fa: a DOMContentLoaded calcola lo SHA-1 di `pzt<N>` (N casuale 0-99), ne
+ * ricava il dominio `<primi6>p.<hash>.com` e da li' carica il tag vero,
+ * riprovando su un dominio diverso fino a 3 volte. La rotazione serve a
+ * resistere a ITP e agli ad-blocker. Poi fa POST dello stato di salute
+ * (`loaded`, errori, `window.location.href`) su `api.performancehorizon.com`:
+ * e' quello che alimenta il Tag Health Checker nella dashboard Partnerize.
+ *
+ * Abilita, senza altro codice qui, le feature che si accendono dalla dashboard:
+ * Partnerize Link Switcher e Ascend Link Switcher (riscrittura dei link di
+ * tracciamento), Keyword Monetization (link affiliati automatici sulle parole
+ * chiave configurate) e Dynamic Ad Widget, che serve creativi dentro il
+ * contenitore `#pz-ad-landscape` (components/comparators/CurrencyExchange.tsx).
+ *
+ * Perche' file esterno e non inline: la doc chiede il tag su OGNI pagina, e
+ * questo build ne emette oltre 55k. Inline sarebbero ~2,6 KB x 55k ~ 140 MB di
+ * HTML in piu' — lo stesso motivo per cui gtag-init, adsense-loader e
+ * posthog-init sono gia' esternalizzati da `staticScriptsPlugin.ts`. Il codice
+ * eseguito e' identico e `defer` gira comunque PRIMA di DOMContentLoaded, che
+ * e' l'evento su cui il tag si aggancia: nessun click perso.
+ */
+export const PARTNERIZE_TAG_FILENAME = 'partnerize-tag.js';
+export const PARTNERIZE_TAG_CONTENT = `(function () {
+            var pztt = 3;
+            var pztp = {"p":"pzt","mi":0,"ma":99,"e":[]};
+            var tid = 'c98741ed-da90-49d5-a83f-d66821a170e5';
+
+            var pzth = function (i) {
+                var enc = new TextEncoder();
+                var bin = enc.encode(i);
+                return window.crypto.subtle.digest('SHA-1', bin).then(function (b) {
+                    var u = new Uint8Array(b);
+                    var a = [];
+                    for (var j = 0; j < u.length; j++) {
+                        var hex = u[j].toString(16);
+                        if (hex.length < 2) hex = '0' + hex;
+                        a.push(hex);
+                    }
+                    return a.join('');
+                });
+            };
+
+            var pzth2d = function (h) {
+                return h.slice(0, 6) + 'p.' + h + '.com';
+            };
+
+            var pztd = function () {
+                var i;
+                do {
+                    i = Math.floor(Math.random() * ((pztp.ma + 1) - pztp.mi)) + pztp.mi;
+                } while (pztp.e && pztp.e.indexOf(i) !== -1);
+                return pzth(pztp.p + i).then(pzth2d);
+            };
+
+            var pzti = function () {
+                if (pztt <= 0) return;
+                var s = document.createElement('script');
+                s.onerror = function () {
+                    pztt--;
+                    pzti();
+                };
+                s.onload = function () {
+                    l = true;
+                    pzthc();
+                };
+                var d;
+                pztd().then(function (domain) {
+                    d = domain;
+                    s.src = 'https://' + d + '/tag/' + tid;
+                    document.body.appendChild(s);
+                }).catch(function () {
+                    e.push({ error: 'Load failed from ' + d, parameter: '' });
+                    pzthc();
+                });
+            };
+
+            var l = false;
+            var e = [];
+
+            window.pztr = window.pztr || function (t, f, m, p) {
+                var b = (window.pztb = window.pztb || {});
+                var x = (b[t] = b[t] || { fe: {} });
+                (x.fe[f] = x.fe[f] || []).push({ error: m, parameter: p });
+            };
+            window.pztb = window.pztb || {};
+            window.pztb[tid] = window.pztb[tid] || { fe: {} };
+
+            var pzthc = function () {
+                var features_errors = window.pztb[tid].fe;
+                window.pztb[tid].fe = {};
+                var loaded = l;
+                var errors = e;
+                l = false;
+                e = [];
+
+                if (Object.keys(features_errors).length === 0) {
+                    features_errors = { x: [] };
+                }
+
+                fetch('https://api.performancehorizon.com/v3/pzthc/' + tid, {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({
+                        loaded: loaded,
+                        errors: errors,
+                        features_errors: features_errors,
+                        url: window.location.href
+                    })
+                }).catch(function () {});
+            };
+
+            document.addEventListener('DOMContentLoaded', pzti);
+        })();`;
+export const PARTNERIZE_TAG_SNIPPET = `<script defer src="/assets/${PARTNERIZE_TAG_FILENAME}"></script>`;
+
+/** Combined analytics snippet (GA4 + PostHog + AdSense + Partnerize) for static pages without the SPA bundle. */
+export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
+ ${POSTHOG_SNIPPET}
+ ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}`;
+
+/** Favicon link tags shared across all static HTML pages. */
+export const FAVICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48">
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
+
+/**
+ * Count words of visible text in an HTML string, stripping all tags.
+ * Used to decide whether a static page has enough content to be indexed (>= 50 words).
+ */
+export function countHtmlBodyWords(html: string): number {
+ // Drop inert <template> content (never rendered — e.g. the border-wait live
+ // variants), then strip HTML tags
+ const text = html.replace(/<template[\s\S]*?<\/template>/gi, ' ').replace(/<[^>]+>/g, ' ');
+ // Collapse whitespace and split into words
+ const words = text.replace(/\s+/g, ' ').trim().split(' ').filter(w => w.length > 0);
+ return words.length;
+}
+
+/** Minimum word count for a page to be considered indexable (not thin content). */
+export const MIN_INDEXABLE_WORDS = 50;
+
+/**
+ * Shared below-floor tag -- reused by both content-gated robots helpers below.
+ * Exported so callers that already hold a pre-computed word count (avoiding a
+ * redundant {@link countHtmlBodyWords} re-scan of the same body -- see
+ * jobsSeoPagesPlugin.ts's expired-soft-landing loop) can branch on it directly
+ * instead of going through {@link robotsMetaEnhancedForContent}.
+ */
+export const ROBOTS_NOINDEX_FOLLOW = '\n <meta name="robots" content="noindex,follow">';
+
+/** Matches an emitted robots meta tag whatever its `content` value is. */
+const ROBOTS_META_TAG_RE = /<meta\s+name=["']?robots["']?[^>]*>/i;
+
+/**
+ * Rewrite (or insert) the robots meta tag of an already-emitted HTML string.
+ *
+ * Post-emit demotion to `noindex` is how several plugins enforce a policy
+ * decision after the page HTML is built (the thin-content floor in
+ * `exchangeRatePagesPlugin`, the inert-tail band in
+ * `relatedSearchClustersPlugin`). Doing it with a regex that spells out the
+ * INDEXABLE content value couples the guard to whatever string the shell
+ * happens to emit: the day that directive changes, the guard silently stops
+ * matching and pages ship indexable that were meant not to be. Matching the
+ * tag by NAME instead of by value is what keeps the guard correct across any
+ * future change to the directive.
+ *
+ * Quote-flexible on the way IN because dist/ HTML is minified upstream
+ * (PR #478 `removeAttributeQuotes` turns the tag into
+ * `<meta name=robots content=index,follow>`); always quoted on the way OUT.
+ *
+ * HISTORY: two PRs added this helper to this same file independently (the
+ * inert-tail band, and #5170/#5001 centralising `max-image-preview:large`).
+ * The note here asked whichever landed second to drop its copy. BOTH landed and
+ * NEITHER did, so `main` carried two `const ROBOTS_META_TAG_RE` and two
+ * `export function replaceRobotsMeta` — a duplicate-symbol SyntaxError that
+ * fails the esbuild transform, i.e. every vitest file importing this module AND
+ * the SSG build itself. A note in a comment is not a merge gate; the duplicate
+ * is now deleted and tests/build-plugins-no-duplicate-declarations.test.ts
+ * makes the next occurrence a failing test instead of a broken main.
+ */
+export function replaceRobotsMeta(html: string, content: string): string {
+ const tag = `<meta name="robots" content="${content}">`;
+ return ROBOTS_META_TAG_RE.test(html)
+ ? html.replace(ROBOTS_META_TAG_RE, tag)
+ : html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}${tag}`);
+}
+
+/**
+ * The `content` value every INDEXABLE page must carry.
+ *
+ * `max-image-preview:large` is not a nice-to-have: it is the gate Google
+ * applies before a page is eligible for a large-image card in Discover and in
+ * image-rich SERP treatments. Without it the crawler caps the preview at a
+ * thumbnail no matter how good the page's imagery is.
+ *
+ * This used to exist only as the pre-rendered tag `ROBOTS_INDEX_ENHANCED`,
+ * which meant the ~59 page families that pass a `robots` STRING through
+ * `buildSimplePage`/`buildSeoPageHtml` had no way to reuse it and all
+ * hand-typed the plain `'index,follow'` literal instead. Measured against the
+ * live site on 2026-08-05, 50 of 83 sampled sitemap families shipped without
+ * `max-image-preview:large` for exactly that reason. Splitting the content
+ * string out from the tag is what lets {@link normalizeRobotsDirective} repair
+ * all of them at the single emission point.
+ *
+ * Defined in `./shared/robotsDirective` (Node-import-free) and re-exported
+ * here under the same name so existing call sites are unaffected, while
+ * client bundle code (e.g. `services/seoService.ts`) can import the shared
+ * module directly without pulling in this file's `node:fs`/`child_process`
+ * imports.
+ */
+export { ROBOTS_INDEX_ENHANCED_CONTENT };
+
+/**
+ * Upgrade a caller-supplied robots directive to the enhanced indexable form.
+ *
+ * The contract is deliberately narrow, because this runs on every page the
+ * site emits:
+ *
+ *  - anything that opts OUT of indexing (`noindex`) is returned untouched.
+ *    Preview qualifiers are meaningless on a page Google is told not to index,
+ *    and rewriting them would risk turning a deliberate exclusion into an
+ *    inclusion.
+ *  - anything that already carries `max-image-preview` is returned untouched,
+ *    so a family that has tuned its own qualifiers keeps them.
+ *  - everything else -- in practice the plain `'index,follow'` literal that 88
+ *    call sites pass -- is replaced by {@link ROBOTS_INDEX_ENHANCED_CONTENT}.
+ *
+ * Normalising at the emission point rather than at the 88 call sites is what
+ * makes the property hold BY CONSTRUCTION: a new page family that passes
+ * `robots: 'index,follow'` (the obvious thing to write, and what every
+ * existing family did) is Discover-eligible without its author knowing this
+ * rule exists. Editing 88 literals would have fixed today's pages and left the
+ * 89th to reintroduce the bug.
+ */
+export function normalizeRobotsDirective(robots: string): string {
+ if (/\bnoindex\b/i.test(robots)) return robots;
+ if (/max-image-preview/i.test(robots)) return robots;
+ return ROBOTS_INDEX_ENHANCED_CONTENT;
+}
+
+/**
+ * Returns the appropriate robots meta tag based on the word count of the page body.
+ * Pages with >= MIN_INDEXABLE_WORDS get the enhanced indexable directive; below
+ * that, `noindex,follow`. Always returns an explicit tag -- never relies on
+ * browser defaults.
+ *
+ * Kept as a distinct name from `robotsMetaEnhancedForContent` only so the
+ * existing call sites keep reading naturally; both now emit the same indexable
+ * directive. The split used to be meaningful and was the reason expired-job
+ * soft landings shipped without `max-image-preview:large`.
+ */
+export function robotsMetaForContent(bodyHtml: string): string {
+ return robotsMetaEnhancedForContent(bodyHtml);
+}
+
+/**
+ * Enhanced robots directive for indexable pages, asking Google for large
+ * snippet/image/video previews in search results. Used by staticPagesPlugin.ts
+ * and the raw job templates -- a single shared export so new callers reuse it
+ * instead of hand-typing the qualifier list.
+ */
+export const ROBOTS_INDEX_ENHANCED = `\n <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">`;
+
+/**
+ * Word-count-gated variant of {@link ROBOTS_INDEX_ENHANCED}. For hub-style
+ * landing pages (sector/recency hubs) that aren't protected by an upstream
+ * inventory floor -- unlike the canton/city editorial hubs, which are always
+ * past a floor gate by the time they reach HTML emission and can use
+ * `ROBOTS_INDEX_ENHANCED` directly -- so content depth must be checked
+ * per-render instead of assumed.
+ */
+export function robotsMetaEnhancedForContent(bodyHtml: string): string {
+ return countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS
+ ? ROBOTS_INDEX_ENHANCED
+ : ROBOTS_NOINDEX_FOLLOW;
+}

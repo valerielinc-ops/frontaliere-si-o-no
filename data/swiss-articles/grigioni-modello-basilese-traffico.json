@@ -1,0 +1,40 @@
+{
+  "id": "grigioni-modello-basilese-traffico",
+  "slug": "grigioni-modello-basilese-traffico",
+  "publishedAt": "2026-06-29T16:07:18.205Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.822908090652784,
+    "confidence": 0.8,
+    "finalScore": 5.458326472522227,
+    "topK": [
+      {
+        "slug": "grigioni-viabilita-olimpica-2026",
+        "cosine": 0.852863511331598
+      },
+      {
+        "slug": "controlli-auto-immatricolate-grigioni",
+        "cosine": 0.8330066091217482
+      },
+      {
+        "slug": "svincolo-a2-sigirino-ritardo",
+        "cosine": 0.8268165564601884
+      },
+      {
+        "slug": "pendolare-inverso-altdorf-lugano-problemi",
+        "cosine": 0.826172271224432
+      },
+      {
+        "slug": "svincolo-a2-biasca-rischi-frontaliere",
+        "cosine": 0.8227579083185261
+      }
+    ],
+    "score": 5.458326472522227,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

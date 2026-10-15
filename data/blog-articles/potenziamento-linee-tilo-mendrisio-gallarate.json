@@ -1,0 +1,40 @@
+{
+  "id": "potenziamento-linee-tilo-mendrisio-gallarate",
+  "slug": "potenziamento-linee-tilo-mendrisio-gallarate",
+  "publishedAt": "2026-07-06T04:05:27.244Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ilgiornaledelticino.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.256411352168728,
+    "confidence": 0.8,
+    "finalScore": 10.605129081734983,
+    "topK": [
+      {
+        "slug": "disagi-tilo-sciopero-italia",
+        "cosine": 0.8285257095105455
+      },
+      {
+        "slug": "blocco-ristorni-ticino-politica-2026",
+        "cosine": 0.8141527897705463
+      },
+      {
+        "slug": "disagi-trenord-tilo-s40-25-aprile-2024",
+        "cosine": 0.8096492332437601
+      },
+      {
+        "slug": "treni-ffs-tilo-affollamento-pentecoste",
+        "cosine": 0.8080360905615201
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8075036049788766
+      }
+    ],
+    "score": 2.6512822704337458,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

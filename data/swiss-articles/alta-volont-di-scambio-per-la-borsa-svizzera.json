@@ -1,0 +1,40 @@
+{
+  "id": "alta-volont-di-scambio-per-la-borsa-svizzera",
+  "slug": "alta-volont-di-scambio-per-la-borsa-svizzera",
+  "publishedAt": "2026-07-23T07:55:19.830Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.262521122789561,
+    "confidence": 0.8,
+    "finalScore": 3.410016898231649,
+    "topK": [
+      {
+        "slug": "documenti-necessari-frontaliere",
+        "cosine": 0.8525042245579124
+      },
+      {
+        "slug": "banche-golfo-frontalieri-ticino-2026",
+        "cosine": 0.8518658784648232
+      },
+      {
+        "slug": "swiss-market-index-entusiasmo-2026",
+        "cosine": 0.8510606949467114
+      },
+      {
+        "slug": "borsa-zurigo-analisi-mercato-2024",
+        "cosine": 0.8465278627842505
+      },
+      {
+        "slug": "frontalieri-busta-paga-svizzera-2026",
+        "cosine": 0.8448737259873152
+      }
+    ],
+    "score": 1.7050084491158246,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "modifiche-regolamento-antincendio-ticino-2026",
+  "slug": "modifiche-regolamento-antincendio-ticino-2026",
+  "publishedAt": "2026-05-09T19:13:36.199Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.732425316283238,
+    "confidence": 0.8,
+    "finalScore": 6.18594025302659,
+    "topK": [
+      {
+        "slug": "crans-montana-soccorso-denunciato",
+        "cosine": 0.8591583684759153
+      },
+      {
+        "slug": "denuncia-soccorsi-crans-montana-2026",
+        "cosine": 0.8522437794689386
+      },
+      {
+        "slug": "mozione-salute-vigili-fuoco-lombardia",
+        "cosine": 0.8480223612825223
+      },
+      {
+        "slug": "indagine-soccorsi-crans-montana-2026",
+        "cosine": 0.8459151595383693
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.8450252650552234
+      }
+    ],
+    "score": 6.18594025302659,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

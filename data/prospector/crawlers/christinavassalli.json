@@ -1,0 +1,21 @@
+{
+  "companyKey": "christinavassalli",
+  "companyName": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
+  "companyHost": "christinavassalli.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://christinavassalli.ch/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Assistentin Administration und Telefonzentrale 50–60%",
+    "Telefonistin 20-40% plus Ferienvertretung"
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-24T09:59:28.335Z"
+}

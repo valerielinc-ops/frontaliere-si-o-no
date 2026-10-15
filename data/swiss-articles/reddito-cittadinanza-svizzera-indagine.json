@@ -1,0 +1,40 @@
+{
+  "id": "reddito-cittadinanza-svizzera-indagine",
+  "slug": "reddito-cittadinanza-svizzera-indagine",
+  "publishedAt": "2026-07-23T06:32:21.083Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.152855636152055,
+    "confidence": 0.8,
+    "finalScore": 4.122284508921644,
+    "topK": [
+      {
+        "slug": "frontalieri-confine-disparita-fiscale",
+        "cosine": 0.8587396947680024
+      },
+      {
+        "slug": "mobilita-infermieri-ticino",
+        "cosine": 0.8581207614312373
+      },
+      {
+        "slug": "denaro-non-dichiarato-dogana-brogeda",
+        "cosine": 0.8573925614280818
+      },
+      {
+        "slug": "votazioni-svizzera-10-milioni-frontalieri",
+        "cosine": 0.8573409630815664
+      },
+      {
+        "slug": "costi-riforma-sulla-disoccupazione-dei-frontalieri",
+        "cosine": 0.8570631497236781
+      }
+    ],
+    "score": 2.061142254460822,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

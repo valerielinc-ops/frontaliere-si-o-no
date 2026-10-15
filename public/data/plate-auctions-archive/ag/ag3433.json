@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58765",
+      "sourceKey": "AG",
+      "sourceRecordId": "58765",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "3433",
+      "normalizedPlate": "AG3433",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 10,
+      "endsAt": "2026-09-30T19:00:00.000Z",
+      "closedAt": "2026-09-30T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58765",
+      "sourceFetchedAt": "2026-09-30T12:38:33.576Z",
+      "lastVerifiedAt": "2026-09-30T12:38:33.576Z",
+      "firstSeenAt": "2026-09-19T11:04:31.342Z",
+      "lastSeenAt": "2026-09-30T12:38:33.576Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "cbe9487b1c82"
+    }
+  ]
+}

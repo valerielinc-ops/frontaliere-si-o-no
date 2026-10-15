@@ -1,0 +1,40 @@
+{
+  "id": "franco-digitale-bns-dice-no",
+  "slug": "franco-digitale-bns-dice-no",
+  "publishedAt": "2026-07-24T08:49:53.262Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.1522540673847335,
+    "confidence": 0.8,
+    "finalScore": 4.921803253907787,
+    "topK": [
+      {
+        "slug": "digitalizzazione-avs-ai-frontalieri",
+        "cosine": 0.8788934381978191
+      },
+      {
+        "slug": "telelavoro-frontalieri-italia-svizzera",
+        "cosine": 0.8754028755777942
+      },
+      {
+        "slug": "cross-border-teleworking-2026",
+        "cosine": 0.8629713204476283
+      },
+      {
+        "slug": "digitale-frontaliere-ticino-varese",
+        "cosine": 0.8594734222079332
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8583505325050631
+      }
+    ],
+    "score": 4.921803253907787,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

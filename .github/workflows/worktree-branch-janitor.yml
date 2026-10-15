@@ -1,0 +1,316 @@
+name: Worktree/branch janitor (remote anomalies)
+
+# Spazza le anomalie di branch REMOTI che NON dovrebbero esistere ma leakano
+# (osservato 2026-06-03: origin/worktree-newsletter-cap-allproviders [PR #1065
+# MERGED] + origin/chore/ci-token-metrics [0-ahead, no-PR] ancora su origin).
+# Con `delete_branch_on_merge: true` un branch merged dovrebbe sparire da solo;
+# se resta è un'anomalia (merge via API/UI che non ha propagato, push diretto
+# senza PR, ecc.). I branch/worktree LOCALI sono fuori dalla portata di un cron
+# (vivono sulla macchina dell'agent) → quelli li gestisce
+# `scripts/prune-merged-worktrees.mjs` nel pre-task-close (vedi AGENTS.md).
+#
+# DETERMINISTICO (zero Claude → zero quota Max, coerente con issue-triage e
+# stale-pr-rescuer). Default DELETE per i casi inequivocabili (PR MERGED verso
+# il default branch con tip remoto provato nella storia dell'HEAD PR, oppure
+# 0-ahead su main = niente di unico); PR/issue CLOSED con commit ahead resta
+# REPORT-only (::warning), perché la chiusura non prova che il codice sia confluito.
+# protected/default branch e gh-pages: mai toccati.
+
+on:
+  schedule:
+    - cron: '40 3 * * *'  # 1×/giorno, slot tranquillo (best-effort su questo account)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente delete'
+        type: boolean
+        default: false
+  # CLOSE ≠ MERGE: `delete_branch_on_merge` cancella il ref SOLO al merge, MAI alla
+  # chiusura-senza-merge → la PR chiusa lascia un branch orfano finché il cron (1×/g,
+  # best-effort) non passa. Questo trigger lo cancella SUBITO alla chiusura.
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write       # delete dei ref remoti
+  pull-requests: read
+
+concurrency:
+  # Sweep (schedule/dispatch) serializzato su un gruppo unico; ogni PR-close su un
+  # gruppo proprio → i close non bloccano lo sweep né si bloccano a vicenda.
+  group: worktree-branch-janitor-${{ github.event.pull_request.number || 'sweep' }}
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Sweep stale remote branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          STALE_DAYS: '60'   # no-PR + commit unici + inattivo ≥ questo = abbandonato → delete
+        run: |
+          set -uo pipefail
+          NOW=$(date -u +%s)
+          # TUTTO via gh API: niente `actions/checkout` né comandi git locali. Senza
+          # repo checked-out un `git rev-list`/`git push --delete` fallirebbe in
+          # silenzio (ingoiato da `||`) → workflow VERDE ma che non cancella nulla
+          # (falso senso di sicurezza). L'ahead-check usa l'API compare, la delete
+          # usa l'API refs → nessuna dipendenza dal filesystem del runner.
+          KEEP_RE="^(${DEFAULT_BRANCH}|gh-pages|HEAD)$"
+
+          # Stato PR per head ref (MERGED|CLOSED|OPEN). OPEN da query DEDICATA così
+          # un branch con PR aperta resta protetto anche se la sua PR è oltre la
+          # finestra recency delle closed (evita che un OPEN out-of-window cada in
+          # "no-PR" e venga cancellato). Le due liste si fondono; la jq OPEN>… sotto
+          # tiene lo stato più vivo.
+          prs_open=$(gh pr list --repo "$REPO" --state open --limit 300 \
+            --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
+          # Head ref di PR marcate `autorebase-reopen-failed`: la coppia
+          # close+reopen si e' rotta a meta' e la PR e' rimasta chiusa per un
+          # guasto, non per una decisione. Il branch e' l'unica copia rimasta
+          # del lavoro e va risparmiato finche' un umano non decide.
+          # (2026-08-06: #5269 chiusa cosi' durante un major_outage di GitHub;
+          # il branch e' stato cancellato, e con esso #5275 che lo condivideva.)
+          prs_rescue=$(gh pr list --repo "$REPO" --state all --limit 300 \
+            --label autorebase-reopen-failed --json headRefName \
+            --jq '[.[].headRefName]' 2>/dev/null || echo '[]')
+          prs_all=$(gh pr list --repo "$REPO" --state all --limit 400 \
+            --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
+          prs=$(jq -s 'add' <(echo "$prs_open") <(echo "$prs_all") 2>/dev/null || echo '[]')
+
+          # Branch remoti via API (paginata).
+          mapfile -t branches < <(gh api --paginate "repos/$REPO/branches?per_page=100" \
+            --jq '.[] | "\(.name)\t\(.protected)"' 2>/dev/null)
+
+          deleted=0; flagged=0
+          for row in "${branches[@]}"; do
+            NAME="${row%%$'\t'*}"
+            PROT="${row##*$'\t'}"
+
+            if grep -qE "$KEEP_RE" <<<"$NAME"; then continue; fi
+            if [ "$PROT" = "true" ]; then echo "skip protected $NAME"; continue; fi
+
+            # stato PR più vivo per questo head: OPEN>MERGED>CLOSED.
+            STATE=$(echo "$prs" | jq -r --arg n "$NAME" '
+              [ .[] | select(.headRefName==$n) | .state ]
+              | (if index("OPEN") then "OPEN"
+                 elif index("MERGED") then "MERGED"
+                 elif index("CLOSED") then "CLOSED"
+                 else "NONE" end)')
+
+            # "NONE" dalla finestra NON significa "nessuna PR": le liste sopra
+            # sono recency-sorted, e su questo repo 400 PR coprono NOVE giorni
+            # (misurato il 2026-09-04: la piu' vecchia in finestra era #6571 del
+            # 26-08, la piu' recente #7332). Un branch di una PR piu' vecchia
+            # cadeva in NONE e finiva nell'ahead-check, dove lo squash-merge lo
+            # rende ahead>0 per sempre: report-only a vita. Stesso difetto
+            # trovato e riparato lato locale in prune-merged-worktrees.mjs.
+            # La query mirata --head non ha finestra e si paga solo sui residui.
+            VIA_HEAD=false
+            if [ "$STATE" = "NONE" ]; then
+              HEAD_PRS=$(gh pr list --repo "$REPO" --head "$NAME" --state all --limit 10 \
+                --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
+              STATE=$(echo "$HEAD_PRS" | jq -r '[.[].state]
+                  | (if index("OPEN") then "OPEN"
+                     elif index("MERGED") then "MERGED"
+                     elif index("CLOSED") then "CLOSED"
+                     else "NONE" end)' 2>/dev/null || echo NONE)
+              [ -z "$STATE" ] && STATE=NONE
+              if [ "$STATE" != "NONE" ]; then
+                VIA_HEAD=true
+                prs=$(jq -s 'add' <(echo "$prs") <(echo "$HEAD_PRS") 2>/dev/null || echo "$prs")
+                echo "  $NAME: PR $STATE trovata fuori finestra (query --head)"
+              fi
+            fi
+
+            # La label di rescue va valutata prima di qualunque decisione:
+            # anche un branch 0-ahead non si tocca se il ciclo autorebase ha
+            # segnalato una chiusura provocata da un guasto.
+            if grep -qF "\"$NAME\"" <<<"$prs_rescue"; then
+              echo "::warning::origin/$NAME — PR marcata autorebase-reopen-failed: KEEP (unica copia del lavoro, chiusa da un guasto non da una decisione)"
+              flagged=$((flagged+1)); continue
+            fi
+
+            if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi
+
+            # Un MERGED e' una prova sufficiente solo se e' verso il default
+            # branch e il tip remoto e' contenuto nella storia dell'HEAD PR.
+            # Il secondo controllo protegge dal caso branch avanzato dopo il
+            # merge e dai falsi positivi di una PR mergiata verso staging.
+            if [ "$STATE" = "MERGED" ]; then
+              TIP=$(gh api "repos/$REPO/branches/$NAME" --jq '.commit.sha' 2>/dev/null || true)
+              MERGED_PROVEN=false
+              MERGED_PR_NUMBER=""
+              MERGED_PR_HEAD=""
+              while IFS=$'\t' read -r PR_NUMBER PR_HEAD; do
+                [ -n "$PR_NUMBER" ] && [ -n "$PR_HEAD" ] || continue
+                [ -n "$TIP" ] || continue
+                BEHIND=$(gh api "repos/$REPO/compare/$TIP...$PR_HEAD" --jq '.behind_by' 2>/dev/null || true)
+                if [ "$BEHIND" = "0" ]; then
+                  MERGED_PROVEN=true
+                  MERGED_PR_NUMBER=$PR_NUMBER
+                  MERGED_PR_HEAD=$PR_HEAD
+                  break
+                fi
+              done < <(echo "$prs" | jq -r --arg n "$NAME" --arg d "$DEFAULT_BRANCH" '
+                .[]
+                | select(.headRefName==$n and .state=="MERGED" and .baseRefName==$d and .headRefOid != null)
+                | [.number, .headRefOid] | @tsv')
+              if [ "$MERGED_PROVEN" != "true" ]; then
+                echo "::warning::origin/$NAME — PR MERGED ma base/ancestry non verificabili (tip=$TIP): REPORT-only (non cancello)"
+                flagged=$((flagged+1)); continue
+              fi
+              REASON="PR #$MERGED_PR_NUMBER MERGED su $DEFAULT_BRANCH, tip $TIP antenato dell'HEAD PR ${MERGED_PR_HEAD:0:12} (behind=0)"
+            fi
+
+            # Un PR CLOSED non e' un PR MERGED. Anche se la query --head l'ha
+            # trovata fuori finestra, la sua chiusura non dimostra che il codice
+            # sia confluito: se il branch ha commit ahead resta report-only.
+            if [ "$STATE" = "MERGED" ]; then
+              : # REASON assegnato dalla prova base/ancestry sopra
+            elif [ "$STATE" = "CLOSED" ]; then
+              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" --jq '.ahead_by' 2>/dev/null || true)
+              if ! [[ "$AHEAD" =~ ^[0-9]+$ ]]; then
+                echo "::warning::origin/$NAME — PR CLOSED non mergiata, ahead non determinabile: REPORT-only (non cancello)"
+                flagged=$((flagged+1)); continue
+              fi
+              if [ "$AHEAD" = "0" ]; then
+                REASON="PR CLOSED non mergiata ma 0-ahead su $DEFAULT_BRANCH (nessun commit locale unico)"
+              else
+                echo "::warning::origin/$NAME — PR CLOSED non mergiata, ahead=$AHEAD: REPORT-only (lavoro non confluito)"
+                flagged=$((flagged+1)); continue
+              fi
+            else
+              # no-PR. L'issue chiusa diventa un segnale utile solo insieme a
+              # AHEAD=0: con commit unici il branch puo' contenere lavoro WIP
+              # non pubblicato, quindi non si passa all'age-gate distruttivo.
+              ISSUE_N=$(echo "$NAME" | sed -nE 's#^fix/issue-([0-9]+)$#\1#p')
+              ISTATE=""; IREASON=""
+              if [ -n "$ISSUE_N" ]; then
+                IJSON=$(gh api "repos/$REPO/issues/$ISSUE_N" --jq '.state + " " + (.state_reason // "")' 2>/dev/null || true)
+                ISTATE=${IJSON%% *}; IREASON=${IJSON#* }
+              fi
+
+              # ahead via API compare (.ahead_by). Un branch orfano o una
+              # risposta API non intera resta sempre report-only.
+              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" --jq '.ahead_by' 2>/dev/null || true)
+              if ! [[ "$AHEAD" =~ ^[0-9]+$ ]]; then
+                echo "::warning::origin/$NAME — no-PR, ahead non determinabile (branch orfano / API error): REPORT-only (non cancello)"
+                flagged=$((flagged+1)); continue
+              fi
+              if [ "$AHEAD" = "0" ]; then
+                if [ "$ISTATE" = "closed" ] && [ "$IREASON" != "not_planned" ]; then
+                  REASON="fix/issue-$ISSUE_N, issue #$ISSUE_N CLOSED (${IREASON:-completed}), 0-ahead (nessun commit locale unico)"
+                else
+                  REASON="0-ahead su $DEFAULT_BRANCH, no-PR (contenuto già su main)"
+                fi
+              elif [ "$ISTATE" = "closed" ] && [ "$IREASON" != "not_planned" ]; then
+                echo "::warning::origin/$NAME — issue #$ISSUE_N CLOSED (${IREASON:-completed}) ma ahead=$AHEAD: REPORT-only (commit locali da confrontare)"
+                flagged=$((flagged+1)); continue
+              else
+                # EC2: no-PR con commit unici e issue non conclusiva. Age-gate
+                # sull'ultimo commit: inattivo ≥ STALE_DAYS = abbandonato.
+                LAST=$(gh api "repos/$REPO/commits/$NAME" --jq '.commit.committer.date' 2>/dev/null || true)
+                AGE_D=-1
+                if [ -n "$LAST" ]; then
+                  LAST_S=$(date -u -d "$LAST" +%s 2>/dev/null || echo 0)
+                  [ "$LAST_S" -gt 0 ] && AGE_D=$(( (NOW - LAST_S) / 86400 ))
+                fi
+                if [ "$AGE_D" -ge "$STALE_DAYS" ]; then
+                  REASON="no-PR, ahead=$AHEAD, inattivo ${AGE_D}d ≥ ${STALE_DAYS}d (abbandonato)"
+                else
+                  echo "::warning::origin/$NAME — no-PR, ahead=$AHEAD, inattivo ${AGE_D}d (<${STALE_DAYS}d o ignota): REPORT-only (WIP recente, non cancello)"
+                  flagged=$((flagged+1)); continue
+                fi
+              fi
+            fi
+
+            echo "::warning::origin/$NAME STALE — $REASON → delete"
+            if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip delete $NAME"; continue; fi
+            if gh api -X DELETE "repos/$REPO/git/refs/heads/$NAME" 2>/dev/null; then
+              echo "deleted origin/$NAME"; deleted=$((deleted+1))
+            else
+              echo "::warning::delete FALLITO origin/$NAME — verifica permessi token (contents:write) o branch-protection"
+            fi
+          done
+          echo "Sweep completo: $deleted cancellati, $flagged flaggati report-only."
+
+  # Pulizia IMMEDIATA del head ref di una PR chiusa-SENZA-merge solo quando il
+  # compare dimostra AHEAD=0. Un branch con commit unici resta recuperabile e
+  # viene solo segnalato: la chiusura della PR non equivale a un merge.
+  delete-closed-unmerged:
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Delete head ref of closed-unmerged PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+        run: |
+          set -uo pipefail
+          if [ "$HEAD_REPO" != "$REPO" ]; then echo "skip fork head ($HEAD_REPO)"; exit 0; fi
+          case "$HEAD_REF" in
+            "$DEFAULT_BRANCH"|gh-pages|HEAD) echo "skip protected $HEAD_REF"; exit 0 ;;
+          esac
+          # Guard against the close+reopen CI-retrigger hack (scripts/ci/pr-autorebase.mjs
+          # reopenToRetrigger): a momentary `closed` event fires this job, but the PR is
+          # reopened ~2s later. Deleting its head ref orphans an OPEN PR — mergeable=UNKNOWN,
+          # it needs a re-push, and the re-push re-gates CI as `action_required` (the whole
+          # branch-disappears cascade). Re-query the CURRENT state and delete ONLY if the PR
+          # is STILL closed. The short sleep closes the tiny close→reopen race window.
+          # (Forensics 2026-06-23: #2787/#2793 lost their branches exactly this way.)
+          sleep 8
+          STATE=$(gh pr view "$PR_NUM" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo "")
+          if [ "$STATE" = "OPEN" ]; then
+            echo "skip: PR #$PR_NUM is OPEN again (close+reopen retrigger) — head ref $HEAD_REF kept"
+            exit 0
+          fi
+          if [ "$STATE" != "CLOSED" ]; then
+            echo "::warning::PR #$PR_NUM current state '$STATE' non verificabile come CLOSED — head ref $HEAD_REF KEPT"
+            exit 0
+          fi
+          # La rete di sicurezza per quando il close+reopen si rompe A META'.
+          #
+          # Il `sleep 8` sopra copre la finestra normale (la riapertura arriva
+          # ~2s dopo). Non copre il caso in cui la riapertura NON arriva mai:
+          # il 2026-08-06, durante un major_outage di GitHub, entrambi i
+          # tentativi di `gh pr reopen` su #5269 sono falliti, la PR e' rimasta
+          # chiusa, e questo job ne ha cancellato il branch 8 secondi dopo. Da
+          # li' il lavoro non era piu' raggiungibile da remoto E la PR non era
+          # nemmeno riapribile, perche' GitHub rifiuta il reopen di una PR il
+          # cui head ref non esiste piu'.
+          #
+          # pr-autorebase.mjs etichetta la PR quando gli succede. La chiusura si
+          # recupera a mano; la cancellazione del branch no — quindi davanti a
+          # quell'etichetta questo job non tocca nulla.
+          LABELS=$(gh pr view "$PR_NUM" --repo "$REPO" --json labels --jq '[.labels[].name] | join(",")' 2>/dev/null || echo "")
+          case ",$LABELS," in
+            *,autorebase-reopen-failed,*)
+              echo "::warning::PR #$PR_NUM closed by a broken close+reopen (autorebase-reopen-failed) — head ref $HEAD_REF KEPT so the work stays recoverable"
+              exit 0 ;;
+          esac
+          AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$HEAD_REF" --jq '.ahead_by' 2>/dev/null || true)
+          if ! [[ "$AHEAD" =~ ^[0-9]+$ ]]; then
+            echo "::warning::PR #$PR_NUM closed-unmerged, ahead non determinabile — head ref $HEAD_REF KEPT"
+            exit 0
+          fi
+          if [ "$AHEAD" != "0" ]; then
+            echo "::warning::PR #$PR_NUM closed-unmerged, ahead=$AHEAD — lavoro non confluito, head ref $HEAD_REF KEPT"
+            exit 0
+          fi
+          if gh api -X DELETE "repos/$REPO/git/refs/heads/$HEAD_REF" 2>/dev/null; then
+            echo "deleted origin/$HEAD_REF (PR closed unmerged, 0-ahead)"
+          else
+            echo "::warning::delete fallito o ref già assente: $HEAD_REF (branch-protection? già cancellato?)"
+          fi

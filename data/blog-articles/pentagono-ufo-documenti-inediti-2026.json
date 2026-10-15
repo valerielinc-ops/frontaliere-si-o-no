@@ -1,0 +1,40 @@
+{
+  "id": "pentagono-ufo-documenti-inediti-2026",
+  "slug": "pentagono-ufo-documenti-inediti-2026",
+  "publishedAt": "2026-05-08T23:29:09.452Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.4558219271274355,
+    "confidence": 0.8,
+    "finalScore": 5.164657541701949,
+    "topK": [
+      {
+        "slug": "iniziativa-f-35-ticino-2026",
+        "cosine": 0.8069777408909294
+      },
+      {
+        "slug": "ucraina-russia-droni-2026",
+        "cosine": 0.7963665515769487
+      },
+      {
+        "slug": "usa-missili-germania-2026",
+        "cosine": 0.7957919568545797
+      },
+      {
+        "slug": "confederazione-valuta-sistemi-difesa-aerea",
+        "cosine": 0.7925584664696211
+      },
+      {
+        "slug": "scia-luminosa-ticino-2026",
+        "cosine": 0.7920582704784056
+      }
+    ],
+    "score": 0.5164657541701949,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

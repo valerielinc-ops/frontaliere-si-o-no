@@ -1,0 +1,40 @@
+{
+  "id": "malcontento-aeroporto-lugano-2026",
+  "slug": "malcontento-aeroporto-lugano-2026",
+  "publishedAt": "2026-05-10T05:44:57.279Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.1026668226898995,
+    "confidence": 0.8,
+    "finalScore": 4.08213345815192,
+    "topK": [
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8504444704483165
+      },
+      {
+        "slug": "aeroporto-lugano-costi-interpellanza",
+        "cosine": 0.8494830374486009
+      },
+      {
+        "slug": "swiss-guasti-voli-frontalieri-ticino-2026",
+        "cosine": 0.8464416473746659
+      },
+      {
+        "slug": "aumento-kerosene-voli-cancellati-frontalieri-ticino",
+        "cosine": 0.8462505883999584
+      },
+      {
+        "slug": "aeroporto-lugano-costi-interpellanza-2025",
+        "cosine": 0.841085118068074
+      }
+    ],
+    "score": 4.08213345815192,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

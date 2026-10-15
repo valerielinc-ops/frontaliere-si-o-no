@@ -1,0 +1,803 @@
+#!/usr/bin/env node
+import { realpathSync } from 'node:fs';
+import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
+import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/html-attr.mjs';
+import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
+import { pathToFileURL } from 'node:url';
+
+/**
+ * Deploy validation: checks generated HTML pages in dist/ for SEO issues
+ * that Bing/Google would flag. Runs AFTER `npx vite build` in deploy.yml.
+ *
+ * Checks:
+ *  1. H1 tag: every page must have exactly 1 non-empty <h1>, not inside <noscript>
+ *  2. Schema markup: all ld+json blocks must be valid JSON, with no duplicate and no conflicting primary schemas
+ *  3. HTML lang attribute: <html> must have correct lang for the page locale
+ *  4. Meta viewport: must be present
+ *  5. Title tag: must be present and non-empty
+ *  6. Meta description: must be present and non-empty
+ *  7. Meta robots: must NOT contain "noindex" (except 404.html)
+ *  8. Meta refresh: must NOT exist (indicates redirect shell, not real content)
+ *  9. Best-practice advisory checks: self-canonical, Open Graph, partial
+ *     Twitter cards, meta description length, and image alt attributes
+ *
+ * Sampling strategy (16K+ pages):
+ *  - ALL pages in key SEO directories (FAQ, jobs, articles, glossary, pharmacies)
+ *  - Random sample of 500 pages from all other directories
+ *  - Always checks root index.html
+ *
+ * Exit code 1 if ANY errors found (deploy-blocking).
+ * Exit code 0 if only warnings or all pass.
+ */
+
+import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
+import { join, relative } from 'path';
+
+const DIST = 'dist';
+const SAMPLE_SIZE = 500;
+
+// Directories where ALL pages are checked (key SEO content)
+const FULL_CHECK_DIRS = [
+  'domande-frequenti-frontalieri',
+  'cerca-lavoro-ticino', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
+  'articoli-frontaliere',
+  'glossario-frontaliere',
+  // EN equivalents
+  'frequently-asked-questions-cross-border',
+  'find-jobs-ticino', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
+  'cross-border-articles',
+  'cross-border-glossary',
+  // DE equivalents
+  'haeufig-gestellte-fragen-grenzgaenger',
+  'jobs-im-tessin', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
+  'grenzgaenger-artikel',
+  'grenzgaenger-glossar',
+  // FR equivalents
+  'questions-frequentes-frontalier',
+  'trouver-emploi-tessin', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
+  'articles-frontalier',
+  'glossaire-frontalier',
+  // Pharmacy directories are high-volume indexable landing pages.
+  'farmacie',
+  'pharmacies',
+  'apotheken',
+];
+
+// Primary schema types whose duplicate definitions are blocking
+const PRIMARY_SCHEMAS = new Set([
+  'Article',
+  'NewsArticle',
+  'BlogPosting',
+  'WebPage',
+  'WebApplication',
+  'FAQPage',
+  'JobPosting',
+  'Event',
+  'DefinedTerm',
+  'Organization',
+  'Dataset',
+  'CollectionPage',
+  'AboutPage',
+  'ContactPage',
+  'ItemPage',
+  'ProfilePage',
+  'SearchResultsPage',
+]);
+
+// Primary types that frame or accompany the page's main entity instead of
+// competing with it (see the conflict rule in validateSchemas).
+const COEXISTING_PRIMARY_SCHEMAS = new Set(['WebPage', 'Organization', 'FAQPage']);
+
+// Supplementary schemas that can coexist with any primary schema
+const SUPPLEMENTARY_SCHEMAS = new Set([
+  'BreadcrumbList',
+  'SiteNavigationElement',
+  'Person',
+  'ImageObject',
+  'VideoObject',
+  'ListItem',
+  'HowTo',
+  'SpeakableSpecification',
+]);
+
+const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
+const MIN_META_DESCRIPTION_LENGTH = 50;
+const MAX_META_DESCRIPTION_LENGTH = 160;
+
+// Locale detection from path
+function detectLocale(pagePath) {
+  if (pagePath.startsWith('en/')) return 'en';
+  if (pagePath.startsWith('de/')) return 'de';
+  if (pagePath.startsWith('fr/')) return 'fr';
+  return 'it';
+}
+
+// Iteratively collect all index.html files. The previous recursive collector
+// used `results.push(...collectHtmlFiles(...))`; once a child directory held
+// more than V8's argument limit, spreading its result raised
+// `RangeError: Maximum call stack size exceeded` before the sampled checks
+// could even start (seen repeatedly in post-deploy report-only runs).
+function collectHtmlFiles(dir, basePath = '', fsApi = { readdirSync, statSync }) {
+  const results = [];
+  const pending = [{ dir, basePath }];
+
+  while (pending.length > 0) {
+    const current = pending.pop();
+    let entries;
+    try {
+      entries = fsApi.readdirSync(current.dir);
+    } catch {
+      continue;
+    }
+
+    for (const entry of entries) {
+      const fullPath = join(current.dir, entry);
+      let stats;
+      try {
+        stats = fsApi.statSync(fullPath);
+      } catch {
+        continue;
+      }
+
+      if (stats.isDirectory()) {
+        pending.push({ dir: fullPath, basePath: join(current.basePath, entry) });
+      } else if (entry === 'index.html') {
+        results.push({
+          filePath: fullPath,
+          pagePath: current.basePath,
+        });
+      }
+    }
+  }
+
+  return results;
+}
+
+// Extract H1 tags, ignoring those inside <noscript> or <script>
+function extractH1Tags(html) {
+  // Remove <script> blocks first (H1s inside JSON strings like __STATIC_BODY_HTML__ are not real DOM elements)
+  const withoutScript = html.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+  // Remove <noscript> blocks
+  const withoutNoscript = withoutScript.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
+  // Remove elements with aria-hidden="true" or display:none style
+  const withoutHidden = withoutNoscript.replace(
+    /<[^>]+(?:style\s*=\s*["'][^"']*display\s*:\s*none[^"']*["']|aria-hidden\s*=\s*["']true["'])[^>]*>[\s\S]*?<\/[^>]+>/gi,
+    ''
+  );
+  const h1Matches = [...withoutHidden.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)];
+  return h1Matches.map(m => {
+    // Strip inner tags to get text content
+    const text = m[1].replace(/<[^>]+>/g, '').trim();
+    return text;
+  });
+}
+
+// Blank out HTML comments with spaces (newlines kept, so offsets and line
+// numbers survive), but only in markup: the body of a raw-text element
+// (`<script>`, `<style>`) is copied verbatim, because a JSON-LD string value
+// or a script may legitimately contain `<!--` / `-->` and masking across it
+// would delete real JSON or real tags.
+const RAW_TEXT_OR_COMMENT_RX = /<!--|<(script|style)\b/gi;
+export function maskHtmlCommentsOutsideRawText(html) {
+  const source = String(html || '');
+  let out = '';
+  let cursor = 0;
+  RAW_TEXT_OR_COMMENT_RX.lastIndex = 0;
+  let match;
+  while ((match = RAW_TEXT_OR_COMMENT_RX.exec(source))) {
+    const start = match.index;
+    out += source.slice(cursor, start);
+    if (match[0] === '<!--') {
+      const close = source.indexOf('-->', start + 4);
+      const end = close < 0 ? source.length : close + 3;
+      out += source.slice(start, end).replace(/[^\n]/g, ' ');
+      cursor = end;
+    } else {
+      const closing = new RegExp(`</${match[1]}\\s*>`, 'i');
+      const rest = closing.exec(source.slice(start));
+      const end = rest ? start + rest.index + rest[0].length : source.length;
+      out += source.slice(start, end);
+      cursor = end;
+    }
+    RAW_TEXT_OR_COMMENT_RX.lastIndex = cursor;
+  }
+  return out + source.slice(cursor);
+}
+
+// Extract and validate ld+json blocks. HTML comments can contain literal
+// `<script type="application/ld+json">` examples; mask comments before asking
+// the tag scanner for real script elements so the example cannot consume the
+// following real block.
+function extractLdJsonBlocks(html) {
+  const commentMaskedHtml = maskHtmlCommentsOutsideRawText(html);
+  const blocks = [];
+  for (const { raw, end } of scanStartTags(commentMaskedHtml, 'script')) {
+    if (readAttr(raw, 'type').toLowerCase() !== 'application/ld+json') continue;
+    const closing = /<\/script\s*>/i.exec(commentMaskedHtml.slice(end));
+    if (!closing) continue;
+    blocks.push(commentMaskedHtml.slice(end, end + closing.index));
+  }
+  return blocks;
+}
+
+function validateSchemas(html) {
+  const issues = [];
+  const ldJsonBlocks = extractLdJsonBlocks(html);
+
+  const primaryTypes = [];
+
+  for (let i = 0; i < ldJsonBlocks.length; i++) {
+    const raw = ldJsonBlocks[i].trim();
+    let parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (e) {
+      issues.push({ type: 'invalid-json', detail: `ld+json block #${i + 1}: ${e.message}` });
+      continue;
+    }
+
+    // Collect @type from this block (handle @graph arrays too)
+    const types = extractTypes(parsed);
+    for (const t of types) {
+      if (PRIMARY_SCHEMAS.has(t)) {
+        primaryTypes.push(t);
+      }
+    }
+  }
+
+  // Check for duplicate same-type primary schemas (e.g., two FAQPage blocks)
+  // Google flags "campo duplicato" when it sees the same @type twice on one page.
+  const typeCounts = {};
+  for (const t of primaryTypes) {
+    typeCounts[t] = (typeCounts[t] || 0) + 1;
+  }
+  for (const [type, count] of Object.entries(typeCounts)) {
+    if (count > 1 && type !== 'BreadcrumbList' && type !== 'SpeakableSpecification') {
+      issues.push({
+        type: 'conflicting-schemas',
+        detail: `Duplicate "${type}" schema (found ${count}× in JSON-LD)`,
+      });
+    }
+  }
+
+  // Two different main entities on one page still conflict (Article +
+  // JobPosting, NewsArticle + BlogPosting). WebPage and Organization frame
+  // every page, and an FAQPage block sits next to the main entity by design:
+  // a job detail emits JobPosting + FAQPage + WebPage, a glossary detail
+  // DefinedTerm + FAQPage. Counting FAQPage as a second main entity is what
+  // flagged 524,254 pages of run 38419879372 — the measure, not the pages.
+  const contentTypes = [...new Set(primaryTypes)]
+    .filter((t) => !COEXISTING_PRIMARY_SCHEMAS.has(t));
+  if (contentTypes.length > 1) {
+    issues.push({
+      type: 'conflicting-schemas',
+      detail: `Multiple primary schemas: ${[...new Set(primaryTypes)].join(', ')}`,
+    });
+  }
+
+  // Check for FAQPage microdata alongside JSON-LD FAQPage (causes Google "campo duplicato")
+  if (primaryTypes.includes('FAQPage')) {
+    const hasMicrodataFaq = html.includes('itemType="https://schema.org/FAQPage"') ||
+                            html.includes("itemType='https://schema.org/FAQPage'");
+    if (hasMicrodataFaq) {
+      issues.push({
+        type: 'conflicting-schemas',
+        detail: 'FAQPage defined in both JSON-LD and microdata — Google sees duplicates',
+      });
+    }
+  }
+
+  return issues;
+}
+
+// Recursively extract @type values from JSON-LD
+function extractTypes(obj) {
+  const types = [];
+  if (!obj || typeof obj !== 'object') return types;
+
+  if (Array.isArray(obj)) {
+    for (const item of obj) {
+      types.push(...extractTypes(item));
+    }
+    return types;
+  }
+
+  if (obj['@type']) {
+    const t = obj['@type'];
+    if (Array.isArray(t)) {
+      types.push(...t);
+    } else {
+      types.push(t);
+    }
+  }
+
+  // Check @graph
+  if (obj['@graph'] && Array.isArray(obj['@graph'])) {
+    for (const item of obj['@graph']) {
+      types.push(...extractTypes(item));
+    }
+  }
+
+  return types;
+}
+
+// Check HTML lang attribute
+function checkLangAttribute(html, expectedLocale) {
+  const htmlTag = scanStartTags(maskHtmlCommentsOutsideRawText(html), 'html')[0];
+  const langValue = htmlTag ? readAttr(htmlTag.raw, 'lang').trim() : '';
+  if (!langValue) {
+    return { error: 'missing-lang', detail: 'No lang attribute on <html> tag' };
+  }
+  const lang = langValue.split('-')[0].toLowerCase();
+  if (lang !== expectedLocale) {
+    return { error: 'wrong-lang', detail: `Expected lang="${expectedLocale}", found lang="${langValue}"` };
+  }
+  return null;
+}
+
+// Check meta viewport
+function hasMetaViewport(html) {
+  return scanStartTags(maskHtmlCommentsOutsideRawText(html), 'meta')
+    .some(({ raw }) => readAttr(raw, 'name').toLowerCase() === 'viewport');
+}
+
+// Extract <title> tag content
+function extractTitle(html) {
+  const match = stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  return match ? match[1].trim() : '';
+}
+
+// Extract <meta name="description"> content.
+// Quote-agnostic via the shared reader, for the SAME reason hasNoindex() below
+// already is: `removeAttributeQuotes` (PR #478) emits `name=description` bare
+// on every minified page. The local regex here required the quotes and so
+// reported the whole job funnel as "missing description" — 200/200 production
+// job pages measured, 0/200 actually missing. Keep it in the shared module.
+function extractMetaDescription(html) {
+  return extractMetaDescriptionRaw(html) ?? '';
+}
+
+// Check if <meta name="robots"> contains "noindex".
+// Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
+// attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
+function hasNoindex(html) {
+  return readMetaContent(maskHtmlCommentsOutsideRawText(html), 'robots')
+    .toLowerCase()
+    .includes('noindex');
+}
+
+// Check for <meta http-equiv="refresh"> (not inside <noscript>)
+function hasMetaRefresh(html) {
+  const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
+  return scanStartTags(maskHtmlCommentsOutsideRawText(withoutNoscript), 'meta')
+    .some(({ raw }) => readAttr(raw, 'http-equiv').toLowerCase() === 'refresh');
+}
+
+// `buildCanonicalBridgePage` embeds this marker in intentional redirect
+// shells. They may use the correct locale for their visible copy, but their
+// noindex/meta-refresh contract must not be judged as an indexable content
+// page by this gate.
+function isIntentionalRedirectPage(html) {
+  return String(html || '').includes(REDIRECT_STUB_MARKER)
+    && (hasNoindex(html) || hasMetaRefresh(html));
+}
+
+function decodeHtmlEntities(value) {
+  return String(value || '')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&nbsp;/gi, ' ');
+}
+
+function extractLinkByRel(html, expectedRel) {
+  for (const { raw } of scanStartTags(html, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some(token => token.toLowerCase() === expectedRel.toLowerCase())) continue;
+    return readAttr(raw, 'href');
+  }
+  return '';
+}
+
+function pageUrlForPath(pagePath) {
+  const route = pagePath ? `/${pagePath.replace(/^\/+/, '').replace(/\/*$/, '')}/` : '/';
+  return new URL(route, `${CANONICAL_ORIGIN}/`);
+}
+
+function urlIdentity(value) {
+  const url = value instanceof URL ? value : new URL(value);
+  const pathname = url.pathname === '/' ? '/' : url.pathname.replace(/\/+$/, '');
+  return `${url.protocol}//${url.host.toLowerCase()}${pathname}`;
+}
+
+function isIndexablePage(html) {
+  return !hasNoindex(html) && !hasMetaRefresh(html);
+}
+
+function validateBestPracticeSeo(html, pagePath) {
+  if (!isIndexablePage(html) || isIntentionalRedirectPage(html)) return [];
+
+  const issues = [];
+  const pageUrl = pageUrlForPath(pagePath);
+  const canonicalHref = extractLinkByRel(html, 'canonical');
+  let canonicalUrl = null;
+
+  if (!canonicalHref) {
+    issues.push({ type: 'missingCanonical', detail: 'No rel="canonical" link' });
+  } else {
+    try {
+      canonicalUrl = new URL(canonicalHref, pageUrl);
+      if (!/^[a-z][a-z\d+.-]*:\/\//i.test(canonicalHref)) {
+        issues.push({ type: 'canonicalNotAbsolute', detail: `canonical=${canonicalHref}` });
+      }
+      if (canonicalUrl.protocol !== 'https:' || canonicalUrl.hostname.toLowerCase() !== new URL(CANONICAL_ORIGIN).hostname) {
+        issues.push({ type: 'canonicalWrongHost', detail: `canonical=${canonicalUrl.href}` });
+      }
+      if (canonicalUrl.search || canonicalUrl.hash) {
+        issues.push({ type: 'canonicalHasQuery', detail: `canonical=${canonicalUrl.href}` });
+      }
+      if (canonicalUrl.pathname !== '/' && !canonicalUrl.pathname.endsWith('/')) {
+        issues.push({ type: 'canonicalMissingTrailingSlash', detail: `canonical=${canonicalUrl.href}` });
+      }
+      if (urlIdentity(canonicalUrl) !== urlIdentity(pageUrl)) {
+        issues.push({ type: 'canonicalMismatch', detail: `canonical=${canonicalUrl.href} vs page=${pageUrl.href}` });
+      }
+    } catch {
+      issues.push({ type: 'invalidCanonical', detail: `canonical=${canonicalHref}` });
+    }
+  }
+
+  const requiredOpenGraph = [
+    ['og:title', 'missingOgTitle'],
+    ['og:description', 'missingOgDescription'],
+    ['og:url', 'missingOgUrl'],
+  ];
+  for (const [key, type] of requiredOpenGraph) {
+    if (!readMetaContent(html, key)) {
+      issues.push({ type, detail: `Missing meta property="${key}"` });
+    }
+  }
+
+  const ogUrl = readMetaContent(html, 'og:url');
+  if (ogUrl) {
+    try {
+      const parsedOgUrl = new URL(ogUrl, pageUrl);
+      if (urlIdentity(parsedOgUrl) !== urlIdentity(canonicalUrl || pageUrl)) {
+        issues.push({ type: 'ogUrlMismatch', detail: `og:url=${parsedOgUrl.href} vs canonical=${(canonicalUrl || pageUrl).href}` });
+      }
+    } catch {
+      issues.push({ type: 'invalidOgUrl', detail: `og:url=${ogUrl}` });
+    }
+  }
+
+  const twitterTags = scanStartTags(html, 'meta')
+    .map(({ raw }) => readAttr(raw, 'name').toLowerCase())
+    .filter(name => name?.startsWith('twitter:'));
+  if (twitterTags.length > 0) {
+    for (const key of ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
+      if (!readMetaContent(html, key)) {
+        issues.push({ type: 'partialTwitterCard', detail: `Missing meta name="${key}"` });
+      }
+    }
+  }
+
+  const description = extractMetaDescription(html);
+  const descriptionLength = decodeHtmlEntities(description).replace(/\s+/g, ' ').trim().length;
+  if (descriptionLength > 0 && descriptionLength < MIN_META_DESCRIPTION_LENGTH) {
+    issues.push({ type: 'shortMetaDescription', detail: `${descriptionLength} characters (minimum ${MIN_META_DESCRIPTION_LENGTH})` });
+  } else if (descriptionLength > MAX_META_DESCRIPTION_LENGTH) {
+    issues.push({ type: 'longMetaDescription', detail: `${descriptionLength} characters (maximum ${MAX_META_DESCRIPTION_LENGTH})` });
+  }
+
+  const contentHtml = stripScriptsAndStyles(html);
+  for (const { raw } of scanStartTags(contentHtml, 'img')) {
+    const role = readAttr(raw, 'role').toLowerCase().split(/\s+/);
+    const ariaHidden = readAttr(raw, 'aria-hidden').toLowerCase();
+    if (role.includes('presentation') || role.includes('none') || ariaHidden === 'true') continue;
+    if (readAllAttr(raw, 'alt').length === 0) {
+      issues.push({ type: 'missingImageAlt', detail: 'Image has no alt attribute' });
+    }
+  }
+
+  return issues;
+}
+
+function main() {
+  if (!existsSync(DIST)) {
+    console.error(`[validate-page-seo] dist/ directory not found. Run 'npx vite build' first.`);
+    process.exit(1);
+  }
+
+  // Collect all HTML files
+  const allPages = collectHtmlFiles(DIST);
+  console.log(`[validate-page-seo] Found ${allPages.length} HTML pages in dist/\n`);
+
+  // Determine which pages to check
+  const fullCheckPages = [];
+  const otherPages = [];
+
+  for (const page of allPages) {
+    const inFullCheck = FULL_CHECK_DIRS.some(dir => page.pagePath.startsWith(dir) || page.pagePath.startsWith(`en/${dir}`) || page.pagePath.startsWith(`de/${dir}`) || page.pagePath.startsWith(`fr/${dir}`));
+    // Root index.html always checked
+    if (page.pagePath === '' || inFullCheck) {
+      fullCheckPages.push(page);
+    } else {
+      otherPages.push(page);
+    }
+  }
+
+  // Random sample from other pages
+  const shuffled = otherPages.sort(() => Math.random() - 0.5);
+  const sampled = shuffled.slice(0, SAMPLE_SIZE);
+
+  const pagesToCheck = [...fullCheckPages, ...sampled];
+  console.log(`[validate-page-seo] Checking ${fullCheckPages.length} key pages + ${sampled.length} sampled = ${pagesToCheck.length} total\n`);
+
+  // Error and warning tracking
+  const errors = {
+    missingH1: [],
+    duplicateH1: [],
+    emptyH1: [],
+    invalidJson: [],
+    conflictingSchemas: [],
+    missingLang: [],
+    wrongLang: [],
+    missingViewport: [],
+    missingTitle: [],
+    missingDescription: [],
+    hasNoindex: [],
+    hasMetaRefresh: [],
+  };
+  const warnings = {
+    missingCanonical: [],
+    canonicalNotAbsolute: [],
+    canonicalWrongHost: [],
+    canonicalHasQuery: [],
+    canonicalMissingTrailingSlash: [],
+    invalidCanonical: [],
+    canonicalMismatch: [],
+    missingOgTitle: [],
+    missingOgDescription: [],
+    missingOgUrl: [],
+    invalidOgUrl: [],
+    ogUrlMismatch: [],
+    partialTwitterCard: [],
+    shortMetaDescription: [],
+    longMetaDescription: [],
+    missingImageAlt: [],
+  };
+  let warningCount = 0;
+  let errorCount = 0;
+
+  for (const page of pagesToCheck) {
+    const html = readFileSync(page.filePath, 'utf-8');
+    const locale = detectLocale(page.pagePath);
+
+    if (isIntentionalRedirectPage(html)) continue;
+
+    // 1. H1 validation
+    const h1Tags = extractH1Tags(html);
+    if (h1Tags.length === 0) {
+      errors.missingH1.push(page.pagePath || '/');
+      errorCount++;
+    } else if (h1Tags.length > 1) {
+      errors.duplicateH1.push({ path: page.pagePath || '/', count: h1Tags.length });
+      errorCount++;
+    } else if (h1Tags[0] === '') {
+      errors.emptyH1.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 2. Schema validation
+    const schemaIssues = validateSchemas(html);
+    for (const issue of schemaIssues) {
+      if (issue.type === 'invalid-json') {
+        errors.invalidJson.push({ path: page.pagePath || '/', detail: issue.detail });
+        errorCount++;
+      } else if (issue.type === 'conflicting-schemas') {
+        errors.conflictingSchemas.push({ path: page.pagePath || '/', detail: issue.detail });
+        errorCount++;
+      }
+    }
+
+    // 3. Lang attribute
+    const langIssue = checkLangAttribute(html, locale);
+    if (langIssue) {
+      if (langIssue.error === 'missing-lang') {
+        errors.missingLang.push(page.pagePath || '/');
+        errorCount++;
+      } else if (langIssue.error === 'wrong-lang') {
+        errors.wrongLang.push({ path: page.pagePath || '/', detail: langIssue.detail });
+        errorCount++;
+      }
+    }
+
+    // 4. Meta viewport
+    if (!hasMetaViewport(html)) {
+      errors.missingViewport.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 5. Title tag
+    if (!extractTitle(html)) {
+      errors.missingTitle.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 6. Meta description
+    if (!extractMetaDescription(html)) {
+      errors.missingDescription.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 7. Meta robots noindex (skip 404.html and search/combo landing pages which are intentionally noindex)
+    const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + page.pagePath);
+    if (page.pagePath !== '404.html' && !isSearchPage && hasNoindex(html)) {
+      errors.hasNoindex.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 8. Meta refresh (outside noscript)
+    if (hasMetaRefresh(html)) {
+      errors.hasMetaRefresh.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 9. Advisory best-practice checks. These intentionally remain warnings:
+    // canonical/social metadata and decorative-image choices need signal first
+    // across the full generated corpus before any blocking promotion.
+    for (const issue of validateBestPracticeSeo(html, page.pagePath)) {
+      warnings[issue.type].push({ path: page.pagePath || '/', detail: issue.detail });
+      warningCount++;
+    }
+  }
+
+  // Print results
+  const passedCount = pagesToCheck.length - new Set([
+    ...errors.missingH1,
+    ...errors.duplicateH1.map(e => e.path),
+    ...errors.emptyH1,
+    ...errors.invalidJson.map(e => e.path),
+    ...errors.conflictingSchemas.map(e => e.path),
+    ...errors.missingLang,
+    ...errors.wrongLang.map(e => e.path),
+    ...errors.missingViewport,
+    ...errors.missingTitle,
+    ...errors.missingDescription,
+    ...errors.hasNoindex,
+    ...errors.hasMetaRefresh,
+  ]).size;
+
+  console.log('='.repeat(60));
+  console.log(`PAGES CHECKED: ${pagesToCheck.length}`);
+  console.log(`  PASSED: ${passedCount}`);
+  console.log(`  WITH ERRORS: ${pagesToCheck.length - passedCount}`);
+  console.log(`  TOTAL ISSUES: ${errorCount}`);
+  console.log(`  ADVISORY WARNINGS: ${warningCount}`);
+  console.log('='.repeat(60));
+  console.log();
+
+  // Group errors by type
+  if (errors.missingH1.length > 0) {
+    printErrorGroup('Missing H1 tag', errors.missingH1, 20);
+  }
+  if (errors.duplicateH1.length > 0) {
+    console.log(`\u274C ${errors.duplicateH1.length} page(s) have MULTIPLE H1 tags (BLOCKING):`);
+    for (const { path, count } of errors.duplicateH1.slice(0, 20)) {
+      console.log(`   [${count} h1s] /${path}`);
+    }
+    if (errors.duplicateH1.length > 20) console.log(`   ... and ${errors.duplicateH1.length - 20} more`);
+    console.log();
+  }
+  if (errors.emptyH1.length > 0) {
+    printErrorGroup('Empty H1 tag', errors.emptyH1, 20);
+  }
+  if (errors.invalidJson.length > 0) {
+    console.log(`\u274C ${errors.invalidJson.length} page(s) have INVALID ld+json (BLOCKING):`);
+    for (const { path, detail } of errors.invalidJson.slice(0, 20)) {
+      console.log(`   /${path}: ${detail}`);
+    }
+    if (errors.invalidJson.length > 20) console.log(`   ... and ${errors.invalidJson.length - 20} more`);
+    console.log();
+  }
+  if (errors.conflictingSchemas.length > 0) {
+    console.log(`\u274C ${errors.conflictingSchemas.length} page(s) have CONFLICTING primary schemas (BLOCKING):`);
+    for (const { path, detail } of errors.conflictingSchemas.slice(0, 20)) {
+      console.log(`   /${path}: ${detail}`);
+    }
+    if (errors.conflictingSchemas.length > 20) console.log(`   ... and ${errors.conflictingSchemas.length - 20} more`);
+    console.log();
+  }
+  if (errors.missingLang.length > 0) {
+    printErrorGroup('Missing lang attribute on <html>', errors.missingLang, 20);
+  }
+  if (errors.wrongLang.length > 0) {
+    console.log(`\u274C ${errors.wrongLang.length} page(s) have WRONG lang attribute (BLOCKING):`);
+    for (const { path, detail } of errors.wrongLang.slice(0, 20)) {
+      console.log(`   /${path}: ${detail}`);
+    }
+    if (errors.wrongLang.length > 20) console.log(`   ... and ${errors.wrongLang.length - 20} more`);
+    console.log();
+  }
+  if (errors.missingViewport.length > 0) {
+    printErrorGroup('Missing meta viewport', errors.missingViewport, 20);
+  }
+  if (errors.missingTitle.length > 0) {
+    printErrorGroup('Missing <title> tag', errors.missingTitle, 20);
+  }
+  if (errors.missingDescription.length > 0) {
+    printErrorGroup('Missing <meta name="description">', errors.missingDescription, 20);
+  }
+  if (errors.hasNoindex.length > 0) {
+    printErrorGroup('Contains noindex robots directive', errors.hasNoindex, 20);
+  }
+  if (errors.hasMetaRefresh.length > 0) {
+    printErrorGroup('Contains <meta http-equiv="refresh"> (redirect shell)', errors.hasMetaRefresh, 20);
+  }
+
+  const warningLabels = {
+    missingCanonical: 'Missing rel="canonical"',
+    canonicalNotAbsolute: 'Canonical is not absolute',
+    canonicalWrongHost: 'Canonical uses the wrong host or protocol',
+    canonicalHasQuery: 'Canonical contains a query string or fragment',
+    canonicalMissingTrailingSlash: 'Canonical route is missing trailing slash',
+    invalidCanonical: 'Canonical URL is invalid',
+    canonicalMismatch: 'Canonical does not match the page URL',
+    missingOgTitle: 'Missing og:title',
+    missingOgDescription: 'Missing og:description',
+    missingOgUrl: 'Missing og:url',
+    invalidOgUrl: 'og:url is invalid',
+    ogUrlMismatch: 'og:url does not match canonical',
+    partialTwitterCard: 'Incomplete Twitter card metadata',
+    shortMetaDescription: 'Meta description is too short',
+    longMetaDescription: 'Meta description is too long',
+    missingImageAlt: 'Image is missing alt attribute',
+  };
+  for (const [type, entries] of Object.entries(warnings)) {
+    if (entries.length > 0) printWarningGroup(warningLabels[type], entries, 20);
+  }
+
+  if (errorCount > 0) {
+    console.log(`\n\u274C DEPLOY BLOCKED: ${errorCount} SEO issue(s) found across ${pagesToCheck.length - passedCount} page(s).`);
+    process.exit(1);
+  } else {
+    console.log(`\n\u2705 All ${pagesToCheck.length} checked pages pass blocking SEO quality validation.`);
+    if (warningCount > 0) {
+      console.log(`\u26a0\ufe0f ${warningCount} advisory best-practice finding(s) require review.`);
+    }
+    process.exit(0);
+  }
+}
+
+function printErrorGroup(label, paths, limit) {
+  console.log(`\u274C ${paths.length} page(s) with ${label} (BLOCKING):`);
+  for (const p of paths.slice(0, limit)) {
+    console.log(`   /${p}`);
+  }
+  if (paths.length > limit) console.log(`   ... and ${paths.length - limit} more`);
+  console.log();
+}
+
+function printWarningGroup(label, entries, limit) {
+  console.log(`\u26a0\ufe0f ${entries.length} page-level advisory finding(s): ${label}`);
+  for (const { path, detail } of entries.slice(0, limit)) {
+    console.log(`   ${path === '/' ? '/' : `/${path}`}: ${detail}`);
+  }
+  if (entries.length > limit) console.log(`   ... and ${entries.length - limit} more`);
+  console.log();
+}
+
+export {
+  collectHtmlFiles,
+  validateBestPracticeSeo,
+  validateSchemas,
+  checkLangAttribute,
+  hasMetaViewport,
+  hasMetaRefresh,
+  isIntentionalRedirectPage,
+};
+
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

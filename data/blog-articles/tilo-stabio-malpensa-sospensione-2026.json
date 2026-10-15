@@ -1,0 +1,40 @@
+{
+  "id": "tilo-stabio-malpensa-sospensione-2026",
+  "slug": "tilo-stabio-malpensa-sospensione-2026",
+  "publishedAt": "2026-05-30T02:03:48.045Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.226711673583671,
+    "confidence": 0.8,
+    "finalScore": 5.781369338866938,
+    "topK": [
+      {
+        "slug": "tilo-s50-modifiche-aprile",
+        "cosine": 0.8351643455148521
+      },
+      {
+        "slug": "tilo-gallarate-malpensa-maggio-2026",
+        "cosine": 0.8330841729274446
+      },
+      {
+        "slug": "tilo-s50-lavori-mal-pensa-varese-2026",
+        "cosine": 0.8275807706167672
+      },
+      {
+        "slug": "disagi-tilo-mendrisio-malpensa-2026",
+        "cosine": 0.8269254916701487
+      },
+      {
+        "slug": "biglietto-trenord-whatsapp-ticino",
+        "cosine": 0.8240011787921064
+      }
+    ],
+    "score": 1.4453423347167345,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

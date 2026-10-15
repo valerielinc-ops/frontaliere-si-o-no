@@ -1,0 +1,40 @@
+{
+  "id": "offerte-fielmann-svizzera",
+  "slug": "offerte-fielmann-svizzera",
+  "publishedAt": "2026-07-11T04:54:52.124Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 19.33106386302366,
+    "confidence": 0.8,
+    "finalScore": 15.46485109041893,
+    "topK": [
+      {
+        "slug": "lavoro-chiasso-opportunita-frontalieri",
+        "cosine": 0.8266682283073574
+      },
+      {
+        "slug": "documenti-necessari-frontaliere",
+        "cosine": 0.8194777895363512
+      },
+      {
+        "slug": "lamal-cmi-scelta-frontaliere-2026",
+        "cosine": 0.8167245983324576
+      },
+      {
+        "slug": "academy-fnma-autisti-bus-2026",
+        "cosine": 0.815809784795898
+      },
+      {
+        "slug": "sanita-ticino-tagli-orselina",
+        "cosine": 0.8156953649424743
+      }
+    ],
+    "score": 15.46485109041893,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

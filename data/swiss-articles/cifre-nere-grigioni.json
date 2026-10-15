@@ -1,0 +1,40 @@
+{
+  "id": "cifre-nere-grigioni",
+  "slug": "cifre-nere-grigioni",
+  "publishedAt": "2026-07-27T12:59:10.328Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.671508948983773,
+    "confidence": 0.8,
+    "finalScore": 7.737207159187019,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.835917677357136
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8201093033121643
+      },
+      {
+        "slug": "sospensioni-attivita-varesotto-sicurezza",
+        "cosine": 0.8159654326103728
+      },
+      {
+        "slug": "la-quinta-svizzera-che-ha-un-debole-per-milano",
+        "cosine": 0.8149279485175557
+      },
+      {
+        "slug": "aumento-mezzi-pubblici-ticino",
+        "cosine": 0.8147667751879627
+      }
+    ],
+    "score": 1.9343017897967547,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

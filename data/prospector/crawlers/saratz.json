@@ -1,0 +1,23 @@
+{
+  "companyKey": "saratz",
+  "companyName": "Giodi",
+  "companyHost": "saratz.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.saratz.ch/services/jobs"
+  ],
+  "detailTemplate": "/fileadmin/user_upload/4_Wir/Jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Chef de Rang",
+    "F & B Manager",
+    "Sales Manager",
+    "Mitarbeiter/in Kinderparadies Herbstferien 2026"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-11T09:06:31.051Z"
+}

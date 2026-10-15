@@ -1,0 +1,40 @@
+{
+  "id": "tassa-salute-frontalieri-paradosso-luino-verbania",
+  "slug": "tassa-salute-frontalieri-paradosso-luino-verbania",
+  "publishedAt": "2026-05-15T16:15:36.595Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.935747056867878,
+    "confidence": 0.8,
+    "finalScore": 3.9485976454943024,
+    "topK": [
+      {
+        "slug": "confusione-tassa-salute-frontalieri",
+        "cosine": 0.8958492018529125
+      },
+      {
+        "slug": "frontalieri-tassa-salute-scontro",
+        "cosine": 0.8894652155737444
+      },
+      {
+        "slug": "frontalieri-tassa-salute-teatro",
+        "cosine": 0.8890142185014811
+      },
+      {
+        "slug": "frontalieri-contributo-sanitario-2026",
+        "cosine": 0.8802142250463976
+      },
+      {
+        "slug": "calo-frontalieri-non-tassa-salute",
+        "cosine": 0.8801093891174806
+      }
+    ],
+    "score": 3.9485976454943024,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

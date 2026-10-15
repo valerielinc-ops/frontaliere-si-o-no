@@ -1,0 +1,204 @@
+/**
+ * Per-canton salary-statistics landing family — routing, slug parity and
+ * render invariants.
+ */
+import { describe, it, expect } from 'vitest';
+
+import cantonSlugsRaw from '../data/canton-url-slugs.json';
+import {
+  SALARY_STATS_ROUTES,
+  SALARY_STATS_CANTON_KEYS,
+  SALARY_STATS_CANTON_SLUGS,
+  SALARY_STATS_COMPARISON_CANTON_KEYS,
+  SALARY_STATS_LOCALES,
+  parseSalaryStatsPath,
+  isSalaryStatsPath,
+  buildSalaryStatsPath,
+} from '../build-plugins/salaryStatsData';
+import { renderSalaryStatsPage } from '../build-plugins/salaryStatsChCantonPages';
+import { parsePath } from '../services/router';
+import { AD_SLOTS } from '../services/adsenseSlots';
+import { fingerprintPage, scoreCohorts } from '@/scripts/lib/informationGain.mjs';
+
+describe('salaryStatsData — path enumeration', () => {
+  it('emits one path per locale × canton (24 cantons × 4 = 96)', () => {
+    expect(SALARY_STATS_CANTON_KEYS.length).toBe(24);
+    expect(SALARY_STATS_ROUTES.length).toBe(96);
+  });
+
+  it('every path is normalized with a trailing slash', () => {
+    for (const p of SALARY_STATS_ROUTES) expect(p).toMatch(/\/$/);
+  });
+
+  it('parseSalaryStatsPath round-trips every canonical path', () => {
+    for (const p of SALARY_STATS_ROUTES) {
+      const parsed = parseSalaryStatsPath(p);
+      expect(parsed).toBeTruthy();
+      expect(parsed!.path).toBe(p);
+      expect(isSalaryStatsPath(p)).toBe(true);
+    }
+  });
+
+  it('non-matching paths return null', () => {
+    expect(parseSalaryStatsPath('/stipendi/')).toBeNull();
+    expect(parseSalaryStatsPath('/en/salaries/')).toBeNull();
+    expect(isSalaryStatsPath('/cerca-lavoro-zurigo/')).toBe(false);
+  });
+});
+
+describe('salaryStatsData — slug parity with canton-url-slugs.json', () => {
+  const jsonCantons = (cantonSlugsRaw as { cantons: Record<string, Record<string, string>> }).cantons;
+
+  it('covers exactly the same canton keys as the JSON', () => {
+    expect([...SALARY_STATS_CANTON_KEYS].sort()).toEqual(Object.keys(jsonCantons).sort());
+  });
+
+  it('base slugs match the JSON for all locales', () => {
+    for (const key of SALARY_STATS_CANTON_KEYS) {
+      for (const locale of SALARY_STATS_LOCALES) {
+        expect(SALARY_STATS_CANTON_SLUGS[key][locale]).toBe(jsonCantons[key][locale]);
+      }
+    }
+  });
+
+  it('assigns every canton a distinct editorial comparison peer', () => {
+    const peers = SALARY_STATS_CANTON_KEYS.map((key) => SALARY_STATS_COMPARISON_CANTON_KEYS[key]);
+    expect(peers.every(Boolean)).toBe(true);
+    expect(peers.every((peer, index) => peer !== SALARY_STATS_CANTON_KEYS[index])).toBe(true);
+    expect(new Set(peers).size).toBe(SALARY_STATS_CANTON_KEYS.length);
+    expect([...peers].sort()).toEqual([...SALARY_STATS_CANTON_KEYS].sort());
+  });
+});
+
+describe('salaryStats — router integration', () => {
+  it('parsePath returns stats/salary-compare with staticOverlay for every path', () => {
+    for (const p of SALARY_STATS_ROUTES) {
+      const { route } = parsePath(p);
+      expect(route.staticOverlay).toBe(true);
+      expect(route.activeTab).toBe('stats');
+      expect(route.statsSubTab).toBe('salary-compare');
+    }
+  });
+});
+
+describe('salaryStats — page render', () => {
+  it('every (canton × locale) page clears the indexable-words gate (no router-route-without-page 404)', () => {
+    let rendered = 0;
+    for (const locale of SALARY_STATS_LOCALES) {
+      for (const key of SALARY_STATS_CANTON_KEYS) {
+        const slug = SALARY_STATS_CANTON_SLUGS[key][locale];
+        const { html, words } = renderSalaryStatsPage({ locale, cantonKey: key, cantonSlug: slug, distDir: '' });
+        expect(words).toBeGreaterThanOrEqual(50);
+        expect(html).toContain('CHF');
+        expect(html).toContain(buildSalaryStatsPath(locale, slug));
+        // hreflang cluster present (all 4 locale variants cross-linked).
+        // The HTML minifier strips attribute quotes, so match unquoted.
+        expect(html).toMatch(/hreflang=["']?en["']?/);
+        expect(html).toMatch(/hreflang=["']?x-default["']?/);
+        // No dark: color prefixes (CLAUDE.md non-negotiable).
+        expect(html).not.toMatch(/\bdark:[a-z-]/);
+        rendered++;
+      }
+    }
+    expect(rendered).toBe(96);
+  });
+
+  it('renders the top, inline and end ad slots in page order', () => {
+    const { html } = renderSalaryStatsPage({
+      locale: 'it',
+      cantonKey: 'TI',
+      cantonSlug: SALARY_STATS_CANTON_SLUGS.TI.it,
+      distDir: '',
+    });
+    const slotPosition = (slot: string) => html.search(new RegExp(`data-ad-slot=["']?${slot}`));
+
+    expect(html.match(/<ins\b[^>]*class=["']?adsbygoogle/g)).toHaveLength(3);
+    const positions = [
+      slotPosition(AD_SLOTS.FT_DRIVEBY_ATF_DISPLAY.slot),
+      slotPosition(AD_SLOTS.ARTICLE_INLINE_MOBILE.slot),
+      slotPosition(AD_SLOTS.SSG_END_MULTIPLEX.slot),
+    ];
+    expect(positions.every((position) => position >= 0)).toBe(true);
+    expect(positions[0]).toBeLessThan(positions[1]);
+    expect(positions[1]).toBeLessThan(positions[2]);
+  });
+
+  it('Dataset JSON-LD uses Google-valid field types (regression: GSC spatialCoverage/creator/license)', () => {
+    const { html } = renderSalaryStatsPage({ locale: 'it', cantonKey: 'ZH', cantonSlug: SALARY_STATS_CANTON_SLUGS['ZH']['it'], distDir: '' });
+    const datasets = [...html.matchAll(/<script type=["']?application\/ld\+json["']?>([\s\S]*?)<\/script>/g)]
+      .map((m) => JSON.parse(m[1]))
+      .filter((o) => o['@type'] === 'Dataset');
+    expect(datasets.length).toBe(1);
+    const ds = datasets[0];
+    // creator must be Organization|Person (not GovernmentOrganization — Google
+    // Dataset validator does not traverse subtypes → "invalid object type").
+    expect(['Organization', 'Person']).toContain(ds.creator['@type']);
+    // spatialCoverage must be Place (not AdministrativeArea subtype).
+    expect(ds.spatialCoverage['@type']).toBe('Place');
+    // license is a required field for Dataset rich results.
+    expect(typeof ds.license).toBe('string');
+    expect(ds.license).toMatch(/^https?:\/\//);
+  });
+
+  it('half-canton groups get region figures, not silent national fallback', () => {
+    // APPENZELLO → Ostschweiz median 6623 (≈94% of national 7024) — diverges
+    // enough that the gross band must scale BELOW the national anchor. Before
+    // the fix the display name "Appenzello" missed the display→region table and
+    // the band silently fell back to the national 110'000 high.
+    const { html } = renderSalaryStatsPage({ locale: 'it', cantonKey: 'APPENZELLO', cantonSlug: 'appenzello', distDir: '' });
+    expect(html).toContain('94%'); // vs-national tile (region median path)
+    expect(html).toContain("105'000"); // gross-band high = round5000(110000 × 6623/7024), region-scaled
+  });
+
+  // Regression guard: sibling of the employer-profiles bug fixed for
+  // validate-dist run 29794187475 (found via check-sibling-patterns.mjs).
+  // The title-length fallback candidate used to be the bare `c.h1(cantonName)`
+  // string — byte-identical to the actual <h1>, which trips
+  // audit:h1-title-duplicates whenever a canton name is long enough that
+  // `metaTitle` overflows TITLE_MAX_CHARS.
+  it('never emits a <title> byte-identical to the <h1> for any canton/locale', () => {
+    for (const key of SALARY_STATS_CANTON_KEYS) {
+      for (const locale of SALARY_STATS_LOCALES) {
+        const { html } = renderSalaryStatsPage({
+          locale,
+          cantonKey: key,
+          cantonSlug: SALARY_STATS_CANTON_SLUGS[key][locale],
+          distDir: '',
+        });
+        const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1];
+        const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1];
+        expect(title, `${key}/${locale} <title>`).toBeTruthy();
+        expect(h1, `${key}/${locale} <h1>`).toBeTruthy();
+        expect(title, `${key}/${locale} title !== h1`).not.toBe(h1);
+      }
+    }
+  });
+
+  it('keeps every salary-stats locale cohort above the information-gain floor', () => {
+    const fingerprints = [];
+    for (const locale of SALARY_STATS_LOCALES) {
+      for (const key of SALARY_STATS_CANTON_KEYS) {
+        const slug = SALARY_STATS_CANTON_SLUGS[key][locale];
+        const { html } = renderSalaryStatsPage({ locale, cantonKey: key, cantonSlug: slug, distDir: '' });
+        fingerprints.push(
+          fingerprintPage(
+            `${buildSalaryStatsPath(locale, slug).replace(/^\//, '')}index.html`,
+            html,
+          ),
+        );
+      }
+    }
+
+    const scored = scoreCohorts(fingerprints, { minCohortPages: 2, includePageScores: true });
+    const belowFloor = scored.cohorts
+      .filter((cohort) => cohort.medianIgs < 5)
+      .map((cohort) => `${cohort.label}: ${cohort.medianIgs.toFixed(2)}%`);
+    const zeroGain = scored.cohorts
+      .filter((cohort) => cohort.zeroGainPages > 0)
+      .map((cohort) => `${cohort.label}: ${cohort.zeroGainPages}/${cohort.pages}`);
+
+    expect(scored.cohorts.map((cohort) => cohort.locale).sort()).toEqual([...SALARY_STATS_LOCALES].sort());
+    expect(belowFloor).toEqual([]);
+    expect(zeroGain).toEqual([]);
+  });
+});

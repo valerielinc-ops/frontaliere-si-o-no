@@ -1,0 +1,40 @@
+{
+  "id": "benzina-prezzi-aumentano-ticino",
+  "slug": "benzina-prezzi-aumentano-ticino",
+  "publishedAt": "2026-07-25T17:30:37.936Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.386277236753777,
+    "confidence": 0.8,
+    "finalScore": 4.309021789403022,
+    "topK": [
+      {
+        "slug": "carburanti-prezzo-rialzo-ticino",
+        "cosine": 0.8977128727922962
+      },
+      {
+        "slug": "benzina-19-euro-5-maggio-2026",
+        "cosine": 0.8869663038352034
+      },
+      {
+        "slug": "prezzi-benzina-ticino",
+        "cosine": 0.8759303099305504
+      },
+      {
+        "slug": "aumento-prezzi-carburanti-maggio-2026",
+        "cosine": 0.8728364681197639
+      },
+      {
+        "slug": "costo-benzina-ticino-frontalieri-2026",
+        "cosine": 0.8722286276775651
+      }
+    ],
+    "score": 2.154510894701511,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

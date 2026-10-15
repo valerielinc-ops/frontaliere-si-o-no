@@ -1,0 +1,23 @@
+{
+  "companyKey": "ars-pays-de-la-loire-recrute",
+  "companyName": "ARS PAYS DE LA LOIRE",
+  "companyHost": "ars-pays-de-la-loire-recrute.talent-soft.com",
+  "platform": "talent-soft.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://ars-pays-de-la-loire-recrute.talent-soft.com/accueil.aspx?LCID=1036"
+  ],
+  "detailTemplate": "/offre-de-emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Flux RSS et autres flux",
+    "44 - Conseiller médical ou Conseillère médicale H/F (Réf. : 2026-6637) - Conseillère-experte / conseiller-expert médic, ondo, pharma",
+    "19-Technicien sanitaire et de sécurité sanitaire en charge de l’habitat et des espaces clos H/F (Réf. : 2026-6086) - Chargée / chargé de veille et de surveillan",
+    "45-Directeur départemental / Directrice départementale de la Sarthe H/F (Réf. : 2026-6705) - Cadre d’équipe dirigeante",
+    "51-Conseiller médical ou Conseillère médicale H/F (Réf. : 2025-5587) - Conseillère-experte / conseiller-expert médic, ondo, pharma"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-16T10:38:53.017Z"
+}

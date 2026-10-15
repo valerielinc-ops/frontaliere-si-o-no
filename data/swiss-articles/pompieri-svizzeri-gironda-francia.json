@@ -1,0 +1,19 @@
+{
+  "id": "pompieri-svizzeri-gironda-francia",
+  "slug": "pompieri-svizzeri-gironda-francia",
+  "publishedAt": "2026-07-27T09:53:06.957Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 149.68609251555554,
+    "confidence": 1,
+    "finalScore": 149.68609251555554,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 149.68609251555554,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

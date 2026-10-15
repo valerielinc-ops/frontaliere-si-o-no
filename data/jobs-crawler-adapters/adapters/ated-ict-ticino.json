@@ -1,0 +1,22 @@
+{
+  "companyKey": "ated-ict-ticino",
+  "companyName": "Ated ICT Ticino",
+  "companyHost": "ated.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ated.ch/careers",
+    "https://www.ated.ch/career",
+    "https://www.ated.ch/jobs",
+    "https://www.ated.ch/karriere",
+    "https://www.ated.ch/offene-stellen",
+    "https://www.ated.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.922Z"
+}

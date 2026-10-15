@@ -1,0 +1,22 @@
+{
+  "companyKey": "piguet-galland",
+  "companyName": "Piguet Galland",
+  "companyHost": "pfrpartners.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.pfrpartners.ch/careers",
+    "https://www.pfrpartners.ch/career",
+    "https://www.pfrpartners.ch/jobs",
+    "https://www.pfrpartners.ch/karriere",
+    "https://www.pfrpartners.ch/offene-stellen",
+    "https://www.pfrpartners.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.968Z"
+}

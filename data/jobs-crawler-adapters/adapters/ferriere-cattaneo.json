@@ -1,0 +1,22 @@
+{
+  "companyKey": "ferriere-cattaneo",
+  "companyName": "Ferriere Cattaneo",
+  "companyHost": "ferrierecattaneo.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ferrierecattaneo.ch/careers",
+    "https://www.ferrierecattaneo.ch/career",
+    "https://www.ferrierecattaneo.ch/jobs",
+    "https://www.ferrierecattaneo.ch/karriere",
+    "https://www.ferrierecattaneo.ch/offene-stellen",
+    "https://www.ferrierecattaneo.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.943Z"
+}

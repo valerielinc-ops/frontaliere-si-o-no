@@ -1,0 +1,269 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { describe, it, expect, vi } from 'vitest';
+import {
+  SPITAL_THURGAU_KEY,
+  fetchAllSpitalThurgauJobs,
+  SPITAL_THURGAU_COMPANY_NAME,
+  isSpitalThurgauJob,
+  isTrustedDomain,
+  parseStgagEmbeddedJson,
+  extractStgagDetailDescription,
+  SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE,
+} from '../scripts/lib/spital-thurgau-job-parser.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { dropFabricatedDescription } from '../scripts/lib/drop-fabricated-description.mjs';
+
+describe('Spital Thurgau (STGAG) crawler parser', () => {
+  // ── Constants ──
+  it('exports valid company key and name', () => {
+    expect(SPITAL_THURGAU_KEY).toBe('spital-thurgau');
+    expect(SPITAL_THURGAU_COMPANY_NAME).toBe('Spital Thurgau (STGAG)');
+  });
+
+  // ── isCompanyJob ──
+  describe('isSpitalThurgauJob', () => {
+    it('matches by companyKey', () => {
+      expect(isSpitalThurgauJob({ companyKey: 'spital-thurgau' })).toBe(true);
+    });
+
+    it('matches by company name', () => {
+      expect(isSpitalThurgauJob({ company: 'Spital Thurgau (STGAG)' })).toBe(true);
+    });
+
+    it('matches by URL domain', () => {
+      expect(isSpitalThurgauJob({ url: 'https://stgag.ch/jobs/123' })).toBe(true);
+    });
+
+    it('rejects unrelated jobs', () => {
+      expect(isSpitalThurgauJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+    });
+
+    it('handles null/undefined gracefully', () => {
+      expect(isSpitalThurgauJob(null)).toBe(false);
+      expect(isSpitalThurgauJob(undefined)).toBe(false);
+      expect(isSpitalThurgauJob({})).toBe(false);
+    });
+  });
+
+  // ── isTrustedDomain ──
+  describe('isTrustedDomain', () => {
+    it('trusts primary domain', () => {
+      expect(isTrustedDomain('https://stgag.ch/careers/job-123')).toBe(true);
+    });
+
+    it('trusts subdomains', () => {
+      expect(isTrustedDomain('https://careers.stgag.ch/job/456')).toBe(true);
+    });
+
+    it('rejects other domains', () => {
+      expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
+    });
+
+    it('handles invalid URLs', () => {
+      expect(isTrustedDomain('')).toBe(false);
+      expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── slugify (imported from crawler-template) ──
+  describe('slugify', () => {
+    it('converts title to URL-safe slug', () => {
+      const slug = slugify('Software Engineer (m/f/d)');
+      expect(slug).toBe('software-engineer-m-f-d');
+    });
+
+    it('strips diacritics', () => {
+      expect(slugify('Ingénieur qualité')).toBe('ingenieur-qualite');
+    });
+
+    it('builds slug with company suffix inline', () => {
+      expect(slugify('Developer spital-thurgau ch')).toBe('developer-spital-thurgau-ch');
+    });
+
+    it('respects max length', () => {
+      const long = 'a'.repeat(200);
+      expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── Job Shape Validation ──
+  describe('job shape', () => {
+    // A minimal valid job for reference
+    const validJob = {
+      id: 'spital-thurgau-abc123',
+      slug: 'test-position-spital-thurgau-ch',
+      slugByLocale: { de: 'test-position-spital-thurgau-ch' },
+      company: 'Spital Thurgau (STGAG)',
+      companyKey: 'spital-thurgau',
+      title: 'Test Position',
+      titleByLocale: { de: 'Test Position' },
+      description: 'A test job description for validation.',
+      descriptionByLocale: { de: 'A test job description for validation.' },
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://stgag.ch/jobs/test',
+      source: 'Spital Thurgau (STGAG) Dedicated Parser',
+      sourceLang: 'de',
+      crawledAt: new Date().toISOString(),
+    };
+
+    it('has all required fields', () => {
+      const required = [
+        'id', 'slug', 'slugByLocale', 'company', 'companyKey',
+        'title', 'titleByLocale', 'description', 'descriptionByLocale',
+        'location', 'canton', 'url', 'source', 'sourceLang', 'crawledAt',
+      ];
+      for (const field of required) {
+        expect(validJob).toHaveProperty(field);
+      }
+    });
+
+    it('slug only contains source locale', () => {
+      const locales = Object.keys(validJob.slugByLocale);
+      expect(locales).toHaveLength(1);
+      expect(locales[0]).toBe(validJob.sourceLang);
+    });
+
+    it('id starts with company key', () => {
+      expect(validJob.id).toMatch(/^spital-thurgau-/);
+    });
+
+    it('slug is URL-safe', () => {
+      expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── parseStgagEmbeddedJson — JSON-envelope shape guard (#1666) ──
+  // STGAG double-encodes: the `<script data-name="jobs">` block is JSON whose
+  // `jobs` field is itself a JSON STRING of the job array. A drift in either
+  // layer must surface as a LOUD warn, not a silent drop-to-0.
+  describe('parseStgagEmbeddedJson — shape guard', () => {
+    const wrap = (inner: string) =>
+      `<html><body><script data-name="jobs" type="application/json" class="embedded-json-data">${inner}</script></body></html>`;
+
+    it('parses the double-encoded jobs string into the array (happy path, no warn)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const jobsArr = [{ id: '1', title: 'Pflegefachperson' }];
+      const html = wrap(JSON.stringify({ count: 1, jobs: JSON.stringify(jobsArr) }));
+      expect(parseStgagEmbeddedJson(html)).toEqual(jobsArr);
+      expect(spy).not.toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
+    it('handles a plain (non-double-encoded) jobs array too (no warn)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const jobsArr = [{ id: '2', title: 'Arzt' }];
+      const html = wrap(JSON.stringify({ count: 1, jobs: jobsArr }));
+      expect(parseStgagEmbeddedJson(html)).toEqual(jobsArr);
+      expect(spy).not.toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
+    it('warns LOUDLY when the embed block is missing (markup drift, not empty board)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      expect(parseStgagEmbeddedJson('<html><body>no jobs widget</body></html>')).toEqual([]);
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(String(spy.mock.calls[0][0])).toContain('spital-thurgau');
+      spy.mockRestore();
+    });
+
+    it('warns when the embedded jobs string no longer parses as JSON', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const html = wrap(JSON.stringify({ count: 1, jobs: '{not json' }));
+      expect(parseStgagEmbeddedJson(html)).toEqual([]);
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(String(spy.mock.calls[0][0])).toContain('spital-thurgau');
+      spy.mockRestore();
+    });
+
+    it('warns when jobs is neither a string nor an array (renamed/error envelope)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const html = wrap(JSON.stringify({ count: 0, postings: [] }));
+      expect(parseStgagEmbeddedJson(html)).toEqual([]);
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(String(spy.mock.calls[0][0])).toContain('spital-thurgau');
+      spy.mockRestore();
+    });
+  });
+
+  // Issue 5253: the embedded listing JSON has no body, so every job published
+  // ~250 chars of Standort/Abteilung/Pensum. The ad lives on the detail page,
+  // in one of two server-rendered templates (real pages, minimised).
+  describe('extractStgagDetailDescription — detail-page body', () => {
+    const fixture = (name: string) => readFileSync(resolve(__dirname, 'fixtures', 'spital-thurgau', name), 'utf8');
+
+    it('reads intro, title block, task/profile lists and employer paragraph (current template)', () => {
+      const text = extractStgagDetailDescription(fixture('current-template-3326.html'));
+      expect(text).toContain('Wir suchen per sofort oder nach Vereinbarung eine/-n\n\nDipl. Pflegefachmann/-frau Floating-Pool (Mo-Fr)');
+      expect(text).toContain('Du übernimmst\n• eine kompetente und ganzheitliche Pflege und Betreuung der Patienten/-innen\n• teamorientierte');
+      expect(text).toContain('Das bringst du mit\n• abgeschlossene Berufsausbildung');
+      expect(text).toContain('Das Kantonsspital Frauenfeld ist ein Unternehmen der Spital Thurgau AG.');
+      // Contact card, job-board link and furniture are not part of the ad.
+      expect(text).not.toMatch(/Kontaktperson|ALLE UNSERE OFFENEN STELLEN|Arbeitsort/);
+    });
+
+    it('reads the older template (#Job, main section lists, #Uns) without the benefit codes', () => {
+      const text = extractStgagDetailDescription(fixture('older-template-3630.html'));
+      expect(text.startsWith('Das Institut für Pathologie der Spital Thurgau AG')).toBe(true);
+      expect(text).toContain('Sie übernehmen\n• Aktive Mitgestaltung und Weiterentwicklung des Instituts für Pathologie');
+      expect(text).toContain('Sie bringen mit\n• Facharzttitel Pathologie');
+      expect(text).toContain('Die Spital Thurgau AG stellt sich vor');
+      expect(text).not.toMatch(/1007000\|/);
+      expect(text).not.toMatch(/Kontaktperson|ALLE UNSERE OFFENEN STELLEN/);
+    });
+
+    it('returns empty for a page with neither template, so the posting gets no description', () => {
+      expect(extractStgagDetailDescription('<html><body><p>Wartung</p></body></html>')).toBe('');
+    });
+  });
+
+  // ── stored rows written with the old stand-in text (#5253) ──
+  describe('SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE', () => {
+    // The shape of all 156 stored rows on main (2026-09-29).
+    const fixture = (name: string) => readFileSync(resolve(__dirname, 'fixtures', 'spital-thurgau', name), 'utf8');
+    const metadata = '• Standort: Kantonsspital Münsterlingen\n• Abteilung: Ärztliches Personal\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.04.2027';
+    const stub = `Leitender Arzt / Leitende Ärztin Pathologie — Spital Thurgau (STGAG).\n\n${metadata}`;
+
+    it.each([
+      ['over the listing metadata', stub],
+      ['with the city only', 'Leitender Arzt / Leitende Ärztin Pathologie — Spital Thurgau (STGAG), Münsterlingen'],
+    ])('drops the stand-in %s, its translations and the flat description', (_label, text) => {
+      const job = { sourceLang: 'de', description: text, descriptionByLocale: { de: text, it: 'Capo del dipartimento medico — Spital Thurgau (STGAG).' } };
+      expect(dropFabricatedDescription(job, SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE)).toBe(true);
+      expect(job.description).toBe('');
+      expect(job.descriptionByLocale).toEqual({});
+      expect((job as any).needsRetranslation).toBe(true);
+    });
+
+    it('never takes the published ad (detail body + the same metadata) for it', () => {
+      const ad = `${extractStgagDetailDescription(fixture('older-template-3630.html'))}\n\n${metadata}`;
+      const job = { sourceLang: 'de', description: ad, descriptionByLocale: { de: ad, it: 'Traduzione' } };
+      expect(dropFabricatedDescription(job, SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE)).toBe(false);
+      expect(job.descriptionByLocale).toEqual({ de: ad, it: 'Traduzione' });
+      expect(SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE.test(`${stub}\n\nDas Institut für Pathologie der Spital Thurgau AG`)).toBe(false);
+    });
+  });
+});
+
+
+describe('Spital Thurgau publication provenance', () => {
+  it('carries valid publishDate and rejects missing, impossible and future publication dates', async () => {
+    const sourceDate = new Date(Date.now() - 5 * 86400000).toISOString().slice(0, 10);
+    const [year, month, day] = sourceDate.split('-');
+    const valid = `${day}.${month}.${year}`;
+    const body = readFileSync(new URL('./fixtures/spital-thurgau/current-template-3326.html', import.meta.url), 'utf8');
+    try {
+      for (const publishDate of [valid, '', `30.02.${year}`, `01.01.${Number(year) + 2}`]) {
+        const record = { id: '3326', title: 'Pflegefachperson', workplace: 'Frauenfeld', type: 'job', publishDate };
+        vi.stubGlobal('fetch', vi.fn(async (url) => new Response(String(url).includes('/jobs/')
+          ? `<script data-name="jobs" type="application/json">${JSON.stringify({ jobs: JSON.stringify([record]) })}</script>`
+          : body)));
+        const [job] = await fetchAllSpitalThurgauJobs();
+        expect(job).toMatchObject(publishDate === valid
+          ? { datePosted: sourceDate, postedDate: sourceDate, postingDateSource: 'reported' }
+          : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+      }
+    } finally { vi.unstubAllGlobals(); }
+  });
+});

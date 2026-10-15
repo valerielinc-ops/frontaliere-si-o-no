@@ -1,0 +1,40 @@
+{
+  "id": "pagaiate-internazionali-grigioni-ticino-2026",
+  "slug": "pagaiate-internazionali-grigioni-ticino-2026",
+  "publishedAt": "2026-05-08T11:04:48.046Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.836335962911825,
+    "confidence": 0.8,
+    "finalScore": 5.469068770329461,
+    "topK": [
+      {
+        "slug": "visita-ticinese-coira-criminalita-organizzata",
+        "cosine": 0.8545419953639781
+      },
+      {
+        "slug": "infiltrazioni-criminali-ticino-grigioni",
+        "cosine": 0.8543970864841758
+      },
+      {
+        "slug": "italia-svizzera-ricerca-2026",
+        "cosine": 0.8495585950317139
+      },
+      {
+        "slug": "controlli-auto-immatricolate-grigioni",
+        "cosine": 0.8456016039148301
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8447650712557853
+      }
+    ],
+    "score": 0.546906877032946,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

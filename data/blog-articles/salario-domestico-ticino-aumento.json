@@ -1,0 +1,40 @@
+{
+  "id": "salario-domestico-ticino-aumento",
+  "slug": "salario-domestico-ticino-aumento",
+  "publishedAt": "2026-05-11T06:55:03.981Z",
+  "cluster": "novita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.3329825862450475,
+    "confidence": 0.8,
+    "finalScore": 5.8663860689960385,
+    "topK": [
+      {
+        "slug": "salario-minimo-ticino-2027-2029-nuove-regole",
+        "cosine": 0.7557843800172728
+      },
+      {
+        "slug": "salario-minimo-ticino-2027-2029",
+        "cosine": 0.7487935047000921
+      },
+      {
+        "slug": "salario-minimo-ticino-2029-4000-franchi",
+        "cosine": 0.7464881131442959
+      },
+      {
+        "slug": "salario-minimo-mediano-ticino-2026",
+        "cosine": 0.7457780066241849
+      },
+      {
+        "slug": "salario-minimo-ticino-accordo",
+        "cosine": 0.7432503730232832
+      }
+    ],
+    "score": 1.4665965172490096,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

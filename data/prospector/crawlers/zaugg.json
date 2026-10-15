@@ -1,0 +1,26 @@
+{
+  "companyKey": "zaugg",
+  "companyName": "ZAUGG AG",
+  "companyHost": "zaugg.swiss",
+  "sourceType": "official-employer-html",
+  "sourceLang": "de",
+  "seedUrls": [
+    "https://www.zaugg.swiss/stellen"
+  ],
+  "targetTitle": "Schweisser:in Stahl/ALU/Inox",
+  "detailIdParameter": "itemid1541",
+  "detailFlagParameter": "detail1541",
+  "selectors": {
+    "listingContainer": "#itemlistformod2076",
+    "listingLinks": "a[href*='itemid1541='][href*='detail1541=1']",
+    "detailTitle": ".am_1529 [itemprop='name']",
+    "detailDescription": ".am_1532",
+    "postingDate": ".adate .value"
+  },
+  "location": {
+    "city": "Eggiwil",
+    "postalCode": "3537",
+    "canton": "BE",
+    "addressRegion": "BE"
+  }
+}

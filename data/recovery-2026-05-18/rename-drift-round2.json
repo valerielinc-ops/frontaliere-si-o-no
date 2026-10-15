@@ -1,0 +1,20 @@
+{
+  "since": "2026-05-12",
+  "approach": "Skipped per-slice deep audit (185 slices x N commits too slow — previous attempt timed out at 20min). Ran backfill-renamed-slugs-from-history.mjs unscoped (--days 7, covers since 2026-05-12). Also grepped for URL-keyed jobMatchKey overrides; finding: none remain — PR #161 already hardened every dedicated crawler via dedicated-crawler-common.mjs default (extractStableJobId). Per-script jobMatchKey functions either already call extractStableJobId or use vendor-specific UUID extractors (axa, ail, giorgio-armani, guess) / title-keying for single-URL shared boards (caseificio-gottardo, fart, lafonte, oscam).",
+  "slug_registry_commits_in_window": 70,
+  "url_keyed_crawlers_patched": [],
+  "url_keyed_crawlers_patched_note": "Zero remaining URL-keyed crawlers. grep 'jobMatchKey.*String(job.url)|jobMatchKey:.*url.toLowerCase' returned no matches. Inspection of every update-*-jobs.mjs jobMatchKey() body confirms either extractStableJobId() or intentional non-URL key (vendor-specific UUID regex or title-based for shared-URL boards).",
+  "backfill_exit_code": 0,
+  "backfill_wallclock_seconds_approx": 30,
+  "backfill_summary": "backfill-renamed-slugs-from-history — LIVE (last 7d, cap 20 previousSlugs/job)\nScanning commits f7189bad8a..HEAD\nRemoved jobs scanned:       3892\nMatched to current UUID:    3209\nAdded to previousSlugs:     809\nSkipped (already known/cap):2400\nSlices changed:             68",
+  "sample_diff_denner": {
+    "file": "data/jobs/by-crawler/denner.json",
+    "added_to_previousSlugs": "venditore-denner-butschwil",
+    "existing_previousSlugs": ["verkaufer-in-denner", "verkaufer-in-denner-rubigen"]
+  },
+  "sample_diff_coop_ticino": {
+    "file": "data/jobs/by-crawler/coop-ticino.json",
+    "added_to_previousSlugs": "cambio-carriera-collaboratore-a-carne-e-pesce-coop-genossenschaft-muttenz",
+    "context": "Job retained UUID but vendor rewrote the slug — old slug now redirects via bridge page instead of emitting soft-landing."
+  }
+}

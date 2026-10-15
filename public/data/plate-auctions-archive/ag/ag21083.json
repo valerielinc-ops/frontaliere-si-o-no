@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58758",
+      "sourceKey": "AG",
+      "sourceRecordId": "58758",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "21083",
+      "normalizedPlate": "AG21083",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 4040,
+      "bidCount": 56,
+      "endsAt": "2026-09-30T19:00:00.000Z",
+      "closedAt": "2026-09-30T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58758",
+      "sourceFetchedAt": "2026-09-30T12:38:33.576Z",
+      "lastVerifiedAt": "2026-09-30T12:38:33.576Z",
+      "firstSeenAt": "2026-09-19T11:04:31.342Z",
+      "lastSeenAt": "2026-09-30T12:38:33.576Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "724abb8b486a"
+    }
+  ]
+}

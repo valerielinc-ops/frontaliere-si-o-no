@@ -1,0 +1,21 @@
+{
+  "companyKey": "rh-expert-ch",
+  "candidateKey": "rh-expert@geneve",
+  "revalidateRejectedWithSourceAdapter": true,
+  "companyName": "RH-Expert",
+  "companyHost": "rh-expert.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rh-expert.ch/fr/offres-demploi"
+  ],
+  "detailTemplate": "/fr/offres-demploi/*",
+  "listingCandidateText": "commis de salle",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 1,
+  "sampleVacancyCount": 1,
+  "sampleTitles": ["Commis de salle"],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-01T11:41:49.013Z"
+}

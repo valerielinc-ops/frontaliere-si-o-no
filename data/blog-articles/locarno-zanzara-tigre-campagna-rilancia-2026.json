@@ -1,0 +1,40 @@
+{
+  "id": "locarno-zanzara-tigre-campagna-rilancia-2026",
+  "slug": "locarno-zanzara-tigre-campagna-rilancia-2026",
+  "publishedAt": "2026-05-08T07:50:47.038Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.484315568295616,
+    "confidence": 0.8,
+    "finalScore": 9.987452454636493,
+    "topK": [
+      {
+        "slug": "lotta-zanzara-tigre-mendrisio",
+        "cosine": 0.8917368263068297
+      },
+      {
+        "slug": "chiasso-zanzara-tigre-strategia-2026",
+        "cosine": 0.873800273579302
+      },
+      {
+        "slug": "zanzara-tigre-losone-2026",
+        "cosine": 0.8701949689047622
+      },
+      {
+        "slug": "nuova-strategia-zanzara-tigre-chiasso-2026",
+        "cosine": 0.8628450057342477
+      },
+      {
+        "slug": "dengue-sistema-rapido-individuazione",
+        "cosine": 0.824893246039671
+      }
+    ],
+    "score": 1.2484315568295616,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

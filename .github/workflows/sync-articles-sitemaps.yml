@@ -1,0 +1,1490 @@
+name: Sync article sitemaps, feeds and ticker from the articles API
+
+# The article data surface is produced by the repository that owns the corpus
+# (nanakokyobashi-rgb/frontaliere-articles) and consumed here. This workflow is
+# the consumption: it pulls the published files into public/ and commits them
+# when they actually changed.
+#
+# Thirteen files since #4974 item 2 — the two sitemaps, the ten RSS feeds and
+# the news-ticker payload. The filename still says "sitemaps" because renaming
+# it would orphan this workflow's run history for no functional gain; the
+# publisher's repository_dispatch keys on the event type, not on this name.
+#
+# repository_dispatch is the primary trigger, and it is the right shape: the
+# publisher knows when it has published, so the push is the event. New publisher
+# runs send the exact client_payload contract below; the receiver verifies the
+# source run and workflow with read-only GitHub metadata API before allowing any
+# write. A dispatch without that attestation is rejected; the twice-daily
+# schedule remains the recovery path when the event is lost.
+# The schedule is only a safety net for a dispatch that never arrives (token
+# rotated, API outage) — it is not the primary mechanism.
+#
+# scripts/pull-articles-api.mjs refuses rather than degrades: it validates the
+# manifest, both sitemaps (gating on hreflang alternate counts as well as url
+# counts), every feed's item count, and every locale title/slug in the ticker
+# payload — then exits non-zero having written nothing if anything looks wrong.
+# So a bad publish leaves the committed copy serving instead of overwriting it.
+#
+# THE TWO PULLS ARE ONE OPERATION (issue #5298). They read from two sources with
+# different freshness — the corpus repo's git history, and the API built from an
+# earlier state of it — and they commit into a single commit. Both are therefore
+# pinned to `manifest.json`'s `commit`, and if they cannot agree on it the whole
+# run is SKIPPED rather than half-committed. Rationale and failure history:
+# scripts/lib/articles-sync-pin.mjs. This is the fix at the WRITER; the transit
+# tolerance in tests/blog-slugs-sitemap-sync.test.ts was the earlier mitigation
+# at the reader, and with the window closed here it has nothing left to excuse.
+
+on:
+  repository_dispatch:
+    types: [articles-published]
+  # A corpus refresh enters main through the stable PR above. The PR path must
+  # not skip its dependent CDN surfaces permanently, so replay them from the
+  # merged tree as soon as that push lands.
+  push:
+    branches: [main]
+    paths:
+      - 'packages/articles/content/**'
+      - 'public/sitemap-news.xml'
+      - 'public/rss*.xml'
+      - 'public/news-ticker-live.json'
+      - '.github/workflows/sync-articles-sitemaps.yml'
+  schedule:
+    # Twice a day, offset off the hour to stay clear of the deploy cron.
+    - cron: '23 5,17 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled.'
+        required: false
+        default: true
+        type: boolean
+concurrency:
+  group: sync-articles-sitemaps
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+  # A skipped sync exits 0 by design (nothing was written; the previous commit is
+  # still consistent). That makes a mirror stuck for good invisible on a wall of
+  # green runs, so N consecutive skips open an issue — see the escalation step.
+  issues: write
+
+jobs:
+  sync:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # The refresh is published through an authenticated stable PR branch;
+          # do not leave the ambient Actions token on origin as a competing
+          # credential.
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      # Pull the corpus loads the chunker, which imports the lockfile-pinned
+      # TypeScript compiler. Install before any repository script runs.
+      - name: Install sync dependencies
+        run: npm ci --no-audit --no-fund
+
+      # The corpus worker must send this exact contract in client_payload:
+      # schema_version=1; source_repository, source_workflow,
+      # source_workflow_path, source_run_id, source_run_attempt, source_sha,
+      # source_branch and source_event. All values except schema_version are
+      # strings; source_branch=main and source_event=push. This payload is not
+      # a signature. Query the public source-run/workflow metadata first, and
+      # fail closed on an API error or on any mismatch. A repository_dispatch can
+      # race run visibility, rate limits, or the source run leaving queued; allow
+      # only a bounded retry for those transient reads. Mismatches and
+      # terminal/unknown states go once to the verifier only after both metadata
+      # lookups have a complete, valid shape, and remain fail-closed.
+      # The live emitter is paired in nanakokyobashi-rgb/frontaliere-articles
+      # PR #1531 (.github/workflows/publish-api.yml); keep both contracts live.
+      - name: Verify publisher provenance via read-only metadata API
+        id: publisher_provenance
+        if: github.event_name == 'repository_dispatch' && github.event.client_payload != null
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}
+        run: |
+          set -euo pipefail
+          run_metadata="$RUNNER_TEMP/frontaliere-publisher-run.json"
+          workflow_metadata="$RUNNER_TEMP/frontaliere-publisher-workflow.json"
+          printf '{}' > "$run_metadata"
+          printf '{}' > "$workflow_metadata"
+
+          # The id is untrusted data. Validate it before placing it in a quoted
+          # URL segment; malformed ids never reach the API.
+          if [[ "$PUBLISHER_SOURCE_RUN_ID" =~ ^[1-9][0-9]{0,20}$ ]]; then
+            max_lookup_attempts=3
+            lookup_attempt=1
+            while [ "$lookup_attempt" -le "$max_lookup_attempts" ]; do
+              printf '{}' > "$run_metadata"
+              printf '{}' > "$workflow_metadata"
+              run_lookup_ok=true
+              workflow_lookup_ok=true
+
+              if ! gh api --method GET \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/$PUBLISHER_SOURCE_RUN_ID" \
+                > "$run_metadata"; then
+                run_lookup_ok=false
+                printf '{}' > "$run_metadata"
+              fi
+              if ! gh api --method GET \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                'repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/publish-api.yml' \
+                > "$workflow_metadata"; then
+                workflow_lookup_ok=false
+                printf '{}' > "$workflow_metadata"
+              fi
+
+              run_status=$(jq -r 'if type == "object" then (.status // "") else "" end' "$run_metadata" 2>/dev/null || true)
+              run_shape_ok=false
+              if jq -e 'type == "object"
+                and has("id") and has("workflow_id") and has("status") and has("conclusion")
+                and (.status | type == "string")
+                and ((.conclusion == null) or (.conclusion | type == "string"))' \
+                "$run_metadata" >/dev/null 2>&1; then
+                run_shape_ok=true
+              fi
+              workflow_shape_ok=false
+              if jq -e 'type == "object"
+                and has("id") and has("name") and has("path")
+                and (.name | type == "string") and (.path | type == "string")' \
+                "$workflow_metadata" >/dev/null 2>&1; then
+                workflow_shape_ok=true
+              fi
+
+              retry_reason=''
+              if [ "$workflow_lookup_ok" != 'true' ] || [ "$workflow_shape_ok" != 'true' ]; then
+                retry_reason='publisher workflow lookup/rate limit'
+              elif [ "$run_lookup_ok" != 'true' ] || [ "$run_shape_ok" != 'true' ]; then
+                retry_reason='source run lookup/visibility'
+              elif [ "$run_status" = 'queued' ]; then
+                retry_reason='source run still queued'
+              elif [ "$run_status" = 'in_progress' ]; then
+                retry_reason='source run still in_progress'
+              else
+                break
+              fi
+
+              if [ "$lookup_attempt" -eq "$max_lookup_attempts" ]; then
+                echo "::warning::publisher provenance $retry_reason persisted after ${max_lookup_attempts} attempts; verifier remains fail-closed."
+                break
+              fi
+              lookup_delay=$((lookup_attempt * 15))
+              echo "::warning::publisher provenance $retry_reason; retrying ${lookup_attempt}/${max_lookup_attempts} after ${lookup_delay}s."
+              sleep "$lookup_delay"
+              lookup_attempt=$((lookup_attempt + 1))
+            done
+          fi
+
+          node scripts/ci/verify-publisher-dispatch.mjs "$run_metadata" "$workflow_metadata"
+
+      - name: Reject publisher dispatch without attestation
+        if: github.event_name == 'repository_dispatch' && github.event.client_payload == null
+        run: |
+          echo "::error::Publisher dispatch is missing the required source attestation."
+          exit 1
+
+      - name: Prepare Firebase credentials for PR publishing
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for the article refresh PR"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load publishing credentials from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          test -f scripts/load-rc-env.mjs
+          node scripts/load-rc-env.mjs
+
+      # The corpus, not just the published surface. pull-articles-api.mjs brings
+      # in the sitemaps, feeds and ticker — everything a MACHINE reads — and
+      # that is why every post-cutover article was in sitemap-blog.xml and the
+      # RSS while the site's own hub still showed 2026-07-29 as its newest
+      # entry. The reader-facing lists are rendered from the SPA bundle, which
+      # is built from packages/articles/content/, and nothing had refreshed
+      # that since mirror-articles-corpus.yml last ran on the cutover day.
+      #
+      # The published API cannot substitute: articles.json carries no title
+      # (§7.1), and a list needs titles.
+      #
+      # A pull, never a push — nanako owns the corpus. See the script header.
+      #
+      # Pull the corpus and all published HTTP artifacts as one pinned pair.
+      # The wrapper retries BOTH pulls when the manifest advances during the
+      # staged API read, and the API pull rechecks the manifest after validating
+      # every artifact before it writes anything. A persistent skip remains
+      # fail-closed and is surfaced through one output for the workflow gates.
+      - name: Pull the article corpus and published HTTP surface
+        id: pull-article-surface
+        run: node scripts/ci/pull-articles-surface.mjs
+
+      # The corpus registry and the published sitemap must also be internally
+      # bijective. A localized slug collision makes REVERSE_SWISS last-wins and
+      # leaves one article unreachable even when both pulls came from the same
+      # upstream commit. Refuse the sync before it can open a PR with that data.
+      - name: Validate article routing integrity
+        if: steps.pull-article-surface.outputs.skipped != 'true'
+        run: node scripts/ci/validate-article-append-integrity.mjs --swiss-only
+
+      # One place to ask whether this run has a coherent upstream pair, so a
+      # future step cannot forget half of that condition. No additional approval
+      # gate is involved in this workflow.
+      - name: Decide whether this run may commit
+        id: gate
+        env:
+          SURFACE_SKIPPED: ${{ steps.pull-article-surface.outputs.skipped }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+        run: |
+          set -euo pipefail
+          reason=''
+          if [ "${EFFECTIVE_DRY_RUN:-}" = 'true' ]; then
+            reason='dry-run requested'
+          elif [ "${SURFACE_SKIPPED:-}" = 'true' ]; then
+            reason='the corpus and published HTTP artifacts could not agree on one upstream commit after bounded retries'
+          fi
+          if [ -n "$reason" ]; then
+            echo "skipped=true" >> "$GITHUB_OUTPUT"
+            echo "skip-reason=$reason" >> "$GITHUB_OUTPUT"
+            echo "This sync was skipped; nothing will be committed. Reason: $reason" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "skipped=false" >> "$GITHUB_OUTPUT"
+            echo "skip-reason=" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ── A skipped sync is green, so something has to make a STUCK one loud ──
+      #
+      # Each script already emits `::warning::` with its reason, which covers the
+      # single skip: somebody reading that run sees it. Nobody reads green runs,
+      # though, so the case that actually needs catching is the mirror that never
+      # comes back — and a warning per run is indistinguishable from a warning
+      # that has been there for a week.
+      #
+      # THRESHOLD 3, and it is a real choice, not a default:
+      #   - A skip is not the routine outcome of a race. The API is BUILT from the
+      #     commit it names, so that commit exists upstream by construction; a
+      #     skip means the mirror could not serve an object it must already have,
+      #     or the surface moved mid-clone. Both are self-correcting within one
+      #     retry, so 1 skip carries no information and 2 barely more.
+      #   - Retries are frequent: a repository_dispatch per publish, ~10-20
+      #     minutes apart during generation hours (measured in #5298: 08:02,
+      #     08:10, 08:29, 08:32, 08:37). Three consecutive skips is therefore
+      #     ~30-60 minutes of a condition surviving every retry — far past any
+      #     transient, and still inside the hour.
+      #   - Higher (5) would spend a whole quiet night at the cron-only cadence
+      #     before saying anything, which is the silent-failure shape again.
+      #
+      # WINDOW 36h, tied to that cadence: the floor is the 5:23/17:23 cron, 12h
+      # apart, so three cron-only events span 24h. A 24h window would leave the
+      # first event sitting exactly on the cutoff and let CI jitter decide whether
+      # the third one escalates — the coin-flip github-issue-creator.mjs's own
+      # header warns about. 36h gives a full cadence of margin.
+      #
+      # The counter resets on success (the resolve step below closes the issue),
+      # so "3" means three in a row with no good sync between them.
+      # `github.event_name != 'workflow_dispatch'` because folding the
+      # side-effect verdict into `gate` gave this step a new false-alarm
+      # source: a manual preview run (the `dry_run` input defaults to true) now
+      # legitimately sets `skipped=true`, and three of those inside the 36h
+      # window would open an incident describing a stuck mirror that is not
+      # stuck. A human watching their own preview does not need an issue; a
+      # schedule or a publisher dispatch that goes quiet does. The counter is
+      # neither advanced nor reset by a preview, which is the intent.
+      - name: Escalate a sync that keeps being skipped
+        if: steps.gate.outputs.skipped == 'true' && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GATE_REASON: ${{ steps.gate.outputs.skip-reason }}
+          SURFACE_REASON: ${{ steps.pull-article-surface.outputs.skip-reason }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # Heredoc, not an inline multi-line argument: this block is indented
+          # inside the YAML scalar, and continuation lines would carry those
+          # leading spaces into the issue body, where four of them mean "code
+          # block". YAML strips the block indent uniformly, so the shell — and
+          # the issue — see flush-left markdown.
+          DESC=$(cat <<EOF
+          This sync committed nothing. Either the corpus and published HTTP artifacts could not agree on one upstream commit after bounded retries (background: \`scripts/lib/articles-sync-pin.mjs\` and \`scripts/lib/articles-sync-retry.mjs\`), or the run was an explicit dry-run. The reason below says which.
+
+          **Reason:** ${GATE_REASON:-}${SURFACE_REASON:+ | ${SURFACE_REASON}}
+
+          **Run:** ${RUN_URL}
+
+          One occurrence self-heals on the next \`articles-published\` dispatch and is not worth an issue. This one is open because the condition survived three consecutive runs, so the likely causes are structural: nanako's Pages/CDN surface is serving a manifest naming a commit that is no longer on the mirror's \`main\` (force-push, or a stale Pages deploy), or the mirror has stopped receiving pushes altogether. Start from \`publish-api.yml\` on nanakokyobashi-rgb/frontaliere-articles.
+
+          While this is open the site keeps serving the last consistent pair — the sitemaps are stale, not wrong.
+          EOF
+          )
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Article sync skipped: corpus mirror behind the published API" \
+            --description "$DESC" \
+            --priority 2 \
+            --label "articles-sync" \
+            --consecutive-gate 3 \
+            --gate-window-hours 36 \
+            --workflow "${{ github.workflow }}"
+
+      # A persistent shrink/lag is an upstream publisher condition, not a
+      # reason to weaken the consumer guard. Once github-issue-creator has
+      # opened the stable issue (the third skip), request one rebuild of the
+      # publisher's public surface. The helper finds the issue again, so the
+      # first two ledger-only failures do nothing, and its 36h marker prevents
+      # a stuck publisher from being hammered by every retry. This does not
+      # dispatch the consumer workflow or admit an unverified event: the
+      # publisher's manual rebuild is only a nudge, while the normal attested
+      # push dispatch or the schedule remains the path that consumes the
+      # rebuilt surface.
+      - name: Request bounded publisher recovery after persistent skip
+        if: steps.gate.outputs.skipped == 'true' && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GATE_REASON: ${{ steps.gate.outputs.skip-reason }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "::error::GITHUB_PAT_NANAKO missing from Remote Config — cannot request publish-api recovery"
+            exit 1
+          fi
+          PUBLISHER_GH_TOKEN="$GITHUB_PAT_NANAKO" \
+            node scripts/ci/request-article-publisher-replay.mjs
+
+      - name: Clear the skip escalation
+        if: steps.gate.outputs.skipped != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Article sync skipped: corpus mirror behind the published API" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # ── The only place a diff of what is ABOUT TO be published still exists ─
+      #
+      # The deterministic factuality gates (scripts/lib/article-factuality-gates.mjs)
+      # were written for the 2026-07-28 incident and are correct — run against
+      # the article issue #5595 reports they flag an institution that does not
+      # exist — but nothing ever ran them on the path that actually publishes.
+      # Since the 2026-08-02 cutover (#4974) article bodies are generated in
+      # nanakokyobashi-rgb/frontaliere-articles and land here through THIS job,
+      # which commits `packages/articles/content` straight to `main` with no PR.
+      # Every committed-diff hook is therefore dead on that path, verified:
+      #
+      #   - `pull_request` runs of tests.yml never see these bodies: no PR;
+      #   - the `push: branches: [main]` run never even STARTS — the push below
+      #     uses this workflow's own GITHUB_TOKEN and GitHub does not trigger
+      #     workflows on such pushes (2026-08-11: sync commit 7f1a3b4f carries
+      #     four check-runs, all `schedule`/`workflow_run`, zero `push`);
+      #   - and if it did start, `github.base_ref` is empty on a push, so
+      #     `--changed origin/${{ github.base_ref || 'main' }}` diffs origin/main
+      #     against itself — an empty scope, green having checked nothing.
+      #
+      # So this step, HERE: the corpus pull above has already written the new
+      # bodies into the working tree and the `git add`/`git commit` below has
+      # not run yet. That uncommitted diff is the last observable form of the
+      # batch before it becomes `main`.
+      #
+      # REPORTS, NEVER BLOCKS, and `continue-on-error` is the second lock on
+      # that. Failing here would stop the commit, i.e. hold back the whole batch
+      # — the correct articles included — plus the sitemaps, the ten RSS feeds
+      # and the ticker that ride the same commit. Measured 2026-08-11: 3.173 of
+      # 15.640 body-locales flagged (20,3%), only 206 blocking, and the case the
+      # issue reports scores `major`. Making it blocking is an owner decision;
+      # the reasoning and the FACTUALITY_ISSUE_SCOPE knob are documented in
+      # scripts/ci/report-synced-article-factuality.mjs.
+      - name: Report factuality of the newly synced articles
+        if: steps.gate.outputs.skipped != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/report-synced-article-factuality.mjs
+
+      # ── The curated article-fabrication-guard, run on the same window ──────
+      #
+      # A NARROWER, higher-signal sibling of the step above. That one runs the
+      # deterministic factuality gates (arithmetic, tax plausibility,
+      # institution-acronym-in-parentheses); this one runs the curated denylist
+      # behind `tests/article-fabrication-guard.test.ts` — confirmed-fabricated
+      # institution NAMES and acronyms observed being invented, matched without
+      # requiring the "(ACRONYM)" shape the factuality gate needs. That
+      # difference is why it exists as its own step: neither incident #5671
+      # names — "Ufficio federale del lavoro" (no acronym in parentheses) and
+      # the bare acronym "LTL" — would have tripped the step above.
+      #
+      # Until this PR the vitest test was the ONLY place these patterns ran,
+      # and `npm test` never sees this path (see the script's own header for
+      # the verified push/PR gap). scripts/lib/article-fabrication-patterns.mjs
+      # is the single definition both the test and this step import, so the
+      # two cannot drift apart.
+      #
+      # REPORTS by default — same reasoning as the step above, and the same
+      # `continue-on-error` belt-and-braces. Whether a match should hold back
+      # the whole batch is an owner decision (#5630/#5595/#5696, unresolved).
+      # ARTICLE_FABRICATION_GUARD_BLOCKING (a repository VARIABLE, not this
+      # workflow) flips it: set it to the literal string `true` in Settings →
+      # Secrets and variables → Actions → Variables to make this step's exit
+      # code actually stop the job — and with it every step after, including
+      # the commit. OFF (unset) is the state after this PR.
+      - name: Report article-fabrication-guard findings on the newly synced articles
+        if: steps.gate.outputs.skipped != 'true'
+        continue-on-error: ${{ vars.ARTICLE_FABRICATION_GUARD_BLOCKING != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ARTICLE_FABRICATION_GUARD_BLOCKING: ${{ vars.ARTICLE_FABRICATION_GUARD_BLOCKING }}
+        run: node scripts/ci/report-synced-article-fabrication.mjs
+
+      # The refresh enters main through a stable PR, but keep parser failures
+      # out of that PR: the syntax test covers every generated module, not only
+      # the changed file.
+      - name: Validate changed article modules before commit
+        if: steps.gate.outputs.skipped != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain --untracked-files=all -- packages/articles/content)" ]; then
+            echo "Article source unchanged; parser validation skipped."
+            exit 0
+          fi
+          npm test -- tests/generated-content-parses.test.ts
+
+      # New registries and their cover blobs enter through this same stable PR.
+      # Keep the site-owned ledger/index in that transaction: recording a new
+      # cover as inferred is conservative, while omitting it would make the PR's
+      # fail-closed licence gate reject every subsequent corpus refresh.
+      - name: Synchronize newly published covers into the ledger
+        if: steps.gate.outputs.skipped != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          node scripts/audit/sync-published-blog-covers.mjs
+          node scripts/ci/verify-blog-cover-ledger.mjs
+
+      - name: Commit if changed
+        id: commit
+        # Keep the dry-run guard on the actual writer as well as in `gate`, so
+        # a future refactor cannot turn a preview into a commit accidentally.
+        if: steps.gate.outputs.skipped != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          echo "published-via-pr=false" >> "$GITHUB_OUTPUT"
+          # The corpus registry is also the source for the standalone client
+          # chunks. Record this before committing because the working-tree diff
+          # is clean afterwards; a public/ or sitemap-only sync must not spend
+          # a CDN publication on unchanged article registries.
+          if git diff --quiet -- packages/articles/content \
+             && git diff --quiet --cached -- packages/articles/content \
+             && [ -z "$(git ls-files --others --exclude-standard -- packages/articles/content)" ]; then
+            echo "article-content-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "article-content-changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          # Recorded BEFORE the commit, because after it `git diff` is clean.
+          # Drives the edge-publish step below: /sitemap-news.xml is served
+          # from R2, not from this commit, so committing a fresher file does
+          # nothing for Google News on its own.
+          if git diff --quiet -- public/sitemap-news.xml; then
+            echo "news-sitemap-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "news-sitemap-changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          # Same reasoning, second surface: the homepage ticker reads
+          # cdn.frontaliereticino.ch/data/news-ticker-live.json, an R2 object,
+          # NOT the file this job commits. See the edge-publish step below.
+          if git diff --quiet -- public/news-ticker-live.json; then
+            echo "ticker-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ticker-changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          # Third surface, same reasoning and the one nobody re-checks: a feed
+          # is a SUBSCRIPTION, so a stale copy is not noticed by whoever reads
+          # it. Measured 2026-08-09 before this step existed: /rss.xml on the
+          # apex was 2h57m26s behind the corpus and missing 5 of 50 items,
+          # while /edge/rss.xml answered 404 — no writer had ever PUT it. The
+          # bottleneck was never the pull (public/rss.xml here is byte-identical
+          # to the corpus copy); it was the site's deploy chain, >2h and
+          # self-cancelling on churn.
+          if git diff --quiet -- public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml public/rss-svizzera-de.xml public/rss-svizzera-fr.xml; then
+            echo "feeds-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "feeds-changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          # Every artifact the pull writes: the two sitemaps, the ten RSS feeds
+          # and the news-ticker payload (issue #4974 item 2). Listing them here
+          # rather than `git add public/` keeps the commit scoped to what this
+          # workflow owns — public/ carries plenty this job must never touch.
+          #
+          # The last four are the generator migration's additions (item 3, §3
+          # and §5.5 of docs/articles-generator-migration.md). They are listed
+          # unconditionally and that is safe today even though nanako publishes
+          # neither yet: the pull skips an artifact it cannot find, so the paths
+          # simply stay unmodified and drop out of the diff check below. Adding
+          # them now rather than at cutover means the day nanako starts emitting
+          # is a publisher change only, with nothing to remember on this side.
+          #
+          # Both image trees are DIRECTORIES on purpose — the pull writes one
+          # file per new article and the set is not known ahead of time. Catalog
+          # covers use blog/; governed generated covers use generated/.
+          # generated/ does not exist until the publisher emits its first
+          # governed cover: it is listed here for the diff checks (which
+          # tolerate a missing path) but is passed to the publisher below as
+          # --optional-path, because `git add` aborts on a pathspec that
+          # matches nothing (run 37515283217 lost the whole sync that way).
+          # public/sitemap-articles-archive.xml was MISSING from this list while
+          # scripts/pull-articles-api.mjs has written it since #4974 — so every
+          # run produced the file and this step threw it away unstaged. It never
+          # reached the repo, Vite never copied it into dist/, sitemapAliasPlugin
+          # (which builds the index by discovering dist/sitemap-*.xml) never saw
+          # it, and the published index carries 86 entries with that one absent.
+          # Measured 2026-08-07 against the live index and the eight article
+          # shard trees: the `/{section}/{all}/` hubs and their page-N chain
+          # (156 URLs in the archive sitemap) answer 200, are self-canonical and
+          # indexable, and are announced by none of the 86 sitemaps. That is the
+          # exact condition #4974 added the file to fix; only the staging was
+          # missing, so the fix never reached the index.
+          FILES=(
+            packages/articles/content
+            public/sitemap-blog.xml
+            public/sitemap-blog-ch.xml
+            public/sitemap-articles-archive.xml
+            public/rss.xml public/rss-it.xml public/rss-en.xml public/rss-de.xml public/rss-fr.xml
+            public/rss-svizzera.xml public/rss-svizzera-it.xml public/rss-svizzera-en.xml
+            public/rss-svizzera-de.xml public/rss-svizzera-fr.xml
+            public/news-ticker-live.json
+            public/sitemap-news.xml
+            public/sitemap.xml
+            public/images/blog
+            public/images/generated
+            data/blog-cover-ledger.json
+            data/image-credits-blog.json
+            data/blog-cover-replacements.json
+            data/blog-generated-image-registry.json
+            data/published-blog-generated-image-evidence.json
+            data/blog-cover-corpus-baseline.json
+          )
+
+          if git diff --quiet -- "${FILES[@]}" && git diff --quiet --cached -- "${FILES[@]}" \
+             && [ -z "$(git ls-files --others --exclude-standard -- "${FILES[@]}")" ]; then
+            echo "published artifacts already current — nothing to commit"
+            exit 0
+          fi
+
+          # Report what moved, so the run log carries the numbers a human would
+          # otherwise have to reconstruct from a 40k-line diff.
+          for f in public/sitemap-blog.xml public/sitemap-blog-ch.xml; do
+            new_urls=$(grep -c '<url>' "$f" || true)
+            new_alts=$(grep -c 'xhtml:link' "$f" || true)
+            echo "$f: $new_urls urls, $new_alts alternates"
+          done
+          for f in public/rss.xml public/rss-svizzera.xml; do
+            echo "$f: $(grep -c '<item>' "$f" || true) items"
+          done
+
+          # `main` requires the Vitest status check, so a generated article
+          # refresh must enter through a stable PR branch. The previous direct
+          # push retried GH013 forty times and discarded the fresh corpus; the
+          # PR is the delivery mechanism and also lets the normal merge path
+          # trigger the downstream hub rerender after validation.
+          body="$RUNNER_TEMP/articles-sync-pr-body.md"
+          cat > "$body" <<'EOF'
+          Auto-generated by the article corpus sync workflow.
+
+          ## Implementato
+          - Pubblica il corpus articoli, le sitemap, i feed e il ticker tramite il branch stabile `chore/sync-articles-sitemaps`, così il required check `vitest (unit + integration)` gira prima dell'ingresso su `main`.
+          - Sincronizza nello stesso batch il ledger sito-owned delle nuove cover e il suo indice compatto, mantenendo il consumo del corpus sul confine HTTP.
+
+          ## Non implementato (ancora)
+          - Nessun residuo in questa PR: gli artefatti sincronizzati vengono validati prima della pubblicazione.
+          EOF
+          GH_TOKEN="${GITHUB_PAT:-}" bash scripts/lib/open-data-refresh-pr.sh \
+            --path packages/articles/content \
+            --path public/sitemap-blog.xml \
+            --path public/sitemap-blog-ch.xml \
+            --path public/sitemap-articles-archive.xml \
+            --path public/rss.xml \
+            --path public/rss-it.xml \
+            --path public/rss-en.xml \
+            --path public/rss-de.xml \
+            --path public/rss-fr.xml \
+            --path public/rss-svizzera.xml \
+            --path public/rss-svizzera-it.xml \
+            --path public/rss-svizzera-en.xml \
+            --path public/rss-svizzera-de.xml \
+            --path public/rss-svizzera-fr.xml \
+            --path public/news-ticker-live.json \
+            --path public/sitemap-news.xml \
+            --path public/sitemap.xml \
+            --path public/images/blog \
+            --optional-path public/images/generated \
+            --path data/blog-cover-ledger.json \
+            --path data/image-credits-blog.json \
+            --path data/blog-cover-replacements.json \
+            --path data/blog-generated-image-registry.json \
+            --path data/published-blog-generated-image-evidence.json \
+            --path data/blog-cover-corpus-baseline.json \
+            --branch chore/sync-articles-sitemaps \
+            --commit-message "🗺️ Sync article sitemaps, feeds and ticker from the articles API" \
+            --title "chore(data): sync article corpus and public feeds" \
+            --body-file "$body"
+          echo "published-via-pr=true" >> "$GITHUB_OUTPUT"
+
+      # The corpus sync is the automatic writer for packages/articles/content,
+      # but the SPA reads the stable CDN registry/companion chunks rather than
+      # the checked-in files. Keep this publication in the same section lease
+      # as fast-publish/resync: companions first, registry second, and fail
+      # closed if either the source snapshot or an upload/purge is not current.
+      - name: Acquire article chunk section locks for synced corpus
+        id: acquire_synced_chunk_locks
+        if: steps.commit.outputs.article-content-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          LOCK_OWNER: sync-articles-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
+
+      - name: Renew article chunk section locks for synced corpus
+        id: renew_synced_chunk_locks
+        if: steps.acquire_synced_chunk_locks.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-articles-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          # Do not wrap the renewer in setsid: on a runner process-group leader
+          # setsid forks, so $! would point at an exited wrapper instead of the
+          # live renewer that the later checks and cleanup must supervise.
+          env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew \
+            --section frontaliere,svizzera \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Check synced article chunk source is current
+        id: check_synced_chunk_source
+        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale synced article chunks from $SOURCE_SHA to current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::synced article chunk refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Verify synced article chunk lock before publication
+        id: verify_synced_chunk_lock_before_publish
+        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.check_synced_chunk_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Recheck synced article chunk source before publication
+        id: recheck_synced_chunk_source_before_publish
+        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale synced article chunks from $SOURCE_SHA to current origin/main $MAIN_SHA before publication"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::synced article chunk refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Publish client article chunks for synced corpus
+        id: publish_synced_chunks
+        if: steps.commit.outputs.article-content-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success' && steps.check_synced_chunk_source.outputs.current == 'true' && steps.recheck_synced_chunk_source_before_publish.outcome == 'success' && steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
+
+      - name: Verify synced article chunk lock after publication
+        id: verify_synced_chunk_lock_after_publish
+        if: always() && steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Release the shared leases even when strict publication or a lock check
+      # fails. The first DELETE is ETag-guarded; stop the watcher and retry once
+      # so a heartbeat racing that DELETE cannot leave this owner's lease behind.
+      - name: Release article chunk section locks for synced corpus
+        if: always() && steps.acquire_synced_chunk_locks.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-articles-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
+
+      # ── The invariant this job is the only actor able to maintain ───────────
+      #
+      # The two pulls above read from two DIFFERENT sources. The registries
+      # (`packages/articles/content/router{Blog,Swiss}Data.ts`) come from the
+      # corpus repo's git `main`; the sitemaps come from the API it publishes to
+      # GitHub Pages. Neither pull compares itself against the other — every
+      # guard in both scripts is internal (a manifest count, a non-shrink check
+      # against the previously committed copy). So this job can converge on a
+      # pair that disagrees, and nothing here would notice.
+      #
+      # When it does disagree, the symptom lands nowhere near the cause:
+      # `tests/blog-slugs-sitemap-sync.test.ts` goes red on EVERY open PR,
+      # including the ones that never touched an article. That is exactly how
+      # #5289 presented — three articles sat in the registries with no sitemap
+      # entry, and the visible effect was that no PR in the repo could merge.
+      # The alarm belongs on the job that writes the pair, not on unrelated
+      # contributors.
+      #
+      # Ordering is deliberate: AFTER the commit and push, never before.
+      # Verification must not gate the fix — landing fresher sitemaps is what
+      # clears the PR gate, so a failing check must never be the reason they
+      # stay behind. By the time this runs the artifacts are already on main;
+      # a red here is diagnostic and blocks nothing.
+      #
+      # That benign case is now GONE, and this comment is the record of it: the
+      # corpus repo's git `main` runs ahead of the API build it publishes, so a
+      # pull that straddled a publish used to see a registry entry whose sitemap
+      # URL did not exist yet, and this check went red on a pair that was merely
+      # young. It self-healed next run, which made every genuine divergence look
+      # like one more instance of the same shrug. Since #5298 the corpus is
+      # checked out AT the commit the API names, so the pair cannot be young —
+      # any red here means the two sources have genuinely parted, first time.
+      - name: Verify registry ↔ sitemap convergence
+        if: steps.gate.outputs.skipped != 'true' && steps.commit.outputs.published-via-pr != 'true'
+        run: node scripts/ci/check-blog-slugs-sitemap-sync.mjs
+
+      # ── Google News freshness: the commit above is not the publish ──────────
+      #
+      # /sitemap-news.xml is registered in EDGE_PUSHED_FILES, so the Worker
+      # serves the R2 copy and never reads the file this job just committed
+      # until something PUTs it. deploy.yml now does that on every deploy,
+      # which bounds the staleness — but "a few hours" is the wrong unit for a
+      # surface whose entries expire after 48h and whose whole value is being
+      # crawled while the news is still news. This job is the actor that
+      # rewrites the file (every articles-published dispatch, ~22 articles a
+      # day), so it is the one that should publish it.
+      #
+      # --only=/sitemap-news.xml on purpose: this checkout is a `git checkout`,
+      # not a build. Pushing the whole table from here would overwrite the
+      # 'generated' llms.txt family with whatever a dist-less tree renders.
+      # This job owns exactly one entry and pushes exactly that one.
+      #
+      # Gated on the file having actually changed so a quiet run does not spend
+      # a Cloudflare purge on a byte-identical re-PUT.
+      - name: Prepare Firebase credentials
+        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
+          fi
+
+      - name: Publish the news sitemap to the edge
+        if: steps.commit.outputs.news-sitemap-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml
+
+      # The ten RSS feeds, same mechanism as the sitemap above. The --only list
+      # stays on ONE line with no spaces after the commas: coveredPaths() in
+      # tests/locale-router-edge-pushed-files.test.ts extracts it with
+      # /--only=(\S+)/ line by line, so a wrapped or space-separated list would
+      # be invisible to the guard — the same way a backslash continuation hides
+      # --files= from the purge guard.
+      - name: Publish the RSS feeds to the edge
+        if: steps.commit.outputs.feeds-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        run: node scripts/publish-edge-files.mjs --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml
+
+      # ── The homepage ticker: same class of defect, a different key ──────────
+      #
+      # components/community/NewsFeed.tsx fetches
+      # cdn.frontaliereticino.ch/data/news-ticker-live.json after first paint
+      # and swaps it in over the build-time payload. That R2 object had exactly
+      # ONE automated writer: scripts/publish-article-chunks.mjs, run by
+      # fast-publish-article.yml — the path an article takes when it is created
+      # in THIS repo. Since the corpus cutover, articles are created and
+      # published by nanakokyobashi-rgb/frontaliere-articles, so that workflow
+      # stopped firing and nothing rewrote the key. Measured 2026-08-08: the
+      # object was frozen at 2026-08-07T15:29:57Z — 27 hours, spanning ~40
+      # published articles — while public/news-ticker-live.json here was being
+      # refreshed by THIS job every ~20 minutes and the ticker went on showing
+      # the day before's news. Two full deploys ran inside that window and
+      # changed nothing, because deploy-it-pages-prep.sh's step_push_cdn syncs
+      # `dist/data/**` to `data/` and this file lands at `dist/` root (Vite
+      # copies public/ verbatim), so the deploy never touches this key.
+      #
+      # This job is the actor that rewrites the payload, so it is the one that
+      # should publish it — the same argument, and the same shape, as the
+      # /sitemap-news.xml step above.
+      #
+      # THE UNWRAP IS LOAD-BEARING, NOT TIDYING. The committed file is the
+      # publisher's `{schema, articles: [...]}` envelope (build-plugins read it
+      # as `parsed.articles`), while the browser applies isTickerArticleArray()
+      # and takes a BARE ARRAY only. PUTting the file as-is would replace a
+      # working payload with one every client silently rejects — the ticker
+      # would fall back to the build-time top-5 forever, with a green run here
+      # and a 200 on the CDN. Cache-Control and key mirror
+      # publish-article-chunks.mjs (TICKER_CDN_KEY / TICKER_CACHE_CONTROL) so
+      # the two writers cannot disagree about the freshness contract.
+      - name: Publish the news-ticker payload to the edge
+        if: steps.commit.outputs.ticker-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          if [ -z "${R2_ACCESS_KEY_ID:-}" ]; then
+            echo "::warning::R2 credentials absent — the ticker keeps serving the previously pushed copy"
+            exit 0
+          fi
+          # The single-quoted argument is JavaScript source; its template
+          # literals must expand in Node, not in the surrounding shell.
+          # shellcheck disable=SC2016
+          node -e '
+            const fs = require("node:fs");
+            const parsed = JSON.parse(fs.readFileSync("public/news-ticker-live.json", "utf-8"));
+            const articles = parsed && parsed.articles;
+            if (!Array.isArray(articles) || articles.length === 0) {
+              throw new Error("public/news-ticker-live.json carries no articles array — refusing to publish");
+            }
+            for (const a of articles) {
+              if (!a || !a.id || !a.title || !a.title.it || !a.slug || !a.slug.it) {
+                throw new Error(`ticker entry ${a && a.id} is missing a locale title/slug — refusing to publish`);
+              }
+            }
+            fs.writeFileSync("/tmp/news-ticker-live.json", JSON.stringify(articles));
+            console.log(`ticker: ${articles.length} articles, newest ${articles[0].date}`);
+          '
+          bash scripts/lib/upload-cdn-file.sh /tmp/news-ticker-live.json \
+            data/news-ticker-live.json "public, max-age=300, must-revalidate"
+          # Targeted purge — and it MUST stay on ONE line. The workflow half of
+          # tests/cf-zone-purge-blast-radius.test.ts (#5162) tests for `--files=`
+          # PER LINE, so splitting this on a backslash continuation makes the
+          # first line read as the zone-wide invocation the guard forbids: red
+          # CI on a purge that was already targeted, with a message describing a
+          # blast radius the command never had. Its script half is deliberately
+          # file-scoped for exactly this reason; the workflow half is not.
+          #
+          # The purge is a best-effort extra, not the mechanism. NewsFeed.tsx
+          # reads this through cdnFreshUrl(), which appends `?v=<5-min bucket>`
+          # (services/cdnDataBase.ts) — a key this purge does not touch by
+          # design, because the SPA's variant was never reachable from here
+          # (#4974). What actually bounds staleness for the client is the
+          # max-age=300 above, matched to that same 5-minute bucket. This clears
+          # the bare-URL variant for everyone else, and mirrors the purge
+          # publish-article-chunks.mjs already issues after its own PUT.
+          node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
+
+      # ── LAST STEP, and that is the whole point: a green run must have
+      #    DELIVERED ────────────────────────────────────────────────────────────
+      #
+      # THE FAILURE THIS CATCHES. On 2026-09-19 this workflow reported `success`
+      # on eight consecutive dispatches (35414176623 01:56Z → 35420916144
+      # 04:18Z) having committed nothing. The last of them logged
+      # `svizzera: 2157 → 2194 articles (+37 new)` from the corpus pull and then
+      # the previous side-effect policy denied the run as
+      # `publisher-source-run-unverified`, so
+      # `Commit if changed` was skipped and 55 pulled articles died with the
+      # runner. The only actor that noticed was a DIFFERENT workflow:
+      # rerender-article-hubs.yml refused to push a 2157-item archive over the
+      # live 2194-item one (run 35423187532, `37 behind, tolerance 25`) and went
+      # red for it. A guard in the consumer should not be how the producer's
+      # silence is discovered.
+      #
+      # #9141 fixed that particular denial and made a withheld permission set
+      # `skipped=true` so the escalation could count it. This step is the guard
+      # UNDER both, and it asks a different question: not "may this run write?"
+      # (`gate`) and not "has this condition survived three runs?" (the
+      # escalation), but "is what this run pulled now ON main?" — measured
+      # against the committed tree, which no future skip or committed-nothing
+      # path can answer by assertion.
+      #
+      # WHY IT FAILS THE JOB rather than warning. A skipped sync being green is
+      # a deliberate choice this file documents, and it is right when the
+      # residue is ZERO: a dispatch that arrives with nothing new to fetch is a
+      # no-op and must not page anyone. It is wrong when the residue is 55
+      # articles, and today both look identical from the outside — same
+      # conclusion, same escalation counter. The residue is what separates them,
+      # so the residue is what decides.
+      #
+      # THE CONDITION IS THE HUMAN'S STATED INTENT, not the event name and not
+      # the effective verdict. Review caught both wrong answers:
+      #
+      #   - `github.event_name != 'workflow_dispatch'` (the first draft) excused
+      #     EVERY manual run, including one an owner dispatched with
+      #     `dry_run: false` and an approval nonce precisely because they wanted
+      #     a real sync. A denial on that run would have finished green with the
+      #     new corpus rows absent from `main` — this guard's own failure mode.
+      #   - `effective_dry_run != 'true'` is worse, and it is why the fix is not
+      #     the obvious one: the previous side-effect policy set
+      #     `effectiveDryRun: reasons.length !== 0 || nonce === null`, so a
+      #     DENIAL forces it true. Gating on it would skip the guard on exactly
+      #     the runs it exists for, which is how the 2026-09-19 incident stayed
+      #     invisible in the first place.
+      #
+      # `github.event.inputs.dry_run` is the input as the human left it: `'true'`
+      # on a preview (the declared default), `'false'` when they asked for a real
+      # sync, and null on `repository_dispatch` and `schedule`. A preview pulls
+      # without committing on purpose and must stay green; every non-preview run
+      # that did not publish through the stable PR must prove delivery. A run
+      # that created that PR has a different proof obligation: its push-triggered
+      # replay verifies delivery after the merge, so this pre-merge check must
+      # stay skipped while `published-via-pr` is true.
+      #
+      # No `always()`: when an earlier step already failed, the job is red and a
+      # second, more confusing cause helps nobody. The mode this exists for is a
+      # job that is otherwise entirely green.
+      - name: Assert the pulled corpus actually reached main
+        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'
+        env:
+          SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
+        run: node scripts/ci/assert-articles-sync-delivered.mjs
+
+      # A refresh PR has a second delivery boundary: the publisher has already
+      # committed the pulled snapshot to the stable branch, while the merged
+      # main tree is checked by replay-after-article-sync. Keep the final
+      # residue check for direct non-preview runs; the creation PR itself has
+      # already published through the stable branch and must leave this guard
+      # to the push-triggered replay.
+      - name: Assert the refresh snapshot was committed
+        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'
+        env:
+          SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
+        run: node scripts/ci/assert-articles-sync-delivered.mjs
+
+      # Keep the delivery assertion as the actual last step of every
+      # non-preview sync job. On the PR path the publisher has committed the
+      # generated snapshot in this checkout, so this check still proves that
+      # the pull was not silently discarded; the push-triggered replay proves
+      # the same snapshot reached main after the required PR check.
+      - name: Assert the non-preview sync snapshot was committed
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
+        run: node scripts/ci/assert-articles-sync-delivered.mjs
+
+  # The stable refresh PR deliberately skips every live side effect until its
+  # required check has passed. This push job is the other half of that contract:
+  # it reads the merged main tree and replays every surface that the PR path
+  # could not safely publish before merge.
+  replay-after-article-sync:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: shard-secrets-overflow
+    steps:
+      - name: Checkout merged article sync
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: true
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install replay dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is required for the post-merge article surface replay"
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # Serialize the client registry/companion publication with fast-publish,
+      # resync and the regular sync path. The lease covers all four sections'
+      # CDN representations until the strict client publish has completed.
+      - name: Acquire article chunk section locks for post-merge replay
+        id: acquire_replay_chunk_lock
+        env:
+          LOCK_OWNER: sync-replay-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
+
+      - name: Renew article chunk section locks for post-merge replay
+        id: renew_replay_chunk_lock
+        if: steps.acquire_replay_chunk_lock.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-replay-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew \
+            --section frontaliere,svizzera \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Check post-merge replay source is current
+        id: check_replay_source
+        if: steps.acquire_replay_chunk_lock.outcome == 'success' && steps.renew_replay_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing post-merge replay source $SOURCE_SHA from current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::post-merge replay source did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Verify post-merge replay lock before publication
+        id: verify_replay_chunk_lock_before_publish
+        if: steps.check_replay_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Recheck post-merge replay source before publication
+        id: recheck_replay_source_before_publish
+        if: steps.verify_replay_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale post-merge replay source $SOURCE_SHA to current origin/main $MAIN_SHA before publication"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::post-merge replay source refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Publish client article chunks after article sync merge
+        id: publish_replay_chunks
+        if: steps.acquire_replay_chunk_lock.outcome == 'success' && steps.renew_replay_chunk_lock.outcome == 'success' && steps.verify_replay_chunk_lock_before_publish.outcome == 'success' && steps.check_replay_source.outputs.current == 'true' && steps.recheck_replay_source_before_publish.outcome == 'success' && steps.recheck_replay_source_before_publish.outputs.current == 'true'
+        run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
+
+      - name: Verify post-merge replay lock after client publication
+        id: verify_replay_chunk_lock_after_publish
+        if: always() && steps.acquire_replay_chunk_lock.outcome == 'success' && steps.renew_replay_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Recheck post-merge replay source before edge publication
+        id: recheck_replay_source_before_edge
+        if: steps.publish_replay_chunks.outcome == 'success' && steps.verify_replay_chunk_lock_after_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          MAX_REFRESH_ROUNDS=2
+          DIFF_PATHS="$RUNNER_TEMP/replay-main-diff.txt"
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          REFRESH_ROUNDS=0
+
+          verify_replay_lock() {
+            if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+              cat "$LOCK_RENEW_FAILURE_FILE" >&2
+              cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+              return 1
+            fi
+            kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+          }
+
+          write_verdict() {
+            local verdict="$1"
+            local source_sha="$2"
+            local main_sha="$3"
+            {
+              echo '### Post-merge replay source freshness'
+              echo "- Verdict: \`$verdict\`"
+              echo "- Source SHA: \`$source_sha\`"
+              echo "- main SHA: \`$main_sha\`"
+              echo "- Limited refresh rounds: $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS"
+              echo '- Edge publication: allowed only for `current` or `unrelated-advance`.'
+            } >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "verdict=$verdict"
+              echo "source_sha=$source_sha"
+              echo "main_sha=$main_sha"
+              echo 'edge_publish=true'
+            } >> "$GITHUB_OUTPUT"
+          }
+
+          write_diff_failure() {
+            local source_sha="$1"
+            local main_sha="$2"
+            echo '### Post-merge replay source freshness' >> "$GITHUB_STEP_SUMMARY"
+            echo "- Verdict: \`unavailable\` (diff failed; publication refused)" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Source SHA: \`$source_sha\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- main SHA: \`$main_sha\`" >> "$GITHUB_STEP_SUMMARY"
+            echo 'verdict=unavailable' >> "$GITHUB_OUTPUT"
+            echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
+          }
+
+          write_lock_failure() {
+            local source_verdict="$1"
+            local source_sha="$2"
+            local main_sha="$3"
+            {
+              echo '### Post-merge replay source freshness'
+              echo "- Verdict: \`lock-lost\` (source was \`$source_verdict\`, but the section lock was no longer held; publication refused)"
+              echo "- Source SHA: \`$source_sha\`"
+              echo "- main SHA: \`$main_sha\`"
+              echo "- Limited refresh rounds: $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo 'verdict=lock-lost' >> "$GITHUB_OUTPUT"
+            echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
+          }
+
+          while :; do
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            git fetch --no-tags --depth=1 origin main
+            MAIN_SHA="$(git rev-parse origin/main)"
+            if ! git diff --name-only "$SOURCE_SHA" "$MAIN_SHA" > "$DIFF_PATHS"; then
+              echo "::error::cannot calculate the diff from $SOURCE_SHA to $MAIN_SHA; refusing edge publication"
+              write_diff_failure "$SOURCE_SHA" "$MAIN_SHA"
+              exit 1
+            fi
+            if ! VERDICT="$(node scripts/lib/article-chunk-publish-freshness.mjs \
+              --source-sha "$SOURCE_SHA" \
+              --main-sha "$MAIN_SHA" \
+              --changed-paths-file "$DIFF_PATHS")"; then
+              echo "::error::replay source freshness verdict failed for $SOURCE_SHA to $MAIN_SHA; refusing edge publication"
+              write_diff_failure "$SOURCE_SHA" "$MAIN_SHA"
+              exit 1
+            fi
+
+            case "$VERDICT" in
+              current|unrelated-advance)
+                # The fetch and the diff above took time. The verdict below is
+                # what lets the edge step publish, so the lease must still be
+                # held here: a renewer that failed meanwhile means another
+                # writer may already own the section.
+                if ! verify_replay_lock; then
+                  echo "::error::article chunk section lock was lost before the replay source verdict ($VERDICT); refusing edge publication"
+                  write_lock_failure "$VERDICT" "$SOURCE_SHA" "$MAIN_SHA"
+                  exit 1
+                fi
+                echo "::notice::Replay source verdict $VERDICT from $SOURCE_SHA to $MAIN_SHA; no article surface or publisher code changed"
+                write_verdict "$VERDICT" "$SOURCE_SHA" "$MAIN_SHA"
+                break
+                ;;
+              superseded)
+                if [ "$REFRESH_ROUNDS" -ge "$MAX_REFRESH_ROUNDS" ]; then
+                  echo "::error::replay source is superseded from $SOURCE_SHA to $MAIN_SHA after $MAX_REFRESH_ROUNDS limited refresh rounds; refusing stale edge publication"
+                  {
+                    echo '### Post-merge replay source freshness'
+                    echo '- Verdict: `superseded` (refresh ceiling reached; publication refused)'
+                    echo "- Source SHA: \`$SOURCE_SHA\`"
+                    echo "- main SHA: \`$MAIN_SHA\`"
+                    echo "- Limited refresh rounds: $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS"
+                  } >> "$GITHUB_STEP_SUMMARY"
+                  echo "verdict=superseded" >> "$GITHUB_OUTPUT"
+                  echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
+                  exit 1
+                fi
+                REFRESH_ROUNDS=$((REFRESH_ROUNDS + 1))
+                echo "::notice::Article surface changed from $SOURCE_SHA to $MAIN_SHA; refreshing origin/main and republishing client chunks (round $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS)"
+                git checkout --detach --force origin/main
+                verify_replay_lock
+                npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
+                verify_replay_lock
+                ;;
+              *)
+                echo "::error::unknown replay source freshness verdict '$VERDICT'; refusing edge publication"
+                write_diff_failure "$SOURCE_SHA" "$MAIN_SHA"
+                exit 1
+                ;;
+            esac
+          done
+
+      # publish-edge-files.mjs intentionally remains best-effort for its other
+      # callers. This replay is the delivery mechanism for the four surfaces
+      # skipped by the PR path, so count its upload confirmations and fail closed
+      # if any requested edge object was not actually PUT.
+      - name: Replay article sitemap, RSS and ticker surfaces
+        if: steps.recheck_replay_source_before_edge.outcome == 'success' && (steps.recheck_replay_source_before_edge.outputs.verdict == 'current' || steps.recheck_replay_source_before_edge.outputs.verdict == 'unrelated-advance') && steps.recheck_replay_source_before_edge.outputs.edge_publish == 'true'
+        run: |
+          set -euo pipefail
+
+          publish_edge_batch() {
+            local expected="$1"
+            local label="$2"
+            shift 2
+            local log="$RUNNER_TEMP/replay-${label}.log"
+            if ! node scripts/publish-edge-files.mjs "$@" 2>&1 | tee "$log"; then
+              echo "::error::edge publisher failed for ${label}"
+              return 1
+            fi
+            local uploaded
+            uploaded="$(grep -c '✅ uploaded ' "$log" || true)"
+            if [ "$uploaded" -ne "$expected" ]; then
+              echo "::error::edge publisher confirmed ${uploaded}/${expected} upload(s) for ${label}"
+              return 1
+            fi
+          }
+
+          publish_edge_batch 1 news-sitemap --only=/sitemap-news.xml
+          publish_edge_batch 10 rss-feeds --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml
+
+          ticker_source="$GITHUB_WORKSPACE/public/news-ticker-live.json"
+          ticker_payload="$RUNNER_TEMP/news-ticker-live-array.json"
+          node - "$ticker_source" "$ticker_payload" <<'NODE'
+          const fs = require('node:fs');
+          const source = process.argv[2];
+          const target = process.argv[3];
+          const parsed = JSON.parse(fs.readFileSync(source, 'utf8'));
+          const articles = parsed && parsed.articles;
+          if (!Array.isArray(articles) || articles.length === 0) {
+            throw new Error('public/news-ticker-live.json carries no articles array — refusing to publish');
+          }
+          for (const article of articles) {
+            if (!article || !article.id || !article.title?.it || !article.slug?.it) {
+              throw new Error(`ticker entry ${article?.id ?? '<unknown>'} is missing a locale title/slug`);
+            }
+          }
+          fs.writeFileSync(target, JSON.stringify(articles));
+          console.log(`ticker: ${articles.length} articles, newest ${articles[0].date}`);
+          NODE
+
+          ticker_log="$RUNNER_TEMP/replay-ticker.log"
+          if ! bash scripts/lib/upload-cdn-file.sh "$ticker_payload" \
+            data/news-ticker-live.json "public, max-age=300, must-revalidate" 2>&1 | tee "$ticker_log"; then
+            echo "::error::ticker upload command failed"
+            exit 1
+          fi
+          if ! grep -q '✅ uploaded ' "$ticker_log"; then
+            echo "::error::ticker upload was not confirmed"
+            exit 1
+          fi
+          node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
+
+      # Release the lease even when a strict surface replay fails. Stop the
+      # watcher before the second ETag-guarded release, matching the other
+      # article chunk publishers in this repository.
+      - name: Release article chunk section locks after post-merge replay
+        if: always() && steps.acquire_replay_chunk_lock.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-replay-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
+
+  # Keep failure reporting outside the producer jobs so the Jobs API can serve
+  # their completed logs to the diagnostic action. This also covers a sync
+  # failure before its own checkout: this job performs an independent minimal
+  # checkout of the reporter sources.
+  report-failure:
+    needs: [sync, replay-after-article-sync]
+    if: >-
+      ${{ always() &&
+          (needs.sync.result == 'failure' ||
+           needs.replay-after-article-sync.result == 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout failure reporter sources
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          ref: ${{ github.sha }}
+          sparse-checkout: |
+            package.json
+            scripts/ci/
+            scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
+            .github/actions/report-failure/
+            .github/workflows/sync-articles-sitemaps.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Report sync failure
+        if: always() && needs.sync.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          log-from-job: sync
+          workflow-file: .github/workflows/sync-articles-sitemaps.yml
+          context: >-
+            La sincronizzazione del corpus verso sitemap, feed, ticker e metadati
+            degli articoli non ha completato il percorso di pubblicazione.
+
+      - name: Report replay failure
+        if: always() && needs.replay-after-article-sync.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          log-from-job: replay-after-article-sync
+          workflow-file: .github/workflows/sync-articles-sitemaps.yml
+          context: >-
+            Il replay post-merge della sincronizzazione non ha ripubblicato le
+            superfici sitemap, feed o ticker.

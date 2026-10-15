@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109555",
+      "sourceKey": "TG",
+      "sourceRecordId": "109555",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "272227",
+      "normalizedPlate": "TG272227",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 0,
+      "endsAt": "2026-09-16T17:00:00.000Z",
+      "closedAt": "2026-09-16T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109555",
+      "sourceFetchedAt": "2026-09-15T06:58:56.145Z",
+      "lastVerifiedAt": "2026-09-15T06:58:56.145Z",
+      "firstSeenAt": "2026-09-14T20:51:10.954Z",
+      "lastSeenAt": "2026-09-15T06:58:56.145Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a99ae4df1f5b"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-09-13T08:55:54.445Z",
+  "eligibleConsentedUsers": 826,
+  "deliveredAlerts": 0,
+  "openedAlerts": 0,
+  "clickedAlerts": 0,
+  "returningUsers7d": 0,
+  "duplicateSends": 0,
+  "consentViolations": 0,
+  "suppressedWithoutConsent": 5667,
+  "deferredAlerts": 1,
+  "telemetryWindow": {
+    "start": "2026-09-12T02:55:54.445Z",
+    "end": "2026-09-13T08:55:54.445Z"
+  },
+  "export": {
+    "schemaVersion": 1,
+    "aggregated": true,
+    "sourceRefs": [
+      "firestore.job_alert_subscribers",
+      "firestore.newsletter_subscribers",
+      "firestore.campaign_deliveries",
+      "firestore.events"
+    ],
+    "consentChecked": false,
+    "deduplicationChecked": false,
+    "quietHoursChecked": true,
+    "quietHoursEvidence": "sender scheduled_for/send_time_source retained; exporter never schedules or sends",
+    "externalDeliveryUntouched": true,
+    "unattributedDeliveries": 1,
+    "consentClassifier": "functions/src/jobAlertBackfillCore.js",
+    "returnClassifier": "functions/src/lib/returnVisit.js",
+    "deduplicationKey": "recipient + alert id + UTC send day",
+    "configSource": "data/alert-config.json"
+  }
+}

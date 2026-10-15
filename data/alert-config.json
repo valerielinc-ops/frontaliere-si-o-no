@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "monoculture_threshold": 0.40,
+  "quota_oscillation_threshold": 15,
+  "winrate_collapse_threshold": 0.20,
+  "engagement_dive_threshold": 0.40,
+  "cost_embedding_daily_max_usd": 5.00,
+  "cost_factcheck_retry_max": 300,
+  "snooze_after_consecutive_days": 3,
+  "snooze_duration_days": 7,
+  "meta_alert_count_threshold": 5,
+  "evidence_stale_max_hours": 36,
+  "cluster_stats_min_n": 10,
+  "all_low_score_consecutive": 5
+}

@@ -1,0 +1,87 @@
+{
+  "_doc": "Bullet reali di `## Non implementato (ancora)` delle PR 10258 e 10289 (estratti con extractNonImplementedItems). Nel bucket 10433 ne furono coniati 14 come item; tutti dichiarano uno stato che chiude la voce. `admitted` e' il controllo positivo: il bullet `blocked:` con causa tecnica resta lavoro.",
+  "closed": [
+    {
+      "pr": 10258,
+      "bullet": "**Fixture di `tests/firestore-rules-consent-write.test.ts` con `2026-09-25.2` — per scelta.** **Motivo:** è un documento d'esempio per le regole, che accettano qualunque stringa, e una versione storica resta un consenso valido. **Prossimo passo:** alla prossima modifica di quel test usare la costante `COMMUNICATIONS_PAGE_VERSION` invece del letterale."
+    },
+    {
+      "pr": 10258,
+      "bullet": "`components/preferences/SubscriptionPreferencesController.tsx` — falso positivo, solo lessicalmente simile ma semanticamente diverso: condivide l'identificatore del promemoria, che lì è l'interruttore già esistente. **Motivo:** nessuna dichiarazione di canale da aggiungere. **Prossimo passo:** `git diff origin/main -- components/preferences/SubscriptionPreferencesController.tsx` resta vuoto in questa PR."
+    },
+    {
+      "pr": 10258,
+      "bullet": "`scripts/lib/applicationIntentReminderEmail.mjs` — falso positivo, solo lessicalmente simile ma semanticamente diverso: è il template dell'email, non un registro dei canali. **Motivo:** i testi della pagina descrivono l'email, non la cambiano. **Prossimo passo:** `git diff origin/main -- scripts/lib/applicationIntentReminderEmail.mjs` resta vuoto in questa PR."
+    },
+    {
+      "pr": 10258,
+      "bullet": "`scripts/lib/email-cascade.mjs` — falso positivo, solo lessicalmente simile ma semanticamente diverso: usa lo stesso id `application-intent-reminder` per la sua tabella di sender, già corretta. **Motivo:** l'id del registro è stato scelto uguale al suo. **Prossimo passo:** `git diff origin/main -- scripts/lib/email-cascade.mjs` resta vuoto in questa PR."
+    },
+    {
+      "pr": 10258,
+      "bullet": "`scripts/send-application-intent-reminders.mjs` — falso positivo, solo lessicalmente simile ma semanticamente diverso: è il sender che la voce descrive, invariato. **Motivo:** la correzione riguarda la dichiarazione, non l'invio. **Prossimo passo:** `git diff origin/main -- scripts/send-application-intent-reminders.mjs` resta vuoto in questa PR."
+    },
+    {
+      "pr": 10289,
+      "bullet": "`in questa PR`: `FU-2026-09-28-001`, `002`, `008`, `010`, `011`, `017`–`023`, `033` e `040` restano legati a run schedulate, dispatch controllati, trasporto host/corpus o verifica runtime esterna; il checkout locale non può produrre quella prova senza inventare un esito. Motivo: manca una prova riproducibile locale. Prossimo passo: attendere la run/trasporto previsto e verificare il risultato."
+    },
+    {
+      "pr": 10289,
+      "bullet": "`in questa PR`: `FU-2026-09-28-003`–`007`, `009`, `015`–`016` e `024`–`026` puntano a file adattati che `bin/where-to-fix` instrada al repo `frontaliere-articles`; modificarli qui violerebbe il manifest del mirror. Motivo: il lato corretto è il repo corpus. Prossimo passo: pianificare un ciclo separato nel repo pubblicatore."
+    },
+    {
+      "pr": 10289,
+      "bullet": "`by construction`: `FU-2026-09-28-012`–`014`, `038` e `039` risultano già coperti dalla configurazione/codice presente su `main` (filtro `skipped`, mutex daily, guard stale e ID finding stabili), quindi non hanno una modifica site-side residua da includere. Motivo: non esiste un diff applicabile senza duplicare una correzione già presente. Prossimo passo: riconfermare con il prossimo run di guardia."
+    },
+    {
+      "pr": 10289,
+      "bullet": "`in questa PR`: `FU-2026-09-28-041` richiede una riproduzione del comportamento dei timeout annidati sul runner e una modifica coordinata del generatore/artifact; non viene simulato con una classificazione locale non dimostrata. Motivo: il test locale non osserva la terminazione del runner. Prossimo passo: raccogliere un run reale e aggiornare generator/artifact con una regressione."
+    },
+    {
+      "pr": 10289,
+      "bullet": "build-plugins/constants.ts — falso positivo, not the same bug class: l'import è già relativo e il file non appartiene al grafo runtime della configurazione Vite. Motivo: condivide solo il modulo di utilità. Prossimo passo: nessuno, salvo un finding specifico sul grafo."
+    },
+    {
+      "pr": 10289,
+      "bullet": "components/community/JobBoard.tsx — falso positivo, not the same bug class: è codice UI fuori dal grafo Vite della config. Motivo: l'import alias è risolto dal bundler applicativo. Prossimo passo: nessuno, salvo un finding specifico di build UI."
+    },
+    {
+      "pr": 10289,
+      "bullet": "components/community/OfferwallNewsletterGate.tsx — falso positivo, not the same bug class: è codice UI fuori dal grafo Vite della config. Motivo: l'import alias è risolto dal bundler applicativo. Prossimo passo: nessuno, salvo un finding specifico di build UI."
+    },
+    {
+      "pr": 10289,
+      "bullet": "components/shared/ErrorBoundary.tsx — falso positivo, not the same bug class: l'import è già relativo e il file è fuori dal grafo Vite della config. Motivo: condivide solo il modulo di utilità. Prossimo passo: nessuno."
+    },
+    {
+      "pr": 10289,
+      "bullet": "components/shared/PdfDownloadGate.tsx — falso positivo, not the same bug class: è codice UI fuori dal grafo Vite della config. Motivo: l'import alias è risolto dal bundler applicativo. Prossimo passo: nessuno, salvo un finding specifico di build UI."
+    },
+    {
+      "pr": 10289,
+      "bullet": "hooks/useNewsletterAutologinInFlight.ts — falso positivo, not the same bug class: è un hook UI fuori dal grafo Vite della config. Motivo: l'import alias è risolto dal bundler applicativo. Prossimo passo: nessuno, salvo un finding specifico di build UI."
+    },
+    {
+      "pr": 10289,
+      "bullet": "services/analytics.ts — falso positivo, not the same bug class: l'import condiviso è già relativo. Motivo: il file non espone l’alias non risolvibile segnalato dal test. Prossimo passo: nessuno."
+    },
+    {
+      "pr": 10289,
+      "bullet": "services/posthog-error-filter.ts — falso positivo, not the same bug class: l'import condiviso è già relativo. Motivo: il modulo non è raggiunto dal grafo Vite della config. Prossimo passo: nessuno."
+    },
+    {
+      "pr": 10289,
+      "bullet": "services/savedJobsService.ts — falso positivo, not the same bug class: l'import condiviso è già relativo. Motivo: il modulo non è raggiunto dal grafo Vite della config. Prossimo passo: nessuno."
+    },
+    {
+      "pr": 10289,
+      "bullet": "scripts/assemble-jobs-dataset.mjs — falso positivo, by construction: `isHttpsJobUrl` è un predicato booleano con guardia di tipo e non emette il valore URL non normalizzato modificato da questa PR. Motivo: usa `URL` solo per validare un booleano. Prossimo passo: nessuno, salvo un nuovo finding sul contratto di validazione."
+    }
+  ],
+  "admitted": [
+    {
+      "pr": 10289,
+      "bullet": "`blocked: i file e la logica di `FU-2026-09-28-027`–`032` appartengono alla superficie di riconciliazione del corpus e non sono presenti nel repo sito; richiedono un ciclo separato nel repo pubblicatore. Motivo: il codice target non è nel checkout sito. Prossimo passo: eseguire la verifica nel repo corpus."
+    }
+  ]
+}

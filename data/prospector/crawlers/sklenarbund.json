@@ -1,0 +1,24 @@
+{
+  "companyKey": "sklenarbund",
+  "companyName": "Bienen-Belegstelle S-charl",
+  "companyHost": "sklenarbund.de",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.sklenarbund.de/sklenar-belegstellen/"
+  ],
+  "detailTemplate": "/sklenar-belegstellen/land-und-hochgebirgsbelegstellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "DE- 1-2 Hoher Randen",
+    "DE-2-23 Königswald – Bayern",
+    "Hirschgrund/ Niederösterreich AT-310",
+    "Hochgebirgsbelegstelle S-charl/ Schweiz (CH-52-9)",
+    "Hochgebirgsbelegstelle Greina/ Schweiz (CH-52-5)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-08T09:10:40.317Z"
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "ey-lugano",
+  "companyName": "EY Lugano",
+  "companyHost": "ey.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ey.com/careers",
+    "https://www.ey.com/career",
+    "https://www.ey.com/jobs",
+    "https://www.ey.com/karriere",
+    "https://www.ey.com/offene-stellen",
+    "https://www.ey.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.943Z"
+}

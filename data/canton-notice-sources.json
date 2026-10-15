@@ -1,0 +1,3248 @@
+{
+  "_comment": "Registro delle fonti istituzionali LENTE per il dataset canton-notices.json (D11/P9g). Derivato da generator/data/canton-sections.json del corpus con scripts/build-canton-notice-sources.mjs, che conserva la curatela (linkPattern, esclusioni motivate) per canton+URL. Non modificare a mano le voci derivate: correggi il profilo nel corpus o la curatela qui e rigenera.",
+  "schemaVersion": 1,
+  "derivedFrom": {
+    "repo": "nanakokyobashi-rgb/frontaliere-articles",
+    "path": "generator/data/canton-sections.json",
+    "schemaVersion": 1,
+    "verifiedAt": "2026-10-05"
+  },
+  "curatedAt": "2026-10-05",
+  "aiInputAgents": [
+    "ClaudeBot",
+    "Claude-Web",
+    "anthropic-ai",
+    "Claude-User",
+    "Claude-SearchBot",
+    "GPTBot",
+    "ChatGPT-User",
+    "OAI-SearchBot",
+    "PerplexityBot"
+  ],
+  "cantons": [
+    "AG",
+    "APPENZELLO",
+    "BE",
+    "BASILEA",
+    "FR",
+    "GE",
+    "GL",
+    "GR",
+    "JU",
+    "LU",
+    "NE",
+    "NW",
+    "OW",
+    "SG",
+    "SH",
+    "SO",
+    "SZ",
+    "TG",
+    "TI",
+    "UR",
+    "VD",
+    "VS",
+    "ZG",
+    "ZH"
+  ],
+  "sources": [
+    {
+      "key": "ag-aargauverkehr-773aef",
+      "canton": "AG",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.aargauverkehr.ch/aktuell",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Aargau Verkehr AG (WSB/BDWM, bus regionali)",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/aktuell/meldungen/[^/?#]+"
+    },
+    {
+      "key": "ag-landkreis-waldshut-7f54be",
+      "canton": "AG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.landkreis-waldshut.de/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Landratsamt Waldshut",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news/[^/?#]+"
+    },
+    {
+      "key": "ag-baden-b851b9",
+      "canton": "AG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "eventi",
+        "mobilita"
+      ],
+      "url": "https://www.baden.ch/newsfeed-rss",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Stadt Baden",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ag-aarau-0d0328",
+      "canton": "AG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "eventi",
+        "mobilita"
+      ],
+      "url": "https://www.aarau.ch/politik-verwaltung/news.html/203",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Stadt Aarau",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/politik-verwaltung/aktuelles\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "ag-kantonsspitalbaden-6d3821",
+      "canton": "AG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.kantonsspitalbaden.ch/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kantonsspital Baden",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news/[^/?#]+"
+    },
+    {
+      "key": "appenzello-ar-7605d9",
+      "canton": "APPENZELLO",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.ar.ch/verwaltung/departement-inneres-und-sicherheit/kantonspolizei/verkehrsmeldungen-strassensperrungen/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kantonspolizei Appenzell Ausserrhoden - Verkehrsmeldungen",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/verwaltung/departement-inneres-und-sicherheit/kantonspolizei/verkehrsmeldungen-strassensperrungen/detail/news/[^/?#]+"
+    },
+    {
+      "key": "appenzello-appenzellerbahnen-ef18df",
+      "canton": "APPENZELLO",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://appenzellerbahnen.ch/de/unternehmen/medien.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Appenzeller Bahnen",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/de/unternehmen/medien/detail/[^/?#]+"
+    },
+    {
+      "key": "appenzello-ai-179ebf",
+      "canton": "APPENZELLO",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.ai.ch/themen/steuern/aktuelles/news_listing_rss",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Steuerverwaltung Appenzell Innerrhoden",
+      "kind": "fisco",
+      "quirks": {}
+    },
+    {
+      "key": "appenzello-ar-e2a80a",
+      "canton": "APPENZELLO",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.ar.ch/verwaltung/departement-finanzen/steuerverwaltung/news-aus-der-steuerverwaltung/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Steuerverwaltung Appenzell Ausserrhoden",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/verwaltung/departement-finanzen/steuerverwaltung/news-aus-der-steuerverwaltung/detail/news/[^/?#]+"
+    },
+    {
+      "key": "appenzello-pkar-f09a46",
+      "canton": "APPENZELLO",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.pkar.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Pensionskasse Appenzell Ausserrhoden (PKAR)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/aktuelles/detail/[^/?#]+"
+    },
+    {
+      "key": "appenzello-ai-82cf1c",
+      "canton": "APPENZELLO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita"
+      ],
+      "url": "https://www.ai.ch/rss.xml",
+      "parser": "atom",
+      "language": "de",
+      "publisher": "Kanton Appenzell Innerrhoden (Standeskommission / Ratskanzlei)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "appenzello-ai-7fad06",
+      "canton": "APPENZELLO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita"
+      ],
+      "url": "https://www.ai.ch/aktuelles-medienmitteilungen/news_listing_rss",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Kanton Appenzell Innerrhoden (archivio comunicati)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "appenzello-ar-c74741",
+      "canton": "APPENZELLO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "pensioni"
+      ],
+      "url": "https://www.ar.ch/schnellzugriff/medienmitteilungen-der-kantonalen-verwaltung/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Appenzell Ausserrhoden (Medienmitteilungen della amministrazione)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/schnellzugriff/medienmitteilungen-der-kantonalen-verwaltung/detail/news/[^/?#]+"
+    },
+    {
+      "key": "appenzello-ar-34e443",
+      "canton": "APPENZELLO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.ar.ch/verwaltung/departement-bau-und-volkswirtschaft/news-aus-dem-departement/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Departement Bau und Volkswirtschaft AR",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/verwaltung/departement-bau-und-volkswirtschaft/news-aus-dem-departement/detail/news/[^/?#]+"
+    },
+    {
+      "key": "appenzello-ar-824ec5",
+      "canton": "APPENZELLO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "pensioni"
+      ],
+      "url": "https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/news-aus-dem-departement/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Departement Gesundheit und Soziales AR",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/verwaltung/departement-gesundheit-und-soziales/news-aus-dem-departement/detail/news/[^/?#]+"
+    },
+    {
+      "key": "be-bernmobil-aa4f83",
+      "canton": "BE",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.bernmobil.ch/de/unternehmen/medien",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "BERNMOBIL",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/de/(?!unternehmen/|abos-tickets/|fahrplan-netz/|de/|medien/|cdn-cgi/|startseite)[a-z0-9][a-z0-9-]{12,}$"
+    },
+    {
+      "key": "be-bls-49781c",
+      "canton": "BE",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.bls.ch/de/unternehmen/medien/medienmitteilungen",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "BLS AG",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/de/unternehmen/medien/medienmitteilungen/20\\d\\d/[^/?#]+"
+    },
+    {
+      "key": "be-akbern-2ee65b",
+      "canton": "BE",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.akbern.ch/de/Neuigkeiten-1.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Ausgleichskasse des Kantons Bern (AHV/EL)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/de/Neuigkeiten/[^/?#]+\\.html"
+    },
+    {
+      "key": "be-blvk-92fa11",
+      "canton": "BE",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://blvk.ch/de/die-blvk/aktuelles/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Bernische Lehrerversicherungskasse (BLVK)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/de/die-blvk/aktuelles/[^/?#]+/?$"
+    },
+    {
+      "key": "be-bern-c73c67",
+      "canton": "BE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.bern.ch/mediencenter/medienmitteilungen/news_listing_rss",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Stadt Bern (Mediencenter)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "be-api-news-apps-be-27bcd0",
+      "canton": "BE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.api.news.apps.be.ch/api/news",
+      "parser": "json-api",
+      "language": "de",
+      "publisher": "Kanton Bern (be.ch, API news usata dal portale)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "apiShape": "be-news-xml"
+    },
+    {
+      "key": "basilea-bvb-d1fb1e",
+      "canton": "BASILEA",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.bvb.ch/de/feed/",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Basler Verkehrs-Betriebe (BVB)",
+      "kind": "trasporti",
+      "quirks": {}
+    },
+    {
+      "key": "basilea-bs-7a7823",
+      "canton": "BASILEA",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.bs.ch/steuerverwaltung",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Steuerverwaltung Basel-Stadt",
+      "kind": "fisco",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      },
+      "linkPattern": "^/(?:news|medienmitteilungen/fd)/20\\d\\d-[^/?#]+"
+    },
+    {
+      "key": "basilea-blpk-8c4cd8",
+      "canton": "BASILEA",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.blpk.ch/infocenter/news.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Basellandschaftliche Pensionskasse (BLPK)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/infocenter/news/[^/?#]+\\.html$"
+    },
+    {
+      "key": "basilea-pkbs-2017ec",
+      "canton": "BASILEA",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.pkbs.ch/de/news/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Pensionskasse Basel-Stadt (PKBS)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/de/news/news-detail/[^/?#]+"
+    },
+    {
+      "key": "basilea-bs-1b9e93",
+      "canton": "BASILEA",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.bs.ch/rss",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Kanton Basel-Stadt (Medienmitteilungen)",
+      "kind": "istituzionale",
+      "quirks": {
+        "emptyPubDate": true,
+        "crawlDelaySeconds": 10
+      }
+    },
+    {
+      "key": "basilea-bs-b20ba3",
+      "canton": "BASILEA",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "eventi",
+        "pensioni"
+      ],
+      "url": "https://www.bs.ch/medien/medienmitteilungen",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Basel-Stadt",
+      "kind": "istituzionale",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      },
+      "linkPattern": "^/medienmitteilungen/(?:[a-z-]+/)?20\\d\\d-[^/?#]+"
+    },
+    {
+      "key": "basilea-bs-0612de",
+      "canton": "BASILEA",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco"
+      ],
+      "url": "https://www.bs.ch/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Basel-Stadt (News dell'amministrazione)",
+      "kind": "istituzionale",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      },
+      "linkPattern": "^/news/20\\d\\d-[^/?#]+"
+    },
+    {
+      "key": "fr-fr-6d9241",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.fr.ch/directions-services/182/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Service de la mobilité FR (fr.ch)",
+      "kind": "trasporti",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-0e2c2b",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.fr.ch/categories-thematiques/261/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Etat de Fribourg - Transports publics",
+      "kind": "trasporti",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "fr-fr-e4b7d1",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.fr.ch/directions-services/163/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Service cantonal des contributions FR (fr.ch)",
+      "kind": "fisco",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-a8850c",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.fr.ch/de/directions-services/163/rss.xml",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Kantonale Steuerverwaltung FR (fr.ch/de)",
+      "kind": "fisco",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-3eda64",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.fr.ch/categories-thematiques/116661/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Etat de Fribourg - Impôt à la source",
+      "kind": "fisco",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "fr-fr-138dc3",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.fr.ch/directions-services/150/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Service de la prévoyance sociale FR (fr.ch)",
+      "kind": "previdenza",
+      "quirks": {}
+    },
+    {
+      "key": "fr-ecasfr-fedba1",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.ecasfr.ch/fr/Actualites.html",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "ECAS Fribourg (Etablissement cantonal des assurances sociales: AVS/AI/PC)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/fr/Actualites/[^/?#]+\\.html"
+    },
+    {
+      "key": "fr-cpef-b53b30",
+      "canton": "FR",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.cpef.ch/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Caisse de prévoyance de l'Etat de Fribourg (CPEF)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/actualites/[^/?#]+"
+    },
+    {
+      "key": "fr-fr-9ce548",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "eventi"
+      ],
+      "url": "https://www.fr.ch/toutes-les-actualites/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Etat de Fribourg (fr.ch)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-909a7c",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "eventi"
+      ],
+      "url": "https://www.fr.ch/de/toutes-les-actualites/rss.xml",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Staat Freiburg (fr.ch/de)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-df6411",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "pensioni"
+      ],
+      "url": "https://www.fr.ch/directions-services/68/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "DSAS - Santé et affaires sociales FR (fr.ch)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-61830f",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.fr.ch/directions-services/102/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Service de la population et des migrants FR (fr.ch)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-51dd9b",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.fr.ch/directions-services/134/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Service public de l'emploi FR (fr.ch)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "fr-fr-0912a7",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "fisco",
+        "servizi"
+      ],
+      "url": "https://www.fr.ch/directions-services/79/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Conseil d'Etat FR (fr.ch)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "fr-ville-fribourg-dcacdf",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.ville-fribourg.ch/actualites.rss",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Ville de Fribourg",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "fr-h-fr-57c1e0",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.h-fr.ch/newsroom/communiques-de-presse",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "HFR - Hôpital fribourgeois",
+      "kind": "istituzionale",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      },
+      "linkPattern": "^/newsroom/communiques-de-presse/[^/?#]+"
+    },
+    {
+      "key": "fr-rfsm-8f24a7",
+      "canton": "FR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.rfsm.ch/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "RFSM - Réseau fribourgeois de santé mentale",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/actualites/20\\d\\d(?:-\\d\\d-\\d\\d)?/[^/?#]+"
+    },
+    {
+      "key": "ge-lemanexpress-851ba3",
+      "canton": "GE",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.lemanexpress.com/feed/",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Léman Express (CFF/SNCF/Etat de Genève)",
+      "kind": "trasporti",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      }
+    },
+    {
+      "key": "ge-ge-eb55ac",
+      "canton": "GE",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/51",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Administration fiscale cantonale (AFC) Ginevra",
+      "kind": "fisco",
+      "quirks": {}
+    },
+    {
+      "key": "ge-cpeg-27626e",
+      "canton": "GE",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.cpeg.ch/actualite/",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "CPEG - Caisse de prévoyance de l'Etat de Genève",
+      "kind": "previdenza",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      },
+      "linkPattern": "^/(?:information-generale|immobilier)/[^/?#]+"
+    },
+    {
+      "key": "ge-ge-cc8606",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "pensioni"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/497",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Repubblica e Cantone di Ginevra - Conseil d'Etat (comunicati)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-ge-13d03c",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/1637",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "OCIRT - Office cantonal de l'inspection et des relations du travail",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-ge-bae61c",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/1173",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Office cantonal de la santé (OCS) Ginevra",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-ge-398dc9",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/102",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Département de la santé et des mobilités (DSM) Ginevra",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-ge-6ae8d7",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi",
+        "eventi"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/101",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Département du territoire (DT) Ginevra",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-statistique-ge-d20a4e",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "fisco",
+        "servizi",
+        "carburanti"
+      ],
+      "url": "https://statistique.ge.ch/rss",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "OCSTAT - Office cantonal de la statistique",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-hug-119f32",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.hug.ch/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "HUG - Hôpitaux universitaires de Genève",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/actualite/[^?#]+"
+    },
+    {
+      "key": "ge-crfginfo-86646a",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.crfginfo.org/",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "CRFG - Comité régional franco-genevois",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/fr/actualites/[^/?#]+"
+    },
+    {
+      "key": "ge-service-public-cfb75c",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "fisco",
+        "pensioni",
+        "servizi"
+      ],
+      "url": "https://www.service-public.fr/particuliers/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Service-Public.fr (DILA, Governo francese)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/particuliers/actualites/A\\d+"
+    },
+    {
+      "key": "ge-grand-geneve-63e4c6",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.grand-geneve.org/feed/",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Grand Genève (GLCT)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-ge-5f04c6",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "pensioni"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/1208",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Service de l'assurance-maladie (SAM) Ginevra",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-ge-b2b683",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ge.ch/rss/organisation/350",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Office cantonal de l'emploi (OCE) Ginevra",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-ge-bcb404",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita"
+      ],
+      "url": "https://www.ge.ch/rss/publication",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Repubblica e Cantone di Ginevra - pubblicazioni",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ge-annemasse-agglo-148715",
+      "canton": "GE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "eventi",
+        "servizi"
+      ],
+      "url": "https://www.annemasse-agglo.fr/infos-et-loisirs/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Annemasse Agglo",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/infos-et-loisirs/actualites/[^/?#]+"
+    },
+    {
+      "key": "gl-gl-fa653e",
+      "canton": "GL",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.gl.ch/verwaltung/finanzen-und-gesundheit/steuern.html/507",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Glarus - Steuerverwaltung",
+      "kind": "fisco",
+      "quirks": {
+        "maxRequestsPerRun": 1
+      },
+      "linkPattern": "^/verwaltung/finanzen-und-gesundheit/steuern/news-details\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "gl-gl-6f338b",
+      "canton": "GL",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "pensioni",
+        "eventi"
+      ],
+      "url": "https://www.gl.ch/public-newsroom.html/30",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Glarus - Public Newsroom (Fachstelle Kommunikation)",
+      "kind": "istituzionale",
+      "quirks": {
+        "maxRequestsPerRun": 1
+      },
+      "linkPattern": "^/public-newsroom\\.html/\\d+/newsroomnews/\\d+/title/[^?#]+"
+    },
+    {
+      "key": "gl-glarus-nord-2b7bfe",
+      "canton": "GL",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.glarus-nord.ch/services/aktuelles.html/2313",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Gemeinde Glarus Nord - Aktuelles",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/services/aktuelles/details\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "gl-glarus-sued-6d37d3",
+      "canton": "GL",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.glarus-sued.ch/services/aktuelles.html/3644",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Gemeinde Glarus Süd - Aktuelles",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/services/aktuelles/details\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "gl-glarus-550800",
+      "canton": "GL",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "eventi"
+      ],
+      "url": "https://www.glarus.ch/services/mediennewsletter/mitteilungen.html/3422",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Gemeinde Glarus (capoluogo) - Mitteilungen",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/services/mediennewsletter/mitteilungen\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "gr-rhb-487c8c",
+      "canton": "GR",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.rhb.ch/de/medien/medienmitteilungen/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Rhätische Bahn (RhB) - Medienmitteilungen",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/de/medien/medienmitteilungen/[^/?#]+/?$"
+    },
+    {
+      "key": "gr-gr-11a005",
+      "canton": "GR",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.gr.ch/DE/institutionen/verwaltung/dfg/stv/mitteilungen/Seiten/redirect.aspx",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Steuerverwaltung Graubünden - Mitteilungen",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/DE/institutionen/verwaltung/dfg/stv/mitteilungen/Seiten/(?!redirect)[^/?#]+\\.aspx"
+    },
+    {
+      "key": "gr-gr-7fa971",
+      "canton": "GR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "pensioni",
+        "eventi"
+      ],
+      "url": "https://www.gr.ch/DE/Medien/Mitteilungen/MMStaka/Seiten/Aktuell.aspx",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Graubünden - Standeskanzlei, Medienmitteilungen",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/DE/Medien/Mitteilungen/MMStaka/20\\d\\d/Seiten/\\d+\\.aspx"
+    },
+    {
+      "key": "gr-ksgr-10b682",
+      "canton": "GR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ksgr.ch/aktuelles",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kantonsspital Graubünden (Chur) - Aktuelles/Blog",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/aktuelles/[^/?#]+"
+    },
+    {
+      "key": "ju-les-cj-fee1cd",
+      "canton": "JU",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.les-cj.ch/Info-trafic",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Chemins de fer du Jura (CJ)",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/InfoTrafic/[^/?#]+"
+    },
+    {
+      "key": "ju-ecasjura-8114b1",
+      "canton": "JU",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.ecasjura.ch/fr/Actualites.html",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Caisse de compensation du canton du Jura (ECAS Jura)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/fr/Actualites/[^/?#]+\\.html"
+    },
+    {
+      "key": "ju-jura-3b2957",
+      "canton": "JU",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "fisco",
+        "pensioni",
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Centre-medias/Communiques-2026.html",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Republique et Canton du Jura - Chancellerie (SIC)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/fr/Autorites/Administration/CHA/SIC/Centre-medias/Communiques-20\\d\\d/[^/?#]+"
+    },
+    {
+      "key": "ju-h-ju-023771",
+      "canton": "JU",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.h-ju.ch/fr/A-propos/Medias-Presse/Communiques-de-presse.html",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Hopital du Jura (H-JU)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/fr/A-propos/Medias-Presse/Communiques-de-presse/[^/?#]+"
+    },
+    {
+      "key": "ju-delemont-52edb2",
+      "canton": "JU",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "eventi",
+        "mobilita"
+      ],
+      "url": "https://www.delemont.ch/fr/Vivre-a-Delemont/Actualites/Dernieres-nouvelles.html",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Ville de Delemont",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/fr/Vivre-a-Delemont/Actualites/Dernieres-nouvelles/[^/?#]+"
+    },
+    {
+      "key": "lu-stadtluzern-010fa8",
+      "canton": "LU",
+      "origin": "category",
+      "fixedCategory": "eventi",
+      "categories": [
+        "eventi"
+      ],
+      "url": "https://www.stadtluzern.ch/aktuelles/termine.rss",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Stadt Luzern",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "lu-vvl-c9f3e4",
+      "canton": "LU",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.vvl.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Verkehrsverbund Luzern (VVL)",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/news/[^/?#]+"
+    },
+    {
+      "key": "lu-steuern-lu-5c0697",
+      "canton": "LU",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://steuern.lu.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Dienststelle Steuern Kanton Luzern",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/html_mail\\.jsp\\?id=0&email=news\\.lu\\.ch&mailref=[a-z0-9]+$",
+      "linkHosts": [
+        "news.lu.ch"
+      ]
+    },
+    {
+      "key": "lu-lupk-22f8ca",
+      "canton": "LU",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.lupk.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Luzerner Pensionskasse (LUPK)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/de/aktuell/[^/?#]+"
+    },
+    {
+      "key": "lu-lups-38bd59",
+      "canton": "LU",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.lups.ch/news/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Luzerner Psychiatrie AG (LUPS)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/20\\d\\d/\\d\\d/\\d\\d/[^/?#]+"
+    },
+    {
+      "key": "ne-ne-7431ce",
+      "canton": "NE",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.ne.ch/actualites/21/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Mobilita e trasporti",
+      "kind": "trasporti",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-ne-3b2cc3",
+      "canton": "NE",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.ne.ch/actualites/14/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Imposte",
+      "kind": "fisco",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-cpcn-1e3cbd",
+      "canton": "NE",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://cpcn.ch/feed/",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "CPCN - Caisse de pensions de l'Etat de Neuchatel",
+      "kind": "previdenza",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      }
+    },
+    {
+      "key": "ne-ne-d65ea4",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco"
+      ],
+      "url": "https://www.ne.ch/actualites/all/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Repubblica e Cantone di Neuchatel - comunicati stampa",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "ne-ne-c3e734",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ne.ch/actualites/13/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Migrazione e integrazione",
+      "kind": "istituzionale",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-ne-a509e6",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ne.ch/actualites/19/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Sanita",
+      "kind": "istituzionale",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-ne-7b91d3",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "pensioni",
+        "servizi"
+      ],
+      "url": "https://www.ne.ch/actualites/20/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Sociale",
+      "kind": "istituzionale",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-ne-56def7",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "eventi"
+      ],
+      "url": "https://www.ne.ch/actualites/17/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Cultura e patrimonio",
+      "kind": "istituzionale",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-ne-32e8b5",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "eventi"
+      ],
+      "url": "https://www.ne.ch/actualites/16/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Sport e tempo libero",
+      "kind": "istituzionale",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-ne-869e66",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.ne.ch/actualites/15/rss.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Cantone di Neuchatel - Territorio, pianificazione e costruzioni",
+      "kind": "istituzionale",
+      "quirks": {
+        "emptyPubDate": true
+      }
+    },
+    {
+      "key": "ne-neuchatelville-914b34",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.neuchatelville.ch/medias/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Ville de Neuchatel",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/medias/actualites/detail/[^/?#]+"
+    },
+    {
+      "key": "ne-morteau-4ade9b",
+      "canton": "NE",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "eventi"
+      ],
+      "url": "https://www.morteau.org/feed/",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Ville de Morteau",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "nw-steuern-nw-6df33c",
+      "canton": "NW",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.steuern-nw.ch/feed/",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Steuerverwaltung Nidwalden",
+      "kind": "fisco",
+      "quirks": {}
+    },
+    {
+      "key": "nw-nw-2d7d83",
+      "canton": "NW",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "pensioni"
+      ],
+      "url": "https://www.nw.ch/aktuellesinformationen",
+      "parser": "json-entities",
+      "language": "de",
+      "publisher": "Kanton Nidwalden - Medienmitteilungen (Regierungsrat, Direktionen, Aemter, Kantonspolizei)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "nw-hergiswil-baee06",
+      "canton": "NW",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi",
+        "eventi"
+      ],
+      "url": "https://www.hergiswil.ch/news",
+      "parser": "json-entities",
+      "language": "de",
+      "publisher": "Gemeinde Hergiswil",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "nw-buochs-7ccb44",
+      "canton": "NW",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.buochs.ch/aktuellesinformationen",
+      "parser": "json-entities",
+      "language": "de",
+      "publisher": "Gemeinde Buochs",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "nw-ennetbuergen-5f5667",
+      "canton": "NW",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita"
+      ],
+      "url": "https://www.ennetbuergen.ch/aktuellesinformationen",
+      "parser": "json-entities",
+      "language": "de",
+      "publisher": "Gemeinde Ennetbuergen",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "nw-stans-5586d0",
+      "canton": "NW",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita"
+      ],
+      "url": "https://www.stans.ch/aktuellesinformationen",
+      "parser": "json-entities",
+      "language": "de",
+      "publisher": "Gemeinde Stans (capoluogo)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "nw-stansstad-dce13a",
+      "canton": "NW",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi"
+      ],
+      "url": "https://www.stansstad.ch/portraet/neuigkeiten.html/17",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Gemeinde Stansstad",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/portraet/neuigkeiten/details\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "ow-ow-8d36d7",
+      "canton": "OW",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "fisco",
+        "mobilita",
+        "servizi",
+        "pensioni"
+      ],
+      "url": "https://www.ow.ch/aktuellesinformationen",
+      "parser": "json-entities",
+      "language": "de",
+      "publisher": "Kanton Obwalden (Staatskanzlei, Departemente, Aemter, Kantonspolizei)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "sg-sg-f01750",
+      "canton": "SG",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.sg.ch/tools/newsuebersicht.newsArea__42.newsArea__50.newsArea__61.newsArea__66.newsType__News.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton St.Gallen – Verkehr (ÖV, Strassenverkehr, Schifffahrt)",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/news/sgch_[a-z_]+/20\\d\\d/\\d\\d/[^/?#]+\\.html"
+    },
+    {
+      "key": "sg-ostwind-f7ffaf",
+      "canton": "SG",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.ostwind.ch/about/unternehmen/news/uebersicht/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "OSTWIND Tarifverbund",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/about/unternehmen/news/uebersicht/[^/?#]+"
+    },
+    {
+      "key": "sg-sg-0580b6",
+      "canton": "SG",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.sg.ch/tools/newsuebersicht.newsArea__58.newsType__News.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton St.Gallen – Steuern (Steueramt)",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/news/sgch_[a-z_]+/20\\d\\d/\\d\\d/[^/?#]+\\.html"
+    },
+    {
+      "key": "sg-svasg-221059",
+      "canton": "SG",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.svasg.ch/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "SVA St.Gallen (Ausgleichskasse AHV/IV, IPV, Familienzulagen)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/news/meldungen/[^/?#]+"
+    },
+    {
+      "key": "sg-sg-dd43c9",
+      "canton": "SG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "pensioni",
+        "mobilita"
+      ],
+      "url": "https://www.sg.ch/tools/newsuebersicht.newsArea__138.newsType__News.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton St.Gallen – Medienmitteilungen Regierung/Staatskanzlei",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news/sgch_[a-z_]+/20\\d\\d/\\d\\d/[^/?#]+\\.html"
+    },
+    {
+      "key": "sg-sg-01f52e",
+      "canton": "SG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "pensioni"
+      ],
+      "url": "https://www.sg.ch/tools/newsuebersicht.newsArea__23.newsArea__73.newsArea__52.newsArea__65.newsType__News.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton St.Gallen – Gesundheit, Soziales, Integration, Verbraucherschutz",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news/sgch_[a-z_]+/20\\d\\d/\\d\\d/[^/?#]+\\.html"
+    },
+    {
+      "key": "sg-sg-b1d8c5",
+      "canton": "SG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.sg.ch/tools/newsuebersicht.newsArea__37.newsType__News.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton St.Gallen – Migration (Migrationsamt)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news/sgch_[a-z_]+/20\\d\\d/\\d\\d/[^/?#]+\\.html"
+    },
+    {
+      "key": "sg-stadt-sg-c64bec",
+      "canton": "SG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.stadt.sg.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Stadt St.Gallen – Newsroom",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news/stsg_(?:medienmitteilungen|home)/20\\d\\d/\\d\\d/[^/?#]+"
+    },
+    {
+      "key": "sg-h-och-d4f22d",
+      "canton": "SG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.h-och.ch/ueber-uns/news/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "HOCH Health Ostschweiz (ex Kantonsspital St.Gallen)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/ueber-uns/news/[^/?#]+"
+    },
+    {
+      "key": "sg-presse-vorarlberg-a3fdbf",
+      "canton": "SG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco"
+      ],
+      "url": "https://presse.vorarlberg.at/land/dist/vlk_aktuell.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Land Vorarlberg – Landeskorrespondenz",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/land/public/[^/?#]+"
+    },
+    {
+      "key": "sg-regierung-1cf10f",
+      "canton": "SG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "fisco",
+        "servizi"
+      ],
+      "url": "https://www.regierung.li/medienportal-page/16182/medienmitteilungen",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Regierung des Fürstentums Liechtenstein",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/medienportal-medium/16182/\\d+/0/[^?#]+"
+    },
+    {
+      "key": "sh-tiefbau-sh-9a50c2",
+      "canton": "SH",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://tiefbau-sh.ch/medien/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Tiefbauamt Schaffhausen",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/medien/[^/?#]+"
+    },
+    {
+      "key": "sh-svash-d525f2",
+      "canton": "SH",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.svash.ch/feed/",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "SVA Schaffhausen (AHV/IV, Ausgleichskasse)",
+      "kind": "previdenza",
+      "quirks": {}
+    },
+    {
+      "key": "sh-pksh-01a2c7",
+      "canton": "SH",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.pksh.ch/feed/",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Pensionskasse Schaffhausen",
+      "kind": "previdenza",
+      "quirks": {}
+    },
+    {
+      "key": "sh-stadt-schaffhausen-e24d63",
+      "canton": "SH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi",
+        "fisco"
+      ],
+      "url": "https://www.stadt-schaffhausen.ch/medienmitteilungen",
+      "parser": "json-entities",
+      "language": "de",
+      "publisher": "Stadt Schaffhausen",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "sh-konstanz-4bef7b",
+      "canton": "SH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.konstanz.de/site/Konstanz/pmrss/30221/feed.xml",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Stadt Konstanz (Pressemitteilungen)",
+      "kind": "istituzionale",
+      "quirks": {
+        "crawlDelaySeconds": 30
+      }
+    },
+    {
+      "key": "sh-singen-59c5c0",
+      "canton": "SH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.singen.de/informieren/aktuelles/pressemitteilungen",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Stadt Singen (Hohentwiel)",
+      "kind": "istituzionale",
+      "quirks": {
+        "datesInList": false,
+        "crawlDelaySeconds": 30
+      },
+      "linkPattern": "^/informieren/aktuelles/pressemitteilungen/[^/?#]+"
+    },
+    {
+      "key": "sh-shpower-be41d9",
+      "canton": "SH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "carburanti",
+        "mobilita"
+      ],
+      "url": "https://www.shpower.ch/sh-power/newsroom.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "SH POWER (azienda elettrica/gas/acqua di Schaffhausen)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/sh-power/newsroom/newsbeitrag/[^/?#]+"
+    },
+    {
+      "key": "so-so-4adb17",
+      "canton": "SO",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://so.ch/verwaltung/finanzdepartement/steueramt/aktuell/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Solothurn – Steueramt",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/verwaltung/finanzdepartement/steueramt/aktuell/aktuell/news/[^/?#]+"
+    },
+    {
+      "key": "so-pkso-d9f05a",
+      "canton": "SO",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://pkso.ch/ihre-pkso/news-1",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Pensionskasse Kanton Solothurn (PKSO)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/blog-detail/[^/?#]+"
+    },
+    {
+      "key": "so-so-84043e",
+      "canton": "SO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "pensioni"
+      ],
+      "url": "https://so.ch/verwaltung/staatskanzlei/medien/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Solothurn – Staatskanzlei",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/verwaltung/staatskanzlei/medien/medienmitteilung/news/[^/?#]+"
+    },
+    {
+      "key": "so-so-87a6e9",
+      "canton": "SO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "pensioni"
+      ],
+      "url": "https://so.ch/parlament/aktuell/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Solothurn – Kantonsrat",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/parlament/aktuell/aktuell/news/[^/?#]+"
+    },
+    {
+      "key": "so-so-0ed99d",
+      "canton": "SO",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://so.ch/verwaltung/volkswirtschaftsdepartement/amt-fuer-wirtschaft-und-arbeit/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Solothurn – Amt für Wirtschaft und Arbeit (AWA)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/verwaltung/volkswirtschaftsdepartement/amt-fuer-wirtschaft-und-arbeit/aktuell/aktuell/news/[^/?#]+"
+    },
+    {
+      "key": "sz-sz-20063e",
+      "canton": "SZ",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "pensioni",
+        "eventi"
+      ],
+      "url": "https://www.sz.ch/kanton/medien-und-datenschutz/medienmitteilungen.html/8756-8757-8803-10391",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Schwyz (Regierungsrat/Verwaltung)",
+      "kind": "istituzionale",
+      "quirks": {
+        "maxRequestsPerRun": 1
+      },
+      "linkPattern": "^/kanton/medien-und-datenschutz/medienmitteilungen/detailseite\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "sz-spital-schwyz-2d7347",
+      "canton": "SZ",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.spital-schwyz.ch/de/ueber-uns/aktuelles/news.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Spital Schwyz",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/de/ueber-uns/aktuelles/news/[^/?#]+"
+    },
+    {
+      "key": "sz-spital-lachen-56b3e0",
+      "canton": "SZ",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://spital-lachen.ch/ueber-uns/aktuelles/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Spital Lachen (Ausserschwyz)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/ueber-uns/aktuelles/[^/?#]+"
+    },
+    {
+      "key": "sz-ameos-f934e6",
+      "canton": "SZ",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ameos.ch/spital-einsiedeln/aktuelles/nachrichten/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Spital Einsiedeln (AMEOS)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/spital-einsiedeln/aktuelles/nachrichten/artikel/[^/?#]+"
+    },
+    {
+      "key": "tg-thurbo-f0c6e9",
+      "canton": "TG",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.thurbo.ch/erkunden/news/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Thurbo (S-Bahn Ostschweiz, SBB/TG)",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/erkunden/news/artikel/[^/?#]+"
+    },
+    {
+      "key": "tg-ostwind-bf90b1",
+      "canton": "TG",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.ostwind.ch/about/unternehmen/news/uebersicht/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "OSTWIND Tarifverbund",
+      "kind": "trasporti",
+      "quirks": {
+        "datesInList": false
+      },
+      "linkPattern": "^/about/unternehmen/news/uebersicht/[^/?#]+"
+    },
+    {
+      "key": "tg-steuerverwaltung-tg-7c9ebf",
+      "canton": "TG",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://steuerverwaltung.tg.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Steuerverwaltung Thurgau",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/news/detailseite-news\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "tg-svztg-30e550",
+      "canton": "TG",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.svztg.ch/ueber-uns/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Sozialversicherungszentrum Thurgau (AHV/IV/EL/FAK)",
+      "kind": "previdenza",
+      "quirks": {
+        "datesInList": false,
+        "crawlDelaySeconds": 10
+      },
+      "linkPattern": "^/ueber-uns/news/[^/?#]+"
+    },
+    {
+      "key": "tg-pktg-159bf4",
+      "canton": "TG",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://pktg.ch/info-center/news/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Pensionskasse Thurgau (PKTG)",
+      "kind": "previdenza",
+      "quirks": {
+        "datesInList": false
+      },
+      "linkPattern": "^/info-center/news/[^/?#]+"
+    },
+    {
+      "key": "tg-tg-4c22c7",
+      "canton": "TG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "pensioni",
+        "eventi"
+      ],
+      "url": "https://www.tg.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Thurgau (Portal)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "tg-awa-tg-22f3fc",
+      "canton": "TG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://awa.tg.ch/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Amt für Wirtschaft und Arbeit Thurgau",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/im-fokus\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "tg-kreuzlingen-d1b90c",
+      "canton": "TG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "eventi",
+        "mobilita"
+      ],
+      "url": "https://www.kreuzlingen.ch/news-feed/atom.xml",
+      "parser": "atom",
+      "language": "de",
+      "publisher": "Stadt Kreuzlingen",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "tg-frauenfeld-c1a129",
+      "canton": "TG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.frauenfeld.ch/politik-verwaltung/verwaltung/aktuelles/aktuelle-meldungen.html/570",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Stadt Frauenfeld",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/politik-verwaltung/verwaltung/aktuelles/medienmitteilungen/details\\.html/\\d+/news/\\d+"
+    },
+    {
+      "key": "tg-stgag-68a148",
+      "canton": "TG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.stgag.ch/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Spital Thurgau AG (Kantonsspitäler Frauenfeld/Münsterlingen)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/news/detail/20\\d\\d/\\d\\d/\\d\\d/[^/?#]+"
+    },
+    {
+      "key": "ti-tilo-cd8001",
+      "canton": "TI",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.tilo.ch/",
+      "parser": "html-links",
+      "language": "it",
+      "publisher": "TILO",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/(?:news/20\\d\\d|avvisi)/[^/?#]+"
+    },
+    {
+      "key": "ti-eoc-033f05",
+      "canton": "TI",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.eoc.ch/media-e-news/news.html",
+      "parser": "html-links",
+      "language": "it",
+      "publisher": "Ente ospedaliero cantonale (EOC)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/media-e-news/news/20\\d\\d/[^/?#]+"
+    },
+    {
+      "key": "ur-gotthardtunnel-9d63fb",
+      "canton": "UR",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://gotthardtunnel.ch/aktuelles/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "ASTRA - Seconda galleria del Gottardo (gotthardtunnel.ch)",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/news/[^/?#]+"
+    },
+    {
+      "key": "ur-ur-b16d08",
+      "canton": "UR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "eventi"
+      ],
+      "url": "https://www.ur.ch/mmdirektionen",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Uri - Medienmitteilungen Direktionen",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/_rte/information/\\d+"
+    },
+    {
+      "key": "ur-ur-04465f",
+      "canton": "UR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "fisco",
+        "servizi",
+        "mobilita"
+      ],
+      "url": "https://www.ur.ch/mmregierungsrat",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Uri - Medienmitteilungen Regierungsrat",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/_rte/information/\\d+"
+    },
+    {
+      "key": "ur-ksuri-38c16a",
+      "canton": "UR",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.ksuri.ch/aktuelles/neuigkeiten",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kantonsspital Uri",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/aktuelles/neuigkeiten/[^/?#]+"
+    },
+    {
+      "key": "vd-mobilis-vaud-865d15",
+      "canton": "VD",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.mobilis-vaud.ch/feed/",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Mobilis Vaud (comunita tariffale)",
+      "kind": "trasporti",
+      "quirks": {}
+    },
+    {
+      "key": "vd-cpev-e49755",
+      "canton": "VD",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.cpev.ch/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Caisse de pensions de l'Etat de Vaud (CPEV)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/actualites/[^/?#]+"
+    },
+    {
+      "key": "vd-vd-923552",
+      "canton": "VD",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "pensioni"
+      ],
+      "url": "https://www.vd.ch/actualites/flux.rss",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Etat de Vaud",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "vd-vd-7dc60e",
+      "canton": "VD",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "pensioni"
+      ],
+      "url": "https://www.vd.ch/dsas/flux.rss",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Etat de Vaud - Dipartimento sanita e azione sociale (DSAS)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "vd-vd-ce413a",
+      "canton": "VD",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.vd.ch/deiep/flux.rss",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Etat de Vaud - Dipartimento economia, innovazione, impiego e patrimonio (DEIEP)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "vd-lausanne-fc4711",
+      "canton": "VD",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita",
+        "servizi",
+        "eventi"
+      ],
+      "url": "https://www.lausanne.ch/ressources/RSS/decisions_municipales.xml",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "Ville de Lausanne",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "vs-vs-26ea8e",
+      "canton": "VS",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.vs.ch/web/sdm/toutes-les-actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Service de la mobilité VS",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/web/communication/(?:w/[^/?#]+|detail\\?groupId=\\d+&articleId=\\d+)",
+      "dropParams": [
+        "redirect"
+      ]
+    },
+    {
+      "key": "vs-ossolanews-dd4171",
+      "canton": "VS",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.ossolanews.it/links/rss/argomenti/viabilita-e-trasporti-8/rss.xml",
+      "parser": "rss",
+      "language": "it",
+      "publisher": "Ossolanews (Viabilita' e trasporti)",
+      "kind": "trasporti",
+      "quirks": {}
+    },
+    {
+      "key": "vs-vs-953ff9",
+      "canton": "VS",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://www.vs.ch/web/scc/news",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Service cantonal des contributions VS",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/web/communication/(?:w/[^/?#]+|detail\\?groupId=\\d+&articleId=\\d+)",
+      "dropParams": [
+        "redirect"
+      ]
+    },
+    {
+      "key": "vs-avsvalais-ad05d0",
+      "canton": "VS",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.avsvalais.ch/fr/Actualites.html",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Caisse de compensation du canton du Valais (AVS/AI/PC)",
+      "kind": "previdenza",
+      "quirks": {
+        "datesInList": false
+      },
+      "linkPattern": "^/fr/Actualites/[^/?#]+\\.html"
+    },
+    {
+      "key": "vs-cpval-7cb1ba",
+      "canton": "VS",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://cpval.ch/feed/",
+      "parser": "rss",
+      "language": "fr",
+      "publisher": "CPVAL (Caisse de pension de l'Etat du Valais)",
+      "kind": "previdenza",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      }
+    },
+    {
+      "key": "vs-vs-f8ee94",
+      "canton": "VS",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "pensioni"
+      ],
+      "url": "https://www.vs.ch/",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Etat du Valais (home, comunicati)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/web/communication/(?:w/[^/?#]+|detail\\?groupId=\\d+&articleId=\\d+)",
+      "dropParams": [
+        "redirect"
+      ]
+    },
+    {
+      "key": "vs-vs-a4cd32",
+      "canton": "VS",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "pensioni"
+      ],
+      "url": "https://www.vs.ch/web/ssp",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Service de la santé publique VS",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/web/communication/(?:w/[^/?#]+|detail\\?groupId=\\d+&articleId=\\d+)",
+      "dropParams": [
+        "redirect"
+      ]
+    },
+    {
+      "key": "vs-vs-6b8642",
+      "canton": "VS",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.vs.ch/web/spm/actualites",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Service de la population et des migrations VS",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/web/communication/(?:w/[^/?#]+|detail\\?groupId=\\d+&articleId=\\d+)",
+      "dropParams": [
+        "redirect"
+      ]
+    },
+    {
+      "key": "vs-hopitalduvalais-90da6d",
+      "canton": "VS",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.hopitalduvalais.ch/lhopital-du-valais/actualites/toutes-les-news",
+      "parser": "html-links",
+      "language": "fr",
+      "publisher": "Hôpital du Valais",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/lhopital-du-valais/actualites/en-detail/20\\d\\d/\\d+/\\d+/[^/?#]+"
+    },
+    {
+      "key": "zg-zvb-69f9c1",
+      "canton": "ZG",
+      "origin": "category",
+      "fixedCategory": "mobilita",
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://www.zvb.ch/unternehmen/zvb-news/",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Zugerland Verkehrsbetriebe (ZVB)",
+      "kind": "trasporti",
+      "quirks": {},
+      "linkPattern": "^/unternehmen/zvb-news/detail/[^/?#]+"
+    },
+    {
+      "key": "zg-zg-0eb597",
+      "canton": "ZG",
+      "origin": "category",
+      "fixedCategory": "fisco",
+      "categories": [
+        "fisco"
+      ],
+      "url": "https://zg.ch/de/news?content_category=news&taxonomy_categories=3f52c2a7-199d-4696-a88e-8e81f5e92bb0%2Cf89a5c73-0853-44e0-bb74-a9d23c8ef56d",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Zug – news Steuern & Finanzen",
+      "kind": "fisco",
+      "quirks": {},
+      "linkPattern": "^/de/news/20\\d\\d/[A-Za-z-]+/[^/?#]+"
+    },
+    {
+      "key": "zg-zugerpk-b80ec3",
+      "canton": "ZG",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://www.zugerpk.ch/deu/aktuelles.shtml",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Zuger Pensionskasse",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/deu/[^/?#]+_\\d+\\.shtml$"
+    },
+    {
+      "key": "zg-zg-9bf6e1",
+      "canton": "ZG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita"
+      ],
+      "url": "https://zg.ch/de/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Zug – Medienmitteilungen",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/de/news/20\\d\\d/[A-Za-z-]+/[^/?#]+"
+    },
+    {
+      "key": "zg-zg-e84ad3",
+      "canton": "ZG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "mobilita"
+      ],
+      "url": "https://zg.ch/de/news?content_category=news&taxonomy_categories=4149c160-eb8d-46ef-8df1-8ebb53337963",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Zug – news Tiefbauamt (strade/cantieri)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/de/news/20\\d\\d/[A-Za-z-]+/[^/?#]+"
+    },
+    {
+      "key": "zg-zg-a8fd12",
+      "canton": "ZG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://zg.ch/de/news?content_category=news&taxonomy_categories=13d7fce5-ad88-400f-8430-00744b0c98b1%2C41997235-6cfe-4ae5-a768-8d323d0367ac",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Zug – news Wirtschaft & Arbeit",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/de/news/20\\d\\d/[A-Za-z-]+/[^/?#]+"
+    },
+    {
+      "key": "zg-zg-d14c5a",
+      "canton": "ZG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://zg.ch/de/news?content_category=news&taxonomy_categories=a1a9216b-4ce0-445b-acbb-cefd62ce2a9b%2Ce9f1a5dd-0d6a-4ce4-9edd-88e9176e994f",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Zug – news Gesundheit",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/de/news/20\\d\\d/[A-Za-z-]+/[^/?#]+"
+    },
+    {
+      "key": "zg-zg-62b18c",
+      "canton": "ZG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://zg.ch/de/news?content_category=news&taxonomy_categories=8ab17159-2dc9-4e05-96ac-34802b94884a%2C90b884f7-ae51-43c5-ace5-ad5fad49c433%2Cc1b8c962-7918-4e7e-bf91-4e2630052a51",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Kanton Zug – news Amt für Migration (asilo/permessi)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/de/news/20\\d\\d/[A-Za-z-]+/[^/?#]+"
+    },
+    {
+      "key": "zg-stadtzug-3304f0",
+      "canton": "ZG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "fisco",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://stadtzug.ch/de/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Stadt Zug",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/de/news/20\\d\\d/[^/?#]+/[^/?#]+"
+    },
+    {
+      "key": "zg-zgks-a2c6cf",
+      "canton": "ZG",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.zgks.ch/ueber-uns/news",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Zuger Kantonsspital",
+      "kind": "istituzionale",
+      "quirks": {},
+      "linkPattern": "^/ueber-uns/news-detail/detail/[^/?#]+"
+    },
+    {
+      "key": "zh-bvk-cf8887",
+      "canton": "ZH",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://bvk.ch/de/bvk-aktuell",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "BVK (Personalvorsorge des Kantons Zürich)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/de/bvk-aktuell/detail/[^/?#]+"
+    },
+    {
+      "key": "zh-svazurich-7dc099",
+      "canton": "ZH",
+      "origin": "category",
+      "fixedCategory": "pensioni",
+      "categories": [
+        "pensioni"
+      ],
+      "url": "https://svazurich.ch/aktuell/aktuell/news.html",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "SVA Zürich (cassa di compensazione AVS/AI cantonale)",
+      "kind": "previdenza",
+      "quirks": {},
+      "linkPattern": "^/aktuell/aktuell/news/[a-z-]+/[^/?#]+"
+    },
+    {
+      "key": "zh-zh-c2037c",
+      "canton": "ZH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "fisco",
+        "pensioni"
+      ],
+      "url": "https://www.zh.ch/de/news-uebersicht/_jcr_content.zhweb-news.zhweb-cache.json",
+      "parser": "json-api",
+      "language": "de",
+      "publisher": "Kanton Zürich (Staatskanzlei, Direktionen, Kantonspolizei)",
+      "kind": "istituzionale",
+      "quirks": {},
+      "apiShape": "zh-news-json"
+    },
+    {
+      "key": "zh-stadt-zuerich-979399",
+      "canton": "ZH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "url": "https://www.stadt-zuerich.ch/content/web/de/aktuell/medienmitteilungen/jcr:content/mainparsys/teaser.rss",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Stadt Zürich (Stadtrat, Departemente, Stadtpolizei)",
+      "kind": "istituzionale",
+      "quirks": {}
+    },
+    {
+      "key": "zh-stadt-winterthur-76cb6d",
+      "canton": "ZH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi",
+        "mobilita"
+      ],
+      "url": "https://stadt.winterthur.ch/medien",
+      "parser": "html-links",
+      "language": "de",
+      "publisher": "Stadt Winterthur",
+      "kind": "istituzionale",
+      "quirks": {
+        "crawlDelaySeconds": 10
+      },
+      "linkPattern": "^/medien/[^/?#]+"
+    },
+    {
+      "key": "zh-usz-52cb91",
+      "canton": "ZH",
+      "origin": "news",
+      "fixedCategory": null,
+      "categories": [
+        "servizi"
+      ],
+      "url": "https://www.usz.ch/feed/",
+      "parser": "rss",
+      "language": "de",
+      "publisher": "Universitätsspital Zürich",
+      "kind": "istituzionale",
+      "quirks": {}
+    }
+  ],
+  "excluded": [
+    {
+      "canton": "AG",
+      "url": "https://www.ag.ch/de/themen/steuern-finanzen/steuern-startseite",
+      "parser": "html-links",
+      "categories": [
+        "fisco"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "AG",
+      "url": "https://www.ag.ch/de/themen/migration-integration",
+      "parser": "html-links",
+      "categories": [
+        "servizi"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "AG",
+      "url": "https://www.rheinfelden.ch/de/aktuelles/",
+      "parser": "html-links",
+      "categories": [
+        "servizi",
+        "mobilita"
+      ],
+      "reason": "lista caricata via JavaScript: nessun link-articolo nel sorgente servito",
+      "curated": true
+    },
+    {
+      "canton": "APPENZELLO",
+      "url": "https://www.akai.ch/ueber-uns/news",
+      "parser": "html-links",
+      "categories": [
+        "pensioni"
+      ],
+      "reason": "pagina news statica di soli PDF (ultima voce 05.01.2026): nessuna lista di avvisi estraibile",
+      "curated": true
+    },
+    {
+      "canton": "BE",
+      "url": "https://www.sv.fin.be.ch/de/start/themen/quellensteuer.html",
+      "parser": "html-links",
+      "categories": [
+        "fisco"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "GE",
+      "url": "https://www.geneve.ch/actualites",
+      "parser": "html-links",
+      "categories": [
+        "servizi",
+        "mobilita",
+        "eventi"
+      ],
+      "reason": "pagina-indice di rubriche (liste, newsletter, dossier): nessuna lista di avvisi",
+      "curated": true
+    },
+    {
+      "canton": "GL",
+      "url": "https://fahrplanwechsel.postauto.ch/de/ostschweiz/glarus",
+      "parser": "html-links",
+      "categories": [
+        "mobilita"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "GL",
+      "url": "https://www.akwirtschaft.ch/aktuelles.html",
+      "parser": "html-links",
+      "categories": [
+        "pensioni"
+      ],
+      "reason": "pagina «Aktuelles» con un solo PDF informativo annuale: nessuna lista di avvisi",
+      "curated": true
+    },
+    {
+      "canton": "GL",
+      "url": "https://glpk.ch/ueber-uns/vermoegen/deckungsgrad",
+      "parser": "html-links",
+      "categories": [
+        "pensioni"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "GL",
+      "url": "https://ksgl.ch/",
+      "parser": "html-links",
+      "categories": [
+        "servizi"
+      ],
+      "reason": "home page con un solo box notizie, senza lista ne' date",
+      "curated": true
+    },
+    {
+      "canton": "GR",
+      "url": "https://www.sva.gr.ch/alle-mitteilungen.html",
+      "parser": "html-links",
+      "categories": [
+        "pensioni"
+      ],
+      "reason": "link a PDF con testo non descrittivo («1. Publikation», «2. Publikation»): nessun titolo affidabile",
+      "curated": true
+    },
+    {
+      "canton": "GR",
+      "url": "https://www.pkgr.ch/",
+      "parser": "html-links",
+      "categories": [
+        "pensioni"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "JU",
+      "url": "https://www.jura.ch/fr/Autorites/Administration/DEC/SIN/Infos-routes/Infos-routes.html",
+      "parser": "html-links",
+      "categories": [
+        "mobilita"
+      ],
+      "reason": "pagina informativa senza lista di link datati (info strade in testo libero)",
+      "curated": true
+    },
+    {
+      "canton": "JU",
+      "url": "https://www.jura.ch/fr/Autorites/Administration/DFI/CTR/Service-des-contributions-CTR.html",
+      "parser": "html-links",
+      "categories": [
+        "fisco"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "LU",
+      "url": "https://www.lustat.ch/",
+      "parser": "html-links",
+      "categories": [
+        "servizi"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "NE",
+      "url": "https://www.ne.ch/themes/impots/impot-la-source-et-frontaliers/frontaliers",
+      "parser": "html-links",
+      "categories": [
+        "fisco"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "OW",
+      "url": "https://www.zentralbahn.ch/de/kennenlernen/einblicke",
+      "parser": "html-links",
+      "categories": [
+        "mobilita"
+      ],
+      "reason": "le voci compaiono solo nel menu di navigazione, senza date nell'elenco (data solo nel JSON-LD delle singole pagine)",
+      "curated": true
+    },
+    {
+      "canton": "OW",
+      "url": "https://www.ow.ch/steuern",
+      "parser": "html-links",
+      "categories": [
+        "fisco"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "SO",
+      "url": "https://so.ch/verwaltung/departement-des-innern/migrationsamt/arbeit/eu-efta/grenzgaenger/",
+      "parser": "html-links",
+      "categories": [
+        "servizi"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "SO",
+      "url": "https://so.ch/verwaltung/finanzdepartement/amt-fuer-finanzen/statistikportal/wirtschaft-und-arbeit/grenzgaengerstatistik/",
+      "parser": "html-links",
+      "categories": [
+        "servizi"
+      ],
+      "reason": "pagina di riferimento evergreen: nessuna lista datata di avvisi (fonte di fatti per l'hub, non di avvisi)",
+      "curated": true
+    },
+    {
+      "canton": "TG",
+      "url": "https://steuerpraxis.tg.ch/steuerpraxis",
+      "parser": "html-links",
+      "categories": [
+        "fisco"
+      ],
+      "reason": "registro mensile della prassi fiscale con titoli generici ripetuti («Information zur Steuerpraxis»): non e' una lista di avvisi",
+      "curated": true
+    },
+    {
+      "canton": "TI",
+      "url": "https://www.trenord.it/news/",
+      "parser": "html-links",
+      "categories": [
+        "mobilita"
+      ],
+      "reason": "HTTP 403 allo user agent dichiarato del crawler: per D10 niente UA camuffato",
+      "curated": true
+    },
+    {
+      "canton": "TI",
+      "url": "https://www.ipct.ch/Comunicati",
+      "parser": "html-links",
+      "categories": [
+        "pensioni"
+      ],
+      "reason": "elenco di comunicati senza date e fermo agli esercizi 2019-2020: nessun avviso corrente da indicizzare",
+      "curated": true
+    }
+  ]
+}

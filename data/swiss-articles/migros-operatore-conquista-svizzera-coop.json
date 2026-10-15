@@ -1,0 +1,40 @@
+{
+  "id": "migros-operatore-conquista-svizzera-coop",
+  "slug": "migros-operatore-conquista-svizzera-coop",
+  "publishedAt": "2026-07-21T16:05:21.789Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.906568018979614,
+    "confidence": 0.8,
+    "finalScore": 10.325254415183693,
+    "topK": [
+      {
+        "slug": "migros-immigrazione-necessaria-offerta",
+        "cosine": 0.8604378679319744
+      },
+      {
+        "slug": "autista-stellato-fabio-giorgianni-premio",
+        "cosine": 0.8542287051266942
+      },
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.8443044549469922
+      },
+      {
+        "slug": "benzina-conveniente",
+        "cosine": 0.838051212673253
+      },
+      {
+        "slug": "migros-immigrazione-necessaria-2026",
+        "cosine": 0.8377340190522061
+      }
+    ],
+    "score": 1.0325254415183693,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

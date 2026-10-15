@@ -1,0 +1,40 @@
+{
+  "id": "avs-pensioni-estero-condizioni",
+  "slug": "avs-pensioni-estero-condizioni",
+  "publishedAt": "2026-06-22T09:06:28.945Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.181525957450389,
+    "confidence": 0.8,
+    "finalScore": 4.145220765960311,
+    "topK": [
+      {
+        "slug": "lohnausweis-frontalieri-ticino",
+        "cosine": 0.8641625896372869
+      },
+      {
+        "slug": "divorzio-cassa-pensioni",
+        "cosine": 0.8640086054904773
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8621874369622361
+      },
+      {
+        "slug": "bonifici-ritardo-frontalieri-ticino",
+        "cosine": 0.8607198805990894
+      },
+      {
+        "slug": "frontalieri-disoccupazione-svizzera-2026",
+        "cosine": 0.8599805829870084
+      }
+    ],
+    "score": 4.145220765960311,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

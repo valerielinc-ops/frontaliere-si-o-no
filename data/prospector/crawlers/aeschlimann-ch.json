@@ -1,0 +1,24 @@
+{
+  "companyKey": "aeschlimann-ch",
+  "companyName": "O. Aeschlimann AG",
+  "companyHost": "aeschlimann.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://aeschlimann.ch/unternehmen/stellen-karriere"
+  ],
+  "detailTemplate": "/fileadmin/user_upload/aeschlimann/unternehmen/Stelleninserate/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Belagspolier PDF öffnen",
+    "Beschichter / Bautenschützer PDF öffnen",
+    "Vorarbeiter Gussasphalt PDF öffnen",
+    "Asphalteur Gussasphalt PDF öffnen",
+    "Lehrstelle als Kauffrau/Kaufmann EFZ PDF öffnen"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-05T11:49:25.926Z"
+}
