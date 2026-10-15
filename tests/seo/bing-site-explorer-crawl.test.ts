@@ -29,6 +29,7 @@ import {
   rescueTransientReports,
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
 import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-template-inventory.mjs';
+import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
@@ -213,6 +214,54 @@ describe('Bing-compatible full-tree crawler', () => {
         'noindex-in-sitemap',
         'canonical-drift',
       ]));
+    }
+  });
+
+  it('recognizes explicitly marked self-canonical company-canton bridges only in the frontier scope', () => {
+    const bridgeHtml = (canonical: string) => `${COMPANY_CANTON_NOINDEX_BRIDGE_MARKER}<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge azienda-cantone nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const cases = [
+      `${BASE}/cerca-lavoro-appenzello/azienda-activ-fitness/`,
+      `${BASE}/en/find-jobs-geneva/company-activ-fitness/`,
+      `${BASE}/de/jobs-in-zurich/unternehmen-activ-fitness/`,
+      `${BASE}/fr/trouver-emploi-geneva/entreprise-activ-fitness/`,
+    ];
+
+    for (const url of cases) {
+      const frontier = classifyDocument({
+        url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: bridgeHtml(url),
+      });
+      const codes = frontier.findings.map((item) => item.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+      const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(url) });
+      expect(sitemap.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+    }
+  });
+
+  it('keeps an unmarked, nested, or drifting company route actionable', () => {
+    const url = `${BASE}/cerca-lavoro-appenzello/azienda-activ-fitness/`;
+    const marked = `${COMPANY_CANTON_NOINDEX_BRIDGE_MARKER}<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}">`;
+    const cases = [
+      { url, html: marked },
+      { url, html: '<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="' + url + '">' },
+      { url: `${url}details/`, html: marked.replace(`href="${url}"`, `href="${url}details/"`) },
+      { url, html: marked.replace(`href="${url}"`, `href="${BASE}/cerca-lavoro-appenzello/"`) },
+    ];
+
+    for (const item of cases) {
+      const codes = classifyDocument({
+        url: item.url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: item.html,
+      }).findings.map((finding) => finding.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
     }
   });
 

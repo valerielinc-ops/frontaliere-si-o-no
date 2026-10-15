@@ -34,7 +34,7 @@ export const BING_FRONTIER_FINDING_DEFINITIONS = Object.freeze({
   [BING_FRONTIER_NOINDEX_BRIDGE]: Object.freeze({
     scope: 'discovered-frontier',
     actionable: false,
-    reason: 'Pagina bridge dichiarata: noindex/follow con canonical consolidato secondo classifyCanonicalMismatch.',
+    reason: 'Pagina bridge dichiarata: noindex/follow con marker del bridge e route self-canonical riconosciuti dal crawler.',
   }),
   [BING_FRONTIER_CANONICAL_DRIFT]: Object.freeze({
     scope: 'discovered-frontier',
