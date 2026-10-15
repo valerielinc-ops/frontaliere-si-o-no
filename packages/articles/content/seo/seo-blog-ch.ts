@@ -104836,10 +104836,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-tasse-universitarie-zurigo-guida.webp`,
+        "url": `${BASE_URL}/images/blog/article-tasse-universitarie-berna-guida.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Studente che verifica i requisiti per le tasse universitarie nel Cantone di Berna"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T00:26:22+00:00",
       "dateModified": "2026-10-15T00:26:22+00:00",
@@ -104969,6 +104969,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-pesca-canton-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-berna-veicoli-procedura-guida': {
+    title: 'Targhe e immatricolazione Cantone Berna: guida alle procedure',
+    description: 'Guida pratica per targhe, immatricolazione, collaudo e cambio di proprietario a Berna. Verifica requisiti, scadenze e costi presso l\'autorità competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, targhe, immatricolazione, cantone, berna',
+    ogTitle: 'Targhe e immatricolazione Cantone Berna: guida ufficiale',
+    ogDescription: 'Scopri come gestire correttamente le pratiche automobilistiche nel Cantone di Berna. Dalla verifica dei requisiti all\'individuazione dell\'autorità competente, segui il metodo corretto per targhe, collaudo e immatricolazione.',
+    canonicalPath: '/articoli-svizzera/berna-veicoli-procedura-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Targhe e immatricolazione Cantone Berna: guida alle procedure",
+      "description": "Guida pratica per targhe, immatricolazione, collaudo e cambio di proprietario a Berna. Verifica requisiti, scadenze e costi presso l'autorità competente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-zurigo-targhe-immatricolazione-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della circolazione nel Cantone di Berna"
+      },
+      "datePublished": "2026-10-15T02:50:14+00:00",
+      "dateModified": "2026-10-15T02:50:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-veicoli-procedura-guida/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -13185,7 +13185,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Stau auf der A8 zwischen Castellanza und Busto Arsizio nach einem Unfall',
     'blog.article.arma-biasca-inchiesta.title': 'Biasca, die Festnahme des 17-Jährigen bestätigt',
     'blog.article.arma-biasca-inchiesta.excerpt': 'Der Messerangriff ereignete sich am 5.',
-    'blog.article.arma-biasca-inchiesta.imageAlt': 'Polizei am Ort des Messerangriffs in Biasca an der Via Bellinzona',
+    'blog.article.arma-biasca-inchiesta.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.derby-basket-ticinese-massagno.title': 'Tessiner Basketball-Derby: Massagno ist der Favorit',
     'blog.article.derby-basket-ticinese-massagno.excerpt': 'Am Samstag das erste rein tessinische Duell unter den Körben: Massagno ist der Favorit, aber das Derby kann anderen Gesetzmäßigkeiten folgen.',
     'blog.article.derby-basket-ticinese-massagno.imageAlt': 'Für diesen Artikel erstellte Illustration',

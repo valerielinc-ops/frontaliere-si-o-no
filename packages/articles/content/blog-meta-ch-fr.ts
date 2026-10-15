@@ -8305,7 +8305,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ordinanza-dispositivi-vitali.imageAlt': 'Berne et dispositifs médicaux vitaux pour la consultation du DEFR',
     'blog.article.tasse-universitarie-berna-guida.title': 'Frais de scolarité à Berne : guide d\'inscription',
     'blog.article.tasse-universitarie-berna-guida.excerpt': 'Comment vérifier les exigences, les délais et les montants des frais de scolarité dans le canton de Berne : guide pratique par catégories et institutions.',
-    'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Étudiant vérifiant les conditions des frais de scolarité dans le canton de Berne',
+    'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Illustration générée pour cet article',
     'blog.article.opportunita-impiego-federale.title': 'Travailler pour l\'Administration fédérale : 50 formations',
     'blog.article.opportunita-impiego-federale.excerpt': 'L\'Administration fédérale offre des stages aux étudiants récemment diplômés 50 formations professionnelles sont disponibles Les formations prévoient 7 semaines',
     'blog.article.opportunita-impiego-federale.imageAlt': 'Possibilités d\'emploi dans l\'Administration fédérale suisse',
@@ -8315,6 +8315,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-pesca-canton-berna-guida.title': 'Permis de pêche dans le canton de Berne : exigences et saisons',
     'blog.article.permesso-pesca-canton-berna-guida.excerpt': 'Découvrez comment gérer votre dossier de permis de pêche dans le canton de Berne : licences, cours, eaux autorisées et autorités compétentes.',
     'blog.article.permesso-pesca-canton-berna-guida.imageAlt': 'Lac dans le canton de Berne adapté à la pêche',
+    'blog.article.berna-veicoli-procedura-guida.title': 'Plaques et immatriculation dans le canton de Berne : guide des procédures',
+    'blog.article.berna-veicoli-procedura-guida.excerpt': 'Comment gérer les plaques, l’immatriculation, le contrôle technique et le changement de propriétaire dans le canton de Berne : vérifiez les exigences, les échéances et les montants officiels.',
+    'blog.article.berna-veicoli-procedura-guida.imageAlt': 'Office de la circulation dans le canton de Berne',
 };
 
 export default blogMetaChFr;

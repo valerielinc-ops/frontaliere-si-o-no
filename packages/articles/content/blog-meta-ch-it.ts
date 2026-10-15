@@ -8305,7 +8305,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ordinanza-dispositivi-vitali.imageAlt': 'Berna e dispositivi medici in un\'illustrazione sulla consultazione del DEFR',
     'blog.article.tasse-universitarie-berna-guida.title': 'Tasse universitarie Berna: guida iscrizione',
     'blog.article.tasse-universitarie-berna-guida.excerpt': 'Come verificare requisiti, scadenze e importi per le tasse universitarie nel Cantone di Berna: guida pratica per categorie e istituzioni.',
-    'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Studente che verifica i requisiti per le tasse universitarie nel Cantone di Berna',
+    'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.opportunita-impiego-federale.title': 'Lavorare per l\'Amministrazione federale: 50 formazioni',
     'blog.article.opportunita-impiego-federale.excerpt': 'L\'Amministrazione federale offre praticantati agli studenti neolaureati Sono disponibili 50 formazioni professionali Le formazioni prevedono 7 settimane',
     'blog.article.opportunita-impiego-federale.imageAlt': 'Opportunità di lavoro nell\'Amministrazione federale in Svizzera',
@@ -8315,6 +8315,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-pesca-canton-berna-guida.title': 'Permesso di pesca nel Cantone di Berna: requisiti e stagioni',
     'blog.article.permesso-pesca-canton-berna-guida.excerpt': 'Scopri come gestire la pratica per il permesso di pesca nel Cantone di Berna: licenze, corsi, acque autorizzate e autorità competenti.',
     'blog.article.permesso-pesca-canton-berna-guida.imageAlt': 'Lago nel Cantone di Berna adatto alla pesca',
+    'blog.article.berna-veicoli-procedura-guida.title': 'Targhe e immatricolazione Cantone Berna: guida alle procedure',
+    'blog.article.berna-veicoli-procedura-guida.excerpt': 'Come gestire targhe, immatricolazione, collaudo e cambio di proprietario nel Cantone di Berna: verifica requisiti, scadenze e importi ufficiali.',
+    'blog.article.berna-veicoli-procedura-guida.imageAlt': 'Ufficio della circolazione nel Cantone di Berna',
 };
 
 export default blogMetaChIt;

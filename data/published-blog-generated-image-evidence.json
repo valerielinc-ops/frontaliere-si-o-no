@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "af43c6b73a447d59b563398420403396a00582ae",
+  "commit": "8c85fe36727d564cd965b6d6890a446e2f377d55",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -20678,6 +20678,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic lakeside fishing scene with no people, text, logos, signage, or watermark."
+      }
+    },
+    "/images/blog/article-arma-biasca-inchiesta.webp": {
+      "schema": 1,
+      "assetId": "article-arma-biasca-inchiesta",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "27db107dc131cc3e767a9fa977f5020683d58bfaa2082645842ec1d7994d1eea",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "3f8be7103cac17d4878dc0a3448b9f3c3c9f4135319af585cb1ad2a7f2380721",
+      "bytes": 137646,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T02:55:12.625Z",
+      "verifiedAt": "2026-10-15T02:55:43.630Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-arma-biasca-inchiesta.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic railway-station illustration relevant to Ticino commuting; no text, logos, recognizable faces, or identifiable foreground people."
+      }
+    },
+    "/images/blog/article-tasse-universitarie-berna-guida.webp": {
+      "schema": 1,
+      "assetId": "article-tasse-universitarie-berna-guida",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "72a53bd2dcc722c355c01e76ee3881767268b7c04105a65d539e8706d2045166",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "f14e0bafc6471eef4c8c94d749346c67286a086e65f44fae4d99d76c693d6747",
+      "bytes": 63342,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T02:56:32.807Z",
+      "verifiedAt": "2026-10-15T02:56:42.516Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tasse-universitarie-berna-guida.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial illustration of a university study and administrative setting in Bern; no readable text, logos, or recognizable people."
       }
     },
     "/images/places/lugano-view.webp": {

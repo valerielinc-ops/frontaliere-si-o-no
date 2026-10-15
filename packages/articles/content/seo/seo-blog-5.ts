@@ -108082,10 +108082,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-biasca-17enne-arrestato-accoltellamento.webp`,
+        "url": `${BASE_URL}/images/blog/article-arma-biasca-inchiesta.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Polizia sul luogo dell'accoltellamento a Biasca, lungo Via Bellinzona"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-14T18:54:16+00:00",
       "dateModified": "2026-10-14T18:54:16+00:00",

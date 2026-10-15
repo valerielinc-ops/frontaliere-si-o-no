@@ -8305,7 +8305,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ordinanza-dispositivi-vitali.imageAlt': 'Bern and vital medical devices in an editorial image about the DEFR consultation',
     'blog.article.tasse-universitarie-berna-guida.title': 'Tuition fees Bern: enrolment guide',
     'blog.article.tasse-universitarie-berna-guida.excerpt': 'How to check requirements, deadlines and amounts for tuition fees in the Canton of Bern: practical guide by categories and institutions.',
-    'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Student verifying requirements for university fees in the Canton of Bern',
+    'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Illustration generated for this article',
     'blog.article.opportunita-impiego-federale.title': 'Working for the Federal Administration: 50 training programs',
     'blog.article.opportunita-impiego-federale.excerpt': 'The Federal Administration offers internships to newly graduated students 50 vocational training programs are available The training programs last 7 weeks',
     'blog.article.opportunita-impiego-federale.imageAlt': 'Job opportunities in the Swiss Federal Administration',
@@ -8315,6 +8315,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-pesca-canton-berna-guida.title': 'Fishing permit in the Canton of Bern: requirements and seasons',
     'blog.article.permesso-pesca-canton-berna-guida.excerpt': 'Find out how to apply for a fishing permit in the Canton of Bern: licenses, courses, authorized waters, and competent authorities.',
     'blog.article.permesso-pesca-canton-berna-guida.imageAlt': 'Lake in the Canton of Bern suitable for fishing',
+    'blog.article.berna-veicoli-procedura-guida.title': 'Vehicle Registration in Bern: A Step-by-Step Guide',
+    'blog.article.berna-veicoli-procedura-guida.excerpt': 'How to handle license plates, registration, vehicle inspection and change of ownership in the Canton of Bern: check requirements, deadlines and official fees.',
+    'blog.article.berna-veicoli-procedura-guida.imageAlt': 'Vehicle registration office in the Canton of Bern',
 };
 
 export default blogMetaChEn;

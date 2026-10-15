@@ -13186,7 +13186,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Traffic queue on the A8 motorway between Castellanza and Busto Arsizio after a crash',
     'blog.article.arma-biasca-inchiesta.title': 'Biasca, the 17-year-old\'s arrest confirmed',
     'blog.article.arma-biasca-inchiesta.excerpt': 'The stabbing took place on October 5 in Biasca.',
-    'blog.article.arma-biasca-inchiesta.imageAlt': 'Police at the scene of the stabbing in Biasca, along Via Bellinzona',
+    'blog.article.arma-biasca-inchiesta.imageAlt': 'Illustration generated for this article',
     'blog.article.derby-basket-ticinese-massagno.title': 'Ticino basketball derby: Massagno is the favorite',
     'blog.article.derby-basket-ticinese-massagno.excerpt': 'On Saturday, the first all-Ticino showdown under the hoops: Massagno is the favorite, but the derby may follow different logic.',
     'blog.article.derby-basket-ticinese-massagno.imageAlt': 'Illustration generated for this article',

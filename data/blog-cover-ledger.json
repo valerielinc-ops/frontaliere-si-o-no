@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5466
+      "6": 5468
     },
-    "publishedCovers": 7047,
+    "publishedCovers": 7049,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5271
+    "inferredRecords": 5273
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -184436,6 +184436,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-arma-biasca-inchiesta": {
+      "cover": "/images/blog/article-arma-biasca-inchiesta.webp",
+      "hash": "3f8be7103cac17d4878dc0a3448b9f3c3c9f4135319af585cb1ad2a7f2380721",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arma-biasca-inchiesta",
+          "category": "novita",
+          "date": "2026-10-14T18:54:16.755Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-arresti-auto-como-minacce": {
       "cover": "/images/blog/article-arresti-auto-como-minacce.webp",
       "hash": "634ebaaba5a12dd2a377d2607c63b3781f74b13a276a4d849600444d3f0094f2",
@@ -188189,6 +188216,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-tasse-universitarie-berna-guida": {
+      "cover": "/images/blog/article-tasse-universitarie-berna-guida.webp",
+      "hash": "f14e0bafc6471eef4c8c94d749346c67286a086e65f44fae4d99d76c693d6747",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tasse-universitarie-berna-guida",
+          "category": "pratico",
+          "date": "2026-10-15T00:26:22.514Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-tasse-universitarie-zurigo-guida": {
       "cover": "/images/blog/article-tasse-universitarie-zurigo-guida.webp",
       "hash": "a86dfe19a950b9fa915f386bfbc9b5e3c8145aea03a3fbb6af5b70067c1acc1e",
@@ -188200,14 +188254,6 @@
           "id": "tasse-universitarie-zurigo-guida",
           "category": "pratico",
           "date": "2026-10-14T04:09:09.746Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        },
-        {
-          "section": "svizzera",
-          "id": "tasse-universitarie-berna-guida",
-          "category": "pratico",
-          "date": "2026-10-15T00:26:22.514Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
         }
@@ -188802,6 +188848,14 @@
           "id": "zurigo-targhe-immatricolazione-guida",
           "category": "pratico",
           "date": "2026-10-14T02:15:21.680Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        },
+        {
+          "section": "svizzera",
+          "id": "berna-veicoli-procedura-guida",
+          "category": "pratico",
+          "date": "2026-10-15T02:50:14.192Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
