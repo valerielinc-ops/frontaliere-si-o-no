@@ -931,7 +931,7 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
  recentArticles: 'recent-articles',
 });
 
-type ActiveJobReuseFragments = {
+export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string | null;
  jobPostingDateProvenance: 'reported' | 'safe-default' | null;
  jobPostingValidThrough: string;
@@ -1010,7 +1010,7 @@ export function shouldInvalidateActiveJobReuseForSafeDefault(
  return provenance === 'safe-default' && !hasActiveJobPostingJsonLd(fragment);
 }
 
-function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
+export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
  let rewritten = replaceActiveJobReuseFragment(
   html,
   ACTIVE_JOB_REUSE_MARKERS.jobPosting,
