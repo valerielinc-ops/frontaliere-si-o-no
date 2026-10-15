@@ -13207,6 +13207,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.della-valle-lesione-varese.title': 'Varese : Della Valle out pour lésion au biceps fémoral',
     'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle présente une lésion au biceps fémoral droit Le traumatisme est de deuxième degré La blessure est survenue contre Peristeri Betsson Le retour sera',
     'blog.article.della-valle-lesione-varese.imageAlt': 'Terrain de basket au Tessin avec staff médical examinant la jambe d\'un joueur',
+    'blog.article.sconto-dipendenti-migros-ccl.title': 'Migros : nouveau CCL dès 2027, remise de 10 %',
+    'blog.article.sconto-dipendenti-migros-ccl.excerpt': 'Le CCL national de Migros sera en vigueur de 2027 à 2031 : conditions uniformes, semaine de 41 heures pour beaucoup et remise de 10 % avec des bons d’achat.',
+    'blog.article.sconto-dipendenti-migros-ccl.imageAlt': 'Supermarché Migros au Tessin sur la nouvelle convention collective nationale.',
 };
 
 export default blogMetaFr;

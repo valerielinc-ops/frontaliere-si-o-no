@@ -108336,6 +108336,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sconto-dipendenti-migros-ccl': {
+    title: 'Migros: nuovo CCL dal 2027, sconto del 10% | Frontaliere Ticino',
+    description: 'Il CCL nazionale Migros sarà in vigore dal 2027 al 2031: sconto del 10%, condizioni uniformi, 41 ore per molti e salario netto intero per 90 giorni di assenza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, nuovo, sconto, nazionale',
+    ogTitle: 'Migros, CCL 2027-2031: sconto e nuove condizioni',
+    ogDescription: 'Il nuovo CCL nazionale per Migros sarà in vigore dal 2027 al 2031. Per molti collaboratori la settimana passerà da 43 a 41 ore con lo stesso salario; previste condizioni uniformi in caso di malattia o infortunio.',
+    canonicalPath: '/articoli-frontaliere/sconto-dipendenti-migros-ccl/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros: nuovo CCL dal 2027, sconto del 10%",
+      "description": "Il CCL nazionale Migros sarà in vigore dal 2027 al 2031: sconto del 10%, condizioni uniformi, 41 ore per molti e salario netto intero per 90 giorni di assenza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-migros-nuovo-contratto-lavoro-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato Migros in Ticino sul nuovo contratto collettivo nazionale."
+      },
+      "datePublished": "2026-10-15T08:28:42+00:00",
+      "dateModified": "2026-10-15T08:28:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sconto-dipendenti-migros-ccl/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

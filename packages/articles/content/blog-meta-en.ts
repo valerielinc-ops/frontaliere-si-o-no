@@ -13205,6 +13205,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.della-valle-lesione-varese.title': 'Pallacanestro Varese: Della Valle out with a hamstring injury',
     'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle has a right hamstring injury The injury is grade two The injury occurred against Peristeri Betsson The return will be',
     'blog.article.della-valle-lesione-varese.imageAlt': 'Basketball court in Ticino with medical staff examining player\'s leg',
+    'blog.article.sconto-dipendenti-migros-ccl.title': 'Migros: new CCL from 2027, 10% discount',
+    'blog.article.sconto-dipendenti-migros-ccl.excerpt': 'Migros’ national CCL will be in force from 2027 to 2031: uniform conditions, a 41-hour workweek for many, and a 10% discount with shopping vouchers.',
+    'blog.article.sconto-dipendenti-migros-ccl.imageAlt': 'Migros supermarket in Ticino illustrating the new national collective labour agreement.',
 };
 
 export default blogMetaEn;

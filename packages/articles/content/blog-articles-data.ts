@@ -44572,6 +44572,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sconto-dipendenti-migros-ccl',
+ category: 'novita',
+ date: '2026-10-15T08:28:42.273Z',
+ image: '/images/blog/article-migros-nuovo-contratto-lavoro-2027.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

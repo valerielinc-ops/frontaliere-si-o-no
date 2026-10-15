@@ -13206,6 +13206,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.della-valle-lesione-varese.title': 'Pallacanestro Varese: Della Valle out per lesione al bicipite femorale',
     'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle ha una lesione al bicipite femorale destro Il trauma è di secondo grado L\'infortunio è arrivato contro Peristeri Betsson Il rientro sarà',
     'blog.article.della-valle-lesione-varese.imageAlt': 'Campo da basket in Ticino con staff medico che esamina la gamba di un giocatore',
+    'blog.article.sconto-dipendenti-migros-ccl.title': 'Migros: nuovo CCL dal 2027, sconto del 10%',
+    'blog.article.sconto-dipendenti-migros-ccl.excerpt': 'Il CCL nazionale Migros varrà dal 2027 al 2031: condizioni uniformi, settimana da 41 ore per molti e sconto del 10% con buoni acquisto.',
+    'blog.article.sconto-dipendenti-migros-ccl.imageAlt': 'Supermercato Migros in Ticino sul nuovo contratto collettivo nazionale.',
 };
 
 export default blogMetaIt;

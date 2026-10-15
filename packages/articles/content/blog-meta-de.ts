@@ -13204,6 +13204,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.della-valle-lesione-varese.title': 'Varese: Della Valle fällt mit Oberschenkelverletzung aus',
     'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle hat eine Verletzung am rechten Oberschenkelbizeps Die Verletzung ist zweiten Grades Die Verletzung zog er sich gegen Peristeri Betsson zu Die Rückkehr wird',
     'blog.article.della-valle-lesione-varese.imageAlt': 'Basketballplatz im Tessin mit medizinischem Personal das Spielerbein untersucht',
+    'blog.article.sconto-dipendenti-migros-ccl.title': 'Migros: neuer GAV ab 2027, 10%-Rabatt',
+    'blog.article.sconto-dipendenti-migros-ccl.excerpt': 'Der nationale GAV von Migros gilt von 2027 bis 2031: einheitliche Bedingungen, eine 41-Stunden-Woche für viele und 10%-Rabatt mit Einkaufsgutscheinen.',
+    'blog.article.sconto-dipendenti-migros-ccl.imageAlt': 'Migros-Supermarkt im Tessin zum neuen nationalen Gesamtarbeitsvertrag.',
 };
 
 export default blogMetaDe;
