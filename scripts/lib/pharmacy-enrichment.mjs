@@ -441,11 +441,11 @@ function extractHtmlFacts(html, pharmacy, source) {
   const currentPhone = digits(pharmacy.phone);
   const phone = telLinks.find((entry) => digits(entry.value) === currentPhone) || telLinks[0];
   if (wanted.has('phone') && phone) {
-    const value = digits(phone.value) === currentPhone && pharmacy.phone
-      ? pharmacy.phone
-      : phone.label && digits(phone.label) === digits(phone.value)
-        ? phone.label
-        : text(phone.value);
+    const label = phone.label && digits(phone.label) === digits(phone.value)
+      && /^[+()\d\s./-]+$/.test(phone.label)
+      ? phone.label
+      : '';
+    const value = label || (digits(phone.value) === currentPhone && pharmacy.phone ? pharmacy.phone : text(phone.value));
     if (value) facts.phone = value;
   }
 
