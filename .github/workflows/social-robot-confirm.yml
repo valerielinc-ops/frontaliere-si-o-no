@@ -104,7 +104,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(${CHANNEL}): robot-confirmed post ${QUEUE_ID} [skip ci]"
-          bash scripts/lib/git-push-with-retry.sh --max-attempts 20
+          # A concurrent writer can advance main after checkout. Re-run the
+          # confirmation against that newest base instead of rebasing the
+          # generated JSON blindly: this preserves the robot's queue removal
+          # and ledger append even when the base deleted or rewrote either
+          # file (the failure mode recorded by issue #12852).
+          bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 20 \
+            --regenerate-cmd 'ARGS=("--channel=$CHANNEL" "--queue-id=$QUEUE_ID" "--confirmed-at=$CONFIRMED_AT" "--evidence=$EVIDENCE"); if [ -n "$LEDGER_ENTRIES" ]; then ARGS+=("--ledger-entries=$LEDGER_ENTRIES"); fi; node scripts/social-robot/confirm.mjs "${ARGS[@]}"; for f in "data/${CHANNEL}-posted.json" "data/${CHANNEL}-queue.json"; do if [ -f "$f" ]; then git add -- "$f"; fi; done'
 
       - name: Report failure to GitHub Issues
         if: failure()
