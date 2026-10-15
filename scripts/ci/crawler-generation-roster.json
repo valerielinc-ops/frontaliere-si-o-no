@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "groups": {
     "10": [
       "atec-personal",
@@ -258,6 +258,7 @@
       "etat-de-fribourg",
       "etat-de-vaud",
       "etavis",
+      "gipo",
       "hofweissbad",
       "huber-suhner",
       "kanton-zuerich",
@@ -278,13 +279,13 @@
       "zuger-kantonsspital"
     ],
     "19": [
+      "agat",
       "alpiq",
       "bucher-suter",
       "convit-holding",
       "cseb",
       "csl-behring",
       "forel-klinik",
-      "gipo",
       "goline",
       "grace-la-margna",
       "gz-dielsdorf",
@@ -696,6 +697,7 @@
     "adullam": "data/jobs/by-crawler/adullam.json",
     "adus-klinik": "data/jobs/by-crawler/adus-klinik.json",
     "afry": "data/jobs/by-crawler/afry.json",
+    "agat": "data/jobs/by-crawler/agat.json",
     "agie-charmilles": "data/jobs/by-crawler/agie-charmilles.json",
     "agroscope": "data/jobs/by-crawler/agroscope.json",
     "ail-lugano": "data/jobs/by-crawler/ail-lugano.json",
@@ -1320,5 +1322,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a44ba152cc130069e80322e2608294b59fb91e615bf5a7edddb2ec44cfa333c3"
+  "digest": "sha256:7650e1c4d237a52e691d35c8ff877dd600d468607ddd761a17a784eafa181561"
 }

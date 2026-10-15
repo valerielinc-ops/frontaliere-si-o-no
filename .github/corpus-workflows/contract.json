@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fba2c116c936ea1c3e1978e545405f1afc04fc1d",
+  "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "fba2c116c936ea1c3e1978e545405f1afc04fc1d"
+    "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:a44ba152cc130069e80322e2608294b59fb91e615bf5a7edddb2ec44cfa333c3",
+    "rosterDigest": "sha256:7650e1c4d237a52e691d35c8ff877dd600d468607ddd761a17a784eafa181561",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -83,6 +83,7 @@
     "scripts/update-adullam-jobs.mjs",
     "scripts/update-adus-klinik-jobs.mjs",
     "scripts/update-afry-jobs.mjs",
+    "scripts/update-agat-jobs.mjs",
     "scripts/update-agie-charmilles-jobs.mjs",
     "scripts/update-agroscope-jobs.mjs",
     "scripts/update-albergo-gardenia-jobs.mjs",
@@ -1270,8 +1271,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "e6ef15351b259143f730493d04b9ce1b55eb2e8a81653269eb5beaa4aa50fea7",
-      "artifactSha256": "8063411bb683263c2661a9573a11f2ae6e9175072e86327227e680cd452b3fe0",
+      "sourceSha256": "ebdfe127ea97fa841b5a0d999154daa2077426a1ae7dc17c0a6723db7f63ab9b",
+      "artifactSha256": "1eece602fd9a5012c063f52ebf75eb5cd9269332bb6deae6eb97e78adf12bb5b",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1301,14 +1302,15 @@
         "baloise",
         "etavis",
         "amina-bank",
-        "opus-personal"
+        "opus-personal",
+        "gipo"
       ]
     },
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "ffc06db20bba70baef0aa4816839d7da5e7248a302fa04c4c71e17c8ea3b9892",
-      "artifactSha256": "86ef14e04aef0a1cd38bcdbf69079741777315a5ff8e27040119c7c8cf4948af",
+      "sourceSha256": "51b84d57b91bbf44878f0a936fd46b6535430b6cd12ce0f303bc8e8c49db370b",
+      "artifactSha256": "a20f00fd60b040ce835bb31a1003751d3c9d75b7c7bf666f66e289b4836086db",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "migros",
@@ -1339,7 +1341,7 @@
         "vereinaklosters",
         "unibe",
         "convit",
-        "gipo"
+        "agat"
       ]
     },
     {
