@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "groups": {
     "10": [
       "atec-personal",
@@ -245,6 +245,7 @@
       "siemens-healthineers",
       "spital-zofingen",
       "sygnum",
+      "technic-emplois",
       "veeam",
       "zurich-insurance-sede-ticino"
     ],
@@ -1264,6 +1265,7 @@
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
     "tarchini-group": "data/jobs/by-crawler/tarchini-group.json",
     "tecan": "data/jobs/by-crawler/tecan.json",
+    "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
@@ -1324,5 +1326,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:2df097bef4ee5d68d32197ff343ffabbe199af44c66584e2ab3f89b914a4af76"
+  "digest": "sha256:c295b7a82271626b9ad93d1195413e66511d6758eabc01f21776651c1ee573ae"
 }

@@ -24251,7 +24251,6 @@
           "• Du kommunizierst proaktiv und adressatengerecht mit unterschiedlichen Anspruchsgruppen"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -24632,7 +24631,6 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -24723,7 +24721,6 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -24816,7 +24813,6 @@
           "• Sehr gute Deutschkenntnisse in Word und Schrift runden dein Profil ab."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -24843,11 +24839,11 @@
     },
     {
       "id": "interdiscount-04049fec-31e",
-      "slug": "chauffeur-in-interdiscount-jegenstorf",
+      "slug": "autista-interdiscount-jegenstorf",
       "slugByLocale": {
         "de": "chauffeur-in-interdiscount-jegenstorf",
-        "it": "chauffeur-in-interdiscount-jegenstorf",
-        "en": "chauffeur-in-interdiscount-jegenstorf",
+        "it": "autista-interdiscount-jegenstorf",
+        "en": "driver-interdiscount-jegenstorf",
         "fr": "chauffeur-in-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
@@ -24909,7 +24905,6 @@
           "• Teamfähig, mit freundlichen Umgangsformen"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -24924,7 +24919,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:17:35.674Z"
+      "firstSeenAt": "2026-10-15T09:17:35.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-in-interdiscount-jegenstorf"
+        ],
+        "en": [
+          "chauffeur-in-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-in-interdiscount-jegenstorf"
+      ]
     }
   ]
 }

@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "089f63ede61e6ca636fbfd5760e73ba09fa17034",
+  "sourceCommit": "751ed198879395e5fbcc15c88bd3b7d883985c85",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "089f63ede61e6ca636fbfd5760e73ba09fa17034"
+    "sourceCommit": "751ed198879395e5fbcc15c88bd3b7d883985c85"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:2df097bef4ee5d68d32197ff343ffabbe199af44c66584e2ab3f89b914a4af76",
+    "rosterDigest": "sha256:c295b7a82271626b9ad93d1195413e66511d6758eabc01f21776651c1ee573ae",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -543,6 +543,7 @@
     "scripts/update-tally-weijl-jobs.mjs",
     "scripts/update-tarchini-group-jobs.mjs",
     "scripts/update-tecan-jobs.mjs",
+    "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
@@ -1235,8 +1236,8 @@
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "b118d7cfd3cdd1c6dd5920c20a6b0064a3a57a84814374986455c491070c98cb",
-      "artifactSha256": "ec8c78d21bad678d925507b3349995959f3aa2c591ba46d8f9fbfa96e0d05548",
+      "sourceSha256": "06dc6a328cbbd08c3ca517ecd3d40f6ca82c8bbec59b80a89d6e195210c37e1e",
+      "artifactSha256": "3ea699757fc58aef2c28c3b0f1f8a181097f55d95b2306f6d191f97162346cf7",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1267,7 +1268,8 @@
         "board",
         "aldi-suisse",
         "badrutts-palace",
-        "asile-des-aveugles"
+        "asile-des-aveugles",
+        "technic-emplois"
       ]
     },
     {
