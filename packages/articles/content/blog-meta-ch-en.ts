@@ -8369,6 +8369,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.referendum-aels-malaysia.title': 'Successful AELS-Malaysia referendum: 59 866 valid signatures',
     'blog.article.referendum-aels-malaysia.excerpt': 'The AELS-Malaysia referendum was formally successful.',
     'blog.article.referendum-aels-malaysia.imageAlt': 'Federal building in Bern linked to the EFTA-Malaysia agreement referendum',
+    'blog.article.physioswiss-tariffe-fisioterapia-ticino.title': 'Physioswiss calls for a 30% increase in physiotherapy tariffs',
+    'blog.article.physioswiss-tariffe-fisioterapia-ticino.excerpt': 'Physioswiss submits 4\'000 signatures in Ticino Request: at least 30% more for point values The mobilization involves all 26 cantons Submission',
+    'blog.article.physioswiss-tariffe-fisioterapia-ticino.imageAlt': 'State Chancellery in Bellinzona, site of the Physioswiss petition delivery',
 };
 
 export default blogMetaChEn;

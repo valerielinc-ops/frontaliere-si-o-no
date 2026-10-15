@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "9ce477e27098b06e5b11a2ea31e2cf04a5ed2728",
+  "commit": "13ae328df4e23ba2297832c39e3277d1fcb01154",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -22080,6 +22080,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic photorealistic illustration of a Ticino/Luganese residential area with a commuter train at dusk; no people, text, signage, logos, or specific event."
+      }
+    },
+    "/images/blog/article-physioswiss-tariffe-fisioterapia-ticino.webp": {
+      "schema": 1,
+      "assetId": "article-physioswiss-tariffe-fisioterapia-ticino",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "1f80f1091cd5b36c2224d564ea7ae4e5caa9e80f124f2c4f4547c68607455d34",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "b2f76bc654d95cf567c34985ee2028d534350a0fdfe735cb75a4acc60b386609",
+      "bytes": 156146,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T15:28:54.864Z",
+      "verifiedAt": "2026-10-15T15:29:02.138Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-physioswiss-tariffe-fisioterapia-ticino.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of administrative architecture in Bellinzona, Switzerland; no people, text, logos, signage, or watermark."
       }
     },
     "/images/places/lugano-view.webp": {

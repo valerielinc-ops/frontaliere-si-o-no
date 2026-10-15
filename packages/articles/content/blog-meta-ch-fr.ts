@@ -8369,6 +8369,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.referendum-aels-malaysia.title': 'Référendum AELS-Malaysia abouti : 59 866 signatures valables',
     'blog.article.referendum-aels-malaysia.excerpt': 'Le référendum AELS-Malaysia a formellement abouti.',
     'blog.article.referendum-aels-malaysia.imageAlt': 'Bâtiment fédéral à Berne lié au référendum sur l\'accord AELE-Malaisie',
+    'blog.article.physioswiss-tariffe-fisioterapia-ticino.title': 'Physioswiss demande une augmentation de 30% des tarifs de physiothérapie',
+    'blog.article.physioswiss-tariffe-fisioterapia-ticino.excerpt': 'Physioswiss remet 4\'000 signatures au Tessin Demande : au moins 30% de plus sur les valeurs de point La mobilisation concerne les 26 cantons Remise',
+    'blog.article.physioswiss-tariffe-fisioterapia-ticino.imageAlt': 'Chancellerie d\'État à Bellinzona, lieu de remise de la pétition de Physioswiss',
 };
 
 export default blogMetaChFr;

@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5498
+      "6": 5499
     },
-    "publishedCovers": 7079,
+    "publishedCovers": 7080,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5303
+    "inferredRecords": 5304
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187857,6 +187857,33 @@
           "id": "pfister-risorse-difesa-federale",
           "category": "novita",
           "date": "2026-10-14T01:19:47.735Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-physioswiss-tariffe-fisioterapia-ticino": {
+      "cover": "/images/blog/article-physioswiss-tariffe-fisioterapia-ticino.webp",
+      "hash": "b2f76bc654d95cf567c34985ee2028d534350a0fdfe735cb75a4acc60b386609",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "physioswiss-tariffe-fisioterapia-ticino",
+          "category": "novita",
+          "date": "2026-10-15T15:29:02.571Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

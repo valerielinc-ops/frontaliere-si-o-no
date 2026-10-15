@@ -2812,6 +2812,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'scambio-informazioni-conti-finanziari-2026': { it: 'scambio-informazioni-conti-finanziari-2026', en: 'exchange-financial-account-information-2026', de: 'estausch-finanzkonten-informationen-2026', fr: 'echange-informations-comptes-financiers-2026' },
  'costi-cambiamento-climatico-svizzera-2060': { it: 'costi-cambiamento-climatico-svizzera-2060', en: 'climate-change-costs-switzerland-2060', de: 'klimawandel-kosten-schweiz-2060', fr: 'couts-changement-climatique-suisse-2060' },
  'referendum-aels-malaysia': { it: 'referendum-aels-malaysia', en: 'aels-malaysia-referendum', de: 'aels-malaysia-referendum', fr: 'referendum-aels-malaisie' },
+ 'physioswiss-tariffe-fisioterapia-ticino': { it: 'physioswiss-tariffe-fisioterapia-ticino', en: 'physioswiss-physiotherapy-tariffs-ticino', de: 'physioswiss-physiotherapie-tarife-tessin', fr: 'physioswiss-tarifs-physiotherapie-tessin' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

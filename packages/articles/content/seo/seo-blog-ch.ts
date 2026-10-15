@@ -105677,6 +105677,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-physioswiss-tariffe-fisioterapia-ticino': {
+    title: 'Physioswiss chiede aumento del 30% per tariffe fisioterapia',
+    description: 'Physioswiss consegna 4\'000 firme in Ticino Richiesta: almeno il 30% in più sui valori di punto La mobilitazione coinvolge tutti i 26 Cantoni Consegna',
+    keywords: 'frontalieri, ticino, svizzera, italia, physioswiss, chiede, aumento, tariffe',
+    ogTitle: 'Fisioterapia Ticino: Physioswiss chiede tariffe più eque',
+    ogDescription: 'Physioswiss consegna 4\'000 firme in Ticino Richiesta: almeno il 30% in più sui valori di punto La mobilitazione coinvolge tutti i 26 Cantoni Consegna',
+    canonicalPath: '/articoli-svizzera/physioswiss-tariffe-fisioterapia-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Physioswiss chiede aumento del 30% per tariffe fisioterapia",
+      "description": "Physioswiss consegna 4'000 firme in Ticino Richiesta: almeno il 30% in più sui valori di punto La mobilitazione coinvolge tutti i 26 Cantoni Consegna",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-physioswiss-tariffe-fisioterapia-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cancelleria dello Stato a Bellinzona, sede della consegna della petizione di Physioswiss"
+      },
+      "datePublished": "2026-10-15T15:29:02+00:00",
+      "dateModified": "2026-10-15T15:29:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/physioswiss-tariffe-fisioterapia-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
