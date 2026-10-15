@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 638,
+  "crawlerCount": 639,
   "groups": {
     "10": [
       "atec-personal",
@@ -177,6 +177,7 @@
       "kanton-aargau",
       "kanton-solothurn",
       "klinik-adelheid",
+      "le-team",
       "mabetex",
       "octapharma",
       "pfister",
@@ -1040,6 +1041,7 @@
     "laderach": "data/jobs/by-crawler/laderach.json",
     "lalive": "data/jobs/by-crawler/lalive.json",
     "lastminute-com": "data/jobs/by-crawler/lastminute-com.json",
+    "le-team": "data/jobs/by-crawler/le-team.json",
     "leukerbad-clinic": "data/jobs/by-crawler/leukerbad-clinic.json",
     "lhm-luzerner-hohenklinik-montana": "data/jobs/by-crawler/lhm-luzerner-hohenklinik-montana.json",
     "lidl-svizzera": "data/jobs/by-crawler/lidl-svizzera.json",
@@ -1330,5 +1332,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:8402ac04156deb2f387c0d689692c8283bcc07ae2b20cff411a1cb416b427ee4"
+  "digest": "sha256:d4f5fdbdc7516864539cb810eecefb86a12690ece39c4643cdf01c580b27ee25"
 }

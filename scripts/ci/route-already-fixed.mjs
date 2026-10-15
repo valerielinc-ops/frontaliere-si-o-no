@@ -492,9 +492,9 @@ export function decideBucketItemRouting({
  * niente `maybe-resolved`, coda conservata o riaggiunta salvo veto. Non ne
  * restano → `maybe-resolved` (stadio di verifica, non una chiusura) e nessuna coda.
  * @param {string[]} labels
- * @param {{openRemaining: boolean}} options
+ * @param {{openRemaining: boolean, addVerifyLabel?: boolean}} options
  */
-export function bucketLabelEditArgs(labels, { openRemaining }) {
+export function bucketLabelEditArgs(labels, { openRemaining, addVerifyLabel = true }) {
   const present = new Set((labels ?? []).map((label) => String(label).toLowerCase()));
   const args = [];
   const add = (label) => { if (!present.has(label)) args.push('--add-label', label); };
@@ -505,7 +505,7 @@ export function bucketLabelEditArgs(labels, { openRemaining }) {
     if (QUEUE_VETO_LABELS.some((label) => present.has(label))) remove(QUEUE_LABEL);
     else add(QUEUE_LABEL);
   } else {
-    add(VERIFY_LABEL);
+    if (addVerifyLabel) add(VERIFY_LABEL);
     remove(QUEUE_LABEL);
   }
   return args;
