@@ -149,7 +149,7 @@ describe('buildComuneEvergreenTopics', () => {
   // below, and more precisely: not "at most 85", but "only comuni within
   // commuting distance", which is the reason a bound exists at all.
   it('selects only comuni within commuting distance, never all 518', () => {
-    const MAX_KM = 30; // COMUNE_MAX_DISTANCE_KM in evergreen-topic-generator.mjs
+    const MAX_KM = 35; // COMUNE_MAX_DISTANCE_KM in evergreen-topic-generator.mjs
     const computed = buildComuneEvergreenTopics(MUNICIPALITIES as never);
 
     // Still a real bound, and it must bite against the RESOLVED count, not the
@@ -188,7 +188,7 @@ describe('buildComuneEvergreenTopics', () => {
     // dropped at four times the distance depending only on how many comuni
     // happened to share their canton. Every canton must now keep everything
     // inside the radius — a shortfall in any one of them means a quota is back.
-    const MAX_KM = 30;
+    const MAX_KM = 35;
     const computed = buildComuneEvergreenTopics(MUNICIPALITIES as never);
 
     const expectedPerCanton = new Map<string, number>();
@@ -211,13 +211,14 @@ describe('buildComuneEvergreenTopics', () => {
     }
   });
 
-  it('keeps the structural pool far above the level that saturated the section', () => {
-    // 7045b166 halved the structural pool (310 -> 155) with CI green, because
-    // nothing asserted its size; the runtime pool went 537 -> 382 and
-    // `frontaliere` saturated outright. This is the missing observer: the floor
-    // sits above BOTH rejected values and below the 516 measured here, so a
-    // return to any per-canton quota trips it. Lower it only with a measurement.
-    expect(buildStructuralEvergreenTopics().length).toBeGreaterThanOrEqual(400);
+  it('keeps a measured distinct reserve above the level that saturated the section', () => {
+    // Issue #13361 measured all 734 runtime candidates exhausted. The next
+    // distance band adds 29 distinct topics, taking the structural pool to 536;
+    // keep the floor below that measured value but above the exhausted 30 km
+    // pool (507), so a return to the old radius or a quota trips CI.
+    const topics = buildStructuralEvergreenTopics();
+    expect(topics.length).toBeGreaterThanOrEqual(530);
+    expect(new Set(topics.map((topic) => topic.keyword)).size).toBe(topics.length);
   });
 });
 

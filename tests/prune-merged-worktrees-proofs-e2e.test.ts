@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { runIsolatedPruner } from './helpers/runIsolatedPruner';
 
 // Le prove di contenuto di scripts/prune-merged-worktrees.mjs sul clone di
 // prova, con `gh` e `lsof` finti. Ogni worktree riproduce un caso che il
@@ -88,7 +89,7 @@ function ageTree(dir: string, when: Date): void {
 }
 
 function runScript(args: string[]): string {
-  return execFileSync('node', [SCRIPT, ...args], { cwd: clone, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return runIsolatedPruner(SCRIPT, args, root, clone, env);
 }
 
 // Un ramo di PR creato e poi tolto da refs/heads: l'HEAD resta nel clone in
