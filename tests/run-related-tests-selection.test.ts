@@ -256,6 +256,8 @@ describe('run-related-tests selection contract', () => {
   it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
     const reader = 'tests/translation-data-reader.test.ts';
     const segmentedReader = 'tests/translation-data-segmented-reader.test.ts';
+    const relativeReader = 'tests/translation-data-relative-reader.test.ts';
+    const relativeSegmentedReader = 'tests/translation-data-relative-segmented-reader.test.ts';
     const commentOnly = 'tests/translation-data-comment.test.ts';
     const unrelated = 'tests/unrelated-data-reader.test.ts';
     const root = fixture({
@@ -263,6 +265,8 @@ describe('run-related-tests selection contract', () => {
       'data/weather-snapshot.json': '{}\n',
       [reader]: "import { readFileSync } from 'node:fs'; export const history = readFileSync('data/translation-stats-history.json', 'utf8');\n",
       [segmentedReader]: "import { readFileSync } from 'node:fs'; import path from 'node:path'; const ROOT = '/repo'; export const weather = readFileSync(path.join(ROOT, 'data', 'weather-snapshot.json'), 'utf8');\n",
+      [relativeReader]: "import { readFileSync } from 'node:fs'; export const weather = readFileSync(new URL('../data/weather-snapshot.json', import.meta.url), 'utf8');\n",
+      [relativeSegmentedReader]: "import { readFileSync } from 'node:fs'; import path from 'node:path'; export const weather = readFileSync(path.join(__dirname, '..', 'data', 'weather-snapshot.json'), 'utf8');\n",
       [commentOnly]: "// readFileSync('data/translation-stats-history.json')\nexport const comment = true;\n",
       [unrelated]: "import { readFileSync } from 'node:fs'; export const weather = readFileSync('data/weather-snapshot.json', 'utf8');\n",
     });
@@ -277,6 +281,8 @@ describe('run-related-tests selection contract', () => {
     expect(weather.status, weather.stderr || weather.stdout).toBe(0);
     expect(weather.stdout).toContain(unrelated);
     expect(weather.stdout).toContain(segmentedReader);
+    expect(weather.stdout).toContain(relativeReader);
+    expect(weather.stdout).toContain(relativeSegmentedReader);
     expect(weather.stdout).not.toContain(reader);
   });
 
