@@ -8360,6 +8360,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vaccino-hpv-ticino-2027.title': 'Vaccino HPV in Ticino: nuovo sistema dal 1° gennaio 2027',
     'blog.article.vaccino-hpv-ticino-2027.excerpt': 'Dal primo gennaio 2027 cambia l\'accesso al vaccino HPV La copertura passa all\'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico',
     'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Consultorio medico a Bellinzona per vaccinazioni',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.title': 'Scambio di informazioni con 113 Stati su 4 milioni di conti',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.excerpt': 'AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.imageAlt': 'Edificio dell\'Amministrazione federale a Berna',
 };
 
 export default blogMetaChIt;

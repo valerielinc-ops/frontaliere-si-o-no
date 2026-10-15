@@ -8360,6 +8360,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vaccino-hpv-ticino-2027.title': 'Vaccin contre le HPV au Tessin : nouveau système dès le 1er janvier 2027',
     'blog.article.vaccino-hpv-ticino-2027.excerpt': 'À partir du 1er janvier 2027, l’accès au vaccin contre le HPV change La prise en charge passe à l’assurance-maladie obligatoire Pour les 11-26 ans, accès direct à un médecin',
     'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Cabinet médical à Bellinzona pour les vaccinations',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.title': 'Échange d’informations avec 113 États concernant 4 millions de comptes',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.excerpt': 'AFC : informations échangées avec 113 États en 2026 Environ 4 millions de comptes envoyés et reçus La Géorgie, la Moldavie et l’Ukraine s’y sont ajoutées Aucun échange',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.imageAlt': 'Bâtiment de l\'Administration fédérale à Berne',
 };
 
 export default blogMetaChFr;

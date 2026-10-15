@@ -8360,6 +8360,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vaccino-hpv-ticino-2027.title': 'HPV vaccine in Ticino: new system from January 1, 2027',
     'blog.article.vaccino-hpv-ticino-2027.excerpt': 'From January 1, 2027 access to the HPV vaccine will change Coverage will shift to mandatory health insurance For ages 11-26 direct access to a doctor',
     'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Medical office in Bellinzona for vaccinations',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.title': 'Exchange of information with 113 countries on 4 million accounts',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.excerpt': 'AFC: information exchanged with 113 countries in 2026 Approximately 4 million accounts sent and received Georgia, Moldova and Ukraine joined No exchange',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.imageAlt': 'Federal Administration building in Bern',
 };
 
 export default blogMetaChEn;

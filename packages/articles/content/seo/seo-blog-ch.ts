@@ -105560,6 +105560,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scambio-informazioni-conti-finanziari-2026': {
+    title: 'Scambio di informazioni con 113 Stati su 4 milioni di conti',
+    description: 'AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio',
+    keywords: 'frontalieri, ticino, svizzera, italia, scambio, informazioni, stati, milioni',
+    ogTitle: 'Scambio informazioni conti finanziari 2026',
+    ogDescription: 'AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio',
+    canonicalPath: '/articoli-svizzera/scambio-informazioni-conti-finanziari-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scambio di informazioni con 113 Stati su 4 milioni di conti",
+      "description": "AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-scambio-informazioni-conti-finanziari-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio dell'Amministrazione federale a Berna"
+      },
+      "datePublished": "2026-10-15T12:42:46+00:00",
+      "dateModified": "2026-10-15T12:42:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scambio-informazioni-conti-finanziari-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

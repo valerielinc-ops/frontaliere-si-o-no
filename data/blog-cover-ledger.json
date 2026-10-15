@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5489
+      "6": 5490
     },
-    "publishedCovers": 7070,
+    "publishedCovers": 7071,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5294
+    "inferredRecords": 5295
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -188272,6 +188272,33 @@
           "date": "2026-10-13T19:03:54.404Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-scambio-informazioni-conti-finanziari-2026": {
+      "cover": "/images/blog/article-scambio-informazioni-conti-finanziari-2026.webp",
+      "hash": "3e638c3c71d0ec123062f7912bae96e6b12d76a0b6967a4536f1f7c61f605f8a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "scambio-informazioni-conti-finanziari-2026",
+          "category": "fiscale",
+          "date": "2026-10-15T12:42:46.187Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
         }
       ],
       "proofLevel": 6,

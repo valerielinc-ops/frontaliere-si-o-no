@@ -27955,6 +27955,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'scambio-informazioni-conti-finanziari-2026',
+    category: 'fiscale',
+    date: '2026-10-15T12:42:46.187Z',
+    image: '/images/blog/article-scambio-informazioni-conti-finanziari-2026.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -8360,6 +8360,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vaccino-hpv-ticino-2027.title': 'HPV-Impfung im Tessin: neues System ab 1. Januar 2027',
     'blog.article.vaccino-hpv-ticino-2027.excerpt': 'Ab dem 1. Januar 2027 ändert sich der Zugang zur HPV-Impfung Die Kostenübernahme erfolgt über die obligatorische Krankenpflegeversicherung Für 11- bis 26-Jährige direkter Zugang zu einem Arzt',
     'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Arztpraxis in Bellinzona für Impfungen',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.title': 'Informationsaustausch mit 113 Staaten über 4 Millionen Konten',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.excerpt': 'AFC: Informationen mit 113 Staaten im Jahr 2026 ausgetauscht Etwa 4 Millionen Konten übermittelt und empfangen Georgien, Moldau und die Ukraine sind hinzugekommen Kein Austausch',
+    'blog.article.scambio-informazioni-conti-finanziari-2026.imageAlt': 'Bundeshaus in Bern',
 };
 
 export default blogMetaChDe;
