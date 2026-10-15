@@ -75,6 +75,7 @@ const CARD_SAMPLE = `
 const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ecari-auction-sample.html'), 'utf8');
 const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
 const EXPANDED_CARD_EMPTY_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-empty-sample.html'), 'utf8');
+const EXPANDED_CARD_NO_RESULTS_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-no-results-sample.html'), 'utf8');
 // NW/OW between two rounds: eCari's own empty state in every tab.
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction.html'), 'utf8');
 // Stesso stato vuoto in fr_ch (FR, VS) e it_CH (TI), catturato il 2026-09-25.
@@ -312,6 +313,12 @@ describe('expanded plate-auction connectors', () => {
 
   it('recognizes the complete card-platform shell after a round closes', () => {
     const rows = parseExpandedCard('vd', EXPANDED_CARD_EMPTY_SAMPLE, { fetchedAt: '2026-10-04T21:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+  });
+
+  it('recognizes the official no-results page between SH auction rounds', () => {
+    const rows = parseShAuctionRows(EXPANDED_CARD_NO_RESULTS_SAMPLE, { fetchedAt: '2026-10-14T22:30:00.000Z' });
     expect(rows).toEqual([]);
     expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
   });
