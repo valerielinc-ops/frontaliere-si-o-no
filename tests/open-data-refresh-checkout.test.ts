@@ -78,6 +78,7 @@ function fixture() {
   write(repo, 'data/events-translation-cache.json', '{"title":{"en":"base"}}\n');
   write(repo, 'packages/articles/content/body.ts', 'export default "base";\n');
   write(repo, 'packages/articles/content/image-credits/blog/cover.json', '{"source":"base"}\n');
+  write(repo, '.gitignore', 'node_modules\n');
   fs.mkdirSync(path.join(repo, 'services'));
   fs.symlinkSync('../packages/articles/content/body.ts', path.join(repo, 'services/body.ts'));
   git(repo, ['add', '-A']);
