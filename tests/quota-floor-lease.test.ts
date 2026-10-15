@@ -8,7 +8,6 @@ import {
   quotaFloorLeaseMarker,
   quotaFloorLeaseOwner,
   quotaFloorReleaseMarker,
-  QUOTA_FLOOR_LEDGER_ISSUE,
   releaseQuotaFloorLease,
 } from '../scripts/ci/quota-floor-lease.mjs';
 import { quotaFloorLeaseAdmission } from '../scripts/ci/check-quota-backoff.mjs';
@@ -89,36 +88,29 @@ describe('shared quota-floor lease ledger', () => {
       .toMatchObject({ ok: false, hold: true });
   });
 
-  it('posts one lease comment and deletes that exact comment on release', () => {
+  it('emits append-only acquire/release markers through the injected command', () => {
     const commands: string[][] = [];
     const owner = quotaFloorLeaseOwner({ kind: 'repair', subject: 'pr-9', runId: 'run-9', attempt: '1' });
     const acquired = acquireQuotaFloorLease({
-      repo: 'owner/repo', kind: 'repair', subject: 'pr-9', owner, expiresAt: quotaFloorLeaseExpiry(1_000, 60),
-      runCommand: (args) => { commands.push(args); return JSON.stringify({ id: 91 }); },
+      repo: 'owner/repo', ledgerIssue: '8306', kind: 'repair', subject: 'pr-9', owner, expiresAt: quotaFloorLeaseExpiry(1_000, 60),
+      runCommand: (args) => { commands.push(args); },
     });
     const released = releaseQuotaFloorLease({
-      repo: 'owner/repo', owner, commentId: acquired.commentId,
+      repo: 'owner/repo', ledgerIssue: '8306', owner,
       runCommand: (args) => { commands.push(args); },
     });
     expect(acquired.ok).toBe(true);
     expect(released.ok).toBe(true);
     expect(commands).toEqual([
       [
-        'api', '--method', 'POST', `repos/owner/repo/issues/${QUOTA_FLOOR_LEDGER_ISSUE}/comments`, '--raw-field',
+        'api', '--method', 'POST', 'repos/owner/repo/issues/8306/comments', '--raw-field',
         `body=${acquired.marker}`,
       ],
       [
-        'api', '--method', 'DELETE', 'repos/owner/repo/issues/comments/91',
+        'api', '--method', 'POST', 'repos/owner/repo/issues/8306/comments', '--raw-field',
+        `body=${released.marker}`,
       ],
     ]);
-  });
-
-  it('fails closed when GitHub does not return the created comment id', () => {
-    expect(acquireQuotaFloorLease({
-      repo: 'owner/repo', kind: 'repair', subject: 'pr-9',
-      owner: 'repair:pr-9:run-9:1', expiresAt: 2_000,
-      runCommand: () => '{}',
-    })).toMatchObject({ ok: false, reason: expect.stringContaining('commentId') });
   });
 
   it('does not release a reservation reused from another run', () => {
@@ -172,7 +164,7 @@ describe('shared quota-floor lease ledger', () => {
       runId: 'run-1',
       attempt: '1',
       runJson: () => [],
-      runCommand: (args) => { commands.push(args); return JSON.stringify({ id: 77 }); },
+      runCommand: (args) => { commands.push(args); },
     })).toMatchObject({ admit: true, acquired: true, owned: true, reused: false, owner });
     expect(commands).toHaveLength(1);
 
@@ -190,7 +182,7 @@ describe('shared quota-floor lease ledger', () => {
       runCommand: (args) => { commands.push(args); },
     })).toMatchObject({ admit: true, reason: 'lease released' });
     expect(commands).toHaveLength(2);
-    expect(commands[1]).toEqual(['api', '--method', 'DELETE', 'repos/owner/repo/issues/comments/1']);
+    expect(commands[1].join(' ')).toContain('QUOTA_FLOOR_RELEASE');
 
     expect(quotaFloorLeaseAdmission({
       required: true,

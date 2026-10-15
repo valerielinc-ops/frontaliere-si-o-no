@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-14T21:14:31.759Z",
+  "assembledAt": "2026-10-14T09:17:05.344Z",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.615Z",
+      "crawledAt": "2026-10-14T09:16:59.193Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -64,81 +64,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:41:37.239Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.614Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -185,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.613Z",
+      "crawledAt": "2026-10-14T09:16:59.192Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -260,7 +185,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.612Z",
+      "crawledAt": "2026-10-14T09:16:59.191Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -290,6 +215,81 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:41:37.237Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T09:16:59.189Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -335,7 +335,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.610Z",
+      "crawledAt": "2026-10-14T09:16:59.188Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -423,7 +423,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.608Z",
+      "crawledAt": "2026-10-14T09:16:59.187Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -468,98 +468,6 @@
       }
     },
     {
-      "id": "talan-d96f65b3eb5e",
-      "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne",
-      "slugByLocale": {
-        "it": "consulente-power-bi-microsoft-fabric-talan-lausanne",
-        "en": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
-        "de": "berater-power-bi-microsoft-fabric-talan-lausanne",
-        "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Power BI / Microsoft Fabric",
-      "titleByLocale": {
-        "it": "Consulente Power BI / Microsoft Fabric",
-        "en": "Consultant Power BI / Microsoft Fabric",
-        "de": "Berater Power BI / Microsoft Fabric",
-        "fr": "Consultant Power BI / Microsoft Fabric"
-      },
-      "description": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
-      "descriptionByLocale": {
-        "it": "• Partecipa alla migrazione di report e ambienti Tableau a Power BI / Microsoft Fabric .\n\n• Analizzare l'esistente e contribuire alla definizione delle strategie di migrazione.\n\n• Concentrati sull'utilizzo di Direct Lake per limitare la duplicazione e ottimizzare le prestazioni.\n\n• Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n\n• Progettare ed evolvere i modelli semantici Power BI / Fabric.\n\n• Lavorare con sorgenti e ambienti SQL / Data Warehouse esistenti.\n\n• Assicurare la qualità, le prestazioni e la manutenzione di soluzioni sviluppate.\n\n• Applicare buone pratiche di Git, versionning, CI/CD e gestione dello sviluppo.\n\n• Contribuisci a migliorare le pratiche di collaborazione e governance all'interno del team.\n\n• Partecipa alle fasi di test, validazione e produzione.\n\n• Accompagna gradualmente la migrazione dei vari perimetri funzionali.\n\n• Esperienza significativa come Data Analyst / Power BI Expert .\n\n• Forte esperienza su Microsoft Power BI e Microsoft Fabric.\n\n• Ottima padronanza dei modelli Semantic e dell'architettura Power BI.\n\n• Esperienza concreta di Direct Lake e scenari di migrazione ideale per Fabric.\n\n• Buona conoscenza di SQL / Data Warehouse .\n\n• Mastering buone pratiche Git e versionning .\n\n• Esperienza in ambienti in cui le questioni di governance e collaborazione sono importanti.\n\n• Un'esperienza di migrazione Tableau → Power BI è un vero bene.\n\n• Capacità di lavorare in modo indipendente in un ambiente complesso e che richiede tempo.\n\n• Eccellente postura professionale, capacità di comunicare con persone diverse e lavorare come squadra.\n\n• Livello di esperienza confermata prevista.",
-        "en": "• Participate in the migration of reports and environments Tableau to Power BI / Microsoft Fabric .\n\n• Analyze existing and contribute to the definition of migration strategies.\n\n• Focus on using Direct Lake to limit duplication and optimize performance.\n\n• Use Import mode when technical constraints require an alternative approach.\n\n• Design and evolve the Power BI / Fabric semantic models.\n\n• Work with existing SQL / Data Warehouse sources and environments.\n\n• Ensure the quality, performance and maintenance of developed solutions.\n\n• Apply good practices of Git, versionning, CI/CD and development management .\n\n• Contribute to improving collaborative and governance practices within the team.\n\n• Participate in testing, validation and production phases.\n\n• Gradually accompany the migration of the various functional perimeters.\n\n• Significant experience as Data Analyst / Power BI Expert .\n\n• Strong experience on Microsoft Power BI and Microsoft Fabric.\n\n• Very good mastery of Semantic models and Power BI architecture.\n\n• Concrete experience of Direct Lake and ideally migration scenarios to Fabric.\n\n• Good knowledge of SQL / Data Warehouse .\n\n• Mastering good practices Git and versionning .\n\n• Experience in environments where governance and collaboration issues are important.\n\n• A migration experience Tableau → Power BI is a real asset.\n\n• Ability to work independently in a complex and time-consuming environment.\n\n• Excellent professional posture, ability to communicate with different people and work as a team.\n\n• Level of confirmed expertise expected.",
-        "de": "• Beteiligen Sie sich an der Migration von Berichten und Umgebungen Tableau zu Power BI / Microsoft Fabric .\n\n• Analysieren Sie bestehende und tragen Sie zur Definition von Migrationsstrategien bei.\n\n• Konzentrieren Sie sich auf Direct Lake, um die Duplizierung zu begrenzen und die Leistung zu optimieren.\n\n• Verwenden Sie den Import-Modus, wenn technische Einschränkungen einen alternativen Ansatz erfordern.\n\n• Entwerfen und entwickeln Sie die semantischen Power BI / Fabric-Modelle.\n\n• Arbeiten Sie mit vorhandenen SQL / Data Warehouse Quellen und Umgebungen.\n\n• Gewährleistung der Qualität, Leistung und Wartung der entwickelten Lösungen.\n\n• Wenden Sie gute Praktiken von Git, Versionierung, CI / CD und Entwicklungsmanagement an.\n\n• Beitrag zur Verbesserung der Zusammenarbeit und Governance-Praktiken innerhalb des Teams.\n\n• Beteiligen Sie sich an Test-, Validierungs- und Produktionsphasen.\n\n• Schrittweise begleiten die Migration der verschiedenen funktionellen Perimeter.\n\n• Bedeutende Erfahrung als Data Analyst / Power BI Expert.\n\n• Starke Erfahrung mit Microsoft Power BI und Microsoft Fabric.\n\n• Sehr gute Beherrschung von semantischen Modellen und Power BI Architektur.\n\n• Konkrete Erfahrung von Direct Lake und idealerweise Migrationsszenarien zu Fabric.\n\n• Gute Kenntnisse von SQL / Data Warehouse .\n\n• Beherrschung guter Praktiken Git und Versionierung.\n\n• Erfahrung in Umgebungen, in denen Governance- und Kollaborationsfragen wichtig sind.\n\n• Eine Migrationserfahrung Tableau → Power BI ist ein echtes Asset.\n\n• Fähigkeit, unabhängig in einer komplexen und zeitaufwendigen Umgebung zu arbeiten.\n\n• Ausgezeichnete professionelle Haltung, Fähigkeit, mit verschiedenen Menschen zu kommunizieren und als Team zu arbeiten.\n\n• Erwartetes Niveau bestätigter Fachkenntnisse.",
-        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.607Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Consulenza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T14:26:34.081Z",
-      "postedDate": "2026-09-25T14:26:34.081Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
-      "jobReqId": "744000151868230",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-        "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
-        "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-          "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-        ],
-        "en": [
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-          "power-bi-microsoft-connect-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1829,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.544Z",
-      "salaryMin": 74500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-61c9acf4f11b",
       "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
       "slugByLocale": {
@@ -590,7 +498,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.606Z",
+      "crawledAt": "2026-10-14T09:16:59.186Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -655,9 +563,9 @@
       },
       "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
       "descriptionByLocale": {
-        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\n Ruolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\n Competenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\n Profilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
-        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\n Role & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\n Desired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\n Desired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
-        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\n Rolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\n Gewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\n Profil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
+        "it": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "en": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "de": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
         "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
       },
       "needsRetranslation": false,
@@ -666,7 +574,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.605Z",
+      "crawledAt": "2026-10-14T09:16:59.185Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -734,17 +642,18 @@
       },
       "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
       "descriptionByLocale": {
-        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n ⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
-        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n ⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
-        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n ⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
+        "it": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+        "en": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+        "de": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
         "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
       },
+      "needsRetranslation": true,
       "location": "Geneva, GE, Switzerland",
       "canton": "GE",
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.604Z",
+      "crawledAt": "2026-10-14T09:16:59.183Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -784,6 +693,9 @@
           "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1471,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-04T22:55:58.539Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -800,77 +712,93 @@
       }
     },
     {
-      "id": "talan-031a85eb2771",
-      "slug": "piombo-di-trasformazione-sdlc-agente-talan-meyrin-switzerland",
+      "id": "talan-d96f65b3eb5e",
+      "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne",
       "slugByLocale": {
-        "it": "piombo-di-trasformazione-sdlc-agente-talan-meyrin-switzerland",
-        "en": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
-        "de": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
-        "fr": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+        "it": "consulente-power-bi-microsoft-fabric-talan-lausanne",
+        "en": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+        "de": "berater-power-bi-microsoft-fabric-talan-lausanne",
+        "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Agentic SDLC Transformation Lead",
+      "title": "Consultant Power BI / Microsoft Fabric",
       "titleByLocale": {
-        "it": "Piombo di trasformazione SDLC agente",
-        "en": "Agentic SDLC Transformation Lead",
-        "de": "Agentischer SDLC Transformation Lead",
-        "fr": "Agentic SDLC Transformation Lead"
+        "it": "Consulente Power BI / Microsoft Fabric",
+        "en": "Consultant Power BI / Microsoft Fabric",
+        "de": "Berater Power BI / Microsoft Fabric",
+        "fr": "Consultant Power BI / Microsoft Fabric"
       },
-      "description": "Contexte & Enjeux\n Vous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\n Votre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\n Positionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\n Missions Principales\n Structuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\n Architecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\n Conduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\n Compétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\n Soft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables.",
+      "description": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
       "descriptionByLocale": {
-        "it": "Contesto e questioni\nStai pilotando la mutazione dal ciclo di vita di sviluppo software (SDLC) a un modello industriale potenziato dall'intelligenza artificiale (AI-Driven / Agentic SDLC).\nIl vostro ruolo è quello di orchestrare e registrare una trasformazione delle pratiche ingegneristiche. L'obiettivo: strutturare un moderno quadro metodologico in cui gli sviluppatori e gli agenti IA collaborano in modo senza soluzione di continuità, sicuro e governato, al fine di accelerare la velocità di consegna, aumentando gli standard di qualità del software.\nPosizionato come un vero Leader della Transformation Tech & Change, si collega tra visione strategica, acculturazione del team e implementazione tecnica concreta a terra (hands-on).\nPrincipali missioni\nStruttura del Quadro Metodologico (AI-SDLC)\n\n• Definire e distribuire il telaio di ingegneria aumentata che copre l'intero ciclo di vita:\n• esplorazione automatizzata e mappatura del patrimonio di applicazione esistente.\n\n• Formalizzazione di AI (Specification-Driven Development)-driven specifiche.\n\n• Progettazione architettonica e sviluppo guidato da agenti specializzati.\n\n• Automazione avanzata di ricette, test di accettazione e controllo di qualità.\n\n• Documentazione dinamica e gestione della conoscenza.\n\n• Stabilire standard e regole di governance per garantire la tracciabilità, la ripetibilità, la sicurezza e la scalabilità dei deliverables.\nArchitettura e Orchestrazione degli Agenti\n\n• Modellare un ecosistema di agenti virtuali autonomi e collaborativi adattati alle sfide dei team di sviluppo.\n\n• Strutturare i ruoli, i contesti e le basi di conoscenza manipolate da agenti in ogni fase del ciclo.\n\n• Meccanismi di implementazione dell'orchestrazione, loop di controllo umano ( Human-in-the-loop) e handoff inter-step.\n\n• Fornire un quadro finanziario per il consumo di modelli e la gestione dei gettoni (TokenOps).\nCondotta del cambiamento e dell'adozione della scala\n\n• Incarnate CTO postura all'accultura, convincere e unire i team di ingegneria intorno alle nuove pratiche.\n\n• Dimostratori di progettazione, POC e casi di utilizzo ad alto impatto per dimostrare valore sul terreno.\n\n• Distribuire il quadro per i team pilota, quindi strutturare la sua generalizzazione in scala (creazione di una base di componenti riutilizzabili, modelli, directory di riferimento).\n\n• Identificare e rimuovere barriere organizzative, tecniche o culturali all'adozione di AI.\n\n& esperienza\n\n• 10+ anni di esperienza globale in ingegneria del software, architettura del sistema o direzione tecnica (SVP/VP Engineering, organizzazione CTO, responsabile della tecnologia).\n\n• Esperienza nel pilotare grandi trasformazioni ingegneristiche (deployment di DevOps, Platform Engineering o Agility in scala).\n\n• Pratica pratica pratica (hands-on) e padronanza delle tecnologie AI Generali applicate allo sviluppo del computer.\nPrincipali competenze tecniche\n\n• Architettura & Ingegneria: Architettura del software, SDLC, DevOps, IC/CD, automazione dei test.\n\n• IA General & Agents: LLM (integrazione, limiti), sistemi multi-agenti / agenti autonomi, RAG (generazione rinforzata), Prompt Engineering, Context Engineering.\n\n• Governance Tech: TokenOps, FinOps IA, qualità e sicurezza del codice generato.\nSoft Skills & Leadership\n\n• Posture CTO & Strategic Vision: Capacità di sfidare lo status quo, strutturare una visione tecnica e declinarla operativamente.\n\n• Leadership & Leadership of Change: comunicazione eccellente, in grado di assumere gli sviluppatori senior come decisori, animare le comunità e soffiare serrature di adozione.\n\n• Spirito di innovazione & Pragmatismo: risultati di Oriented, con un forte desiderio di convertire i prototipi in capacità industriali ripetibili.",
-        "en": "Context & Issues\nYou are piloting the mutation from the software development life cycle (SDLC) to an industrial model enhanced by Artificial Intelligence (AI-Driven / Agentic SDLC).\nYour role is to orchestrate and record a transformation of engineering practices. The objective: to structure a modern methodological framework where IA developers and agents collaborate in a seamless, secure and governed way, in order to speed up delivery speed while raising software quality standards.\nPositioned as a true Leader of Transformation Tech & Change, you bridge between strategic vision, team acculturation and concrete technical implementation on the ground (hands-on).\nMain missions\nStructure of the Methodological Framework (AI-SDLC)\n\n• Define and deploy the augmented engineering frame covering the entire life cycle:\n• Automated exploration and mapping of existing application heritage.\n\n• Formalization of AI (Specification-Driven Development)-driven specifications.\n\n• Architectural design and development guided by specialized agents.\n\n• Advanced automation of recipes, acceptance tests and quality control.\n\n• Dynamic Documentation and Knowledge Management.\n\n• Establish governance standards and rules to ensure traceability, repeatability, security and scalability of deliverables.\nArchitecture & Orchestration of Agents\n\n• Model an ecosystem of autonomous and collaborative virtual agents adapted to the challenges of dev teams.\n\n• Structure the roles, contexts and knowledge bases manipulated by agents at each stage of the cycle.\n\n• Implement orchestration mechanisms, human control loops ( Human-in-the-loop) and inter-step handoffs.\n\n• Provide financial framework for model consumption and token management (TokenOps).\nConduct of Change & Scale Adoption\n\n• Incarnate CTO posture to acculture, convince and unite engineering teams around new practices.\n\n• Design demonstrators, POCs and high impact use cases to prove value on the ground.\n\n• Deploy the framework to pilot teams, then structure its generalization at scale (creation of a base of reusable components, templates, reference directories).\n\n• Identify and remove organizational, technical or cultural barriers to the adoption of AI.\n\n& Experience\n\n• 10+ years of global experience in software engineering, system architecture or technical direction (SVP/VP Engineering, CTO organization, Head of Tech).\n\n• Experience in piloting large-scale engineering transformations (deployment of DevOps, Platform Engineering or Agility at scale).\n\n• Practical practice (hands-on) and mastery of AI General technologies applied to computer development.\nKey Technical Skills\n\n• Architecture & Engineering: Software Architecture, SDLC, DevOps, IC/CD, testing automation.\n\n• IA General & Agents: LLMs (integration, limits), multi-agent systems / autonomous agents, RAG (Retrival-Augmented Generation), Prompt Engineering, Context Engineering.\n\n• Governance Tech: TokenOps, FinOps IA, quality and security of the generated code.\nSoft Skills & Leadership\n\n• Posture CTO & Strategic Vision: Ability to challenge the status quo, structure a technical vision and operationally decline it.\n\n• Leadership & Leadership of Change: Excellent communication, capable of hiring senior developers as decision makers, animating communities and blowing up adoption locks.\n\n• Spirit of innovation & Pragmatism: Oriented results, with a strong desire to convert prototypes into repeatable industrial capabilities.",
-        "de": "Kontext & Themen\nSie pilotieren die Mutation vom Software Development Life Cycle (SDLC) zu einem Industriemodell, das durch Künstliche Intelligenz (AI-Driven / Agentic SDLC) verbessert wird.\nIhre Rolle ist es, eine Transformation der Ingenieurpraktiken zu orchestrieren und aufzuzeichnen. Ziel ist es, ein modernes methodisches Framework zu strukturieren, in dem IA-Entwickler und Agenten nahtlos, sicher und geregelt zusammenarbeiten, um die Liefergeschwindigkeit zu beschleunigen und gleichzeitig die Qualitätsstandards der Software zu erhöhen.\nAls echter Leader von Transformation Tech & Change schlagen Sie eine Brücke zwischen strategischer Vision, Teamakkulturation und konkreter technischer Umsetzung vor Ort (hands-on).\nHauptmissionen\nStruktur des Methodological Framework (AI-SDLC)\n\n• Definieren und implementieren Sie den Augmented Engineering Frame, der den gesamten Lebenszyklus abdeckt:\n• Automatisierte Erkundung und Kartierung des bestehenden Anwendungserbes.\n\n• Formalisierung von AI (Specification-Driven Development)-gesteuerten Spezifikationen.\n\n• Architektonisches Design und Entwicklung von spezialisierten Agenten geführt.\n\n• Fortschrittliche Automatisierung von Rezepturen, Akzeptanztests und Qualitätskontrolle.\n\n• Dynamische Dokumentation und Wissensmanagement.\n\n• Festlegung von Governance-Standards und -Regeln, um die Rückverfolgbarkeit, Wiederholbarkeit, Sicherheit und Skalierbarkeit der Ergebnisse zu gewährleisten.\nArchitektur & Orchestrierung von Agenten\n\n• Modellieren Sie ein Ökosystem aus autonomen und kollaborativen virtuellen Agenten, das an die Herausforderungen von Entwicklerteams angepasst ist.\n\n• Strukturieren Sie die Rollen, Kontexte und Wissensdatenbanken, die von Agenten in jeder Phase des Zyklus manipuliert werden.\n\n• Implementieren Sie Orchestrierungsmechanismen, menschliche Kontrollschleifen (Human-in-the-Loop) und Inter-Step-Handoffs.\n\n• Finanzrahmen für Modellverbrauch und Token-Management (TokenOps).\nVerhalten von Change & Scale Adoption\n\n• Inkarnierte CTO-Haltung zur Kultur, überzeugen und vereinen Engineering-Teams um neue Praktiken.\n\n• Entwerfen Sie Demonstratoren, POCs und hochwirksame Anwendungsfälle, um den Wert vor Ort nachzuweisen.\n\n• Stellen Sie das Framework für Pilotteams bereit und strukturieren Sie seine Generalisierung maßstäblich (Erstellen einer Basis von wiederverwendbaren Komponenten, Vorlagen, Referenzverzeichnissen).\n\n• Identifizieren und entfernen Sie organisatorische, technische oder kulturelle Barrieren für die Einführung von KI.\n\n& Erfahrung\n\n• 10+ Jahre globale Erfahrung in Software Engineering, Systemarchitektur oder technischer Ausrichtung (SVP / VP Engineering, CTO-Organisation, Head of Tech).\n\n• Erfahrung in der Pilotierung groß angelegter Engineering-Transformationen (Deployment von DevOps, Platform Engineering oder Agility at Scale).\n\n• Praktische Praxis (Hands-on) und Beherrschung von AI General-Technologien für die Computerentwicklung.\nTechnische Schlüsselkompetenzen\n\n• Architektur & Engineering: Softwarearchitektur, SDLC, DevOps, IC/CD, Testautomatisierung.\n\n• IA General & Agents: LLMs (Integration, Limits), Multiagentensysteme / autonome Agenten, RAG (Retrival-Augmented Generation), Prompt Engineering, Context Engineering.\n\n• Governance Tech: TokenOps, FinOps IA, Qualität und Sicherheit des generierten Codes.\nSoft Skills & Leadership\n\n• Posture CTO & Strategic Vision: Fähigkeit, den Status Quo herauszufordern, eine technische Vision zu strukturieren und operativ abzulehnen.\n\n• Leadership & Leadership of Change: Ausgezeichnete Kommunikation, in der Lage, leitende Entwickler als Entscheidungsträger einzustellen, Gemeinschaften zu animieren und Adoptionssperren zu sprengen.\n\n• Geist der Innovation & Pragmatismus: Orientierte Ergebnisse, mit dem starken Wunsch, Prototypen in wiederholbare industrielle Fähigkeiten umzuwandeln.",
-        "fr": "Contexte & Enjeux\nVous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\nVotre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\nPositionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\nMissions Principales\nStructuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\nArchitecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\nConduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\nCompétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\nSoft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables."
+        "it": "• Partecipa alla migrazione di report e ambienti Tableau a Power BI / Microsoft Fabric .\n\n• Analizzare l'esistente e contribuire alla definizione delle strategie di migrazione.\n\n• Concentrati sull'utilizzo di Direct Lake per limitare la duplicazione e ottimizzare le prestazioni.\n\n• Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n\n• Progettare ed evolvere i modelli semantici Power BI / Fabric.\n\n• Lavorare con sorgenti e ambienti SQL / Data Warehouse esistenti.\n\n• Assicurare la qualità, le prestazioni e la manutenzione di soluzioni sviluppate.\n\n• Applicare buone pratiche di Git, versionning, CI/CD e gestione dello sviluppo.\n\n• Contribuisci a migliorare le pratiche di collaborazione e governance all'interno del team.\n\n• Partecipa alle fasi di test, validazione e produzione.\n\n• Accompagna gradualmente la migrazione dei vari perimetri funzionali.\n\n• Esperienza significativa come Data Analyst / Power BI Expert .\n\n• Forte esperienza su Microsoft Power BI e Microsoft Fabric.\n\n• Ottima padronanza dei modelli Semantic e dell'architettura Power BI.\n\n• Esperienza concreta di Direct Lake e scenari di migrazione ideale per Fabric.\n\n• Buona conoscenza di SQL / Data Warehouse .\n\n• Mastering buone pratiche Git e versionning .\n\n• Esperienza in ambienti in cui le questioni di governance e collaborazione sono importanti.\n\n• Un'esperienza di migrazione Tableau → Power BI è un vero bene.\n\n• Capacità di lavorare in modo indipendente in un ambiente complesso e che richiede tempo.\n\n• Eccellente postura professionale, capacità di comunicare con persone diverse e lavorare come squadra.\n\n• Livello di esperienza confermata prevista.",
+        "en": "• Participate in the migration of reports and environments Tableau to Power BI / Microsoft Fabric .\n\n• Analyze existing and contribute to the definition of migration strategies.\n\n• Focus on using Direct Lake to limit duplication and optimize performance.\n\n• Use Import mode when technical constraints require an alternative approach.\n\n• Design and evolve the Power BI / Fabric semantic models.\n\n• Work with existing SQL / Data Warehouse sources and environments.\n\n• Ensure the quality, performance and maintenance of developed solutions.\n\n• Apply good practices of Git, versionning, CI/CD and development management .\n\n• Contribute to improving collaborative and governance practices within the team.\n\n• Participate in testing, validation and production phases.\n\n• Gradually accompany the migration of the various functional perimeters.\n\n• Significant experience as Data Analyst / Power BI Expert .\n\n• Strong experience on Microsoft Power BI and Microsoft Fabric.\n\n• Very good mastery of Semantic models and Power BI architecture.\n\n• Concrete experience of Direct Lake and ideally migration scenarios to Fabric.\n\n• Good knowledge of SQL / Data Warehouse .\n\n• Mastering good practices Git and versionning .\n\n• Experience in environments where governance and collaboration issues are important.\n\n• A migration experience Tableau → Power BI is a real asset.\n\n• Ability to work independently in a complex and time-consuming environment.\n\n• Excellent professional posture, ability to communicate with different people and work as a team.\n\n• Level of confirmed expertise expected.",
+        "de": "• Beteiligen Sie sich an der Migration von Berichten und Umgebungen Tableau zu Power BI / Microsoft Fabric .\n\n• Analysieren Sie bestehende und tragen Sie zur Definition von Migrationsstrategien bei.\n\n• Konzentrieren Sie sich auf Direct Lake, um die Duplizierung zu begrenzen und die Leistung zu optimieren.\n\n• Verwenden Sie den Import-Modus, wenn technische Einschränkungen einen alternativen Ansatz erfordern.\n\n• Entwerfen und entwickeln Sie die semantischen Power BI / Fabric-Modelle.\n\n• Arbeiten Sie mit vorhandenen SQL / Data Warehouse Quellen und Umgebungen.\n\n• Gewährleistung der Qualität, Leistung und Wartung der entwickelten Lösungen.\n\n• Wenden Sie gute Praktiken von Git, Versionierung, CI / CD und Entwicklungsmanagement an.\n\n• Beitrag zur Verbesserung der Zusammenarbeit und Governance-Praktiken innerhalb des Teams.\n\n• Beteiligen Sie sich an Test-, Validierungs- und Produktionsphasen.\n\n• Schrittweise begleiten die Migration der verschiedenen funktionellen Perimeter.\n\n• Bedeutende Erfahrung als Data Analyst / Power BI Expert.\n\n• Starke Erfahrung mit Microsoft Power BI und Microsoft Fabric.\n\n• Sehr gute Beherrschung von semantischen Modellen und Power BI Architektur.\n\n• Konkrete Erfahrung von Direct Lake und idealerweise Migrationsszenarien zu Fabric.\n\n• Gute Kenntnisse von SQL / Data Warehouse .\n\n• Beherrschung guter Praktiken Git und Versionierung.\n\n• Erfahrung in Umgebungen, in denen Governance- und Kollaborationsfragen wichtig sind.\n\n• Eine Migrationserfahrung Tableau → Power BI ist ein echtes Asset.\n\n• Fähigkeit, unabhängig in einer komplexen und zeitaufwendigen Umgebung zu arbeiten.\n\n• Ausgezeichnete professionelle Haltung, Fähigkeit, mit verschiedenen Menschen zu kommunizieren und als Team zu arbeiten.\n\n• Erwartetes Niveau bestätigter Fachkenntnisse.",
+        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
       },
       "needsRetranslation": true,
-      "location": "Meyrin, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:14:25.599Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "postalCode": "1217",
+      "crawledAt": "2026-10-14T09:16:59.182Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
       "streetAddress": "",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "IT",
+      "category": "Consulenza",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-09T15:28:40.374Z",
-      "postedDate": "2026-10-09T15:28:40.374Z",
+      "datePosted": "2026-09-25T14:26:34.081Z",
+      "postedDate": "2026-09-25T14:26:34.081Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
-      "jobReqId": "744000154716380",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
+      "jobReqId": "744000151868230",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+        "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+          "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+        ],
+        "en": [
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "power-bi-microsoft-connect-talan-lausanne-vd-switzerland"
         ]
       },
-      "firstSeenAt": "2026-10-09T21:16:06.909Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1829,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.544Z",
+      "salaryMin": 74500,
+      "salaryMax": 118500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
+          "minValue": 74500,
+          "maxValue": 118500,
           "unitText": "YEAR"
         }
       }
@@ -951,8 +879,83 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "talan-031a85eb2771",
+      "slug": "piombo-di-trasformazione-sdlc-agente-talan-meyrin-switzerland",
+      "slugByLocale": {
+        "it": "piombo-di-trasformazione-sdlc-agente-talan-meyrin-switzerland",
+        "en": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+        "de": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+        "fr": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
       },
-      "crawlerMissStreak": 1
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Agentic SDLC Transformation Lead",
+      "titleByLocale": {
+        "it": "Piombo di trasformazione SDLC agente",
+        "en": "Agentic SDLC Transformation Lead",
+        "de": "Agentischer SDLC Transformation Lead",
+        "fr": "Agentic SDLC Transformation Lead"
+      },
+      "description": "Contexte & Enjeux\n Vous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\n Votre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\n Positionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\n Missions Principales\n Structuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\n Architecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\n Conduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\n Compétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\n Soft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables.",
+      "descriptionByLocale": {
+        "it": "Contesto e questioni\nStai pilotando la mutazione dal ciclo di vita di sviluppo software (SDLC) a un modello industriale potenziato dall'intelligenza artificiale (AI-Driven / Agentic SDLC).\nIl vostro ruolo è quello di orchestrare e registrare una trasformazione delle pratiche ingegneristiche. L'obiettivo: strutturare un moderno quadro metodologico in cui gli sviluppatori e gli agenti IA collaborano in modo senza soluzione di continuità, sicuro e governato, al fine di accelerare la velocità di consegna, aumentando gli standard di qualità del software.\nPosizionato come un vero Leader della Transformation Tech & Change, si collega tra visione strategica, acculturazione del team e implementazione tecnica concreta a terra (hands-on).\nPrincipali missioni\nStruttura del Quadro Metodologico (AI-SDLC)\n\n• Definire e distribuire il telaio di ingegneria aumentata che copre l'intero ciclo di vita:\n• esplorazione automatizzata e mappatura del patrimonio di applicazione esistente.\n\n• Formalizzazione di AI (Specification-Driven Development)-driven specifiche.\n\n• Progettazione architettonica e sviluppo guidato da agenti specializzati.\n\n• Automazione avanzata di ricette, test di accettazione e controllo di qualità.\n\n• Documentazione dinamica e gestione della conoscenza.\n\n• Stabilire standard e regole di governance per garantire la tracciabilità, la ripetibilità, la sicurezza e la scalabilità dei deliverables.\nArchitettura e Orchestrazione degli Agenti\n\n• Modellare un ecosistema di agenti virtuali autonomi e collaborativi adattati alle sfide dei team di sviluppo.\n\n• Strutturare i ruoli, i contesti e le basi di conoscenza manipolate da agenti in ogni fase del ciclo.\n\n• Meccanismi di implementazione dell'orchestrazione, loop di controllo umano ( Human-in-the-loop) e handoff inter-step.\n\n• Fornire un quadro finanziario per il consumo di modelli e la gestione dei gettoni (TokenOps).\nCondotta del cambiamento e dell'adozione della scala\n\n• Incarnate CTO postura all'accultura, convincere e unire i team di ingegneria intorno alle nuove pratiche.\n\n• Dimostratori di progettazione, POC e casi di utilizzo ad alto impatto per dimostrare valore sul terreno.\n\n• Distribuire il quadro per i team pilota, quindi strutturare la sua generalizzazione in scala (creazione di una base di componenti riutilizzabili, modelli, directory di riferimento).\n\n• Identificare e rimuovere barriere organizzative, tecniche o culturali all'adozione di AI.\n\n& esperienza\n\n• 10+ anni di esperienza globale in ingegneria del software, architettura del sistema o direzione tecnica (SVP/VP Engineering, organizzazione CTO, responsabile della tecnologia).\n\n• Esperienza nel pilotare grandi trasformazioni ingegneristiche (deployment di DevOps, Platform Engineering o Agility in scala).\n\n• Pratica pratica pratica (hands-on) e padronanza delle tecnologie AI Generali applicate allo sviluppo del computer.\nPrincipali competenze tecniche\n\n• Architettura & Ingegneria: Architettura del software, SDLC, DevOps, IC/CD, automazione dei test.\n\n• IA General & Agents: LLM (integrazione, limiti), sistemi multi-agenti / agenti autonomi, RAG (generazione rinforzata), Prompt Engineering, Context Engineering.\n\n• Governance Tech: TokenOps, FinOps IA, qualità e sicurezza del codice generato.\nSoft Skills & Leadership\n\n• Posture CTO & Strategic Vision: Capacità di sfidare lo status quo, strutturare una visione tecnica e declinarla operativamente.\n\n• Leadership & Leadership of Change: comunicazione eccellente, in grado di assumere gli sviluppatori senior come decisori, animare le comunità e soffiare serrature di adozione.\n\n• Spirito di innovazione & Pragmatismo: risultati di Oriented, con un forte desiderio di convertire i prototipi in capacità industriali ripetibili.",
+        "en": "Context & Issues\nYou are piloting the mutation from the software development life cycle (SDLC) to an industrial model enhanced by Artificial Intelligence (AI-Driven / Agentic SDLC).\nYour role is to orchestrate and record a transformation of engineering practices. The objective: to structure a modern methodological framework where IA developers and agents collaborate in a seamless, secure and governed way, in order to speed up delivery speed while raising software quality standards.\nPositioned as a true Leader of Transformation Tech & Change, you bridge between strategic vision, team acculturation and concrete technical implementation on the ground (hands-on).\nMain missions\nStructure of the Methodological Framework (AI-SDLC)\n\n• Define and deploy the augmented engineering frame covering the entire life cycle:\n• Automated exploration and mapping of existing application heritage.\n\n• Formalization of AI (Specification-Driven Development)-driven specifications.\n\n• Architectural design and development guided by specialized agents.\n\n• Advanced automation of recipes, acceptance tests and quality control.\n\n• Dynamic Documentation and Knowledge Management.\n\n• Establish governance standards and rules to ensure traceability, repeatability, security and scalability of deliverables.\nArchitecture & Orchestration of Agents\n\n• Model an ecosystem of autonomous and collaborative virtual agents adapted to the challenges of dev teams.\n\n• Structure the roles, contexts and knowledge bases manipulated by agents at each stage of the cycle.\n\n• Implement orchestration mechanisms, human control loops ( Human-in-the-loop) and inter-step handoffs.\n\n• Provide financial framework for model consumption and token management (TokenOps).\nConduct of Change & Scale Adoption\n\n• Incarnate CTO posture to acculture, convince and unite engineering teams around new practices.\n\n• Design demonstrators, POCs and high impact use cases to prove value on the ground.\n\n• Deploy the framework to pilot teams, then structure its generalization at scale (creation of a base of reusable components, templates, reference directories).\n\n• Identify and remove organizational, technical or cultural barriers to the adoption of AI.\n\n& Experience\n\n• 10+ years of global experience in software engineering, system architecture or technical direction (SVP/VP Engineering, CTO organization, Head of Tech).\n\n• Experience in piloting large-scale engineering transformations (deployment of DevOps, Platform Engineering or Agility at scale).\n\n• Practical practice (hands-on) and mastery of AI General technologies applied to computer development.\nKey Technical Skills\n\n• Architecture & Engineering: Software Architecture, SDLC, DevOps, IC/CD, testing automation.\n\n• IA General & Agents: LLMs (integration, limits), multi-agent systems / autonomous agents, RAG (Retrival-Augmented Generation), Prompt Engineering, Context Engineering.\n\n• Governance Tech: TokenOps, FinOps IA, quality and security of the generated code.\nSoft Skills & Leadership\n\n• Posture CTO & Strategic Vision: Ability to challenge the status quo, structure a technical vision and operationally decline it.\n\n• Leadership & Leadership of Change: Excellent communication, capable of hiring senior developers as decision makers, animating communities and blowing up adoption locks.\n\n• Spirit of innovation & Pragmatism: Oriented results, with a strong desire to convert prototypes into repeatable industrial capabilities.",
+        "de": "Kontext & Themen\nSie pilotieren die Mutation vom Software Development Life Cycle (SDLC) zu einem Industriemodell, das durch Künstliche Intelligenz (AI-Driven / Agentic SDLC) verbessert wird.\nIhre Rolle ist es, eine Transformation der Ingenieurpraktiken zu orchestrieren und aufzuzeichnen. Ziel ist es, ein modernes methodisches Framework zu strukturieren, in dem IA-Entwickler und Agenten nahtlos, sicher und geregelt zusammenarbeiten, um die Liefergeschwindigkeit zu beschleunigen und gleichzeitig die Qualitätsstandards der Software zu erhöhen.\nAls echter Leader von Transformation Tech & Change schlagen Sie eine Brücke zwischen strategischer Vision, Teamakkulturation und konkreter technischer Umsetzung vor Ort (hands-on).\nHauptmissionen\nStruktur des Methodological Framework (AI-SDLC)\n\n• Definieren und implementieren Sie den Augmented Engineering Frame, der den gesamten Lebenszyklus abdeckt:\n• Automatisierte Erkundung und Kartierung des bestehenden Anwendungserbes.\n\n• Formalisierung von AI (Specification-Driven Development)-gesteuerten Spezifikationen.\n\n• Architektonisches Design und Entwicklung von spezialisierten Agenten geführt.\n\n• Fortschrittliche Automatisierung von Rezepturen, Akzeptanztests und Qualitätskontrolle.\n\n• Dynamische Dokumentation und Wissensmanagement.\n\n• Festlegung von Governance-Standards und -Regeln, um die Rückverfolgbarkeit, Wiederholbarkeit, Sicherheit und Skalierbarkeit der Ergebnisse zu gewährleisten.\nArchitektur & Orchestrierung von Agenten\n\n• Modellieren Sie ein Ökosystem aus autonomen und kollaborativen virtuellen Agenten, das an die Herausforderungen von Entwicklerteams angepasst ist.\n\n• Strukturieren Sie die Rollen, Kontexte und Wissensdatenbanken, die von Agenten in jeder Phase des Zyklus manipuliert werden.\n\n• Implementieren Sie Orchestrierungsmechanismen, menschliche Kontrollschleifen (Human-in-the-Loop) und Inter-Step-Handoffs.\n\n• Finanzrahmen für Modellverbrauch und Token-Management (TokenOps).\nVerhalten von Change & Scale Adoption\n\n• Inkarnierte CTO-Haltung zur Kultur, überzeugen und vereinen Engineering-Teams um neue Praktiken.\n\n• Entwerfen Sie Demonstratoren, POCs und hochwirksame Anwendungsfälle, um den Wert vor Ort nachzuweisen.\n\n• Stellen Sie das Framework für Pilotteams bereit und strukturieren Sie seine Generalisierung maßstäblich (Erstellen einer Basis von wiederverwendbaren Komponenten, Vorlagen, Referenzverzeichnissen).\n\n• Identifizieren und entfernen Sie organisatorische, technische oder kulturelle Barrieren für die Einführung von KI.\n\n& Erfahrung\n\n• 10+ Jahre globale Erfahrung in Software Engineering, Systemarchitektur oder technischer Ausrichtung (SVP / VP Engineering, CTO-Organisation, Head of Tech).\n\n• Erfahrung in der Pilotierung groß angelegter Engineering-Transformationen (Deployment von DevOps, Platform Engineering oder Agility at Scale).\n\n• Praktische Praxis (Hands-on) und Beherrschung von AI General-Technologien für die Computerentwicklung.\nTechnische Schlüsselkompetenzen\n\n• Architektur & Engineering: Softwarearchitektur, SDLC, DevOps, IC/CD, Testautomatisierung.\n\n• IA General & Agents: LLMs (Integration, Limits), Multiagentensysteme / autonome Agenten, RAG (Retrival-Augmented Generation), Prompt Engineering, Context Engineering.\n\n• Governance Tech: TokenOps, FinOps IA, Qualität und Sicherheit des generierten Codes.\nSoft Skills & Leadership\n\n• Posture CTO & Strategic Vision: Fähigkeit, den Status Quo herauszufordern, eine technische Vision zu strukturieren und operativ abzulehnen.\n\n• Leadership & Leadership of Change: Ausgezeichnete Kommunikation, in der Lage, leitende Entwickler als Entscheidungsträger einzustellen, Gemeinschaften zu animieren und Adoptionssperren zu sprengen.\n\n• Geist der Innovation & Pragmatismus: Orientierte Ergebnisse, mit dem starken Wunsch, Prototypen in wiederholbare industrielle Fähigkeiten umzuwandeln.",
+        "fr": "Contexte & Enjeux\nVous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\nVotre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\nPositionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\nMissions Principales\nStructuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\nArchitecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\nConduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\nCompétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\nSoft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables."
+      },
+      "needsRetranslation": true,
+      "location": "Meyrin, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T09:16:59.175Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "postalCode": "1217",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-09T15:28:40.374Z",
+      "postedDate": "2026-10-09T15:28:40.374Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
+      "jobReqId": "744000154716380",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-09T21:16:06.909Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

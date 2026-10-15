@@ -2754,7 +2754,12 @@ function employerBrandPath(
   const key = String(employerKey).toLowerCase();
   // Priority 1: EMPLOYER_BRANDS curated registry.
   for (const brand of Object.values(EMPLOYER_BRANDS)) {
-    if (brand.brandKey === key || brand.aliases?.includes(key)) {
+    if (
+      brand.brandKey === key ||
+      brand.brandKey === key.replace(/-/g, '') ||
+      key.includes(brand.brandKey) ||
+      brand.brandKey.includes(key.split('-')[0])
+    ) {
       return `/cerca-lavoro-ticino/azienda-${brand.brandKey}/`;
     }
   }

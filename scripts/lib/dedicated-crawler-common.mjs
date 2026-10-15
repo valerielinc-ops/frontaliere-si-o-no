@@ -5679,13 +5679,11 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
   // The Swiss Timing central board keeps the listing path
   // (`/company/job-offers`) for detail pages and identifies the vacancy with
   // `?company=<id>&job=<id>`. The path alone is still a listing; only the
-  // numeric detail query makes it a job page. Company 81 is Swiss Timing LTD
-  // in Corgémont; company 138 is the German subsidiary in Leipzig and must
-  // not consume the slow detail-fetch budget of this Swiss-only crawler.
+  // numeric detail query makes it a job page.
   const isSwissTimingDetail =
     (host === 'swisstiming.com' || host.endsWith('.swisstiming.com')) &&
     /^\/company\/job-offers\/?$/.test(parsedUrl?.pathname || '') &&
-    parsedUrl?.searchParams.get('company') === '81' &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('company') || '') &&
     /^\d+$/.test(parsedUrl?.searchParams.get('job') || '');
   if (isSwissTimingDetail) return true;
   // Galenica's Solique SPA keeps the localized listing path and identifies a

@@ -724,6 +724,7 @@ jobs:
           CODEX_FALLBACK_MODE: '1'
           QUOTA_FLOOR_REQUIRED: '1'
           QUOTA_FLOOR_KIND: issue-fix
+          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
           QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
         # STRUCTURAL fix per l'escalation misurata sul tracker #1951 (failure-rate
         # issue-fix acceso da ≥7 report settimanali consecutivi). Scaricando i log
@@ -1956,6 +1957,7 @@ jobs:
           QUOTA_FLOOR_REQUIRED: '1'
           QUOTA_FLOOR_ACTION: release
           QUOTA_FLOOR_KIND: issue-fix
+          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
           QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
           QUOTA_FLOOR_OWNER: ${{ steps.quota.outputs.quota_floor_lease_owner }}
         run: node scripts/ci/check-quota-backoff.mjs

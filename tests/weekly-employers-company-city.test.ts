@@ -572,39 +572,6 @@ describe('renderCompanyCityPage', () => {
     expect(html).toContain('/cerca-lavoro-ticino/azienda-');
   });
 
-  const renderWithEmployerKey = (employerKey: string, employer: string) =>
-    renderCompanyCityPage({
-      ...fixture,
-      companySlug: employerKey,
-      canonicalPath: buildCompanyCityCurrentPath('it', 'lugano', employerKey),
-      stats: {
-        ...fixture.stats,
-        companySlug: employerKey,
-        employer,
-        employerKey,
-      },
-    });
-
-  it('keeps the Lidl brand link through its explicit employer-key alias', () => {
-    const html = renderWithEmployerKey('lidl-svizzera', 'Lidl Svizzera');
-    expect(html).toContain('href="/cerca-lavoro-ticino/azienda-lidl/"');
-  });
-
-  it('keeps the Manor brand link through its explicit employer-key alias', () => {
-    const html = renderWithEmployerKey('manor', 'Manor AG');
-    expect(html).toContain('href="/cerca-lavoro-ticino/azienda-manor-ag/"');
-  });
-
-  it('does not link the canton-ticino-osc employer to the EOC brand hub', () => {
-    const html = renderWithEmployerKey(
-      'canton-ticino-osc',
-      'Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino',
-    );
-    expect(html).not.toContain(
-      'href="/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/"',
-    );
-  });
-
   it('links back to the parent F5 city hub', () => {
     const html = renderCompanyCityPage(fixture);
     expect(html).toContain('/aziende-che-assumono/lugano/settimana-corrente/');

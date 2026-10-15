@@ -4,7 +4,6 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { readPublishedBlogCoverBytes } from '../scripts/lib/published-blog-cover-bytes.mjs';
 
 const ROOT = process.cwd();
 const SCRIPT = path.join(ROOT, 'scripts/audit/sync-published-blog-covers.mjs');
@@ -13,20 +12,15 @@ const roots: string[] = [];
 const SOURCE_COMMIT = 'a'.repeat(40);
 const IMAGE = '/images/blog/new-cover.webp';
 const IMAGE_BYTES = Buffer.from('cover-bytes');
-const REAL_KEY = 'bollettino-frontaliere-2026-08-10';
-const REAL_IMAGE = `/images/blog/${REAL_KEY}.webp`;
 
 function sha256(bytes: Buffer) {
   return createHash('sha256').update(bytes).digest('hex');
 }
 
-function generatedRecord(
-  sha = sha256(IMAGE_BYTES),
-  { assetId = 'new-cover', imageUrl = IMAGE, bytes = IMAGE_BYTES.length } = {},
-) {
+function generatedRecord(sha = sha256(IMAGE_BYTES)) {
   return {
     schema: 1,
-    assetId,
+    assetId: 'new-cover',
     kind: 'generated',
     provider: 'openai-codex',
     model: 'gpt-image-2.5',
@@ -37,7 +31,7 @@ function generatedRecord(
     licenseUrl: 'https://openai.com/policies/terms-of-use/',
     credit: 'frontaliereticino.ch',
     sha256: sha,
-    bytes,
+    bytes: IMAGE_BYTES.length,
     width: 1200,
     height: 675,
     format: 'webp',
@@ -51,7 +45,7 @@ function generatedRecord(
       'no-specific-real-event-photojournalism',
     ],
     scope: 'article-hero',
-    imageUrl,
+    imageUrl: IMAGE,
     category: 'blog',
     area: 'Ticino and the Swiss Italian border region',
     season: 'all seasons',
@@ -126,31 +120,6 @@ function validPrivateGrantEvidence() {
   return record;
 }
 
-function deterministicCardEvidence(
-  sha = sha256(IMAGE_BYTES),
-  bytes = IMAGE_BYTES.length,
-  { assetId = 'new-cover', imageUrl = IMAGE } = {},
-) {
-  return {
-    schema: 1,
-    assetId,
-    source: 'deterministic-card',
-    provider: 'site-owned',
-    note: 'Deterministic SVG card rendered by the repository; no external image provider is used.',
-    credit: 'frontaliereticino.ch',
-    producer: 'generator/scripts/lib/daily-brief-image.mjs',
-    templateVersion: 'frontaliereticino.daily-brief-card.v1',
-    license: 'private-grant',
-    sha256: sha,
-    bytes,
-    width: 1200,
-    height: 675,
-    format: 'webp',
-    scope: 'article-hero',
-    imageUrl,
-  };
-}
-
 function validPexelsEvidence() {
   return {
     schema: 1,
@@ -219,19 +188,19 @@ function generatedCreditRecord(generated: ReturnType<typeof generatedRecord>) {
   };
 }
 
-function addGeneratedEvidence(root: string, sha?: string, options = {}) {
-  const generated = generatedRecord(sha, options);
+function addGeneratedEvidence(root: string, sha?: string) {
+  const generated = generatedRecord(sha);
   fs.writeFileSync(path.join(root, 'data/published-blog-generated-image-evidence.json'), `${JSON.stringify({
     schema: 1,
     commit: SOURCE_COMMIT,
     generated: { [generated.imageUrl]: generated },
   }, null, 2)}\n`);
-  const recordPath = path.join(root, `packages/articles/content/image-credits/blog/${generated.assetId}.json`);
+  const recordPath = path.join(root, 'packages/articles/content/image-credits/blog/new-cover.json');
   fs.mkdirSync(path.dirname(recordPath), { recursive: true });
   fs.writeFileSync(recordPath, `${JSON.stringify(generatedCreditRecord(generated), null, 2)}\n`);
 }
 
-function fixture({ withImage = true, key = 'new-cover', image = IMAGE, imageBytes = IMAGE_BYTES } = {}) {
+function fixture({ withImage = true } = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'sync-blog-covers-'));
   roots.push(root);
   fs.mkdirSync(path.join(root, 'packages/articles/content'), { recursive: true });
@@ -239,11 +208,11 @@ function fixture({ withImage = true, key = 'new-cover', image = IMAGE, imageByte
   fs.mkdirSync(path.join(root, 'public/images/blog'), { recursive: true });
   fs.writeFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), `export const ARTICLES = [
   {
-    id: '${key}',
+    id: 'new-cover',
     category: 'news',
     date: '2026-10-07T10:00:00.000Z',
     updatedAt: null,
-    image: '${image}',
+    image: '/images/blog/new-cover.webp',
     authorSlug: 'redazione',
   },
 ];\n`);
@@ -275,33 +244,12 @@ function fixture({ withImage = true, key = 'new-cover', image = IMAGE, imageByte
       'packages/articles/content/swiss-articles-data.ts': { corpusPath: 'content/swiss-articles-data.ts', articles: 0, distinctImages: 0 },
     },
   }, null, 2)}\n`);
-  if (withImage) fs.writeFileSync(path.join(root, `public${image}`), imageBytes);
+  if (withImage) fs.writeFileSync(path.join(root, 'public/images/blog/new-cover.webp'), IMAGE_BYTES);
   return root;
 }
 
 function clearPublishedArticleCovers(root: string) {
   fs.writeFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), 'export const ARTICLES = [];\n');
-}
-
-function git(root: string, args: string[]) {
-  return execFileSync('git', args, {
-    cwd: root,
-    encoding: 'utf8',
-    stdio: ['ignore', 'pipe', 'pipe'],
-  });
-}
-
-function commitFixture(root: string, { omitImage = false } = {}) {
-  git(root, ['init', '--quiet']);
-  git(root, ['config', 'user.email', 'fixture@example.invalid']);
-  git(root, ['config', 'user.name', 'Fixture Test']);
-  git(root, ['add', '--all']);
-  if (omitImage) {
-    git(root, ['rm', '--cached', '--quiet', '--', `public${IMAGE}`]);
-    fs.rmSync(path.join(root, `public${IMAGE}`));
-    git(root, ['add', '--all']);
-  }
-  git(root, ['commit', '--quiet', '-m', 'fixture']);
 }
 
 afterEach(() => {
@@ -448,227 +396,6 @@ describe('sync-published-blog-covers', () => {
     })}\n`);
     const verifyOutput = execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
     expect(JSON.parse(verifyOutput)).toMatchObject({ generated: 1, errors: 0 });
-  });
-
-  it('reconciles a declared deterministic-card replacement only after its bytes agree', () => {
-    const root = fixture();
-    addGeneratedEvidence(root);
-    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
-    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
-    evidence.generated = { [IMAGE]: deterministicCardEvidence() };
-    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
-      schema: 1,
-      cdnPrefix: '/images/blog/',
-      assetCount: 1,
-      assets: [generatedRecord()],
-    }, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({
-      schema: 1,
-      items: {
-        'new-cover': { mode: 'generated', status: 'generated', fromCover: IMAGE, toCover: IMAGE },
-      },
-    }, null, 2)}\n`);
-
-    const output = JSON.parse(execFileSync(process.execPath, [SCRIPT], {
-      cwd: root,
-      encoding: 'utf8',
-      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
-    }));
-    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-ledger.json'), 'utf8'));
-    const index = JSON.parse(fs.readFileSync(path.join(root, 'data/image-credits-blog.json'), 'utf8'));
-    const registry = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-generated-image-registry.json'), 'utf8'));
-    const replacements = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-replacements.json'), 'utf8'));
-
-    expect(output.deterministicCardInferredKeys).toEqual(['new-cover']);
-    expect(ledger.covers['new-cover']).toMatchObject({
-      proofLevel: 6,
-      evidence: 'inferred',
-      action: 'record-inferred',
-      status: 'no-credit',
-      hash: sha256(IMAGE_BYTES),
-    });
-    expect(index.covers['new-cover']).toMatchObject({ evidence: 'inferred', status: 'no-credit' });
-    expect(index.files).not.toHaveProperty('generated:new-cover');
-    expect(registry.assets).toEqual([]);
-    expect(replacements.items).not.toHaveProperty('new-cover');
-    expect(fs.existsSync(path.join(root, 'packages/articles/content/image-credits/blog/new-cover.json'))).toBe(false);
-
-    const verifyOutput = execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
-    expect(JSON.parse(verifyOutput)).toMatchObject({ inferred: 1, errors: 0 });
-  });
-
-  it('reconciles the real daily-brief cover URL against the served replacement bytes', () => {
-    const servedBytes = readPublishedBlogCoverBytes(ROOT, REAL_IMAGE, { rejectInvalidPath: true });
-    if (!servedBytes) throw new Error(`published cover bytes unavailable for ${REAL_IMAGE}`);
-    const staleBytes = Buffer.from('stale-provider-cover');
-    const root = fixture({ key: REAL_KEY, image: REAL_IMAGE, imageBytes: servedBytes });
-    addGeneratedEvidence(root, sha256(staleBytes), {
-      assetId: REAL_KEY,
-      imageUrl: REAL_IMAGE,
-      bytes: staleBytes.length,
-    });
-    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
-    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
-    evidence.generated = {
-      [REAL_IMAGE]: deterministicCardEvidence(sha256(servedBytes), servedBytes.length, {
-        assetId: REAL_KEY,
-        imageUrl: REAL_IMAGE,
-      }),
-    };
-    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
-      schema: 1,
-      cdnPrefix: '/images/blog/',
-      assetCount: 1,
-      assets: [generatedRecord(sha256(staleBytes), {
-        assetId: REAL_KEY,
-        imageUrl: REAL_IMAGE,
-        bytes: staleBytes.length,
-      })],
-    }, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
-
-    const output = JSON.parse(execFileSync(process.execPath, [SCRIPT], {
-      cwd: root,
-      encoding: 'utf8',
-      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
-    }));
-    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-ledger.json'), 'utf8'));
-    const registry = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-generated-image-registry.json'), 'utf8'));
-
-    expect(output.deterministicCardInferredKeys).toEqual([REAL_KEY]);
-    expect(ledger.covers[REAL_KEY]).toMatchObject({
-      hash: sha256(servedBytes),
-      proofLevel: 6,
-      evidence: 'inferred',
-      status: 'no-credit',
-    });
-    expect(registry.assets).toEqual([]);
-    expect(fs.existsSync(path.join(root, `packages/articles/content/image-credits/blog/${REAL_KEY}.json`))).toBe(false);
-    expect(JSON.parse(execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' })))
-      .toMatchObject({ inferred: 1, errors: 0 });
-  });
-
-  it('reconciles a declared generated-provider replacement against the served bytes', () => {
-    const root = fixture();
-    addGeneratedEvidence(root);
-    const replacementBytes = Buffer.from('replacement-cover-bytes');
-    fs.writeFileSync(path.join(root, 'public/images/blog/new-cover.webp'), replacementBytes);
-    const replacement = generatedRecord(sha256(replacementBytes));
-    replacement.bytes = replacementBytes.length;
-    replacement.promptHash = 'c'.repeat(64);
-    replacement.generatedAt = '2026-10-08T10:00:00.000Z';
-    replacement.verifiedAt = '2026-10-08T10:05:00.000Z';
-    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
-    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
-    evidence.generated = { [IMAGE]: replacement };
-    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
-      schema: 1,
-      cdnPrefix: '/images/blog/',
-      assetCount: 1,
-      assets: [generatedRecord()],
-    }, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
-
-    const output = JSON.parse(execFileSync(process.execPath, [SCRIPT], {
-      cwd: root,
-      encoding: 'utf8',
-      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
-    }));
-    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-ledger.json'), 'utf8'));
-    const registry = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-generated-image-registry.json'), 'utf8'));
-    const credit = JSON.parse(fs.readFileSync(path.join(root, 'packages/articles/content/image-credits/blog/new-cover.json'), 'utf8'));
-
-    expect(output.generatedAddedKeys).toEqual(['new-cover']);
-    expect(ledger.covers['new-cover']).toMatchObject({
-      proofLevel: 5,
-      evidence: 'generated-engine-record',
-      hash: sha256(replacementBytes),
-    });
-    expect(registry.assets).toHaveLength(1);
-    expect(registry.assets[0]).toMatchObject({ assetId: 'new-cover', sha256: sha256(replacementBytes), bytes: replacementBytes.length });
-    expect(credit.generated).toMatchObject({ sha256: sha256(replacementBytes), bytes: replacementBytes.length });
-
-    const verifyOutput = execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
-    expect(JSON.parse(verifyOutput)).toMatchObject({ generated: 1, errors: 0 });
-  });
-
-  it('reads committed cover bytes when sparse checkout omits the working-tree file', () => {
-    const root = fixture();
-    addGeneratedEvidence(root);
-    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
-    execFileSync(process.execPath, [SCRIPT], {
-      cwd: root,
-      encoding: 'utf8',
-      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
-    });
-    commitFixture(root);
-    git(root, ['sparse-checkout', 'init', '--no-cone']);
-    git(root, ['sparse-checkout', 'set', '--no-cone', '/data/', '/packages/']);
-
-    expect(fs.existsSync(path.join(root, `public${IMAGE}`))).toBe(false);
-    const output = JSON.parse(execFileSync(process.execPath, [VERIFY_SCRIPT], {
-      cwd: root,
-      encoding: 'utf8',
-    }));
-
-    expect(output).toMatchObject({ generated: 1, errors: 0 });
-  });
-
-  it('keeps an absent untracked cover as a verifier error', () => {
-    const root = fixture();
-    addGeneratedEvidence(root);
-    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
-    execFileSync(process.execPath, [SCRIPT], {
-      cwd: root,
-      encoding: 'utf8',
-      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
-    });
-    commitFixture(root, { omitImage: true });
-
-    expect(fs.existsSync(path.join(root, `public${IMAGE}`))).toBe(false);
-    expect(spawnSync('git', ['ls-files', '--error-unmatch', '--', `public${IMAGE}`], {
-      cwd: root,
-      encoding: 'utf8',
-    }).status).toBe(1);
-    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
-
-    expect(result.status).toBe(1);
-    expect(result.stderr).toContain('generated record has no corresponding site cover bytes');
-    expect(JSON.parse(result.stdout)).toMatchObject({ generated: 1 });
-    expect(JSON.parse(result.stdout).errors).toBeGreaterThan(0);
-  });
-
-  it.each([
-    ['undeclared', {}, Buffer.from('new-cover-bytes')],
-    ['declared with a non-matching sha256', { [IMAGE]: deterministicCardEvidence('f'.repeat(64)) }, IMAGE_BYTES],
-  ])('does not accept a deterministic-card sha when it is %s', (_label, generated, bytes) => {
-    const root = fixture();
-    addGeneratedEvidence(root);
-    fs.writeFileSync(path.join(root, 'public/images/blog/new-cover.webp'), bytes);
-    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
-    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
-    evidence.generated = generated;
-    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
-      schema: 1,
-      cdnPrefix: '/images/blog/',
-      assetCount: 1,
-      assets: [generatedRecord()],
-    }, null, 2)}\n`);
-    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
-
-    execFileSync(process.execPath, [SCRIPT], {
-      cwd: root,
-      encoding: 'utf8',
-      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
-    });
-    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
-
-    expect(result.status).toBe(1);
-    expect(result.stderr).toMatch(/generated record sha256\/bytes do not match|published registry sha256\/bytes do not match/);
   });
 
   it('backfills inferred covers and leaves a sha256 mismatch explicitly inferred', () => {

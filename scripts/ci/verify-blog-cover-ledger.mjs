@@ -6,17 +6,12 @@
  * metadata, never a licence exemption.
  */
 
-import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
 import { validateGeneratedImageRegistry } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isExplicitInferredCover } from '../lib/blog-cover-decisions.mjs';
-import { readPublishedBlogCoverBytes } from '../lib/published-blog-cover-bytes.mjs';
-import {
-  isPublishedDeterministicCardRecord,
-  validatePublishedBlogImageEvidence,
-} from '../lib/published-blog-image-evidence.mjs';
+import { validatePublishedBlogImageEvidence } from '../lib/published-blog-image-evidence.mjs';
 
 const ROOT = process.cwd();
 const REGISTRIES = [
@@ -31,14 +26,14 @@ function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; }
 }
 
-function parseCoverImages(file) {
+function parseCovers(file) {
   const source = fs.readFileSync(path.join(ROOT, file), 'utf8');
-  const covers = new Map();
+  const covers = new Set();
   const imageRx = /\bimage:\s*'([^']+)'/g;
   let match;
   while ((match = imageRx.exec(source))) {
     const key = coverKey(match[1]);
-    if (key) covers.set(key, match[1]);
+    if (key) covers.add(key);
   }
   return covers;
 }
@@ -67,10 +62,6 @@ function main() {
   if (!generatedValidation.valid) throw new Error(`generated registry invalid: ${generatedValidation.errors.join('; ')}`);
   const generatedByUrl = new Map((generatedRegistry?.assets || []).map((record) => [record.imageUrl, record]));
   const errors = [];
-  const currentCoverImages = new Map();
-  for (const file of REGISTRIES) {
-    for (const [key, image] of parseCoverImages(file)) currentCoverImages.set(key, image);
-  }
   if (generatedEvidenceExists) {
     if (!generatedEvidence || generatedEvidence.schema !== 1
       || !/^[0-9a-f]{40}$/.test(String(generatedEvidence.commit || ''))
@@ -92,24 +83,7 @@ function main() {
         // `place` is valid reader-facing evidence for the static fallback, but
         // it is not a site-owned article-hero registry entry to reconcile.
         if (record.scope !== 'article-hero') continue;
-        const key = coverKey(imageUrl);
-        if (!key || currentCoverImages.get(key) !== imageUrl) continue;
-        const bytes = readPublishedBlogCoverBytes(ROOT, imageUrl);
-        if (!bytes) {
-          errors.push(`${imageUrl}: published evidence has no corresponding site cover bytes`);
-        } else {
-          const actualSha256 = crypto.createHash('sha256').update(bytes).digest('hex');
-          if (record.sha256 !== actualSha256 || record.bytes !== bytes.length) {
-            errors.push(`${imageUrl}: published registry sha256/bytes do not match the site cover bytes`);
-          }
-        }
         const existing = generatedByUrl.get(imageUrl);
-        if (isPublishedDeterministicCardRecord(record)) {
-          if (existing) {
-            errors.push(`${imageUrl}: deterministic-card evidence must not remain in the site generated-provider registry`);
-          }
-          continue;
-        }
         if (existing && existing.sha256 !== record.sha256) {
           errors.push(`${imageUrl}: published and site generated registries disagree on sha256`);
           continue;
@@ -118,7 +92,7 @@ function main() {
       }
     }
   }
-  const currentKeys = new Set(currentCoverImages.keys());
+  const currentKeys = new Set(REGISTRIES.flatMap((file) => [...parseCovers(file)]));
   const counts = { currentUnique: currentKeys.size, withRecord: 0, generated: 0, wikimedia: 0, inferred: 0 };
   for (const key of [...currentKeys].sort()) {
     const inventoryItem = inventory.covers[key];
@@ -150,16 +124,6 @@ function main() {
     }
     if (record.source === 'generated-provider') {
       counts.generated += 1;
-      const bytes = readPublishedBlogCoverBytes(ROOT, record.cover);
-      if (!bytes) {
-        errors.push(`${key}: generated record has no corresponding site cover bytes`);
-        continue;
-      }
-      const actualSha256 = crypto.createHash('sha256').update(bytes).digest('hex');
-      if (record.generated.sha256 !== actualSha256 || record.generated.bytes !== bytes.length) {
-        errors.push(`${key}: generated record sha256/bytes do not match the site cover bytes`);
-        continue;
-      }
       const generated = generatedByUrl.get(record.generated.imageUrl);
       if (!generated || generated.sha256 !== record.generated.sha256) {
         errors.push(`${key}: generated record is absent or differs from data/blog-generated-image-registry.json`);

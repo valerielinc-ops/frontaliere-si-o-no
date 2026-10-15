@@ -111,36 +111,27 @@ export function buildAssembledJobIdentity(job = {}) {
   return buildStableJobIdentity(job);
 }
 
-/** Normalize a source-posting URL exactly as the positive-identity guard does. */
-export function sourcePostingUrlHref(value) {
-  try {
-    const parsed = new URL(value);
-    if (!['http:', 'https:'].includes(parsed.protocol)) return null;
-    return parsed.href;
-  } catch { return null; }
-}
-
-/**
- * URL identities declared by an orphan or archive record.
- * Keeps path case and fragments, matching the positive-identity guard.
- */
-export function sourcePostingUrlHrefs(historical = {}) {
-  const source = historical && typeof historical === 'object' ? historical : {};
-  const sourceUrls = [source.sourceUrl, source.url];
-  const identities = [source.sourceIdentity, ...safeArray(source.sourceIdentityHistory).map((entry) => entry?.sourceIdentity)];
+/** Positive posting proof for inferred slug aliases; similar titles are not identity. */
+export function hasSameJobSourcePosting(historical = {}, active = {}) {
+  const targetUrl = active.url;
+  const sourceUrls = [historical.sourceUrl, historical.url];
+  const identities = [historical.sourceIdentity, ...safeArray(historical.sourceIdentityHistory).map((entry) => entry?.sourceIdentity)];
   for (const identity of identities) {
     if (typeof identity === 'string' && identity.startsWith('url:')) sourceUrls.push(identity.slice(4));
   }
-  return new Set(sourceUrls.map(sourcePostingUrlHref).filter(Boolean));
-}
-
-/** Positive posting proof for inferred slug aliases; similar titles are not identity. */
-export function hasSameJobSourcePosting(historical = {}, active = {}) {
-  const targetHref = sourcePostingUrlHref(active.url);
-  if (!targetHref) return false;
+  let target;
+  try {
+    target = new URL(targetUrl);
+    if (!['http:', 'https:'].includes(target.protocol)) return false;
+  } catch { return false; }
   // Unlike legacy dedup keys, positive proof preserves path case AND fragments.
   // /AbC and /abc, or two #job.id values, can name different vacancies.
-  return sourcePostingUrlHrefs(historical).has(targetHref);
+  return sourceUrls.some((sourceUrl) => {
+    try {
+      const source = new URL(sourceUrl);
+      return ['http:', 'https:'].includes(source.protocol) && source.href === target.href;
+    } catch { return false; }
+  });
 }
 
 export function comparableJobShape(job = {}) {

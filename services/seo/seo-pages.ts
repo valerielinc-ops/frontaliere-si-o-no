@@ -3683,7 +3683,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  applicationConciergeDe: {
  title: 'Automatisiere deine Jobsuche in der Schweiz | Frontaliere Ticino',
  h1: 'Automatisiere deine Jobsuche in der Schweiz',
- description: 'Automatisiere deine Jobsuche in der Schweiz: Wir finden passende Jobs und erstellen gezielte Bewerbungen. Das kann die Chancen auf ein Vorstellungsgespräch erhöhen.',
+ description: 'Automatisiere deine Jobsuche in der Schweiz: Wir finden passende Jobs und erstellen Bewerbungen nach Mass. Das kann die Chancen auf ein Vorstellungsgespräch erhöhen.',
  keywords: 'Jobsuche Schweiz automatisieren, automatisierte Jobsuche, Bewerbung nach Mass, automatische Bewerbung, Arbeit in der Schweiz finden, Vorstellungsgespräch',
  ogTitle: 'Automatisiere deine Jobsuche in der Schweiz',
  ogDescription: 'Wir finden passende Stellen und erstellen Bewerbungen nach Mass. Eine gezielte Bewerbung kann deine Chancen auf ein Vorstellungsgespräch verbessern.',
@@ -3705,7 +3705,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  applicationConciergeFr: {
  title: 'Automatisez votre recherche d’emploi en Suisse | Frontaliere Ticino',
  h1: 'Automatisez votre recherche d’emploi en Suisse',
- description: 'Automatisez votre recherche d’emploi en Suisse : nous trouvons des postes adaptés et préparons des candidatures ciblées. Cela peut aider à obtenir un entretien.',
+ description: 'Automatisez votre recherche d’emploi en Suisse : nous trouvons des postes adaptés et préparons des candidatures sur mesure. Cela peut aider à obtenir un entretien.',
  keywords: 'automatiser recherche emploi Suisse, recherche emploi automatisée, candidature sur mesure, candidature automatique, trouver travail Suisse, entretien emploi',
  ogTitle: 'Automatisez votre recherche d’emploi en Suisse',
  ogDescription: 'Nous trouvons des postes adaptés et préparons des candidatures sur mesure. Une candidature ciblée peut augmenter vos chances d’obtenir un entretien.',

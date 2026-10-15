@@ -2019,8 +2019,7 @@ function BlogArticlesContent({
  };
 
  const selectedArticleObj = selectedArticle ? articleById.get(selectedArticle) ?? null : null;
- // Lazy body chunks populate the stable translation store before readiness changes.
- const articleCTAs = useMemo(() => selectedArticle && bodyReady ? getArticleCTAs(selectedArticle) : [], [selectedArticle, bodyReady, navigators, articles, t]);
+ const articleCTAs = useMemo(() => selectedArticle ? getArticleCTAs(selectedArticle) : [], [selectedArticle, navigators, articles, t]);
  const sidePartners = useMemo(() => selectedArticleObj ? getPartnersForCategory(selectedArticleObj.category, 4) : [], [selectedArticleObj?.category]);
  const articleTitleKey = selectedArticle ? `blog.article.${selectedArticle}.title` : '';
  const articleTitleForHandoff = articleTitleKey ? t(articleTitleKey) : '';

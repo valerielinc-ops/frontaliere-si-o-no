@@ -7,7 +7,7 @@
     "pageUrl": "https://openai.com/policies/terms-of-use/",
     "width": 1200,
     "height": 675,
-    "revision": "2026-10-09T06:35:21.594Z"
+    "revision": "2026-10-07T21:02:15.000Z"
   },
   "author": {
     "text": "frontaliereticino.ch",
@@ -30,28 +30,27 @@
     "no-specific-real-event-photojournalism"
   ],
   "modified": "resized",
-  "fetchedAt": "2026-10-09",
+  "fetchedAt": "2026-10-07",
   "status": "ok",
   "curation": null,
   "generated": {
     "schema": 1,
     "assetId": "article-cantello-teatro-dialettale-ottobre-2026",
-    "kind": "generated",
     "provider": "openai-codex",
-    "model": "gpt-image-2.5",
-    "executorModel": "gpt-5.6-luna",
+    "model": "OpenAI built-in image generator",
+    "executorModel": "Codex",
     "promptVersion": "frontaliereticino.generated-image-policy.v1",
-    "promptHash": "ee22464c13e0ebbdf003493033b5516b66be2720c513f974347c5c0759bd3f1c",
+    "promptHash": "de2babab65ae0b60ff6fd7c8eec28fb8680f88a0a76ce4b6a062af77253614ea",
     "license": "generated-provider",
     "licenseUrl": "https://openai.com/policies/terms-of-use/",
     "credit": "frontaliereticino.ch",
-    "sha256": "92c7ae645fd2fe8258a54ef783609d8253d1f4f9243547fcc5a39a5ff9669b1b",
-    "bytes": 147708,
+    "sha256": "d5d3c5311a8390e3044a801411eba546d17336dc4fa435eb1c0b60ee013583db",
+    "bytes": 118816,
     "width": 1200,
     "height": 675,
     "format": "webp",
-    "generatedAt": "2026-10-09T06:35:21.594Z",
-    "verifiedAt": "2026-10-09T06:35:28.607Z",
+    "generatedAt": "2026-10-07T21:02:15.000Z",
+    "verifiedAt": "2026-10-07T21:02:15.000Z",
     "restrictions": [
       "illustrative-only",
       "no-real-recognizable-foreground-person",
@@ -61,19 +60,17 @@
     ],
     "scope": "article-hero",
     "imageUrl": "/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp",
-    "area": "Ticino e pendolarismo transfrontaliero",
-    "season": "all seasons",
-    "variant": "article hero",
+    "category": "novita",
+    "area": "Cantello, Varese and the Swiss-Italian border region",
+    "season": "autumn",
+    "variant": "cantello-theatre-dialect-comedy",
     "vision": {
       "ok": true,
       "contains_text": false,
       "contains_logo": false,
       "contains_recognizable_face": false,
-      "contains_recognizable_foreground_person": false,
       "looks_like_specific_real_event": false,
-      "is_photograph": false,
-      "is_topic_relevant": true,
-      "notes": "Original generic illustration combining a theater stage with a regional train and lakeside Ticino setting; no readable text, logos, or identifiable people."
+      "notes": "Original editorial illustration of a generic community theatre stage; no text, logos, recognizable faces or documentary-event cues."
     }
   }
 }

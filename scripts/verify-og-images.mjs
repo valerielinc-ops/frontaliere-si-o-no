@@ -254,10 +254,7 @@ export function run(argv = process.argv.slice(2), { root = ROOT } = {}) {
   const distDir = path.resolve(root, argValue(argv, '--dist', 'dist'));
   const sampleSize = Number(argValue(argv, '--sample-size', '3')) || 3;
   const requireFamilies = !argv.includes('--allow-missing-families');
-  const policy = loadPublishedImagePolicy({
-    root,
-    requirePublishedBlogImageEvidence: argv.includes('--require-published-blog-image-evidence'),
-  });
+  const policy = loadPublishedImagePolicy({ root });
   const { references, total, counts } = collectOgImageReferences(distDir, { sampleSize });
   const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies, counts });
   if (policy.registryErrors.length > 0) {

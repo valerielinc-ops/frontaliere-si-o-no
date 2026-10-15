@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/bollettino-frontaliere-2026-08-22.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-10-06T19:03:12.368Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "url": "https://openai.com/policies/terms-of-use/",
+    "family": "other-attribution",
+    "attributionRequired": true
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-10-06",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "bollettino-frontaliere-2026-08-22",
+    "provider": "openai-codex",
+    "model": "gpt-image-2.5",
+    "executorModel": "gpt-5.6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "a60221f53e2c4beb48670d9acab59cb423de693b94f99bbd966fc42c35ad6531",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "3b23589281505a2e7ea4ff9453645614a7e8c15cb1d413e9a9ac9710f3604c2a",
+    "bytes": 175820,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-10-06T19:03:12.368Z",
+    "verifiedAt": "2026-10-06T19:03:22.929Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/bollettino-frontaliere-2026-08-22.webp",
+    "category": "novita",
+    "area": "Ticino, Lombardy and the Swiss Italian border region",
+    "season": "all seasons",
+    "variant": "historical-cover-repair-bollettino-frontaliere-2026-08-22",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "looks_like_specific_real_event": false,
+      "notes": "Illustrazione editoriale generica e originale di un paesaggio alpino con aeroplano di carta; nessun testo, logo, volto riconoscibile o riferimento a un evento reale specifico."
+    }
+  }
+}

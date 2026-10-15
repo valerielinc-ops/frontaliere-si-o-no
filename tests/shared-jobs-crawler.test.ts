@@ -20,13 +20,6 @@ describe('central job-board detail URLs', () => {
   it('distinguishes a query-param detail page from its listing path', () => {
     expect(isLikelyJobDetailUrl(listingUrl)).toBe(false);
     expect(isLikelyJobDetailUrl(detailUrl)).toBe(true);
-    expect(isLikelyJobDetailUrl(`${listingUrl}?company=138&job=276771`)).toBe(false);
-  });
-
-  it('gives the slow Swiss Timing origin an adapter-scoped timeout', () => {
-    const adapter = __testables.loadCompanyAdapters().get('swiss-timing-swatch-group');
-
-    expect(adapter?.requestTimeoutMs).toBe(30_000);
   });
 
   it('does not treat a generic job query as a detail page', () => {
@@ -94,38 +87,6 @@ describe('central job-board detail URLs', () => {
       title: 'Data Scientist (all genders) - On-Site Presence',
       url: detailUrl,
     });
-  });
-
-  it('extracts the structured Swiss Timing detail blocks instead of the thin meta description', () => {
-    const html = [
-      '<html><head><title>Careers - Swiss Timing</title>',
-      '<meta name="description" content="Short careers summary."></head><body>',
-      '<h1>Careers</h1><h1 class="title">Electronics Engineer (all genders) - On-Site Presence</h1>',
-      '<div class="description"><h2>Job description</h2>',
-      '<div>first text with more than twenty characters</div>',
-      '<div>second text with more than twenty characters</div>',
-      '<p>Develop innovative electronic timing technologies and wearable sensors used at international sports events.</p>',
-      '<ul><li>Design reliable timing devices.</li><li>Support validation and industrialization.</li></ul></div>',
-      '<div class="profile"><h2>Profile</h2><ul><li>Solution-oriented engineer with strong collaboration skills.</li></ul></div>',
-      '<div class="requirements"><h2>Professional requirements</h2>',
-      '<ul><li>Degree in Electronic Engineering.</li><li>Five years of product-development experience.</li></ul></div>',
-      '<div class="language_requirements"><h2>Languages</h2><ul><li>Fluent English and French.</li></ul></div>',
-      '<div class="location"><h2>Location</h2><span class="info">Rue de l Envers 1, 2606 Corgémont, Switzerland (Bern)</span></div>',
-      '</body></html>',
-    ].join('');
-    const result = __testables.toJobFromHtmlFallback(
-      html,
-      detailUrl,
-      'Swiss Timing (Swatch Group)',
-      'Corgémont',
-    );
-
-    expect(result.reason).toBeNull();
-    expect(result.job?.description.length).toBeGreaterThan(220);
-    expect(result.job?.description).toContain('first text with more than twenty characters');
-    expect(result.job?.description).toContain('second text with more than twenty characters');
-    expect(result.job?.description).toContain('Professional requirements');
-    expect(result.job).toMatchObject({ canton: 'BE' });
   });
 });
 

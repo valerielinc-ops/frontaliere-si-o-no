@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 import {
@@ -14,14 +14,8 @@ import {
   BING_TITLE_AUDIT_URLS,
   BING_TITLE_MAX_CHARS,
 } from '../../scripts/seo/bing-seo-policy.mjs';
-import { submitIndexNowUrlsStreaming } from '../../scripts/lib/indexnow-submit.mjs';
 
 const URL = 'https://frontaliereticino.ch/';
-
-afterEach(() => {
-  vi.unstubAllGlobals();
-  vi.useRealTimers();
-});
 
 describe('Bing SEO live contract', () => {
   it('accepts one visible homepage H1 and a matching canonical', () => {
@@ -83,70 +77,6 @@ describe('Bing SEO live contract', () => {
     expect(new Set(BING_INDEXNOW_REMEDIATION_URLS).size).toBe(BING_INDEXNOW_REMEDIATION_URLS.length);
     expect(BING_TITLE_MAX_CHARS).toBe(66);
     expect(parseHtmlContract('<h1>ok</h1>').h1s).toHaveLength(1);
-  });
-
-  it('stops each streamed batch after the first accepted IndexNow endpoint', async () => {
-    const fetchMock = vi.fn(async () => new Response(null, { status: 200 }));
-    vi.stubGlobal('fetch', fetchMock);
-
-    const result = await submitIndexNowUrlsStreaming(
-      ['https://frontaliereticino.ch/first/', 'https://frontaliereticino.ch/second/'],
-      { batchSize: 1, delayMs: 0 },
-    );
-
-    expect(fetchMock.mock.calls.map(([endpoint]) => String(endpoint))).toEqual([
-      'https://api.indexnow.org/indexnow',
-      'https://api.indexnow.org/indexnow',
-    ]);
-    expect(result.results).toHaveLength(2);
-    expect(result.results.every((item) => item.ok)).toBe(true);
-    expect(result.results.map((item) => item.attempts.map((attempt) => attempt.engine)))
-      .toEqual([['api.indexnow.org'], ['api.indexnow.org']]);
-  });
-
-  it('uses the next endpoint after retries and keeps an unaccepted batch failed', async () => {
-    vi.useFakeTimers();
-    const fetchMock = vi.fn()
-      .mockRejectedValueOnce(new TypeError('fetch failed'))
-      .mockRejectedValueOnce(new TypeError('fetch failed'))
-      .mockRejectedValueOnce(new TypeError('fetch failed'))
-      .mockResolvedValueOnce(new Response(null, { status: 202 }))
-      .mockResolvedValueOnce(new Response(null, { status: 422 }))
-      .mockResolvedValueOnce(new Response(null, { status: 422 }));
-    vi.stubGlobal('fetch', fetchMock);
-
-    const acceptedPromise = submitIndexNowUrlsStreaming(
-      ['https://frontaliereticino.ch/fallback/'],
-      {
-        endpoints: ['https://api.indexnow.org/indexnow', 'https://www.bing.com/indexnow'],
-        batchSize: 1,
-        delayMs: 0,
-      },
-    );
-    await vi.runAllTimersAsync();
-    const accepted = await acceptedPromise;
-
-    expect(accepted.results[0]).toMatchObject({
-      ok: true,
-      engine: 'www.bing.com',
-      attempts: [
-        { ok: false, engine: 'api.indexnow.org', error: 'fetch failed' },
-        { ok: true, engine: 'www.bing.com', status: 202 },
-      ],
-    });
-
-    const rejected = await submitIndexNowUrlsStreaming(
-      ['https://frontaliereticino.ch/rejected/'],
-      {
-        endpoints: ['https://api.indexnow.org/indexnow', 'https://www.bing.com/indexnow'],
-        batchSize: 1,
-        delayMs: 0,
-      },
-    );
-
-    expect(rejected.results[0].ok).toBe(false);
-    expect(rejected.results[0].attempts.map((attempt) => attempt.status)).toEqual([422, 422]);
-    expect(fetchMock).toHaveBeenCalledTimes(6);
   });
 
   it('keeps the automated workflow fail-closed for owner auth and manual submit false', () => {

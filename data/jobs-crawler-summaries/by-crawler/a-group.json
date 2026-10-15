@@ -1,7 +1,7 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-10-14T21:23:57.300Z",
+  "generatedAt": "2026-10-14T09:25:34.589Z",
   "total": 5,
   "discovered": 7,
   "parsed": 5,
@@ -13,10 +13,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5717,
-  "avgDurationMs": 5717,
+  "durationMs": 5196,
+  "avgDurationMs": 5196,
   "durationHistory": [
-    5717
+    5196
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -233,5 +233,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

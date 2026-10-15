@@ -71,8 +71,6 @@ export interface EmployerBrandCopy {
 export interface EmployerBrand {
   /** Canonical slug key — matches `canonicalCompanyRouteSlug(company, companyKey)`. */
   readonly brandKey: string;
-  /** Explicit employer-key variants that resolve to this curated brand. */
-  readonly aliases?: readonly string[];
   /** Display name, e.g. "EOC – Ente Ospedaliero Cantonale". */
   readonly name: string;
   /** Compact brand name, e.g. "EOC". */
@@ -317,7 +315,6 @@ const EOC: EmployerBrand = {
 
 const LIDL: EmployerBrand = {
   brandKey: 'lidl',
-  aliases: ['lidl-svizzera'],
   name: 'Lidl Svizzera',
   shortName: 'Lidl',
   fullName: 'Lidl Schweiz DL AG',
@@ -1080,7 +1077,6 @@ const LIS: EmployerBrand = {
 
 const MANOR: EmployerBrand = {
   brandKey: 'manor-ag',
-  aliases: ['manor'],
   name: 'Manor AG',
   shortName: 'Manor',
   fullName: 'Manor AG',

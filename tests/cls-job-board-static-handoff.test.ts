@@ -23,7 +23,9 @@ import { beforeEach, describe, expect, it } from 'vitest';
 
 import {
   INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS,
+  INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_PAINT_FRAME_TIMEOUT_MS,
+  LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS,
   type InitialPaintBootstrapEnv,
   waitForInitialPaintOpportunity,
 } from '@/services/initialPaintBootstrap';
@@ -76,14 +78,16 @@ const STATIC_OVERLAY_HUB_BODY = `
 describe('initial SPA bootstrap — mobile first paint', () => {
   it('waits for prerendered content to paint before importing the React runtime', async () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
-    const paintBootstrap = readFileSync(resolve(ROOT, 'services/initialPaintBootstrap.ts'), 'utf-8');
     const paintGate = entry.indexOf('await waitForInitialPaintOpportunity({');
     expect(paintGate).toBeGreaterThanOrEqual(0);
     expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
     expect(entry).toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
-    expect(entry).not.toContain('waitForLargestContentfulPaint');
-    expect(entry).not.toContain('JOB_BOARD_STATIC_CONTENT_SELECTOR');
-    expect(paintBootstrap).not.toContain('largest-contentful-paint');
+    expect(entry).toContain('main.seo-static-content.job-board-static-hub');
+    expect(entry).toContain('waitForLargestContentfulPaint: true');
+    expect(entry).toContain('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR');
+    expect(entry.indexOf('waitForLargestContentfulPaint: true')).toBeGreaterThan(paintGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR')).toBeGreaterThan(paintGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR')).toBeLessThan(entry.indexOf("import('react')"));
     expect(entry.indexOf("import('react')")).toBeGreaterThan(paintGate);
     expect(entry.indexOf("import('react-dom/client')")).toBeGreaterThan(paintGate);
     expect(entry).not.toMatch(/^import\s+(?:React|ReactDOM)\b/m);
@@ -125,6 +129,48 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(settled).toBe(true);
     expect(clearedTimer).toBe(true);
     expect(timerCallback).toBeTypeOf('function');
+  });
+
+  it('waits for the static job-board LCP and ignores a later CMP candidate', async () => {
+    let reportLcp: ((element: Element | null) => void) | undefined;
+    let quietTimerCallback: (() => void) | undefined;
+    let deadlineTimerCallback: (() => void) | undefined;
+    let stopped = false;
+    const env: InitialPaintBootstrapEnv = {
+      visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: () => null,
+      hasLargestContentfulPaint: () => false,
+      observeLargestContentfulPaint: (callback) => {
+        reportLcp = callback;
+        return () => { stopped = true; };
+      },
+      requestFrame: () => { throw new Error('LCP observer owns this wait'); },
+      setTimer: (callback, ms) => {
+        if (ms === INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS) deadlineTimerCallback = callback;
+        if (ms === LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS) quietTimerCallback = callback;
+        return ms;
+      },
+      clearTimer: () => {},
+    };
+    document.body.innerHTML = `
+      <main class="seo-static-content job-board-static-hub"><p id="static-candidate">Offerte</p></main>
+      <div class="fc-footer"><p id="cmp-candidate">Consent</p></div>`;
+    const staticCandidate = document.getElementById('static-candidate')!;
+    const cmpCandidate = document.getElementById('cmp-candidate')!;
+
+    const ready = waitForInitialPaintOpportunity({
+      waitForLargestContentfulPaint: true,
+      largestContentfulPaintSelector: 'main.seo-static-content.job-board-static-hub',
+    }, env);
+    expect(deadlineTimerCallback).toBeTypeOf('function');
+    reportLcp?.(cmpCandidate);
+    expect(quietTimerCallback).toBeUndefined();
+    reportLcp?.(staticCandidate);
+    expect(quietTimerCallback).toBeTypeOf('function');
+    quietTimerCallback?.();
+    await expect(ready).resolves.toBeUndefined();
+    expect(stopped).toBe(true);
   });
 
   it('bounds the paint wait when animation frames do not arrive', async () => {

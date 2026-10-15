@@ -307,7 +307,6 @@ export interface SectorCountableJob {
   title?: string;
   description?: string;
   category?: string;
-  sector?: string;
   tags?: readonly string[] | string;
   location?: string;
   addressLocality?: string;
@@ -697,17 +696,7 @@ const SECTOR_DESCRIPTION_SCOPE: Record<SectorHubKey, boolean> = {
 };
 
 /**
- * Some dedicated crawlers preserve an explicit, source-backed industry label
- * even when a generic role title has no sector vocabulary. Keep this narrower
- * than the ordinary energy matcher: a conglomerate label such as Siemens'
- * "Industria e tecnologia (... energia ...)" must not turn an unrelated
- * security role into an energy job merely because the word appears later.
- */
-const ENERGY_SECTOR_METADATA_RE = /^\s*(?:energia|energy|energie|énergie)\b/i;
-
-/**
- * Locale-independent sector signal: canonical title/category/tags, plus the
- * bounded source sector signal described above for energy (+, for
+ * Locale-independent sector signal: canonical title/category/tags (+, for
  * description-scoped sectors, description/company/location/addressLocality).
  * Never touches titleByLocale/descriptionByLocale, so a hit here is true for
  * EVERY locale. Split out of jobMatchesSector so countSectorJobsByLocale can
@@ -718,17 +707,13 @@ const ENERGY_SECTOR_METADATA_RE = /^\s*(?:energia|energy|energie|énergie)\b/i;
  */
 function jobMatchesSectorCanonical(job: SectorCountableJob, sector: SectorHubKey): boolean {
   const pattern = SECTOR_MATCHERS[sector];
-  const canonicalSignalParts: string[] = [];
-  if (job.title) canonicalSignalParts.push(String(job.title));
-  if (job.category) canonicalSignalParts.push(String(job.category));
+  const titleOnlyParts: string[] = [];
+  if (job.title) titleOnlyParts.push(String(job.title));
+  if (job.category) titleOnlyParts.push(String(job.category));
   if (job.tags) {
-    canonicalSignalParts.push(Array.isArray(job.tags) ? job.tags.join(' ') : String(job.tags));
+    titleOnlyParts.push(Array.isArray(job.tags) ? job.tags.join(' ') : String(job.tags));
   }
-  if (pattern.test(canonicalSignalParts.join(' \n '))) return true;
-
-  if (sector === 'energia' && job.sector && ENERGY_SECTOR_METADATA_RE.test(String(job.sector))) {
-    return true;
-  }
+  if (pattern.test(titleOnlyParts.join(' \n '))) return true;
 
   if (!SECTOR_DESCRIPTION_SCOPE[sector]) return false;
 
@@ -747,10 +732,9 @@ function jobMatchesSectorCanonical(job: SectorCountableJob, sector: SectorHubKey
 /**
  * True when a job's text metadata matches the sector keyword pattern.
  *
- * For every sector the title (+ titleByLocale) / category / tags are scanned.
- * Energy also accepts an anchored, explicit `sector` metadata label. The body
- * description is scanned only for sectors flagged in `SECTOR_DESCRIPTION_SCOPE`
- * — those need named-entity matching.
+ * For every sector the title (+ titleByLocale) / category / tags are
+ * scanned. The body description is scanned only for sectors flagged in
+ * `SECTOR_DESCRIPTION_SCOPE` — those need named-entity matching.
  *
  * Rationale: job titles state the role; descriptions add narrative that
  * can mention adjacent roles ("chauffeur service available", "Fahrer

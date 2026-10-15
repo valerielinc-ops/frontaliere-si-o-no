@@ -366,9 +366,6 @@ describe('employerProfilePagesPlugin', () => {
     for (const locale of ['', 'en/', 'de/', 'fr/']) {
       expect(read(`${locale}aziende/acme-corp/index.html`)).not.toContain('"@type":"JobPosting"');
     }
-  });
-
-  it('keeps employer ItemList entries linked to job detail pages', () => {
     const html = read('aziende/acme-corp/index.html');
     const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map((m) => JSON.parse(m[1]));

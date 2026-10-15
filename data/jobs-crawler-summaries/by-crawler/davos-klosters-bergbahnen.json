@@ -1,16 +1,16 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-10-14T21:23:09.501Z",
+  "generatedAt": "2026-10-14T09:34:12.016Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4984,
-  "avgDurationMs": 4984,
+  "durationMs": 5851,
+  "avgDurationMs": 5851,
   "durationHistory": [
-    4984
+    5851
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Kasse-und-Buffet-am-Rinerhorn_j_2449707",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:22:56.204Z",
+      "crawledAt": "2026-10-14T09:33:55.742Z",
       "firstSeenAt": "2026-10-07T09:28:51.950Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -76,7 +76,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Ochsen_j_3885740",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:22:55.977Z",
+      "crawledAt": "2026-10-14T09:33:55.565Z",
       "firstSeenAt": "2026-09-19T23:06:31.130Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -114,7 +114,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-National_j_2808514",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:22:55.742Z",
+      "crawledAt": "2026-10-14T09:33:55.387Z",
       "firstSeenAt": "2026-10-06T21:26:48.534Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -152,7 +152,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:22:55.517Z",
+      "crawledAt": "2026-10-14T09:33:55.150Z",
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -190,7 +190,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:22:55.287Z",
+      "crawledAt": "2026-10-14T09:33:54.907Z",
       "firstSeenAt": "2026-06-09T11:17:26.005Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -207,5 +207,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

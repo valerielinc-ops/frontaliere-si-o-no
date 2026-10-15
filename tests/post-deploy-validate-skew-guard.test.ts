@@ -216,23 +216,6 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
     expect(sourceStep?.run).toContain('build_skew_guard_skip_row "$name" > "$RESDIR/$name"');
   });
 
-  it('pins published corpus image evidence before requiring it in the OG validator', () => {
-    const steps = workflow.jobs?.['validate-dist-postbuild']?.steps ?? [];
-    const evidenceIndex = steps.findIndex((step) => step.id === 'sync_blog_image_evidence');
-    const sourceIndex = steps.findIndex((step) => step.name === 'Run source validators (parallel — 4 vCPU)');
-    const evidenceStep = steps[evidenceIndex];
-    const sourceStep = steps[sourceIndex];
-
-    expect(evidenceIndex).toBeGreaterThanOrEqual(0);
-    expect(evidenceIndex).toBeLessThan(sourceIndex);
-    expect(evidenceStep?.run).toContain(
-      'build_skew_guard_run node scripts/sync-published-blog-image-evidence.mjs',
-    );
-    expect(sourceStep?.run).toContain(
-      'npm run validate:og-images -- --require-published-blog-image-evidence',
-    );
-  });
-
   it('does not lose the source-validator calls from the census', () => {
     const calls = buildCheckoutJobs().flatMap(([jobName, job]) =>
       (job.steps ?? []).flatMap((step) => directCalls(jobName, step)),

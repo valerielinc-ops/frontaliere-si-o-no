@@ -29,9 +29,7 @@ import {
   generateFuelArchivePages,
   generateFuelDailyPages,
 } from '../build-plugins/fuelDailyPagesPlugin';
-import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
 import { createAuditor as createTextHtmlRatioAuditor } from '../scripts/audit-text-html-ratio.mjs';
-import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 import { AD_SLOTS } from '../services/adsenseSlots';
 
@@ -603,37 +601,6 @@ describe('fuel-daily page generation — observation date', () => {
 });
 
 describe('fuel-daily archive generation', () => {
-  it('links every emitted archive month from its matching daily page', () => {
-    const today = new Date('2026-10-14T06:00:00.000Z');
-    const months = ['2026-03', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09'];
-    const archivePaths = FUEL_DAILY_LOCALES.flatMap((locale) =>
-      FUEL_TYPES.flatMap((fuel) =>
-        FUEL_ZONES.flatMap((zone) => months.map((month) => buildFuelArchivePath(locale, fuel, zone, month))),
-      ),
-    );
-    const pages = generateFuelDailyPages({
-      rootDir: '/tmp/frontaliere-fuel-archive-navigation-test',
-      dataset: DATASET,
-      history: [],
-      archivePaths,
-      today,
-    });
-
-    for (const locale of FUEL_DAILY_LOCALES) {
-      for (const fuel of FUEL_TYPES) {
-        const regionalPage = pages[buildFuelTodayPath(locale, fuel)]!;
-        for (const zone of FUEL_ZONES) {
-          const dailyPage = pages[buildFuelTodayPath(locale, fuel, zone)]!;
-          for (const month of months) {
-            const archivePath = buildFuelArchivePath(locale, fuel, zone, month);
-            expect(dailyPage, `${locale}/${fuel}/${zone} should link ${month}`).toContain(`href="${archivePath}"`);
-            expect(regionalPage, `${locale}/${fuel} should link ${zone}/${month}`).toContain(`href="${archivePath}"`);
-          }
-        }
-      }
-    }
-  });
-
   it('generates archives only for past months', () => {
     const today = new Date('2026-04-20T06:00:00.000Z');
     const history = [
@@ -652,41 +619,6 @@ describe('fuel-daily archive generation', () => {
   it('returns empty object when history is empty', () => {
     const archives = generateFuelArchivePages({ history: [], today: new Date('2026-04-20') });
     expect(archives).toEqual({});
-  });
-
-  it('links durable indexable archives even when their snapshots are outside daily history', () => {
-    const today = new Date('2026-10-20T06:00:00.000Z');
-    const archiveSnapshot = {
-      date: '2026-03-15',
-      diesel: { source: 'api' as const },
-      zones: Object.fromEntries(FUEL_ZONES.map((zone) => [zone, { benzina: 1.8, diesel: 1.9 }])),
-      regional: { benzina: 1.8, diesel: 1.9 },
-    } as Parameters<typeof generateFuelArchivePages>[0]['history'][number];
-    const archives = generateFuelArchivePages({ history: [archiveSnapshot], today });
-    const archivePaths = Object.entries(archives)
-      .filter(([, html]) => htmlHasIndexableRobots(html) && countHtmlBodyWords(html) >= MIN_INDEXABLE_WORDS)
-      .map(([path]) => path);
-    const dailyPages = generateFuelDailyPages({
-      rootDir: '/tmp/frontaliere-durable-fuel-archives',
-      dataset: DATASET,
-      history: [],
-      archivePaths,
-      today,
-    });
-
-    let linkedArchives = 0;
-    for (const locale of FUEL_DAILY_LOCALES) {
-      for (const fuel of FUEL_TYPES) {
-        for (const zone of FUEL_ZONES) {
-          const archivePath = buildFuelArchivePath(locale, fuel, zone, '2026-03');
-          if (!archivePaths.includes(archivePath)) continue;
-          const dailyPath = buildFuelTodayPath(locale, fuel, zone);
-          expect(dailyPages[dailyPath], `${dailyPath} should link ${archivePath}`).toContain(`href="${archivePath}"`);
-          linkedArchives++;
-        }
-      }
-    }
-    expect(linkedArchives).toBe(archivePaths.length);
   });
 });
 

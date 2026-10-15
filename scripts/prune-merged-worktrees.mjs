@@ -136,13 +136,6 @@ import {
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
-import {
-  defaultTempRoot,
-  sweepStaleTempDirs,
-  STALE_TEMP_DIR_AGE_MS,
-} from './lib/stale-temp-dir-sweep.mjs';
-import { sweepStaleDeviceArtifacts } from './lib/stale-device-artifact-sweep.mjs';
-import { sweepStaleWorkspaceArtifacts } from './lib/stale-workspace-artifact-sweep.mjs';
 
 const STARTED_AT = Date.now();
 const APPLY = process.argv.includes('--apply');
@@ -467,12 +460,6 @@ if (ORPHANS_ONLY) {
 // residui che git non pota da sé. Fetch mancato = origin/<main> leggermente
 // stale, caso già tollerato dallo script (degrada a report-only, mai a una
 // cancellazione a torto).
-const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
-const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
-const tempSweepLock = join(gitDir, 'frontaliere-prune-tmp.lock');
-const deviceSweepLock = join(gitDir, 'frontaliere-prune-device.lock');
-const workspaceSweepLock = join(gitDir, 'frontaliere-prune-workspace.lock');
-
 // Il timeout è un guard anti-APPESO, non un tetto al lavoro legittimo: a
 // impedire il pile-up ci pensa il lock, non il timeout. Va quindi tenuto SOPRA
 // il fetch di catch-up più lento misurato (~20 min per 24'309 commit di
@@ -2172,33 +2159,6 @@ for (const o of orphanRemove) {
   }
 }
 sh('git worktree prune', { allowFail: true });
-
-// Pulizia cross-device degli artefatti temporanei: una sola istanza può
-// scansionare/cancellare il root per evitare N walk ricorsive concorrenti.
-const tmpRoot = defaultTempRoot();
-const tmpRun = withSingleFlightLock(tempSweepLock, () => sweepStaleTempDirs(tmpRoot, { apply: APPLY }));
-if (tmpRun.acquired) {
-  const tmpMb = Math.round((tmpRun.value?.bytes ?? 0) / 1048576);
-  console.log(`🧹 tmp ${tmpRoot}: ${tmpRun.value?.removed ?? 0}/${tmpRun.value?.candidates ?? 0} directory stale rimosse (${tmpMb} MB; soglia ${STALE_TEMP_DIR_AGE_MS / 86400000} giorni).`);
-} else {
-  console.log(`ℹ️  tmp cleanup saltato: un'altra istanza tiene ${tempSweepLock}.`);
-}
-
-const deviceRun = withSingleFlightLock(deviceSweepLock, () => sweepStaleDeviceArtifacts({ apply: APPLY }));
-if (deviceRun.acquired) {
-  const mb = Math.round((deviceRun.value?.bytes ?? 0) / 1048576);
-  console.log(`🧹 device cache/session cleanup: ${deviceRun.value?.removed ?? 0}/${deviceRun.value?.candidates?.length ?? 0} stale items (${mb} MB).`);
-} else {
-  console.log(`ℹ️  device cleanup saltato: un'altra istanza tiene ${deviceSweepLock}.`);
-}
-
-const workspaceRun = withSingleFlightLock(workspaceSweepLock, () => sweepStaleWorkspaceArtifacts({ apply: APPLY }));
-if (workspaceRun.acquired) {
-  const mb = Math.round((workspaceRun.value?.bytes ?? 0) / 1048576);
-  console.log(`🧹 workspace artifact cleanup: ${workspaceRun.value?.removed ?? 0}/${workspaceRun.value?.candidates?.length ?? 0} stale directories (${mb} MB).`);
-} else {
-  console.log(`ℹ️  workspace cleanup saltato: un'altra istanza tiene ${workspaceSweepLock}.`);
-}
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
 console.log(`riassunto: snapshot creati ${snapshotsCreated.length}; worktree rimossi ${removedWorktrees}; branch rimossi ${removedBranches}; spazio liberato ${formatBytes(spaceFreedBytes)}; saltati per motivo: ${skippedSummary()}${skippedSnapshotFailures ? `; snapshot falliti=${skippedSnapshotFailures}` : ''}.`);

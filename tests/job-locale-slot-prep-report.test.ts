@@ -302,13 +302,9 @@ describe('cleanup-jobs.mjs dataset mode — names the blocking records on every 
 
   it('final-write path (a duplicate slug removed): the report reads the file written last', async () => {
     const blockedJob = titlelessJob('rtr-2', 'rtr-titleless-second');
-    // Two crawls of ONE posting (same source URL): since #12614 only a proven
-    // same-identity duplicate is removed; two ids at two URLs are distinct
-    // postings and both stay active under disambiguated routes.
-    const sameSourceUrl = 'https://careers.example.test/jobs/dup';
     const jobs = [
-      completeJob({ id: 'dup-old', slug: 'shared-slug', crawledAt: daysAgo(9), url: sameSourceUrl }),
-      completeJob({ id: 'dup-new', slug: 'shared-slug', crawledAt: daysAgo(1), url: sameSourceUrl }),
+      completeJob({ id: 'dup-old', slug: 'shared-slug', crawledAt: daysAgo(9) }),
+      completeJob({ id: 'dup-new', slug: 'shared-slug', crawledAt: daysAgo(1) }),
       blockedJob,
     ];
     const sb = makeSandbox(jobs, { 'srg-ssr': [blockedJob] });

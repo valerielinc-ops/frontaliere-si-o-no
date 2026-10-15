@@ -12,19 +12,12 @@ import {
   checkPublishedImageUrl,
   loadPublishedImagePolicy,
 } from '../scripts/lib/published-image-policy.mjs';
-import { syncPublishedBlogImageEvidence } from '../scripts/sync-published-blog-image-evidence.mjs';
 import {
   collectOgImageReferences,
   run as runOgImageGate,
   verifyOgImageReferences,
 } from '../scripts/verify-og-images.mjs';
 import { isExplicitInferredCover, loadInferredCoverDecisions } from '../scripts/lib/blog-cover-decisions.mjs';
-import {
-  GENERATED_IMAGE_CREDIT,
-  GENERATED_IMAGE_LICENSE_URLS,
-  GENERATED_IMAGE_PROMPT_VERSION,
-  GENERATED_IMAGE_RESTRICTIONS,
-} from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -35,48 +28,6 @@ const ROOT = path.resolve(__dirname, '..');
 // the related-test selector links the fixture to this file.
 const CREDIT_FIXTURE = 'tests/__fixtures__/published-image-policy/blog-credit.json';
 const EVENT_LIBRARY_FIXTURE = 'tests/__fixtures__/license-audit/event-image-library.json';
-const BLOG_EVIDENCE_SNAPSHOT = 'data/og-published-blog-generated-image-evidence.json';
-const LEDGER_BLOG_EVIDENCE_SNAPSHOT = 'data/published-blog-generated-image-evidence.json';
-
-function generatedArticleHero(assetId: string) {
-  return {
-    schema: 1,
-    assetId,
-    kind: 'generated',
-    provider: 'openai-codex',
-    model: 'gpt-image-2.5',
-    executorModel: 'gpt-5.6-luna',
-    promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
-    promptHash: 'a'.repeat(64),
-    license: 'generated-provider',
-    licenseUrl: GENERATED_IMAGE_LICENSE_URLS['openai-codex'],
-    credit: GENERATED_IMAGE_CREDIT,
-    sha256: 'b'.repeat(64),
-    bytes: 1200,
-    width: 1200,
-    height: 675,
-    format: 'webp',
-    generatedAt: '2026-10-14T00:00:00.000Z',
-    verifiedAt: '2026-10-14T00:00:01.000Z',
-    restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
-    scope: 'article-hero',
-    imageUrl: `/images/blog/${assetId}.webp`,
-    area: 'Ticino',
-    season: 'all seasons',
-    variant: 'article hero',
-    vision: {
-      ok: true,
-      contains_text: false,
-      contains_logo: false,
-      contains_recognizable_face: false,
-      contains_recognizable_foreground_person: false,
-      looks_like_specific_real_event: false,
-      is_photograph: false,
-      is_topic_relevant: true,
-      notes: 'Synthetic generated-image evidence used by the test fixture.',
-    },
-  };
-}
 
 function withPinnedRoot<T>(run: (root: string) => T): T {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-image-policy-'));
@@ -92,191 +43,6 @@ function withPinnedRoot<T>(run: (root: string) => T): T {
 }
 
 describe('published image policy', () => {
-  it('accepts manifest-pinned corpus generated covers for OG images without widening uploader policy', () => {
-    withPinnedRoot((root) => {
-      const assetIds = [
-        'article-talenti-in-movimento-oltreconfinti',
-        'article-zurigo-targhe-immatricolazione-guida',
-      ];
-      const generated = Object.fromEntries(assetIds.map((assetId) => {
-        const record = generatedArticleHero(assetId);
-        return [record.imageUrl, record];
-      }));
-      fs.writeFileSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT), JSON.stringify({
-        schema: 1,
-        commit: 'a'.repeat(40),
-        generated,
-      }));
-
-      const policy = loadPublishedImagePolicy({ root, requirePublishedBlogImageEvidence: true });
-      expect(policy.registryErrors).toEqual([]);
-      for (const assetId of assetIds) {
-        const url = `${IMAGE_CDN_ORIGIN}/images/blog/${assetId}.webp`;
-        expect(policy.checkOg(url)).toMatchObject({
-          valid: true,
-          source: 'generated-registry',
-          path: `/images/blog/${assetId}.webp`,
-        });
-        expect(policy.check(url, { requireCdn: true })).toMatchObject({
-          valid: false,
-          reason: 'missing-or-unpublishable-image-credit',
-        });
-      }
-      expect(policy.checkOg(`${IMAGE_CDN_ORIGIN}/images/blog/not-in-corpus.webp`)).toMatchObject({
-        valid: false,
-        reason: 'missing-or-unpublishable-image-credit',
-      });
-    });
-  });
-
-  it('requires the published corpus snapshot when requested and rejects invalid evidence', () => {
-    withPinnedRoot((root) => {
-      const warn = vi.fn();
-      const missing = loadPublishedImagePolicy({ root, warn, requirePublishedBlogImageEvidence: true });
-      expect(missing.registryErrors.join('\n')).toContain('required published blog image evidence snapshot is missing');
-
-      const record = generatedArticleHero('article-invalid-evidence');
-      record.imageUrl = '/images/blog/a-different-asset.webp';
-      fs.writeFileSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT), JSON.stringify({
-        schema: 1,
-        commit: 'a'.repeat(40),
-        generated: { '/images/blog/article-invalid-evidence.webp': record },
-      }));
-      const invalid = loadPublishedImagePolicy({ root, warn, requirePublishedBlogImageEvidence: true });
-      expect(invalid.registryErrors.join('\n')).toContain('imageUrl does not match the record key');
-    });
-  });
-
-  it('fetches only manifest-pinned generated image evidence from the corpus API', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-blog-image-evidence-'));
-    try {
-      const commit = 'c'.repeat(40);
-      const record = generatedArticleHero('article-api-fixture-cover');
-      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
-      const existingLedgerSnapshot = {
-        schema: 1,
-        commit: '9'.repeat(40),
-        generated: {},
-      };
-      fs.writeFileSync(
-        path.join(root, LEDGER_BLOG_EVIDENCE_SNAPSHOT),
-        JSON.stringify(existingLedgerSnapshot),
-      );
-      const creditsText = JSON.stringify({
-        schema: 1,
-        section: 'blog',
-        commit,
-        generated: { [record.imageUrl]: record },
-      });
-      const manifestText = JSON.stringify({
-        commit,
-        files: { 'data/image-credits-blog.json': Buffer.byteLength(creditsText, 'utf8') },
-      });
-      const fetchImpl = vi.fn(async (input: string | URL) => {
-        const url = String(input);
-        if (url.endsWith('/manifest.json')) return new Response(manifestText, { status: 200 });
-        if (url.endsWith('/data/image-credits-blog.json')) return new Response(creditsText, { status: 200 });
-        return new Response('', { status: 404 });
-      });
-
-      const result = await syncPublishedBlogImageEvidence({ root, apiBase: 'https://api.example.test/', fetchImpl });
-      const snapshot = JSON.parse(fs.readFileSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT), 'utf8'));
-      const ledgerSnapshot = JSON.parse(
-        fs.readFileSync(path.join(root, LEDGER_BLOG_EVIDENCE_SNAPSHOT), 'utf8'),
-      );
-      expect(fetchImpl).toHaveBeenCalledTimes(3);
-      expect(result).toMatchObject({ commit, recordCount: 1 });
-      expect(snapshot).toEqual({ schema: 1, commit, generated: { [record.imageUrl]: record } });
-      expect(ledgerSnapshot).toEqual(existingLedgerSnapshot);
-    } finally {
-      fs.rmSync(root, { recursive: true, force: true });
-    }
-  });
-
-  it('does not write a corpus evidence snapshot when the manifest byte count differs', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-blog-image-evidence-'));
-    try {
-      const commit = 'd'.repeat(40);
-      const record = generatedArticleHero('article-bad-byte-count');
-      const creditsText = JSON.stringify({ schema: 1, section: 'blog', commit, generated: { [record.imageUrl]: record } });
-      const manifestText = JSON.stringify({
-        commit,
-        files: { 'data/image-credits-blog.json': Buffer.byteLength(creditsText, 'utf8') + 1 },
-      });
-      const fetchImpl = vi.fn(async (input: string | URL) => String(input).endsWith('/manifest.json')
-        ? new Response(manifestText, { status: 200 })
-        : new Response(creditsText, { status: 200 }));
-
-      await expect(syncPublishedBlogImageEvidence({ root, apiBase: 'https://api.example.test', fetchImpl }))
-        .rejects.toThrow('byte count');
-      expect(fs.existsSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT))).toBe(false);
-    } finally {
-      fs.rmSync(root, { recursive: true, force: true });
-    }
-  });
-
-  it('does not write evidence when the corpus manifest moves during the fetch', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-blog-image-evidence-'));
-    try {
-      const firstCommit = 'e'.repeat(40);
-      const nextCommit = 'f'.repeat(40);
-      const record = generatedArticleHero('article-moving-manifest');
-      const creditsText = JSON.stringify({
-        schema: 1,
-        section: 'blog',
-        commit: firstCommit,
-        generated: { [record.imageUrl]: record },
-      });
-      const manifestFor = (commit: string) => JSON.stringify({
-        commit,
-        files: { 'data/image-credits-blog.json': Buffer.byteLength(creditsText, 'utf8') },
-      });
-      const responses = [
-        new Response(manifestFor(firstCommit), { status: 200 }),
-        new Response(creditsText, { status: 200 }),
-        new Response(manifestFor(nextCommit), { status: 200 }),
-      ];
-      const fetchImpl = vi.fn(async () => responses.shift() as Response);
-
-      await expect(syncPublishedBlogImageEvidence({ root, apiBase: 'https://api.example.test', fetchImpl }))
-        .rejects.toThrow('manifest changed during fetch');
-      expect(fs.existsSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT))).toBe(false);
-    } finally {
-      fs.rmSync(root, { recursive: true, force: true });
-    }
-  });
-
-  it('rejects a same-commit manifest whose image evidence byte count changes during the fetch', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-blog-image-evidence-'));
-    try {
-      const commit = 'a'.repeat(40);
-      const record = generatedArticleHero('article-changing-manifest-bytes');
-      const creditsText = JSON.stringify({
-        schema: 1,
-        section: 'blog',
-        commit,
-        generated: { [record.imageUrl]: record },
-      });
-      const expectedBytes = Buffer.byteLength(creditsText, 'utf8');
-      const manifestFor = (bytes: number) => JSON.stringify({
-        commit,
-        files: { 'data/image-credits-blog.json': bytes },
-      });
-      const responses = [
-        new Response(manifestFor(expectedBytes), { status: 200 }),
-        new Response(creditsText, { status: 200 }),
-        new Response(manifestFor(expectedBytes + 1), { status: 200 }),
-      ];
-      const fetchImpl = vi.fn(async () => responses.shift() as Response);
-
-      await expect(syncPublishedBlogImageEvidence({ root, apiBase: 'https://api.example.test', fetchImpl }))
-        .rejects.toThrow('manifest byte count changed during fetch');
-      expect(fs.existsSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT))).toBe(false);
-    } finally {
-      fs.rmSync(root, { recursive: true, force: true });
-    }
-  });
-
   it.skipIf(SKIP_LIVE_DATA)('accepts a generated event CDN URL only with its valid registry record', () => {
     const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
     const policy = loadPublishedImagePolicy({ root: ROOT });

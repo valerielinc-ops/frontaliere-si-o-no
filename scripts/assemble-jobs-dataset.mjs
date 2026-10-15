@@ -2767,18 +2767,10 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // The baseline is the slice as this process first read it, or an explicit
   // `options.retranslationBaseline` (records or snapshot) from the caller.
   {
-    // The line is printed whenever this slice carries flags, not only when some
-    // are dropped: on 2026-10-14 Senevita kept 91 flags on unchanged, complete
-    // records and the log said nothing, so the rule that kept them was unknown.
     const baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
-    if (!baseline) {
-      const flagged = jobs.filter((job) => job?.needsRetranslation === true).length;
-      if (flagged > 0) {
-        console.log(`  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} (every flag is kept)`);
-      }
-    } else {
+    if (baseline) {
       const retrans = dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
-      if (retrans.flagged > 0) {
+      if (retrans.dropped > 0) {
         console.log(
           `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
             + `(kept: ${retrans.keptSourceChanged} source changed, ${retrans.keptIncomplete} incomplete, `

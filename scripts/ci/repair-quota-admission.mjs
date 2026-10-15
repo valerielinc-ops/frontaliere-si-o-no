@@ -244,7 +244,6 @@ function holdCurrentRound({
   pr,
   workflow,
   round,
-  reviewRevision,
   stats,
   decision,
   runJson,
@@ -258,25 +257,9 @@ function holdCurrentRound({
 
     const holdMarker = `<!-- REPAIR_QUOTA_HOLD: ${workflow}:${sha} -->`;
     const roundNumber = String(round || '').trim();
-    const marker = roundMarkerFor(workflow);
-    const candidates = comments.map((comment) => ({
-      comment,
-      line: String(comment.body || '').split(/\r?\n/u, 1)[0],
-    }));
-    // Both fixer producers scope rounds by HEAD and, now, body revision.
-    // Never refund an older unscoped marker when this round has a scoped one.
-    const hasScopedMarker = candidates.some(({ line }) => line.startsWith(`<!-- ${marker}: ${roundNumber} HEAD:`));
-    const scopedPattern = new RegExp(`^<!-- ${marker}: ([1-9]\\d*) HEAD: ([0-9a-f]{40})(?: BODY: (body:[0-9a-f]{64}))? -->$`, 'i');
-    const roundComment = /^[1-9]\d*$/u.test(roundNumber)
-      ? [...candidates].reverse().find(({ comment, line }) => {
-        if (!hasScopedMarker) return line === `<!-- ${marker}: ${roundNumber} -->`;
-        const parsed = line.match(scopedPattern);
-        return parsed?.[1] === roundNumber
-          && parsed[2].toLowerCase() === sha.toLowerCase()
-          && (!parsed[3] || parsed[3].toLowerCase() === String(reviewRevision || '').toLowerCase())
-          && comment.user?.login === 'github-actions[bot]'
-          && comment.user?.type === 'Bot';
-      })?.comment
+    const roundToken = `<!-- ${roundMarkerFor(workflow)}: ${roundNumber} -->`;
+    const roundComment = roundNumber
+      ? [...comments].reverse().find((comment) => String(comment.body || '').includes(roundToken))
       : null;
     if (!roundComment?.id) {
       throw new Error('current round marker missing; refuse an untracked hold');
@@ -420,7 +403,6 @@ export function main({
     pr,
     workflow,
     round: env.FIX_ROUND,
-    reviewRevision: env.PR_BODY_EXPECTED_REVISION,
     stats,
     decision,
     runJson,

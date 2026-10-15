@@ -2,9 +2,9 @@
 /**
  * Shared, zero-provider coordination for the repair/issue-fix quota floor.
  *
- * GitHub Actions has no cross-workflow step mutex.  A dedicated PR thread is
- * therefore used as a small ledger: a comment reserves one slot, deleting
- * that exact comment releases it, and an expiry makes a crashed run recoverable.
+ * GitHub Actions has no cross-workflow step mutex.  The parent quota issue is
+ * therefore used as a small append-only ledger: a lease reserves one slot,
+ * a release marker frees it, and an expiry makes a crashed run recoverable.
  * The parser is deliberately strict.  A ledger that cannot be read or parsed
  * is not an empty ledger; callers must stop before starting a provider.
  */
@@ -13,7 +13,7 @@ import { execFileSync } from 'node:child_process';
 /** @typedef {(args: string[]) => any} QuotaFloorCommand */
 /** @typedef {(args: string[]) => any} QuotaFloorJsonReader */
 
-export const QUOTA_FLOOR_LEDGER_ISSUE = '12604';
+export const QUOTA_FLOOR_LEDGER_ISSUE = '8306';
 export const QUOTA_FLOOR_LEASE_TTL_SEC = 6 * 60 * 60;
 export const QUOTA_FLOOR_LEASE_KINDS = Object.freeze(['repair', 'issue-fix']);
 
@@ -118,7 +118,7 @@ export function quotaFloorLeaseExpiry(nowSec = Math.floor(Date.now() / 1000), tt
 }
 
 /**
- * Parse the comment ledger. Expired leases are intentionally returned in
+ * Parse the append-only ledger.  Expired leases are intentionally returned in
  * `leases` for audit, but only unexpired/unreleased entries are `activeLeases`.
  * @param {any} raw
  * @param {{nowSec?: number}} [options]
@@ -247,33 +247,23 @@ export function quotaFloorLeaseDecision(ledger, { kind, subject, fairnessHold = 
 export function acquireQuotaFloorLease({ repo, ledgerIssue = QUOTA_FLOOR_LEDGER_ISSUE, kind, subject, owner, expiresAt, runCommand = defaultRunCommand } = {}) {
   const marker = quotaFloorLeaseMarker({ kind, subject, owner, expiresAt });
   try {
-    const raw = runCommand(quotaFloorCommentArgs({ repo, ledgerIssue, body: marker }));
-    const response = typeof raw === 'string' ? JSON.parse(raw) : raw;
-    const commentId = positiveInteger(response?.id, 'commentId');
-    return {
-      ok: true,
-      marker,
-      commentId,
-      owner: token(owner, 'owner'),
-      subject: token(subject, 'subject'),
-    };
+    // `gh issue comment` calls GraphQL addComment, which rejects issues after
+    // 2,500 comments. Keep the append-only lease protocol writable via REST.
+    runCommand(quotaFloorCommentArgs({ repo, ledgerIssue, body: marker }));
+    return { ok: true, marker, owner: token(owner, 'owner'), subject: token(subject, 'subject') };
   } catch (error) {
     return { ok: false, reason: `quota floor lease acquisition failed: ${error?.message || String(error)}` };
   }
 }
 
 /**
- * @param {{repo?: string, owner?: string, commentId?: number, runCommand?: QuotaFloorCommand}} [options]
+ * @param {{repo?: string, ledgerIssue?: string, owner?: string, runCommand?: QuotaFloorCommand}} [options]
  */
-export function releaseQuotaFloorLease({ repo, owner, commentId, runCommand = defaultRunCommand } = {}) {
+export function releaseQuotaFloorLease({ repo, ledgerIssue = QUOTA_FLOOR_LEDGER_ISSUE, owner, runCommand = defaultRunCommand } = {}) {
+  const marker = quotaFloorReleaseMarker(owner);
   try {
-    const normalizedOwner = token(owner, 'owner');
-    const normalizedCommentId = positiveInteger(commentId, 'commentId');
-    runCommand([
-      'api', '--method', 'DELETE',
-      `repos/${token(repo, 'repo')}/issues/comments/${normalizedCommentId}`,
-    ]);
-    return { ok: true, commentId: normalizedCommentId, owner: normalizedOwner };
+    runCommand(quotaFloorCommentArgs({ repo, ledgerIssue, body: marker }));
+    return { ok: true, marker, owner: token(owner, 'owner') };
   } catch (error) {
     return { ok: false, reason: `quota floor lease release failed: ${error?.message || String(error)}` };
   }

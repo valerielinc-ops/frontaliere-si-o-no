@@ -29,7 +29,7 @@ describe('jobsSeoPagesPlugin self-heal backpressure', () => {
     // Before both writers of the loop: the relocation bridge and the archive page.
     const firstWrite = loop.indexOf('writeSoftLandingPage(');
     expect(firstWrite).toBeGreaterThan(drain);
-    expect(loop.indexOf('buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks)')).toBeGreaterThan(drain);
+    expect(loop.indexOf('buildHistoricalArchiveHtml(slug, relPath, locale, archive)')).toBeGreaterThan(drain);
   });
 
   it('skips already written paths before waiting, so only emitted pages pay the drain', () => {

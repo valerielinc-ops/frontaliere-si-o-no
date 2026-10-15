@@ -20,7 +20,6 @@ import {
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const TIMEOUT_MS = 6000;
 const RELEASE_RETRY_DELAYS_MS = [0, 500, 1500] as const;
-const HUB_FAILURE_BACKOFF_MS = [30_000, 120_000, 300_000] as const;
 
 export interface CantonHubKeyFact {
   label: string;
@@ -218,12 +217,7 @@ async function fetchHubPayload(registry: { commit: string }): Promise<HubPayload
     const response = await fetch(url, { signal: controller.signal, cache: 'no-store' });
     if (!response.ok) return null;
     const payload = await response.json() as HubPayload;
-    // Keep a structurally valid payload even when its commit differs from the
-    // cached registry. A release can advance between the registry read that
-    // seeded the SPA cache and this request; the caller must re-read the
-    // registry and confirm the newer payload instead of discarding the only
-    // evidence of the release that is now actually being served.
-    if (payload?.schema !== 1 || !nonEmptyString(payload.commit) || !isRecord(payload.sections)) return null;
+    if (payload?.schema !== 1 || payload.commit !== registry.commit || !isRecord(payload.sections)) return null;
     return payload;
   } catch {
     return null;
@@ -233,8 +227,6 @@ async function fetchHubPayload(registry: { commit: string }): Promise<HubPayload
 }
 
 let hubPayloadCache: { commit: string; promise: Promise<HubPayload | null> } | null = null;
-const hubLoadPromises = new Map<string, Promise<CantonTopicHubData | null>>();
-const hubFailureBackoff = new Map<string, { failures: number; retryAt: number }>();
 
 function loadHubPayload(registry: { commit: string }): Promise<HubPayload | null> {
   if (hubPayloadCache?.commit === registry.commit) return hubPayloadCache.promise;
@@ -248,33 +240,8 @@ async function waitForReleaseRetry(attempt: number): Promise<void> {
   if (delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
 }
 
-function hubKey(section: CantonArticleSection, topic: string, locale: Locale): string {
-  return `${section}:${topic}:${locale}`;
-}
-
-function readPayloadHub(
-  payload: HubPayload,
-  section: CantonArticleSection,
-  topic: string,
-  locale: Locale,
-): CantonTopicHubData | null {
-  if (!isRecord(payload.sections)) return null;
-  const sectionPayload = payload.sections[section];
-  if (!isRecord(sectionPayload)) return null;
-  return readPayloadDocument(sectionPayload[topic], section, topic, locale);
-}
-
-function markHubUnavailable(key: string): void {
-  const previous = hubFailureBackoff.get(key);
-  const failures = (previous?.failures ?? 0) + 1;
-  const delayIndex = Math.min(failures - 1, HUB_FAILURE_BACKOFF_MS.length - 1);
-  hubFailureBackoff.set(key, {
-    failures,
-    retryAt: Date.now() + HUB_FAILURE_BACKOFF_MS[delayIndex],
-  });
-}
-
-async function loadCantonTopicHubOnce(
+/** Fetch one locale of one live canton hub from the versioned corpus payload. */
+export async function loadCantonTopicHub(
   section: CantonArticleSection,
   topic: string,
   locale: Locale,
@@ -287,25 +254,11 @@ async function loadCantonTopicHubOnce(
     const registry = await loadCantonSectionRegistry();
     if (!registry?.sections[section] || registry.sections[section].status !== 'live') return null;
     const payload = await loadHubPayload(registry);
-    if (payload) {
-      if (payload.commit === registry.commit) {
-        const data = readPayloadHub(payload, section, topic, locale);
+    if (payload && isRecord(payload.sections)) {
+      const sectionPayload = payload.sections[section];
+      if (isRecord(sectionPayload)) {
+        const data = readPayloadDocument(sectionPayload[topic], section, topic, locale);
         if (data) return data;
-      } else if (nonEmptyString(payload.commit)) {
-        // The first registry read may be the release identity retained by the
-        // page's static/SPA handoff. Confirm the payload's identity against a
-        // fresh edge registry before using it. If they agree, adopt the newer
-        // release immediately; no second stale query or page reload is needed.
-        refreshCantonSectionRegistry();
-        const freshRegistry = await loadCantonSectionRegistry();
-        if (freshRegistry?.commit === payload.commit
-          && freshRegistry.sections[section]?.status === 'live') {
-          const data = readPayloadHub(payload, section, topic, locale);
-          if (data) {
-            hubPayloadCache = { commit: freshRegistry.commit, promise: Promise.resolve(payload) };
-            return data;
-          }
-        }
       }
     }
 
@@ -320,36 +273,4 @@ async function loadCantonTopicHubOnce(
 
 export function __resetRuntimeCantonTopicHubs(): void {
   hubPayloadCache = null;
-  hubLoadPromises.clear();
-  hubFailureBackoff.clear();
-}
-
-/**
- * Fetch one locale of one live canton hub from the versioned corpus payload.
- * Concurrent mounts share one bounded attempt, and a failed key is cooled down
- * so a remount cannot turn a release skew into an unbounded fetch loop.
- */
-export function loadCantonTopicHub(
-  section: CantonArticleSection,
-  topic: string,
-  locale: Locale,
-): Promise<CantonTopicHubData | null> {
-  if (!isCantonArticleSection(section) || !LOCALES.includes(locale)) return Promise.resolve(null);
-  const key = hubKey(section, topic, locale);
-  const inFlight = hubLoadPromises.get(key);
-  if (inFlight) return inFlight;
-  const blocked = hubFailureBackoff.get(key);
-  if (blocked && blocked.retryAt > Date.now()) return Promise.resolve(null);
-
-  const promise = loadCantonTopicHubOnce(section, topic, locale)
-    .then((data) => {
-      if (data) hubFailureBackoff.delete(key);
-      else markHubUnavailable(key);
-      return data;
-    })
-    .finally(() => {
-      hubLoadPromises.delete(key);
-    });
-  hubLoadPromises.set(key, promise);
-  return promise;
 }

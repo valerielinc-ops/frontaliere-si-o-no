@@ -25,7 +25,6 @@ import path from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readAllAttr, readAttr, readMetaContent } from './html-attr.mjs';
-import { readClosedElement } from './html-balanced-element.mjs';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
 import { getFirestoreDb } from './firestore-admin.mjs';
@@ -816,9 +815,6 @@ function loadCompanyAdapters() {
     }
     const priority = Number.isFinite(Number(parsed.priority)) ? Number(parsed.priority) : 0;
     const userAgent = typeof parsed.userAgent === 'string' ? parsed.userAgent.trim() : '';
-    const requestTimeoutMs = Number.isFinite(Number(parsed.requestTimeoutMs))
-      ? Math.min(60_000, Math.max(4_000, Math.floor(Number(parsed.requestTimeoutMs))))
-      : undefined;
     const adapter = {
       enabled,
       crawlerModes,
@@ -831,7 +827,6 @@ function loadCompanyAdapters() {
       companyKeyAliases,
       priority,
       userAgent: userAgent || undefined,
-      requestTimeoutMs,
     };
     out.set(key, adapter);
     for (const alias of companyKeyAliases) {
@@ -2083,20 +2078,6 @@ function extractWorkdayApplyUrl(html, baseUrl) {
 // extractMigrosStructuredData, extractMigrosSectionItems, extractMigrosBenefitItems
 // are imported from ./migros-job-parser.mjs at the top of this file.
 
-function extractSwissTimingJobDescription(html = '') {
-  const blocks = [];
-  for (const className of ['description', 'profile', 'requirements', 'language_requirements']) {
-    const inner = readClosedElement(
-      String(html),
-      `class=["'][^"']*\\b${className}\\b[^"']*["']`,
-    );
-    if (!inner) continue;
-    const text = htmlToStructuredText(inner);
-    if (text.length >= 20) blocks.push(text);
-  }
-  return cleanDescription(blocks.join('\n\n'));
-}
-
 function extractRichJobDescription(html) {
   const supsiParsed = parseSupsiJobDetail(html);
   if (supsiParsed.description.length >= 180) return supsiParsed.description;
@@ -2964,13 +2945,10 @@ function fetchRetryDelayMs(attempt) {
   return Math.min(5000, expo + jitter);
 }
 
-async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userAgent, timeoutMs } = {}) {
+async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userAgent } = {}) {
   const upperMethod = normalizeSpace(method || 'GET').toUpperCase();
   const canRetry = (upperMethod === 'GET' || upperMethod === 'HEAD') && !body;
   const maxAttempts = canRetry ? 1 + FETCH_RETRY_ATTEMPTS : 1;
-  const effectiveTimeoutMs = Number.isFinite(Number(timeoutMs))
-    ? Math.min(60_000, Math.max(4_000, Math.floor(Number(timeoutMs))))
-    : REQUEST_TIMEOUT_MS;
   let lastErr = null;
 
   // Opt-in egress proxy for IP-blocked sources (JOBS_CRAWLER_FETCH_PROXY lists
@@ -2994,7 +2972,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     // body. Let HEAD fall through to the generic proxied fetch below, which keeps
     // the original method.
     if (canRetry && upperMethod === 'GET') {
-      const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: effectiveTimeoutMs });
+      const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
       // On exhaustion fetchViaJinaWithRetry hands back the last response
       // unchanged, which is an HTTP 200 when every Jina IP got the WAF
       // challenge as a 200 (its documented contract: callers re-check the
@@ -3038,8 +3016,8 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     const timeoutPromise = new Promise((_, reject) => {
       timer = setTimeout(() => {
         controller.abort();
-        reject(new Error(`timeout after ${effectiveTimeoutMs}ms`));
-      }, effectiveTimeoutMs);
+        reject(new Error(`timeout after ${REQUEST_TIMEOUT_MS}ms`));
+      }, REQUEST_TIMEOUT_MS);
     });
     const fetchPromise = fetch(targetUrl, {
       method: upperMethod,
@@ -4351,7 +4329,7 @@ function absoluteSameHostLinks(html, baseUrl, hintsRegex) {
   return [...links];
 }
 
-async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls = new Set(), { userAgent, timeoutMs } = {}) {
+async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls = new Set(), { userAgent } = {}) {
   const queue = [{ url: listingUrl, depth: 0 }];
   const visited = new Set();
   const jobs = [];
@@ -4369,7 +4347,7 @@ async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, known
     let html = '';
     try {
       // eslint-disable-next-line no-await-in-loop
-      const res = await fetchWithTimeout(pageUrl, { userAgent, timeoutMs });
+      const res = await fetchWithTimeout(pageUrl, { userAgent });
       if (!res.ok) continue;
       // eslint-disable-next-line no-await-in-loop
       html = await res.text();
@@ -4415,7 +4393,7 @@ async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, known
   for (const detailUrl of detailLinks) {
     try {
       // eslint-disable-next-line no-await-in-loop
-      const res = await fetchWithTimeout(detailUrl, { userAgent, timeoutMs });
+      const res = await fetchWithTimeout(detailUrl, { userAgent });
       // eslint-disable-next-line no-await-in-loop
       const html = await res.text();
       const blocks = extractJsonLdBlocks(html);
@@ -4916,10 +4894,7 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   // Try Migros-specific structured extraction first (returns separate fields)
   const migrosData = extractMigrosStructuredData(html);
 
-  const swissTimingDescription = hostOf(pageUrl).endsWith('swisstiming.com')
-    ? extractSwissTimingJobDescription(html)
-    : '';
-  const richDescription = supsiParsed?.description || migrosData?.description || swissTimingDescription || extractRichJobDescription(html);
+  const richDescription = supsiParsed?.description || migrosData?.description || extractRichJobDescription(html);
   const description = cleanDescription(
     richDescription ||
     extractMetaContent(html, 'property', 'og:description') ||
@@ -5350,10 +5325,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   const adapterDetailUrls = Array.isArray(adapter?.seedDetailUrls) ? adapter.seedDetailUrls : [];
   const hasAdapterSeeds = adapterSeeds.length > 0 || adapterDetailUrls.length > 0;
   try {
-    const res = await fetchWithTimeout(company.website, {
-      userAgent: adapter?.userAgent,
-      timeoutMs: adapter?.requestTimeoutMs,
-    });
+    const res = await fetchWithTimeout(company.website);
     if (!res.ok) {
       // Don't bail if adapter has seed URLs — they may be on a different host (e.g., jobs.migros.ch vs migros.ch)
       if (!hasAdapterSeeds) return result;
@@ -5506,10 +5478,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
 
   for (const pageUrl of careerUrls) {
     try {
-      const res = await fetchWithTimeout(pageUrl, {
-        userAgent: adapter?.userAgent,
-        timeoutMs: adapter?.requestTimeoutMs,
-      });
+      const res = await fetchWithTimeout(pageUrl, { userAgent: adapter?.userAgent });
       if (!res.ok) continue;
       const html = await res.text();
       for (const wd of extractWorkdayListingUrls(html, pageUrl)) workdayListingUrls.add(wd);
@@ -5617,10 +5586,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
       let genericJobs = [];
       try {
         // eslint-disable-next-line no-await-in-loop
-        genericJobs = await crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls, {
-          userAgent: adapter?.userAgent,
-          timeoutMs: adapter?.requestTimeoutMs,
-        });
+        genericJobs = await crawlGenericListingJobs(company, listingUrl, crawlerConfig, knownJobUrls, { userAgent: adapter?.userAgent });
       } catch {
         genericJobs = [];
       }
@@ -5675,10 +5641,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     for (const detailUrl of links) {
       try {
         const seedMeta = getAdapterSeedMetaForUrl(adapter, detailUrl);
-        const res = await fetchWithTimeout(detailUrl, {
-          userAgent: adapter?.userAgent,
-          timeoutMs: adapter?.requestTimeoutMs,
-        });
+        const res = await fetchWithTimeout(detailUrl, { userAgent: adapter?.userAgent });
         if (!res.ok) continue;
         const html = await res.text();
         const sourceTag = jobLinkSources.get(detailUrl) || 'detail_link';
@@ -6927,7 +6890,6 @@ export const __testables = {
   crawlWorkdayJobs,
   buildCompanyKeyResolver,
   migrateCompanyJobKeys,
-  loadCompanyAdapters,
   // The committed slice is what a run starts from when the scratch dataset is
   // absent (every CI run), including the run after a failed one.
   readExistingJobsFromSlices,

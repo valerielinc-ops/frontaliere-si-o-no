@@ -104,10 +104,9 @@ describe('runtime canton thematic hubs', () => {
     expect(fetch).toHaveBeenCalledTimes(3);
   });
 
-  it('adopts a newer payload after the fresh registry confirms the release', async () => {
+  it('re-reads both release authorities after a transient edge/Pages commit skew', async () => {
     const nextCommit = 'd'.repeat(40);
     let registryReads = 0;
-    let payloadReads = 0;
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
       if (url.includes('/edge/sections/registry.json')) {
@@ -119,7 +118,6 @@ describe('runtime canton thematic hubs', () => {
           sections: { 'canton-zh': { status: 'live' } },
         }), { status: 200, headers: { 'content-type': 'application/json' } });
       }
-      payloadReads += 1;
       return new Response(JSON.stringify({
         schema: 1,
         commit: nextCommit,
@@ -135,30 +133,12 @@ describe('runtime canton thematic hubs', () => {
       locale: 'it',
     });
     expect(registryReads).toBe(2);
-    // The first registry models the old release identity retained by the
-    // already-served HTML/SPA handoff. The payload is newer even though the
-    // request still carries the old query; one fresh registry read confirms
-    // it, so the React hub can mount without a second stale fetch cycle.
-    expect(payloadReads).toBe(1);
-    expect(fetch).toHaveBeenCalledTimes(3);
+    expect(fetch).toHaveBeenCalledTimes(4);
     expect(isLiveCantonArticleSectionCached('canton-zh')).toBe(true);
   });
 
   it('rejects a Pages payload whose release commit differs from the edge registry', async () => {
     installFetch('c'.repeat(40));
     await expect(loadCantonTopicHub('canton-zh', 'carburanti', 'it')).resolves.toBeNull();
-  });
-
-  it('stops after bounded incoherent retries and cools down remounts', async () => {
-    installFetch('c'.repeat(40));
-
-    await expect(loadCantonTopicHub('canton-zh', 'carburanti', 'it')).resolves.toBeNull();
-    const firstAttemptRequests = vi.mocked(fetch).mock.calls.length;
-    expect(firstAttemptRequests).toBe(9);
-
-    // A remount during the release backoff must keep the static HTML visible
-    // without starting another registry/payload loop.
-    await expect(loadCantonTopicHub('canton-zh', 'carburanti', 'it')).resolves.toBeNull();
-    expect(vi.mocked(fetch).mock.calls).toHaveLength(firstAttemptRequests);
   });
 });

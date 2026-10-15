@@ -958,8 +958,6 @@ export interface AppRoute {
  salaryHubSlug?: string;
  /** Author profile slug when activeTab === 'autore' (e.g. /autori/marco-ferrari/). */
  author?: string;
- /** Locale marker for the public application-concierge landing mounted in the job-board shell. */
- applicationConciergeLocale?: Locale;
  /**
   * When true, this URL is a build-time static SEO page with NO equivalent
   * SPA view (fuel-daily/{station}, weekly-employers/{city}, job-market
@@ -2098,13 +2096,6 @@ export const APPLICATION_CONCIERGE_PATHS: Readonly<Record<Locale, string>> = {
   fr: '/fr/automatiser-recherche-emploi-suisse',
 };
 
-const APPLICATION_CONCIERGE_SEO_KEYS: Readonly<Record<Locale, string>> = {
-  it: 'applicationConcierge',
-  en: 'applicationConciergeEn',
-  de: 'applicationConciergeDe',
-  fr: 'applicationConciergeFr',
-};
-
 export function getApplicationConciergePath(locale: Locale = getLocale()): string {
   return `${APPLICATION_CONCIERGE_PATHS[locale]}/`;
 }
@@ -2123,7 +2114,7 @@ export function parsePath(pathname: string): ParseResult {
  // listing. Returning the job-board tab keeps the existing shell and lazy
  // loading behaviour while App.tsx mounts the concierge entry surface.
  if (isApplicationConciergePath(path)) {
-   return { route: { activeTab: 'job-board', applicationConciergeLocale: locale }, locale };
+   return { route: { activeTab: 'job-board' }, locale };
  }
 
  // Public petition landing: it is a real SPA page, so keep staticOverlay
@@ -3698,10 +3689,6 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return hashPart ? `${normalizedPath}#${hashPart}` : normalizedPath;
  };
 
- if (route.applicationConciergeLocale) {
-   return finish(getApplicationConciergePath(lang) + hashSuffix);
- }
-
  if (route.pharmacyPath) {
    return finish(buildPharmacyPath(route.pharmacyPath, lang) + hashSuffix);
  }
@@ -3974,7 +3961,6 @@ export function buildAllLocalePaths(route: AppRoute): Record<Locale, string> {
 }
 
 export function getSeoSection(route: AppRoute): string {
- if (route.applicationConciergeLocale) return APPLICATION_CONCIERGE_SEO_KEYS[route.applicationConciergeLocale];
  if (route.pharmacyPath) return `pharmacy-${route.pharmacyPath.kind}`;
  switch (route.activeTab) {
  case 'calculator': {

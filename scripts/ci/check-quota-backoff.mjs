@@ -202,8 +202,8 @@ export function quotaFloorLeaseAdmission({
     for (const owner of owners) {
       const released = releaseQuotaFloorLease({
         repo,
+        ledgerIssue,
         owner,
-        commentId: decision.existing.commentId,
         runCommand,
       });
       if (!released.ok) return { admit: false, reason: released.reason };

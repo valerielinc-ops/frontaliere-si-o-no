@@ -852,8 +852,6 @@ interface PageInputs {
   dataset: FuelPricesDataset;
   /** History snapshots (sorted asc by date) */
   history: HistorySnapshot[];
-  /** Indexable monthly archive routes emitted by this build. */
-  archivePaths?: readonly string[];
   /** Canonical URL path (no origin), with trailing slash */
   canonicalPath: string;
   /** Datestamp (UTC YYYY-MM-DD) */
@@ -1435,20 +1433,34 @@ function renderFuelTodayMethodologyAndScenarios(args: {
 }
 
 /**
- * Monthly archive navigation on daily fuel pages. The build passes the exact
- * indexable archive paths emitted to `sitemap-fuel-daily.xml`; using those
- * paths keeps archives from the durable store reachable after their daily
- * snapshots leave the rolling history directory.
+ * "Recent months archive" navigator block on the daily fuel page.
+ *
+ * The monthly archive pages emitted by {@link generateFuelArchivePages}
+ * (paths built via {@link buildFuelArchivePath}) were previously linked
+ * from no internal `<a>` — the BFS audit flagged them as orphan in
+ * `sitemap-fuel-daily.xml`. This helper renders a compact list of links
+ * to the most-recent N past months for each (zone, fuel) pair so every
+ * archive page is reachable at BFS depth 2 from `/`.
+ *
+ * Behaviour:
+ *  - Regional today page (zone === null): emits one row per Ticino zone
+ *    × the last 6 past months it has data for (60 links total in the
+ *    worst case — 5 zones × N months × 1 fuel per page).
+ *  - Per-zone today page: emits the last 6 past months for the same zone.
+ *
+ * Skips the current month (those URLs are 404 — archives only emit for
+ * past months, and the current month is served by the today page itself).
  */
 function renderRecentMonthsArchiveNav(args: {
   locale: FuelDailyLocale;
   fuel: FuelType;
   zone: FuelZone | null;
   history: HistorySnapshot[];
-  archivePaths?: readonly string[];
   today: Date;
+  maxMonths?: number;
 }): string {
-  const { locale, fuel, zone, history, archivePaths, today } = args;
+  const { locale, fuel, zone, history, today } = args;
+  const maxMonths = args.maxMonths ?? 6;
   const currentMonth = today.toISOString().slice(0, 7);
 
   // Collect distinct YYYY-MM keys present in history, excluding the
@@ -1460,35 +1472,19 @@ function renderRecentMonthsArchiveNav(args: {
       if (m < currentMonth) monthsAvailable.add(m);
     }
   }
-  if (archivePaths === undefined && monthsAvailable.size === 0) return '';
+  if (monthsAvailable.size === 0) return '';
 
+  const recentMonths = Array.from(monthsAvailable).sort().reverse().slice(0, maxMonths);
   const zonesToList: FuelZone[] = zone ? [zone] : [...FUEL_ZONES];
-
-  const monthsForZone = (targetZone: FuelZone): string[] => {
-    if (archivePaths !== undefined) {
-      const available = new Set<string>();
-      for (const archivePath of archivePaths) {
-        const monthKey = archivePath.match(/\/(\d{4}-\d{2})\/$/)?.[1];
-        if (monthKey && buildFuelArchivePath(locale, fuel, targetZone, monthKey) === archivePath) {
-          available.add(monthKey);
-        }
-      }
-      return [...available].sort().reverse();
-    }
-
-    return [...monthsAvailable].sort().reverse().slice(0, 6);
-  };
-
-  if (!zonesToList.some((targetZone) => monthsForZone(targetZone).length > 0)) return '';
 
   const heading = COPY[locale].archiveLabel; // already localised: "Archivio mensile" / "Monthly archive" / "Monatsarchiv" / "Archive mensuelle"
 
   // Group structure: one <ul> per zone (or single zone for per-zone pages)
-  // with links to every indexable archive page emitted for this build.
+  // with month-key links.
   const groups = zonesToList
     .map((z) => {
       const zoneLabel = FUEL_ZONE_DISPLAY[z];
-      const lis = monthsForZone(z)
+      const lis = recentMonths
         .map((monthKey) => {
           const href = buildFuelArchivePath(locale, fuel, z, monthKey);
           return `<li class="s-q3nqK4"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(monthKey)}</a></li>`;
@@ -1510,7 +1506,7 @@ function renderRecentMonthsArchiveNav(args: {
 }
 
 function renderPage(inp: PageInputs): string {
-  const { locale, fuel, zone, dataset, history, archivePaths, canonicalPath, today, alternates, distDir, rootDir } = inp;
+  const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates, distDir, rootDir } = inp;
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = zone ? FUEL_ZONE_DISPLAY[zone] : copy.regionalLabel;
@@ -1835,7 +1831,7 @@ function renderPage(inp: PageInputs): string {
       })
     : ''}
   ${renderFuelIndexHubLinks({ locale, fuel })}
-  ${renderRecentMonthsArchiveNav({ locale, fuel, zone, history, archivePaths, today })}
+  ${renderRecentMonthsArchiveNav({ locale, fuel, zone, history, today })}
   ${renderDiscoverMore(locale, FUEL_DAILY_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
   <section class="s-sC82IX" aria-label="advertisement">
@@ -5063,14 +5059,12 @@ export function generateFuelDailyPages(opts: {
   rootDir: string;
   dataset: FuelPricesDataset;
   history?: HistorySnapshot[];
-  archivePaths?: readonly string[];
   today?: Date;
   /** dist directory; when provided the page renders with hydration tags. */
   distDir?: string;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
-  const archivePaths = opts.archivePaths;
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
   const rootDir = opts.rootDir;
@@ -5096,7 +5090,6 @@ export function generateFuelDailyPages(opts: {
         zone: null,
         dataset,
         history,
-        archivePaths,
         canonicalPath: regionalPath,
         today,
         alternates: buildAlternates(null),
@@ -5113,7 +5106,6 @@ export function generateFuelDailyPages(opts: {
           zone,
           dataset,
           history,
-          archivePaths,
           canonicalPath: zonePath,
           today,
           alternates: buildAlternates(zone),
@@ -5241,29 +5233,12 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianContextsByFuel[fuel] = collectItalianStationContexts(dataset, fuel);
       }
 
+      const pages = generateFuelDailyPages({ rootDir, dataset, history, today, distDir });
       const archivedHistory = readFuelArchive(
         np.join(rootDir, 'data', 'fuel-prices-archive'),
         np.join(rootDir, 'data', 'fuel-prices-recovery-archive.json'),
       );
       const archives = generateFuelArchivePages({ history: [...archivedHistory, ...history], today, distDir });
-      // Derive the daily-page archive links and sitemap membership from the
-      // same emitted, indexable set. `history` is rolling; the durable archive
-      // contains older months that are not present in it.
-      const archiveSitemapPaths = Object.entries(archives)
-        .filter(
-          ([, html]) =>
-            htmlHasIndexableRobots(html) && countHtmlBodyWords(html) >= MIN_INDEXABLE_WORDS,
-        )
-        .map(([path]) => path);
-      const archiveSitemapPathSet = new Set(archiveSitemapPaths);
-      const pages = generateFuelDailyPages({
-        rootDir,
-        dataset,
-        history,
-        archivePaths: archiveSitemapPaths,
-        today,
-        distDir,
-      });
       const stationPages = generateFuelStationPages({
         dataset,
         today,
@@ -5349,7 +5324,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
-        if (archiveSitemapPathSet.has(path)) sitemapPaths.push(path);
+        if (htmlHasIndexableRobots(html)) sitemapPaths.push(path);
         archivesWritten++;
       }
 

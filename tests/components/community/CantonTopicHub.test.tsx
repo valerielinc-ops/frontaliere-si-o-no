@@ -92,7 +92,6 @@ describe('CantonTopicHub route handoff', () => {
     const view = render(<CantonTopicHub section="canton-zh" topic="carburanti" />);
     await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Carburanti Zurigo'));
 
-    expect(view.container.querySelector('[data-canton-topic-hub="canton-zh:carburanti"]')).not.toBeNull();
     expect(view.container.querySelectorAll('.cth-react-rail')).toHaveLength(2);
     expect(view.container.querySelectorAll('.cth-ad')).toHaveLength(4);
     expect(view.container.querySelector('.cth-ad-inline-one')).not.toBeNull();

@@ -24,10 +24,7 @@ describe('durable fuel monthly facts', () => {
     }
     const source = fs.readFileSync(new URL('../build-plugins/fuelDailyPagesPlugin.ts', import.meta.url), 'utf8');
     const writer = source.slice(source.indexOf('for (const [path, html] of Object.entries(archives))'));
-    expect(writer).toContain('if (archiveSitemapPathSet.has(path)) sitemapPaths.push(path)');
-    expect(source).toContain('const archiveSitemapPaths = Object.entries(archives)');
-    expect(source).toContain('htmlHasIndexableRobots(html) && countHtmlBodyWords(html) >= MIN_INDEXABLE_WORDS');
-    expect(source).toContain('archivePaths: archiveSitemapPaths');
+    expect(writer).toContain('if (htmlHasIndexableRobots(html)) sitemapPaths.push(path)');
   });
   it('retains observed prices without reviving synthetic or unknown diesel', () => {
     const api = compactFuelArchiveDay({ ...row(), stations: { private: 'discard' } });
