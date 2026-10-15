@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "8b2ac1941af2d333c301579804a1c79c2a6ba5d9",
+  "sourceCommit": "854314778d2ab9b3f7587bf1ffa411739ca4fe34",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "8b2ac1941af2d333c301579804a1c79c2a6ba5d9"
+    "sourceCommit": "854314778d2ab9b3f7587bf1ffa411739ca4fe34"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:98ec4d5442c970a3692026aa48c30e0221f5d041dbed4560d0427919e5d34601",
+    "rosterDigest": "sha256:b9858c9377ee7dbf96ffbfa8c91d245dab7ce7891d7509b700a6d24a4cf4d84d",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -83,6 +83,7 @@
     "scripts/update-adullam-jobs.mjs",
     "scripts/update-adus-klinik-jobs.mjs",
     "scripts/update-afry-jobs.mjs",
+    "scripts/update-agat-jobs.mjs",
     "scripts/update-agie-charmilles-jobs.mjs",
     "scripts/update-agroscope-jobs.mjs",
     "scripts/update-albergo-gardenia-jobs.mjs",
@@ -1270,8 +1271,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "e6ef15351b259143f730493d04b9ce1b55eb2e8a81653269eb5beaa4aa50fea7",
-      "artifactSha256": "8063411bb683263c2661a9573a11f2ae6e9175072e86327227e680cd452b3fe0",
+      "sourceSha256": "3b556db4e093216aa21302e4b4943a46afb577904f0a3dfdc1808bbfbfe48105",
+      "artifactSha256": "9e517b1a59e63cdfa238c67c92042c2b61e6c94fe4452b02e66c50df75bf67af",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1301,14 +1302,15 @@
         "baloise",
         "etavis",
         "amina-bank",
-        "opus-personal"
+        "opus-personal",
+        "technic-emplois"
       ]
     },
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "b141739ffd6eb2157c1d89b7841c3f636be77377667908df8edbd7dbc76cc43d",
-      "artifactSha256": "65d48d51edf50bf7f5b6c9156be2a041de5ed2624e79b6ed9b0a5d9541a503d9",
+      "sourceSha256": "51b84d57b91bbf44878f0a936fd46b6535430b6cd12ce0f303bc8e8c49db370b",
+      "artifactSha256": "a20f00fd60b040ce835bb31a1003751d3c9d75b7c7bf666f66e289b4836086db",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "migros",
@@ -1339,7 +1341,7 @@
         "vereinaklosters",
         "unibe",
         "convit",
-        "technic-emplois"
+        "agat"
       ]
     },
     {

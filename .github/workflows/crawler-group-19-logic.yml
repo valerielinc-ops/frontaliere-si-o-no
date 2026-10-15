@@ -5420,89 +5420,89 @@ jobs:
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
-      - name: Launch technic-emplois
-        id: crawler-launch-technic-emplois
+      - name: Launch agat
+        id: crawler-launch-agat
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-technic-emplois.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-agat.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_TECHNIC_EMPLOIS_STRICT: ${{ inputs.strict_localization || '1' }}
+          JOBS_AGAT_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: technic-emplois
-          JOBS_SLICE_FILE: data/jobs/by-crawler/technic-emplois.json
+          JOBS_HOUSEKEEPING_SCOPE: agat
+          JOBS_SLICE_FILE: data/jobs/by-crawler/agat.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
-          script_path="$state_dir/technic-emplois.sh"
-          launcher_path="$state_dir/technic-emplois.launcher.sh"
-          worker_path="$state_dir/technic-emplois.worker.sh"
-          log_path="$state_dir/technic-emplois.log"
-          pid_path="$state_dir/technic-emplois.pid"
-          status_path="$state_dir/technic-emplois.status"
-          started_path="$state_dir/technic-emplois.started"
-          watchdog_path="$state_dir/technic-emplois.watchdog"
+          script_path="$state_dir/agat.sh"
+          launcher_path="$state_dir/agat.launcher.sh"
+          worker_path="$state_dir/agat.worker.sh"
+          log_path="$state_dir/agat.log"
+          pid_path="$state_dir/agat.pid"
+          status_path="$state_dir/agat.status"
+          started_path="$state_dir/agat.started"
+          watchdog_path="$state_dir/agat.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/technic-emplois.crawl-exit"
+          rm -f "$state_dir/agat.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- technic-emplois: run crawler (verbatim from original workflow) ----
-          node scripts/update-technic-emplois-jobs.mjs
+          # ---- agat: run crawler (verbatim from original workflow) ----
+          node scripts/update-agat-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
             crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
             if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
               rm -f "$crawl_exit_tmp" 2>/dev/null
-              echo "::warning::technic-emplois: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+              echo "::warning::agat: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
             fi
           fi
           git_commit_exit=0
 
-          # ---- technic-emplois: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- agat: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- technic-emplois: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- agat: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Technic Emplois SA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update AGAT ! Placements fixes et temporaires SA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- technic-emplois: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- agat: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
-              --title "Crawler Failure: Run technic-emplois" \
+              --title "Crawler Failure: Run agat" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run technic-emplois"
+              --workflow "Run agat"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::technic-emplois: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ technic-emplois: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+            echo "::warning::agat: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ agat: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::technic-emplois: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
-            echo "⚠️ technic-emplois: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::agat: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ agat: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::technic-emplois: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
-            echo "❌ technic-emplois: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::error::agat: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ agat: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
-            echo "::warning::technic-emplois: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
-            echo "⚠️ technic-emplois: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::agat: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ agat: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
 
@@ -5512,12 +5512,12 @@ jobs:
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.log"
+          script_path="$RUNNER_TEMP/crawler-generation/group-19/agat.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-19/agat.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-19/agat.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-19/agat.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-19/agat.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-19/agat.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5527,11 +5527,11 @@ jobs:
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-19/technic-emplois.watchdog"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-19/agat.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-19/agat.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-19/agat.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-19/agat.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-19/agat.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7148,43 +7148,43 @@ jobs:
             exit 1
           fi
           exit "$status"
-      - name: Run technic-emplois
-        id: crawler-technic-emplois
+      - name: Run agat
+        id: crawler-agat
         if: always()
         continue-on-error: true
         env:
-          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-technic-emplois'].outcome }}
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-agat'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
-          status_file="$state_dir/technic-emplois.status"
-          pid_file="$state_dir/technic-emplois.pid"
-          log_file="$state_dir/technic-emplois.log"
+          status_file="$state_dir/agat.status"
+          pid_file="$state_dir/agat.pid"
+          log_file="$state_dir/agat.log"
           launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
           if [ "$launch_outcome" != "success" ]; then
-            echo "::error::technic-emplois: launch step outcome is $launch_outcome; detached crawler was not started"
+            echo "::error::agat: launch step outcome is $launch_outcome; detached crawler was not started"
             exit 1
           fi
           if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::technic-emplois: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            echo "::error::agat: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::technic-emplois: detached crawler did not publish a status before the 340 minute group budget"
+              echo "::error::agat: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
               if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::technic-emplois: invalid detached crawler PID: $pid"
+                echo "::error::agat: invalid detached crawler PID: $pid"
                 exit 1
               fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
-                  echo "::error::technic-emplois: detached crawler exited without publishing its status"
+                  echo "::error::agat: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
@@ -7194,12 +7194,12 @@ jobs:
           if [ -f "$log_file" ]; then
             cat "$log_file"
           else
-            echo "::error::technic-emplois: crawler log is missing"
+            echo "::error::agat: crawler log is missing"
             exit 1
           fi
           status="$(cat "$status_file" 2>/dev/null || true)"
           if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::technic-emplois: invalid crawler status: $status"
+            echo "::error::agat: invalid crawler status: $status"
             exit 1
           fi
           exit "$status"
@@ -7287,7 +7287,7 @@ jobs:
           aggregate_crawler_member 'vereinaklosters'
           aggregate_crawler_member 'unibe'
           aggregate_crawler_member 'convit'
-          aggregate_crawler_member 'technic-emplois'
+          aggregate_crawler_member 'agat'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -7357,7 +7357,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"alpiq","primarySlice":"data/jobs/by-crawler/alpiq.json"},{"crawlerId":"bucher-suter","primarySlice":"data/jobs/by-crawler/bucher-suter.json"},{"crawlerId":"convit-holding","primarySlice":"data/jobs/by-crawler/convit-holding.json"},{"crawlerId":"cseb","primarySlice":"data/jobs/by-crawler/cseb.json"},{"crawlerId":"csl-behring","primarySlice":"data/jobs/by-crawler/csl-behring.json"},{"crawlerId":"forel-klinik","primarySlice":"data/jobs/by-crawler/forel-klinik.json"},{"crawlerId":"goline","primarySlice":"data/jobs/by-crawler/goline.json"},{"crawlerId":"grace-la-margna","primarySlice":"data/jobs/by-crawler/grace-la-margna.json"},{"crawlerId":"gz-dielsdorf","primarySlice":"data/jobs/by-crawler/gz-dielsdorf.json"},{"crawlerId":"hfr-hopital-fribourgeois","primarySlice":"data/jobs/by-crawler/hfr-hopital-fribourgeois.json"},{"crawlerId":"integra-biosciences","primarySlice":"data/jobs/by-crawler/integra-biosciences.json"},{"crawlerId":"klinik-susenberg","primarySlice":"data/jobs/by-crawler/klinik-susenberg.json"},{"crawlerId":"komax","primarySlice":"data/jobs/by-crawler/komax.json"},{"crawlerId":"medartis","primarySlice":"data/jobs/by-crawler/medartis.json"},{"crawlerId":"migros-ticino","primarySlice":"data/jobs/by-crawler/migros-ticino.json"},{"crawlerId":"mikron","primarySlice":"data/jobs/by-crawler/mikron.json"},{"crawlerId":"okjob","primarySlice":"data/jobs/by-crawler/okjob.json"},{"crawlerId":"rapelli","primarySlice":"data/jobs/by-crawler/rapelli.json"},{"crawlerId":"rsbj","primarySlice":"data/jobs/by-crawler/rsbj.json"},{"crawlerId":"spitaeler-schaffhausen","primarySlice":"data/jobs/by-crawler/spitaeler-schaffhausen.json"},{"crawlerId":"stadler-rail","primarySlice":"data/jobs/by-crawler/stadler-rail.json"},{"crawlerId":"stiftung-kind-autismus","primarySlice":"data/jobs/by-crawler/stiftung-kind-autismus.json"},{"crawlerId":"suchtfachstelle-zuerich","primarySlice":"data/jobs/by-crawler/suchtfachstelle-zuerich.json"},{"crawlerId":"sulzer","primarySlice":"data/jobs/by-crawler/sulzer.json"},{"crawlerId":"sune-egge","primarySlice":"data/jobs/by-crawler/sune-egge.json"},{"crawlerId":"swissquote","primarySlice":"data/jobs/by-crawler/swissquote.json"},{"crawlerId":"technic-emplois","primarySlice":"data/jobs/by-crawler/technic-emplois.json"},{"crawlerId":"unibe","primarySlice":"data/jobs/by-crawler/unibe.json"},{"crawlerId":"vereinaklosters","primarySlice":"data/jobs/by-crawler/vereinaklosters.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"agat","primarySlice":"data/jobs/by-crawler/agat.json"},{"crawlerId":"alpiq","primarySlice":"data/jobs/by-crawler/alpiq.json"},{"crawlerId":"bucher-suter","primarySlice":"data/jobs/by-crawler/bucher-suter.json"},{"crawlerId":"convit-holding","primarySlice":"data/jobs/by-crawler/convit-holding.json"},{"crawlerId":"cseb","primarySlice":"data/jobs/by-crawler/cseb.json"},{"crawlerId":"csl-behring","primarySlice":"data/jobs/by-crawler/csl-behring.json"},{"crawlerId":"forel-klinik","primarySlice":"data/jobs/by-crawler/forel-klinik.json"},{"crawlerId":"goline","primarySlice":"data/jobs/by-crawler/goline.json"},{"crawlerId":"grace-la-margna","primarySlice":"data/jobs/by-crawler/grace-la-margna.json"},{"crawlerId":"gz-dielsdorf","primarySlice":"data/jobs/by-crawler/gz-dielsdorf.json"},{"crawlerId":"hfr-hopital-fribourgeois","primarySlice":"data/jobs/by-crawler/hfr-hopital-fribourgeois.json"},{"crawlerId":"integra-biosciences","primarySlice":"data/jobs/by-crawler/integra-biosciences.json"},{"crawlerId":"klinik-susenberg","primarySlice":"data/jobs/by-crawler/klinik-susenberg.json"},{"crawlerId":"komax","primarySlice":"data/jobs/by-crawler/komax.json"},{"crawlerId":"medartis","primarySlice":"data/jobs/by-crawler/medartis.json"},{"crawlerId":"migros-ticino","primarySlice":"data/jobs/by-crawler/migros-ticino.json"},{"crawlerId":"mikron","primarySlice":"data/jobs/by-crawler/mikron.json"},{"crawlerId":"okjob","primarySlice":"data/jobs/by-crawler/okjob.json"},{"crawlerId":"rapelli","primarySlice":"data/jobs/by-crawler/rapelli.json"},{"crawlerId":"rsbj","primarySlice":"data/jobs/by-crawler/rsbj.json"},{"crawlerId":"spitaeler-schaffhausen","primarySlice":"data/jobs/by-crawler/spitaeler-schaffhausen.json"},{"crawlerId":"stadler-rail","primarySlice":"data/jobs/by-crawler/stadler-rail.json"},{"crawlerId":"stiftung-kind-autismus","primarySlice":"data/jobs/by-crawler/stiftung-kind-autismus.json"},{"crawlerId":"suchtfachstelle-zuerich","primarySlice":"data/jobs/by-crawler/suchtfachstelle-zuerich.json"},{"crawlerId":"sulzer","primarySlice":"data/jobs/by-crawler/sulzer.json"},{"crawlerId":"sune-egge","primarySlice":"data/jobs/by-crawler/sune-egge.json"},{"crawlerId":"swissquote","primarySlice":"data/jobs/by-crawler/swissquote.json"},{"crawlerId":"unibe","primarySlice":"data/jobs/by-crawler/unibe.json"},{"crawlerId":"vereinaklosters","primarySlice":"data/jobs/by-crawler/vereinaklosters.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-19-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
