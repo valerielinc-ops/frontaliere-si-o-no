@@ -769,6 +769,66 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
     expect(result.filteredOutByReason.jsonld_not_detail_url).toBeUndefined();
     expect(result.scrapedJobPages).toBe(1);
   });
+
+  it('uses the visible Migros workplace when stale JSON-LD still names the previous canton', async () => {
+    const detailUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/cfa3560b-5496-4c27-a752-7653a8532449';
+    const staleJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Masseur*in, Physiotherapeut*in, Osteopath*in',
+      description: 'Im Rahmen unserer neuen Organisation suchen wir eine erfahrene Fachperson für professionelle Massagen und die persönliche Betreuung unserer Mitglieder.',
+      hiringOrganization: { name: 'ACTIV FITNESS' },
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          addressCountry: 'CH',
+          addressLocality: 'Rüti ZH',
+          addressRegion: 'ZH',
+        },
+      },
+      url: detailUrl,
+    };
+    const html = `
+      <script type="application/ld+json">${JSON.stringify(staleJsonLd)}</script>
+      <section id="overview">
+        <div class="typo-body1">Im Rahmen unserer neuen Organisation suchen wir eine erfahrene Fachperson für professionelle Massagen.</div>
+        <address><p>ACTIV FITNESS</p><p>Lachen</p><div>Hintere Bahnhofstrasse 15</div><div><span>8853 Lachen SZ</span></div></address>
+      </section>
+      <section id="tasks"><p class="text-pretty">Du führst professionelle Massagen aus und betreust unsere Mitglieder.</p></section>
+      <section id="skills"><h4>Ausbildung</h4><p>Anerkannte Ausbildung als Masseur*in.</p></section>
+      <section id="benefits"><h4>Zentraler Arbeitsort</h4><p>Gut erschlossene Lage.</p></section>
+    `;
+
+    __testables.setCompanyAdaptersForTests(new Map([['migros-ticino', {
+      enabled: true,
+      crawlerModes: ['html', 'jsonld'],
+      seedDetailUrls: [detailUrl],
+    }]]));
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(html, {
+      status: 200,
+      headers: { 'content-type': 'text/html' },
+    }));
+
+    const result = await __testables.processCompany(
+      { key: 'migros-ticino', name: 'Migros Ticino', website: 'https://jobs.migros.ch/', city: 'Bellinzona' },
+      /(job|career|vacanc|stellen|emploi)/i,
+      {
+        sourceSeeds: { byDomain: {}, byName: {} },
+        companyCrawlerMode: { 'migros-ticino': ['html', 'jsonld'] },
+        webDiscoveryEnabled: false,
+        minQualityScore: 0,
+        minDescriptionChars: 0,
+      },
+    );
+
+    expect(result.extractedJobs).toHaveLength(1);
+    expect(result.extractedJobs[0]).toMatchObject({
+      location: 'Lachen',
+      canton: 'SZ',
+      addressLocality: 'Lachen',
+      addressRegion: 'SZ',
+      url: detailUrl,
+    });
+  });
 });
 
 describe('toJobFromJsonLd — employer workplace and multi-site locations (#9210)', () => {
