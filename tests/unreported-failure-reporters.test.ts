@@ -53,7 +53,7 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     const source = parse('.github/workflows/issue-fix.yml');
     const job = source.jobs['report-failure'];
     const steps = reporterSteps(job);
-    const byJob = new Map(steps.map((step: any) => [step.with['log-from-job'], step]));
+    const byJob = new Map<string, any>(steps.map((step: any) => [step.with['log-from-job'], step]));
 
     expect(job.needs).toEqual(['risk_policy', 'fix']);
     expect(String(job.if)).toContain("needs.risk_policy.result == 'failure'");
@@ -67,7 +67,7 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     const source = parse('.github/workflows/deploy-publish.yml');
     const job = source.jobs['report-failure'];
     const steps = reporterSteps(job);
-    const byJob = new Map(steps.map((step: any) => [step.with['log-from-job'], step]));
+    const byJob = new Map<string, any>(steps.map((step: any) => [step.with['log-from-job'], step]));
 
     expect(job.needs).toEqual([
       'deploy',
@@ -83,6 +83,8 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     expect(byJob.get('resolve-nonit-publish')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
     expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-dist.yml');
+    expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['build-sha'])
+      .toBe('${{ github.event.workflow_run.head_sha }}');
     expect(byJob.get('validate-live / validate-live')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-live.yml');
     expect(byJob.get('publish / publish')?.with['workflow-file'])

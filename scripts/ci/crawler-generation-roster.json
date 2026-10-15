@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 631,
+  "crawlerCount": 632,
   "groups": {
     "10": [
       "atec-personal",
@@ -314,6 +314,7 @@
       "bcvs",
       "buergenstock-hotels",
       "clinique-de-la-plaine",
+      "deillon-delley-architectes",
       "georg-fischer",
       "givaudan",
       "hrc",
@@ -343,7 +344,6 @@
       "bps-suisse",
       "cambiavalute",
       "clinique-le-noirmont",
-      "deillon-delley-architectes",
       "dormakaba",
       "flury-stiftung",
       "galderma",
@@ -363,6 +363,7 @@
       "orell-fuessli-thalia",
       "pdag",
       "ricola",
+      "seniorenzentrum-engelhof",
       "six-group",
       "spital-buelach",
       "stadtspital-zuerich",
@@ -1175,6 +1176,7 @@
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
+    "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
     "sfs-group": "data/jobs/by-crawler/sfs-group.json",
     "sicpa": "data/jobs/by-crawler/sicpa.json",
     "siegfried": "data/jobs/by-crawler/siegfried.json",
@@ -1316,5 +1318,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:d20092d0c2810dba60d537e5fb615c70f9613eda94b04b652df6371c895f2fe4"
+  "digest": "sha256:3d392cff98fa1a028be5fbcbd89baeb0fc3ac32a202d34420623f2c7857195b5"
 }

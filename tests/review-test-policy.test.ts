@@ -52,9 +52,9 @@ const ledgerRegistry = JSON.parse(readFileSync('data/loop-fleet/loop-registry.js
 const ledgerPolicy = ledgerRegistry.loops.find((loop: any) => loop.loopId === 'L6');
 
 function ledgerRecordType(filename: string) {
-  return filename.endsWith('loop-observations.jsonl') ? 'observation'
-    : filename.endsWith('loop-decisions.jsonl') ? 'decision'
-      : filename.endsWith('loop-health-history.jsonl') ? 'health'
+  return /(?:^|\/)loop-observations(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\.jsonl$/u.test(filename) ? 'observation'
+    : /(?:^|\/)loop-decisions(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\.jsonl$/u.test(filename) ? 'decision'
+      : /(?:^|\/)loop-health-history(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\.jsonl$/u.test(filename) ? 'health'
         : 'lifecycle-event';
 }
 
@@ -264,16 +264,20 @@ describe('owner policy excluding test files from review', () => {
     expect(codeContributionFingerprint([{ filename: 'tests/huge.test.ts' }])).toBe(codeContributionFingerprint([]));
     expect(codeContributionFingerprint([{ filename: 'tests/a.test.ts', previous_filename: 'src/a.ts', patch: '-production', status: 'renamed' }])).not.toBe(codeContributionFingerprint([]));
   });
-  it('allows only the four canonical ledger JSONL paths and rejects unknown or duplicate paths', () => {
+  it('allows canonical ledger JSONL paths and validated shards, rejecting unknown or duplicate paths', () => {
     for (const path of LOOP_FLEET_LEDGER_FILES) expect(isLoopFleetLedgerPath(path), path).toBe(true);
+    const shards = LOOP_FLEET_LEDGER_FILES.map((path) => path.replace(/\.jsonl$/u, '-run-123.jsonl'));
+    for (const path of shards) expect(isLoopFleetLedgerPath(path), path).toBe(true);
     for (const path of [
       'data/loop-fleet/ledger/unknown.jsonl',
       'data/loop-fleet/ledger/loop-observations.jsonl.bak',
+      'data/loop-fleet/ledger/loop-observations--run-123.jsonl',
       'data/loop-fleet/ledger/loop-observations.jsonl/child',
       'data/loop-fleet/ledger/../loop-observations.jsonl',
       'src/production.ts',
     ]) expect(isLoopFleetLedgerPath(path), path).toBe(false);
     expect(isLoopFleetLedgerSnapshot({ complete: true, files: LOOP_FLEET_LEDGER_FILES.slice(0, 2) })).toBe(true);
+    expect(isLoopFleetLedgerSnapshot({ complete: true, files: shards.slice(0, 2) })).toBe(true);
     for (const value of [
       { complete: false, files: LOOP_FLEET_LEDGER_FILES.slice(0, 2) },
       { complete: true, files: [] },
@@ -301,6 +305,7 @@ describe('owner policy excluding test files from review', () => {
       execution: { loopId: 'L6', runId: '123', sha: ledgerHead },
     });
     expect(validateLoopFleetLedgerJsonl(`${valid}\n`, LOOP_FLEET_LEDGER_FILES[0])).toMatchObject({ ok: true, count: 1 });
+    expect(validateLoopFleetLedgerJsonl(`${valid}\n`, `${LOOP_FLEET_LEDGER_FILES[0].replace(/\.jsonl$/u, '-run-123.jsonl')}`)).toMatchObject({ ok: true, count: 1 });
     for (const [content, path] of [
       ['{broken', LOOP_FLEET_LEDGER_FILES[0]],
       [JSON.stringify({ ...JSON.parse(valid), recordType: 'decision' }), LOOP_FLEET_LEDGER_FILES[0]],

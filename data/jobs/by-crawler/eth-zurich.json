@@ -9191,12 +9191,12 @@
     },
     {
       "id": "eth-zurich-e8782db5bdf0",
-      "slug": "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch",
+      "slug": "posizione-dottorale-in-sorgenti-di-elettroni-ad-alta-intensita-per-acceleratori-futuri-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch",
-        "it": "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch",
-        "de": "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch",
-        "fr": "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch"
+        "it": "posizione-dottorale-in-sorgenti-di-elettroni-ad-alta-intensita-per-acceleratori-futuri-eth-zurich-zurich",
+        "de": "doktorandenposition-in-hochintensiven-elektronenquellen-fur-zukunftige-beschleuniger-eth-zurich-zurich",
+        "fr": "position-au-doctorat-dans-les-sources-electroniques-de-haute-intensite-pour-les-accelerateurs-futurs-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9254,7 +9254,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-14T21:33:30.897Z"
+      "firstSeenAt": "2026-10-14T21:33:30.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-high-intensity-electron-sources-for-future-accelerators-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-33e590d0dc2e",
@@ -9263,7 +9277,7 @@
         "de": "system-engineer-in-fur-dspace-m-w-d-eth-zurich-ch",
         "it": "system-ingegnere-in-per-dspace-m-w-d-eth-zurich",
         "en": "system-engineer-in-fur-dspace-m-w-d-eth-zurich-ch",
-        "fr": "system-engineer-in-fur-dspace-m-w-d-eth-zurich-ch"
+        "fr": "ingenieur-e-systeme-pour-dspace-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9308,6 +9322,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "system-engineer-in-fur-dspace-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "system-engineer-in-fur-dspace-m-w-d-eth-zurich-ch"
         ]
       },
@@ -9488,7 +9505,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -9532,14 +9549,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "systems-engineer-platform-automation-eth-zurich-ch"
         ],
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+          "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
       "firstSeenAt": "2026-05-28T12:29:52.777Z",

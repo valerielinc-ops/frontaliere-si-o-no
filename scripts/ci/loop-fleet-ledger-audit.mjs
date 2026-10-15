@@ -24,14 +24,10 @@ import {
   validateHistoricalOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { listLoopFleetLedgerFiles, LOOP_FLEET_LEDGER_FILES } from '../lib/loop-fleet-ledger-files.mjs';
 
 export const EXPECTED_RETENTION_DAYS = 90;
-export const LEDGER_FILES = Object.freeze({
-  observation: 'loop-observations.jsonl',
-  decision: 'loop-decisions.jsonl',
-  health: 'loop-health-history.jsonl',
-  lifecycle: 'lifecycle-events.jsonl',
-});
+export const LEDGER_FILES = LOOP_FLEET_LEDGER_FILES;
 const BASE_LEDGER_TYPES = Object.freeze(['observation', 'decision', 'health']);
 const RECORD_TYPES = Object.freeze({
   observation: 'observation',
@@ -186,7 +182,7 @@ function lifecycleSummary(events, now) {
   return summarizeLifecycleEvents(events, { now });
 }
 
-/** Audit all four canonical files and group their base records by execution. */
+/** Audit canonical files and their bounded shards by execution. */
 export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
   const validatedRegistry = validateLoopRegistry(registry);
   const rows = Object.fromEntries(validatedRegistry.loops.map((loop) => [loop.loopId, emptyLoop(loop.loopId)]));
@@ -198,55 +194,58 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
   const recordingLatencyValues = [];
 
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
-    const parsed = readJsonl(path.join(ledgerDir, fileName), `canonical ${fileName}`);
-    errors.push(...parsed.errors);
-    for (const { line, value: record } of parsed.records) {
-      const loopId = text(record?.loopId);
-      const row = rows[loopId];
-      if (row) row.recordCounts[type] += 1;
-      const recordId = text(record?.recordId);
-      if (recordId) {
-        const previous = seenIds[type].get(recordId);
-        const serialized = JSON.stringify(record);
-        if (previous) {
-          if (row) row.metrics.duplicateRecordCount += 1;
-          if (previous.serialized !== serialized && row) row.metrics.conflictingDuplicateRecordCount += 1;
-          errors.push(`canonical ${fileName}: duplicate ${recordId} at line ${line}${previous.serialized === serialized ? '' : ' with conflicting content'}`);
-        } else seenIds[type].set(recordId, { serialized, line });
-      }
+    for (const file of listLoopFleetLedgerFiles(ledgerDir, fileName)) {
+      const fileLabel = path.basename(file);
+      const parsed = readJsonl(file, `ledger ${fileLabel}`);
+      errors.push(...parsed.errors);
+      for (const { line, value: record } of parsed.records) {
+        const loopId = text(record?.loopId);
+        const row = rows[loopId];
+        if (row) row.recordCounts[type] += 1;
+        const recordId = text(record?.recordId);
+        if (recordId) {
+          const previous = seenIds[type].get(recordId);
+          const serialized = JSON.stringify(record);
+          if (previous) {
+            if (row) row.metrics.duplicateRecordCount += 1;
+            if (previous.serialized !== serialized && row) row.metrics.conflictingDuplicateRecordCount += 1;
+            errors.push(`ledger ${fileLabel}: duplicate ${recordId} at line ${line}${previous.serialized === serialized ? '' : ' with conflicting content'}`);
+          } else seenIds[type].set(recordId, { serialized, line });
+        }
 
-      const recordErrors = validateRecord(validatedRegistry, type, record, line);
-      errors.push(...recordErrors);
-      if (recordErrors.length || !row) continue;
-      row.validRecordCounts[type] += 1;
-      if (recordId) uniqueRecordIds[loopId].add(recordId);
-      const timestamp = recordTime(record);
-      if (!row.latestRecordAt || Date.parse(timestamp) > Date.parse(row.latestRecordAt)) row.latestRecordAt = timestamp;
-      if (type === 'lifecycle') {
-        lifecycleEvents[loopId].push(record);
-        continue;
-      }
-      const key = executionKey(record);
-      if (!key) continue;
-      if (!runGroups[loopId].has(key)) {
-        runGroups[loopId].set(key, {
-          runId: String(record.execution.runId),
-          sha: String(record.execution.sha).toLowerCase(),
-          types: new Set(),
-          typeCounts: new Map(),
-          recordedAt: timestamp,
-          timestamps: [],
-        });
-      }
-      const group = runGroups[loopId].get(key);
-      group.types.add(type);
-      group.typeCounts.set(type, (group.typeCounts.get(type) || 0) + 1);
-      if (timestamp) group.timestamps.push(Date.parse(timestamp));
-      if (timestamp && (!group.recordedAt || Date.parse(timestamp) > Date.parse(group.recordedAt))) group.recordedAt = timestamp;
-      if (type === 'health' && record.outcome?.independent === true
-          && ['observed', 'zero'].includes(record.outcome.status)
-          && Array.isArray(record.outcome.missingFields) && record.outcome.missingFields.length === 0) {
-        row.independentOutcomeCount += 1;
+        const recordErrors = validateRecord(validatedRegistry, type, record, line);
+        errors.push(...recordErrors);
+        if (recordErrors.length || !row) continue;
+        row.validRecordCounts[type] += 1;
+        if (recordId) uniqueRecordIds[loopId].add(recordId);
+        const timestamp = recordTime(record);
+        if (!row.latestRecordAt || Date.parse(timestamp) > Date.parse(row.latestRecordAt)) row.latestRecordAt = timestamp;
+        if (type === 'lifecycle') {
+          lifecycleEvents[loopId].push(record);
+          continue;
+        }
+        const key = executionKey(record);
+        if (!key) continue;
+        if (!runGroups[loopId].has(key)) {
+          runGroups[loopId].set(key, {
+            runId: String(record.execution.runId),
+            sha: String(record.execution.sha).toLowerCase(),
+            types: new Set(),
+            typeCounts: new Map(),
+            recordedAt: timestamp,
+            timestamps: [],
+          });
+        }
+        const group = runGroups[loopId].get(key);
+        group.types.add(type);
+        group.typeCounts.set(type, (group.typeCounts.get(type) || 0) + 1);
+        if (timestamp) group.timestamps.push(Date.parse(timestamp));
+        if (timestamp && (!group.recordedAt || Date.parse(timestamp) > Date.parse(group.recordedAt))) group.recordedAt = timestamp;
+        if (type === 'health' && record.outcome?.independent === true
+            && ['observed', 'zero'].includes(record.outcome.status)
+            && Array.isArray(record.outcome.missingFields) && record.outcome.missingFields.length === 0) {
+          row.independentOutcomeCount += 1;
+        }
       }
     }
   }
