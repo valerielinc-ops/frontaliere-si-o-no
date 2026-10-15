@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5490
+      "6": 5492
     },
-    "publishedCovers": 7071,
+    "publishedCovers": 7073,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5295
+    "inferredRecords": 5297
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -186010,6 +186010,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-fiera-lavoro-besano-valceresio": {
+      "cover": "/images/blog/article-fiera-lavoro-besano-valceresio.webp",
+      "hash": "85158e01e93ff1693c2d809bf1d6bfafeffced59901178bb1d9db91ca75e323d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "fiera-lavoro-besano-valceresio",
+          "category": "novita",
+          "date": "2026-10-15T10:34:30.091Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-finanziamenti-start-up-ticino": {
       "cover": "/images/blog/article-finanziamenti-start-up-ticino.webp",
       "hash": "73fbb3baf84850cae2d77b40066ec1771c59ac740cca84b15d81fecbfadb0a32",
@@ -187259,14 +187286,6 @@
       "historicalPublished": true,
       "references": [
         {
-          "section": "frontaliere",
-          "id": "sconto-dipendenti-migros-ccl",
-          "category": "novita",
-          "date": "2026-10-15T08:28:42.273Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
           "section": "svizzera",
           "id": "migros-nuovo-contratto-lavoro-2027",
           "category": "novita",
@@ -188313,6 +188332,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-sconto-dipendenti-migros-ccl": {
+      "cover": "/images/blog/article-sconto-dipendenti-migros-ccl.webp",
+      "hash": "de87530b6d880780f024bc11c58ecd9896f35b602ac843d56a756e6a763cb8fa",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "sconto-dipendenti-migros-ccl",
+          "category": "novita",
+          "date": "2026-10-15T08:28:42.273Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-scontro-auto-gemonio-verdi": {
       "cover": "/images/blog/article-scontro-auto-gemonio-verdi.webp",
       "hash": "05f2bbd769403b50e6e0f7ed0cd87dbd10bb88e3ac182ce25f2aa224516abc19",
@@ -189242,14 +189288,6 @@
           "id": "varese-adhd-days-ottobre-2026",
           "category": "novita",
           "date": "2026-10-10T14:59:49.950Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
-          "section": "frontaliere",
-          "id": "fiera-lavoro-besano-valceresio",
-          "category": "novita",
-          "date": "2026-10-15T10:34:30.091Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
