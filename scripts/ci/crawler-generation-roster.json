@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 632,
+  "crawlerCount": 633,
   "groups": {
     "10": [
       "atec-personal",
@@ -161,7 +161,6 @@
       "ail-lugano",
       "apg-sga",
       "asana-spital",
-      "asile-des-aveugles",
       "avaloq",
       "bachem",
       "css-versicherung",
@@ -280,6 +279,7 @@
     ],
     "19": [
       "alpiq",
+      "asile-des-aveugles",
       "bucher-suter",
       "convit-holding",
       "cseb",
@@ -377,7 +377,6 @@
       "bossard",
       "clinica-holistica-engiadina",
       "corner-banca",
-      "elite-interim",
       "eth-zurich",
       "ferring",
       "giardino",
@@ -1321,5 +1320,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:4df50c9f3a99175a964f67500b8c633d5a1eb08f177babb5c479f5f074396c4f"
+  "digest": "sha256:d65334b42604cbac157ec3f724693591f917e62633170b253245dbfa100b7142"
 }

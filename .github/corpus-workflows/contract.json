@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "0aefe0e2968215e10ae5c6079835d149cba0a863",
+  "sourceCommit": "7f8f33cb1eda59a6834c320b9719956e41a63659",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "0aefe0e2968215e10ae5c6079835d149cba0a863"
+    "sourceCommit": "7f8f33cb1eda59a6834c320b9719956e41a63659"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 632,
+  "crawlerCount": 633,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:4df50c9f3a99175a964f67500b8c633d5a1eb08f177babb5c479f5f074396c4f",
+    "rosterDigest": "sha256:d65334b42604cbac157ec3f724693591f917e62633170b253245dbfa100b7142",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -1307,8 +1307,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "85b7310cdedfdee7439b03b6ed697eb2e510bd877cb5646c48b12e40bd341bd7",
-      "artifactSha256": "c8c139d9f9a9aaf8036b5524cb9eaf251e38e968fae1a1bc3063018a717acde0",
+      "sourceSha256": "c752e3d54fc04c2745d2b237590d88fc3d427c51d0c29dce04ef512c5d9f4d20",
+      "artifactSha256": "65eaead1028eda60c1f10ea43b54e755c1c7cf1a5d0ad112194df3e40f52487b",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "migros",
@@ -1338,7 +1338,8 @@
         "alpiq",
         "vereinaklosters",
         "unibe",
-        "convit"
+        "convit",
+        "asile-des-aveugles"
       ]
     },
     {
