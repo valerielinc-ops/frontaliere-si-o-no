@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "d5b0df4602999487029f14ad64fda0547c8c6cd7",
+  "commit": "ad56bee6f99b419ad904694cd35b521731e8a524",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -22166,6 +22166,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a burning van causing motorway traffic disruption; no readable text, signage, branding, people, or identifiable event."
+      }
+    },
+    "/images/blog/article-luci-masnago-terza-puntata.webp": {
+      "schema": 1,
+      "assetId": "article-luci-masnago-terza-puntata",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "1650394585e26a862194951531572906b76d874a82efb7a1a92373d71dec67f6",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "38b9e700d62354af31a9cff62743f96aee3ef9f4887766abb5876353381b2f33",
+      "bytes": 76514,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T16:14:09.087Z",
+      "verifiedAt": "2026-10-15T16:14:16.369Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-luci-masnago-terza-puntata.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic radio-studio illustration matching the Ticino setting and broadcast subject; no text, logos, people, or specific event depicted."
       }
     },
     "/images/places/lugano-view.webp": {

@@ -13242,6 +13242,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.veicolo-fiamme-a2-rivera.title': 'Véhicule en feu sur l\'A2 à Rivera : circulation perturbée',
     'blog.article.veicolo-fiamme-a2-rivera.excerpt': 'Une camionnette a pris feu sur l\'A2 en direction de Chiasso Le tronçon se situe entre le tunnel du Monte Ceneri et Rivera La voie de droite est fermée pour les opérations nécessaires',
     'blog.article.veicolo-fiamme-a2-rivera.imageAlt': 'Véhicule en feu sur l\'A2 à Rivera, trafic perturbé vers Chiasso',
+    'blog.article.luci-masnago-terza-puntata.title': 'Basket : «Luci a Masnago» revient jeudi 15 octobre avec Marco Passera',
+    'blog.article.luci-masnago-terza-puntata.excerpt': 'Jeudi 15 octobre à partir de 14,45, «Luci a Masnago» revient.',
+    'blog.article.luci-masnago-terza-puntata.imageAlt': 'Studio radio avec vue sur le lac de Lugano, micros et matériel sous la lumière de l\'après‑midi.',
 };
 
 export default blogMetaFr;

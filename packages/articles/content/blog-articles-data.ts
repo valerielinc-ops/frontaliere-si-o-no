@@ -44686,6 +44686,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'luci-masnago-terza-puntata',
+ category: 'novita',
+ date: '2026-10-15T16:14:16.966Z',
+ image: '/images/blog/article-luci-masnago-terza-puntata.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -13239,6 +13239,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.veicolo-fiamme-a2-rivera.title': 'Fahrzeug auf der A2 bei Rivera in Flammen: Verkehr beeinträchtigt',
     'blog.article.veicolo-fiamme-a2-rivera.excerpt': 'Ein Lieferwagen ist auf der A2 in Richtung Chiasso in Brand geraten Der Abschnitt befindet sich zwischen dem Tunnel Monte Ceneri und Rivera Die rechte Fahrspur ist für die erforderlichen Arbeiten gesperrt',
     'blog.article.veicolo-fiamme-a2-rivera.imageAlt': 'Brennendes Fahrzeug auf der A2 bei Rivera, Verkehr Richtung Chiasso beeinträchtigt',
+    'blog.article.luci-masnago-terza-puntata.title': 'Basketball: «Luci a Masnago» 15. Okt. mit Marco Passera',
+    'blog.article.luci-masnago-terza-puntata.excerpt': 'Am Donnerstag, dem 15.',
+    'blog.article.luci-masnago-terza-puntata.imageAlt': 'Radiostudio mit Blick auf den Luganersee, Mikrofone und Technik im Nachmittagsschein.',
 };
 
 export default blogMetaDe;

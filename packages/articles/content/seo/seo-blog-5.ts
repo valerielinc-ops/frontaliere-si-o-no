@@ -108760,6 +108760,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luci-masnago-terza-puntata': {
+    title: 'Basket: «Luci a Masnago» torna giovedì 15 ottobre con Marco Passera',
+    description: 'Giovedì 15 ottobre dalle 14,45 torna «Luci a Masnago». La puntata segue il momento difficile della Pallacanestro Varese. In studio ci sarà l\'ex playmaker Marco',
+    keywords: 'frontalieri, ticino, svizzera, italia, basket, luci, masnago, torna',
+    ogTitle: 'Luci a Masnago 15 ottobre: basket Varese e Marco Passera',
+    ogDescription: 'Giovedì 15 ottobre dalle 14,45 torna «Luci a Masnago».',
+    canonicalPath: '/articoli-frontaliere/luci-masnago-terza-puntata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basket: «Luci a Masnago» torna giovedì 15 ottobre con Marco Passera",
+      "description": "Giovedì 15 ottobre dalle 14,45 torna «Luci a Masnago». La puntata segue il momento difficile della Pallacanestro Varese. In studio ci sarà l'ex playmaker Marco",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-luci-masnago-terza-puntata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio radio con vista sul Lago di Lugano, microfoni e attrezzature, luce pomeridiana."
+      },
+      "datePublished": "2026-10-15T16:14:17+00:00",
+      "dateModified": "2026-10-15T16:14:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luci-masnago-terza-puntata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

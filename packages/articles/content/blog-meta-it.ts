@@ -13241,6 +13241,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.veicolo-fiamme-a2-rivera.title': 'Veicolo in fiamme sull\'A2 a Rivera: traffico perturbato',
     'blog.article.veicolo-fiamme-a2-rivera.excerpt': 'Un furgone ha preso fuoco sull\'A2 verso Chiasso Il tratto è tra la galleria del Monte Ceneri e Rivera La corsia destra è chiusa per le operazioni necessarie',
     'blog.article.veicolo-fiamme-a2-rivera.imageAlt': 'Veicolo in fiamme sull\'A2 a Rivera, con traffico perturbato verso Chiasso',
+    'blog.article.luci-masnago-terza-puntata.title': 'Basket: «Luci a Masnago» torna giovedì 15 ottobre con Marco Passera',
+    'blog.article.luci-masnago-terza-puntata.excerpt': 'Giovedì 15 ottobre dalle 14,45 torna «Luci a Masnago».',
+    'blog.article.luci-masnago-terza-puntata.imageAlt': 'Studio radio con vista sul Lago di Lugano, microfoni e attrezzature, luce pomeridiana.',
 };
 
 export default blogMetaIt;
