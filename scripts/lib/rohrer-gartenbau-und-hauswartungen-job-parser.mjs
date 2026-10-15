@@ -139,9 +139,9 @@ export function parseRohrerGartenbauUndHauswartungenPage(
   }
 
   const document = new JSDOM(String(html)).window.document;
+  const publication = extractPublicationFields(document, now);
   const root = sourceContentRoot(document);
   const headings = extractRoleHeadings(root);
-  const publication = extractPublicationFields(document, now);
   const listings = [];
   let sawCleaningHeading = false;
 

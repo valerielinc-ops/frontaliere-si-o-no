@@ -126,6 +126,19 @@ describe('Rohrer Gartenbau und Hauswartungen GmbH crawler', () => {
     expect(parsed.fetchOutcome).toBe('selector_miss');
   });
 
+  it('keeps publication date unknown when the official page supplies no date', () => {
+    const parsed = parseRohrerGartenbauUndHauswartungenPage(
+      OFFICIAL_PAGE_HTML.replace(/\s*<meta property="article:published_time"[^>]+>/, ''),
+      ROHRER_GARTENBAU_UND_HAUSWARTUNGEN_CAREER_URL,
+      { now: NOW },
+    );
+    expect(parsed.listings[0]).toMatchObject({
+      datePosted: '',
+      postedDate: '',
+      postingDateSource: 'unknown',
+    });
+  });
+
   it('distinguishes a readable page with only non-target roles as filtered-empty', () => {
     const parsed = parseRohrerGartenbauUndHauswartungenPage(
       '<main><h2>Landschaftsgärtner/in EFZ – 100%</h2><p>Arbeiten im Gartenbau und in der Pflege von Aussenanlagen.</p></main>',

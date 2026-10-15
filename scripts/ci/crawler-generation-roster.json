@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 628,
+  "crawlerCount": 630,
   "groups": {
     "10": [
       "atec-personal",
@@ -164,6 +164,7 @@
       "avaloq",
       "bachem",
       "css-versicherung",
+      "elite-interim",
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
@@ -388,6 +389,7 @@
       "otis",
       "reha-bellikon",
       "rittmeyer-ag",
+      "rohrer-gartenbau-und-hauswartungen",
       "saint-gobain-weber-isover",
       "scandit",
       "spital-davos",
@@ -847,6 +849,7 @@
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
     "ehnv": "data/jobs/by-crawler/ehnv.json",
     "elettra-1938": "data/jobs/by-crawler/elettra-1938.json",
+    "elite-interim": "data/jobs/by-crawler/elite-interim.json",
     "elprom": "data/jobs/by-crawler/elprom.json",
     "emil-frey": "data/jobs/by-crawler/emil-frey.json",
     "emmi": "data/jobs/by-crawler/emmi.json",
@@ -1155,6 +1158,7 @@
     "rituals-cosmetics": "data/jobs/by-crawler/rituals-cosmetics.json",
     "riveneuve": "data/jobs/by-crawler/riveneuve.json",
     "roche": "data/jobs/by-crawler/roche.json",
+    "rohrer-gartenbau-und-hauswartungen": "data/jobs/by-crawler/rohrer-gartenbau-und-hauswartungen.json",
     "rolex": "data/jobs/by-crawler/rolex.json",
     "rsbj": "data/jobs/by-crawler/rsbj.json",
     "rss-surselva": "data/jobs/by-crawler/rss-surselva.json",
@@ -1310,5 +1314,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff"
+  "digest": "sha256:bda007e3c7bcdd713a6039c9daaeb549e43b81106ea03d730e534b8f76783951"
 }
