@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 632,
+  "crawlerCount": 633,
   "groups": {
     "10": [
       "atec-personal",
@@ -296,6 +296,7 @@
       "mikron",
       "okjob",
       "rapelli",
+      "rohrer-gartenbau-und-hauswartungen",
       "rsbj",
       "spitaeler-schaffhausen",
       "stadler-rail",
@@ -329,8 +330,8 @@
       "ocst",
       "ottos",
       "privatklinik-meiringen",
+      "proman-fleurier",
       "rfsm-fribourg",
-      "rohrer-gartenbau-und-hauswartungen",
       "strabag",
       "stryker",
       "supsi-dti",
@@ -1128,6 +1129,7 @@
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
+    "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
     "protectas": "data/jobs/by-crawler/protectas.json",
     "proton": "data/jobs/by-crawler/proton.json",
@@ -1318,5 +1320,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:3cdc087d0f23f7c047c187cd24a8a29106dfb9abf6ae8abf0f390e95abf96931"
+  "digest": "sha256:1b73c388384c94a3c591380a1b470474cb7fc4eff2f552c633401a07ff087bca"
 }
