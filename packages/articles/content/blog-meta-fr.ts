@@ -13250,13 +13250,22 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inaugurazione-sala-comacina-polizia.imageAlt': 'Illustration générée pour cet article',
     'blog.article.saronno-piccole-stelle-softball.title': 'Saronno, le tournoi Piccole Stelle revient : tournoi de softball Under 14',
     'blog.article.saronno-piccole-stelle-softball.excerpt': 'Les 17 et 18 octobre, le tournoi Piccole Stelle revient La sixième édition est réservée à la catégorie Under 14 Le tournoi rend hommage à Enrico Obletter Saronno joue à domicile',
-    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Tournoi de softball jeunesse à Saronno pour la sixième édition de Piccole Stelle',
+    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Illustration générée pour cet article',
     'blog.article.lugano-preventivo-2027-moltiplicatori.title': 'Budget 2027 dans le rouge, mais multiplicateurs inchangés',
     'blog.article.lugano-preventivo-2027-moltiplicatori.excerpt': 'Déficit 2027 : 14,7 millions de francs Investissements nets prévus : 97 millions Multiplicateurs confirmés : 80 % et 85 % Sujet → Città di Lugano Décision →',
     'blog.article.lugano-preventivo-2027-moltiplicatori.imageAlt': 'Vue panoramique du centre de Lugano avec le lac en arrière-plan, en plein jour.',
     'blog.article.terzetto-sospetto-melano-chiasso.title': 'Appels choc aux personnes âgées, trois arrestations dans le Mendrisiotto',
     'blog.article.terzetto-sospetto-melano-chiasso.excerpt': 'Trois arrestations dans le Mendrisiotto Soupçons d’escroqueries par des appels choc Véhicule avec des plaques tchèques trouvé à Chiasso Une deuxième escroquerie dans l’après-midi a été déjouée',
     'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso : contrôles d\'un véhicule aux plaques tchèques après trois arrestations liées aux appels choc',
+    'blog.article.inchiesta-medico-locarnese.title': 'Délits sexuels sur des patients, un médecin en prison',
+    'blog.article.inchiesta-medico-locarnese.excerpt': 'Médecin du Locarnese sous enquête Investigations entamées début juillet Homme toujours en détention préventive D\'autres victimes présumées identifiées Chapeau',
+    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Rue du Locarnese avec un bâtiment public dans une scène sobre',
+    'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR supprime 202 postes supplémentaires',
+    'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR supprime 202 postes à temps plein et prévoit 41 millions d\'économies.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Rédaction radiotélévisée au Tessin, avec vue urbaine, symbole des suppressions de postes à la SSR.',
+    'blog.article.arresto-cittadino-russo-como.title': 'Como, un citoyen russe arrêté pour entrée illégale',
+    'blog.article.arresto-cittadino-russo-como.excerpt': 'Un citoyen russe de 26 ans arrêté Vitrage d’un garage endommagé Tentative de fuite après l’interpellation Prison de Como en attendant la comparution immédiate Quoi →',
+    'blog.article.arresto-cittadino-russo-como.imageAlt': 'Vue urbaine de la ville de Côme (Como)',
 };
 
 export default blogMetaFr;

@@ -105847,10 +105847,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-agevolazioni-doganali-impiego.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Documenti doganali svizzeri e calendario con il 1° novembre 2026"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T18:35:16+00:00",
       "dateModified": "2026-10-15T18:35:16+00:00",
@@ -105886,10 +105891,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-svizzera-partecipa-fmi-bangkok-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-svizzera-thailandia-aelss-visita-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Incontro tra rappresentanti svizzeri e thailandesi a Bangkok per discutere dell'accordo di libero scambio"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T18:53:35+00:00",
       "dateModified": "2026-10-15T18:53:35+00:00",
@@ -105920,10 +105925,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d'acquisto Il Consiglio federale manterrebbe un veto",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-consiglio-federale.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-armi-sicurezza-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Lavoratori dell'industria della difesa svizzera in una fabbrica con bandiera svizzera"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T19:42:08+00:00",
       "dateModified": "2026-10-15T19:42:08+00:00",

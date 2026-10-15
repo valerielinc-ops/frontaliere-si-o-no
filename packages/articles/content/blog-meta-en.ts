@@ -13248,13 +13248,22 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inaugurazione-sala-comacina-polizia.imageAlt': 'Illustration generated for this article',
     'blog.article.saronno-piccole-stelle-softball.title': 'Saronno, Piccole Stelle returns: Under 14 softball tournament',
     'blog.article.saronno-piccole-stelle-softball.excerpt': 'On October 17 and 18, the Piccole Stelle tournament returns The sixth edition is reserved for the Under 14 category The tournament commemorates Enrico Obletter Saronno plays at home',
-    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Youth softball tournament in Saronno for the sixth edition of Piccole Stelle',
+    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Illustration generated for this article',
     'blog.article.lugano-preventivo-2027-moltiplicatori.title': '2027 budget in the red but multipliers unchanged',
     'blog.article.lugano-preventivo-2027-moltiplicatori.excerpt': '2027 deficit: 14,7 million francs Net planned investments: 97 million Confirmed multipliers: 80% and 85% Subject → City of Lugano Decision →',
     'blog.article.lugano-preventivo-2027-moltiplicatori.imageAlt': 'Panoramic view of Lugano city centre with the lake in the background, daylight.',
     'blog.article.terzetto-sospetto-melano-chiasso.title': 'Shocking calls to elderly people, three arrests in Mendrisiotto',
     'blog.article.terzetto-sospetto-melano-chiasso.excerpt': 'Three arrests in Mendrisiotto Suspects in scams involving shock calls Vehicle with Czech license plates found in Chiasso A second afternoon scam was foiled',
     'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso: checks on a car with Czech plates after three arrests over suspected shock calls',
+    'blog.article.inchiesta-medico-locarnese.title': 'Sexual offenses against patients, a doctor in prison',
+    'blog.article.inchiesta-medico-locarnese.excerpt': 'Doctor from the Locarno region under investigation Investigations launched in early July Man still in pretrial detention Other alleged victims identified Chief',
+    'blog.article.inchiesta-medico-locarnese.imageAlt': 'A Locarnese street with a public building in a restrained scene',
+    'blog.article.ssr-riduce-organico-risparmi.title': 'SSR cuts another 202 jobs',
+    'blog.article.ssr-riduce-organico-risparmi.excerpt': 'SSR is eliminating 202 full-time positions and expects savings of 41 million.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Broadcast newsroom in Ticino with an urban view, symbolizing SSR job cuts.',
+    'blog.article.arresto-cittadino-russo-como.title': 'Como, Russian citizen arrested for unlawful entry',
+    'blog.article.arresto-cittadino-russo-como.excerpt': '26-year-old Russian citizen arrested Garage window damaged Attempted escape after detention Como prison awaiting immediate trial What →',
+    'blog.article.arresto-cittadino-russo-como.imageAlt': 'Urban view of the city of Como',
 };
 
 export default blogMetaEn;

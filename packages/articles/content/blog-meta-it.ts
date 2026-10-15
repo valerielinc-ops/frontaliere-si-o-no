@@ -13249,13 +13249,22 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inaugurazione-sala-comacina-polizia.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.saronno-piccole-stelle-softball.title': 'Saronno, torna Piccole Stelle: torneo di softball Under 14',
     'blog.article.saronno-piccole-stelle-softball.excerpt': 'Il 17 e 18 ottobre torna il torneo Piccole Stelle La sesta edizione è riservata alla categoria Under 14 Il torneo ricorda Enrico Obletter Saronno gioca in casa',
-    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Torneo di softball giovanile sul campo di Saronno per la sesta edizione di Piccole Stelle',
+    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.lugano-preventivo-2027-moltiplicatori.title': 'Preventivo 2027 in rosso ma moltiplicatori invariati',
     'blog.article.lugano-preventivo-2027-moltiplicatori.excerpt': 'Disavanzo 2027: 14,7 milioni di franchi Investimenti netti previsti: 97 milioni Moltiplicatori confermati: 80% e 85% Soggetto → Città di Lugano Decisione →',
     'blog.article.lugano-preventivo-2027-moltiplicatori.imageAlt': 'Vista panoramica del centro di Lugano con il lago sullo sfondo, in luce diurna.',
     'blog.article.terzetto-sospetto-melano-chiasso.title': 'Chiamate shock agli anziani, tre arresti nel Mendrisiotto',
     'blog.article.terzetto-sospetto-melano-chiasso.excerpt': 'Tre arresti nel Mendrisiotto Sospetti per truffe con chiamate shock Veicolo con targhe ceche trovato a Chiasso Una seconda truffa pomeridiana è stata sventata',
     'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso: controlli su un veicolo con targhe ceche dopo tre arresti per sospette chiamate shock',
+    'blog.article.inchiesta-medico-locarnese.title': 'Reati sessuali su pazienti, un medico in carcere',
+    'blog.article.inchiesta-medico-locarnese.excerpt': 'Medico del Locarnese sotto inchiesta Accertamenti avviati a inizio luglio Uomo ancora in carcerazione preventiva Identificate altre presunte vittime Capo',
+    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Strada del Locarnese con un edificio pubblico in una scena sobria',
+    'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR taglia altri 202 posti di lavoro',
+    'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR sopprime 202 posti a tempo pieno e prevede risparmi per 41 milioni.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Redazione radiotelevisiva in Ticino con vista urbana, immagine simbolica dei tagli SSR.',
+    'blog.article.arresto-cittadino-russo-como.title': 'Como, arrestato cittadino russo per ingresso abusivo',
+    'blog.article.arresto-cittadino-russo-como.excerpt': 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
+    'blog.article.arresto-cittadino-russo-como.imageAlt': 'Veduta urbana della città di Como',
 };
 
 export default blogMetaIt;
