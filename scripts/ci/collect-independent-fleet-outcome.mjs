@@ -13,6 +13,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { createdSinceFilter } from './lib/run-listing-window.mjs';
+import { resolveLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 import { LOOP_WORKFLOWS } from './loop-fleet-status.mjs';
 import {
   buildIndependentFleetControlOutcome,
@@ -41,15 +42,22 @@ function readJson(file, label) {
 
 function readJsonl(file) {
   const absolute = path.resolve(file);
-  if (!fs.existsSync(absolute)) return { records: [], errors: [`health ledger is missing: ${file}`] };
+  const isCanonicalHealthPath = path.basename(absolute) === 'loop-health-history.jsonl';
+  const isLedgerDirectory = fs.existsSync(absolute) && fs.statSync(absolute).isDirectory();
+  const files = isCanonicalHealthPath || isLedgerDirectory
+    ? resolveLoopFleetLedgerFiles(absolute, 'loop-health-history.jsonl')
+    : (fs.existsSync(absolute) ? [absolute] : []);
+  if (!files.length) return { records: [], errors: [`health ledger is missing: ${file}`] };
   const records = [];
   const errors = [];
-  for (const [index, line] of fs.readFileSync(absolute, 'utf8').split(/\r?\n/u).entries()) {
-    if (!line.trim()) continue;
-    try {
-      records.push(JSON.parse(line));
-    } catch {
-      errors.push(`health ledger line ${index + 1} is invalid JSON`);
+  for (const ledgerFile of files) {
+    for (const [index, line] of fs.readFileSync(ledgerFile, 'utf8').split(/\r?\n/u).entries()) {
+      if (!line.trim()) continue;
+      try {
+        records.push(JSON.parse(line));
+      } catch {
+        errors.push(`health ledger ${path.basename(ledgerFile)} line ${index + 1} is invalid JSON`);
+      }
     }
   }
   return { records, errors };

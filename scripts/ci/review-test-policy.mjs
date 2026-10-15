@@ -30,18 +30,29 @@ export const LOOP_FLEET_LEDGER_FILES = Object.freeze([
 ]);
 export const LOOP_FLEET_LEDGER_BRANCH_RE = /^(?:chore\/loop-fleet-ledger|chore\/loop-fleet-ledger-L(?:[0-9]|1[01])-[0-9]+-[0-9]+|chore\/loop-fleet-ledger-lifecycle-[0-9]+-[0-9]+)$/u;
 const LOOP_FLEET_LEDGER_STATUS_SET = new Set(['added', 'modified']);
-const LOOP_FLEET_LEDGER_PATH_RE = /^data\/loop-fleet\/ledger\/(?:loop-observations|loop-decisions|loop-health-history|lifecycle-events)\.jsonl$/u;
+const LOOP_FLEET_LEDGER_PATH_RE = /^data\/loop-fleet\/ledger\/(?:loop-observations|loop-decisions|loop-health-history|lifecycle-events)(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\.jsonl$/u;
 const SHA_RE = /^[a-f0-9]{40}$/iu;
-const LOOP_FLEET_LEDGER_RECORD_TYPE_BY_PATH = Object.freeze({
-  'data/loop-fleet/ledger/loop-observations.jsonl': 'observation',
-  'data/loop-fleet/ledger/loop-decisions.jsonl': 'decision',
-  'data/loop-fleet/ledger/loop-health-history.jsonl': 'health',
-  'data/loop-fleet/ledger/lifecycle-events.jsonl': 'lifecycle-event',
-});
+const LOOP_FLEET_LEDGER_RECORD_TYPES = Object.freeze([
+  ['loop-observations', 'observation'],
+  ['loop-decisions', 'decision'],
+  ['loop-health-history', 'health'],
+  ['lifecycle-events', 'lifecycle-event'],
+]);
+const LOOP_FLEET_LEDGER_RECORD_TYPE_BY_FILE_RE = Object.freeze(
+  LOOP_FLEET_LEDGER_RECORD_TYPES.map(([stem, type]) => [
+    new RegExp(`^${stem}(?:-[A-Za-z0-9][A-Za-z0-9_-]*)?\\.jsonl$`, 'u'),
+    type,
+  ]),
+);
 const LOOP_FLEET_LOOP_ID_RE = /^L(?:[0-9]|1[01])$/u;
 const MAX_LOOP_FLEET_LEDGER_CONTENT_BYTES = 16 * 1024 * 1024;
 const MAX_LOOP_FLEET_LEDGER_RECORDS = 50_000;
+const MAX_LOOP_FLEET_LEDGER_SNAPSHOT_FILES = 256;
 const LOOP_FLEET_REGISTRY_PATH = 'data/loop-fleet/loop-registry.json';
+
+function ledgerRecordType(fileName) {
+  return LOOP_FLEET_LEDGER_RECORD_TYPE_BY_FILE_RE.find(([pattern]) => pattern.test(fileName))?.[1] || null;
+}
 
 // The bounded ledger tier shares the normal tests job, but it can publish its
 // automatic review before checkout and the long test/review chain. The body
@@ -58,7 +69,7 @@ export function isLoopFleetLedgerPath(path) {
 
 export function isLoopFleetLedgerSnapshot(snapshot) {
   if (snapshot?.complete !== true || !Array.isArray(snapshot.files) || snapshot.files.length === 0) return false;
-  if (snapshot.files.length > LOOP_FLEET_LEDGER_FILES.length) return false;
+  if (snapshot.files.length > MAX_LOOP_FLEET_LEDGER_SNAPSHOT_FILES) return false;
   const unique = new Set(snapshot.files);
   return unique.size === snapshot.files.length && snapshot.files.every(isLoopFleetLedgerPath);
 }
@@ -87,7 +98,7 @@ function isGithubNotFoundError(error) {
 const GITHUB_NOT_FOUND = Object.freeze({ notFound: true });
 
 /**
- * Bounded structural guard for the exact ledger files.
+ * Bounded structural guard for canonical ledger files and their validated shards.
  *
  * The bridge validates the source artifact and registry-specific semantics
  * before it opens a PR. This second, intentionally smaller check validates the
@@ -120,7 +131,8 @@ export function validateLoopFleetLedgerJsonl(content, path, { registry = null } 
   if (bytes > MAX_LOOP_FLEET_LEDGER_CONTENT_BYTES) {
     return { ok: false, reason: `contenuto ledger oltre il limite bounded (${bytes} bytes)` };
   }
-  const expectedType = LOOP_FLEET_LEDGER_RECORD_TYPE_BY_PATH[path];
+  const fileName = String(path).split('/').at(-1) || '';
+  const expectedType = ledgerRecordType(fileName);
   const records = [];
   const seen = new Map();
   for (const [index, line] of content.split(/\r?\n/u).entries()) {
@@ -475,7 +487,7 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
     return inspectionFailure('unverifiable', `file-list PR incompleta (${snapshot?.reason || 'sconosciuta'})`);
   }
   if (!isLoopFleetLedgerSnapshot(snapshot)) {
-    return inspectionFailure('not-ledger-only', 'file-list mixed, unknown, duplicata o fuori dai quattro path canonici');
+    return inspectionFailure('not-ledger-only', 'file-list mixed, unknown, duplicata o fuori dai path ledger ammessi');
   }
 
   let registry;

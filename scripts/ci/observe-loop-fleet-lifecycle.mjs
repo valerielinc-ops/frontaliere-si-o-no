@@ -24,6 +24,7 @@ import {
   validateHistoricalLifecycleEvent,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 const DEFAULT_LEDGER_DIR = path.join('data', 'loop-fleet', 'ledger');
@@ -595,7 +596,8 @@ export function main({ argv = process.argv.slice(2), logger = console } = {}) {
   const ledgerDir = valueAfter(argv, '--ledger-dir', DEFAULT_LEDGER_DIR);
   fs.mkdirSync(outDir, { recursive: true });
   const registry = readJson(registryPath, 'loop registry');
-  const lifecycleEvents = readJsonl(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'durable lifecycle ledger');
+  const lifecycleEvents = listLoopFleetLedgerFiles(ledgerDir, 'lifecycle-events.jsonl')
+    .flatMap((file) => readJsonl(file, `ledger ${path.basename(file)}`));
   const github = collectGitHubEvidence();
   const now = new Date();
   const result = observeLifecycle({

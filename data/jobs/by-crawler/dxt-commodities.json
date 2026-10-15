@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-10-12T09:19:16.580Z",
+  "assembledAt": "2026-10-15T09:18:07.324Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
@@ -35,6 +35,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
+      "crawledAt": "2026-10-15T09:18:05.332Z",
       "source": "dxt-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -72,7 +73,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:04:35.208Z",
-      "crawledAt": "",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",

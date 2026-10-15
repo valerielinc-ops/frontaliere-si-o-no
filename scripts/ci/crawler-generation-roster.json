@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 630,
+  "crawlerCount": 631,
   "groups": {
     "10": [
       "atec-personal",
@@ -362,6 +362,7 @@
       "orell-fuessli-thalia",
       "pdag",
       "ricola",
+      "seniorenzentrum-engelhof",
       "six-group",
       "spital-buelach",
       "stadtspital-zuerich",
@@ -1173,6 +1174,7 @@
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
+    "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
     "sfs-group": "data/jobs/by-crawler/sfs-group.json",
     "sicpa": "data/jobs/by-crawler/sicpa.json",
     "siegfried": "data/jobs/by-crawler/siegfried.json",
@@ -1314,5 +1316,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:12f9f10dac2883b4e8253f29bf78e5c34d0437f8538f010ae5bb7daaa9850c22"
+  "digest": "sha256:73f2ba7d5c080af7c2eae7731dad24bee142d29ed45329ff5ff33cc149a90623"
 }

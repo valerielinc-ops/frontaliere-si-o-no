@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "7d3adcf19de38a1806ffdba4a5711b399643c74b",
+  "sourceCommit": "9ef5556f5d12322005338d10e52a2add74419135",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "7d3adcf19de38a1806ffdba4a5711b399643c74b"
+    "sourceCommit": "9ef5556f5d12322005338d10e52a2add74419135"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 630,
+  "crawlerCount": 631,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:12f9f10dac2883b4e8253f29bf78e5c34d0437f8538f010ae5bb7daaa9850c22",
+    "rosterDigest": "sha256:73f2ba7d5c080af7c2eae7731dad24bee142d29ed45329ff5ff33cc149a90623",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -465,6 +465,7 @@
     "scripts/update-see-spital-jobs.mjs",
     "scripts/update-selecta-jobs.mjs",
     "scripts/update-senevita-jobs.mjs",
+    "scripts/update-seniorenzentrum-engelhof-jobs.mjs",
     "scripts/update-sfs-group-jobs.mjs",
     "scripts/update-sicpa-jobs.mjs",
     "scripts/update-siegfried-jobs.mjs",
@@ -1378,8 +1379,8 @@
     {
       "file": "crawler-group-21.yml",
       "sourceLogic": "crawler-group-21-logic.yml",
-      "sourceSha256": "74a6e0c8462d28198ef9645365d0023c223f8b02087f5e3e4bd940d0f63d9532",
-      "artifactSha256": "e59c01c3f51251c7bf1a3f0c84b8618a4c02a2bf006afb67750674aa1c077ba4",
+      "sourceSha256": "f4bdc93306d23501e10335cb5f621c08d263320a34155042fcb90abae9c65086",
+      "artifactSha256": "f96a907f460a9de6a13f71745b1dd84ef7c6993ed39da51e1191602649b1faf2",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "orell-fuessli-thalia",
@@ -1409,7 +1410,8 @@
         "clinique-le-noirmont",
         "geberit",
         "lombard-odier",
-        "kone"
+        "kone",
+        "seniorenzentrum-engelhof"
       ]
     },
     {

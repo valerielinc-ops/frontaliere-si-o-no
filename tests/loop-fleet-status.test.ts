@@ -595,11 +595,11 @@ describe('loop fleet status', () => {
     });
   });
 
-  it('uses the durable health ledger as a validated cross-run fallback', () => {
+  it('uses a durable health shard as a validated cross-run fallback', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-status-ledger-'));
     const ledgerDir = path.join(root, 'ledger');
     fs.mkdirSync(ledgerDir);
-    fs.writeFileSync(path.join(ledgerDir, 'loop-health-history.jsonl'), `${JSON.stringify({
+    fs.writeFileSync(path.join(ledgerDir, 'loop-health-history-run-77.jsonl'), `${JSON.stringify({
       recordType: 'health',
       schemaVersion: 1,
       recordId: 'health-1',

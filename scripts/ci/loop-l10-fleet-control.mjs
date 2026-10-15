@@ -28,6 +28,7 @@ import {
   validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { resolveLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 export const LOOP_ID = 'L10';
 const ISSUE_TITLE = 'L10 Fleet Control: execution health or quota ledger is not trustworthy';
@@ -107,17 +108,24 @@ function summarizeIssues(issues, quality) {
 
 function readJsonl(filePath, label) {
   const absolute = path.resolve(filePath);
-  if (!fs.existsSync(absolute)) {
+  const isHealthLedger = path.basename(absolute) === 'loop-health-history.jsonl'
+    || (fs.existsSync(absolute) && fs.statSync(absolute).isDirectory());
+  const files = isHealthLedger
+    ? resolveLoopFleetLedgerFiles(absolute, 'loop-health-history.jsonl')
+    : (fs.existsSync(absolute) ? [absolute] : []);
+  if (!files.length) {
     return { path: filePath, records: [], parseIssues: [`${label} is missing: ${filePath}`], missing: true };
   }
   const records = [];
   const parseIssues = [];
-  for (const [index, line] of fs.readFileSync(absolute, 'utf8').split(/\r?\n/u).entries()) {
-    if (!line.trim()) continue;
-    try {
-      records.push(JSON.parse(line));
-    } catch (error) {
-      parseIssues.push(`line ${index + 1}: invalid JSON (${error.message})`);
+  for (const file of files) {
+    for (const [index, line] of fs.readFileSync(file, 'utf8').split(/\r?\n/u).entries()) {
+      if (!line.trim()) continue;
+      try {
+        records.push(JSON.parse(line));
+      } catch (error) {
+        parseIssues.push(`${path.basename(file)} line ${index + 1}: invalid JSON (${error.message})`);
+      }
     }
   }
   return { path: filePath, records, parseIssues, missing: false };
