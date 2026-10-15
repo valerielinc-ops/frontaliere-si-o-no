@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9",
+  "sourceCommit": "22a7e4199dee2758de94c96edceb78a0709af020",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9"
+    "sourceCommit": "22a7e4199dee2758de94c96edceb78a0709af020"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 636,
+  "crawlerCount": 637,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:f0b2d3062d8d18f3dd03e8a053c91c96e55be21dad2951b071ede6b361e11383",
+    "rosterDigest": "sha256:2c2c66c0ea72bab9cbf8876e0cb9228c964f1ed32a540f806571212dc4f5f148",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -245,6 +245,7 @@
     "scripts/update-ghol-jobs.mjs",
     "scripts/update-giardino-jobs.mjs",
     "scripts/update-gim-architekten-jobs.mjs",
+    "scripts/update-gipo-jobs.mjs",
     "scripts/update-givaudan-jobs.mjs",
     "scripts/update-gkb-jobs.mjs",
     "scripts/update-globus-jobs.mjs",
@@ -1162,8 +1163,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "b42a5d2e66750b9472addc97b462290ec437021f95266951158ea7447c44e1ed",
-      "artifactSha256": "b2ded6c1c06c212d609580e04b6023a79f0637f130dead29fa88dc7d608d8a39",
+      "sourceSha256": "54e4720198ea0760dd943237a12467b23e11cb147e8b985570ba57098f6f6551",
+      "artifactSha256": "344a60eba0df73ecbb77bfd1fff514351563b8f06f547fa4d6e16af5f728f7c4",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1193,7 +1194,8 @@
         "sta",
         "elprom",
         "sonarsource",
-        "elite-interim"
+        "elite-interim",
+        "gipo"
       ]
     },
     {

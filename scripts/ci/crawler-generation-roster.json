@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 636,
+  "crawlerCount": 637,
   "groups": {
     "10": [
       "atec-personal",
@@ -168,6 +168,7 @@
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
+      "gipo",
       "grand-hotel-kronenhof",
       "gzo-wetzikon",
       "holcim",
@@ -916,6 +917,7 @@
     "giardino": "data/jobs/by-crawler/giardino.json",
     "gim-architekten": "data/jobs/by-crawler/gim-architekten.json",
     "giorgio-armani": "data/jobs/by-crawler/giorgio-armani.json",
+    "gipo": "data/jobs/by-crawler/gipo.json",
     "givaudan": "data/jobs/by-crawler/givaudan.json",
     "gkb": "data/jobs/by-crawler/gkb.json",
     "globus": "data/jobs/by-crawler/globus.json",
@@ -1326,5 +1328,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:f0b2d3062d8d18f3dd03e8a053c91c96e55be21dad2951b071ede6b361e11383"
+  "digest": "sha256:2c2c66c0ea72bab9cbf8876e0cb9228c964f1ed32a540f806571212dc4f5f148"
 }
