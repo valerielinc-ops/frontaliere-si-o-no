@@ -33,6 +33,8 @@ const { adminState, firestore, Timestamp } = vi.hoisted(() => {
   const adminState = {
     // Records pushed to saveTrafficToFirestore via batch.set on trafficCurrent.
     savedCurrent: [] as Array<Record<string, unknown>>,
+    // Records pushed to the append-only trafficHistory snapshots.
+    savedHistory: [] as Array<Record<string, unknown>>,
     // Controls reserveHereTransactionBudget: { month, count } stored doc.
     budgetDoc: undefined as { month?: string; count?: number } | undefined,
   };
@@ -43,6 +45,9 @@ const { adminState, firestore, Timestamp } = vi.hoisted(() => {
         set: (ref: { __collection?: string }, data: Record<string, unknown>) => {
           if (ref && ref.__collection === 'trafficCurrent') {
             adminState.savedCurrent.push(data);
+          }
+          if (ref && ref.__collection === 'trafficHistorySnapshot') {
+            adminState.savedHistory.push(data);
           }
         },
         commit: async () => {},
@@ -144,6 +149,7 @@ type CoreModule = {
 
 function resetState() {
   adminState.savedCurrent.length = 0;
+  adminState.savedHistory.length = 0;
   adminState.budgetDoc = undefined;
   webcamBySlug.clear();
 }
@@ -160,6 +166,37 @@ afterEach(() => {
   vi.useRealTimers();
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
+});
+
+describe('saveTrafficToFirestore shadow history', () => {
+  it('keeps baseline observations out of the current public document', async () => {
+    const { saveTrafficToFirestore } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as { saveTrafficToFirestore: (results: Array<Record<string, unknown>>) => Promise<void> };
+
+    const observations = [{
+      crossingName: 'Chiasso-Brogeda',
+      provider: 'tomtom',
+      providerWaitMinutes: 6,
+      feedKey: '03.3S',
+      vehicleCount: 4,
+      congestionScore: 0.5,
+      observedAt: '2026-10-15T06:00:00.000Z',
+      incrementalPaidRequests: 0,
+    }];
+    await saveTrafficToFirestore([{
+      crossingName: 'Chiasso-Brogeda',
+      waitTimeMinutes: 6,
+      approachMinutes: 0,
+      totalCrossingMinutes: 6,
+      status: 'yellow',
+      source: 'tomtom',
+      webcamBaselineObservations: observations,
+    }]);
+
+    expect(adminState.savedCurrent[0]).not.toHaveProperty('webcamBaselineObservations');
+    expect(adminState.savedHistory[0]?.webcamBaselineObservations).toEqual(observations);
+  });
 });
 
 // ─── runWebcamOnlyCollection ──────────────────────────────────────
@@ -308,6 +345,36 @@ describe('runWebcamOnlyCollection', () => {
 
     expect(result.collected).toBe(0);
     expect(adminState.savedCurrent).toHaveLength(0);
+  });
+
+  it('keeps numeric-string official measurements in the webcam-only fallback', async () => {
+    const crossing = BORDER_CROSSINGS[0];
+    const { runWebcamOnlyCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runWebcamOnlyCollection({
+      enableWebcam: true,
+      officialSignals: {
+        [slugifyCrossingName(crossing.name)]: {
+          queueMinutes: '12',
+          approachMinutes: '4',
+          queueKm: '1.5',
+        },
+      },
+    });
+
+    expect(result.collected).toBe(1);
+    expect(result.errors).toBe(0);
+    expect(adminState.savedCurrent).toHaveLength(1);
+    expect(adminState.savedCurrent[0]).toMatchObject({
+      crossingName: crossing.name,
+      waitTimeMinutes: 12,
+      approachMinutes: 4,
+      totalCrossingMinutes: 16,
+      officialQueueKm: 1.5,
+      source: 'official',
+    });
   });
 
   it('maps a clear road (low score) to a green 0-minute estimate', async () => {
