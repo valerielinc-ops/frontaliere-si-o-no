@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4",
+  "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4"
+    "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:0b4384e0c526369045c308959a02c7a6caab7f361974df8030946b3d07a7bc99",
+    "rosterDigest": "sha256:5e82b8b3e486e75859d37bd9afc2e003abf8296f877f1182307917fb79b142df",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -543,6 +543,7 @@
     "scripts/update-tally-weijl-jobs.mjs",
     "scripts/update-tarchini-group-jobs.mjs",
     "scripts/update-tecan-jobs.mjs",
+    "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
@@ -1198,8 +1199,8 @@
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "7b6ae9ab533192a44069b46f278a9e0c1e1e4155e7400774cc11cb00bc1df9ab",
-      "artifactSha256": "2ba0036d6836d216f637c5550197123fb01a84e85cac012845c6374738e77631",
+      "sourceSha256": "6fe81d8a11bc5ba680a0c95e2e97710fe63162fd6d24ca0f26567a08b917a17e",
+      "artifactSha256": "2ca758d9149b3b26bb1dc2a9a5a5bcbb445fee2bee31a1a470f3adb2a603416d",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ksgr",
@@ -1229,14 +1230,15 @@
         "benteler",
         "adullam",
         "buersten-technik",
-        "matterhorn-gotthard-bahn"
+        "matterhorn-gotthard-bahn",
+        "sympajobs-reinach-bl"
       ]
     },
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "c3c7758ae6e687c5e14333dec9e65626efb9d5fdbafb8ebbe33b4a67193b6f95",
-      "artifactSha256": "1dce75684dfd2761169f29c1bcc93b1e2bb67cdeef12070fbf86a5a3cafb67f3",
+      "sourceSha256": "eefc658ea6de6d477913bebc14733a3575c9755297fa992df365b9eba220334b",
+      "artifactSha256": "8be6bb59526c4768c5ade01223091c088a250f2674384f499561eabe29980c4b",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1267,7 +1269,7 @@
         "board",
         "aldi-suisse",
         "badrutts-palace",
-        "sympajobs-reinach-bl"
+        "technic-emplois"
       ]
     },
     {

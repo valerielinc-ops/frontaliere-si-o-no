@@ -151,8 +151,8 @@ function resolveGalenicaApplyUrl(variants, youstyEnrichment) {
     if (url) return url;
   }
 
-  // Keep only an application destination parsed from the Yousty profile; the
-  // profile page itself is not an application handoff.
+  // A bare Yousty profile is not an application handoff; the parser may return
+  // its canonical URL only when the profile's JobPosting declares directApply.
   return trustedHttpsGalenicaUrl(youstyEnrichment?.applyUrl);
 }
 

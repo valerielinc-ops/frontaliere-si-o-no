@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "groups": {
     "10": [
       "atec-personal",
@@ -215,6 +215,7 @@
       "spitex-zuerich",
       "swica",
       "swisscom-sede-ticino",
+      "sympajobs-reinach-bl",
       "vir-biotechnology"
     ],
     "17": [
@@ -244,7 +245,7 @@
       "siemens-healthineers",
       "spital-zofingen",
       "sygnum",
-      "sympajobs-reinach-bl",
+      "technic-emplois",
       "veeam",
       "zurich-insurance-sede-ticino"
     ],
@@ -1264,6 +1265,7 @@
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
     "tarchini-group": "data/jobs/by-crawler/tarchini-group.json",
     "tecan": "data/jobs/by-crawler/tecan.json",
+    "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
@@ -1324,5 +1326,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:0b4384e0c526369045c308959a02c7a6caab7f361974df8030946b3d07a7bc99"
+  "digest": "sha256:5e82b8b3e486e75859d37bd9afc2e003abf8296f877f1182307917fb79b142df"
 }
