@@ -433,11 +433,21 @@ function extractHtmlFacts(html, pharmacy, source) {
   const wanted = new Set(source.fields || []);
   const facts = {};
   const telLinks = [...document.querySelectorAll('a[href^="tel:"]')]
-    .map((link) => link.getAttribute('href')?.replace(/^tel:/i, '').trim())
-    .filter((value) => digits(value).length >= 8);
+    .map((link) => ({
+      value: link.getAttribute('href')?.replace(/^tel:/i, '').trim(),
+      label: text(link.textContent),
+    }))
+    .filter((entry) => digits(entry.value).length >= 8);
   const currentPhone = digits(pharmacy.phone);
-  const phone = telLinks.find((value) => digits(value) === currentPhone) || telLinks[0];
-  if (wanted.has('phone') && phone) facts.phone = digits(phone) === currentPhone && pharmacy.phone ? pharmacy.phone : text(phone);
+  const phone = telLinks.find((entry) => digits(entry.value) === currentPhone) || telLinks[0];
+  if (wanted.has('phone') && phone) {
+    const value = digits(phone.value) === currentPhone && pharmacy.phone
+      ? pharmacy.phone
+      : phone.label && digits(phone.label) === digits(phone.value)
+        ? phone.label
+        : text(phone.value);
+    if (value) facts.phone = value;
+  }
 
   const email = [...document.querySelectorAll('a[href^="mailto:"]')]
     .map((link) => link.getAttribute('href')?.replace(/^mailto:/i, '').split('?')[0].trim())
