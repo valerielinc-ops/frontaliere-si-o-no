@@ -619,6 +619,17 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     expect(codes(issues)).toEqual(['unknown-institution']);
   });
 
+  it('does not treat a lowercase institutional tail as a comma-delimited person name', () => {
+    const text = 'Il direttore del Dipartimento delle finanze, Politiche Sociali (MPS).';
+
+    expect(codes(checkFabricatedInstitutionAcronyms(text))).toEqual(['unknown-institution']);
+    expect(collectInstitutionAcronyms(text, { sourceText: '' })).toEqual([{
+      acronym: 'MPS',
+      name: 'Dipartimento delle finanze, Politiche Sociali',
+      support: 'unknown',
+    }]);
+  });
+
   it('still recognizes a comma-delimited person appositive after a lexical boundary', () => {
     const text = 'Il direttore del Dipartimento grigionese delle finanze, Martin Bühler (PLR).';
 

@@ -46,6 +46,7 @@
 
 import { tokenizeIt, containmentSim } from './it-text-similarity.mjs';
 import { escapeRegExpLiteral } from './escape-regexp.mjs';
+import { recognizeFirstName } from './deriveNameFromEmail.mjs';
 import {
   LOCALE_LEXICON,
   lexiconFor,
@@ -1260,7 +1261,7 @@ const POLITICAL_AFFILIATION_ACRONYMS = new Set([
 // single institutional modifier. A comma is allowed only after that same
 // demonstrated boundary: a comma alone makes
 // `Dipartimento, Politiche Sociali` look like a person's name.
-const PERSON_NAME_SUFFIX_RE = /(?<!\p{L})(?:[\p{Ll}][\p{Ll}'’.-]*\s+)+([\p{Ll}][\p{Ll}'’.-]*),?\s+(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){1,2}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
+const PERSON_NAME_SUFFIX_RE = /(?<!\p{L})(?:[\p{Ll}][\p{Ll}'’.-]*\s+)+(?<boundaryWord>[\p{Ll}][\p{Ll}'’.-]*)(?<comma>,)?\s+(?<firstName>[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*)\s+(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){0,1}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
 const PERSON_NAME_BOUNDARY_STOPWORDS = new Set([
   'a', 'ad', 'al', 'alla', 'alle', 'agli', 'ai', 'da', 'dal', 'dalla', 'dalle', 'dagli',
   'dei', 'del', 'dell', 'della', 'delle', 'di', 'e', 'fra', 'in', 'nel', 'nei', 'nella',
@@ -1272,8 +1273,14 @@ function isPoliticalAffiliationAfterPerson(text, match, acronym) {
   if (!POLITICAL_AFFILIATION_ACRONYMS.has(acronym)) return false;
   const personNameMatch = PERSON_NAME_SUFFIX_RE.exec(match[1]?.trim() || '');
   if (!personNameMatch) return false;
-  const boundaryWord = personNameMatch[1]?.toLowerCase();
+  const { boundaryWord, comma, firstName } = personNameMatch.groups || {};
   if (boundaryWord && PERSON_NAME_BOUNDARY_STOPWORDS.has(boundaryWord)) return false;
+  // A comma is ambiguous here: it separates a real appositive in
+  // `... delle finanze, Martin Bühler`, but it also separates an institutional
+  // tail in `... delle finanze, Politiche Sociali`. Require the token after
+  // that comma to pass the repository's high-confidence first-name validator;
+  // the no-comma form keeps the existing lexical-boundary rule.
+  if (comma && !recognizeFirstName(firstName)) return false;
 
   const matchStart = typeof match.index === 'number' ? match.index : -1;
   if (matchStart < 0) return false;
