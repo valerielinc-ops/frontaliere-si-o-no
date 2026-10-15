@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 639,
+  "crawlerCount": 640,
   "groups": {
     "10": [
       "atec-personal",
@@ -29,6 +29,7 @@
       "richemont",
       "stellentreff",
       "swiss-medical-network",
+      "sympajobs-reinach-bl",
       "triaplus",
       "viva-luzern",
       "vz-vermoegenszentrum"
@@ -1266,6 +1267,7 @@
     "swisslog": "data/jobs/by-crawler/swisslog.json",
     "swissquote": "data/jobs/by-crawler/swissquote.json",
     "sygnum": "data/jobs/by-crawler/sygnum.json",
+    "sympajobs-reinach-bl": "data/jobs/by-crawler/sympajobs-reinach-bl.json",
     "szb-chb": "data/jobs/by-crawler/szb-chb.json",
     "talan": "data/jobs/by-crawler/talan.json",
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
@@ -1332,5 +1334,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:53a7036bcdb5a1e16bb1a0918752c3931628f2da277478ac9c67bfc8126aece8"
+  "digest": "sha256:0f28a93cb77c8ec2c1aea1173e9db764a520e03d537ef757da0b1036f33711fc"
 }
