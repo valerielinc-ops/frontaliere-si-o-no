@@ -710,6 +710,54 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('segue il wrapper first-party appendGitHubFile solo quando punta a GITHUB_OUTPUT', () => {
+    const files = new Map([
+      ['/repo/scripts/output-wrapper.mjs', [
+        "import fs from 'node:fs';",
+        'function appendGitHubFile(envName, line) {',
+        '  const file = process.env[envName];',
+        '  if (file) fs.appendFileSync(file, `${line}\\n`);',
+        '}',
+        'function writeOutput(name, value) {',
+        "  appendGitHubFile('GITHUB_OUTPUT', `${name}=${value}`);",
+        '}',
+        "writeOutput('skipped', 'false');",
+        "writeOutput('skip-reason', '');",
+      ].join('\n')],
+      ['/repo/scripts/env-wrapper.mjs', [
+        "import fs from 'node:fs';",
+        'function appendGitHubFile(envName, line) {',
+        '  const file = process.env[envName];',
+        '  if (file) fs.appendFileSync(file, `${line}\\n`);',
+        '}',
+        "appendGitHubFile('GITHUB_ENV', 'skipped=false');",
+      ].join('\n')],
+    ]);
+    const workflow = (script: string) => [
+      'name: github-file-wrapper',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: producer',
+      `        run: node ${script}`,
+      '      - name: consumer',
+      '        run: echo "${{ steps.producer.outputs.skipped }} ${{ steps.producer.outputs.skip-reason }}"',
+    ].join('\n');
+    const audit = (script: string) => auditWorkflowText('.github/workflows/github-file-wrapper.yml', workflow(script), {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    }).filter((item: any) => item.rule === 'workflow.output-not-produced');
+
+    expect(audit('scripts/output-wrapper.mjs')).toEqual([]);
+    expect(audit('scripts/env-wrapper.mjs').map((item: any) => item.evidence)).toEqual([
+      'steps.producer.outputs.skipped',
+      'steps.producer.outputs.skip-reason',
+    ]);
+  });
+
   it('segue il file passato con --github-output "$GITHUB_OUTPUT" a uno script delegato', () => {
     const planScript = (target: string) => [
       "import fs from 'node:fs';",
