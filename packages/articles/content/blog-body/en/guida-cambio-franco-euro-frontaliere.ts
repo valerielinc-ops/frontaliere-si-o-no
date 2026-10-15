@@ -1,51 +1,75 @@
 const bodyGuidaCambioFrancoEuroFrontaliere: Record<string, string> = {
- 'blog.article.guida-cambio-franco-euro-frontaliere.body1': `## Why the CHF-EUR Exchange Rate Matters More Than You Think
+ 'blog.article.guida-cambio-franco-euro-frontaliere.body1': `## At a glance
+- The CHF-EUR rate moves every day, and the direction of the quote matters.
+- The real cost is the delivered amount after the rate, fees and transfer charges.
+- Splitting conversions can spread timing risk, but it cannot guarantee a better rate.
+- The bank's execution rate is not automatically the rate used for Italian tax purposes.
 
-For cross-border workers commuting between Switzerland and Italy, the CHF-EUR exchange rate is not just a number on a financial ticker — it is the invisible lever that raises or lowers your real purchasing power every single month. If you earn 5,500 CHF net and the rate shifts by just 2 cents (say, from 0.94 to 0.92), you lose approximately 110 EUR per month in take-home pay without your employer changing a thing. Over a full year, that swing can amount to more than 1,300 EUR — the equivalent of a family holiday or several months of commuting costs.
+## Key facts
+- **Reference rate on 9 October 2026**: 1 EUR = 0.9313 CHF; this official reference is informational, not a guaranteed customer price.
+- **Inverse reading**: 1 CHF was worth approximately EUR 1.074 at that reference rate.
+- **Worked example**: CHF 5,500 / 0.9313 ≈ EUR 5,906 before fees, taxes and the provider's rate difference.
+- **Wise**: says it uses the mid-market rate without a markup, while the fee varies with amount, currency and payment method.
+- **Revolut Swiss Standard**: its support page lists a 1% fee above CHF 1,250 in a rolling month; a 1% weekend markup can also apply.
+- **Tax**: use the official tables and instructions for the relevant year, not only the rate shown by your bank.
 
-Most frontalieri make one critical mistake: they convert their entire salary into euros on payday through their bank. Traditional Swiss and Italian banks typically apply a spread of 0.8 % to 1.5 % on the interbank rate, meaning you pay a hidden fee on every conversion. On a 5,500 CHF salary, that spread alone costs 44–83 CHF per month. Multiply that by twelve months and you are looking at 528–996 CHF lost annually — money that simply evaporates at the exchange counter.
+For a cross-border worker, the exchange rate affects how many euros reach an Italian account after a Swiss-franc salary is converted. Start by checking the direction of the quote. If the source says that one euro buys 0.9313 francs, convert francs to euros by dividing the CHF amount by 0.9313. The result at a provider may be different because the provider adds a margin, a conversion fee or a transfer charge. ECB and Banca d'Italia reference rates are informative benchmarks, not execution promises.
 
-**The smarter approach is a fractional exchange strategy.** Instead of converting everything at once, split your salary into two or three tranches per month. Convert the portion you need for immediate Italian expenses (rent, groceries, utilities) within the first week, hold the second tranche for mid-month bills, and keep the third portion in Swiss francs for any CHF-denominated expenses you may have — Swiss health insurance premiums (LAMal), 3rd-pillar contributions, or purchases in Ticino. This approach naturally averages out short-term rate fluctuations.
+The 9 October 2026 rate is therefore a documented snapshot, not a promise for the next payday. A rate can move between setting up and completing a transfer. For a cautious household budget, model the amount with an adverse margin and compare the total that the recipient will receive. The CHF 5,500 example explains the formula; it is not a net-salary estimate because contributions, tax, insurance and employment conditions are outside the calculation.
 
-Fintech platforms such as Wise, Revolut, and Neon charge spreads of only 0.3 % to 0.5 %, often with no fixed fees for standard transfers. Switching from a traditional bank to a fintech service can save a cross-border worker between 600 and 900 EUR per year — a significant sum that compounds dramatically over a career spanning two or three decades. Every frontaliere should treat the exchange rate as a controllable expense, not an act of nature. The first step is awareness; the second is choosing the right tool.`,
+The second question is price transparency. A bank may build its margin into the rate, while a digital service may display a separate fee. There is no single spread that applies to every bank, amount or plan. The useful measure is the net euros received after every charge divided by the CHF spent. That is the only comparison that shows the full cost of the transaction.
 
- 'blog.article.guida-cambio-franco-euro-frontaliere.body2': `## How to Choose the Best Exchange Service
+Splitting a monthly conversion is a risk-management choice, not a market forecast. You might convert the amount needed for Italian expenses, keep a CHF reserve for Swiss expenses and spread the remaining conversion across several dates. This avoids concentrating everything on one day, but it can create extra fees, so check the provider's price list first.`,
+ 'blog.article.guida-cambio-franco-euro-frontaliere.body2': `## How to compare exchange services
 
-Not all currency exchange platforms are equal, and the right choice depends on your monthly volume, transfer speed requirements, and whether you need additional banking features. Here is a practical comparison of the most popular options among Swiss-Italian cross-border workers in 2026.
+The best service depends on the amount, frequency, starting currency, destination account and subscription plan. Before confirming a transaction, enter the same amount into at least two quotes and record four values: applied rate, conversion fee, transfer fee and net amount received. Make the comparison at the same time because the market moves.
 
-**Wise (formerly TransferWise)** applies the mid-market rate with a transparent fee of roughly 0.4–0.5 % per transfer. It supports SEPA instant payments, meaning your euros arrive in your Italian bank account within minutes. There is no monthly subscription, and the platform is regulated in multiple jurisdictions. For most frontalieri converting 4,000–7,000 CHF per month, Wise offers the best combination of cost and convenience.
+**Wise** says it uses the mid-market rate without a markup and calculates its fee from the amount, currency and payment method. Read the exact price in the quote before sending money: a percentage remembered from an older article cannot represent every CHF-EUR route. The quote also shows the estimated arrival time and the amount delivered to the recipient.
 
-**Revolut** provides very competitive rates during market hours (Monday to Friday), often at spreads below 0.3 %. However, weekend conversions carry a markup of 0.5–1.0 %, and the free tier limits fee-free exchanges to around 1,000 CHF per month (higher tiers remove this cap). Revolut also offers a Swiss IBAN and a multi-currency card, which is handy for cross-border daily spending.
+**Revolut Switzerland** publishes plan-specific conditions. For the Standard plan, its support page states a CHF 1,250 fair-use limit over a rolling month and a 1% fee on the amount above that limit. It also states that a 1% weekend markup may apply. Check the app and the terms for your country before each conversion: the plan, market and date can change the price.
 
-**Neon**, the Swiss neobank, is popular among Permit G holders because it offers a free Swiss bank account with no monthly fees and competitive Mastercard exchange rates. While it does not match Wise on pure FX spreads, it simplifies the "Swiss side" of your finances — salary receipt, bill payments, and ATM withdrawals in CHF.
+**Neon and other Swiss accounts** should not be assessed using a generic limit copied from an earlier comparison. Check the current product price list: the cost can depend on the card, channel, currency pair and whether the operation is a payment or an explicit conversion. If a service does not show the rate and total clearly, request a quote or choose a more transparent option.
 
-For larger amounts — 10,000 CHF or more per transfer — consider **CurrencyFair** or **OFX**, which offer negotiated rates and dedicated account managers. These services can shave an additional 0.1–0.2 % off the spread, meaningful at higher volumes. Another option is to use a direct **SEPA transfer** from a Swiss bank that offers competitive FX rates on large conversions; some cantonal banks have special frontaliere packages.
+### Be careful with euro transfers
 
-Use our [CHF-EUR exchange comparator](nav:exchange) to see live rates across 16 operators side by side.
+SEPA means Single Euro Payments Area: a SEPA credit transfer is denominated in euros. A CHF transfer does not become SEPA merely because it starts at a Swiss bank; it may require an international transfer, an earlier conversion or fees from the receiving bank. Ask the Italian bank which currency the account accepts and which tariff applies.
 
-### Best Timing for Currency Exchange
+### A practical comparison method
 
-Exchange rate seasonality is real. Historical data shows that **January and February** tend to be favorable months for converting CHF to EUR, partly because the Swiss National Bank (BNS) sets its monetary policy stance in December and markets digest the implications in early Q1. **June and July** also tend to show lower volatility, giving you a more predictable rate window. Avoid converting large sums immediately after major central bank announcements (ECB or BNS rate decisions), as spreads widen temporarily. Setting up rate alerts on Wise or Revolut helps you act when the rate crosses your target threshold, turning passive waiting into an active strategy that protects your income.`,
+1. Decide how many CHF you want to spend and how many EUR must arrive.
+2. Check the reference rate and the direction of the quote.
+3. Enter the amount into each provider's quote, including the funding method.
+4. Add the margin, conversion fee, transfer fee and account cost.
+5. Check monthly limits, surcharge days, timing and consumer protections.
+6. Save the transaction summary for your budget and tax records.
 
- 'blog.article.guida-cambio-franco-euro-frontaliere.body3': `## Tax Implications of the Exchange Rate
+Our [CHF-EUR exchange comparator](nav:exchange) can help compare available offers, but the provider's quote at confirmation is the definitive commercial price. No service guarantees a fixed annual saving: the outcome depends on the rate, amount, frequency and conditions.
 
-Many cross-border workers overlook a crucial detail: the exchange rate you use for your Italian tax return is **not** the rate you actually received from your bank. The Agenzia delle Entrate requires you to use the official annual average exchange rate published each year — for example, the 2025 average was approximately 0.9387 EUR per CHF. This means that if you managed to convert at a better rate throughout the year, you still declare income at the official rate, and vice versa. Understanding this distinction is essential for accurate tax planning.
+*Sources: [Banca d'Italia](https://www.bancaditalia.it/compiti/operazioni-cambi/cambio/cambi_rif_20261009/), [ECB and SEPA](https://www.ecb.europa.eu/paym/retail/sepa/html/index.en.html), [Wise](https://wise.com/help/articles/2522717/fees-for-sending-money) and [Revolut Switzerland](https://help.revolut.com/en-CH/help/wealth/exchanging-money/how-much-does-it-cost-to-make-an-exchange/will-i-be-charged-for-exchanging-foreign-currencies/).*`,
+ 'blog.article.guida-cambio-franco-euro-frontaliere.body3': `## Tax implications of the exchange rate
 
-Under the **2026 New Agreement** for new cross-border workers (those who started after 17 July 2023), Italy applies ordinary IRPEF taxation with a 10,000 EUR exemption (franchigia). Your Swiss withholding tax (imposta alla fonte) generates a **tax credit** that you claim on your Italian return to avoid double taxation. The tax credit is calculated on the Swiss tax actually paid, converted at the Agenzia delle Entrate average rate — not your personal conversion rate. This creates a subtle but important planning opportunity: if you convert at a rate better than the official average, your real after-tax income exceeds what the tax return implies. Conversely, converting at a worse rate means you effectively pay more in real terms.
+The rate at which you convert your salary and the rate used for an Italian tax obligation are different data points. The bank records the transaction that actually took place; the tax return follows the Italian instructions and official tables applicable to the item and tax year. Banca d'Italia and Agenzia delle Entrate publish quotes with a defined direction: do not turn a “currency per euro” quote into “euros per currency” without taking the inverse. An old rate copied as a universal rule is not a safe tax shortcut.
 
-Use our [salary calculator](nav:calculator) to model your net pay under both the old and new frontaliere regimes, and run scenarios in the [tax return simulator](nav:tax-return) to see exactly how the exchange rate affects your IRPEF liability and tax credit. For real-time rate comparisons, the [comparator](nav:exchange) shows live spreads across all major platforms. And if you are exploring new opportunities, check the [job board](nav:job-board) for positions in Ticino.
+Keep payslips, Swiss withholding-tax certificates, conversion summaries and provider receipts. The rate you obtained on one day is useful for household budgeting, but it does not by itself determine taxable income or a tax credit. For a real return, follow the Agenzia delle Entrate instructions for the relevant year and ask a professional when the case is not straightforward.
 
-### Your Exchange Rate Optimization Checklist
+### New and old cross-border workers
 
-- **Compare at least 3 exchange services** before settling on one — spreads vary by 0.5–1.2 % between providers
-- **Split each month's conversion into 2–3 operations** to average out short-term fluctuations
-- **Maintain a CHF reserve** (at least 1 month of Swiss expenses) to avoid forced conversions at bad rates
-- **Monitor the official annual average rate** published by the Agenzia delle Entrate — it determines your tax position
-- **Consider a multi-currency account** (Wise, Revolut) that lets you hold both CHF and EUR without converting
-- **Set rate alerts** to execute conversions when the market moves in your favor
+The new Italy-Switzerland Agreement entered into force on 17 July 2023 and applies from 1 January 2024. For new cross-border workers, the authorities describe ordinary taxation in Italy, Swiss withholding tax at 80% of the ordinary rate and a credit in Italy for Swiss tax paid to remove double taxation. The transitional regime for old cross-border workers is separate: when its requirements are met, the remuneration remains taxed exclusively in Switzerland and the compensation paid to Italian border municipalities runs through tax year 2033.
 
-Over a 10-year career as a frontaliere, the difference between a passive and an active exchange strategy can easily exceed **10,000 EUR** in cumulative savings. That is money that belongs in your pocket, not in a bank's margin. Start optimizing today.`,
- 'blog.article.guida-cambio-franco-euro-frontaliere.faq': '[{"q":"How can I avoid paying high fees for currency exchange?","a":"Choose an exchange service with a low spread and fixed commissions of less than 5 CHF per transaction. Some examples are Wise, Revolut, and Neon."},{"q":"What is the best time of year to change your salary to euros considering the stability of the CHF-EUR exchange rate?","a":"The months of January-February and June-July tend to offer more stable rates due to decisions by the Swiss Central Bank (SNB) and lower pre-holiday volatility."},{"q":"What are the tax differences between the CHF-EUR exchange rate during the year and the average annual rate of the Revenue Agency for tax returns?","a":"The Italian Revenue Agency uses a fixed average annual rate (e.g. 1 CHF = 1.0540 EUR in 2025) to convert Swiss income, which may not coincide with the actual rate used to change salary. This generates a difference between declared and received income, influencing IRPEF."},{"q":"Can I use a SEPA transfer in CHF to avoid exchange fees?","a":"Yes, but some Italian banks charge reception fees (10-15 EUR) for foreign transfers in CHF. It is advisable to check with your bank before proceeding, especially for amounts over CHF 10,000."},{"q":"Which exchange services allow you to convert your salary without fees up to CHF 2,000 per month?","a":"Neon, a Swiss digital bank, offers commission-free exchange up to CHF 2,000 per month. It is ideal for those with moderate salaries and want to maximize savings on foreign exchange transactions."}]',
+Italian law also provides a EUR 10,000 allowance for Italian cross-border workers, but its application must be checked with the person's status, tax year, municipality of residence and the Agreement's conditions. It is not accurate to call all of this the “2026 Tax Agreement”: the Agreement and its application dates are earlier, while operational guidance can be updated.
+
+### Checklist before filing
+
+- **Separate** the bank's transaction rate from the rate required for the tax item.
+- **Download** the latest official table and check whether it quotes CHF per EUR or EUR per CHF.
+- **Keep** certificates, payslips, conversion receipts and fees.
+- **Classify** your cross-border-worker status before calculating a credit or allowance.
+- **Use** the [tax return simulator](nav:tax-return) as an orientation tool, not as a replacement for official instructions.
+
+Use the [salary calculator](nav:calculator) to model net pay and the [comparator](nav:exchange) to check the commercial exchange cost. The primary references are the [Federal Tax Administration fact sheet on the Agreement](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf), the [Swiss government notice on entry into force](https://www.admin.ch/it/nsb?id=96751) and the [Banca d'Italia exchange-rate portal](https://www.bancaditalia.it/compiti/operazioni-cambi/portale-tassi/index.html?com.dotmarketing.htmlpage.language=102&dotcache=refresh).
+
+*This guide is informational: rates, provider prices and tax rules should be checked again before a transaction or tax return.*`,
+ 'blog.article.guida-cambio-franco-euro-frontaliere.faq': `[{"q":"How should I read a CHF-EUR quote?","a":"If the source says 1 EUR = 0.9313 CHF, estimate euros from a CHF amount by dividing the CHF amount by 0.9313. This is the 9 October 2026 reference rate; the provider sets the transaction price and rates move over time."},{"q":"How do I compare Wise, Revolut, Neon and a bank?","a":"Enter the same amount at the same time into several quotes. Compare net euros received, the rate margin, conversion fee, transfer cost, limits and plan surcharges. Do not use an old percentage as today's price."},{"q":"What is the Revolut Standard limit in Switzerland?","a":"The Swiss support page states CHF 1,250 per rolling month and a 1% fee on the amount above the limit; it also states that a 1% weekend markup may apply. Check the app and current terms before converting."},{"q":"Does my bank's rate apply to the Italian tax return?","a":"Not automatically. The bank rate describes the transaction that occurred; the tax return follows the applicable official instructions and tables. Check the quote direction and keep certificates instead of treating an old value as a universal tax rate."},{"q":"What changes for a new cross-border worker?","a":"The Agreement entered into force on 17 July 2023 and applies from 1 January 2024. It provides ordinary taxation in Italy, Swiss withholding tax at 80% of the ordinary rate and a credit for Swiss tax. Status and requirements must be checked individually."}]`,
 };
 
 export default bodyGuidaCambioFrancoEuroFrontaliere;
