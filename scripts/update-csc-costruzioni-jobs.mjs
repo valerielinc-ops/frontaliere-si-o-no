@@ -549,7 +549,7 @@ function parseCscNcoreJobDetail(html, candidateUrl) {
   const parsed = parseNcoreDetailPage(String(html || ''));
   const title = String(parsed?.title || '').trim();
   const body = String(parsed?.body || '').trim();
-  if (parsed?.closed || title.length < 6 || body.length < 100) return null;
+  if (parsed?.closed || title.length < 6 || body.length < 180) return null;
   const id = canonical.match(/\/jobposition\/([1-9]\d*)\//i)?.[1] || '';
   if (!id) return null;
   return { identity: `ncore-job:${id}`, nodeId: '', hasJobPosting: false };
