@@ -36,6 +36,9 @@ async function crawl(company: string, suffix: string, dates: Record<string, unkn
     inferSwissTargetCanton: () => 'ZH', decodeHtmlEntities: (v: string) => v,
     resolveAddress: () => ({ city: 'Zurich', canton: 'ZH', region: 'ZH', postalCode: '8000', streetAddress: 'Source address' }),
     resolveSourceBackedSwissGeography: () => ({ location: 'Zurich', canton: 'ZH' }),
+    // This VM evaluates only the publication-date producer; Proton's real
+    // mixed-location resolver is covered by prospector-location-contract.
+    resolveProtonSourceGeography: () => ({ location: 'Zurich', canton: 'ZH' }),
     resolveOffice: () => ({ city: 'Zurich', canton: 'ZH', postalCode: '8000', streetAddress: 'Source address' }),
     isLocationExplicitlyForeign: () => false, PersonioApiError: Error, buildPersonioXmlUrl: () => detailUrl,
     isWorkModeLocationLabel: () => false, SWISS_LOCATION_RE: /Zurich/,

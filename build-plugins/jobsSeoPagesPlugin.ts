@@ -1,6 +1,6 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -931,8 +931,9 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
  recentArticles: 'recent-articles',
 });
 
-type ActiveJobReuseFragments = {
+export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string | null;
+ jobPostingDateProvenance: 'reported' | 'safe-default' | null;
  jobPostingValidThrough: string;
  heroBadges: string;
  mobileAction: string;
@@ -978,15 +979,54 @@ export function replaceActiveJobPostingDates(
  )}`;
 }
 
-function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
+function containsJobPostingType(value: unknown): boolean {
+ if (Array.isArray(value)) return value.some(containsJobPostingType);
+ if (!value || typeof value !== 'object') return false;
+ const record = value as Record<string, unknown>;
+ const type = record['@type'];
+ if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) return true;
+ return Object.entries(record).some(([key, nested]) => key !== '@type' && containsJobPostingType(nested));
+}
+
+export function hasActiveJobPostingJsonLd(fragment: string): boolean {
+ const scriptPattern = /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
+ for (const match of fragment.matchAll(scriptPattern)) {
+  const source = match[2] || '';
+  try {
+   if (containsJobPostingType(JSON.parse(source))) return true;
+  } catch {
+   // A minifier or a legacy cache may leave a non-parseable JSON-LD payload;
+   // retain a narrow fallback so a visible JobPosting is not mistaken for a miss.
+   if (/"@type"\s*:\s*(?:"JobPosting"|\[[^\]]*"JobPosting")/i.test(source)) return true;
+  }
+ }
+ return false;
+}
+
+export function shouldInvalidateActiveJobReuseForSafeDefault(
+ fragment: string,
+ provenance: 'reported' | 'safe-default' | null,
+): boolean {
+ return provenance === 'safe-default' && !hasActiveJobPostingJsonLd(fragment);
+}
+
+export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
  let rewritten = replaceActiveJobReuseFragment(
   html,
   ACTIVE_JOB_REUSE_MARKERS.jobPosting,
-  (current) => replaceActiveJobPostingDates(
-   current,
-   fragments.jobPostingDatePosted,
-   fragments.jobPostingValidThrough,
-  ),
+  (current) => {
+   if (shouldInvalidateActiveJobReuseForSafeDefault(
+    current,
+    fragments.jobPostingDateProvenance,
+   )) {
+    throw new Error('cached active-job HTML missing JobPosting JSON-LD for safe-default date');
+   }
+   return replaceActiveJobPostingDates(
+    current,
+    fragments.jobPostingDatePosted,
+    fragments.jobPostingValidThrough,
+   );
+  },
  );
  rewritten = replaceActiveJobReuseFragment(
   rewritten,
@@ -3384,8 +3424,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryMax,
     perJob_salaryCurrency,
    );
+  const resolvedJobPostingDate = resolveRolloutSchemaPostingDate(
+   job,
+   jobsSeoReuseBuildNow,
+   canonicalUrl,
+  );
    return {
-   jobPostingDatePosted: resolveReportedPostingDate(job, jobsSeoReuseBuildNow),
+   jobPostingDatePosted: resolvedJobPostingDate?.value ?? null,
+   jobPostingDateProvenance: resolvedJobPostingDate?.provenance ?? null,
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,

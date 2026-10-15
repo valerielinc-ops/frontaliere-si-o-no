@@ -5,7 +5,11 @@ import { HEALTH_FACILITIES } from '../build-plugins/healthFacilitiesData';
 import { aggregateHealthFacilityJobs, _resetHealthFacilityJobsAggregateCache } from '../build-plugins/healthFacilitiesJobsAggregate';
 import { renderFacilityPage } from '../build-plugins/healthFacilitiesPlugin';
 import { describe, expect, it, vi } from 'vitest';
-import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import {
+  JOB_POSTING_DATE_SAFE_DEFAULT,
+  resolveReportedPostingDate,
+  resolveSchemaPostingDate,
+} from '../scripts/lib/job-posting-date.mjs';
 import { buildJobPostingFacts, buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs } from '../build-plugins/shared/jobPostingFaq';
 import { buildLocaleJobSlim, buildLocaleJob } from '../build-plugins/shared/slimJobIndex';
@@ -23,6 +27,13 @@ describe('employer publication date provenance', () => {
     const input = { ...job, postingDateSource };
     expect(resolveRolloutPostingDate(input, legacyDate, now)).toBe(postingDateSource === 'reported' ? yesterday : null);
     expect(legacyDate).not.toHaveBeenCalled();
+  });
+  it('requires an explicit scope decision before resolving a schema-safe default', () => {
+    expect(resolveSchemaPostingDate({ postingDateSource: 'unknown' }, now)).toBeNull();
+    expect(resolveSchemaPostingDate({ postingDateSource: 'unknown' }, now, true)).toEqual({
+      value: JOB_POSTING_DATE_SAFE_DEFAULT,
+      provenance: 'safe-default',
+    });
   });
   it.each([undefined, 'unknown', 'existing', 'scraped'])('rejects %s provenance despite parseable dates', (postingDateSource) => {
     expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
@@ -55,6 +66,7 @@ describe('employer publication date provenance', () => {
     expect(facts).not.toHaveProperty('datePosted');
     expect(facts).not.toHaveProperty('@type');
     expect(buildJobPostingFaqPairs(facts, { locale: 'it', jobUrl: options.url, cantonDisplay: 'Ticino', isTicino: true })).toHaveLength(4);
+    expect(buildJobPostingSchema(job, options)).toBeNull();
   });
   it('retains explicit provenance in locale payloads and slim hydration records', () => {
     const localized = buildLocaleJob({ ...job, postingDateSource: 'reported' }, 'it');
