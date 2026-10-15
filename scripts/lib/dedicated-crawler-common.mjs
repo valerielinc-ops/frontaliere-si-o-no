@@ -3103,6 +3103,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
   const currentByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
   const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
+  const flatSourceDescription = String(out.description || '').trim();
   // Publisher-authored records pin their declared source language (see
   // pinnedTitleSourceLang) — AI localization must never treat the employer's
   // own copy as a "wrong language" slot to overwrite.
@@ -3116,7 +3117,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     localeDescFloor,
   );
   if (resolvedSourceDescription) {
-    out.description = resolvedSourceDescription;
+    // Keep the crawled flat field intact: the post-translation structure gate
+    // needs it to detect a localized slot that flattened away source bullets.
+    // Only fill it when the legacy field is genuinely absent.
+    if (!flatSourceDescription) out.description = resolvedSourceDescription;
     currentByLocale[sourceLang] = resolvedSourceDescription;
   }
   const forceLocalization = shouldForceLocalizationForJob(out, ctx);

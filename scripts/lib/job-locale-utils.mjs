@@ -1,6 +1,7 @@
 import { detectLanguageWithConfidence } from './detect-language.mjs';
 import { escapeRegExpLiteral } from './escape-regexp.mjs';
 import { decode as decodeHTML } from 'html-entities';
+import { detectAiReasoningLeak } from './ai-output-fidelity.mjs';
 
 export const DEFAULT_JOB_LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -43,7 +44,11 @@ export function sourceLocaleTextCandidates(job = {}, field = 'description') {
 export function sourceLocaleTextForTranslation(job = {}, field = 'description', minLength = null) {
   const candidates = sourceLocaleTextCandidates(job, field);
   const floor = minLength == null ? (field === 'title' ? 3 : 120) : Number(minLength);
-  return candidates.find((value) => value.length >= floor) || candidates[0] || '';
+  // A previous AI pass can leave a prompt echo in the source-locale map while
+  // the crawled flat field is still valid. Never feed the leaked slot back into
+  // formatting or translation, even when it is the longer representation.
+  const usable = candidates.filter((value) => !detectAiReasoningLeak(value));
+  return usable.find((value) => value.length >= floor) || usable[0] || '';
 }
 
 const TITLE_HINTS = {
