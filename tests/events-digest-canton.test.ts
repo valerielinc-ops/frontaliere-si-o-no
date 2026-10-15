@@ -79,6 +79,8 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(omitted.id).toBe(DIGEST_ARTICLE_ID);
     expect(omitted.slugs).toEqual(DIGEST_ARTICLE_SLUGS);
     expect(omitted.eventCount).toBe(1);
+    expect(omitted.content.it.body2).toContain('<!-- digest-event:ti1 -->');
+    expect(omitted.content.en.body2).toContain('<!-- digest-event:ti1 -->');
   });
 
   const gr = buildWeekendDigestArticle({ events: EVENTS, todayIso: TODAY, canton: 'GR' });

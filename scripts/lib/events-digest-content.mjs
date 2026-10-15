@@ -161,6 +161,18 @@ function cantonLabelForLocale(canton, locale) {
   return slugToLabel(slug);
 }
 
+/**
+ * Keep duplicate same-time events pairable across locales. A municipality can
+ * legitimately host two different events at the same date and time, so the
+ * rendered heading + schedule is not always a unique identity. The marker is
+ * an HTML comment: it is invisible in the rendered article but survives in the
+ * source payload used by the deterministic localized-toponym repair.
+ */
+function digestEventMarker(event) {
+  const id = String(event?.id ?? '').trim();
+  return id ? ` <!-- digest-event:${encodeURIComponent(id)} -->` : '';
+}
+
 const T = {
   it: {
     title: (range) => `Eventi del weekend in Ticino: cosa fare ${range ? `(${range})` : 'sabato e domenica'}`,
@@ -325,7 +337,7 @@ function renderComuneBlocks(byComune, locale, basePath) {
       .map((ev) => {
         const localizedTitle = ev?.titleByLocale?.[locale];
         const title = hasUsableContentText(localizedTitle) ? localizedTitle : ev.title;
-        return `- **${humanDay(ev.startDate, locale)}${eventTime(ev)}** — ${String(title || '').trim()}`;
+        return `- **${humanDay(ev.startDate, locale)}${eventTime(ev)}** — ${String(title || '').trim()}${digestEventMarker(ev)}`;
       })
       .join('\n');
     return `### [${comune}](${basePath}/${slug}/)\n${lines}`;
