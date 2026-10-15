@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 632,
+  "crawlerCount": 633,
   "groups": {
     "10": [
       "atec-personal",
@@ -304,6 +304,7 @@
       "sulzer",
       "sune-egge",
       "swissquote",
+      "sympajobs-reinach-bl",
       "unibe",
       "vereinaklosters"
     ],
@@ -329,11 +330,11 @@
       "ocst",
       "ottos",
       "privatklinik-meiringen",
+      "proman-fleurier",
       "rfsm-fribourg",
       "strabag",
       "stryker",
       "supsi-dti",
-      "sympajobs-reinach-bl",
       "visionapartments",
       "vontobel",
       "zambon"
@@ -1128,6 +1129,7 @@
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
+    "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
     "protectas": "data/jobs/by-crawler/protectas.json",
     "proton": "data/jobs/by-crawler/proton.json",
@@ -1318,5 +1320,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a40af2b392c72d274677261f194c83deb60daf2074a2b7bb5e6b447cf2d41df7"
+  "digest": "sha256:c6ac176e4df8c01a03c41d6c39eb23f982ca38602eb022ac9b54605ff3497e43"
 }

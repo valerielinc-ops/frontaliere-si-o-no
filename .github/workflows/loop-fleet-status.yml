@@ -19,6 +19,7 @@ on:
       - 'data/loop-fleet/ledger/**'
       - 'scripts/ci/loop-fleet-status.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - '.github/workflows/loop-fleet-status.yml'
 
 permissions:
@@ -44,6 +45,7 @@ jobs:
             /scripts/ci/loop-fleet-status.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /.github/workflows/loop-fleet-status.yml
           sparse-checkout-cone-mode: false
       - name: Overlay durable ledger branch
