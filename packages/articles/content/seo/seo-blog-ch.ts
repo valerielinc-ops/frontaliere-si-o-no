@@ -105404,6 +105404,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassi-conti-3a-ottobre-2024': {
+    title: 'Conti 3a: tassi medi allo 0,21% e forti divari tra banche',
+    description: 'Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d\'Epargne d\'Aubonne offre l\'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30',
+    keywords: 'frontalieri, ticino, svizzera, italia, conti, tassi, medi, allo',
+    ogTitle: 'Conti 3a: tassi in calo allo 0,21%, ecco chi paga di più',
+    ogDescription: 'Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d\'Epargne d\'Aubonne offre l\'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30',
+    canonicalPath: '/articoli-svizzera/tassi-conti-3a-ottobre-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conti 3a: tassi medi allo 0,21% e forti divari tra banche",
+      "description": "Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d'Epargne d'Aubonne offre l'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tassi-conti-3a-ottobre-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario moderno in Svizzera"
+      },
+      "datePublished": "2026-10-15T08:51:22+00:00",
+      "dateModified": "2026-10-15T08:51:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassi-conti-3a-ottobre-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

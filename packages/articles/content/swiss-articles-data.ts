@@ -27914,6 +27914,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassi-conti-3a-ottobre-2024',
+    category: 'pensione',
+    date: '2026-10-15T08:51:22.134Z',
+    image: '/images/blog/article-tassi-conti-3a-ottobre-2024.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -8348,6 +8348,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.migros-nuovo-contratto-lavoro-2027.title': 'Migros: nuovo contratto con 41 ore e sconti del 10%',
     'blog.article.migros-nuovo-contratto-lavoro-2027.excerpt': 'Nuovo L-GAV Migros per il periodo 2027-2031 Da 43 a 41 ore con salario invariato per molti dipendenti 10% di sconto sugli acquisti dal 1 gennaio 2027 Altri',
     'blog.article.migros-nuovo-contratto-lavoro-2027.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.tassi-conti-3a-ottobre-2024.title': 'Conti 3a: tassi medi allo 0,21% e forti divari tra banche',
+    'blog.article.tassi-conti-3a-ottobre-2024.excerpt': 'Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d\'Epargne d\'Aubonne offre l\'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30',
+    'blog.article.tassi-conti-3a-ottobre-2024.imageAlt': 'Edificio bancario moderno in Svizzera',
 };
 
 export default blogMetaChIt;

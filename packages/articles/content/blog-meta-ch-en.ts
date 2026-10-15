@@ -8348,6 +8348,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.migros-nuovo-contratto-lavoro-2027.title': 'Migros: new contract with 41 hours and 10% discounts',
     'blog.article.migros-nuovo-contratto-lavoro-2027.excerpt': 'New Migros L-GAV for the 2027-2031 period From 43 to 41 hours with unchanged salary for many employees 10% discount on purchases from January 1, 2027 More',
     'blog.article.migros-nuovo-contratto-lavoro-2027.imageAlt': 'Illustration generated for this article',
+    'blog.article.tassi-conti-3a-ottobre-2024.title': '3a accounts: average rates of 0,21% and wide disparities among banks',
+    'blog.article.tassi-conti-3a-ottobre-2024.excerpt': 'The average 3a rate fell to 0,21% in October Caisse d\'Epargne d\'Aubonne offers 1% 68 out of 93 institutions pay a maximum of 0,2% 500 francs per month for 30',
+    'blog.article.tassi-conti-3a-ottobre-2024.imageAlt': 'Modern bank building in Switzerland',
 };
 
 export default blogMetaChEn;

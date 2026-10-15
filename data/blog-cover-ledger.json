@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5481
+      "6": 5482
     },
-    "publishedCovers": 7062,
+    "publishedCovers": 7063,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5286
+    "inferredRecords": 5287
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -188623,6 +188623,33 @@
           "date": "2026-10-14T04:09:09.746Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-tassi-conti-3a-ottobre-2024": {
+      "cover": "/images/blog/article-tassi-conti-3a-ottobre-2024.webp",
+      "hash": "1c4554eb34d5ca63d6f75300abdfd634c649e6d25bb7e2c576d50fb17fdf29a2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tassi-conti-3a-ottobre-2024",
+          "category": "pensione",
+          "date": "2026-10-15T08:51:22.134Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
         }
       ],
       "proofLevel": 6,
