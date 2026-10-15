@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "72dc536734a3db1da33d744dad3bb7a2fb4b28c9",
+  "sourceCommit": "90d56a2e7b042c4b14644345e53aeda1d4b63c6b",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "72dc536734a3db1da33d744dad3bb7a2fb4b28c9"
+    "sourceCommit": "90d56a2e7b042c4b14644345e53aeda1d4b63c6b"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:265f9e182882411e8f2fff7880886381456bf5fdccf3e07b69498a37be659107",
+    "rosterDigest": "sha256:3f0201af039a4ed98b0201704c27c736924227bded99f0202e538c37e2a0c8be",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -1271,8 +1271,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "e6ef15351b259143f730493d04b9ce1b55eb2e8a81653269eb5beaa4aa50fea7",
-      "artifactSha256": "8063411bb683263c2661a9573a11f2ae6e9175072e86327227e680cd452b3fe0",
+      "sourceSha256": "ca7f0fccf4f23b1ce35c1aaf9f5e979e82863ae4bc4d445b8d383a9431f70e9e",
+      "artifactSha256": "e98ceb2b4c004288450d4bdf69822e3d6ed77b1b85d6b53eb005ce7002857f19",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1302,7 +1302,8 @@
         "baloise",
         "etavis",
         "amina-bank",
-        "opus-personal"
+        "opus-personal",
+        "asile-des-aveugles"
       ]
     },
     {
