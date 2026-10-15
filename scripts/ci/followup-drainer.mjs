@@ -1226,15 +1226,32 @@ export function detectMalformedBody(title, body) {
 // sezione (o con la sezione vuota) promuove normale — potrebbe comunque avere
 // uno scope implementabile direttamente.
 const SUB_ISSUES_HEADING_RE = /^##\s+Sub-issues\b/im;
+const PROFESSION_CANTON_RESIDUAL_TITLE_RE =
+  /^residuo\s+profession\w*\s*[×x]\s*canton\w*\b[\s\S]*\bgap\b[\s\S]*\bscomporre\b/i;
+const PROFESSION_CANTON_RESIDUAL_HEADING_RE = /^##\s+Residuo snapshot da scomporre\s*$/im;
+const PROFESSION_CANTON_RESIDUAL_ITEM_RE =
+  /^\s*[-*]\s+([a-z][a-z0-9]*(?:-[a-z0-9]+)*)\s+\(\d+\):\s+([A-Z][A-Z-]*(?:,\s*[A-Z][A-Z-]*)*)\s*$/gm;
+
+/**
+ * Estrae una sezione Markdown di livello 2 senza confondere i suoi bullet con
+ * quelli della sezione successiva. I detector strutturali del drainer devono
+ * leggere il contesto, non il primo elenco che assomiglia a un item.
+ * @param {string} body
+ * @param {RegExp} headingRe
+ * @returns {string}
+ */
+function markdownSection(body, headingRe) {
+  const text = String(body || '');
+  const headingMatch = headingRe.exec(text);
+  if (!headingMatch) return '';
+  const afterHeading = text.slice(headingMatch.index + headingMatch[0].length);
+  const nextHeadingIdx = afterHeading.search(/^##\s+/m);
+  return nextHeadingIdx === -1 ? afterHeading : afterHeading.slice(0, nextHeadingIdx);
+}
 
 /** Testo della sezione `## Sub-issues` (fino alla prossima `##` o a fine body), o '' se assente. */
 function subIssuesSection(body) {
-  const b = String(body || '');
-  const headingMatch = SUB_ISSUES_HEADING_RE.exec(b);
-  if (!headingMatch) return '';
-  const afterHeading = b.slice(headingMatch.index + headingMatch[0].length);
-  const nextHeadingIdx = afterHeading.search(/^##\s+/m);
-  return nextHeadingIdx === -1 ? afterHeading : afterHeading.slice(0, nextHeadingIdx);
+  return markdownSection(body, SUB_ISSUES_HEADING_RE);
 }
 
 /**
@@ -1330,10 +1347,20 @@ function stripFencedBlocks(text) {
   return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
 }
 
+/** Conta solo le righe del formato emesso dal contenitore professione×cantone. */
+function countProfessionCantonResidualItems(body) {
+  const section = markdownSection(body, PROFESSION_CANTON_RESIDUAL_HEADING_RE);
+  if (!section) return 0;
+  return new Set(
+    [...section.matchAll(PROFESSION_CANTON_RESIDUAL_ITEM_RE)].map((match) => match[1].toLowerCase()),
+  ).size;
+}
+
 /**
- * Numero di voci di lavoro DISTINTE enumerate nel body: task-list `- [ ]`/`- [x]`
- * e sezioni numerate `## N.` (le due forme usate dagli handoff di sessione in
- * questo repo). Pura → testabile.
+ * Numero di voci di lavoro DISTINTE enumerate nel body: task-list `- [ ]`/`- [x]`,
+ * sezioni numerate `## N.` (le due forme usate dagli handoff di sessione in
+ * questo repo) e snapshot residue professione×cantone emesse da issue-decompose.
+ * Pura → testabile.
  * @param {string} body
  * @returns {number}
  */
@@ -1341,7 +1368,7 @@ export function countBacklogItems(body) {
   const b = stripFencedBlocks(body);
   const checkboxes = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
   const numberedSections = (b.match(/^##[ \t]*\d+\.[ \t]/gm) || []).length;
-  return checkboxes + numberedSections;
+  return checkboxes + numberedSections + countProfessionCantonResidualItems(b);
 }
 
 /**
@@ -1352,7 +1379,9 @@ export function countBacklogItems(body) {
  * @param {string} body
  */
 export function detectBacklogTracker(title, body) {
-  if (!BACKLOG_TITLE_RE.test(String(title || '').trim())) return false;
+  const titleText = String(title || '').trim();
+  const residualSnapshotTitle = PROFESSION_CANTON_RESIDUAL_TITLE_RE.test(titleText);
+  if (!BACKLOG_TITLE_RE.test(titleText) && !residualSnapshotTitle) return false;
   return countBacklogItems(body) >= BACKLOG_MIN_ITEMS;
 }
 
