@@ -11,12 +11,13 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS, slugify, stripHtml } from './crawler-template.mjs';
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
+import { normalizeSwissCantonCode } from './target-swiss-locations.mjs';
 import { isAuthoritativeEmptySnapshot, markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 export const KITA_SUMMERVOGEL_KEY = 'kita-summervogel';
@@ -150,8 +151,13 @@ function locationEvidenceFromRaw(raw = '') {
     .replace(/\b(?:SG|CH|Schweiz|Switzerland|Suisse|Svizzera)\b/gi, '')
     .split(/[,;|]/)[0]);
   const addressRegion = /(?:^|[\s,;/])SG(?:$|[\s,.;/])/i.test(location) ? 'SG' : '';
+  // Keep the postal pair as its own evidence field. Passing a postal prefix
+  // through the free-text `location` slot makes the shared resolver treat the
+  // whole token as an ambiguous place; the locality/canton pair is the
+  // source-backed identity and the CAP remains attached to it.
+  const sourceLocation = [addressLocality, addressRegion].filter(Boolean).join(', ') || location;
   const evidence = {
-    location,
+    location: sourceLocation,
     ...(addressLocality ? { addressLocality } : {}),
     ...(addressRegion ? { addressRegion } : {}),
     ...(postalCode ? { postalCode } : {}),
@@ -167,11 +173,12 @@ function locationEvidenceFromStructured(place) {
   if (!place || typeof place !== 'object') return null;
   const address = place.address && typeof place.address === 'object' ? place.address : place;
   const addressLocality = structuredText(address.addressLocality);
-  const addressRegion = structuredText(address.addressRegion);
+  const rawAddressRegion = structuredText(address.addressRegion);
+  const addressRegion = normalizeSwissCantonCode(rawAddressRegion);
   const addressCountry = structuredText(address.addressCountry);
   const location = normalizeSpace([
     addressLocality || structuredText(place.name),
-    addressRegion,
+    rawAddressRegion,
   ].filter(Boolean).join(', '));
   if (!location) return null;
   const evidence = {
@@ -277,12 +284,15 @@ function candidateFromSource(source, block, pageUrl) {
   const description = descriptionCandidates[0] || '';
   if (!description) return null;
 
-  const geography = structuredLocationCandidates(source)[0]
+  const geography = structuredLocationCandidates(source).find(Boolean)
     || locationEvidenceFromRaw(block?.locationText || '');
   if (!geography) return null;
   const url = canonicalSourceUrl(source?.url || block?.url || pageUrl, pageUrl);
   if (!url) return null;
-  const publication = sourcePostingDateFields(normalizeGermanDate(source?.datePosted || block?.dateText || ''));
+  const publication = sourcePostingDateCandidatesFields([
+    normalizeGermanDate(source?.datePosted),
+    normalizeGermanDate(block?.dateText),
+  ]);
   const employmentText = [title, description, structuredText(source?.employmentType)].join(' ');
   return {
     title,
@@ -426,4 +436,3 @@ export async function fetchAllKitaSummervogelJobs(runtime = {}) {
   console.log(`   Official educator listings: ${jobs.length}`);
   return jobs;
 }
-
