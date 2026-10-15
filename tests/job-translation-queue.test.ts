@@ -25,6 +25,7 @@ import {
   QUEUE_STALE_DAYS,
   measureTranslationQueue,
 } from '../scripts/audit-job-description-locale.mjs';
+import { isDescriptionSourceCopy } from '../scripts/lib/job-locale-utils.mjs';
 
 const NOW = Date.parse('2026-08-19T00:00:00Z');
 const daysAgo = (n: number) => new Date(NOW - n * 86_400_000).toISOString();
@@ -165,6 +166,13 @@ describe('measureTranslationQueue', () => {
     const q = measure([job({ sourceLang: 'de-CH' })]);
     expect(q.sourceCopyJobs).toBe(1);
     expect(q.samples[0]).toMatchObject({ sourceLang: 'de' });
+  });
+
+  it('treats Unicode punctuation and equivalent HTML entities as the same source copy', () => {
+    expect(isDescriptionSourceCopy(
+      'L’équipe — Qualität… • Team',
+      'L&#8217;équipe &mdash; Qualität&hellip; &bull; Team',
+    )).toBe(true);
   });
 
   it('fails closed for an unsupported sourceLang', () => {

@@ -27,10 +27,15 @@ import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary, setFallbackProviderConcurrency } from './lib/free-translate.mjs';
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { MIN_TRANSLATION_CHARS, translationRejectionReason } from './lib/translation-quality.mjs';
+import {
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+  sourceLocaleTextForTranslation,
+} from './lib/job-locale-utils.mjs';
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -72,17 +77,18 @@ function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 export function collectDescriptionFixTasks(jobs) {
   const tasks = [];
   for (const job of Array.isArray(jobs) ? jobs : []) {
-    const sl = job?.sourceLang || 'it';
-    const sourceDesc = (job?.description || '').trim();
+    const sl = normalizeJobLocale(job?.sourceLang) || 'it';
+    const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
+    const sourceDesc = sourceLocaleTextForTranslation(job, 'description', 120);
     if (!sourceDesc || sourceDesc.length < 120) continue;
-    const normalizedSourceDesc = normalizeForLengthComparison(sourceDesc).toLowerCase();
     const dbl = job.descriptionByLocale || {};
     for (const locale of LOCALES) {
       if (locale === sl) continue;
       const existing = (dbl[locale] || '').trim();
       if (!existing) continue;
       // Fix exact source copies and copies that differ only by whitespace/entities.
-      if (normalizeForLengthComparison(existing).toLowerCase() !== normalizedSourceDesc) continue;
+      if (!sourceDescriptions.some((source) =>
+        source.length >= 120 && isDescriptionSourceCopy(existing, source))) continue;
       tasks.push({ job, locale, sl, sourceDesc });
     }
   }
@@ -202,7 +208,7 @@ async function main() {
         maxRetries: 1,
       });
 
-      const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
+      const isNewLanguage = translated && !isDescriptionSourceCopy(translated, sourceDesc);
       // Single source of truth: same gate the sibling writers use.
       const rejection = translationRejectionReason(sourceDesc, translated);
       const isAcceptable = rejection === null;
