@@ -52,6 +52,15 @@ const ZH_SAMPLE = `
   <div class="auction-ends-at-text">Endet am:</div><div>16.09.2026, 19:00:00</div></div>
 </a>`;
 
+const ZH_EMPTY_SAMPLE = `
+<div class="auction-grid">
+  <div class="auctions">
+    <h2>Herzlich willkommen</h2>
+    <label>Kontrollschild</label><button>Suchen</button>
+    <p>Keine Ergebnisse für Ihre Suche.</p>
+  </div>
+</div>`;
+
 const TI_SAMPLE = `
 <div id="tabContent1"><table><tbody><tr class="L">
   <td><a onclick="openDetails(1532)" href="#"><div class="number">13457</div></a></td>
@@ -154,6 +163,17 @@ describe('expanded plate-auction connectors', () => {
       endsAt: '2026-09-16T17:00:00.000Z',
     });
     expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('accepts only the complete ZH no-results shell as an explicit empty catalogue', () => {
+    const empty = parseZhAuctions(ZH_EMPTY_SAMPLE, { fetchedAt: '2026-10-15T01:20:18.887Z' });
+    expect(empty).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(empty)).toBe(true);
+
+    const unparsedCard = parseZhAuctions(`${ZH_EMPTY_SAMPLE}
+      <a class="auction-element-link" href="/de/auction/99999">changed card markup</a>`);
+    expect(unparsedCard).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(unparsedCard)).toBe(false);
   });
 
   it('keeps direct-sale and wanted tabs public even when price/deadline cells are absent', () => {
