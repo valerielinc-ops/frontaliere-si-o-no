@@ -8366,6 +8366,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costi-cambiamento-climatico-svizzera-2060.title': 'Climate change: billions in costs for Switzerland by 2060',
     'blog.article.costi-cambiamento-climatico-svizzera-2060.excerpt': 'Climate-related damages are calculated through 2060 The comparison includes three climate scenarios Winter tourism will lose more than 2 billion a year Hydroelectric power',
     'blog.article.costi-cambiamento-climatico-svizzera-2060.imageAlt': 'Swiss Alps landscape with snow-capped peaks',
+    'blog.article.referendum-aels-malaysia.title': 'Successful AELS-Malaysia referendum: 59 866 valid signatures',
+    'blog.article.referendum-aels-malaysia.excerpt': 'The AELS-Malaysia referendum was formally successful.',
+    'blog.article.referendum-aels-malaysia.imageAlt': 'Federal building in Bern linked to the EFTA-Malaysia agreement referendum',
 };
 
 export default blogMetaChEn;

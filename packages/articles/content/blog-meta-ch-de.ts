@@ -8366,6 +8366,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costi-cambiamento-climatico-svizzera-2060.title': 'Klimawandel: Milliardenkosten für die Schweiz bis 2060',
     'blog.article.costi-cambiamento-climatico-svizzera-2060.excerpt': 'Die Klimaschäden werden bis 2060 berechnet Der Vergleich umfasst drei Klimaszenarien Der Wintertourismus wird jährlich über 2 Milliarden verlieren Die Wasserkraft',
     'blog.article.costi-cambiamento-climatico-svizzera-2060.imageAlt': 'Schweizer Alpenlandschaft mit schneebedeckten Gipfeln',
+    'blog.article.referendum-aels-malaysia.title': 'Referendum AELS-Malaysia zustande gekommen: 59 866 gültige Unterschriften',
+    'blog.article.referendum-aels-malaysia.excerpt': 'Das Referendum AELS-Malaysia ist formell zustande gekommen.',
+    'blog.article.referendum-aels-malaysia.imageAlt': 'Bundesgebäude in Bern zum Referendum über das EFTA-Malaysia-Abkommen',
 };
 
 export default blogMetaChDe;

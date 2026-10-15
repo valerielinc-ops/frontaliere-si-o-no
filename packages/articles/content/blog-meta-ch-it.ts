@@ -8366,6 +8366,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costi-cambiamento-climatico-svizzera-2060.title': 'Cambiamento climatico: miliardi di costi per la Svizzera entro il 2060',
     'blog.article.costi-cambiamento-climatico-svizzera-2060.excerpt': 'I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l\'anno L\'idroelettrico',
     'blog.article.costi-cambiamento-climatico-svizzera-2060.imageAlt': 'Paesaggio delle Alpi svizzere con cime innevate',
+    'blog.article.referendum-aels-malaysia.title': 'Referendum AELS-Malaysia riuscito: 59 866 firme valide',
+    'blog.article.referendum-aels-malaysia.excerpt': 'Il referendum AELS-Malaysia è formalmente riuscito.',
+    'blog.article.referendum-aels-malaysia.imageAlt': 'Edificio federale a Berna associato al referendum sull\'accordo AELS-Malaysia',
 };
 
 export default blogMetaChIt;

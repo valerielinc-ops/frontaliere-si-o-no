@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5496
+      "6": 5497
     },
-    "publishedCovers": 7077,
+    "publishedCovers": 7078,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5301
+    "inferredRecords": 5302
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -188127,6 +188127,33 @@
           "id": "rapporto-riciclaggio-denaro-svizzera",
           "category": "novita",
           "date": "2026-10-14T16:21:05.831Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-referendum-aels-malaysia": {
+      "cover": "/images/blog/article-referendum-aels-malaysia.webp",
+      "hash": "d6c64ea47b5c026a25c58ad284ee6ec2f9581cd6225a8bde0173b9061d28555b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "referendum-aels-malaysia",
+          "category": "novita",
+          "date": "2026-10-15T14:12:52.001Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -105638,6 +105638,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-aels-malaysia': {
+    title: 'Referendum AELS-Malaysia riuscito: 59 866 firme valide',
+    description: 'Il referendum AELS-Malaysia è formalmente riuscito. 60 347 firme sono state presentate il 5 ottobre 2026. La Cancelleria federale ne ha constatato valide 59',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, aels-malaysia, riuscito, firme',
+    ogTitle: 'Referendum AELS-Malaysia: 59 866 firme valide',
+    ogDescription: 'Il referendum AELS-Malaysia è formalmente riuscito.',
+    canonicalPath: '/articoli-svizzera/referendum-aels-malaysia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum AELS-Malaysia riuscito: 59 866 firme valide",
+      "description": "Il referendum AELS-Malaysia è formalmente riuscito. 60 347 firme sono state presentate il 5 ottobre 2026. La Cancelleria federale ne ha constatato valide 59",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-aels-malaysia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio federale a Berna associato al referendum sull'accordo AELS-Malaysia"
+      },
+      "datePublished": "2026-10-15T14:12:52+00:00",
+      "dateModified": "2026-10-15T14:12:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-aels-malaysia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
