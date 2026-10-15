@@ -290,7 +290,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-330cd8604fe7",
@@ -1600,7 +1601,7 @@
       "slug": "responsabile-disposition-flotte-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "responsabile-disposition-flotte-ffs-officine-ferrovie-federali-bern",
-        "en": "leiter-in-disposition-flotte-ffs-officine-ferrovie-federali-bern",
+        "en": "fleet-dispatch-manager-ffs-officine-ferrovie-federali-bern",
         "de": "leiter-in-disposition-flotte-ffs-officine-ferrovie-federali-bern",
         "fr": "responsable-de-la-planification-de-la-flotte-ffs-officine-ferrovie-federali-bern"
       },
@@ -1678,12 +1679,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-disposition-flotte/d45c647d-7344-41ba-9f7e-94107869ac2a",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-14T21:28:19.123Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-disposition-flotte-ffs-officine-ferrovie-federali-bern"
         ],
         "fr": [
+          "leiter-in-disposition-flotte-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
           "leiter-in-disposition-flotte-ffs-officine-ferrovie-federali-bern"
         ]
       },
@@ -9337,7 +9340,7 @@
           "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -9355,7 +9358,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
