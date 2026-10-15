@@ -47,6 +47,85 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 
 /**
+ * Root di output dati emersi dal bot inventory dei 30 giorni (14 ottobre
+ * 2026). I file esatti restano puntuali; le due directory raccolgono shard
+ * giornalieri e adapter con nomi variabili. La provenienza automatica e'
+ * misurata dall'audit Git, non dedotta dal nome.
+ */
+export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
+  'data/alert-snoozes.json',
+  'data/build-history/memory-peaks.jsonl',
+  'data/campaign-goal-status.json',
+  'data/canton-notices.json',
+  'data/canton-url-drift-history.jsonl',
+  'data/cascade-company-skip.json',
+  'data/cf-5xx-history.jsonl',
+  'data/cf-hot-404s.json',
+  'data/company-logos-broken.json',
+  'data/company-logos-missing.json',
+  'data/crawler-generation-ledger.jsonl',
+  'data/crawler-health.json',
+  'data/cron-dispatch-history.jsonl',
+  'data/cwv-monitor-history.json',
+  'data/demand-vocabulary.json',
+  'data/dist-size-history.jsonl',
+  'data/events-description-rewrites.json',
+  'data/events-geocode-cache.json',
+  'data/events-image-manifest.json',
+  'data/events-translation-cache.json',
+  'data/evidence-index.json',
+  'data/experimental-candidates.json',
+  'data/fb-posted-jobs.json',
+  'data/gsc-top-marquee-candidates.json',
+  'data/health-premiums-eu/2026.json',
+  'data/health-premiums.json',
+  'data/indexed-cluster-urls.json',
+  'data/inspection-state.json',
+  'data/instagram-posted.json',
+  'data/instagram-queue.json',
+  'data/job-canton-pins.json',
+  'data/jobs-ai-cache.json',
+  'data/jobs-crawler-adapters/adapters/',
+  'data/jobs-keys-snapshot.json',
+  'data/jobs-stats-history.json',
+  'data/jobs-stats-history/',
+  'data/keyword-pages-config.json',
+  'data/linkedin-member-posted.json',
+  'data/local-mt-negative-cache.json',
+  'data/noslash-keep.json',
+  'data/orphan-indexed-job-slugs.json',
+  'data/orphan-reconciliation-history.json',
+  'data/previous-slug-winners.json',
+  'data/profession-keyword-opportunities.json',
+  'data/quality-alerts-history.jsonl',
+  'data/quota-history.jsonl',
+  'data/quota-state.json',
+  'data/related-search-enriched.json',
+  'data/revenue-monitor-history.jsonl',
+  'data/road-events.json',
+  'data/seo-ctr-monitor-state.json',
+  'data/seo-health-state.json',
+  'data/seo-health/history.jsonl',
+  'data/seo-serp-autopilot-last-run.json',
+  'data/seo-serp-experiment-history.json',
+  'data/telegram-member-count-history.jsonl',
+  'data/telegram-posted-jobs.json',
+  'data/thin-page-promotions-active.json',
+  'data/thin-page-promotions.jsonl',
+  'data/tiktok-posted.json',
+  'data/tiktok-queue.json',
+  'data/translation-observability-history.json',
+  'data/translation-observability-state.json',
+  'data/translation-stats-history.json',
+  'data/translation-title-fix-attempts.json',
+  'data/url-first-seen.json',
+  'data/webcam-status.json',
+  'data/weekly-employers-delta.json',
+  'data/weekly-employers-top-pairs.json',
+  'public/article-trending.json',
+]);
+
+/**
  * Radici scritte automaticamente da pipeline, commit bot diretti o PR bot.
  * Le baseline di soglia restano fuori: sono policy pinnata, non dato vivo.
  * `active-jobs-baseline.json` e' l'eccezione operativa: il deploy la ratchetta
@@ -119,6 +198,7 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'data/slug-registry.json',
   'data/translation-cache/',
   'data/weather-snapshot.json',
+  ...BOT_AUDIT_LIVE_DATA_ROOTS,
   'public/data/',
   // Sync and topic-hub publishers rewrite these snapshots without a human
   // choosing their contents. Keep the roots narrow: sitemap-pages.xml is a
@@ -131,6 +211,14 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'public/sitemap.xml',
   'public/news-ticker-live.json',
 ]);
+
+const LIVE_DATA_ROOT_LITERAL_RE = new RegExp(
+  `(?:'|"|\\x60)(${LIVE_DATA_ROOTS
+    .map((root) => root.replaceAll('.', '\\.'))
+    .sort((left, right) => right.length - left.length)
+    .join('|')})`,
+  'gu',
+);
 
 /**
  * Le stesse radici, scritte a SEGMENTI.
@@ -429,6 +517,41 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'the article registry paths are created and read only inside a mkdtemp fixture; the checkout read is limited to the ledger writer under test',
   },
   {
+    file: 'tests/build-history-single-writer.test.ts',
+    roots: ['data/build-history/memory-peaks.jsonl'],
+    reason: 'the file reads deploy.yml and writer scripts from the checkout; history rows are created only under mkdtemp staging directories, and the data path is an expected workflow target',
+  },
+  {
+    file: 'tests/crawler-health-pr-wiring.test.ts',
+    roots: ['data/crawler-health.json'],
+    reason: 'the test reads crawler-health workflow text and asserts the path passed to the PR publisher; it does not open the health snapshot',
+  },
+  {
+    file: 'tests/deploy-workflow.test.ts',
+    roots: [
+      'data/build-history/memory-peaks.jsonl',
+      'data/translation-observability-history.json',
+      'data/translation-observability-state.json',
+      'data/translation-stats-history.json',
+    ],
+    reason: 'these paths are asserted in parsed deploy workflow configuration; the test reads workflow and source files, not the changing data files',
+  },
+  {
+    file: 'tests/discover-404s-workflow.test.ts',
+    roots: ['data/cf-hot-404s.json', 'data/inspection-state.json'],
+    reason: 'the paths are workflow publisher arguments; the test reads workflow text and does not open either generated snapshot',
+  },
+  {
+    file: 'tests/employer-demand-aware-floor.test.ts',
+    roots: ['data/gsc-top-marquee-candidates.json'],
+    reason: 'the loader cases use a missing path or synthetic data; the checked-in snapshot path is asserted against workflow and script source, never read',
+  },
+  {
+    file: 'tests/events-derived-dataset-reconcile.test.ts',
+    roots: ['data/events-geocode-cache.json'],
+    reason: 'the data path is inspected with git show only inside temporary repositories created by the test; checkout reads are limited to the reconciler source',
+  },
+  {
     file: 'tests/calculator/calculator-paywall.test.tsx',
     roots: ['services/locales/'],
     evidence: 'review',
@@ -708,6 +831,7 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/events-pipeline.test.ts", roots: ["data/events.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/exchange-ssg-pages.test.ts", roots: ["data/employer-profiles.json", "data/exchange-rate-snapshot.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/ga4-engagement-reliability.test.ts", roots: ["data/ai-channel-history.jsonl"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: 'tests/translation-coverage-monitor.test.ts', roots: ['data/translation-stats-history.json'], since: '2026-10-15', evidence: 'review', runtime: true },
   { file: "tests/job-cross-locale-guard.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/jobs-sitemap-filters.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/loop-l2-demand-utility.test.ts", roots: ["data/gsc-orphan-queries-clusters.json"], since: "2026-09-19", evidence: "review", runtime: true },
@@ -954,7 +1078,7 @@ export function scanLiveDataTests(root = ROOT) {
  * @returns {string[]}
  */
 function liveRootsInCode(code) {
-  const roots = LIVE_DATA_ROOTS.filter((r) => code.includes(`'${r}`) || code.includes(`\`${r}`) || code.includes(`"${r}`));
+  const roots = [...new Set([...code.matchAll(LIVE_DATA_ROOT_LITERAL_RE)].map((match) => match[1]))];
   for (const segs of LIVE_DATA_SEGMENTS) {
     if (!segmentSequenceRegex(segs).test(code)) continue;
     const asRoot = `${segs.join('/')}/`;

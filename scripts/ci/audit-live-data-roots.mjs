@@ -6,6 +6,24 @@ export const LIVE_DATA_ROOT_AUDIT_TITLE = 'Live-data root drift (30-day bot inve
 const AUTOMATED_PR_TITLE = /^chore\((?:data|licenses|images)\):/iu;
 const BOT_AUTHOR = /(?:\[bot\]$|^app\/)/iu;
 const AUDIT_HISTORY_REF = 'refs/remotes/origin/live-data-root-audit-main';
+const LIVE_DATA_AUDIT_PREFIXES = Object.freeze([
+  'data/',
+  'packages/articles/content/',
+  'public/data/',
+  'services/locales/blog-meta',
+  'services/locales/blog-body/',
+  'public/sitemap',
+]);
+const LIVE_DATA_AUDIT_FILES = new Set([
+  'public/article-trending.json',
+  'public/news-ticker-live.json',
+]);
+
+function isLiveDataAuditPath(file) {
+  if (file === 'public/sitemap-pages.xml') return false;
+  return LIVE_DATA_AUDIT_FILES.has(file)
+    || LIVE_DATA_AUDIT_PREFIXES.some((prefix) => file.startsWith(prefix));
+}
 
 function validRepoPath(value) {
   const file = String(value || '').trim().replaceAll('\\', '/');
@@ -61,7 +79,10 @@ export function auditLiveDataRoots({
   const direct = new Set(directPaths.map(validRepoPath).filter(Boolean));
   const fromPullRequests = new Set(pullRequestPaths.map(validRepoPath).filter(Boolean));
   const all = new Set([...direct, ...fromPullRequests]);
-  const uncovered = [...all].filter((file) => !roots.some((root) => file.startsWith(root))).sort();
+  const uncovered = [...all]
+    .filter(isLiveDataAuditPath)
+    .filter((file) => !roots.some((root) => file.startsWith(root)))
+    .sort();
   return {
     directPathCount: direct.size,
     pullRequestPathCount: fromPullRequests.size,
@@ -87,10 +108,11 @@ export function renderLiveDataRootDrift({
       + commitPaths.length + ' percorsi distinti; PR automatiche considerate: '
       + pullRequestCount + ' (' + pullRequestPaths.length + ' percorsi distinti).',
     '',
-    'Sono emersi ' + uncovered.length + ' percorsi non coperti da LIVE_DATA_ROOTS '
-      + 'in scripts/ci/live-data-test-guard.mjs. Questo osservatore non li autorizza '
-      + 'né modifica l’inventario: ogni radice va verificata prima di aggiungerla, '
-      + 'così i test di codice non escono dal gate delle PR senza evidenza.',
+    'Sono emersi ' + uncovered.length + ' percorsi nelle superfici dati runtime '
+      + 'non coperti da LIVE_DATA_ROOTS in scripts/ci/live-data-test-guard.mjs. '
+      + 'Workflow, codice, test e report QA restano fuori da questo inventario: '
+      + 'non sono radici dati lette dai test del sito. L’osservatore non autorizza '
+      + 'né modifica le radici; ogni nuovo input dati va verificato prima di aggiungerlo.',
     '',
     '## Percorsi da verificare',
     '',

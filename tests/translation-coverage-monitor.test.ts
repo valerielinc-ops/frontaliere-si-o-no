@@ -35,6 +35,7 @@ import {
 } from '../scripts/log-translation-stats.mjs';
 import { searchSafePrefix } from '../scripts/lib/github-issue-creator.mjs';
 import { createTranslationObservabilitySnapshot } from '../scripts/lib/translation-observability.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * WS2-MAP (workspace issue 2, mappa di convergenza delle traduzioni). La quota
@@ -323,7 +324,7 @@ describe('log-translation-stats — predicateVersion e coorte 24-48 h nella hist
     expect(snap.metrics.predicateVersion).toBe(v);
   });
 
-  it('la history committata resta leggibile dal monitor', () => {
+  it.skipIf(SKIP_LIVE_DATA)('la history committata resta leggibile dal monitor', () => {
     const history = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/translation-stats-history.json'), 'utf8'));
     expect(coverageSeries(history).length).toBeGreaterThan(0);
   });
