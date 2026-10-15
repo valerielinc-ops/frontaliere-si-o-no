@@ -814,9 +814,9 @@ jobs:
           printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
       # The merge queue deliberately exposes a queue ref, not the source
-      # branch name. Resolve the source PR/head once from the event payload and
-      # reuse this output below. This is the single recovery predicate for the
-      # policy, history, sibling, below-floor and factuality gates.
+      # branch name. Resolve its PR number from the event/queue ref, then ask
+      # the trusted CLI for the canonical PR head. Reuse this single recovery
+      # predicate below for policy, history, sibling, below-floor and factuality.
       - name: Resolve recovery source context (PR and merge queue)
         id: recovery_context
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
@@ -832,67 +832,82 @@ jobs:
           const cp = require('node:child_process');
 
           const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
-          const candidates = event.pull_request
-            ? [event.pull_request]
-            : (event.merge_group?.pull_requests || event.pull_requests || []);
+          const eventName = process.env.GITHUB_EVENT_NAME;
+          const repository = process.env.GITHUB_REPOSITORY;
           const recoveryBranch = process.env.RECOVERY_BRANCH;
-          let match = null;
-          const lookupFailures = [];
+          const recoveryBaseSha = process.env.RECOVERY_BASE_SHA;
+          const mergeGroup = event.merge_group || {};
+          const rawBaseRef = event.pull_request?.base?.ref
+            || mergeGroup.base_ref
+            || process.env.GITHUB_BASE_REF
+            || 'main';
+          const baseRef = rawBaseRef.replace(/^refs\/heads\//, '');
+          const candidateNumbers = new Set();
 
-          for (const candidate of candidates) {
-            const number = Number(candidate.number);
-            let source = {
-              number,
-              head_ref: candidate.head_ref || candidate.head?.ref || '',
-              head_sha: candidate.head_sha || candidate.head?.sha || '',
-            };
+          if (event.pull_request?.number) {
+            candidateNumbers.add(Number(event.pull_request.number));
+          }
+          for (const candidate of mergeGroup.pull_requests || event.pull_requests || []) {
+            if (candidate.number) candidateNumbers.add(Number(candidate.number));
+          }
 
-            // The event payload is the source-of-truth for merge-group
-            // membership. When a PR number is present, ask the runner-owned
-            // CLI for the canonical source ref/SHA as an extra guard against
-            // treating the queue ref as the PR head.
-            if (Number.isSafeInteger(number) && number > 0) {
-              try {
-                const raw = cp.execFileSync(
-                  process.env.TRUSTED_GH_BIN,
-                  [
-                    'api',
-                    `repos/${process.env.GITHUB_REPOSITORY}/pulls/${number}`,
-                    '--jq',
-                    '{number:.number,head_ref:.head.ref,head_sha:.head.sha}',
-                  ],
-                  { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
-                );
-                const canonical = JSON.parse(raw);
-                source = {
-                  number: canonical.number,
-                  head_ref: canonical.head_ref || '',
-                  head_sha: canonical.head_sha || '',
-                };
-              } catch (error) {
-                // A valid event still contains the source head. Keep it as a
-                // fallback, but make the degraded lookup visible; it cannot
-                // turn a queue ref into a recovery match.
-                lookupFailures.push(String(error?.message || error).split('\n')[0]);
-              }
+          // GitHub's merge_group ref identifies its queued source PRs, while
+          // GITHUB_HEAD_REF is empty. Keep parsing this ref as the fallback
+          // when the event does not include an explicit pull_requests array.
+          const queueRef = mergeGroup.head_ref
+            || process.env.GITHUB_REF_NAME
+            || process.env.GITHUB_REF
+            || '';
+          if (eventName === 'merge_group') {
+            for (const match of queueRef.matchAll(/(?:^|\/)pr-(\d+)(?=-|\/|$)/g)) {
+              candidateNumbers.add(Number(match[1]));
             }
+          }
+
+          let match = null;
+          for (const number of candidateNumbers) {
+            if (!Number.isSafeInteger(number) || number < 1) continue;
+            const raw = cp.execFileSync(
+              process.env.TRUSTED_GH_BIN,
+              [
+                'api',
+                `repos/${repository}/pulls/${number}`,
+                '--jq',
+                '{number:.number,head_ref:.head.ref,head_sha:.head.sha,head_repo:.head.repo.full_name}',
+              ],
+              { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+            );
+            const source = JSON.parse(raw);
 
             if (
               source.head_ref === recoveryBranch
-              && /^[0-9a-f]{40}$/.test(source.head_sha)
+              && source.head_repo === repository
             ) {
+              if (!/^[0-9a-f]{40}$/.test(source.head_sha || '')) {
+                throw new Error(`Recovery source PR #${number} has an invalid head SHA`);
+              }
+              const relation = cp.execFileSync(
+                process.env.TRUSTED_GH_BIN,
+                [
+                  'api',
+                  `repos/${repository}/compare/${recoveryBaseSha}...${source.head_sha}`,
+                  '--jq',
+                  '.status',
+                ],
+                { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+              ).trim();
+              if (relation !== 'ahead' && relation !== 'identical') {
+                throw new Error(`Recovery source PR #${number} does not descend from its trusted base`);
+              }
               match = source;
               break;
             }
           }
 
+          if (eventName === 'merge_group' && candidateNumbers.size === 0) {
+            throw new Error(`Merge-group ref did not identify a source PR: ${queueRef || '(empty)'}`);
+          }
           const isRecovery = Boolean(match);
-          if (lookupFailures.length) {
-            console.log(`Source PR lookup fallback used ${lookupFailures.length} time(s); event payload retained.`);
-          }
-          if (process.env.GITHUB_EVENT_NAME === 'merge_group' && candidates.length === 0) {
-            console.log('No source PRs in merge_group payload; recovery predicate remains false.');
-          }
           console.log(`Recovery source: ${isRecovery ? `PR #${match.number} @ ${match.head_sha}` : 'none'}`);
 
           const output = [
@@ -900,7 +915,8 @@ jobs:
             `source_pr_number=${match?.number || ''}`,
             `source_head_ref=${match?.head_ref || ''}`,
             `source_head_sha=${match?.head_sha || ''}`,
-            `base_sha=${process.env.RECOVERY_BASE_SHA}`,
+            `base_sha=${isRecovery ? recoveryBaseSha : ''}`,
+            `base_ref=${baseRef}`,
           ].join('\n') + '\n';
           fs.appendFileSync(process.env.GITHUB_OUTPUT, output);
           NODE
@@ -1477,7 +1493,7 @@ jobs:
       - name: Guard — storia precedente alla riscrittura
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
         env:
-          guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+          guard_base_ref: ${{ steps.recovery_context.outputs.base_ref }}
           RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
           RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
@@ -1564,7 +1580,7 @@ jobs:
         id: sib
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
-          BASE_REF: ${{ github.base_ref }}
+          BASE_REF: ${{ steps.recovery_context.outputs.base_ref }}
           RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
           RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
@@ -1700,7 +1716,7 @@ jobs:
         id: bfb
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
-          BASE_REF: ${{ github.base_ref }}
+          BASE_REF: ${{ steps.recovery_context.outputs.base_ref }}
           RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
           RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
@@ -2127,7 +2143,7 @@ jobs:
         # qui manca solo il NOME del ref.
         env:
           RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
-          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+          BASE_REF: ${{ steps.recovery_context.outputs.base_ref }}
         run: |
           if [ "${RECOVERY_IS:-false}" = "true" ]; then
             tests_guard_ref="recovery-factuality-base"
@@ -2159,7 +2175,7 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         env:
           RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
-          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+          BASE_REF: ${{ steps.recovery_context.outputs.base_ref }}
         run: |
           if [ "${RECOVERY_IS:-false}" = "true" ]; then
             factuality_ref="recovery-factuality-base"
