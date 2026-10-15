@@ -5363,9 +5363,13 @@ export function runDrain() {
         runCommand: (args) => gh(args, { json: false }),
       });
       if (!lease.ok) return { ok: false, reason: lease.reason };
-      floorLedger.activeLeases.push({ kind: 'issue-fix', subject, owner, expiresAt: Infinity, released: false });
+      floorLedger.activeLeases.push({
+        kind: 'issue-fix', subject, owner, expiresAt: Infinity, released: false, commentId: lease.commentId,
+      });
+      floorReservations.set(subject, { ok: true, owner, existing: false, commentId: lease.commentId });
     }
-    const reservation = { ok: true, owner, existing: !!decision.existing };
+    const reservation = floorReservations.get(subject)
+      || { ok: true, owner, existing: !!decision.existing, commentId: decision.existing?.commentId ?? null };
     floorReservations.set(subject, reservation);
     if (DRY) console.log(`[dry] quota floor lease issue-fix ${subject} → ${owner}`);
     return reservation;
@@ -5375,8 +5379,8 @@ export function runDrain() {
     if (!reservation || DRY || reservation.existing) return true;
     const released = releaseQuotaFloorLease({
       repo: REPO,
-      ledgerIssue: QUOTA_FLOOR_LEDGER,
       owner: reservation.owner,
+      commentId: reservation.commentId,
       runCommand: (args) => gh(args, { json: false }),
     });
     if (!released.ok) {
