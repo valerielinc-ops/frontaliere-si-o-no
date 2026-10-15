@@ -411,12 +411,12 @@
     },
     {
       "id": "planzer-3c148dcf0e36",
-      "slug": "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon",
+      "slug": "autista-di-piazzale-ce-addetto-a-alla-movimentazione-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
-        "it": "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon",
-        "en": "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
-        "fr": "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
+        "it": "autista-di-piazzale-ce-addetto-a-alla-movimentazione-m-f-d-planzer-dietikon",
+        "en": "ram-driver-ce-staff-envelope-m-f-d-planzer-dietikon",
+        "fr": "ram-pilote-ce-enveloppe-du-personnel-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -435,7 +435,6 @@
         "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• When loading and unloading trucks in the transhipment warehouse and on the ramp, you are the absolute professional and control the goods and pallets\n• You make sure that the goods come safely and quickly to the right storage place. Chaos? Not with you!\n• The goods you move mainly with floor conveyors from A to B\n• You are responsible for a smooth process and a clean and orderly goods handling\n• Assistance in the coordination of incoming and departing vehicles on the ramp\n\nWhy do you succeed?\n• Working at night is your thing? Perfect, because our working hours are from 15:00\n• Shift changes don't bother you\n• You have already gained experience in the warehouse or logistics sector\n• You are already a proud owner of driving category C and have a valid CZV ID.\n• Oral and written you can safely express yourself in German\n• Your efficient, independent and reliable way of working distinguishes you and you are happy to take on responsibility\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Modern work equipment: We keep up with the times - you have modern and safe work equipment at your disposal\n• Modern vehicle fleet: With our modern vehicle fleet, driving pleasure is guaranteed!\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
         "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Lors du chargement et du déchargement des camions dans l'entrepôt de transbordement et sur la rampe, vous êtes le professionnel absolu et contrôlez les marchandises et les palettes\n• Vous assurez-vous que les marchandises viennent en toute sécurité et rapidement au bon endroit de stockage. Chaos ? Pas avec toi !\n• Les marchandises que vous déplacez principalement avec des convoyeurs au sol de A à B\n• Vous êtes responsable d'un processus en douceur et d'une manutention des marchandises propre et ordonnée\n• Assistance à la coordination des véhicules entrant et sortants sur la rampe\n\nPourquoi tu réussis ?\n• Travailler la nuit, c'est ton truc ? Parfait, parce que nos heures de travail sont à partir de 15:00\n• Les changements de poste ne vous dérangent pas\n• Vous avez déjà acquis une expérience dans le secteur de l'entrepôt ou de la logistique\n• Vous êtes déjà un fier propriétaire de la catégorie de conduite C et avez un ID CZV valide.\n• Oral et écrit vous pouvez vous exprimer en toute sécurité en allemand\n• Votre façon de travailler efficace, indépendante et fiable vous distingue et vous êtes heureux d'assumer vos responsabilités\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : Vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Équipement de travail moderne: Nous suivons les temps - vous avez des équipements de travail modernes et sûrs à votre disposition\n• flotte de véhicules modernes: Avec notre flotte de véhicules modernes, le plaisir de conduire est garanti!\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
-      "needsRetranslation": true,
       "location": "Dietikon",
       "canton": "ZH",
       "url": "https://live.solique.ch/planzer/job/details/4084099",
@@ -466,11 +465,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
+          "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon"
+        ],
+        "en": [
+          "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
           "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
         ]
       },
       "previousSlugs": [
-        "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
+        "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
+        "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -488,12 +495,12 @@
     },
     {
       "id": "planzer-6d72d3f7e639",
-      "slug": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
+      "slug": "project-manager-transport-system-rail-tms-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
-        "it": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
+        "it": "project-manager-transport-system-rail-tms-m-f-d-planzer-dietikon",
         "en": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon",
-        "fr": "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+        "fr": "gestionnaire-de-projet-systeme-de-transport-rail-tms-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -552,16 +559,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-transportsystem-bahn-tms-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-dc2e9ac32a96",
-      "slug": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
+      "slug": "addetto-a-al-picking-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "it": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
-        "en": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "fr": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        "it": "addetto-a-al-picking-m-f-d-planzer-villmergen",
+        "en": "employee-picking-m-f-d-planzer-villmergen",
+        "fr": "l-employe-choisit-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -580,7 +598,6 @@
         "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• You pick goods without proof using a modern MDE device and thus contribute to a smooth and efficient operation in the warehouse\n• The day-to-day processing of customer orders is your responsibility, whereby you always work reliably and on time.\n• Ensure compliance with all regulations regarding packaging, shipping and labelling to ensure that the goods arrive safely and correctly at the customer\n• Entry and removal activities are also part of your tasks to ensure the order and structure in the warehouse\n• You are flexible in different departments and support the team where help is needed\n\nWhy do you succeed?\n• You have completed a vocational apprenticeship as a logistician EFZ or EBA\n• Flexibility, accuracy and a forward-looking way of working are among your strengths and distinguish you in your everyday work\n• You can communicate well in German and communicate safely in the team and with other departments\n• As a team-capable, resilient and physically robust personality, you approach your tasks with commitment and are reliable even in stressful situations.\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Further education and development opportunities: With us you can develop - we promote and challenge talents\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
         "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Vous choisissez des marchandises sans preuve à l'aide d'un appareil MDE moderne et contribuez ainsi à un fonctionnement fluide et efficace dans l'entrepôt\n• Le traitement quotidien des commandes des clients est votre responsabilité, par laquelle vous travaillez toujours de façon fiable et à temps.\n• Veiller au respect de tous les règlements relatifs à l'emballage, à l'expédition et à l'étiquetage pour s'assurer que les marchandises arrivent en toute sécurité et correctement au client\n• Les activités d'entrée et de déménagement font également partie de vos tâches pour assurer l'ordre et la structure dans l'entrepôt\n• Vous êtes flexible dans différents départements et soutenez l'équipe là où l'aide est nécessaire\n\nPourquoi tu réussis ?\n• Vous avez suivi un apprentissage professionnel en tant que logisticien EFZ ou EBA\n• La flexibilité, la précision et une façon de travailler tournée vers l'avenir font partie de vos forces et vous distinguent dans votre travail quotidien\n• Vous pouvez bien communiquer en allemand et communiquer en toute sécurité dans l'équipe et avec d'autres départements\n• En tant que personnalité capable d'équipe, résiliente et physiquement robuste, vous approchez vos tâches avec engagement et êtes fiable même dans des situations stressantes.\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilités de formation continue et de développement: Avec nous vous pouvez développer - nous promouvons et défions les talents\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez vous garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
-      "needsRetranslation": true,
       "location": "Villmergen",
       "canton": "AG",
       "url": "https://live.solique.ch/planzer/job/details/4083821",
@@ -611,11 +628,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+          "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -633,12 +658,12 @@
     },
     {
       "id": "planzer-34fe7fd67249",
-      "slug": "disponent-stuckgut-m-w-d-planzer-harkingen",
+      "slug": "carico-generale-m-f-d-planzer-harkingen",
       "slugByLocale": {
         "de": "disponent-stuckgut-m-w-d-planzer-harkingen",
-        "it": "disponent-stuckgut-m-w-d-planzer-harkingen",
-        "en": "disponent-stuckgut-m-w-d-planzer-harkingen",
-        "fr": "disponent-stuckgut-m-w-d-planzer-harkingen"
+        "it": "carico-generale-m-f-d-planzer-harkingen",
+        "en": "disponent-general-cargo-m-f-d-planzer-harkingen",
+        "fr": "marchandises-diverses-h-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -697,16 +722,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "disponent-stuckgut-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "disponent-stuckgut-m-w-d-planzer-harkingen"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-m-w-d-planzer-harkingen"
+      ]
     },
     {
       "id": "planzer-3c589f09d50c",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-marstetten",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-marstetten",
         "en": "chauffeur-kat-ce-m-w-d-planzer-marstetten",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -766,7 +805,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:46:27.480Z"
+      "firstSeenAt": "2026-09-17T03:46:27.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-ff7bda2e2720",
@@ -855,7 +905,7 @@
       "slug": "lavoro-meccanico-tuttofare-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "it": "lavoro-meccanico-tuttofare-m-f-d-planzer-dallikon",
-        "en": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
+        "en": "all-rounder-mechanical-work-m-f-d-planzer-dallikon",
         "de": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
         "fr": "ouvrage-mecanique-complet-h-f-d-planzer-dallikon"
       },
@@ -903,15 +953,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
-        "all-rounder-mechanical-work-m-f-d-planzer-dallikon"
+        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "en": [
-          "all-rounder-mechanical-work-m-f-d-planzer-dallikon"
+          "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "fr": [
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"

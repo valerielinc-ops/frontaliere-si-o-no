@@ -223,7 +223,15 @@ describe('translation observability workflow', () => {
     expect(descriptionFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(descriptionFixScript).toContain('Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS)');
     const descriptionLoop = descriptionFixScript.slice(descriptionFixScript.indexOf('for (const file of files)'));
-    expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(3);
+    // The deadline is checked before every slice, and before every slot by the
+    // pool that translates them (runDescriptionFixPool), which reports it back.
+    expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
+    const descriptionPool = descriptionFixScript.slice(
+      descriptionFixScript.indexOf('export async function runDescriptionFixPool('),
+      descriptionFixScript.indexOf('async function main('),
+    );
+    expect(descriptionPool).toMatch(/while \(next < tasks\.length\) \{\s+if \(!budgetOk\(\)\) \{ outcome = 'deadline'; break; \}/);
+    expect(descriptionLoop).toContain("if (outcome === 'deadline') deadlineReached = true;");
     expect(descriptionFixScript).toContain('let deadlineReached = false;');
     const descriptionPersisted = descriptionLoop.indexOf('writeJson(slicePath, sliceData)');
     const descriptionStopAfterPersist = descriptionLoop.indexOf('if (deadlineReached) break;', descriptionPersisted);

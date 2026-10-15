@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f",
+  "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f"
+    "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 634,
+  "crawlerCount": 635,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:268e374145adb6a712f037f9253b792432dd622a8d98060960a94d68ccb41668",
+    "rosterDigest": "sha256:7c78cff6f9b4eeaf87d3f05ee7fa6f5f067546aad550cc781c8349e4cad9db1f",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -542,6 +542,7 @@
     "scripts/update-tally-weijl-jobs.mjs",
     "scripts/update-tarchini-group-jobs.mjs",
     "scripts/update-tecan-jobs.mjs",
+    "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
@@ -1234,8 +1235,8 @@
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "533a97daa4cd213baf8875f00cc897c88a7e00b0707d24a11d628ddd6a0b1bb3",
-      "artifactSha256": "2d0f930790999c5c13ac60464d077138c1c4e76c7c3ac97083c7d15c7ab64778",
+      "sourceSha256": "eefc658ea6de6d477913bebc14733a3575c9755297fa992df365b9eba220334b",
+      "artifactSha256": "8be6bb59526c4768c5ade01223091c088a250f2674384f499561eabe29980c4b",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1265,7 +1266,8 @@
         "clinique-generale-beaulieu",
         "board",
         "aldi-suisse",
-        "badrutts-palace"
+        "badrutts-palace",
+        "technic-emplois"
       ]
     },
     {

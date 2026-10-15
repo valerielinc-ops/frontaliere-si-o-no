@@ -4694,7 +4694,6 @@
           "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T09:23:22.652Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4708,7 +4707,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2511
     },
     {
       "id": "vz-vermoegenszentrum-f80d1c1be5a5",

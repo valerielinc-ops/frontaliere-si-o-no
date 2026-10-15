@@ -2679,12 +2679,12 @@
     },
     {
       "id": "srg-ssr-02195e57991f",
-      "slug": "data-governance-expert-meta-data-srg-ssr-zurich",
+      "slug": "esperto-di-governance-dei-dati-metadati-srg-ssr-zurich",
       "slugByLocale": {
         "fr": "data-governance-expert-meta-data-srg-ssr-zurich",
-        "it": "data-governance-expert-meta-data-srg-ssr-zurich",
+        "it": "esperto-di-governance-dei-dati-metadati-srg-ssr-zurich",
         "en": "data-governance-expert-meta-data-srg-ssr-zurich",
-        "de": "data-governance-expert-meta-data-srg-ssr-zurich"
+        "de": "experte-fur-data-governance-metadaten-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2765,14 +2765,25 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:15:23.137Z"
+      "firstSeenAt": "2026-10-09T09:15:23.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-governance-expert-meta-data-srg-ssr-zurich"
+        ],
+        "de": [
+          "data-governance-expert-meta-data-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "data-governance-expert-meta-data-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-e361d08546f5",
-      "slug": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+      "slug": "esperto-di-governance-dei-dati-metadati-srg-ssr-zurich-233f9d",
       "slugByLocale": {
-        "de": "data-governance-expert-meta-data-srg-ssr-zurich",
-        "it": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+        "de": "data-governance-expert-meta-data-srg-ssr-zurich-0e1nzg",
+        "it": "esperto-di-governance-dei-dati-metadati-srg-ssr-zurich-233f9d",
         "en": "data-governance-expert-meta-data-srg-ssr-zurich-2",
         "fr": "data-governance-expert-meta-data-srg-ssr-zurich-2"
       },
@@ -2855,14 +2866,26 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:15:23.137Z"
+      "firstSeenAt": "2026-10-09T09:15:23.137Z",
+      "previousSlugs": [
+        "data-governance-expert-meta-data-srg-ssr-zurich",
+        "data-governance-expert-meta-data-srg-ssr-zurich-2"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "data-governance-expert-meta-data-srg-ssr-zurich"
+        ],
+        "it": [
+          "data-governance-expert-meta-data-srg-ssr-zurich-2"
+        ]
+      }
     },
     {
       "id": "srg-ssr-a76fb178a6a6",
-      "slug": "data-governance-expert-master-data-srg-ssr-zurich",
+      "slug": "esperto-di-governance-dei-dati-dati-master-srg-ssr-zurich",
       "slugByLocale": {
         "de": "data-governance-expert-master-data-srg-ssr-zurich",
-        "it": "data-governance-expert-master-data-srg-ssr-zurich",
+        "it": "esperto-di-governance-dei-dati-dati-master-srg-ssr-zurich",
         "en": "data-governance-expert-master-data-srg-ssr-zurich",
         "fr": "data-governance-expert-master-data-srg-ssr-zurich"
       },
@@ -2945,16 +2968,24 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T21:10:31.036Z"
+      "firstSeenAt": "2026-10-09T21:10:31.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-governance-expert-master-data-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "data-governance-expert-master-data-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-8f8b1ac9554d",
-      "slug": "data-governance-expert-master-data-srg-ssr-zurich-2",
+      "slug": "esperto-di-governance-dei-dati-dati-master-srg-ssr-zurich-dabd84",
       "slugByLocale": {
-        "fr": "data-governance-expert-master-data-srg-ssr-zurich",
-        "it": "data-governance-expert-master-data-srg-ssr-zurich-2",
+        "fr": "data-governance-expert-master-data-srg-ssr-zurich-v4dafx",
+        "it": "esperto-di-governance-dei-dati-dati-master-srg-ssr-zurich-dabd84",
         "en": "data-governance-expert-master-data-srg-ssr-zurich-2",
-        "de": "data-governance-expert-master-data-srg-ssr-zurich-2"
+        "de": "experte-fur-data-governance-stammdaten-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3035,7 +3066,22 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T21:10:31.036Z"
+      "firstSeenAt": "2026-10-09T21:10:31.036Z",
+      "previousSlugs": [
+        "data-governance-expert-master-data-srg-ssr-zurich",
+        "data-governance-expert-master-data-srg-ssr-zurich-2"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "data-governance-expert-master-data-srg-ssr-zurich"
+        ],
+        "it": [
+          "data-governance-expert-master-data-srg-ssr-zurich-2"
+        ],
+        "de": [
+          "data-governance-expert-master-data-srg-ssr-zurich-2"
+        ]
+      }
     }
   ]
 }
