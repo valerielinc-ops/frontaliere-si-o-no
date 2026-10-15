@@ -8300,6 +8300,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.orologio-lingotto-trump-seco.title': 'Watch and gold bar for Trump, Seco: “They were for the American people”',
     'blog.article.orologio-lingotto-trump-seco.excerpt': 'The gifts to Donald Trump were worth approximately 100\'000 francs The delivery dates back to November 2025 US tariffs dropped from 39% to 15% A report on the authorities',
     'blog.article.orologio-lingotto-trump-seco.imageAlt': 'Rolex table watch and gold ingot on red Swiss fabric, symbolizing the gift to the USA',
+    'blog.article.ordinanza-dispositivi-vitali.title': 'Vital medical devices: DEFR opens a consultation',
+    'blog.article.ordinanza-dispositivi-vitali.excerpt': 'The DEFR opens a consultation on vital medical devices The project aims to monitor supply Start: October 14, 2026 End: January 28',
+    'blog.article.ordinanza-dispositivi-vitali.imageAlt': 'Bern and vital medical devices in an editorial image about the DEFR consultation',
 };
 
 export default blogMetaChEn;

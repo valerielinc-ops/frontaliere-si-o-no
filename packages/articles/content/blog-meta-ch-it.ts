@@ -8300,6 +8300,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.orologio-lingotto-trump-seco.title': 'Orologio e lingotto d’oro a Trump, Seco: «Erano per il popolo americano»',
     'blog.article.orologio-lingotto-trump-seco.excerpt': 'I regali a Donald Trump valevano circa 100\'000 franchi La consegna risale al novembre 2025 I dazi Usa sono passati dal 39% al 15% Un rapporto sulle autorità',
     'blog.article.orologio-lingotto-trump-seco.imageAlt': 'Orologio Rolex e lingotto d\'oro su tessuto svizzero rosso, simbolo del dono agli USA',
+    'blog.article.ordinanza-dispositivi-vitali.title': 'Dispositivi medici vitali: il DEFR apre una consultazione',
+    'blog.article.ordinanza-dispositivi-vitali.excerpt': 'Il DEFR apre una consultazione sui dispositivi medici vitali Il progetto punta a monitorare l\'approvvigionamento Inizio: 14 ottobre 2026 Termine: 28 gennaio',
+    'blog.article.ordinanza-dispositivi-vitali.imageAlt': 'Berna e dispositivi medici in un\'illustrazione sulla consultazione del DEFR',
 };
 
 export default blogMetaChIt;

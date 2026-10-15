@@ -8300,6 +8300,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.orologio-lingotto-trump-seco.title': 'Montre et lingot d’or Trump, Seco: «pour peuple américain»',
     'blog.article.orologio-lingotto-trump-seco.excerpt': 'Les cadeaux offerts à Donald Trump valaient environ 100\'000 francs La remise remonte à novembre 2025 Les droits de douane américains sont passés de 39% à 15% Un rapport sur les autorités',
     'blog.article.orologio-lingotto-trump-seco.imageAlt': 'Montre Rolex de table et lingot d\'or sur tissu suisse rouge, symbole du cadeau aux États-Unis',
+    'blog.article.ordinanza-dispositivi-vitali.title': 'Dispositifs médicaux vitaux : le DEFR ouvre une consultation',
+    'blog.article.ordinanza-dispositivi-vitali.excerpt': 'Le DEFR ouvre une consultation sur les dispositifs médicaux vitaux Le projet vise à surveiller l\'approvisionnement Début : 14 octobre 2026 Fin : 28 janvier',
+    'blog.article.ordinanza-dispositivi-vitali.imageAlt': 'Berne et dispositifs médicaux vitaux pour la consultation du DEFR',
 };
 
 export default blogMetaChFr;

@@ -27744,6 +27744,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ordinanza-dispositivi-vitali',
+    category: 'novita',
+    date: '2026-10-14T23:53:34.047Z',
+    image: '/images/blog/article-ordinanza-dispositivi-vitali.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

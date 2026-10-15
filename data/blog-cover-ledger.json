@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5463
+      "6": 5464
     },
-    "publishedCovers": 7044,
+    "publishedCovers": 7045,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5268
+    "inferredRecords": 5269
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187174,6 +187174,33 @@
           "id": "ordinanza-animali-compagnia-ue",
           "category": "novita",
           "date": "2026-10-14T22:26:00.196Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ordinanza-dispositivi-vitali": {
+      "cover": "/images/blog/article-ordinanza-dispositivi-vitali.webp",
+      "hash": "633076bdd44ea43128465b2a6c2d19f3338be25be9cab12f126b201abaa55c6e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ordinanza-dispositivi-vitali",
+          "category": "novita",
+          "date": "2026-10-14T23:53:34.047Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

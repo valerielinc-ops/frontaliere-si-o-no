@@ -8300,6 +8300,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.orologio-lingotto-trump-seco.title': 'Uhr und Goldbarren für Trump, Seco: «Sie waren für das amerikanische Volk»',
     'blog.article.orologio-lingotto-trump-seco.excerpt': 'Die Geschenke an Donald Trump waren etwa 100\'000 Franken wert Die Übergabe erfolgte im November 2025 Die US-Zölle sanken von 39% auf 15% Ein Bericht über die Behörden',
     'blog.article.orologio-lingotto-trump-seco.imageAlt': 'Rolex Tischuhr und Goldbarren auf rotem Schweizer Stoff, Symbol des Geschenks an die USA',
+    'blog.article.ordinanza-dispositivi-vitali.title': 'Lebenswichtige Medizinprodukte: Das DEFR eröffnet eine Vernehmlassung',
+    'blog.article.ordinanza-dispositivi-vitali.excerpt': 'Das DEFR eröffnet eine Vernehmlassung zu lebenswichtigen Medizinprodukten Das Projekt zielt darauf ab, die Versorgung zu überwachen Beginn: 14.',
+    'blog.article.ordinanza-dispositivi-vitali.imageAlt': 'Bern und lebenswichtige Medizinprodukte zur DEFR-Konsultation',
 };
 
 export default blogMetaChDe;
