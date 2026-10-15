@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "67ab9ce27de6acc35d56b6ba2d9a07f4506a5f42",
+  "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "67ab9ce27de6acc35d56b6ba2d9a07f4506a5f42"
+    "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 630,
+  "crawlerCount": 631,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:41c9faaa0f535c34d4a9535bea031b03a7f346c68efbcc6ddd8b90327d283654",
+    "rosterDigest": "sha256:2af2b7efe2bfbda832cac3ec16cb8245045b6a9cfb50c690960ed51ac3000423",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -443,6 +443,7 @@
     "scripts/update-rehaklinik-seewis-jobs.mjs",
     "scripts/update-rennbahnklinik-jobs.mjs",
     "scripts/update-rfsm-fribourg-jobs.mjs",
+    "scripts/update-rh-expert-ch-jobs.mjs",
     "scripts/update-rheinmetall-air-defence-jobs.mjs",
     "scripts/update-rhne-reseau-hospitalier-neuchatelois-jobs.mjs",
     "scripts/update-richemont-jobs.mjs",
@@ -1156,8 +1157,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "69b04158cb89f93089b81c2682db9d557ac94f1735c41371466abc688cf3bffb",
-      "artifactSha256": "facce46fe09bf553b520af16476b29e0428ea37b35252eab7551a07454b7c0fe",
+      "sourceSha256": "b42a5d2e66750b9472addc97b462290ec437021f95266951158ea7447c44e1ed",
+      "artifactSha256": "b2ded6c1c06c212d609580e04b6023a79f0637f130dead29fa88dc7d608d8a39",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1187,7 +1188,7 @@
         "sta",
         "elprom",
         "sonarsource",
-        "agat"
+        "elite-interim"
       ]
     },
     {
@@ -1378,8 +1379,8 @@
     {
       "file": "crawler-group-21.yml",
       "sourceLogic": "crawler-group-21-logic.yml",
-      "sourceSha256": "74a6e0c8462d28198ef9645365d0023c223f8b02087f5e3e4bd940d0f63d9532",
-      "artifactSha256": "e59c01c3f51251c7bf1a3f0c84b8618a4c02a2bf006afb67750674aa1c077ba4",
+      "sourceSha256": "3c3acdec533fb4a077a67a648682f69337a0ecd22369a2add34bcb571e17b40e",
+      "artifactSha256": "39398eb9e549d44e858fd38ce090e740dc83b18e0ad02001e61c97db8a6a2ab5",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "orell-fuessli-thalia",
@@ -1409,14 +1410,15 @@
         "clinique-le-noirmont",
         "geberit",
         "lombard-odier",
-        "kone"
+        "kone",
+        "agat"
       ]
     },
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "4369f834aa953b3ed6347fa6505fa1aa7dceae115175a65b2336bf303bc2242b",
-      "artifactSha256": "6bbd89dbee0cab61c4f5470e18cc8b6910ed3de7cd73306655fde889bfb33c31",
+      "sourceSha256": "7f0b71ccbe0d41ef934f986d724bb09b00a4c7613d63e84f98185442d1fd4b94",
+      "artifactSha256": "6798740c26555c93b4559714f0ca20ad73d3e768da02d8abad9b9ccf4a5a837e",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "rittmeyer",
@@ -1447,7 +1449,7 @@
         "bachtelen",
         "alcon",
         "yellowshark",
-        "elite-interim"
+        "rh-expert-ch"
       ]
     },
     {
