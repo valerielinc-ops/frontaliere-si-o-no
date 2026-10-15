@@ -1,7 +1,7 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-10-15T09:16:27.949Z",
+  "generatedAt": "2026-10-15T21:18:02.048Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6763,
-  "avgDurationMs": 6763,
+  "durationMs": 6293,
+  "avgDurationMs": 6293,
   "durationHistory": [
-    6763
+    6293
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/011a0a3e-7de1-4c25-b065-fcf96d3fc418/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:16:13.688Z",
+      "crawledAt": "2026-10-15T21:17:46.075Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7e7196d4-d20c-4a17-ba10-0c48e91112c4/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:16:15.111Z",
+      "crawledAt": "2026-10-15T21:17:47.668Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:16:14.401Z",
+      "crawledAt": "2026-10-15T21:17:46.818Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/28f59e0a-32d2-41eb-8be6-3fffe35c49f6/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:16:12.695Z",
+      "crawledAt": "2026-10-15T21:17:45.480Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -191,5 +191,5 @@
       }
     }
   ],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }
