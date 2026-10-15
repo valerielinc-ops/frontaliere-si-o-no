@@ -27873,6 +27873,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'orari-apertura-lucerna-festivi',
+    category: 'pratico',
+    date: '2026-10-15T05:37:40.396Z',
+    image: '/images/blog/article-negozi-berna-orari-festivi-regole.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['LU'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -2801,6 +2801,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'integrazione-lingua-berna-contributi': { it: 'integrazione-lingua-berna-contributi', en: 'language-courses-in-bern-integration-subsidies-and-requirements', de: 'sprachkurse-bern-integration-beitrage-und-voraussetzungen', fr: 'cours-de-langue-berne-integration-cotisations-et-exigences' },
  'regole-orari-negozi-lucerna': { it: 'regole-orari-negozi-lucerna', en: 'lucerne-shop-opening-hours-guide', de: 'ladenoffnungszeiten-luzern-regeln', fr: 'heures-ouverture-magasins-lucerne' },
  'rotte-greggio-kurdistan-lugano': { it: 'rotte-greggio-kurdistan-lugano', en: 'oil-routes-kurdistan-lugano', de: 'rohoelhandel-kurdistan-lugano', fr: 'routes-petrole-kurdistan-lugano' },
+ 'orari-apertura-lucerna-festivi': { it: 'orari-apertura-lucerna-festivi', en: 'lucerne-shop-opening-hours-sundays-public-holidays', de: 'offnungszeiten-der-geschafte-in-luzern-an-sonntagen-und-feiertagen', fr: 'horaires-d-ouverture-des-magasins-a-lucerne-dimanches-et-jours-feries' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

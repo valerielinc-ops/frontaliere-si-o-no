@@ -8336,6 +8336,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rotte-greggio-kurdistan-lugano.title': 'Pétrole : du Kurdistan à Israël en passant par Lugano',
     'blog.article.rotte-greggio-kurdistan-lugano.excerpt': 'Cinquième voyage dans le Tessin des matières premières : du Kurdistan à Israël, en passant par Lugano, sur les traces du commerce de pétrole brut et de la via Nassa dans le récit.',
     'blog.article.rotte-greggio-kurdistan-lugano.imageAlt': 'Lugano et la Via Nassa dans le récit des routes du commerce de brut',
+    'blog.article.orari-apertura-lucerna-festivi.title': 'horaires d\'ouverture des magasins à Lucerne, dimanches et jours fériés',
+    'blog.article.orari-apertura-lucerna-festivi.excerpt': 'Dans le canton de Lucerne, les horaires d\'ouverture des magasins varient selon le niveau compétent (cantonal, communal ou institutionnel) ; les dimanches et les jours fériés font partie des horaires commerciaux, tandis que les ouvertures dérogatoires nécessitent des autorisations spéciales à vérifier sur la source officielle.',
+    'blog.article.orari-apertura-lucerna-festivi.imageAlt': 'Rue de Lucerne avec des magasins et des panneaux d\'horaires d\'ouverture, ciel dégagé et horloge en arrière-plan',
 };
 
 export default blogMetaChFr;

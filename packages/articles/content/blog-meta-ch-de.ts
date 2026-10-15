@@ -8336,6 +8336,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rotte-greggio-kurdistan-lugano.title': 'Erdöl: von Kurdistan über Lugano nach Israel',
     'blog.article.rotte-greggio-kurdistan-lugano.excerpt': 'Fünfte Reise durch das Tessin der Rohstoffe: von Kurdistan über Lugano nach Israel, auf den Spuren des Rohölhandels und der Via Nassa im Bericht.',
     'blog.article.rotte-greggio-kurdistan-lugano.imageAlt': 'Lugano und die Via Nassa im Bericht über Wege des Rohölhandels',
+    'blog.article.orari-apertura-lucerna-festivi.title': 'Öffnungszeiten der Geschäfte in Luzern an Sonntagen und Feiertagen',
+    'blog.article.orari-apertura-lucerna-festivi.excerpt': 'Im Kanton Luzern variieren die Öffnungszeiten der Geschäfte je nach zuständiger Ebene (kantonal, kommunal oder institutionell); Sonntage und Feiertage gehören zu den Ladenöffnungszeiten, während Sonderöffnungen besondere Genehmigungen erfordern, die anhand der offiziellen Quelle zu überprüfen sind.',
+    'blog.article.orari-apertura-lucerna-festivi.imageAlt': 'Lucerner Straße mit Geschäften und Öffnungszeitenschildern, klarem Himmel und Uhrturm im Hintergrund',
 };
 
 export default blogMetaChDe;

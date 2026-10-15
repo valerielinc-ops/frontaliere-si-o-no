@@ -8336,6 +8336,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rotte-greggio-kurdistan-lugano.title': 'Petrolio: dal Kurdistan a Israele passando per Lugano',
     'blog.article.rotte-greggio-kurdistan-lugano.excerpt': 'Quinto viaggio nel Ticino delle materie prime: dal Kurdistan a Israele, passando per Lugano, sulle tracce del commercio di greggio e via Nassa nel racconto.',
     'blog.article.rotte-greggio-kurdistan-lugano.imageAlt': 'Lugano e via Nassa nel racconto delle rotte del commercio di greggio',
+    'blog.article.orari-apertura-lucerna-festivi.title': 'orari apertura negozi Lucerna domeniche festivi',
+    'blog.article.orari-apertura-lucerna-festivi.excerpt': 'Nel Canton Lucerna gli orari di apertura dei negozi variano secondo il livello competente (cantonale, comunale o istituzionale); domeniche e festivi fanno parte degli orari commerciali, mentre le aperture in deroga richiedono autorizzazioni speciali da verificare sulla fonte ufficiale.',
+    'blog.article.orari-apertura-lucerna-festivi.imageAlt': 'Via di Lucerna con negozi e cartelli degli orari di apertura, cielo limpido e torre dell\'orologio sullo sfondo',
 };
 
 export default blogMetaChIt;
