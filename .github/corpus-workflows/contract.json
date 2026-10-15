@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f",
+  "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f"
+    "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 634,
+  "crawlerCount": 635,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:e43778eccb181d3214be6447835d97e5d412bd01d8b705de9f5eb8426e584338",
+    "rosterDigest": "sha256:0b4384e0c526369045c308959a02c7a6caab7f361974df8030946b3d07a7bc99",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -454,6 +454,7 @@
     "scripts/update-rituals-cosmetics-jobs.mjs",
     "scripts/update-riveneuve-jobs.mjs",
     "scripts/update-roche-jobs.mjs",
+    "scripts/update-rohrer-gartenbau-und-hauswartungen-jobs.mjs",
     "scripts/update-rolex-jobs.mjs",
     "scripts/update-rsbj-jobs.mjs",
     "scripts/update-rss-surselva-jobs.mjs",
@@ -1234,8 +1235,8 @@
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "533a97daa4cd213baf8875f00cc897c88a7e00b0707d24a11d628ddd6a0b1bb3",
-      "artifactSha256": "2d0f930790999c5c13ac60464d077138c1c4e76c7c3ac97083c7d15c7ab64778",
+      "sourceSha256": "c3c7758ae6e687c5e14333dec9e65626efb9d5fdbafb8ebbe33b4a67193b6f95",
+      "artifactSha256": "1dce75684dfd2761169f29c1bcc93b1e2bb67cdeef12070fbf86a5a3cafb67f3",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1265,14 +1266,15 @@
         "clinique-generale-beaulieu",
         "board",
         "aldi-suisse",
-        "badrutts-palace"
+        "badrutts-palace",
+        "sympajobs-reinach-bl"
       ]
     },
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "3964f37ba4e28f831c7c517a347d03d266d8ebcc73e3f2d200505b49fb802c82",
-      "artifactSha256": "b692fe7bb200c635c7d648f5a0baefb5fa79c7049f58c575aeabe9c84a0a8e40",
+      "sourceSha256": "7be49495b935281b65a723fdfd71a97b6567646612297f9cb2f44ecf48a38d5a",
+      "artifactSha256": "af16af34db520392a2e770c91b2d73afecf966b0ea08f8ffe341e2e1de557224",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1303,7 +1305,7 @@
         "etavis",
         "amina-bank",
         "opus-personal",
-        "sympajobs-reinach-bl"
+        "rohrer-gartenbau-und-hauswartungen"
       ]
     },
     {
