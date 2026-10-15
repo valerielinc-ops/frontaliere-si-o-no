@@ -169,7 +169,11 @@ export function collectAuditGitHistory({
   try {
     onCommand('log');
     log = runGit('git', [
-      'log', historyRef, '--since=' + since, '--no-renames', '--format=@@%an|%s', '--name-only',
+      // `--shallow-since` leaves the oldest fetched commit without a visible
+      // parent. Without this filter, `git log --name-only` reports its entire
+      // tree as if the bot had rewritten every file at the window boundary.
+      'log', historyRef, '--since=' + since, '--min-parents=1', '--no-renames',
+      '--format=@@%an|%s', '--name-only',
     ]);
   } finally {
     onTiming('git_log_ms', Date.now() - logStarted);
