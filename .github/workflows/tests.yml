@@ -834,7 +834,7 @@ jobs:
           const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
           const candidates = event.pull_request
             ? [event.pull_request]
-            : (event.merge_group?.pull_requests || []);
+            : (event.merge_group?.pull_requests || event.pull_requests || []);
           const recoveryBranch = process.env.RECOVERY_BRANCH;
           let match = null;
           const lookupFailures = [];
