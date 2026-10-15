@@ -165,9 +165,9 @@
       "slug": "elektrochefmonteur-region-ruswil-ipersonal-ag-ruswil-luzern",
       "slugByLocale": {
         "de": "elektrochefmonteur-region-ruswil-ipersonal-ag-ruswil-luzern",
-        "it": "elektrochefmonteur-region-ruswil-ipersonal-ag-ruswil-luzern",
-        "en": "elektrochefmonteur-region-ruswil-ipersonal-ag-ruswil-luzern",
-        "fr": "elektrochefmonteur-region-ruswil-ipersonal-ag-ruswil-luzern"
+        "it": "capo-di-ingegneria-elettrica-regione-di-ruswil-ipersonal-ag-ruswil-luzern",
+        "en": "head-of-electrical-engineering-ruswil-region-ipersonal-ag-ruswil-luzern",
+        "fr": "chef-du-genie-electrique-region-de-ruswil-ipersonal-ag-ruswil-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -271,7 +271,6 @@
       "postedDate": "2026-10-11",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-muenchwilen-tg-temporaerbuero-ipersonal/",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -292,9 +291,9 @@
       "slug": "schreinermeister-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
       "slugByLocale": {
         "de": "schreinermeister-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
-        "it": "schreinermeister-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
-        "en": "schreinermeister-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
-        "fr": "schreinermeister-region-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
+        "it": "carpenter-maestro-regione-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft",
+        "en": "master-carpenter-gelterkinden-region-ipersonal-ag-gelterkinden-basel-landschaft",
+        "fr": "maitre-charpentier-region-de-gelterkinden-ipersonal-ag-gelterkinden-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -355,9 +354,9 @@
       "slug": "schreinermeister-region-berikon-ipersonal-ag-berikon-aargau",
       "slugByLocale": {
         "de": "schreinermeister-region-berikon-ipersonal-ag-berikon-aargau",
-        "it": "schreinermeister-region-berikon-ipersonal-ag-berikon-aargau",
-        "en": "schreinermeister-region-berikon-ipersonal-ag-berikon-aargau",
-        "fr": "schreinermeister-region-berikon-ipersonal-ag-berikon-aargau"
+        "it": "carpenter-maestro-regione-di-berikon-ipersonal-ag-berikon-aargau",
+        "en": "master-carpenter-berikon-region-ipersonal-ag-berikon-aargau",
+        "fr": "maitre-charpentier-region-de-berikon-ipersonal-ag-berikon-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -490,8 +489,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-opfikon-ipersonal-ag-opfikon-zurich",
         "it": "installatore-trice-elettrico-a-region-opfikon-ipersonal-ag-opfikon-zurich",
-        "en": "elektroinstallateur-region-opfikon-ipersonal-ag-opfikon-zurich",
-        "fr": "elektroinstallateur-region-opfikon-ipersonal-ag-opfikon-zurich"
+        "en": "electrical-installer-opfikon-region-ipersonal-ag-opfikon-zurich",
+        "fr": "installation-electrique-region-opfikon-ipersonal-ag-opfikon-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -536,6 +535,12 @@
         "it": [
           "elektroinstallateur-region-opfikon-ipersonal-ag-opfikon-zurich",
           "installatore-trice-elettrico-a-region-opfikon-ipersonal-ag-opfikon"
+        ],
+        "en": [
+          "elektroinstallateur-region-opfikon-ipersonal-ag-opfikon-zurich"
+        ],
+        "fr": [
+          "elektroinstallateur-region-opfikon-ipersonal-ag-opfikon-zurich"
         ]
       },
       "previousSlugs": [
@@ -561,7 +566,7 @@
       "id": "med-ipersonal-3487707e8cf9",
       "slug": "elektrochefmonteur-region-feusisberg-ipersonal-ag-feusisberg-schwyz",
       "slugByLocale": {
-        "it": "elektrochefmonteur-region-feusisberg-ipersonal-ag-feusisberg-schwyz",
+        "it": "capo-di-ingegneria-elettrica-regione-di-feusisberg-ipersonal-ag-feusisberg-schwyz",
         "en": "head-of-electrical-engineering-feusisberg-region-ipersonal-ag-feusisberg-schwyz",
         "de": "elektrochefmonteur-region-feusisberg-ipersonal-ag-feusisberg-schwyz",
         "fr": "chef-du-genie-electrique-region-de-feusisberg-ipersonal-ag-feusisberg-schwyz"
@@ -618,15 +623,7 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "capo-di-ingegneria-elettrica-regione-di-feusisberg-ipersonal-ag-feusisberg-schwyz"
-        ]
-      },
-      "previousSlugs": [
-        "capo-di-ingegneria-elettrica-regione-di-feusisberg-ipersonal-ag-feusisberg-schwyz"
-      ]
+      }
     },
     {
       "id": "med-ipersonal-3f8d06706d1e",
@@ -676,7 +673,6 @@
       "postedDate": "2026-10-11",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreinermeister-100-fuer-die-region-buchs-ag-offene-stelle/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -697,9 +693,9 @@
       "slug": "schreiner-region-stafa-ipersonal-ag-stafa-zurich",
       "slugByLocale": {
         "de": "schreiner-region-stafa-ipersonal-ag-stafa-zurich",
-        "it": "schreiner-region-stafa-ipersonal-ag-stafa-zurich",
-        "en": "schreiner-region-stafa-ipersonal-ag-stafa-zurich",
-        "fr": "schreiner-region-stafa-ipersonal-ag-stafa-zurich"
+        "it": "falegname-regione-di-stafa-ipersonal-ag-stafa-zurich",
+        "en": "carpenter-stafa-region-ipersonal-ag-stafa-zurich",
+        "fr": "menuisier-region-de-stafa-ipersonal-ag-stafa-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -740,7 +736,6 @@
       "postedDate": "2026-10-11",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-staefa-freie-stelle/",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -761,9 +756,9 @@
       "slug": "schreiner-region-arosa-ipersonal-ag-arosa-graubunden",
       "slugByLocale": {
         "de": "schreiner-region-arosa-ipersonal-ag-arosa-graubunden",
-        "it": "schreiner-region-arosa-ipersonal-ag-arosa-graubunden",
-        "en": "schreiner-region-arosa-ipersonal-ag-arosa-graubunden",
-        "fr": "schreiner-region-arosa-ipersonal-ag-arosa-graubunden"
+        "it": "falegname-regione-di-arosa-ipersonal-ag-arosa-graubunden",
+        "en": "carpenter-arosa-region-ipersonal-ag-arosa-graubunden",
+        "fr": "menuisier-region-d-arosa-ipersonal-ag-arosa-graubunden"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -804,7 +799,6 @@
       "postedDate": "2026-10-11",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-100-fuer-die-region-arosa-offene-stelle/",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
