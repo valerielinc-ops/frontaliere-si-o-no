@@ -3,19 +3,27 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
-import { CHECKED_PATHS, HIDE_MARK, evaluateLhr } from '../scripts/ci/lighthouse-first-paint-order.mjs';
-import { STATIC_HANDOFF_HIDE_MARK } from '@/services/staticFallbackHandoff';
+import {
+  CHECKED_PATHS,
+  HIDE_MARK,
+  PRESERVE_MARK,
+  evaluateLhr,
+} from '../scripts/ci/lighthouse-first-paint-order.mjs';
+import {
+  STATIC_HANDOFF_HIDE_MARK,
+  STATIC_HANDOFF_PRESERVE_MARK,
+} from '@/services/staticFallbackHandoff';
 
 const ROOT = resolve(__dirname, '..');
 
-/** Minimal LHR: observed FCP plus an optional hide mark (values from the runner traces of run 37337515121). */
-function lhr(path: string, fcp: number, hide?: number) {
+/** Minimal LHR: observed FCP plus an optional handoff mark (values from the runner traces of run 37337515121). */
+function lhr(path: string, fcp: number, mark?: number, markName = HIDE_MARK) {
   return {
     finalDisplayedUrl: `https://frontaliereticino.ch${path}`,
     configSettings: { formFactor: 'mobile' },
     audits: {
       metrics: { details: { items: [{ observedFirstContentfulPaint: fcp }] } },
-      'user-timings': { details: { items: hide === undefined ? [] : [{ name: HIDE_MARK, startTime: hide }] } },
+      'user-timings': { details: { items: mark === undefined ? [] : [{ name: markName, startTime: mark }] } },
     },
   };
 }
@@ -23,11 +31,14 @@ function lhr(path: string, fcp: number, hide?: number) {
 describe('lighthouse first-paint order check', () => {
   it('reads the same mark the mount sets', () => {
     expect(HIDE_MARK).toBe(STATIC_HANDOFF_HIDE_MARK);
+    expect(PRESERVE_MARK).toBe(STATIC_HANDOFF_PRESERVE_MARK);
   });
 
-  it('passes when the static HTML painted before the hide and fails when it painted after', () => {
+  it('passes when static HTML painted before either handoff and fails when it painted after', () => {
     expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 1300, 1310))?.ok).toBe(true);
+    expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 1300, 1310, PRESERVE_MARK))?.ok).toBe(true);
     expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 2349, 990))?.ok).toBe(false);
+    expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 2349, 990, PRESERVE_MARK))?.ok).toBe(false);
   });
 
   it('fails when the mark is missing on a checked page', () => {
