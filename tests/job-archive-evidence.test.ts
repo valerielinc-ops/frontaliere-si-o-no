@@ -25,22 +25,27 @@ describe('recorded versus URL-inferred job identity', () => {
     const breadcrumbEnd = normal.indexOf('</script>`;', breadcrumbStart) + '</script>`;'.length;
     expect(breadcrumbStart).toBeGreaterThan(-1);
     expect(breadcrumbEnd).toBeGreaterThan(breadcrumbStart);
+    const labelHelpers = source.slice(source.indexOf('function getCantonDisplayLabel('), source.indexOf('const CANTON_FALLBACK_POSTAL'))
+      + source.slice(source.indexOf('const frenchCantonPrep ='), source.indexOf('// Canton-aware breadcrumb label.'));
+    const labels = execute(`${labelHelpers}\nreturn { getCantonDisplayLabel, cantonSectionName };`, { AGGREGATE_KEY: '_AGGREGATE_' });
+    const search = normal.slice(normal.indexOf('// --- Search suggestions ---'), normal.indexOf('// --- Frontalier info section:'));
+    const nationalLabel = { it: 'Cerca lavoro in Svizzera', en: 'Find jobs in Switzerland', de: 'Jobs in der Schweiz', fr: 'Trouver un emploi en Suisse' }[locale];
     const bindings = {
       locale, AGGREGATE_KEY: '_AGGREGATE_', DEFAULT_CANTON: 'TI',
       localePrefix: { it: '', en: '/en', de: '/de', fr: '/fr' },
       BASE_URL: 'https://frontaliereticino.ch',
       sharedResolveJobCanton: resolveJobCanton, buildCantonAwareSection: resolveCantonSection,
-      getCantonDisplayLabel: (canton: string) => canton === '_AGGREGATE_' ? 'National board' : canton,
-      cantonSectionName: (_locale: string, display: string) => display,
-      inlineScriptJson: JSON.stringify, jobLocation: '', jobTitle: 'Reference',
+      ...labels,
+      inlineScriptJson: JSON.stringify, esc: String, jobLocation: '', jobCompany: '', jobTitle: 'Reference',
     };
     for (const recordedIdentity of [false, true]) {
       const archive = { canton: 'ZH', recordedIdentity, ...(recordedIdentity ? { title: 'Original title' } : {}) };
       const section = resolveCantonSection(locale, recordedIdentity ? 'ZH' : '_AGGREGATE_');
       const path = `${bindings.localePrefix[locale]}/${section}/`.replace(/\/+/g, '/');
-      const normalHtml = execute(`${declarations}\n${normal.slice(breadcrumbStart, breadcrumbEnd)}\nreturn listingPath + breadcrumbLd;`, { ...bindings, hasRealTitle: recordedIdentity, ejData: archive });
+      const normalHtml = execute(`${declarations}\n${normal.slice(breadcrumbStart, breadcrumbEnd)}\n${search}\nreturn listingPath + breadcrumbLd + staticBodyParts.join('');`, { ...bindings, staticBodyParts: [], hasRealTitle: recordedIdentity, ejData: archive });
+      const expectedLabel = recordedIdentity ? labels.cantonSectionName(locale, labels.getCantonDisplayLabel('ZH', locale)) : nationalLabel;
       expect.soft(normalHtml).toContain(path);
-      expect.soft(normalHtml).toContain(recordedIdentity ? 'ZH' : 'National board');
+      expect.soft(normalHtml).toContain(expectedLabel);
       const historicalHtml = execute(`${safety}\nreturn buildHistoricalArchiveHtml('url-reference', '/historical-reference/', locale, archive);`, {
         ...bindings, archive, unverifiedJobCopy,
         historicalArchiveCopy: { [locale]: { notice: 'Archived', original: 'Original', next: 'Browse', cta: 'Browse', details: 'Details' } },
@@ -52,11 +57,13 @@ describe('recorded versus URL-inferred job identity', () => {
         buildSoftLandingHtml: (...parts: string[]) => parts.join('\n'),
       });
       expect.soft(historicalHtml).toContain(`href="${path}"`);
-      expect.soft(historicalHtml).toContain(recordedIdentity ? 'ZH' : 'National board');
+      expect.soft(historicalHtml).toContain(expectedLabel);
       if (!recordedIdentity) {
         expect.soft(normalHtml).not.toContain(resolveCantonSection(locale, 'ZH'));
         expect.soft(historicalHtml).not.toContain(resolveCantonSection(locale, 'ZH'));
         expect.soft(historicalHtml).not.toContain('"name":"ZH"');
+        expect.soft(normalHtml).not.toMatch(/im Schweiz|au Suisse|canton de Suisse/);
+        expect.soft(historicalHtml).not.toContain('canton de Suisse');
       }
     }
   });

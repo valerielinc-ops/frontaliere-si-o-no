@@ -1887,6 +1887,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // These produce locale-correct text for any Swiss canton,
  // used wherever SEO copy references the job's region.
  const frenchCantonPrep = (dc: string): string => {
+ if (dc === 'Suisse') return 'en Suisse';
  if (['Tessin', 'Jura'].includes(dc)) return `au ${dc}`;
  if (dc === 'Grisons') return `aux ${dc}`;
  if (dc === 'Valais') return `en ${dc}`;
@@ -13647,9 +13648,9 @@ ${staticAnalyticsHtml}
  } else if (locale === 'en') {
  staticBodyParts.push(`<section><h2>Find jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${listingPath}">complete job board</a>.</p>${hasRealTitle && jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${listingPath}">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
  } else if (locale === 'de') {
- staticBodyParts.push(`<section><h2>Stellen suchen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="${listingPath}">komplettes Job Board</a>.</p>${hasRealTitle && jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${listingPath}">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
+ staticBodyParts.push(`<section><h2>${hasRealTitle ? `Stellen suchen im ${esc(displayCanton)}` : esc(cantonSectionName(locale, displayCanton))}</h2><p>Durchsuchen Sie unser <a href="${listingPath}">komplettes Job Board</a>.</p>${hasRealTitle && jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${listingPath}">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
  } else {
- staticBodyParts.push(`<section><h2>Chercher des offres au ${esc(displayCanton)}</h2><p>Parcourez notre <a href="${listingPath}">job board complet</a>.</p>${hasRealTitle && jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${listingPath}">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
+ staticBodyParts.push(`<section><h2>${hasRealTitle ? `Chercher des offres au ${esc(displayCanton)}` : esc(cantonSectionName(locale, displayCanton))}</h2><p>Parcourez notre <a href="${listingPath}">job board complet</a>.</p>${hasRealTitle && jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${listingPath}">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
  }
 
  // --- Frontalier info section: extended with permit-mechanics, gross-to-net
