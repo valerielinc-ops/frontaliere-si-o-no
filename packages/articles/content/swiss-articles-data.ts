@@ -27944,6 +27944,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'vaccino-hpv-ticino-2027',
+    category: 'novita',
+    date: '2026-10-15T12:21:39.150Z',
+    image: '/images/blog/article-vaccino-hpv-ticino-2027.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['TI'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

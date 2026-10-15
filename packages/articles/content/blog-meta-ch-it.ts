@@ -8357,6 +8357,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzi-produzione-importazione-settembre.title': 'Prezzi produzione e importazione salgono a settembre',
     'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'In settembre l\'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull\'anno Inflazione di settembre',
     'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'Vista di un\'area industriale e logistica in Svizzera',
+    'blog.article.vaccino-hpv-ticino-2027.title': 'Vaccino HPV in Ticino: nuovo sistema dal 1° gennaio 2027',
+    'blog.article.vaccino-hpv-ticino-2027.excerpt': 'Dal primo gennaio 2027 cambia l\'accesso al vaccino HPV La copertura passa all\'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico',
+    'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Consultorio medico a Bellinzona per vaccinazioni',
 };
 
 export default blogMetaChIt;

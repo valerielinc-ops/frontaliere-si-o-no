@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5488
+      "6": 5489
     },
-    "publishedCovers": 7069,
+    "publishedCovers": 7070,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5293
+    "inferredRecords": 5294
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -189107,6 +189107,33 @@
           "id": "vaccinazioni-autunnali-2026-influenza-covid-19-e-rsv",
           "category": "novita",
           "date": "2026-10-13T11:54:19.232Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-vaccino-hpv-ticino-2027": {
+      "cover": "/images/blog/article-vaccino-hpv-ticino-2027.webp",
+      "hash": "26200c220f945ef4fdca92ab30c17567c051d9ea5671dfc188e6d7e736a0c2f1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "vaccino-hpv-ticino-2027",
+          "category": "novita",
+          "date": "2026-10-15T12:21:39.150Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

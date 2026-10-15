@@ -105521,6 +105521,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vaccino-hpv-ticino-2027': {
+    title: 'Vaccino HPV in Ticino: nuovo sistema dal 1° gennaio 2027',
+    description: 'Dal primo gennaio 2027 cambia l\'accesso al vaccino HPV La copertura passa all\'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaccino, nuovo, sistema, gennaio',
+    ogTitle: 'Vaccino HPV Ticino: nuovo sistema dal 2027',
+    ogDescription: 'Dal primo gennaio 2027 cambia l\'accesso al vaccino HPV La copertura passa all\'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico',
+    canonicalPath: '/articoli-svizzera/vaccino-hpv-ticino-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaccino HPV in Ticino: nuovo sistema dal 1° gennaio 2027",
+      "description": "Dal primo gennaio 2027 cambia l'accesso al vaccino HPV La copertura passa all'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vaccino-hpv-ticino-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consultorio medico a Bellinzona per vaccinazioni"
+      },
+      "datePublished": "2026-10-15T12:21:39+00:00",
+      "dateModified": "2026-10-15T12:21:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vaccino-hpv-ticino-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

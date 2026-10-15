@@ -8357,6 +8357,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-produzione-importazione-settembre.title': 'Les prix à la production et à l\'importation augmentent en septembre',
     'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'En septembre, l\'indice augmente de 0,3 % par rapport à août La baisse annuelle reste de 0,2 % Importations : +0,9 % sur le mois et +2,1 % sur un an Inflation de septembre',
     'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'Vue d\'une zone industrielle et logistique en Suisse',
+    'blog.article.vaccino-hpv-ticino-2027.title': 'Vaccin contre le HPV au Tessin : nouveau système dès le 1er janvier 2027',
+    'blog.article.vaccino-hpv-ticino-2027.excerpt': 'À partir du 1er janvier 2027, l’accès au vaccin contre le HPV change La prise en charge passe à l’assurance-maladie obligatoire Pour les 11-26 ans, accès direct à un médecin',
+    'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Cabinet médical à Bellinzona pour les vaccinations',
 };
 
 export default blogMetaChFr;

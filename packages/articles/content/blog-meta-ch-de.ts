@@ -8357,6 +8357,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-produzione-importazione-settembre.title': 'Produktions- und Importpreise steigen im September',
     'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'Im September steigt der Index gegenüber August um 0,3% Der jährliche Rückgang bleibt bei 0,2% Importe: +0,9% im Monatsvergleich und +2,1% im Jahresvergleich Inflation im September',
     'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'Blick auf ein Industrie- und Logistikgebiet in der Schweiz',
+    'blog.article.vaccino-hpv-ticino-2027.title': 'HPV-Impfung im Tessin: neues System ab 1. Januar 2027',
+    'blog.article.vaccino-hpv-ticino-2027.excerpt': 'Ab dem 1. Januar 2027 ändert sich der Zugang zur HPV-Impfung Die Kostenübernahme erfolgt über die obligatorische Krankenpflegeversicherung Für 11- bis 26-Jährige direkter Zugang zu einem Arzt',
+    'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Arztpraxis in Bellinzona für Impfungen',
 };
 
 export default blogMetaChDe;

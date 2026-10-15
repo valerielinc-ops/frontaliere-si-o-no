@@ -2808,6 +2808,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tassi-conti-3a-ottobre-2024': { it: 'tassi-conti-3a-ottobre-2024', en: '3a-pillar-account-rates-october-2024', de: '3a-kontozinsen-oktober-2024', fr: 'taux-comptes-3a-octobre-2024' },
  'amaudruz-candidatura-federale': { it: 'amaudruz-candidatura-federale', en: 'amaudruz-federal-council-candidacy', de: 'amaudruz-kandidatur-bundesrat', fr: 'amaudruz-candidature-conseil-federal' },
  'prezzi-produzione-importazione-settembre': { it: 'prezzi-produzione-importazione-settembre', en: 'production-import-prices-september', de: 'produktions-importpreise-september', fr: 'prix-production-importation-septembre' },
+ 'vaccino-hpv-ticino-2027': { it: 'vaccino-hpv-ticino-2027', en: 'hpv-vaccination-ticino-2027', de: 'hpv-impfung-tessin-2027', fr: 'vaccination-hpv-tessin-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

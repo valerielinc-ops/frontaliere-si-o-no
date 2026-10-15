@@ -8357,6 +8357,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-produzione-importazione-settembre.title': 'Production and import prices rise in September',
     'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'In September the index rises by 0,3% from August The annual decline remains at 0,2% Imports: +0,9% in the month and +2,1% year-on-year September inflation',
     'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'View of an industrial and logistics area in Switzerland',
+    'blog.article.vaccino-hpv-ticino-2027.title': 'HPV vaccine in Ticino: new system from January 1, 2027',
+    'blog.article.vaccino-hpv-ticino-2027.excerpt': 'From January 1, 2027 access to the HPV vaccine will change Coverage will shift to mandatory health insurance For ages 11-26 direct access to a doctor',
+    'blog.article.vaccino-hpv-ticino-2027.imageAlt': 'Medical office in Bellinzona for vaccinations',
 };
 
 export default blogMetaChEn;
