@@ -38,6 +38,7 @@ jobs:
             /scripts/ci/append-loop-fleet-lifecycle.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/githubApiHeaders.mjs
             /scripts/lib/google-service-account-token.mjs
@@ -178,6 +179,7 @@ jobs:
             node scripts/ci/append-loop-fleet-lifecycle.mjs \
               --events-file "$EVENT_FILE" \
               --ledger-dir "$ledger_dir" \
+              --shard-id "observer-${GITHUB_RUN_ID}" \
               --registry data/loop-fleet/loop-registry.json
 
             if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \

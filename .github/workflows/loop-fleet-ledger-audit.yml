@@ -48,6 +48,7 @@ jobs:
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /.github/workflows/
           sparse-checkout-cone-mode: false
       - name: Overlay durable ledger branch

@@ -24,14 +24,10 @@ import {
   validateHistoricalOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { listLoopFleetLedgerFiles, LOOP_FLEET_LEDGER_FILES } from '../lib/loop-fleet-ledger-files.mjs';
 
 export const EXPECTED_RETENTION_DAYS = 90;
-export const LEDGER_FILES = Object.freeze({
-  observation: 'loop-observations.jsonl',
-  decision: 'loop-decisions.jsonl',
-  health: 'loop-health-history.jsonl',
-  lifecycle: 'lifecycle-events.jsonl',
-});
+export const LEDGER_FILES = LOOP_FLEET_LEDGER_FILES;
 const BASE_LEDGER_TYPES = Object.freeze(['observation', 'decision', 'health']);
 const RECORD_TYPES = Object.freeze({
   observation: 'observation',
@@ -198,9 +194,11 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
   const recordingLatencyValues = [];
 
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
-    const parsed = readJsonl(path.join(ledgerDir, fileName), `canonical ${fileName}`);
-    errors.push(...parsed.errors);
-    for (const { line, value: record } of parsed.records) {
+    for (const file of listLoopFleetLedgerFiles(ledgerDir, fileName)) {
+      const fileLabel = path.basename(file);
+      const parsed = readJsonl(file, `ledger ${fileLabel}`);
+      errors.push(...parsed.errors);
+      for (const { line, value: record } of parsed.records) {
       const loopId = text(record?.loopId);
       const row = rows[loopId];
       if (row) row.recordCounts[type] += 1;
@@ -211,7 +209,7 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
         if (previous) {
           if (row) row.metrics.duplicateRecordCount += 1;
           if (previous.serialized !== serialized && row) row.metrics.conflictingDuplicateRecordCount += 1;
-          errors.push(`canonical ${fileName}: duplicate ${recordId} at line ${line}${previous.serialized === serialized ? '' : ' with conflicting content'}`);
+          errors.push(`ledger ${fileLabel}: duplicate ${recordId} at line ${line}${previous.serialized === serialized ? '' : ' with conflicting content'}`);
         } else seenIds[type].set(recordId, { serialized, line });
       }
 
@@ -247,6 +245,7 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
           && ['observed', 'zero'].includes(record.outcome.status)
           && Array.isArray(record.outcome.missingFields) && record.outcome.missingFields.length === 0) {
         row.independentOutcomeCount += 1;
+      }
       }
     }
   }

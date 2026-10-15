@@ -39,6 +39,7 @@ jobs:
             /scripts/ci/loop-fleet-ledger-reconcile.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /.github/workflows/loop-fleet-ledger-reconcile.yml
           sparse-checkout-cone-mode: false
       - name: Overlay durable ledger branch

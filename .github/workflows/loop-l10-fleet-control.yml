@@ -73,6 +73,7 @@ jobs:
             /scripts/ci/collect-independent-fleet-outcome.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/independent-fleet-outcome.mjs
             /scripts/ci/loop-fleet-status.mjs
