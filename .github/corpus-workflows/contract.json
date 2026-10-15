@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "88074aa9a092a772f5fde0c833aca56c6a0e5e23",
+  "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "88074aa9a092a772f5fde0c833aca56c6a0e5e23"
+    "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 630,
+  "crawlerCount": 631,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:36364a251c91a736b5a958e3cb86a4c824bca80ab8e852285cf488858d22b56d",
+    "rosterDigest": "sha256:3b65966d22944de4d3cc5b6b55d4c13061d49198c89b3e97674943576248b9d7",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -443,6 +443,7 @@
     "scripts/update-rehaklinik-seewis-jobs.mjs",
     "scripts/update-rennbahnklinik-jobs.mjs",
     "scripts/update-rfsm-fribourg-jobs.mjs",
+    "scripts/update-rh-expert-ch-jobs.mjs",
     "scripts/update-rheinmetall-air-defence-jobs.mjs",
     "scripts/update-rhne-reseau-hospitalier-neuchatelois-jobs.mjs",
     "scripts/update-richemont-jobs.mjs",
@@ -1378,8 +1379,8 @@
     {
       "file": "crawler-group-21.yml",
       "sourceLogic": "crawler-group-21-logic.yml",
-      "sourceSha256": "74a6e0c8462d28198ef9645365d0023c223f8b02087f5e3e4bd940d0f63d9532",
-      "artifactSha256": "e59c01c3f51251c7bf1a3f0c84b8618a4c02a2bf006afb67750674aa1c077ba4",
+      "sourceSha256": "7033964b8237e70569570d0be9f45f45d1989c73c4372003e5c80f15b1bbe2c6",
+      "artifactSha256": "241e584fbae16126d2f9fc83276675d992e13132e23995da44808fe0382bd8c2",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "orell-fuessli-thalia",
@@ -1409,14 +1410,15 @@
         "clinique-le-noirmont",
         "geberit",
         "lombard-odier",
-        "kone"
+        "kone",
+        "proman-fleurier"
       ]
     },
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "c8724a9edf09335bd3e21ee790b80b6edc125f4a67a60943780a84702c656f03",
-      "artifactSha256": "ed61808588426fdd1f3f4d829e808da11aebc1662d843a8b0bd68cb3fd5b7bb0",
+      "sourceSha256": "7f0b71ccbe0d41ef934f986d724bb09b00a4c7613d63e84f98185442d1fd4b94",
+      "artifactSha256": "6798740c26555c93b4559714f0ca20ad73d3e768da02d8abad9b9ccf4a5a837e",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "rittmeyer",
@@ -1447,7 +1449,7 @@
         "bachtelen",
         "alcon",
         "yellowshark",
-        "proman-fleurier"
+        "rh-expert-ch"
       ]
     },
     {
