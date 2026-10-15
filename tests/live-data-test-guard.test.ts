@@ -220,6 +220,15 @@ describe('il rilevatore', () => {
     expect(uncovered).toEqual([]);
   });
 
+  it('sposta lo snapshot translation nel monitor senza escludere il file intero dal gate PR', () => {
+    const entry = LIVE_DATA_PARTIAL_TESTS.find(
+      (candidate) => candidate.file === 'tests/translation-coverage-monitor.test.ts',
+    );
+    expect(entry?.roots).toContain('data/translation-stats-history.json');
+    expect(listLiveDataTestsForCi()).not.toContain('tests/translation-coverage-monitor.test.ts');
+    expect(listLiveDataMonitorTests()).toContain('tests/translation-coverage-monitor.test.ts');
+  });
+
   it('lega le radici del bot inventory ai test live, incluso il reciprocity guard SEO', () => {
     const contracts = [
       { file: 'tests/seo/rate-baseline-internal-consistency.test.ts', root: 'data/active-jobs-baseline.json' },
