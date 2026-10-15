@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4",
+  "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4"
+    "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:481a2cf44ebe438578e6898d0d9a6b6eeefa7b8d1a1793b413912ddf67791e60",
+    "rosterDigest": "sha256:f1a69b6f4de36bccd181f5f2e8a739e4c7600f40b042be126707db27789d2ae9",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -543,6 +543,7 @@
     "scripts/update-tally-weijl-jobs.mjs",
     "scripts/update-tarchini-group-jobs.mjs",
     "scripts/update-tecan-jobs.mjs",
+    "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
@@ -1198,8 +1199,8 @@
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "7b6ae9ab533192a44069b46f278a9e0c1e1e4155e7400774cc11cb00bc1df9ab",
-      "artifactSha256": "2ba0036d6836d216f637c5550197123fb01a84e85cac012845c6374738e77631",
+      "sourceSha256": "44b9331aa0a3613400bb1b41b7c36ed5e0bb27987e7f89811f39d9da29573b04",
+      "artifactSha256": "46fe98b3538a7994f17305b39cbfb2b1952bc2343c6c9ca198dc59543c76c692",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ksgr",
@@ -1229,14 +1230,15 @@
         "benteler",
         "adullam",
         "buersten-technik",
-        "matterhorn-gotthard-bahn"
+        "matterhorn-gotthard-bahn",
+        "gipo"
       ]
     },
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "a58850a972ee36767fc244713851f918cd83279f1a84edda6e6234f4f33065fb",
-      "artifactSha256": "69ebca0c6171f6dc2098943752fca816c1708e4131b04aac9bd3c8d3ad0c2552",
+      "sourceSha256": "eefc658ea6de6d477913bebc14733a3575c9755297fa992df365b9eba220334b",
+      "artifactSha256": "8be6bb59526c4768c5ade01223091c088a250f2674384f499561eabe29980c4b",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1267,7 +1269,7 @@
         "board",
         "aldi-suisse",
         "badrutts-palace",
-        "gipo"
+        "technic-emplois"
       ]
     },
     {

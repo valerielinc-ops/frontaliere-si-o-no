@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "groups": {
     "10": [
       "atec-personal",
@@ -203,6 +203,7 @@
       "franklin-university",
       "gemeinde-st-moritz",
       "ghol",
+      "gipo",
       "hopital-la-tour",
       "kantonsspital-graubuenden-ksgr",
       "kispi-sg",
@@ -229,7 +230,6 @@
       "elettra-1938",
       "evam-vaud",
       "gim-architekten",
-      "gipo",
       "holmes-place",
       "imerys",
       "implenia",
@@ -245,6 +245,7 @@
       "siemens-healthineers",
       "spital-zofingen",
       "sygnum",
+      "technic-emplois",
       "veeam",
       "zurich-insurance-sede-ticino"
     ],
@@ -1264,6 +1265,7 @@
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
     "tarchini-group": "data/jobs/by-crawler/tarchini-group.json",
     "tecan": "data/jobs/by-crawler/tecan.json",
+    "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
@@ -1324,5 +1326,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:481a2cf44ebe438578e6898d0d9a6b6eeefa7b8d1a1793b413912ddf67791e60"
+  "digest": "sha256:f1a69b6f4de36bccd181f5f2e8a739e4c7600f40b042be126707db27789d2ae9"
 }
