@@ -1246,6 +1246,35 @@ export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
 const INSTITUTION_NOUN = String.raw`(?:Ufficio|Uffici|Istituto|Agenzia|Commissione|Osservatorio|Autorit[àa]|Dipartimento|Segreteria|Direzione|Ente|Amministrazione)`;
 const INSTITUTION_RE = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?)\(([A-Z]{2,8})\)`, 'g');
 
+// A generated sentence can move a person's appositive after the institution
+// role: `direttore del Dipartimento ... Martin Bühler (PLR)`. The regex above
+// then sees the institution noun and mistakes the person's political
+// affiliation for an institution acronym. Keep party labels out of this gate
+// only when both halves of that shape are present; an unknown acronym directly
+// attached to an institution must remain reportable.
+const POLITICAL_AFFILIATION_ACRONYMS = new Set([
+  'PLR', 'PSS', 'PS', 'UDC', 'PDC', 'PPD', 'PVL', 'PEV', 'UDF', 'PBD', 'PCS', 'MCG',
+  'FDP', 'SP', 'SVP', 'CVP', 'GLP', 'EVP', 'EDU', 'BDP', 'LDP',
+]);
+const PERSON_NAME_SUFFIX_RE = /(?:^|[\s,])(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){1,2}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
+const PERSON_ROLE_CUE_RE = /\b(?:direttor[ea]|president[ea]|consiglier[ae]|ministr[oa]|assessor[ea]|sindac[oa]|governator[ei]|deputat[oa]|candidat[oa]|esponent[ei]|responsabile|portavoce|segretar[ioae]|capogruppo|membro|vicepresident[ea])\b/iu;
+
+function isPoliticalAffiliationAfterPerson(text, match, acronym) {
+  if (!POLITICAL_AFFILIATION_ACRONYMS.has(acronym)) return false;
+  if (!PERSON_NAME_SUFFIX_RE.test(match[1]?.trim() || '')) return false;
+
+  const matchStart = typeof match.index === 'number' ? match.index : -1;
+  if (matchStart < 0) return false;
+  const before = text.slice(Math.max(0, matchStart - 180), matchStart);
+  const sentenceStart = Math.max(
+    before.lastIndexOf('.'),
+    before.lastIndexOf('!'),
+    before.lastIndexOf('?'),
+    before.lastIndexOf('\n'),
+  );
+  return PERSON_ROLE_CUE_RE.test(before.slice(sentenceStart + 1));
+}
+
 /** Below this, a source page is too thin to conclude anything from an absence. */
 const MIN_SOURCE_CHARS_FOR_SUPPORT = 400;
 
@@ -1293,6 +1322,7 @@ export function collectInstitutionAcronyms(text, opts = {}) {
   const seen = new Set();
   for (const m of text.matchAll(INSTITUTION_RE)) {
     const [, name, acronym] = m;
+    if (isPoliticalAffiliationAfterPerson(text, m, acronym)) continue;
     if (seen.has(acronym)) continue;
     seen.add(acronym);
 
@@ -1336,6 +1366,7 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
   const seen = new Set();
   for (const m of text.matchAll(INSTITUTION_RE)) {
     const [full, name, acronym] = m;
+    if (isPoliticalAffiliationAfterPerson(text, m, acronym)) continue;
     // The curated allowlist wins over everything, including the learner: a
     // human checked a register, the learner counted. Belt and braces — the
     // memory refuses to promote allowlisted acronyms too (evaluateEntity).

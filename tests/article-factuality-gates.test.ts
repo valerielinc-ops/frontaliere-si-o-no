@@ -23,6 +23,7 @@ import {
   checkInlineArithmetic,
   checkTaxPlausibility,
   checkCrossSectionNumericConflicts,
+  collectInstitutionAcronyms,
   checkFabricatedInstitutionAcronyms,
   checkFabricatedNormAcronyms,
   FABRICATED_NORM_ACRONYMS,
@@ -587,6 +588,30 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     );
     expect(codes(issues)).toContain('unknown-institution');
     expect(issues[0].severity).toBe('major');
+  });
+
+  it('does not treat a politician affiliation as the institution acronym', () => {
+    const text = 'Nel corso della conferenza stampa, il direttore del Dipartimento '
+      + 'grigionese delle finanze e dei comuni Martin Bühler (PLR) ha precisato.';
+
+    expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+    expect(collectInstitutionAcronyms(text)).toEqual([]);
+  });
+
+  it('still reports an unknown acronym attached directly to an institution', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il Dipartimento grigionese delle finanze e dei comuni (DFG) ha pubblicato il preventivo.',
+    );
+
+    expect(codes(issues)).toContain('unknown-institution');
+  });
+
+  it('does not let a person-affiliation guard hide a fabricated institution', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento delle finanze Mario Bühler (UFI) ha parlato.',
+    );
+
+    expect(codes(issues)).toContain('fabricated-institution');
   });
 });
 
