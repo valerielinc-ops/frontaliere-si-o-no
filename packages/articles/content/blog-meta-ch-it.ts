@@ -8351,6 +8351,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassi-conti-3a-ottobre-2024.title': 'Conti 3a: tassi medi allo 0,21% e forti divari tra banche',
     'blog.article.tassi-conti-3a-ottobre-2024.excerpt': 'Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d\'Epargne d\'Aubonne offre l\'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30',
     'blog.article.tassi-conti-3a-ottobre-2024.imageAlt': 'Edificio bancario moderno in Svizzera',
+    'blog.article.amaudruz-candidatura-federale.title': 'Céline Amaudruz si candida al Consiglio federale',
+    'blog.article.amaudruz-candidatura-federale.excerpt': 'Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L\'elezione è fissata il 9 dicembre Scadenza: 23 ottobre',
+    'blog.article.amaudruz-candidatura-federale.imageAlt': 'Palazzo federale svizzero in una scena editoriale sulla candidatura al Consiglio federale',
 };
 
 export default blogMetaChIt;

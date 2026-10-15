@@ -2806,6 +2806,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premio-economia-stabilizzazione': { it: 'premio-economia-stabilizzazione', en: 'economics-prize-stabilization', de: 'wirtschaftspreis-stabilisierung', fr: 'prix-economie-stabilisation' },
  'migros-nuovo-contratto-lavoro-2027': { it: 'migros-nuovo-contratto-lavoro-2027', en: 'migros-new-labor-contract-2027', de: 'migros-neuer-gesamtarbeitsvertrag-2027', fr: 'migros-nouveau-contrat-travail-2027' },
  'tassi-conti-3a-ottobre-2024': { it: 'tassi-conti-3a-ottobre-2024', en: '3a-pillar-account-rates-october-2024', de: '3a-kontozinsen-oktober-2024', fr: 'taux-comptes-3a-octobre-2024' },
+ 'amaudruz-candidatura-federale': { it: 'amaudruz-candidatura-federale', en: 'amaudruz-federal-council-candidacy', de: 'amaudruz-kandidatur-bundesrat', fr: 'amaudruz-candidature-conseil-federal' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

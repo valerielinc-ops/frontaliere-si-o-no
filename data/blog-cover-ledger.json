@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5482
+      "6": 5483
     },
-    "publishedCovers": 7063,
+    "publishedCovers": 7064,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5287
+    "inferredRecords": 5288
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -184366,6 +184366,33 @@
           "id": "alliance-care-fallimento-procedura",
           "category": "novita",
           "date": "2026-10-14T20:03:53.978Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-amaudruz-candidatura-federale": {
+      "cover": "/images/blog/article-amaudruz-candidatura-federale.webp",
+      "hash": "e7589d86a3cb0a405086ab188076e32db922083891c9f5a023e3bbce223224aa",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "amaudruz-candidatura-federale",
+          "category": "novita",
+          "date": "2026-10-15T09:20:43.055Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

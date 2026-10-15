@@ -105443,6 +105443,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-amaudruz-candidatura-federale': {
+    title: 'Céline Amaudruz si candida al Consiglio federale',
+    description: 'Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L\'elezione è fissata il 9 dicembre Scadenza: 23 ottobre',
+    keywords: 'frontalieri, ticino, svizzera, italia, céline, amaudruz, candida, consiglio',
+    ogTitle: 'Amaudruz candidata al Consiglio federale',
+    ogDescription: 'Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L\'elezione è fissata il 9 dicembre Scadenza: 23 ottobre',
+    canonicalPath: '/articoli-svizzera/amaudruz-candidatura-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Céline Amaudruz si candida al Consiglio federale",
+      "description": "Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L'elezione è fissata il 9 dicembre Scadenza: 23 ottobre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-amaudruz-candidatura-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale svizzero in una scena editoriale sulla candidatura al Consiglio federale"
+      },
+      "datePublished": "2026-10-15T09:20:43+00:00",
+      "dateModified": "2026-10-15T09:20:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amaudruz-candidatura-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

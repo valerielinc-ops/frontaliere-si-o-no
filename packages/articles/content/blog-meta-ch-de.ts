@@ -8351,6 +8351,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassi-conti-3a-ottobre-2024.title': '3a-Konten: 0,21% im Schnitt, grosse Zinsunterschiede',
     'blog.article.tassi-conti-3a-ottobre-2024.excerpt': 'Der durchschnittliche 3a-Zinssatz ist im Oktober auf 0,21% gesunken Die Caisse d\'Epargne d\'Aubonne bietet 1% 68 von 93 Instituten zahlen höchstens 0,2% 500 Franken pro Monat für 30',
     'blog.article.tassi-conti-3a-ottobre-2024.imageAlt': 'Modernes Bankgebäude in der Schweiz',
+    'blog.article.amaudruz-candidatura-federale.title': 'Céline Amaudruz kandidiert für den Bundesrat',
+    'blog.article.amaudruz-candidatura-federale.excerpt': 'Amaudruz kündigt in Genf ihre Kandidatur an Sie ist die erste bestätigte Kandidatin für die Nachfolge von Parmelin Die Wahl ist für den 9.',
+    'blog.article.amaudruz-candidatura-federale.imageAlt': 'Schweizer Bundesgebäude in einer redaktionellen Szene zur Bundesratskandidatur',
 };
 
 export default blogMetaChDe;

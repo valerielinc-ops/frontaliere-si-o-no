@@ -8351,6 +8351,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassi-conti-3a-ottobre-2024.title': '3a accounts: average rates of 0,21% and wide disparities among banks',
     'blog.article.tassi-conti-3a-ottobre-2024.excerpt': 'The average 3a rate fell to 0,21% in October Caisse d\'Epargne d\'Aubonne offers 1% 68 out of 93 institutions pay a maximum of 0,2% 500 francs per month for 30',
     'blog.article.tassi-conti-3a-ottobre-2024.imageAlt': 'Modern bank building in Switzerland',
+    'blog.article.amaudruz-candidatura-federale.title': 'Céline Amaudruz is running for the Federal Council',
+    'blog.article.amaudruz-candidatura-federale.excerpt': 'Amaudruz announces candidacy in Geneva She is the first confirmed candidate to succeed Parmelin The election is set for December 9 Deadline: October 23',
+    'blog.article.amaudruz-candidatura-federale.imageAlt': 'Swiss federal building in an editorial scene about a Federal Council candidacy',
 };
 
 export default blogMetaChEn;

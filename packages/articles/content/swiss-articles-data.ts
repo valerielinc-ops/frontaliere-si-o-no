@@ -27924,6 +27924,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'amaudruz-candidatura-federale',
+    category: 'novita',
+    date: '2026-10-15T09:20:43.055Z',
+    image: '/images/blog/article-amaudruz-candidatura-federale.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
