@@ -1449,6 +1449,18 @@ function _stopCodex(reason) {
   console.log(`⏹️  [codex] ${reason} — tier Codex saltato per il resto del processo`);
 }
 
+// Same vocabulary as the primary-lane circuit of ai-models.mjs
+// (`_codexPrimaryFailureReason`), whose «skipped — … (quota/rate-limit)»
+// error every later call raises once the circuit is open.
+const CODEX_QUOTA_ERROR_RE = /quota|rate.?limit|request limit|usage limit|\b429\b/i;
+
+/** `quota esaurita (…)` when `err` is a quota or rate-limit refusal, else ''. */
+export function _codexQuotaStopReason(err) {
+  const msg = String(err?.message || err || '');
+  if (!CODEX_QUOTA_ERROR_RE.test(msg)) return '';
+  return 'quota esaurita (quota/rate-limit)';
+}
+
 function _codexFailureKey(text, targetLang) {
   return JSON.stringify([
     normalizeBlock(text).toLowerCase(),
@@ -1820,7 +1832,15 @@ async function _translateGroupWithCodex(group) {
     // `tryTier` conta l'errore in `tierErrors.codex`, testo per testo.
     for (const item of group) _logCodexNonTranslation(item, 'error');
     _codexFailedRequests += 1;
-    _noteCodexFailure(unique, targetLang);
+    // A quota or rate-limit refusal is the budget running out, not a broken
+    // lane: stop for that reason instead of counting it towards «N fallimenti
+    // consecutivi», which the reserve report reads as a failed lane. Run
+    // 38686616395 (2026-10-15): phase 2e translated 1166 texts, the quota ran
+    // out, three refused calls stopped the tier and the run's verdict became
+    // `codex-failed`.
+    const quotaStop = _codexQuotaStopReason(err);
+    if (quotaStop) _stopCodex(quotaStop);
+    else _noteCodexFailure(unique, targetLang);
     throw err;
   }
   // La guardia vale anche per la cascata: un'eco del prompt non e' un

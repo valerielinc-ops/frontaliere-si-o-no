@@ -2672,6 +2672,33 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   a deliberate thin-source quarantine. Internal callers only; unproven
  *   removals remain blocked by the byte guard.
  */
+/**
+ * The description as writeJobsCrawlerSlice stores it: artifact clean-up, then
+ * line-start bullet recovery, both idempotent. One helper for the in-place
+ * normalization and for the views that judge a record before it runs.
+ */
+function writtenDescriptionText(text) {
+  return normalizeDescriptionBullets(cleanCrawlerArtifacts(text));
+}
+
+/** A copy of `job` whose descriptions read as writeJobsCrawlerSlice will store them. */
+function withWrittenDescriptions(job) {
+  if (!job || typeof job !== 'object') return job;
+  const view = { ...job };
+  if (typeof job.description === 'string' && job.description) {
+    view.description = writtenDescriptionText(job.description);
+  }
+  if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
+    view.descriptionByLocale = Object.fromEntries(
+      Object.entries(job.descriptionByLocale).map(([locale, text]) => [
+        locale,
+        typeof text === 'string' && text ? writtenDescriptionText(text) : text,
+      ]),
+    );
+  }
+  return view;
+}
+
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
     throw new TypeError('writeJobsCrawlerSlice: crawlerKey must be a non-empty string');
@@ -2777,7 +2804,15 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
         console.log(`  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} (every flag is kept)`);
       }
     } else {
-      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
+      // Completeness is judged on the record as this writer will store it:
+      // the description clean-up below runs after this point. On the raw
+      // crawl, a repeated paragraph makes the description longer than its
+      // source-locale slot and isIncomplete reads a missing translation
+      // (2026-10-15, Senevita live: 192 of 207 records incomplete raw, 0 of
+      // those 192 once cleaned; the run kept 103 flags as «incomplete»).
+      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, {
+        isIncomplete: (job) => isIncomplete(withWrittenDescriptions(job)),
+      });
       if (retrans.flagged > 0) {
         console.log(
           `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
@@ -2881,15 +2916,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // sees clean line boundaries. Both are idempotent.
   for (const job of hardened.jobs) {
     if (typeof job.description === 'string' && job.description) {
-      let normalized = cleanCrawlerArtifacts(job.description);
-      normalized = normalizeDescriptionBullets(normalized);
+      const normalized = writtenDescriptionText(job.description);
       if (normalized !== job.description) job.description = normalized;
     }
     if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
       for (const [locale, text] of Object.entries(job.descriptionByLocale)) {
         if (typeof text !== 'string' || !text) continue;
-        let normalized = cleanCrawlerArtifacts(text);
-        normalized = normalizeDescriptionBullets(normalized);
+        const normalized = writtenDescriptionText(text);
         if (normalized !== text) job.descriptionByLocale[locale] = normalized;
       }
     }
