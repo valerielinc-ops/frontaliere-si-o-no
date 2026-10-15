@@ -21,7 +21,7 @@ describe('jobsSeoPages company-landing backpressure', () => {
       companyPhase.match(/await collector\.awaitDrainSlot\((\d+)\);/)?.[1],
     );
     const hubFlushThreshold = Number(
-      pluginSource.match(/const HUB_PAGE_WRITE_FLUSH_THRESHOLD = (\d+);/)?.[1],
+      pluginSource.match(/const HUB_PAGE_WRITE_FLUSH_THRESHOLD = ([\d_]+);/)?.[1]?.replaceAll('_', ''),
     );
 
     expect(phaseStart).toBeGreaterThan(-1);
