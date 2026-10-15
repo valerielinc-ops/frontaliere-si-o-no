@@ -13235,6 +13235,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divieti-viabilita-stadio-como.title': 'Como: divieti in via Vittorio Veneto dal 19 al 24 ottobre',
     'blog.article.divieti-viabilita-stadio-como.excerpt': 'Divieti attivi dal 19 ottobre alle 6.30 al 24 ottobre a mezzanotte Como-Manchester United mercoledì 21 alle 18.45 Como-Sassuolo sabato 24 alle 15 Transito',
     'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Segnaletica stradale temporanea in zona urbana',
+    'blog.article.arresto-lite-domestica-luganese.title': 'Luganese, arrestato un 28enne per ipotesi di tentato omicidio',
+    'blog.article.arresto-lite-domestica-luganese.excerpt': 'Arrestato il 9 ottobre un 28enne nel Luganese.',
+    'blog.article.arresto-lite-domestica-luganese.imageAlt': 'Vista del Luganese in Ticino al tramonto',
 };
 
 export default blogMetaIt;

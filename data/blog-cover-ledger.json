@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5497
+      "6": 5498
     },
-    "publishedCovers": 7078,
+    "publishedCovers": 7079,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5302
+    "inferredRecords": 5303
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -184528,6 +184528,33 @@
           "id": "arresti-truffa-chiamate-ticino",
           "category": "pratico",
           "date": "2026-10-14T08:56:53.438Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-arresto-lite-domestica-luganese": {
+      "cover": "/images/blog/article-arresto-lite-domestica-luganese.webp",
+      "hash": "1d14196f7e03c8cc59e8918dc9cbce31e9d8dcafd34161a53907a99dec9cd7b0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arresto-lite-domestica-luganese",
+          "category": "novita",
+          "date": "2026-10-15T15:06:58.250Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

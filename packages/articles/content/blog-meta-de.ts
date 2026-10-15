@@ -13233,6 +13233,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divieti-viabilita-stadio-como.title': 'Como: Verbote in der Via Vittorio Veneto vom 19. bis 24. Oktober',
     'blog.article.divieti-viabilita-stadio-como.excerpt': 'Aktive Verbote vom 19. (Como)',
     'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Temporäre Straßenschilder in einem Stadtgebiet',
+    'blog.article.arresto-lite-domestica-luganese.title': 'Luganese: 28-Jähriger wegen des Verdachts auf versuchte Tötung festgenommen',
+    'blog.article.arresto-lite-domestica-luganese.excerpt': 'Am 9. Oktober wurde ein 28-Jähriger im Luganese festgenommen.',
+    'blog.article.arresto-lite-domestica-luganese.imageAlt': 'Blick auf das Luganese im Tessin bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

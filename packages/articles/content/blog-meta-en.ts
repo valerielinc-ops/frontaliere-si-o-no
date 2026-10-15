@@ -13234,6 +13234,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divieti-viabilita-stadio-como.title': 'Como: prohibitions in Via Vittorio Veneto from 19 to 24 October',
     'blog.article.divieti-viabilita-stadio-como.excerpt': 'Prohibitions active from 19 October at 6.30 to 24 October at midnight Como-Manchester United Wednesday 21 at 18.45 Como-Sassuolo Saturday 24 at 15 Transit',
     'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Temporary road signs in an urban area',
+    'blog.article.arresto-lite-domestica-luganese.title': 'Luganese, 28-year-old arrested on suspicion of attempted murder',
+    'blog.article.arresto-lite-domestica-luganese.excerpt': 'A 28-year-old was arrested in the Lugano area on October 9.',
+    'blog.article.arresto-lite-domestica-luganese.imageAlt': 'View of the Lugano area in Ticino at sunset',
 };
 
 export default blogMetaEn;

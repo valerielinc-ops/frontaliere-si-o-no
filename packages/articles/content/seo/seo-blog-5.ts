@@ -108682,6 +108682,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-lite-domestica-luganese': {
+    title: 'Luganese, arrestato un 28enne per ipotesi di tentato omicidio',
+    description: 'Arrestato il 9 ottobre un 28enne nel Luganese. La lite è avvenuta in ambito domestico. Una donna ferita è stata visitata in ospedale. Le ferite non hanno messo',
+    keywords: 'frontalieri, ticino, svizzera, italia, luganese, arrestato, 28enne, ipotesi',
+    ogTitle: 'Luganese: arrestato un 28enne dopo una lite domestica',
+    ogDescription: 'Arrestato il 9 ottobre un 28enne nel Luganese.',
+    canonicalPath: '/articoli-frontaliere/arresto-lite-domestica-luganese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luganese, arrestato un 28enne per ipotesi di tentato omicidio",
+      "description": "Arrestato il 9 ottobre un 28enne nel Luganese. La lite è avvenuta in ambito domestico. Una donna ferita è stata visitata in ospedale. Le ferite non hanno messo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-arresto-lite-domestica-luganese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Luganese in Ticino al tramonto"
+      },
+      "datePublished": "2026-10-15T15:06:58+00:00",
+      "dateModified": "2026-10-15T15:06:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-lite-domestica-luganese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
