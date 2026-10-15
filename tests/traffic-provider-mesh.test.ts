@@ -68,6 +68,37 @@ describe('traffic provider mesh', () => {
     ]));
   });
 
+  it('rejects null and non-numeric webcam measurements before validation', () => {
+    const make = (feedKey: string, extra: Record<string, unknown> = {}) => ({
+      feedKey,
+      provider: 'tomtom',
+      congestionScore: 0,
+      vehicleCount: 0,
+      providerWaitMinutes: 0,
+      candidateWaitMinutes: 0,
+      observedAt: '2026-10-15T06:00:00.000Z',
+      incrementalPaidRequests: 0,
+      ...extra,
+    });
+
+    expect(assessWebcamWaitBaseline(
+      ['feed-a', 'feed-b', 'feed-c'].map((feedKey) => make(feedKey, { candidateWaitMinutes: null })),
+    ).ready).toBe(false);
+    expect(assessWebcamWaitBaseline(
+      ['feed-a', 'feed-b', 'feed-c'].map((feedKey) => make(feedKey, { vehicleCount: '' })),
+    ).ready).toBe(false);
+    expect(estimateWebcamWait(0, {
+      validated: true,
+      feedCount: 3,
+      coverage: 0.8,
+      maeMinutes: null,
+      maxAbsoluteErrorMinutes: null,
+      incrementalPaidRequests: 0,
+      intercept: null,
+      slope: null,
+    }).status).toBe('unknown');
+  });
+
   it('builds the documented preference chain without exposing key values', () => {
     const chain = buildTrafficProviderChain({
       tomtomApiKey: 'tt',

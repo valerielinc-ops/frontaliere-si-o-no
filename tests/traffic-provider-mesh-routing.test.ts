@@ -209,4 +209,29 @@ describe('traffic provider rotation at crossing level', () => {
       }),
     ]);
   });
+
+  it('drops shadow pairs with null or non-numeric feed measurements', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ routes: [{ summary: { travelTimeInSeconds: 120, noTrafficTravelTimeInSeconds: 120 } }] }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    webcamVerdict.mockResolvedValue({
+      congestionScore: 0.7,
+      queueDetected: false,
+      visibility: 'good',
+      feeds: [],
+      feedObservations: [
+        { feedKey: 'null-vehicles', congestionScore: 0.7, vehicleCount: null, visibility: 'good' },
+        { feedKey: 'empty-score', congestionScore: '', vehicleCount: 7, visibility: 'good' },
+      ],
+    });
+
+    const result = await fetchCrossingTraffic(
+      { name: 'Chiasso-Brogeda', lat: 45.8409, lng: 9.0376 },
+      { hereApiKey: 'here-key', enableWebcam: true },
+    );
+
+    expect(result).not.toHaveProperty('webcamBaselineObservations');
+  });
 });

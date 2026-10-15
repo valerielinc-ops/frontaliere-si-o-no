@@ -352,8 +352,7 @@ async function reserveRequestIfNeeded(options, providerId, operation = 'route') 
 }
 
 function finiteNonNegative(value) {
- const n = Number(value);
- return Number.isFinite(n) && n >= 0 ? n : null;
+ return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
 }
 
 const WEBCAM_BASELINE_PROVIDER_IDS = new Set(['tomtom', 'here']);
@@ -380,24 +379,23 @@ export function buildWebcamBaselineObservations({
 
  return webcam.feedObservations
   .filter((feed) => {
-   const score = Number(feed?.congestionScore);
-   const vehicles = Number(feed?.vehicleCount);
+   const score = finiteNonNegative(feed?.congestionScore);
+   const vehicles = finiteNonNegative(feed?.vehicleCount);
    return feed?.visibility === 'good'
     && typeof feed?.feedKey === 'string'
     && feed.feedKey.trim().length > 0
-    && Number.isFinite(score)
+    && score !== null
     && score >= 0
     && score <= 1
-    && Number.isFinite(vehicles)
-    && vehicles >= 0;
+    && vehicles !== null;
   })
   .map((feed) => ({
    crossingName,
    provider,
    providerWaitMinutes: wait,
    feedKey: feed.feedKey,
-   vehicleCount: Number(feed.vehicleCount),
-   congestionScore: Number(feed.congestionScore),
+   vehicleCount: feed.vehicleCount,
+   congestionScore: feed.congestionScore,
    queueDetected: feed.queueDetected === true,
    observedAt,
    // The route and webcam observations share this collector run; no extra

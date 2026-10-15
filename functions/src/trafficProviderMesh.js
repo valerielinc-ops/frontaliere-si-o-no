@@ -38,8 +38,7 @@ export const WEBCAM_WAIT_CAP_MINUTES = 30;
 const WEBCAM_BASELINE_PROVIDERS = new Set(['tomtom', 'here']);
 
 function finiteNumber(value) {
-  const number = Number(value);
-  return Number.isFinite(number) ? number : null;
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
 }
 
 function validObservedAt(value) {
