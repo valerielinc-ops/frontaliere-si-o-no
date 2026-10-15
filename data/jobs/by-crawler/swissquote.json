@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swissquote",
-  "assembledAt": "2026-10-14T21:33:41.728Z",
+  "assembledAt": "2026-10-15T09:37:47.120Z",
   "jobs": [
     {
       "id": "swissquote-1d277d053de5",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000131922490-customer-care-representative-20-",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.653Z",
+      "crawledAt": "2026-10-15T09:37:31.018Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000140860279-compliance-officer-investigations-",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.652Z",
+      "crawledAt": "2026-10-15T09:37:31.017Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000143473659-search-ai-visibility-specialist",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.650Z",
+      "crawledAt": "2026-10-15T09:37:31.014Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000141185012-client-service-representative",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:33:34.650Z",
+      "crawledAt": "2026-10-15T09:37:31.015Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -354,7 +354,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000144479661-endpoint-engineer",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.647Z",
+      "crawledAt": "2026-10-15T09:37:31.008Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -485,7 +485,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "swissquote-8d3097aef2a4",
@@ -518,7 +519,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000144750569-financial-accountant",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.644Z",
+      "crawledAt": "2026-10-15T09:37:31.010Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -599,7 +600,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000145230149-design-system-specialist",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.642Z",
+      "crawledAt": "2026-10-15T09:37:31.012Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -681,7 +682,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000146204309-site-reliability-engineer-cloud-operations",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.640Z",
+      "crawledAt": "2026-10-15T09:37:31.002Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -763,7 +764,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000145764819-site-reliability-engineer-efx-crypto",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.635Z",
+      "crawledAt": "2026-10-15T09:37:31.006Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -844,7 +845,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000145724510-central-data-agent-3-months-contract",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:33:34.632Z",
+      "crawledAt": "2026-10-15T09:37:31.004Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -928,7 +929,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000147261840-apprenti-e-employe-e-de-commerce-banque",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:33:34.630Z",
+      "crawledAt": "2026-10-15T09:37:30.999Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1023,7 +1024,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000147256652-apprenti-e-informaticien-ne-exploitation-et-reseau",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:33:34.629Z",
+      "crawledAt": "2026-10-15T09:37:31.000Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1104,7 +1105,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000147471249-compliance-officer-sanctions",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.628Z",
+      "crawledAt": "2026-10-15T09:37:30.992Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1196,7 +1197,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000147262632-apprenti-e-mediamaticien-ne",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:33:34.625Z",
+      "crawledAt": "2026-10-15T09:37:30.995Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1291,7 +1292,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000147263239-apprenti-e-employe-e-de-commerce-service-administration",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:33:34.622Z",
+      "crawledAt": "2026-10-15T09:37:30.996Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1386,7 +1387,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000148695060-head-of-internal-audit-director",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.621Z",
+      "crawledAt": "2026-10-15T09:37:30.989Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1477,7 +1478,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000149006041-customer-care-representative-",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.617Z",
+      "crawledAt": "2026-10-15T09:37:30.985Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1581,7 +1582,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000149277575-crypto-compliance-officer-monitoring",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.614Z",
+      "crawledAt": "2026-10-15T09:37:30.983Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1648,7 +1649,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000149256870-compliance-manager-monitoring-associate-director",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.611Z",
+      "crawledAt": "2026-10-15T09:37:30.980Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1716,7 +1717,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000150014066-compliance-officer-monitoring-6-months-",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.605Z",
+      "crawledAt": "2026-10-15T09:37:30.978Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1794,7 +1795,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000150127569-fx-execution-trader",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.602Z",
+      "crawledAt": "2026-10-15T09:37:30.972Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1878,7 +1879,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000152634359-software-engineer-python-php-postgresql",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.598Z",
+      "crawledAt": "2026-10-15T09:37:30.964Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1946,7 +1947,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000152612120-regulatory-reporting-specialist",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.595Z",
+      "crawledAt": "2026-10-15T09:37:30.969Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2028,7 +2029,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000151299399-head-of-controlling-risk-director",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.592Z",
+      "crawledAt": "2026-10-15T09:37:30.975Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2110,7 +2111,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000152604379-fraud-officer-",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.587Z",
+      "crawledAt": "2026-10-15T09:37:30.967Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2204,7 +2205,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000152952129-relationship-manager-external-asset-managers-eam-",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.582Z",
+      "crawledAt": "2026-10-15T09:37:30.961Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2287,7 +2288,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000154114920-compliance-assistant-investigations-temporary",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.573Z",
+      "crawledAt": "2026-10-15T09:37:30.955Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2365,7 +2366,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000153489616-kundenberater-in-customer-care-80-100-",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:33:34.568Z",
+      "crawledAt": "2026-10-15T09:37:30.957Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2443,7 +2444,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000152980529-android-software-engineer",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.566Z",
+      "crawledAt": "2026-10-15T09:37:30.959Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2518,7 +2519,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000153489345-customer-care-representative",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.561Z",
+      "crawledAt": "2026-10-15T09:37:30.956Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2581,9 +2582,9 @@
     },
     {
       "id": "swissquote-8a89632b4f44",
-      "slug": "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland",
+      "slug": "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland-20ab04b8f9",
       "slugByLocale": {
-        "it": "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland",
+        "it": "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland-20ab04b8f9",
         "en": "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland",
         "de": "leiter-in-der-integritat-des-kundenlebenszyklus-direktor-in-mitglied-der-oberen-fuhrungsebene-swissquote-gland",
         "fr": "responsable-de-l-integrite-du-cycle-de-vie-des-clients-directeur-membre-de-la-haute-direction-swissquote-gland"
@@ -2633,11 +2634,13 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland"
+        "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland",
+        "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland"
+          "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland",
+          "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland"
         ],
         "de": [
           "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland"
@@ -2659,7 +2662,8 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "swissquote-6661e4e43b78",
@@ -2692,7 +2696,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000154953415-private-sales-manager",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:33:34.552Z",
+      "crawledAt": "2026-10-15T09:37:30.915Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2770,7 +2774,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000154592029-new-client-onboarding-manager",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.549Z",
+      "crawledAt": "2026-10-15T09:37:30.951Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2849,7 +2853,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000155428239-head-trader-efx-spot-associate-director",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.544Z",
+      "crawledAt": "2026-10-15T09:37:30.945Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2927,7 +2931,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000154594579-quality-control-remediations-manager",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.538Z",
+      "crawledAt": "2026-10-15T09:37:30.948Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3002,7 +3006,7 @@
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000155214310-existing-clients-manager",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:33:34.512Z",
+      "crawledAt": "2026-10-15T09:37:30.937Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3053,38 +3057,38 @@
       }
     },
     {
-      "id": "swissquote-8e9b974380d9",
-      "slug": "responsabile-del-trading-efx-spot-direttore-associato-swissquote-gland-b49b6b2765",
+      "id": "swissquote-83969a2912ef",
+      "slug": "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland-f538196e57",
       "slugByLocale": {
-        "it": "responsabile-del-trading-efx-spot-direttore-associato-swissquote-gland-b49b6b2765",
-        "en": "head-trader-efx-spot-associate-director-swissquote-gland",
-        "de": "leiter-des-efx-spot-handels-stellvertretender-direktor-swissquote-gland",
-        "fr": "responsable-du-trading-efx-spot-directeur-associe-swissquote-gland"
+        "en": "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland",
+        "it": "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland-f538196e57",
+        "de": "leiter-in-der-integritat-des-kundenlebenszyklus-direktor-in-mitglied-der-oberen-fuhrungsebene-swissquote-gland",
+        "fr": "responsable-de-l-integrite-du-cycle-de-vie-des-clients-directeur-membre-de-la-haute-direction-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
       "companyDomain": "swissquote.com",
-      "title": "Head Trader eFX Spot – Associate-Director",
+      "title": "Head Client Lifecycle Integrity – Director – Member of Senior Management",
       "titleByLocale": {
-        "it": "Responsabile del trading eFX Spot – Direttore associato",
-        "en": "Head Trader eFX Spot – Associate-Director",
-        "de": "Leiter des eFX-Spot-Handels – Stellvertretender Direktor",
-        "fr": "Responsable du trading eFX Spot – Directeur associé"
+        "it": "Responsabile dell'integrità del ciclo di vita dei clienti – Direttore – Membro dell'Alta Direzione",
+        "en": "Head Client Lifecycle Integrity – Director – Member of Senior Management",
+        "de": "Leiter/in der Integrität des Kundenlebenszyklus – Direktor/in – Mitglied der oberen Führungsebene",
+        "fr": "Responsable de l’intégrité du cycle de vie des clients – Directeur – Membre de la haute direction"
       },
-      "description": "As an Associate-Director in the FX & DA Trading department, you will be in charge of the eFX Spot team. Reporting directly to the Head Spot Vice-Director, you will supervise the operational activities and manage people in accordance with your senior management.\n Key responsibilities\n Team Management:\n\n• Leading and supporting the eFX Spot team:\n• Fostering a positive work atmosphere where employees feel motivated, valued, and connected to the team and the organization.\n\n• Promoting collaboration, trust, and cohesion among team members.\n\n• Addressing any potential conflicts among team members to your senior management and/or HR Partner\n\n• Supporting employee growth through training, mentorship, coaching, and advancement opportunities.\n\n• Hiring:\n• Leading the recruitment process with your Talent Acquisition Partner\n\n• Ensuring new hires are properly introduced to the team, the organization, its culture, policies, and their specific roles.\n\n• Performance Management: Setting performance expectations, providing feedback, conducting performance reviews, and addressing any performance issues.\n\n• Conducting under performance process with the help of your Senior Management and HR Partner.\n Operational duties:\n\n• Own the realized risk and PnL\n\n• Ensure successful and compliant operations\n• Monitor orders, trades, overall market conditions, news flow, real-time risk and PnL\n\n• Fine-tune price construction, execution and risk management production systems\n\n• Monitor the overall client activity and ensure flow quality, as well as smooth client trading experience\n\n• Maintain a gainful network of hedging counterparties and market venues\n\n• Analyze results, identify and drive improvements\n\n• Data analysis: Use internal analytical tools and your own quantitative capabilities to draw data-driven conclusions, suggest actions, deliver reporting\n\n• Documentation: maintain up-to-date operational procedures and ensure compliance\n\n• Collaborating: Be a reference point for Sales, Software Engineers, IT colleagues and other internal teams\n\n• Project Management: Contribute to product development and infrastructure improvements\n\n• Monitoring: team’s capacity allocation\n\n• Minimum 8 years’ experience in sell-side electronic FX trading\n\n• Previous experience in a leadership role is a strong advantage\n\n• Deep understanding of market (micro)structure\n\n• Deep understanding of client needs (both retail and institutional segments) and the competition landscape\n\n• Proficient in transforming large data sets into actionable insights\n\n• Ability to prioritize and deliver multiple tasks in a deadline-driven environment\n\n• Excellent interpersonal skills, results-oriented, team player\n\n• Excellent communication and presentation skills",
+      "description": "As part of its ongoing organisational evolution, Swissquote is creating a new department, the Client Lifecycle Integrity (CLI) Department. Acting as a 1.5 line of defence and independent from the Front Office, the CLI brings together key activities supporting the integrity-related management of private client relationships throughout their lifecycle, from onboarding and periodic reviews to AML transaction monitoring.\n In this context, the Head Client Lifecycle Integrity will play a key leadership role in shaping and implementing the new organisation. As a member of Senior Management and Director, the role is responsible for defining the CLI’s strategic direction, establishing an effective and forward-looking operating model, driving a culture of continuous improvement and operational excellence and ensuring the successful integration and performance of its different activities, in compliance with all applicable laws, regulations and internal policies. The Head Client Lifecycle Integrity shall in particular have a strong focus on technology enablement, AI-driven optimisation and operational scalability, with a strong client-centric and data-driven approach.\n The Head Client Lifecycle Integrity will act as a senior partner to the Executive Management and work closely with the Front Office, Group foreign entities, the Compliance Department as well as technology functions to continuously enhance the Bank’s integrity-related client lifecycle framework.\n\nKey responsibilities:\n 1. Leadership, Governance & Stakeholder Management\n\n• Lead the CLI, defining its strategy, organisation, governance and priorities, and establishing clear accountability across the department.\n\n• Establish and maintain a strong, risk-based control environment, ensuring that all activities within the CLI’s remit are effective, consistent and compliant with applicable legal and regulatory requirements, internal policies and the Bank’s risk tolerance.\n\n• Provide senior leadership and direction on complex or sensitive cases and operational matters, driving appropriate escalation and decision-making.\n\n• Represent the CLI at Senior Management and in relevant governance bodies, and act as a strategic partner to the Executive Management, the Front Office, Group foreign entities, the Compliance Department and other key stakeholders.\n\n• Serve as a senior point of contact for FINMA, auditors and other relevant external stakeholders within the CLI’s area of responsibility.\n\n• Drive high standards, quality and effectiveness across the different CLI activities, supported by appropriate policies, procedures, controls, management information and risk and performance indicators.\n\n• Ensure timely reporting of key risk and performance indicators to the Executive Management and relevant governance bodies.\n\n• Build and develop a high-performing management team and foster a culture of strong control, collaboration and operational excellence.\n\n• Contribute to the preparation of external and internal audits, inspections as well as regulatory reviews.\n 2. Client Onboarding, Integrity-related Lifecycle Management & AML Transaction Monitoring\n\n• Oversee private client onboarding (incl. with respect to prospects introduced or managed by Group foreign entities), in line with applicable legal and regulatory requirements, internal policies and the Bank’s risk tolerance.\n\n• Oversee integrity-related lifecycle activities, including periodic and event-driven reviews, changes in circumstances, account maintenance, dormant account processes and closures, ensuring compliant and efficient execution.\n\n• Oversee AML transaction monitoring across all client segments, ensuring effective identification, assessment and escalation of potentially suspicious activities.\n\n• Ensure appropriate risk management and robust governance for complex or high-risk client relationships and transactions, while maintaining effective collaboration with Front Office and the Compliance Department.\n 3. Process Effectiveness, Automation & Continuous Improvement\n\n• Continuously enhance the effectiveness and scalability of CLI processes, with a focus on optimisation, automation and digitalisation.\n\n• Identify and implement opportunities to leverage technology, data, analytics, workflow solutions and AI to reduce manual activities, improve quality, consistency and risk effectiveness and ensure compliance.\n\n• Establish and monitor appropriate operational and quality metrics to identify performance gaps, assess outcomes and support informed management decisions.\n\n• Work closely with technology functions as well as other relevant stakeholders to deliver sustainable improvements across client onboarding, integrity-related lifecycle management and AML transaction monitoring as well as anticipate and adapt to the evolving client onboarding and lifecycle landscapes.\n\n• Foster a culture of continuous improvement, encouraging teams to challenge existing ways of working and identify practical opportunities to enhance operational efficiency and control effectiveness.\n\n• 10+ years of professional experience in a leadership position in Operations, Compliance, AML, Risk Management or similar functions within a banking, financial services or fintech environment.\n\n• Master’s degree in Finance, Economics, Law, Business Administration or equivalent degree.\n\n• Proven track record in process optimisation, automation, digitalisation and operational excellence.\n\n• A relevant certification in project management, process improvement or transformation (e.g. PMP) is considered an asset.\n\n• Strong understanding of how data, technology, workflow tools and AI can be used to enhance control effectiveness, decision-making and operational efficiency.\n\n• Strong expertise in client onboarding, KYC/AML, client lifecycle management and AML transaction monitoring, with a broad understanding of related legal and regulatory requirements.\n\n• Strong decision-making and problem-solving abilities, particularly when dealing with complex or high-impact regulatory and operational matters.\n\n• Demonstrated experience managing and developing large and diverse teams, with a strong track record of building high-performing management structures, developing talent and leadership capabilities, and establishing effective career development and succession planning frameworks.\n\n• Past exposure to Executive Management, regulators, auditors and senior internal stakeholders.\n\n• High level of integrity, sound judgement and professional credibility, combined with strong interpersonal skills and a collaborative leadership approach.\n\n• Native French or English speaker, with full professional fluency in the other language.",
       "descriptionByLocale": {
-        "it": "In qualità di Associate-Director nel reparto FX & DA Trading, sarai responsabile del team eFX Spot. Segnalando direttamente al vicedirettore capo Spot, supervisionerai le attività operative e gestirai le persone in conformità con la tua gestione senior.\nResponsabilità chiave\nTeam Management:\n\n• Guidare e sostenere il team eFX Spot:\n• Promuovere un'atmosfera di lavoro positiva in cui i dipendenti si sentono motivati, valorizzati e collegati al team e all'organizzazione.\n\n• Promuovere la collaborazione, la fiducia e la coesione tra i membri del team.\n\n• Affrontare eventuali conflitti tra i membri del team alla gestione senior e/o partner HR\n\n• Sostenere la crescita dei dipendenti attraverso la formazione, la mentorship, l'allenatore e le opportunità di avanzamento.\n\n• Assunzione:\n• Leader del processo di reclutamento con il tuo Talent Acquisition Partner\n\n• Assicurare nuovi assunti sono adeguatamente introdotti al team, all'organizzazione, alla sua cultura, alle politiche e ai loro ruoli specifici.\n\n• Performance Management: Impostare le aspettative sulle prestazioni, fornire feedback, condurre le recensioni sulle prestazioni e affrontare qualsiasi problema delle prestazioni.\n\n• Condurre sotto processo di performance con l'aiuto del tuo Senior Management e HR Partner.\nDoveri operativi:\n\n• Proprio il rischio realizzato e PnL\n\n• Assicurare operazioni di successo e conformi\n• Monitorare ordini, scambi, condizioni generali di mercato, flusso di notizie, rischio in tempo reale e PnL\n\n• Sistemi di produzione di prezzi, esecuzione e gestione dei rischi\n\n• Monitorare l'attività complessiva del cliente e garantire la qualità del flusso, così come l'esperienza di trading del cliente liscia\n\n• Mantenere una rete guadagnante di hedging controparti e sedi di mercato\n\n• Analizzare i risultati, identificare e migliorare l'azionamento\n\n• Analisi dei dati: Utilizzare strumenti analitici interni e le proprie capacità quantitative per trarre conclusioni basate sui dati, suggerire azioni, fornire report\n\n• Documentazione: mantenere le procedure operative aggiornate e garantire la conformità\n\n• Collaborare: Essere un punto di riferimento per vendite, ingegneri di software, colleghi IT e altri team interni\n\n• Project Management: Contribuire allo sviluppo dei prodotti e ai miglioramenti delle infrastrutture\n\n• Monitoraggio: allocazione della capacità del team\n\n• Esperienza minima di 8 anni nel trading elettronico di FX\n\n• Esperienza precedente in un ruolo di leadership è un forte vantaggio\n\n• Profonda comprensione del mercato (micro)struttura\n\n• Profonda comprensione delle esigenze del cliente (sia segmenti retail che istituzionali) e il paesaggio di concorrenza\n\n• Proficiente nella trasformazione di grandi set di dati in insight attuabili\n\n• Capacità di priorità e di fornire più compiti in un ambiente guidato dalla scadenza\n\n• Eccellente abilità interpersonali, orientata ai risultati, giocatore di squadra\n\n• Ottima capacità di comunicazione e presentazione",
-        "en": "As an Associate-Director in the FX & DA Trading department, you will be in charge of the eFX Spot team. Reporting directly to the Head Spot Vice-Director, you will supervise the operational activities and manage people in accordance with your senior management.\nKey responsibilities\nTeam Management:\n\n• Leading and supporting the eFX Spot team:\n• Fostering a positive work atmosphere where employees feel motivated, valued, and connected to the team and the organization.\n\n• Promoting collaboration, trust, and cohesion among team members.\n\n• Addressing any potential conflicts among team members to your senior management and/or HR Partner\n\n• Supporting employee growth through training, mentorship, coaching, and advancement opportunities.\n\n• Hiring:\n• Leading the recruitment process with your Talent Acquisition Partner\n\n• Ensuring new hires are properly introduced to the team, the organization, its culture, policies, and their specific roles.\n\n• Performance Management: Setting performance expectations, providing feedback, conducting performance reviews, and addressing any performance issues.\n\n• Conducting under performance process with the help of your Senior Management and HR Partner.\nOperational duties:\n\n• Own the realized risk and PnL\n\n• Ensure successful and compliant operations\n• Monitor orders, trades, overall market conditions, news flow, real-time risk and PnL\n\n• Fine-tune price construction, execution and risk management production systems\n\n• Monitor the overall client activity and ensure flow quality, as well as smooth client trading experience\n\n• Maintain a gainful network of hedging counterparties and market venues\n\n• Analyze results, identify and drive improvements\n\n• Data analysis: Use internal analytical tools and your own quantitative capabilities to draw data-driven conclusions, suggest actions, deliver reporting\n\n• Documentation: maintain up-to-date operational procedures and ensure compliance\n\n• Collaborating: Be a reference point for Sales, Software Engineers, IT colleagues and other internal teams\n\n• Project Management: Contribute to product development and infrastructure improvements\n\n• Monitoring: team’s capacity allocation\n\n• Minimum 8 years’ experience in sell-side electronic FX trading\n\n• Previous experience in a leadership role is a strong advantage\n\n• Deep understanding of market (micro)structure\n\n• Deep understanding of client needs (both retail and institutional segments) and the competition landscape\n\n• Proficient in transforming large data sets into actionable insights\n\n• Ability to prioritize and deliver multiple tasks in a deadline-driven environment\n\n• Excellent interpersonal skills, results-oriented, team player\n\n• Excellent communication and presentation skills",
-        "de": "Als Associate-Director in der FX & DA Trading Abteilung sind Sie für das eFX Spot Team verantwortlich. Wenn Sie direkt an den Head Spot Vice-Director berichten, beaufsichtigen Sie die operativen Aktivitäten und führen die Mitarbeiter gemäß Ihrer Geschäftsleitung.\nHauptzuständigkeiten\nTeammanagement:\n\n• Leitung und Unterstützung des eFX Spot Teams:\n• Förderung einer positiven Arbeitsatmosphäre, in der sich die Mitarbeiter motiviert, geschätzt und mit dem Team und der Organisation verbunden fühlen.\n\n• Förderung von Zusammenarbeit, Vertrauen und Zusammenhalt zwischen den Teammitgliedern.\n\n• Adressierung möglicher Konflikte zwischen Teammitgliedern an Ihre Geschäftsleitung und / oder Ihren HR-Partner\n\n• Unterstützung des Mitarbeiterwachstums durch Schulungen, Mentoring, Coaching und Aufstiegsmöglichkeiten.\n\n• Vermietung:\n• Führen Sie den Rekrutierungsprozess mit Ihrem Talent Acquisition Partner\n\n• Sicherzustellen, dass neue Mitarbeiter dem Team, der Organisation, ihrer Kultur, ihren Richtlinien und ihren spezifischen Rollen angemessen vorgestellt werden.\n\n• Leistungsmanagement: Festlegung von Leistungserwartungen, Bereitstellung von Feedback, Durchführung von Leistungsüberprüfungen und Behebung von Leistungsproblemen.\n\n• Durchführung im Rahmen des Leistungsprozesses mit Hilfe Ihres Senior Management- und HR-Partners.\nOperative Aufgaben:\n\n• Eigenes realisiertes Risiko und PnL\n\n• Sicherstellung eines erfolgreichen und konformen Betriebs\n• Überwachen Sie Orders, Trades, allgemeine Marktbedingungen, Nachrichtenfluss, Echtzeitrisiko und PnL\n\n• Feinsteuerung von Produktionssystemen für Preiskonstruktion, Ausführung und Risikomanagement\n\n• Überwachen Sie die gesamte Kundenaktivität und gewährleisten Sie die Flussqualität sowie eine reibungslose Kundenhandelserfahrung\n\n• Aufrechterhaltung eines gewinnbringenden Netzwerks von Hedging-Geschäftspartnern und Marktplätzen\n\n• Ergebnisse analysieren, Verbesserungen identifizieren und vorantreiben\n\n• Datenanalyse: Verwenden Sie interne Analysetools und Ihre eigenen quantitativen Fähigkeiten, um datengesteuerte Schlussfolgerungen zu ziehen, Maßnahmen vorzuschlagen und Berichte zu liefern\n\n• Dokumentation: Aufrechterhaltung aktueller Betriebsverfahren und Gewährleistung der Einhaltung\n\n• Zusammenarbeit: Sei ein Bezugspunkt für Sales, Software Engineers, IT-Kollegen und andere interne Teams\n\n• Projektmanagement: Beitrag zur Produktentwicklung und Infrastrukturverbesserungen\n\n• Überwachung: Kapazitätszuweisung des Teams\n\n• Mindestens 8 Jahre Erfahrung im Sell-Side elektronischen Devisenhandel\n\n• Frühere Erfahrung in einer Führungsrolle ist ein großer Vorteil\n\n• Tiefes Verständnis der Markt-(Mikro-)Struktur\n\n• Tiefes Verständnis der Kundenbedürfnisse (sowohl Retail- als auch institutionelle Segmente) und der Wettbewerbslandschaft\n\n• Geschickte Umwandlung großer Datenmengen in umsetzbare Erkenntnisse\n\n• Möglichkeit zur Priorisierung und Bereitstellung mehrerer Aufgaben in einer terminabhängigen Umgebung\n\n• Hervorragende zwischenmenschliche Fähigkeiten, ergebnisorientiert, Teamplayer\n\n• Hervorragende Kommunikation und Präsentation Fähigkeiten",
-        "fr": "En tant que directeur associé du département FX & DA Trading, vous serez en charge de l'équipe eFX Spot. Sous la responsabilité directe du vice-directeur principal, vous superviserez les activités opérationnelles et gérerez les personnes conformément à votre haute direction.\nPrincipales responsabilités\nGestion d'équipe :\n\n• Diriger et soutenir l'équipe eFX Spot :\n• Favoriser une atmosphère de travail positive où les employés se sentent motivés, valorisés et connectés à l'équipe et à l'organisation.\n\n• Promouvoir la collaboration, la confiance et la cohésion entre les membres de l'équipe.\n\n• S'attaquer aux conflits potentiels entre les membres de l'équipe à la haute direction ou à votre partenaire RH\n\n• Soutenir la croissance des employés par la formation, le mentorat, l'encadrement et les possibilités d'avancement.\n\n• Embaucher:\n• Diriger le processus de recrutement avec votre partenaire d'acquisition de talents\n\n• S'assurer que les nouveaux employés sont bien présentés à l'équipe, à l'organisation, à sa culture, à ses politiques et à leurs rôles particuliers.\n\n• Gestion du rendement : Établir les attentes en matière de rendement, fournir des commentaires, effectuer des examens du rendement et régler toute question de rendement.\n\n• Exécuter un processus de rendement avec l'aide de la haute direction et de votre partenaire RH.\nFonctions opérationnelles :\n\n• Posséder le risque réalisé et PnL\n\n• Assurer le succès et la conformité des opérations\n• Surveiller les commandes, les transactions, les conditions générales du marché, le flux de nouvelles, le risque en temps réel et le PnL\n\n• Construction, exécution et systèmes de production de gestion des risques\n\n• Surveiller l'activité globale du client et assurer la qualité du flux, ainsi que l'expérience de négociation sans heurts du client\n\n• Maintenir un réseau lucratif de contreparties de couverture et de marchés\n\n• Analyser les résultats, identifier et stimuler les améliorations\n\n• Analyse des données : Utilisez des outils d'analyse internes et vos propres capacités quantitatives pour tirer des conclusions fondées sur les données, suggérer des mesures, fournir des rapports\n\n• Documentation : tenir à jour les procédures opérationnelles et assurer la conformité\n\n• Collaborer: Soyez un point de référence pour les ventes, les ingénieurs logiciels, les collègues informatiques et d'autres équipes internes\n\n• Gestion de projet : Contribuer au développement de produits et à l'amélioration de l'infrastructure\n\n• Surveillance: allocation des capacités de l'équipe\n\n• Minimum 8 ans d'expérience dans le trading électronique FX côté vente\n\n• L'expérience antérieure dans un rôle de leadership est un avantage important\n\n• Connaissance approfondie de la (micro)structure du marché\n\n• Compréhension approfondie des besoins des clients (secteurs de la vente au détail et de l'établissement) et du contexte concurrentiel\n\n• Capacité à transformer les grands ensembles de données en éléments concrets\n\n• Capacité de hiérarchiser et d'exécuter plusieurs tâches dans un environnement axé sur les échéances\n\n• Excellentes compétences interpersonnelles, orientées vers les résultats, joueur d'équipe\n\n• Excellentes compétences en communication et présentation"
+        "it": "Descrizione\n\nNell'ambito della sua continua evoluzione organizzativa, Swissquote sta creando un nuovo dipartimento, il dipartimento Client Lifecycle Integrity (CLI). Operando come 1.5 linea di difesa e in modo indipendente dal Front Office, il CLI riunisce attività chiave a supporto della gestione dei rapporti con la clientela privata sotto il profilo dell'integrità lungo tutto il loro ciclo di vita, dall'onboarding e dalle revisioni periodiche al monitoraggio delle transazioni AML.\n\nIn questo contesto, il Responsabile Client Lifecycle Integrity svolgerà un ruolo di leadership fondamentale nel definire e attuare la nuova organizzazione. In qualità di membro dell'Alta Direzione e di Direttore, il ruolo è responsabile della definizione dell'indirizzo strategico del CLI, dell'istituzione di un modello operativo efficace e orientato al futuro, della promozione di una cultura di miglioramento continuo ed eccellenza operativa e della garanzia della corretta integrazione e delle prestazioni delle sue diverse attività, nel rispetto di tutte le leggi, dei regolamenti e delle politiche interne applicabili. Il Responsabile Client Lifecycle Integrity dovrà porre particolare attenzione all'abilitazione tecnologica, all'ottimizzazione basata sull'IA e alla scalabilità operativa, adottando un approccio fortemente incentrato sulla clientela e basato sui dati.\n\nIl Responsabile Client Lifecycle Integrity agirà in qualità di partner senior della Direzione esecutiva e lavorerà a stretto contatto con il Front Office, le entità estere del Gruppo, il dipartimento Compliance e le funzioni tecnologiche per migliorare continuamente il quadro di riferimento della Banca per il ciclo di vita della clientela in materia di integrità.\n\nResponsabilità principali:\n\n1. Leadership, governance e gestione degli stakeholder\n\n- Guidare il CLI, definendone la strategia, l'organizzazione, la governance e le priorità, e stabilendo chiare responsabilità all'interno del dipartimento.\n- Istituire e mantenere un solido ambiente di controllo basato sul rischio, assicurando che tutte le attività di competenza del CLI siano efficaci, coerenti e conformi ai requisiti legali e normativi applicabili, alle politiche interne e alla tolleranza al rischio della Banca.\n- Fornire leadership e indirizzo a livello dirigenziale su casi complessi o sensibili e su questioni operative, promuovendo un'adeguata escalation e un processo decisionale appropriato.\n- Rappresentare il CLI presso l'Alta Direzione e negli organi di governance pertinenti, e fungere da partner strategico della Direzione esecutiva, del Front Office, delle entità estere del Gruppo, del dipartimento Compliance e degli altri principali stakeholder.\n- Fungere da referente di alto livello per FINMA, i revisori e gli altri stakeholder esterni pertinenti nell'area di responsabilità del CLI.\n- Promuovere standard elevati, qualità ed efficacia nelle diverse attività del CLI, con il supporto di politiche, procedure, controlli, informazioni gestionali e indicatori di rischio e di performance adeguati.\n- Garantire la comunicazione tempestiva dei principali indicatori di rischio e di performance alla Direzione esecutiva e agli organi di governance pertinenti.\n- Costruire e sviluppare un team manageriale ad alte prestazioni e promuovere una cultura di forte controllo, collaborazione ed eccellenza operativa.\n- Contribuire alla preparazione di audit esterni e interni, ispezioni nonché revisioni normative.\n\n2. Onboarding della clientela, gestione del ciclo di vita della clientela in materia di integrità e monitoraggio delle transazioni AML\n\n- Supervisionare l’onboarding della clientela privata (anche per quanto riguarda i potenziali clienti presentati o gestiti da entità estere del Gruppo), in linea con i requisiti legali e normativi applicabili, le policy interne e la propensione al rischio della Banca.\n- Supervisionare le attività del ciclo di vita relative all’integrità, comprese le revisioni periodiche e basate su eventi, i cambiamenti nelle circostanze, la gestione dei conti, i processi relativi ai conti dormienti e le chiusure, garantendo un’esecuzione conforme ed efficiente.\n- Supervisionare il monitoraggio delle transazioni AML su tutti i segmenti della clientela, garantendo l’efficace identificazione, valutazione e segnalazione ai livelli competenti delle attività potenzialmente sospette.\n- Garantire un’adeguata gestione del rischio e una solida governance per relazioni con la clientela e transazioni complesse o ad alto rischio, mantenendo al contempo un’efficace collaborazione con il Front Office e il Dipartimento Compliance.\n\n3. Efficacia dei processi, automazione e miglioramento continuo\n\n- Migliorare continuamente l’efficacia e la scalabilità dei processi CLI, con particolare attenzione all’ottimizzazione, all’automazione e alla digitalizzazione.\n- Individuare e implementare opportunità per sfruttare tecnologia, dati, analisi, soluzioni di workflow e AI al fine di ridurre le attività manuali, migliorare la qualità, la coerenza e l’efficacia dei controlli e garantire la conformità.\n- Stabilire e monitorare metriche operative e di qualità adeguate per individuare lacune nelle prestazioni, valutare i risultati e supportare decisioni manageriali informate.\n- Collaborare strettamente con le funzioni tecnologiche e con gli altri stakeholder rilevanti per realizzare miglioramenti sostenibili nell’onboarding della clientela, nella gestione del ciclo di vita relativa all’integrità e nel monitoraggio delle transazioni AML, nonché per anticipare e adattarsi ai contesti in evoluzione dell’onboarding e del ciclo di vita della clientela.\n- Promuovere una cultura del miglioramento continuo, incoraggiando i team a mettere in discussione le modalità di lavoro esistenti e a individuare opportunità concrete per migliorare l’efficienza operativa e l’efficacia dei controlli.\n\nRequisiti\n\n- 10+ anni di esperienza professionale in una posizione di leadership in Operations, Compliance, AML, Risk Management o funzioni analoghe all’interno di un contesto bancario, di servizi finanziari o fintech.\n- Laurea magistrale in Finanza, Economia, Giurisprudenza, Amministrazione aziendale o titolo equivalente.\n- Comprovata esperienza nell’ottimizzazione dei processi, nell’automazione, nella digitalizzazione e nell’eccellenza operativa.\n- Una certificazione pertinente in gestione dei progetti, miglioramento dei processi o trasformazione (ad es. PMP) costituisce un titolo preferenziale.\n- Solida comprensione di come dati, tecnologia, strumenti di workflow e AI possano essere utilizzati per migliorare l’efficacia dei controlli, il processo decisionale e l’efficienza operativa.\n- Solida competenza nell’onboarding della clientela, KYC/AML, nella gestione del ciclo di vita della clientela e nel monitoraggio delle transazioni AML, con un’ampia conoscenza dei relativi requisiti legali e normativi.\n- Spiccate capacità decisionali e di risoluzione dei problemi, in particolare nella gestione di questioni normative e operative complesse o ad alto impatto.\n- Esperienza comprovata nella gestione e nello sviluppo di team numerosi e diversificati, con un solido percorso nella creazione di strutture manageriali ad alte prestazioni, nello sviluppo dei talenti e delle capacità di leadership e nell'istituzione di sistemi efficaci di sviluppo professionale e pianificazione della successione.\n- Esperienza pregressa a contatto con l'alta dirigenza, gli organismi di regolamentazione, i revisori e gli stakeholder interni senior.\n- Elevato livello di integrità, capacità di giudizio equilibrata e credibilità professionale, unite a spiccate capacità relazionali e a un approccio collaborativo alla leadership.\n- Madrelingua francese o inglese, con piena padronanza professionale dell'altra lingua.",
+        "en": "As part of its ongoing organisational evolution, Swissquote is creating a new department, the Client Lifecycle Integrity (CLI) Department. Acting as a 1.5 line of defence and independent from the Front Office, the CLI brings together key activities supporting the integrity-related management of private client relationships throughout their lifecycle, from onboarding and periodic reviews to AML transaction monitoring.\nIn this context, the Head Client Lifecycle Integrity will play a key leadership role in shaping and implementing the new organisation. As a member of Senior Management and Director, the role is responsible for defining the CLI’s strategic direction, establishing an effective and forward-looking operating model, driving a culture of continuous improvement and operational excellence and ensuring the successful integration and performance of its different activities, in compliance with all applicable laws, regulations and internal policies. The Head Client Lifecycle Integrity shall in particular have a strong focus on technology enablement, AI-driven optimisation and operational scalability, with a strong client-centric and data-driven approach.\nThe Head Client Lifecycle Integrity will act as a senior partner to the Executive Management and work closely with the Front Office, Group foreign entities, the Compliance Department as well as technology functions to continuously enhance the Bank’s integrity-related client lifecycle framework.\n\nKey responsibilities:\n1. Leadership, Governance & Stakeholder Management\n\n• Lead the CLI, defining its strategy, organisation, governance and priorities, and establishing clear accountability across the department.\n\n• Establish and maintain a strong, risk-based control environment, ensuring that all activities within the CLI’s remit are effective, consistent and compliant with applicable legal and regulatory requirements, internal policies and the Bank’s risk tolerance.\n\n• Provide senior leadership and direction on complex or sensitive cases and operational matters, driving appropriate escalation and decision-making.\n\n• Represent the CLI at Senior Management and in relevant governance bodies, and act as a strategic partner to the Executive Management, the Front Office, Group foreign entities, the Compliance Department and other key stakeholders.\n\n• Serve as a senior point of contact for FINMA, auditors and other relevant external stakeholders within the CLI’s area of responsibility.\n\n• Drive high standards, quality and effectiveness across the different CLI activities, supported by appropriate policies, procedures, controls, management information and risk and performance indicators.\n\n• Ensure timely reporting of key risk and performance indicators to the Executive Management and relevant governance bodies.\n\n• Build and develop a high-performing management team and foster a culture of strong control, collaboration and operational excellence.\n\n• Contribute to the preparation of external and internal audits, inspections as well as regulatory reviews.\n2. Client Onboarding, Integrity-related Lifecycle Management & AML Transaction Monitoring\n\n• Oversee private client onboarding (incl. with respect to prospects introduced or managed by Group foreign entities), in line with applicable legal and regulatory requirements, internal policies and the Bank’s risk tolerance.\n\n• Oversee integrity-related lifecycle activities, including periodic and event-driven reviews, changes in circumstances, account maintenance, dormant account processes and closures, ensuring compliant and efficient execution.\n\n• Oversee AML transaction monitoring across all client segments, ensuring effective identification, assessment and escalation of potentially suspicious activities.\n\n• Ensure appropriate risk management and robust governance for complex or high-risk client relationships and transactions, while maintaining effective collaboration with Front Office and the Compliance Department.\n3. Process Effectiveness, Automation & Continuous Improvement\n\n• Continuously enhance the effectiveness and scalability of CLI processes, with a focus on optimisation, automation and digitalisation.\n\n• Identify and implement opportunities to leverage technology, data, analytics, workflow solutions and AI to reduce manual activities, improve quality, consistency and risk effectiveness and ensure compliance.\n\n• Establish and monitor appropriate operational and quality metrics to identify performance gaps, assess outcomes and support informed management decisions.\n\n• Work closely with technology functions as well as other relevant stakeholders to deliver sustainable improvements across client onboarding, integrity-related lifecycle management and AML transaction monitoring as well as anticipate and adapt to the evolving client onboarding and lifecycle landscapes.\n\n• Foster a culture of continuous improvement, encouraging teams to challenge existing ways of working and identify practical opportunities to enhance operational efficiency and control effectiveness.\n\n• 10+ years of professional experience in a leadership position in Operations, Compliance, AML, Risk Management or similar functions within a banking, financial services or fintech environment.\n\n• Master’s degree in Finance, Economics, Law, Business Administration or equivalent degree.\n\n• Proven track record in process optimisation, automation, digitalisation and operational excellence.\n\n• A relevant certification in project management, process improvement or transformation (e.g. PMP) is considered an asset.\n\n• Strong understanding of how data, technology, workflow tools and AI can be used to enhance control effectiveness, decision-making and operational efficiency.\n\n• Strong expertise in client onboarding, KYC/AML, client lifecycle management and AML transaction monitoring, with a broad understanding of related legal and regulatory requirements.\n\n• Strong decision-making and problem-solving abilities, particularly when dealing with complex or high-impact regulatory and operational matters.\n\n• Demonstrated experience managing and developing large and diverse teams, with a strong track record of building high-performing management structures, developing talent and leadership capabilities, and establishing effective career development and succession planning frameworks.\n\n• Past exposure to Executive Management, regulators, auditors and senior internal stakeholders.\n\n• High level of integrity, sound judgement and professional credibility, combined with strong interpersonal skills and a collaborative leadership approach.\n\n• Native French or English speaker, with full professional fluency in the other language.",
+        "de": "Beschreibung\n\nIm Rahmen ihrer laufenden organisatorischen Weiterentwicklung schafft Swissquote eine neue Abteilung, die Abteilung Client Lifecycle Integrity (CLI). Als 1.5-Linie der Verteidigung und unabhängig vom Front Office bündelt die CLI zentrale Aktivitäten zur Unterstützung des integritätsbezogenen Managements von Privatkundenbeziehungen während ihres gesamten Lebenszyklus, vom Onboarding und den regelmäßigen Überprüfungen bis zur AML-Transaktionsüberwachung.\n\nIn diesem Zusammenhang wird der Head Client Lifecycle Integrity eine zentrale Führungsrolle bei der Gestaltung und Umsetzung der neuen Organisation übernehmen. Als Mitglied des Senior Managements und als Director ist diese Funktion dafür verantwortlich, die strategische Ausrichtung der CLI festzulegen, ein wirksames und zukunftsorientiertes Betriebsmodell zu etablieren, eine Kultur der kontinuierlichen Verbesserung und operativen Exzellenz voranzutreiben und die erfolgreiche Integration und Leistungsfähigkeit ihrer verschiedenen Aktivitäten unter Einhaltung aller geltenden Gesetze, Vorschriften und internen Richtlinien sicherzustellen. Der Head Client Lifecycle Integrity soll insbesondere einen starken Fokus auf technologische Befähigung, KI-gestützte Optimierung und operative Skalierbarkeit legen, mit einem stark kundenorientierten und datengestützten Ansatz.\n\nDer Head Client Lifecycle Integrity wird als Senior-Partner des Executive Managements fungieren und eng mit dem Front Office, den ausländischen Gruppengesellschaften, der Compliance-Abteilung sowie den Technologiefunktionen zusammenarbeiten, um das Rahmenwerk der Bank für den integritätsbezogenen Kundenlebenszyklus kontinuierlich weiterzuentwickeln.\n\nWesentliche Verantwortlichkeiten:\n\n1. Führung, Governance & Stakeholder-Management\n\n- Die CLI führen, ihre Strategie, Organisation, Governance und Prioritäten festlegen und klare Verantwortlichkeiten innerhalb der Abteilung etablieren.\n- Ein starkes, risikobasiertes Kontrollumfeld etablieren und aufrechterhalten und sicherstellen, dass alle Aktivitäten im Zuständigkeitsbereich der CLI wirksam, konsistent und im Einklang mit den geltenden gesetzlichen und regulatorischen Anforderungen, den internen Richtlinien und der Risikotoleranz der Bank stehen.\n- Bei komplexen oder sensiblen Fällen und operativen Angelegenheiten auf Senior-Ebene Führung und Orientierung geben sowie eine angemessene Eskalation und Entscheidungsfindung vorantreiben.\n- Die CLI im Senior Management und in den relevanten Governance-Gremien vertreten und als strategischer Partner des Executive Managements, des Front Office, der ausländischen Gruppengesellschaften, der Compliance-Abteilung und anderer wichtiger Stakeholder fungieren.\n- Als leitender Ansprechpartner für die FINMA, Prüfer und andere relevante externe Stakeholder im Verantwortungsbereich der CLI fungieren.\n- Hohe Standards, Qualität und Wirksamkeit in den verschiedenen Aktivitäten der CLI vorantreiben, unterstützt durch angemessene Richtlinien, Verfahren, Kontrollen, Managementinformationen sowie Risiko- und Leistungsindikatoren.\n- Eine zeitnahe Berichterstattung über die wichtigsten Risiko- und Leistungsindikatoren an das Executive Management und die relevanten Governance-Gremien sicherstellen.\n- Ein leistungsstarkes Managementteam aufbauen und weiterentwickeln und eine Kultur starker Kontrolle, Zusammenarbeit und operativer Exzellenz fördern.\n- Mitwirkung bei der Vorbereitung externer und interner Audits, Inspektionen sowie aufsichtsrechtlicher Prüfungen.\n\n2. Kunden-Onboarding, integritätsbezogenes Lifecycle-Management & AML-Transaktionsüberwachung\n\n- Überwachung des Onboardings von Privatkunden (einschließlich im Hinblick auf Interessenten, die von ausländischen Gesellschaften der Group vermittelt oder betreut werden), im Einklang mit den geltenden gesetzlichen und aufsichtsrechtlichen Anforderungen, internen Richtlinien und der Risikotoleranz der Bank.\n- Überwachung integritätsbezogener Lifecycle-Aktivitäten, einschließlich regelmäßiger und anlassbezogener Überprüfungen, Änderungen der Umstände, Kontopflege, Prozesse für ruhende Konten und Schließungen, um eine regelkonforme und effiziente Durchführung sicherzustellen.\n- Überwachung des AML-Transaktionsmonitorings in allen Kundensegmenten, um die wirksame Identifizierung, Bewertung und Eskalation potenziell verdächtiger Aktivitäten sicherzustellen.\n- Sicherstellung eines angemessenen Risikomanagements und einer robusten Governance für komplexe oder risikoreiche Kundenbeziehungen und Transaktionen bei gleichzeitiger Gewährleistung einer effektiven Zusammenarbeit mit dem Front Office und der Compliance-Abteilung.\n\n3. Prozesseffektivität, Automatisierung & kontinuierliche Verbesserung\n\n- Kontinuierliche Verbesserung der Effektivität und Skalierbarkeit der CLI-Prozesse mit Fokus auf Optimierung, Automatisierung und Digitalisierung.\n- Identifizierung und Umsetzung von Möglichkeiten zur Nutzung von Technologie, Daten, Analysen, Workflow-Lösungen und KI, um manuelle Tätigkeiten zu reduzieren, Qualität, Konsistenz und Risikowirksamkeit zu verbessern und die Compliance sicherzustellen.\n- Festlegung und Überwachung geeigneter operativer und Qualitätskennzahlen, um Leistungslücken zu identifizieren, Ergebnisse zu bewerten und fundierte Managemententscheidungen zu unterstützen.\n- Enge Zusammenarbeit mit den Technologiefunktionen sowie anderen relevanten Stakeholdern, um nachhaltige Verbesserungen im Kunden-Onboarding, im integritätsbezogenen Lifecycle-Management und im AML-Transaktionsmonitoring zu erzielen sowie die sich wandelnden Rahmenbedingungen des Kunden-Onboardings und des Lifecycles zu antizipieren und sich darauf einzustellen.\n- Förderung einer Kultur der kontinuierlichen Verbesserung, in der Teams ermutigt werden, bestehende Arbeitsweisen zu hinterfragen und praktikable Möglichkeiten zur Verbesserung der operativen Effizienz und der Wirksamkeit von Kontrollen zu identifizieren.\n\nAnforderungen\n\n- 10+ Jahre Berufserfahrung in einer Führungsposition in Operations, Compliance, AML, Risikomanagement oder vergleichbaren Funktionen im Banken-, Finanzdienstleistungs- oder Fintech-Umfeld.\n- Masterabschluss in Finanzwesen, Wirtschaftswissenschaften, Rechtswissenschaften, Betriebswirtschaftslehre oder ein gleichwertiger Abschluss.\n- Nachweisbare Erfolge in Prozessoptimierung, Automatisierung, Digitalisierung und operativer Exzellenz.\n- Eine einschlägige Zertifizierung in Projektmanagement, Prozessverbesserung oder Transformation (z. B. PMP) gilt als Vorteil.\n- Ausgeprägtes Verständnis dafür, wie Daten, Technologie, Workflow-Tools und KI zur Verbesserung der Wirksamkeit von Kontrollen, der Entscheidungsfindung und der operativen Effizienz eingesetzt werden können.\n- Ausgeprägte Expertise im Kunden-Onboarding, in KYC/AML, im Kunden-Lifecycle-Management und im AML-Transaktionsmonitoring sowie ein umfassendes Verständnis der damit verbundenen rechtlichen und aufsichtsrechtlichen Anforderungen.\n- Ausgeprägte Entscheidungs- und Problemlösungsfähigkeiten, insbesondere im Umgang mit komplexen oder folgenreichen aufsichtsrechtlichen und operativen Angelegenheiten.\n- Nachgewiesene Erfahrung in der Führung und Entwicklung großer und vielfältiger Teams, mit einer starken Erfolgsbilanz beim Aufbau leistungsstarker Managementstrukturen, bei der Entwicklung von Talenten und Führungskompetenzen sowie bei der Etablierung effektiver Rahmenbedingungen für Karriereentwicklung und Nachfolgeplanung.\n- Frühere Erfahrung im Umgang mit der Geschäftsleitung, Aufsichtsbehörden, Wirtschaftsprüfern und leitenden internen Stakeholdern.\n- Hohes Maß an Integrität, gutes Urteilsvermögen und professionelle Glaubwürdigkeit, kombiniert mit ausgeprägten zwischenmenschlichen Fähigkeiten und einem kollaborativen Führungsansatz.\n- Muttersprache Französisch oder Englisch und vollständige berufliche Sprachkompetenz in der jeweils anderen Sprache.",
+        "fr": "Désignation des marchandises\n\nDans le cadre de son évolution organisationnelle continue, Swissquote crée un nouveau département, le département Client Lifecycle Integrity (CLI). Agissant comme une ligne de défense 1.5 et indépendant du Front Office, le CLI regroupe les principales activités qui soutiennent la gestion de l’intégrité des relations avec les clients privés tout au long de leur cycle de vie, de l’entrée en relation et des revues périodiques à la surveillance des transactions AML.\n\nDans ce contexte, le responsable de Client Lifecycle Integrity jouera un rôle clé de direction dans la conception et la mise en œuvre de la nouvelle organisation. En tant que membre de la haute direction et directeur, le titulaire du poste est chargé de définir l’orientation stratégique du CLI, de mettre en place un modèle opérationnel efficace et tourné vers l’avenir, de promouvoir une culture d’amélioration continue et d’excellence opérationnelle et d’assurer l’intégration réussie et la performance de ses différentes activités, dans le respect de toutes les lois, réglementations et politiques internes applicables. Le responsable de Client Lifecycle Integrity devra notamment accorder une attention particulière à la mise à profit des technologies, à l’optimisation pilotée par l’IA et à l’évolutivité opérationnelle, selon une approche fortement axée sur le client et fondée sur les données.\n\nLe responsable de Client Lifecycle Integrity agira comme partenaire de haut niveau de la direction exécutive et travaillera en étroite collaboration avec le Front Office, les entités étrangères du Groupe, le département de la conformité ainsi qu’avec les fonctions technologiques afin d’améliorer en continu le cadre de la Banque relatif à l’intégrité du cycle de vie des clients.\n\nPrincipales responsabilités :\n\n1. Direction, gouvernance et gestion des parties prenantes\n\n- Diriger le CLI, en définissant sa stratégie, son organisation, sa gouvernance et ses priorités, et en établissant une répartition claire des responsabilités au sein du département.\n- Mettre en place et maintenir un environnement de contrôle solide et fondé sur les risques, en veillant à ce que toutes les activités relevant du CLI soient efficaces, cohérentes et conformes aux exigences légales et réglementaires applicables, aux politiques internes et à la tolérance au risque de la Banque.\n- Fournir un leadership et des orientations de haut niveau concernant les dossiers complexes ou sensibles et les questions opérationnelles, en veillant à une escalade et à une prise de décision appropriées.\n- Représenter le CLI auprès de la haute direction et dans les organes de gouvernance concernés, et agir en tant que partenaire stratégique de la direction exécutive, du Front Office, des entités étrangères du Groupe, du département de la conformité et des autres parties prenantes clés.\n- Servir de point de contact de haut niveau pour la FINMA, les auditeurs et les autres parties prenantes externes concernées dans le domaine de responsabilité du CLI.\n- Promouvoir des normes élevées, la qualité et l’efficacité dans les différentes activités du CLI, avec l’appui de politiques, procédures, contrôles, informations de gestion et indicateurs de risque et de performance appropriés.\n- Veiller à la communication en temps utile des principaux indicateurs de risque et de performance à la direction exécutive et aux organes de gouvernance concernés.\n- Constituer et développer une équipe de direction hautement performante et favoriser une culture de contrôle rigoureux, de collaboration et d’excellence opérationnelle.\n- Contribuer à la préparation des audits externes et internes, des inspections ainsi que des revues réglementaires.\n\n2. Entrée en relation avec les clients, gestion du cycle de vie liée à l’intégrité et surveillance des transactions AML\n\n- Superviser l’entrée en relation avec les clients privés (y compris en ce qui concerne les prospects présentés ou gérés par les entités étrangères du Groupe), conformément aux exigences légales et réglementaires applicables, aux politiques internes et à la tolérance au risque de la Banque.\n- Superviser les activités liées à l’intégrité tout au long du cycle de vie, notamment les revues périodiques et déclenchées par des événements, les changements de circonstances, la tenue des comptes, les processus relatifs aux comptes dormants et les clôtures, en veillant à une exécution conforme et efficace.\n- Superviser la surveillance des transactions AML pour tous les segments de clientèle, en veillant à l’identification, à l’évaluation et à la remontée efficaces des activités potentiellement suspectes.\n- Assurer une gestion appropriée des risques et une gouvernance robuste pour les relations et transactions complexes ou à haut risque avec les clients, tout en maintenant une collaboration efficace avec le Front Office et le département de la conformité.\n\n3. Efficacité des processus, automatisation et amélioration continue\n\n- Améliorer continuellement l’efficacité et l’évolutivité des processus CLI, en mettant l’accent sur l’optimisation, l’automatisation et la digitalisation.\n- Identifier et mettre en œuvre des possibilités de tirer parti de la technologie, des données, de l’analytique, des solutions de workflow et de l’IA afin de réduire les activités manuelles, d’améliorer la qualité, la cohérence et l’efficacité en matière de gestion des risques et d’assurer la conformité.\n- Établir et suivre des indicateurs opérationnels et de qualité appropriés afin d’identifier les écarts de performance, d’évaluer les résultats et de soutenir des décisions de gestion éclairées.\n- Collaborer étroitement avec les fonctions technologiques ainsi qu’avec les autres parties prenantes concernées afin d’apporter des améliorations durables dans les domaines de l’entrée en relation avec les clients, de la gestion du cycle de vie liée à l’intégrité et de la surveillance des transactions AML, ainsi que d’anticiper l’évolution des environnements d’entrée en relation avec les clients et de gestion du cycle de vie des clients et de s’y adapter.\n- Promouvoir une culture d’amélioration continue, en encourageant les équipes à remettre en question les méthodes de travail existantes et à identifier des possibilités concrètes d’améliorer l’efficacité opérationnelle et l’efficacité des contrôles.\n\nExigences\n\n- 10+ ans d’expérience professionnelle dans un poste de direction dans les domaines des opérations, de la conformité, de l’AML, de la gestion des risques ou des fonctions similaires au sein d’un environnement bancaire, de services financiers ou fintech.\n- Diplôme de master en finance, économie, droit, administration des affaires ou diplôme équivalent.\n- Expérience avérée en optimisation des processus, automatisation, digitalisation et excellence opérationnelle.\n- Une certification pertinente en gestion de projet, amélioration des processus ou transformation (p. ex. PMP) est considérée comme un atout.\n- Solide compréhension de la manière dont les données, la technologie, les outils de workflow et l’IA peuvent être utilisés pour améliorer l’efficacité des contrôles, la prise de décision et l’efficacité opérationnelle.\n- Solide expertise en entrée en relation avec les clients, KYC/AML, gestion du cycle de vie des clients et surveillance des transactions AML, ainsi qu’une compréhension approfondie des exigences légales et réglementaires connexes.\n- Solides capacités de prise de décision et de résolution de problèmes, notamment lorsqu’il s’agit de traiter des questions réglementaires et opérationnelles complexes ou à fort impact.\n- Expérience avérée dans la gestion et le développement d'équipes nombreuses et diversifiées, avec un solide bilan en matière de mise en place de structures managériales performantes, de développement des talents et des compétences de leadership, ainsi que d'établissement de cadres efficaces de développement de carrière et de planification de la succession.\n- Expérience antérieure auprès de la direction générale, des régulateurs, des auditeurs et des parties prenantes internes de haut niveau.\n- Niveau élevé d'intégrité, bon jugement et crédibilité professionnelle, associés à de solides compétences relationnelles et à une approche collaborative du leadership.\n- De langue maternelle française ou anglaise, avec une maîtrise professionnelle complète de l'autre langue."
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Gland",
       "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Swissquote/744000152941509-head-trader-efx-spot-associate-director",
+      "url": "https://jobs.smartrecruiters.com/Swissquote/744000155682899-head-client-lifecycle-integrity-director-member-of-senior-management",
       "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:39:07.701Z",
+      "crawledAt": "2026-10-15T09:37:30.942Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3096,32 +3100,25 @@
       "sector": "Fintech / Banca online",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-01T13:24:56.197Z",
-      "postedDate": "2026-10-01T13:24:56.197Z",
+      "datePosted": "2026-10-15T07:28:41.431Z",
+      "postedDate": "2026-10-15T07:28:41.431Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Swissquote/744000152941509-head-trader-efx-spot-associate-director?oga=true",
-      "jobReqId": "744000152941509",
+      "applyUrl": "https://jobs.smartrecruiters.com/Swissquote/744000155682899-head-client-lifecycle-integrity-director-member-of-senior-management?oga=true",
+      "jobReqId": "744000155682899",
       "requirements": [],
       "requirementsByLocale": {},
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
-      "previousSlugs": [
-        "head-trader-efx-spot-associate-director-swissquote-gland",
-        "responsabile-del-trading-efx-spot-direttore-associato-swissquote-gland"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "head-trader-efx-spot-associate-director-swissquote-gland",
-          "responsabile-del-trading-efx-spot-direttore-associato-swissquote-gland"
-        ],
-        "de": [
-          "head-trader-efx-spot-associate-director-swissquote-gland"
-        ],
-        "fr": [
-          "head-trader-efx-spot-associate-director-swissquote-gland"
+          "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland",
+          "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland"
         ]
       },
-      "firstSeenAt": "2026-07-14T12:02:51.149Z",
+      "previousSlugs": [
+        "head-client-lifecycle-integrity-director-member-of-senior-management-swissquote-gland",
+        "responsabile-dell-integrita-del-ciclo-di-vita-dei-clienti-direttore-membro-dell-alta-direzione-swissquote-gland"
+      ],
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -3135,7 +3132,77 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-10-03T09:29:15.191Z"
+    },
+    {
+      "id": "swissquote-17c599e81689",
+      "slug": "hnwi-lifecyle-integrity-manager-associate-director-swissquote-gland",
+      "slugByLocale": {
+        "en": "hnwi-lifecyle-integrity-manager-associate-director-swissquote-gland",
+        "it": "hnwi-lifecyle-integrity-manager-associate-director-swissquote-gland",
+        "de": "hnwi-lifecyle-integrity-manager-associate-director-swissquote-gland",
+        "fr": "hnwi-lifecyle-integrity-manager-associate-director-swissquote-gland"
+      },
+      "company": "Swissquote",
+      "companyKey": "swissquote",
+      "companyDomain": "swissquote.com",
+      "title": "HNWI Lifecyle Integrity Manager – Associate Director",
+      "titleByLocale": {
+        "en": "HNWI Lifecyle Integrity Manager – Associate Director",
+        "it": "HNWI Lifecyle Integrity Manager – Associate Direttore",
+        "de": "HNWI Lifecyle Integrity Manager – Associate Direktor",
+        "fr": "HNWI Lifecyle Integrity Manager – Associate Directeur"
+      },
+      "description": "As part of its ongoing organisational evolution, Swissquote is creating a new department, the Client Lifecycle Integrity (CLI) Department. Acting as a 1.5 line of defense and independent from the Front Office, the CLI brings together key activities supporting the integrity-related management of private client relationships throughout their lifecycle, from onboarding and periodic reviews to AML transaction monitoring.\n As an Associate-Director in the Client Lifecycle Integrity department, you will lead one of our HNWI Client Lifecycle Integrity teams, overseeing key activities across the client relationship lifecycle, including onboarding, periodic reviews and ongoing due diligence controls.\n Reporting directly to the Head HNWI Client Lifecycle Integrity – Vice Director, you will responsible for ensuring operational excellence, effective risk management, regulatory compliance and the consistent delivery of high-quality services.\n Combining strong operational expertise with sound judgement and people leadership, you will play a key role in developing team capabilities, enhancing processes and driving continuous improvement in a dynamic and evolving banking environment.\n Key responsibilities\n Operations management:\n\n• Lead and manage the team’s activities, ensuring effective workload allocation, operational efficiency, quality standards and adherence to service level commitments.\n\n• Oversee client onboarding, periodic reviews and ongoing due diligence activities within the team's scope, ensuring compliance with applicable regulatory requirements and internal policies.\n\n• Ensure the effective identification, assessment, documentation and escalation of risks associated with HNWI relationships, including complex and higher-risk profiles.\n\n• Oversee the preparation of high-quality client assessments, risk analyses and recommendations for senior management review and approval, ensuring accuracy, completeness and sound risk-based judgement.\n\n• Establish and monitor appropriate operational and quality metrics to identify performance gaps, assess outcomes and support informed management decisions.\n\n• Drive continuous improvement initiatives to enhance the efficiency, consistency, scalability and control effectiveness of client lifecycle processes.\n\n• Identify and implement opportunities for automation, digitalisation and the use of data analytics, workflow solutions and AI to streamline operations and improve decision-making.\n\n• Contribute to the development and maintenance of internal procedures, guidelines and operational standards, ensuring alignment with evolving regulatory and business requirements.\n\n• Act as a trusted point of contact to front-line teams, offering clear and pragmatic guidance.\n\n• Collaborate with key stakeholders, provide pragmatic guidance on complex matters, and represent HNWI CLI in cross-functional initiatives and strategic projects.\n Team Management:\n\n• Leading and supporting the team:\n• Fostering a positive work atmosphere where employees feel motivated, valued, and connected to the team and the organization;\n\n• Promoting collaboration, trust, and cohesion among team members;\n\n• Addressing any potential conflicts among team members to your senior management and/or HR Partner;\n\n• Supporting employee growth through training, mentorship, coaching, and advancement opportunities.\n\n• Hiring:\n• Leading the recruitment process with your Talent Acquisition Partner;\n\n• Ensuring new hires are properly introduced to the team, the organization, its culture, policies, and their specific roles.\n\n• Performance Management: Setting performance expectations, providing feedback, conducting performance reviews, and addressing any performance issues.\n\n• Conducting under performance process with the help of your Senior Management and HR Partner.\n\n• University degree in Law, Economics, or a related field – a certification in Compliance Management is a strong asset.\n\n• Minimum 5–7 years in client onboarding and periodic reviews, KYC/AML, or compliance operations within the financial industry.\n\n• A previous experience in a leadership or team-lead role is a strong asset.\n\n• Good knowledge of Swiss AML/KYC regulations and due diligence standards, including AMLA, AMLO-FINMA and the Swiss Bankers Association's due diligence rules (CDB).\n\n• Solid understanding of the HNWI segment, including complex source of wealth/source of funds assessments, PEPs and enhanced due diligence requirements.\n\n• Interest in process optimisation, digital transformation and technology-driven improvements; practical experience with automation or AI-enabled solutions is an asset.\n\n• Important analytical and problem-solving capabilities, with a structured, proactive and solution-oriented approach.\n\n• Strong leadership potential, with a genuine interest in developing people, fostering collaboration and driving accountability.\n\n• Ability to manage operational priorities, maintain high-quality standards and make sound, risk-based decisions in a demanding environment.\n\n• Robust communication and stakeholder management skills, with the ability to engage constructively with both operational teams and senior management.\n\n• Excellent command of English and French; German is a strong asset.",
+      "descriptionByLocale": {
+        "en": "As part of its ongoing organisational evolution, Swissquote is creating a new department, the Client Lifecycle Integrity (CLI) Department. Acting as a 1.5 line of defense and independent from the Front Office, the CLI brings together key activities supporting the integrity-related management of private client relationships throughout their lifecycle, from onboarding and periodic reviews to AML transaction monitoring.\n As an Associate-Director in the Client Lifecycle Integrity department, you will lead one of our HNWI Client Lifecycle Integrity teams, overseeing key activities across the client relationship lifecycle, including onboarding, periodic reviews and ongoing due diligence controls.\n Reporting directly to the Head HNWI Client Lifecycle Integrity – Vice Director, you will responsible for ensuring operational excellence, effective risk management, regulatory compliance and the consistent delivery of high-quality services.\n Combining strong operational expertise with sound judgement and people leadership, you will play a key role in developing team capabilities, enhancing processes and driving continuous improvement in a dynamic and evolving banking environment.\n Key responsibilities\n Operations management:\n\n• Lead and manage the team’s activities, ensuring effective workload allocation, operational efficiency, quality standards and adherence to service level commitments.\n\n• Oversee client onboarding, periodic reviews and ongoing due diligence activities within the team's scope, ensuring compliance with applicable regulatory requirements and internal policies.\n\n• Ensure the effective identification, assessment, documentation and escalation of risks associated with HNWI relationships, including complex and higher-risk profiles.\n\n• Oversee the preparation of high-quality client assessments, risk analyses and recommendations for senior management review and approval, ensuring accuracy, completeness and sound risk-based judgement.\n\n• Establish and monitor appropriate operational and quality metrics to identify performance gaps, assess outcomes and support informed management decisions.\n\n• Drive continuous improvement initiatives to enhance the efficiency, consistency, scalability and control effectiveness of client lifecycle processes.\n\n• Identify and implement opportunities for automation, digitalisation and the use of data analytics, workflow solutions and AI to streamline operations and improve decision-making.\n\n• Contribute to the development and maintenance of internal procedures, guidelines and operational standards, ensuring alignment with evolving regulatory and business requirements.\n\n• Act as a trusted point of contact to front-line teams, offering clear and pragmatic guidance.\n\n• Collaborate with key stakeholders, provide pragmatic guidance on complex matters, and represent HNWI CLI in cross-functional initiatives and strategic projects.\n Team Management:\n\n• Leading and supporting the team:\n• Fostering a positive work atmosphere where employees feel motivated, valued, and connected to the team and the organization;\n\n• Promoting collaboration, trust, and cohesion among team members;\n\n• Addressing any potential conflicts among team members to your senior management and/or HR Partner;\n\n• Supporting employee growth through training, mentorship, coaching, and advancement opportunities.\n\n• Hiring:\n• Leading the recruitment process with your Talent Acquisition Partner;\n\n• Ensuring new hires are properly introduced to the team, the organization, its culture, policies, and their specific roles.\n\n• Performance Management: Setting performance expectations, providing feedback, conducting performance reviews, and addressing any performance issues.\n\n• Conducting under performance process with the help of your Senior Management and HR Partner.\n\n• University degree in Law, Economics, or a related field – a certification in Compliance Management is a strong asset.\n\n• Minimum 5–7 years in client onboarding and periodic reviews, KYC/AML, or compliance operations within the financial industry.\n\n• A previous experience in a leadership or team-lead role is a strong asset.\n\n• Good knowledge of Swiss AML/KYC regulations and due diligence standards, including AMLA, AMLO-FINMA and the Swiss Bankers Association's due diligence rules (CDB).\n\n• Solid understanding of the HNWI segment, including complex source of wealth/source of funds assessments, PEPs and enhanced due diligence requirements.\n\n• Interest in process optimisation, digital transformation and technology-driven improvements; practical experience with automation or AI-enabled solutions is an asset.\n\n• Important analytical and problem-solving capabilities, with a structured, proactive and solution-oriented approach.\n\n• Strong leadership potential, with a genuine interest in developing people, fostering collaboration and driving accountability.\n\n• Ability to manage operational priorities, maintain high-quality standards and make sound, risk-based decisions in a demanding environment.\n\n• Robust communication and stakeholder management skills, with the ability to engage constructively with both operational teams and senior management.\n\n• Excellent command of English and French; German is a strong asset.",
+        "it": "As part of its ongoing organisational evolution, Swissquote is creating a new department, the Client Lifecycle Integrity (CLI) Department. Acting as a 1.5 line of defense and independent from the Front Office, the CLI brings together key activities supporting the integrity-related management of private client relationships throughout their lifecycle, from onboarding and periodic reviews to AML transaction monitoring.\n As an Associate-Director in the Client Lifecycle Integrity department, you will lead one of our HNWI Client Lifecycle Integrity teams, overseeing key activities across the client relationship lifecycle, including onboarding, periodic reviews and ongoing due diligence controls.\n Reporting directly to the Head HNWI Client Lifecycle Integrity – Vice Director, you will responsible for ensuring operational excellence, effective risk management, regulatory compliance and the consistent delivery of high-quality services.\n Combining strong operational expertise with sound judgement and people leadership, you will play a key role in developing team capabilities, enhancing processes and driving continuous improvement in a dynamic and evolving banking environment.\n Key responsibilities\n Operations management:\n\n• Lead and manage the team’s activities, ensuring effective workload allocation, operational efficiency, quality standards and adherence to service level commitments.\n\n• Oversee client onboarding, periodic reviews and ongoing due diligence activities within the team's scope, ensuring compliance with applicable regulatory requirements and internal policies.\n\n• Ensure the effective identification, assessment, documentation and escalation of risks associated with HNWI relationships, including complex and higher-risk profiles.\n\n• Oversee the preparation of high-quality client assessments, risk analyses and recommendations for senior management review and approval, ensuring accuracy, completeness and sound risk-based judgement.\n\n• Establish and monitor appropriate operational and quality metrics to identify performance gaps, assess outcomes and support informed management decisions.\n\n• Drive continuous improvement initiatives to enhance the efficiency, consistency, scalability and control effectiveness of client lifecycle processes.\n\n• Identify and implement opportunities for automation, digitalisation and the use of data analytics, workflow solutions and AI to streamline operations and improve decision-making.\n\n• Contribute to the development and maintenance of internal procedures, guidelines and operational standards, ensuring alignment with evolving regulatory and business requirements.\n\n• Act as a trusted point of contact to front-line teams, offering clear and pragmatic guidance.\n\n• Collaborate with key stakeholders, provide pragmatic guidance on complex matters, and represent HNWI CLI in cross-functional initiatives and strategic projects.\n Team Management:\n\n• Leading and supporting the team:\n• Fostering a positive work atmosphere where employees feel motivated, valued, and connected to the team and the organization;\n\n• Promoting collaboration, trust, and cohesion among team members;\n\n• Addressing any potential conflicts among team members to your senior management and/or HR Partner;\n\n• Supporting employee growth through training, mentorship, coaching, and advancement opportunities.\n\n• Hiring:\n• Leading the recruitment process with your Talent Acquisition Partner;\n\n• Ensuring new hires are properly introduced to the team, the organization, its culture, policies, and their specific roles.\n\n• Performance Management: Setting performance expectations, providing feedback, conducting performance reviews, and addressing any performance issues.\n\n• Conducting under performance process with the help of your Senior Management and HR Partner.\n\n• University degree in Law, Economics, or a related field – a certification in Compliance Management is a strong asset.\n\n• Minimum 5–7 years in client onboarding and periodic reviews, KYC/AML, or compliance operations within the financial industry.\n\n• A previous experience in a leadership or team-lead role is a strong asset.\n\n• Good knowledge of Swiss AML/KYC regulations and due diligence standards, including AMLA, AMLO-FINMA and the Swiss Bankers Association's due diligence rules (CDB).\n\n• Solid understanding of the HNWI segment, including complex source of wealth/source of funds assessments, PEPs and enhanced due diligence requirements.\n\n• Interest in process optimisation, digital transformation and technology-driven improvements; practical experience with automation or AI-enabled solutions is an asset.\n\n• Important analytical and problem-solving capabilities, with a structured, proactive and solution-oriented approach.\n\n• Strong leadership potential, with a genuine interest in developing people, fostering collaboration and driving accountability.\n\n• Ability to manage operational priorities, maintain high-quality standards and make sound, risk-based decisions in a demanding environment.\n\n• Robust communication and stakeholder management skills, with the ability to engage constructively with both operational teams and senior management.\n\n• Excellent command of English and French; German is a strong asset.",
+        "de": "As part of its ongoing organisational evolution, Swissquote is creating a new department, the Client Lifecycle Integrity (CLI) Department. Acting as a 1.5 line of defense and independent from the Front Office, the CLI brings together key activities supporting the integrity-related management of private client relationships throughout their lifecycle, from onboarding and periodic reviews to AML transaction monitoring.\n As an Associate-Director in the Client Lifecycle Integrity department, you will lead one of our HNWI Client Lifecycle Integrity teams, overseeing key activities across the client relationship lifecycle, including onboarding, periodic reviews and ongoing due diligence controls.\n Reporting directly to the Head HNWI Client Lifecycle Integrity – Vice Director, you will responsible for ensuring operational excellence, effective risk management, regulatory compliance and the consistent delivery of high-quality services.\n Combining strong operational expertise with sound judgement and people leadership, you will play a key role in developing team capabilities, enhancing processes and driving continuous improvement in a dynamic and evolving banking environment.\n Key responsibilities\n Operations management:\n\n• Lead and manage the team’s activities, ensuring effective workload allocation, operational efficiency, quality standards and adherence to service level commitments.\n\n• Oversee client onboarding, periodic reviews and ongoing due diligence activities within the team's scope, ensuring compliance with applicable regulatory requirements and internal policies.\n\n• Ensure the effective identification, assessment, documentation and escalation of risks associated with HNWI relationships, including complex and higher-risk profiles.\n\n• Oversee the preparation of high-quality client assessments, risk analyses and recommendations for senior management review and approval, ensuring accuracy, completeness and sound risk-based judgement.\n\n• Establish and monitor appropriate operational and quality metrics to identify performance gaps, assess outcomes and support informed management decisions.\n\n• Drive continuous improvement initiatives to enhance the efficiency, consistency, scalability and control effectiveness of client lifecycle processes.\n\n• Identify and implement opportunities for automation, digitalisation and the use of data analytics, workflow solutions and AI to streamline operations and improve decision-making.\n\n• Contribute to the development and maintenance of internal procedures, guidelines and operational standards, ensuring alignment with evolving regulatory and business requirements.\n\n• Act as a trusted point of contact to front-line teams, offering clear and pragmatic guidance.\n\n• Collaborate with key stakeholders, provide pragmatic guidance on complex matters, and represent HNWI CLI in cross-functional initiatives and strategic projects.\n Team Management:\n\n• Leading and supporting the team:\n• Fostering a positive work atmosphere where employees feel motivated, valued, and connected to the team and the organization;\n\n• Promoting collaboration, trust, and cohesion among team members;\n\n• Addressing any potential conflicts among team members to your senior management and/or HR Partner;\n\n• Supporting employee growth through training, mentorship, coaching, and advancement opportunities.\n\n• Hiring:\n• Leading the recruitment process with your Talent Acquisition Partner;\n\n• Ensuring new hires are properly introduced to the team, the organization, its culture, policies, and their specific roles.\n\n• Performance Management: Setting performance expectations, providing feedback, conducting performance reviews, and addressing any performance issues.\n\n• Conducting under performance process with the help of your Senior Management and HR Partner.\n\n• University degree in Law, Economics, or a related field – a certification in Compliance Management is a strong asset.\n\n• Minimum 5–7 years in client onboarding and periodic reviews, KYC/AML, or compliance operations within the financial industry.\n\n• A previous experience in a leadership or team-lead role is a strong asset.\n\n• Good knowledge of Swiss AML/KYC regulations and due diligence standards, including AMLA, AMLO-FINMA and the Swiss Bankers Association's due diligence rules (CDB).\n\n• Solid understanding of the HNWI segment, including complex source of wealth/source of funds assessments, PEPs and enhanced due diligence requirements.\n\n• Interest in process optimisation, digital transformation and technology-driven improvements; practical experience with automation or AI-enabled solutions is an asset.\n\n• Important analytical and problem-solving capabilities, with a structured, proactive and solution-oriented approach.\n\n• Strong leadership potential, with a genuine interest in developing people, fostering collaboration and driving accountability.\n\n• Ability to manage operational priorities, maintain high-quality standards and make sound, risk-based decisions in a demanding environment.\n\n• Robust communication and stakeholder management skills, with the ability to engage constructively with both operational teams and senior management.\n\n• Excellent command of English and French; German is a strong asset.",
+        "fr": "As part of its ongoing organisational evolution, Swissquote is creating a new department, the Client Lifecycle Integrity (CLI) Department. Acting as a 1.5 line of defense and independent from the Front Office, the CLI brings together key activities supporting the integrity-related management of private client relationships throughout their lifecycle, from onboarding and periodic reviews to AML transaction monitoring.\n As an Associate-Director in the Client Lifecycle Integrity department, you will lead one of our HNWI Client Lifecycle Integrity teams, overseeing key activities across the client relationship lifecycle, including onboarding, periodic reviews and ongoing due diligence controls.\n Reporting directly to the Head HNWI Client Lifecycle Integrity – Vice Director, you will responsible for ensuring operational excellence, effective risk management, regulatory compliance and the consistent delivery of high-quality services.\n Combining strong operational expertise with sound judgement and people leadership, you will play a key role in developing team capabilities, enhancing processes and driving continuous improvement in a dynamic and evolving banking environment.\n Key responsibilities\n Operations management:\n\n• Lead and manage the team’s activities, ensuring effective workload allocation, operational efficiency, quality standards and adherence to service level commitments.\n\n• Oversee client onboarding, periodic reviews and ongoing due diligence activities within the team's scope, ensuring compliance with applicable regulatory requirements and internal policies.\n\n• Ensure the effective identification, assessment, documentation and escalation of risks associated with HNWI relationships, including complex and higher-risk profiles.\n\n• Oversee the preparation of high-quality client assessments, risk analyses and recommendations for senior management review and approval, ensuring accuracy, completeness and sound risk-based judgement.\n\n• Establish and monitor appropriate operational and quality metrics to identify performance gaps, assess outcomes and support informed management decisions.\n\n• Drive continuous improvement initiatives to enhance the efficiency, consistency, scalability and control effectiveness of client lifecycle processes.\n\n• Identify and implement opportunities for automation, digitalisation and the use of data analytics, workflow solutions and AI to streamline operations and improve decision-making.\n\n• Contribute to the development and maintenance of internal procedures, guidelines and operational standards, ensuring alignment with evolving regulatory and business requirements.\n\n• Act as a trusted point of contact to front-line teams, offering clear and pragmatic guidance.\n\n• Collaborate with key stakeholders, provide pragmatic guidance on complex matters, and represent HNWI CLI in cross-functional initiatives and strategic projects.\n Team Management:\n\n• Leading and supporting the team:\n• Fostering a positive work atmosphere where employees feel motivated, valued, and connected to the team and the organization;\n\n• Promoting collaboration, trust, and cohesion among team members;\n\n• Addressing any potential conflicts among team members to your senior management and/or HR Partner;\n\n• Supporting employee growth through training, mentorship, coaching, and advancement opportunities.\n\n• Hiring:\n• Leading the recruitment process with your Talent Acquisition Partner;\n\n• Ensuring new hires are properly introduced to the team, the organization, its culture, policies, and their specific roles.\n\n• Performance Management: Setting performance expectations, providing feedback, conducting performance reviews, and addressing any performance issues.\n\n• Conducting under performance process with the help of your Senior Management and HR Partner.\n\n• University degree in Law, Economics, or a related field – a certification in Compliance Management is a strong asset.\n\n• Minimum 5–7 years in client onboarding and periodic reviews, KYC/AML, or compliance operations within the financial industry.\n\n• A previous experience in a leadership or team-lead role is a strong asset.\n\n• Good knowledge of Swiss AML/KYC regulations and due diligence standards, including AMLA, AMLO-FINMA and the Swiss Bankers Association's due diligence rules (CDB).\n\n• Solid understanding of the HNWI segment, including complex source of wealth/source of funds assessments, PEPs and enhanced due diligence requirements.\n\n• Interest in process optimisation, digital transformation and technology-driven improvements; practical experience with automation or AI-enabled solutions is an asset.\n\n• Important analytical and problem-solving capabilities, with a structured, proactive and solution-oriented approach.\n\n• Strong leadership potential, with a genuine interest in developing people, fostering collaboration and driving accountability.\n\n• Ability to manage operational priorities, maintain high-quality standards and make sound, risk-based decisions in a demanding environment.\n\n• Robust communication and stakeholder management skills, with the ability to engage constructively with both operational teams and senior management.\n\n• Excellent command of English and French; German is a strong asset."
+      },
+      "needsRetranslation": true,
+      "location": "Gland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Swissquote/744000155681220-hnwi-lifecyle-integrity-manager-associate-director",
+      "source": "Swissquote Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-15T09:37:30.912Z",
+      "addressLocality": "Gland",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Fintech / Banca online",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T07:25:55.022Z",
+      "postedDate": "2026-10-15T07:25:55.022Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Swissquote/744000155681220-hnwi-lifecyle-integrity-manager-associate-director?oga=true",
+      "jobReqId": "744000155681220",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "postalCode": "1196",
+      "streetAddress": "Chemin de la Crétaux 33",
+      "salaryMin": 174500,
+      "salaryMax": 306000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 174500,
+          "maxValue": 306000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-15T09:37:30.912Z"
     }
   ]
 }

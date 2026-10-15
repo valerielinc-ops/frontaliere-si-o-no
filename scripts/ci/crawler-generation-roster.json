@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "groups": {
     "10": [
       "atec-personal",
@@ -262,6 +262,7 @@
       "huber-suhner",
       "kanton-zuerich",
       "kantonsspital-uri",
+      "kita-summervogel",
       "klinik-schloss-mammern",
       "ksml",
       "opus-personal",
@@ -278,6 +279,7 @@
       "zuger-kantonsspital"
     ],
     "19": [
+      "agat",
       "alpiq",
       "bucher-suter",
       "convit-holding",
@@ -289,7 +291,6 @@
       "gz-dielsdorf",
       "hfr-hopital-fribourgeois",
       "integra-biosciences",
-      "kita-summervogel",
       "klinik-susenberg",
       "komax",
       "medartis",
@@ -696,6 +697,7 @@
     "adullam": "data/jobs/by-crawler/adullam.json",
     "adus-klinik": "data/jobs/by-crawler/adus-klinik.json",
     "afry": "data/jobs/by-crawler/afry.json",
+    "agat": "data/jobs/by-crawler/agat.json",
     "agie-charmilles": "data/jobs/by-crawler/agie-charmilles.json",
     "agroscope": "data/jobs/by-crawler/agroscope.json",
     "ail-lugano": "data/jobs/by-crawler/ail-lugano.json",
@@ -1320,5 +1322,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:19188a0077349f441534c7449ee168838d250d8d87b3fdd39d58a4afffd74fc0"
+  "digest": "sha256:72af367d3314ff3835891b512709a0e4ea64a7d6579dd005f1fa487890cc60f2"
 }
