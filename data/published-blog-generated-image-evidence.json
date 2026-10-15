@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "2096f627efc38427ee068e3a7992ab384b79a98d",
+  "commit": "eb7890b986bd443457871b1bccca3fb378a2b383",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -20549,6 +20549,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration showing a sealed vital medical device package and official-style documents in a Swiss office setting, with no readable text, logos, people, or specific event."
+      }
+    },
+    "/images/blog/article-gottardo-quadri-cupra-berna.webp": {
+      "schema": 1,
+      "assetId": "article-gottardo-quadri-cupra-berna",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "59d40de8eaabe89258af26c98854c9e729e76b095e4c21ccdcd0c23c87f52cf1",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "389c1a0e5538c6714658bd7921559debea137d6589b8f2d119ff124153a97838",
+      "bytes": 171666,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T01:57:13.936Z",
+      "verifiedAt": "2026-10-15T01:57:32.551Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-gottardo-quadri-cupra-berna.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic alpine traffic-congestion illustration with no visible text, logos, faces, people, or specific event."
+      }
+    },
+    "/images/blog/article-segreteria-economia-nazionale.webp": {
+      "schema": 1,
+      "assetId": "article-segreteria-economia-nazionale",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "fdb07b7e1d91ef2df0d59f221a5f7e8f1cb6f03f8297106830882d5eeb08718b",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "4c055543143cf19a57cfb982ba83be9c464ca1f073fdffb09580bbc70fe77850",
+      "bytes": 50778,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T02:06:29.988Z",
+      "verifiedAt": "2026-10-15T02:06:38.843Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-segreteria-economia-nazionale.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic Swiss office workspace with paperwork; no readable text, logos, people, or specific event."
       }
     },
     "/images/places/lugano-view.webp": {

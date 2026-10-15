@@ -8306,6 +8306,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tasse-universitarie-berna-guida.title': 'Frais de scolarité à Berne : guide d\'inscription',
     'blog.article.tasse-universitarie-berna-guida.excerpt': 'Comment vérifier les exigences, les délais et les montants des frais de scolarité dans le canton de Berne : guide pratique par catégories et institutions.',
     'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Étudiant vérifiant les conditions des frais de scolarité dans le canton de Berne',
+    'blog.article.opportunita-impiego-federale.title': 'Travailler pour l\'Administration fédérale : 50 formations',
+    'blog.article.opportunita-impiego-federale.excerpt': 'L\'Administration fédérale offre des stages aux étudiants récemment diplômés 50 formations professionnelles sont disponibles Les formations prévoient 7 semaines',
+    'blog.article.opportunita-impiego-federale.imageAlt': 'Possibilités d\'emploi dans l\'Administration fédérale suisse',
+    'blog.article.segreteria-economia-nazionale.title': 'SECO : la source indique le Secrétariat d\'État à l\'économie',
+    'blog.article.segreteria-economia-nazionale.excerpt': 'Le matériel disponible indique la dénomination Secrétariat d\'État à l\'économie et l\'acronyme SECO, mais ne contient ni mesures, ni dates, ni chiffres.',
+    'blog.article.segreteria-economia-nazionale.imageAlt': 'Document portant le sigle SECO sur un bureau économique suisse.',
 };
 
 export default blogMetaChFr;

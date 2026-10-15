@@ -8306,6 +8306,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tasse-universitarie-berna-guida.title': 'Studiengebühren Bern: Einschreibungsleitfaden',
     'blog.article.tasse-universitarie-berna-guida.excerpt': 'Wie man Anforderungen, Fristen und Beträge für Studiengebühren im Kanton Bern überprüft: praktischer Leitfaden nach Kategorien und Institutionen.',
     'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Student prüft die Voraussetzungen für Studiengebühren im Kanton Bern',
+    'blog.article.opportunita-impiego-federale.title': 'Arbeiten für die Bundesverwaltung: 50 Berufsausbildungen',
+    'blog.article.opportunita-impiego-federale.excerpt': 'Die Bundesverwaltung bietet frisch diplomierten Hochschulabsolventinnen und -absolventen Praktika an Es stehen 50 Berufsausbildungen zur Verfügung Die Ausbildungen umfassen 7 Wochen',
+    'blog.article.opportunita-impiego-federale.imageAlt': 'Stellenangebote in der Schweizer Bundesverwaltung',
+    'blog.article.segreteria-economia-nazionale.title': 'SECO: Die Quelle nennt das Staatssekretariat für Wirtschaft',
+    'blog.article.segreteria-economia-nazionale.excerpt': 'Das verfügbare Material nennt die Bezeichnung Staatssekretariat für Wirtschaft und das Akronym SECO, enthält jedoch keine Maßnahmen, Daten oder Zahlen.',
+    'blog.article.segreteria-economia-nazionale.imageAlt': 'Dokument mit der Abkürzung SECO auf einem Schreibtisch in einem Schweizer Wirtschaftsbüro.',
 };
 
 export default blogMetaChDe;

@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5464
+      "6": 5465
     },
-    "publishedCovers": 7045,
+    "publishedCovers": 7046,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5269
+    "inferredRecords": 5270
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187822,6 +187822,33 @@
           "id": "scontro-galleria-cernobbio-varese",
           "category": "novita",
           "date": "2026-10-13T10:10:34.859Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-segreteria-economia-nazionale": {
+      "cover": "/images/blog/article-segreteria-economia-nazionale.webp",
+      "hash": "4c055543143cf19a57cfb982ba83be9c464ca1f073fdffb09580bbc70fe77850",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "segreteria-economia-nazionale",
+          "category": "pratico",
+          "date": "2026-10-15T02:06:39.251Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
