@@ -41,6 +41,7 @@ import {
 import {
   DEFAULT_TIMEOUTS,
   DEFAULT_TIKTOK_MUSIC_MODE,
+  acceptsInstagramImageUpload,
   extractTikTokAuthenticatedUsername,
   hasVisibleDialogLoading,
   resolveTikTokMusicVariant,
@@ -56,6 +57,14 @@ import { buildIssueDescription, displayPath, downloadEntryFiles, downloadImages,
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { diagnosticsDir, downloadsDir, pruneRobotState, resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
 import { runHasErrors } from '../scripts/social-robot/run.mjs';
+
+describe('Instagram image upload accept guard', () => {
+  it('accepts standard image MIME tokens and rejects a non-image field', () => {
+    expect(acceptsInstagramImageUpload('image/jpeg,image/png,image/heic')).toBe(true);
+    expect(acceptsInstagramImageUpload('image/*')).toBe(true);
+    expect(acceptsInstagramImageUpload('application/pdf')).toBe(false);
+  });
+});
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const tempDirs: string[] = [];

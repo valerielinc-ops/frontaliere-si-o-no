@@ -47,6 +47,13 @@ const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join(
 const escapeRegExp = (text) => String(text).replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
 const EXACT_TEXT_ONE_OF = (...words) => new RegExp(`^\\s*(?:${words.map(escapeRegExp).join('|')})\\s*$`, 'i');
 
+const INSTAGRAM_IMAGE_ACCEPT_RE = /(?:^|[,\s])(?:image\/(?:[a-z0-9][a-z0-9!#$%&'*+.^_`|~-]*|\*)|\.(?:jpe?g|png|heic))(?:[,\s]|$)/i;
+
+export function acceptsInstagramImageUpload(accept) {
+  const value = String(accept ?? '');
+  return !value || INSTAGRAM_IMAGE_ACCEPT_RE.test(value);
+}
+
 export const RX = Object.freeze({
   igCreate: ANY_OF('New post', 'Create', 'Crea', 'Nuovo post', 'Neuer Beitrag', 'Erstellen', 'Créer', 'Nouvelle publication'),
   // Instagram repeats the item label in the accessible name when its icon has
@@ -1360,7 +1367,7 @@ async function instagramPostFlow({ page, files, caption, dryRun, human, snap, st
     page.locator('input[type="file"]'),
   ], { guard, timeout: t.ui, state: 'attached', unique: true, waitForDialog: dialogWait });
   const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
-  if (accept && !/(?:image(?:\/|\*)|\.(?:jpe?g|png|heic))(?:[,\s]|$)/i.test(accept)) {
+  if (!acceptsInstagramImageUpload(accept)) {
     throw new RobotError('upload-unsupported', `Instagram post upload field does not accept image/*: "${accept}"`, { step: 'upload' });
   }
   await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
