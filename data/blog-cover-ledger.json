@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-13",
+  "generatedAt": "2026-10-14",
   "source": {
     "gitCommit": "00a489835b182f51cfcf432e1c8dcdead898e379",
     "heroFiles": 7067,
@@ -15,17 +15,17 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 19,
-      "6": 5275
+      "5": 5,
+      "6": 5289
     },
     "publishedCovers": 6870,
     "publishedWithExistingOrInheritedRecord": 1769,
-    "publishedReplacements": 150,
+    "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5080
+    "inferredRecords": 5094
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -43,17 +43,23 @@
           "authorSlug": "marco-ferrari"
         }
       ],
-      "proofLevel": 6,
-      "evidence": "inferred",
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
       "recordFile": "packages/articles/content/image-credits/blog/139-frontalieri-ticino-special-olympics.json",
       "inheritedFrom": null,
-      "action": "record-inferred",
-      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
       "priority": 1777,
-      "verifiedAt": "2026-10-13",
-      "provider": null,
-      "status": "no-credit",
-      "currentlyPublished": true
+      "verifiedAt": "2026-10-08",
+      "provider": "openai-codex",
+      "status": "generated",
+      "currentlyPublished": true,
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "evidence": "generated-engine-record"
+      }
     },
     "13esima-avs-iva-nazionale": {
       "cover": "/images/blog/13esima-avs-iva-nazionale.webp",
@@ -12375,16 +12381,16 @@
           "authorSlug": "redazione"
         }
       ],
-      "proofLevel": 6,
-      "evidence": "inferred",
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
       "recordFile": "packages/articles/content/image-credits/blog/article-cantello-teatro-dialettale-ottobre-2026.json",
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
       "priority": 1791,
-      "verifiedAt": "2026-10-13",
-      "provider": null,
-      "status": "no-credit",
+      "verifiedAt": "2026-10-09",
+      "provider": "openai-codex",
+      "status": "generated",
       "currentlyPublished": true,
       "replacement": {
         "mode": "generated",
@@ -13636,17 +13642,23 @@
           "authorSlug": "redazione"
         }
       ],
-      "proofLevel": 6,
-      "evidence": "inferred",
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
       "recordFile": "packages/articles/content/image-credits/blog/article-festival-racconto-varese-ottobre.json",
       "inheritedFrom": null,
-      "action": "record-inferred",
-      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
       "priority": 1791,
-      "verifiedAt": "2026-10-13",
-      "provider": null,
-      "status": "no-credit",
-      "currentlyPublished": true
+      "verifiedAt": "2026-10-08",
+      "provider": "openai-codex",
+      "status": "generated",
+      "currentlyPublished": true,
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-festival-racconto-varese-ottobre",
+        "imageUrl": "/images/blog/article-festival-racconto-varese-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
     },
     "article-ffs-sportelli-chiusi-stazioni": {
       "cover": "/images/blog/article-ffs-sportelli-chiusi-stazioni.webp",
@@ -15425,17 +15437,23 @@
           "authorSlug": "redazione"
         }
       ],
-      "proofLevel": 6,
-      "evidence": "inferred",
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
       "recordFile": "packages/articles/content/image-credits/blog/article-mcdonalds-pulizia-malnate-2026.json",
       "inheritedFrom": null,
-      "action": "record-inferred",
-      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
       "priority": 1791,
-      "verifiedAt": "2026-10-13",
-      "provider": null,
-      "status": "no-credit",
-      "currentlyPublished": true
+      "verifiedAt": "2026-10-08",
+      "provider": "openai-codex",
+      "status": "generated",
+      "currentlyPublished": true,
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mcdonalds-pulizia-malnate-2026",
+        "imageUrl": "/images/blog/article-mcdonalds-pulizia-malnate-2026.webp",
+        "evidence": "generated-engine-record"
+      }
     },
     "article-mendrisiotto-aziende-conciliabilita": {
       "cover": "/images/blog/article-mendrisiotto-aziende-conciliabilita.webp",
@@ -30414,39 +30432,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-10.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (2f7de67b9104013723b618388df729754bcba86208bd8936bebe44ff88a11c26); nessun credito provider.",
       "priority": 1786,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-10.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-10.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-10.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1786,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-10",
-            "category": "novita",
-            "date": "2026-08-10T06:13:06.135Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-10",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T19:05:20.514Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-08-11": {
       "cover": "/images/blog/bollettino-frontaliere-2026-08-11.webp",
@@ -30517,39 +30513,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-13.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (93e7001d264de2658bbb0266b69e8ac9d38acce21648cc07978f14dee3249495); nessun credito provider.",
       "priority": 1787,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-13.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-13.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-13.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1787,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-13",
-            "category": "novita",
-            "date": "2026-08-13T06:19:44.871Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-13",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:57:47.314Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-08-14": {
       "cover": "/images/blog/bollettino-frontaliere-2026-08-14.webp",
@@ -30593,39 +30567,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-16.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (d861d65e2a71aa9455f29fd864c5cb2db37bf58c70dfa87ee448806d2152ea90); nessun credito provider.",
       "priority": 1787,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-16.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-16.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-16.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1787,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-16",
-            "category": "novita",
-            "date": "2026-08-16T05:32:01.084Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-16",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:59:15.883Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-08-17": {
       "cover": "/images/blog/bollettino-frontaliere-2026-08-17.webp",
@@ -30696,39 +30648,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-19.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (e5cf6a7f773fd8969bd109165ca4af5d202778ad1e91841d4a3e23f92e6d4a34); nessun credito provider.",
       "priority": 1787,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-19.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-19.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-19.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1787,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-19",
-            "category": "novita",
-            "date": "2026-08-19T05:34:24.090Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-19",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T19:00:58.210Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-08-20": {
       "cover": "/images/blog/bollettino-frontaliere-2026-08-20.webp",
@@ -30799,39 +30729,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-22.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (f753c8ac05bbe6757fbbef5be8001acf0bbaa66152680a7c13f93bd7b389c4ba); nessun credito provider.",
       "priority": 1787,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-22.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-22.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-22.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1787,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-22",
-            "category": "novita",
-            "date": "2026-08-22T05:31:04.993Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-22",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T19:03:12.368Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-08-23": {
       "cover": "/images/blog/bollettino-frontaliere-2026-08-23.webp",
@@ -30902,39 +30810,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-25.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (884f378337b6e1f4aa5574871c988e863326591feaa6d8830bd2e580f79a02ef); nessun credito provider.",
       "priority": 1788,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-25.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-25.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-25.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1788,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-25",
-            "category": "novita",
-            "date": "2026-08-25T05:35:33.314Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-25",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:53:02.889Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-08-26": {
       "cover": "/images/blog/bollettino-frontaliere-2026-08-26.webp",
@@ -31005,39 +30891,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-28.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (8a6b990c6dcc63391faedd1ff554f4214e1d1d2fbccaf4c696d062fc73a32381); nessun credito provider.",
       "priority": 1788,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-28.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-28.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-28.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1788,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-28",
-            "category": "novita",
-            "date": "2026-08-28T17:13:05.394Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-28",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:54:06.277Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-08-29": {
       "cover": "/images/blog/bollettino-frontaliere-2026-08-29.webp",
@@ -31108,39 +30972,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-31.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (5b2b3a9ed9d1263212e8eecfdba259c9de58e3b849c6bad6770e2ad95e9fe733); nessun credito provider.",
       "priority": 1788,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-08-31.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-08-31.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-08-31.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1788,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-08-31",
-            "category": "novita",
-            "date": "2026-08-31T11:28:15.916Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-08-31",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:55:04.907Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-01": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-01.webp",
@@ -31211,39 +31053,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-03.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (ec441c69e0f2c4cf32b6ca09d473383d9c3ecc53a2b7b6e1591db5e54e36dc3a); nessun credito provider.",
       "priority": 1788,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-03.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-03.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-03.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1788,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-03",
-            "category": "novita",
-            "date": "2026-09-03T09:32:54.025Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-03",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:56:54.453Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-05": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-05.webp",
@@ -31287,39 +31107,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-06.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (30ea6a59e2877be96253deafd27cc39b0b36d1b4cb64b51c675742debb734fdc); nessun credito provider.",
       "priority": 1789,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-06.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-06.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-06.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1789,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-06",
-            "category": "novita",
-            "date": "2026-09-06T09:13:45.431Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-06",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:48:38.827Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-07": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-07.webp",
@@ -31444,39 +31242,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-12.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (43aff05ae855e970227da245b5decde773eeea14212b5f816f08021430406d29); nessun credito provider.",
       "priority": 1789,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-12.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-12.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-12.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1789,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-12",
-            "category": "novita",
-            "date": "2026-09-12T09:07:30.077Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-12",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:51:05.281Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-13": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-13.webp",
@@ -31547,39 +31323,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-15.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (e762a6a2ab28c9476c66e48c114316c316e0a54add878d171cae57787bf93f84); nessun credito provider.",
       "priority": 1789,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-15.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-15.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-15.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1789,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-15",
-            "category": "novita",
-            "date": "2026-09-15T09:52:10.386Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-15",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:52:07.181Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-16": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-16.webp",
@@ -31650,39 +31404,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-18.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (df51397e15313997db68d089316553dead0c0b69ae07df12ebcef99ddccc7930); nessun credito provider.",
       "priority": 1790,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-18.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-18.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-18.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1790,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-18",
-            "category": "novita",
-            "date": "2026-09-18T09:30:19.905Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-18",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:43:29.502Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-19": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-19.webp",
@@ -31753,39 +31485,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-21.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (feba8e78f0d3bd3ba06be05e6ea9d0716aa6b492e5d0e5b0a0ca406d324c4ef9); nessun credito provider.",
       "priority": 1790,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-21.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-21.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-21.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1790,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-21",
-            "category": "novita",
-            "date": "2026-09-21T10:31:42.496Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-21",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:45:36.303Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-22": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-22.webp",
@@ -31856,39 +31566,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-24.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (30750491b0a83b50e6bf40cdbb18176971db8fd43d395f01f840ef6f23aa66fb); nessun credito provider.",
       "priority": 1790,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-24.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-24.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-24.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1790,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-24",
-            "category": "novita",
-            "date": "2026-09-24T09:47:16.929Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-24",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:47:22.893Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-25": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-25.webp",
@@ -31959,39 +31647,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-27.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (e40b76b261b145d6b082e348b731c486744ab29466612c1fab16d6f0e968ffa7); nessun credito provider.",
       "priority": 1791,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-27.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-27.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-27.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1791,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-27",
-            "category": "novita",
-            "date": "2026-09-27T10:26:24.223Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-27",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:36:56.273Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-09-28": {
       "cover": "/images/blog/bollettino-frontaliere-2026-09-28.webp",
@@ -32062,39 +31728,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-30.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (fde6866d9c8a26993cef81e3f5046ccf3b2889b116b428e1db92cef91f468cac); nessun credito provider.",
       "priority": 1791,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-09-30.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-09-30.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-30.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1791,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-09-30",
-            "category": "novita",
-            "date": "2026-09-30T11:29:31.035Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-09-30",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:40:30.292Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-10-01": {
       "cover": "/images/blog/bollettino-frontaliere-2026-10-01.webp",
@@ -32165,39 +31809,17 @@
           "authorSlug": "samuele-valente"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "journalist-author",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-03.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "replace-generated",
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "action": "record-inferred",
+      "reason": "Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (e43b2edba8d7ed396514e0c01c1ed49d839a0ff8575d089249c9dd72ae409586); nessun credito provider.",
       "priority": 1791,
-      "replacement": {
-        "mode": "generated",
-        "status": "generated",
-        "fromCover": "/images/blog/bollettino-frontaliere-2026-10-03.webp",
-        "toCover": "/images/blog/bollettino-frontaliere-2026-10-03.webp",
-        "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-03.json",
-        "proofLevel": 5,
-        "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-        "priority": 1791,
-        "references": [
-          {
-            "section": "frontaliere",
-            "id": "bollettino-frontaliere-2026-10-03",
-            "category": "novita",
-            "date": "2026-10-03T10:17:32.132Z",
-            "updatedAt": null,
-            "authorSlug": "samuele-valente"
-          }
-        ],
-        "generatedAssetId": "bollettino-frontaliere-2026-10-03",
-        "provider": "openai-codex",
-        "generatedAt": "2026-10-06T18:41:50.296Z"
-      },
       "currentlyPublished": true,
-      "verifiedAt": "2026-10-13",
-      "status": "generated"
+      "verifiedAt": "2026-10-14",
+      "status": "no-credit",
+      "provider": null
     },
     "bollettino-frontaliere-2026-10-04": {
       "cover": "/images/blog/bollettino-frontaliere-2026-10-04.webp",

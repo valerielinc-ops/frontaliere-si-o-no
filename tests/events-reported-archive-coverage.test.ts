@@ -41,6 +41,30 @@ describe('reported GSC event archive coverage', () => {
     }
   });
 
+  it('keeps both attested Panta rhei aliases on one resolved public identity', () => {
+    // The museum's programme confirms one lecture on 1 October at 18:00.
+    // Both source records claimed the long unknown-canton route; retaining
+    // the superseded MySwitzerland seed lets the last writer win that alias.
+    const id = 'guidle:AXBsQCr';
+    expect(archived.some(event => event.id === 'myswitzerland:f6875e27b20f47b9936e873108d45281')).toBe(false);
+    expect(archived.find(event => event.id === id)).toMatchObject({
+      canton: 'LU', venue: 'Hans Erni Museum',
+      startDate: '2026-10-01', endDate: '2026-10-01', startTime: '18:00',
+    });
+    const route = assigned.get(id)!;
+    expect(pathForEventDetail('de', route.comune, route.slug, route.canton)).toBe(
+      '/de/veranstaltungen/luzern/weitere-veranstaltungen/bedrohung-durch-drohnen-und-hybride-kriegsfuhrung-2026-10-01/',
+    );
+    for (const locale of locales) for (const slug of [
+      'bedrohung-durch-drohnen-und-hybride-kriegsfuhrung-panta-rhei-2026-10-01',
+      'bedrohung-durch-drohnen-und-hybride-kriegsfuhrung-2026-10-01',
+    ]) {
+      const alias = pathForEventDetail(locale, '__other-events__', slug, '__UNRESOLVED-CANTON__');
+      expect(canonicalOwners.has(alias), alias).toBe(false);
+      expect([...(historyOwners.get(alias) || [])], alias).toEqual([id]);
+    }
+  });
+
   it('renders substantive self-canonical archives rather than generic retired pages', () => {
     const byId = new Map(archived.map(event => [event.id, event]));
     for (const [reportedPath, id] of fixture.routes) {

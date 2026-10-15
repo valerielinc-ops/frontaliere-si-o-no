@@ -55,6 +55,7 @@ import {
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
+import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
@@ -1046,6 +1047,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
+ let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
+ try {
  const jobsSeoSample = resolveJobsSeoSample();
  resetIncrementalManifestInputCache(rootDir);
  // Fail the build loudly (follow-up #3608 item 2) instead of silently
@@ -12442,50 +12445,32 @@ ${staticAnalyticsHtml}
  // recency-sorted expired-jobs.json winners indexed above — this only fills the
  // long tail those 5000 left empty.
  const expiredSlicesDir = np.resolve(rootDir, 'data/jobs/expired/by-crawler');
- // Safety valve against unbounded SSG memory growth as slices accumulate over
- // years — caps how many long-tail entries we retain. Default is generous
- // (well above today's ~5k) so it never bites normal coverage; lower via env if
- // a deploy ever OOMs on the augmented map.
+ // Bound in-memory aliases, not archive coverage. The published c805 build
+ // reached this cap before Spital Uster and silently lost original content.
+ // Overflow retains compact offsets/recency; full records live on disk.
  const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 60000);
+ expiredSliceOverflow = new ExpiredSliceOverflow();
  if (fs.existsSync(expiredSlicesDir)) {
  const emittedSlugs = new Set(Object.keys(tracking));
- let sliceAugmented = 0;
- let sliceAugmentCapped = false;
  // Predicato condiviso (scripts/lib/crawler-slice-files.mjs): e' lo stesso che
  // assemble-jobs-dataset.mjs applica gia' a EXPIRED_SLICES_DIR. `.json` da solo
  // raccoglieva anche i companion `-locale-cache` e gli orfani `.cleanup-tmp`.
+ function* expiredSliceJobs(): Generator<any> {
  for (const sliceFile of listJobsSeoExpiredSliceFiles(expiredSlicesDir)) {
- if (sliceAugmentCapped) break;
  let sliceArr: any[];
  try {
  sliceArr = JSON.parse(fs.readFileSync(np.resolve(expiredSlicesDir, sliceFile), 'utf-8'));
  } catch { continue; }
  if (!Array.isArray(sliceArr)) continue;
- for (const ej of sliceArr) {
- const variants = expiredJobSlugVariants(ej);
- // Skip entries that don't back an emitted orphan page — keeps the map
- // bounded to the orphan set rather than all historical expired jobs.
- if (!variants.some((v) => emittedSlugs.has(v))) continue;
- // Count only slug-variant entries actually inserted into the map — NOT
- // every processed `ej`. With the known 63-way previousSlug collisions a
- // job whose variants are all already indexed (by 2a or an earlier slice)
- // adds nothing to the map, so it must not advance the counter: otherwise
- // the counter inflates past the real retained-entry count and trips
- // SLICE_AUGMENT_CAP early, truncating readdirSync mid-stream (which
- // crawler-slices survive then depends on arbitrary filesystem order).
- // The cap bounds SSG memory (map size), so the counter must track map
- // growth, not iterations.
- for (const v of variants) {
- if (v && !expiredBySlug.has(v)) { expiredBySlug.set(v, ej); sliceAugmented++; }
- }
- if (sliceAugmented >= SLICE_AUGMENT_CAP) { sliceAugmentCapped = true; break; }
+ yield* sliceArr;
  }
  }
+ const sliceAugmented = augmentExpiredSliceIndex(
+ expiredSliceJobs(), emittedSlugs, expiredBySlug, expiredSliceOverflow,
+ SLICE_AUGMENT_CAP, _jobRecency,
+ );
  if (sliceAugmented > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} per-crawler slice slug-variant entries (uncapped) for orphan coverage beyond the expired-jobs.json cap`);
- }
- if (sliceAugmentCapped) {
- console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m EXPIRED_SLICE_AUGMENT_CAP (${SLICE_AUGMENT_CAP}) reached — long-tail orphan content beyond this is not indexed this build. Raise the cap or shard if intentional.`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} in-memory per-crawler aliases and ${expiredSliceOverflow.size} disk-backed aliases for complete requested archive coverage`);
  }
  }
 
@@ -13215,6 +13200,9 @@ ${staticAnalyticsHtml}
  // `Object.keys(tracking)` (insertion order from
  // data/all-known-job-slugs.json, which is mostly chronological-ascending).
  const _expiredSlugRecency = (s: string): number => {
+ // Sorting hundreds of thousands of aliases must never parse disk records.
+ const overflowRecency = expiredSliceOverflow?.recency(s);
+ if (overflowRecency !== undefined) return overflowRecency;
  const ej = expiredBySlug.get(s);
  return ej ? _jobRecency(ej) : 0;
  };
@@ -13237,7 +13225,7 @@ ${staticAnalyticsHtml}
  for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
  const slug = expiredSlugs[expiredSlugIndex];
  const paths = tracking[slug];
- const ejData = expiredBySlug.get(slug);
+ const ejData = expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug);
 
  // For orphan slugs with no ejData, extract info from the slug itself
  const slugInfo = !ejData?.title ? extractInfoFromSlug(slug) : null;
@@ -14131,6 +14119,7 @@ ${staticAnalyticsHtml}
  }
  expiredFaqCache.clear();
  expiredBySlug.clear();
+ expiredSliceOverflow.close();
  orphanGscData.clear();
  companyActiveJobsMap.clear();
  recentJobPools.clear();
@@ -15478,6 +15467,10 @@ ${staticAnalyticsHtml}
   // Resolve after the shared manifest write. The related plugin awaits this
   // barrier before writing its own entries into the same per-locale map.
   resolveJobsSeoPagesFlushed();
+ }
+ } finally {
+  // Also release the private spill if parsing, rendering or queued IO fails.
+  expiredSliceOverflow?.close();
  }
  },
  };
