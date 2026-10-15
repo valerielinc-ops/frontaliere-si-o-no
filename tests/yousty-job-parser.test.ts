@@ -45,6 +45,27 @@ describe('parseYoustyApprenticeshipHtml', () => {
     const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML);
     expect(parsed.applyUrl).toBe('');
   });
+
+  it('uses the JobPosting URL as an application handoff when directApply is true', () => {
+    const applyUrl = 'https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      url: applyUrl,
+      directApply: true,
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe(applyUrl);
+  });
+
+  it('does not use a JobPosting URL without directApply evidence', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel',
+      directApply: false,
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('');
+  });
 });
 
 describe('inline markup stays inside its sentence', () => {

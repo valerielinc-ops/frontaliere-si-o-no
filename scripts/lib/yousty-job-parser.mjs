@@ -82,8 +82,45 @@ export function htmlFragmentToMarkdown(html = '') {
   return htmlToTextBlock(dom.window.document.body);
 }
 
+function flattenJsonLd(value) {
+  if (Array.isArray(value)) return value.flatMap(flattenJsonLd);
+  if (!value || typeof value !== 'object') return [];
+
+  const graph = Array.isArray(value['@graph']) ? value['@graph'].flatMap(flattenJsonLd) : [];
+  return [value, ...graph];
+}
+
+function isJobPosting(value) {
+  const types = Array.isArray(value?.['@type']) ? value['@type'] : [value?.['@type']];
+  return types.some((type) => String(type || '').toLowerCase() === 'jobposting');
+}
+
+function extractDirectApplyUrl(html) {
+  const scripts = [...String(html || '').matchAll(
+    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
+  )];
+
+  for (const match of scripts) {
+    let jsonLd;
+    try {
+      jsonLd = JSON.parse(String(match[1] || '').trim());
+    } catch {
+      continue;
+    }
+
+    const posting = flattenJsonLd(jsonLd).find((entry) => isJobPosting(entry));
+    if (posting?.directApply !== true) continue;
+
+    const applyUrl = String(posting.url || '').trim();
+    if (applyUrl) return applyUrl;
+  }
+
+  return '';
+}
+
 export function parseYoustyApprenticeshipHtml(html) {
   const rawHtml = String(html || '');
+  const applyUrl = extractDirectApplyUrl(rawHtml);
   const noscriptMatches = [...rawHtml.matchAll(/<noscript[^>]*>([\s\S]*?)<\/noscript>/gi)];
   const noscriptHtml = (
     noscriptMatches
@@ -93,7 +130,7 @@ export function parseYoustyApprenticeshipHtml(html) {
   ).trim();
 
   if (!noscriptHtml) {
-    return { description: '', applyUrl: '' };
+    return { description: '', applyUrl };
   }
 
   const noscriptDom = new JSDOM(`<body>${noscriptHtml}</body>`);
@@ -120,6 +157,6 @@ export function parseYoustyApprenticeshipHtml(html) {
 
   return {
     description,
-    applyUrl: '',
+    applyUrl,
   };
 }
