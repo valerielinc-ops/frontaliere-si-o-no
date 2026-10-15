@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 636,
+  "crawlerCount": 637,
   "groups": {
     "10": [
       "atec-personal",
@@ -174,6 +174,7 @@
       "ibsa-institut-biochimique",
       "kanton-aargau",
       "kanton-solothurn",
+      "kita-summervogel",
       "klinik-adelheid",
       "mabetex",
       "octapharma",
@@ -196,6 +197,7 @@
       "csvm-mustair",
       "davos-klosters-bergbahnen",
       "decathlon",
+      "deillon-delley-architectes",
       "entero",
       "eoc-ente-ospedaliero-cantonale",
       "everest-re",
@@ -206,7 +208,6 @@
       "hopital-la-tour",
       "kantonsspital-graubuenden-ksgr",
       "kispi-sg",
-      "kita-summervogel",
       "lastminute-com",
       "matterhorn-gotthard-bahn",
       "recruitingapp-1154",
@@ -843,6 +844,7 @@
     "davos-klosters-bergbahnen": "data/jobs/by-crawler/davos-klosters-bergbahnen.json",
     "debiopharm": "data/jobs/by-crawler/debiopharm.json",
     "decathlon": "data/jobs/by-crawler/decathlon.json",
+    "deillon-delley-architectes": "data/jobs/by-crawler/deillon-delley-architectes.json",
     "deloitte": "data/jobs/by-crawler/deloitte.json",
     "delvitech-sa": "data/jobs/by-crawler/delvitech-sa.json",
     "denner": "data/jobs/by-crawler/denner.json",
@@ -1326,5 +1328,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:ec4ffc9c88340cc3adbba76700a65fdd22131e6a3028117f3d67754a9a5eb1d8"
+  "digest": "sha256:02a831d586bd0277371e1a2d1e1927725a72e2bdac594079df3adef921fcfdf9"
 }

@@ -1056,7 +1056,6 @@
       "pensumMin": 40,
       "pensumMax": 60,
       "pensum": "40-60%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kanzleimitarbeiter-in-kanton-gr-ch"
@@ -1137,7 +1136,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-verkehrsadministration-kanton-gr-ch"
@@ -1168,8 +1166,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch",
         "it": "fachfrau-fachmann-im-finanz-e-rechnungswesen-kantonale-verwaltung-graubunden-chur",
-        "en": "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch",
-        "fr": "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch"
+        "en": "professional-in-finance-and-accounting-kantonale-verwaltung-graubunden-chur",
+        "fr": "professionnel-en-finance-et-comptabilite-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1218,9 +1216,14 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch"
+        ],
+        "fr": [
           "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch"
         ]
       },
@@ -1299,7 +1302,6 @@
       "pensumMin": 75,
       "pensumMax": 85,
       "pensum": "75-85%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-administration-abteilung-mittelschulen-kanton-gr-ch"
@@ -1330,8 +1332,8 @@
       "slugByLocale": {
         "de": "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch",
         "it": "lehrperson-per-deutsch-e-deutsch-per-fremdsprachige-kantonale-verwaltung-graubunden-chur",
-        "en": "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch",
-        "fr": "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch"
+        "en": "teacher-for-german-and-german-for-foreign-speakers-kantonale-verwaltung-graubunden-chur",
+        "fr": "enseignant-pour-l-allemand-et-l-allemand-pour-les-locuteurs-etrangers-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1380,9 +1382,14 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch"
+        ],
+        "en": [
+          "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch"
+        ],
+        "fr": [
           "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch"
         ]
       },
@@ -1407,12 +1414,12 @@
     },
     {
       "id": "kanton-gr-1d4a78e2e06b",
-      "slug": "ict-system-engineer-support-projekte-kanton-gr-ch",
+      "slug": "ict-system-engineer-supporto-e-progetti-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "ict-system-engineer-support-projekte-kanton-gr-ch",
-        "it": "ict-system-engineer-support-projekte-kanton-gr-ch",
+        "it": "ict-system-engineer-supporto-e-progetti-kantonale-verwaltung-graubunden-chur",
         "en": "ict-system-engineer-support-projekte-kantonale-verwaltung-graubunden-chur",
-        "fr": "ict-system-engineer-support-projekte-kanton-gr-ch"
+        "fr": "ingenieur-systeme-ict-support-projets-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1461,7 +1468,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1476,7 +1482,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-15T09:10:21.985Z"
+      "firstSeenAt": "2026-10-15T09:10:21.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-engineer-support-projekte-kanton-gr-ch"
+        ],
+        "fr": [
+          "ict-system-engineer-support-projekte-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-engineer-support-projekte-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-0a61427953e6",
@@ -1534,7 +1551,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ict-servicedesk-mitarbeiter-in-mit-schwerpunkt-knowledge-management-kanton-gr-ch"
@@ -1730,8 +1746,8 @@
       "id": "kanton-gr-74a97250cd9e",
       "slug": "professionista-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "professionista-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
-        "en": "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur",
+        "it": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
+        "en": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
         "de": "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
         "fr": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
       },
@@ -1782,15 +1798,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
-        "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+        "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+          "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch"
         ],
         "en": [
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+          "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-10-08T09:16:56.030Z",
@@ -2408,9 +2423,9 @@
       "slug": "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "it": "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur",
-        "en": "administrative-clerk-chur-thusis-kantonale-verwaltung-graubunden-chur",
+        "en": "2-clerks-clerks-kantonale-verwaltung-graubunden-chur",
         "de": "2-sachbearbeiterinnen-sachbearbeiter-kanton-gr-ch",
-        "fr": "collaborateur-trice-administratif-ve-chur-thusis-kantonale-verwaltung-graubunden-chur"
+        "fr": "2-commis-commis-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2466,18 +2481,18 @@
         ],
         "en": [
           "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur",
-          "2-clerks-clerks-kantonale-verwaltung-graubunden-chur"
+          "administrative-clerk-chur-thusis-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
           "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur",
-          "2-commis-commis-kantonale-verwaltung-graubunden-chur"
+          "collaborateur-trice-administratif-ve-chur-thusis-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-chur-thusis-kanton-gr-ch",
         "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur",
-        "2-clerks-clerks-kantonale-verwaltung-graubunden-chur",
-        "2-commis-commis-kantonale-verwaltung-graubunden-chur"
+        "administrative-clerk-chur-thusis-kantonale-verwaltung-graubunden-chur",
+        "collaborateur-trice-administratif-ve-chur-thusis-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-10-07T21:13:07.453Z",
       "salaryMin": 65000,

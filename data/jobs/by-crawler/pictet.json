@@ -483,12 +483,12 @@
     },
     {
       "id": "pictet-bba6b8e0644e",
-      "slug": "group-information-security-ai-cyber-6-9-mois-pictet-geneva",
+      "slug": "sicurezza-delle-informazioni-di-gruppo-ai-cyber-6-9-mesi-pictet-group-geneva",
       "slugByLocale": {
         "fr": "group-information-security-ai-cyber-6-9-mois-pictet-geneva",
-        "it": "group-information-security-ai-cyber-6-9-mois-pictet-geneva",
+        "it": "sicurezza-delle-informazioni-di-gruppo-ai-cyber-6-9-mesi-pictet-group-geneva",
         "en": "group-information-security-ai-cyber-6-9-mois-pictet-geneva",
-        "de": "group-information-security-ai-cyber-6-9-mois-pictet-geneva"
+        "de": "gruppeninformationssicherheit-ai-cyber-6-9-monate-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -547,7 +547,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-15T09:23:11.966Z"
+      "firstSeenAt": "2026-10-15T09:23:11.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-information-security-ai-cyber-6-9-mois-pictet-geneva"
+        ],
+        "de": [
+          "group-information-security-ai-cyber-6-9-mois-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "group-information-security-ai-cyber-6-9-mois-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-d474bc69f76d",
@@ -631,7 +642,7 @@
         "it": "ufficiale-di-conformita-pictet-group-geneva",
         "en": "compliance-officer-pictet-geneva",
         "de": "compliance-beauftragter-pictet-group-geneva",
-        "fr": "compliance-officer-pictet-group-geneva"
+        "fr": "specialiste-du-respect-des-dispositions-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -676,14 +687,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "compliance-officer-pictet-geneva",
-        "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+        "compliance-officer-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-pictet-geneva"
         ],
         "fr": [
-          "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+          "compliance-officer-pictet-group-geneva"
         ]
       },
       "salaryMin": 69000,
