@@ -8318,6 +8318,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.berna-veicoli-procedura-guida.title': 'Targhe e immatricolazione Cantone Berna: guida alle procedure',
     'blog.article.berna-veicoli-procedura-guida.excerpt': 'Come gestire targhe, immatricolazione, collaudo e cambio di proprietario nel Cantone di Berna: verifica requisiti, scadenze e importi ufficiali.',
     'blog.article.berna-veicoli-procedura-guida.imageAlt': 'Ufficio della circolazione nel Cantone di Berna',
+    'blog.article.lucerna-festivi-calendario-verifica.title': 'Giorni festivi a Lucerna: guida al calendario e verifica',
+    'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Distinzione tra calendario cantonale e regole comunali o istituzionali per uffici e negozi a Lucerna.',
+    'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Paese di Lucerna con edifici amministrativi e persone che consultano orari e calendari festivi',
 };
 
 export default blogMetaChIt;

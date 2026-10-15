@@ -105012,6 +105012,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lucerna-festivi-calendario-verifica': {
+    title: 'Giorni festivi a Lucerna: guida al calendario e verifica',
+    description: 'Guida ai giorni festivi del Cantone di Lucerna: distinzione tra calendario cantonale, regole comunali e orari degli uffici. Verifica annuale necessaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giorni, festivi, lucerna, calendario',
+    ogTitle: 'Giorni festivi Lucerna: guida calendario e verifiche',
+    ogDescription: 'Scopri come verificare i giorni festivi nel Cantone di Lucerna. Guida pratica per distinguere il calendario cantonale dalle regole comunali e istituzionali per uffici e negozi.',
+    canonicalPath: '/articoli-svizzera/lucerna-festivi-calendario-verifica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giorni festivi a Lucerna: guida al calendario e verifica",
+      "description": "Guida ai giorni festivi del Cantone di Lucerna: distinzione tra calendario cantonale, regole comunali e orari degli uffici. Verifica annuale necessaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-festivi-berna-calendario-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paese di Lucerna con edifici amministrativi e persone che consultano orari e calendari festivi"
+      },
+      "datePublished": "2026-10-15T03:21:39+00:00",
+      "dateModified": "2026-10-15T03:21:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-festivi-calendario-verifica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

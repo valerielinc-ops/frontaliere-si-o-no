@@ -8318,6 +8318,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.berna-veicoli-procedura-guida.title': 'Kontrollschilder und Zulassung im Kanton Bern: Leitfaden zu den Verfahren',
     'blog.article.berna-veicoli-procedura-guida.excerpt': 'So regeln Sie im Kanton Bern Kontrollschilder, Zulassung, Fahrzeugprüfung und Halterwechsel: Prüfen Sie die offiziellen Anforderungen, Fristen und Beträge.',
     'blog.article.berna-veicoli-procedura-guida.imageAlt': 'Strassenverkehrsamt im Kanton Bern',
+    'blog.article.lucerna-festivi-calendario-verifica.title': 'Feiertage in Luzern: Kalenderleitfaden und Überprüfung',
+    'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Unterscheidung zwischen kantonalem Kalender und kommunalen oder institutionellen Regeln für Büros und Geschäfte in Luzern.',
+    'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Stadt Luzern mit Verwaltungsgebäuden und Menschen, die Feiertagskalender prüfen',
 };
 
 export default blogMetaChDe;

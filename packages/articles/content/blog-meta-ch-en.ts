@@ -8318,6 +8318,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.berna-veicoli-procedura-guida.title': 'Vehicle Registration in Bern: A Step-by-Step Guide',
     'blog.article.berna-veicoli-procedura-guida.excerpt': 'How to handle license plates, registration, vehicle inspection and change of ownership in the Canton of Bern: check requirements, deadlines and official fees.',
     'blog.article.berna-veicoli-procedura-guida.imageAlt': 'Vehicle registration office in the Canton of Bern',
+    'blog.article.lucerna-festivi-calendario-verifica.title': 'Public holidays in Lucerne: calendar guide and verification',
+    'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Distinction between cantonal calendar and municipal or institutional rules for offices and shops in Lucerne.',
+    'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Town of Lucerne with administrative buildings and people checking holiday schedules',
 };
 
 export default blogMetaChEn;

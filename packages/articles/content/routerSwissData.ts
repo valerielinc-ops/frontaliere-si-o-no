@@ -2795,6 +2795,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'segreteria-economia-nazionale': { it: 'segreteria-economia-nazionale', en: 'national-economic-secretariat', de: 'nationales-wirtschaftssekretariat', fr: 'secretariat-economie-national' },
  'permesso-pesca-canton-berna-guida': { it: 'permesso-pesca-canton-berna-guida', en: 'fishing-permit-canton-bern-guide', de: 'angelpatent-kanton-bern-anleitung', fr: 'permis-peche-canton-berne-guide' },
  'berna-veicoli-procedura-guida': { it: 'berna-veicoli-procedura-guida', en: 'bern-vehicle-registration-guide', de: 'bern-fahrzeug-zulassung-leitfaden', fr: 'berne-vehicule-immatriculation-guide' },
+ 'lucerna-festivi-calendario-verifica': { it: 'lucerna-festivi-calendario-verifica', en: 'lucerne-public-holidays-calendar-guide', de: 'luzern-feiertage-kalender-anleitung', fr: 'lucerne-jours-feries-calendrier-guide' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

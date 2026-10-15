@@ -8318,6 +8318,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.berna-veicoli-procedura-guida.title': 'Plaques et immatriculation dans le canton de Berne : guide des procédures',
     'blog.article.berna-veicoli-procedura-guida.excerpt': 'Comment gérer les plaques, l’immatriculation, le contrôle technique et le changement de propriétaire dans le canton de Berne : vérifiez les exigences, les échéances et les montants officiels.',
     'blog.article.berna-veicoli-procedura-guida.imageAlt': 'Office de la circulation dans le canton de Berne',
+    'blog.article.lucerna-festivi-calendario-verifica.title': 'Jours fériés à Lucerne : guide du calendrier et vérification',
+    'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Distinction entre le calendrier cantonal et les règles municipales ou institutionnelles pour les bureaux et commerces à Lucerne.',
+    'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Ville de Lucerne avec bâtiments administratifs et personnes vérifiant les horaires fériés',
 };
 
 export default blogMetaChFr;

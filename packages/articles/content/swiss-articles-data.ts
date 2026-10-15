@@ -27807,6 +27807,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lucerna-festivi-calendario-verifica',
+    category: 'pratico',
+    date: '2026-10-15T03:21:39.212Z',
+    image: '/images/blog/article-festivi-berna-calendario-guida.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['LU'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
