@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
 import { ORGANIZATION_ID, stableOrganizationId, WEBSITE_ID } from '@/services/seo/organizationLd';
-import { normalizeArticleStructuredData, normalizeStructuredData } from '@/services/seo/schema-normalizers';
+import {
+  normalizeArticleStructuredData,
+  normalizeStructuredData,
+  normalizeStructuredDataWithDiagnostics,
+  schemaEntityConflicts,
+} from '@/services/seo/schema-normalizers';
 
 describe('static Article JSON-LD safety net', () => {
   it('expands organization references and supplies legacy Article defaults', () => {
@@ -149,6 +154,41 @@ describe('static Article JSON-LD safety net', () => {
     }) as Record<string, any>;
 
     expect(normalized.isPartOf).not.toHaveProperty('@id', WEBSITE_ID);
+  });
+
+  it('exposes unresolved WebPage and municipality identity conflicts instead of merging them', () => {
+    const canonicalUrl = 'https://frontaliereticino.ch/vivere-in-ticino/comuni-di-frontiera/';
+    const { normalized, schemaEntityConflicts: conflicts } = normalizeStructuredDataWithDiagnostics([
+      { '@type': 'WebPage', name: 'Mappa Comuni di Frontiera', url: canonicalUrl },
+      { '@type': 'CollectionPage', name: 'Comuni Italiani di Frontiera', url: canonicalUrl },
+    ]);
+
+    expect(conflicts).toHaveLength(1);
+    expect(conflicts[0]).toMatchObject({ key: `url:${canonicalUrl}`, fields: expect.arrayContaining(['name', '@type']) });
+    expect(schemaEntityConflicts.length).toBe(conflicts.length);
+    expect(normalized[0].name).toBe('Mappa Comuni di Frontiera');
+    expect(normalized[1].name).toBe('Comuni Italiani di Frontiera');
+  });
+
+  it('can fail closed when an external entity keeps contradictory identity fields', () => {
+    const input = [
+      { '@type': 'Organization', '@id': 'https://example.com/#municipality', name: 'Comune A' },
+      { '@type': 'Organization', '@id': 'https://example.com/#municipality', name: 'Comune B' },
+    ];
+
+    expect(() => normalizeStructuredData(input, { rejectConflicts: true })).toThrow(
+      'Schema entity conflicts remain after normalization',
+    );
+    expect(schemaEntityConflicts.length).toBe(1);
+  });
+
+  it('derives a missing image credit from the normalized creator identity', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'ImageObject',
+      creator: { '@type': 'Organization', name: 'Ufficio cantonale' },
+    }) as Record<string, any>;
+
+    expect(normalized.creditText).toBe('Ufficio cantonale');
   });
 
   it('consolidates repeated external organizations by URL or exact name', () => {
