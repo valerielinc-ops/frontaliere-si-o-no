@@ -105051,6 +105051,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-collaudo-veicoli-berna-procedura': {
+    title: 'Collaudo veicoli a Berna: convocazione e requisiti',
+    description: 'Scopri come gestire la convocazione per il collaudo veicoli a Berna. Verifica requisiti, scadenze e importi sulla fonte ufficiale del Cantone.',
+    keywords: 'frontalieri, ticino, svizzera, italia, collaudo, veicoli, berna, convocazione',
+    ogTitle: 'Collaudo veicoli a Berna: requisiti e procedura',
+    ogDescription: 'Guida operativa per il collaudo dei veicoli nel Cantone di Berna. Impara a distinguere tra quadro generale e istruzioni locali per verificare correttamente requisiti, scadenze e importi presso la fonte ufficiale competente.',
+    canonicalPath: '/articoli-svizzera/collaudo-veicoli-berna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Collaudo veicoli a Berna: convocazione e requisiti",
+      "description": "Scopri come gestire la convocazione per il collaudo veicoli a Berna. Verifica requisiti, scadenze e importi sulla fonte ufficiale del Cantone.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-collaudo-veicoli-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di collaudo veicoli nel Cantone di Berna con documenti ufficiali"
+      },
+      "datePublished": "2026-10-15T03:43:23+00:00",
+      "dateModified": "2026-10-15T03:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/collaudo-veicoli-berna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

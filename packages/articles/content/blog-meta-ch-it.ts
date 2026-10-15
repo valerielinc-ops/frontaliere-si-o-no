@@ -8321,6 +8321,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lucerna-festivi-calendario-verifica.title': 'Giorni festivi a Lucerna: guida al calendario e verifica',
     'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Distinzione tra calendario cantonale e regole comunali o istituzionali per uffici e negozi a Lucerna.',
     'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Paese di Lucerna con edifici amministrativi e persone che consultano orari e calendari festivi',
+    'blog.article.collaudo-veicoli-berna-procedura.title': 'Collaudo veicoli a Berna: convocazione e requisiti',
+    'blog.article.collaudo-veicoli-berna-procedura.excerpt': 'Guida alla procedura di collaudo nel Cantone di Berna: come verificare requisiti, scadenze e importi sulla fonte ufficiale competente.',
+    'blog.article.collaudo-veicoli-berna-procedura.imageAlt': 'Stazione di collaudo veicoli nel Cantone di Berna con documenti ufficiali',
 };
 
 export default blogMetaChIt;

@@ -8321,6 +8321,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lucerna-festivi-calendario-verifica.title': 'Jours fériés à Lucerne : guide du calendrier et vérification',
     'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Distinction entre le calendrier cantonal et les règles municipales ou institutionnelles pour les bureaux et commerces à Lucerne.',
     'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Ville de Lucerne avec bâtiments administratifs et personnes vérifiant les horaires fériés',
+    'blog.article.collaudo-veicoli-berna-procedura.title': 'Contrôle technique des véhicules à Berne : convocation et exigences',
+    'blog.article.collaudo-veicoli-berna-procedura.excerpt': 'Guide de la procédure de contrôle technique dans le canton de Berne : comment vérifier les exigences, les délais et les montants auprès de la source officielle compétente.',
+    'blog.article.collaudo-veicoli-berna-procedura.imageAlt': 'Station de contrôle des véhicules dans le canton de Berne',
 };
 
 export default blogMetaChFr;

@@ -2796,6 +2796,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-pesca-canton-berna-guida': { it: 'permesso-pesca-canton-berna-guida', en: 'fishing-permit-canton-bern-guide', de: 'angelpatent-kanton-bern-anleitung', fr: 'permis-peche-canton-berne-guide' },
  'berna-veicoli-procedura-guida': { it: 'berna-veicoli-procedura-guida', en: 'bern-vehicle-registration-guide', de: 'bern-fahrzeug-zulassung-leitfaden', fr: 'berne-vehicule-immatriculation-guide' },
  'lucerna-festivi-calendario-verifica': { it: 'lucerna-festivi-calendario-verifica', en: 'lucerne-public-holidays-calendar-guide', de: 'luzern-feiertage-kalender-anleitung', fr: 'lucerne-jours-feries-calendrier-guide' },
+ 'collaudo-veicoli-berna-procedura': { it: 'collaudo-veicoli-berna-procedura', en: 'berns-vehicle-inspection-procedure', de: 'bern-fahrzeugpruefung-verfahren', fr: 'controle-vehicules-berne-procedure' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

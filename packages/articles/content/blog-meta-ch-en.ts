@@ -8321,6 +8321,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lucerna-festivi-calendario-verifica.title': 'Public holidays in Lucerne: calendar guide and verification',
     'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Distinction between cantonal calendar and municipal or institutional rules for offices and shops in Lucerne.',
     'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Town of Lucerne with administrative buildings and people checking holiday schedules',
+    'blog.article.collaudo-veicoli-berna-procedura.title': 'Vehicle inspection in Bern: summons and requirements',
+    'blog.article.collaudo-veicoli-berna-procedura.excerpt': 'Guide to the testing procedure in the Canton of Bern: how to verify requirements, deadlines, and amounts using the relevant official source.',
+    'blog.article.collaudo-veicoli-berna-procedura.imageAlt': 'Vehicle inspection station in Canton Bern with official documents',
 };
 
 export default blogMetaChEn;

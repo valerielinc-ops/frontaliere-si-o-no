@@ -8321,6 +8321,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucerna-festivi-calendario-verifica.title': 'Feiertage in Luzern: Kalenderleitfaden und Überprüfung',
     'blog.article.lucerna-festivi-calendario-verifica.excerpt': 'Unterscheidung zwischen kantonalem Kalender und kommunalen oder institutionellen Regeln für Büros und Geschäfte in Luzern.',
     'blog.article.lucerna-festivi-calendario-verifica.imageAlt': 'Stadt Luzern mit Verwaltungsgebäuden und Menschen, die Feiertagskalender prüfen',
+    'blog.article.collaudo-veicoli-berna-procedura.title': 'Fahrzeugprüfung in Bern: Aufgebot und Anforderungen',
+    'blog.article.collaudo-veicoli-berna-procedura.excerpt': 'Leitfaden zum Verfahren der Fahrzeugprüfung im Kanton Bern: So lassen sich Anforderungen, Fristen und Beträge anhand der zuständigen offiziellen Quelle überprüfen.',
+    'blog.article.collaudo-veicoli-berna-procedura.imageAlt': 'Fahrzeugprüfstelle im Kanton Bern mit offiziellen Dokumenten',
 };
 
 export default blogMetaChDe;
