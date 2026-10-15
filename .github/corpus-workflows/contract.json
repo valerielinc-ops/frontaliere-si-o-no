@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "22a7e4199dee2758de94c96edceb78a0709af020",
+  "sourceCommit": "a536de13ae6db7f631237fa60600f70cbcb2795e",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "22a7e4199dee2758de94c96edceb78a0709af020"
+    "sourceCommit": "a536de13ae6db7f631237fa60600f70cbcb2795e"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 637,
+  "crawlerCount": 638,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:2c2c66c0ea72bab9cbf8876e0cb9228c964f1ed32a540f806571212dc4f5f148",
+    "rosterDigest": "sha256:8aa843f2af9ec9eb301cc2bb541a57db64f8662f7fed182f6732872fa63cf7bf",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -346,6 +346,7 @@
     "scripts/update-kulm-hotel-jobs.mjs",
     "scripts/update-kzu-jobs.mjs",
     "scripts/update-lalive-jobs.mjs",
+    "scripts/update-le-team-jobs.mjs",
     "scripts/update-leukerbad-clinic-jobs.mjs",
     "scripts/update-lhm-luzerner-hohenklinik-montana-jobs.mjs",
     "scripts/update-liebherr-jobs.mjs",
@@ -1163,8 +1164,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "54e4720198ea0760dd943237a12467b23e11cb147e8b985570ba57098f6f6551",
-      "artifactSha256": "344a60eba0df73ecbb77bfd1fff514351563b8f06f547fa4d6e16af5f728f7c4",
+      "sourceSha256": "7fecca36ba5554b55aa66c17f674e7844feeb63aa827ba2cdca096675b100220",
+      "artifactSha256": "d0a559790a4f7ad2a1d47eae34cb57567818538f989551fb337c81ad85f00f61",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1195,7 +1196,8 @@
         "elprom",
         "sonarsource",
         "elite-interim",
-        "gipo"
+        "gipo",
+        "le-team"
       ]
     },
     {
