@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 629,
+  "crawlerCount": 630,
   "groups": {
     "10": [
       "atec-personal",
@@ -388,6 +388,7 @@
       "oerlikon",
       "otis",
       "reha-bellikon",
+      "rh-expert-ch",
       "rittmeyer-ag",
       "saint-gobain-weber-isover",
       "scandit",
@@ -1147,6 +1148,7 @@
     "relewant": "data/jobs/by-crawler/relewant.json",
     "rennbahnklinik": "data/jobs/by-crawler/rennbahnklinik.json",
     "rfsm-fribourg": "data/jobs/by-crawler/rfsm-fribourg.json",
+    "rh-expert-ch": "data/jobs/by-crawler/rh-expert-ch.json",
     "rheinmetall-air-defence": "data/jobs/by-crawler/rheinmetall-air-defence.json",
     "rhne-reseau-hospitalier-neuchatelois": "data/jobs/by-crawler/rhne-reseau-hospitalier-neuchatelois.json",
     "richemont": "data/jobs/by-crawler/richemont.json",
@@ -1312,5 +1314,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a1f1dfd06c0c2d8ea381303fc7f84b693ccb3b7765e1e5de662372ac604fcf88"
+  "digest": "sha256:12f9f10dac2883b4e8253f29bf78e5c34d0437f8538f010ae5bb7daaa9850c22"
 }

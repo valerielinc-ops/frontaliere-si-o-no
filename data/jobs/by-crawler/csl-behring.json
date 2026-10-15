@@ -753,12 +753,12 @@
     },
     {
       "id": "csl-behring-69282277a0f7",
-      "slug": "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch",
+      "slug": "senior-manager-degli-affari-regolatori-globali-cmc-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch",
-        "it": "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch",
-        "de": "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch",
-        "fr": "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch"
+        "it": "senior-manager-degli-affari-regolatori-globali-cmc-csl-behring-bern",
+        "de": "senior-manager-globale-zulassungsangelegenheiten-cmc-csl-behring-bern",
+        "fr": "gestionnaire-principal-affaires-reglementaires-mondiales-cmc-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -817,7 +817,21 @@
         }
       },
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-14T21:36:17.170Z"
+      "firstSeenAt": "2026-10-14T21:36:17.170Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch"
+        ],
+        "de": [
+          "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-global-regulatory-affairs-cmc-csl-behring-ch"
+      ]
     }
   ]
 }
