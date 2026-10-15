@@ -13217,6 +13217,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tasso-disoccupazione-ticino-trimestri.title': 'Tasso di disoccupazione in crescita nei prossimi mesi',
     'blog.article.tasso-disoccupazione-ticino-trimestri.excerpt': '2,87% nel terzo trimestre in Ticino 3,31% previsto nel quarto trimestre 2026 3,45% stimato nel primo trimestre 2027 Tasso giovanile in aumento: 5,7% Tasso Seco',
     'blog.article.tasso-disoccupazione-ticino-trimestri.imageAlt': 'Vista del lago di Lugano con montagne sullo sfondo e persone che passeggiano lungo la riva',
+    'blog.article.fiera-lavoro-besano-valceresio.title': 'Fiera del Lavoro a Besano: prima del Valceresio',
+    'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Venerdì 30 ottobre 2026 la Fiera del Lavoro a Besano Dalle 9 alle 14 nella palestra di via Franzosi Organizzano il Centro per l\'Impiego di Varese e il Comune',
+    'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Foto di un centro comunitario in un piccolo paese italiano con spazi interni affollati di persone e stand',
 };
 
 export default blogMetaIt;

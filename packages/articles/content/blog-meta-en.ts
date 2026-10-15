@@ -13216,6 +13216,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasso-disoccupazione-ticino-trimestri.title': 'Unemployment rate to rise in the coming months',
     'blog.article.tasso-disoccupazione-ticino-trimestri.excerpt': '2,87% in the third quarter in Ticino 3,31% forecast in the fourth quarter 2026 3,45% estimated in the first quarter 2027 Youth rate rising: 5,7% Seco rate',
     'blog.article.tasso-disoccupazione-ticino-trimestri.imageAlt': 'View of Lake Lugano with mountains in the background and people strolling along the shore',
+    'blog.article.fiera-lavoro-besano-valceresio.title': 'Job Fair in Besano: Before Valceresio',
+    'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Friday, October 30, 2026 the Job Fair in Besano From 9 to 14 in the gym on Via Franzosi Organized by the Employment Center of Varese and the Municipality',
+    'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Photo of a community center in a small Italian town, with a busy indoor event space',
 };
 
 export default blogMetaEn;

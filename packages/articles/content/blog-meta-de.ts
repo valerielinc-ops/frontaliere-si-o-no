@@ -13215,6 +13215,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tasso-disoccupazione-ticino-trimestri.title': 'Steigende Arbeitslosenquote in den kommenden Monaten',
     'blog.article.tasso-disoccupazione-ticino-trimestri.excerpt': '2,87% im dritten Quartal im Tessin 3,31% im vierten Quartal 2026 erwartet 3,45% im ersten Quartal 2027 geschätzt Jugendarbeitslosenquote steigt: 5,7% Seco-Arbeitslosenquote',
     'blog.article.tasso-disoccupazione-ticino-trimestri.imageAlt': 'Blick auf den Luganer See mit den Bergen im Hintergrund und Personen, die entlang des Ufers spazieren gehen',
+    'blog.article.fiera-lavoro-besano-valceresio.title': 'Jobmesse in Besano: im Vorfeld des Valceresio',
+    'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Freitag, 30. (Besano, Varese)',
+    'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Foto eines Gemeindezentrums in einer kleinen italienischen Stadt mit einem belebten Innenbereich',
 };
 
 export default blogMetaDe;

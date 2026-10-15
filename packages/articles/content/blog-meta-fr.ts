@@ -13218,6 +13218,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasso-disoccupazione-ticino-trimestri.title': 'Taux de chômage en hausse au cours des prochains mois',
     'blog.article.tasso-disoccupazione-ticino-trimestri.excerpt': '2,87% au troisième trimestre au Tessin 3,31% prévu au quatrième trimestre 2026 3,45% estimé au premier trimestre 2027 Taux de chômage des jeunes en hausse : 5,7% Taux Seco',
     'blog.article.tasso-disoccupazione-ticino-trimestri.imageAlt': 'Vue du lac de Lugano avec les montagnes en arrière-plan et des personnes marchant le long de la rive',
+    'blog.article.fiera-lavoro-besano-valceresio.title': 'Foire du travail à Besano : avant le Valceresio',
+    'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Vendredi 30 octobre 2026 la Foire du Travail à Besano De 9h à 14h dans la salle de gym de via Franzosi Organisent le Centre pour l\'Emploi de Varese et la Commune',
+    'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Photo d\'un centre communautaire dans une petite ville italienne, avec un espace intérieur animé',
 };
 
 export default blogMetaFr;

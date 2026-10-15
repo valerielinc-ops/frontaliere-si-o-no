@@ -108452,6 +108452,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-fiera-lavoro-besano-valceresio': {
+    title: 'Fiera del Lavoro a Besano: prima del Valceresio',
+    description: 'Venerdì 30 ottobre 2026 la Fiera del Lavoro a Besano Dalle 9 alle 14 nella palestra di via Franzosi Organizzano il Centro per l\'Impiego di Varese e il Comune',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiera, lavoro, besano, prima',
+    ogTitle: 'Fiera del Lavoro a Besano: prima del Valceresio',
+    ogDescription: 'Venerdì 30 ottobre 2026 la Fiera del Lavoro a Besano Dalle 9 alle 14 nella palestra di via Franzosi Organizzano il Centro per l\'Impiego di Varese e il Comune',
+    canonicalPath: '/articoli-frontaliere/fiera-lavoro-besano-valceresio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiera del Lavoro a Besano: prima del Valceresio",
+      "description": "Venerdì 30 ottobre 2026 la Fiera del Lavoro a Besano Dalle 9 alle 14 nella palestra di via Franzosi Organizzano il Centro per l'Impiego di Varese e il Comune",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-varese-adhd-days-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di un centro comunitario in un piccolo paese italiano con spazi interni affollati di persone e stand"
+      },
+      "datePublished": "2026-10-15T10:34:30+00:00",
+      "dateModified": "2026-10-15T10:34:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fiera-lavoro-besano-valceresio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
