@@ -467,8 +467,6 @@ if (ORPHANS_ONLY) {
 // residui che git non pota da sé. Fetch mancato = origin/<main> leggermente
 // stale, caso già tollerato dallo script (degrada a report-only, mai a una
 // cancellazione a torto).
-const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
-const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
 const tempSweepLock = join(gitDir, 'frontaliere-prune-tmp.lock');
 const deviceSweepLock = join(gitDir, 'frontaliere-prune-device.lock');
 const workspaceSweepLock = join(gitDir, 'frontaliere-prune-workspace.lock');

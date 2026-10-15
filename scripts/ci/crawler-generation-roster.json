@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 629,
+  "crawlerCount": 630,
   "groups": {
     "10": [
       "atec-personal",
@@ -374,6 +374,7 @@
       "bossard",
       "clinica-holistica-engiadina",
       "corner-banca",
+      "elite-interim",
       "eth-zurich",
       "ferring",
       "giardino",
@@ -848,6 +849,7 @@
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
     "ehnv": "data/jobs/by-crawler/ehnv.json",
     "elettra-1938": "data/jobs/by-crawler/elettra-1938.json",
+    "elite-interim": "data/jobs/by-crawler/elite-interim.json",
     "elprom": "data/jobs/by-crawler/elprom.json",
     "emil-frey": "data/jobs/by-crawler/emil-frey.json",
     "emmi": "data/jobs/by-crawler/emmi.json",
@@ -1312,5 +1314,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:e16f71b2e294e53a783e7441ecd9ca0d003b662e5ab530f71e4ad923385001c5"
+  "digest": "sha256:d88bb849f933833fa3f426ad34cbe45fcded0aa379083b0a3c2a5b691eabf0f7"
 }

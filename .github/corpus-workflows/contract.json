@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "67ab9ce27de6acc35d56b6ba2d9a07f4506a5f42",
+  "sourceCommit": "9ef5556f5d12322005338d10e52a2add74419135",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "67ab9ce27de6acc35d56b6ba2d9a07f4506a5f42"
+    "sourceCommit": "9ef5556f5d12322005338d10e52a2add74419135"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 629,
+  "crawlerCount": 630,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:e16f71b2e294e53a783e7441ecd9ca0d003b662e5ab530f71e4ad923385001c5",
+    "rosterDigest": "sha256:d88bb849f933833fa3f426ad34cbe45fcded0aa379083b0a3c2a5b691eabf0f7",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -197,6 +197,7 @@
     "scripts/update-ehc-vd-jobs.mjs",
     "scripts/update-ehnv-jobs.mjs",
     "scripts/update-elettra-1938-jobs.mjs",
+    "scripts/update-elite-interim-jobs.mjs",
     "scripts/update-elprom-jobs.mjs",
     "scripts/update-emil-frey-jobs.mjs",
     "scripts/update-emmi-jobs.mjs",
@@ -1414,8 +1415,8 @@
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "69ef0ee5e0f973a9589429f0086afb9796cf3148c674d0a9fb730e64e5e342c7",
-      "artifactSha256": "642055e849c069c23df9fb8797aa5d4a8eb78871661f813bbef65951346fe341",
+      "sourceSha256": "4369f834aa953b3ed6347fa6505fa1aa7dceae115175a65b2336bf303bc2242b",
+      "artifactSha256": "6bbd89dbee0cab61c4f5470e18cc8b6910ed3de7cd73306655fde889bfb33c31",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "rittmeyer",
@@ -1445,7 +1446,8 @@
         "ariston",
         "bachtelen",
         "alcon",
-        "yellowshark"
+        "yellowshark",
+        "elite-interim"
       ]
     },
     {

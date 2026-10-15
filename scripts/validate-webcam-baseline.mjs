@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
 /**
+ * @manual-tool — operator-export diagnostic CLI: it consumes a supplied
+ * Firestore history export and is intentionally run on demand, not in CI,
+ * because no repository-stable observation file exists to validate.
+ *
  * Validate an exported webcam/provider shadow sample without making network or
  * provider calls.
  *
