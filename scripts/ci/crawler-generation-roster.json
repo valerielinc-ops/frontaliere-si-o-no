@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 630,
+  "crawlerCount": 631,
   "groups": {
     "10": [
       "atec-personal",
@@ -365,6 +365,7 @@
       "six-group",
       "spital-buelach",
       "stadtspital-zuerich",
+      "sympajobs-reinach-bl",
       "vtg"
     ],
     "22": [
@@ -388,13 +389,13 @@
       "oerlikon",
       "otis",
       "reha-bellikon",
+      "rh-expert-ch",
       "rittmeyer-ag",
       "saint-gobain-weber-isover",
       "scandit",
       "spital-davos",
       "spital-thusis",
       "stadt-zuerich",
-      "sympajobs-reinach-bl",
       "tl-lausanne",
       "yellowshark"
     ],
@@ -1148,6 +1149,7 @@
     "relewant": "data/jobs/by-crawler/relewant.json",
     "rennbahnklinik": "data/jobs/by-crawler/rennbahnklinik.json",
     "rfsm-fribourg": "data/jobs/by-crawler/rfsm-fribourg.json",
+    "rh-expert-ch": "data/jobs/by-crawler/rh-expert-ch.json",
     "rheinmetall-air-defence": "data/jobs/by-crawler/rheinmetall-air-defence.json",
     "rhne-reseau-hospitalier-neuchatelois": "data/jobs/by-crawler/rhne-reseau-hospitalier-neuchatelois.json",
     "richemont": "data/jobs/by-crawler/richemont.json",
@@ -1314,5 +1316,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:16b4e4f58a4fface8a5fae50aa2c072a75d557293c2c7ef3f709eb6facdc3371"
+  "digest": "sha256:0bb1455e7d349ce89eea3e78279febceffb1a50ab0442dd2f1615e6f1a8f7967"
 }

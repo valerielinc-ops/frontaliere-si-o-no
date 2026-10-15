@@ -353,9 +353,10 @@
       },
       "slugByLocale": {
         "de": "team-lead-hr-administration-payroll-de-swiss-medical-network",
-        "fr": "chef-d-equipe-administration-des-rh-et-paie-de-swiss-medical-network-zurich"
+        "fr": "chef-d-equipe-administration-des-rh-et-paie-de-swiss-medical-network-zurich",
+        "it": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich"
       },
-      "slug": "team-lead-hr-administration-payroll-de-swiss-medical-network",
+      "slug": "amministrazione-e-retribuzione-delle-risorse-umane-del-team-di-guida-it-swiss-medical-network-zurich",
       "category": "admin",
       "datePosted": "2026-10-07T09:26:18.715Z",
       "postedDate": "2026-10-07T09:26:18.715Z",
@@ -385,7 +386,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "team-lead-hr-administration-payroll-de-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "team-lead-hr-administration-payroll-de-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154030848-tecnico-di-radiologia-medica",
