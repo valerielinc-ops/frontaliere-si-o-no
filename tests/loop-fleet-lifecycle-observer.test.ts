@@ -456,7 +456,7 @@ describe('loop-fleet independent lifecycle observer', () => {
     expect(result.matches[0].autoInconclusive).toBe(false);
   });
 
-  it('persists observed events idempotently and rejects recorder-owned events', () => {
+  it('persists observed events in a bounded shard and rejects recorder-owned events', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-lifecycle-observer-'));
     const eventsFile = path.join(root, 'events.jsonl');
     const ledgerDir = path.join(root, 'ledger');
@@ -492,11 +492,13 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toMatchObject({ inputRecords: 5, appended: 5, skipped: 0 });
     expect(appendLoopFleetLifecycle({
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toMatchObject({ inputRecords: 5, appended: 0, skipped: 5 });
 
     const retried = observed.events.map((event: Record<string, unknown>) => ({
@@ -515,6 +517,7 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toMatchObject({ inputRecords: 5, appended: 0, skipped: 5 });
 
     const conflicting = { ...retried[0], artifactOrPr: 'https://github.com/example/frontaliere/pull/1000' };
@@ -523,6 +526,7 @@ describe('loop-fleet independent lifecycle observer', () => {
       eventsFile,
       ledgerDir,
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      shardId: 'observer-999',
     })).toThrow('conflicting duplicate');
 
     const recorderOwnedEvent = { ...candidate(), eventType: 'candidate' };
