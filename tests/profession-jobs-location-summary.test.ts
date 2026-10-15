@@ -52,6 +52,16 @@ describe('riepilogo annunci per località', () => {
     ).toBe('');
   });
 
+  it('normalizza i campi preferiti prima del fallback', () => {
+    const html = renderProfessionJobsLocationSummary('it', [
+      { city: 'Lugano', addressLocality: '  ', company: 'A', companyKey: '  ' },
+      { city: 'Lugano', addressLocality: 'Lugano', company: 'B', companyKey: '  ' },
+    ]);
+
+    expect(html).toContain('A Lugano risultano 2 annunci attivi: A (1) e B (1).');
+    expect(html).not.toContain('A (2)');
+  });
+
   it('localizza titolo, conteggi e provenienza in tutte le lingue pubblicate', () => {
     const jobs = [job('Lugano', 'Azienda Alfa')];
     const expected = {

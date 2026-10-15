@@ -105,6 +105,9 @@ jobs:
       - name: Assemble jobs dataset (needed by reconcile)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/assemble-jobs-dataset.mjs
+        env:
+          # The next step performs this full reconciliation pass once, after assembly.
+          JOBS_SKIP_RECONCILIATION: '1'
 
       - name: Reconcile orphan + expired slugs with active jobs
         if: inputs.dry_run != true && inputs.dry_run != 'true'

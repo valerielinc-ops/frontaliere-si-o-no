@@ -43,6 +43,18 @@ function stableKey(value: string): string {
   return value.normalize('NFC').toLowerCase();
 }
 
+function normalizedText(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function firstNonEmpty(...values: readonly unknown[]): string {
+  for (const value of values) {
+    const normalized = normalizedText(value);
+    if (normalized) return normalized;
+  }
+  return '';
+}
+
 function compareNames(a: string, b: string): number {
   const left = stableKey(a);
   const right = stableKey(b);
@@ -53,7 +65,7 @@ function countJobsByLocation(jobs: readonly ProfessionLocationJob[]): LocationSu
   const locations = new Map<string, LocationSummary>();
 
   for (const job of jobs) {
-    const city = String(job.addressLocality || job.city || '').trim();
+    const city = firstNonEmpty(job.addressLocality, job.city);
     if (!city) continue;
 
     const locationKey = stableKey(city);
@@ -67,9 +79,9 @@ function countJobsByLocation(jobs: readonly ProfessionLocationJob[]): LocationSu
     }
     location.count += 1;
 
-    const employer = String(job.company || '').trim();
+    const employer = normalizedText(job.company);
     if (!employer) continue;
-    const employerKey = stableKey(String(job.companyKey || employer).trim());
+    const employerKey = stableKey(firstNonEmpty(job.companyKey, employer));
     const counted = location.employers.get(employerKey);
     if (counted) {
       counted.count += 1;

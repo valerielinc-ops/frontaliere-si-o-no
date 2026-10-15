@@ -1,25 +1,25 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-10-14T09:30:50.968Z",
-  "total": 8,
+  "generatedAt": "2026-10-14T21:22:59.394Z",
+  "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 8,
+  "written": 7,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 5,
-  "removedCount": 0,
+  "updatedCount": 4,
+  "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 13672,
-  "avgDurationMs": 13672,
+  "durationMs": 15285,
+  "avgDurationMs": 15285,
   "durationHistory": [
-    13672
+    15285
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:30:31.171Z",
+      "crawledAt": "2026-10-14T21:22:34.719Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1395/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:30:28.682Z",
+      "crawledAt": "2026-10-14T21:22:31.914Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1396/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:30:27.919Z",
+      "crawledAt": "2026-10-14T21:22:30.971Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1399/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:30:26.183Z",
+      "crawledAt": "2026-10-14T21:22:29.104Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -204,7 +204,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "tschuggen-f6a67a2f17b2",
       "slug": "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-ascona",
@@ -251,7 +253,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "tschuggen-a863307370a6",
@@ -265,7 +266,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:30:32.137Z",
+      "crawledAt": "2026-10-14T21:22:35.646Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -308,7 +309,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1394/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:30:29.453Z",
+      "crawledAt": "2026-10-14T21:22:32.846Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -351,7 +352,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1398/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:30:27.166Z",
+      "crawledAt": "2026-10-14T21:22:30.062Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -383,5 +384,5 @@
       }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }

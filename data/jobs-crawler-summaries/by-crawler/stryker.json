@@ -1,28 +1,29 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-10-14T15:30:30.056Z",
-  "total": 7,
+  "generatedAt": "2026-10-14T21:37:17.951Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 7,
+  "written": 6,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 6,
-  "durationMs": 9086,
-  "avgDurationMs": 9086,
+  "durationMs": 8368,
+  "avgDurationMs": 8368,
   "durationHistory": [
-    9086
+    8368
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "stryker-526944234199",
       "slug": "internship-risorse-umane-hr-project-management-stryker-selzach",
@@ -58,7 +59,6 @@
       "salarySource": "estimated",
       "postalCode": "2545",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -68,7 +68,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "stryker-b91369d6d475",
@@ -82,7 +81,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T15:30:13.727Z",
+      "crawledAt": "2026-10-14T21:37:04.482Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -125,7 +124,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Instandhaltungsmechaniker--m-w-d--fr-CNC-Anlagen---Medizintechnik_R571498",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T15:30:12.956Z",
+      "crawledAt": "2026-10-14T21:37:03.786Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -167,7 +166,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T15:30:12.221Z",
+      "crawledAt": "2026-10-14T21:37:03.024Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -210,7 +209,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T15:30:11.002Z",
+      "crawledAt": "2026-10-14T21:37:01.616Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -253,7 +252,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Apprentice-Manufacturing_R568815",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T15:30:10.361Z",
+      "crawledAt": "2026-10-14T21:37:00.912Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -296,7 +295,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R574592",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T15:30:09.489Z",
+      "crawledAt": "2026-10-14T21:37:00.184Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -327,5 +326,5 @@
       }
     }
   ],
-  "codeCommit": "a441a13c50bb4f6bc83b9b5676cf87e293111900"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }

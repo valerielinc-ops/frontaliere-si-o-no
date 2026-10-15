@@ -1620,7 +1620,6 @@ runs:
         QUOTA_FLOOR_REQUIRED: '1'
         QUOTA_FLOOR_ACTION: release
         QUOTA_FLOOR_KIND: repair
-        QUOTA_FLOOR_LEDGER_ISSUE: '8306'
         QUOTA_FLOOR_SUBJECT: ${{ steps.repair_quota.outputs.lease_subject }}
         QUOTA_FLOOR_OWNER: ${{ steps.repair_quota.outputs.lease_owner }}
       run: node "$GITHUB_WORKSPACE/scripts/ci/check-quota-backoff.mjs"

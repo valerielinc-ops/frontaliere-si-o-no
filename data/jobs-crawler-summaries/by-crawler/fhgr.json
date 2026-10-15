@@ -1,7 +1,7 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-10-14T09:35:02.890Z",
+  "generatedAt": "2026-10-14T21:23:07.248Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6823,
-  "avgDurationMs": 6823,
+  "durationMs": 6838,
+  "avgDurationMs": 6838,
   "durationHistory": [
-    6823
+    6838
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/814/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:34:46.049Z",
+      "crawledAt": "2026-10-14T21:22:51.519Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -54,11 +54,11 @@
       "department": "Administration",
       "contractDuration": "permanent",
       "firstSeenAt": "2026-09-29T09:26:08.665Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -82,7 +82,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:34:46.985Z",
+      "crawledAt": "2026-10-14T21:22:52.787Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -101,7 +101,6 @@
       "department": "Institut für Bauen im alpinen Raum (IBAR)",
       "contractDuration": "temporary",
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
-      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -115,5 +114,5 @@
       }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }

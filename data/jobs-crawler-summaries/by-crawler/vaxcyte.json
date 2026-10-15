@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-14T09:14:04.652Z",
+  "generatedAt": "2026-10-14T21:10:54.850Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,65 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5688,
-  "avgDurationMs": 5688,
+  "durationMs": 5220,
+  "avgDurationMs": 5220,
   "durationHistory": [
-    5688
+    5220
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "vaxcyte-f558683786d7",
-      "slug": "staff-ingegnere-drug-substance-msat-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Staff Engineer, Drug Substance, MSAT",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:11:53.454Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "3930",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-25T16:18:11-04:00",
-      "postedDate": "2026-06-25T16:18:11-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
-      "department": "Global MSAT",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-25T23:32:47.249Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "vaxcyte-6b03024d1766",
@@ -86,7 +37,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:13:40.188Z",
+      "crawledAt": "2026-10-14T21:10:32.817Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -133,7 +84,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:13:40.153Z",
+      "crawledAt": "2026-10-14T21:10:32.776Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -180,7 +131,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:13:40.147Z",
+      "crawledAt": "2026-10-14T21:10:32.768Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -202,6 +153,7 @@
         "canton": "VS",
         "location": "Visp"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-22T23:49:52.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -226,7 +178,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:13:40.140Z",
+      "crawledAt": "2026-10-14T21:10:32.761Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -248,7 +200,6 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T23:25:58.849Z",
       "salaryMin": 120000,
       "salaryMax": 162000,
@@ -262,5 +213,5 @@
       }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }

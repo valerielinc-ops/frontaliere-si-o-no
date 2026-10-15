@@ -37,7 +37,12 @@ import {
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, hasUsableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
-import { archiveRecordNamesPosting, hasSameJobSourcePosting } from './lib/job-identity.mjs';
+import {
+  archiveRecordNamesPosting,
+  hasSameJobSourcePosting,
+  sourcePostingUrlHref,
+  sourcePostingUrlHrefs,
+} from './lib/job-identity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
@@ -242,6 +247,7 @@ function detectSlugLocale(slug) {
 function buildActiveIndex(activeJobs) {
   const byCompanyKey = Object.create(null); // companyKey → [job]
   const allSlugSet = new Set();             // all current + previous slugs
+  const activeSourceUrlHrefs = new Set();   // exact URL identities accepted by the alias guard
   const slugTokenCache = new WeakMap();     // job → Map<slugString, Set<token>>
   const titleTokenCache = new WeakMap();    // job → Map<locale, Set<token>>
   // Inverted index: slug-token → Set<job>. Used by findBestMatch's
@@ -268,6 +274,9 @@ function buildActiveIndex(activeJobs) {
   const titleTokenToJobs = new Map();       // token → Set<job>
 
   for (const job of activeJobs) {
+    const sourceUrlHref = sourcePostingUrlHref(job.url);
+    if (sourceUrlHref) activeSourceUrlHrefs.add(sourceUrlHref);
+
     // Index by company key
     const ck = job.companyKey || normalizeCompany(job.company);
     if (ck) {
@@ -367,6 +376,7 @@ function buildActiveIndex(activeJobs) {
   return {
     byCompanyKey,
     allSlugSet,
+    activeSourceUrlHrefs,
     slugTokenCache,
     titleTokenCache,
     slugTokenToJobs,
@@ -390,6 +400,19 @@ function loadCompanyKeys() {
     }
   } catch { /* adapters dir may not exist */ }
   return keys;
+}
+
+/**
+ * The fuzzy matcher cannot produce a persisted alias unless a historical
+ * source URL exactly identifies an active posting. Reject impossible matches
+ * before scoring candidates; this is especially important for the large GSC
+ * orphan ledger, where most records have no current posting identity.
+ */
+function hasPotentialSourcePostingMatch(historical, index) {
+  for (const href of sourcePostingUrlHrefs(historical)) {
+    if (index.activeSourceUrlHrefs.has(href)) return true;
+  }
+  return false;
 }
 
 /**
@@ -890,6 +913,14 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
     processed++;
     const enrichment = enrichmentBySlug[orphanSlug] || null;
 
+    // The positive source-posting guard below would reject every candidate
+    // when no active URL can match this record. Avoid the expensive fuzzy pass.
+    if (!hasPotentialSourcePostingMatch(enrichment, index)) {
+      skippedCount++;
+      remainingOrphans.push(entry);
+      continue;
+    }
+
     if (verbose) console.log(`\n🔎 [${processed}] "${orphanSlug}"`);
 
     // Try primary slug first, then any cross-locale slugs from enrichment
@@ -1028,6 +1059,13 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
     if (expSlugs.some((s) => index.allSlugSet.has(s))) {
       const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
       candidateReconciledIds.add(id);
+      skippedCount++;
+      continue;
+    }
+
+    // hasSameJobSourcePosting is required before any merge, so candidates
+    // without an exact active source URL cannot benefit from fuzzy scoring.
+    if (!hasPotentialSourcePostingMatch(ej, index)) {
       skippedCount++;
       continue;
     }

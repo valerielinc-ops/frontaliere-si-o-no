@@ -1,58 +1,18 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-14T09:18:36.285Z",
+  "generatedAt": "2026-10-14T21:18:11.462Z",
   "total": 28,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 21,
-  "durationMs": 1426,
-  "avgDurationMs": 1426,
+  "durationMs": 1424,
+  "avgDurationMs": 1424,
   "durationHistory": [
-    1426
+    1424
   ],
-  "newJobs": [
-    {
-      "title": "Assistant Restaurant Manager 80-100% (all genders) ",
-      "slug": "assistant-restaurant-manager-80-100-all-genders-the-living-circle-thalwil",
-      "url": "https://jobs.thelivingcircle.ch/jobs/68078391/Assistant-Restaurant-Manager-80-100%25-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68078391/Assistant-Restaurant-Manager-80-100%25-all-genders-/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Thalwil",
-      "addressLocality": "Thalwil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-14T08:39:02.506+02:00",
-      "postedDate": "2026-10-14T08:39:02.506+02:00",
-      "postingDateSource": "reported",
-      "employmentType": "other",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "the-living-circle-609e7a441c50",
-      "salaryMin": 97500,
-      "salaryMax": 122500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8800",
-      "firstSeenAt": "2026-10-14T09:18:24.811Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
@@ -292,15 +252,12 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
-      "title": "Aushilfe Servicemitarbeiter (all genders)",
-      "slug": "personale-di-supporto-tutti-i-sessi-the-living-circle-thalwil",
-      "url": "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/",
+      "title": "Assistant Restaurant Manager 80-100% (all genders) ",
+      "slug": "assistant-restaurant-manager-80-100-tutti-i-generi-the-living-circle-thalwil",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68078391/Assistant-Restaurant-Manager-80-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68078391/Assistant-Restaurant-Manager-80-100%25-all-genders-/",
       "company": "The Living Circle",
       "companyKey": "the-living-circle",
       "companyDomain": "thelivingcircle.ch",
@@ -314,16 +271,16 @@
       "sector": "Hotellerie & Ospitalità",
       "source": "living-circle-dedicated-crawler",
       "sourceLang": "de",
-      "datePosted": "2026-07-06T14:55:01.362+02:00",
-      "postedDate": "2026-07-06T14:55:01.362+02:00",
+      "datePosted": "2026-10-14T08:39:02.506+02:00",
+      "postedDate": "2026-10-14T08:39:02.506+02:00",
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "the-living-circle-53c648f64b3f",
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "salaryMin": 73000,
-      "salaryMax": 91500,
+      "id": "the-living-circle-609e7a441c50",
+      "firstSeenAt": "2026-10-14T09:18:24.811Z",
+      "salaryMin": 97500,
+      "salaryMax": 122500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8800",
@@ -334,7 +291,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Supervisor Corporate Events 100% (all genders)",
       "slug": "supervisor-corporate-events-80-all-genders-the-living-circle-zurich",
@@ -1122,7 +1082,47 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "title": "Aushilfe Servicemitarbeiter (all genders)",
+      "slug": "personale-di-supporto-tutti-i-sessi-the-living-circle-thalwil",
+      "url": "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Thalwil",
+      "addressLocality": "Thalwil",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-07-06T14:55:01.362+02:00",
+      "postedDate": "2026-07-06T14:55:01.362+02:00",
+      "postingDateSource": "reported",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "the-living-circle-53c648f64b3f",
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8800",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }

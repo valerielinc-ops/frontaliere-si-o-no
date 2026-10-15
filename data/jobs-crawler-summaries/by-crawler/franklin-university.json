@@ -1,7 +1,7 @@
 {
   "key": "franklin-university",
   "label": "Franklin University Switzerland",
-  "generatedAt": "2026-10-14T09:34:57.341Z",
+  "generatedAt": "2026-10-14T21:22:11.227Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4572,
-  "avgDurationMs": 4572,
+  "durationMs": 4593,
+  "avgDurationMs": 4593,
   "durationHistory": [
-    4572
+    4593
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,13 +50,13 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4667",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:34:38.652Z",
+      "crawledAt": "2026-10-14T21:21:58.224Z",
       "firstSeenAt": "2026-10-08T09:27:59.100Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -92,7 +92,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4660",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:34:38.349Z",
+      "crawledAt": "2026-10-14T21:21:57.922Z",
       "firstSeenAt": "2026-07-08T11:31:39.336Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -110,5 +110,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }

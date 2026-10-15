@@ -621,6 +621,11 @@ interface ProfileRenderOptions {
   employerProfileMidAdVariant?: EmployerProfileMidAdVariant;
 }
 
+interface ProfileRenderOptions {
+  /** Keep the indexability probe free of manual ad markup. */
+  interleaveInfeedAds?: boolean;
+}
+
 function renderProfileBody(
   profile: EmployerProfile,
   jobs: CorpusJob[],

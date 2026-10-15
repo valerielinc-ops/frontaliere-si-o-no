@@ -317,6 +317,28 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');
   });
 
+  it('the active detail company link stays scoped to the viewed canton', () => {
+    const board = readRepoFile('components/community/JobBoard.tsx');
+
+    expect(board).not.toContain("from '@/components/community/EmployerCompanyLink'");
+    expect(board).toContain('jobBoardCanton: gateJobCanton, jobSlug: gateCompanySlug');
+    expect(board).toContain('jobBoardCanton: detailJobCanton, jobSlug: companySearchSlug');
+    expect(board).toContain('onClickCapture={openGateCompanyFilter}');
+    expect(board).toContain('onClickCapture={openCompanyFilter}');
+  });
+
+  it('canton company pages keep visible cards and ItemList on the shared bounded set', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+
+    expect(plugin).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
+    expect(plugin).not.toContain('COMPANY_CANTON_JOB_CAP');
+    expect(plugin).toContain('numberOfItems: cappedJobs.length,');
+    expect(plugin).toContain('itemListElement: cappedJobs.map((job: any, i: number) =>');
+    expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
+    expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
+    expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');
+  });
+
   it('the runtime helper covers all four locales', () => {
     expect(employerHubAnchor('EOC', 'it')).toBe('EOC: offerte di lavoro e stipendi');
     expect(employerHubAnchor('EOC', 'en')).toBe('EOC: jobs and salaries');

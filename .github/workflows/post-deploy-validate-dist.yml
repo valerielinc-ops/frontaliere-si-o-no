@@ -512,6 +512,18 @@ jobs:
           source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           build_skew_guard_run node scripts/migrate-all-known-job-slugs-canton-aware.mjs node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      # The article corpus publishes generated article-hero evidence on its
+      # HTTP API independently of this site's deploy. Pin and validate that
+      # snapshot before the OG gate so corpus-only pages do not look unlicensed
+      # merely because their records are absent from the site's local registry.
+      - name: Sync published blog image evidence for the OG gate
+        id: sync_blog_image_evidence
+        if: steps.assert_dist_complete.outcome == 'success' && steps.migrate_job_slugs.outcome == 'success'
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run node scripts/sync-published-blog-image-evidence.mjs \
+            node scripts/sync-published-blog-image-evidence.mjs
+
       # Source validators share the rehydrated dist and still run even when
       # a previous phase is red, so the report contains the complete verdict.
       - name: Run source validators (parallel — 4 vCPU)
@@ -575,7 +587,7 @@ jobs:
           run_validator validate:third-party-secrets      /tmp/v12.log npm validate:third-party-secrets \
             npm run validate:third-party-secrets & pids+=("$!")
           run_validator validate:og-images                /tmp/v13.log npm validate:og-images \
-            npm run validate:og-images & pids+=("$!")
+            npm run validate:og-images -- --require-published-blog-image-evidence & pids+=("$!")
           # --maxWorkers=2: unrestrained, vitest's own thread pool (pool:
           # 'threads', isolate: true) opens up to nCPU worker threads on TOP of
           # the four sibling validators above, all racing for the same 4 vCPU.
