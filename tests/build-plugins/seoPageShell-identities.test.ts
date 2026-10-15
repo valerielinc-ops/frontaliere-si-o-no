@@ -149,7 +149,15 @@ describe('static SEO JSON-LD identities', () => {
       },
     });
 
-    expect(normalizeStaticJsonLdScripts([source])).toEqual([source]);
+    const [serialized] = normalizeStaticJsonLdScripts([source]);
+    expect(JSON.parse(serialized)).toMatchObject({
+      creator: {
+        '@id': 'https://example.com/#department',
+        name: 'Dipartimento del territorio – Canton Ticino',
+        url: 'https://example.com/department',
+      },
+      creditText: 'Dipartimento del territorio – Canton Ticino',
+    });
   });
 
   it('gives repeated name-only external organizations a deterministic id', () => {

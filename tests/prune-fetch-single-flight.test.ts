@@ -23,11 +23,13 @@ import {
 import {
   devicePruneTargets,
   listStaleDeviceArtifacts,
+  sweepStaleDeviceArtifacts,
   STALE_DEVICE_ARTIFACT_AGE_MS,
 } from '../scripts/lib/stale-device-artifact-sweep.mjs';
 import {
   defaultWorkspaceRoot,
   listStaleWorkspaceArtifacts,
+  sweepStaleWorkspaceArtifacts,
   STALE_WORKSPACE_ARTIFACT_AGE_MS,
   workspacePruneTargets,
 } from '../scripts/lib/stale-workspace-artifact-sweep.mjs';
@@ -269,7 +271,7 @@ describe('stale temporary directory sweep', () => {
     expect(stale).toEqual(['old']);
   });
 
-  it('dry-run does not remove candidates and apply removes only stale directories', () => {
+  it('reports stale candidates but rejects apply without removing anything', () => {
     const root = tmpDir();
     const old = path.join(root, 'old');
     fs.mkdirSync(old);
@@ -280,8 +282,8 @@ describe('stale temporary directory sweep', () => {
 
     expect(sweepStaleTempDirs(root)).toMatchObject({ candidates: 1, removed: 0 });
     expect(fs.existsSync(old)).toBe(true);
-    expect(sweepStaleTempDirs(root, { apply: true })).toMatchObject({ candidates: 1, removed: 1 });
-    expect(fs.existsSync(old)).toBe(false);
+    expect(() => sweepStaleTempDirs(root, { apply: true })).toThrow('cleanup disabled');
+    expect(fs.existsSync(old)).toBe(true);
   });
 
   it('preserves known runtime directories even when they are old', () => {
@@ -297,12 +299,15 @@ describe('stale temporary directory sweep', () => {
 });
 
 describe('stale device artifact sweep', () => {
-  it('declares portable cache, session, job and release targets', () => {
+  it('declares diagnostic cache/release targets but never histories or jobs', () => {
     const names = devicePruneTargets('/home/test').map((target) => target.name);
     expect(names).toEqual(expect.arrayContaining([
-      'npm', 'uv-cache', 'user-cache', 'codex-sessions', 'claude-jobs',
+      'npm', 'uv-cache', 'user-cache',
       'codex-standalone-releases', 'codex-app-server-releases',
     ]));
+    for (const name of ['codex-sessions', 'codex-archived-sessions', 'claude-jobs', 'claude-projects']) {
+      expect(names).not.toContain(name);
+    }
   });
 
   it('does not select a recent device artifact', () => {
@@ -325,20 +330,33 @@ describe('stale device artifact sweep', () => {
     expect(candidates.map((candidate) => candidate.path)).toContain(old);
     expect(candidates.every((candidate) => !candidate.path.includes('recent'))).toBe(true);
   });
+
+  it('never inventories histories even when every file is old', () => {
+    const root = tmpDir();
+    const oldWhen = new Date(Date.now() - STALE_DEVICE_ARTIFACT_AGE_MS - 1000);
+    for (const rel of ['.codex/sessions', '.codex/archived_sessions', '.claude/jobs', '.claude/projects']) {
+      const dir = path.join(root, rel);
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'history.jsonl'), 'irreplaceable');
+      fs.utimesSync(path.join(dir, 'history.jsonl'), oldWhen, oldWhen);
+      fs.utimesSync(dir, oldWhen, oldWhen);
+    }
+    expect(listStaleDeviceArtifacts({ home: root })).toEqual([]);
+  });
 });
 
 describe('stale workspace artifact sweep', () => {
   it('usa root generico e target ricostruibili', () => {
     expect(defaultWorkspaceRoot({ repoRoot: '/workspace/repo' })).toBe('/workspace');
     expect(workspacePruneTargets('/workspace').map((target) => target.name)).toEqual([
-      'workspace-wt', 'workspace-worktrees', 'workspace-tmp',
+      'workspace-tmp',
     ]);
   });
 
   it('seleziona solo directory stale e protegge un cwd attivo', () => {
     const root = tmpDir();
-    const old = path.join(root, '.wt', 'old');
-    const active = path.join(root, '.wt', 'active');
+    const old = path.join(root, 'tmp', 'old');
+    const active = path.join(root, 'tmp', 'active');
     fs.mkdirSync(old, { recursive: true });
     fs.mkdirSync(active, { recursive: true });
     fs.writeFileSync(path.join(old, 'result'), 'old');
@@ -351,5 +369,32 @@ describe('stale workspace artifact sweep', () => {
     const candidates = listStaleWorkspaceArtifacts({ workspaceRoot: root, activePaths: [active] });
     expect(candidates.map((candidate) => candidate.path)).toContain(old);
     expect(candidates.map((candidate) => candidate.path)).not.toContain(active);
+  });
+
+  it('never inventories unregistered worktree directories based on age', () => {
+    const root = tmpDir();
+    const oldWhen = new Date(Date.now() - STALE_WORKSPACE_ARTIFACT_AGE_MS - 1000);
+    for (const rel of ['.wt/foreign', '.worktrees/foreign', '.claude/worktrees/foreign']) {
+      const dir = path.join(root, rel);
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'untracked.txt'), 'never in git');
+      fs.utimesSync(path.join(dir, 'untracked.txt'), oldWhen, oldWhen);
+      fs.utimesSync(dir, oldWhen, oldWhen);
+    }
+    expect(listStaleWorkspaceArtifacts({ workspaceRoot: root, activePaths: [] })).toEqual([]);
+  });
+});
+
+describe('global cleanup APIs fail closed', () => {
+  const cases: Array<[string, (root: string) => unknown]> = [
+    ['device', (root: string) => sweepStaleDeviceArtifacts({ apply: true, home: root })],
+    ['workspace', (root: string) => sweepStaleWorkspaceArtifacts({ apply: true, workspaceRoot: root, activePaths: [] })],
+  ];
+  it.each(cases)('rejects %s apply and preserves old data', (_name, sweep) => {
+    const root = tmpDir();
+    const file = path.join(root, 'keep.txt');
+    fs.writeFileSync(file, 'irreplaceable');
+    expect(() => sweep(root)).toThrow('cleanup disabled');
+    expect(fs.readFileSync(file, 'utf8')).toBe('irreplaceable');
   });
 });
