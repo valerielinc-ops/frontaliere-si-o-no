@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-15T22:00:50.491Z",
+  "generatedAt": "2026-10-15T23:52:16.060Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -4822,6 +4822,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T00:04:11.854Z"
     },
+    "ge-agenda:electron-palladium-euphorie-collective::7c423a53e083ad4d06024ded60c60e71f59def08b0217c974a9f29bcce0023cb": {
+      "id": "ge-agenda:electron-palladium-euphorie-collective",
+      "sourceDescriptionHash": "7c423a53e083ad4d06024ded60c60e71f59def08b0217c974a9f29bcce0023cb",
+      "description": "Questo evento di clubbing si svolge al Palladium, a Ginevra, nel cantone di Ginevra. Il prezzo indicato è di 20 CHF e Ville de Genève Agenda è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "Questo evento di clubbing si svolge al Palladium, a Ginevra, nel cantone di Ginevra. Il prezzo indicato è di 20 CHF e Ville de Genève Agenda è indicato come organizzatore.",
+        "en": "This clubbing event takes place at Palladium in Geneva, in the canton of Geneva. The listed price is CHF 20, and Ville de Genève Agenda is named as its organiser.",
+        "de": "Die Clubbing-Veranstaltung findet im Palladium in Genf, im Kanton Genf, statt. Der angegebene Preis beträgt 20 CHF; als Veranstalter ist Ville de Genève Agenda aufgeführt.",
+        "fr": "Cet événement de clubbing a lieu au Palladium, à Genève, dans le canton de Genève. Le tarif indiqué est de 20 CHF et Ville de Genève Agenda est mentionné comme organisateur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:17:24.879Z"
+    },
     "ge-agenda:electron-sublime-club::8c24dc2c3d11a187965ba1d5cebbdfb897ea76a514ee01f3e409d9dd22dc13c9": {
       "id": "ge-agenda:electron-sublime-club",
       "sourceDescriptionHash": "8c24dc2c3d11a187965ba1d5cebbdfb897ea76a514ee01f3e409d9dd22dc13c9",
@@ -5871,6 +5885,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T20:29:05.407Z"
+    },
+    "ge-agenda:godinat-jacquemet-massy::a3751a3595de01d704b264ce5103ee3e82934bc850de7ce9b5e31f5fab5ac642": {
+      "id": "ge-agenda:godinat-jacquemet-massy",
+      "sourceDescriptionHash": "a3751a3595de01d704b264ce5103ee3e82934bc850de7ce9b5e31f5fab5ac642",
+      "description": "A Ginevra il programma musicale riunisce Pierre-François Massy, Maël Godinat e William Jacquemet. Il concerto si svolge al Lex Madone.",
+      "descriptionByLocale": {
+        "it": "A Ginevra il programma musicale riunisce Pierre-François Massy, Maël Godinat e William Jacquemet. Il concerto si svolge al Lex Madone.",
+        "en": "The Geneva concert programme features Pierre-François Massy, Maël Godinat and William Jacquemet. It takes place at Lex Madone.",
+        "de": "Das Konzertprogramm in Genf umfasst Beiträge von Pierre-François Massy, Maël Godinat und William Jacquemet. Veranstaltungsort ist Lex Madone.",
+        "fr": "À Genève, le programme musical réunit Pierre-François Massy, Maël Godinat et William Jacquemet. Le rendez-vous a lieu à Lex Madone."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:43:23.519Z"
     },
     "ge-agenda:grain-sable::174f801a3d41da9d6fd18c3e8f676aa205b81b2710030ae5f4e0ccaee8d3fc36": {
       "id": "ge-agenda:grain-sable",
@@ -7845,6 +7873,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T01:19:30.668Z"
+    },
+    "ge-agenda:nuit-belle::6dd1e352bce50b53b000867819f836162339884fd24d93dfef8e5304d38a5916": {
+      "id": "ge-agenda:nuit-belle",
+      "sourceDescriptionHash": "6dd1e352bce50b53b000867819f836162339884fd24d93dfef8e5304d38a5916",
+      "description": "L’acqua fa da filo conduttore per esplorare le diverse dimensioni della notte. L’attività al Museo di storia delle scienze di Ginevra si rivolge a bambini e adulti e considera aspetti naturali, culturali e sensoriali.",
+      "descriptionByLocale": {
+        "it": "L’acqua fa da filo conduttore per esplorare le diverse dimensioni della notte. L’attività al Museo di storia delle scienze di Ginevra si rivolge a bambini e adulti e considera aspetti naturali, culturali e sensoriali.",
+        "en": "Water provides the connecting theme for an exploration of the night. The programme at the Musée d’histoire des sciences in Geneva is intended for children and adults and addresses natural, cultural and sensory aspects.",
+        "de": "Wasser dient als Leitmotiv für eine Erkundung der Nacht. Im Musée d’histoire des sciences in Genf richtet sich das Angebot an Kinder und Erwachsene und behandelt natürliche, kulturelle und sinnliche Aspekte.",
+        "fr": "L’eau sert de fil conducteur pour une exploration de la nuit. L’animation au Musée d’histoire des sciences à Genève s’adresse aux enfants comme aux adultes et aborde ses aspects naturels, culturels et sensibles."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:38:51.117Z"
     },
     "ge-agenda:nuits-ete::a298f1f1f3216f3c34ab6780b28e66ba5883528b2a71729fca823025690f78fd": {
       "id": "ge-agenda:nuits-ete",
@@ -10281,6 +10323,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T01:12:43.111Z"
+    },
+    "ge-agenda:toots-guest-kill::1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142": {
+      "id": "ge-agenda:toots-guest-kill",
+      "sourceDescriptionHash": "1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142",
+      "description": "Si tratta di un appuntamento di clubbing a Ginevra, con DJ TOOTS, un ospite e DJ KILL indicati nel programma. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un appuntamento di clubbing a Ginevra, con DJ TOOTS, un ospite e DJ KILL indicati nel programma. L’ingresso è gratuito.",
+        "en": "This clubbing event takes place in Geneva and features DJ TOOTS, a guest and DJ KILL. Admission is free.",
+        "de": "Die Clubbing-Veranstaltung findet in Genf statt und nennt DJ TOOTS, einen Gast sowie DJ KILL im Programm. Der Eintritt ist kostenlos.",
+        "fr": "Ce rendez-vous de clubbing a lieu à Genève et annonce DJ TOOTS, un invité ainsi que DJ KILL. L’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:39:05.557Z"
     },
     "ge-agenda:traces-vegetaux::a74ed74587de60d7b3a1ef18ec21b7bc1bb70699c8c5eaa79a6f29c5b4cd4fa8": {
       "id": "ge-agenda:traces-vegetaux",
@@ -16232,6 +16288,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T07:16:54.029Z"
     },
+    "guidle:ABKgX8b::14361a4d02287fb1141a5a2a0047c357044e8a79cdf7f206abd15ca7d4eb18eb": {
+      "id": "guidle:ABKgX8b",
+      "sourceDescriptionHash": "14361a4d02287fb1141a5a2a0047c357044e8a79cdf7f206abd15ca7d4eb18eb",
+      "description": "Questo appuntamento di musica da camera è ospitato dalla St Charles Hall di Meggen, nel cantone di Lucerna. Il periodo indicato va da giugno 2027 a giugno 2028, e l'evento è classificato come ricorrente. Il titolo dell'evento è klang-Sommergenuss; come sede è indicata la St Charles Hall e il comune è Meggen.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento di musica da camera è ospitato dalla St Charles Hall di Meggen, nel cantone di Lucerna. Il periodo indicato va da giugno 2027 a giugno 2028, e l'evento è classificato come ricorrente. Il titolo dell'evento è klang-Sommergenuss; come sede è indicata la St Charles Hall e il comune è Meggen.",
+        "en": "This recurring chamber music event is held at St Charles Hall in Meggen, in the canton of Lucerne. The listed period runs from June 2027 to June 2028, and the event is marked as recurring. It is titled klang-Sommergenuss; the recorded venue is St Charles Hall and the municipality identified for it is Meggen.",
+        "de": "Diese wiederkehrende Kammermusikveranstaltung findet in der St Charles Hall in Meggen im Kanton Luzern statt. Der angegebene Zeitraum reicht von Juni 2027 bis Juni 2028, und der Anlass ist als wiederkehrend vermerkt. Der Anlass trägt den Titel klang-Sommergenuss; als Veranstaltungsort ist die St Charles Hall angegeben, als Gemeinde ist Meggen eingetragen.",
+        "fr": "Ce rendez-vous récurrent de musique de chambre se tient au St Charles Hall, à Meggen, dans le canton de Lucerne. La période indiquée va de juin 2027 à juin 2028 et l’événement est récurrent. L’événement porte le titre klang-Sommergenuss; le lieu enregistré est le St Charles Hall et la commune indiquée est Meggen."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:44:52.608Z"
+    },
     "guidle:AbKHFp7::a8a21c16f14529f48b8a5f86c7a7bd40718c2aea2f8792bf797a5b2794f8378e": {
       "id": "guidle:AbKHFp7",
       "sourceDescriptionHash": "a8a21c16f14529f48b8a5f86c7a7bd40718c2aea2f8792bf797a5b2794f8378e",
@@ -21481,6 +21551,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T08:21:54.375Z"
+    },
+    "guidle:AgTa66j::4075453325feb1b40629706777d71704c1205df7371b8977bbbaf95b56771284": {
+      "id": "guidle:AgTa66j",
+      "sourceDescriptionHash": "4075453325feb1b40629706777d71704c1205df7371b8977bbbaf95b56771284",
+      "description": "Il festival si svolge ogni anno nel Parc naturel régional Gruyère Pays-d'Enhaut, a Château-d'Oex, ed è dedicato agli strumenti in legno e alla natura. Il programma comprende concerti, film, conferenze e passeggiate nella foresta.",
+      "descriptionByLocale": {
+        "it": "Il festival si svolge ogni anno nel Parc naturel régional Gruyère Pays-d'Enhaut, a Château-d'Oex, ed è dedicato agli strumenti in legno e alla natura. Il programma comprende concerti, film, conferenze e passeggiate nella foresta.",
+        "en": "The annual festival takes place at the Parc naturel régional Gruyère Pays-d'Enhaut in Château-d'Oex and focuses on wooden instruments and nature. Its programme includes concerts, films, talks and forest walks.",
+        "de": "Das jährlich stattfindende Festival im Parc naturel régional Gruyère Pays-d'Enhaut in Château-d'Oex widmet sich Holzinstrumenten und der Natur. Zum Programm gehören Konzerte, Filme, Konferenzen und Spaziergänge im Wald.",
+        "fr": "Le festival annuel se tient au Parc naturel régional Gruyère Pays-d’Enhaut, à Château-d’Oex, et porte sur les instruments en bois et la nature. Il comprend des concerts, des films, des conférences et des promenades en forêt."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:24:06.530Z"
     },
     "guidle:AGthkV8::ed35f1700aa06ea698fcb4035374d4525d48ef59a2bb40761a19534f9380f661": {
       "id": "guidle:AGthkV8",
@@ -28229,6 +28313,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T16:37:05.898Z"
+    },
+    "guidle:Aq91Knx::90e47512f2f49ffa407f0a9099684dffe4ce99161fcdc7dc7f03357d8f44bfbb": {
+      "id": "guidle:Aq91Knx",
+      "sourceDescriptionHash": "90e47512f2f49ffa407f0a9099684dffe4ce99161fcdc7dc7f03357d8f44bfbb",
+      "description": "Questo evento di musica house si svolge al Club Bellevue, a Bellevue nel cantone di Ginevra. Il programma combina Afro House, Melodic House, Progressive e Tech House. L’ingresso costa CHF 21,60.",
+      "descriptionByLocale": {
+        "it": "Questo evento di musica house si svolge al Club Bellevue, a Bellevue nel cantone di Ginevra. Il programma combina Afro House, Melodic House, Progressive e Tech House. L’ingresso costa CHF 21,60.",
+        "en": "This house-music event takes place at Club Bellevue in Bellevue, in the canton of Geneva. Its programme combines Afro House, Melodic House, Progressive and Tech House. Admission costs CHF 21.60.",
+        "de": "Die House-Veranstaltung findet im Club Bellevue in Bellevue im Kanton Genf statt. Zur musikalischen Auswahl gehören Afro House, Progressive, Melodic House und Tech House. Der Eintritt kostet CHF 21,60.",
+        "fr": "Cet événement de musique house a lieu au Club Bellevue, à Bellevue, dans le canton de Genève. Sa programmation associe Afro House, Progressive, Tech House et Melodic House. L’entrée coûte 21,60 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:41:33.721Z"
     },
     "guidle:AQ9v2Ci::416b115d98c148ec7b185c8207812d3d6e6085251f8466d562ef808a84efbb01": {
       "id": "guidle:AQ9v2Ci",
@@ -35384,6 +35482,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T10:23:03.276Z"
     },
+    "guidle:Ay8fZdS::9c5d7926339281043139a6c0d9f2f8820ef39c1baff96a05d2d8aa88c983ee37": {
+      "id": "guidle:Ay8fZdS",
+      "sourceDescriptionHash": "9c5d7926339281043139a6c0d9f2f8820ef39c1baff96a05d2d8aa88c983ee37",
+      "description": "Art Basel è una fiera d'arte ospitata dalla Messe Basel, a Basilea. L'edizione ricorrente si svolge nell'arco di più giorni nel giugno 2027.",
+      "descriptionByLocale": {
+        "it": "Art Basel è una fiera d'arte ospitata dalla Messe Basel, a Basilea. L'edizione ricorrente si svolge nell'arco di più giorni nel giugno 2027.",
+        "en": "Art Basel is an art fair held at Messe Basel in Basel. This recurring edition runs across several days in June 2027.",
+        "de": "Art Basel ist eine Kunstmesse in der Messe Basel in Basel. Die wiederkehrende Ausgabe erstreckt sich über mehrere Tage im Juni 2027.",
+        "fr": "Art Basel est une foire d’art qui se tient à la Messe Basel, à Bâle. Cette édition récurrente s’étend sur plusieurs jours en juin 2027."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:44:52.616Z"
+    },
     "guidle:AYA1FE1::5e1c8e48419f0d99ac55b7fd3ba3fce4d1172ae6050ca375863b582637bcaa5b": {
       "id": "guidle:AYA1FE1",
       "sourceDescriptionHash": "5e1c8e48419f0d99ac55b7fd3ba3fce4d1172ae6050ca375863b582637bcaa5b",
@@ -41053,6 +41165,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T15:15:19.217Z"
+    },
+    "myswitzerland:0a3dd2360b9d48979abf39cce0b6303e::4ea219456f054b7b7f0ca9bf9708985db1b444d44ce295d3e83abbcabe32ffac": {
+      "id": "myswitzerland:0a3dd2360b9d48979abf39cce0b6303e",
+      "sourceDescriptionHash": "4ea219456f054b7b7f0ca9bf9708985db1b444d44ce295d3e83abbcabe32ffac",
+      "description": "Il festival musicale del Lötschental comprende la presentazione delle nuove uniformi della MG Fafleralp Blatten. L’appuntamento si tiene a Wiler (Lötschen) nell’ambito della festa musicale della valle.",
+      "descriptionByLocale": {
+        "it": "Il festival musicale del Lötschental comprende la presentazione delle nuove uniformi della MG Fafleralp Blatten. L’appuntamento si tiene a Wiler (Lötschen) nell’ambito della festa musicale della valle.",
+        "en": "The event features a new-uniform presentation by MG Fafleralp Blatten. It is part of the Lötschental music festival in Wiler (Lötschen).",
+        "de": "Das Ereignis verbindet ein Musikfest im Lötschental mit der Präsentation neuer Uniformen der MG Fafleralp Blatten. Austragungsort ist Wiler (Lötschen).",
+        "fr": "Cette manifestation musicale du Lötschental comprend la présentation des nouveaux uniformes de la MG Fafleralp Blatten. Elle a lieu à Wiler (Lötschen) und s’inscrit dans la fête de la musique du Lötschental."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:28:03.893Z"
     },
     "myswitzerland:0a41c0868d9948b4b5f70c40d20e0677::9bbf14c7034ddae82ef43f1bad11a15059cc4039af2ab71c0382e9a1db167a93": {
       "id": "myswitzerland:0a41c0868d9948b4b5f70c40d20e0677",
@@ -51708,6 +51834,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T02:18:39.112Z"
     },
+    "myswitzerland:24c39bca68564c2fb9db4a720d1edb04::b3ffb9a0e6478094c2841f21061aa9e7fe21cf5312b045defcc22a51cc11ff4c": {
+      "id": "myswitzerland:24c39bca68564c2fb9db4a720d1edb04",
+      "sourceDescriptionHash": "b3ffb9a0e6478094c2841f21061aa9e7fe21cf5312b045defcc22a51cc11ff4c",
+      "description": "Il festival della città di Lucerna comprende diversi punti del programma nella città vecchia. I luoghi indicati sono varie piazze e l’area intorno al Teatro di Lucerna.",
+      "descriptionByLocale": {
+        "it": "Il festival della città di Lucerna comprende diversi punti del programma nella città vecchia. I luoghi indicati sono varie piazze e l’area intorno al Teatro di Lucerna.",
+        "en": "Lucerne’s city festival includes programme items in the old town. The event covers several squares and the area around the Lucerne Theater.",
+        "de": "Das Stadtfest Luzern umfasst verschiedene Programmpunkte in der Altstadt. Genannt werden mehrere Plätze sowie die Umgebung des Luzerner Theaters.",
+        "fr": "La fête de la ville de Lucerne comprend plusieurs points de programme dans la vieille ville. Les lieux mentionnés sont différentes places et les environs du théâtre de Lucerne."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:47:18.363Z"
+    },
     "myswitzerland:24d3f24a63dc480cb96e33156d693285::04ff1a0f08df978ebc93e1f1517aadc4dd9ab6e546500ba04a3fa1670271525b": {
       "id": "myswitzerland:24d3f24a63dc480cb96e33156d693285",
       "sourceDescriptionHash": "04ff1a0f08df978ebc93e1f1517aadc4dd9ab6e546500ba04a3fa1670271525b",
@@ -54745,6 +54885,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T12:40:07.797Z"
+    },
+    "myswitzerland:2d77e236ceb448d6a05b94a8fd50f5fd::90dcc0c6c4abd9d2107e4444801ef8e2b0f82dc8914954880b9020d90eac050a": {
+      "id": "myswitzerland:2d77e236ceb448d6a05b94a8fd50f5fd",
+      "sourceDescriptionHash": "90dcc0c6c4abd9d2107e4444801ef8e2b0f82dc8914954880b9020d90eac050a",
+      "description": "Il buffet barbecue estivo al CAMPUS SURSEE di Oberkirch comprende diverse specialità alla griglia e pietanze estive. Le pietanze sono preparate al momento e il prezzo indicato è di CHF 84.",
+      "descriptionByLocale": {
+        "it": "Il buffet barbecue estivo al CAMPUS SURSEE di Oberkirch comprende diverse specialità alla griglia e pietanze estive. Le pietanze sono preparate al momento e il prezzo indicato è di CHF 84.",
+        "en": "The barbecue summer buffet at CAMPUS SURSEE in Oberkirch includes different grilled specialities and summer dishes. The food is freshly prepared, and the listed price is CHF 84.",
+        "de": "Das Barbecue-Sommerbuffet im CAMPUS SURSEE in Oberkirch umfasst verschiedene Grillspezialitäten und sommerliche Speisen. Die Speisen werden frisch zubereitet; der angegebene Preis beträgt CHF 84.",
+        "fr": "Le buffet barbecue d’été du CAMPUS SURSEE à Oberkirch comprend différentes spécialités grillées et des mets estivaux. Les plats sont fraîchement préparés et le prix indiqué est de 84 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:26:14.568Z"
     },
     "myswitzerland:2d9b767d796a4c4394af4ede477fb29e::2960355cb3f39ac761c118973d77f9aec4e242f33eb9a241d018ed857ef56736": {
       "id": "myswitzerland:2d9b767d796a4c4394af4ede477fb29e",
@@ -64686,6 +64840,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T18:21:55.445Z"
     },
+    "myswitzerland:469246e87b7347c9aae99132ea1abf68::8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a": {
+      "id": "myswitzerland:469246e87b7347c9aae99132ea1abf68",
+      "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a",
+      "description": "L’appuntamento propone un pasto condiviso presso l’Alterszentrum Weihermatt di Urdorf, nel Canton Zurigo. L’incontro è dedicato a chi desidera mangiare in compagnia senza dover cucinare e mangiare da solo ogni giorno.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un pasto condiviso presso l’Alterszentrum Weihermatt di Urdorf, nel Canton Zurigo. L’incontro è dedicato a chi desidera mangiare in compagnia senza dover cucinare e mangiare da solo ogni giorno.",
+        "en": "The event offers a shared meal at Alterszentrum Weihermatt in Urdorf, in the canton of Zurich. It is intended for people who would like to cook and eat alone less often.",
+        "de": "Die Veranstaltung bietet ein gemeinsames Essen im Alterszentrum Weihermatt in Urdorf im Kanton Zürich. Sie richtet sich an Menschen, die nicht jeden Tag allein kochen und essen möchten.",
+        "fr": "Le rendez-vous propose un repas partagé à l’Alterszentrum Weihermatt, à Urdorf, dans le canton de Zurich. Il s’adresse aux personnes qui souhaitent éviter de cuisiner et de manger seules au quotidien."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:38:13.804Z"
+    },
     "myswitzerland:4693850e6c9741a7a4eb1214e55ef6bb::22babc9bba9ce7b177b038fc0b076ad4a83a46a21701a5f75ea7027bdd999c00": {
       "id": "myswitzerland:4693850e6c9741a7a4eb1214e55ef6bb",
       "sourceDescriptionHash": "22babc9bba9ce7b177b038fc0b076ad4a83a46a21701a5f75ea7027bdd999c00",
@@ -67513,6 +67681,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T06:19:40.242Z"
+    },
+    "myswitzerland:4eebef19e7904d7eaaf967e7b249acf2::509eedaac68efd654fe20c367b155c168b357c601b42780840c10d51ddba5ac2": {
+      "id": "myswitzerland:4eebef19e7904d7eaaf967e7b249acf2",
+      "sourceDescriptionHash": "509eedaac68efd654fe20c367b155c168b357c601b42780840c10d51ddba5ac2",
+      "description": "ALMO BB è uno spettacolo di Davide Brancato e Noémie Griess, presentato presso Masion Saint-Gervais a Ginevra. L'evento ricorrente è distribuito su più date.",
+      "descriptionByLocale": {
+        "it": "ALMO BB è uno spettacolo di Davide Brancato e Noémie Griess, presentato presso Masion Saint-Gervais a Ginevra. L'evento ricorrente è distribuito su più date.",
+        "en": "ALMO BB is a performance by Davide Brancato and Noémie Griess at Masion Saint-Gervais in Geneva. The recurring event is scheduled across several dates.",
+        "de": "ALMO BB ist eine Aufführung von Davide Brancato und Noémie Griess in Masion Saint-Gervais in Genf. Die wiederkehrende Veranstaltung ist über mehrere Termine verteilt.",
+        "fr": "ALMO BB est un spectacle de Davide Brancato et Noémie Griess présenté à Masion Saint-Gervais, à Genève. La programmation récurrente comprend plusieurs représentations."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:30:29.592Z"
     },
     "myswitzerland:4eeced4140cf4beab67d93a85ce864e8::692f2888091207f19374d655a081481377a1cfdb7abab7ec3358b2d5bb32c51a": {
       "id": "myswitzerland:4eeced4140cf4beab67d93a85ce864e8",
@@ -72259,6 +72441,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T21:20:48.653Z"
+    },
+    "myswitzerland:5cc6eaf00990455898dce4b10dd2b7aa::8e5feff81f56019659c4c244c4eca804377c245607b04140c025dafb3f75d1e3": {
+      "id": "myswitzerland:5cc6eaf00990455898dce4b10dd2b7aa",
+      "sourceDescriptionHash": "8e5feff81f56019659c4c244c4eca804377c245607b04140c025dafb3f75d1e3",
+      "description": "L’appuntamento propone un programma musicale basato su due chitarre e due voci a Meiringen-Hasliberg, nel comune di Hasliberg. La selezione riunisce brani di diversi decenni, tra evergreen e ballate.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un programma musicale basato su due chitarre e due voci a Meiringen-Hasliberg, nel comune di Hasliberg. La selezione riunisce brani di diversi decenni, tra evergreen e ballate.",
+        "en": "The event presents a musical programme built around two guitars and two voices at Meiringen-Hasliberg in Hasliberg. It brings together songs from several decades, including lively evergreen pieces and ballads.",
+        "de": "Bei der Veranstaltung stehen zwei Gitarren und zwei Stimmen im Mittelpunkt; sie findet in Meiringen-Hasliberg in Hasliberg statt. Das musikalische Programm verbindet bekannte Lieder aus mehreren Jahrzehnten mit Evergreens und Balladen.",
+        "fr": "Le rendez-vous met en avant deux guitares et deux voix à Meiringen-Hasliberg, dans la commune de Hasliberg. Le programme musical réunit des chansons issues de plusieurs décennies, avec des morceaux connus et des ballades."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:41:47.700Z"
     },
     "myswitzerland:5cc864f4b3024d90bfe26285bb9bc592::6e911a2f71182a68723a30e9747660c890d9f6179b4fd213f0b1db6ccb0f2bd9": {
       "id": "myswitzerland:5cc864f4b3024d90bfe26285bb9bc592",
@@ -77944,6 +78140,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T08:38:36.354Z"
     },
+    "myswitzerland:6b900b2c81f743d2bbb39815d6497afe::8ddc1d14975cd3a0313eb7ba95df7828b4952a7d917bad4db77af38d9749d3e5": {
+      "id": "myswitzerland:6b900b2c81f743d2bbb39815d6497afe",
+      "sourceDescriptionHash": "8ddc1d14975cd3a0313eb7ba95df7828b4952a7d917bad4db77af38d9749d3e5",
+      "description": "Il programma comprende una sinfonia per archi in si minore e un Concertone con due violini e orchestra in do maggiore. L’appuntamento musicale si tiene al Kursaal Engelberg AG di Engelberg, nel cantone OW.",
+      "descriptionByLocale": {
+        "it": "Il programma comprende una sinfonia per archi in si minore e un Concertone con due violini e orchestra in do maggiore. L’appuntamento musicale si tiene al Kursaal Engelberg AG di Engelberg, nel cantone OW.",
+        "en": "The programme includes a string symphony in B minor and a Concertone featuring two violins with orchestra in C major. The musical event takes place at Kursaal Engelberg AG in Engelberg, in canton OW.",
+        "de": "Das musikalische Programm umfasst eine Streichersinfonie in h-Moll sowie ein Concertone mit zwei Violinen und Orchester in C-Dur. Die Veranstaltung findet im Kursaal Engelberg AG in Engelberg im Kanton OW statt.",
+        "fr": "Le programme réunit une symphonie pour cordes en si mineur et un Concertone avec deux violons et orchestre en ut majeur. Le rendez-vous musical se déroule au Kursaal Engelberg AG, à Engelberg, dans le canton OW."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:20:49.952Z"
+    },
     "myswitzerland:6b917999611c4710b55a8b657361a283::c6fddeb65d10481c4e3fe48f0cb2592eb861225c30ed761edb36128f6cb20fe7": {
       "id": "myswitzerland:6b917999611c4710b55a8b657361a283",
       "sourceDescriptionHash": "c6fddeb65d10481c4e3fe48f0cb2592eb861225c30ed761edb36128f6cb20fe7",
@@ -81779,6 +81989,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-15T08:33:31.020Z"
+    },
+    "myswitzerland:77b6c8190ce847e2becf97c880e93b3e::747b7dc8368175c67c6dad2f0443299ece6b7f41d57838e48d6245fa6ecf69f5": {
+      "id": "myswitzerland:77b6c8190ce847e2becf97c880e93b3e",
+      "sourceDescriptionHash": "747b7dc8368175c67c6dad2f0443299ece6b7f41d57838e48d6245fa6ecf69f5",
+      "description": "Il concerto si svolge presso il Lugano Convention & Exhibition di Lugano. Ticketcorner è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "Il concerto si svolge presso il Lugano Convention & Exhibition di Lugano. Ticketcorner è indicato come organizzatore.",
+        "en": "The concert takes place at Lugano Convention & Exhibition in Lugano. Ticketcorner is listed as the organiser.",
+        "de": "Das Konzert findet im Lugano Convention & Exhibition in Lugano statt. Ticketcorner ist als Veranstalter angegeben.",
+        "fr": "Le concert a lieu au Lugano Convention & Exhibition, à Lugano. Ticketcorner est indiqué comme organisateur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:27:44.699Z"
     },
     "myswitzerland:77c1163907074471903efd3895a105c6::f9ab9c1a4cc7db25033983568b02141b9b413a6df2677fee0838bb61f7e796dd": {
       "id": "myswitzerland:77c1163907074471903efd3895a105c6",
@@ -87282,6 +87506,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T23:11:24.893Z"
     },
+    "myswitzerland:865f1a8ff67645df8b69ee431ef81a3b::4d97c6c8471e3bf16e797dd4431f26b3c8edf9a5edb6f82d07291a77ea692701": {
+      "id": "myswitzerland:865f1a8ff67645df8b69ee431ef81a3b",
+      "sourceDescriptionHash": "4d97c6c8471e3bf16e797dd4431f26b3c8edf9a5edb6f82d07291a77ea692701",
+      "description": "A Neuchâtel, lo spettacolo presenta il lavoro teatrale di Diane Dugard e Juan Cocho realizzato con i loro animali. Da quasi vent’anni, il duo condivide con gli animali la vita quotidiana e sviluppa con loro una forma di teatro.",
+      "descriptionByLocale": {
+        "it": "A Neuchâtel, lo spettacolo presenta il lavoro teatrale di Diane Dugard e Juan Cocho realizzato con i loro animali. Da quasi vent’anni, il duo condivide con gli animali la vita quotidiana e sviluppa con loro una forma di teatro.",
+        "en": "In Neuchâtel, the performance presents the theatrical work of Diane Dugard and Juan Cocho with their animals. For almost twenty years, the duo has shared everyday life with the animals and developed a form of theatre together.",
+        "de": "Die Veranstaltung in Neuchâtel stellt die Theaterarbeit von Diane Dugard und Juan Cocho mit ihren Tieren vor. Seit fast zwanzig Jahren teilen die beiden ihren Alltag mit den Tieren und entwickeln gemeinsam eine Theaterform.",
+        "fr": "À Neuchâtel, le spectacle présente le travail théâtral de Diane Dugard et Juan Cocho avec leurs animaux. Depuis près de vingt ans, le duo partage son quotidien avec eux et développe ensemble une forme de théâtre."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:25:01.173Z"
+    },
     "myswitzerland:869b94388df9409285e7664ab2e67a00::300fc418383191c2fc075a419cf7cad13434596b681ff68ebe96ed4d42fce229": {
       "id": "myswitzerland:869b94388df9409285e7664ab2e67a00",
       "sourceDescriptionHash": "300fc418383191c2fc075a419cf7cad13434596b681ff68ebe96ed4d42fce229",
@@ -91832,6 +92070,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T18:14:14.471Z"
     },
+    "myswitzerland:93119b88f67b4c33a62307222dfb8fdc::7856d4fff21b4434459a3d6c5c7d0fa8f152100021ec87c51cb5fcd8ab926c9c": {
+      "id": "myswitzerland:93119b88f67b4c33a62307222dfb8fdc",
+      "sourceDescriptionHash": "7856d4fff21b4434459a3d6c5c7d0fa8f152100021ec87c51cb5fcd8ab926c9c",
+      "description": "A Soletta, Marie-Christine Egger racconta delle streghe e delle credenze a esse collegate. L’incontro tratta la caccia alle streghe, le streghe del tempo e il malocchio.",
+      "descriptionByLocale": {
+        "it": "A Soletta, Marie-Christine Egger racconta delle streghe e delle credenze a esse collegate. L’incontro tratta la caccia alle streghe, le streghe del tempo e il malocchio.",
+        "en": "In Solothurn, Marie-Christine Egger speaks about witches and the beliefs associated with them. The event covers witch-hunting, weather witches and the evil eye.",
+        "de": "In Solothurn erzählt Marie-Christine Egger von Hexen und den damit verbundenen Vorstellungen. Die Veranstaltung behandelt Hexenwahn, Wetterhexen und den bösen Blick.",
+        "fr": "À Soleure, Marie-Christine Egger raconte des histoires de sorcières et de croyances qui leur sont associées. La rencontre aborde la chasse aux sorcières, les sorcières du temps et le mauvais œil."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:16:39.009Z"
+    },
     "myswitzerland:93150347eff8476b8adc9f305682544f::0e799a10c9be92492a9ac37c2b96bce98c769a746b6babf338728f8ad13dc68f": {
       "id": "myswitzerland:93150347eff8476b8adc9f305682544f",
       "sourceDescriptionHash": "0e799a10c9be92492a9ac37c2b96bce98c769a746b6babf338728f8ad13dc68f",
@@ -95934,6 +96186,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T05:14:41.227Z"
     },
+    "myswitzerland:9cd0e107d66f4f55843582489203feaa::da6cf8b0551604ed4ccd57be0bb246b27c249613b8669b42535716e536fefe32": {
+      "id": "myswitzerland:9cd0e107d66f4f55843582489203feaa",
+      "sourceDescriptionHash": "da6cf8b0551604ed4ccd57be0bb246b27c249613b8669b42535716e536fefe32",
+      "description": "Questo laboratorio fotografico autunnale si svolge a Eptingen, nella regione di Basilea. Il gruppo è composto da otto partecipanti ed è seguito da due guide esperte del luogo. Le guide individuano per il gruppo luoghi e momenti adatti all’attività.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio fotografico autunnale si svolge a Eptingen, nella regione di Basilea. Il gruppo è composto da otto partecipanti ed è seguito da due guide esperte del luogo. Le guide individuano per il gruppo luoghi e momenti adatti all’attività.",
+        "en": "This autumn photo workshop takes place in Eptingen in the Basel region. The group is limited to eight participants and is accompanied by two experienced local guides. They lead the group to suitable locations at appropriate times during the activity.",
+        "de": "Dieser herbstliche Fotoworkshop findet in Eptingen im Baselbiet statt. Die Gruppe umfasst acht Teilnehmende und wird von zwei erfahrenen, ortskundigen Guides begleitet. Diese führen die Gruppe zu passenden Orten und wählen geeignete Zeitpunkte für die Aktivität.",
+        "fr": "Cet atelier photo d’automne se déroule à Eptingen, dans la région de Bâle. Le groupe compte huit participants et est accompagné par deux guides expérimentés de la région. Ceux-ci orientent le groupe vers des lieux adaptés aux moments appropriés de l’activité."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:26:02.403Z"
+    },
     "myswitzerland:9cd4ed7f6c464a8e8339e49385f7a316::93e559a54e5a8aca614d8ed95fbd01c56f92a4cc6dfc87210b50d62bbd066a30": {
       "id": "myswitzerland:9cd4ed7f6c464a8e8339e49385f7a316",
       "sourceDescriptionHash": "93e559a54e5a8aca614d8ed95fbd01c56f92a4cc6dfc87210b50d62bbd066a30",
@@ -96801,6 +97067,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T11:35:14.538Z"
+    },
+    "myswitzerland:9f11d788502640fcac3ae6dc763489d9::2c935f7fb0beb6b503cdf2394e43f9013dd61cbb23df7088aba22269e28510cf": {
+      "id": "myswitzerland:9f11d788502640fcac3ae6dc763489d9",
+      "sourceDescriptionHash": "2c935f7fb0beb6b503cdf2394e43f9013dd61cbb23df7088aba22269e28510cf",
+      "description": "«La Dolce Vita» è una serata a tema italiano a Soletta. L’appuntamento è ricorrente.",
+      "descriptionByLocale": {
+        "it": "«La Dolce Vita» è una serata a tema italiano a Soletta. L’appuntamento è ricorrente.",
+        "en": "La Dolce Vita is an Italian-themed evening in Solothurn. It is a recurring event.",
+        "de": "«La Dolce Vita» ist ein italienischer Abend in Solothurn. Die Veranstaltung findet wiederkehrend statt.",
+        "fr": "«La Dolce Vita» est une soirée sur le thème de l’Italie à Soleure. L’événement est récurrent."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:28:59.271Z"
     },
     "myswitzerland:9f14a60dca434b55867bdc702f528f7d::c96a267b70d2f487a63e7b7a4f71e1ed47d4dd84538a6c77d5a466ca2fcb08a6": {
       "id": "myswitzerland:9f14a60dca434b55867bdc702f528f7d",
@@ -99532,6 +99812,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T20:37:48.104Z"
     },
+    "myswitzerland:a56a7c207afd4071ad4d08fcc9c57d74::c90c3554f7070aaf5877410e0ebb7313180e3db3585ac8aa2f9bc405fb498b75": {
+      "id": "myswitzerland:a56a7c207afd4071ad4d08fcc9c57d74",
+      "sourceDescriptionHash": "c90c3554f7070aaf5877410e0ebb7313180e3db3585ac8aa2f9bc405fb498b75",
+      "description": "La giornata escursionistica si svolge a Elm, nel cantone di Glarona. Durante l’evento sono aperte la seggiovia Schabell e la Munggä Hüttä.",
+      "descriptionByLocale": {
+        "it": "La giornata escursionistica si svolge a Elm, nel cantone di Glarona. Durante l’evento sono aperte la seggiovia Schabell e la Munggä Hüttä.",
+        "en": "This hiking day takes place in Elm, in the canton of Glarus. The Schabell chairlift and Munggä Hüttä are open during the event.",
+        "de": "Der Wandertag findet in Elm im Kanton Glarus statt. Für den Anlass sind die Schabell-Sesselbahn und die Munggä Hüttä geöffnet.",
+        "fr": "Cette journée de randonnée a lieu à Elm, dans le canton de Glaris. Le télésiège de Schabell et la Munggä Hüttä sont ouverts pendant l’événement."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:41:33.753Z"
+    },
     "myswitzerland:a5740993dcc84297a446dfa4c1997fe6::fa0d2d3cda4c5e7bed0d21cc85af7ee4a6944bef5d056cd97a582a51c86ece64": {
       "id": "myswitzerland:a5740993dcc84297a446dfa4c1997fe6",
       "sourceDescriptionHash": "fa0d2d3cda4c5e7bed0d21cc85af7ee4a6944bef5d056cd97a582a51c86ece64",
@@ -101547,6 +101841,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T09:30:50.029Z"
+    },
+    "myswitzerland:aa6bb97b1e334f7a853fee67a40cf1d3::770381fbf4895a8d4b3116c77f5c4ab8810dc6b920fd53ffecc8431d996292c9": {
+      "id": "myswitzerland:aa6bb97b1e334f7a853fee67a40cf1d3",
+      "sourceDescriptionHash": "770381fbf4895a8d4b3116c77f5c4ab8810dc6b920fd53ffecc8431d996292c9",
+      "description": "Il concerto a Zurigo propone quartetti per archi di Ludwig van Beethoven. Il programma è associato al Quatuor Ébène.",
+      "descriptionByLocale": {
+        "it": "Il concerto a Zurigo propone quartetti per archi di Ludwig van Beethoven. Il programma è associato al Quatuor Ébène.",
+        "en": "The concert in Zurich presents string quartets by Ludwig van Beethoven. Quatuor Ébène is associated with the programme.",
+        "de": "Das Konzert in Zürich präsentiert Streichquartette von Ludwig van Beethoven. Quatuor Ébène ist mit dem Programm verbunden.",
+        "fr": "Le concert à Zurich présente des quatuors à cordes de Ludwig van Beethoven. Le programme est associé au Quatuor Ébène."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:26:14.529Z"
     },
     "myswitzerland:aa6d6515fb6b49ddb40cc3d19f338707::8e5639aae158f227d9d0e48467daf10d276d735da3fdbc82a131aca61758f1c7": {
       "id": "myswitzerland:aa6d6515fb6b49ddb40cc3d19f338707",
@@ -104319,6 +104627,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T16:14:33.306Z"
+    },
+    "myswitzerland:b133c6bb504146cdbf1a45d23eb81bb3::35407a1e962e2b8d1c3ab68044e68f61b45a9cf4220003b2aaf5110d84abdbf1": {
+      "id": "myswitzerland:b133c6bb504146cdbf1a45d23eb81bb3",
+      "sourceDescriptionHash": "35407a1e962e2b8d1c3ab68044e68f61b45a9cf4220003b2aaf5110d84abdbf1",
+      "description": "Flow2Soul, Andrscht e The Main si esibiscono allo Stage am Bach, a Mels / Heiligkreuz. I tre gruppi provengono dalla regione di Sargans e suonano rock e soul con testi emotivi che affrontano questioni sociali.",
+      "descriptionByLocale": {
+        "it": "Flow2Soul, Andrscht e The Main si esibiscono allo Stage am Bach, a Mels / Heiligkreuz. I tre gruppi provengono dalla regione di Sargans e suonano rock e soul con testi emotivi che affrontano questioni sociali.",
+        "en": "Flow2Soul, Andrscht and The Main perform at Stage am Bach in Mels / Heiligkreuz. The three bands come from the Sargans region and play rock and soul with emotional lyrics addressing social issues.",
+        "de": "Flow2Soul, Andrscht und The Main treten im Stage am Bach in Mels / Heiligkreuz auf. Die drei Bands stammen aus dem Sarganserland und spielen Rock und Soul mit gefühlvollen, gesellschaftskritischen Texten.",
+        "fr": "Flow2Soul, Andrscht et The Main se produisent au Stage am Bach, à Mels / Heiligkreuz. Originaires de la région de Sargans, les trois groupes jouent du rock et de la soul avec des textes qui abordent des questions sociales."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:28:59.298Z"
     },
     "myswitzerland:b13467d358ad496fab71129b6857cea0::98134e8448c7c86d5ef7019b1e6c8687d9001bb44b5a9001d92ed2190c4e041f": {
       "id": "myswitzerland:b13467d358ad496fab71129b6857cea0",
@@ -118656,6 +118978,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T14:17:52.068Z"
     },
+    "myswitzerland:d11065c8b6344b468fedd80aa5de6612::f29584c298ec79d1a535579bc36ee0eca52c2f5f176bae084bf90d5a9d2ad28c": {
+      "id": "myswitzerland:d11065c8b6344b468fedd80aa5de6612",
+      "sourceDescriptionHash": "f29584c298ec79d1a535579bc36ee0eca52c2f5f176bae084bf90d5a9d2ad28c",
+      "description": "«Tacchi» presenta canzoni in dialetto ispirate a piccoli momenti e proposte senza filtri dal cantante dei Baba Shrimps. L’evento di Dübendorf unisce elementi poetici e garbati a una nota talvolta bizzarra.",
+      "descriptionByLocale": {
+        "it": "«Tacchi» presenta canzoni in dialetto ispirate a piccoli momenti e proposte senza filtri dal cantante dei Baba Shrimps. L’evento di Dübendorf unisce elementi poetici e garbati a una nota talvolta bizzarra.",
+        "en": "“Tacchi” presents dialect songs shaped from small moments by the singer of Baba Shrimps, using an unfiltered approach. The event in Dübendorf combines poetic and charming qualities with an occasionally offbeat tone.",
+        "de": "«Tacchi» versammelt Mundartsongs, die der Sänger von Baba Shrimps aus kleinen Momenten entwickelt und ungefiltert darbietet. Der Anlass in Dübendorf verbindet poetische und charmante Elemente mit einer gelegentlich eigenwilligen Note.",
+        "fr": "«Tacchi» réunit des chansons en dialecte inspirées de petits moments et proposées sans filtre par le chanteur de Baba Shrimps. Le rendez-vous à Dübendorf associe une tonalité poétique et chaleureuse à une note parfois décalée."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:27:44.679Z"
+    },
     "myswitzerland:d1124d80a87f489cb709e1b57e4a4516::debbd592a46c933b63ec10a894a2c9fdd03e8eb8163bc4c066cc76af6b57d890": {
       "id": "myswitzerland:d1124d80a87f489cb709e1b57e4a4516",
       "sourceDescriptionHash": "debbd592a46c933b63ec10a894a2c9fdd03e8eb8163bc4c066cc76af6b57d890",
@@ -123415,6 +123751,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T15:18:23.853Z"
+    },
+    "myswitzerland:dcd6b6d792ca498ea1aeef5629f98b2b::62264ce28a2bddf741964dd7dbb59a378ed3b1cbc2b07042197e4ff4721d6893": {
+      "id": "myswitzerland:dcd6b6d792ca498ea1aeef5629f98b2b",
+      "sourceDescriptionHash": "62264ce28a2bddf741964dd7dbb59a378ed3b1cbc2b07042197e4ff4721d6893",
+      "description": "La Festa nazionale a Vissoie si tiene presso Anniviers Tourisme, nella regione di Anniviers. In tutta la valle sono previste animazioni, concerti, processioni, punti di ristoro e bar, oltre ai fuochi d’artificio.",
+      "descriptionByLocale": {
+        "it": "La Festa nazionale a Vissoie si tiene presso Anniviers Tourisme, nella regione di Anniviers. In tutta la valle sono previste animazioni, concerti, processioni, punti di ristoro e bar, oltre ai fuochi d’artificio.",
+        "en": "The National Day event in Vissoie takes place at Anniviers Tourisme in the Anniviers area. Its valley-wide programme includes entertainment, concerts, processions, food and drink stalls, bars and fireworks.",
+        "de": "Der Nationalfeiertag in Vissoie findet bei Anniviers Tourisme in Anniviers statt. In der ganzen Talregion gibt es Animationen, Konzerte, Umzüge, Verpflegungsstände und Bars sowie ein Feuerwerk.",
+        "fr": "La Fête nationale à Vissoie a lieu à Anniviers Tourisme, dans la région d’Anniviers. Le programme dans toute la vallée comprend des animations, des concerts, des cortèges, des cantines, des bars et des feux d’artifice."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:26:14.583Z"
     },
     "myswitzerland:dcdb6a4abdad46389d855ea0313c5043::a01aca456cf1dadf55d435f6e3a397a76dd10b0848ecf417043c3ae1e5688943": {
       "id": "myswitzerland:dcdb6a4abdad46389d855ea0313c5043",
@@ -130864,6 +131214,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T10:14:24.798Z"
     },
+    "myswitzerland:efed11a0cf1e447580d61866901ae6e1::ff7ea13193a41b4b4e573a296f4810d40b22456483966394bbbf829b91658848": {
+      "id": "myswitzerland:efed11a0cf1e447580d61866901ae6e1",
+      "sourceDescriptionHash": "ff7ea13193a41b4b4e573a296f4810d40b22456483966394bbbf829b91658848",
+      "description": "L’evento musicale è previsto a Dietlikon. Si svolgerà nel cantone di Zurigo.",
+      "descriptionByLocale": {
+        "it": "L’evento musicale è previsto a Dietlikon. Si svolgerà nel cantone di Zurigo.",
+        "en": "The musical event is scheduled in Dietlikon. It will take place in the canton of Zurich.",
+        "de": "Die musikalische Veranstaltung ist in Dietlikon vorgesehen. Sie findet im Kanton Zürich statt.",
+        "fr": "L’événement musical est prévu à Dietlikon. Il se déroulera dans le canton de Zurich."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:49:03.762Z"
+    },
     "myswitzerland:efee5efc8f4e414c8891ccdaf1e38350::f6d91849d2f09a9be36766ae1173c1edff415d5df810f0f8d5e12770c270c2e2": {
       "id": "myswitzerland:efee5efc8f4e414c8891ccdaf1e38350",
       "sourceDescriptionHash": "f6d91849d2f09a9be36766ae1173c1edff415d5df810f0f8d5e12770c270c2e2",
@@ -134924,6 +135288,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T22:20:53.350Z"
     },
+    "myswitzerland:f9e0a4b036a54561b5d2e3c3060652e1::c75f46ab7717cfb3802362ae2fe5f45f6a0cbd6d05ce97300113e3a0a8aac716": {
+      "id": "myswitzerland:f9e0a4b036a54561b5d2e3c3060652e1",
+      "sourceDescriptionHash": "c75f46ab7717cfb3802362ae2fe5f45f6a0cbd6d05ce97300113e3a0a8aac716",
+      "description": "L’appuntamento di musica da camera a Kriens propone un brano di Richard Strauss in un adattamento per violino, contrabbasso, clarinetto, fagotto e corno. Il programma comprende inoltre un trio per archi di Anton Webern.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di musica da camera a Kriens propone un brano di Richard Strauss in un adattamento per violino, contrabbasso, clarinetto, fagotto e corno. Il programma comprende inoltre un trio per archi di Anton Webern.",
+        "en": "This chamber-music event in Kriens presents a work by Richard Strauss arranged for violin, double bass, clarinet, bassoon and horn. The programme also includes a string trio by Anton Webern.",
+        "de": "Die Kammermusikveranstaltung in Kriens umfasst eine Bearbeitung eines Werks von Richard Strauss für Violine, Kontrabass, Klarinette, Fagott und Horn. Ausserdem erklingt ein Streichtrio von Anton Webern.",
+        "fr": "Ce rendez-vous de musique de chambre à Kriens comprend une œuvre de Richard Strauss adaptée pour violon, contrebasse, clarinette, basson et cor. Le programme inclut aussi un trio à cordes d’Anton Webern."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:26:02.746Z"
+    },
     "myswitzerland:f9e3a4aeaa2b4dd19b46e7913fd1fd7e::a8fced5c7152f08d8571e862d45c37fab53288074fc50d1136b6ade592532a49": {
       "id": "myswitzerland:f9e3a4aeaa2b4dd19b46e7913fd1fd7e",
       "sourceDescriptionHash": "a8fced5c7152f08d8571e862d45c37fab53288074fc50d1136b6ade592532a49",
@@ -138746,6 +139124,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T13:43:04.044Z"
     },
+    "tio-agenda:63931::3c2136e7d50a31bf6f31bf1bd8cde1ab72abc1b3e9ce48c32095c7778b0de7a4": {
+      "id": "tio-agenda:63931",
+      "sourceDescriptionHash": "3c2136e7d50a31bf6f31bf1bd8cde1ab72abc1b3e9ce48c32095c7778b0de7a4",
+      "description": "Al GranRex di Locarno viene proiettato un film norvegese del 2021 che segue una giovane donna alle prese con scelte professionali e relazioni sentimentali. La vicenda affronta l’incertezza affettiva e il confronto con la malattia, in versione originale norvegese con sottotitoli italiani.",
+      "descriptionByLocale": {
+        "it": "Al GranRex di Locarno viene proiettato un film norvegese del 2021 che segue una giovane donna alle prese con scelte professionali e relazioni sentimentali. La vicenda affronta l’incertezza affettiva e il confronto con la malattia, in versione originale norvegese con sottotitoli italiani.",
+        "en": "At GranRex in Locarno, the programme presents a 2021 Norwegian film about a young woman navigating changing career choices and romantic relationships. The story examines emotional uncertainty and the impact of illness, and is screened in Norwegian with Italian subtitles.",
+        "de": "Im GranRex in Locarno steht ein norwegischer Film aus dem Jahr 2021 auf dem Programm, der eine junge Frau bei wechselnden beruflichen Entscheidungen und Liebesbeziehungen begleitet. Die Handlung thematisiert emotionale Unsicherheit und die Konfrontation mit einer Krankheit; gezeigt wird die norwegische Originalfassung mit italienischen Untertiteln.",
+        "fr": "Au GranRex de Locarno, le programme propose un film norvégien de 2021 consacré à une jeune femme confrontée à des choix professionnels changeants et à plusieurs relations amoureuses. Le récit explore l’incertitude affective et l’épreuve de la maladie, en version originale norvégienne avec des sous-titres italiens."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:32:03.448Z"
+    },
     "tio-agenda:63934::86661b59ffe6a3b754ebc2f98e76cf444048b49839e44c14b7c6e90817601a6d": {
       "id": "tio-agenda:63934",
       "sourceDescriptionHash": "86661b59ffe6a3b754ebc2f98e76cf444048b49839e44c14b7c6e90817601a6d",
@@ -139501,6 +139893,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T17:27:57.357Z"
+    },
+    "tio-agenda:64120::a11c53268f09df86d1d995b62f2831853796bd25d9b7cad93b81918ff9c9cd7c": {
+      "id": "tio-agenda:64120",
+      "sourceDescriptionHash": "a11c53268f09df86d1d995b62f2831853796bd25d9b7cad93b81918ff9c9cd7c",
+      "description": "Sul palco del Ristorante Hollywood Live Music di Lugano, il cantante e chitarrista luganese Frank D’Amico si esibisce con la sua band. Il repertorio ripercorre il blues di Robert Johnson, B.B. King ed Eric Clapton, insieme ad altri autori del genere.",
+      "descriptionByLocale": {
+        "it": "Sul palco del Ristorante Hollywood Live Music di Lugano, il cantante e chitarrista luganese Frank D’Amico si esibisce con la sua band. Il repertorio ripercorre il blues di Robert Johnson, B.B. King ed Eric Clapton, insieme ad altri autori del genere.",
+        "en": "At Ristorante Hollywood Live Music in Lugano, Frank D’Amico, a guitarist and singer from Lugano, performs with his band. The programme revisits blues by Robert Johnson, B.B. King and Eric Clapton, as well as other artists.",
+        "de": "Im Ristorante Hollywood Live Music in Lugano tritt Frank D’Amico, ein Gitarrist und Sänger aus Lugano, mit seiner Band auf. Das Programm greift Blues von Robert Johnson, B.B. King, Eric Clapton und weiteren Künstlern auf.",
+        "fr": "Au Ristorante Hollywood Live Music de Lugano, le guitariste et chanteur luganais Frank D’Amico se produit avec son groupe. Le programme revisite le blues de Robert Johnson, de B.B. King, d’Eric Clapton et d’autres artistes."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-15T23:35:32.854Z"
     },
     "tio-agenda:64121::962c32c5b40e3cba98a8ae84c42650aa997431cb507e436735d68fb9b0ee27a7": {
       "id": "tio-agenda:64121",
@@ -142185,8 +142591,8 @@
       "id": "ge-agenda:book-launch-defending-democracy-european-parliament",
       "sourceDescriptionHash": "66c99ff3e10dba8a3b0d8a642054900ea7a3dd2a10b20132313028294cecfcad",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:43:00.607Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:44:21.466Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -142374,8 +142780,8 @@
       "id": "ge-agenda:composer-cinema-muet-conference-autour-realisatrice-actrice-musidora-bibliotheque-cite",
       "sourceDescriptionHash": "fe1ff8201e6c61369ea475f644049cf762d2591de30efd5ff408da4978ee927b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:16:51.241Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:18:32.550Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -142383,8 +142789,8 @@
       "id": "ge-agenda:concert-caritatif-misatango-profit-orphelins-ukraine",
       "sourceDescriptionHash": "caaaa3679d8ce708b6d761057c0c55b22cb6f292b2a0273fb903ab946f8777a5",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:20:01.351Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:18:01.945Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -142541,15 +142947,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:electron-palladium-euphorie-collective::7c423a53e083ad4d06024ded60c60e71f59def08b0217c974a9f29bcce0023cb": {
-      "id": "ge-agenda:electron-palladium-euphorie-collective",
-      "sourceDescriptionHash": "7c423a53e083ad4d06024ded60c60e71f59def08b0217c974a9f29bcce0023cb",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:19:22.549Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:electron::1d7e23ec90e3ee63e633ce1befce664e1e1c3a41307122d26e1af6d8b8a0e11f": {
       "id": "ge-agenda:electron",
       "sourceDescriptionHash": "1d7e23ec90e3ee63e633ce1befce664e1e1c3a41307122d26e1af6d8b8a0e11f",
@@ -142680,8 +143077,8 @@
       "id": "ge-agenda:fete-depart-information-bibliotheque-filigrane-samedi-10-octobre-2026",
       "sourceDescriptionHash": "e9aaafdbb1c46245e08560485c5aae4805bcd841a510f44e14c4bbe350223beb",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:18:49.860Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:22:22.780Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -142716,8 +143113,8 @@
       "id": "ge-agenda:futur-quartier-grosselin-rencontre-entre-conseil-administratif-jeunes-carougeois",
       "sourceDescriptionHash": "299af5c87cbe30f6dd4369fbbf748bc9ee37e73481a65fef8d1dff9e9c69b8a0",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:22:05.860Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:21:21.575Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -142781,15 +143178,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-12T21:17:51.910Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:godinat-jacquemet-massy::a3751a3595de01d704b264ce5103ee3e82934bc850de7ce9b5e31f5fab5ac642": {
-      "id": "ge-agenda:godinat-jacquemet-massy",
-      "sourceDescriptionHash": "a3751a3595de01d704b264ce5103ee3e82934bc850de7ce9b5e31f5fab5ac642",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:39:16.737Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -142950,8 +143338,8 @@
       "id": "ge-agenda:last-guest-holloway-motel",
       "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:24:33.873Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:20:34.386Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -143004,8 +143392,8 @@
       "id": "ge-agenda:maspalomas",
       "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:24:04.420Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:20:06.843Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -143094,8 +143482,8 @@
       "id": "ge-agenda:musique-seigneur-anneaux-hommage-howard-shore-ensemble-sinfonietta-bern",
       "sourceDescriptionHash": "10c65a59d468a05e421549700120e98a20ef009afbb59120b0b6678eb1c99a02",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:23:34.629Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:25:22.946Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -143141,15 +143529,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T03:33:51.935Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:nuit-belle::6dd1e352bce50b53b000867819f836162339884fd24d93dfef8e5304d38a5916": {
-      "id": "ge-agenda:nuit-belle",
-      "sourceDescriptionHash": "6dd1e352bce50b53b000867819f836162339884fd24d93dfef8e5304d38a5916",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:19:28.452Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -143319,8 +143698,8 @@
       "id": "ge-agenda:respirations-leman-chansons-1",
       "sourceDescriptionHash": "4a7fc580660befa38a26a940d0af459cbe306921e0885cdfb74ba84c0c7bc206",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T01:26:51.202Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:24:44.042Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -143438,15 +143817,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-07T23:41:22.246Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:toots-guest-kill::1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142": {
-      "id": "ge-agenda:toots-guest-kill",
-      "sourceDescriptionHash": "1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:18:54.093Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -143966,9 +144336,9 @@
     "guidle:A7hT1Mk::f3e76c882325537a90e6e1386239daf713bc09e055a72e113c203b42e44aa9df": {
       "id": "guidle:A7hT1Mk",
       "sourceDescriptionHash": "f3e76c882325537a90e6e1386239daf713bc09e055a72e113c203b42e44aa9df",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:23:13.554Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:45:06.481Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -144129,8 +144499,8 @@
       "id": "guidle:AaFH3yM",
       "sourceDescriptionHash": "2ffe008bb4b005e7c12459cdaba3d6657ba790c89743da28d2344f31cbd5c34f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:25:43.262Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:35:47.022Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -144221,15 +144591,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-08T01:21:31.618Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:ABKgX8b::14361a4d02287fb1141a5a2a0047c357044e8a79cdf7f206abd15ca7d4eb18eb": {
-      "id": "guidle:ABKgX8b",
-      "sourceDescriptionHash": "14361a4d02287fb1141a5a2a0047c357044e8a79cdf7f206abd15ca7d4eb18eb",
-      "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:25:56.938Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -144336,8 +144697,8 @@
       "id": "guidle:AC57kKg",
       "sourceDescriptionHash": "5bf6c26a69ed472a75c8b2dabe55dad755eae726d756cb8c6b576bf270589d07",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:59:03.140Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:36:05.806Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -144362,9 +144723,9 @@
     "guidle:Acbgu4i::5e62a6a2bac33e566f40374b37b31ac3773dca604af887b163c9f0a76ec37ebd": {
       "id": "guidle:Acbgu4i",
       "sourceDescriptionHash": "5e62a6a2bac33e566f40374b37b31ac3773dca604af887b163c9f0a76ec37ebd",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:02:00.023Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:39:44.988Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -144435,8 +144796,8 @@
       "id": "guidle:ACUwRKi",
       "sourceDescriptionHash": "df238f2a5e36dd69e7b7ae2ba40d622669971910bc73d2c555fdd9311d6e3938",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:36:14.014Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:31:32.292Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -144878,15 +145239,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T19:34:36.907Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AgTa66j::4075453325feb1b40629706777d71704c1205df7371b8977bbbaf95b56771284": {
-      "id": "guidle:AgTa66j",
-      "sourceDescriptionHash": "4075453325feb1b40629706777d71704c1205df7371b8977bbbaf95b56771284",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:16:37.040Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -145416,8 +145768,8 @@
       "id": "guidle:ALj4LPM",
       "sourceDescriptionHash": "67e1e80b4b2fb8654fb2a429531e2c0e4480a24932c9c7301d9060de5249718b",
       "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:20:58.048Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:46:20.850Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -145805,15 +146157,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-12T10:29:01.072Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Aq91Knx::90e47512f2f49ffa407f0a9099684dffe4ce99161fcdc7dc7f03357d8f44bfbb": {
-      "id": "guidle:Aq91Knx",
-      "sourceDescriptionHash": "90e47512f2f49ffa407f0a9099684dffe4ce99161fcdc7dc7f03357d8f44bfbb",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:22:27.252Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -146757,8 +147100,8 @@
       "id": "guidle:AwZmcvV",
       "sourceDescriptionHash": "3c277efc13a7b8d2c7c87cb25076a130c8ca3e54624c3b5c9309e188dd9bb213",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:15:53.191Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:23:57.729Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -147014,15 +147357,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:Ay8fZdS::9c5d7926339281043139a6c0d9f2f8820ef39c1baff96a05d2d8aa88c983ee37": {
-      "id": "guidle:Ay8fZdS",
-      "sourceDescriptionHash": "9c5d7926339281043139a6c0d9f2f8820ef39c1baff96a05d2d8aa88c983ee37",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:24:53.496Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:Aya2vXw::16cd78a2e7dcfd148dc07ad709aa06e65d13346ad356565498b96b408de3c202": {
       "id": "guidle:Aya2vXw",
       "sourceDescriptionHash": "16cd78a2e7dcfd148dc07ad709aa06e65d13346ad356565498b96b408de3c202",
@@ -147126,8 +147460,8 @@
       "id": "guidle:AyUXuEh",
       "sourceDescriptionHash": "90981a6e9479c316b218f6897b1220a6b8be85376ec031f9d2b066f13ebb112d",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:18:32.784Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:27:27.292Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -147414,8 +147748,8 @@
       "id": "myswitzerland:052b6c8e8ce04952bee7f95ba9e92a9b",
       "sourceDescriptionHash": "11dca5d294aaf4d1fcecccfc462d26e726706cb0b90ff49d0281d2317abb11fb",
       "code": "promotional-language",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:28:51.710Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:34:32.942Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -147626,15 +147960,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:0a3dd2360b9d48979abf39cce0b6303e::4ea219456f054b7b7f0ca9bf9708985db1b444d44ce295d3e83abbcabe32ffac": {
-      "id": "myswitzerland:0a3dd2360b9d48979abf39cce0b6303e",
-      "sourceDescriptionHash": "4ea219456f054b7b7f0ca9bf9708985db1b444d44ce295d3e83abbcabe32ffac",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:34:03.828Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:0a845fa03b2a4e96b271ce12673dfe8d::c7f49a52d08cf57079aea1a92277044170d1109dcf7d7f0626613c95b671556a": {
       "id": "myswitzerland:0a845fa03b2a4e96b271ce12673dfe8d",
       "sourceDescriptionHash": "c7f49a52d08cf57079aea1a92277044170d1109dcf7d7f0626613c95b671556a",
@@ -147684,8 +148009,8 @@
       "id": "myswitzerland:0b1dea0462624ae387fe971f77af6d54",
       "sourceDescriptionHash": "c3977c57bfe6675875c02089bb8f4411a1ebf06fecf5bb0f9b6e4f60fab69372",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:18:52.915Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:38:31.259Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -147693,8 +148018,8 @@
       "id": "myswitzerland:0b574db3f56d44d58309dc10c0605444",
       "sourceDescriptionHash": "31d0b3ee977d7369043b818931c7ca156e3170cb9975d6536697596932407a8d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:22:02.372Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:42:18.085Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -147809,9 +148134,9 @@
     "myswitzerland:0debf182127448d19d771a2ff932bfed::6203b60530c6fbec88937d4d342c40c9022229cad66b64947194f98b88bbfe77": {
       "id": "myswitzerland:0debf182127448d19d771a2ff932bfed",
       "sourceDescriptionHash": "6203b60530c6fbec88937d4d342c40c9022229cad66b64947194f98b88bbfe77",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:29:48.659Z",
+      "code": "sentence-count",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:28:16.071Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -147936,8 +148261,8 @@
       "id": "myswitzerland:10f711f11d2a4f9d95d9cd85c6ad2e97",
       "sourceDescriptionHash": "fcf5042ca330728265b7f5dde018726a5a7b717eea21c5cc71e9b0f6735c7f13",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:17:59.932Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:27:02.649Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -148008,8 +148333,8 @@
       "id": "myswitzerland:1248435d5ece41bb9206d466725c88cd",
       "sourceDescriptionHash": "d0bfd57718d4e3e3728795578a64698880470c3b67bfb34cff096d72cea9a0b4",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:34:01.726Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:32:37.386Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -148367,9 +148692,9 @@
     "myswitzerland:1b2f9c7d59dc4aeea0cb941d4565cd64::3a070d7442612e093f6cfa41ffb364e6acd2255c3cf1f50caa95aa3b34a4cd0d": {
       "id": "myswitzerland:1b2f9c7d59dc4aeea0cb941d4565cd64",
       "sourceDescriptionHash": "3a070d7442612e093f6cfa41ffb364e6acd2255c3cf1f50caa95aa3b34a4cd0d",
-      "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:22:09.856Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:22:20.459Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -148620,8 +148945,8 @@
       "id": "myswitzerland:1fb140a946a648ce80283ff84ff6390a",
       "sourceDescriptionHash": "5db5fd63f0797497f302202d0a7c2cea56cd09fee7add800d9c81a564806fca4",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:35:44.819Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:31:02.532Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -148656,8 +148981,8 @@
       "id": "myswitzerland:20e530b002e34b85bbb50cf396a15c2e",
       "sourceDescriptionHash": "720fbe2e5e4bbec549416eaa6966c48780741952c3ade9b6d20313d65105cb2b",
       "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:18:02.543Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:23:23.278Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -148709,9 +149034,9 @@
     "myswitzerland:2174d15f922247689f1f7616767860ad::5c3a3a5ce24ddca3eeb6db0f9327bb944a829f9c2a3680a1df402943b9c4af64": {
       "id": "myswitzerland:2174d15f922247689f1f7616767860ad",
       "sourceDescriptionHash": "5c3a3a5ce24ddca3eeb6db0f9327bb944a829f9c2a3680a1df402943b9c4af64",
-      "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:26:33.232Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:45:54.631Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -148782,8 +149107,8 @@
       "id": "myswitzerland:22b563875a5d4ff3afc425abda53c8cb",
       "sourceDescriptionHash": "1f0b5c529e229bcb16d1845a88473ec09ce40586caffc241c18fd5479e88dbfd",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:33:04.940Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:19:06.800Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -148874,15 +149199,6 @@
       "code": "new-number",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T18:32:51.012Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:24c39bca68564c2fb9db4a720d1edb04::b3ffb9a0e6478094c2841f21061aa9e7fe21cf5312b045defcc22a51cc11ff4c": {
-      "id": "myswitzerland:24c39bca68564c2fb9db4a720d1edb04",
-      "sourceDescriptionHash": "b3ffb9a0e6478094c2841f21061aa9e7fe21cf5312b045defcc22a51cc11ff4c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:32:41.797Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -149007,8 +149323,8 @@
       "id": "myswitzerland:27a122bd4be74ddbb231fe73c40055f0",
       "sourceDescriptionHash": "e4fbaa0334a5ab7475dd57c663d946dfe46f38b206d6331a5b1725701cd2d631",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:17:37.557Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:43:00.245Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -149070,8 +149386,8 @@
       "id": "myswitzerland:2921881e246345f78861c7011d9b468e",
       "sourceDescriptionHash": "88bd97f971c9a4472e3c4e1977d5383a92493ba01d2777ace02625d8ea6c8cb0",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:33:07.079Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:32:10.468Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -149291,15 +149607,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:2d77e236ceb448d6a05b94a8fd50f5fd::90dcc0c6c4abd9d2107e4444801ef8e2b0f82dc8914954880b9020d90eac050a": {
-      "id": "myswitzerland:2d77e236ceb448d6a05b94a8fd50f5fd",
-      "sourceDescriptionHash": "90dcc0c6c4abd9d2107e4444801ef8e2b0f82dc8914954880b9020d90eac050a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:32:34.561Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:2d82e79aace34b5a94696b15562b0d34::addf38382a31739a966ca0a41ed60daa1993b7c9851d2a35900a1cfb2e494dcf": {
       "id": "myswitzerland:2d82e79aace34b5a94696b15562b0d34",
       "sourceDescriptionHash": "addf38382a31739a966ca0a41ed60daa1993b7c9851d2a35900a1cfb2e494dcf",
@@ -149313,8 +149620,8 @@
       "id": "myswitzerland:2dd26dd1f51b421c9edd6746e25dc86c",
       "sourceDescriptionHash": "0dc061d9d40e9a1da11cb16259b92e84108f2eebf121fe89754bc6a83c9c574d",
       "code": "promotional-language",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:58:37.087Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:40:21.522Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -149403,8 +149710,8 @@
       "id": "myswitzerland:2f5a761a0b124a8587ce267f02bea9ab",
       "sourceDescriptionHash": "87c7d7cc78cf1f4b4c82a374e84143db035117a4103858e595bcfe8237f5f75e",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:27:01.905Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:19:36.710Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -150434,15 +150741,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:469246e87b7347c9aae99132ea1abf68::8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a": {
-      "id": "myswitzerland:469246e87b7347c9aae99132ea1abf68",
-      "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:41:27.685Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:47256aafb22d4a08b603f4a664208f7a::5d8aca3ee096af9b0c62e862052b41cea96236ff7bea9981f134edd1548f64ab": {
       "id": "myswitzerland:47256aafb22d4a08b603f4a664208f7a",
       "sourceDescriptionHash": "5d8aca3ee096af9b0c62e862052b41cea96236ff7bea9981f134edd1548f64ab",
@@ -150600,8 +150898,8 @@
       "id": "myswitzerland:49ebe69bb3d14c71ade3d3568a7442e7",
       "sourceDescriptionHash": "d472b084c91eaa9ba5021e55ac67b67012d49d779d6b78dc83539ee8e6543e70",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:35:08.817Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:39:29.666Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -150690,8 +150988,8 @@
       "id": "myswitzerland:4baadf861691439a95b11bc0a748cd66",
       "sourceDescriptionHash": "6438d51105840daf84a8300403ffe50a1662b7ce1487aeb5fd5dfd3564e13d45",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:40:35.465Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:19:00.283Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -150744,8 +151042,8 @@
       "id": "myswitzerland:4c785835ea4647198284e316f5124840",
       "sourceDescriptionHash": "542e8ff2850e98d9403af29fe5cc1a1050a42b7d0af8b2ea462ff0dba9f7d883",
       "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T13:30:03.188Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:39:49.170Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -150753,8 +151051,8 @@
       "id": "myswitzerland:4c7a31fb13a74c3f9472a34207c4f1b3",
       "sourceDescriptionHash": "a9708f9427b0f2aa5cb87c1fc65797f59f4d59276cbe09a88c5c683c803f8301",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:22:13.063Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:41:54.253Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -150834,8 +151132,8 @@
       "id": "myswitzerland:4dfbc77159474792b561a3c32b8de759",
       "sourceDescriptionHash": "29821f372414e801758bba3740ec43c560f913104e313f22d892ff084b033066",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:17:41.111Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:32:45.994Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -150863,15 +151161,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T11:31:10.275Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:4eebef19e7904d7eaaf967e7b249acf2::509eedaac68efd654fe20c367b155c168b357c601b42780840c10d51ddba5ac2": {
-      "id": "myswitzerland:4eebef19e7904d7eaaf967e7b249acf2",
-      "sourceDescriptionHash": "509eedaac68efd654fe20c367b155c168b357c601b42780840c10d51ddba5ac2",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:24:07.289Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -151014,8 +151303,8 @@
       "id": "myswitzerland:529be32db33b475ebf2d99782c028d1d",
       "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T13:17:53.610Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:35:23.256Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -151400,9 +151689,9 @@
     "myswitzerland:5bb846b1c5bc48339be5cee6e9f4e497::6bce8100cba026a608b44889717dedfb90dcd2a7e6e53a7613984032e96a1358": {
       "id": "myswitzerland:5bb846b1c5bc48339be5cee6e9f4e497",
       "sourceDescriptionHash": "6bce8100cba026a608b44889717dedfb90dcd2a7e6e53a7613984032e96a1358",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:17:06.594Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:42:29.455Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -151419,17 +151708,8 @@
       "id": "myswitzerland:5cb564a4cd39498187a5e11ac341afbb",
       "sourceDescriptionHash": "6ba556d6b361a40db49b77cb798e8f61bbb93a75d47a3bc07493568ce9230850",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:22:52.131Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:5cc6eaf00990455898dce4b10dd2b7aa::8e5feff81f56019659c4c244c4eca804377c245607b04140c025dafb3f75d1e3": {
-      "id": "myswitzerland:5cc6eaf00990455898dce4b10dd2b7aa",
-      "sourceDescriptionHash": "8e5feff81f56019659c4c244c4eca804377c245607b04140c025dafb3f75d1e3",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:21:26.515Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:22:54.135Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -151526,9 +151806,9 @@
     "myswitzerland:5f5eb85779424e758aa14b96c7ddc05b::b2ccb0f4fb5b1890d290bf6dfa5b57cc14a9c7b41e8d11686a11ef305cf9e7b2": {
       "id": "myswitzerland:5f5eb85779424e758aa14b96c7ddc05b",
       "sourceDescriptionHash": "b2ccb0f4fb5b1890d290bf6dfa5b57cc14a9c7b41e8d11686a11ef305cf9e7b2",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:21:16.194Z",
+      "code": "sentence-count",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:21:32.439Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -151743,8 +152023,8 @@
       "id": "myswitzerland:6496a5fd13e0464d99d50930e5a4596c",
       "sourceDescriptionHash": "6b002a53cc0509fbe6d936dbca8980f6565be43189dc49591cdbbc06a4d01bf6",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:31:32.841Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:18:02.050Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -152031,8 +152311,8 @@
       "id": "myswitzerland:6a50f094161f4ea19c2d2d3221471242",
       "sourceDescriptionHash": "236aef2f6751b18b80d67feb6c3ec2f77f98075cbdae866a3e392812192c5d10",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:32:38.067Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:18:35.561Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -152105,15 +152385,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T11:19:33.444Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:6b900b2c81f743d2bbb39815d6497afe::8ddc1d14975cd3a0313eb7ba95df7828b4952a7d917bad4db77af38d9749d3e5": {
-      "id": "myswitzerland:6b900b2c81f743d2bbb39815d6497afe",
-      "sourceDescriptionHash": "8ddc1d14975cd3a0313eb7ba95df7828b4952a7d917bad4db77af38d9749d3e5",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:20:06.657Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -152265,8 +152536,8 @@
       "id": "myswitzerland:6ecb91fc317040eba14fb75d333b0e50",
       "sourceDescriptionHash": "5dcbc0f535fce2879720cda31ad2dfec52292eda350c0d4d534ccac38bd98a51",
       "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T14:19:03.075Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:37:11.492Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -152558,15 +152829,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:77b6c8190ce847e2becf97c880e93b3e::747b7dc8368175c67c6dad2f0443299ece6b7f41d57838e48d6245fa6ecf69f5": {
-      "id": "myswitzerland:77b6c8190ce847e2becf97c880e93b3e",
-      "sourceDescriptionHash": "747b7dc8368175c67c6dad2f0443299ece6b7f41d57838e48d6245fa6ecf69f5",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:19:07.756Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:77bd8144077d47778e1e83cf778cda38::2d7577e6b2ecb77e50c83da2382944fe621c3ed7b53824a5894f09760dc641ea": {
       "id": "myswitzerland:77bd8144077d47778e1e83cf778cda38",
       "sourceDescriptionHash": "2d7577e6b2ecb77e50c83da2382944fe621c3ed7b53824a5894f09760dc641ea",
@@ -152814,8 +153076,8 @@
       "id": "myswitzerland:7dcdc8608f144c16ad44202b0fdb3838",
       "sourceDescriptionHash": "a817cc2f0c589b0cf89fc349705c2ab404f570c2a6d1816a80d0e93b22edfb78",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:40:17.413Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:38:04.461Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -152958,8 +153220,8 @@
       "id": "myswitzerland:8208fc3c354149f997b0ca9d0a24ac6f",
       "sourceDescriptionHash": "be30066b6f3b1395ae8a8550df4d9ccb7bf8a4c83efb40bd7d9170154fa0738d",
       "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:21:42.024Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:31:27.695Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -153134,15 +153396,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:865f1a8ff67645df8b69ee431ef81a3b::4d97c6c8471e3bf16e797dd4431f26b3c8edf9a5edb6f82d07291a77ea692701": {
-      "id": "myswitzerland:865f1a8ff67645df8b69ee431ef81a3b",
-      "sourceDescriptionHash": "4d97c6c8471e3bf16e797dd4431f26b3c8edf9a5edb6f82d07291a77ea692701",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:30:12.440Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:8674ff0de03046cabe1368da0b407031::8578be8be84f2fc8d45feeea0fd41d437fb47bfbded2b277f3f677ef777632d5": {
       "id": "myswitzerland:8674ff0de03046cabe1368da0b407031",
       "sourceDescriptionHash": "8578be8be84f2fc8d45feeea0fd41d437fb47bfbded2b277f3f677ef777632d5",
@@ -153218,9 +153471,9 @@
     "myswitzerland:887e14c1ab154b70b25e9b5b5df22f16::c10b1a999fe186f90bab7dbb8566f0f152ce5fa5acc50536cc407664e29a70bf": {
       "id": "myswitzerland:887e14c1ab154b70b25e9b5b5df22f16",
       "sourceDescriptionHash": "c10b1a999fe186f90bab7dbb8566f0f152ce5fa5acc50536cc407664e29a70bf",
-      "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:29:56.045Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:48:51.098Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -153363,8 +153616,8 @@
       "id": "myswitzerland:8b471ee7be0d4eed944b44565168e924",
       "sourceDescriptionHash": "52deb26cbdb38310b8e212cea6e151e7f1ab2ff27fdda19935261867784ba835",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T13:27:30.586Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:40:17.598Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -153462,8 +153715,8 @@
       "id": "myswitzerland:8e11f8f89ec342f7a6df4526eb645fda",
       "sourceDescriptionHash": "9cf99f63ca9eb3254a34f2a442e8ecdde5de8ba7b38af428205302ae70ffe2bc",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:31:51.634Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:34:03.233Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -153624,8 +153877,8 @@
       "id": "myswitzerland:9226fb0b658045c6ad5ec16f66f824c8",
       "sourceDescriptionHash": "7c2b7f2ddbccc5b1d49f93871dce1124614c3bf491acbc4d641bb46db94aeb7c",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:29:18.139Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:26:50.492Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -153662,15 +153915,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T04:19:47.258Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:93119b88f67b4c33a62307222dfb8fdc::7856d4fff21b4434459a3d6c5c7d0fa8f152100021ec87c51cb5fcd8ab926c9c": {
-      "id": "myswitzerland:93119b88f67b4c33a62307222dfb8fdc",
-      "sourceDescriptionHash": "7856d4fff21b4434459a3d6c5c7d0fa8f152100021ec87c51cb5fcd8ab926c9c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T08:34:23.069Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -153795,8 +154039,8 @@
       "id": "myswitzerland:94c664fa7f2d48018257b0e8ca36c793",
       "sourceDescriptionHash": "2e921c0b6acff685fb45c3026b2068ab899b75a23e81bfa7abff48de7d400d46",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:22:17.623Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:32:09.039Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -153975,8 +154219,8 @@
       "id": "myswitzerland:982597ddaf874a5a906d08bb4e8e39e2",
       "sourceDescriptionHash": "954585bc458275bd2e35afe19788688b99477997626db5fbaf037ec80c9d0252",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:21:43.198Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:26:31.292Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -154142,15 +154386,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:9cd0e107d66f4f55843582489203feaa::da6cf8b0551604ed4ccd57be0bb246b27c249613b8669b42535716e536fefe32": {
-      "id": "myswitzerland:9cd0e107d66f4f55843582489203feaa",
-      "sourceDescriptionHash": "da6cf8b0551604ed4ccd57be0bb246b27c249613b8669b42535716e536fefe32",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:26:00.294Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:9d096bc728c540f3adfb032338c1dbbd::3acca0d60e1808fdef14c271c4771bb8a8b06fd4abbe635efdfb531281289377": {
       "id": "myswitzerland:9d096bc728c540f3adfb032338c1dbbd",
       "sourceDescriptionHash": "3acca0d60e1808fdef14c271c4771bb8a8b06fd4abbe635efdfb531281289377",
@@ -154256,15 +154491,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T20:34:53.197Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:9f11d788502640fcac3ae6dc763489d9::2c935f7fb0beb6b503cdf2394e43f9013dd61cbb23df7088aba22269e28510cf": {
-      "id": "myswitzerland:9f11d788502640fcac3ae6dc763489d9",
-      "sourceDescriptionHash": "2c935f7fb0beb6b503cdf2394e43f9013dd61cbb23df7088aba22269e28510cf",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:25:29.689Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -154416,8 +154642,8 @@
       "id": "myswitzerland:a33de98c82514661a6eb880ed044be04",
       "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T13:25:03.300Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:41:28.020Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -154479,17 +154705,8 @@
       "id": "myswitzerland:a548a796baea455ca26733f834d4138b",
       "sourceDescriptionHash": "88f5366e483195e806265c8d792679af620c9a252abccdf843fef84e5257bbe2",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T13:24:34.618Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:a56a7c207afd4071ad4d08fcc9c57d74::c90c3554f7070aaf5877410e0ebb7313180e3db3585ac8aa2f9bc405fb498b75": {
-      "id": "myswitzerland:a56a7c207afd4071ad4d08fcc9c57d74",
-      "sourceDescriptionHash": "c90c3554f7070aaf5877410e0ebb7313180e3db3585ac8aa2f9bc405fb498b75",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:25:20.017Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:40:54.448Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -154614,8 +154831,8 @@
       "id": "myswitzerland:a79981a2d2e644e694651c77244f779f",
       "sourceDescriptionHash": "98a6c8cdb415a9f7b042f17b0779db9b7039b3984a73ad61d7211a2293d78d80",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T08:29:08.249Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:18:26.379Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -154650,8 +154867,8 @@
       "id": "myswitzerland:a7f0230f93304eacaa933a6706334fc8",
       "sourceDescriptionHash": "b9e6df4fe5721fe0b5be691d8d341598b759c8fd99a1c5d394d6b9bb909fc608",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:17:50.685Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:22:27.733Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -154704,8 +154921,8 @@
       "id": "myswitzerland:a8d610f53f194ab1ad85f980a626660b",
       "sourceDescriptionHash": "706770380d24f0bec3b594a2f25662edcc189230c613be12f28abb392a408e97",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:21:45.657Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:41:22.174Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -154763,15 +154980,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:aa6bb97b1e334f7a853fee67a40cf1d3::770381fbf4895a8d4b3116c77f5c4ab8810dc6b920fd53ffecc8431d996292c9": {
-      "id": "myswitzerland:aa6bb97b1e334f7a853fee67a40cf1d3",
-      "sourceDescriptionHash": "770381fbf4895a8d4b3116c77f5c4ab8810dc6b920fd53ffecc8431d996292c9",
-      "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:26:40.804Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:aa99e2ef1f8e4592bb5c573d9743d390::aac16e02cd04c7ef40caea4c5b1d5c5420831b9710d2a8e635b00b378a1cd19c": {
       "id": "myswitzerland:aa99e2ef1f8e4592bb5c573d9743d390",
       "sourceDescriptionHash": "aac16e02cd04c7ef40caea4c5b1d5c5420831b9710d2a8e635b00b378a1cd19c",
@@ -154821,8 +155029,8 @@
       "id": "myswitzerland:ab624d26487d41ce8dfe6f0b2b105733",
       "sourceDescriptionHash": "a295b755ce6ca30f283e8af75ccb77d71116e11cd6a41caeec96de00b7dd1e9b",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:24:49.881Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:30:08.786Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155033,15 +155241,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:b133c6bb504146cdbf1a45d23eb81bb3::35407a1e962e2b8d1c3ab68044e68f61b45a9cf4220003b2aaf5110d84abdbf1": {
-      "id": "myswitzerland:b133c6bb504146cdbf1a45d23eb81bb3",
-      "sourceDescriptionHash": "35407a1e962e2b8d1c3ab68044e68f61b45a9cf4220003b2aaf5110d84abdbf1",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:28:48.313Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:b15c4c6696e842ff82715e9d5352b864::cc7ddbc0bd3286e815a0ef4933079cbc24d6169eb039cb5d01af4891c004d3fa": {
       "id": "myswitzerland:b15c4c6696e842ff82715e9d5352b864",
       "sourceDescriptionHash": "cc7ddbc0bd3286e815a0ef4933079cbc24d6169eb039cb5d01af4891c004d3fa",
@@ -155217,8 +155416,8 @@
       "id": "myswitzerland:b4d7407803ec4414a7b3f73f33a2f726",
       "sourceDescriptionHash": "099bc4d83c7e65e8b4c94a6512f89e827d8b206441cce40167486bfabe3a4067",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:16:22.049Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:21:27.080Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155271,8 +155470,8 @@
       "id": "myswitzerland:b5e3c83c768c44c59a9b7a0ac0c7ab70",
       "sourceDescriptionHash": "9b97258999ce704cb7d3c36cfdf71c0153a0be948be07237f8a832fea835bcc7",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:18:30.491Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:17:12.880Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155396,9 +155595,9 @@
     "myswitzerland:b96e1724e4904f57b9132f3419856aea::46341ef9ca70a3f6e080605d0d0e2c7a1b3eebceaef4fc8cab7dc544e9c77be4": {
       "id": "myswitzerland:b96e1724e4904f57b9132f3419856aea",
       "sourceDescriptionHash": "46341ef9ca70a3f6e080605d0d0e2c7a1b3eebceaef4fc8cab7dc544e9c77be4",
-      "code": "sentence-count",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-15T15:28:39.420Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-15T23:17:55.973Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155406,8 +155605,8 @@
       "id": "myswitzerland:b96f6b3e8cb9416c967cb4a9c044e057",
       "sourceDescriptionHash": "0fddf385be5c7447939baa7eb7028f43bdda4741d7a59aedaa9adb3b5a9d4635",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:29:30.983Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:25:47.392Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155451,8 +155650,8 @@
       "id": "myswitzerland:bafa87c8c68e443c82bc4ed695418ce6",
       "sourceDescriptionHash": "a87f2bd262e86b009690349f6ce7d921c269c5d911cb5c7dece55b6ec401c95b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:30:53.555Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:23:26.804Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155703,8 +155902,8 @@
       "id": "myswitzerland:bffaa8f1c4c84e7a85fef30f3bdaa1b0",
       "sourceDescriptionHash": "099bc4d83c7e65e8b4c94a6512f89e827d8b206441cce40167486bfabe3a4067",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:17:20.663Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:21:58.381Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155856,8 +156055,8 @@
       "id": "myswitzerland:c1fe85d395ed495087a6a94fca211767",
       "sourceDescriptionHash": "7e93d1378ed76177fafb3bdb1bbc53e33a33bf33d5026e19f7080243ec6593b2",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-10T13:17:45.972Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:29:37.432Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155918,9 +156117,9 @@
     "myswitzerland:c393c77107904d3187cb6ca55b2a4e82::1c2121f13cd75bf6a15c48eb807182d540b358ec58d13bc301af88cfa27821a1": {
       "id": "myswitzerland:c393c77107904d3187cb6ca55b2a4e82",
       "sourceDescriptionHash": "1c2121f13cd75bf6a15c48eb807182d540b358ec58d13bc301af88cfa27821a1",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:27:56.380Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:34:01.519Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -155955,8 +156154,8 @@
       "id": "myswitzerland:c44674e1f34a4f708295a8e3afcc1e1a",
       "sourceDescriptionHash": "2a237d0fa1f06ad922169acb8ceeafab496c67d79de0345aff628b439afca84e",
       "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:30:23.949Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:27:18.605Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -156018,8 +156217,8 @@
       "id": "myswitzerland:c65a1db25af943e99ceec64c604ee38d",
       "sourceDescriptionHash": "e7e1c40a04dff7f4bba86b941c6c976cf58deb1d12ef7ec3bd568e01f90fdf14",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:21:33.387Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:44:14.376Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -156252,8 +156451,8 @@
       "id": "myswitzerland:c9f991b7b7fd436991e44c32517b02c8",
       "sourceDescriptionHash": "ed95e3d4b26c13c279058e540106c4c20cd7349f66b2847185fd0839a98449ee",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:19:08.560Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:25:12.692Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -156423,8 +156622,8 @@
       "id": "myswitzerland:cdd1ad98018e451c909109a93420b8f9",
       "sourceDescriptionHash": "50da6f71127300df7c0043d6ca9cd5ac4255e8639ec054457217f32e6f7eb497",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:29:19.727Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:35:15.417Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -156432,8 +156631,8 @@
       "id": "myswitzerland:cde6e95ce0e24f458fa3056c86cc83bd",
       "sourceDescriptionHash": "0371e0a4b8ce64314b0d8b9d484f8b1d8b3316608f108a8ae17bb0dd6adbcd37",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:21:41.086Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:24:34.959Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -156558,8 +156757,8 @@
       "id": "myswitzerland:cff781ea4ae7416b8dd1609b759164d2",
       "sourceDescriptionHash": "e734b05c282dc6bca9f884b4d46c10a90e80d64fd3bcb1b0b266305535023958",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T10:30:45.270Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:39:58.826Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -156668,15 +156867,6 @@
       "code": "sentence-count",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T15:29:50.830Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:d11065c8b6344b468fedd80aa5de6612::f29584c298ec79d1a535579bc36ee0eca52c2f5f176bae084bf90d5a9d2ad28c": {
-      "id": "myswitzerland:d11065c8b6344b468fedd80aa5de6612",
-      "sourceDescriptionHash": "f29584c298ec79d1a535579bc36ee0eca52c2f5f176bae084bf90d5a9d2ad28c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:35:48.544Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -156999,8 +157189,8 @@
       "id": "myswitzerland:d5d80bbcd5e24cb8bd5037270a85f274",
       "sourceDescriptionHash": "bf0bb3b047c6e932a55e51d0e97a60af7b28525ca44df273d9dd44c4170d78ec",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:24:17.097Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:24:01.314Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -157206,8 +157396,8 @@
       "id": "myswitzerland:d991f7ab98394515b9f7c1b9bdd739e7",
       "sourceDescriptionHash": "dc015a583911045567ee45dd03d98c8d99952892488c402c90658bbc29b87a61",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T02:30:44.019Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:33:09.408Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -157409,15 +157599,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:dcd6b6d792ca498ea1aeef5629f98b2b::62264ce28a2bddf741964dd7dbb59a378ed3b1cbc2b07042197e4ff4721d6893": {
-      "id": "myswitzerland:dcd6b6d792ca498ea1aeef5629f98b2b",
-      "sourceDescriptionHash": "62264ce28a2bddf741964dd7dbb59a378ed3b1cbc2b07042197e4ff4721d6893",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:19:33.266Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:dd14369af5184622a05da9b4ea60d6bf::0e7bdaac5aca0ace6aeed36f6112ba887e257d16ef4c4aa948c5b96be48cf915": {
       "id": "myswitzerland:dd14369af5184622a05da9b4ea60d6bf",
       "sourceDescriptionHash": "0e7bdaac5aca0ace6aeed36f6112ba887e257d16ef4c4aa948c5b96be48cf915",
@@ -157548,17 +157729,17 @@
       "id": "myswitzerland:e101de96a68d4b829fd099459b7830f4",
       "sourceDescriptionHash": "3baa063315666b96f89b18d3813c9d3279a217a6ca9a2916ff741fa4b6799c87",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:27:54.472Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:28:46.173Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "myswitzerland:e10a2fec28c549c29b8336f89a2d3614::a0a886992d3f4fb886e364a0f965f1788597c00ab4bbfb794ca8e7fb4fb1270d": {
       "id": "myswitzerland:e10a2fec28c549c29b8336f89a2d3614",
       "sourceDescriptionHash": "a0a886992d3f4fb886e364a0f965f1788597c00ab4bbfb794ca8e7fb4fb1270d",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:34:15.037Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:48:04.026Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -157665,8 +157846,8 @@
       "id": "myswitzerland:e2ed82c355cd46db8315a689a096cabb",
       "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:25:38.769Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:29:15.231Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -157845,8 +158026,8 @@
       "id": "myswitzerland:e68d38c1e1f641378444c634146c3b74",
       "sourceDescriptionHash": "c7ae4fdc8029734cf2ba2f8e3c1d2e6709d9f2743a33df110768a6f601a7db3b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:24:53.477Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:45:41.380Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -158052,8 +158233,8 @@
       "id": "myswitzerland:ead416a85b314f4bb21fbb124951eeb1",
       "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:18:36.813Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:29:43.118Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -158279,15 +158460,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T11:23:29.733Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:efed11a0cf1e447580d61866901ae6e1::ff7ea13193a41b4b4e573a296f4810d40b22456483966394bbbf829b91658848": {
-      "id": "myswitzerland:efed11a0cf1e447580d61866901ae6e1",
-      "sourceDescriptionHash": "ff7ea13193a41b4b4e573a296f4810d40b22456483966394bbbf829b91658848",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:30:27.376Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -158654,9 +158826,9 @@
     "myswitzerland:f9bb153d5f6146499fb04fd6b69d3b1d::be61269f0b71f36be43046a45f9841175e2ecf72ec250df6dc45af0c6fd93a20": {
       "id": "myswitzerland:f9bb153d5f6146499fb04fd6b69d3b1d",
       "sourceDescriptionHash": "be61269f0b71f36be43046a45f9841175e2ecf72ec250df6dc45af0c6fd93a20",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T11:19:27.120Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:39:04.476Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -158666,15 +158838,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-12T17:38:45.553Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:f9e0a4b036a54561b5d2e3c3060652e1::c75f46ab7717cfb3802362ae2fe5f45f6a0cbd6d05ce97300113e3a0a8aac716": {
-      "id": "myswitzerland:f9e0a4b036a54561b5d2e3c3060652e1",
-      "sourceDescriptionHash": "c75f46ab7717cfb3802362ae2fe5f45f6a0cbd6d05ce97300113e3a0a8aac716",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T09:25:33.754Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -158826,8 +158989,8 @@
       "id": "myswitzerland:fd71cc391b0a462a9409cf05111bd874",
       "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-11T12:24:54.973Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:28:46.841Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -158970,8 +159133,8 @@
       "id": "myswitzerland:ff27037e80ed46da9dc9392ef2688363",
       "sourceDescriptionHash": "aab8f3e9439a4d8768ae99c9f480ce283123b6201125f9a5de01639ce4b39f86",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:27:35.083Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:45:03.866Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159195,8 +159358,8 @@
       "id": "tio-agenda:62669",
       "sourceDescriptionHash": "72df5de25e06da9ec4119984d978e44579ab7d22aaae938a57996aad735b448f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:43:32.777Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:32:39.993Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159230,9 +159393,9 @@
     "tio-agenda:62985::3652e3222fe3e2dae4eda973d43f102d7509f4f10740deb9ce9aa8b3feb970ae": {
       "id": "tio-agenda:62985",
       "sourceDescriptionHash": "3652e3222fe3e2dae4eda973d43f102d7509f4f10740deb9ce9aa8b3feb970ae",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-08T00:23:40.535Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:45:39.056Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159623,15 +159786,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:63931::3c2136e7d50a31bf6f31bf1bd8cde1ab72abc1b3e9ce48c32095c7778b0de7a4": {
-      "id": "tio-agenda:63931",
-      "sourceDescriptionHash": "3c2136e7d50a31bf6f31bf1bd8cde1ab72abc1b3e9ce48c32095c7778b0de7a4",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:50:59.910Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:63936::582ffab551ecaef12f5cb2d81aa390a0c374bbe967a1b823413b607794863005": {
       "id": "tio-agenda:63936",
       "sourceDescriptionHash": "582ffab551ecaef12f5cb2d81aa390a0c374bbe967a1b823413b607794863005",
@@ -159743,9 +159897,9 @@
     "tio-agenda:64003::a541a4ed54a32f623f5dd5974af8a4acfa3dc001e64b56b2ee8d7d3d17b47efa": {
       "id": "tio-agenda:64003",
       "sourceDescriptionHash": "a541a4ed54a32f623f5dd5974af8a4acfa3dc001e64b56b2ee8d7d3d17b47efa",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:56:52.925Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:37:49.576Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -159890,15 +160044,6 @@
       "code": "new-name",
       "rejectedRuns": 2,
       "lastAttemptAt": "2026-10-15T21:55:38.448Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64120::a11c53268f09df86d1d995b62f2831853796bd25d9b7cad93b81918ff9c9cd7c": {
-      "id": "tio-agenda:64120",
-      "sourceDescriptionHash": "a11c53268f09df86d1d995b62f2831853796bd25d9b7cad93b81918ff9c9cd7c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:56:12.794Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -160049,9 +160194,9 @@
     "tio-agenda:64258::9b2cb4e10b3579e67d9c292057415e50ab6a9cc9d42453dbea2f0193dde4df91": {
       "id": "tio-agenda:64258",
       "sourceDescriptionHash": "9b2cb4e10b3579e67d9c292057415e50ab6a9cc9d42453dbea2f0193dde4df91",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-07T23:55:39.422Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-15T23:36:40.816Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
