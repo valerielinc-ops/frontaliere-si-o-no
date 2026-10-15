@@ -8312,6 +8312,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.segreteria-economia-nazionale.title': 'SECO: la fonte indica la Segreteria di Stato dell\'economia',
     'blog.article.segreteria-economia-nazionale.excerpt': 'Il materiale disponibile riporta la denominazione Segreteria di Stato dell\'economia e l\'acronimo SECO, ma non contiene misure, date o cifre.',
     'blog.article.segreteria-economia-nazionale.imageAlt': 'Documento con la sigla SECO su una scrivania in un ufficio economico svizzero.',
+    'blog.article.permesso-pesca-canton-berna-guida.title': 'Permesso di pesca nel Cantone di Berna: requisiti e stagioni',
+    'blog.article.permesso-pesca-canton-berna-guida.excerpt': 'Scopri come gestire la pratica per il permesso di pesca nel Cantone di Berna: licenze, corsi, acque autorizzate e autorità competenti.',
+    'blog.article.permesso-pesca-canton-berna-guida.imageAlt': 'Lago nel Cantone di Berna adatto alla pesca',
 };
 
 export default blogMetaChIt;

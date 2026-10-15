@@ -8312,6 +8312,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.segreteria-economia-nazionale.title': 'SECO : la source indique le Secrétariat d\'État à l\'économie',
     'blog.article.segreteria-economia-nazionale.excerpt': 'Le matériel disponible indique la dénomination Secrétariat d\'État à l\'économie et l\'acronyme SECO, mais ne contient ni mesures, ni dates, ni chiffres.',
     'blog.article.segreteria-economia-nazionale.imageAlt': 'Document portant le sigle SECO sur un bureau économique suisse.',
+    'blog.article.permesso-pesca-canton-berna-guida.title': 'Permis de pêche dans le canton de Berne : exigences et saisons',
+    'blog.article.permesso-pesca-canton-berna-guida.excerpt': 'Découvrez comment gérer votre dossier de permis de pêche dans le canton de Berne : licences, cours, eaux autorisées et autorités compétentes.',
+    'blog.article.permesso-pesca-canton-berna-guida.imageAlt': 'Lac dans le canton de Berne adapté à la pêche',
 };
 
 export default blogMetaChFr;

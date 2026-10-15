@@ -8312,6 +8312,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.segreteria-economia-nazionale.title': 'SECO: the source indicates the State Secretariat for Economic Affairs',
     'blog.article.segreteria-economia-nazionale.excerpt': 'The available material states the name State Secretariat for Economic Affairs and the acronym SECO, but contains no measures, dates, or figures.',
     'blog.article.segreteria-economia-nazionale.imageAlt': 'Document marked SECO on a desk in a Swiss economic office.',
+    'blog.article.permesso-pesca-canton-berna-guida.title': 'Fishing permit in the Canton of Bern: requirements and seasons',
+    'blog.article.permesso-pesca-canton-berna-guida.excerpt': 'Find out how to apply for a fishing permit in the Canton of Bern: licenses, courses, authorized waters, and competent authorities.',
+    'blog.article.permesso-pesca-canton-berna-guida.imageAlt': 'Lake in the Canton of Bern suitable for fishing',
 };
 
 export default blogMetaChEn;

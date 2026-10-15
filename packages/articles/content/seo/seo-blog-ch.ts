@@ -104934,6 +104934,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-pesca-canton-berna-guida': {
+    title: 'Permesso di pesca nel Cantone di Berna: requisiti e stagioni',
+    description: 'Guida pratica al permesso di pesca nel Cantone di Berna: come verificare licenze, corsi, periodi, acque autorizzate e autorità competenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, pesca, cantone, berna',
+    ogTitle: 'Permesso di pesca nel Cantone di Berna: requisiti e stagioni',
+    ogDescription: 'Gestire la pesca nel Cantone di Berna richiede una verifica attenta di licenze, corsi, periodi e autorità. Ecco come procedere correttamente secondo le norme.',
+    canonicalPath: '/articoli-svizzera/permesso-pesca-canton-berna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di pesca nel Cantone di Berna: requisiti e stagioni",
+      "description": "Guida pratica al permesso di pesca nel Cantone di Berna: come verificare licenze, corsi, periodi, acque autorizzate e autorità competenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-permesso-pesca-canton-berna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago nel Cantone di Berna adatto alla pesca"
+      },
+      "datePublished": "2026-10-15T02:27:21+00:00",
+      "dateModified": "2026-10-15T02:27:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-pesca-canton-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

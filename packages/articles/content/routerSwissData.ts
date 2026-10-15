@@ -2793,6 +2793,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tasse-universitarie-berna-guida': { it: 'tasse-universitarie-berna-guida', en: 'university-fees-bern-guide', de: 'studiengebuehren-bern-guide', fr: 'frais-scolarite-berne-guide' },
  'opportunita-impiego-federale': { it: 'opportunita-impiego-federale', en: 'federal-administration-jobs', de: 'arbeiten-bundesverwaltung', fr: 'emploi-administration-federale' },
  'segreteria-economia-nazionale': { it: 'segreteria-economia-nazionale', en: 'national-economic-secretariat', de: 'nationales-wirtschaftssekretariat', fr: 'secretariat-economie-national' },
+ 'permesso-pesca-canton-berna-guida': { it: 'permesso-pesca-canton-berna-guida', en: 'fishing-permit-canton-bern-guide', de: 'angelpatent-kanton-bern-anleitung', fr: 'permis-peche-canton-berne-guide' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

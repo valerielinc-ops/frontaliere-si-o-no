@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5465
+      "6": 5466
     },
-    "publishedCovers": 7046,
+    "publishedCovers": 7047,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5270
+    "inferredRecords": 5271
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187309,6 +187309,33 @@
           "id": "permesso-edilizio-uri",
           "category": "pratico",
           "date": "2026-10-11T11:17:28.171Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-permesso-pesca-canton-berna-guida": {
+      "cover": "/images/blog/article-permesso-pesca-canton-berna-guida.webp",
+      "hash": "7658cdf64b766019fb6f958759d37608e80bb767d266e4be302f83ddc7b1f167",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "permesso-pesca-canton-berna-guida",
+          "category": "pratico",
+          "date": "2026-10-15T02:27:21.587Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
