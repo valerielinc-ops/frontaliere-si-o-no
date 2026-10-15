@@ -13264,6 +13264,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-cittadino-russo-como.title': 'Como, Russian citizen arrested for unlawful entry',
     'blog.article.arresto-cittadino-russo-como.excerpt': '26-year-old Russian citizen arrested Garage window damaged Attempted escape after detention Como prison awaiting immediate trial What →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Urban view of the city of Como',
+    'blog.article.estradizione-pakistan-como.title': 'Accused of murder, arrested in Como for extradition',
+    'blog.article.estradizione-pakistan-como.excerpt': 'A 40-year-old man was arrested in Como.',
+    'blog.article.estradizione-pakistan-como.imageAlt': 'Italian State Police during a check on Via Canturina in Como',
 };
 
 export default blogMetaEn;

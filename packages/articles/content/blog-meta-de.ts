@@ -13263,6 +13263,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-cittadino-russo-como.title': 'Como, russischer Staatsbürger wegen unbefugten Eindringens festgenommen',
     'blog.article.arresto-cittadino-russo-como.excerpt': '26-jähriger russischer Staatsbürger festgenommen Glasfront eines Parkhauses beschädigt Fluchtversuch nach der Festnahme Gefängnis in Como in Erwartung des Schnellverfahrens Was →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Stadtansicht von Como',
+    'blog.article.estradizione-pakistan-como.title': 'Wegen Mordes beschuldigt, in Como zur Auslieferung festgenommen',
+    'blog.article.estradizione-pakistan-como.excerpt': 'In Como wurde ein 40-jähriger Mann festgenommen.',
+    'blog.article.estradizione-pakistan-como.imageAlt': 'Italienische Staatspolizei bei einer Kontrolle in der Via Canturina in Como',
 };
 
 export default blogMetaDe;

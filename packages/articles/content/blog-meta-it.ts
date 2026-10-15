@@ -13265,6 +13265,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-cittadino-russo-como.title': 'Como, arrestato cittadino russo per ingresso abusivo',
     'blog.article.arresto-cittadino-russo-como.excerpt': 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Veduta urbana della città di Como',
+    'blog.article.estradizione-pakistan-como.title': 'Accusato di omicidio, arrestato a Como per l’estradizione',
+    'blog.article.estradizione-pakistan-como.excerpt': 'Arrestato a Como un uomo di 40 anni.',
+    'blog.article.estradizione-pakistan-como.imageAlt': 'Polizia di Stato durante un controllo in via Canturina a Como',
 };
 
 export default blogMetaIt;

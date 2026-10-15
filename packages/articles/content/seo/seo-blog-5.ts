@@ -109067,6 +109067,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-estradizione-pakistan-como': {
+    title: 'Accusato di omicidio, arrestato a Como per l’estradizione',
+    description: 'Arrestato a Como un uomo di 40 anni. Identificato in via Canturina dalla Polizia di Stato. Il Pakistan aveva chiesto l’estradizione. L’omicidio contestato è',
+    keywords: 'frontalieri, ticino, svizzera, italia, accusato, omicidio, arrestato, como',
+    ogTitle: 'Como, arrestato un 40enne: richiesta di estradizione',
+    ogDescription: 'Arrestato a Como un uomo di 40 anni.',
+    canonicalPath: '/articoli-frontaliere/estradizione-pakistan-como/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accusato di omicidio, arrestato a Como per l’estradizione",
+      "description": "Arrestato a Como un uomo di 40 anni. Identificato in via Canturina dalla Polizia di Stato. Il Pakistan aveva chiesto l’estradizione. L’omicidio contestato è",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/estradizione-arresto-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia di Stato durante un controllo in via Canturina a Como"
+      },
+      "datePublished": "2026-10-15T23:12:57+00:00",
+      "dateModified": "2026-10-15T23:12:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estradizione-pakistan-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

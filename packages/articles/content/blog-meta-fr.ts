@@ -13266,6 +13266,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-cittadino-russo-como.title': 'Como, un citoyen russe arrêté pour entrée illégale',
     'blog.article.arresto-cittadino-russo-como.excerpt': 'Un citoyen russe de 26 ans arrêté Vitrage d’un garage endommagé Tentative de fuite après l’interpellation Prison de Como en attendant la comparution immédiate Quoi →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Vue urbaine de la ville de Côme (Como)',
+    'blog.article.estradizione-pakistan-como.title': 'Accusé de meurtre, arrêté à Como en vue de son extradition',
+    'blog.article.estradizione-pakistan-como.excerpt': 'Arrêté à Como, un homme de 40 ans.',
+    'blog.article.estradizione-pakistan-como.imageAlt': 'Police d’État italienne lors d’un contrôle via Canturina à Côme (Como)',
 };
 
 export default blogMetaFr;

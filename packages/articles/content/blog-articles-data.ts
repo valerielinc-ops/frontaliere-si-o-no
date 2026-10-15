@@ -44767,6 +44767,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'estradizione-pakistan-como',
+ category: 'novita',
+ date: '2026-10-15T23:12:57.045Z',
+ image: '/images/blog/estradizione-arresto-como.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
