@@ -2465,6 +2465,34 @@ export function mergeTranslationOutcome(target, source) {
   target.tierUnavailable = target.tierUnavailable || source.tierUnavailable === true;
 }
 
+// Calls in flight to the providers after Codex (DeepL, Azure, the free
+// hosts). Unbounded by default; a caller that runs several translations at
+// once while Codex is up (phase 2e, scripts/fix-untranslated-descriptions.mjs)
+// caps it, so the moment Codex stops its in-flight work falls through to the
+// rate-limited hosts one call at a time instead of all together.
+let _fallbackProviderLimit = Infinity;
+let _fallbackProviderActive = 0;
+const _fallbackProviderWaiters = [];
+
+/** Cap the provider calls after Codex that may run at once (Infinity: no cap). */
+export function setFallbackProviderConcurrency(limit) {
+  _fallbackProviderLimit = Number.isSafeInteger(limit) && limit > 0 ? limit : Infinity;
+}
+
+async function _withFallbackProviderSlot(fn) {
+  if (_fallbackProviderLimit === Infinity) return fn();
+  while (_fallbackProviderActive >= _fallbackProviderLimit) {
+    await new Promise((resolve) => _fallbackProviderWaiters.push(resolve));
+  }
+  _fallbackProviderActive += 1;
+  try {
+    return await fn();
+  } finally {
+    _fallbackProviderActive -= 1;
+    _fallbackProviderWaiters.shift()?.();
+  }
+}
+
 async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
   const sourceInput = fieldType === 'title' && String(sourceLang || '').toLowerCase().startsWith('de')
     ? normalizeGermanGenderForms(text)
@@ -2529,7 +2557,7 @@ async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'ti
   /** Try a tier: track success/error/passthrough, return result or '' */
   async function tryTier(tierName, fn) {
     try {
-      const result = await fn();
+      const result = tierName === 'codex' ? await fn() : await _withFallbackProviderSlot(fn);
       // A per-line structural call must receive one line back. A provider
       // that ignores the line boundary and returns the whole body cannot be
       // counted as a successful hit; the structured wrapper may retry the
