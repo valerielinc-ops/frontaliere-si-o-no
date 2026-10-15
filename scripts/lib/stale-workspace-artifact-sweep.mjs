@@ -1,10 +1,8 @@
-// Pulizia dei residui ricostruibili del workspace, indipendente dal nome
-// dell'utente o dal device. Solo directory completamente stale e non usate
-// come cwd da processi attivi possono essere rimosse.
+// Inventario diagnostico dei temporanei del workspace. L'età non autorizza
+// cancellazioni. I worktree appartengono soltanto al pruner con prove Git.
 
 import { execFileSync } from 'node:child_process';
-import { lstatSync, readdirSync, rmSync } from 'node:fs';
-import os from 'node:os';
+import { lstatSync, readdirSync } from 'node:fs';
 import { dirname, isAbsolute, join, relative, resolve } from 'node:path';
 
 export const STALE_WORKSPACE_ARTIFACT_AGE_MS = 3 * 24 * 60 * 60 * 1000;
@@ -15,8 +13,6 @@ export function defaultWorkspaceRoot({ repoRoot = process.cwd() } = {}) {
 
 export function workspacePruneTargets(workspaceRoot = defaultWorkspaceRoot()) {
   return [
-    { name: 'workspace-wt', root: join(workspaceRoot, '.wt') },
-    { name: 'workspace-worktrees', root: join(workspaceRoot, '.worktrees') },
     { name: 'workspace-tmp', root: join(workspaceRoot, 'tmp') },
   ];
 }
@@ -84,17 +80,9 @@ export function listStaleWorkspaceArtifacts({
   return result;
 }
 
+/** @param {Parameters<typeof listStaleWorkspaceArtifacts>[0] & { apply?: boolean }} [options] */
 export function sweepStaleWorkspaceArtifacts({ apply = false, ...options } = {}) {
+  if (apply) throw new Error('Global workspace cleanup disabled: age is not deletion authority');
   const candidates = listStaleWorkspaceArtifacts(options);
-  if (!apply) return { candidates, removed: 0, bytes: 0 };
-  let removed = 0;
-  let bytes = 0;
-  for (const candidate of candidates) {
-    try {
-      rmSync(candidate.path, { recursive: true, force: false });
-      removed++;
-      bytes += candidate.bytes;
-    } catch { /* cambiato o non accessibile: resta intatto */ }
-  }
-  return { candidates, removed, bytes };
+  return { candidates, removed: 0, bytes: 0 };
 }

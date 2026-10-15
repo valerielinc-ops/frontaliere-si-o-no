@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { runIsolatedPruner } from './helpers/runIsolatedPruner';
 
 const DAY = 24 * 60 * 60 * 1000;
 const NOW = Date.now();
@@ -85,7 +86,7 @@ function addWorktree(name: string, branch: string): void {
 }
 
 function runScript(args: string[] = []): string {
-  return execFileSync('node', [SCRIPT, ...args], { cwd: clone, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return runIsolatedPruner(SCRIPT, args, root, clone, env);
 }
 
 function remoteTags(): string {

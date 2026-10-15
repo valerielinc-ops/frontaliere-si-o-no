@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { runIsolatedPruner } from './helpers/runIsolatedPruner';
 
 // Lo sweep lanciato nel CORPUS (stesso script del sito, cwd nel checkout del
 // corpus) su un workspace di prova con due repo e le cartelle `.wt/` della
@@ -74,7 +75,7 @@ function ageTree(dir: string, when: Date): void {
 }
 
 function runScript(args: string[]): string {
-  return execFileSync('node', [SCRIPT, ...args], { cwd: corpus, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return runIsolatedPruner(SCRIPT, args, ws, corpus, env);
 }
 
 function cloneOf(name: string): { origin: string; dir: string } {
@@ -111,6 +112,8 @@ beforeAll(() => {
     GIT_COMMITTER_EMAIL: 'fixture@example.invalid',
     FAKE_GH_FIXTURE: path.join(ws, 'gh-fixture.json'),
     FAKE_LSOF_CWDS: '',
+    // This suite tests content proofs, not the separate three-day expiry rule.
+    PRUNE_WORKTREE_EXPIRY_DAYS: '10',
   };
 
   // --- il SITO: un secondo repo del workspace ----------------------------------
