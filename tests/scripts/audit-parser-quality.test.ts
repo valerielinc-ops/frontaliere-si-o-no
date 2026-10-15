@@ -459,6 +459,23 @@ describe('source-detail fidelity checks', () => {
     expect(result.sourceDescriptionLength).toBeGreaterThan(200);
   });
 
+  it('uses SBB vacancy summary metadata instead of the generic headquarters JSON-LD', () => {
+    const html = `<html><head>
+      <meta name="twitter:description" content="Bellinzona, 01.02.2027, 60-100%">
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Tecnico industriale specializzato",
+        "jobLocation":{"address":{"addressLocality":"Bern","addressRegion":"Bern","addressCountry":"CH"}}}</script>
+      </head><body><h1>Tecnico industriale specializzato</h1></body></html>`;
+
+    expect(extractSourceLocationObservation(html, 'https://jobs.sbb.ch/v2/offene-stellen/tecnico/uuid')).toEqual({
+      location: 'Bellinzona',
+      evidence: 'job-summary',
+    });
+    expect(classifySourceLocationEvidence(html, 'https://jobs.sbb.ch/v2/offene-stellen/tecnico/uuid')).toBe('job-summary');
+    expect(sourceLocationMatches('Tessin', 'Bellinzona')).toBe(false);
+    expect(sourceLocationMatches('Bellinzona', 'Bellinzona')).toBe(true);
+    expect(extractSourceLocationObservation(html, 'https://jobs.example.test/v2/offene-stellen/tecnico/uuid').location).toBe('Bern, Bern');
+  });
+
   it('does not attribute stale single-record schema to a visibly different vacancy', async () => {
     const pageUrl = 'https://giardino.example/talents/en/job-spa-therapist.html';
     const description = 'Deliver tailored spa treatments and advise hotel guests with care and professionalism. '.repeat(8);

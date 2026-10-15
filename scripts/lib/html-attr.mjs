@@ -237,3 +237,25 @@ export function readMetaContent(html = '', key = '') {
   });
   return tag ? readAttr(tag.raw, 'content') : '';
 }
+
+/**
+ * Read the locality from a job-specific social summary such as
+ * `Bellinzona, 01.02.2027, 60-100%`. This narrow shape is used by SBB detail
+ * pages when their generic JobPosting JSON-LD contains the Bern headquarters.
+ *
+ * @param {string} html
+ * @returns {string} Raw (still entity-encoded) vacancy locality, or ''.
+ */
+export function readVacancySummaryLocation(html = '') {
+  const summaries = [
+    readMetaContent(html, 'twitter:description'),
+    readMetaContent(html, 'og:description'),
+  ];
+  for (const summary of summaries) {
+    const match = String(summary || '').match(
+      /^\s*([^,]{2,80}?)\s*,\s*(?:(?:\d{1,2}\.\d{1,2}\.\d{4})\s*,\s*)?\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u,
+    );
+    if (match?.[1]) return match[1].trim();
+  }
+  return '';
+}

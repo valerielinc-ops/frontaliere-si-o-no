@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 637,
+  "crawlerCount": 638,
   "groups": {
     "10": [
       "atec-personal",
@@ -20,6 +20,7 @@
       "ipw",
       "jumbo",
       "kiabi",
+      "kita-summervogel",
       "ksgl",
       "kulm-hotel",
       "laderach",
@@ -168,13 +169,13 @@
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
+      "gipo",
       "grand-hotel-kronenhof",
       "gzo-wetzikon",
       "holcim",
       "ibsa-institut-biochimique",
       "kanton-aargau",
       "kanton-solothurn",
-      "kita-summervogel",
       "klinik-adelheid",
       "mabetex",
       "octapharma",
@@ -917,6 +918,7 @@
     "giardino": "data/jobs/by-crawler/giardino.json",
     "gim-architekten": "data/jobs/by-crawler/gim-architekten.json",
     "giorgio-armani": "data/jobs/by-crawler/giorgio-armani.json",
+    "gipo": "data/jobs/by-crawler/gipo.json",
     "givaudan": "data/jobs/by-crawler/givaudan.json",
     "gkb": "data/jobs/by-crawler/gkb.json",
     "globus": "data/jobs/by-crawler/globus.json",
@@ -1328,5 +1330,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:02a831d586bd0277371e1a2d1e1927725a72e2bdac594079df3adef921fcfdf9"
+  "digest": "sha256:8402ac04156deb2f387c0d689692c8283bcc07ae2b20cff411a1cb416b427ee4"
 }

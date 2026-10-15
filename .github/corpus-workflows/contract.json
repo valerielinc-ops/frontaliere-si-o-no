@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "22a7e4199dee2758de94c96edceb78a0709af020",
+  "sourceCommit": "a2843af2eded5e0c03896481c56546cbecbbb27e",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "22a7e4199dee2758de94c96edceb78a0709af020"
+    "sourceCommit": "a2843af2eded5e0c03896481c56546cbecbbb27e"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 637,
+  "crawlerCount": 638,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:02a831d586bd0277371e1a2d1e1927725a72e2bdac594079df3adef921fcfdf9",
+    "rosterDigest": "sha256:8402ac04156deb2f387c0d689692c8283bcc07ae2b20cff411a1cb416b427ee4",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -245,6 +245,7 @@
     "scripts/update-ghol-jobs.mjs",
     "scripts/update-giardino-jobs.mjs",
     "scripts/update-gim-architekten-jobs.mjs",
+    "scripts/update-gipo-jobs.mjs",
     "scripts/update-givaudan-jobs.mjs",
     "scripts/update-gkb-jobs.mjs",
     "scripts/update-globus-jobs.mjs",
@@ -974,8 +975,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "34ce4e0997d36d6fb3a7464ec4b9e6ed22198c7c56c9fb2d842ec919ca6d8065",
-      "artifactSha256": "04a4cfcf2b4ee84d60dd06e8c168dd173ea83793924ce94c93ad01aea4786581",
+      "sourceSha256": "f803b28e2c567feddd3c01b09b52ca964e95e971e3e291748c344b244a1689d8",
+      "artifactSha256": "ea0e3acddf5310422f5cc4c3f7d68b46368970b5ecee276da7aab3bd2fdbcba1",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "jumbo",
@@ -1005,7 +1006,8 @@
         "stellentreff",
         "atec-personal",
         "debiopharm",
-        "fondation-domus"
+        "fondation-domus",
+        "kita-summervogel"
       ]
     },
     {
@@ -1163,8 +1165,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "90200d8a043eddf6143700a6d04f5d819b6794e5f7c82da34eea8b949cfa5794",
-      "artifactSha256": "e1704022c35e32001732ad30d3a2a11b1e8dc691fc792f70e91d6e98e182945f",
+      "sourceSha256": "54e4720198ea0760dd943237a12467b23e11cb147e8b985570ba57098f6f6551",
+      "artifactSha256": "344a60eba0df73ecbb77bfd1fff514351563b8f06f547fa4d6e16af5f728f7c4",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1195,7 +1197,7 @@
         "elprom",
         "sonarsource",
         "elite-interim",
-        "kita-summervogel"
+        "gipo"
       ]
     },
     {

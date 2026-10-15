@@ -24,6 +24,7 @@ import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   buildEscalationSignals,
+  considerBuckets,
   escalationBody,
   isEscalationDriver,
   selfHealDecision,
@@ -178,7 +179,53 @@ describe('isEscalationDriver — overlap-skip / pr-already-open sono scheduling,
   });
 
   it('la carve-out non tocca gli esiti vicini che restano segnale', () => {
-    expect(isEscalationDriver('fix-outcome', 'blocked-secrets')).toBe(true);
+    expect(isEscalationDriver('fix-outcome', 'blocked-workflows-scope')).toBe(true);
+    expect(isEscalationDriver('fix-outcome', 'max-turns')).toBe(true);
+  });
+});
+
+describe('isEscalationDriver — blocked-secrets è un blocco esterno, non una regola violata (#13396 / corpus #2765)', () => {
+  it('fix-outcome:blocked-secrets → mai driver, anche nella shape reale del call site', () => {
+    expect(isEscalationDriver('fix-outcome', 'blocked-secrets')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:blocked-secrets')).toBe(false);
+  });
+
+  it('mantiene bucket e volume nel report ma non produce una ricorrenza escalabile', () => {
+    const key = 'fix-outcome:blocked-secrets';
+    const examples = Array.from({ length: 6 }, (_, i) => ({
+      issue: 2736 - i,
+      at: new Date().toISOString(),
+    }));
+    const bucketMeasures = new Map();
+    const [cluster] = considerBuckets({
+      source: 'fix-outcome',
+      counts: { [key]: examples.length },
+      examples: { [key]: examples },
+      corpus: 'blocked-secrets',
+      threshold: 1,
+      bucketMeasures,
+    });
+
+    expect(cluster).toMatchObject({
+      key,
+      count: 6,
+      effectiveCount: 6,
+      driver: false,
+      alreadyDocumented: true,
+      novel: false,
+      recurringDespiteRule: false,
+    });
+    expect(bucketMeasures.get('fix-outcome/fix-outcome:blocked-secrets')).toMatchObject({
+      windowCount: 6,
+      effectiveCount: 6,
+      driver: false,
+    });
+  });
+
+  it('preserva rate-limited come carve-out ambientale e i fix-outcome azionabili', () => {
+    expect(isEscalationDriver('fix-outcome', 'rate-limited')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:rate-limited')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'blocked-workflows-scope')).toBe(true);
     expect(isEscalationDriver('fix-outcome', 'max-turns')).toBe(true);
   });
 });
