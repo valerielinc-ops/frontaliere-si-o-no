@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T09:54:52.184Z",
+  "generatedAt": "2026-10-15T14:35:28.668Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-15T09:54:03.202Z",
+      "fetchedAt": "2026-10-15T14:34:40.531Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
@@ -111,7 +111,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-15T09:54:51.073Z",
+      "fetchedAt": "2026-10-15T14:35:27.546Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -195,7 +195,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-15T09:54:52.184Z",
+      "fetchedAt": "2026-10-15T14:35:28.668Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -215,7 +215,7 @@
           "dutyType": "weekend",
           "startsAt": "2026-10-10T06:00:00.000Z",
           "endsAt": "2026-10-17T06:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/planning-mars-2026-fev-2027_V5.pdf?download=1"
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/Plan-de-garde-des-pharmacies-dAjoie-de-mars-2026-a-fevrier-2027.pdf?download=1"
         },
         {
           "pharmacy": "Centre Coop",
@@ -242,7 +242,7 @@
           "dutyType": "weekend",
           "startsAt": "2026-10-17T06:00:00.000Z",
           "endsAt": "2026-10-24T06:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/planning-mars-2026-fev-2027_V5.pdf?download=1"
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/Plan-de-garde-des-pharmacies-dAjoie-de-mars-2026-a-fevrier-2027.pdf?download=1"
         },
         {
           "pharmacy": "Val Terbi",
@@ -324,7 +324,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-15T09:54:52.184Z",
+      "fetchedAt": "2026-10-15T14:35:28.668Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -408,7 +408,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-15T09:54:52.184Z",
+      "fetchedAt": "2026-10-15T14:35:28.668Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -492,7 +492,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-15T09:54:52.184Z",
+      "fetchedAt": "2026-10-15T14:35:28.668Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [
