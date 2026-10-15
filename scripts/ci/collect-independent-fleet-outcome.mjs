@@ -42,7 +42,11 @@ function readJson(file, label) {
 
 function readJsonl(file) {
   const absolute = path.resolve(file);
-  const files = resolveLoopFleetLedgerFiles(absolute, 'loop-health-history.jsonl');
+  const isCanonicalHealthPath = path.basename(absolute) === 'loop-health-history.jsonl';
+  const isLedgerDirectory = fs.existsSync(absolute) && fs.statSync(absolute).isDirectory();
+  const files = isCanonicalHealthPath || isLedgerDirectory
+    ? resolveLoopFleetLedgerFiles(absolute, 'loop-health-history.jsonl')
+    : (fs.existsSync(absolute) ? [absolute] : []);
   if (!files.length) return { records: [], errors: [`health ledger is missing: ${file}`] };
   const records = [];
   const errors = [];

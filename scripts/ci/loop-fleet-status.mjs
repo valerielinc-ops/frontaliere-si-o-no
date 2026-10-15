@@ -272,26 +272,26 @@ function readDurableHealth(ledgerDir, registry) {
     for (const file of files) {
       const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
       for (const [index, line] of lines.entries()) {
-      let health;
-      try {
-        health = JSON.parse(line);
-      } catch (error) {
-        throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
-      }
-      if (!health || health.recordType !== 'health' || !text(health.loopId)) {
-        throw new Error(`${path.basename(file)} line ${index + 1} is not a health record`);
-      }
-      validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
-      validateHistoricalOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
-      if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
-        throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
-      }
-      const previous = byLoop[health.loopId];
-      const currentTime = Date.parse(health.recordedAt || health.execution.recordedAt || '');
-      const previousTime = previous
-        ? Date.parse(previous.recordedAt || previous.execution?.recordedAt || '')
-        : -Infinity;
-      if (!previous || (Number.isFinite(currentTime) && currentTime >= previousTime)) byLoop[health.loopId] = health;
+        let health;
+        try {
+          health = JSON.parse(line);
+        } catch (error) {
+          throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
+        }
+        if (!health || health.recordType !== 'health' || !text(health.loopId)) {
+          throw new Error(`${path.basename(file)} line ${index + 1} is not a health record`);
+        }
+        validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
+        validateHistoricalOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
+        if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
+          throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
+        }
+        const previous = byLoop[health.loopId];
+        const currentTime = Date.parse(health.recordedAt || health.execution.recordedAt || '');
+        const previousTime = previous
+          ? Date.parse(previous.recordedAt || previous.execution?.recordedAt || '')
+          : -Infinity;
+        if (!previous || (Number.isFinite(currentTime) && currentTime >= previousTime)) byLoop[health.loopId] = health;
       }
     }
     return { byLoop, error: null };
@@ -312,24 +312,24 @@ function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
     for (const file of files) {
       const lines = fs.readFileSync(file, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean);
       for (const [index, line] of lines.entries()) {
-      let event;
-      try {
-        event = JSON.parse(line);
-      } catch (error) {
-        throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
-      }
-      validateHistoricalLifecycleEvent(registry, event.loopId, event);
-      if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
-        throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
-      }
-      const previous = byId.get(event.recordId);
-      if (previous && JSON.stringify(previous) !== JSON.stringify(event)) {
-        throw new Error(`line ${index + 1} conflicts with duplicate ${event.recordId}`);
-      }
-      if (previous) continue;
-      byId.set(event.recordId, event);
-      if (!byLoop[event.loopId]) byLoop[event.loopId] = [];
-      byLoop[event.loopId].push(event);
+        let event;
+        try {
+          event = JSON.parse(line);
+        } catch (error) {
+          throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
+        }
+        validateHistoricalLifecycleEvent(registry, event.loopId, event);
+        if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
+          throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
+        }
+        const previous = byId.get(event.recordId);
+        if (previous && JSON.stringify(previous) !== JSON.stringify(event)) {
+          throw new Error(`line ${index + 1} conflicts with duplicate ${event.recordId}`);
+        }
+        if (previous) continue;
+        byId.set(event.recordId, event);
+        if (!byLoop[event.loopId]) byLoop[event.loopId] = [];
+        byLoop[event.loopId].push(event);
       }
     }
     return {

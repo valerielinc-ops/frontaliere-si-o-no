@@ -98,7 +98,7 @@ function isGithubNotFoundError(error) {
 const GITHUB_NOT_FOUND = Object.freeze({ notFound: true });
 
 /**
- * Bounded structural guard for the exact ledger files.
+ * Bounded structural guard for canonical ledger files and their validated shards.
  *
  * The bridge validates the source artifact and registry-specific semantics
  * before it opens a PR. This second, intentionally smaller check validates the
@@ -487,7 +487,7 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
     return inspectionFailure('unverifiable', `file-list PR incompleta (${snapshot?.reason || 'sconosciuta'})`);
   }
   if (!isLoopFleetLedgerSnapshot(snapshot)) {
-    return inspectionFailure('not-ledger-only', 'file-list mixed, unknown, duplicata o fuori dai quattro path canonici');
+    return inspectionFailure('not-ledger-only', 'file-list mixed, unknown, duplicata o fuori dai path ledger ammessi');
   }
 
   let registry;

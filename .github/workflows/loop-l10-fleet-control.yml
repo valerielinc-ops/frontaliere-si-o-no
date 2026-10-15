@@ -17,6 +17,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/independent-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -27,12 +28,13 @@ on:
     paths:
       - 'data/loop-fleet/loop-registry.json'
       - 'data/quota-history.jsonl'
-      - 'data/loop-fleet/ledger/loop-health-history.jsonl'
+      - 'data/loop-fleet/ledger/loop-health-history*.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
       - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/independent-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -68,7 +70,7 @@ jobs:
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
             /data/quota-history.jsonl
-            /data/loop-fleet/ledger/loop-health-history.jsonl
+            /data/loop-fleet/ledger/loop-health-history*.jsonl
             /scripts/ci/loop-l10-fleet-control.mjs
             /scripts/ci/collect-independent-fleet-outcome.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs

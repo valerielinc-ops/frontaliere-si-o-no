@@ -21,6 +21,7 @@ on:
       - 'scripts/ci/loop-fleet-ledger-audit.mjs'
       - 'scripts/ci/loop-fleet-ledger-reconcile.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - '.github/workflows/loop-fleet-ledger-audit.yml'
 
 permissions:
