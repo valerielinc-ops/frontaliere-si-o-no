@@ -4,6 +4,65 @@ import ts from 'typescript';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from '../build-plugins/shared/jobArchiveEvidence';
 
 describe('recorded versus URL-inferred job identity', () => {
+  it('retains the whole verified record when a stronger same-slug GSC-only row follows', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const start = source.indexOf('for (const entry of enrichedArr)');
+    const end = source.indexOf('if (orphanGscData.size > 0)', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const code = ts.transpileModule(`const orphanGscData = new Map(); let withQueries = 0; let withContent = 0; ${source.slice(start, end)} return orphanGscData;`, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } }).outputText;
+    const run = new Function('enrichedArr', 'hasRecordedJobIdentity', code);
+    const original = { slug: 'same-slug', title: 'Original title', titleByLocale: { en: 'Original title' }, descriptionByLocale: { en: 'Original description' }, company: 'Original employer', source: ['translation-cache:exact'] };
+    const signalOnly = { slug: original.slug, title: 'Inferred title', titleByLocale: { en: 'Inferred locale title' }, descriptionByLocale: { en: 'Unverified description' }, company: 'Inferred employer', source: ['slug-parsing'], queries: ['original query'], totalImpressions: 12, totalClicks: 2 };
+    const saved = run([original, signalOnly], hasRecordedJobIdentity).get(original.slug);
+    expect(saved.recordedIdentity).toBe(true);
+    expect(saved.title).toBe(original.title);
+    expect(saved.titleByLocale).toEqual(original.titleByLocale);
+    expect(saved.descriptionByLocale).toEqual(original.descriptionByLocale);
+    expect(saved.company).toBe(original.company);
+    expect(saved.queries).toEqual(signalOnly.queries);
+    expect(saved.totalImpressions).toBe(12);
+  });
+  it.each([false, true])('gates localized hydration fields on recorded identity (%s)', (hasRealTitle) => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const start = source.indexOf('const pickLocaleEntry =');
+    const end = source.indexOf('const expiredWindowData =', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const code = ts.transpileModule(`${source.slice(start, end)} return expiredDataObj;`, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } }).outputText;
+    const run = new Function('hasRealTitle', 'ejData', 'gscInfo', 'slugInfo', 'locale', 'relPath', 'slug', 'jobCompany', 'jobLocation', code);
+    const info = { title: 'Locale role', titleByLocale: { en: 'Locale role' }, descriptionByLocale: { en: 'Locale description' }, slugByLocale: { fr: 'another-reference' }, sector: 'Unverified sector' };
+    const seed = run(hasRealTitle, null, info, { companyKey: 'url-employer' }, 'en', '/en/find-jobs-zurich/own-route/', 'tracking-key', 'URL employer', 'URL place');
+    if (hasRealTitle) {
+      expect(seed.titleByLocale).toEqual(info.titleByLocale);
+      expect(seed.descriptionByLocale).toEqual(info.descriptionByLocale);
+    } else {
+      expect(seed).not.toHaveProperty('titleByLocale');
+      expect(seed).not.toHaveProperty('descriptionByLocale');
+      expect(seed).not.toHaveProperty('slugByLocale');
+      expect(seed).not.toHaveProperty('sector');
+      expect(seed.slug).toBe('own-route');
+    }
+  });
+  it('uses the generic unverified title in every safety-writer title output', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const start = source.indexOf('const buildHistoricalArchiveHtml =');
+    const end = source.indexOf('for (const [slug, paths] of Object.entries(tracking)', start);
+    const safety = source.slice(start, end);
+    const titleExpression = safety.match(/const titleRaw = ([^\n]+);/)?.[1];
+    expect(titleExpression).toBeTruthy();
+    const title = new Function('recordedIdentity', 'archive', 'slugInfo', 'copy', 'unknownCopy', 'stripLiteralMarkdownFromTitle', `return ${titleExpression};`)(false, { title: 'Unverified record title' }, { title: 'Nurse' }, { original: 'Original details' }, unverifiedJobCopy.en, (value: string) => value);
+    expect(title).toBe(unverifiedJobCopy.en.title);
+    for (const binding of ['composeSerpJobTitle(titleRaw,', 'historicalArchiveHeading(titleRaw,', '${esc(titleRaw)}', '${titleRaw}', 'name: titleRaw']) expect(safety).toContain(binding);
+  });
+  it('uses only the literal URL reference for the normal unverified heading', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const block = source.slice(source.indexOf('const unknownCopy = unverifiedJobCopy[locale as'));
+    const expression = block.match(/const jobTitle = ([^\n]+);/)?.[1];
+    expect(expression).toBeTruthy();
+    const title = new Function('hasRealTitle', 'ejData', 'gscInfo', 'slugInfo', 'locale', 'copy', 'stripLiteralMarkdownFromTitle', `return ${expression};`)(false, { title: 'Partial record title' }, { titleByLocale: { en: 'Wrong GSC role' } }, { title: 'URL reference' }, 'en', unverifiedJobCopy.en, (value: string) => value);
+    expect(title).toBe('URL reference');
+  });
   it('accepts exact archive records without inventing an id or source URL requirement', () => {
     expect(hasRecordedJobIdentity({ title: 'Hotelfachassistentin 60-100%' })).toBe(true);
     expect(hasRecordedJobIdentity({ titleByLocale: { en: 'Head physician oncology' } })).toBe(true);

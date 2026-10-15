@@ -12394,7 +12394,20 @@ ${staticAnalyticsHtml}
  if (entry.slugByLocale) data.slugByLocale = entry.slugByLocale;
  if (entry.localePaths) data.localePaths = entry.localePaths;
  if (entry.sourceUrl) data.sourceUrl = entry.sourceUrl;
- if (Object.keys(data).length > 0) orphanGscData.set(entry.slug, data);
+ if (Object.keys(data).length > 0) {
+ const previous = orphanGscData.get(entry.slug);
+ if (previous?.recordedIdentity && !data.recordedIdentity) {
+ // A stronger GSC signal is not stronger job-content evidence. Keep the
+ // verified record intact, replacing only the search-signal fields.
+ const signals = data.queries ? {
+ queries: data.queries, totalImpressions: data.totalImpressions,
+ totalClicks: data.totalClicks, topQuery: data.topQuery,
+ } : {};
+ orphanGscData.set(entry.slug, { ...previous, ...signals });
+ } else {
+ orphanGscData.set(entry.slug, data);
+ }
+ }
  }
  if (orphanGscData.size > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Loaded enrichment for ${orphanGscData.size} orphan slugs (${withQueries} with GSC queries, ${withContent} with full content)`);
@@ -13274,8 +13287,9 @@ ${staticAnalyticsHtml}
  // them once per slug instead of 4× saves ~50μs/iter × 58k = ~2-3 s
  // of redundant work across the expired-soft-landing build phase.
  const gscInfo = orphanGscData.get(slug);
- const jobCompany = String(ejData?.company || gscInfo?.company || slugInfo?.company || '');
- const jobLocation = String(ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '');
+ const hasRealTitle = hasRecordedJobIdentity(ejData) || gscInfo?.recordedIdentity === true;
+ const jobCompany = String(hasRealTitle ? ejData?.company || gscInfo?.company || slugInfo?.company || '' : slugInfo?.company || '');
+ const jobLocation = String(hasRealTitle ? ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '' : slugInfo?.location || '');
  const jobCanton = sharedResolveJobCanton({ canton: ejData?.canton, location: jobLocation });
  const jobSector = String(ejData?.sector || '');
  const jobContract = String(ejData?.contract || '');
@@ -13284,7 +13298,6 @@ ${staticAnalyticsHtml}
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(`${jobCanton}:${jobCompany.toLowerCase()}`) || [])
  : [];
- const hasRealTitle = hasRecordedJobIdentity(ejData) || gscInfo?.recordedIdentity === true;
  // displayCanton/escDisplayCanton are NOT hoisted here:
  // the canton display name varies by locale (e.g. GR → "Grigioni" it,
  // "Graubünden" de/en, "Grisons" fr) — resolved per-locale in the loop below.
@@ -13350,7 +13363,7 @@ ${staticAnalyticsHtml}
  // jobCompany/jobLocation/jobCanton/etc. are hoisted above the for-locale
  // loop (per-slug invariants); displayCanton/escDisplayCanton
  // are NOT (they vary by locale — see note above the loop).
- const jobTitle = stripLiteralMarkdownFromTitle(String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title));
+ const jobTitle = stripLiteralMarkdownFromTitle(String(hasRealTitle ? ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || copy.title : slugInfo?.title || copy.title));
  const jobDescription = hasRealTitle ? stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '')) : '';
  // SERP title via the shared role>city>company>brand cascade — same
  // composer as ACTIVE job pages, so an expired listing reads like a job
@@ -13443,13 +13456,13 @@ ${staticAnalyticsHtml}
  const expiredTitle = hasRealTitle
   ? ejData?.title || ejData?.titleByLocale?.[locale] || gscInfo?.title || gscInfo?.titleByLocale?.[locale] || ''
   : '';
- const expiredCompany = ejData?.company || gscInfo?.company || slugInfo?.company || '';
- const expiredCompanyKey = ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '';
- const expiredLocation = ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '';
- const expiredTitleByLocale = pickLocaleEntry(ejData?.titleByLocale || gscInfo?.titleByLocale, locale);
- const expiredDescriptionByLocale = pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale);
- const expiredSlugByLocale = ejData?.slugByLocale || gscInfo?.slugByLocale || {};
- const expiredSector = ejData?.sector || gscInfo?.sector || '';
+ const expiredCompany = jobCompany;
+ const expiredCompanyKey = hasRealTitle ? ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '' : slugInfo?.companyKey || '';
+ const expiredLocation = jobLocation;
+ const expiredTitleByLocale = hasRealTitle ? pickLocaleEntry(ejData?.titleByLocale || gscInfo?.titleByLocale, locale) : {};
+ const expiredDescriptionByLocale = hasRealTitle ? pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale) : {};
+ const expiredSlugByLocale = hasRealTitle ? ejData?.slugByLocale || gscInfo?.slugByLocale || {} : {};
+ const expiredSector = hasRealTitle ? ejData?.sector || gscInfo?.sector || '' : '';
  const expiredAt = hasRealTitle ? ejData?.expiredAt || '' : '';
  // A title-less seed selects the existing orphan view, while its own route
  // slug still scopes canonical/schema guards after hydration. A tracking key
@@ -13604,8 +13617,8 @@ ${staticAnalyticsHtml}
  if (jobCompany) detailItems.push(`<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}:</strong> ${esc(jobCompany)}</li>`);
  detailItems.push(`<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(jobTitle)}</li>`);
  if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}${hasRealTitle ? `, ${esc(displayCanton)}` : ''}</li>`);
- if (jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
- if (jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
+ if (hasRealTitle && jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
+ if (hasRealTitle && jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
  if (hasRealTitle && jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
  if (hasRealTitle && jobExpiredAt) detailItems.push(`<li><strong>${locale === 'it' ? 'Scaduta il' : locale === 'en' ? 'Expired on' : locale === 'de' ? 'Abgelaufen am' : 'Expir\u00e9e le'}:</strong> ${esc(jobExpiredAt.slice(0, 10))}</li>`);
  staticBodyParts.push(`<section><h2>${esc(detailsHeading)}</h2><ul>${detailItems.join('')}</ul></section>`);
@@ -15176,9 +15189,9 @@ ${staticAnalyticsHtml}
   const recordedIdentity = archive?.recordedIdentity === true;
   const notice = recordedIdentity ? copy.notice : unknownCopy.banner;
   const slugInfo = extractInfoFromSlug(slugKey);
-  const titleRaw = stripLiteralMarkdownFromTitle(String(archive?.title || slugInfo.title || copy.original));
-  const company = String(archive?.company || slugInfo.company || '');
-  const location = String(archive?.location || slugInfo.location || '');
+  const titleRaw = recordedIdentity ? stripLiteralMarkdownFromTitle(String(archive?.title || copy.original)) : unknownCopy.title;
+  const company = String(recordedIdentity ? archive?.company || slugInfo.company || '' : slugInfo.company || '');
+  const location = String(recordedIdentity ? archive?.location || slugInfo.location || '' : slugInfo.location || '');
   const canton = String(archive?.canton || sharedResolveJobCanton({ location }) || DEFAULT_CANTON);
   const section = buildCantonAwareSection(locale, canton);
   const listingPath = `${localePrefix[locale]}/${section}`.replace(/\/+/g, '/');
@@ -15193,8 +15206,8 @@ ${staticAnalyticsHtml}
    company ? `<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Arbeitgeber' : 'Employeur'}:</strong> ${esc(company)}</li>` : '',
    `<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(titleRaw)}</li>`,
    location ? `<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(location)}</li>` : '',
-   archive?.sector ? `<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(archive.sector)}</li>` : '',
-   archive?.contract ? `<li><strong>${locale === 'it' ? 'Contratto' : locale === 'en' ? 'Contract' : locale === 'de' ? 'Vertrag' : 'Contrat'}:</strong> ${esc(archive.contract)}</li>` : '',
+   recordedIdentity && archive?.sector ? `<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(archive.sector)}</li>` : '',
+   recordedIdentity && archive?.contract ? `<li><strong>${locale === 'it' ? 'Contratto' : locale === 'en' ? 'Contract' : locale === 'de' ? 'Vertrag' : 'Contrat'}:</strong> ${esc(archive.contract)}</li>` : '',
    recordedIdentity && archive?.datePosted ? `<li><strong>${locale === 'it' ? 'Pubblicata' : locale === 'en' ? 'Posted' : locale === 'de' ? 'Veröffentlicht' : 'Publiée'}:</strong> ${esc(archive.datePosted.slice(0, 10))}</li>` : '',
    recordedIdentity && archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
   ].filter(Boolean).join('');
@@ -15202,7 +15215,7 @@ ${staticAnalyticsHtml}
    // Keep the location in the heading when known. For slug-only historical
    // records, the truthful translated qualifier prevents the fallback H1
    // from becoming byte-identical to the SERP title.
-   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location, recordedIdentity ? copy.headingQualifier : unknownCopy.title))}</h1>`,
+   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location, recordedIdentity ? copy.headingQualifier : ''))}</h1>`,
    `<p><strong>${esc(notice)}</strong></p>`,
    !recordedIdentity ? '' : descriptionHtml
     ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`
