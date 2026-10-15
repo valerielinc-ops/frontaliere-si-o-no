@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 641,
+  "crawlerCount": 642,
   "groups": {
     "10": [
       "atec-personal",
@@ -223,6 +223,7 @@
     ],
     "17": [
       "aldi-suisse",
+      "asile-des-aveugles",
       "badrutts-palace",
       "baronie",
       "barry-callebaut",
@@ -736,6 +737,7 @@
     "artisa-group": "data/jobs/by-crawler/artisa-group.json",
     "arxada": "data/jobs/by-crawler/arxada.json",
     "asana-spital": "data/jobs/by-crawler/asana-spital.json",
+    "asile-des-aveugles": "data/jobs/by-crawler/asile-des-aveugles.json",
     "atec-personal": "data/jobs/by-crawler/atec-personal.json",
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
     "avaloq": "data/jobs/by-crawler/avaloq.json",
@@ -1336,5 +1338,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:b8a006a680e05889abaee2d9ec0c31e0785cc2589dfc6be7064db82b9f620f81"
+  "digest": "sha256:c5de2924b49d554ba6f5d544c711471d0e5a7186f7a62c3dac03e5931176b8f0"
 }
