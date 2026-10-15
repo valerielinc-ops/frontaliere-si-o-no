@@ -66,6 +66,49 @@ describe('parseYoustyApprenticeshipHtml', () => {
 
     expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('');
   });
+
+  it('selects a later JobPosting that provides direct-application evidence', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify([
+      { '@type': 'JobPosting', directApply: false, url: 'https://www.yousty.ch/jobs/1' },
+      { '@type': 'JobPosting', directApply: true, url: 'https://www.yousty.ch/jobs/2' },
+    ])}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('extracts a direct-application JobPosting from an object-valued @graph', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': {
+        '@type': 'JobPosting',
+        directApply: true,
+        url: 'https://www.yousty.ch/jobs/2',
+      },
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('recognizes the schema.org JobPosting IRI', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'https://schema.org/JobPosting',
+      directApply: true,
+      url: 'https://www.yousty.ch/jobs/2',
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('parses JSON-LD scripts with legal whitespace around the type attribute assignment', () => {
+    const html = `<script type = application/ld+json>${JSON.stringify({
+      '@type': 'JobPosting',
+      directApply: true,
+      url: 'https://www.yousty.ch/jobs/2',
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
 });
 
 describe('inline markup stays inside its sentence', () => {

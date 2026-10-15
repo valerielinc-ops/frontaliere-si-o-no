@@ -86,30 +86,33 @@ function flattenJsonLd(value) {
   if (Array.isArray(value)) return value.flatMap(flattenJsonLd);
   if (!value || typeof value !== 'object') return [];
 
-  const graph = Array.isArray(value['@graph']) ? value['@graph'].flatMap(flattenJsonLd) : [];
+  const graph = value['@graph'] ? flattenJsonLd(value['@graph']) : [];
   return [value, ...graph];
 }
 
 function isJobPosting(value) {
   const types = Array.isArray(value?.['@type']) ? value['@type'] : [value?.['@type']];
-  return types.some((type) => String(type || '').toLowerCase() === 'jobposting');
+  return types.some((type) => {
+    const normalized = String(type || '').trim().toLowerCase();
+    return normalized === 'jobposting' || normalized === 'https://schema.org/jobposting';
+  });
 }
 
 function extractDirectApplyUrl(html) {
-  const scripts = [...String(html || '').matchAll(
-    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
-  )];
+  const document = new JSDOM(String(html || '')).window.document;
+  const scripts = [...document.querySelectorAll('script[type]')]
+    .filter((script) => normalizeSpace(script.getAttribute('type')).toLowerCase() === 'application/ld+json');
 
-  for (const match of scripts) {
+  for (const script of scripts) {
     let jsonLd;
     try {
-      jsonLd = JSON.parse(String(match[1] || '').trim());
+      jsonLd = JSON.parse(String(script.textContent || '').trim());
     } catch {
       continue;
     }
 
-    const posting = flattenJsonLd(jsonLd).find((entry) => isJobPosting(entry));
-    if (posting?.directApply !== true) continue;
+    const posting = flattenJsonLd(jsonLd).find((entry) => isJobPosting(entry) && entry.directApply === true);
+    if (!posting) continue;
 
     const applyUrl = String(posting.url || '').trim();
     if (applyUrl) return applyUrl;
