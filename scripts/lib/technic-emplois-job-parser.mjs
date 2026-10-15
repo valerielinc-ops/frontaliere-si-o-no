@@ -352,6 +352,15 @@ function buildTechnicJob(listing, detail) {
   };
 }
 
+function hasPublishableTechnicDetail(detail = {}, listing = {}) {
+  const title = normalizeSpace(detail.title || listing.title || '');
+  const description = stripHtml(detail.description || listing.description || '');
+  const geography = resolveDetailOrListingSwissGeography(detail, listing).geography;
+  return title.length >= 3
+    && meetsSourceBodyFloor(description)
+    && Boolean(geography);
+}
+
 /**
  * Fetch and parse the complete official-source vacancy snapshot.
  *
@@ -393,7 +402,7 @@ export async function fetchAllTechnicEmploisJobs({
         runtime: pageRuntime,
         accept: (html, url) => {
           const detail = extractRuntimeDetailFields(spec, html, url, { recordUrl: listing.url });
-          return Boolean(detail.title || detail.description || detail.locationCandidates?.length);
+          return hasPublishableTechnicDetail(detail, listing);
         },
       });
       const detail = extractRuntimeDetailFields(spec, page.body, page.url || listing.url, {

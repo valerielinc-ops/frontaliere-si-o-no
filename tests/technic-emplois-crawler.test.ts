@@ -107,4 +107,63 @@ describe('Technic Emplois crawler parser', () => {
     expect(jobs).toHaveProperty('fetchOutcome', 'ok');
     expect(isTechnicEmploisJob(jobs[0])).toBe(true);
   });
+
+  it('uses browser fallback when the raw detail is only a title', async () => {
+    const renderedDetail = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Soudeur / Tuyauteur',
+      url: DETAIL,
+      description: DESCRIPTION,
+      hiringOrganization: { '@type': 'Organization', name: 'Technic Emplois SA' },
+      jobLocation: { '@type': 'Place', address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Genève',
+        addressRegion: 'GE',
+        addressCountry: 'CH',
+        postalCode: '1200',
+      } },
+    })}</script>`;
+    const browserUrls: string[] = [];
+    const fetchImpl = async (url: string) => {
+      const body = url.endsWith('/robots.txt')
+        ? 'User-agent: *\nAllow: /'
+        : url === OFFICIAL
+          ? `<iframe src="${WIDGET}"></iframe>`
+          : url === WIDGET
+            ? `<a href="${DETAIL}">Soudeur / Tuyauteur</a>`
+            : '<h1>Soudeur / Tuyauteur</h1>';
+      return {
+        ok: true,
+        status: 200,
+        url,
+        headers: { get: () => null },
+        body: { cancel: () => {} },
+        text: async () => body,
+      } as any;
+    };
+
+    const jobs = await fetchAllTechnicEmploisJobs({
+      spec: SPEC,
+      runtime: {
+        fetchImpl,
+        browserFetchImpl: async (url: string) => {
+          browserUrls.push(url);
+          return renderedDetail;
+        },
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+      },
+    });
+
+    expect(browserUrls).toEqual([DETAIL]);
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toEqual(expect.objectContaining({
+      title: 'Soudeur / Tuyauteur',
+      canton: 'GE',
+      location: 'Genève, GE',
+      url: DETAIL,
+    }));
+    expect(jobs[0].description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+  });
 });
