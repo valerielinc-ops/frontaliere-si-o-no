@@ -13221,6 +13221,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fiera-lavoro-besano-valceresio.title': 'Foire du travail à Besano : avant le Valceresio',
     'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Vendredi 30 octobre 2026 la Foire du Travail à Besano De 9h à 14h dans la salle de gym de via Franzosi Organisent le Centre pour l\'Emploi de Varese et la Commune',
     'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Photo d\'un centre communautaire dans une petite ville italienne, avec un espace intérieur animé',
+    'blog.article.dimissioni-rapporto-ticino.title': 'Démission de frontalier : conditions et passages au Tessin',
+    'blog.article.dimissioni-rapporto-ticino.excerpt': 'Démission d\'un emploi au Tessin : conditions à contrôler, impact sur le permis G, impôts, prévoyance et chômage pour les frontaliers.',
+    'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Frontalier avec un contrat de travail suisse dans un paysage tessinois',
 };
 
 export default blogMetaFr;

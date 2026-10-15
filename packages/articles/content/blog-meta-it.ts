@@ -13220,6 +13220,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fiera-lavoro-besano-valceresio.title': 'Fiera del Lavoro a Besano: prima del Valceresio',
     'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Venerdì 30 ottobre 2026 la Fiera del Lavoro a Besano Dalle 9 alle 14 nella palestra di via Franzosi Organizzano il Centro per l\'Impiego di Varese e il Comune',
     'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Foto di un centro comunitario in un piccolo paese italiano con spazi interni affollati di persone e stand',
+    'blog.article.dimissioni-rapporto-ticino.title': 'Dimissioni da frontaliere: termini e passi in Ticino',
+    'blog.article.dimissioni-rapporto-ticino.excerpt': 'Dimissioni da un lavoro in Ticino: termini da controllare, impatto su permesso G, tasse, previdenza e disoccupazione per i frontalieri.',
+    'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Frontaliere con contratto di lavoro svizzero in un paesaggio del Ticino',
 };
 
 export default blogMetaIt;

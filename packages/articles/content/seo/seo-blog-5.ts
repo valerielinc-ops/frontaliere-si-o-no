@@ -108492,6 +108492,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dimissioni-rapporto-ticino': {
+    title: 'Dimissioni da frontaliere: termini e passi in Ticino',
+    description: 'Dimissioni da frontaliere in Ticino: termini, imposta alla fonte, permesso G, AVS, LPP, LAMal e differenze fiscali tra vecchi e nuovi frontalieri in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dimissioni, termini, passi, lavoro',
+    ogTitle: 'Frontaliere: dimissioni, termini e controlli pratici',
+    ogDescription: 'Dimissioni in Ticino: data di cessazione, regime fiscale, permesso G e previdenza. Per vecchi e nuovi frontalieri il Nuovo Accordo è in vigore dal 1° gennaio 2024; l\'imposta alla fonte è trattenuta in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/dimissioni-rapporto-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dimissioni da frontaliere: termini e passi in Ticino",
+      "description": "Dimissioni da frontaliere in Ticino: termini, imposta alla fonte, permesso G, AVS, LPP, LAMal e differenze fiscali tra vecchi e nuovi frontalieri in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontalieri-disoccupazione-criterio-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con contratto di lavoro svizzero in un paesaggio del Ticino"
+      },
+      "datePublished": "2026-10-15T11:39:57+00:00",
+      "dateModified": "2026-10-15T11:39:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dimissioni-rapporto-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

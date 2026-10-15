@@ -13219,6 +13219,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fiera-lavoro-besano-valceresio.title': 'Job Fair in Besano: Before Valceresio',
     'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Friday, October 30, 2026 the Job Fair in Besano From 9 to 14 in the gym on Via Franzosi Organized by the Employment Center of Varese and the Municipality',
     'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Photo of a community center in a small Italian town, with a busy indoor event space',
+    'blog.article.dimissioni-rapporto-ticino.title': 'Resignation from cross-border commuters: terms and steps in Ticino',
+    'blog.article.dimissioni-rapporto-ticino.excerpt': 'Resignation from a job in Ticino: terms to be checked, impact on G permit, taxes, pension and unemployment for border workers.',
+    'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Cross-border worker with a Swiss employment contract in a Ticino landscape',
 };
 
 export default blogMetaEn;

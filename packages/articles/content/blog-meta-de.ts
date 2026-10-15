@@ -13218,6 +13218,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fiera-lavoro-besano-valceresio.title': 'Jobmesse in Besano: im Vorfeld des Valceresio',
     'blog.article.fiera-lavoro-besano-valceresio.excerpt': 'Freitag, 30. (Besano, Varese)',
     'blog.article.fiera-lavoro-besano-valceresio.imageAlt': 'Foto eines Gemeindezentrums in einer kleinen italienischen Stadt mit einem belebten Innenbereich',
+    'blog.article.dimissioni-rapporto-ticino.title': 'Rücktritt als Grenzgänger: Fristen und Schritte im Tessin',
+    'blog.article.dimissioni-rapporto-ticino.excerpt': 'Rücktritt von einem Job im Tessin: zu kontrollierende Fristen, Auswirkungen auf die Bewilligung G, Steuern, Vorsorge und Arbeitslosigkeit für Grenzgänger.',
+    'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Grenzgänger mit Schweizer Arbeitsvertrag in einer Landschaft des Tessins',
 };
 
 export default blogMetaDe;

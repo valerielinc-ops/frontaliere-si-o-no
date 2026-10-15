@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5486
+      "6": 5487
     },
-    "publishedCovers": 7067,
+    "publishedCovers": 7068,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5291
+    "inferredRecords": 5292
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -186050,6 +186050,33 @@
           "date": "2026-10-13T10:44:34.922Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-frontalieri-disoccupazione-criterio-lavoro": {
+      "cover": "/images/blog/article-frontalieri-disoccupazione-criterio-lavoro.webp",
+      "hash": "b41e31a0476af357126a0273eda238bc96c3638129455aa96a7bb28871da5572",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "dimissioni-rapporto-ticino",
+          "category": "pratico",
+          "date": "2026-10-15T11:39:57.038Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,
