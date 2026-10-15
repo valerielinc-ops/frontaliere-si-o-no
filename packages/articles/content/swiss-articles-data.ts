@@ -27862,6 +27862,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'rotte-greggio-kurdistan-lugano',
+    category: 'novita',
+    date: '2026-10-15T05:08:36.599Z',
+    image: '/images/blog/article-rotte-greggio-kurdistan-lugano.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['TI'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

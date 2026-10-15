@@ -8333,6 +8333,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regole-orari-negozi-lucerna.title': 'Store hours in the Canton of Lucerne: guide to Sundays and public holidays',
     'blog.article.regole-orari-negozi-lucerna.excerpt': 'Cantonal rules, Sunday openings, public holidays and exceptions in the Canton of Lucerne: here’s how to navigate them when shopping or planning business activities.',
     'blog.article.regole-orari-negozi-lucerna.imageAlt': 'Shops in a street in Lucerne during the day',
+    'blog.article.rotte-greggio-kurdistan-lugano.title': 'Oil: from Kurdistan to Israel via Lugano',
+    'blog.article.rotte-greggio-kurdistan-lugano.excerpt': 'Fifth journey through Ticino’s raw-materials world: from Kurdistan to Israel, via Lugano, tracing the crude oil trade and Via Nassa in the story.',
+    'blog.article.rotte-greggio-kurdistan-lugano.imageAlt': 'Lugano and Via Nassa in a story about crude oil trade routes',
 };
 
 export default blogMetaChEn;

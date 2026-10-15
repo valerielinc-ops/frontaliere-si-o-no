@@ -8333,6 +8333,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.regole-orari-negozi-lucerna.title': 'Ladenöffnungszeiten Luzern: Guide für Sonn- & Feiertage',
     'blog.article.regole-orari-negozi-lucerna.excerpt': 'Kantonale Vorschriften, Sonntagsöffnungen, Feiertage und Ausnahmen im Kanton Luzern: So können Sie sich beim Einkaufen oder bei der Planung der Geschäftstätigkeit orientieren.',
     'blog.article.regole-orari-negozi-lucerna.imageAlt': 'Geschäfte in einer Straße in Luzern am Tag',
+    'blog.article.rotte-greggio-kurdistan-lugano.title': 'Erdöl: von Kurdistan über Lugano nach Israel',
+    'blog.article.rotte-greggio-kurdistan-lugano.excerpt': 'Fünfte Reise durch das Tessin der Rohstoffe: von Kurdistan über Lugano nach Israel, auf den Spuren des Rohölhandels und der Via Nassa im Bericht.',
+    'blog.article.rotte-greggio-kurdistan-lugano.imageAlt': 'Lugano und die Via Nassa im Bericht über Wege des Rohölhandels',
 };
 
 export default blogMetaChDe;

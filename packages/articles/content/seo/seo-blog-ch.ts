@@ -105207,6 +105207,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rotte-greggio-kurdistan-lugano': {
+    title: 'Petrolio: dal Kurdistan a Israele passando per Lugano',
+    description: 'Quinto viaggio nel Ticino delle materie prime: dal Kurdistan a Israele, passando per Lugano, sulle tracce del commercio di greggio e via Nassa nel racconto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, petrolio, kurdistan, israele, passando',
+    ogTitle: 'Kurdistan, Lugano e Israele: il commercio di greggio',
+    ogDescription: 'Il quinto viaggio nel Ticino delle materie prime segue una rotta narrativa dal Kurdistan a Israele, passando per Lugano. Il commercio di greggio è al centro del percorso, mentre il titolo richiama le tortuose strade del petrolio e via Nassa.',
+    canonicalPath: '/articoli-svizzera/rotte-greggio-kurdistan-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petrolio: dal Kurdistan a Israele passando per Lugano",
+      "description": "Quinto viaggio nel Ticino delle materie prime: dal Kurdistan a Israele, passando per Lugano, sulle tracce del commercio di greggio e via Nassa nel racconto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rotte-greggio-kurdistan-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano e via Nassa nel racconto delle rotte del commercio di greggio"
+      },
+      "datePublished": "2026-10-15T05:08:36+00:00",
+      "dateModified": "2026-10-15T05:08:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rotte-greggio-kurdistan-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

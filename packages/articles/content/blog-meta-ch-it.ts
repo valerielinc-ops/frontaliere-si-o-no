@@ -8333,6 +8333,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regole-orari-negozi-lucerna.title': 'Orari negozi Cantone Lucerna: guida a domeniche e festivi',
     'blog.article.regole-orari-negozi-lucerna.excerpt': 'Regole cantonali, aperture domenicali, festivi ed eccezioni nel Cantone di Lucerna: ecco come orientarsi per fare acquisti o pianificare l\'attività commerciale.',
     'blog.article.regole-orari-negozi-lucerna.imageAlt': 'Negozi in una via di Lucerna durante il giorno',
+    'blog.article.rotte-greggio-kurdistan-lugano.title': 'Petrolio: dal Kurdistan a Israele passando per Lugano',
+    'blog.article.rotte-greggio-kurdistan-lugano.excerpt': 'Quinto viaggio nel Ticino delle materie prime: dal Kurdistan a Israele, passando per Lugano, sulle tracce del commercio di greggio e via Nassa nel racconto.',
+    'blog.article.rotte-greggio-kurdistan-lugano.imageAlt': 'Lugano e via Nassa nel racconto delle rotte del commercio di greggio',
 };
 
 export default blogMetaChIt;

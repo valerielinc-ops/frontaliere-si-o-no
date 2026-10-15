@@ -2800,6 +2800,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'licenza-pubblico-berna-requisiti': { it: 'licenza-pubblico-berna-requisiti', en: 'public-license-bern-requirements', de: 'gastgewerbe-lizenz-bern-voraussetzungen', fr: 'licence-exercice-public-berne-exigences' },
  'integrazione-lingua-berna-contributi': { it: 'integrazione-lingua-berna-contributi', en: 'language-courses-in-bern-integration-subsidies-and-requirements', de: 'sprachkurse-bern-integration-beitrage-und-voraussetzungen', fr: 'cours-de-langue-berne-integration-cotisations-et-exigences' },
  'regole-orari-negozi-lucerna': { it: 'regole-orari-negozi-lucerna', en: 'lucerne-shop-opening-hours-guide', de: 'ladenoffnungszeiten-luzern-regeln', fr: 'heures-ouverture-magasins-lucerne' },
+ 'rotte-greggio-kurdistan-lugano': { it: 'rotte-greggio-kurdistan-lugano', en: 'oil-routes-kurdistan-lugano', de: 'rohoelhandel-kurdistan-lugano', fr: 'routes-petrole-kurdistan-lugano' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
