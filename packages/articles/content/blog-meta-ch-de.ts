@@ -8330,6 +8330,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.integrazione-lingua-berna-contributi.title': 'Sprachkurse Bern: Integration, Beiträge und Voraussetzungen',
     'blog.article.integrazione-lingua-berna-contributi.excerpt': 'Im Kanton Bern hängen Integrationsprogramme und Beiträge zur Weiterbildung von der kantonalen, kommunalen oder institutionellen Ebene ab; Voraussetzungen, Fristen und Beträge müssen anhand der offiziellen Quelle überprüft werden.',
     'blog.article.integrazione-lingua-berna-contributi.imageAlt': 'Erwachsene/r in einem Sprachkurs in Bern mit Büchern und Schweizer Flagge',
+    'blog.article.regole-orari-negozi-lucerna.title': 'Ladenöffnungszeiten Luzern: Guide für Sonn- & Feiertage',
+    'blog.article.regole-orari-negozi-lucerna.excerpt': 'Kantonale Vorschriften, Sonntagsöffnungen, Feiertage und Ausnahmen im Kanton Luzern: So können Sie sich beim Einkaufen oder bei der Planung der Geschäftstätigkeit orientieren.',
+    'blog.article.regole-orari-negozi-lucerna.imageAlt': 'Geschäfte in einer Straße in Luzern am Tag',
 };
 
 export default blogMetaChDe;

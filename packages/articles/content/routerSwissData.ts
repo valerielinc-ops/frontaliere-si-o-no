@@ -2799,6 +2799,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'collaudo-veicoli-berna-procedura': { it: 'collaudo-veicoli-berna-procedura', en: 'berns-vehicle-inspection-procedure', de: 'bern-fahrzeugpruefung-verfahren', fr: 'controle-vehicules-berne-procedure' },
  'licenza-pubblico-berna-requisiti': { it: 'licenza-pubblico-berna-requisiti', en: 'public-license-bern-requirements', de: 'gastgewerbe-lizenz-bern-voraussetzungen', fr: 'licence-exercice-public-berne-exigences' },
  'integrazione-lingua-berna-contributi': { it: 'integrazione-lingua-berna-contributi', en: 'language-courses-in-bern-integration-subsidies-and-requirements', de: 'sprachkurse-bern-integration-beitrage-und-voraussetzungen', fr: 'cours-de-langue-berne-integration-cotisations-et-exigences' },
+ 'regole-orari-negozi-lucerna': { it: 'regole-orari-negozi-lucerna', en: 'lucerne-shop-opening-hours-guide', de: 'ladenoffnungszeiten-luzern-regeln', fr: 'heures-ouverture-magasins-lucerne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

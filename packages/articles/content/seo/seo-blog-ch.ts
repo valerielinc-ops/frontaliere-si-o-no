@@ -105168,6 +105168,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regole-orari-negozi-lucerna': {
+    title: 'Orari negozi Cantone Lucerna: guida a domeniche e festivi',
+    description: 'Scopri come funzionano gli orari dei negozi nel Cantone di Lucerna: regole, aperture domenicali, festivi ed eccezioni per residenti ed esercenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, negozi, cantone, lucerna',
+    ogTitle: 'Orari negozi Lucerna: guida a domeniche e festivi',
+    ogDescription: 'Una guida pratica per orientarsi tra le regole cantonali, le aperture domenicali e le eccezioni previste per i negozi nel Cantone di Lucerna. Informazioni utili per clienti e commercianti.',
+    canonicalPath: '/articoli-svizzera/regole-orari-negozi-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orari negozi Cantone Lucerna: guida a domeniche e festivi",
+      "description": "Scopri come funzionano gli orari dei negozi nel Cantone di Lucerna: regole, aperture domenicali, festivi ed eccezioni per residenti ed esercenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-negozi-berna-orari-festivi-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozi in una via di Lucerna durante il giorno"
+      },
+      "datePublished": "2026-10-15T04:50:01+00:00",
+      "dateModified": "2026-10-15T04:50:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regole-orari-negozi-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

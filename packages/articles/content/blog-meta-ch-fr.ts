@@ -8330,6 +8330,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.integrazione-lingua-berna-contributi.title': 'Cours de langue Berne : intégration, cotisations et exigences',
     'blog.article.integrazione-lingua-berna-contributi.excerpt': 'Dans le canton de Berne, les programmes d\'intégration et les contributions à la formation continue dépendent du niveau cantonal, communal ou institutionnel ; les exigences, les délais et les montants doivent être vérifiés auprès de la source officielle.',
     'blog.article.integrazione-lingua-berna-contributi.imageAlt': 'Étudiant adulte en cours de langue à Berne avec livres et drapeau suisse',
+    'blog.article.regole-orari-negozi-lucerna.title': 'Horaires magasins Canton Lucerne : guide les dimanches et jours fériés',
+    'blog.article.regole-orari-negozi-lucerna.excerpt': 'Règles cantonales, ouvertures le dimanche, jours fériés et exceptions dans le canton de Lucerne : voici comment vous orienter pour faire des achats ou planifier votre activité commerciale.',
+    'blog.article.regole-orari-negozi-lucerna.imageAlt': 'Magasins dans une rue de Lucerne pendant la journée',
 };
 
 export default blogMetaChFr;

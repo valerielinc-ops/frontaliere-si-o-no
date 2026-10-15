@@ -8330,6 +8330,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.integrazione-lingua-berna-contributi.title': 'Language courses in Bern: integration, subsidies and requirements',
     'blog.article.integrazione-lingua-berna-contributi.excerpt': 'In the Canton of Bern, integration programs and continuing education contributions depend on the cantonal, municipal or institutional level; requirements, deadlines and amounts must be verified using the official source.',
     'blog.article.integrazione-lingua-berna-contributi.imageAlt': 'Adult student in a language course in Bern with books and Swiss flag',
+    'blog.article.regole-orari-negozi-lucerna.title': 'Store hours in the Canton of Lucerne: guide to Sundays and public holidays',
+    'blog.article.regole-orari-negozi-lucerna.excerpt': 'Cantonal rules, Sunday openings, public holidays and exceptions in the Canton of Lucerne: here’s how to navigate them when shopping or planning business activities.',
+    'blog.article.regole-orari-negozi-lucerna.imageAlt': 'Shops in a street in Lucerne during the day',
 };
 
 export default blogMetaChEn;
