@@ -102,6 +102,8 @@ describe('central job-board detail URLs', () => {
       '<meta name="description" content="Short careers summary."></head><body>',
       '<h1>Careers</h1><h1 class="title">Electronics Engineer (all genders) - On-Site Presence</h1>',
       '<div class="description"><h2>Job description</h2>',
+      '<div>first text with more than twenty characters</div>',
+      '<div>second text with more than twenty characters</div>',
       '<p>Develop innovative electronic timing technologies and wearable sensors used at international sports events.</p>',
       '<ul><li>Design reliable timing devices.</li><li>Support validation and industrialization.</li></ul></div>',
       '<div class="profile"><h2>Profile</h2><ul><li>Solution-oriented engineer with strong collaboration skills.</li></ul></div>',
@@ -120,6 +122,8 @@ describe('central job-board detail URLs', () => {
 
     expect(result.reason).toBeNull();
     expect(result.job?.description.length).toBeGreaterThan(220);
+    expect(result.job?.description).toContain('first text with more than twenty characters');
+    expect(result.job?.description).toContain('second text with more than twenty characters');
     expect(result.job?.description).toContain('Professional requirements');
     expect(result.job).toMatchObject({ canton: 'BE' });
   });

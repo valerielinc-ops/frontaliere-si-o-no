@@ -25,6 +25,7 @@ import path from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readAllAttr, readAttr, readMetaContent } from './html-attr.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
 import { getFirestoreDb } from './firestore-admin.mjs';
@@ -2085,12 +2086,12 @@ function extractWorkdayApplyUrl(html, baseUrl) {
 function extractSwissTimingJobDescription(html = '') {
   const blocks = [];
   for (const className of ['description', 'profile', 'requirements', 'language_requirements']) {
-    const match = String(html).match(new RegExp(
-      `<div(?=[\\s/>])[^>]*class=["'][^"']*\\b${className}\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/div>`,
-      'i',
-    ));
-    if (!match) continue;
-    const text = htmlToStructuredText(match[1]);
+    const inner = readClosedElement(
+      String(html),
+      `class=["'][^"']*\\b${className}\\b[^"']*["']`,
+    );
+    if (!inner) continue;
+    const text = htmlToStructuredText(inner);
     if (text.length >= 20) blocks.push(text);
   }
   return cleanDescription(blocks.join('\n\n'));
