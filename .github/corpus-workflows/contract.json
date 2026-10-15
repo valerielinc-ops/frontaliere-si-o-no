@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "a536de13ae6db7f631237fa60600f70cbcb2795e",
+  "sourceCommit": "805c8a85c6fd342df44e5e1527072a136b231c37",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "a536de13ae6db7f631237fa60600f70cbcb2795e"
+    "sourceCommit": "805c8a85c6fd342df44e5e1527072a136b231c37"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 638,
+  "crawlerCount": 639,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:8aa843f2af9ec9eb301cc2bb541a57db64f8662f7fed182f6732872fa63cf7bf",
+    "rosterDigest": "sha256:ea9cd31d9fed5945ee59ce3eeab99b4484fc5d62ab66f99bb8961907ff7a1a51",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -540,6 +540,7 @@
     "scripts/update-swisslog-jobs.mjs",
     "scripts/update-swissquote-jobs.mjs",
     "scripts/update-sygnum-jobs.mjs",
+    "scripts/update-sympajobs-reinach-bl-jobs.mjs",
     "scripts/update-szb-chb-jobs.mjs",
     "scripts/update-talan-jobs.mjs",
     "scripts/update-tally-weijl-jobs.mjs",
@@ -975,8 +976,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "34ce4e0997d36d6fb3a7464ec4b9e6ed22198c7c56c9fb2d842ec919ca6d8065",
-      "artifactSha256": "04a4cfcf2b4ee84d60dd06e8c168dd173ea83793924ce94c93ad01aea4786581",
+      "sourceSha256": "532a4fa09062e276985bfe07ff68fff94c9595c7f5e97dc9463b1212b2badaa1",
+      "artifactSha256": "db16a19918393adb67ef312be1b68b9d4e25060ffec4b07bc02d7370e51efc2f",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "jumbo",
@@ -1006,7 +1007,8 @@
         "stellentreff",
         "atec-personal",
         "debiopharm",
-        "fondation-domus"
+        "fondation-domus",
+        "sympajobs-reinach-bl"
       ]
     },
     {
