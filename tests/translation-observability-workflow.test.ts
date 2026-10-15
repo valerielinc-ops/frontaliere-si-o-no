@@ -122,9 +122,11 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toContain('if (translatedVerdict.untranslated)');
     expect(descriptionFixScript).toContain('BY_CRAWLER_DIR');
     expect(descriptionFixScript).toContain('writeJson(slicePath, sliceData)');
-    expect(descriptionFixScript).toContain("import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';");
-    expect(descriptionFixScript).toContain('const normalizedSourceDesc = normalizeForLengthComparison(sourceDesc).toLowerCase();');
-    expect(descriptionFixScript).toContain('if (normalizeForLengthComparison(existing).toLowerCase() !== normalizedSourceDesc) continue;');
+    expect(descriptionFixScript).toContain('isDescriptionSourceCopy,');
+    expect(descriptionFixScript).toContain('sourceLocaleTextCandidates(job, \'description\')');
+    expect(descriptionFixScript).toContain('sourceLocaleTextForTranslation(job, \'description\', 120)');
+    expect(descriptionFixScript).toContain('if (!sourceDescriptions.some((source) =>');
+    expect(descriptionFixScript).toContain('source.length >= 120 && isDescriptionSourceCopy(existing, source)');
     expect(descriptionFixScript).not.toContain('if (existing.toLowerCase() !== sourceDesc.toLowerCase()) continue;');
     expect(descriptionFixScript).toContain('if (isNewLanguage && isAcceptable && translated.length >= 120)');
 
