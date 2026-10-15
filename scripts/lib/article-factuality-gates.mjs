@@ -1256,10 +1256,11 @@ const POLITICAL_AFFILIATION_ACRONYMS = new Set([
   'PLR', 'PSS', 'PS', 'UDC', 'PDC', 'PPD', 'PVL', 'PEV', 'UDF', 'PBD', 'PCS', 'MCG', 'MPS',
   'FDP', 'SP', 'SVP', 'CVP', 'GLP', 'EVP', 'EDU', 'BDP', 'LDP',
 ]);
-// A person suffix must follow a lowercase lexical word (or an appositive
-// comma), not an arbitrary whitespace boundary. Otherwise title-cased tails
-// such as `Dipartimento Politiche Sociali` look like a person's name.
-const PERSON_NAME_SUFFIX_RE = /(?:(?<!\p{L})([\p{Ll}][\p{Ll}'’.-]*)|,)\s+(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){1,2}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
+// A person suffix must follow either an appositive comma or at least two
+// lowercase lexical words, not a single institutional modifier. Otherwise
+// `Dipartimento cantonale Politiche Sociali` looks like a person's name just
+// because `cantonale` happens to be lowercase.
+const PERSON_NAME_SUFFIX_RE = /(?:(?<!\p{L})(?:[\p{Ll}][\p{Ll}'’.-]*\s+)+([\p{Ll}][\p{Ll}'’.-]*)|,)\s+(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){1,2}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
 const PERSON_NAME_BOUNDARY_STOPWORDS = new Set([
   'a', 'ad', 'al', 'alla', 'alle', 'agli', 'ai', 'da', 'dal', 'dalla', 'dalle', 'dagli',
   'dei', 'del', 'dell', 'della', 'delle', 'di', 'e', 'fra', 'in', 'nel', 'nei', 'nella',

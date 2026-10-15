@@ -599,11 +599,16 @@ describe('checkFabricatedInstitutionAcronyms', () => {
   });
 
   it('keeps a title-cased institution tail as an institution candidate', () => {
-    const issues = checkFabricatedInstitutionAcronyms(
-      'Il direttore del Dipartimento Politiche Sociali (PLR).',
-    );
+    for (const [text, acronym, name] of [
+      ['Il direttore del Dipartimento Politiche Sociali (PLR).', 'PLR', 'Dipartimento Politiche Sociali'],
+      ['Il direttore del Dipartimento cantonale Politiche Sociali (MPS).', 'MPS', 'Dipartimento cantonale Politiche Sociali'],
+    ] as const) {
+      const issues = checkFabricatedInstitutionAcronyms(text);
 
-    expect(codes(issues)).toEqual(['unknown-institution']);
+      expect(codes(issues)).toEqual(['unknown-institution']);
+      expect(collectInstitutionAcronyms(text, { sourceText: '' }))
+        .toEqual([{ acronym, name, support: 'unknown' }]);
+    }
   });
 
   it('keeps denylisted political acronyms blocking', () => {
