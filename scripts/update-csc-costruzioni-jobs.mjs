@@ -79,7 +79,7 @@ const CSC_COMPANY_NAME = 'CSC Costruzioni SA';
 const CSC_HOST = 'csc-sa.ch';
 const CSC_CAREERS_URL = 'https://csc-sa.ch/lavoro-carriera-edilizia';
 const CSC_NCORE_HOST = 'app.ncoreplat.com';
-const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa';
+const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa/';
 // NCore serves a short SPA shell to crawler-identifying UAs but the complete
 // server-rendered board/detail markup to a normal browser UA (same platform
 // contract used by the existing Sintetica adapter).
@@ -145,7 +145,7 @@ function canonicalCscNcoreBoardUrl(value) {
     return null;
   }
   if (pathname.toLowerCase() !== '/jobboard/filters/4321/csc-costruzioni-sa') return null;
-  url.pathname = pathname;
+  url.pathname = `${pathname}/`;
   return url.href;
 }
 
@@ -173,7 +173,7 @@ function canonicalCscNcoreDetailUrl(value) {
     return null;
   }
   if (!/^\/jobposition\/[1-9]\d*\/[^/]+\/csc-costruzioni-sa\/?$/i.test(pathname)) return null;
-  url.pathname = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  url.pathname = `${pathname.replace(/\/+$/, '')}/`;
   return url.href;
 }
 

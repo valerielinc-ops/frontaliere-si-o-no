@@ -26,8 +26,8 @@ const fixture = JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'csc-careers-pages.json'), 'utf8'),
 ) as CscFixture;
 const careersUrl = 'https://csc-sa.ch/lavoro-carriera-edilizia';
-const ncoreBoardUrl = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa';
-const ncoreDetailUrl = 'https://app.ncoreplat.com/jobposition/811972/business-developer-ch/csc-costruzioni-sa';
+const ncoreBoardUrl = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa/';
+const ncoreDetailUrl = 'https://app.ncoreplat.com/jobposition/811972/business-developer-ch/csc-costruzioni-sa/';
 const ncoreMigratedCareersPage = `<!doctype html><html><body><h1>Le nostre offerte di lavoro</h1><a href="${ncoreBoardUrl}">HERE</a></body></html>`;
 const ncoreListingPage = `<!doctype html><html><body><div class="singlePosition"><h3>Business Developer - CH</h3><h4>Canton Ticino</h4><p>Posizione commerciale presso CSC Costruzioni SA.</p><a href="${ncoreDetailUrl}" class="btn">Candidati Ora</a></div></body></html>`;
 const ncoreDetailPage = `<!doctype html><html><head><title>Business Developer - CH | CSC Costruzioni SA</title></head><body><div class="singlePosition"><h1>Business Developer - CH</h1><h4>Sede di lavoro: Lugano (CH)</h4><div class="pTesto"><p>CSC Costruzioni SA, parte del gruppo internazionale WeBuild, è un’impresa con sede a Lugano attiva da oltre 60 anni nella realizzazione di opere complesse e sostenibili.</p><p>Il ruolo sostiene lo sviluppo commerciale nel Canton Ticino, le relazioni con clienti e partner, il monitoraggio del mercato e il supporto alle gare.</p><p>Si richiedono esperienza nel settore costruzioni, italiano fluente e conoscenza delle leggi svizzere sugli appalti pubblici.</p></div></div></body></html>`;
@@ -69,7 +69,7 @@ function fixtureFetch(overrides: Record<string, ReturnType<typeof htmlResponse>>
 }
 
 describe('CSC authoritative Drupal discovery', () => {
-  it('recognises only the three CSC detail route families', () => {
+  it('recognises only the CSC detail route families', () => {
     for (const detail of fixture.details) expect(canonicalCscDetailUrl(detail.url)).toBe(detail.url);
     expect(canonicalCscDetailUrl(ncoreDetailUrl)).toBe(ncoreDetailUrl);
     expect(canonicalCscDetailUrl(careersUrl)).toBeNull();
