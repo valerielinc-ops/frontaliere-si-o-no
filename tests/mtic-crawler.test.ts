@@ -14,7 +14,7 @@ describe('MTIC listing URL boundary', () => {
       </section>`;
 
     expect(parseMticListingPage(html).map((item) => item.detailUrl)).toEqual([
-      'https://www.mtic-group.org/it/opportunita-di-lavoro/open-position-quality-assurance-manager',
+      'https://www.mtic-group.org/it/opportunita-di-lavoro/open-position-quality-assurance-manager/',
       'https://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-a/',
     ]);
   });
