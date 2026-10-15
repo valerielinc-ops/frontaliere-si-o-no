@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fc3004cb6bce3ab11f1f480b774cb7977206f0c9",
+  "sourceCommit": "555888908dc307eb4b43adb938f7138e86edd2f3",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "fc3004cb6bce3ab11f1f480b774cb7977206f0c9"
+    "sourceCommit": "555888908dc307eb4b43adb938f7138e86edd2f3"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 640,
+  "crawlerCount": 641,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:0f28a93cb77c8ec2c1aea1173e9db764a520e03d537ef757da0b1036f33711fc",
+    "rosterDigest": "sha256:6c72b64477942dab4e6df190924efcac2eb785816a5619163f1b5ab74a0dcc57",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -106,6 +106,7 @@
     "scripts/update-artificialy-jobs.mjs",
     "scripts/update-arxada-jobs.mjs",
     "scripts/update-asana-spital-jobs.mjs",
+    "scripts/update-asile-des-aveugles-jobs.mjs",
     "scripts/update-atec-personal-jobs.mjs",
     "scripts/update-audemars-piguet-jobs.mjs",
     "scripts/update-axa-jobs.mjs",
@@ -1244,8 +1245,8 @@
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "eefc658ea6de6d477913bebc14733a3575c9755297fa992df365b9eba220334b",
-      "artifactSha256": "8be6bb59526c4768c5ade01223091c088a250f2674384f499561eabe29980c4b",
+      "sourceSha256": "06dc6a328cbbd08c3ca517ecd3d40f6ca82c8bbec59b80a89d6e195210c37e1e",
+      "artifactSha256": "3ea699757fc58aef2c28c3b0f1f8a181097f55d95b2306f6d191f97162346cf7",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1276,6 +1277,7 @@
         "board",
         "aldi-suisse",
         "badrutts-palace",
+        "asile-des-aveugles",
         "technic-emplois"
       ]
     },
