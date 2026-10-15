@@ -22,7 +22,11 @@ import {
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
-import { replaceActiveJobPostingDates } from '../../build-plugins/jobsSeoPagesPlugin';
+import {
+  hasActiveJobPostingJsonLd,
+  replaceActiveJobPostingDates,
+  shouldInvalidateActiveJobReuseForSafeDefault,
+} from '../../build-plugins/jobsSeoPagesPlugin';
 
 const FINGERPRINT_ENV_KEYS = [
   'STRIP_ACTIVE_JOB_PROSE',
@@ -154,6 +158,20 @@ describe('jobs SEO disk HTML reuse', () => {
 
   it('forces a fresh render when a previously unknown job gains a reported date', () => {
     expect(() => replaceActiveJobPostingDates('', '2026-01-01', '2026-12-31')).toThrow();
+  });
+
+  it('invalidates a safe-default cache entry that has no JobPosting JSON-LD', () => {
+    const missing = '<!-- jobs-seo-reuse:job-posting:start -->'
+      + '<!-- jobs-seo-reuse:job-posting:end -->';
+    const jobPosting = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"1970-01-01"}'
+      + '</script>';
+
+    expect(hasActiveJobPostingJsonLd(missing)).toBe(false);
+    expect(hasActiveJobPostingJsonLd(jobPosting)).toBe(true);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'safe-default')).toBe(true);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(jobPosting, 'safe-default')).toBe(false);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'reported')).toBe(false);
   });
 
   it('accepts a cached JobPosting whose dates are already current', () => {
