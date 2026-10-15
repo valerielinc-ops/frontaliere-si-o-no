@@ -30,7 +30,7 @@ import { fileURLToPath } from 'node:url';
 import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/free-translate.mjs';
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
-import { isAcceptableTranslation, MIN_TRANSLATION_CHARS } from './lib/translation-quality.mjs';
+import { MIN_TRANSLATION_CHARS, translationRejectionReason } from './lib/translation-quality.mjs';
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -77,6 +77,8 @@ async function main() {
   }
   let totalFixed = 0;
   let totalFailed = 0;
+  /** @type {Record<string, number>} refusals by the rule that refused them */
+  const refusals = {};
   let slicesChanged = 0;
   let charsTranslated = 0;
   const budgetOk = () => (Date.now() - RUN_START_MS) < DESCRIPTION_FIX_DEADLINE_MS;
@@ -139,7 +141,8 @@ async function main() {
 
         const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
         // Single source of truth: same gate the sibling writers use.
-        const isAcceptable = isAcceptableTranslation(sourceDesc, translated);
+        const rejection = translationRejectionReason(sourceDesc, translated);
+        const isAcceptable = rejection === null;
 
         if (isNewLanguage && isAcceptable && translated.length >= 120) {
           if (!DRY_RUN) {
@@ -154,16 +157,17 @@ async function main() {
             console.log(`   ... ${totalFixed} done, ${(charsTranslated / 1000).toFixed(0)}K chars`);
           }
         } else {
-          // Diagnostic: distinguish a clipped/truncated translation (passes the
-          // char floor but fails the source-length ratio) from other failures.
-          const clipped =
+          // Diagnostic: a translation that passes the char floor but that the
+          // quality gate refuses, with the rule that refused it.
+          const refused =
             isNewLanguage &&
             translated &&
             translated.length >= MIN_TRANSLATION_CHARS &&
             !isAcceptable;
-          if (clipped) {
+          if (refused) {
             const pct = ((translated.length / sourceDesc.length) * 100).toFixed(0);
-            console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: truncated translation (${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
+            refusals[rejection] = (refusals[rejection] || 0) + 1;
+            console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: translation refused (${rejection}; ${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
           }
           totalFailed++;
         }
@@ -187,6 +191,8 @@ async function main() {
   }
 
   console.log(`\n📊 Description fix complete: ${totalFixed} translated, ${totalFailed} failed`);
+  const refusalSummary = Object.entries(refusals).sort((a, b) => b[1] - a[1]).map(([rule, count]) => `${rule} ${count}`).join(', ');
+  if (refusalSummary) console.log(`   refused by the quality gate: ${refusalSummary}`);
   console.log(`   ${slicesChanged} slices modified, ${(charsTranslated / 1000).toFixed(0)}K chars translated`);
   logCascadeSummary();
 }

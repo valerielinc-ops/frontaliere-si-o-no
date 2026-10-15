@@ -217,30 +217,46 @@ export function isStructureFlattenedCopy(source, candidate) {
 }
 
 /**
+ * Why a candidate translation may not be persisted, or null when it may.
+ * One predicate with a name for each refusal, so a writer that logs a refusal
+ * can say which rule refused it: phase 2e logged every refusal as «truncated
+ * translation (N% of source)», and on run 38609788214 (2026-10-14) 438
+ * descriptions were refused at 87–119% of the source length — none of them
+ * by the length ratio, which is the only rule the label named.
+ *
+ * @param {string} source - original (source-language) text being translated
+ * @param {string} translated - candidate translation to validate
+ * @returns {null | 'not-text' | 'too-short' | 'mojibake' | 'model-meta' | 'degenerate-repetition' | 'below-source-ratio' | 'lost-list-items'}
+ */
+export function translationRejectionReason(source, translated) {
+  if (typeof translated !== 'string') return 'not-text';
+  const candidate = translated.trim();
+  if (candidate.length < MIN_TRANSLATION_CHARS) return 'too-short';
+  // A provider result with double-encoded UTF-8 is not publishable content.
+  // Reject it here so the cascade can try another provider, and so an old
+  // cache hit is re-queued by translation-incomplete.mjs below.
+  if (hasMojibake(candidate)) return 'mojibake';
+  // A model answer carrying its reasoning or echoing the prompt is not a
+  // translation, however long (see ai-output-fidelity.mjs). This predicate also
+  // judges localize-job-v2 cache hits, so a stored leak is busted on read.
+  // Nor is a refusal or a request for the input («I need to see the text…»).
+  if (isModelMetaAnswer(candidate, typeof source === 'string' ? source : '')) return 'model-meta';
+  // Nor is a candidate that loops («Risk-Lights-Lights-Lights-…») or collapses
+  // onto a handful of words compared with its source.
+  if (detectDegenerateRepetition(candidate, { references: [typeof source === 'string' ? source : ''] })) return 'degenerate-repetition';
+  const srcLen = (typeof source === 'string' ? source.trim() : '').length;
+  if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return 'below-source-ratio';
+  if (!hasStructureParity(source, candidate)) return 'lost-list-items';
+  return null;
+}
+
+/**
  * @param {string} source - original (source-language) text being translated
  * @param {string} translated - candidate translation to validate
  * @returns {boolean} true if the candidate is acceptable to persist
  */
 export function isAcceptableTranslation(source, translated) {
-  if (typeof translated !== 'string') return false;
-  const candidate = translated.trim();
-  if (candidate.length < MIN_TRANSLATION_CHARS) return false;
-  // A provider result with double-encoded UTF-8 is not publishable content.
-  // Reject it here so the cascade can try another provider, and so an old
-  // cache hit is re-queued by translation-incomplete.mjs below.
-  if (hasMojibake(candidate)) return false;
-  // A model answer carrying its reasoning or echoing the prompt is not a
-  // translation, however long (see ai-output-fidelity.mjs). This predicate also
-  // judges localize-job-v2 cache hits, so a stored leak is busted on read.
-  // Nor is a refusal or a request for the input («I need to see the text…»).
-  if (isModelMetaAnswer(candidate, typeof source === 'string' ? source : '')) return false;
-  // Nor is a candidate that loops («Risk-Lights-Lights-Lights-…») or collapses
-  // onto a handful of words compared with its source.
-  if (detectDegenerateRepetition(candidate, { references: [typeof source === 'string' ? source : ''] })) return false;
-  const srcLen = (typeof source === 'string' ? source.trim() : '').length;
-  if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
-  if (!hasStructureParity(source, candidate)) return false;
-  return true;
+  return translationRejectionReason(source, translated) === null;
 }
 
 // Locales where a single run of MIN_LEN+ letters with no internal space is a

@@ -20,6 +20,10 @@ const ISSUE_FIX = readFileSync(
   resolve(__dirname, '..', '.github', 'workflows', 'issue-fix.yml'),
   'utf8',
 );
+const DRAINER = readFileSync(
+  resolve(__dirname, '..', '.github', 'workflows', 'followup-drainer.yml'),
+  'utf8',
+);
 
 describe('repairQuotaDecision', () => {
   it('does not hold repairs when the issue-fix queue is empty', () => {
@@ -201,7 +205,7 @@ describe('telemetry helpers', () => {
         GITHUB_RUN_ATTEMPT: '1',
       },
       runJson,
-      runCommand: (args) => { commands.push(args); },
+      runCommand: (args) => { commands.push(args); return JSON.stringify({ id: 88 }); },
       now: Date.parse('2026-09-12T12:00:00Z'),
     });
 
@@ -246,6 +250,9 @@ describe('provider-neutral action wiring', () => {
 
   it('gates issue-fix before npm/provider work and keeps max-turns and Auto Ads unchanged', () => {
     expect(ISSUE_FIX).toContain("QUOTA_FLOOR_REQUIRED: '1'");
+    expect(ISSUE_FIX).not.toContain('QUOTA_FLOOR_LEDGER_ISSUE:');
+    expect(ACTION).not.toContain('QUOTA_FLOOR_LEDGER_ISSUE:');
+    expect(DRAINER).not.toContain('QUOTA_FLOOR_LEDGER_ISSUE:');
     expect(ISSUE_FIX).toContain('Enforce shared quota-floor lease (fail-closed)');
     expect(ISSUE_FIX.indexOf('Enforce shared quota-floor lease (fail-closed)'))
       .toBeLessThan(ISSUE_FIX.indexOf('- name: Install dependencies'));
