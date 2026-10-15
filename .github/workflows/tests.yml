@@ -1990,7 +1990,7 @@ jobs:
         # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
         # qui manca solo il NOME del ref.
         env:
-          TESTS_GUARD_REF: ${{ github.head_ref == 'recovery/restore-main-after-da4-20261015' && 'recovery-factuality-base' || github.base_ref || 'main' }}
+          TESTS_GUARD_REF: ${{ (github.head_ref == 'recovery/restore-main-after-da4-20261015' || github.ref_name == 'recovery/restore-main-after-da4-20261015') && 'recovery-factuality-base' || github.base_ref || 'main' }}
         run: |
           tests_guard_ref="${TESTS_GUARD_REF:?TESTS_GUARD_REF is required}"
           if [ "$tests_guard_ref" = "recovery-factuality-base" ]; then
@@ -2020,7 +2020,7 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         env:
-          FACTUALITY_REF: ${{ github.head_ref == 'recovery/restore-main-after-da4-20261015' && 'recovery-factuality-base' || github.base_ref || 'main' }}
+          FACTUALITY_REF: ${{ (github.head_ref == 'recovery/restore-main-after-da4-20261015' || github.ref_name == 'recovery/restore-main-after-da4-20261015') && 'recovery-factuality-base' || github.base_ref || 'main' }}
         run: |
           factuality_ref="${FACTUALITY_REF:?FACTUALITY_REF is required}"
           node scripts/audit-article-factuality.mjs --changed "origin/${factuality_ref}"
