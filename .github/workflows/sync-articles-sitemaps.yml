@@ -576,6 +576,8 @@ jobs:
             public/images/generated
             data/blog-cover-ledger.json
             data/image-credits-blog.json
+            data/blog-cover-replacements.json
+            data/blog-generated-image-registry.json
             data/published-blog-generated-image-evidence.json
             data/blog-cover-corpus-baseline.json
           )
@@ -635,6 +637,8 @@ jobs:
             --optional-path public/images/generated \
             --path data/blog-cover-ledger.json \
             --path data/image-credits-blog.json \
+            --path data/blog-cover-replacements.json \
+            --path data/blog-generated-image-registry.json \
             --path data/published-blog-generated-image-evidence.json \
             --path data/blog-cover-corpus-baseline.json \
             --branch chore/sync-articles-sitemaps \
