@@ -150,6 +150,9 @@ describe('WOKIN cameriere:TG crawler', () => {
   });
 
   it('classifies the German source title as cameriere in TG and keeps the landing noindex below three jobs', () => {
+    expect(isWokinServiceTitle('Servicemitarbeiter Kundenservice')).toBe(false);
+    expect(isWokinServiceTitle('Servicehilfskraft Reinigung')).toBe(false);
+    expect(isWokinServiceTitle('Servicemitarbeiter/in 50 – 100 %')).toBe(true);
     expect(isWokinServiceTitle('Servicehilfskraft Restaurant 40-60%')).toBe(true);
     const job = fixtureJob();
     const root = mkdtempSync(path.join(os.tmpdir(), 'wokin-crawler-'));

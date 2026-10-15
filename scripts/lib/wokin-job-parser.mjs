@@ -20,7 +20,10 @@ export const WOKIN_STELLEN_URL = 'https://wokin.ch/stellen/';
 export const WOKIN_HOMEPAGE_URL = 'https://wokin.ch/';
 
 const SOURCE_LANG = 'de';
-const SERVICE_TITLE_RE = /\b(?:servicemitarbeit|servicehilfskraft|restaurantangestellt|kellner)/i;
+// Match the German forms used by the aggregate matcher: a published workload
+// range or an explicit restaurant/service qualifier. Bare `Servicemitarbeiter`
+// also describes customer-service roles and must not become a waiter job.
+const SERVICE_TITLE_RE = /\b(?:servicemitarbeiter(?:\/in)?\s+\d{1,3}\s*[–-]\s*\d{1,3}\s*%|servicehilfskraft\s+(?:rastaurant|restaurant)|restaurantangestellt|kellner)/i;
 const RESTAURANT_CONTEXT_PREFIX = 'Unser Restaurant bietet mehr als nur chinesisches Essen.';
 
 function normalizeSpace(value = '') {
