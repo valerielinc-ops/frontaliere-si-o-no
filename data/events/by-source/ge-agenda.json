@@ -3,7 +3,7 @@
   "sourceKey": "ge-agenda",
   "sourceName": "Ville de Genève Agenda",
   "canton": "GE",
-  "assembledAt": "2026-10-14T11:03:37.108Z",
+  "assembledAt": "2026-10-15T10:47:08.686Z",
   "events": [
     {
       "id": "ge-agenda:restons-dynamiques-echauffement-musique",
@@ -3045,7 +3045,7 @@
     {
       "id": "ge-agenda:escape-game-plein-vieille-ville",
       "title": "Escape Game en plein air dans la Vieille Ville",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Animation",
       "region": "Genève",
@@ -3055,7 +3055,7 @@
       "url": "https://www.geneve.ch/agenda/escape-game-plein-vieille-ville",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -3073,6 +3073,11 @@
       },
       "sourceDescriptionHash": "8e7069c93a55b7ad9dcab03bdba9f9b75d9e30ac118bbc3854c168875605475a",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -3123,7 +3128,7 @@
     {
       "id": "ge-agenda:escape-game-exterieur-parc-bastions",
       "title": "Escape Game en extérieur dans le parc des Bastions",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Animation",
       "region": "Genève",
@@ -3133,7 +3138,7 @@
       "url": "https://www.geneve.ch/agenda/escape-game-exterieur-parc-bastions",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -3151,6 +3156,11 @@
       },
       "sourceDescriptionHash": "90de77fbc950f49339d3fd0cfd4b932941f606ba357663c2cd9bd9b57f339580",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -3201,7 +3211,7 @@
     {
       "id": "ge-agenda:escape-game-plein-vieille-ville-0",
       "title": "Escape Game en plein air dans la Vieille Ville",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Animation",
       "region": "Genève",
@@ -3211,7 +3221,7 @@
       "url": "https://www.geneve.ch/agenda/escape-game-plein-vieille-ville-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -3229,6 +3239,11 @@
       },
       "sourceDescriptionHash": "8e7069c93a55b7ad9dcab03bdba9f9b75d9e30ac118bbc3854c168875605475a",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-14-2"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -9793,7 +9808,7 @@
       "url": "https://www.geneve.ch/agenda/wonderdays-nature-company-fresque-biodiversite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -11241,7 +11256,7 @@
     {
       "id": "ge-agenda:liotard-marie-antoinette-visages-enquete-0",
       "title": "Liotard et Marie-Antoinette. Visages sous enquête",
-      "startDate": "2026-10-11",
+      "startDate": "2026-11-05",
       "category": "Visite commentée",
       "region": "Genève",
       "comune": "Genève",
@@ -11250,7 +11265,7 @@
       "url": "https://www.geneve.ch/agenda/liotard-marie-antoinette-visages-enquete-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-10T11:52:03.624Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -11265,7 +11280,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "2139a59d41863afd508f695b6793d6708cdcf917cb98858f8217724ddca85744"
+      "sourceDescriptionHash": "2139a59d41863afd508f695b6793d6708cdcf917cb98858f8217724ddca85744",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "liotard-et-marie-antoinette-visages-sous-enquete-2026-10-11"
+        }
+      ]
     },
     {
       "id": "ge-agenda:marche-temps-profond",
@@ -13961,7 +13983,7 @@
       "url": "https://www.geneve.ch/agenda/visite-guidee-thematique-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15186,8 +15208,7 @@
     {
       "id": "ge-agenda:nocturne-visite-commentee-gratuite-0",
       "title": "Nocturne - Visite commentée gratuite",
-      "startDate": "2026-10-14",
-      "endDate": "2026-10-15",
+      "startDate": "2026-10-15",
       "category": "Visite commentée",
       "region": "Genève",
       "comune": "Genève",
@@ -15196,7 +15217,7 @@
       "url": "https://www.geneve.ch/agenda/nocturne-visite-commentee-gratuite-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15213,6 +15234,11 @@
       },
       "sourceDescriptionHash": "8535521c393be9f8eb46efa5629d467848b3f5d51151a68a591ce4edc4a38f80",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "nocturne-visite-commentee-gratuite-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -15273,7 +15299,7 @@
       "url": "https://www.geneve.ch/agenda/planete",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -15294,7 +15320,7 @@
     {
       "id": "ge-agenda:hell",
       "title": "In Hell with Ivo",
-      "startDate": "2026-10-10",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-16",
       "category": "Projection",
       "region": "Genève",
@@ -15304,7 +15330,7 @@
       "url": "https://www.geneve.ch/agenda/hell",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -15320,13 +15346,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840"
+      "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "in-hell-with-ivo-2026-10-10"
+        }
+      ]
     },
     {
       "id": "ge-agenda:girls",
       "title": "Big Girls don't cry",
-      "startDate": "2026-10-12",
-      "endDate": "2026-10-15",
+      "startDate": "2026-10-15",
       "category": "Projection",
       "region": "Genève",
       "comune": "Genève",
@@ -15335,7 +15367,7 @@
       "url": "https://www.geneve.ch/agenda/girls",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -15351,13 +15383,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "big-girls-dont-cry-2026-10-12"
+        }
+      ]
     },
     {
       "id": "ge-agenda:ancetres-futur",
       "title": "LES ANCETRES DU FUTUR",
-      "startDate": "2026-10-12",
-      "endDate": "2026-10-15",
+      "startDate": "2026-10-15",
       "category": "Concert",
       "region": "Genève",
       "comune": "Genève",
@@ -15366,7 +15404,7 @@
       "url": "https://www.geneve.ch/agenda/ancetres-futur",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -15381,7 +15419,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "1941298d6677c35b3d6f1cb927ec2edac36b5f90cfee4bbad64dce62aae9c788"
+      "sourceDescriptionHash": "1941298d6677c35b3d6f1cb927ec2edac36b5f90cfee4bbad64dce62aae9c788",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "les-ancetres-du-futur-2026-10-12"
+        }
+      ]
     },
     {
       "id": "ge-agenda:last-dance-sundance-stompede",
@@ -15396,7 +15441,7 @@
       "url": "https://www.geneve.ch/agenda/last-dance-sundance-stompede",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -15427,7 +15472,7 @@
       "url": "https://www.geneve.ch/agenda/belles-rebelles",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -15457,7 +15502,7 @@
       "url": "https://www.geneve.ch/agenda/mediter-mah-confiance",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -15487,7 +15532,7 @@
       "url": "https://www.geneve.ch/agenda/cours-tango-argentin-niveau-debutant-4",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -15516,7 +15561,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-47-histoire-squats-geneve-conference-causerie-balades-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15545,7 +15590,7 @@
       "url": "https://www.geneve.ch/agenda/nigel-charnock-extraordinaire-physicalite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -15575,7 +15620,7 @@
       "url": "https://www.geneve.ch/agenda/visites-musique-mah-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -15605,7 +15650,7 @@
       "url": "https://www.geneve.ch/agenda/diggi-indie-soul",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15635,7 +15680,7 @@
       "url": "https://www.geneve.ch/agenda/adelphite-archiver-intimite-luttes-lesbiennes",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -15665,7 +15710,7 @@
       "url": "https://www.geneve.ch/agenda/pilates-face-oeuvres-6",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 30,
         "currency": "CHF",
@@ -15694,7 +15739,7 @@
       "url": "https://www.geneve.ch/agenda/corps-oeuvre-rondinone",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -15724,7 +15769,7 @@
       "url": "https://www.geneve.ch/agenda/autour-deuil-perinatal-regards-croises",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15753,7 +15798,7 @@
       "url": "https://www.geneve.ch/agenda/composer-peindre-feminin-memes-combats",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -15783,7 +15828,7 @@
       "url": "https://www.geneve.ch/agenda/nocturnes-gesda",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15813,7 +15858,7 @@
       "url": "https://www.geneve.ch/agenda/speed-meeting-benevolat-2026",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15843,7 +15888,7 @@
       "url": "https://www.geneve.ch/agenda/sopranow-gentle",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -15873,7 +15918,7 @@
       "url": "https://www.geneve.ch/agenda/french-amour-s10e2",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 5,
         "currency": "CHF",
@@ -15903,7 +15948,7 @@
       "url": "https://www.geneve.ch/agenda/prendre-soin-rencontre-autrices-anouk-hutmacher-annelise-bergmann-zurcher-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15933,7 +15978,7 @@
       "url": "https://www.geneve.ch/agenda/prendre-soin",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -15963,7 +16008,7 @@
       "url": "https://www.geneve.ch/agenda/geneva-tonight",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -15993,7 +16038,7 @@
       "url": "https://www.geneve.ch/agenda/mode-durable-fibre-seconde-vie",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16023,7 +16068,7 @@
       "url": "https://www.geneve.ch/agenda/nass-ghiwane",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -16053,7 +16098,7 @@
       "url": "https://www.geneve.ch/agenda/ejma-plateau",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -16082,7 +16127,7 @@
       "url": "https://www.geneve.ch/agenda/milonga-brava-ricardo-astrada-constanza-vieyto-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -16111,7 +16156,7 @@
       "url": "https://www.geneve.ch/agenda/open-chanson-francaise-theodore-monnet",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16140,7 +16185,7 @@
       "url": "https://www.geneve.ch/agenda/soiree-danse-country-queer",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 11,
         "currency": "CHF",
@@ -16170,7 +16215,7 @@
       "url": "https://www.geneve.ch/agenda/armures-paillettes-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -16199,7 +16244,7 @@
       "url": "https://www.geneve.ch/agenda/wonderdays-nature-company-atelier-mobilisation-adaptation",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16347,7 +16392,7 @@
       "url": "https://www.geneve.ch/agenda/conference-nait-citoyenne-devient-pistes-emancipation-citoyenne-eveil-culturel",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -16377,7 +16422,7 @@
       "url": "https://www.geneve.ch/agenda/cultures-populaires-experience-guyanaise-transmission-danse",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -16398,7 +16443,7 @@
     {
       "id": "ge-agenda:leman-vivant",
       "title": "Léman être vivant",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-16",
       "category": "Exposition",
       "region": "Genève",
@@ -16408,7 +16453,7 @@
       "url": "https://www.geneve.ch/agenda/leman-vivant",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16426,6 +16471,11 @@
       },
       "sourceDescriptionHash": "b3e60ff8290e0331cf8028ac4f95cafab3cc69e3860ba38b6288eb95248fb8dc",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "leman-etre-vivant-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -16471,7 +16521,7 @@
     {
       "id": "ge-agenda:animations-conseils-autour-borne-reparation-velo-carrefour-aire-furet-1203",
       "title": "Animations et conseils autour de la borne de réparation vélo du carrefour Aïre-Furet (1203)",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-16",
       "category": "Atelier",
       "region": "Genève",
@@ -16481,7 +16531,7 @@
       "url": "https://www.geneve.ch/agenda/animations-conseils-autour-borne-reparation-velo-carrefour-aire-furet-1203",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16498,6 +16548,11 @@
       },
       "sourceDescriptionHash": "de51fc27f122334d172739c8e3bff2d342c61e893a936b3b21ddc8a9c5ccbbc2",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "animations-et-conseils-autour-de-la-borne-de-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -16543,7 +16598,7 @@
     {
       "id": "ge-agenda:leurs-cultures-racines-portraits-femmes-terre-genevoise",
       "title": "Leurs cultures, nos racines – portraits de femmes en terre genevoise",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-16",
       "category": "Exposition",
       "region": "Genève",
@@ -16553,7 +16608,7 @@
       "url": "https://www.geneve.ch/agenda/leurs-cultures-racines-portraits-femmes-terre-genevoise",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16571,6 +16626,11 @@
       },
       "sourceDescriptionHash": "b0d6ef70045d8c75cc12067f1c95674cccd763b123758245ad04d978dff0e9c8",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "leurs-cultures-nos-racines-portraits-de-femmes-en-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -16616,7 +16676,7 @@
     {
       "id": "ge-agenda:company",
       "title": "Company",
-      "startDate": "2026-10-09",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-16",
       "category": "Opera",
       "region": "Genève",
@@ -16626,7 +16686,7 @@
       "url": "https://www.geneve.ch/agenda/company",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -16642,7 +16702,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "28929fc9a6bc78552e119cd9ed33d52e096875c857c1c4535894fcca97b6d247"
+      "sourceDescriptionHash": "28929fc9a6bc78552e119cd9ed33d52e096875c857c1c4535894fcca97b6d247",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "company-2026-10-09"
+        }
+      ]
     },
     {
       "id": "ge-agenda:barbara-forever",
@@ -16657,7 +16724,7 @@
       "url": "https://www.geneve.ch/agenda/barbara-forever",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -16688,7 +16755,7 @@
       "url": "https://www.geneve.ch/agenda/cafe-cinema",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16718,7 +16785,7 @@
       "url": "https://www.geneve.ch/agenda/last-guest-holloway-motel",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -16779,7 +16846,7 @@
       "url": "https://www.geneve.ch/agenda/lady",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -16810,7 +16877,7 @@
       "url": "https://www.geneve.ch/agenda/joies-trans",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -16831,7 +16898,7 @@
     {
       "id": "ge-agenda:rire-finir",
       "title": "Rire (pour en finir avec soi-même)",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-16",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -16841,7 +16908,7 @@
       "url": "https://www.geneve.ch/agenda/rire-finir",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 25,
         "currency": "CHF",
@@ -16857,12 +16924,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "81483d395ca57f02d392445d6ffaf7778d6ba176657e3e5441d2971e535f75a3"
+      "sourceDescriptionHash": "81483d395ca57f02d392445d6ffaf7778d6ba176657e3e5441d2971e535f75a3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "rire-pour-en-finir-avec-soi-meme-2026-10-14"
+        }
+      ]
     },
     {
       "id": "ge-agenda:rire-finir-0",
       "title": "Rire (pour en finir avec soi-même)",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-16",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -16872,7 +16946,7 @@
       "url": "https://www.geneve.ch/agenda/rire-finir-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 5,
         "currency": "CHF",
@@ -16909,7 +16983,7 @@
       "url": "https://www.geneve.ch/agenda/cafe-police-municipale-charmilles-echanger-autour-cafe-coeur-quartiers",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16938,7 +17012,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-regards-croises-evolution-espaces-publics-rigot-paquis-ville-vert",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16967,7 +17041,7 @@
       "url": "https://www.geneve.ch/agenda/filgood-tisser-broder-ensemble",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -16997,7 +17071,7 @@
       "url": "https://www.geneve.ch/agenda/etonnements",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -17027,7 +17101,7 @@
       "url": "https://www.geneve.ch/agenda/robot-sauvage-chris-sanders-2024",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -17056,7 +17130,7 @@
       "url": "https://www.geneve.ch/agenda/cinema",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -17085,7 +17159,7 @@
       "url": "https://www.geneve.ch/agenda/trendz",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -17115,7 +17189,7 @@
       "url": "https://www.geneve.ch/agenda/deejay-greens-style-groove",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -17144,7 +17218,7 @@
       "url": "https://www.geneve.ch/agenda/vendredis-ethno-kashi-musique-danse-tradition-benares",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -17175,7 +17249,7 @@
       "url": "https://www.geneve.ch/agenda/fete-lesbienne-queer-feministe",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -17206,7 +17280,7 @@
       "url": "https://www.geneve.ch/agenda/electron-club-tour",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -17236,7 +17310,7 @@
       "url": "https://www.geneve.ch/agenda/eveil-sensoriel-futur-quoi-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -17266,7 +17340,7 @@
       "url": "https://www.geneve.ch/agenda/lecture-paysage-histoire-leman-balade-bord",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -17297,7 +17371,7 @@
       "url": "https://www.geneve.ch/agenda/mini-rendez-corps",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -17318,7 +17392,7 @@
     {
       "id": "ge-agenda:prima-facie",
       "title": "Prima Facie",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -17328,7 +17402,7 @@
       "url": "https://www.geneve.ch/agenda/prima-facie",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -17346,6 +17420,11 @@
       },
       "sourceDescriptionHash": "0b103820d31c6f3dbeb8e2dd70af7b8185f53c75a65a8903934ca3a7416f15af",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "prima-facie-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -17386,7 +17465,7 @@
     {
       "id": "ge-agenda:migration-oiseaux-direct",
       "title": "La migration des oiseaux en direct",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-17",
       "category": "Animation",
       "region": "Genève",
@@ -17396,7 +17475,7 @@
       "url": "https://www.geneve.ch/agenda/migration-oiseaux-direct",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -17414,6 +17493,11 @@
       },
       "sourceDescriptionHash": "e5ca06920b704a0ba3a06f9187c68c0bcd4700cb5c6f14059e8ae6d84c6c64e7",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "la-migration-des-oiseaux-en-direct-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -17454,7 +17538,7 @@
     {
       "id": "ge-agenda:visite",
       "title": "LA VISITE",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -17464,7 +17548,7 @@
       "url": "https://www.geneve.ch/agenda/visite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -17482,6 +17566,11 @@
       },
       "sourceDescriptionHash": "0a9f1aef71e229d9491a2862493852a7b6d6c30977e47e91389872c5595e8155",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "la-visite-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -17522,7 +17611,7 @@
     {
       "id": "ge-agenda:menagerie-verre",
       "title": "La Ménagerie de verre",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -17532,7 +17621,7 @@
       "url": "https://www.geneve.ch/agenda/menagerie-verre",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -17550,6 +17639,11 @@
       },
       "sourceDescriptionHash": "2f82bad251067bf655a80fba3b1c4079f25418ea0d1f83b253400d3fb0a1c5e1",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "la-menagerie-de-verre-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -17590,7 +17684,7 @@
     {
       "id": "ge-agenda:seniors-informer-former-conferences-histoire-jazz",
       "title": "Seniors, s'informer ou se former | Conférences sur l'histoire du jazz",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-22",
       "category": "Conférence - Rencontre",
       "region": "Genève",
@@ -17600,7 +17694,7 @@
       "url": "https://www.geneve.ch/agenda/seniors-informer-former-conferences-histoire-jazz",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -17617,6 +17711,11 @@
       },
       "sourceDescriptionHash": "15a64b2cf883093554cd7d27e25b66c8a24be46c1573b7a3215604ac8782d990",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "seniors-sinformer-ou-se-former-conferences-sur-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -17657,7 +17756,7 @@
     {
       "id": "ge-agenda:10-petites-anarchistes-quil-coute-reinventer-monde",
       "title": "Les 10 petites anarchistes - ce qu'il en coûte de réinventer le monde",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -17667,7 +17766,7 @@
       "url": "https://www.geneve.ch/agenda/10-petites-anarchistes-quil-coute-reinventer-monde",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -17688,6 +17787,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "les-10-petites-anarchistes-ce-quil-en-coute-de-2026-10-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "les-10-petites-anarchistes-ce-quil-en-coute-de-2026-10-13"
         },
         {
@@ -17700,7 +17804,7 @@
     {
       "id": "ge-agenda:rien",
       "title": "Rien",
-      "startDate": "2026-10-07",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -17710,7 +17814,7 @@
       "url": "https://www.geneve.ch/agenda/rien",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -17726,12 +17830,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "42f86b38255ff53569782e399c2fc85fbee785d29006940e4281423fbb664c63"
+      "sourceDescriptionHash": "42f86b38255ff53569782e399c2fc85fbee785d29006940e4281423fbb664c63",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "rien-2026-10-07"
+        }
+      ]
     },
     {
       "id": "ge-agenda:atelier-decouverte-nature-enfants-explore-goute-apprends-chataigne",
       "title": "Atelier découverte de la nature pour enfants - Explore, goûte et apprends sur la châtaigne !",
-      "startDate": "2026-10-07",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-21",
       "category": "Atelier",
       "region": "Genève",
@@ -17741,7 +17852,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-decouverte-nature-enfants-explore-goute-apprends-chataigne",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -17757,12 +17868,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "c31f4ceb30327dbda76186a8ba8673f79cbd789cb4038bc9152f9bdaba8f7b44"
+      "sourceDescriptionHash": "c31f4ceb30327dbda76186a8ba8673f79cbd789cb4038bc9152f9bdaba8f7b44",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "atelier-decouverte-de-la-nature-pour-enfants-2026-10-07"
+        }
+      ]
     },
     {
       "id": "ge-agenda:chroniques-immeuble",
       "title": "Chroniques d'Immeuble",
-      "startDate": "2026-10-08",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-17",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -17772,7 +17890,7 @@
       "url": "https://www.geneve.ch/agenda/chroniques-immeuble",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -17787,12 +17905,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "32c38554b9141212cf9645188233254f4bca1a5b8a4c1bdfc4e3d53d74834f90"
+      "sourceDescriptionHash": "32c38554b9141212cf9645188233254f4bca1a5b8a4c1bdfc4e3d53d74834f90",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "chroniques-dimmeuble-2026-10-08"
+        }
+      ]
     },
     {
       "id": "ge-agenda:montreal-belle",
       "title": "Montréal, ma belle",
-      "startDate": "2026-10-09",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-17",
       "category": "Projection",
       "region": "Genève",
@@ -17802,7 +17927,7 @@
       "url": "https://www.geneve.ch/agenda/montreal-belle",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -17818,12 +17943,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "montreal-ma-belle-2026-10-09"
+        }
+      ]
     },
     {
       "id": "ge-agenda:paixao-segundo",
       "title": "A Paixão segundo G.H.B",
-      "startDate": "2026-10-09",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-17",
       "category": "Projection",
       "region": "Genève",
@@ -17833,7 +17965,7 @@
       "url": "https://www.geneve.ch/agenda/paixao-segundo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -17849,12 +17981,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "a-paixao-segundo-g-h-b-2026-10-09"
+        }
+      ]
     },
     {
       "id": "ge-agenda:nuances-gays",
       "title": "Six nuances de Gays",
-      "startDate": "2026-10-09",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -17864,7 +18003,7 @@
       "url": "https://www.geneve.ch/agenda/nuances-gays",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -17880,12 +18019,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "9af64f4d634ccac370122be099945aa5bdb3f3802cd86b55af99b415024d5f90"
+      "sourceDescriptionHash": "9af64f4d634ccac370122be099945aa5bdb3f3802cd86b55af99b415024d5f90",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "six-nuances-de-gays-2026-10-09"
+        }
+      ]
     },
     {
       "id": "ge-agenda:strange-journeythe-story-rocky-horror",
       "title": "Strange Journey:the story of Rocky Horror",
-      "startDate": "2026-10-09",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -17895,7 +18041,7 @@
       "url": "https://www.geneve.ch/agenda/strange-journeythe-story-rocky-horror",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -17911,12 +18057,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "19d849fa7275f46e18a42c2d9991233063a43ebb9e5c887366150ee9b6e9a930"
+      "sourceDescriptionHash": "19d849fa7275f46e18a42c2d9991233063a43ebb9e5c887366150ee9b6e9a930",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "strange-journey-the-story-of-rocky-horror-2026-10-09"
+        }
+      ]
     },
     {
       "id": "ge-agenda:festival-everybods-perfect",
       "title": "Festival Everybody's Perfect",
-      "startDate": "2026-10-09",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Festival",
       "region": "Genève",
@@ -17926,7 +18079,7 @@
       "url": "https://www.geneve.ch/agenda/festival-everybods-perfect",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -17942,7 +18095,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "bc68450f914dd47cd706a999242769b079717b32366d23b37c080d794b03a52f"
+      "sourceDescriptionHash": "bc68450f914dd47cd706a999242769b079717b32366d23b37c080d794b03a52f",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "festival-everybodys-perfect-2026-10-09"
+        }
+      ]
     },
     {
       "id": "ge-agenda:souris-traviata",
@@ -17957,7 +18117,7 @@
       "url": "https://www.geneve.ch/agenda/souris-traviata",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -17978,7 +18138,7 @@
     {
       "id": "ge-agenda:hunky-jesus",
       "title": "Hunky Jesus",
-      "startDate": "2026-10-10",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-17",
       "category": "Projection",
       "region": "Genève",
@@ -17988,7 +18148,7 @@
       "url": "https://www.geneve.ch/agenda/hunky-jesus",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18004,12 +18164,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840"
+      "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "hunky-jesus-2026-10-10"
+        }
+      ]
     },
     {
       "id": "ge-agenda:nakitaiari-nagi-notes",
       "title": "ナギダイアリ - Nagi Notes",
-      "startDate": "2026-10-10",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -18019,7 +18186,7 @@
       "url": "https://www.geneve.ch/agenda/nakitaiari-nagi-notes",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18035,7 +18202,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "nagi-notes-2026-10-10"
+        }
+      ]
     },
     {
       "id": "ge-agenda:chronology-water",
@@ -18050,7 +18224,7 @@
       "url": "https://www.geneve.ch/agenda/chronology-water",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18071,7 +18245,7 @@
     {
       "id": "ge-agenda:bearcave-arkoydotrypa",
       "title": "Bearcave ΑΡΚΟΥΔΌΤΡΥΠΑ",
-      "startDate": "2026-10-10",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -18081,7 +18255,7 @@
       "url": "https://www.geneve.ch/agenda/bearcave-arkoydotrypa",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18097,12 +18271,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "28054063ddd2bc533cfbf24404aa1ef1b0f5c0cd70c2a7ad28833296cb7cbcdf"
+      "sourceDescriptionHash": "28054063ddd2bc533cfbf24404aa1ef1b0f5c0cd70c2a7ad28833296cb7cbcdf",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "bearcave-2026-10-10"
+        }
+      ]
     },
     {
       "id": "ge-agenda:mundo-para-newborn",
       "title": "Un Mundo para mi - Newborn",
-      "startDate": "2026-10-11",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-17",
       "category": "Projection",
       "region": "Genève",
@@ -18112,7 +18293,7 @@
       "url": "https://www.geneve.ch/agenda/mundo-para-newborn",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18128,12 +18309,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "un-mundo-para-mi-newborn-2026-10-11"
+        }
+      ]
     },
     {
       "id": "ge-agenda:downtown",
       "title": "Downtown",
-      "startDate": "2026-10-11",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -18143,7 +18331,7 @@
       "url": "https://www.geneve.ch/agenda/downtown",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18159,12 +18347,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "downtown-2026-10-11"
+        }
+      ]
     },
     {
       "id": "ge-agenda:warla",
       "title": "Warla",
-      "startDate": "2026-10-11",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -18174,7 +18369,7 @@
       "url": "https://www.geneve.ch/agenda/warla",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18190,12 +18385,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "warla-2026-10-11"
+        }
+      ]
     },
     {
       "id": "ge-agenda:mineshaftthe-cruising-murders",
       "title": "Mineshaft:the cruising murders",
-      "startDate": "2026-10-11",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -18205,7 +18407,7 @@
       "url": "https://www.geneve.ch/agenda/mineshaftthe-cruising-murders",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18221,7 +18423,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840"
+      "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "mineshaft-the-cruising-murders-2026-10-11"
+        }
+      ]
     },
     {
       "id": "ge-agenda:laws",
@@ -18236,7 +18445,7 @@
       "url": "https://www.geneve.ch/agenda/laws",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18267,7 +18476,7 @@
       "url": "https://www.geneve.ch/agenda/salon-critiques",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -18318,7 +18527,7 @@
     {
       "id": "ge-agenda:fantasy",
       "title": "Fantasy",
-      "startDate": "2026-10-13",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-17",
       "category": "Projection",
       "region": "Genève",
@@ -18328,7 +18537,7 @@
       "url": "https://www.geneve.ch/agenda/fantasy",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18344,12 +18553,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "fantasy-2026-10-13"
+        }
+      ]
     },
     {
       "id": "ge-agenda:pioneras-solo-querian-jugaranother-league",
       "title": "Pioneras-solo querían jugar:another league",
-      "startDate": "2026-10-13",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-18",
       "category": "Projection",
       "region": "Genève",
@@ -18359,7 +18575,7 @@
       "url": "https://www.geneve.ch/agenda/pioneras-solo-querian-jugaranother-league",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18375,7 +18591,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3"
+      "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "pioneras-solo-querian-jugar-another-league-2026-10-13"
+        }
+      ]
     },
     {
       "id": "ge-agenda:molt-lluny-away",
@@ -18390,7 +18613,7 @@
       "url": "https://www.geneve.ch/agenda/molt-lluny-away",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18421,7 +18644,7 @@
       "url": "https://www.geneve.ch/agenda/blue-trial",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18452,7 +18675,7 @@
       "url": "https://www.geneve.ch/agenda/anan-atoyama-atou-atlas-souffles",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -18482,7 +18705,7 @@
       "url": "https://www.geneve.ch/agenda/madame-loyal-geneve-festival-soir",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 1,
         "currency": "CHF",
@@ -18512,7 +18735,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-creation-cartographie-numerique-collective-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -18542,7 +18765,7 @@
       "url": "https://www.geneve.ch/agenda/lecture-paysage-histoire-leman-balade-bord-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -18579,7 +18802,7 @@
       "url": "https://www.geneve.ch/agenda/empreintes-fetes",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -18608,7 +18831,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-creez-chocolat-halloween",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 50,
         "currency": "CHF",
@@ -18638,7 +18861,7 @@
       "url": "https://www.geneve.ch/agenda/mopsdancesyndrome-museom",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -18668,7 +18891,7 @@
       "url": "https://www.geneve.ch/agenda/afrique-coeur-assiette-journee-festive-autour-souverainete-alimentaire",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -18698,7 +18921,7 @@
       "url": "https://www.geneve.ch/agenda/museom-mopsdancesyndrome-franscella",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -18728,7 +18951,7 @@
       "url": "https://www.geneve.ch/agenda/cabinet-emerveille-invite-meg-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -18743,7 +18966,7 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "36a40b1dbcd185b38a7aba9367349eb769437fe8cde07163c148ff1822b8c4be"
+      "sourceDescriptionHash": "8e4b21c1a08de8d451c45c77bf61da68357a0ace169adcf657c656a6ef1606ec"
     },
     {
       "id": "ge-agenda:stephan-eicher",
@@ -18757,7 +18980,7 @@
       "url": "https://www.geneve.ch/agenda/stephan-eicher",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -18788,7 +19011,7 @@
       "url": "https://www.geneve.ch/agenda/fete-cloture",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -18818,7 +19041,7 @@
       "url": "https://www.geneve.ch/agenda/hobbs-style",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -18847,7 +19070,7 @@
       "url": "https://www.geneve.ch/agenda/joanna-duda-trio",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -18877,7 +19100,7 @@
       "url": "https://www.geneve.ch/agenda/blind-test-musical-hobbs",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -18908,7 +19131,7 @@
       "url": "https://www.geneve.ch/agenda/electron-comedie-art-music",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -18939,7 +19162,7 @@
       "url": "https://www.geneve.ch/agenda/stopthattrain",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18969,7 +19192,7 @@
       "url": "https://www.geneve.ch/agenda/voix-basse",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -18999,7 +19222,7 @@
       "url": "https://www.geneve.ch/agenda/promenade-botanique-carouge",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19029,7 +19252,7 @@
       "url": "https://www.geneve.ch/agenda/cabinet-emerveille-invite-meg-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19044,7 +19267,7 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "8974de8a35fece5d09dbc7c6f6dbf2f6c0b06fde24b771567523a01738f650b8"
+      "sourceDescriptionHash": "9fcd904538d4b842139cf5f28d9246bd68542f419309523d0dc4d284cb4e11f8"
     },
     {
       "id": "ge-agenda:graines-fete",
@@ -19058,7 +19281,7 @@
       "url": "https://www.geneve.ch/agenda/graines-fete",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19087,7 +19310,7 @@
       "url": "https://www.geneve.ch/agenda/brass-band-arquebuse-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -19116,7 +19339,7 @@
       "url": "https://www.geneve.ch/agenda/improvisation-ardoise-scene-place-publique",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19145,7 +19368,7 @@
       "url": "https://www.geneve.ch/agenda/grandes-voix-fado-camane",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -19175,7 +19398,7 @@
       "url": "https://www.geneve.ch/agenda/premiere-mystere-lucy-lost",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12.5,
         "currency": "CHF",
@@ -19205,7 +19428,7 @@
       "url": "https://www.geneve.ch/agenda/pierres",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -19235,7 +19458,7 @@
       "url": "https://www.geneve.ch/agenda/conference-gerer-photos-smartphone-permanence-numerique-rive-gauche",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19264,7 +19487,7 @@
       "url": "https://www.geneve.ch/agenda/diffusion-documentaire-tsunami-leman-2018-suisse-52",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19293,7 +19516,7 @@
       "url": "https://www.geneve.ch/agenda/visite-petits-doigts",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -19323,7 +19546,7 @@
       "url": "https://www.geneve.ch/agenda/pages",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -19353,7 +19576,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-creez-chocolat-halloween-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 50,
         "currency": "CHF",
@@ -19383,7 +19606,7 @@
       "url": "https://www.geneve.ch/agenda/vacances-grand-theatre-jeunesse",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -19413,7 +19636,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-regards-croises-evolution-espaces-publics-jonction-rive-coeur-ville-plus-vivante",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19442,7 +19665,7 @@
       "url": "https://www.geneve.ch/agenda/autre-monde-possible-communautes-bouger-choses-rencontre-equipes-coordination-locale",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19471,7 +19694,7 @@
       "url": "https://www.geneve.ch/agenda/avishai-cohen",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -19501,7 +19724,7 @@
       "url": "https://www.geneve.ch/agenda/mahgique",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -19531,7 +19754,7 @@
       "url": "https://www.geneve.ch/agenda/cafe-mortel-2",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19560,7 +19783,7 @@
       "url": "https://www.geneve.ch/agenda/ryan-adams",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -19591,7 +19814,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-fabrication-film-stop-motion-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19621,7 +19844,7 @@
       "url": "https://www.geneve.ch/agenda/mini-rendez-corps-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19651,7 +19874,7 @@
       "url": "https://www.geneve.ch/agenda/pages-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -19681,7 +19904,7 @@
       "url": "https://www.geneve.ch/agenda/visite-petits-doigts-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -19711,7 +19934,7 @@
       "url": "https://www.geneve.ch/agenda/eveil-sensoriel-futur-quoi-4",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19741,7 +19964,7 @@
       "url": "https://www.geneve.ch/agenda/sport-parent-bebe",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -19771,7 +19994,7 @@
       "url": "https://www.geneve.ch/agenda/premiere-mystere-lucy-lost-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 17.5,
         "currency": "CHF",
@@ -19801,7 +20024,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-creation-enfants-autour-portrait",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19831,7 +20054,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-chocolate-monster-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 40,
         "currency": "CHF",
@@ -19861,7 +20084,7 @@
       "url": "https://www.geneve.ch/agenda/secrets-monde-fongique-decouverte-champignons-jardin-botanique-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19898,7 +20121,7 @@
       "url": "https://www.geneve.ch/agenda/objet-histoire-decouvre-arbre-sobo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19927,7 +20150,7 @@
       "url": "https://www.geneve.ch/agenda/secrets-monde-fongique-decouverte-champignons-jardin-botanique-geneve-anglais",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -19964,7 +20187,7 @@
       "url": "https://www.geneve.ch/agenda/mahgique-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -19994,7 +20217,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-initiation-chocolaterie-temperage-chocolat",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 90,
         "currency": "CHF",
@@ -20024,7 +20247,7 @@
       "url": "https://www.geneve.ch/agenda/cabinet-emerveille-invite-meg-2",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20039,7 +20262,7 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "b4ab3920bc694e61d92256b9aad084df31c7dc93adc833c5dea8228348e367b1"
+      "sourceDescriptionHash": "6083976bec87903c03fb51173da74c9e51af70439ffe4470043c6c28f96bc586"
     },
     {
       "id": "ge-agenda:radhika",
@@ -20053,7 +20276,7 @@
       "url": "https://www.geneve.ch/agenda/radhika",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -20083,7 +20306,7 @@
       "url": "https://www.geneve.ch/agenda/cours-tango-argentin-niveau-debutant-5",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -20112,7 +20335,7 @@
       "url": "https://www.geneve.ch/agenda/martha-stettler-empouvoirement-artiste",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -20141,7 +20364,7 @@
       "url": "https://www.geneve.ch/agenda/histoires-gravees-pierre",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -20171,7 +20394,7 @@
       "url": "https://www.geneve.ch/agenda/cafe-quartier-sportive-lieu-incontournable-quartier",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20200,7 +20423,7 @@
       "url": "https://www.geneve.ch/agenda/rencontre-douce-dibondo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20317,7 +20540,7 @@
       "url": "https://www.geneve.ch/agenda/venez-celebrer-nouvel-espace-public-necker",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20375,7 +20598,7 @@
       "url": "https://www.geneve.ch/agenda/impromptus-cindy-acker",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -20405,7 +20628,7 @@
       "url": "https://www.geneve.ch/agenda/vanessa-riera-despossessions",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20435,7 +20658,7 @@
       "url": "https://www.geneve.ch/agenda/cindy-acker-greffe-impromptus",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20465,7 +20688,7 @@
       "url": "https://www.geneve.ch/agenda/despossessions-vanessa-riera",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -20495,7 +20718,7 @@
       "url": "https://www.geneve.ch/agenda/soiree-decouvrir-tester-jeux-video-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20765,7 +20988,7 @@
       "url": "https://www.geneve.ch/agenda/stage-automne-construction-jeux-bois-jeunes-7-13",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 250,
         "currency": "CHF",
@@ -20827,7 +21050,7 @@
       "url": "https://www.geneve.ch/agenda/olympiades-graines",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -20856,7 +21079,7 @@
       "url": "https://www.geneve.ch/agenda/band-eaux-vives-echoes-messengers",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -20886,7 +21109,7 @@
       "url": "https://www.geneve.ch/agenda/french-amour-s10e3",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 5,
         "currency": "CHF",
@@ -20916,7 +21139,7 @@
       "url": "https://www.geneve.ch/agenda/milonga-brava-lorena-goldestein-cristian-gallardo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -20945,7 +21168,7 @@
       "url": "https://www.geneve.ch/agenda/premiere-mystere-lucy-lost-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 17.5,
         "currency": "CHF",
@@ -21005,7 +21228,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-chocolate-monster-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 40,
         "currency": "CHF",
@@ -21026,7 +21249,7 @@
     {
       "id": "ge-agenda:rift-solo-show-severin-guelpa",
       "title": "RIFT – Solo show de Séverin Guelpa",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-23",
       "category": "Festival",
       "region": "Genève",
@@ -21036,7 +21259,7 @@
       "url": "https://www.geneve.ch/agenda/rift-solo-show-severin-guelpa",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -21054,6 +21277,11 @@
       },
       "sourceDescriptionHash": "0648f75ca19f0e76dee010dd5b1944fc4e06ea87e471db404e85f2fa6ec1fde1",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "rift-solo-show-de-severin-guelpa-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -21202,7 +21430,7 @@
     {
       "id": "ge-agenda:dieu-carnage",
       "title": "Le Dieu du carnage",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-24",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -21212,7 +21440,7 @@
       "url": "https://www.geneve.ch/agenda/dieu-carnage",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -21228,12 +21456,19 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "93b24091fff0f7186eb14822f1a719de656b9977168e4731acd058ffdbd1b299"
+      "sourceDescriptionHash": "93b24091fff0f7186eb14822f1a719de656b9977168e4731acd058ffdbd1b299",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "le-dieu-du-carnage-2026-10-14"
+        }
+      ]
     },
     {
       "id": "ge-agenda:francoise-deladoey-allegorie-monde",
       "title": "FRANÇOISE DELADOËY \"Allégorie sur le monde\"",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-25",
       "category": "Exposition",
       "region": "Genève",
@@ -21243,7 +21478,7 @@
       "url": "https://www.geneve.ch/agenda/francoise-deladoey-allegorie-monde",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21258,7 +21493,14 @@
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
       },
-      "sourceDescriptionHash": "523fd564d7483ab1e09b169553f440aa2bcc36136988218153f8fa8a356639af"
+      "sourceDescriptionHash": "523fd564d7483ab1e09b169553f440aa2bcc36136988218153f8fa8a356639af",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "francoise-deladoey-allegorie-sur-le-monde-2026-10-14"
+        }
+      ]
     },
     {
       "id": "ge-agenda:roshani-erin-kimberly-csugvr",
@@ -21272,7 +21514,7 @@
       "url": "https://www.geneve.ch/agenda/roshani-erin-kimberly-csugvr",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -21303,7 +21545,7 @@
       "url": "https://www.geneve.ch/agenda/mondial-impro-qualifications",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -21333,7 +21575,7 @@
       "url": "https://www.geneve.ch/agenda/orchestre-feminin-moonlight-serenade-jazz-orleanstrad",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -21364,7 +21606,7 @@
       "url": "https://www.geneve.ch/agenda/nuits-magiques-saleve-2026",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 25,
         "currency": "CHF",
@@ -21395,7 +21637,7 @@
       "url": "https://www.geneve.ch/agenda/machines-sensibles-exposition-installations",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21426,7 +21668,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-theatre-livre-scene-clementine-comedienne-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21456,7 +21698,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-management-durable-action-carbon-scaling-impact-geneve-capitale-impact",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21486,7 +21728,7 @@
       "url": "https://www.geneve.ch/agenda/geumhyung-jeong-under-development",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21515,7 +21757,7 @@
       "url": "https://www.geneve.ch/agenda/luther",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -21545,7 +21787,7 @@
       "url": "https://www.geneve.ch/agenda/concert-evenement-paolo-fresu-david-linx-gustavo-beytelmann-moderne-latino",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 18,
         "currency": "CHF",
@@ -21575,7 +21817,7 @@
       "url": "https://www.geneve.ch/agenda/benjamin-epps-sebb-bash-stresh",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -21605,7 +21847,7 @@
       "url": "https://www.geneve.ch/agenda/chivi-reggaeton-salsa-merengue-bachata",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21634,7 +21876,7 @@
       "url": "https://www.geneve.ch/agenda/ensemble-ensemble",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -21664,7 +21906,7 @@
       "url": "https://www.geneve.ch/agenda/arthur-donnot-concert-chat-noir",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 17,
         "currency": "CHF",
@@ -21695,7 +21937,7 @@
       "url": "https://www.geneve.ch/agenda/festival-soir-presente-gims-triangle-bermudes",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 45,
         "currency": "CHF",
@@ -21725,7 +21967,7 @@
       "url": "https://www.geneve.ch/agenda/mah-pause-creative-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -21754,7 +21996,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-creez-chocolat-halloween-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 50,
         "currency": "CHF",
@@ -21784,7 +22026,7 @@
       "url": "https://www.geneve.ch/agenda/rounhaa",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -21814,7 +22056,7 @@
       "url": "https://www.geneve.ch/agenda/mondial-impro-finale",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -21844,7 +22086,7 @@
       "url": "https://www.geneve.ch/agenda/kris-afro-dancehall",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21873,7 +22115,7 @@
       "url": "https://www.geneve.ch/agenda/stage-alex-breahna-inscape",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -21902,7 +22144,7 @@
       "url": "https://www.geneve.ch/agenda/chicago-underground",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -21933,7 +22175,7 @@
       "url": "https://www.geneve.ch/agenda/electron-sublime-club",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 7,
         "currency": "CHF",
@@ -21964,7 +22206,7 @@
       "url": "https://www.geneve.ch/agenda/nostalgia-disco",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 1,
         "currency": "CHF",
@@ -21995,7 +22237,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-chasse-bonbons-char-viticole-atelier-creatif-degustation-vins",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 32,
         "currency": "CHF",
@@ -22026,7 +22268,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-chasse-bonbons-atelier-lanternes-maison-hantee-degustation-vins-collex-bossy",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 26,
         "currency": "CHF",
@@ -22056,7 +22298,7 @@
       "url": "https://www.geneve.ch/agenda/exposition-observatoires-carte-blanche-john-armleder-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -22085,7 +22327,7 @@
       "url": "https://www.geneve.ch/agenda/science-tango",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22115,7 +22357,7 @@
       "url": "https://www.geneve.ch/agenda/neuvieme-beethoven",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -22145,7 +22387,7 @@
       "url": "https://www.geneve.ch/agenda/visite-commentee-futur-quoi-3",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 8,
         "currency": "CHF",
@@ -22175,7 +22417,7 @@
       "url": "https://www.geneve.ch/agenda/geumhyung-jeong-find-select-copy-paste",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22204,7 +22446,7 @@
       "url": "https://www.geneve.ch/agenda/soiree-speciale-partenariat-cinemas-grutli",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -22225,7 +22467,7 @@
     {
       "id": "ge-agenda:asphalte-lieu-partage",
       "title": "L'Asphalte, un lieu de partage",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-25",
       "category": "Sport",
       "region": "Genève",
@@ -22235,7 +22477,7 @@
       "url": "https://www.geneve.ch/agenda/asphalte-lieu-partage",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22252,6 +22494,11 @@
       },
       "sourceDescriptionHash": "7a354461f042449cc8b7ca89664ce7e455a16a179f58996d0b9c83823c8b9a76",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "lasphalte-un-lieu-de-partage-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -22316,7 +22563,7 @@
       "url": "https://www.geneve.ch/agenda/cabane-reves-ateliers-creatifs-enfants-4",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -22347,7 +22594,7 @@
       "url": "https://www.geneve.ch/agenda/redacthon-formation-journalisme-droits-humains",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22377,7 +22624,7 @@
       "url": "https://www.geneve.ch/agenda/apparitions-patricia-bosshard",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -22407,7 +22654,7 @@
       "url": "https://www.geneve.ch/agenda/chariatte-night-walk",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -22436,7 +22683,7 @@
       "url": "https://www.geneve.ch/agenda/prayers",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22465,7 +22712,7 @@
       "url": "https://www.geneve.ch/agenda/malikian-intruso",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -22495,7 +22742,7 @@
       "url": "https://www.geneve.ch/agenda/cafe-quartier-initiation-gout-pain-pain-artisanal-industriel-differences",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22524,7 +22771,7 @@
       "url": "https://www.geneve.ch/agenda/soiree-prepro-leila-oscar",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22554,7 +22801,7 @@
       "url": "https://www.geneve.ch/agenda/pratiques-corporelles-matinales-cindy-acker",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22584,7 +22831,7 @@
       "url": "https://www.geneve.ch/agenda/journee-mondiale-patrimoine-audiovisuel-2026-fonds-films-bibliotheque-meg-gratuit-inscription",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22613,7 +22860,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-recherche-information-explorer-archives-numeriques-presse-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22643,7 +22890,7 @@
       "url": "https://www.geneve.ch/agenda/wonderdays-nature-company-introduction-idgs",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22673,7 +22920,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-geneve-insoumise-luttes-feministes-queer",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22702,7 +22949,7 @@
       "url": "https://www.geneve.ch/agenda/paulette-mene-enquete",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -22732,7 +22979,7 @@
       "url": "https://www.geneve.ch/agenda/rencontre-degustation-geneve-2710",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22762,7 +23009,7 @@
       "url": "https://www.geneve.ch/agenda/bill-frisell-trio-feat-luke-bergman-angulo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -22792,7 +23039,7 @@
       "url": "https://www.geneve.ch/agenda/pilates-face-oeuvres-3",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 30,
         "currency": "CHF",
@@ -22821,7 +23068,7 @@
       "url": "https://www.geneve.ch/agenda/action-lumieres-vernier",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22850,7 +23097,7 @@
       "url": "https://www.geneve.ch/agenda/voir-maitres-anciens-sincerite-geste",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22880,7 +23127,7 @@
       "url": "https://www.geneve.ch/agenda/symphohip-timar-aamo-dakeez-mibsy-kamil-osmanov-orchestre-chambre-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 35,
         "currency": "CHF",
@@ -22910,7 +23157,7 @@
       "url": "https://www.geneve.ch/agenda/bill-frisell-fete-75-bill-frisell-trio-feat-luke-bergman-angulo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -22940,7 +23187,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-jardin-botanique-geneve-histoire-mission-defis-conference-balade-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -22976,7 +23223,7 @@
       "url": "https://www.geneve.ch/agenda/seniors-conferences-informatiques-chatgpt-gemini-aider-vie-quotidienne",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23005,7 +23252,7 @@
       "url": "https://www.geneve.ch/agenda/alerte-rouge",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -23035,7 +23282,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-jardin-botanique-geneve-histoire-mission-defis-conference-balade",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23064,7 +23311,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-cosmetique-enfant-fabrication-douche-halloween",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 28,
         "currency": "CHF",
@@ -23094,7 +23341,7 @@
       "url": "https://www.geneve.ch/agenda/photos-souvenirs-smartphones",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23123,7 +23370,7 @@
       "url": "https://www.geneve.ch/agenda/herbier-feuilles",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -23153,7 +23400,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-chocolate-monster-2",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 40,
         "currency": "CHF",
@@ -23183,7 +23430,7 @@
       "url": "https://www.geneve.ch/agenda/andras-schiff-evgeny-kissin",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -23213,7 +23460,7 @@
       "url": "https://www.geneve.ch/agenda/dirty-three",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -23243,7 +23490,7 @@
       "url": "https://www.geneve.ch/agenda/jazz-night-groove-party-matthieu-llodra-valentin-liechti",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23272,7 +23519,7 @@
       "url": "https://www.geneve.ch/agenda/premiere-derborence-temps-animaux",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 17.5,
         "currency": "CHF",
@@ -23302,7 +23549,7 @@
       "url": "https://www.geneve.ch/agenda/cafe-police-municipale-acacias-echanger-autour-cafe-coeur-quartiers",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23331,7 +23578,7 @@
       "url": "https://www.geneve.ch/agenda/etudes-decoloniales-ignorent-histoire-trompent-cible-rencontre-jean-pierre-olivier-sardan",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23360,7 +23607,7 @@
       "url": "https://www.geneve.ch/agenda/affichage-public-6-singularite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23389,7 +23636,7 @@
       "url": "https://www.geneve.ch/agenda/voltaire-artisan-lumieres",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23409,7 +23656,7 @@
     {
       "id": "ge-agenda:exposition-transparences-saison-dreams-artistes-noora",
       "title": "Exposition « Transparences, saison III, Dreams » avec le duo d'artistes Ana D & Noora K",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-29",
       "category": "Exposition",
       "region": "Genève",
@@ -23419,7 +23666,7 @@
       "url": "https://www.geneve.ch/agenda/exposition-transparences-saison-dreams-artistes-noora",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23436,6 +23683,11 @@
       },
       "sourceDescriptionHash": "92f00328a69679c3d775924c1bd269b479b0479858fe2678ff4de8fd76596a28",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "exposition-transparences-saison-iii-dreams-avec-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -23465,7 +23717,7 @@
       "url": "https://www.geneve.ch/agenda/zelo-epicerie-reduit-empreinte-carbone-grace-0-dechet-0-carbone-0-kilometre",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23495,7 +23747,7 @@
       "url": "https://www.geneve.ch/agenda/cours-tango-argentin-niveau-debutant-6",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -23524,7 +23776,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-regards-croises-evolution-espaces-publics-bergues-jonction-decouvertes-eau",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23553,7 +23805,7 @@
       "url": "https://www.geneve.ch/agenda/action-lumieres-carouge",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23582,7 +23834,7 @@
       "url": "https://www.geneve.ch/agenda/requiem-aeternam-mort-musique-classique-conference-nicolas-bucher-directeur-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23612,7 +23864,7 @@
       "url": "https://www.geneve.ch/agenda/taking-care-ecosystem-1-voies-action-secteur-culturel-durable-porteur-sens-prospere",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23642,7 +23894,7 @@
       "url": "https://www.geneve.ch/agenda/afterwork-chocolat-halloween",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 110,
         "currency": "CHF",
@@ -23672,7 +23924,7 @@
       "url": "https://www.geneve.ch/agenda/invincible-ete-projection-debat",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23702,7 +23954,7 @@
       "url": "https://www.geneve.ch/agenda/drwatson-lawdy-mamas",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -23732,7 +23984,7 @@
       "url": "https://www.geneve.ch/agenda/ilis-86-40-apres-penser-alliances-queer-feministes-conference",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23761,7 +24013,7 @@
       "url": "https://www.geneve.ch/agenda/milonga-brava-delfina-pissani-diego-martin-valero",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -23790,7 +24042,7 @@
       "url": "https://www.geneve.ch/agenda/concert-pouce-quatuor-cordes-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23820,7 +24072,7 @@
       "url": "https://www.geneve.ch/agenda/hermetos-mothership-concert-100-hermeto-pascoal-tribute-longtime-band",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -23850,7 +24102,7 @@
       "url": "https://www.geneve.ch/agenda/univers-burton-mystery-ensemble",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 40,
         "currency": "CHF",
@@ -23881,7 +24133,7 @@
       "url": "https://www.geneve.ch/agenda/positiv-festival-soir",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 52,
         "currency": "CHF",
@@ -23932,7 +24184,7 @@
     {
       "id": "ge-agenda:mois-histoire-lgbtiq-2026",
       "title": "Mois de l’histoire LGBTIQ+ 2026",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-31",
       "category": "Conférence - Rencontre",
       "region": "Genève",
@@ -23942,7 +24194,7 @@
       "url": "https://www.geneve.ch/agenda/mois-histoire-lgbtiq-2026",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -23962,6 +24214,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "mois-de-lhistoire-lgbtiq-2026-2026-10-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "mois-de-lhistoire-lgbtiq-2026-2026-10-13"
         },
         {
@@ -23974,7 +24231,7 @@
     {
       "id": "ge-agenda:ateliers-numeriques-octobre-permanence-numerique-rive",
       "title": "Ateliers numériques d'octobre - Permanence numérique Rive droite",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-31",
       "category": "Atelier",
       "region": "Genève",
@@ -23984,7 +24241,7 @@
       "url": "https://www.geneve.ch/agenda/ateliers-numeriques-octobre-permanence-numerique-rive",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24001,6 +24258,11 @@
       },
       "sourceDescriptionHash": "384c834029cdbbf826e109e68be600b5f39e28153093530a9ade29686ca33b4a",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "ateliers-numeriques-doctobre-permanence-numerique-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -24088,7 +24350,7 @@
     {
       "id": "ge-agenda:exposition-concours-architecture-pluridisciplinaire-transformation-centre-sportif-bout-monde",
       "title": "Exposition du concours d'architecture pluridisciplinaire | Transformation du Centre sportif du Bout-du-Monde",
-      "startDate": "2026-10-14",
+      "startDate": "2026-10-15",
       "endDate": "2026-10-31",
       "category": "Exposition",
       "region": "Genève",
@@ -24098,7 +24360,7 @@
       "url": "https://www.geneve.ch/agenda/exposition-concours-architecture-pluridisciplinaire-transformation-centre-sportif-bout-monde",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24115,6 +24377,11 @@
       },
       "sourceDescriptionHash": "14fdc4c03504efc255ccfe834d5ae1f278df4d84eef84fd325211af986229bd5",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "exposition-du-concours-darchitecture-pluridiscipl-2026-10-14"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -24135,7 +24402,7 @@
       "url": "https://www.geneve.ch/agenda/festival-soir-palexpo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -24165,7 +24432,7 @@
       "url": "https://www.geneve.ch/agenda/initiation-practica-tango-ginebrina",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -24194,7 +24461,7 @@
       "url": "https://www.geneve.ch/agenda/ravens-geneve-contre-fribourg-women-league",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 2,
         "currency": "CHF",
@@ -24225,7 +24492,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-atelier-fabrication-fantome-chocolat-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 50,
         "currency": "CHF",
@@ -24256,7 +24523,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-balade-flambeaux-aperitif-terroir-saleve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 49,
         "currency": "CHF",
@@ -24287,7 +24554,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-grande-chasse-lampions-hallie-vieille-ville-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 29,
         "currency": "CHF",
@@ -24318,7 +24585,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-grand-chasse-bonbons-vieille-ville-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 29,
         "currency": "CHF",
@@ -24349,7 +24616,7 @@
       "url": "https://www.geneve.ch/agenda/festival-hallomania-18-evenements-frissonner-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 25,
         "currency": "CHF",
@@ -24379,7 +24646,7 @@
       "url": "https://www.geneve.ch/agenda/twist-spectacle-impro-rebondir-histoire",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24409,7 +24676,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-collages-lundi-26-octobre-18h30-20h30-villa-freundler-plainpalais-adultes-ados-tarif-materiel-fourni-20",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -24439,7 +24706,7 @@
       "url": "https://www.geneve.ch/agenda/menace-chorale",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 5,
         "currency": "CHF",
@@ -24470,7 +24737,7 @@
       "url": "https://www.geneve.ch/agenda/sami-samira-bernath-souslesmontagnes",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -24501,7 +24768,7 @@
       "url": "https://www.geneve.ch/agenda/emergentia-26-hips-they-switch-cuidado-perrxs-tristes-isam-abad-montalvo",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -24531,7 +24798,7 @@
       "url": "https://www.geneve.ch/agenda/soiree-soutien",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24561,7 +24828,7 @@
       "url": "https://www.geneve.ch/agenda/matieres-inflammables",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -24590,7 +24857,7 @@
       "url": "https://www.geneve.ch/agenda/taloco-grim-dancehall-amapiano",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24620,7 +24887,7 @@
       "url": "https://www.geneve.ch/agenda/journees-verre",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -24651,7 +24918,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-murder-party-degustation-gourmande-brasserie-murailles-meinier",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 66,
         "currency": "CHF",
@@ -24681,7 +24948,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-chocolate-monster-3",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 40,
         "currency": "CHF",
@@ -24711,7 +24978,7 @@
       "url": "https://www.geneve.ch/agenda/balades-exploration-urbaine-frontieres",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24741,7 +25008,7 @@
       "url": "https://www.geneve.ch/agenda/mort-nouvelle-naissance-conference-sylvie-dethiollaz-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24771,7 +25038,7 @@
       "url": "https://www.geneve.ch/agenda/ecrire-vivant-15-saison-3",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -24801,7 +25068,7 @@
       "url": "https://www.geneve.ch/agenda/mort-presentation-sarah-joliat-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24831,7 +25098,7 @@
       "url": "https://www.geneve.ch/agenda/alerte-rouge-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 3,
         "currency": "CHF",
@@ -24861,7 +25128,7 @@
       "url": "https://www.geneve.ch/agenda/breathcore",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24890,7 +25157,7 @@
       "url": "https://www.geneve.ch/agenda/ateliers-ecriture-ecrire-reinventer-quartier",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -24920,7 +25187,7 @@
       "url": "https://www.geneve.ch/agenda/mort-parlons-table-ronde-sarah-joliat-aurelie-jung-vanessa-maier-juliette-raymond-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -24950,7 +25217,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-creez-chocolat-halloween-2",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 50,
         "currency": "CHF",
@@ -24980,7 +25247,7 @@
       "url": "https://www.geneve.ch/agenda/journee-mondiale-soins-palliatifs",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25009,7 +25276,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-enquete-assassin-macchabees-vieille-ville-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 19,
         "currency": "CHF",
@@ -25039,7 +25306,7 @@
       "url": "https://www.geneve.ch/agenda/esprits-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -25069,7 +25336,7 @@
       "url": "https://www.geneve.ch/agenda/fete-espace-quartier-eaux-vives",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25098,7 +25365,7 @@
       "url": "https://www.geneve.ch/agenda/famille-addams",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -25128,7 +25395,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-chasse-bonbons-leman-jardin-anglais-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 29,
         "currency": "CHF",
@@ -25158,7 +25425,7 @@
       "url": "https://www.geneve.ch/agenda/louis-billette-6tet-mohs-feat-fanny-martin-arthur-hnatek",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -25188,7 +25455,7 @@
       "url": "https://www.geneve.ch/agenda/symphonic-disco",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 50,
         "currency": "CHF",
@@ -25218,7 +25485,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-balade-chandelles-tortures-chatiments-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 29,
         "currency": "CHF",
@@ -25248,7 +25515,7 @@
       "url": "https://www.geneve.ch/agenda/sullivan-fortner-trio",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -25278,7 +25545,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-soiree-fluo-party-domaine-bossons-satigny",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 39,
         "currency": "CHF",
@@ -25308,7 +25575,7 @@
       "url": "https://www.geneve.ch/agenda/night-chat-noir",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -25339,7 +25606,7 @@
       "url": "https://www.geneve.ch/agenda/muertos-festival",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 55,
         "currency": "CHF",
@@ -25370,7 +25637,7 @@
       "url": "https://www.geneve.ch/agenda/megalloween-festival-soir",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 36,
         "currency": "CHF",
@@ -25401,7 +25668,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-chasse-momie-bonbons-parc-evaux-onex",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 29,
         "currency": "CHF",
@@ -25432,7 +25699,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-chasse-bonbons-train-terroir-express-jussy",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 32,
         "currency": "CHF",
@@ -25463,7 +25730,7 @@
       "url": "https://www.geneve.ch/agenda/danced-stances-aurelie-dupuis-lefevre-lisa-laurent-marie-popall-tyra-wigg-spitting-image",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25493,7 +25760,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-double-chasse-bonbons-vignes-fluo-degustation-vins-soral-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 30,
         "currency": "CHF",
@@ -25524,7 +25791,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-chasse-bonbons-loto-bulle-degustation-satigny",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 32,
         "currency": "CHF",
@@ -25555,7 +25822,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-double-chasse-bonbons-vignes-fluo-degustation-vins-soral",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 30,
         "currency": "CHF",
@@ -25585,7 +25852,7 @@
       "url": "https://www.geneve.ch/agenda/parcours-immersif-enfants-familles-futur-quoi-4",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25615,7 +25882,7 @@
       "url": "https://www.geneve.ch/agenda/verre-dela-matiere-collections-cirva-4",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25644,7 +25911,7 @@
       "url": "https://www.geneve.ch/agenda/marie-ducate-simultanes-4",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25673,7 +25940,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-destination-futurs-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25710,7 +25977,7 @@
       "url": "https://www.geneve.ch/agenda/matin-danser",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25740,7 +26007,7 @@
       "url": "https://www.geneve.ch/agenda/matinees-decalees-quatuor-rosamonde",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25770,7 +26037,7 @@
       "url": "https://www.geneve.ch/agenda/seismes-attention-secousses",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25799,7 +26066,7 @@
       "url": "https://www.geneve.ch/agenda/pont-projection-film-animation-freres-guillaume-bibliotheque-cite",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25829,7 +26096,7 @@
       "url": "https://www.geneve.ch/agenda/herbier-jean-jacques-rousseau-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25859,7 +26126,7 @@
       "url": "https://www.geneve.ch/agenda/dimanches-cite-seniors-chesco",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25888,7 +26155,7 @@
       "url": "https://www.geneve.ch/agenda/balexert-20km-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 29,
         "currency": "CHF",
@@ -25918,7 +26185,7 @@
       "url": "https://www.geneve.ch/agenda/festival-tramways-historiques",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 6,
         "currency": "CHF",
@@ -25948,7 +26215,7 @@
       "url": "https://www.geneve.ch/agenda/fete-glace",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -25977,7 +26244,7 @@
       "url": "https://www.geneve.ch/agenda/anima-sana",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -26006,7 +26273,7 @@
       "url": "https://www.geneve.ch/agenda/atelier-destination-futurs",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26036,7 +26303,7 @@
       "url": "https://www.geneve.ch/agenda/espace-lecture-histoires-peanser-futur-4",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26065,7 +26332,7 @@
       "url": "https://www.geneve.ch/agenda/martine-freudenreich-musique-lecture",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26094,7 +26361,7 @@
       "url": "https://www.geneve.ch/agenda/nefeli-papadimouli-dream-coat-performance-etudiantes-ballet-junior-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26123,7 +26390,7 @@
       "url": "https://www.geneve.ch/agenda/hallomania-chasse-bonbons-oies-atelier-creatif-degustation-vins-dardagny",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 26,
         "currency": "CHF",
@@ -26153,7 +26420,7 @@
       "url": "https://www.geneve.ch/agenda/dimanche-futur-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26182,7 +26449,7 @@
       "url": "https://www.geneve.ch/agenda/sabbathsong-klezmer-band",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -26212,7 +26479,7 @@
       "url": "https://www.geneve.ch/agenda/orchestre-symphonique-suisse-jeunes",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -26242,7 +26509,7 @@
       "url": "https://www.geneve.ch/agenda/decor-sept",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 25,
         "currency": "CHF",
@@ -26272,7 +26539,7 @@
       "url": "https://www.geneve.ch/agenda/louis-matute-large-ensemble-feat-joyce-moreno-frederico-heliodoro",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -26302,7 +26569,7 @@
       "url": "https://www.geneve.ch/agenda/soiree-prepro-barbara",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26331,7 +26598,7 @@
       "url": "https://www.geneve.ch/agenda/tango-sante-1",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": null,
         "currency": "CHF",
@@ -26360,7 +26627,7 @@
       "url": "https://www.geneve.ch/agenda/agape-faada-freddy-orchestre-geca",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -26390,7 +26657,7 @@
       "url": "https://www.geneve.ch/agenda/rencontres-fertiles-christian-clot",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26420,7 +26687,7 @@
       "url": "https://www.geneve.ch/agenda/visite-musee-sapeurs-pompiers-ville-geneve",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26449,7 +26716,7 @@
       "url": "https://www.geneve.ch/agenda/douce-chataigne-peps-clementine",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 5,
         "currency": "CHF",
@@ -26479,7 +26746,7 @@
       "url": "https://www.geneve.ch/agenda/spectacle-improvisation-anglais-renegade-saints-2",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26509,7 +26776,7 @@
       "url": "https://www.geneve.ch/agenda/7-peches-capitaux",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -26538,7 +26805,7 @@
       "url": "https://www.geneve.ch/agenda/temoin-gaza-efface",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26568,7 +26835,7 @@
       "url": "https://www.geneve.ch/agenda/wall",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -26598,7 +26865,7 @@
       "url": "https://www.geneve.ch/agenda/retour-copaines-edmond-soiree-burlesque-18",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 15,
         "currency": "CHF",
@@ -26628,7 +26895,7 @@
       "url": "https://www.geneve.ch/agenda/eclate-cuisine-4-mains",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 5,
         "currency": "CHF",
@@ -26658,7 +26925,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-suffragettes-suisses",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26687,7 +26954,7 @@
       "url": "https://www.geneve.ch/agenda/parcours-mini-meg-futur-quoi-2",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26717,7 +26984,7 @@
       "url": "https://www.geneve.ch/agenda/stage-autodefense-feministe-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26746,7 +27013,7 @@
       "url": "https://www.geneve.ch/agenda/redecouvrez-marguerite-duras-cinema-longue-absence-presence-jean-marc-turine",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 7.5,
         "currency": "EUR",
@@ -26775,7 +27042,7 @@
       "url": "https://www.geneve.ch/agenda/vieillir-vihsida",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26805,7 +27072,7 @@
       "url": "https://www.geneve.ch/agenda/coeur-heritage-marguerite-duras-decouvrez-film-douleur-rencontrez-jean-marc-turine",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -26834,7 +27101,7 @@
       "url": "https://www.geneve.ch/agenda/dark-matter-night",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26864,7 +27131,7 @@
       "url": "https://www.geneve.ch/agenda/rencontre-police-municipale-0",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26893,7 +27160,7 @@
       "url": "https://www.geneve.ch/agenda/histoire-decouverte-serre-exceptionnelle",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26923,7 +27190,7 @@
       "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-cafe-quartier-futur-quoi",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-14T11:03:37.108Z",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
       "price": {
         "amount": 0,
         "currency": "CHF",
@@ -26939,6 +27206,781 @@
         "name": "Ville de Genève Agenda"
       },
       "sourceDescriptionHash": "c58783583a3b461ebe5d7e1462e0a5c382e3784a7785129d4586f1a505abfaa1"
+    },
+    {
+      "id": "ge-agenda:atelier-creation-podcast-karine-pollien-bibliotheque-cite",
+      "title": "Atelier de création de podcast avec Karine Pollien à la Bibliothèque de la Cité",
+      "startDate": "2026-10-01",
+      "endDate": "2026-11-05",
+      "category": "Atelier",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-creation-podcast-karine-pollien-bibliotheque-cite",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "6daca57be6fbd34d822599dade9b73b7986588872d36e0edc7a2bf07aaf40f34"
+    },
+    {
+      "id": "ge-agenda:atelier-front",
+      "title": "Atelier 𝙰𝚛𝚌𝚑𝚒𝚟𝚎𝚛 𝚕'𝚒𝚗𝚟𝚒𝚜𝚒𝚋𝚕𝚎: 𝚎𝚡𝚙𝚕𝚘𝚛𝚎𝚛 𝚕𝚎 𝚟𝚎̂𝚝𝚎𝚖𝚎𝚗𝚝 𝚎́𝚖𝚘𝚝𝚒𝚘𝚗𝚗𝚎𝚕 avec Front Row",
+      "startDate": "2026-10-14",
+      "endDate": "2026-11-04",
+      "category": "Atelier",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-front",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "0d50cd9fc7ec4b221d25a4c3143ab6fe035e93bc2186b6d6470a7131869bc6a9"
+    },
+    {
+      "id": "ge-agenda:vernissage-lancement-livre-cosmopolemos",
+      "title": "Vernissage et lancement du livre Cosmopolemos",
+      "startDate": "2026-10-28",
+      "category": "Inauguration – Vernissage – Portes ouvertes",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/vernissage-lancement-livre-cosmopolemos",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "b7d7ca2ac6971199653d0e16c1a6c7898c9b1b2d082a87161dc6eca1846992fe"
+    },
+    {
+      "id": "ge-agenda:decouverte-monde-sourdes",
+      "title": "A la découverte du monde des personnes sourdes",
+      "startDate": "2026-10-29",
+      "category": "Atelier",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/decouverte-monde-sourdes",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "96674224cb095af9ccf6db3159c6685b133010de4feddebc5d8ad55ad2dd2e7f"
+    },
+    {
+      "id": "ge-agenda:parade-musicale-deguisee-fete-mortes-braver-nuit-velodrome-loisirs",
+      "title": "Parade musicale déguisée de la fête des mort·es : Braver la nuit du Vélodrome à Cap Loisirs",
+      "startDate": "2026-10-30",
+      "category": "Animation",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/parade-musicale-deguisee-fete-mortes-braver-nuit-velodrome-loisirs",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "a7e147f6a32752967dae71e993d9bd79924d93ccd42252c26fb01b95cbb109d0"
+    },
+    {
+      "id": "ge-agenda:ceremonie-souvenir",
+      "title": "Cérémonie du souvenir",
+      "startDate": "2026-10-31",
+      "category": "Manifestation – Salon",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/ceremonie-souvenir",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "url": "https://ceremonie-souvenir.v4.eventwise.ch/formulaire-dinscription/4776/zIXXw2ymzLD6DjliqU6Ur2hsNcwAPYJvH6iN7WV8TcY7guh.JCU..kZDhLqHQHeOFyTcG3C_LlI75gUYr4vevQ3Gbsp2VYBUbmlz5v6d01w-/fr/registration"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "0443e94c9048d750dbec563b364c16a0d9dbdde32ccb0cb97bc0b6f539fb7d4b"
+    },
+    {
+      "id": "ge-agenda:giff-projection-gradiva",
+      "title": "GIFF | PROJECTION | LA GRADIVA",
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-02",
+      "category": "Festival",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/giff-projection-gradiva",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 8,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://2026.giff.ch/billetterie/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "515774353a25938d0bb2e4962252b78dfd3e493080460aec0938b3428320725d"
+    },
+    {
+      "id": "ge-agenda:giff-projection-viendra-revolution",
+      "title": "GIFF | PROJECTION | VIENDRA LA RÉVOLUTION",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-03",
+      "category": "Festival",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/giff-projection-viendra-revolution",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 8,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://2026.giff.ch/billetterie/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "91748ad6e914b28b2badf21e83c02f787f5e71733261a7b2393aae193278dac5"
+    },
+    {
+      "id": "ge-agenda:giff-projection-haemers",
+      "title": "GIFF | PROJECTION | HAEMERS",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-04",
+      "category": "Festival",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/giff-projection-haemers",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 8,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://2026.giff.ch/billetterie/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "41a5d6a2be745d13551748b7a35edf2317ebcdaca465b4139f80b3750a593b28"
+    },
+    {
+      "id": "ge-agenda:giff-projection-indes",
+      "title": "GIFF | PROJECTION | LES INDES",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-04",
+      "category": "Festival",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/giff-projection-indes",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 8,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://2026.giff.ch/billetterie/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "1dcaa371e8090486dfda828b27bce03a77468cf22552f6eac21f1a98e916783a"
+    },
+    {
+      "id": "ge-agenda:giff-projection-flaws",
+      "title": "GIFF | PROJECTION | THE FLAWS",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-04",
+      "category": "Festival",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/giff-projection-flaws",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 8,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://2026.giff.ch/billetterie/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "933cba5cab8352666c32b9587662abf6d4510657172ab7202f62c0e1823644ee"
+    },
+    {
+      "id": "ge-agenda:traktor",
+      "title": "TRAKTOR",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-04",
+      "category": "Concert",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/traktor",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "12cb0aa8e4c17ee8d03b4c2acce22582d10deaa0432a6e71c33ee6852b28d178"
+    },
+    {
+      "id": "ge-agenda:emergentia-2026-efthimios-moschopoulos",
+      "title": "Emergentia 2026: \"FÁE\" d'Efthimios Moschopoulos",
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-04",
+      "category": "Danse",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/emergentia-2026-efthimios-moschopoulos",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 12,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://emergentia.ch/temps-fort-creation-choregraphique-emergente/emergentia-2026/efthimios-moschopoulos-fae/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "46812a176dfb7c4740e3aa01f1b975236554d6d74a6dd2c7edc32f50a7b71a4d"
+    },
+    {
+      "id": "ge-agenda:estefania-alvarez-ramirez-luisa-fernanda-alfonso-quinceaneras",
+      "title": "Estefanía Álvarez Ramírez & Luisa Fernanda Alfonso / Quinceañeras",
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-04",
+      "category": "Danse",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/estefania-alvarez-ramirez-luisa-fernanda-alfonso-quinceaneras",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 12,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "f1e90d509f873d1d6042703a6a38591bcd27960b6cf7c10aff8d245ba7a9a17f"
+    },
+    {
+      "id": "ge-agenda:ancetres-collections-regards-croises-entre-enjeux-scientifiques-responsabilites-contemporaines",
+      "title": "Ancêtres en collections? Regards croisés entre enjeux scientifiques et responsabilités contemporaines",
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-04",
+      "category": "Conférence - Rencontre",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/ancetres-collections-regards-croises-entre-enjeux-scientifiques-responsabilites-contemporaines",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "15311757f5c56bad591fc236d59749d69fb47a797554213f6f87788d558e5273"
+    },
+    {
+      "id": "ge-agenda:cafes-quartier-futur-quoi",
+      "title": "Cafés quartier : Le futur, c'est quoi?",
+      "startDate": "2026-11-04",
+      "category": "Animation",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cafes-quartier-futur-quoi",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "b68fc3dd8bc1e546195b5e6cf2ca34de65432a37bc473bf77937e0fc850afe21"
+    },
+    {
+      "id": "ge-agenda:mercredi-comedie-0",
+      "title": "Mercredi Comédie",
+      "startDate": "2026-11-04",
+      "category": "Atelier",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/mercredi-comedie-0",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "723016f2eadc3a91d29d865185a3c59b32bfe905244de1b2d50600b606fa3f22"
+    },
+    {
+      "id": "ge-agenda:cafe-quartier-futur-quoi",
+      "title": "Café quartier : Le futur, c’est quoi ?",
+      "startDate": "2026-11-04",
+      "category": "Animation",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cafe-quartier-futur-quoi",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "7f30ec109e72909053035d983314aec158cde154a23b29bfa8472e98fe60f9bb"
+    },
+    {
+      "id": "ge-agenda:improoo-festival-long-format-improvise-casting-retour-2",
+      "title": "Improoo - Le Festival du long format improvisé - Casting : Le Retour 2",
+      "startDate": "2026-11-04",
+      "category": "Spectacle - Théâtre",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/improoo-festival-long-format-improvise-casting-retour-2",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://infomaniak.events/fr-ch/shop/le-douze-dix-huit-94GKH3EYUW/events/1648628"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "c062ac3e8aa6d787ad797acfb2a00515789c431924dcb4a192631a4c15340b0d"
+    },
+    {
+      "id": "ge-agenda:miki-yoko",
+      "title": "MIKI + Kay Yōko",
+      "startDate": "2026-11-04",
+      "category": "Concert",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/miki-yoko",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false,
+        "url": "https://infomaniak.events/fr-ch/shop/miki-MQUVC6UX7Q"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "01fc39e6d931eacfbbf383ee4dcd1c3beadacaf77ec141d5825de332510ae9f7"
+    },
+    {
+      "id": "ge-agenda:cours-tango-argentin-niveau-debutant-7",
+      "title": "Cours de Tango Argentin - Niveau débutant",
+      "startDate": "2026-11-05",
+      "category": "Danse",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cours-tango-argentin-niveau-debutant-7",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "c095bab9aa691296e1674d872617fa0621e858af5560775b0ecc8a2499f71e73"
+    },
+    {
+      "id": "ge-agenda:cite-seniors-fete-20-47-histoire-squats-geneve-conference-causerie-balades-1",
+      "title": "Cité Seniors fête ses 20 ans | 47 ans d'histoire des squats à Genève - Conférence, causerie et balades",
+      "startDate": "2026-11-05",
+      "category": "Balade – Excursion",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cite-seniors-fete-20-47-histoire-squats-geneve-conference-causerie-balades-1",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "8bb78aec11151bdfa2e66961cd6ace1fea722a90fa93a6ee99d2e33634d01d12"
+    },
+    {
+      "id": "ge-agenda:pilates-face-oeuvres-7",
+      "title": "Pilates face aux œuvres",
+      "startDate": "2026-11-05",
+      "category": "Sport",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/pilates-face-oeuvres-7",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "cff1f9a78e7d2e1a86378d05fd0cac904f24ece1080f612cce655c75055615f8"
+    },
+    {
+      "id": "ge-agenda:olivier-louvel-masterclass",
+      "title": "Olivier Louvel Masterclass",
+      "startDate": "2026-11-05",
+      "category": "Conférence - Rencontre",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/olivier-louvel-masterclass",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "url": "https://infomaniak.events/fr-ch/ateliers-et-stages/olivier-louvel-masterclass/f9e89acc-09e3-47f2-9602-c1ae1a5bd525/events/400440"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "68a240a79c9397dc884d288ef7e8eef84d1d4a77a5ffe20d4b7b2ebc524c266e"
+    },
+    {
+      "id": "ge-agenda:tresors-caches-arts-graphiques",
+      "title": "Trésors cachés des arts graphiques",
+      "startDate": "2026-11-05",
+      "category": "Conférence - Rencontre",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/tresors-caches-arts-graphiques",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "0bcaa8c22c79865200b99e586b406c76a7323484e936c5507aa8c24a0ef5e5aa"
+    },
+    {
+      "id": "ge-agenda:ombre-lumieres-peinture-genevoise-1444-1782-0",
+      "title": "De l'Ombre aux Lumières. La peinture genevoise (1444-1782)",
+      "startDate": "2026-11-05",
+      "category": "Visite commentée",
+      "region": "Genève",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/ombre-lumieres-peinture-genevoise-1444-1782-0",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-10-15T10:47:08.686Z",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "sourceDescriptionHash": "abb73ffbd6156d96e8367755602e2b4f25fe38dbb02383826f78e57f9dffa2ed"
     }
   ]
 }
