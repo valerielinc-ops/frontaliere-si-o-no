@@ -144,7 +144,8 @@ function refreshMain(repo, gitFn) {
       'fetch', '-q', 'origin', 'main',
     ]);
     return true;
-  } catch {
+  } catch (error) {
+    if (isStorageError(error)) throw error;
     // A valid, slightly stale origin/main is still useful: the push below can
     // succeed if nobody advanced main, and a rejected push will request a
     // refresh on the next attempt.
