@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "751ed198879395e5fbcc15c88bd3b7d883985c85",
+  "sourceCommit": "8966a34b880702d73c896cb27a9d944dd98f0e9d",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "751ed198879395e5fbcc15c88bd3b7d883985c85"
+    "sourceCommit": "8966a34b880702d73c896cb27a9d944dd98f0e9d"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 642,
+  "crawlerCount": 643,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:89e9dc022c441b45fbb5f538bcb4a38d5573dcb9c730840e03770fb6c0e1d782",
+    "rosterDigest": "sha256:9c0f1f7db235d3b7f6d8f90a6608a9348f9c646e8ed65d05c132165ac0910eb6",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -315,6 +315,7 @@
     "scripts/update-kispi-jobs.mjs",
     "scripts/update-kispi-sg-jobs.mjs",
     "scripts/update-kispi-zurich-jobs.mjs",
+    "scripts/update-kita-summervogel-jobs.mjs",
     "scripts/update-klinik-aadorf-jobs.mjs",
     "scripts/update-klinik-adelheid-jobs.mjs",
     "scripts/update-klinik-arlesheim-jobs.mjs",
@@ -866,8 +867,8 @@
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "283c152e47e3d2a47f768cc529b7218de9d74ccd4452c319ae73f81ecb4627f2",
-      "artifactSha256": "2dd6634ffcfeb310edf99a18a54df8285eba11eccc0f5d4a5694458e3acc8f78",
+      "sourceSha256": "3a17cfb664a0746db066d0351a32cb8fb6abcdfef96fa87b38e0c83da7f7dad5",
+      "artifactSha256": "3026a6847982e8695c34e4fed959c7fef370bcf211224c9c801c4648c6c0f743",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "spital-emmental",
@@ -897,7 +898,8 @@
         "citta-di-lugano",
         "anker-swiss",
         "guggerbach",
-        "lonza"
+        "lonza",
+        "kita-summervogel"
       ]
     },
     {
