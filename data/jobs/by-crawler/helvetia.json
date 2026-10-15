@@ -3667,7 +3667,7 @@
       "slugByLocale": {
         "it": "consulente-clienti-m-f-d-agenzia-principale-stans-part-time-full-time-helvetia-versicherungen-stans",
         "en": "customer-consultant-m-f-d-insurance-main-agency-stans-part-time-full-time-helvetia-versicherungen-stans",
-        "de": "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans",
+        "de": "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans-g2dewh",
         "fr": "consultant-client-h-f-d-assurance-principale-stans-temps-partiel-temps-plein-helvetia-versicherungen-stans"
       },
       "company": "Helvetia Versicherungen",
@@ -3717,6 +3717,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans"
+        ],
+        "de": [
           "kundenberater-w-m-d-versicherung-hauptagentur-stans-teilzeit-vollzeit-helvetia-stans"
         ]
       },

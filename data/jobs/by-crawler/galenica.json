@@ -2090,7 +2090,13 @@
       "id": "galenica-b80539104095",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
+          "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
+          "farmacista-come-saltatore-m-f-d-galenica-ag-galenica-bern-nx2bam",
+          "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern-nxkq4t",
+          "apothecaire-comme-springer-m-w-d-galenica-ag-galenica-bern",
+          "apotheker-apothekerin-als-springer-m-w-d-galenica-ag-galenica-bern",
+          "pharmacien-pharmacienne-remplacant-e-m-f-d-galenica-ag-galenica-bern",
+          "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern"
         ],
         "en": [
           "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
@@ -2100,7 +2106,13 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
+        "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
+        "farmacista-come-saltatore-m-f-d-galenica-ag-galenica-bern-nx2bam",
+        "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern-nxkq4t",
+        "apothecaire-comme-springer-m-w-d-galenica-ag-galenica-bern",
+        "apotheker-apothekerin-als-springer-m-w-d-galenica-ag-galenica-bern",
+        "pharmacien-pharmacienne-remplacant-e-m-f-d-galenica-ag-galenica-bern",
+        "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3388,7 +3400,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -3731,7 +3744,8 @@
       "id": "galenica-03e72ed191eb",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp"
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp",
+          "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-visp-nx2ui4"
         ],
         "en": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp"
@@ -3741,7 +3755,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp",
+        "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-visp-nx2ui4"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

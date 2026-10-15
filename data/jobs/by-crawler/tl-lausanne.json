@@ -928,6 +928,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-29T09:34:45.995Z",
       "previousSlugs": [
         "planificateur-ice-m3-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "planificateur-ice-m3-tl-lausanne-lausanne"
@@ -943,20 +957,6 @@
         "de": [
           "planificateur-ice-m3-tl-lausanne-lausanne"
         ]
-      },
-      "firstSeenAt": "2026-09-29T09:34:45.995Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
       }
     },
     {

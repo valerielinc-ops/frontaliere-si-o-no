@@ -4384,10 +4384,7 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/hochschulpraktikant-in-in-diversen-bereichen/81c80080-07c9-4751-b65a-65ab4d40158a",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-15T21:22:18.187Z",
-      "previousSlugs": [
-        "hochschulpraktikant-in-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit",
-        "hochschulpraktikant-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit",
@@ -4400,8 +4397,10 @@
           "hochschulpraktikant-in-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-15T09:30:38.364Z",
+      "previousSlugs": [
+        "hochschulpraktikant-in-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit",
+        "hochschulpraktikant-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit"
+      ],
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -4418,7 +4417,9 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/hochschulpraktikant-in-in-diversen-bereichen/81c80080-07c9-4751-b65a-65ab4d40158a"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/hochschulpraktikant-in-in-diversen-bereichen/81c80080-07c9-4751-b65a-65ab4d40158a",
+      "firstSeenAt": "2026-10-15T09:30:38.364Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "sbb-5c9e16b07ce4",
