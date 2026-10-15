@@ -1,0 +1,24 @@
+{
+  "companyKey": "deillon-delley-architectes",
+  "candidateKey": "deillon-delley-architectes@bulle",
+  "revalidateRejectedWithSourceAdapter": true,
+  "companyName": "Deillon Delley Architectes SA",
+  "companyHost": "deillondelley.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://deillondelley.ch/emplois/details-emplois/"
+  ],
+  "detailTemplate": "/emplois/details-emplois/",
+  "listingCandidateText": "architecte",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 1,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Architecte développement junior",
+    "Architecte développement senior"
+  ],
+  "canton": "FR",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

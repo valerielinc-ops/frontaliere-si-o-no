@@ -44,7 +44,7 @@
  *
  * Install the twice-a-day launchd job: bash scripts/social-robot/launchd.sh install
  */
-import { existsSync, readFileSync, realpathSync, renameSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -56,7 +56,7 @@ import {
 import { runInstagramCommunityBrowserAutomation } from '../lib/instagram-community-browser.mjs';
 import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '../lib/instagram-community-automation.mjs';
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
-import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, resolveBrowserLaunch } from './lib/browser.mjs';
+import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, pruneRobotState, resolveBrowserLaunch } from './lib/browser.mjs';
 import { START_JITTER_MAX_MS, fileJournalStore, randomBetween } from './lib/cadence.mjs';
 import { DEFAULT_TIKTOK_USERNAME, FLOWS, INSTAGRAM_HOME, TIKTOK_UPLOAD, captureDiagnostics, classifyError, resolveTikTokMusicVariant, stepTracker } from './lib/flows.mjs';
 import { SITE_REPO, downloadEntryFiles, ghConfirmDispatcher, gitMainReader, runRobot } from './lib/robot.mjs';
@@ -180,6 +180,10 @@ async function main() {
       await login({ stateDir, platforms: opts.platforms });
       return 0;
     }
+    const stateCleanup = pruneRobotState(stateDir);
+    if (stateCleanup.errors.length) {
+      throw new Error('social robot state cleanup failed: ' + stateCleanup.errors.join('; '));
+    }
     const rcMode = resolveSocialRobotMode();
     const launch = resolveBrowserLaunch();
     console.log(`─── social robot — ${opts.mode}, SOCIAL_ROBOT_MODE=${rcMode}, browser ${launch.kind} ───`);
@@ -200,6 +204,10 @@ async function main() {
         reader,
         journalStore: fileJournalStore(stateDir),
         fetchImages: (entry) => downloadEntryFiles(entry, path.join(downloadsDir(stateDir), entry.channel, entry.id)),
+        cleanupFiles: ({ entry }) => {
+          const directory = path.join(downloadsDir(stateDir), entry.channel, entry.id);
+          rmSync(directory, { recursive: true, force: true });
+        },
         // --jitter marks the unattended launchd run: there a queue entry gets
         // one dry run, not one per window; by hand every --dry-run runs.
         repeatDryRun: !opts.jitter,
