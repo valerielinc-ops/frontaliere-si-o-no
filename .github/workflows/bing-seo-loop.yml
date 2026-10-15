@@ -285,6 +285,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -346,6 +347,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -417,6 +419,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -489,6 +492,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -556,6 +560,7 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs

@@ -67,6 +67,7 @@ jobs:
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
             /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/githubApiHeaders.mjs
@@ -259,6 +260,7 @@ jobs:
               --sha "$SOURCE_SHA" \
               --input-dir "$INPUT_DIR" \
               --ledger-dir "$ledger_dir" \
+              --shard-id "run-${SOURCE_RUN_ID}" \
               --registry data/loop-fleet/loop-registry.json
 
             if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \

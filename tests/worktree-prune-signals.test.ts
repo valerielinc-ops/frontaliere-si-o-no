@@ -38,6 +38,14 @@ import {
   needsSnapshot,
 } from '../scripts/lib/branch-purge-policy.mjs';
 
+describe('sintassi del modulo pruner completo', () => {
+  it('compila prima di qualunque operazione di pulizia', () => {
+    expect(() => execFileSync(process.execPath, [
+      '--check', path.join(process.cwd(), 'scripts/prune-merged-worktrees.mjs'),
+    ], { stdio: 'pipe' })).not.toThrow();
+  });
+});
+
 // I due segnali che il 2026-09-04 tenevano in vita 21 worktree per 14 GB:
 //   • la finestra `gh pr list --limit 400` copre nove giorni su questo repo, e
 //     lo squash-merge rende `ahead > 0` permanente → il branch di una PR

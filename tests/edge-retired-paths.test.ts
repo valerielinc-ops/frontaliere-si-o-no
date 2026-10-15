@@ -373,17 +373,17 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
   it('pins the measured shape of the 2026-08-14 repair', () => {
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
-    // 4 retired-with-no-substitute + 20 alias orphans; 34 declared redirects
-    // under the eight prefixes + 3 from data/article-redirects.json + 12 for
+    // 4 retired-with-no-substitute + 20 alias orphans; 35 declared redirects
+    // under the eight prefixes + 6 from data/article-redirects.json + 12 for
     // the nanako#356 cross-section duplicate retirements (bridge in
     // legacyRedirectsPlugin.ts, same day) + 8 for the nanako#915 / nanako#943
     // same-section duplicate retirements of 2026-09-05 + 1 for the historical
     // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
     // upstream-aborted article URLs from the 2026-10-07 corpus sync.
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 94,
+      total: 98,
       gone: 36,
-      moved: 58,
+      moved: 62,
     });
   });
 });

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "molecular-partners",
-  "assembledAt": "2026-10-14T21:22:01.353Z",
+  "assembledAt": "2026-10-15T09:16:07.307Z",
   "jobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
@@ -33,7 +33,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:21:55.757Z",
+      "crawledAt": "2026-10-15T09:16:03.049Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:21:55.224Z",
+      "crawledAt": "2026-10-15T09:16:02.475Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -147,7 +147,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

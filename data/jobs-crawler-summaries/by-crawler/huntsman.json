@@ -1,7 +1,7 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-10-14T21:35:38.952Z",
+  "generatedAt": "2026-10-15T09:43:45.253Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,60 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7319,
-  "avgDurationMs": 7319,
+  "durationMs": 9905,
+  "avgDurationMs": 9905,
   "durationHistory": [
-    7319
+    9905
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "huntsman-52062f5867ce",
-      "slug": "scienziato-materiale-materiali-pcb-huntsman-corporation-basel",
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "Material Scientist – PCB Materials",
-      "location": "Basel",
-      "canton": "BS",
-      "addressLocality": "Basel",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-24",
-      "postedDate": "2026-07-24",
-      "postingDateSource": "reported",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:33:45.577Z",
-      "jobReqId": "J-020112",
-      "firstSeenAt": "2026-07-24T22:16:40.828Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "postalCode": "4001",
-      "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -95,7 +51,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:35:26.051Z",
+      "crawledAt": "2026-10-15T09:43:31.876Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "salaryMin": 72500,
@@ -137,7 +93,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:35:25.324Z",
+      "crawledAt": "2026-10-15T09:43:31.026Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "salaryMin": 71000,
@@ -179,7 +135,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:35:24.665Z",
+      "crawledAt": "2026-10-15T09:43:29.914Z",
       "jobReqId": "J-020110",
       "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "salaryMin": 72500,
@@ -221,7 +177,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:35:22.701Z",
+      "crawledAt": "2026-10-15T09:43:28.872Z",
       "jobReqId": "J-020004",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -237,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
 }

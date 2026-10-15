@@ -1,7 +1,7 @@
 {
   "key": "canton-ticino-osc",
   "label": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
-  "generatedAt": "2026-10-14T21:17:17.319Z",
+  "generatedAt": "2026-10-15T09:27:32.497Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 12654,
-  "avgDurationMs": 12654,
+  "durationMs": 10390,
+  "avgDurationMs": 10390,
   "durationHistory": [
-    12654
+    10390
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4225",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-14T21:16:59.210Z",
+      "crawledAt": "2026-10-15T09:27:17.532Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -72,12 +72,13 @@
       "companyKey": "canton-ticino-osc",
       "companyDomain": "concorsi.ti.ch",
       "title": "Concorso generale 2026 Medici assistenti presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
+      "needsRetranslation": true,
       "location": "Mendrisio",
       "canton": "TI",
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-14T21:16:58.575Z",
+      "crawledAt": "2026-10-15T09:27:16.952Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -119,7 +120,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-14T21:16:57.935Z",
+      "crawledAt": "2026-10-15T09:27:16.372Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -164,7 +165,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-14T21:16:57.269Z",
+      "crawledAt": "2026-10-15T09:27:15.778Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -194,5 +195,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
 }

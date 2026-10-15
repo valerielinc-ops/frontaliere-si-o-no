@@ -123,6 +123,17 @@ const socialRobotClosurePaths = new Set([
   'scripts/load-rc-env.mjs',
 ]);
 const sourceTreeLintTests = new Map([
+  // The pruner is executed in a disposable subprocess, never imported into
+  // Vitest (importing it would execute cleanup). These are real runtime/read
+  // dependencies that the static import graph cannot infer from path.join.
+  ...[
+    'tests/pruner-isolation.test.ts',
+    'tests/worktree-prune-signals.test.ts',
+    'tests/prune-merged-worktrees-e2e.test.ts',
+    'tests/prune-merged-worktrees-proofs-e2e.test.ts',
+    'tests/prune-merged-worktrees-corpus-e2e.test.ts',
+    'tests/prune-merged-worktrees-expiry-e2e.test.ts',
+  ].map((test) => [test, /^scripts\/prune-merged-worktrees\.mjs$/]),
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
   // `consent-shown-at-signup` discovers signup writers by reading every file
@@ -410,12 +421,13 @@ const testFixtureRe = /^tests\/.+\.json$/i;
 // string (for example a live-data guard message) expands that one phrase to
 // every workflow asset and turns a one-file workflow diff into hundreds of
 // unrelated tests.
-const assetLiteralRe = /(?<=['"`])(?:\.github|tests|data)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+const assetLiteralRe = /(?<=['"`])(?:(?:\.\.?\/)+)?(?:\.github|tests|data)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 // La stessa dipendenza costruita a SEGMENTI: `path.join(ROOT, '.github',
-// 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
+// 'workflows')`, `path.join(__dirname, '..', 'data', 'x.json')` o
+// `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
 // La sequenza di letterali consecutivi separati da virgola che inizia con
-// `'.github'` vale come il path unito con `/`.
-const segmentedAssetRe = /(['"])(?:\.github|data)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
+// `'.github'`, `'data'`, `'.'` o `'..'` vale come il path unito con `/`.
+const segmentedAssetRe = /(['"])(?:\.github|data|\.\.?)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
 const segmentLiteralRe = /['"]([^'"]+)['"]/g;
 // Contratti di processo in prosa alla radice del repo. Come gli asset sotto
 // `.github/` non si importano: i test che ne congelano le frasi li aprono per
@@ -475,6 +487,14 @@ const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.
 
 const normalize = (file) => file.replaceAll('\\', '/').replace(/^\.\//, '');
 const NAME_STATUS_RE = /^[ACDMRTUXB](?:\d+)?$/;
+
+function resolveAssetLiteral(from, rawLiteral) {
+  const literal = rawLiteral.replace(/\/+$/, '');
+  const isRelative = literal.startsWith('./') || literal.startsWith('../');
+  return normalize(isRelative
+    ? path.posix.normalize(path.posix.join(path.posix.dirname(from), literal))
+    : literal);
+}
 
 /**
  * Parse the NUL-delimited `git diff --name-status -z` stream defensively.
@@ -672,7 +692,7 @@ function importsOf(file, fileSet, assets, assetSet) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
-    const literal = rawLiteral.replace(/\/+$/, '');
+    const literal = resolveAssetLiteral(file, rawLiteral);
     const directoryLiteral = hasDirectoryScan && !/\.[^/]+$/.test(literal);
     if (assetSet.has(literal)) deps.add(literal);
     if (directoryLiteral) {
@@ -734,7 +754,8 @@ function loadGraph(files, assets) {
   // descrittivo per una lettura di directory. La versione 11 conserva wildcard
   // solo per i file che dimostrano una scansione directory reale. La versione
   // 12 aggiunge gli asset `data/` e consente agli import di risolvere anche
-  // verso gli asset esclusi dal grafo dei sorgenti.
+  // verso gli asset esclusi dal grafo dei sorgenti. La versione 13 registra
+  // anche i literal `../data/...` e i loro equivalenti costruiti a segmenti.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -743,7 +764,7 @@ function loadGraph(files, assets) {
     previousAssets = cached.assets || null;
     previousRevision = cached.revision || '';
   } catch {}
-  const reusable = previousVersion === 12
+  const reusable = previousVersion === 13
     && previousAssets === assetsDigest
     && currentRevision !== ''
     && previousRevision === currentRevision;
@@ -774,7 +795,7 @@ function loadGraph(files, assets) {
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
-    version: 12,
+    version: 13,
     revision: currentRevision,
     assets: assetsDigest,
     files: graph,

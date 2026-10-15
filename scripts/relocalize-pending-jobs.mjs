@@ -62,6 +62,7 @@ import { getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/fre
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { markRunStart, recordRunPhase, resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { carryForwardMarks } from './lib/job-mark-persistence.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { isModelMetaAnswer, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './lib/translation-observability-limits.mjs';
@@ -1265,6 +1266,15 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
     if (crawlerJob.slug) handledSlugs.add(crawlerJob.slug);
 
     let changed = false;
+
+    // The assembled dataset may be marked by a locale-quality scan even when
+    // its locale maps are byte-for-byte unchanged. Carry the monotone marker
+    // before merging fields so the queue evidence reaches the committed
+    // per-crawler source and the existing guarded merge treats the job as
+    // eligible for repair.
+    if (carryForwardMarks(crawlerJob, assembled)) {
+      changed = true;
+    }
 
     // Snapshot slugByLocale before merge so captureLostSlugs can detect changes.
     const slugByLocaleBefore = { ...(crawlerJob.slugByLocale || {}) };

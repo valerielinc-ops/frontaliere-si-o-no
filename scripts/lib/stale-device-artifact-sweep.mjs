@@ -1,9 +1,8 @@
-// Pulizia cross-device delle cache e degli artefatti locali ricreabili.
-// La regola è conservativa: solo contenuti senza alcuna modifica negli ultimi
-// tre giorni; release in uso e puntatori current sono sempre protetti.
+// Inventario diagnostico, NON prova di eliminabilità. Nessuna cancellazione:
+// anche una cache vecchia può contenere dati non recuperabili.
 
 import { execFileSync } from 'node:child_process';
-import { lstatSync, readlinkSync, readdirSync, realpathSync, rmSync } from 'node:fs';
+import { lstatSync, readlinkSync, readdirSync, realpathSync } from 'node:fs';
 import os from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 
@@ -29,9 +28,8 @@ function listChildren(root, readDir = readdirSync) {
   try { return readDir(root, { withFileTypes: true }); } catch { return []; }
 }
 
-// Prune files and directories below a managed root. A directory is removed as
-// one unit only when its complete subtree is stale; mixed active/stale trees
-// are traversed so a current session never loses a recent file.
+// Report old entries below a diagnostic root. A directory is reported as one
+// unit only when its complete subtree is stale; this is NOT deletion authority.
 function listStaleTree(root, cutoff, options = {}) {
   const { stat = lstatSync, readDir = readdirSync } = options;
   const stale = [];
@@ -104,10 +102,6 @@ export function devicePruneTargets(home = os.homedir()) {
     { name: 'user-cache', root: join(home, 'Library', 'Caches'), mode: 'tree' },
     { name: 'codex-cache', root: join(home, '.codex', 'cache'), mode: 'tree' },
     { name: 'claude-cache', root: join(home, '.claude', 'cache'), mode: 'tree' },
-    { name: 'codex-sessions', root: join(home, '.codex', 'sessions'), mode: 'tree' },
-    { name: 'codex-archived-sessions', root: join(home, '.codex', 'archived_sessions'), mode: 'tree' },
-    { name: 'claude-jobs', root: join(home, '.claude', 'jobs'), mode: 'tree' },
-    { name: 'claude-projects', root: join(home, '.claude', 'projects'), mode: 'tree' },
     { name: 'codex-standalone-releases', root: join(home, '.codex', 'packages', 'standalone', 'releases'), mode: 'releases', packageRoot: join(home, '.codex', 'packages', 'standalone') },
     { name: 'codex-app-server-releases', root: join(home, '.codex', 'packages', 'app-server-daemon', 'releases'), mode: 'releases', packageRoot: join(home, '.codex', 'packages', 'app-server-daemon') },
   ];
@@ -133,17 +127,9 @@ export function listStaleDeviceArtifacts({ home = os.homedir(), now = Date.now()
   return result;
 }
 
+/** @param {Parameters<typeof listStaleDeviceArtifacts>[0] & { apply?: boolean }} [options] */
 export function sweepStaleDeviceArtifacts({ apply = false, ...options } = {}) {
+  if (apply) throw new Error('Global device cleanup disabled: age is not deletion authority');
   const candidates = listStaleDeviceArtifacts(options);
-  if (!apply) return { candidates, removed: 0, bytes: 0 };
-  let removed = 0;
-  let bytes = 0;
-  for (const candidate of candidates) {
-    try {
-      rmSync(candidate.path, { recursive: true, force: false });
-      removed++;
-      bytes += candidate.bytes;
-    } catch { /* changed/open item: preserve it */ }
-  }
-  return { candidates, removed, bytes };
+  return { candidates, removed: 0, bytes: 0 };
 }

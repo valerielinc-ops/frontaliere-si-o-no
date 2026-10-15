@@ -55,6 +55,7 @@ import {
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
+import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
@@ -94,6 +95,7 @@ import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescript
 import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan';
 import { markCantonCompanyHub } from './shared/cantonCompanyHubRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
+import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from './shared/companyCantonBridgeMarker.mjs';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
 // primitives (AGENTS.md §6); see build-plugins/shared/jobEventsCrosslink.ts.
@@ -1305,6 +1307,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   pluginName: 'jobsSeoPagesPlugin',
   postWalkDerivedKind: 'bridge',
  });
+ // `awaitDrainSlot()` bounds only completed background batches. It does not
+ // bound the collector's active Map, whose 5,000-entry default is too large
+ // for the repeated company-hub HTML payloads on the 16 GB build runner. A
+ // full flush at a smaller boundary releases both the strings and the batch
+ // bookkeeping before the next hub burst; the generic collector threshold
+ // remains unchanged for the other emitters.
+ const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 1_024;
+ const flushHubPageWritesIfNeeded = async (): Promise<void> => {
+  if (collector.count < HUB_PAGE_WRITE_FLUSH_THRESHOLD) return;
+  await collector.flush();
+ };
  logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
@@ -1886,6 +1899,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // These produce locale-correct text for any Swiss canton,
  // used wherever SEO copy references the job's region.
  const frenchCantonPrep = (dc: string): string => {
+ if (dc === 'Suisse') return 'en Suisse';
  if (['Tessin', 'Jura'].includes(dc)) return `au ${dc}`;
  if (dc === 'Grisons') return `aux ${dc}`;
  if (dc === 'Valais') return `en ${dc}`;
@@ -4755,9 +4769,9 @@ ${staticAnalyticsHtml}
  // loop — each company emits several large (~50 KB) HTML files and the page
  // rate outruns libuv, so _pendingFlushes (each batch closes over its content)
  // climbed to ~16 batches (~GBs live) by the end of this phase → OOM (#1290).
- // Keep the same two-batch ceiling used by the phase boundary below. With the
- // 5k auto-flush threshold this bounds retained company HTML to three batches
- // (one active map + two flushes), instead of the previous seven.
+ // `flushHubPageWritesIfNeeded()` also drains the active map at 1,024 entries;
+ // `awaitDrainSlot(2)` remains the guard for a batch inherited from the prior
+ // phase, but is not used as the company-page retention bound.
  await collector.awaitDrainSlot(2);
  // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
  // indexable hub here: their jobs already surface on the canonical umbrella via
@@ -5345,6 +5359,7 @@ ${companyFollowHtml}
  }
  companyPagesCount++;
  recordEmit('company-landing', __tCompany);
+ await flushHubPageWritesIfNeeded();
  }
  }
  if (companyPagesCount > 0) {
@@ -9032,7 +9047,7 @@ ${staticAnalyticsHtml}
  : locale === 'en' ? `View all jobs in ${cDisplay}`
  : locale === 'de' ? `Alle Stellen in ${cDisplay} ansehen`
  : `Voir toutes les offres à ${cDisplay}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n<ul class="s-0WjlyL">${jobCardListBody(companyJobs, locale)}</ul>\n<p><a href="${sectionRootUrl}">${esc(allJobsLabel)}</a></p>`;
+ const bodyHtml = `${COMPANY_CANTON_NOINDEX_BRIDGE_MARKER}<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n<ul class="s-0WjlyL">${jobCardListBody(companyJobs, locale)}</ul>\n<p><a href="${sectionRootUrl}">${esc(allJobsLabel)}</a></p>`;
  const html = buildSeoPageHtml({
  locale,
  title: pageTitle,
@@ -9075,6 +9090,7 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCantonBelowFloorBridge(locale, canton, companyName, sortedJobs, `${companyRoutePrefix[locale]}-${cSlug}`);
+ await flushHubPageWritesIfNeeded();
  }
  continue;
  }
@@ -9258,6 +9274,7 @@ ${staticAnalyticsHtml}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  companyCantonPagesCount++;
  recordEmit('company-canton-hub', __tCompanyCanton);
+ await flushHubPageWritesIfNeeded();
  }
  // Sitemap entry (priority 0.75 mirroring TI company hubs).
  const itSection = sharedResolveCantonSection('it', canton);
@@ -9367,6 +9384,7 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCityBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}-${citySlug}`);
+ await flushHubPageWritesIfNeeded();
  }
  continue;
  }
@@ -9520,6 +9538,7 @@ ${staticAnalyticsHtml}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  companyCityPagesCount++;
  recordEmit('company-city-canton-hub', __tCompanyCity);
+ await flushHubPageWritesIfNeeded();
  }
  // Sitemap entry (priority 0.65 -- deeper in the funnel than company hub).
  const itSection = sharedResolveCantonSection('it', canton);
@@ -12354,6 +12373,7 @@ ${staticAnalyticsHtml}
  slugByLocale?: Record<string, string>;
  localePaths?: Record<string, string>;
  sourceUrl?: string;
+ recordedIdentity?: boolean;
  }
  const orphanGscData = new Map<string, OrphanEnriched>();
  jobsSeoMemContext.orphanGscData = orphanGscData;
@@ -12369,6 +12389,7 @@ ${staticAnalyticsHtml}
  for (const entry of enrichedArr) {
  if (!entry?.slug) continue;
  const data: OrphanEnriched = {};
+ if (hasRecordedJobIdentity(null, entry)) data.recordedIdentity = true;
  if (entry.queries?.length > 0) {
  data.queries = entry.queries;
  data.totalImpressions = entry.totalImpressions || 0;
@@ -12391,7 +12412,20 @@ ${staticAnalyticsHtml}
  if (entry.slugByLocale) data.slugByLocale = entry.slugByLocale;
  if (entry.localePaths) data.localePaths = entry.localePaths;
  if (entry.sourceUrl) data.sourceUrl = entry.sourceUrl;
- if (Object.keys(data).length > 0) orphanGscData.set(entry.slug, data);
+ if (Object.keys(data).length > 0) {
+ const previous = orphanGscData.get(entry.slug);
+ if (previous?.recordedIdentity && !data.recordedIdentity) {
+ // A stronger GSC signal is not stronger job-content evidence. Keep the
+ // verified record intact, replacing only the search-signal fields.
+ const signals = data.queries ? {
+ queries: data.queries, totalImpressions: data.totalImpressions,
+ totalClicks: data.totalClicks, topQuery: data.topQuery,
+ } : {};
+ orphanGscData.set(entry.slug, { ...previous, ...signals });
+ } else {
+ orphanGscData.set(entry.slug, data);
+ }
+ }
  }
  if (orphanGscData.size > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Loaded enrichment for ${orphanGscData.size} orphan slugs (${withQueries} with GSC queries, ${withContent} with full content)`);
@@ -12725,6 +12759,7 @@ ${staticAnalyticsHtml}
  // overwrites this fallback; if it does not, the historical URL still gets the
  // same useful archive content instead of a generic noindex tombstone.
  type HistoricalArchiveFallback = {
+  recordedIdentity?: boolean;
   title?: string;
   company?: string;
   location?: string;
@@ -13270,9 +13305,11 @@ ${staticAnalyticsHtml}
  // them once per slug instead of 4× saves ~50μs/iter × 58k = ~2-3 s
  // of redundant work across the expired-soft-landing build phase.
  const gscInfo = orphanGscData.get(slug);
- const jobCompany = String(ejData?.company || gscInfo?.company || slugInfo?.company || '');
- const jobLocation = String(ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '');
- const jobCanton = sharedResolveJobCanton({ canton: ejData?.canton, location: jobLocation });
+ const hasRealTitle = hasRecordedJobIdentity(ejData) || gscInfo?.recordedIdentity === true;
+ const jobCompany = String(hasRealTitle ? ejData?.company || gscInfo?.company || slugInfo?.company || '' : slugInfo?.company || '');
+ const jobLocation = String(hasRealTitle ? ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '' : slugInfo?.location || '');
+ // A partial record (or URL-derived place) cannot establish a job's canton.
+ const jobCanton = hasRealTitle ? sharedResolveJobCanton({ canton: ejData?.canton, location: jobLocation }) : AGGREGATE_KEY;
  const jobSector = String(ejData?.sector || '');
  const jobContract = String(ejData?.contract || '');
  const jobDatePosted = resolveRolloutPostingDate(ejData || {}, () => String(ejData?.datePosted || '')) || '';
@@ -13280,7 +13317,6 @@ ${staticAnalyticsHtml}
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(`${jobCanton}:${jobCompany.toLowerCase()}`) || [])
  : [];
- const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
  // displayCanton/escDisplayCanton are NOT hoisted here:
  // the canton display name varies by locale (e.g. GR → "Grigioni" it,
  // "Graubünden" de/en, "Grisons" fr) — resolved per-locale in the loop below.
@@ -13302,6 +13338,7 @@ ${staticAnalyticsHtml}
    || '',
   );
   historicalArchiveFallbacks.set(relPath, {
+   recordedIdentity: hasRealTitle,
    title: String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || ''),
    company: jobCompany,
    location: jobLocation,
@@ -13335,7 +13372,8 @@ ${staticAnalyticsHtml}
  // every job, so a non-TI job's "Lavoro in <canton>" links and breadcrumb
  // targeted the Ticino hub instead of the job's own canton hub (#6418).
  const listingPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/`.replace(/\/+/g, '/');
- const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
+ const unknownCopy = unverifiedJobCopy[locale as keyof typeof unverifiedJobCopy] || unverifiedJobCopy.it;
+ const copy = hasRealTitle ? (expiredBannerCopy[locale] ?? expiredBannerCopy.it) : unknownCopy;
  // Canton display name resolved per-locale (see hoisting note above).
  const displayCanton = getCantonDisplayLabel(jobCanton, locale);
  const escDisplayCanton = esc(displayCanton);
@@ -13344,8 +13382,8 @@ ${staticAnalyticsHtml}
  // jobCompany/jobLocation/jobCanton/etc. are hoisted above the for-locale
  // loop (per-slug invariants); displayCanton/escDisplayCanton
  // are NOT (they vary by locale — see note above the loop).
- const jobTitle = stripLiteralMarkdownFromTitle(String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title));
- const jobDescription = stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || ''));
+ const jobTitle = stripLiteralMarkdownFromTitle(String(hasRealTitle ? ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || copy.title : slugInfo?.title || copy.title));
+ const jobDescription = hasRealTitle ? stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '')) : '';
  // SERP title via the shared role>city>company>brand cascade — same
  // composer as ACTIVE job pages, so an expired listing reads like a job
  // result ("Role — Company a Zell"), not like an archive record. The old
@@ -13434,16 +13472,22 @@ ${staticAnalyticsHtml}
  // useExpiredJob hook + JobExpiredView treat missing fields exactly
  // the same as empty ones (already `?? default` everywhere), so this
  // is a no-op for runtime behaviour — only the wire-form shrinks.
- const expiredTitle = ejData?.title || gscInfo?.title || slugInfo?.title || '';
- const expiredCompany = ejData?.company || gscInfo?.company || slugInfo?.company || '';
- const expiredCompanyKey = ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '';
- const expiredLocation = ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '';
- const expiredTitleByLocale = pickLocaleEntry(ejData?.titleByLocale || gscInfo?.titleByLocale, locale);
- const expiredDescriptionByLocale = pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale);
- const expiredSlugByLocale = ejData?.slugByLocale || gscInfo?.slugByLocale || {};
- const expiredSector = ejData?.sector || gscInfo?.sector || '';
- const expiredAt = ejData?.expiredAt || '';
- const expiredDataObj: Record<string, unknown> = { slug };
+ const expiredTitle = hasRealTitle
+  ? ejData?.title || ejData?.titleByLocale?.[locale] || gscInfo?.title || gscInfo?.titleByLocale?.[locale] || ''
+  : '';
+ const expiredCompany = jobCompany;
+ const expiredCompanyKey = hasRealTitle ? ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '' : slugInfo?.companyKey || '';
+ const expiredLocation = jobLocation;
+ const expiredTitleByLocale = hasRealTitle ? pickLocaleEntry(ejData?.titleByLocale || gscInfo?.titleByLocale, locale) : {};
+ const expiredDescriptionByLocale = hasRealTitle ? pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale) : {};
+ const expiredSlugByLocale = hasRealTitle ? ejData?.slugByLocale || gscInfo?.slugByLocale || {} : {};
+ const expiredSector = hasRealTitle ? ejData?.sector || gscInfo?.sector || '' : '';
+ const expiredAt = hasRealTitle ? ejData?.expiredAt || '' : '';
+ // A title-less seed selects the existing orphan view, while its own route
+ // slug still scopes canonical/schema guards after hydration. A tracking key
+ // can differ from the locale path it owns; it is not posting evidence.
+ const routeSlug = relPath.replace(/\/+$/, '').split('/').pop() || slug;
+ const expiredDataObj: Record<string, unknown> = { slug: hasRealTitle ? slug : routeSlug };
  if (expiredTitle) expiredDataObj.title = expiredTitle;
  if (Object.keys(expiredTitleByLocale).length > 0) expiredDataObj.titleByLocale = expiredTitleByLocale;
  if (expiredCompany) expiredDataObj.company = expiredCompany;
@@ -13587,15 +13631,15 @@ ${staticAnalyticsHtml}
  }
 
  // --- Job details section ---
- const detailsHeading = locale === 'it' ? 'Dettagli dell\'offerta' : locale === 'en' ? 'Job details' : locale === 'de' ? 'Stellendetails' : 'D\u00e9tails de l\'offre';
+ const detailsHeading = !hasRealTitle ? unknownCopy.details : locale === 'it' ? 'Dettagli dell\'offerta' : locale === 'en' ? 'Job details' : locale === 'de' ? 'Stellendetails' : 'D\u00e9tails de l\'offre';
  const detailItems: string[] = [];
  if (jobCompany) detailItems.push(`<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}:</strong> ${esc(jobCompany)}</li>`);
  detailItems.push(`<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(jobTitle)}</li>`);
- if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}, ${esc(displayCanton)}</li>`);
- if (jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
- if (jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
- if (jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
- if (jobExpiredAt) detailItems.push(`<li><strong>${locale === 'it' ? 'Scaduta il' : locale === 'en' ? 'Expired on' : locale === 'de' ? 'Abgelaufen am' : 'Expir\u00e9e le'}:</strong> ${esc(jobExpiredAt.slice(0, 10))}</li>`);
+ if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}${hasRealTitle ? `, ${esc(displayCanton)}` : ''}</li>`);
+ if (hasRealTitle && jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
+ if (hasRealTitle && jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
+ if (hasRealTitle && jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
+ if (hasRealTitle && jobExpiredAt) detailItems.push(`<li><strong>${locale === 'it' ? 'Scaduta il' : locale === 'en' ? 'Expired on' : locale === 'de' ? 'Abgelaufen am' : 'Expir\u00e9e le'}:</strong> ${esc(jobExpiredAt.slice(0, 10))}</li>`);
  staticBodyParts.push(`<section><h2>${esc(detailsHeading)}</h2><ul>${detailItems.join('')}</ul></section>`);
 
  // --- Same-company active jobs ---
@@ -13615,15 +13659,15 @@ ${staticAnalyticsHtml}
  if (locale === 'it') {
  const searchSugParts: string[] = [];
  if (jobCompany) searchSugParts.push(`<p>Scopri tutte le <a href="${listingPath}">posizioni aperte</a> sul nostro job board.</p>`);
- if (jobLocation) searchSugParts.push(`<p>Cerca altre offerte nella zona: <a href="${listingPath}">Lavoro in ${esc(displayCanton)}</a></p>`);
+ if (hasRealTitle && jobLocation) searchSugParts.push(`<p>Cerca altre offerte nella zona: <a href="${listingPath}">Lavoro in ${esc(displayCanton)}</a></p>`);
  searchSugParts.push(`<p>Torna alla <a href="${listingPath}">Job Board completa</a> per trovare la tua prossima opportunit\u00e0 lavorativa come frontaliere in Svizzera.</p>`);
  staticBodyParts.push(`<section><h2>Cerca offerte in ${esc(displayCanton)}</h2>${searchSugParts.join('\n')}</section>`);
  } else if (locale === 'en') {
- staticBodyParts.push(`<section><h2>Find jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${listingPath}">complete job board</a>.</p>${jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${listingPath}">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
+ staticBodyParts.push(`<section><h2>Find jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${listingPath}">complete job board</a>.</p>${hasRealTitle && jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${listingPath}">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
  } else if (locale === 'de') {
- staticBodyParts.push(`<section><h2>Stellen suchen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="${listingPath}">komplettes Job Board</a>.</p>${jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${listingPath}">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
+ staticBodyParts.push(`<section><h2>${hasRealTitle ? `Stellen suchen im ${esc(displayCanton)}` : esc(cantonSectionName(locale, displayCanton))}</h2><p>Durchsuchen Sie unser <a href="${listingPath}">komplettes Job Board</a>.</p>${hasRealTitle && jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${listingPath}">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
  } else {
- staticBodyParts.push(`<section><h2>Chercher des offres au ${esc(displayCanton)}</h2><p>Parcourez notre <a href="${listingPath}">job board complet</a>.</p>${jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${listingPath}">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
+ staticBodyParts.push(`<section><h2>${hasRealTitle ? `Chercher des offres au ${esc(displayCanton)}` : esc(cantonSectionName(locale, displayCanton))}</h2><p>Parcourez notre <a href="${listingPath}">job board complet</a>.</p>${hasRealTitle && jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${listingPath}">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
  }
 
  // --- Frontalier info section: extended with permit-mechanics, gross-to-net
@@ -13634,7 +13678,7 @@ ${staticAnalyticsHtml}
  // Gated by STRIP_EXPIRED_JOB_PROSE (default on) — see top of file.
  // `__slKeepProse` (real-traffic evidence only) overrides the strip so
  // recently-trafficked expired URLs stay substantial (see above).
- if (!STRIP_EXPIRED_JOB_PROSE || __slKeepProse) {
+ if (hasRealTitle && (!STRIP_EXPIRED_JOB_PROSE || __slKeepProse)) {
  const taxUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
  if (locale === 'it') {
  staticBodyParts.push(`<section><h2>Informazioni per frontalieri</h2><p>${jobCompany ? `${esc(jobCompany)} si trova` : 'Questa posizione si trovava'}${jobLocation ? ` a ${esc(jobLocation)}` : ''} in Canton ${esc(displayCanton)}. Per lavorare come frontaliere in Svizzera serve il <strong>Permesso G</strong>, da rinnovare alla scadenza prevista. Il Canton ${esc(displayCanton)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo, mentre i frontalieri dal 2024 sono soggetti al <strong>Nuovo Accordo fiscale</strong> che prevede una tassazione concorrente Italia-Svizzera.</p><p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p><p>${esc(G_PERMIT_FACTS[locale as EmploymentFactsLocale])} <a href="${G_PERMIT_SOURCE}">SPOP</a></p><p>${esc(CROSS_BORDER_TAX_FACTS[locale as EmploymentFactsLocale])} <a href="${CROSS_BORDER_TAX_SOURCE}">ESTV</a></p><p><strong>Pendolarismo e qualità della vita.</strong> ${jobLocation ? `Lavorare a ${esc(jobLocation)} significa ` : `Lavorare nel Canton ${esc(displayCanton)} significa `}un tragitto giornaliero che dipende dal valico scelto: Brogeda (autostrada A2) e Chiasso-strada coprono le destinazioni del Mendrisiotto e del Luganese; Stabio e Gaggiolo servono chi parte dal Varesotto; Ponte Tresa è l'opzione storica per Luino e il Verbano. In ora di punta un tragitto Como-Lugano si esaurisce in 25-50 minuti; da Varese verso Lugano servono tipicamente 35-60 minuti. Per chi valuta il trasferimento in Ticino, l'affitto medio per un 3.5 locali a Lugano è 1.500-2.200 CHF/mese, contro 600-900 EUR per un appartamento equivalente in provincia di Como. La rete sanitaria svizzera (LAMal) offre tempi di accesso più brevi del SSN italiano ma con un premio mensile di 350-500 CHF/adulto, voce che pesa nel confronto netto-netto.</p></section>`);
@@ -13738,7 +13782,9 @@ ${staticAnalyticsHtml}
  // this phase at 57.9s across 183,445 soft-landings with every 'it' page
  // paying for the scan twice.
  let expiredRobotsTag: string;
- if (locale === 'it') {
+ if (!hasRealTitle) {
+ expiredRobotsTag = ROBOTS_NOINDEX_FOLLOW;
+ } else if (locale === 'it') {
  itBodyWordCount = countHtmlBodyWords(staticBody);
  expiredRobotsTag = itBodyWordCount >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW;
  } else {
@@ -13770,6 +13816,7 @@ ${staticAnalyticsHtml}
  const jobPostingLd = (() => {
  // Keep the complete historical identity, but never advertise an archive as
  // open: only real past timestamps may supply its explicit validThrough.
+ if (!hasRealTitle) return '';
  const realTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title
  || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '').trim();
  const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
@@ -15157,11 +15204,14 @@ ${staticAnalyticsHtml}
   hreflangLinks = '',
  ): string => {
   const copy = historicalArchiveCopy[locale] || historicalArchiveCopy.it;
+  const unknownCopy = unverifiedJobCopy[locale] || unverifiedJobCopy.it;
+  const recordedIdentity = archive?.recordedIdentity === true;
+  const notice = recordedIdentity ? copy.notice : unknownCopy.banner;
   const slugInfo = extractInfoFromSlug(slugKey);
-  const titleRaw = stripLiteralMarkdownFromTitle(String(archive?.title || slugInfo.title || copy.original));
-  const company = String(archive?.company || slugInfo.company || '');
-  const location = String(archive?.location || slugInfo.location || '');
-  const canton = String(archive?.canton || sharedResolveJobCanton({ location }) || DEFAULT_CANTON);
+  const titleRaw = recordedIdentity ? stripLiteralMarkdownFromTitle(String(archive?.title || copy.original)) : unknownCopy.title;
+  const company = String(recordedIdentity ? archive?.company || slugInfo.company || '' : slugInfo.company || '');
+  const location = String(recordedIdentity ? archive?.location || slugInfo.location || '' : slugInfo.location || '');
+  const canton = recordedIdentity ? String(archive?.canton || sharedResolveJobCanton({ location }) || DEFAULT_CANTON) : AGGREGATE_KEY;
   const section = buildCantonAwareSection(locale, canton);
   const listingPath = `${localePrefix[locale]}/${section}`.replace(/\/+/g, '/');
   const historicalUrl = `${BASE_URL}${withSlash(relPath)}`;
@@ -15175,39 +15225,39 @@ ${staticAnalyticsHtml}
    company ? `<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Arbeitgeber' : 'Employeur'}:</strong> ${esc(company)}</li>` : '',
    `<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(titleRaw)}</li>`,
    location ? `<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(location)}</li>` : '',
-   archive?.sector ? `<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(archive.sector)}</li>` : '',
-   archive?.contract ? `<li><strong>${locale === 'it' ? 'Contratto' : locale === 'en' ? 'Contract' : locale === 'de' ? 'Vertrag' : 'Contrat'}:</strong> ${esc(archive.contract)}</li>` : '',
-   archive?.datePosted ? `<li><strong>${locale === 'it' ? 'Pubblicata' : locale === 'en' ? 'Posted' : locale === 'de' ? 'Veröffentlicht' : 'Publiée'}:</strong> ${esc(archive.datePosted.slice(0, 10))}</li>` : '',
-   archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
+   recordedIdentity && archive?.sector ? `<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(archive.sector)}</li>` : '',
+   recordedIdentity && archive?.contract ? `<li><strong>${locale === 'it' ? 'Contratto' : locale === 'en' ? 'Contract' : locale === 'de' ? 'Vertrag' : 'Contrat'}:</strong> ${esc(archive.contract)}</li>` : '',
+   recordedIdentity && archive?.datePosted ? `<li><strong>${locale === 'it' ? 'Pubblicata' : locale === 'en' ? 'Posted' : locale === 'de' ? 'Veröffentlicht' : 'Publiée'}:</strong> ${esc(archive.datePosted.slice(0, 10))}</li>` : '',
+   recordedIdentity && archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
   ].filter(Boolean).join('');
   const staticBody = [
    // Keep the location in the heading when known. For slug-only historical
    // records, the truthful translated qualifier prevents the fallback H1
    // from becoming byte-identical to the SERP title.
-   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location, copy.headingQualifier))}</h1>`,
-   `<p><strong>${copy.notice}</strong></p>`,
-   descriptionHtml
+   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location, recordedIdentity ? copy.headingQualifier : ''))}</h1>`,
+   `<p><strong>${esc(notice)}</strong></p>`,
+   !recordedIdentity ? '' : descriptionHtml
     ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`
     : `<section><h2>${copy.original}</h2><p>${copy.noDescription}</p></section>`,
-   `<section><h2>${copy.details}</h2><ul>${detailItems}</ul></section>`,
-   `<section><h2>${copy.next}</h2><p>${copy.nextBody} <a href="${withSlash(listingPath)}">${copy.cta}</a>.</p></section>`,
+   `<section><h2>${recordedIdentity ? copy.details : unknownCopy.details}</h2><ul>${detailItems}</ul></section>`,
+   `<section><h2>${copy.next}</h2><p>${recordedIdentity ? `${copy.nextBody} ` : ''}<a href="${withSlash(listingPath)}">${copy.cta}</a>.</p></section>`,
    `<p><small>Historical slug: <code>${esc(slugKey)}</code></small></p>`,
   ].join('\n');
-  const pageDescription = esc(`${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${copy.notice}`);
+  const pageDescription = esc(`${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${notice}`);
   const expiredPayload = inlineScriptJson({
-   slug: slugKey,
-   title: titleRaw,
+   slug: recordedIdentity ? slugKey : relPath.replace(/\/+$/, '').split('/').pop() || slugKey,
+   title: recordedIdentity ? titleRaw : undefined,
    company,
    location,
-   descriptionByLocale: description ? { [locale]: description } : undefined,
-   expiredAt: archive?.expiredAt,
+   descriptionByLocale: recordedIdentity && description ? { [locale]: description } : undefined,
+   expiredAt: recordedIdentity ? archive?.expiredAt : undefined,
   });
   const breadcrumb = inlineScriptJson({
    '@context': 'https://schema.org',
    '@type': 'BreadcrumbList',
    itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: `${BASE_URL}/` },
-    { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, canton), item: `${BASE_URL}${withSlash(listingPath)}` },
+    { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, getCantonDisplayLabel(canton, locale)), item: `${BASE_URL}${withSlash(listingPath)}` },
     { '@type': 'ListItem', position: 3, name: titleRaw },
    ],
   });
@@ -15215,7 +15265,7 @@ ${staticAnalyticsHtml}
    locale,
    pageTitle,
    pageDescription,
-   ROBOTS_INDEX_ENHANCED,
+   recordedIdentity && countHtmlBodyWords(staticBody) >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW,
    historicalUrl,
    hreflangLinks,
    `<script type="application/ld+json">${breadcrumb}</script>`,

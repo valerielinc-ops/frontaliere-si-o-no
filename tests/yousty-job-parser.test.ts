@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { htmlFragmentToMarkdown, parseYoustyApprenticeshipHtml } from '@/scripts/lib/yousty-job-parser.mjs';
+import {
+  extractYoustyWidgetApplicationUrl,
+  htmlFragmentToMarkdown,
+  parseYoustyApprenticeshipHtml,
+} from '@/scripts/lib/yousty-job-parser.mjs';
 
 const SAMPLE_HTML = `
 <!DOCTYPE html>
@@ -44,6 +48,82 @@ describe('parseYoustyApprenticeshipHtml', () => {
   it('does not treat the profile page as an application URL when no handoff is parsed', () => {
     const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML);
     expect(parsed.applyUrl).toBe('');
+  });
+
+  it('recognizes only an explicit UUID-bound Yousty application widget URL', () => {
+    const profileUrl = 'https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d';
+    expect(parseYoustyApprenticeshipHtml(SAMPLE_HTML, profileUrl).applyUrl).toBe(profileUrl);
+    expect(extractYoustyWidgetApplicationUrl(profileUrl)).toBe(profileUrl);
+  });
+
+  it('keeps bare, malformed-widget, and non-Yousty profile URLs content-only', () => {
+    expect(extractYoustyWidgetApplicationUrl('https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel')).toBe('');
+    expect(extractYoustyWidgetApplicationUrl('https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel?widget=not-a-uuid')).toBe('');
+    expect(extractYoustyWidgetApplicationUrl('https://evil.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d')).toBe('');
+  });
+
+  it('uses the JobPosting URL as an application handoff when directApply is true', () => {
+    const applyUrl = 'https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      url: applyUrl,
+      directApply: true,
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe(applyUrl);
+  });
+
+  it('does not use a JobPosting URL without directApply evidence', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel',
+      directApply: false,
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('');
+  });
+
+  it('selects a later JobPosting that provides direct-application evidence', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify([
+      { '@type': 'JobPosting', directApply: false, url: 'https://www.yousty.ch/jobs/1' },
+      { '@type': 'JobPosting', directApply: true, url: 'https://www.yousty.ch/jobs/2' },
+    ])}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('extracts a direct-application JobPosting from an object-valued @graph', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': {
+        '@type': 'JobPosting',
+        directApply: true,
+        url: 'https://www.yousty.ch/jobs/2',
+      },
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('recognizes the schema.org JobPosting IRI', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'https://schema.org/JobPosting',
+      directApply: true,
+      url: 'https://www.yousty.ch/jobs/2',
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('parses JSON-LD scripts with legal whitespace around the type attribute assignment', () => {
+    const html = `<script type = application/ld+json>${JSON.stringify({
+      '@type': 'JobPosting',
+      directApply: true,
+      url: 'https://www.yousty.ch/jobs/2',
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
   });
 });
 

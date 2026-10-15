@@ -51,7 +51,11 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { htmlFragmentToMarkdown, parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
+import {
+  extractYoustyWidgetApplicationUrl,
+  htmlFragmentToMarkdown,
+  parseYoustyApprenticeshipHtml,
+} from './lib/yousty-job-parser.mjs';
 import { SWISS_CANTONS } from './lib/crawler-location-config.mjs';
 import {
   inferAnyCanton,
@@ -151,8 +155,8 @@ function resolveGalenicaApplyUrl(variants, youstyEnrichment) {
     if (url) return url;
   }
 
-  // Keep only an application destination parsed from the Yousty profile; the
-  // profile page itself is not an application handoff.
+  // A bare Yousty profile is not an application handoff; the parser may return
+  // its canonical URL only when the profile's JobPosting declares directApply.
   return trustedHttpsGalenicaUrl(youstyEnrichment?.applyUrl);
 }
 
@@ -407,10 +411,11 @@ function youstyProfileUrl(variants = []) {
 export async function enrichFromYoustyProfile(variants, timeoutMs) {
   const profileUrl = youstyProfileUrl(variants);
   if (!profileUrl) return null;
+  const widgetApplyUrl = extractYoustyWidgetApplicationUrl(profileUrl);
 
   try {
     const html = await fetchText(profileUrl, timeoutMs);
-    const parsed = parseYoustyApprenticeshipHtml(html);
+    const parsed = parseYoustyApprenticeshipHtml(html, profileUrl);
     if (!parsed.description) return { applyUrl: parsed.applyUrl || '', sourceObserved: false };
     return {
       description: parsed.description,
@@ -420,7 +425,10 @@ export async function enrichFromYoustyProfile(variants, timeoutMs) {
     };
   } catch (err) {
     console.warn(`⚠️  Failed to enrich Yousty apprenticeship profile ${profileUrl}: ${err?.message || err}`);
-    return { applyUrl: '', sourceObserved: false };
+    // The feed's UUID-bound widget URL is source evidence independent of the
+    // detail-page read. Keep it for merge preservation, but do not claim that
+    // the page's source description was observed after a failed fetch.
+    return { applyUrl: widgetApplyUrl, sourceObserved: false };
   }
 }
 

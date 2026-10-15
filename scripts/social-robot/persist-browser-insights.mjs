@@ -13,7 +13,9 @@ import {
   mkdtempSync,
   readFileSync,
   mkdirSync,
+  readdirSync,
   rmSync,
+  statSync,
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
@@ -49,17 +51,39 @@ function git(repo, args, { allowFailure = false, env } = {}) {
     execFileSync('git', ['-C', repo, ...args], {
       encoding: 'utf8',
       // The persistence flow only uses Git's success/failure, never stdout.
-      // Ignore it so verbose hooks/progress cannot hit execFileSync's 1 MiB
-      // default maxBuffer, but inherit stderr so diagnostics stay visible.
-      stdio: ['ignore', 'ignore', 'inherit'],
+      // Ignore stdout so verbose hooks/progress cannot hit execFileSync's
+      // 1 MiB default maxBuffer, but capture stderr so ENOSPC is classified
+      // without hiding Git's diagnostic from the launchd log.
+      stdio: ['ignore', 'ignore', 'pipe'],
       timeout: GIT_TIMEOUT_MS,
       killSignal: 'SIGTERM',
       ...(env ? { env: { ...process.env, ...env } } : {}),
     });
     return true;
   } catch (error) {
+    if (error?.stderr) process.stderr.write(String(error.stderr));
     if (allowFailure) return null;
     throw error;
+  }
+}
+
+function isStorageError(error) {
+  const text = [error?.code, error?.message, error?.stderr, error?.stdout]
+    .filter(Boolean)
+    .map(String)
+    .join(' ');
+  return /\b(?:ENOSPC|No space left on device|disk full|not enough space)\b/i.test(text);
+}
+
+function removeStaleInsightWorktrees(root) {
+  try {
+    for (const name of readdirSync(root)) {
+      if (!name.startsWith('.insights-worktree-')) continue;
+      const candidate = path.join(root, name);
+      if (statSync(candidate).isDirectory()) rmSync(candidate, { recursive: true, force: true });
+    }
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
   }
 }
 
@@ -86,6 +110,8 @@ function cleanupWorktree(repo, worktree, gitFn = git) {
 
 function materialize(repo, snapshot, { dryRun = false, gitFn = git } = {}) {
   const root = path.dirname(snapshot);
+  removeStaleInsightWorktrees(root);
+  gitFn(repo, ['worktree', 'prune'], { allowFailure: true });
   const worktree = mkdtempSync(path.join(root, '.insights-worktree-'));
   try {
     gitFn(repo, ['worktree', 'add', '--detach', '--no-checkout', worktree, 'origin/main']);
@@ -118,7 +144,8 @@ function refreshMain(repo, gitFn) {
       'fetch', '-q', 'origin', 'main',
     ]);
     return true;
-  } catch {
+  } catch (error) {
+    if (isStorageError(error)) throw error;
     // A valid, slightly stale origin/main is still useful: the push below can
     // succeed if nobody advanced main, and a rejected push will request a
     // refresh on the next attempt.
@@ -148,11 +175,13 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
         return { status: 'pushed', attempt };
       } catch (error) {
         cleanupWorktree(repo, result.worktree, gitFn);
+        if (isStorageError(error)) throw error;
         if (attempt === attempts) throw error;
         refreshBeforeAttempt = true;
       }
     } catch (error) {
       if (result?.worktree) cleanupWorktree(repo, result.worktree, gitFn);
+      if (isStorageError(error)) throw error;
       if (attempt === attempts) throw error;
       refreshBeforeAttempt = true;
     }

@@ -101,6 +101,31 @@ afterEach(() => {
 });
 
 describe('run-related-tests selection contract', () => {
+  it('selects pruner subprocess safety tests for a pruner-only change, not unrelated scripts', () => {
+    const prunerTests = [
+      'tests/pruner-isolation.test.ts',
+      'tests/worktree-prune-signals.test.ts',
+      'tests/prune-merged-worktrees-e2e.test.ts',
+      'tests/prune-merged-worktrees-proofs-e2e.test.ts',
+      'tests/prune-merged-worktrees-corpus-e2e.test.ts',
+      'tests/prune-merged-worktrees-expiry-e2e.test.ts',
+    ];
+    const root = fixture({
+      'scripts/prune-merged-worktrees.mjs': 'throw new Error("fixture pruner must never execute");\n',
+      'scripts/unrelated.mjs': 'export const unrelated = true;\n',
+      'tests/unrelated.test.ts': "import '../scripts/unrelated.mjs';\n",
+      ...Object.fromEntries(prunerTests.map((file) => [file, 'export const contract = true;\n'])),
+    });
+    const pruner = select(root, ['scripts/prune-merged-worktrees.mjs']);
+    expect(pruner.status, pruner.stderr || pruner.stdout).toBe(0);
+    for (const file of prunerTests) expect(pruner.stdout).toContain(file);
+    expect(pruner.stdout).not.toContain('tests/unrelated.test.ts');
+
+    const unrelated = select(root, ['scripts/unrelated.mjs']);
+    expect(unrelated.status, unrelated.stderr || unrelated.stdout).toBe(0);
+    for (const file of prunerTests) expect(unrelated.stdout).not.toContain(file);
+  });
+
   it('selects the direct impacted test without broadening to unrelated files', () => {
     const root = fixture({
       'services/changed.mjs': 'export const value = 1;\n',
@@ -256,6 +281,8 @@ describe('run-related-tests selection contract', () => {
   it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
     const reader = 'tests/translation-data-reader.test.ts';
     const segmentedReader = 'tests/translation-data-segmented-reader.test.ts';
+    const relativeReader = 'tests/translation-data-relative-reader.test.ts';
+    const relativeSegmentedReader = 'tests/translation-data-relative-segmented-reader.test.ts';
     const commentOnly = 'tests/translation-data-comment.test.ts';
     const unrelated = 'tests/unrelated-data-reader.test.ts';
     const root = fixture({
@@ -263,6 +290,8 @@ describe('run-related-tests selection contract', () => {
       'data/weather-snapshot.json': '{}\n',
       [reader]: "import { readFileSync } from 'node:fs'; export const history = readFileSync('data/translation-stats-history.json', 'utf8');\n",
       [segmentedReader]: "import { readFileSync } from 'node:fs'; import path from 'node:path'; const ROOT = '/repo'; export const weather = readFileSync(path.join(ROOT, 'data', 'weather-snapshot.json'), 'utf8');\n",
+      [relativeReader]: "import { readFileSync } from 'node:fs'; export const weather = readFileSync(new URL('../data/weather-snapshot.json', import.meta.url), 'utf8');\n",
+      [relativeSegmentedReader]: "import { readFileSync } from 'node:fs'; import path from 'node:path'; export const weather = readFileSync(path.join(__dirname, '..', 'data', 'weather-snapshot.json'), 'utf8');\n",
       [commentOnly]: "// readFileSync('data/translation-stats-history.json')\nexport const comment = true;\n",
       [unrelated]: "import { readFileSync } from 'node:fs'; export const weather = readFileSync('data/weather-snapshot.json', 'utf8');\n",
     });
@@ -277,6 +306,8 @@ describe('run-related-tests selection contract', () => {
     expect(weather.status, weather.stderr || weather.stdout).toBe(0);
     expect(weather.stdout).toContain(unrelated);
     expect(weather.stdout).toContain(segmentedReader);
+    expect(weather.stdout).toContain(relativeReader);
+    expect(weather.stdout).toContain(relativeSegmentedReader);
     expect(weather.stdout).not.toContain(reader);
   });
 

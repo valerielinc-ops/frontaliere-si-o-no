@@ -29,6 +29,9 @@ export const CODEX_RESERVE_DIR_ENV = 'TRANSLATE_CODEX_RESERVE_DIR';
 // Stop del tier che dicono «la lane non funziona», non «budget speso»: le
 // stringhe sono quelle di `_stopCodex` nella sezione Codex di free-translate.mjs.
 const FAILURE_STOP_RE = /fallimenti consecutivi|non caricabile/;
+// Stop per quota (`_codexQuotaStopReason`): il budget dell'abbonamento è
+// finito, la lane funzionava. Non è un guasto della lane.
+const QUOTA_STOP_RE = /^quota esaurita/;
 
 function asCount(value) {
   const n = Number(value);
@@ -74,11 +77,16 @@ export function buildCodexReserveReport(phase, codexStats, cascadeStats = {}, { 
  *     fermato per fallimenti, oppure doveva entrare (lane presente, testi
  *     passati dalla cascata) e non ha fatto nemmeno una chiamata;
  *   - `unavailable`: niente lane (broker assente o spento) o budget a zero;
+ *   - `exhausted`: fermata per quota prima di tradurre qualcosa; con almeno
+ *     una traduzione la fase è `ready` (la lane ha retto finché c'era quota);
  *   - `ready`: lane presente e nessun segno di guasto (ha tradotto, oppure non
  *     e' servita).
  */
 export function classifyCodexReserveReport(report) {
   if (!report || !report.lanePresent || report.maxCalls === 0) return 'unavailable';
+  if (report.stopReason && QUOTA_STOP_RE.test(report.stopReason)) {
+    return report.accepted > 0 ? 'ready' : 'exhausted';
+  }
   if (report.stopReason && FAILURE_STOP_RE.test(report.stopReason)) return 'failed';
   if (report.calls > 0 && report.accepted === 0) return 'failed';
   if (report.position === 'primary' && report.calls === 0 && report.cascadeCalls > 0
@@ -99,7 +107,12 @@ export function codexReserveCoverage(reports) {
   const describe = ({ report, state }) => `${report.phase}: ${state}, ${report.accepted} translated / ${report.rejected} rejected in ${report.calls}/${report.maxCalls} calls${report.stopReason ? ` (stopped: ${report.stopReason})` : ''}`;
   const detail = states.map(describe).join('; ');
   if (states.some(({ state }) => state === 'failed')) return { verdict: 'codex-failed', detail };
-  if (!states.some(({ state }) => state === 'ready')) return { verdict: 'codex-unavailable', detail };
+  if (!states.some(({ state }) => state === 'ready')) {
+    // Quota finita prima di tradurre in ogni fase: rosso come prima, ma con
+    // la causa giusta (capacità dell'abbonamento, non una lane rotta).
+    if (states.some(({ state }) => state === 'exhausted')) return { verdict: 'codex-exhausted', detail };
+    return { verdict: 'codex-unavailable', detail };
+  }
   return { verdict: 'covered', detail };
 }
 

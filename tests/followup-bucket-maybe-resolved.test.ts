@@ -22,6 +22,7 @@ import {
   hasLiveReconcileFlag,
   maybeResolvedReleaseCommentBody,
   planBucketAlarm,
+  planBucketRoutingRelease,
   planMaybeResolvedRelease,
   releaseMaybeResolved,
   shouldEnsureVerifyLabel,
@@ -79,6 +80,17 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
       expect(before.conflicts.map((entry: { number: number }) => entry.number)).toEqual([10831]);
       const released = { ...issue, labels: issue.labels.filter((label) => label.name !== 'maybe-resolved') };
       expect(planBucketAlarm([released], { now: Date.parse('2026-10-04T06:00:00Z') }).conflicts).toEqual([]);
+    });
+
+    it('rimuove il routing dai bucket sealed senza item runnable, anche dopo una richiesta già consumata', () => {
+      const queued = dailyIssue(12999, ['follow-up', 'maybe-resolved', 'agent:fix-queued'], ['done', 'blocked']);
+      const queueOnly = dailyIssue(13000, ['follow-up', 'agent:fix-queued'], ['blocked', 'done']);
+      const open = dailyIssue(13001, ['follow-up', 'maybe-resolved', 'agent:fix-queued'], ['open', 'done']);
+      const plan = planBucketRoutingRelease([queued, queueOnly, open]);
+
+      expect(plan.map((entry: { number: number }) => entry.number)).toEqual([12999, 13000]);
+      expect(plan[0].labelArgs).toEqual(['--remove-label', 'agent:fix-queued']);
+      expect(plan[1].labelArgs).toEqual(['--remove-label', 'agent:fix-queued']);
     });
 
     it('il rilascio del bot non vale come obiezione umana: il ciclo flag → chiusura riparte', () => {

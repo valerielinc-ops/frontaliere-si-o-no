@@ -1,7 +1,7 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-10-14T21:13:56.420Z",
+  "generatedAt": "2026-10-15T09:17:39.588Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5414,
-  "avgDurationMs": 5414,
+  "durationMs": 3740,
+  "avgDurationMs": 3740,
   "durationHistory": [
-    5414
+    3740
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152345671-dipl-experte-expertin-anasthesiepflege-nds-hf-50-100-",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:13:35.854Z",
+      "crawledAt": "2026-10-15T09:17:29.100Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -81,7 +81,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:13:36.331Z",
+      "crawledAt": "2026-10-15T09:17:29.572Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -113,5 +113,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
 }

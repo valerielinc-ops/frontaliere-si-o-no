@@ -72,6 +72,35 @@ trim_log() {
   fi
 }
 
+# Downloads are disposable after one robot entry; diagnostics are retained for
+# two weeks so a selector/loading failure remains inspectable without allowing
+# the Mac host's state directory to grow until Git cannot create a worktree.
+prune_state_tree() {
+  root=$1
+  max_age=$2
+  [ -d "$root" ] || return 0
+  now=$(/bin/date +%s)
+  for child in "$root"/*; do
+    [ -e "$child" ] || [ -L "$child" ] || continue
+    [ -d "$child" ] || continue
+    [ -L "$child" ] && continue
+    mtime=$(/usr/bin/stat -f '%m' "$child" 2>/dev/null) || continue
+    case "$mtime" in
+      ''|*[!0-9]*) continue ;;
+    esac
+    if [ $((now - mtime)) -gt "$max_age" ]; then
+      /bin/rm -rf "$child" || log "state cleanup failed: $child"
+    else
+      prune_state_tree "$child" "$max_age"
+    fi
+  done
+}
+
+prune_stale_state() {
+  prune_state_tree "$state_dir/downloads" 86400
+  prune_state_tree "$state_dir/diagnostics" $((14 * 24 * 3600))
+}
+
 g() {
   git -C "$site" "$@"
 }
@@ -199,6 +228,7 @@ load_rc_environment() {
 
 cmd_run() {
   /bin/mkdir -p "$log_dir" "$state_dir" 2>/dev/null
+  prune_stale_state
   if ! out=$(g -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=60 fetch -q origin main 2>&1); then
     log "fetch failed, using the last fetched origin/main: $(printf '%s' "$out" | /usr/bin/tr '\n' ' ' | /usr/bin/cut -c1-200)"
   fi
