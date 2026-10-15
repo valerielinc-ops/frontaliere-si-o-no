@@ -110,7 +110,13 @@ describe('buildDripEmail', () => {
     // day-3 job-alert card for an EN utility subscriber → /en/find-jobs-switzerland/
     const enJobs = buildDripEmail({ step: 1, locale: 'en', interest: 'utility', unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe' });
     expect(enJobs.cardId).toBe('jobalert');
-    expect(enJobs.html).toMatch(/href="https:\/\/frontaliereticino\.ch\/en\/find-jobs-switzerland\/"/);
+    expect(enJobs.html).toMatch(/href="https:\/\/frontaliereticino\.ch\/en\/find-jobs-switzerland\/\?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=drip&amp;utm_content=onboarding_step_2_cta"/);
+  });
+
+  it('attributes the primary CTA and footer homepage link to the drip email', () => {
+    const { html } = buildDripEmail({ step: 0, locale: 'it', interest: 'utility' });
+    expect(html).toContain('href="https://frontaliereticino.ch/calcola-stipendio/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=drip&amp;utm_content=onboarding_step_1_cta"');
+    expect(html).toContain('href="https://frontaliereticino.ch/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=drip&amp;utm_content=onboarding_footer_home"');
   });
 
   it('swaps the day-3 card for a jobs-arrival subscriber', () => {
