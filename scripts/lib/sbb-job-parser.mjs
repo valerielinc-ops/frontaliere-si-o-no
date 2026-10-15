@@ -16,6 +16,7 @@
  *   — fix: extract structured HTML sections and prefer them when longer.
  */
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { readVacancySummaryLocation } from './html-attr.mjs';
 
 /** Minimum accepted description length (characters). */
 export const MIN_SBB_DESC_LENGTH = 400;
@@ -222,7 +223,7 @@ export function extractSbbBodyLocation(html = '') {
     if (percentPrefix?.[1]) return percentPrefix[1].trim();
   }
 
-  return '';
+  return decodeHtmlEntities(readVacancySummaryLocation(html)).trim();
 }
 
 // ─── Main parser ───────────────────────────────────────────────────────────────

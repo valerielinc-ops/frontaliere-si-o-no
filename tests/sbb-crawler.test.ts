@@ -356,6 +356,20 @@ describe('parseSbbDetailPage — body location override', () => {
 
     expect(parseSbbDetailPage(fixture).location).toBe('Bern');
   });
+
+  it('uses the vacancy-specific social summary before generic JSON-LD headquarters', () => {
+    const fixture = `<!DOCTYPE html>
+      <html lang="it"><head>
+        <meta content="Bellinzona, 01.02.2027, 60-100%" name="twitter:description">
+        <script type="application/ld+json">{"@type":"JobPosting","title":"Tecnico industriale specializzato",
+          "jobLocation":{"address":{"addressLocality":"Bern","addressRegion":"Bern"}}}</script>
+      </head><body><h1>Tecnico industriale specializzato</h1><h2>Il tuo compito</h2>
+        <p>Una descrizione dettagliata del lavoro presso le officine ferroviarie.</p>
+      </body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('Bellinzona');
+    expect(parseSbbDetailPage(fixture).location).toBe('Bellinzona');
+  });
 });
 
 // ─── parseSbbDetailPage — guards ──────────────────────────────────────────────
