@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "d707fa0c91835c3fe19c3023897fba1982979c8e",
+  "sourceCommit": "a2843af2eded5e0c03896481c56546cbecbbb27e",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "d707fa0c91835c3fe19c3023897fba1982979c8e"
+    "sourceCommit": "a2843af2eded5e0c03896481c56546cbecbbb27e"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 637,
+  "crawlerCount": 638,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:4551e0e648541d0c9eba12d81bfea316fb74a89e4f68259449846b1cac28ebaa",
+    "rosterDigest": "sha256:7e67dfa78f304aedcb1c6831130475e9e7fc47bb58a8ef97122962056c449191",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -245,6 +245,7 @@
     "scripts/update-ghol-jobs.mjs",
     "scripts/update-giardino-jobs.mjs",
     "scripts/update-gim-architekten-jobs.mjs",
+    "scripts/update-gipo-jobs.mjs",
     "scripts/update-givaudan-jobs.mjs",
     "scripts/update-gkb-jobs.mjs",
     "scripts/update-globus-jobs.mjs",
@@ -974,8 +975,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "34ce4e0997d36d6fb3a7464ec4b9e6ed22198c7c56c9fb2d842ec919ca6d8065",
-      "artifactSha256": "04a4cfcf2b4ee84d60dd06e8c168dd173ea83793924ce94c93ad01aea4786581",
+      "sourceSha256": "532a4fa09062e276985bfe07ff68fff94c9595c7f5e97dc9463b1212b2badaa1",
+      "artifactSha256": "db16a19918393adb67ef312be1b68b9d4e25060ffec4b07bc02d7370e51efc2f",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "jumbo",
@@ -1005,7 +1006,8 @@
         "stellentreff",
         "atec-personal",
         "debiopharm",
-        "fondation-domus"
+        "fondation-domus",
+        "sympajobs-reinach-bl"
       ]
     },
     {
@@ -1163,8 +1165,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "36dc6b7602e5627a8e8830b6de567bf92056b268a1af2b80aed6b2788998a643",
-      "artifactSha256": "78942d51ded1f58c6c8ac73d13069b574aff4e5f71f16b48e9dc87b3c618609f",
+      "sourceSha256": "54e4720198ea0760dd943237a12467b23e11cb147e8b985570ba57098f6f6551",
+      "artifactSha256": "344a60eba0df73ecbb77bfd1fff514351563b8f06f547fa4d6e16af5f728f7c4",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1195,7 +1197,7 @@
         "elprom",
         "sonarsource",
         "elite-interim",
-        "sympajobs-reinach-bl"
+        "gipo"
       ]
     },
     {

@@ -41,6 +41,7 @@ import {
 import {
   DEFAULT_TIMEOUTS,
   DEFAULT_TIKTOK_MUSIC_MODE,
+  acceptsInstagramImageUpload,
   extractTikTokAuthenticatedUsername,
   hasVisibleDialogLoading,
   resolveTikTokMusicVariant,
@@ -54,8 +55,16 @@ import {
 } from '../scripts/lib/tiktok-video-creative.mjs';
 import { buildIssueDescription, displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
-import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
+import { diagnosticsDir, downloadsDir, pruneRobotState, resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
 import { runHasErrors } from '../scripts/social-robot/run.mjs';
+
+describe('Instagram image upload accept guard', () => {
+  it('accepts standard image MIME tokens and rejects a non-image field', () => {
+    expect(acceptsInstagramImageUpload('image/jpeg,image/png,image/heic')).toBe(true);
+    expect(acceptsInstagramImageUpload('image/*')).toBe(true);
+    expect(acceptsInstagramImageUpload('application/pdf')).toBe(false);
+  });
+});
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const tempDirs: string[] = [];
@@ -650,6 +659,15 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
 }
 
 describe('runRobot', () => {
+  it('cleans the queue download directory after a flow outcome', async () => {
+    const cleaned: string[] = [];
+    const h = harness();
+    await runRobot(h.deps({
+      cleanupFiles: ({ entry: queued }) => { cleaned.push(queued.id); },
+    } as Partial<Deps>));
+    expect(cleaned).toEqual(['article-2026-10-03']);
+  });
+
   it('skips a legacy TikTok queue entry without video and continues to the next one without an issue', async () => {
     const legacy = entry('article', '2026-10-03', { channel: 'tiktok' });
     const video = tiktokVideo('job-2026-10-04');
@@ -1001,6 +1019,28 @@ describe('robot helpers', () => {
     expect(resolveBrowserLaunch({ ...base, exists: (p: string) => p === chrome || p === cached })).toEqual({ channel: 'chrome', kind: 'chrome' });
     expect(resolveBrowserLaunch({ ...base, exists: (p: string) => p === cached })).toEqual({ executablePath: cached, kind: 'cached-chromium' });
     expect(resolveBrowserLaunch({ ...base, env: { SOCIAL_ROBOT_BROWSER_PATH: '/x/chrome' }, exists: () => true })).toEqual({ executablePath: '/x/chrome', kind: 'explicit' });
+  });
+
+  it('removes transient downloads and bounds retained diagnostics', () => {
+    const state = tempDir();
+    const downloads = path.join(downloadsDir(state), 'instagram', 'old-entry');
+    const oldDiagnostic = path.join(diagnosticsDir(state), 'old');
+    const newDiagnostic = path.join(diagnosticsDir(state), 'new');
+    fs.mkdirSync(downloads, { recursive: true });
+    fs.mkdirSync(oldDiagnostic, { recursive: true });
+    fs.mkdirSync(newDiagnostic, { recursive: true });
+    fs.writeFileSync(path.join(downloads, 'slide.jpg'), 'temporary');
+    const now = Date.parse('2026-10-15T12:00:00Z');
+    fs.utimesSync(oldDiagnostic, new Date(now - 15 * 24 * HOUR), new Date(now - 15 * 24 * HOUR));
+    fs.utimesSync(newDiagnostic, new Date(now - HOUR), new Date(now - HOUR));
+
+    const result = pruneRobotState(state, { now, maxDiagnosticRuns: 1 });
+
+    expect(result.errors).toEqual([]);
+    expect(result.removed).toEqual({ downloads: true, diagnostics: 1 });
+    expect(fs.existsSync(downloadsDir(state))).toBe(false);
+    expect(fs.existsSync(oldDiagnostic)).toBe(false);
+    expect(fs.existsSync(newDiagnostic)).toBe(true);
   });
 });
 

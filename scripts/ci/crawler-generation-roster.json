@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 637,
+  "crawlerCount": 638,
   "groups": {
     "10": [
       "atec-personal",
@@ -29,6 +29,7 @@
       "richemont",
       "stellentreff",
       "swiss-medical-network",
+      "sympajobs-reinach-bl",
       "triaplus",
       "viva-luzern",
       "vz-vermoegenszentrum"
@@ -168,6 +169,7 @@
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
+      "gipo",
       "grand-hotel-kronenhof",
       "gzo-wetzikon",
       "holcim",
@@ -183,7 +185,6 @@
       "sonarsource",
       "spital-affoltern",
       "sta",
-      "sympajobs-reinach-bl",
       "unispital-basel",
       "valiant-bank",
       "wagerenhof"
@@ -917,6 +918,7 @@
     "giardino": "data/jobs/by-crawler/giardino.json",
     "gim-architekten": "data/jobs/by-crawler/gim-architekten.json",
     "giorgio-armani": "data/jobs/by-crawler/giorgio-armani.json",
+    "gipo": "data/jobs/by-crawler/gipo.json",
     "givaudan": "data/jobs/by-crawler/givaudan.json",
     "gkb": "data/jobs/by-crawler/gkb.json",
     "globus": "data/jobs/by-crawler/globus.json",
@@ -1328,5 +1330,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:4551e0e648541d0c9eba12d81bfea316fb74a89e4f68259449846b1cac28ebaa"
+  "digest": "sha256:7e67dfa78f304aedcb1c6831130475e9e7fc47bb58a8ef97122962056c449191"
 }

@@ -10,7 +10,7 @@
  * the newest Chromium already in Playwright's cache — never an on-demand
  * download from a launchd job. SOCIAL_ROBOT_BROWSER_PATH overrides both.
  */
-import { existsSync, mkdirSync, readdirSync, rmdirSync, statSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, rmSync, rmdirSync, statSync } from 'node:fs';
 import { homedir } from 'node:os';
 import path from 'node:path';
 
@@ -27,6 +27,55 @@ export function defaultStateDir(env = process.env, home = homedir()) {
 export const profileDir = (stateDir) => path.join(stateDir, 'profile');
 export const diagnosticsDir = (stateDir) => path.join(stateDir, 'diagnostics');
 export const downloadsDir = (stateDir) => path.join(stateDir, 'downloads');
+export const DIAGNOSTIC_RETENTION_MS = 14 * 24 * 3600_000;
+export const MAX_DIAGNOSTIC_RUNS = 40;
+
+/**
+ * Keep host-only robot artifacts bounded. Downloads are transient: Playwright
+ * has consumed them when a queue entry finishes, while diagnostics remain
+ * useful for a short, bounded window after a failure.
+ */
+export function pruneRobotState(stateDir, {
+  now = Date.now(),
+  diagnosticRetentionMs = DIAGNOSTIC_RETENTION_MS,
+  maxDiagnosticRuns = MAX_DIAGNOSTIC_RUNS,
+} = {}) {
+  const errors = [];
+  const removed = { downloads: false, diagnostics: 0 };
+  try {
+    rmSync(downloadsDir(stateDir), { recursive: true, force: true });
+    removed.downloads = true;
+  } catch (error) {
+    errors.push(`downloads cleanup failed: ${error?.message || error}`);
+  }
+
+  const root = diagnosticsDir(stateDir);
+  let entries = [];
+  try {
+    entries = readdirSync(root, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => {
+        const directory = path.join(root, entry.name);
+        return { directory, mtimeMs: statSync(directory).mtimeMs };
+      })
+      .sort((a, b) => b.mtimeMs - a.mtimeMs);
+  } catch (error) {
+    if (error?.code !== 'ENOENT') errors.push(`diagnostics inventory failed: ${error?.message || error}`);
+    return { removed, errors };
+  }
+
+  const cutoff = now - diagnosticRetentionMs;
+  entries.forEach((entry, index) => {
+    if (entry.mtimeMs >= cutoff && index < maxDiagnosticRuns) return;
+    try {
+      rmSync(entry.directory, { recursive: true, force: true });
+      removed.diagnostics += 1;
+    } catch (error) {
+      errors.push(`diagnostics cleanup failed for ${path.basename(entry.directory)}: ${error?.message || error}`);
+    }
+  });
+  return { removed, errors };
+}
 
 const CACHED_BINARIES = [
   'chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing',

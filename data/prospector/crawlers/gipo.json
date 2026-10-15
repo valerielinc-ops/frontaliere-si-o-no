@@ -1,0 +1,23 @@
+{
+  "companyKey": "gipo",
+  "companyName": "GIPO GISLER POWER AG",
+  "companyHost": "gipo.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://gipo.ch/de/karriere-bei-gipo/stellenangebote-bei-gipo/"
+  ],
+  "detailTemplate": "/de/offene_stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 3,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Senior System Engineer - Infrastruktur & Plattformen",
+    "System Engineer - Business Applications & Workplace",
+    "Projektleiter Elektro 80 - 100%, Seedorf",
+    "Elektrotechniker / Elektroingenieur 80-100%"
+  ],
+  "canton": "UR",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}
