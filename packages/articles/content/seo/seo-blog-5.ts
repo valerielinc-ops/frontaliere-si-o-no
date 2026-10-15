@@ -108648,6 +108648,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divieti-viabilita-stadio-como': {
+    title: 'Como: divieti in via Vittorio Veneto dal 19 al 24 ottobre',
+    description: 'Divieti attivi dal 19 ottobre alle 6.30 al 24 ottobre a mezzanotte Como-Manchester United mercoledì 21 alle 18.45 Como-Sassuolo sabato 24 alle 15 Transito',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, divieti, vittorio, veneto',
+    ogTitle: 'Como: divieti viabilità zona stadio 19-24 ottobre',
+    ogDescription: 'Divieti attivi dal 19 ottobre alle 6.30 al 24 ottobre a mezzanotte Como-Manchester United mercoledì 21 alle 18.45 Como-Sassuolo sabato 24 alle 15 Transito',
+    canonicalPath: '/articoli-frontaliere/divieti-viabilita-stadio-como/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como: divieti in via Vittorio Veneto dal 19 al 24 ottobre",
+      "description": "Divieti attivi dal 19 ottobre alle 6.30 al 24 ottobre a mezzanotte Como-Manchester United mercoledì 21 alle 18.45 Como-Sassuolo sabato 24 alle 15 Transito",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/investimenti-viabilita-lariana-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Segnaletica stradale temporanea in zona urbana"
+      },
+      "datePublished": "2026-10-15T14:49:43+00:00",
+      "dateModified": "2026-10-15T14:49:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieti-viabilita-stadio-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

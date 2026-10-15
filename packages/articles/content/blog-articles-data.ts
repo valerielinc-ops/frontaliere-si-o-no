@@ -44655,6 +44655,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'divieti-viabilita-stadio-como',
+ category: 'pratico',
+ date: '2026-10-15T14:49:43.082Z',
+ image: '/images/blog/investimenti-viabilita-lariana-como.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

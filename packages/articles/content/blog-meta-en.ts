@@ -13231,6 +13231,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.l-gav-2027-orario-salario.title': 'L‑GAV 2027‑2031: 41 hours, salary unchanged, Cumulus discount',
     'blog.article.l-gav-2027-orario-salario.excerpt': 'New L-GAV for the five-year period 2027-2031 Working hours from 43 to 41 with unchanged salary Cumulus: effective discount of 10% from January 1, 2027 100% net for 90',
     'blog.article.l-gav-2027-orario-salario.imageAlt': 'Photo of a corporate building in Lugano with employees on break',
+    'blog.article.divieti-viabilita-stadio-como.title': 'Como: prohibitions in Via Vittorio Veneto from 19 to 24 October',
+    'blog.article.divieti-viabilita-stadio-como.excerpt': 'Prohibitions active from 19 October at 6.30 to 24 October at midnight Como-Manchester United Wednesday 21 at 18.45 Como-Sassuolo Saturday 24 at 15 Transit',
+    'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Temporary road signs in an urban area',
 };
 
 export default blogMetaEn;
