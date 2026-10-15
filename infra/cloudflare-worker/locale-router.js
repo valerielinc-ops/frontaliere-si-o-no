@@ -1398,8 +1398,9 @@ async function servePushedEdgeFile(pathname) {
 // here, or an entry here for a slug the corpus still publishes. That test is the
 // mechanism: the next retired article cannot reach main still indexable.
 export const EDGE_RETIRED_PATHS = {
-  // ── 301 — slug consolidations already declared by legacyRedirectsPlugin (23 URLs).
+  // ── 301 — slug consolidations already declared by legacyRedirectsPlugin (24 URLs).
   '/articoli-frontaliere/naspi-disoccupazione-frontalieri/': '/articoli-frontaliere/naspi-ex-frontalieri-2026/',
+  '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/': '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/',
   '/articoli-frontaliere/elezioni-comunali-ticino-2026/': '/articoli-frontaliere/elezioni-comunali-ticino/',
   '/en/cross-border-articles/ticino-elections-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
   '/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/': '/de/grenzgaenger-artikel/gemeindewahlen-tessin/',
@@ -1439,7 +1440,7 @@ export const EDGE_RETIRED_PATHS = {
   '/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/': '/fr/vivre-au-tessin/communes-frontiere/maslianico/',
 
   // ── 301 — prompt-leak slug renames declared in data/article-redirects.json
-  // (3 URLs). Not retirements: the article is fine, the URL carried the prompt's
+  // (6 URLs). Not retirements: the article is fine, the URL carried the prompt's
   // own `slug-` placeholder. Both ends are live 200 `index, follow` self-canonical
   // today, i.e. a duplicate pair, because push-article-shard-incremental.sh only
   // ever ADDS. The 301 is the half that was missing. It does NOT touch the four
@@ -1448,6 +1449,9 @@ export const EDGE_RETIRED_PATHS = {
   '/en/cross-border-articles/slug-gaggiolo-traffic/': '/en/cross-border-articles/gaggiolo-traffic/',
   '/de/grenzgaenger-artikel/slug-gaggiolo-verkehr/': '/de/grenzgaenger-artikel/gaggiolo-verkehr/',
   '/fr/articles-frontalier/slug-gaggiolo-traffic/': '/fr/articles-frontalier/gaggiolo-traffic/',
+  '/en/swiss-articles/slug-terzo-pilastro-3a-vantaggi-2026-basel/': '/en/swiss-articles/terzo-pilastro-3a-vantaggi-2026-basel/',
+  '/de/schweiz-artikel/slug-terzo-pilastro-3a-vantaggi-2026-basel/': '/de/schweiz-artikel/terzo-pilastro-3a-vantaggi-2026-basel/',
+  '/fr/articles-suisse/slug-terzo-pilastro-3a-vantaggi-2026-bale/': '/fr/articles-suisse/terzo-pilastro-3a-vantaggi-2026-bale/',
 
   // ── 410 — retired article with NO substitute (4 URLs).
   '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/': null,
