@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 631,
+  "crawlerCount": 632,
   "groups": {
     "10": [
       "atec-personal",
@@ -321,6 +321,7 @@
       "impresa-pizzarotti",
       "institution-lavigny",
       "international-school-of-ticino",
+      "kita-summervogel",
       "klinik-lengg",
       "klinik-wyssholzli",
       "kliniken-valens",
@@ -349,7 +350,6 @@
       "geberit",
       "hoch-health",
       "kellerhals-carrard",
-      "kita-summervogel",
       "klinik-sonnenhalde",
       "kone",
       "ksbl",
@@ -363,6 +363,7 @@
       "orell-fuessli-thalia",
       "pdag",
       "ricola",
+      "seniorenzentrum-engelhof",
       "six-group",
       "spital-buelach",
       "stadtspital-zuerich",
@@ -1175,6 +1176,7 @@
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
+    "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
     "sfs-group": "data/jobs/by-crawler/sfs-group.json",
     "sicpa": "data/jobs/by-crawler/sicpa.json",
     "siegfried": "data/jobs/by-crawler/siegfried.json",
@@ -1316,5 +1318,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:2123a958ef40459f8b9ea42e6fd3caf41ade77f8320c54162ffe473923be473c"
+  "digest": "sha256:c76b61b3ad9acd5899ed4dff1f2206a6f988f4f4ffcf35c1880a524839cb2de8"
 }

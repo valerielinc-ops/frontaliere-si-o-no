@@ -17,10 +17,11 @@ import {
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
+import { JOB_BOARD_COMPANY_HUB_PATH_RX, getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
 import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
+import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import {
   BING_FRONTIER_CANONICAL_DRIFT,
@@ -124,6 +125,31 @@ function isDeclaredSearchBridge({ url, canonical, html }) {
     && suffix.length > searchPrefix.length
     && suffix.startsWith(searchPrefix)
     && !suffix.includes('/');
+}
+
+/**
+ * Recognise the self-canonical below-floor company/canton bridge emitted by
+ * jobsSeoPagesPlugin.  The explicit marker is the primary declaration; the
+ * exact two-segment company-hub route and self-canonical check keep an
+ * accidental marker, nested route, or canonical drift actionable.
+ */
+function isDeclaredCompanyCantonBridge({ url, canonical, html }) {
+  if (!String(html || '').includes(COMPANY_CANTON_NOINDEX_BRIDGE_MARKER)) return false;
+  if (!canonical || normalizeUrl(canonical) !== normalizeUrl(url)) return false;
+
+  let parsed;
+  try {
+    parsed = new URL(String(url || ''), DEFAULT_BASE_URL);
+  } catch {
+    return false;
+  }
+  if (parsed.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+  const pathname = parsed.pathname.replace(/\/+/g, '/') || '/';
+  if (!JOB_BOARD_COMPANY_HUB_PATH_RX.test(pathname)) return false;
+
+  const segments = pathname.split('/').filter(Boolean);
+  const localeOffset = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
+  return segments.length === localeOffset + 2;
 }
 
 export function scopeForManifest(manifest) {
@@ -707,9 +733,15 @@ export function classifyDocument({
     && isDeclaredSearchBridge({ url: finalUrl || url, canonical, html })
     ? 'search-bridge'
     : null;
-  const canonicalExemption = exemption || searchBridgeExemption;
+  const companyCantonBridgeExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredCompanyCantonBridge({ url: finalUrl || url, canonical, html })
+    ? 'company-canton-bridge'
+    : null;
+  const canonicalExemption = exemption || searchBridgeExemption || companyCantonBridgeExemption;
   if (noindex) {
-    const isDeclaredBridge = isFrontier && followableNoindex && canonicalMismatch && canonicalExemption;
+    const isDeclaredBridge = isFrontier && followableNoindex && canonicalExemption;
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
       ? `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`

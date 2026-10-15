@@ -250,12 +250,12 @@
     },
     {
       "id": "holcim-1abb0f826975",
-      "slug": "matrose-in-holcim-ch",
+      "slug": "marinaio-a-holcim-group-birsfelden",
       "slugByLocale": {
         "de": "matrose-in-holcim-ch",
-        "it": "matrose-in-holcim-ch",
-        "en": "matrose-in-holcim-ch",
-        "fr": "matrose-in-holcim-ch"
+        "it": "marinaio-a-holcim-group-birsfelden",
+        "en": "sailor-holcim-group-birsfelden",
+        "fr": "matelot-e-holcim-group-birsfelden"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -312,7 +312,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4127"
+      "postalCode": "4127",
+      "previousSlugsByLocale": {
+        "it": [
+          "matrose-in-holcim-ch"
+        ],
+        "en": [
+          "matrose-in-holcim-ch"
+        ],
+        "fr": [
+          "matrose-in-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "matrose-in-holcim-ch"
+      ]
     },
     {
       "id": "holcim-9014e8c6af55",
@@ -320,8 +334,8 @@
       "slugByLocale": {
         "fr": "collaborateur-trice-expedition-amp-ensachage-holcim-ch",
         "it": "collaboratore-di-spedizione-e-stoccaggio-holcim-group-eclepens",
-        "en": "collaborateur-trice-expedition-holcim-group-eclepens",
-        "de": "collaborateur-trice-expedition-holcim-group-eclepens"
+        "en": "collaborator-shipping-storage-holcim-group-eclepens",
+        "de": "mitarbeiter-shipping-storage-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -373,16 +387,15 @@
           "collaborateur-trice-expedition-holcim-ch"
         ],
         "en": [
-          "collaborator-shipping-storage-holcim-group-eclepens"
+          "collaborateur-trice-expedition-holcim-group-eclepens"
         ],
         "de": [
-          "mitarbeiter-shipping-storage-holcim-group-eclepens"
+          "collaborateur-trice-expedition-holcim-group-eclepens"
         ]
       },
       "previousSlugs": [
         "collaborateur-trice-expedition-holcim-ch",
-        "collaborator-shipping-storage-holcim-group-eclepens",
-        "mitarbeiter-shipping-storage-holcim-group-eclepens"
+        "collaborateur-trice-expedition-holcim-group-eclepens"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

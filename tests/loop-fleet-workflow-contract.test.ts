@@ -313,10 +313,10 @@ describe('loop fleet workflow contract', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
     const pushBlock = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
     const pullRequestBlock = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
-    const healthLedger = 'data/loop-fleet/ledger/loop-health-history.jsonl';
+    const healthLedgerShardGlob = 'data/loop-fleet/ledger/loop-health-history*.jsonl';
     expect(pushBlock).toContain('data/loop-fleet/loop-registry.json');
-    expect(pushBlock).not.toContain(healthLedger);
-    expect(pullRequestBlock).toContain(healthLedger);
+    expect(pushBlock).not.toContain('data/loop-fleet/ledger/loop-health-history');
+    expect(pullRequestBlock).toContain(healthLedgerShardGlob);
   });
 
   it('gates repaired loops on a runner-local fail-closed outcome export', () => {

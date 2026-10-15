@@ -1581,7 +1581,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel",
+        "en": "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       },
@@ -1629,7 +1629,7 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-        "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+        "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1638,7 +1638,7 @@
         ],
         "en": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-          "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
@@ -5533,7 +5533,7 @@
       "id": "unispital-basel-260c44549ad0",
       "slug": "analista-biomedico-hf-universitatsspital-basel-basel-4d81776c9d",
       "slugByLocale": {
-        "it": "analista-biomedico-hf-universitatsspital-basel-basel-4d81776c9d",
+        "it": "analista-biomedico-hf-universitatsspital-basel-basel",
         "en": "biomedical-analyst-hf-universitatsspital-basel-basel",
         "de": "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
         "fr": "analyste-biomedical-hf-universitatsspital-basel-basel"
@@ -5581,14 +5581,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
-        "analista-biomedico-hf-universitatsspital-basel-basel"
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
-          "analista-biomedico-hf-universitatsspital-basel-basel"
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
         ],
         "en": [
           "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
@@ -10939,12 +10937,12 @@
     },
     {
       "id": "unispital-basel-07d0562abde3",
-      "slug": "study-coorindator-kardiologie-unispital-basel-ch",
+      "slug": "studio-coorindator-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "study-coorindator-kardiologie-unispital-basel-ch",
-        "it": "study-coorindator-kardiologie-unispital-basel-ch",
-        "en": "study-coorindator-kardiologie-unispital-basel-ch",
-        "fr": "study-coorindator-kardiologie-unispital-basel-ch"
+        "it": "studio-coorindator-cardiologia-universitatsspital-basel-basel",
+        "en": "study-coorindator-cardiology-universitatsspital-basel-basel",
+        "fr": "coordonateur-de-l-etude-cardiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11002,16 +11000,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:24:36.351Z"
+      "firstSeenAt": "2026-10-14T21:24:36.351Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-coorindator-kardiologie-unispital-basel-ch"
+        ],
+        "en": [
+          "study-coorindator-kardiologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "study-coorindator-kardiologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "study-coorindator-kardiologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-e63b2f5ef50e",
-      "slug": "duales-studium-dhbw-radiologie-e-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel",
+      "slug": "corso-di-studi-duale-dhbw-in-radiologia-e-medicina-nucleare-economia-aziendale-gestione-sanitaria-universitatsspital",
       "slugByLocale": {
         "de": "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-unispital",
-        "it": "duales-studium-dhbw-radiologie-e-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel",
-        "en": "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel-basel",
-        "fr": "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel-basel"
+        "it": "corso-di-studi-duale-dhbw-in-radiologia-e-medicina-nucleare-economia-aziendale-gestione-sanitaria-universitatsspital",
+        "en": "dual-degree-programme-dhbw-radiology-and-nuclear-medicine-business-administration-health-management-universitatsspital",
+        "fr": "programme-de-double-diplome-dhbw-radiologie-et-medecine-nucleaire-gestion-de-la-sante-des-entreprises-universitatsspital"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11058,11 +11070,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-unispital"
+          "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-unispital",
+          "duales-studium-dhbw-radiologie-e-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel"
+        ],
+        "en": [
+          "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-unispital"
+        "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-unispital",
+        "duales-studium-dhbw-radiologie-e-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel",
+        "duales-studium-dhbw-radiologie-und-nuklearmedizin-bwl-gesundheitsmanagement-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11160,7 +11181,7 @@
       "slugByLocale": {
         "de": "duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch",
         "it": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel-3491575fef",
-        "en": "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel",
+        "en": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel",
         "fr": "doubles-etudes-dhbw-informatique-des-affaires-gestion-des-applications-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -11208,11 +11229,15 @@
         "it": [
           "duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch",
           "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
         "duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch",
-        "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel"
+        "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel",
+        "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11231,12 +11256,12 @@
     },
     {
       "id": "unispital-basel-d410888bf864",
-      "slug": "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement",
+      "slug": "doppio-studio-dhbw-registrazione-delle-prestazioni-nella-gestione-del-reddito-business-administration-health-management",
       "slugByLocale": {
         "de": "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement",
-        "it": "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement",
-        "en": "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement",
-        "fr": "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement"
+        "it": "doppio-studio-dhbw-registrazione-delle-prestazioni-nella-gestione-del-reddito-business-administration-health-management",
+        "en": "dual-study-dhbw-performance-recording-in-income-management-business-administration-health-management-universitatsspital",
+        "fr": "comptabilisation-du-rendement-du-dhbw-dans-la-gestion-du-revenu-gestion-de-la-sante-en-administration-des-affaires"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11294,7 +11319,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:24:36.338Z"
+      "firstSeenAt": "2026-10-14T21:24:36.338Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement"
+        ],
+        "en": [
+          "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement"
+        ],
+        "fr": [
+          "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement"
+        ]
+      },
+      "previousSlugs": [
+        "duales-studium-dhbw-leistungserfassung-im-ertragsmanagement-bwl-gesundheitsmanagement"
+      ]
     },
     {
       "id": "unispital-basel-ad98a152dbaf",
@@ -11379,7 +11418,7 @@
       "id": "unispital-basel-e0b4aee2f781",
       "slug": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel-a8a67506cc",
       "slugByLocale": {
-        "it": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel-a8a67506cc",
+        "it": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel",
         "en": "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel",
         "de": "duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch",
         "fr": "doubles-etudes-dhbw-informatique-des-affaires-gestion-des-applications-universitatsspital-basel-basel"
@@ -11427,14 +11466,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch",
-        "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel",
-        "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel"
+        "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch",
-          "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel",
-          "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel"
+          "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel"
         ],
         "fr": [
           "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel"
