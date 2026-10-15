@@ -76,7 +76,7 @@ describe('Rohrer Gartenbau und Hauswartungen GmbH crawler', () => {
       canton: 'OW',
       addressRegion: 'OW',
       employmentType: 'PART_TIME',
-      datePosted: '2026-10-03',
+      datePosted: '2026-10-03T08:00:00+02:00',
       postingDateSource: 'reported',
     });
     expect(sourceBodyWordCount(parsed.listings[0].description)).toBeGreaterThanOrEqual(50);
