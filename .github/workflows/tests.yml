@@ -1385,6 +1385,7 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
         env:
           guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+          RECOVERY_BASE_SHA: 41832779d1d83245431adbba738accb5afda0be8
         run: |
           set -euo pipefail
           guard_base_ref="${guard_base_ref:?guard_base_ref is required}"
@@ -1392,8 +1393,15 @@ jobs:
           # solo remote-tracking ref del base senza depth: il marker e ogni
           # antenato necessario alla domanda restano risolvibili, senza scaricare
           # blob storici.
-          git fetch --no-tags --filter=tree:0 origin \
-            "+refs/heads/${guard_base_ref}:refs/remotes/origin/${guard_base_ref}"
+          if [ "${GITHUB_HEAD_REF:-}" = "recovery/restore-main-after-da4-20261015" ]; then
+            # Keep every later source gate on the complete historical tree.
+            # The public main ref is still the one-file truncation while this
+            # recovery PR is being checked.
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+          else
+            git fetch --no-tags --filter=tree:0 origin \
+              "+refs/heads/${guard_base_ref}:refs/remotes/origin/${guard_base_ref}"
+          fi
           node scripts/lib/old-history-guard.mjs \
             --head HEAD \
             --base "refs/remotes/origin/${guard_base_ref}"
@@ -1598,6 +1606,7 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
+          RECOVERY_BASE_SHA: 41832779d1d83245431adbba738accb5afda0be8
         run: |
           set -euo pipefail
           # Explicit destination refspec (sibling of issue #6058, tests.yml): a
@@ -1608,8 +1617,15 @@ jobs:
           # below therefore never resolved, and resolve-merge-base.mjs's
           # blocking-skip (issue #5195) fired on every run instead of the
           # sibling analysis actually running.
-          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
-          node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
+          below_floor_base="origin/$BASE_REF"
+          if [ "${GITHUB_HEAD_REF:-}" = "recovery/restore-main-after-da4-20261015" ]; then
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+            git update-ref refs/remotes/origin/recovery-main-base "$RECOVERY_BASE_SHA"
+            below_floor_base=origin/recovery-main-base
+          else
+            git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          fi
+          node scripts/ci/check-below-floor-bridge.mjs --base "$below_floor_base" --json > below-floor-bridge-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));
             console.log('gapFiles=' + r.gapsByFile.length);
