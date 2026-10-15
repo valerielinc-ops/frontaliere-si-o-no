@@ -130,6 +130,15 @@ inputs:
       che ricade a giorni di distanza.
     required: false
     default: ''
+  build-sha:
+    description: >-
+      Commit realmente validato, quando differisce dallo SHA del run che
+      osserva il failure (per esempio `workflow_run.head_sha` / `deploy_ref`).
+      Abilita il guard anti-latenza del deduplicatore: una build precedente
+      alla fix non riapre la issue come falsa ricorrenza. Vuoto mantiene il
+      comportamento fail-safe di riapertura.
+    required: false
+    default: ''
   entity:
     description: >-
       Discriminante per-entità del job (locale, section, shard…). Serve a
@@ -198,6 +207,7 @@ runs:
         ISSUE_LABELS: ${{ inputs.labels }}
         ISSUE_PRIORITY: ${{ inputs.priority }}
         REOPEN_WITHIN_HOURS: ${{ inputs.reopen-within-hours }}
+        BUILD_SHA: ${{ inputs.build-sha }}
         ENTITY: ${{ inputs.entity }}
         CONTEXT: ${{ inputs.context }}
         DIAG_FILE: ${{ inputs.diag-file }}

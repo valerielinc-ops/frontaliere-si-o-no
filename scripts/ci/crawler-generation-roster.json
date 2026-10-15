@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 631,
+  "crawlerCount": 632,
   "groups": {
     "10": [
       "atec-personal",
@@ -329,6 +329,7 @@
       "ocst",
       "ottos",
       "privatklinik-meiringen",
+      "proman-fleurier",
       "rfsm-fribourg",
       "strabag",
       "stryker",
@@ -361,8 +362,8 @@
       "omega",
       "orell-fuessli-thalia",
       "pdag",
-      "proman-fleurier",
       "ricola",
+      "seniorenzentrum-engelhof",
       "six-group",
       "spital-buelach",
       "stadtspital-zuerich",
@@ -1175,6 +1176,7 @@
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
+    "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
     "sfs-group": "data/jobs/by-crawler/sfs-group.json",
     "sicpa": "data/jobs/by-crawler/sicpa.json",
     "siegfried": "data/jobs/by-crawler/siegfried.json",
@@ -1316,5 +1318,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:3b65966d22944de4d3cc5b6b55d4c13061d49198c89b3e97674943576248b9d7"
+  "digest": "sha256:4df50c9f3a99175a964f67500b8c633d5a1eb08f177babb5c479f5f074396c4f"
 }

@@ -1360,12 +1360,12 @@
     },
     {
       "id": "gz-dielsdorf-6e3231b16f44",
-      "slug": "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf",
+      "slug": "professionista-sanitario-a-efz-cure-palliative-assistenza-acuta-e-transitoria-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
-        "it": "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf",
-        "en": "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
-        "fr": "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
+        "it": "professionista-sanitario-a-efz-cure-palliative-assistenza-acuta-e-transitoria-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "professional-health-efz-palliative-care-acute-and-transitional-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "sante-professionnelle-efz-soins-palliatifs-soins-aigus-et-de-transition-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1413,11 +1413,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
+          "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
+        "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
+        "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
