@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "cf8365b82f851fbeeeb404df7001c80c365e7c80",
+  "sourceCommit": "37b07c48b1bc380e88d0986f3692e2719a3fd8db",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "cf8365b82f851fbeeeb404df7001c80c365e7c80"
+    "sourceCommit": "37b07c48b1bc380e88d0986f3692e2719a3fd8db"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 640,
+  "crawlerCount": 641,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:388f849ff3fee352f6e33a07ce09237a42a1bf346412cc3ca89b32b773881abb",
+    "rosterDigest": "sha256:b8a006a680e05889abaee2d9ec0c31e0785cc2589dfc6be7064db82b9f620f81",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -427,6 +427,7 @@
     "scripts/update-privatklinik-meiringen-jobs.mjs",
     "scripts/update-privatklinik-obach-jobs.mjs",
     "scripts/update-privatklinik-wyss-jobs.mjs",
+    "scripts/update-project-interim-jobs.mjs",
     "scripts/update-proman-fleurier-jobs.mjs",
     "scripts/update-prosenectute-ti-jobs.mjs",
     "scripts/update-protectas-jobs.mjs",
@@ -1435,8 +1436,8 @@
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "7f0b71ccbe0d41ef934f986d724bb09b00a4c7613d63e84f98185442d1fd4b94",
-      "artifactSha256": "6798740c26555c93b4559714f0ca20ad73d3e768da02d8abad9b9ccf4a5a837e",
+      "sourceSha256": "c5efd362f5b7e4d9938fbf4cb33532b1b86ed0f94c59a54ee1b3b6a223d938f4",
+      "artifactSha256": "5c128759149136a0e7e62a086577aeb39311414057008fcf875580f8af94572e",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "rittmeyer",
@@ -1467,7 +1468,8 @@
         "bachtelen",
         "alcon",
         "yellowshark",
-        "rh-expert-ch"
+        "rh-expert-ch",
+        "project-interim"
       ]
     },
     {

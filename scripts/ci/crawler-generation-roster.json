@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 640,
+  "crawlerCount": 641,
   "groups": {
     "10": [
       "atec-personal",
@@ -396,6 +396,7 @@
       "mks-pamp",
       "oerlikon",
       "otis",
+      "project-interim",
       "reha-bellikon",
       "rh-expert-ch",
       "rittmeyer-ag",
@@ -1141,6 +1142,7 @@
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
+    "project-interim": "data/jobs/by-crawler/project-interim.json",
     "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
     "protectas": "data/jobs/by-crawler/protectas.json",
@@ -1334,5 +1336,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:388f849ff3fee352f6e33a07ce09237a42a1bf346412cc3ca89b32b773881abb"
+  "digest": "sha256:b8a006a680e05889abaee2d9ec0c31e0785cc2589dfc6be7064db82b9f620f81"
 }
