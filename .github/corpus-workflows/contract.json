@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "f042f019ddb36717d87f1ca5c169bc70cbc4c5f1",
+  "sourceCommit": "39cba260bb9e0a1205b86ba214cc68cd59fe2237",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "f042f019ddb36717d87f1ca5c169bc70cbc4c5f1"
+    "sourceCommit": "39cba260bb9e0a1205b86ba214cc68cd59fe2237"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 632,
+  "crawlerCount": 633,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:c76b61b3ad9acd5899ed4dff1f2206a6f988f4f4ffcf35c1880a524839cb2de8",
+    "rosterDigest": "sha256:19188a0077349f441534c7449ee168838d250d8d87b3fdd39d58a4afffd74fc0",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -423,6 +423,7 @@
     "scripts/update-privatklinik-meiringen-jobs.mjs",
     "scripts/update-privatklinik-obach-jobs.mjs",
     "scripts/update-privatklinik-wyss-jobs.mjs",
+    "scripts/update-proman-fleurier-jobs.mjs",
     "scripts/update-prosenectute-ti-jobs.mjs",
     "scripts/update-protectas-jobs.mjs",
     "scripts/update-proton-jobs.mjs",
@@ -1306,8 +1307,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "85b7310cdedfdee7439b03b6ed697eb2e510bd877cb5646c48b12e40bd341bd7",
-      "artifactSha256": "c8c139d9f9a9aaf8036b5524cb9eaf251e38e968fae1a1bc3063018a717acde0",
+      "sourceSha256": "1586edc82b2f82eebf2c296c5a365b4427c2589439551eca629af9c44716ef23",
+      "artifactSha256": "a6960e12facd7690e0fe1dc6154a035943e579f4bd31aedf503a9d22672e700c",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "migros",
@@ -1337,14 +1338,15 @@
         "alpiq",
         "vereinaklosters",
         "unibe",
-        "convit"
+        "convit",
+        "kita-summervogel"
       ]
     },
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "6eb738433b12b3a7fce0bcd529fe95779a812215702eec534a250f43291cc7fe",
-      "artifactSha256": "c438eef5f0ee4f99619650353f2252f78062e22dea0a71436d7546e4a3e924ab",
+      "sourceSha256": "498c5d4e551156b8459932485d18d30558f4fe765b6a265ed80532cfe4f92a40",
+      "artifactSha256": "e6ae182df9d84583dbdd4cb15319ef122d80ed912315c7f3a451fea336498e0c",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ottos",
@@ -1375,7 +1377,7 @@
         "arxada",
         "adus-klinik",
         "ist",
-        "kita-summervogel"
+        "proman-fleurier"
       ]
     },
     {
