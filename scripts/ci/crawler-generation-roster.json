@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "groups": {
     "10": [
       "atec-personal",
@@ -254,6 +254,7 @@
       "bobst",
       "canton-valais",
       "constellium",
+      "deillon-delley-architectes",
       "empa",
       "etat-de-fribourg",
       "etat-de-vaud",
@@ -278,12 +279,12 @@
       "zuger-kantonsspital"
     ],
     "19": [
+      "agat",
       "alpiq",
       "bucher-suter",
       "convit-holding",
       "cseb",
       "csl-behring",
-      "deillon-delley-architectes",
       "forel-klinik",
       "goline",
       "grace-la-margna",
@@ -696,6 +697,7 @@
     "adullam": "data/jobs/by-crawler/adullam.json",
     "adus-klinik": "data/jobs/by-crawler/adus-klinik.json",
     "afry": "data/jobs/by-crawler/afry.json",
+    "agat": "data/jobs/by-crawler/agat.json",
     "agie-charmilles": "data/jobs/by-crawler/agie-charmilles.json",
     "agroscope": "data/jobs/by-crawler/agroscope.json",
     "ail-lugano": "data/jobs/by-crawler/ail-lugano.json",
@@ -1320,5 +1322,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:b0c3f129e420cc204292e11ea6507c07d8d9afb1761912426f4d642a748687ac"
+  "digest": "sha256:602a2a44f7a43371e1deb594a5393d63648f8abc3c65e50f284d97ef3e6839ee"
 }

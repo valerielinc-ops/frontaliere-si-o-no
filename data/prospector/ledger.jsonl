@@ -15365,3 +15365,24 @@
 {"key":"rh-expert@geneve","from":"rejected","to":"validated","at":"2026-10-14T10:37:52.793Z","reason":"rivalutata con source adapter rh-expert-ch-dedicated-v1"}
 {"key":"rh-expert@geneve","from":"validated","to":"promoted","at":"2026-10-14T10:37:52.793Z"}
 {"key":"opus-personal-zweigniederlassung-bern@herzogenbuchsee","from":"promoting","to":"production","at":"2026-10-14T10:43:20.765Z"}
+{"key":"sonic-suisse.ch","from":"new","to":"traced","at":"2026-10-15T09:38:39.854Z","reason":null}
+{"key":"stiftung-lebensart@aarwangen","from":"new","to":"traced","at":"2026-10-15T09:38:39.858Z","reason":null}
+{"key":"geras-pflegehotel@sutz","from":"new","to":"traced","at":"2026-10-15T09:38:39.858Z","reason":null}
+{"key":"archer-beck@arch","from":"new","to":"traced","at":"2026-10-15T09:38:39.858Z","reason":null}
+{"key":"spirit-market@worb","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"sibel-s-a@les-verrieres","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"faigle@gumligen","from":"new","to":"traced","at":"2026-10-15T09:38:39.859Z","reason":null}
+{"key":"stiftung-rotonda","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"epro-traffic@gumligen","from":"new","to":"traced","at":"2026-10-15T09:38:39.859Z","reason":null}
+{"key":"menvisual@biel-bienne","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"re-life@reinach-bl","from":"new","to":"dead","at":"2026-10-15T09:38:39.860Z","reason":"nessuna pagina carriere"}
+{"key":"skan@allschwil","from":"new","to":"traced","at":"2026-10-15T09:38:39.860Z","reason":null}
+{"key":"archer-beck@arch","from":"traced","to":"rejected","at":"2026-10-15T09:55:52.769Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"epro-traffic@gumligen","from":"traced","to":"rejected","at":"2026-10-15T09:55:54.353Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"faigle@gumligen","from":"traced","to":"rejected","at":"2026-10-15T09:55:55.847Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"geras-pflegehotel@sutz","from":"traced","to":"rejected","at":"2026-10-15T09:55:57.339Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"skan@allschwil","from":"traced","to":"synthesized","at":"2026-10-15T09:55:59.152Z"}
+{"key":"stiftung-lebensart@aarwangen","from":"traced","to":"rejected","at":"2026-10-15T09:56:00.518Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"sonic-suisse.ch","from":"traced","to":"rejected","at":"2026-10-15T09:56:01.914Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"skan@allschwil","from":"synthesized","to":"promoted","at":"2026-10-15T09:56:29.341Z"}
+{"key":"opus-personal@brig","from":"promoted","to":"rejected","at":"2026-10-15T09:56:53.262Z"}

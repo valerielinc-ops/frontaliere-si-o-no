@@ -1,6 +1,6 @@
 {
   "crawlerKey": "forel-klinik",
-  "assembledAt": "2026-10-14T21:34:09.345Z",
+  "assembledAt": "2026-10-15T09:35:28.943Z",
   "jobs": [
     {
       "id": "forel-klinik-d66ab87e6430",
@@ -34,7 +34,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:34:03.925Z",
+      "crawledAt": "2026-10-15T09:35:24.038Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:34:03.418Z",
+      "crawledAt": "2026-10-15T09:35:23.578Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,9 +166,9 @@
       "id": "forel-klinik-71e381440316",
       "slug": "psicologo-a-post-laureato-a-m-f-d-80-forel-klinik-ellikon-an-der-thur",
       "slugByLocale": {
-        "de": "postgraduierte-r-psychologen-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
         "it": "psicologo-a-post-laureato-a-m-f-d-80-forel-klinik-ellikon-an-der-thur",
         "en": "postgraduate-psychologist-m-f-d-80-forel-klinik-ellikon-an-der-thur",
+        "de": "postgraduierte-r-psychologen-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
         "fr": "psychologue-postgradue-e-h-f-d-80-forel-klinik-ellikon-an-der-thur"
       },
       "company": "Forel Klinik",
@@ -193,7 +193,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:34:02.912Z",
+      "crawledAt": "2026-10-15T09:35:23.118Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -211,9 +211,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
