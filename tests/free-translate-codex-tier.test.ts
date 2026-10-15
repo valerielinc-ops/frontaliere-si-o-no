@@ -875,6 +875,25 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     // Il messaggio dell'errore non finisce nel log.
     expect(lines.every((l) => !l.includes('broker non raggiungibile'))).toBe(true);
   });
+  it('un rifiuto per quota ferma il tier per quota, non come fallimento della lane', async () => {
+    // Run 38686616395: finita la quota, tre chiamate rifiutate diventavano
+    // «3 fallimenti consecutivi» e la riserva dava `codex-failed`.
+    const calls = stubCodex(() => {
+      throw new Error('[codex] skipped — Codex primary circuit open for this run (quota/rate-limit)');
+    });
+    const texts = [`${IT} Quota distinta uno.`, `${IT} Quota distinta due.`];
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const text of texts) results.push(await tr(text));
+      return results;
+    });
+    expect(value).toEqual(Array(2).fill(`MYMEMORY ${EN}`));
+    expect(calls).toHaveLength(1);
+    expect(lines.filter((l) => l.includes('quota esaurita (quota/rate-limit)'))).toHaveLength(1);
+    expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(0);
+    expect(ft.getCodexTierStats().stopReason).toBe('quota esaurita (quota/rate-limit)');
+  });
+
   it('tre echi-source distinti fermano il tier come tre fallimenti', async () => {
     const before = codexCounters();
     const texts = [

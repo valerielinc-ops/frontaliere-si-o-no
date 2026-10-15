@@ -32,8 +32,10 @@ import { realpathSync } from 'node:fs';
  *   - `covered`: the rejected provider is logged as «degraded, covered by
  *     Codex» (notice + step summary) and no needs-human issue is opened or
  *     commented, so an open alert is not reopened at every run;
- *   - `codex-failed` / `codex-unavailable` / `unknown`: the real red — the
- *     issue is opened as before, and its body says what the reserve did.
+ *   - `codex-failed` / `codex-exhausted` / `codex-unavailable` / `unknown`:
+ *     the real red — the issue is opened as before, and its body says what
+ *     the reserve did (`codex-exhausted`: the subscription quota ran out
+ *     before Codex translated anything in any phase).
  *
  * A rejected or exhausted provider is a verdict, not a failure: the exit code
  * is non-zero only when the probe itself crashes, and the workflow step is
