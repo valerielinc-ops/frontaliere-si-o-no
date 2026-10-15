@@ -798,6 +798,28 @@ describe('jobSectorLanding — counts and filtering', () => {
     expect(counts.it.architetti).toBe(1);
   });
 
+  it('uses source-backed sector metadata for generic roles at energy employers (#9938)', () => {
+    const dxtJob = {
+      title: 'Junior Accountant',
+      category: 'general',
+      sector: 'Energia / Trading materie prime',
+      description: baseDesc,
+    };
+
+    expect(jobMatchesSector({ ...dxtJob, sector: undefined }, 'energia')).toBe(false);
+    expect(jobMatchesSector(dxtJob, 'energia')).toBe(true);
+    expect(countSectorJobsByLocale([dxtJob]).it.energia).toBe(1);
+
+    expect(jobMatchesSector({
+      title: 'Capo Progetto Sistemi di Sicurezza 80–100%',
+      sector: 'Industria e tecnologia (automazione, energia, infrastrutture digitali)',
+    }, 'energia')).toBe(false);
+
+    // Body prose remains excluded: only the crawler's bounded metadata fixes
+    // the gap, not a broad description scan that could create false matches.
+    expect(jobMatchesSector({ title: 'Junior Accountant', description: 'energy '.repeat(60) }, 'energia')).toBe(false);
+  });
+
   it('per-locale needsRetranslation excludes from that locale only', () => {
     const jobs = [
       {

@@ -782,7 +782,7 @@
       "slugByLocale": {
         "it": "responsabile-sviluppo-orologi-panerai-neuchatel",
         "en": "watch-development-manager-panerai-neuchatel",
-        "de": "responsible-development-uhren-panerai-neuchatel",
+        "de": "leiter-uhrentwicklung-panerai-neuchatel",
         "fr": "responsable-developpement-montres-panerai-neuchatel"
       },
       "company": "Panerai",
@@ -838,13 +838,13 @@
         ],
         "de": [
           "responsable-developpement-montres-panerai-neuchatel",
-          "leiter-uhrentwicklung-panerai-neuchatel"
+          "responsible-development-uhren-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "responsable-developpement-montres-richemont-neuchatel",
         "responsable-developpement-montres-panerai-neuchatel",
-        "leiter-uhrentwicklung-panerai-neuchatel"
+        "responsible-development-uhren-panerai-neuchatel"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1020,7 +1020,7 @@
       "slugByLocale": {
         "it": "responsabile-processo-acquisti-richemont-plan-les-ouates",
         "en": "procurement-process-manager-richemont-plan-les-ouates",
-        "de": "beschaffungsprozess-manager-richemont-plan-les-ouates",
+        "de": "beschaffungsprozessmanager-richemont-plan-les-ouates",
         "fr": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
       },
       "company": "Richemont",
@@ -1066,7 +1066,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-process-manager-richemont-plan-les-ouates",
-        "beschaffungsprozessmanager-richemont-plan-les-ouates"
+        "beschaffungsprozess-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1074,7 +1074,7 @@
         ],
         "de": [
           "procurement-process-manager-richemont-plan-les-ouates",
-          "beschaffungsprozessmanager-richemont-plan-les-ouates"
+          "beschaffungsprozess-manager-richemont-plan-les-ouates"
         ],
         "fr": [
           "procurement-process-manager-richemont-plan-les-ouates"
@@ -1102,7 +1102,7 @@
       "slugByLocale": {
         "it": "regolatore-meccanico-strike-procadrans-la-chaux-de-fonds",
         "en": "mechanic-adjuster-strike-procadrans-la-chaux-de-fonds",
-        "de": "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds",
+        "de": "mechaniker-strike-procadrans-la-chaux-de-fonds",
         "fr": "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds"
       },
       "company": "ProCadrans",
@@ -1149,7 +1149,7 @@
       "previousSlugs": [
         "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds",
         "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds",
-        "mechaniker-strike-procadrans-la-chaux-de-fonds"
+        "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1157,7 +1157,7 @@
           "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds"
         ],
         "de": [
-          "mechaniker-strike-procadrans-la-chaux-de-fonds"
+          "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-17T11:30:23.949Z",
@@ -3887,7 +3887,7 @@
       "slug": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
-        "en": "reference-project-leader-industrialization-donze-baume-les-breuleux",
+        "en": "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
         "de": "referenzprojektleiter-industrialisierung-donze-baume-les-breuleux",
         "fr": "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
       },
@@ -3941,7 +3941,7 @@
           "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
         ],
         "en": [
-          "referent-chef-de-projet-industrialisation-richemont-les-breuleux"
+          "reference-project-leader-industrialization-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
@@ -3950,7 +3950,8 @@
       },
       "previousSlugs": [
         "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
-        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
+        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux",
+        "reference-project-leader-industrialization-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.511Z",
       "salaryMin": 60500,
@@ -3973,8 +3974,8 @@
       "slug": "programmazione-di-riferimento-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "programmazione-di-riferimento-donze-baume-les-breuleux",
-        "en": "reference-programming-donze-baume-les-breuleux",
-        "de": "referent-programmplanung-donze-baume-les-breuleux",
+        "en": "referent-programmation-richemont-les-breuleux",
+        "de": "referenzprogrammierung-donze-baume-les-breuleux",
         "fr": "referent-programmation-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
@@ -4032,13 +4033,13 @@
         ],
         "en": [
           "planner-donze-baume-les-breuleux",
-          "referent-programmation-richemont-les-breuleux"
+          "reference-programming-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-programmation-richemont-les-breuleux",
           "planer-donze-baume-les-breuleux",
           "referent-programmation-donze-baume-les-breuleux",
-          "referenzprogrammierung-donze-baume-les-breuleux"
+          "referent-programmplanung-donze-baume-les-breuleux"
         ]
       },
       "previousSlugs": [
@@ -4048,7 +4049,8 @@
         "planer-donze-baume-les-breuleux",
         "planificateur-richemont-les-breuleux",
         "referent-programmation-donze-baume-les-breuleux",
-        "referenzprogrammierung-donze-baume-les-breuleux"
+        "reference-programming-donze-baume-les-breuleux",
+        "referent-programmplanung-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.466Z",
       "salaryMin": 60500,
@@ -4072,7 +4074,7 @@
       "slugByLocale": {
         "it": "horloger-hh-panerai-neuchatel",
         "en": "horloger-hh-richemont-neuchatel",
-        "de": "uhr-hh-panerai-neuchatel",
+        "de": "horloge-hh-panerai-neuchatel",
         "fr": "horloger-hh-richemont-neuchatel"
       },
       "company": "Panerai",
@@ -4119,7 +4121,7 @@
       "previousSlugs": [
         "horloger-hh-richemont-neuchatel",
         "orologiaio-hh-panerai-neuchatel",
-        "horloge-hh-panerai-neuchatel"
+        "uhr-hh-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4127,7 +4129,7 @@
           "orologiaio-hh-panerai-neuchatel"
         ],
         "de": [
-          "horloge-hh-panerai-neuchatel"
+          "uhr-hh-panerai-neuchatel"
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.485Z",
@@ -4998,7 +5000,7 @@
       "id": "richemont-6922099e48c5",
       "slug": "societa-commerciale-van-cleef-arpels-zurich",
       "slugByLocale": {
-        "it": "societa-commerciale-van-cleef-arpels-zurich",
+        "it": "vendite-van-cleef-arpels-zurich",
         "en": "sales-associate-van-cleef-arpels-zurich",
         "de": "vertriebsmitarbeiter-van-cleef-arpels-zurich",
         "fr": "sales-associate-richemont-zurich"
@@ -5047,8 +5049,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-van-cleef-arpels-zurich",
-          "sales-associate-richemont-zurich",
-          "vendite-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "fr": [
           "sales-associate-richemont-zurich-t0sdvd"
@@ -5063,8 +5064,7 @@
       "previousSlugs": [
         "sales-associate-richemont-zurich-t0sdvd",
         "sales-associate-van-cleef-arpels-zurich",
-        "sales-associate-richemont-zurich",
-        "vendite-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich"
       ],
       "firstSeenAt": "2026-08-19T21:42:09.964Z",
       "salaryMin": 83000,
@@ -5539,7 +5539,7 @@
       "slugByLocale": {
         "it": "analisi-dei-materiali-specialistici-richemont-glovelier",
         "en": "specialist-materials-analysis-richemont-glovelier",
-        "de": "spezialist-analysiert-materialien-richemont-glovelier",
+        "de": "spezialisierte-materialanalyse-richemont-glovelier",
         "fr": "specialiste-analyses-materiaux-richemont-glovelier"
       },
       "company": "Richemont",
@@ -5585,14 +5585,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-analyses-materiaux-richemont-glovelier",
-        "spezialisierte-materialanalyse-richemont-glovelier"
+        "spezialist-analysiert-materialien-richemont-glovelier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-analyses-materiaux-richemont-glovelier"
         ],
         "de": [
-          "spezialisierte-materialanalyse-richemont-glovelier"
+          "spezialist-analysiert-materialien-richemont-glovelier"
         ]
       },
       "firstSeenAt": "2026-08-18T09:59:08.377Z",
@@ -5877,7 +5877,7 @@
       "slugByLocale": {
         "it": "elettrodomestici-polimeccanici-cfc-cartier-manufacture-glovelier",
         "en": "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
-        "de": "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier",
+        "de": "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier",
         "fr": "apprenti-e-polymecanicien-ne-cfc-cartier-manufacture-glovelier"
       },
       "company": "Cartier Manufacture",
@@ -5931,13 +5931,13 @@
         "de": [
           "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
           "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-          "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+          "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
         ]
       },
       "previousSlugs": [
         "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
         "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-        "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+        "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
       ],
       "firstSeenAt": "2026-08-18T09:59:08.365Z",
       "salaryMin": 51100,
@@ -6267,7 +6267,7 @@
       "slug": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
-        "en": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
+        "en": "business-trainer-cartier-manufacture-le-cret-du-locle",
         "de": "berufsbildner-cartier-manufacture-le-cret-du-locle",
         "fr": "formateur-metiers-richemont-le-cret-du-locle"
       },
@@ -6315,7 +6315,7 @@
       "previousSlugs": [
         "formateur-metiers-richemont-le-cret-du-locle",
         "vocational-trainer-cartier-manufacture-le-cret-du-locle",
-        "business-trainer-cartier-manufacture-le-cret-du-locle"
+        "formateur-metiers-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6323,7 +6323,7 @@
         ],
         "en": [
           "vocational-trainer-cartier-manufacture-le-cret-du-locle",
-          "business-trainer-cartier-manufacture-le-cret-du-locle"
+          "formateur-metiers-cartier-manufacture-le-cret-du-locle"
         ],
         "de": [
           "formateur-metiers-richemont-le-cret-du-locle"
@@ -7813,7 +7813,7 @@
         "it": "societa-commerciale-cartier-zurich",
         "en": "sales-associate-cartier-zurich",
         "de": "vertriebsmitarbeiter-cartier-zurich",
-        "fr": "associe-de-vente-cartier-zurich"
+        "fr": "sales-associate-richemont-zurich"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -7885,7 +7885,7 @@
         ],
         "fr": [
           "sales-associate-temps-partiel-20-cartier-zurich",
-          "sales-associate-richemont-zurich"
+          "associe-de-vente-cartier-zurich"
         ]
       },
       "previousSlugs": [
@@ -7904,7 +7904,8 @@
         "conseiller-ere-de-vente-temps-partiel-20-cartier-zurich",
         "assistente-vendita-parte-tempo-20-cartier-zurich",
         "verkaufsassistent-teilzeit-20-cartier-zurich",
-        "venditore-part-time-40-cartier-zurich"
+        "venditore-part-time-40-cartier-zurich",
+        "associe-de-vente-cartier-zurich"
       ],
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
       "salaryMin": 83000,
@@ -7927,7 +7928,7 @@
       "slug": "capolavoro-di-gruppo-di-notte-m-f-x-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "capolavoro-di-gruppo-di-notte-m-f-x-cartier-manufacture-villars-sur-glane",
-        "en": "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane",
+        "en": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
         "de": "chef-de-gruppe-usinage-equipe-de-nuit-m-w-x-cartier-manufacture-villars-sur-glane",
         "fr": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
       },
@@ -7973,14 +7974,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
+        "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
         ],
         "en": [
-          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+          "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
@@ -8729,7 +8731,7 @@
         "it": "mouvements-constructeur-vacheron-constantin-le-brassus",
         "en": "constructeur-mouvements-richemont-le-brassus",
         "de": "konstrukteur-mouvements-vacheron-constantin-le-brassus",
-        "fr": "constructeur-mouvements-vacheron-constantin-le-brassus"
+        "fr": "constructeurmounts-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -8739,7 +8741,7 @@
         "it": "Mouvements Constructeur",
         "en": "Constructeur Mouvements",
         "de": "Konstrukteur Mouvements",
-        "fr": "Constructeur Mouvements"
+        "fr": "ConstructeurMounts"
       },
       "description": "Reference code: JR133224\n\nFounded in 1755, Vacheron Constantin is the world’s oldest watch Manufacture in continuous production for more than 270 years, faithfully perpetuating a proud heritage of watchmaking excellence and stylistic sophistication through generations of master craftsmen.\n\nAt the pinnacle of Haute Horlogerie and understated elegance, the Maison creates timepieces with unique technical and aesthetic signatures, and an extremely high level of finishing touches.\n\nYOUR MISSION: Collaborate in the development of new products and define technical characteristics by integrating specifications data and the requirements of the Marketing, Design and Development departments in accordance with functional, aesthetic quality and financial criteria. HOW WILL YOU MAKE AN IMPACT? - Collaborate in the development of innovative products by defining technical characteristics that integrate specifications data and the requirements of the Marketing, Design, and Development departments, ensuring alignment with functional, aesthetic, quality, and financial criteria. - Manage the delivery of feasibility and assessment work for proposed and current projects, contributing to the development and continuous review of business cases. - Deliver defined features, functionality, or outcomes from designated parts of the development/engineering program, selecting the best available approach within established systems. - Research and interpret data, trends, and benchmarks relevant to digital products/services design to inform development strategies. - Support data-driven analysis to identify opportunities for product/service improvement and implement actionable insights. - Deliver small project workstreams, executing specified project activities within defined time and quality parameters, ensuring adherence to the prescribed project management methodology. - Explore and develop a basic understanding of external developments or emerging issues, contributing to the evaluation of their potential impact on, or usefulness to, the organization. - Support the collection of business requirements using various methods, such as interviews, document analysis, and workflow analysis, to express requirements clearly and succinctly. - Create and maintain high-standard technical and/or user documentation, ensuring backup files are available for instant recovery if problems occur. - Develop personal capabilities by participating in assessment and development planning activities, as well as formal and informal training and coaching; gain or maintain external professional accreditation, where relevant, to improve performance and fulfill personal potential. - Maintain an understanding of relevant technology, external regulation, and industry best practices through ongoing education, attending conferences, and reading specialist media. - Possess a Bachelor's Degree or equivalent level of education. - Demonstrate experience as an unsupervised practitioner. - Exhibit basic experience in coordinating the work of others. HOW WILL YOU EXPERIENCE SUCCESS WITH US? Bachelor's Degree or Equivalent Level Experienced practitioner able to work unsupervised.",
       "descriptionByLocale": {
@@ -8777,7 +8779,7 @@
         "manufacturer-movements-vacheron-constantin-le-brassus",
         "movimenti-del-produttore-vacheron-constantin-le-brassus",
         "herstellerbewegungen-vacheron-constantin-le-brassus",
-        "constructeurmounts-vacheron-constantin-le-brassus"
+        "constructeur-mouvements-vacheron-constantin-le-brassus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8790,10 +8792,9 @@
           "constructeur-mouvements-richemont-le-brassus"
         ],
         "fr": [
-          "constructeurmounts-vacheron-constantin-le-brassus"
+          "constructeur-mouvements-vacheron-constantin-le-brassus"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:23.365Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -9113,7 +9114,7 @@
       "slug": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
-        "en": "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane",
+        "en": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
         "de": "anwendende-operateur-en-horlogerie-afp-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
       },
@@ -9159,14 +9160,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+        "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
         ],
         "en": [
-          "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+          "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-09-10T23:17:41.067Z",
@@ -13130,9 +13132,9 @@
     },
     {
       "id": "richemont-f97dc52d33ce",
-      "slug": "brand-content-producer-vacheron-constantin-plan-les-ouates",
+      "slug": "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
-        "it": "brand-content-producer-vacheron-constantin-plan-les-ouates",
+        "it": "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates",
         "en": "brand-content-producer-richemont-plan-les-ouates",
         "de": "brand-content-produzent-vacheron-constantin-plan-les-ouates",
         "fr": "producteur-de-contenu-de-marque-vacheron-constantin-plan-les-ouates"
@@ -13180,12 +13182,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "brand-content-producer-richemont-plan-les-ouates",
-        "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates"
+        "brand-content-producer-vacheron-constantin-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brand-content-producer-richemont-plan-les-ouates",
-          "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates"
+          "brand-content-producer-vacheron-constantin-plan-les-ouates"
         ],
         "de": [
           "brand-content-producer-richemont-plan-les-ouates"
@@ -15408,9 +15410,9 @@
     },
     {
       "id": "richemont-c63b44d13a6e",
-      "slug": "prototypiste-cartier-manufacture-le-cret-du-locle",
+      "slug": "prototipismo-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "prototypiste-cartier-manufacture-le-cret-du-locle",
+        "it": "prototipismo-cartier-manufacture-le-cret-du-locle",
         "en": "prototypist-cartier-manufacture-le-cret-du-locle",
         "de": "prototyp-cartier-manufacture-le-cret-du-locle",
         "fr": "prototypiste-richemont-le-cret-du-locle"
@@ -15458,12 +15460,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "prototypiste-richemont-le-cret-du-locle",
-        "prototipismo-cartier-manufacture-le-cret-du-locle"
+        "prototypiste-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "prototypiste-richemont-le-cret-du-locle",
-          "prototipismo-cartier-manufacture-le-cret-du-locle"
+          "prototypiste-cartier-manufacture-le-cret-du-locle"
         ],
         "en": [
           "prototypiste-richemont-le-cret-du-locle"
@@ -15489,12 +15491,12 @@
     },
     {
       "id": "richemont-a98be7a8a4c2",
-      "slug": "constructeur-mouvements-richemont-buttes",
+      "slug": "movimenti-del-produttore-valfleurier-buttes",
       "slugByLocale": {
         "fr": "constructeur-mouvements-richemont-buttes",
-        "it": "constructeur-mouvements-richemont-buttes",
-        "en": "constructeur-mouvements-richemont-buttes",
-        "de": "constructeur-mouvements-richemont-buttes"
+        "it": "movimenti-del-produttore-valfleurier-buttes",
+        "en": "manufacturer-movements-valfleurier-buttes",
+        "de": "uhrwerke-des-herstellers-valfleurier-buttes"
       },
       "company": "ValFleurier",
       "companyKey": "richemont",
@@ -15502,16 +15504,16 @@
       "title": "Constructeur mouvements",
       "titleByLocale": {
         "fr": "Constructeur mouvements",
-        "it": "Constructeur mouvements",
-        "en": "Constructeur mouvements",
-        "de": "Constructeur mouvements"
+        "it": "Movimenti del produttore",
+        "en": "Manufacturer movements",
+        "de": "Uhrwerke des Herstellers"
       },
       "description": "Reference code: JR134865\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nConstructeur mouvements (H/F/X) - CDM 1an\n\nNous recherchons un Constructeur mouvements afin de renforcer notre Bureau Technique. Vous assurerez la mise en conformité de notre portefeuille de calibres existants ainsi que l’optimisation de nos données techniques. À ce titre, vous participerez activement au cycle de vie du produit, à l'assainissement de ses données CAO et vous vous positionnerez en tant que référent pour la transition de caractéristiques dans notre PLM au sein de la Manufacture.\n\nCOMMENT AUREZ-VOUS UN IMPACT ?\n\nOPTIMISATION ET MISE EN CONFORMITÉ CAO\n\n• Participer à la mise en conformité de nos constructions mécaniques et/ou quartz en toute autonomie.\n• Appliquer les normes de dessin selon nos standards et le tolérancement ISO GPS.\n• Procéder à la reconstruction et à la remise à niveau des modèles 3D désuets afin d'optimiser notre base de données.\n\nSUIVI DE PROJET ET PROCESSUS PLM\n\n• Gérer l’ensemble du processus d’évolution et de traçabilité des nouveaux composants dans le PLM (Windchill).\n• Piloter et suivre le traitement de la data via des outils collaboratifs (mise à jour d'indicateurs et reporting régulier).\n• Collaborer étroitement avec les équipes Valfleurier (BT / Industrialisation / Gestion de données) et les Maisons du Groupe Richemont.\n• Être proactif dans la démarche d’amélioration continue.\n• Répondre aux sollicitations techniques ponctuelles de la production et des Maisons du Groupe Richemont.\n\nSTANDARDISATION ET CAPITALISATION\n\n• Être force de proposition sur l'évolution de nos méthodologies de développement et de gestion des données techniques.\n• Garantir le respect des directives et des consignes de l’équipe Développement Produit.\n• Formaliser les résultats et capitaliser sur nos retours d'expériences pour faire évoluer nos standards de construction.\n\nCOMMENT ALLEZ-VOUS REUSSIR AVEC NOUS ?\n\n• Titulaire d’un diplôme Technicien ES ou Ingénieur, vous bénéficiez d'une expérience d’au moins 3 ans dans le dessin ou la construction ou l’industrialisation de mouvements mécaniques / quartz.\n• Excellente maîtrise de la CAO et PLM (idéalement PTC Creo et Windchill), FAO un plus.\n• Solides compétences et rigueur dans l'application de la cotation ISO GPS.\n• Maîtrise des outils informatiques usuels (suite Office).\n• Profil rigoureux, doté d'un grand souci du détail et d'une aisance avec la Master Data\n• Bon esprit d’équipe et sens du relationnel.\n• La maitrise de l'Anglais un plus.\n\nQU'EST-CE QUI DISTINGUE NOTRE GROUPE ?\n\nNotre véritable force ne réside pas dans nos similitudes, mais dans la riche diversité de nos arts, de nos cultures et de nos compétences humaines, ainsi que dans notre capacité spécifique à encourager les potentiels inexploités.\n\n- Nous valorisons la liberté, la collégialité, la loyauté et la solidarité.\n\n- Nous encourageons l'empathie, la curiosité, le courage, l'humilité et l'intégrité.\n\n- Nous prenons soin du monde dans lequel nous vivons.\n\nVOTRE VOYAGE AVEC NOUS\n\nRejoignez un environnement de travail stimulant où l'héritage de l'horlogerie de luxe rencontre l'innovation.\n\n#Richemont #WeCraftTheFuture",
       "descriptionByLocale": {
         "fr": "Reference code: JR134865\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nConstructeur mouvements (H/F/X) - CDM 1an\n\nNous recherchons un Constructeur mouvements afin de renforcer notre Bureau Technique. Vous assurerez la mise en conformité de notre portefeuille de calibres existants ainsi que l’optimisation de nos données techniques. À ce titre, vous participerez activement au cycle de vie du produit, à l'assainissement de ses données CAO et vous vous positionnerez en tant que référent pour la transition de caractéristiques dans notre PLM au sein de la Manufacture.\n\nCOMMENT AUREZ-VOUS UN IMPACT ?\n\nOPTIMISATION ET MISE EN CONFORMITÉ CAO\n\n• Participer à la mise en conformité de nos constructions mécaniques et/ou quartz en toute autonomie.\n• Appliquer les normes de dessin selon nos standards et le tolérancement ISO GPS.\n• Procéder à la reconstruction et à la remise à niveau des modèles 3D désuets afin d'optimiser notre base de données.\n\nSUIVI DE PROJET ET PROCESSUS PLM\n\n• Gérer l’ensemble du processus d’évolution et de traçabilité des nouveaux composants dans le PLM (Windchill).\n• Piloter et suivre le traitement de la data via des outils collaboratifs (mise à jour d'indicateurs et reporting régulier).\n• Collaborer étroitement avec les équipes Valfleurier (BT / Industrialisation / Gestion de données) et les Maisons du Groupe Richemont.\n• Être proactif dans la démarche d’amélioration continue.\n• Répondre aux sollicitations techniques ponctuelles de la production et des Maisons du Groupe Richemont.\n\nSTANDARDISATION ET CAPITALISATION\n\n• Être force de proposition sur l'évolution de nos méthodologies de développement et de gestion des données techniques.\n• Garantir le respect des directives et des consignes de l’équipe Développement Produit.\n• Formaliser les résultats et capitaliser sur nos retours d'expériences pour faire évoluer nos standards de construction.\n\nCOMMENT ALLEZ-VOUS REUSSIR AVEC NOUS ?\n\n• Titulaire d’un diplôme Technicien ES ou Ingénieur, vous bénéficiez d'une expérience d’au moins 3 ans dans le dessin ou la construction ou l’industrialisation de mouvements mécaniques / quartz.\n• Excellente maîtrise de la CAO et PLM (idéalement PTC Creo et Windchill), FAO un plus.\n• Solides compétences et rigueur dans l'application de la cotation ISO GPS.\n• Maîtrise des outils informatiques usuels (suite Office).\n• Profil rigoureux, doté d'un grand souci du détail et d'une aisance avec la Master Data\n• Bon esprit d’équipe et sens du relationnel.\n• La maitrise de l'Anglais un plus.\n\nQU'EST-CE QUI DISTINGUE NOTRE GROUPE ?\n\nNotre véritable force ne réside pas dans nos similitudes, mais dans la riche diversité de nos arts, de nos cultures et de nos compétences humaines, ainsi que dans notre capacité spécifique à encourager les potentiels inexploités.\n\n- Nous valorisons la liberté, la collégialité, la loyauté et la solidarité.\n\n- Nous encourageons l'empathie, la curiosité, le courage, l'humilité et l'intégrité.\n\n- Nous prenons soin du monde dans lequel nous vivons.\n\nVOTRE VOYAGE AVEC NOUS\n\nRejoignez un environnement de travail stimulant où l'héritage de l'horlogerie de luxe rencontre l'innovation.\n\n#Richemont #WeCraftTheFuture",
-        "it": "Reference code: JR134865\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nConstructeur mouvements (H/F/X) - CDM 1an\n\nNous recherchons un Constructeur mouvements afin de renforcer notre Bureau Technique. Vous assurerez la mise en conformité de notre portefeuille de calibres existants ainsi que l’optimisation de nos données techniques. À ce titre, vous participerez activement au cycle de vie du produit, à l'assainissement de ses données CAO et vous vous positionnerez en tant que référent pour la transition de caractéristiques dans notre PLM au sein de la Manufacture.\n\nCOMMENT AUREZ-VOUS UN IMPACT ?\n\nOPTIMISATION ET MISE EN CONFORMITÉ CAO\n\n• Participer à la mise en conformité de nos constructions mécaniques et/ou quartz en toute autonomie.\n• Appliquer les normes de dessin selon nos standards et le tolérancement ISO GPS.\n• Procéder à la reconstruction et à la remise à niveau des modèles 3D désuets afin d'optimiser notre base de données.\n\nSUIVI DE PROJET ET PROCESSUS PLM\n\n• Gérer l’ensemble du processus d’évolution et de traçabilité des nouveaux composants dans le PLM (Windchill).\n• Piloter et suivre le traitement de la data via des outils collaboratifs (mise à jour d'indicateurs et reporting régulier).\n• Collaborer étroitement avec les équipes Valfleurier (BT / Industrialisation / Gestion de données) et les Maisons du Groupe Richemont.\n• Être proactif dans la démarche d’amélioration continue.\n• Répondre aux sollicitations techniques ponctuelles de la production et des Maisons du Groupe Richemont.\n\nSTANDARDISATION ET CAPITALISATION\n\n• Être force de proposition sur l'évolution de nos méthodologies de développement et de gestion des données techniques.\n• Garantir le respect des directives et des consignes de l’équipe Développement Produit.\n• Formaliser les résultats et capitaliser sur nos retours d'expériences pour faire évoluer nos standards de construction.\n\nCOMMENT ALLEZ-VOUS REUSSIR AVEC NOUS ?\n\n• Titulaire d’un diplôme Technicien ES ou Ingénieur, vous bénéficiez d'une expérience d’au moins 3 ans dans le dessin ou la construction ou l’industrialisation de mouvements mécaniques / quartz.\n• Excellente maîtrise de la CAO et PLM (idéalement PTC Creo et Windchill), FAO un plus.\n• Solides compétences et rigueur dans l'application de la cotation ISO GPS.\n• Maîtrise des outils informatiques usuels (suite Office).\n• Profil rigoureux, doté d'un grand souci du détail et d'une aisance avec la Master Data\n• Bon esprit d’équipe et sens du relationnel.\n• La maitrise de l'Anglais un plus.\n\nQU'EST-CE QUI DISTINGUE NOTRE GROUPE ?\n\nNotre véritable force ne réside pas dans nos similitudes, mais dans la riche diversité de nos arts, de nos cultures et de nos compétences humaines, ainsi que dans notre capacité spécifique à encourager les potentiels inexploités.\n\n- Nous valorisons la liberté, la collégialité, la loyauté et la solidarité.\n\n- Nous encourageons l'empathie, la curiosité, le courage, l'humilité et l'intégrité.\n\n- Nous prenons soin du monde dans lequel nous vivons.\n\nVOTRE VOYAGE AVEC NOUS\n\nRejoignez un environnement de travail stimulant où l'héritage de l'horlogerie de luxe rencontre l'innovation.\n\n#Richemont #WeCraftTheFuture",
-        "en": "Reference code: JR134865\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nConstructeur mouvements (H/F/X) - CDM 1an\n\nNous recherchons un Constructeur mouvements afin de renforcer notre Bureau Technique. Vous assurerez la mise en conformité de notre portefeuille de calibres existants ainsi que l’optimisation de nos données techniques. À ce titre, vous participerez activement au cycle de vie du produit, à l'assainissement de ses données CAO et vous vous positionnerez en tant que référent pour la transition de caractéristiques dans notre PLM au sein de la Manufacture.\n\nCOMMENT AUREZ-VOUS UN IMPACT ?\n\nOPTIMISATION ET MISE EN CONFORMITÉ CAO\n\n• Participer à la mise en conformité de nos constructions mécaniques et/ou quartz en toute autonomie.\n• Appliquer les normes de dessin selon nos standards et le tolérancement ISO GPS.\n• Procéder à la reconstruction et à la remise à niveau des modèles 3D désuets afin d'optimiser notre base de données.\n\nSUIVI DE PROJET ET PROCESSUS PLM\n\n• Gérer l’ensemble du processus d’évolution et de traçabilité des nouveaux composants dans le PLM (Windchill).\n• Piloter et suivre le traitement de la data via des outils collaboratifs (mise à jour d'indicateurs et reporting régulier).\n• Collaborer étroitement avec les équipes Valfleurier (BT / Industrialisation / Gestion de données) et les Maisons du Groupe Richemont.\n• Être proactif dans la démarche d’amélioration continue.\n• Répondre aux sollicitations techniques ponctuelles de la production et des Maisons du Groupe Richemont.\n\nSTANDARDISATION ET CAPITALISATION\n\n• Être force de proposition sur l'évolution de nos méthodologies de développement et de gestion des données techniques.\n• Garantir le respect des directives et des consignes de l’équipe Développement Produit.\n• Formaliser les résultats et capitaliser sur nos retours d'expériences pour faire évoluer nos standards de construction.\n\nCOMMENT ALLEZ-VOUS REUSSIR AVEC NOUS ?\n\n• Titulaire d’un diplôme Technicien ES ou Ingénieur, vous bénéficiez d'une expérience d’au moins 3 ans dans le dessin ou la construction ou l’industrialisation de mouvements mécaniques / quartz.\n• Excellente maîtrise de la CAO et PLM (idéalement PTC Creo et Windchill), FAO un plus.\n• Solides compétences et rigueur dans l'application de la cotation ISO GPS.\n• Maîtrise des outils informatiques usuels (suite Office).\n• Profil rigoureux, doté d'un grand souci du détail et d'une aisance avec la Master Data\n• Bon esprit d’équipe et sens du relationnel.\n• La maitrise de l'Anglais un plus.\n\nQU'EST-CE QUI DISTINGUE NOTRE GROUPE ?\n\nNotre véritable force ne réside pas dans nos similitudes, mais dans la riche diversité de nos arts, de nos cultures et de nos compétences humaines, ainsi que dans notre capacité spécifique à encourager les potentiels inexploités.\n\n- Nous valorisons la liberté, la collégialité, la loyauté et la solidarité.\n\n- Nous encourageons l'empathie, la curiosité, le courage, l'humilité et l'intégrité.\n\n- Nous prenons soin du monde dans lequel nous vivons.\n\nVOTRE VOYAGE AVEC NOUS\n\nRejoignez un environnement de travail stimulant où l'héritage de l'horlogerie de luxe rencontre l'innovation.\n\n#Richemont #WeCraftTheFuture",
-        "de": "Reference code: JR134865\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nConstructeur mouvements (H/F/X) - CDM 1an\n\nNous recherchons un Constructeur mouvements afin de renforcer notre Bureau Technique. Vous assurerez la mise en conformité de notre portefeuille de calibres existants ainsi que l’optimisation de nos données techniques. À ce titre, vous participerez activement au cycle de vie du produit, à l'assainissement de ses données CAO et vous vous positionnerez en tant que référent pour la transition de caractéristiques dans notre PLM au sein de la Manufacture.\n\nCOMMENT AUREZ-VOUS UN IMPACT ?\n\nOPTIMISATION ET MISE EN CONFORMITÉ CAO\n\n• Participer à la mise en conformité de nos constructions mécaniques et/ou quartz en toute autonomie.\n• Appliquer les normes de dessin selon nos standards et le tolérancement ISO GPS.\n• Procéder à la reconstruction et à la remise à niveau des modèles 3D désuets afin d'optimiser notre base de données.\n\nSUIVI DE PROJET ET PROCESSUS PLM\n\n• Gérer l’ensemble du processus d’évolution et de traçabilité des nouveaux composants dans le PLM (Windchill).\n• Piloter et suivre le traitement de la data via des outils collaboratifs (mise à jour d'indicateurs et reporting régulier).\n• Collaborer étroitement avec les équipes Valfleurier (BT / Industrialisation / Gestion de données) et les Maisons du Groupe Richemont.\n• Être proactif dans la démarche d’amélioration continue.\n• Répondre aux sollicitations techniques ponctuelles de la production et des Maisons du Groupe Richemont.\n\nSTANDARDISATION ET CAPITALISATION\n\n• Être force de proposition sur l'évolution de nos méthodologies de développement et de gestion des données techniques.\n• Garantir le respect des directives et des consignes de l’équipe Développement Produit.\n• Formaliser les résultats et capitaliser sur nos retours d'expériences pour faire évoluer nos standards de construction.\n\nCOMMENT ALLEZ-VOUS REUSSIR AVEC NOUS ?\n\n• Titulaire d’un diplôme Technicien ES ou Ingénieur, vous bénéficiez d'une expérience d’au moins 3 ans dans le dessin ou la construction ou l’industrialisation de mouvements mécaniques / quartz.\n• Excellente maîtrise de la CAO et PLM (idéalement PTC Creo et Windchill), FAO un plus.\n• Solides compétences et rigueur dans l'application de la cotation ISO GPS.\n• Maîtrise des outils informatiques usuels (suite Office).\n• Profil rigoureux, doté d'un grand souci du détail et d'une aisance avec la Master Data\n• Bon esprit d’équipe et sens du relationnel.\n• La maitrise de l'Anglais un plus.\n\nQU'EST-CE QUI DISTINGUE NOTRE GROUPE ?\n\nNotre véritable force ne réside pas dans nos similitudes, mais dans la riche diversité de nos arts, de nos cultures et de nos compétences humaines, ainsi que dans notre capacité spécifique à encourager les potentiels inexploités.\n\n- Nous valorisons la liberté, la collégialité, la loyauté et la solidarité.\n\n- Nous encourageons l'empathie, la curiosité, le courage, l'humilité et l'intégrité.\n\n- Nous prenons soin du monde dans lequel nous vivons.\n\nVOTRE VOYAGE AVEC NOUS\n\nRejoignez un environnement de travail stimulant où l'héritage de l'horlogerie de luxe rencontre l'innovation.\n\n#Richemont #WeCraftTheFuture"
+        "it": "Codice di riferimento: JR134865\n\nRichemont possiede alcune del mondo, leader di beni di lusso Maisons, con particolare forza in gioielli, orologi raffinati e accessori premium. Ogni Maison rappresenta una tradizione orgogliosa di stile, qualità e artigianalità e Richemont sembra preservare il patrimonio e l'identità di ciascuna delle sue Maison. Allo stesso tempo, ci impegniamo nell'innovazione e nella progettazione di nuovi prodotti che sono in sintonia con le nostre Maison, attraverso un processo di continua creatività.\n\nMovimenti del produttore (M/F/X) - HOM 1 anno\n\nStiamo cercando un Costruttore di Movimento per rafforzare il nostro Ufficio Tecnico. Garantirai l'allineamento del nostro portafoglio di calibri esistenti e l'ottimizzazione dei nostri dati tecnici. In quanto tale, parteciperai attivamente al ciclo di vita del prodotto, alla bonifica dei suoi dati CAD e ti posizionarai come riferimento per la transizione delle caratteristiche nel nostro PLM all'interno della Fabbricazione.\n\nCome hai un'infezione?\n\nOPTIMIZZAZIONE E COA\n\n• Partecipare alla conformità delle nostre costruzioni meccaniche e/o quarzo in completa autonomia.\n• Applicare gli standard di disegno secondo i nostri standard e la tolleranza ISO GPS.\n• Ricostruire e aggiornare vecchi modelli 3D per ottimizzare il nostro database.\n\nMonitoraggio del progetto e processi PLM\n\n• Gestire l'intero processo di evoluzione e tracciabilità di nuovi componenti nel PLM (Windchill).\n• Pilota e monitora il trattamento dei dati attraverso strumenti collaborativi (indicatori di aggiornamento e report periodici).\n• Lavorare a stretto contatto con i team Valfleurier (BT / Industrialization / Data Management) e le Maisons du Groupe Richemont.\n• Sii proattivo nel processo di miglioramento continuo.\n• Risponde alle specifiche esigenze tecniche di produzione e Maisons du Groupe Richemont.\n\nNORMA E CAPITALIZZAZIONE\n\n• Siate forza di proposte sull'evoluzione delle nostre metodologie per lo sviluppo e la gestione dei dati tecnici.\n• Assicurare il rispetto delle linee guida e delle istruzioni del team Product Development.\n• Formalizzare i risultati e capitalizzare i nostri feedback per migliorare i nostri standard di costruzione.\n\nCome fai ad essere usato con noi?\n\n• Supporto di un tecnico ES o grado di ingegnere, hai almeno 3 anni di esperienza nella progettazione o costruzione o industrializzazione di movimenti meccanici / quarzo.\n• Eccellente padronanza di CAD e PLM (idealmente PTC Creo e Windchill), FAO a plus.\n• Forti competenze e rigore nell'applicazione della valutazione GPS ISO.\n• Masterizzazione di strumenti informatici comuni (Ufficio continuato).\n• Profilo rigido, con grande attenzione ai dettagli e facilità con i Dati Master\n• Buon spirito di squadra e senso relazionale.\n• La padronanza dell'inglese più.\n\nChe significa il nostro gruppo?\n\nLa nostra vera forza non è nelle nostre similitudini, ma nella ricca diversità delle nostre arti, culture e abilità umane, così come nella nostra specifica capacità di incoraggiare i potenziali non catturati.\n\n- Valiamo la libertà, la collegialità, la lealtà e la solidarietà.\n\n- Incoraggiamo empatia, curiosità, coraggio, umiltà e integrità.\n\n- Ci prendiamo cura del mondo in cui viviamo.\n\nIl tuo viaggio con noi\n\nUnisciti a un ambiente di lavoro stimolante in cui l'eredità dell'orologeria di lusso incontra l'innovazione.\n\n#Richemont # WeCraftTheFuture #",
+        "en": "Reference code: JR134865\n\nRichemont owns some of the world, leading luxury goods Maisons, with particular strength in jewellery, fine watches and premium accessories. Each Maison representatives a proud tradition of style, quality and craftsmanship and Richemont seems to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and design new products which are in keeping with our Maisons, through a process of continuous creativity.\n\nManufacturer movements (M/F/X) - HOM 1 year\n\nWe are looking for a Movement Builder to strengthen our Technical Office. You will ensure the alignment of our portfolio of existing calibres as well as the optimization of our technical data. As such, you will actively participate in the life cycle of the product, the remediation of its CAD data, and you will position yourself as a reference for the transition of characteristics in our PLM within the Manufacture.\n\nHOW DO YOU HAVE AN IMPACT?\n\nOPTIMIZATION AND COA COMPLIANCE\n\n• Participate in the conformity of our mechanical and/or quartz constructions in complete autonomy.\n• Apply drawing standards according to our standards and ISO GPS tolerance.\n• Rebuilding and upgrading old 3D models to optimize our database.\n\nProject monitoring and PLM processes\n\n• Manage the entire process of evolution and traceability of new components in the PLM (Windchill).\n• Pilot and monitor data processing through collaborative tools (updating indicators and regular reporting).\n• Work closely with the Valfleurier teams (BT / Industrialization / Data Management) and the Maisons du Groupe Richemont.\n• Be proactive in the continuous improvement process.\n• Respond to the specific technical demands of production and Maisons du Groupe Richemont.\n\nSTANDARDIZATION AND CAPITALIZATION\n\n• Be a force for proposals on the evolution of our methodologies for the development and management of technical data.\n• Ensure compliance with the guidelines and instructions of the Product Development team.\n• Formalize the results and capitalize on our feedback to advance our construction standards.\n\nHOW ARE YOU TO BE USED WITH US?\n\n• Holder of an ES technician or engineer degree, you have at least 3 years experience in the design or construction or industrialization of mechanical / quartz movements.\n• Excellent mastery of CAD and PLM (ideally PTC Creo and Windchill), FAO a plus.\n• Strong skills and rigour in applying ISO GPS rating.\n• Mastery of common computer tools (continued Office).\n• Strict profile, with great attention to detail and ease with the Master Data\n• Good team spirit and relationshipal sense.\n• The mastery of the English one plus.\n\nWHAT DISTINGUES OUR GROUP?\n\nOur true strength lies not in our similarities, but in the rich diversity of our arts, cultures and human skills, as well as in our specific ability to encourage untapped potentials.\n\n- We value freedom, collegiality, loyalty and solidarity.\n\n- We encourage empathy, curiosity, courage, humility and integrity.\n\n- We take care of the world we live in.\n\nYOUR TRAVEL WITH US\n\nJoin a stimulating work environment where the legacy of luxury watchmaking meets innovation.\n\n#Richemont #WeCraftTheFuture",
+        "de": "Bezugscode: JR134865\n\nRichemont besitzt einige der Welt, führende Luxusgüter Maisons, mit besonderer Stärke in Schmuck, feine Uhren und Premium-Zubehör. Jede Maison vertritt eine stolze Tradition von Stil, Qualität und Handwerkskunst und Richemont scheint das Erbe und die Identität jeder ihrer Maisons zu bewahren. Gleichzeitig sind wir der Innovation verpflichtet und entwerfen neue Produkte, die unseren Maisons entsprechen, durch einen Prozess der kontinuierlichen Kreativität.\n\nHerstellerbewegungen (M/W/X) - HOM 1 Jahr\n\nWir suchen einen Movement Builder, um unser Technical Office zu stärken. Sie stellen die Ausrichtung unseres Portfolios bestehender Kaliber sowie die Optimierung unserer technischen Daten sicher. Als solche nehmen Sie aktiv am Lebenszyklus des Produkts, der Sanierung seiner CAD-Daten teil und positionieren sich als Referenz für den Übergang von Eigenschaften in unserem PLM innerhalb der Manufaktur.\n\nWie haben Sie eine Auswirkung?\n\nOPTIMIZIERUNG UND COA-EINHALTUNG\n\n• Beteiligen Sie sich an der Konformität unserer mechanischen und / oder Quarzkonstruktionen in völliger Autonomie.\n• Wenden Sie Zeichnungsnormen gemäß unseren Normen und ISO GPS-Toleranz an.\n• Umbau und Upgrade alter 3D-Modelle zur Optimierung unserer Datenbank.\n\nProjektüberwachung und PLM-Prozesse\n\n• Verwalten Sie den gesamten Prozess der Entwicklung und Rückverfolgbarkeit neuer Komponenten im PLM (Windchill).\n• Pilotierung und Überwachung der Datenverarbeitung durch kollaborative Tools (Aktualisierung von Indikatoren und regelmäßige Berichterstattung).\n• Arbeiten Sie eng mit den Valfleurier-Teams (BT / Industrialization / Data Management) und den Maisons du Groupe Richemont zusammen.\n• Seien Sie proaktiv im kontinuierlichen Verbesserungsprozess.\n• Reagieren Sie auf die spezifischen technischen Anforderungen der Produktion und Maisons du Groupe Richemont.\n\nSTANDARD UND KAPITALISIERUNG\n\n• Seien Sie eine Kraft für Vorschläge zur Entwicklung unserer Methoden für die Entwicklung und Verwaltung von technischen Daten.\n• Gewährleistung der Einhaltung der Richtlinien und Anweisungen des Produktentwicklungsteams.\n• Formalisieren Sie die Ergebnisse und nutzen Sie unser Feedback, um unsere Baustandards zu verbessern.\n\nWie sollst du mit uns benutzt werden?\n\n• Inhaber eines ES-Technikers oder Ingenieursabschlusses, haben Sie mindestens 3 Jahre Erfahrung in der Konstruktion oder Konstruktion oder Industrialisierung von mechanischen / Quarzwerken.\n• Hervorragende Beherrschung von CAD und PLM (idealerweise PTC Creo und Windchill), FAO ein Plus.\n• Starke Fähigkeiten und Strenge bei der Anwendung von ISO GPS Rating.\n• Beherrschung von gängigen Computer-Tools (Continued Office).\n• Strenges Profil, mit viel Liebe zum Detail und Leichtigkeit mit den Stammdaten\n• Guter Teamgeist und Beziehungssinn.\n• Die Beherrschung des englischen One Plus.\n\nWelche Unterschiede gibt es in unserer Gruppe?\n\nUnsere wahre Stärke liegt nicht in unseren Gemeinsamkeiten, sondern in der reichen Vielfalt unserer Künste, Kulturen und menschlichen Fähigkeiten sowie in unserer spezifischen Fähigkeit, ungenutzte Potenziale zu fördern.\n\n- Wir schätzen Freiheit, Kollegialität, Loyalität und Solidarität.\n\n- Wir fördern Empathie, Neugier, Mut, Demut und Integrität.\n\n- Wir kümmern uns um die Welt, in der wir leben.\n\nDeine Reise mit uns\n\nTreten Sie einer anregenden Arbeitsumgebung bei, in der das Erbe der Luxusuhrmacherei auf Innovation trifft.\n\n#Richemont #WeCraftTheFuture"
       },
       "location": "Buttes",
       "canton": "GE",
@@ -15539,7 +15541,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -15553,7 +15554,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:31:02.457Z"
+      "firstSeenAt": "2026-10-14T21:31:02.457Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-mouvements-richemont-buttes"
+        ],
+        "en": [
+          "constructeur-mouvements-richemont-buttes"
+        ],
+        "de": [
+          "constructeur-mouvements-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-mouvements-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-c5f2bcf7d3bb",
@@ -15562,7 +15577,7 @@
         "en": "tech-team-lead-retail-engagement-richemont-meyrin",
         "it": "tech-team-lead-retail-engagement-richemont-meyrin",
         "de": "tech-team-lead-retail-engagement-richemont-meyrin",
-        "fr": "tech-team-lead-retail-engagement-richemont-meyrin"
+        "fr": "tech-chef-d-equipe-retail-engagement-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -15577,9 +15592,9 @@
       "description": "Reference code: JR134915\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nYOUR MISSION:\n\nThe mission is part of Richemont Group Technology, managing the Retail Engagement area. You will supervise the three streams of this area and the multiple applications in this perimeter in addition to the cross functional activities. The three streams are Product, Clienteling and Sales for which you will overview both existing applications and ongoing Retail Transformation Program.\n\nIn collaboration with the Group Product Office, the Solution Architects and your Core platforms counterparts, you identify the relevant synchronisation necessary and anticipate the risk on the quality and delivery roadmap of your area.\n\nYou manage team members' effectiveness to match the continuous evolution of the applications and overcome technical challenges. You help your team navigate the multiple constraints and coordinate all the stakeholders to ensure a smooth delivery of our portfolio of projects to increase our users’ satisfaction.\n\nYou will operate in a global, multi-maisons environment, engaging with teams at different management levels to ensure seamless integration and performance.\n\nHOW WILL YOU MAKE AN IMPACT?\n\nPEOPLE\n\n• Establish your leadership as team lead. Lead by example, applying the agile values and mindset.\n• Set clear roles and objectives for each internal and external team member and carry out regular performance reviews.\n• Continuously develop technical and soft skills of your technology team members, in line with personal and product team / area needs.\n• Develop a customer-oriented mindset and a culture of collaboration, trust and transparency.\n• Apply the hiring strategy to your team in line with the responsible Head of\n\nMANAGING\n\n• Define and track the capacity needs for the team, in alignment with your manager (Head of).\n• Work in a global environment with highly distributed teams in different countries and time zones and at different management levels. Coordinate project stakeholders and especially work closely with the Technology teams to ensure proper tracking of all dependencies, risks, constraints, using the methodology and processes in place at Richemont.\n• Coordinate all phases of the projects from initialization to stabilization post-delivery in production.\n• Take care of project communication and report progress to your manager and necessary stakeholders.\n\nBUDGET\n\n• Work with the Head of in establishing contracts during the fiscal year with external suppliers within the budget.\n• Work with the Head of in planning budget for next fiscal year and anticipate expenses in your perimeter.\n• Monitor spending and savings in your area and alert your manager in case of delta with expectations.\n• Drive and control contractors.\n• Check supplier billing and invoices for correctness.\n\nPROCESSES\n\n• Embrace a continuous learning approach.\n• Proactively identify and resolve team member related risks/impediments. Escalate when needed.\n• Contribute to a strong leadership alignment across products.\n\nHOW WILL YOU EXPERIENCE SUCCESS WITH US?\n\nTechnical Skills\n\n• Strong understanding of web technologies and applications.\n• Hands-on experience in retail or web application management and delivery.\n• Hands-on experience with technology concepts such as APIs, OMS and CRM.\n\nTooling\n\n• Planning and capacity management.\n• Budget Management\n• Atlassian Suite (Confluence/Jira).\n\nSoft Skills\n\n• Strong problem-solving and analytical skills.\n• Demonstrated experience in leadership, team mentoring.\n• Ability to present ideas in context, which can be understood by technology, business and non-IT personnel.\n• Ability to function effectively in a fast-paced environment, handle multiple efforts simultaneously, prioritize and meet deadlines.\n• Proactive, self-driven, and eager to explore new technologies.\n• Comfortable working independently in an agile environment.\n\nEducation & Language\n\n• Bachelor’s or Master’s degree in Information Technology or Computer Science or equivalent.\n• Fluency in English (French, Portuguese or other languages is a plus).\n\n#Richemont #WeCraftTheFuture",
       "descriptionByLocale": {
         "en": "Reference code: JR134915\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nYOUR MISSION:\n\nThe mission is part of Richemont Group Technology, managing the Retail Engagement area. You will supervise the three streams of this area and the multiple applications in this perimeter in addition to the cross functional activities. The three streams are Product, Clienteling and Sales for which you will overview both existing applications and ongoing Retail Transformation Program.\n\nIn collaboration with the Group Product Office, the Solution Architects and your Core platforms counterparts, you identify the relevant synchronisation necessary and anticipate the risk on the quality and delivery roadmap of your area.\n\nYou manage team members' effectiveness to match the continuous evolution of the applications and overcome technical challenges. You help your team navigate the multiple constraints and coordinate all the stakeholders to ensure a smooth delivery of our portfolio of projects to increase our users’ satisfaction.\n\nYou will operate in a global, multi-maisons environment, engaging with teams at different management levels to ensure seamless integration and performance.\n\nHOW WILL YOU MAKE AN IMPACT?\n\nPEOPLE\n\n• Establish your leadership as team lead. Lead by example, applying the agile values and mindset.\n• Set clear roles and objectives for each internal and external team member and carry out regular performance reviews.\n• Continuously develop technical and soft skills of your technology team members, in line with personal and product team / area needs.\n• Develop a customer-oriented mindset and a culture of collaboration, trust and transparency.\n• Apply the hiring strategy to your team in line with the responsible Head of\n\nMANAGING\n\n• Define and track the capacity needs for the team, in alignment with your manager (Head of).\n• Work in a global environment with highly distributed teams in different countries and time zones and at different management levels. Coordinate project stakeholders and especially work closely with the Technology teams to ensure proper tracking of all dependencies, risks, constraints, using the methodology and processes in place at Richemont.\n• Coordinate all phases of the projects from initialization to stabilization post-delivery in production.\n• Take care of project communication and report progress to your manager and necessary stakeholders.\n\nBUDGET\n\n• Work with the Head of in establishing contracts during the fiscal year with external suppliers within the budget.\n• Work with the Head of in planning budget for next fiscal year and anticipate expenses in your perimeter.\n• Monitor spending and savings in your area and alert your manager in case of delta with expectations.\n• Drive and control contractors.\n• Check supplier billing and invoices for correctness.\n\nPROCESSES\n\n• Embrace a continuous learning approach.\n• Proactively identify and resolve team member related risks/impediments. Escalate when needed.\n• Contribute to a strong leadership alignment across products.\n\nHOW WILL YOU EXPERIENCE SUCCESS WITH US?\n\nTechnical Skills\n\n• Strong understanding of web technologies and applications.\n• Hands-on experience in retail or web application management and delivery.\n• Hands-on experience with technology concepts such as APIs, OMS and CRM.\n\nTooling\n\n• Planning and capacity management.\n• Budget Management\n• Atlassian Suite (Confluence/Jira).\n\nSoft Skills\n\n• Strong problem-solving and analytical skills.\n• Demonstrated experience in leadership, team mentoring.\n• Ability to present ideas in context, which can be understood by technology, business and non-IT personnel.\n• Ability to function effectively in a fast-paced environment, handle multiple efforts simultaneously, prioritize and meet deadlines.\n• Proactive, self-driven, and eager to explore new technologies.\n• Comfortable working independently in an agile environment.\n\nEducation & Language\n\n• Bachelor’s or Master’s degree in Information Technology or Computer Science or equivalent.\n• Fluency in English (French, Portuguese or other languages is a plus).\n\n#Richemont #WeCraftTheFuture",
-        "it": "Reference code: JR134915\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nYOUR MISSION:\n\nThe mission is part of Richemont Group Technology, managing the Retail Engagement area. You will supervise the three streams of this area and the multiple applications in this perimeter in addition to the cross functional activities. The three streams are Product, Clienteling and Sales for which you will overview both existing applications and ongoing Retail Transformation Program.\n\nIn collaboration with the Group Product Office, the Solution Architects and your Core platforms counterparts, you identify the relevant synchronisation necessary and anticipate the risk on the quality and delivery roadmap of your area.\n\nYou manage team members' effectiveness to match the continuous evolution of the applications and overcome technical challenges. You help your team navigate the multiple constraints and coordinate all the stakeholders to ensure a smooth delivery of our portfolio of projects to increase our users’ satisfaction.\n\nYou will operate in a global, multi-maisons environment, engaging with teams at different management levels to ensure seamless integration and performance.\n\nHOW WILL YOU MAKE AN IMPACT?\n\nPEOPLE\n\n• Establish your leadership as team lead. Lead by example, applying the agile values and mindset.\n• Set clear roles and objectives for each internal and external team member and carry out regular performance reviews.\n• Continuously develop technical and soft skills of your technology team members, in line with personal and product team / area needs.\n• Develop a customer-oriented mindset and a culture of collaboration, trust and transparency.\n• Apply the hiring strategy to your team in line with the responsible Head of\n\nMANAGING\n\n• Define and track the capacity needs for the team, in alignment with your manager (Head of).\n• Work in a global environment with highly distributed teams in different countries and time zones and at different management levels. Coordinate project stakeholders and especially work closely with the Technology teams to ensure proper tracking of all dependencies, risks, constraints, using the methodology and processes in place at Richemont.\n• Coordinate all phases of the projects from initialization to stabilization post-delivery in production.\n• Take care of project communication and report progress to your manager and necessary stakeholders.\n\nBUDGET\n\n• Work with the Head of in establishing contracts during the fiscal year with external suppliers within the budget.\n• Work with the Head of in planning budget for next fiscal year and anticipate expenses in your perimeter.\n• Monitor spending and savings in your area and alert your manager in case of delta with expectations.\n• Drive and control contractors.\n• Check supplier billing and invoices for correctness.\n\nPROCESSES\n\n• Embrace a continuous learning approach.\n• Proactively identify and resolve team member related risks/impediments. Escalate when needed.\n• Contribute to a strong leadership alignment across products.\n\nHOW WILL YOU EXPERIENCE SUCCESS WITH US?\n\nTechnical Skills\n\n• Strong understanding of web technologies and applications.\n• Hands-on experience in retail or web application management and delivery.\n• Hands-on experience with technology concepts such as APIs, OMS and CRM.\n\nTooling\n\n• Planning and capacity management.\n• Budget Management\n• Atlassian Suite (Confluence/Jira).\n\nSoft Skills\n\n• Strong problem-solving and analytical skills.\n• Demonstrated experience in leadership, team mentoring.\n• Ability to present ideas in context, which can be understood by technology, business and non-IT personnel.\n• Ability to function effectively in a fast-paced environment, handle multiple efforts simultaneously, prioritize and meet deadlines.\n• Proactive, self-driven, and eager to explore new technologies.\n• Comfortable working independently in an agile environment.\n\nEducation & Language\n\n• Bachelor’s or Master’s degree in Information Technology or Computer Science or equivalent.\n• Fluency in English (French, Portuguese or other languages is a plus).\n\n#Richemont #WeCraftTheFuture",
-        "de": "Reference code: JR134915\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nYOUR MISSION:\n\nThe mission is part of Richemont Group Technology, managing the Retail Engagement area. You will supervise the three streams of this area and the multiple applications in this perimeter in addition to the cross functional activities. The three streams are Product, Clienteling and Sales for which you will overview both existing applications and ongoing Retail Transformation Program.\n\nIn collaboration with the Group Product Office, the Solution Architects and your Core platforms counterparts, you identify the relevant synchronisation necessary and anticipate the risk on the quality and delivery roadmap of your area.\n\nYou manage team members' effectiveness to match the continuous evolution of the applications and overcome technical challenges. You help your team navigate the multiple constraints and coordinate all the stakeholders to ensure a smooth delivery of our portfolio of projects to increase our users’ satisfaction.\n\nYou will operate in a global, multi-maisons environment, engaging with teams at different management levels to ensure seamless integration and performance.\n\nHOW WILL YOU MAKE AN IMPACT?\n\nPEOPLE\n\n• Establish your leadership as team lead. Lead by example, applying the agile values and mindset.\n• Set clear roles and objectives for each internal and external team member and carry out regular performance reviews.\n• Continuously develop technical and soft skills of your technology team members, in line with personal and product team / area needs.\n• Develop a customer-oriented mindset and a culture of collaboration, trust and transparency.\n• Apply the hiring strategy to your team in line with the responsible Head of\n\nMANAGING\n\n• Define and track the capacity needs for the team, in alignment with your manager (Head of).\n• Work in a global environment with highly distributed teams in different countries and time zones and at different management levels. Coordinate project stakeholders and especially work closely with the Technology teams to ensure proper tracking of all dependencies, risks, constraints, using the methodology and processes in place at Richemont.\n• Coordinate all phases of the projects from initialization to stabilization post-delivery in production.\n• Take care of project communication and report progress to your manager and necessary stakeholders.\n\nBUDGET\n\n• Work with the Head of in establishing contracts during the fiscal year with external suppliers within the budget.\n• Work with the Head of in planning budget for next fiscal year and anticipate expenses in your perimeter.\n• Monitor spending and savings in your area and alert your manager in case of delta with expectations.\n• Drive and control contractors.\n• Check supplier billing and invoices for correctness.\n\nPROCESSES\n\n• Embrace a continuous learning approach.\n• Proactively identify and resolve team member related risks/impediments. Escalate when needed.\n• Contribute to a strong leadership alignment across products.\n\nHOW WILL YOU EXPERIENCE SUCCESS WITH US?\n\nTechnical Skills\n\n• Strong understanding of web technologies and applications.\n• Hands-on experience in retail or web application management and delivery.\n• Hands-on experience with technology concepts such as APIs, OMS and CRM.\n\nTooling\n\n• Planning and capacity management.\n• Budget Management\n• Atlassian Suite (Confluence/Jira).\n\nSoft Skills\n\n• Strong problem-solving and analytical skills.\n• Demonstrated experience in leadership, team mentoring.\n• Ability to present ideas in context, which can be understood by technology, business and non-IT personnel.\n• Ability to function effectively in a fast-paced environment, handle multiple efforts simultaneously, prioritize and meet deadlines.\n• Proactive, self-driven, and eager to explore new technologies.\n• Comfortable working independently in an agile environment.\n\nEducation & Language\n\n• Bachelor’s or Master’s degree in Information Technology or Computer Science or equivalent.\n• Fluency in English (French, Portuguese or other languages is a plus).\n\n#Richemont #WeCraftTheFuture",
-        "fr": "Reference code: JR134915\n\nRichemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity.\n\nYOUR MISSION:\n\nThe mission is part of Richemont Group Technology, managing the Retail Engagement area. You will supervise the three streams of this area and the multiple applications in this perimeter in addition to the cross functional activities. The three streams are Product, Clienteling and Sales for which you will overview both existing applications and ongoing Retail Transformation Program.\n\nIn collaboration with the Group Product Office, the Solution Architects and your Core platforms counterparts, you identify the relevant synchronisation necessary and anticipate the risk on the quality and delivery roadmap of your area.\n\nYou manage team members' effectiveness to match the continuous evolution of the applications and overcome technical challenges. You help your team navigate the multiple constraints and coordinate all the stakeholders to ensure a smooth delivery of our portfolio of projects to increase our users’ satisfaction.\n\nYou will operate in a global, multi-maisons environment, engaging with teams at different management levels to ensure seamless integration and performance.\n\nHOW WILL YOU MAKE AN IMPACT?\n\nPEOPLE\n\n• Establish your leadership as team lead. Lead by example, applying the agile values and mindset.\n• Set clear roles and objectives for each internal and external team member and carry out regular performance reviews.\n• Continuously develop technical and soft skills of your technology team members, in line with personal and product team / area needs.\n• Develop a customer-oriented mindset and a culture of collaboration, trust and transparency.\n• Apply the hiring strategy to your team in line with the responsible Head of\n\nMANAGING\n\n• Define and track the capacity needs for the team, in alignment with your manager (Head of).\n• Work in a global environment with highly distributed teams in different countries and time zones and at different management levels. Coordinate project stakeholders and especially work closely with the Technology teams to ensure proper tracking of all dependencies, risks, constraints, using the methodology and processes in place at Richemont.\n• Coordinate all phases of the projects from initialization to stabilization post-delivery in production.\n• Take care of project communication and report progress to your manager and necessary stakeholders.\n\nBUDGET\n\n• Work with the Head of in establishing contracts during the fiscal year with external suppliers within the budget.\n• Work with the Head of in planning budget for next fiscal year and anticipate expenses in your perimeter.\n• Monitor spending and savings in your area and alert your manager in case of delta with expectations.\n• Drive and control contractors.\n• Check supplier billing and invoices for correctness.\n\nPROCESSES\n\n• Embrace a continuous learning approach.\n• Proactively identify and resolve team member related risks/impediments. Escalate when needed.\n• Contribute to a strong leadership alignment across products.\n\nHOW WILL YOU EXPERIENCE SUCCESS WITH US?\n\nTechnical Skills\n\n• Strong understanding of web technologies and applications.\n• Hands-on experience in retail or web application management and delivery.\n• Hands-on experience with technology concepts such as APIs, OMS and CRM.\n\nTooling\n\n• Planning and capacity management.\n• Budget Management\n• Atlassian Suite (Confluence/Jira).\n\nSoft Skills\n\n• Strong problem-solving and analytical skills.\n• Demonstrated experience in leadership, team mentoring.\n• Ability to present ideas in context, which can be understood by technology, business and non-IT personnel.\n• Ability to function effectively in a fast-paced environment, handle multiple efforts simultaneously, prioritize and meet deadlines.\n• Proactive, self-driven, and eager to explore new technologies.\n• Comfortable working independently in an agile environment.\n\nEducation & Language\n\n• Bachelor’s or Master’s degree in Information Technology or Computer Science or equivalent.\n• Fluency in English (French, Portuguese or other languages is a plus).\n\n#Richemont #WeCraftTheFuture"
+        "it": "Codice di riferimento: JR134915\n\nRichemont possiede alcune delle principali Maison di lusso al mondo, con particolari punti di forza nei gioielli, negli orologi pregiati e negli accessori premium. Ogni Maison rappresenta una tradizione orgogliosa di stile, qualità e artigianalità e Richemont cerca di preservare il patrimonio e l'identità di ciascuna delle sue Maison. Allo stesso tempo, ci impegniamo nell’innovazione e nella progettazione di nuovi prodotti che sono in sintonia con i valori delle nostre Maison, attraverso un processo di continua creatività.\n\nLa tua signora:\n\nLa missione fa parte della Richemont Group Technology, che gestisce l'area Retail Engagement. Potrai supervisionare i tre flussi di questa zona e le applicazioni multiple in questo perimetro oltre alle attività funzionali incrociate. I tre flussi sono Prodotto, Cliente e Vendite per i quali sarà possibile visualizzare sia le applicazioni esistenti che il programma di trasformazione al dettaglio in corso.\n\nIn collaborazione con il Gruppo Product Office, i Solution Architects e le tue piattaforme Core, si identifica la sincronizzazione necessaria e si anticipa il rischio sulla qualità e la roadmap di consegna della propria zona.\n\nGestisci l'efficacia dei membri del team per soddisfare la continua evoluzione delle applicazioni e superare le sfide tecniche. Aiuta il tuo team a gestire i molteplici vincoli e coordinare tutti gli stakeholder per garantire una consegna regolare del nostro portafoglio di progetti per aumentare la soddisfazione dei nostri utenti.\n\nPotrai operare in un ambiente globale, multi-maisons, coinvolgendo team a diversi livelli di gestione per garantire l'integrazione e le prestazioni senza soluzione di continuità.\n\nCome fai a fare un'infezione?\n\nPOPOLA\n\n• Stabilisci la tua leadership come capo squadra. Guidare per esempio, applicando i valori agili e la mentalità.\n• Impostare ruoli e obiettivi chiari per ogni membro del team interno ed esterno ed effettuare regolari recensioni sulle prestazioni.\n• Sviluppa costantemente competenze tecniche e morbide dei membri del team di tecnologia, in linea con le esigenze personali e del team / area di prodotto.\n• Sviluppare una mentalità orientata al cliente e una cultura di collaborazione, fiducia e trasparenza.\n• Applicare la strategia di assunzione al tuo team in linea con il responsabile\n\nGESTIONE\n\n• Definire e monitorare le esigenze di capacità del team, in allineamento con il vostro manager (Capo di).\n• Lavorare in un ambiente globale con team altamente distribuiti in diversi paesi e fusi orari e a diversi livelli di gestione. Coordinate le parti interessate del progetto e soprattutto lavorate a stretto contatto con i team tecnologici per garantire un corretto monitoraggio di tutte le dipendenze, i rischi, i vincoli, utilizzando la metodologia e i processi in atto a Richemont.\n• Coordinare tutte le fasi dei progetti dall'inizializzazione alla stabilizzazione post-consegna nella produzione.\n• Prendere cura della comunicazione di progetto e segnalare i progressi per il vostro manager e le parti interessate necessarie.\n\nBILANCIO\n\n• Lavorare con il Capo per la creazione di contratti durante l'esercizio fiscale con fornitori esterni all'interno del bilancio.\n• Lavorare con il capo del bilancio di pianificazione per il prossimo anno fiscale e anticipare le spese nel vostro perimetro.\n• Monitora le spese e i risparmi nella tua zona e avvisa il tuo manager in caso di delta con le aspettative.\n• Appaltatori di guida e di controllo.\n• Controllare la fatturazione e le fatture del fornitore per la correttezza.\n\nPROCESSI\n\n• Abbraccia un approccio di apprendimento continuo.\n• Identificare e risolvere i rischi/impedimenti relativi al membro del team. Escalate quando necessario.\n• Contribuisci a un forte allineamento di leadership tra i prodotti.\n\nCome fai a superare l'esperienza con noi?\n\nCompetenze tecniche\n\n• Forte comprensione delle tecnologie web e delle applicazioni.\n• Esperienza pratica nella gestione e consegna delle applicazioni al dettaglio o web.\n• Esperienza pratica con concetti tecnologici come API, OMS e CRM.\n\nStrumenti\n\n• Pianificazione e gestione delle capacità.\n• Gestione del bilancio\n• Suite Atlassian (Confluenza/Jira).\n\nAbilità morbide\n\n• Forte problem-solving e competenze analitiche.\n• Esperienza dimostrata nella leadership, team mentoring.\n• Capacità di presentare idee in contesto, che può essere compreso da personale tecnologico, commerciale e non-IT.\n• Capacità di funzionare efficacemente in un ambiente veloce, gestire più sforzi contemporaneamente, priorità e rispettare le scadenze.\n• Proattivo, auto-guidato e desideroso di esplorare nuove tecnologie.\n• Confortevole lavoro indipendente in un ambiente agile.\n\nIstruzione e lingua\n\n• Laurea o Master in Informatica o Informatica o equivalente.\n• Fluency in inglese (francese, portoghese o altre lingue è un plus).\n\n#Richemont # WeCraftTheFuture #",
+        "de": "Bezugscode: JR134915\n\nRichemont besitzt einige der weltweit führenden Luxusgüter Maisons, mit besonderen Stärken in Schmuck, feinen Uhren und Premium-Accessoires. Jede Maison steht für eine stolze Tradition von Stil, Qualität und Handwerkskunst und Richemont ist bestrebt, das Erbe und die Identität jeder seiner Maisons zu bewahren. Gleichzeitig sind wir der Innovation und dem Design neuer Produkte verpflichtet, die den Werten unserer Maisons entsprechen, durch einen Prozess der kontinuierlichen Kreativität.\n\nIHRE STELLUNG:\n\nDie Mission ist Teil der Richemont Group Technology und verwaltet den Bereich Retail Engagement. Sie werden die drei Ströme dieses Bereichs und die verschiedenen Anwendungen in diesem Perimeter zusätzlich zu den funktionsübergreifenden Aktivitäten überwachen. Die drei Streams sind Produkt, Kundenbindung und Vertrieb, für die Sie sowohl bestehende Anwendungen als auch das laufende Transformationsprogramm für den Einzelhandel betrachten.\n\nIn Zusammenarbeit mit dem Group Product Office, den Solution Architects und Ihren Core-Plattformen ermitteln Sie die notwendige Synchronisierung und antizipieren das Risiko auf der Qualitäts- und Liefer-Roadmap Ihrer Region.\n\nSie verwalten die Effektivität der Teammitglieder, um die kontinuierliche Entwicklung der Anwendungen anzupassen und technische Herausforderungen zu meistern. Sie helfen Ihrem Team, die zahlreichen Einschränkungen zu bewältigen und alle Stakeholder zu koordinieren, um eine reibungslose Abwicklung unseres Projektportfolios zu gewährleisten, um die Zufriedenheit unserer Nutzer zu erhöhen.\n\nSie werden in einer globalen, Multi-Maisons-Umgebung arbeiten und sich mit Teams auf verschiedenen Managementebenen beschäftigen, um eine nahtlose Integration und Leistung zu gewährleisten.\n\nWIE WERDEN SIE EINEN AUSWIRKEN SIND?\n\nMENSCHEN\n\n• Etablieren Sie Ihre Führung als Teamleiter. Führen Sie mit gutem Beispiel voran und wenden Sie die agilen Werte und Denkweise an.\n• Legen Sie klare Rollen und Ziele für jedes interne und externe Teammitglied fest und führen Sie regelmäßige Leistungsüberprüfungen durch.\n• Kontinuierliche Entwicklung der technischen und Soft Skills Ihrer Technologie-Teammitglieder, im Einklang mit persönlichen und Produkt-Team / Bereich Bedürfnisse.\n• Entwickeln Sie eine kundenorientierte Denkweise und eine Kultur der Zusammenarbeit, des Vertrauens und der Transparenz.\n• Wenden Sie die Einstellungsstrategie auf Ihr Team an, im Einklang mit dem verantwortlichen Leiter\n\nVERWALTUNG\n\n• Definieren und verfolgen Sie den Kapazitätsbedarf für das Team in Abstimmung mit Ihrem Manager (Head of).\n• Arbeiten Sie in einem globalen Umfeld mit stark verteilten Teams in verschiedenen Ländern und Zeitzonen und auf verschiedenen Managementebenen. Koordinieren Sie die Projektbeteiligten und arbeiten Sie insbesondere eng mit den Technologieteams zusammen, um eine ordnungsgemäße Nachverfolgung aller Abhängigkeiten, Risiken und Einschränkungen unter Verwendung der bei Richemont vorhandenen Methodik und Prozesse zu gewährleisten.\n• Koordinieren Sie alle Phasen der Projekte von der Initialisierung bis zur Stabilisierung nach Lieferung in der Produktion.\n• Kümmern Sie sich um die Projektkommunikation und berichten Sie Ihrem Manager und den notwendigen Stakeholdern über den Fortschritt.\n\nHAUSHALTSPLAN\n\n• Arbeiten Sie mit dem Leiter bei der Erstellung von Verträgen während des Geschäftsjahres mit externen Lieferanten innerhalb des Budgets.\n• Arbeiten Sie mit dem Leiter der Planung Budget für das nächste Geschäftsjahr und antizipieren Ausgaben in Ihrem Perimeter.\n• Überwachen Sie die Ausgaben und Einsparungen in Ihrer Region und alarmieren Sie Ihren Manager im Falle eines Deltas mit den Erwartungen.\n• Antrieb und Steuerung von Auftragnehmern.\n• Überprüfen Sie die Lieferantenrechnung und Rechnungen auf Richtigkeit.\n\nVERFAHREN\n\n• Umfassen Sie einen kontinuierlichen Lernansatz.\n• Proaktiv identifizieren und lösen Teammitglieder bezogene Risiken / Hindernisse. Eskalieren bei Bedarf.\n• Tragen Sie zu einer starken Führungsausrichtung in allen Produkten bei.\n\nWIE WIRST IHR ERFAHREN MIT UNS?\n\nTechnische Fähigkeiten\n\n• Starkes Verständnis von Web-Technologien und Anwendungen.\n• Hands-on Erfahrung im Einzelhandel oder Web Application Management und Lieferung.\n• Praxiserfahrung mit Technologiekonzepten wie APIs, OMS und CRM.\n\nWerkzeuge\n\n• Planung und Kapazitätsmanagement.\n• Haushaltsführung\n• Atlassian Suite (Confluence/Jira).\n\nSoft Skills\n\n• Starke problemlösende und analytische Fähigkeiten.\n• Demonstrierte Erfahrung in Führung, Team-Mentoring.\n• Fähigkeit, Ideen im Kontext zu präsentieren, die von Technologie-, Geschäfts- und Nicht-IT-Personal verstanden werden können.\n• Fähigkeit, in einer schnelllebigen Umgebung effektiv zu funktionieren, mehrere Anstrengungen gleichzeitig zu bewältigen, Termine zu priorisieren und einzuhalten.\n• Proaktiv, selbstgesteuert und bestrebt, neue Technologien zu erforschen.\n• Komfortables selbstständiges Arbeiten in einem agilen Umfeld.\n\nBildung & Sprache\n\n• Bachelor- oder Master-Abschluss in Informationstechnologie oder Informatik oder gleichwertig.\n• Englisch fließend (Französisch, Portugiesisch oder andere Sprachen sind ein Plus).\n\n#Richemont #WeCraftTheFuture",
+        "fr": "Code de référence: JR134915\n\nRichemont possède quelques-uns des principaux produits de luxe du monde, avec des atouts particuliers en bijoux, montres fines et accessoires haut de gamme. Chaque Maison représente une fière tradition de style, de qualité et d'artisanat et Richemont cherche à préserver le patrimoine et l'identité de chacune de ses Maisons. Dans le même temps, nous sommes engagés dans l'innovation et la conception de nouveaux produits qui sont conformes à nos valeurs Maisons, à travers un processus de créativité continue.\n\nVotre mission :\n\nLa mission fait partie de Richemont Group Technology, qui gère la zone d'engagement au détail. Vous superviserez les trois flux de cette zone et les applications multiples dans ce périmètre en plus des activités fonctionnelles croisées. Les trois volets sont Produits, Clientèle et Ventes pour lesquels vous allez passer en revue les applications existantes et le Programme de transformation du commerce de détail.\n\nEn collaboration avec le Groupe Product Office, les Solutions Architectes et vos homologues des plateformes Core, vous identifiez la synchronisation nécessaire et anticipez le risque sur la feuille de route de qualité et de livraison de votre région.\n\nVous gérez l'efficacité des membres de l'équipe pour correspondre à l'évolution continue des applications et surmonter les défis techniques. Vous aidez votre équipe à parcourir les multiples contraintes et à coordonner toutes les parties prenantes afin d'assurer une livraison sans heurt de notre portefeuille de projets pour augmenter la satisfaction de nos utilisateurs.\n\nVous opérerez dans un environnement mondial, multimaisons, en vous engageant avec des équipes à différents niveaux de gestion pour assurer une intégration et des performances sans faille.\n\nComment allez-vous avoir un impact ?\n\nPERSONNES\n\n• Établir votre leadership en tant que chef d'équipe. Diriger par exemple, en appliquant les valeurs agiles et l'état d'esprit.\n• Établir des rôles et des objectifs clairs pour chaque membre de l'équipe interne et externe et effectuer des examens réguliers du rendement.\n• Développez continuellement les compétences techniques et douces des membres de votre équipe technologique, en fonction des besoins personnels et de l'équipe de produits / secteur.\n• Développer une mentalité axée sur le client et une culture de collaboration, de confiance et de transparence.\n• Appliquer la stratégie d'embauche à votre équipe en ligne avec le chef responsable de\n\nGESTION\n\n• Définir et suivre les besoins de capacité de l'équipe, en accord avec votre gestionnaire (chef de l'équipe).\n• Travailler dans un environnement mondial avec des équipes très réparties dans différents pays et fuseaux horaires et à différents niveaux de gestion. Coordonner les intervenants du projet et en particulier travailler en étroite collaboration avec les équipes technologiques pour assurer un suivi approprié de toutes les dépendances, risques et contraintes, en utilisant la méthodologie et les processus en place à Richemont.\n• Coordonner toutes les phases des projets, depuis l'initialisation jusqu'à la stabilisation après l'exécution de la production.\n• Prenez soin de la communication du projet et faites rapport à votre gestionnaire et aux intervenants nécessaires.\n\nBUDGET\n\n• Travailler avec le chef de l'établissement de contrats au cours de l'exercice financier avec des fournisseurs externes dans le cadre du budget.\n• Travailler avec le chef du budget de planification pour le prochain exercice et prévoir les dépenses dans votre périmètre.\n• Surveillez les dépenses et les économies dans votre région et alertez votre gestionnaire en cas de delta avec des attentes.\n• Conduire et contrôler les entrepreneurs.\n• Vérifiez la facturation du fournisseur et les factures pour vérifier l'exactitude.\n\nPROCESSUS\n\n• Adopter une approche d'apprentissage continu.\n• Identifier et résoudre les risques et les obstacles associés aux membres de l'équipe. Escaladez-vous au besoin.\n• Contribuer à une forte harmonisation du leadership entre les produits.\n\nComment allez-vous nous convaincre?\n\nCompétences techniques\n\n• Une bonne compréhension des technologies et des applications Web.\n• Expérience pratique en gestion et livraison d'applications au détail ou sur le Web.\n• Expérience pratique avec des concepts technologiques tels que les API, OMS et CRM.\n\nOutils\n\n• Planification et gestion des capacités.\n• Gestion budgétaire\n• Suite atlasienne (Confluence/Jira).\n\nCompétences douces\n\n• Des compétences solides en résolution de problèmes et en analyse.\n• Expérience démontrée en leadership, en mentorat d'équipe.\n• Capacité de présenter des idées en contexte, ce qui peut être compris par le personnel des technologies, des entreprises et des autres technologies.\n• Capacité de fonctionner efficacement dans un environnement accéléré, de gérer plusieurs efforts simultanément, de prioriser et de respecter les délais.\n• Proactif, autonome et désireux d'explorer de nouvelles technologies.\n• Confortable travailler indépendamment dans un environnement agile.\n\nÉducation et langue\n\n• Baccalauréat ou maîtrise en technologie de l'information ou informatique ou équivalent.\n• Connaissance de l'anglais (le français, le portugais ou d'autres langues est un plus).\n\n#Richemont #WeCraftTheFuture"
       },
       "location": "Meyrin",
       "canton": "GE",
@@ -15607,7 +15622,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
