@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 631,
+  "crawlerCount": 633,
   "groups": {
     "10": [
       "atec-personal",
@@ -278,6 +278,7 @@
       "zuger-kantonsspital"
     ],
     "19": [
+      "agat",
       "alpiq",
       "bucher-suter",
       "convit-holding",
@@ -329,6 +330,7 @@
       "ocst",
       "ottos",
       "privatklinik-meiringen",
+      "proman-fleurier",
       "rfsm-fribourg",
       "strabag",
       "stryker",
@@ -694,6 +696,7 @@
     "adullam": "data/jobs/by-crawler/adullam.json",
     "adus-klinik": "data/jobs/by-crawler/adus-klinik.json",
     "afry": "data/jobs/by-crawler/afry.json",
+    "agat": "data/jobs/by-crawler/agat.json",
     "agie-charmilles": "data/jobs/by-crawler/agie-charmilles.json",
     "agroscope": "data/jobs/by-crawler/agroscope.json",
     "ail-lugano": "data/jobs/by-crawler/ail-lugano.json",
@@ -1127,6 +1130,7 @@
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
+    "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
     "protectas": "data/jobs/by-crawler/protectas.json",
     "proton": "data/jobs/by-crawler/proton.json",
@@ -1316,5 +1320,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:73f2ba7d5c080af7c2eae7731dad24bee142d29ed45329ff5ff33cc149a90623"
+  "digest": "sha256:265f9e182882411e8f2fff7880886381456bf5fdccf3e07b69498a37be659107"
 }
