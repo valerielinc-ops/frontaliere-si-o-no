@@ -40,6 +40,48 @@ export function extractLaFonteApplyUrlFromCardHtml(html = '') {
   }
 }
 
+function isLaFonteRoleUrl(value = '') {
+  if (!isHttpsUrl(value)) return false;
+  try {
+    const url = new URL(value);
+    return (
+      (url.hostname === 'lafonte.ch' || url.hostname === 'www.lafonte.ch') &&
+      url.pathname === '/inizia-con-noi' &&
+      Boolean(url.searchParams.get('role'))
+    );
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Resolve the navigable source handoff for a card whose application channel is
+ * email-only. The role URL is accepted only when the card itself states that
+ * candidates should apply by email; it is not a fabricated external portal
+ * URL and it does not imply `directApply`.
+ */
+export function resolveLaFonteApplicationHandoffUrl(html = '', roleUrl = '') {
+  const explicit = extractLaFonteApplyUrlFromCardHtml(html);
+  if (explicit) return explicit;
+  if (!isLaFonteRoleUrl(roleUrl)) return null;
+
+  const dom = new JSDOM(`<body>${String(html || '')}</body>`);
+  try {
+    const text = (dom.window.document.body.textContent || '').replace(/\s+/g, ' ').trim();
+    const hasEmail =
+      [...dom.window.document.querySelectorAll('a[href]')].some((anchor) =>
+        /^mailto:/i.test(anchor.getAttribute('href') || ''),
+      ) || /\b[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+\b/i.test(text);
+    const hasEmailApplicationInstruction =
+      /\b(?:candidatur\w*|domanda\s+di\s+lavoro|bewerb\w*|apply|postuler\w*)\b/i.test(text) &&
+      /\b(?:via|per|by|par)\s+(?:e-?mail|mail)\b/i.test(text);
+
+    return hasEmail && hasEmailApplicationInstruction ? roleUrl : null;
+  } finally {
+    dom.window.close();
+  }
+}
+
 // ──────────────────────────────────────────────────────────────
 // HTML → Markdown converter
 // ──────────────────────────────────────────────────────────────

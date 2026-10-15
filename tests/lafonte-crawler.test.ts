@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   htmlToMarkdown,
   extractLaFonteApplyUrlFromCardHtml,
+  resolveLaFonteApplicationHandoffUrl,
   validateLaFonteDescription,
   buildLaFonteDescription,
   isLaFonteLegacyFrame,
@@ -29,6 +30,21 @@ describe('La Fonte application handoff', () => {
     )).toBeNull();
     expect(extractLaFonteApplyUrlFromCardHtml(
       '<a href="https://www.lafonte.ch/inizia-con-noi">Scopri di più</a>',
+    )).toBeNull();
+  });
+
+  it('uses the unique official role URL when the card explicitly gives email instructions', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-lugano#:~:text=Stagiaire';
+    const card = '<p>Invia la tua candidatura via mail a <a href="mailto:recruiting@lafonte.ch">recruiting@lafonte.ch</a>.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
+  it('does not turn a role page into an application handoff without source instructions', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-lugano#:~:text=Stagiaire';
+    expect(resolveLaFonteApplicationHandoffUrl('<p>Scopri le nostre attività.</p>', roleUrl)).toBeNull();
+    expect(resolveLaFonteApplicationHandoffUrl(
+      '<p>Invia la candidatura via mail a recruiting@lafonte.ch.</p>',
+      'https://www.lafonte.ch/inizia-con-noi',
     )).toBeNull();
   });
 });
