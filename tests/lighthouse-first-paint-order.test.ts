@@ -7,6 +7,7 @@ import {
   CHECKED_PATHS,
   HIDE_MARK,
   PRESERVE_MARK,
+  REQUIRED_HANDOFF_MARK_BY_PATH,
   evaluateLhr,
 } from '../scripts/ci/lighthouse-first-paint-order.mjs';
 import {
@@ -32,19 +33,35 @@ describe('lighthouse first-paint order check', () => {
   it('reads the same mark the mount sets', () => {
     expect(HIDE_MARK).toBe(STATIC_HANDOFF_HIDE_MARK);
     expect(PRESERVE_MARK).toBe(STATIC_HANDOFF_PRESERVE_MARK);
+    expect(REQUIRED_HANDOFF_MARK_BY_PATH['/cerca-lavoro-ticino/']).toBe(PRESERVE_MARK);
   });
 
-  it('passes when static HTML painted before either handoff and fails when it painted after', () => {
-    expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 1300, 1310))?.ok).toBe(true);
+  it('requires the visibility-preserving handoff and checks its paint order', () => {
     expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 1300, 1310, PRESERVE_MARK))?.ok).toBe(true);
     expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 2349, 990))?.ok).toBe(false);
     expect(evaluateLhr(lhr('/cerca-lavoro-ticino/', 2349, 990, PRESERVE_MARK))?.ok).toBe(false);
   });
 
+  it('rejects the three-run regression shape where FCP precedes a destructive hide', () => {
+    for (const [fcp, hide] of [[2334, 2553], [2323, 2647], [2348, 2528]]) {
+      const verdict = evaluateLhr(lhr('/cerca-lavoro-ticino/', fcp, hide));
+      expect(verdict?.ok).toBe(false);
+      expect(verdict?.reason).toContain(`required mark ${PRESERVE_MARK} missing`);
+      expect(verdict?.reason).toContain(HIDE_MARK);
+    }
+  });
+
+  it('rejects contradictory preserve and hide marks on the same navigation', () => {
+    const report = lhr('/cerca-lavoro-ticino/', 1300, 1310, PRESERVE_MARK);
+    report.audits['user-timings'].details.items.push({ name: HIDE_MARK, startTime: 1320 });
+    expect(evaluateLhr(report)?.ok).toBe(false);
+    expect(evaluateLhr(report)?.reason).toContain(`unexpected mark ${HIDE_MARK}`);
+  });
+
   it('fails when the mark is missing on a checked page', () => {
     const verdict = evaluateLhr(lhr('/cerca-lavoro-ticino/', 2349));
     expect(verdict?.ok).toBe(false);
-    expect(verdict?.reason).toContain(HIDE_MARK);
+    expect(verdict?.reason).toContain(PRESERVE_MARK);
   });
 
   it('ignores pages whose mount never hides static HTML (the homepage ships #loading-shell)', () => {
