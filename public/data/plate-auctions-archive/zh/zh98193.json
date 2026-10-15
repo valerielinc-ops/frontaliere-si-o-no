@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43616",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43616",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "98193",
+      "normalizedPlate": "ZH98193",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1320,
+      "bidCount": 57,
+      "endsAt": "2026-10-14T17:21:00.000Z",
+      "closedAt": "2026-10-14T17:21:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43616",
+      "sourceFetchedAt": "2026-10-14T17:15:47.746Z",
+      "lastVerifiedAt": "2026-10-14T17:15:47.746Z",
+      "firstSeenAt": "2026-10-08T06:11:46.094Z",
+      "lastSeenAt": "2026-10-14T17:15:47.746Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "fec74c993072"
+    }
+  ]
+}
