@@ -484,9 +484,9 @@ async function detectVehiclesInZone(buf, zone) {
  *   still decides on its own (threshold floors at 1).
  * - congestionScore stays the MAX across good feeds (worst-camera headline).
  * Pure + synchronous so it is unit-testable without network/sharp.
- * @param {Array<{congestionScore: number|null, queueDetected: boolean, visibility: string, feedKey?: string}|null>} results
+ * @param {Array<{congestionScore: number|null, queueDetected: boolean, visibility: string, vehicleCount?: number|null, feedKey?: string}|null>} results
  * @param {number} [voteFraction=QUEUE_VOTE_FRACTION] - fraction of good feeds that must agree
- * @returns {{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[]}|null}
+ * @returns {{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[], feedObservations: Array<object>}|null}
  */
 export function aggregateWebcamResults(results, voteFraction = QUEUE_VOTE_FRACTION) {
   const present = (results ?? []).filter(Boolean);
@@ -496,12 +496,36 @@ export function aggregateWebcamResults(results, voteFraction = QUEUE_VOTE_FRACTI
     // No usable camera (all night/poor/warming-up): surface the first feed's
     // visibility so the caller no-ops (consumer only acts on visibility:'good').
     const r = present[0];
-    return { congestionScore: r.congestionScore ?? null, queueDetected: false, visibility: r.visibility, feeds: [] };
+    return {
+      congestionScore: r.congestionScore ?? null,
+      queueDetected: false,
+      visibility: r.visibility,
+      feeds: [],
+      feedObservations: [],
+    };
   }
   const votes = good.filter((r) => r.queueDetected).length;
   const queueDetected = votes >= queueVoteThreshold(good.length, voteFraction);
   const congestionScore = good.reduce((m, r) => Math.max(m, r.congestionScore ?? 0), 0);
-  return { congestionScore, queueDetected, visibility: 'good', feeds: good.map((r) => r.feedKey).filter(Boolean) };
+  const feedObservations = good
+    .filter((r) => typeof r.feedKey === 'string' && r.feedKey.length > 0)
+    .map((r) => ({
+      feedKey: r.feedKey,
+      congestionScore: r.congestionScore ?? null,
+      vehicleCount: r.vehicleCount ?? null,
+      queueDetected: r.queueDetected === true,
+      visibility: r.visibility,
+    }));
+  return {
+    congestionScore,
+    queueDetected,
+    visibility: 'good',
+    feeds: feedObservations.map((r) => r.feedKey),
+    // Keep the per-feed measurements alongside the aggregate so the traffic
+    // scheduler can pair them with the provider wait from the same run. The
+    // aggregate score alone cannot reconstruct a three-feed baseline.
+    feedObservations,
+  };
 }
 
 /**
@@ -599,7 +623,7 @@ export async function analyzeWebcamFeed(feedKey, feedRegistry = WEBCAM_FEEDS) {
 /**
  * Analyze every queue-detection feed covering a crossing and aggregate.
  * @param {string} crossingSlug
- * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[]}|null>}
+ * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[], feedObservations: Array<object>}|null>}
  */
 export async function analyzeWebcamForCrossing(crossingSlug) {
   const sitgFeeds = await getSITGFeeds();

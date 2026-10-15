@@ -2,8 +2,16 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fetchCrossingTraffic } from '../functions/src/trafficSchedulerCore.js';
 import { buildTrafficProviderChain } from '../functions/src/trafficProviderMesh.js';
 
+const { webcamVerdict } = vi.hoisted(() => ({ webcamVerdict: vi.fn() }));
+vi.mock('../scripts/analyze-webcam-frame.mjs', () => ({
+  analyzeWebcamForCrossing: (...args: unknown[]) => webcamVerdict(...args),
+}));
+
 describe('traffic provider rotation at crossing level', () => {
-  afterEach(() => vi.unstubAllGlobals());
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    webcamVerdict.mockReset();
+  });
 
   it('uses one route request for a static provider because it cannot measure approach delay', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
@@ -161,5 +169,93 @@ describe('traffic provider rotation at crossing level', () => {
     expect(result.officialSources).toBe('fr-atmb-bulletin');
     expect(result.officialQueueKm).toBe(3);
     expect(result.dataQuality).toBe('live+official');
+  });
+
+  it('normalizes numeric-string official queue, approach, and distance values', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ routes: [{ summary: { travelTimeInSeconds: 120, noTrafficTravelTimeInSeconds: 120 } }] }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await fetchCrossingTraffic(
+      { name: 'Bardonnex', lat: 46.1495357, lng: 6.0960713 },
+      {
+        tomtomApiKey: 'tomtom-key',
+        officialSignals: {
+          bardonnex: { queueMinutes: '12', approachMinutes: '4', queueKm: '3.5' },
+        },
+        enableWebcam: false,
+      },
+    );
+
+    expect(result.waitTimeMinutes).toBe(12);
+    expect(result.approachMinutes).toBe(4);
+    expect(result.totalCrossingMinutes).toBe(16);
+    expect(result.officialQueueKm).toBe(3.5);
+  });
+
+  it('records per-feed shadow pairs with the raw provider wait before webcam sanity', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ routes: [{ sections: [{ summary: { baseDuration: 60, duration: 240 } }] }] }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    webcamVerdict.mockResolvedValue({
+      congestionScore: 0.7,
+      queueDetected: true,
+      visibility: 'good',
+      feeds: ['03.3S'],
+      feedObservations: [{
+        feedKey: '03.3S',
+        congestionScore: 0.7,
+        vehicleCount: 7,
+        queueDetected: true,
+        visibility: 'good',
+      }],
+    });
+
+    const result = await fetchCrossingTraffic(
+      { name: 'Chiasso-Brogeda', lat: 45.8409, lng: 9.0376 },
+      { hereApiKey: 'here-key', enableWebcam: true },
+    );
+
+    expect(result.webcamBaselineObservations).toEqual([
+      expect.objectContaining({
+        crossingName: 'Chiasso-Brogeda',
+        provider: 'here',
+        providerWaitMinutes: 3,
+        feedKey: '03.3S',
+        vehicleCount: 7,
+        congestionScore: 0.7,
+        observedAt: expect.any(String),
+        incrementalPaidRequests: 0,
+      }),
+    ]);
+  });
+
+  it('drops shadow pairs with null or non-numeric feed measurements', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ routes: [{ summary: { travelTimeInSeconds: 120, noTrafficTravelTimeInSeconds: 120 } }] }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    webcamVerdict.mockResolvedValue({
+      congestionScore: 0.7,
+      queueDetected: false,
+      visibility: 'good',
+      feeds: [],
+      feedObservations: [
+        { feedKey: 'null-vehicles', congestionScore: 0.7, vehicleCount: null, visibility: 'good' },
+        { feedKey: 'empty-score', congestionScore: '', vehicleCount: 7, visibility: 'good' },
+      ],
+    });
+
+    const result = await fetchCrossingTraffic(
+      { name: 'Chiasso-Brogeda', lat: 45.8409, lng: 9.0376 },
+      { hereApiKey: 'here-key', enableWebcam: true },
+    );
+
+    expect(result).not.toHaveProperty('webcamBaselineObservations');
   });
 });

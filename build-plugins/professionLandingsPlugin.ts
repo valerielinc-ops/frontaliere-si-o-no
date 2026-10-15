@@ -96,6 +96,7 @@ import {
   renderEmployerCardListHtml,
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
+import { renderProfessionJobsLocationSummary } from './shared/professionJobsLocationSummary';
 import {
   buildSectorHubPath,
   type SectorHubKey,
@@ -571,6 +572,10 @@ function renderPage(opts: {
 
   const featuredHtml = renderFeaturedJobs(id, locale, snapshot, copyView);
   const employerGridHtml = renderEmployerGrid(snapshot, id, copyView, locale);
+  const locationSummaryHtml = renderProfessionJobsLocationSummary(
+    locale,
+    snapshot.jobs ?? snapshot.featured,
+  );
   const dividerHtml = renderApprofondisciDivider(copy.approfondisciHeading);
 
   const sectionsHtml = sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
@@ -602,6 +607,7 @@ function renderPage(opts: {
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}
+    ${locationSummaryHtml}
     ${dividerHtml}
     ${sectionsHtml}
     ${employersTable}
