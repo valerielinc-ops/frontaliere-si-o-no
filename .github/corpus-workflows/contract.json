@@ -13,11 +13,11 @@
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 629,
+  "crawlerCount": 630,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:a1f1dfd06c0c2d8ea381303fc7f84b693ccb3b7765e1e5de662372ac604fcf88",
+    "rosterDigest": "sha256:12f9f10dac2883b4e8253f29bf78e5c34d0437f8538f010ae5bb7daaa9850c22",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -442,6 +442,7 @@
     "scripts/update-rehaklinik-seewis-jobs.mjs",
     "scripts/update-rennbahnklinik-jobs.mjs",
     "scripts/update-rfsm-fribourg-jobs.mjs",
+    "scripts/update-rh-expert-ch-jobs.mjs",
     "scripts/update-rheinmetall-air-defence-jobs.mjs",
     "scripts/update-rhne-reseau-hospitalier-neuchatelois-jobs.mjs",
     "scripts/update-richemont-jobs.mjs",
@@ -1414,8 +1415,8 @@
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "69ef0ee5e0f973a9589429f0086afb9796cf3148c674d0a9fb730e64e5e342c7",
-      "artifactSha256": "642055e849c069c23df9fb8797aa5d4a8eb78871661f813bbef65951346fe341",
+      "sourceSha256": "7f0b71ccbe0d41ef934f986d724bb09b00a4c7613d63e84f98185442d1fd4b94",
+      "artifactSha256": "6798740c26555c93b4559714f0ca20ad73d3e768da02d8abad9b9ccf4a5a837e",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "rittmeyer",
@@ -1445,7 +1446,8 @@
         "ariston",
         "bachtelen",
         "alcon",
-        "yellowshark"
+        "yellowshark",
+        "rh-expert-ch"
       ]
     },
     {
