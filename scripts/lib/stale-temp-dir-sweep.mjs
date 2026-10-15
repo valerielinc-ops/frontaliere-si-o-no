@@ -1,8 +1,7 @@
-// Pulizia conservativa delle directory temporanee lasciate da sessioni finite.
-// Si considerano solo i figli diretti della directory temporanea di sistema:
-// niente glob ricorsivi e nessuna cancellazione del root stesso.
+// Inventario diagnostico delle directory temporanee. Una directory vecchia
+// può contenere dati utili: nessuna cancellazione basata sulla sola età.
 
-import { lstatSync, readdirSync, rmSync } from 'node:fs';
+import { lstatSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import os from 'node:os';
 
@@ -85,19 +84,12 @@ export function listStaleTempDirs(
   return stale;
 }
 
+/**
+ * @param {string} tmpRoot
+ * @param {Parameters<typeof listStaleTempDirs>[1] & { apply?: boolean }} [options]
+ */
 export function sweepStaleTempDirs(tmpRoot, { apply = false, ...options } = {}) {
+  if (apply) throw new Error('Global temporary cleanup disabled: age is not deletion authority');
   const candidates = listStaleTempDirs(tmpRoot, options);
-  if (!apply) return { candidates: candidates.length, removed: 0, bytes: 0, paths: candidates };
-  let removed = 0;
-  let bytes = 0;
-  for (const candidate of candidates) {
-    try {
-      rmSync(candidate.path, { recursive: true, force: false });
-      removed++;
-      bytes += candidate.bytes;
-    } catch {
-      // Un file aperto o una directory cambiata durante lo scan resta intatta.
-    }
-  }
-  return { candidates: candidates.length, removed, bytes, paths: candidates };
+  return { candidates: candidates.length, removed: 0, bytes: 0, paths: candidates };
 }
