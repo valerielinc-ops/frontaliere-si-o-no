@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 634,
+  "crawlerCount": 635,
   "groups": {
     "10": [
       "atec-personal",
@@ -226,6 +226,7 @@
       "cerbios-pharma",
       "clinique-de-montchoisi",
       "clinique-generale-beaulieu",
+      "deillon-delley-architectes",
       "elettra-1938",
       "evam-vaud",
       "gim-architekten",
@@ -254,7 +255,6 @@
       "bobst",
       "canton-valais",
       "constellium",
-      "deillon-delley-architectes",
       "empa",
       "etat-de-fribourg",
       "etat-de-vaud",
@@ -268,6 +268,7 @@
       "opus-personal",
       "pkb-private-bank",
       "rheinmetall-air-defence",
+      "rohrer-gartenbau-und-hauswartungen",
       "sfs-group",
       "sicpa",
       "spital-lachen",
@@ -1166,6 +1167,7 @@
     "rituals-cosmetics": "data/jobs/by-crawler/rituals-cosmetics.json",
     "riveneuve": "data/jobs/by-crawler/riveneuve.json",
     "roche": "data/jobs/by-crawler/roche.json",
+    "rohrer-gartenbau-und-hauswartungen": "data/jobs/by-crawler/rohrer-gartenbau-und-hauswartungen.json",
     "rolex": "data/jobs/by-crawler/rolex.json",
     "rsbj": "data/jobs/by-crawler/rsbj.json",
     "rss-surselva": "data/jobs/by-crawler/rss-surselva.json",
@@ -1322,5 +1324,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:602a2a44f7a43371e1deb594a5393d63648f8abc3c65e50f284d97ef3e6839ee"
+  "digest": "sha256:a9b4e4b73c74f7acfe9c41a10606bde2fe2347c0e47285bd57ca906f8b1ff891"
 }
