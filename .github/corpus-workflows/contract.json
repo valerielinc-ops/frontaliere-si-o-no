@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "83bc1378a173db3712ef47edd5896b813f309582",
+  "sourceCommit": "7d3adcf19de38a1806ffdba4a5711b399643c74b",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "83bc1378a173db3712ef47edd5896b813f309582"
+    "sourceCommit": "7d3adcf19de38a1806ffdba4a5711b399643c74b"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 628,
+  "crawlerCount": 629,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff",
+    "rosterDigest": "sha256:a1f1dfd06c0c2d8ea381303fc7f84b693ccb3b7765e1e5de662372ac604fcf88",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -197,6 +197,7 @@
     "scripts/update-ehc-vd-jobs.mjs",
     "scripts/update-ehnv-jobs.mjs",
     "scripts/update-elettra-1938-jobs.mjs",
+    "scripts/update-elite-interim-jobs.mjs",
     "scripts/update-elprom-jobs.mjs",
     "scripts/update-emil-frey-jobs.mjs",
     "scripts/update-emmi-jobs.mjs",
@@ -1154,8 +1155,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "bee4c5b0241585ce3fe58a6c339dcb9c7179654c0860c7381bfa94cac3b89fd9",
-      "artifactSha256": "fe9459c718420fbfd9aa3febbbb234b1ab8323730af5522265a879f4e7c82500",
+      "sourceSha256": "b42a5d2e66750b9472addc97b462290ec437021f95266951158ea7447c44e1ed",
+      "artifactSha256": "b2ded6c1c06c212d609580e04b6023a79f0637f130dead29fa88dc7d608d8a39",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1184,7 +1185,8 @@
         "ail",
         "sta",
         "elprom",
-        "sonarsource"
+        "sonarsource",
+        "elite-interim"
       ]
     },
     {
