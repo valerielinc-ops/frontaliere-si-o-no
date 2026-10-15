@@ -11,7 +11,6 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -213,15 +212,13 @@ export function buildDeillonDelleyArchitectesJobs(listings = []) {
       .slice(0, 12);
     const sourceLang = 'fr';
     const baseSlug = slugify(`${title} ${DEILLON_DELLEY_ARCHITECTES_KEY} ${locationFields.location}`);
-    const slugDisambiguator = stableHash.slice(0, 6);
-    const jobSlug = appendSlugDisambiguator(baseSlug, slugDisambiguator);
+    const jobSlug = baseSlug;
     const url = String(listing?.url || textFragmentUrl(DEILLON_DELLEY_ARCHITECTES_CAREERS_URL, title));
 
     jobs.push({
       id: `${DEILLON_DELLEY_ARCHITECTES_KEY}-${stableHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      slugDisambiguator,
       company: DEILLON_DELLEY_ARCHITECTES_COMPANY_NAME,
       companyKey: DEILLON_DELLEY_ARCHITECTES_KEY,
       companyDomain: DEILLON_DELLEY_ARCHITECTES_COMPANY_DOMAIN,
