@@ -29,7 +29,7 @@ describe('PROMAN Fleurier source-backed crawler', () => {
     const nonTargetFixture = detailFixture
       .replaceAll('Fleurier', 'Biel')
       .replaceAll('2114', '2500')
-      .replaceAll('"NE"', '"BE"');
+      .replaceAll('Neuchâtel', 'Berne');
     const detail = extractPromanFleurierDetailFields(nonTargetFixture, detailUrl);
     expect(detail.location).toBe('');
     expect(detail.sourceBackedCanton).toBe('BE');
