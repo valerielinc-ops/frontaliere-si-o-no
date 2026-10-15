@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "555888908dc307eb4b43adb938f7138e86edd2f3",
+  "sourceCommit": "751ed198879395e5fbcc15c88bd3b7d883985c85",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "555888908dc307eb4b43adb938f7138e86edd2f3"
+    "sourceCommit": "751ed198879395e5fbcc15c88bd3b7d883985c85"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 641,
+  "crawlerCount": 642,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:6c72b64477942dab4e6df190924efcac2eb785816a5619163f1b5ab74a0dcc57",
+    "rosterDigest": "sha256:89e9dc022c441b45fbb5f538bcb4a38d5573dcb9c730840e03770fb6c0e1d782",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -587,6 +587,7 @@
     "scripts/update-vz-vermoegenszentrum-jobs.mjs",
     "scripts/update-wagerenhof-jobs.mjs",
     "scripts/update-weisse-arena-jobs.mjs",
+    "scripts/update-wokin-jobs.mjs",
     "scripts/update-wuerth-international-jobs.mjs",
     "scripts/update-yapeal-jobs.mjs",
     "scripts/update-yellowshark-jobs.mjs",
@@ -1284,8 +1285,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "7be49495b935281b65a723fdfd71a97b6567646612297f9cb2f44ecf48a38d5a",
-      "artifactSha256": "af16af34db520392a2e770c91b2d73afecf966b0ea08f8ffe341e2e1de557224",
+      "sourceSha256": "ae61c93b76837aa6f7ba84963852a4cde7cd4d7934429302ffd7e3ec2a3d9bcb",
+      "artifactSha256": "6e44fb48d851c93d91ba2af56e70c7d4d056ff8488cdbb56649cf8a3a429b110",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1316,7 +1317,8 @@
         "etavis",
         "amina-bank",
         "opus-personal",
-        "rohrer-gartenbau-und-hauswartungen"
+        "rohrer-gartenbau-und-hauswartungen",
+        "wokin"
       ]
     },
     {

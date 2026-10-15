@@ -224,7 +224,10 @@ const PROFESSION_MATCHERS: Record<ProfessionId, ProfessionMatcher> = {
     // ristorazione` alternative catches the official Swiss job-title forms
     // EOC uses ("Impiegato/a della ristorazione", "Collaboratore/trice di
     // ristorazione") that carry no camerier/kellner/waiter stem at all (#5413).
-    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|chef de rang|commis de salle|barista|barkeeper|(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione)/i,
+    // Keep WOKIN's German forms narrow: bare `Servicemitarbeiter` is also used
+    // for customer-service jobs, while these source titles carry either the
+    // published workload range or an explicit restaurant qualifier.
+    title: /\b(camerier|kellner|waiter|waitress|serveur|serveuse|servicemitarbeiter(?:\/in)?\s+\d{1,3}\s*[–-]\s*\d{1,3}\s*%|servicehilfskraft\s+(?:rastaurant|restaurant)|restaurantangestellt|chef de rang|commis de salle|barista|barkeeper|(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione)/i,
   },
   elettricista: {
     title: /\b(elettricist|elektriker|electrician|électricien|electricien|elektromonteur|elektroinstallat)/i,
