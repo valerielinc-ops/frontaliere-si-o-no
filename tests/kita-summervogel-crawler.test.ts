@@ -89,6 +89,70 @@ describe('Kita Summervogel educator:SG crawler', () => {
     expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBe('authoritative-source-zero');
   });
 
+  it('keeps same-title postings distinct when their official URLs differ', () => {
+    const postings = [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Miterzieherin',
+        description: SOURCE_BODY,
+        url: 'https://kitasummervogel.ch/jobs/miterzieherin-wil-1/',
+        datePosted: daysAgo(10).toISOString().slice(0, 10),
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Wil',
+            addressRegion: 'SG',
+            postalCode: '9500',
+            addressCountry: 'CH',
+          },
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Miterzieherin',
+        description: SOURCE_BODY,
+        url: 'https://kitasummervogel.ch/jobs/miterzieherin-wil-2/',
+        datePosted: daysAgo(11).toISOString().slice(0, 10),
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Wil',
+            addressRegion: 'SG',
+            postalCode: '9500',
+            addressCountry: 'CH',
+          },
+        },
+      },
+    ];
+    const html = `<script type="application/ld+json">${JSON.stringify(postings)}</script>`;
+
+    const jobs = parseKitaSummervogelJobs(html);
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job) => job.url).sort()).toEqual([
+      'https://kitasummervogel.ch/jobs/miterzieherin-wil-1/',
+      'https://kitasummervogel.ch/jobs/miterzieherin-wil-2/',
+    ]);
+  });
+
+  it('does not treat an unrelated page node as the official empty state', () => {
+    const jobs = parseKitaSummervogelJobs(`
+      <main class="jobs-page">
+        <h1>Jobs</h1>
+        <section class="company-notice">
+          <p>Zurzeit keine offenen Stellen — diese Nachricht betrifft die allgemeine Unternehmensseite.</p>
+        </section>
+      </main>
+    `);
+
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBeUndefined();
+  });
+
   it('rejects non-educator roles and non-SG workplace evidence', () => {
     expect(isTargetKitaSummervogelRole('Köchin')).toBe(false);
     expect(parseKitaSummervogelJobs(officialPage({ location: '8000 Zürich ZH' }))).toEqual([]);
@@ -119,4 +183,3 @@ describe('Kita Summervogel educator:SG crawler', () => {
     expect(isTrustedDomain('https://krippenstellen.ch/de/frontend/inserate/71152')).toBe(false);
   });
 });
-

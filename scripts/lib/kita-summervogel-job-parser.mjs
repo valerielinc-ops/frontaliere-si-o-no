@@ -33,6 +33,32 @@ const TARGET_ROLE_RE = /\b(?:miterzieher(?:in)?|fachfrau(?:mann)?\s+betreuung\s+
 const LOCATION_LABEL_RE = /^(?:arbeitsort|arbeitsplatz|einsatzort|standort|ort)\s*[:\-]?\s*(.*)$/i;
 const DATE_LABEL_RE = /^(?:publiziert|veröffentlicht|online\s+seit|inseriert|datum|date)\s*[:\-]?\s*(.*)$/i;
 const EMPTY_STATE_RE = /(?:zurzeit|derzeit|aktuell|momentan|zur\s+zeit)?\s*keine\s+(?:offenen?\s+)?(?:stellen|positionen|jobangebote|stellenangebote)\b/i;
+const JOB_LIST_SELECTOR = [
+  '[data-job-list]',
+  '[data-jobs-list]',
+  '[data-vacancy-list]',
+  '.jobs-page',
+  '.jobs',
+  '.job-list',
+  '.job-offers',
+  '.job-offer-list',
+  '.vacancies',
+  '.vacancy-list',
+  '#jobs',
+  '#job-list',
+  '#vacancies',
+].join(',');
+const EMPTY_STATE_SELECTOR = [
+  '[data-empty-state]',
+  '[data-jobs-empty]',
+  '[data-no-jobs]',
+  '.empty-state',
+  '.jobs-empty',
+  '.job-empty',
+  '.no-jobs',
+  '.no-vacancies',
+  '.no-results',
+].join(',');
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -255,9 +281,32 @@ function roleContainers(document) {
 }
 
 function explicitEmptyState(document) {
-  const scopedNodes = [...document.querySelectorAll('main,[role="main"],.jobs,.job-list,.content')];
-  const nodes = scopedNodes.length ? scopedNodes : [document.body];
-  return nodes.some((node) => EMPTY_STATE_RE.test(normalizeSpace(stripHtml(node?.innerHTML || ''))));
+  const jobListNodes = [...document.querySelectorAll(JOB_LIST_SELECTOR)];
+  const leafJobListNodes = jobListNodes.filter((node) => (
+    !jobListNodes.some((nested) => nested !== node && node.contains(nested))
+  ));
+
+  return leafJobListNodes.some((jobListNode) => {
+    const emptyStateNodes = [
+      jobListNode.matches?.(EMPTY_STATE_SELECTOR) ? jobListNode : null,
+      ...jobListNode.querySelectorAll(EMPTY_STATE_SELECTOR),
+    ].filter(Boolean);
+    if (emptyStateNodes.some((node) => EMPTY_STATE_RE.test(normalizeSpace(node.textContent || '')))) {
+      return true;
+    }
+
+    // A bare paragraph directly in the source's job-list node is the other
+    // supported form used by the official page. Do not inspect arbitrary
+    // descendants: footer/about/sidebar copy must not retire live listings.
+    const directText = [...jobListNode.childNodes]
+      .filter((node) => node.nodeType === 3)
+      .map((node) => node.textContent || '')
+      .join(' ');
+    if (EMPTY_STATE_RE.test(normalizeSpace(directText))) return true;
+    return [...jobListNode.children]
+      .filter((node) => node.tagName === 'P' && !node.id && !node.className)
+      .some((node) => EMPTY_STATE_RE.test(normalizeSpace(node.textContent || '')));
+  });
 }
 
 function structuredLocationCandidates(record) {
@@ -306,16 +355,56 @@ function candidateFromSource(source, block, pageUrl) {
 }
 
 function mergeCandidate(records, candidate, pageUrl) {
-  const key = [fold(candidate.title), fold(candidate.addressLocality || candidate.location)].join('|');
+  const listingPageUrl = canonicalSourceUrl(pageUrl, pageUrl);
+  const candidateIsDetail = candidate.url !== listingPageUrl;
+  const titleLocationKey = [fold(candidate.title), fold(candidate.addressLocality || candidate.location)].join('|');
+  const key = candidateIsDetail ? `url|${candidate.url}` : `listing|${titleLocationKey}`;
   const before = records.get(key);
-  if (!before) {
-    records.set(key, candidate);
+
+  if (before) {
+    records.set(key, preferCandidate(before, candidate, pageUrl));
     return;
   }
-  const candidateIsDetail = candidate.url !== canonicalSourceUrl(pageUrl, pageUrl);
-  const beforeIsDetail = before.url !== canonicalSourceUrl(pageUrl, pageUrl);
-  if (sourceBodyWordCount(candidate.description) > sourceBodyWordCount(before.description)
-    || (candidateIsDetail && !beforeIsDetail)) records.set(key, candidate);
+
+  if (candidateIsDetail) {
+    // A summary without its own URL can be upgraded to a detail candidate,
+    // but only while there is no other detail posting with the same title and
+    // locality. Once source URLs disagree, the URL is the posting identity and
+    // the ambiguous summary must not collapse either listing.
+    const fallbackKey = `listing|${titleLocationKey}`;
+    const fallback = records.get(fallbackKey);
+    if (fallback) records.delete(fallbackKey);
+    records.set(key, fallback ? preferCandidate(fallback, candidate, pageUrl) : candidate);
+    return;
+  }
+
+  const matchingDetails = [...records.entries()].filter(([entryKey, record]) => (
+    entryKey.startsWith('url|')
+      && [fold(record.title), fold(record.addressLocality || record.location)].join('|') === titleLocationKey
+  ));
+  if (matchingDetails.length > 0) {
+    // A page-level summary cannot identify which of multiple same-title,
+    // same-locality postings it describes. Keep the URL-keyed detail records.
+    if (matchingDetails.length === 1) {
+      const [detailKey, detail] = matchingDetails[0];
+      records.set(detailKey, preferCandidate(detail, candidate, pageUrl));
+    }
+    return;
+  }
+
+  records.set(key, candidate);
+}
+
+function preferCandidate(before, candidate, pageUrl) {
+  const listingPageUrl = canonicalSourceUrl(pageUrl, pageUrl);
+  const candidateIsDetail = candidate.url !== listingPageUrl;
+  const beforeIsDetail = before.url !== listingPageUrl;
+  if (candidateIsDetail && !beforeIsDetail) return candidate;
+  if (beforeIsDetail && !candidateIsDetail) return before;
+  if (sourceBodyWordCount(candidate.description) > sourceBodyWordCount(before.description)) {
+    return candidate;
+  }
+  return before;
 }
 
 export function parseKitaSummervogelJobs(html = '', pageUrl = KITA_SUMMERVOGEL_JOBS_URL) {
