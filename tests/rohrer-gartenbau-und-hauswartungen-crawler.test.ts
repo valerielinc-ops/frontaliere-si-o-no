@@ -134,6 +134,42 @@ describe('Rohrer Gartenbau und Hauswartungen GmbH crawler', () => {
     expect(parsed.fetchOutcome).toBe('selector_miss');
   });
 
+  it('requires positive workplace context for an Obwalden mention', () => {
+    const body = [
+      'Diese ausgeschriebene Tätigkeit umfasst sorgfältige Reinigungsarbeiten in verschiedenen Liegenschaften und verlangt Selbstständigkeit, Zuverlässigkeit, Diskretion, Ausdauer und einen freundlichen Umgang mit Kundinnen und Kunden.',
+      'Die regelmässigen Einsätze werden geplant, dokumentiert und kontrolliert, jedoch ausdrücklich nicht in Obwalden angeboten.',
+      'Gesucht wird eine belastbare Person, die Arbeitszeiten einhält, Material sorgfältig verwendet und Rückmeldungen aus dem Team zuverlässig umsetzt.',
+    ].join(' ');
+    expect(sourceBodyWordCount(body)).toBeGreaterThanOrEqual(50);
+    const parsed = parseRohrerGartenbauUndHauswartungenPage(
+      `<main><h2>Mitarbeiter/in Treppenhausreinigung – 40%</h2><p>${body}</p></main>`,
+      ROHRER_GARTENBAU_UND_HAUSWARTUNGEN_CAREER_URL,
+      { now: NOW },
+    );
+    expect(parsed.listings).toHaveLength(0);
+  });
+
+  it('ends a cleaning section at an unlisted vacancy heading', () => {
+    const cleaningBody = [
+      'Diese Reinigungsstelle umfasst die sorgfältige Pflege von Treppenhäusern in Wohnliegenschaften und verlangt eine zuverlässige, selbstständige und freundliche Arbeitsweise.',
+      'Die Aufgaben werden im Team besprochen, nach Plan ausgeführt und mit der zuständigen Hauswartung abgestimmt, ohne dass eine Ortsangabe für Obwalden gemacht wird.',
+      'Sicherheitsvorgaben, Qualitätskontrollen und eine klare Dokumentation gehören ebenfalls zum täglichen Ablauf dieser Tätigkeit.',
+    ].join(' ');
+    const unrelatedBody = [
+      'Die Hauswartung betreut verschiedene Anlagen, organisiert Kontrollgänge, koordiniert Reparaturen und dokumentiert die erledigten Arbeiten für die Eigentümerschaft.',
+      'Für diese andere Tätigkeit werden Einsätze in Obwalden beschrieben, ausserdem gehören Materialbestellungen, Winterdienst, kleinere Pflegearbeiten und die Kommunikation mit externen Partnern zum Aufgabenbereich.',
+      'Der Tagesablauf umfasst zudem Abnahmen, Schlüsselverwaltung, Bereitschaftsdienste und die Meldung von Schäden an die zuständige Verwaltung.',
+    ].join(' ');
+    expect(sourceBodyWordCount(cleaningBody)).toBeGreaterThanOrEqual(50);
+    expect(sourceBodyWordCount(unrelatedBody)).toBeGreaterThanOrEqual(50);
+    const parsed = parseRohrerGartenbauUndHauswartungenPage(
+      `<main><h2>Mitarbeiter/in Treppenhausreinigung – 40%</h2><p>${cleaningBody}</p><h2>Hauswartung</h2><p>${unrelatedBody}</p></main>`,
+      ROHRER_GARTENBAU_UND_HAUSWARTUNGEN_CAREER_URL,
+      { now: NOW },
+    );
+    expect(parsed.listings).toHaveLength(0);
+  });
+
   it('keeps publication date unknown when the official page supplies no date', () => {
     const parsed = parseRohrerGartenbauUndHauswartungenPage(
       OFFICIAL_PAGE_HTML.replace(/\s*<meta property="article:published_time"[^>]+>/, ''),

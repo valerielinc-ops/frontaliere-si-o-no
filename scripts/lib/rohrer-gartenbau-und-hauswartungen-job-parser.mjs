@@ -33,6 +33,8 @@ export const ROHRER_GARTENBAU_UND_HAUSWARTUNGEN_CAREER_URL = 'https://rohrer-gar
 const ROLE_HEADING_RE = /\b(?:landschaftsg[aä]rtner(?:\/in)?|g[aä]rtner(?:\/in)?|flachdach(?:-service)?|treppenhausreinigung|reinigungskraft|unterhaltsreinigung|raumpfleger(?:\/in)?|reinigungsmitarbeiter(?:\/in)?)\b/i;
 const CLEANING_ROLE_RE = /\b(?:treppenhausreinigung|reinigungskraft|unterhaltsreinigung|raumpfleger(?:\/in)?|reinigungsmitarbeiter(?:\/in)?)\b/i;
 const OBWALDEN_RE = /\bObwalden\b/i;
+const POSITIVE_OBWALDEN_WORKPLACE_RE = /\b(?:arbeitsort(?:e)?|arbeitsplatz|einsatzort(?:e)?|einsatzgebiet|t[aä]tigkeitsgebiet|standort|objekt(?:e|en)?|liegenschaft(?:en)?|reinigung(?:s(?:ort|objekt|arbeiten))?|hauswartung(?:en)?|arbeit(?:en)?|stelle(?:n)?|position(?:en)?)\b[^.!?;\n]{0,80}\bObwalden\b|\bObwalden\b[^.!?;\n]{0,80}\b(?:arbeitsort(?:e)?|arbeitsplatz|einsatzort(?:e)?|einsatzgebiet|t[aä]tigkeitsgebiet|standort|objekt(?:e|en)?|liegenschaft(?:en)?|reinigung(?:s(?:ort|objekt|arbeiten))?|hauswartung(?:en)?|arbeit(?:en)?|stelle(?:n)?|position(?:en)?)\b/i;
+const OBWALDEN_NEGATION_RE = /\b(?:nicht|kein(?:e[snmr]?|en)?|ohne|au(?:sser|ßer)halb(?:\s+von)?)\b/i;
 
 /** Validate both the origin and the protocol of source-owned URLs. */
 export function isTrustedDomain(rawUrl = '') {
@@ -99,9 +101,20 @@ function sourceContentRoot(document) {
   return root;
 }
 
-function extractRoleHeadings(root) {
-  return [...root.querySelectorAll('h2, h3, h4, h5')]
-    .filter((heading) => ROLE_HEADING_RE.test(normalizeSpace(heading.textContent || '')));
+function extractHeadings(root) {
+  return [...root.querySelectorAll('h2, h3, h4, h5')];
+}
+
+function extractPositiveWorkplaceEvidence(description) {
+  for (const clause of String(description || '').split(/[.!?;\n]+/)) {
+    const obwaldenIndex = clause.search(OBWALDEN_RE);
+    const nearbyContext = obwaldenIndex >= 0
+      ? clause.slice(Math.max(0, obwaldenIndex - 80), obwaldenIndex + 'Obwalden'.length + 80)
+      : '';
+    if (!POSITIVE_OBWALDEN_WORKPLACE_RE.test(clause) || OBWALDEN_NEGATION_RE.test(nearbyContext)) continue;
+    return clause.match(OBWALDEN_RE)?.[0] || '';
+  }
+  return '';
 }
 
 function extractHeadingBody(heading, nextHeading, root, document) {
@@ -141,18 +154,20 @@ export function parseRohrerGartenbauUndHauswartungenPage(
   const document = new JSDOM(String(html)).window.document;
   const publication = extractPublicationFields(document, now);
   const root = sourceContentRoot(document);
-  const headings = extractRoleHeadings(root);
+  const allHeadings = extractHeadings(root);
+  const roleHeadings = allHeadings
+    .filter((heading) => ROLE_HEADING_RE.test(normalizeSpace(heading.textContent || '')));
   const listings = [];
   let sawCleaningHeading = false;
 
-  for (let index = 0; index < headings.length; index += 1) {
-    const heading = headings[index];
+  for (let index = 0; index < allHeadings.length; index += 1) {
+    const heading = allHeadings[index];
     const title = normalizeSpace(heading.textContent || '');
-    if (!CLEANING_ROLE_RE.test(title)) continue;
+    if (!ROLE_HEADING_RE.test(title) || !CLEANING_ROLE_RE.test(title)) continue;
     sawCleaningHeading = true;
 
-    const description = extractHeadingBody(heading, headings[index + 1], root, document);
-    const workplaceEvidence = description.match(OBWALDEN_RE)?.[0] || '';
+    const description = extractHeadingBody(heading, allHeadings[index + 1], root, document);
+    const workplaceEvidence = extractPositiveWorkplaceEvidence(description);
     const geography = workplaceEvidence
       ? resolveSourceBackedSwissGeography(workplaceEvidence)
       : null;
@@ -182,10 +197,10 @@ export function parseRohrerGartenbauUndHauswartungenPage(
 
   const fetchOutcome = listings.length > 0
     ? 'ok'
-    : headings.length === 0 || sawCleaningHeading
+    : roleHeadings.length === 0 || sawCleaningHeading
       ? 'selector_miss'
       : 'filtered_empty';
-  return { listings, discoveredCount: headings.length, fetchOutcome };
+  return { listings, discoveredCount: roleHeadings.length, fetchOutcome };
 }
 
 async function fetchJobListings({ fetchHtmlImpl = fetchHtml, now = new Date() } = {}) {
