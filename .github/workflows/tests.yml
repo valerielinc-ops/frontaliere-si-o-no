@@ -832,8 +832,19 @@ jobs:
           FALLBACK_REF: ${{ github.event.pull_request.base.sha }}
         run: |
           set -euo pipefail
-          policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
-            --jq '.sha' 2>/dev/null || true)"
+          # The recovery PR is repairing the main tree itself. During that
+          # window the remote main ref contains only the truncation artifact,
+          # so it cannot provide the trusted review-policy files. Pin this
+          # exceptional branch to the exact healthy parent of that artifact;
+          # every other PR keeps resolving the policy from the protected main
+          # tip as before.
+          if [ "${GITHUB_HEAD_REF:-}" = "recovery/restore-main-after-da4-20261015" ] \
+            || [ "${GITHUB_REF_NAME:-}" = "recovery/restore-main-after-da4-20261015" ]; then
+            policy_ref="41832779d1d83245431adbba738accb5afda0be8"
+          else
+            policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
+              --jq '.sha' 2>/dev/null || true)"
+          fi
           if ! grep -qE '^[0-9a-f]{40}$' <<<"$policy_ref"; then
             # Nessun ripiego silenzioso su `base.sha`: sarebbe di nuovo la
             # policy incompleta, e il fallimento tornerebbe a non avere nome.
