@@ -177,8 +177,11 @@ export function extractAsileListingRows(html = '', pageUrl = ASILE_DES_AVEUGLES_
       const title = normalizeSpace(detailAnchor.textContent || '');
       if (!title) continue;
       const detail = detailIdentity(detailAnchor.getAttribute('href') || '', listingUrl.href);
-      const applyAnchor = row.querySelector(`a[href*="page=personal_information"][href*="rrid=${detail.id}"]`);
-      if (!applyAnchor) {
+      const isTarget = isAsileDesAveuglesTargetTitle(title);
+      const applyAnchor = isTarget
+        ? row.querySelector(`a[href*="page=personal_information"][href*="rrid=${detail.id}"]`)
+        : null;
+      if (isTarget && !applyAnchor) {
         throw new Error(`Asile des aveugles vacancy ${detail.id} has no matching official application handoff`);
       }
       const cells = [...row.querySelectorAll('th, td')];
@@ -186,7 +189,9 @@ export function extractAsileListingRows(html = '', pageUrl = ASILE_DES_AVEUGLES_
         sourceId: detail.id,
         title,
         url: detail.url,
-        applyUrl: applyIdentity(applyAnchor.getAttribute('href') || '', detail.id, listingUrl.href),
+        applyUrl: isTarget
+          ? applyIdentity(applyAnchor.getAttribute('href') || '', detail.id, listingUrl.href)
+          : '',
         contractLabel: normalizeSpace(cells[1]?.textContent || ''),
       });
     }

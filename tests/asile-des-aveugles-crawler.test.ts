@@ -71,6 +71,24 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
     expect(isAsileDesAveuglesTargetTitle('Infirmier-ère EMS Clair-Soleil')).toBe(false);
   });
 
+  it('ignores a missing handoff on an unrelated listing before filtering the ASSC target', async () => {
+    const unrelatedWithoutHandoff = LISTING_HTML.replace(
+      '<td><a href="?page=personal_information&amp;rrid=1913">postuler</a></td>',
+      '<td></td>',
+    );
+    const jobs = await fetchAllAsileDesAveuglesJobs({
+      fetchPage: async (url: string) => {
+        if (url === ASILE_DES_AVEUGLES_CAREERS_URL) return CAREERS_HTML;
+        if (url === ASILE_DES_AVEUGLES_LISTING_URL) return unrelatedWithoutHandoff;
+        if (url === DETAIL_URL) return DETAIL_HTML;
+        throw new Error(`unexpected URL ${url}`);
+      },
+    });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('asile-des-aveugles-1919');
+  });
+
   it('reads the ASSC role, rich copy, contract and Lausanne workplace from the detail', () => {
     const detail = parseAsileDetailPage(
       DETAIL_HTML,
