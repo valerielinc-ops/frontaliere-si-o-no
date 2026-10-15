@@ -1,0 +1,20 @@
+{
+  "companyKey": "kita-summervogel",
+  "companyName": "Kita Summervogel GmbH",
+  "companyHost": "kitasummervogel.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kitasummervogel.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 1,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Miterzieherin"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}
