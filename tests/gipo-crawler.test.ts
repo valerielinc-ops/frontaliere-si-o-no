@@ -42,6 +42,20 @@ describe('GIPO source-backed crawler', () => {
     expect(detail.employmentType).toBe('FULL_TIME');
   });
 
+  it('prefers an explicit employment enum over conflicting description prose', () => {
+    const detail = extractGipoDetailFields(`
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'System Engineer',
+        description: 'A full-time engineering role with part-time collaboration options.',
+        employmentType: 'FULL_TIME',
+      })}</script>
+      <main><h1>System Engineer</h1><p>The role includes part-time collaboration options.</p></main>
+    `, DETAIL_URL);
+    expect(detail.employmentType).toBe('FULL_TIME');
+  });
+
   it('keeps the source-specific safe default only for an unannotated official detail page', () => {
     const detail = extractGipoDetailFields(
       `<main><h1>System Engineer - Business Applications &amp; Workplace</h1><p>${SOURCE_DESCRIPTION}</p></main>`,

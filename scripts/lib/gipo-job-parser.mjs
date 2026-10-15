@@ -92,6 +92,11 @@ export function isGipoJob(job = {}) {
 }
 
 function employmentTypeFromText(...values) {
+  const existing = values
+    .map((value) => normalizeSpace(value))
+    .find((value) => /^(?:FULL_TIME|PART_TIME|CONTRACTOR|TEMPORARY|INTERN|OTHER)$/i.test(value));
+  if (existing) return existing.toUpperCase();
+
   const text = normalizeSpace(values.filter(Boolean).join(' '));
   if (/\b(?:teilzeit|part[-\s]?time|tempo\s+parziale|temps\s+partiel)\b/i.test(text)) {
     return 'PART_TIME';
@@ -99,10 +104,7 @@ function employmentTypeFromText(...values) {
   if (/\b(?:vollzeit|full[-\s]?time|festanstellung|tempo\s+pieno|temps\s+plein)\b/i.test(text)) {
     return 'FULL_TIME';
   }
-  const existing = values
-    .map((value) => normalizeSpace(value))
-    .find((value) => /^(?:FULL_TIME|PART_TIME|CONTRACTOR|TEMPORARY|INTERN|OTHER)$/i.test(value));
-  return existing ? existing.toUpperCase() : 'OTHER';
+  return 'OTHER';
 }
 
 function extractStreetAddress(text = '', postalCode = '', locality = '') {
