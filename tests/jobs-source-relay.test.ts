@@ -337,9 +337,12 @@ describe('source relay crawler client', () => {
     });
   });
 
-  it('accepts the pipelines GitHub OIDC request host', async () => {
+  it.each([
+    'pipelines.actions.githubusercontent.com',
+    'vstoken.actions.githubusercontent.com',
+  ])('accepts the GitHub Actions OIDC request host %s', async (oidcHost) => {
     const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
-      if (String(input).startsWith('https://pipelines.actions.githubusercontent.com/')) {
+      if (String(input).startsWith(`https://${oidcHost}/`)) {
         return new Response(JSON.stringify({ value: 'github-oidc-token' }), {
           status: 200,
           headers: { 'content-type': 'application/json' },
@@ -355,13 +358,13 @@ describe('source relay crawler client', () => {
       fetchImpl,
       env: {
         ...RELAY_ENV,
-        ACTIONS_ID_TOKEN_REQUEST_URL: 'https://pipelines.actions.githubusercontent.com/request',
+        ACTIONS_ID_TOKEN_REQUEST_URL: `https://${oidcHost}/request`,
       },
     });
 
     expect(response?.status).toBe(200);
     expect(fetchImpl).toHaveBeenCalledTimes(2);
-    expect(String(fetchImpl.mock.calls[0][0])).toContain('pipelines.actions.githubusercontent.com');
+    expect(String(fetchImpl.mock.calls[0][0])).toContain(oidcHost);
   });
 
   it.each([

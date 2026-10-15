@@ -24,6 +24,180 @@ const OPENROUTESERVICE_ROUTING_URL = 'https://api.heigit.org/openrouteservice/v2
 const STADIA_ROUTING_URL = 'https://api.stadiamaps.com/route/v1';
 const REQUEST_TIMEOUT_MS = 12_000;
 
+// A webcam wait estimate is not publishable merely because a score exists.
+// These are the fail-closed acceptance limits for the shadow benchmark. The
+// three-feed floor is deliberately small and explicit; the error limits keep
+// a convenient-looking but inaccurate mapping out of the live consumer.
+export const WEBCAM_BASELINE_MIN_FEEDS = 3;
+export const WEBCAM_BASELINE_MIN_PAIRS = 3;
+export const WEBCAM_BASELINE_MIN_COVERAGE = 0.8;
+export const WEBCAM_BASELINE_MAX_MAE_MINUTES = 5;
+export const WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES = 10;
+export const WEBCAM_WAIT_CAP_MINUTES = 30;
+
+const WEBCAM_BASELINE_PROVIDERS = new Set(['tomtom', 'here']);
+
+function finiteNumber(value) {
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+}
+
+function validObservedAt(value) {
+  return typeof value === 'string' && Number.isFinite(Date.parse(value));
+}
+
+function validBaselinePair(row) {
+  const score = finiteNumber(row?.congestionScore);
+  const vehicleCount = finiteNumber(row?.vehicleCount);
+  const providerWaitMinutes = finiteNumber(row?.providerWaitMinutes);
+  return typeof row?.feedKey === 'string'
+    && row.feedKey.trim().length > 0
+    && WEBCAM_BASELINE_PROVIDERS.has(row.provider)
+    && score !== null
+    && score >= 0
+    && score <= 1
+    && vehicleCount !== null
+    && vehicleCount >= 0
+    && providerWaitMinutes !== null
+    && providerWaitMinutes >= 0
+    && validObservedAt(row.observedAt)
+    && row.incrementalPaidRequests === 0;
+}
+
+/**
+ * Assess the raw shadow rows before an estimator can be promoted.
+ *
+ * This is intentionally pure and does not infer missing fields. A row without
+ * a feed identity, vehicle count, provider wait, timestamp, or explicit zero
+ * incremental paid requests is not a usable pair. `candidateWaitMinutes` is
+ * supplied by the offline benchmark for accuracy measurement; production
+ * shadow rows never invent it.
+ */
+export function assessWebcamWaitBaseline(observations) {
+  const rows = Array.isArray(observations) ? observations : [];
+  const pairs = rows.filter(validBaselinePair);
+  const feedKeys = new Set(pairs.map((row) => row.feedKey.trim()));
+  const coverage = rows.length === 0 ? 0 : pairs.length / rows.length;
+  const incrementalPaidRequests = rows.every(
+    (row) => Number.isSafeInteger(row?.incrementalPaidRequests),
+  )
+    ? rows.reduce((sum, row) => sum + row.incrementalPaidRequests, 0)
+    : null;
+  const candidatePairs = pairs.filter((row) => {
+    const candidate = finiteNumber(row.candidateWaitMinutes);
+    return candidate !== null && candidate >= 0;
+  });
+  const absoluteErrors = candidatePairs.map((row) => Math.abs(
+    row.candidateWaitMinutes - row.providerWaitMinutes,
+  ));
+  const maeMinutes = absoluteErrors.length > 0
+    ? absoluteErrors.reduce((sum, error) => sum + error, 0) / absoluteErrors.length
+    : null;
+  const maxAbsoluteErrorMinutes = absoluteErrors.length > 0
+    ? Math.max(...absoluteErrors)
+    : null;
+  const reasons = [];
+
+  if (feedKeys.size < WEBCAM_BASELINE_MIN_FEEDS) {
+    reasons.push(`requires at least ${WEBCAM_BASELINE_MIN_FEEDS} distinct feed keys`);
+  }
+  if (pairs.length < WEBCAM_BASELINE_MIN_PAIRS) {
+    reasons.push(`requires at least ${WEBCAM_BASELINE_MIN_PAIRS} valid webcam/provider pairs`);
+  }
+  if (coverage < WEBCAM_BASELINE_MIN_COVERAGE) {
+    reasons.push(`pair coverage ${coverage.toFixed(3)} is below ${WEBCAM_BASELINE_MIN_COVERAGE}`);
+  }
+  if (incrementalPaidRequests !== 0) {
+    reasons.push('baseline collection must add zero paid provider requests');
+  }
+  if (candidatePairs.length !== pairs.length) {
+    reasons.push('candidate accuracy is not measured for every valid pair');
+  }
+  if (maeMinutes !== null && maeMinutes > WEBCAM_BASELINE_MAX_MAE_MINUTES) {
+    reasons.push(`mean absolute error ${maeMinutes.toFixed(3)} exceeds ${WEBCAM_BASELINE_MAX_MAE_MINUTES} minutes`);
+  }
+  if (
+    maxAbsoluteErrorMinutes !== null
+    && maxAbsoluteErrorMinutes > WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES
+  ) {
+    reasons.push(
+      `maximum absolute error ${maxAbsoluteErrorMinutes.toFixed(3)} exceeds `
+      + `${WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES} minutes`,
+    );
+  }
+
+  return {
+    ready: reasons.length === 0,
+    reasons,
+    metrics: {
+      rows: rows.length,
+      validPairs: pairs.length,
+      feedCount: feedKeys.size,
+      coverage,
+      providers: [...new Set(pairs.map((row) => row.provider))].sort(),
+      incrementalPaidRequests,
+      candidatePairs: candidatePairs.length,
+      maeMinutes,
+      maxAbsoluteErrorMinutes,
+    },
+  };
+}
+
+function validWebcamWaitCalibration(calibration) {
+  const feedCount = finiteNumber(calibration?.feedCount);
+  const coverage = finiteNumber(calibration?.coverage);
+  const maeMinutes = finiteNumber(calibration?.maeMinutes);
+  const maxAbsoluteErrorMinutes = finiteNumber(calibration?.maxAbsoluteErrorMinutes);
+  const intercept = finiteNumber(calibration?.intercept);
+  const slope = finiteNumber(calibration?.slope);
+  const capMinutes = finiteNumber(calibration?.capMinutes ?? WEBCAM_WAIT_CAP_MINUTES);
+  return calibration?.validated === true
+    && feedCount !== null
+    && feedCount >= WEBCAM_BASELINE_MIN_FEEDS
+    && coverage !== null
+    && coverage >= WEBCAM_BASELINE_MIN_COVERAGE
+    && maeMinutes !== null
+    && maeMinutes <= WEBCAM_BASELINE_MAX_MAE_MINUTES
+    && maxAbsoluteErrorMinutes !== null
+    && maxAbsoluteErrorMinutes <= WEBCAM_BASELINE_MAX_ABSOLUTE_ERROR_MINUTES
+    && calibration.incrementalPaidRequests === 0
+    && intercept !== null
+    && intercept >= 0
+    && slope !== null
+    && slope >= 0
+    && capMinutes !== null
+    && capMinutes >= 0
+    && capMinutes <= WEBCAM_WAIT_CAP_MINUTES;
+}
+
+/**
+ * Return a calibrated wait estimate, or an explicit unknown result.
+ *
+ * No calibration is checked into production by this change: until the shadow
+ * benchmark supplies a validated model, the scheduler keeps its existing
+ * fallback and does not publish this new estimate.
+ */
+export function estimateWebcamWait(congestionScore, calibration = null) {
+  const score = finiteNumber(congestionScore);
+  if (score === null || score < 0 || score > 1) {
+    return { status: 'unknown', waitTimeMinutes: null, reason: 'no-signal' };
+  }
+  if (!validWebcamWaitCalibration(calibration)) {
+    return { status: 'unknown', waitTimeMinutes: null, reason: 'baseline-not-validated' };
+  }
+  const raw = calibration.intercept + calibration.slope * score;
+  if (!Number.isFinite(raw)) {
+    return { status: 'unknown', waitTimeMinutes: null, reason: 'invalid-calibration' };
+  }
+  return {
+    status: 'estimated',
+    waitTimeMinutes: Math.min(
+      calibration.capMinutes ?? WEBCAM_WAIT_CAP_MINUTES,
+      Math.max(0, Math.round(raw)),
+    ),
+    reason: null,
+  };
+}
+
 // Every route/flow request reserves its unit in its own Firestore transaction
 // against ONE document per provider, and the collector fires a whole batch
 // concurrently (5 crossings × 2 segments = 10 writers on the same document for
