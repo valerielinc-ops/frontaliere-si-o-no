@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { runIsolatedPruner } from './helpers/runIsolatedPruner';
 
 // Esegue scripts/prune-merged-worktrees.mjs su un clone usa-e-getta, con `gh`
 // e `lsof` finti in testa al PATH. Ogni caso riproduce un worktree che il
@@ -31,6 +32,7 @@ let env: NodeJS.ProcessEnv = {};
 const sha: Record<string, string> = {};
 let dryRun = '';
 let applyRun = '';
+let scopedRun = '';
 
 function git(cwd: string, ...args: string[]): string {
   return execFileSync('git', args, { cwd, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -66,7 +68,7 @@ function ageTree(dir: string): void {
 }
 
 function runScript(args: string[]): string {
-  return execFileSync('node', [SCRIPT, ...args], { cwd: clone, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return runIsolatedPruner(SCRIPT, args, root, clone, env);
 }
 
 beforeAll(() => {
@@ -204,6 +206,9 @@ exit 0
   env.FAKE_LSOF_CWDS = path.join(wt('busy-main'), 'scripts');
 
   dryRun = runScript([]);
+  scopedRun = runScript(['--apply', '--only', 'no-fixture-matches-this']);
+  // --only must not fall through to unrelated cleanup before the real apply.
+  expect(fs.existsSync(wt('feat-merged'))).toBe(true);
   applyRun = runScript(['--apply']);
 }, 120000);
 
@@ -212,6 +217,9 @@ afterAll(() => {
 });
 
 describe('prune-merged-worktrees.mjs su un clone di prova', () => {
+  it('--only does not run unrelated global sweeps', () => {
+    expect(scopedRun).not.toMatch(/device cache\/session cleanup|workspace artifact cleanup|directory stale rimosse/);
+  });
   it('il dry-run non tocca niente', () => {
     expect(dryRun).toContain('dry-run: niente rimosso');
     expect(dryRun).toMatch(/worktree da rimuovere \(4\)/);
