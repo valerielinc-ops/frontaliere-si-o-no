@@ -1,16 +1,16 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-10-14T21:19:45.898Z",
-  "total": 16,
+  "generatedAt": "2026-10-15T09:23:05.134Z",
+  "total": 15,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 12,
-  "durationMs": 65645,
-  "avgDurationMs": 65645,
+  "durationMs": 9839,
+  "avgDurationMs": 9839,
   "durationHistory": [
-    65645
+    9839
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "collaboratore-trice-kommunikation-events-m-w-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-d3df238308d9",
       "sourceLang": "it",
       "salaryMin": 77000,
@@ -71,7 +71,7 @@
       "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "produktionscontroller-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-c6ae8f91fddc",
       "sourceLang": "it",
       "salaryMin": 77000,
@@ -110,7 +110,7 @@
       "postedDate": "2026-09-22",
       "source": "company-website",
       "slug": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-cf5dcfc29e42",
       "sourceLang": "it",
       "salaryMin": 59000,
@@ -130,7 +130,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Assistenz Administration & Organisation (m/w/d) 60%",
       "company": "EMS-Chemie AG",
@@ -161,7 +163,6 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/assistenz-administration-organisation-m-w-d/94594235-478c-4e44-add6-2cf33c2f14ae",
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -171,7 +172,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
@@ -192,7 +192,7 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "source": "company-website",
       "slug": "gestione-moduli-sap-sd-wm-ewm-m-f-d-100-ems-chemie-ag-domat-ems",
       "id": "ems-chemie-d30c0315b966",
@@ -231,7 +231,7 @@
       "postingDateSource": "reported",
       "source": "company-website",
       "slug": "responsabile-di-laboratorio-per-il-controllo-qualita-di-fibre-e-filati-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-961e735b396c",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -268,7 +268,7 @@
       "postingDateSource": "reported",
       "source": "company-website",
       "slug": "senior-financial-accountant-specialista-contabilita-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-c4ab3875eaa7",
       "salaryMin": 118000,
       "salaryMax": 196000,
@@ -305,7 +305,7 @@
       "postingDateSource": "reported",
       "source": "company-website",
       "slug": "capo-delle-risorse-umane-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-99c4616430a2",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -342,7 +342,7 @@
       "postingDateSource": "reported",
       "source": "company-website",
       "slug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-9dc0af2633d3",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -377,7 +377,7 @@
       "postedDate": "2026-10-02",
       "source": "company-website",
       "slug": "leiter-vendita-schweiz-m-w-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-5244ac9dda06",
       "salaryMin": 118000,
       "salaryMax": 196000,
@@ -414,7 +414,7 @@
       "postedDate": "2026-10-02",
       "source": "company-website",
       "slug": "testa-di-tecnologia-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-5750a2210226",
       "salaryMin": 118000,
       "salaryMax": 196000,
@@ -451,7 +451,7 @@
       "postedDate": "2026-10-02",
       "source": "company-website",
       "slug": "fibre-di-controllo-di-qualita-del-laboratorio-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-65815c94c97a",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -488,7 +488,7 @@
       "postedDate": "2026-10-02",
       "source": "company-website",
       "slug": "project-manager-applicazioni-in-plastica-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-4c2b6421fb77",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -525,7 +525,7 @@
       "postedDate": "2026-10-01",
       "source": "company-website",
       "slug": "testa-di-acquisto-tecnico-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-3a24b9044b5e",
       "salaryMin": 118000,
       "salaryMax": 196000,
@@ -562,7 +562,7 @@
       "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "sviluppo-chimico-ingegnere-di-sviluppo-m-f-d-100-ems-chemie-ag-romanshorn",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-44c02c48559d",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -598,7 +598,7 @@
       "postedDate": "2026-09-17",
       "source": "company-website",
       "slug": "regolatore-di-vendita-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "2026-10-14T21:19:36.934Z",
+      "crawledAt": "2026-10-15T09:22:59.203Z",
       "id": "ems-chemie-2dc155283bc3",
       "sourceLang": "de",
       "salaryMin": 77000,
@@ -619,5 +619,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
 }

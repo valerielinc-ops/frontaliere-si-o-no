@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 634,
+  "crawlerCount": 635,
   "groups": {
     "10": [
       "atec-personal",
@@ -244,6 +244,7 @@
       "siemens-healthineers",
       "spital-zofingen",
       "sygnum",
+      "technic-emplois",
       "veeam",
       "zurich-insurance-sede-ticino"
     ],
@@ -267,10 +268,10 @@
       "opus-personal",
       "pkb-private-bank",
       "rheinmetall-air-defence",
+      "rohrer-gartenbau-und-hauswartungen",
       "sfs-group",
       "sicpa",
       "spital-lachen",
-      "technic-emplois",
       "tertianum",
       "tinext",
       "trumpf-schweiz",
@@ -1165,6 +1166,7 @@
     "rituals-cosmetics": "data/jobs/by-crawler/rituals-cosmetics.json",
     "riveneuve": "data/jobs/by-crawler/riveneuve.json",
     "roche": "data/jobs/by-crawler/roche.json",
+    "rohrer-gartenbau-und-hauswartungen": "data/jobs/by-crawler/rohrer-gartenbau-und-hauswartungen.json",
     "rolex": "data/jobs/by-crawler/rolex.json",
     "rsbj": "data/jobs/by-crawler/rsbj.json",
     "rss-surselva": "data/jobs/by-crawler/rss-surselva.json",
@@ -1322,5 +1324,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:b9858c9377ee7dbf96ffbfa8c91d245dab7ce7891d7509b700a6d24a4cf4d84d"
+  "digest": "sha256:7c78cff6f9b4eeaf87d3f05ee7fa6f5f067546aad550cc781c8349e4cad9db1f"
 }
