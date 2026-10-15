@@ -13263,6 +13263,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR supprime 202 postes supplémentaires',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR supprime 202 postes à temps plein et prévoit 41 millions d\'économies.',
     'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Rédaction radiotélévisée au Tessin, avec vue urbaine, symbole des suppressions de postes à la SSR.',
+    'blog.article.arresto-cittadino-russo-como.title': 'Como, un citoyen russe arrêté pour entrée illégale',
+    'blog.article.arresto-cittadino-russo-como.excerpt': 'Un citoyen russe de 26 ans arrêté Vitrage d’un garage endommagé Tentative de fuite après l’interpellation Prison de Como en attendant la comparution immédiate Quoi →',
+    'blog.article.arresto-cittadino-russo-como.imageAlt': 'Vue urbaine de la ville de Côme (Como)',
 };
 
 export default blogMetaFr;

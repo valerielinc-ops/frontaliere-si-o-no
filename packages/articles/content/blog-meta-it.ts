@@ -13262,6 +13262,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR taglia altri 202 posti di lavoro',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR sopprime 202 posti a tempo pieno e prevede risparmi per 41 milioni.',
     'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Redazione radiotelevisiva in Ticino con vista urbana, immagine simbolica dei tagli SSR.',
+    'blog.article.arresto-cittadino-russo-como.title': 'Como, arrestato cittadino russo per ingresso abusivo',
+    'blog.article.arresto-cittadino-russo-como.excerpt': 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
+    'blog.article.arresto-cittadino-russo-como.imageAlt': 'Veduta urbana della città di Como',
 };
 
 export default blogMetaIt;

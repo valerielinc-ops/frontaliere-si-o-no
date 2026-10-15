@@ -13260,6 +13260,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ssr-riduce-organico-risparmi.title': 'Die SSR streicht weitere 202 Arbeitsplätze',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'Die SSR streicht 202 Vollzeitstellen und sieht Einsparungen von 41 Millionen vor.',
     'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Rundfunkredaktion im Tessin mit Stadtblick als Symbol für den Stellenabbau bei der SSR.',
+    'blog.article.arresto-cittadino-russo-como.title': 'Como, russischer Staatsbürger wegen unbefugten Eindringens festgenommen',
+    'blog.article.arresto-cittadino-russo-como.excerpt': '26-jähriger russischer Staatsbürger festgenommen Glasfront eines Parkhauses beschädigt Fluchtversuch nach der Festnahme Gefängnis in Como in Erwartung des Schnellverfahrens Was →',
+    'blog.article.arresto-cittadino-russo-como.imageAlt': 'Stadtansicht von Como',
 };
 
 export default blogMetaDe;

@@ -44757,6 +44757,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-cittadino-russo-como',
+ category: 'novita',
+ date: '2026-10-15T22:59:14.775Z',
+ image: '/images/blog/devastazione-vagone-como-fermo.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

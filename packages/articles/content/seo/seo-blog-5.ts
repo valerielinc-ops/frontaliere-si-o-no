@@ -109033,6 +109033,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-cittadino-russo-como': {
+    title: 'Como, arrestato cittadino russo per ingresso abusivo',
+    description: 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, arrestato, cittadino, russo',
+    ogTitle: 'Como, arrestato cittadino russo per ingresso abusivo',
+    ogDescription: 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
+    canonicalPath: '/articoli-frontaliere/arresto-cittadino-russo-como/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, arrestato cittadino russo per ingresso abusivo",
+      "description": "Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/devastazione-vagone-como-fermo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta urbana della città di Como"
+      },
+      "datePublished": "2026-10-15T22:59:15+00:00",
+      "dateModified": "2026-10-15T22:59:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-cittadino-russo-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

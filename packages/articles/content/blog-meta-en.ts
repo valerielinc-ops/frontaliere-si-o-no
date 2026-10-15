@@ -13261,6 +13261,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ssr-riduce-organico-risparmi.title': 'SSR cuts another 202 jobs',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'SSR is eliminating 202 full-time positions and expects savings of 41 million.',
     'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Broadcast newsroom in Ticino with an urban view, symbolizing SSR job cuts.',
+    'blog.article.arresto-cittadino-russo-como.title': 'Como, Russian citizen arrested for unlawful entry',
+    'blog.article.arresto-cittadino-russo-como.excerpt': '26-year-old Russian citizen arrested Garage window damaged Attempted escape after detention Como prison awaiting immediate trial What →',
+    'blog.article.arresto-cittadino-russo-como.imageAlt': 'Urban view of the city of Como',
 };
 
 export default blogMetaEn;
