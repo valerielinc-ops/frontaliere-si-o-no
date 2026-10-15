@@ -44582,6 +44582,26 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bollettino-frontaliere-2026-10-15',
+ category: 'novita',
+ date: '2026-10-15T09:49:19.825Z',
+ image: '/images/blog/bollettino-frontaliere-2026-10-15.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
+ {
+ id: 'tasso-disoccupazione-ticino-trimestri',
+ category: 'novita',
+ date: '2026-10-15T09:49:55.975Z',
+ image: '/images/blog/article-tasso-disoccupazione-ticino-trimestri.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

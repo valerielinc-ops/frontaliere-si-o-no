@@ -13208,6 +13208,14 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sconto-dipendenti-migros-ccl.title': 'Migros: new CCL from 2027, 10% discount',
     'blog.article.sconto-dipendenti-migros-ccl.excerpt': 'Migros’ national CCL will be in force from 2027 to 2031: uniform conditions, a 41-hour workweek for many, and a 10% discount with shopping vouchers.',
     'blog.article.sconto-dipendenti-migros-ccl.imageAlt': 'Migros supermarket in Ticino illustrating the new national collective labour agreement.',
+    'blog.article.bollettino-frontaliere-2026-10-15.title': 'Cross-border workers: 2\'046 new Swiss job listings yesterday — October 15, 2026',
+    'blog.article.bollettino-frontaliere-2026-10-15.excerpt': 'Today\'s numbers, October 15, 2026, for cross-border commuters: the latest waits measured at each crossing, the municipalities where fuel is cheapest, the latest reported franc-euro rate and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-15.imageAlt': 'The day\'s numbers for cross-border commuters – October 15, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-10-15.seoDescription': 'Cross-border brief, October 15, 2026: latest measured border waiting times, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-10-15.ogDescription': 'The numbers for October 15, 2026, for cross-border commuters: how long the queue is at each crossing, which towns have the cheapest fuel, what the latest recorded franc-euro rate is and how many Swiss job listings were posted.',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.title': 'Unemployment rate to rise in the coming months',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.excerpt': '2,87% in the third quarter in Ticino 3,31% forecast in the fourth quarter 2026 3,45% estimated in the first quarter 2027 Youth rate rising: 5,7% Seco rate',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.imageAlt': 'View of Lake Lugano with mountains in the background and people strolling along the shore',
 };
 
 export default blogMetaEn;

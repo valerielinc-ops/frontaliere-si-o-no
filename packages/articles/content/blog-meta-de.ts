@@ -13207,6 +13207,14 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sconto-dipendenti-migros-ccl.title': 'Migros: neuer GAV ab 2027, 10%-Rabatt',
     'blog.article.sconto-dipendenti-migros-ccl.excerpt': 'Der nationale GAV von Migros gilt von 2027 bis 2031: einheitliche Bedingungen, eine 41-Stunden-Woche für viele und 10%-Rabatt mit Einkaufsgutscheinen.',
     'blog.article.sconto-dipendenti-migros-ccl.imageAlt': 'Migros-Supermarkt im Tessin zum neuen nationalen Gesamtarbeitsvertrag.',
+    'blog.article.bollettino-frontaliere-2026-10-15.title': 'Grenzgänger: 2\'046 neue Stellen in der Schweiz gestern — 15. Oktober 2026',
+    'blog.article.bollettino-frontaliere-2026-10-15.excerpt': 'Die Zahlen von heute, 15. Oktober 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der zuletzt erfasste Franken-Euro-Kurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-15.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 15. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-10-15.seoDescription': 'Grenzgänger-Bulletin vom 15. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-15.ogDescription': 'Die Zahlen vom 15. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, wie der Franken zuletzt zum Euro stand und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.title': 'Steigende Arbeitslosenquote in den kommenden Monaten',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.excerpt': '2,87% im dritten Quartal im Tessin 3,31% im vierten Quartal 2026 erwartet 3,45% im ersten Quartal 2027 geschätzt Jugendarbeitslosenquote steigt: 5,7% Seco-Arbeitslosenquote',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.imageAlt': 'Blick auf den Luganer See mit den Bergen im Hintergrund und Personen, die entlang des Ufers spazieren gehen',
 };
 
 export default blogMetaDe;

@@ -108375,6 +108375,83 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollettino-frontaliere-2026-10-15': {
+    title: 'Frontalieri: 2046 nuovi annunci in Svizzera ieri — 15 ottobre 2026',
+    description: 'Bollettino frontalieri del 15 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Frontalieri: 2046 nuovi annunci in Svizzera ieri — 15 ottobre 2026',
+    ogDescription: 'I numeri del 15 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti nuovi annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-15/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: 2046 nuovi annunci in Svizzera ieri — 15 ottobre 2026",
+      "description": "Bollettino frontalieri del 15 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "Deterministic media produced by frontaliereticino.ch.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-15.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 15 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-10-15T09:49:20+00:00",
+      "dateModified": "2026-10-15T09:49:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-15/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tasso-disoccupazione-ticino-trimestri': {
+    title: 'Tasso di disoccupazione in crescita nei prossimi mesi',
+    description: '2,87% nel terzo trimestre in Ticino 3,31% previsto nel quarto trimestre 2026 3,45% stimato nel primo trimestre 2027 Tasso giovanile in aumento: 5,7% Tasso Seco',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasso, disoccupazione, crescita, prossimi',
+    ogTitle: 'Tasso di disoccupazione Ticino: previsioni Q4 2026 e Q1 2027',
+    ogDescription: '2,87% nel terzo trimestre in Ticino 3,31% previsto nel quarto trimestre 2026 3,45% stimato nel primo trimestre 2027 Tasso giovanile in aumento: 5,7% Tasso Seco',
+    canonicalPath: '/articoli-frontaliere/tasso-disoccupazione-ticino-trimestri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasso di disoccupazione in crescita nei prossimi mesi",
+      "description": "2,87% nel terzo trimestre in Ticino 3,31% previsto nel quarto trimestre 2026 3,45% stimato nel primo trimestre 2027 Tasso giovanile in aumento: 5,7% Tasso Seco",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tasso-disoccupazione-ticino-trimestri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con montagne sullo sfondo e persone che passeggiano lungo la riva"
+      },
+      "datePublished": "2026-10-15T09:49:56+00:00",
+      "dateModified": "2026-10-15T09:49:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tasso-disoccupazione-ticino-trimestri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -13209,6 +13209,14 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sconto-dipendenti-migros-ccl.title': 'Migros: nuovo CCL dal 2027, sconto del 10%',
     'blog.article.sconto-dipendenti-migros-ccl.excerpt': 'Il CCL nazionale Migros varrà dal 2027 al 2031: condizioni uniformi, settimana da 41 ore per molti e sconto del 10% con buoni acquisto.',
     'blog.article.sconto-dipendenti-migros-ccl.imageAlt': 'Supermercato Migros in Ticino sul nuovo contratto collettivo nazionale.',
+    'blog.article.bollettino-frontaliere-2026-10-15.title': 'Frontalieri: 2046 nuovi annunci in Svizzera ieri — 15 ottobre 2026',
+    'blog.article.bollettino-frontaliere-2026-10-15.excerpt': 'I numeri di oggi, 15 ottobre 2026, per chi attraversa il confine: le ultime attese rilevate ai valichi, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-15.imageAlt': 'I numeri del giorno per i frontalieri – 15 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-15.seoDescription': 'Bollettino frontalieri del 15 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-15.ogDescription': 'I numeri del 15 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti nuovi annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.title': 'Tasso di disoccupazione in crescita nei prossimi mesi',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.excerpt': '2,87% nel terzo trimestre in Ticino 3,31% previsto nel quarto trimestre 2026 3,45% stimato nel primo trimestre 2027 Tasso giovanile in aumento: 5,7% Tasso Seco',
+    'blog.article.tasso-disoccupazione-ticino-trimestri.imageAlt': 'Vista del lago di Lugano con montagne sullo sfondo e persone che passeggiano lungo la riva',
 };
 
 export default blogMetaIt;

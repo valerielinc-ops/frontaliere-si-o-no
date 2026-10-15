@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5483
+      "6": 5485
     },
-    "publishedCovers": 7064,
+    "publishedCovers": 7066,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5288
+    "inferredRecords": 5290
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -188691,6 +188691,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-tasso-disoccupazione-ticino-trimestri": {
+      "cover": "/images/blog/article-tasso-disoccupazione-ticino-trimestri.webp",
+      "hash": "b347f32aea837add35787e90766cb60ecab386985d2fe64db40c0cb4594de8de",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "tasso-disoccupazione-ticino-trimestri",
+          "category": "novita",
+          "date": "2026-10-15T09:49:55.975Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-tesserete-canalizzazione-privata": {
       "cover": "/images/blog/article-tesserete-canalizzazione-privata.webp",
       "hash": "7c1ebb98687d5503d2aa122b3463e9eb94d64f248b39661d4bbe925078c556be",
@@ -189406,6 +189433,33 @@
           "date": "2026-10-14T10:02:59.789Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-15": {
+      "cover": "/images/blog/bollettino-frontaliere-2026-10-15.webp",
+      "hash": "d613e2e63c93d78db93296a7be3ee28959afbf9a07a6fbd7f3e5af2371f33b0d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-15",
+          "category": "novita",
+          "date": "2026-10-15T09:49:19.825Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
         }
       ],
       "proofLevel": 6,
