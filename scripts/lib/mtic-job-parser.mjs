@@ -19,6 +19,23 @@ import { JSDOM } from 'jsdom';
 import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const BASE_URL = 'https://www.mtic-group.org';
+const MTIC_DOMAIN = 'mtic-group.org';
+
+/**
+ * Keep job detail URLs on MTIC-owned hosts. The public listing can contain
+ * stale or redirected links from another subsidiary/ATS; those links are not
+ * an authoritative MTIC detail page and must not enter the Swiss slice.
+ */
+export function isMticTrustedUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;
+    const host = url.hostname.toLowerCase();
+    return host === MTIC_DOMAIN || host.endsWith(`.${MTIC_DOMAIN}`);
+  } catch {
+    return false;
+  }
+}
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -82,12 +99,13 @@ export function parseMticListingPage(html = '') {
       let href = String(a.getAttribute('href') || '').trim();
       if (!href || href === '#') continue;
 
-      // Resolve relative URLs
-      if (href.startsWith('/')) {
-        href = `${BASE_URL}${href}`;
-      } else if (!href.startsWith('http')) {
-        href = `${BASE_URL}/${href}`;
+      // Resolve relative URLs, then reject links that leave MTIC's domains.
+      try {
+        href = new URL(href, BASE_URL).toString();
+      } catch {
+        continue;
       }
+      if (!isMticTrustedUrl(href)) continue;
 
       // Deduplicate by URL
       const normalized = href.toLowerCase().replace(/\/$/, '');

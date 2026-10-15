@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-10-15T09:23:35.046Z",
+  "generatedAt": "2026-10-15T21:21:36.926Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6389,
-  "avgDurationMs": 6389,
+  "durationMs": 6932,
+  "avgDurationMs": 6932,
   "durationHistory": [
-    6389
+    6932
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:23:20.554Z",
+      "crawledAt": "2026-10-15T21:21:25.483Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:23:17.661Z",
+      "crawledAt": "2026-10-15T21:21:22.590Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:23:17.660Z",
+      "crawledAt": "2026-10-15T21:21:22.590Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -152,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }

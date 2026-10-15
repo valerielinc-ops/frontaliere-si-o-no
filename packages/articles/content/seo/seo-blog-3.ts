@@ -619,16 +619,16 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
 
  'blog-passaggio-statuto-s-permesso-b': {
  title: 'Dallo statuto S al permesso B in Ticino | Frontaliere Ticino',
- description: 'Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.',
- keywords: 'frontalieri, ticino, svizzera, italia, dallo, statuto, permesso, passaggio',
+ description: 'Dopo almeno cinque anni di soggiorno ininterrotto, chi beneficia dello statuto S ha diritto a un permesso B collegato: requisiti, ruolo del Cantone e proroga federale fino al 4 marzo 2028.',
+ keywords: 'frontalieri, ticino, svizzera, ucraina, statuto, protezione, permesso, soggiorno, B',
  ogTitle: 'Dallo statuto S al permesso B in Ticino',
- ogDescription: 'Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.',
+ ogDescription: 'Dopo almeno cinque anni di soggiorno ininterrotto, chi beneficia dello statuto S ha diritto a un permesso B collegato: requisiti, ruolo del Cantone e proroga federale fino al 4 marzo 2028.',
  canonicalPath: '/articoli-frontaliere/passaggio-statuto-s-permesso-b/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Dallo statuto S al permesso B in Ticino",
- "description": "Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.",
+ "description": "Dopo almeno cinque anni di soggiorno ininterrotto, chi beneficia dello statuto S ha diritto a un permesso B collegato: requisiti, ruolo del Cantone e proroga federale fino al 4 marzo 2028.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/passaggio-statuto-s-permesso-b.webp`,
  "width": 1344,
@@ -636,7 +636,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "caption": "Panorama di Bellinzona con le sue torri e il paesaggio montano circostante, rappresentativo del confine tra Italia e Svizzera."
  },
  "datePublished": "2026-03-22T09:44:18+00:00",
- "dateModified": "2026-03-22T09:44:18+00:00",
+ "dateModified": "2026-10-11T00:00:00+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1948,20 +1948,20 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
 
  'blog-trovare-lavoro-ticino': {
  title: 'Come trovare lavoro in Ticino da frontaliere: guida completa',
- description: 'Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: guida completa per trovare lavoro in Canton Ticino dall\'Italia.',
+ description: 'Dati USTAT e SECO, canali ufficiali, CV, permesso G e benchmark salariali: guida pratica per candidarsi in Ticino dall’Italia.',
  keywords: 'lavoro Ticino, frontaliere, cercare lavoro, Svizzera, CV svizzero, stipendio, settori, job board',
- ogTitle: 'Come trovare lavoro in Ticino da frontaliere: guida completa 2026',
- ogDescription: 'Portali di ricerca, settori che assumono, CV svizzero e stipendi medi: tutto per trovare lavoro in Canton Ticino dall\'Italia.',
+ ogTitle: 'Come trovare lavoro in Ticino da frontaliere: guida aggiornata 2026',
+ ogDescription: 'Dati USTAT e SECO, canali ufficiali, CV, permesso G e benchmark salariali per cercare lavoro in Ticino dall’Italia.',
  canonicalPath: '/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/',
  structuredData: [
  {
  "@context": "https://schema.org",
  "@type": "BlogPosting",
- "headline": "Come Trovare Lavoro in Ticino da Frontaliere: Guida 2026",
- "description": "Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: guida completa per trovare lavoro in Canton Ticino.",
+ "headline": "Come Trovare Lavoro in Ticino da Frontaliere: Guida aggiornata 2026",
+ "description": "Dati USTAT e SECO, canali ufficiali, CV, permesso G e benchmark salariali per candidarsi in Ticino.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1200, "height": 675 },
  "datePublished": "2026-04-03",
- "dateModified": "2026-04-03",
+ "dateModified": "2026-10-11T00:00:00+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1972,11 +1972,11 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Quali sono i portali migliori per cercare lavoro in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I principali portali sono job.ticino.ch (cantonale), jobs.ch e jobup.ch (nazionali), LinkedIn, e il job board di Frontaliere Ticino con oltre 4.000 offerte. Le agenzie interinali come Adecco, Manpower e Randstad hanno sedi a Lugano e Mendrisio." } },
- { "@type": "Question", "name": "Qual è lo stipendio medio in Ticino per un frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio mediano in Canton Ticino è di circa CHF 5.400/mese (BFS, 2024). Varia per settore: finanza CHF 7.000-9.000, IT CHF 6.500-8.500, pharma CHF 6.000-8.000, commercio CHF 5.000-6.500, ospitalità CHF 4.500-5.500." } },
- { "@type": "Question", "name": "Il CV svizzero è diverso da quello italiano?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: il CV svizzero include foto, è lungo 2-3 pagine, richiede referenze verificabili, usa formato cronologico inverso e include i certificati di lavoro (Arbeitszeugnis). La lettera motivazionale è quasi sempre richiesta." } },
- { "@type": "Question", "name": "Quali settori assumono di più frontalieri in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con più domanda sono: servizi finanziari e bancari, farmaceutico e biotech, IT e software, ingegneria e manifattura, commercio al dettaglio, e sanità. Lugano, Mendrisio e Chiasso concentrano la maggior parte delle opportunità." } },
- { "@type": "Question", "name": "Serve parlare tedesco per lavorare in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "No, il Ticino è italofono. L'italiano è la lingua principale. Tuttavia, conoscere inglese e/o tedesco è un vantaggio competitivo, soprattutto in finanza, pharma e aziende internazionali." } }
+ { "@type": "Question", "name": "Quanti frontalieri risultano in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "USTAT registra 79.121 frontalieri nel II trimestre 2026 nella serie STAF; il dato è trimestrale e i periodi recenti sono indicati come provvisori." } },
+ { "@type": "Question", "name": "Qual è il salario mediano in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Nel settore privato ticinese il salario mensile lordo standardizzato mediano 2024 è CHF 5.393; per i frontalieri con permesso G è CHF 4.800. È una mediana, non un netto né un’offerta garantita." } },
+ { "@type": "Question", "name": "Dove cercare offerte affidabili?", "acceptedAnswer": { "@type": "Answer", "text": "Inizia dalla pagina Trovare lavoro del Cantone Ticino, dalla Job-Room e dal sito del datore. Verifica sempre la fonte originale e la data dell’annuncio." } },
+ { "@type": "Question", "name": "Quali condizioni valgono per il permesso G?", "acceptedAnswer": { "@type": "Answer", "text": "Per i cittadini UE/AELS il rientro al domicilio estero avviene di norma ogni giorno o almeno una volta alla settimana. La SEM indica mobilità in tutta la Svizzera e una validità di cinque anni per un contratto indeterminato o superiore a un anno." } },
+ { "@type": "Question", "name": "Il diploma italiano deve essere riconosciuto?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dalla professione. La SEFRI indica di verificare l’elenco delle professioni regolamentate: in quei casi il riconoscimento può essere necessario; per le professioni non regolamentate, di norma non lo è." } }
  ]
  }
  ]

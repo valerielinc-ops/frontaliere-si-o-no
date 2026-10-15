@@ -1,7 +1,7 @@
 {
   "key": "ardian",
   "label": "Ardian",
-  "generatedAt": "2026-10-15T09:41:49.103Z",
+  "generatedAt": "2026-10-15T21:43:52.985Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4329,
-  "avgDurationMs": 4329,
+  "durationMs": 4452,
+  "avgDurationMs": 4452,
   "durationHistory": [
-    4329
+    4452
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T09:41:39.875Z",
+      "crawledAt": "2026-10-15T21:43:37.827Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -73,12 +73,13 @@
       "companyKey": "ardian",
       "companyDomain": "ardian.com",
       "title": "Fund Finance Secondaries & Primaries Intern - February 2027 I Zurich (M/F)",
+      "needsRetranslation": true,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T09:41:39.164Z",
+      "crawledAt": "2026-10-15T21:43:37.115Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-soins-lausanne",
-  "assembledAt": "2026-10-15T09:42:31.659Z",
+  "assembledAt": "2026-10-15T21:24:07.499Z",
   "jobs": [
     {
       "id": "fondation-soins-lausanne-9d4ea4300b79",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c1bf89fc-3b7f-473b-a480-675cf342ee91/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:53.221Z",
+      "crawledAt": "2026-10-15T21:24:01.868Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/6f1ce29b-d193-45ab-b3ae-b2f8a81006d3/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:52.536Z",
+      "crawledAt": "2026-10-15T21:24:01.111Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       "slugByLocale": {
         "it": "infermiera-di-riferimento-m-f-fondation-soins-lausanne-lausanne",
         "en": "reference-nurse-m-f-fondation-soins-lausanne-lausanne",
-        "de": "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+        "de": "infirmier-referent-m-w-d-fondation-soins-lausanne",
         "fr": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
@@ -194,7 +194,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e9c74fcd-db47-4910-b409-147747f5ba59/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:51.866Z",
+      "crawledAt": "2026-10-15T21:24:00.237Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -216,14 +216,14 @@
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
       "previousSlugs": [
         "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
-        "infirmier-referent-m-w-d-fondation-soins-lausanne"
+        "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
         ],
         "de": [
-          "infirmier-referent-m-w-d-fondation-soins-lausanne"
+          "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-23T23:47:38.519Z",
@@ -273,7 +273,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c1ab16fe-30f2-4d9a-b405-c9ef6c8b9c8b/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:51.176Z",
+      "crawledAt": "2026-10-15T21:23:59.569Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -320,10 +320,10 @@
       "id": "fondation-soins-lausanne-9b0710ce0e18",
       "slug": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "fr": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
         "it": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
-        "en": "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
-        "de": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne"
+        "en": "ergotherapeute-m-w-d-fondation-soins-lausanne",
+        "de": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne",
+        "fr": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -347,7 +347,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/40d72cd6-a1ed-473b-a9c7-c1219f6b1854/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:50.501Z",
+      "crawledAt": "2026-10-15T21:23:58.812Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -367,17 +367,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
+      "previousSlugs": [
+        "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
+        "ergotherapist-m-f-fondation-soins-lausanne-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
         ],
         "en": [
-          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
+          "ergotherapist-m-f-fondation-soins-lausanne-lausanne"
         ]
       },
-      "previousSlugs": [
-        "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
-      ],
+      "firstSeenAt": "2026-09-19T22:58:44.477Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -390,8 +393,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:58:44.477Z"
+      }
     },
     {
       "id": "fondation-soins-lausanne-52d27a0d74ce",
@@ -425,7 +427,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/25765642-8932-4959-a044-44aded996b06/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:49.814Z",
+      "crawledAt": "2026-10-15T21:23:58.153Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -474,7 +476,7 @@
       "slugByLocale": {
         "it": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne",
         "en": "field-nurse-m-f-fondation-soins-lausanne-lausanne",
-        "de": "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+        "de": "infirmier-terrain-m-w-d-fondation-soins-lausanne",
         "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
@@ -500,7 +502,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9b6d2ee6-e54d-4e93-abb6-5ae251a1f385/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:49.055Z",
+      "crawledAt": "2026-10-15T21:23:57.477Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -522,14 +524,14 @@
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
       "previousSlugs": [
         "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
-        "infirmier-terrain-m-w-d-fondation-soins-lausanne"
+        "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
         ],
         "de": [
-          "infirmier-terrain-m-w-d-fondation-soins-lausanne"
+          "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-23T23:47:35.746Z",
@@ -579,7 +581,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/de30afb7-b090-406f-a281-1ff34b8a41f9/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:48.415Z",
+      "crawledAt": "2026-10-15T21:23:56.751Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -653,7 +655,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/bb4ca556-78f5-4811-bf70-2f9a8beeb937/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:47.769Z",
+      "crawledAt": "2026-10-15T21:23:56.035Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -727,7 +729,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/94367570-967c-4cd6-b85b-381657e362ab/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:22:47.150Z",
+      "crawledAt": "2026-10-15T21:23:55.209Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",

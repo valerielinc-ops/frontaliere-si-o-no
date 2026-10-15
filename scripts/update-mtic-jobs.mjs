@@ -44,6 +44,7 @@ import {
   parseMticDetailPage,
   buildMticLocalizedContent,
   isMticSwissSubsidiaryJob,
+  isMticTrustedUrl,
   dropMticFabricatedText,
 } from './lib/mtic-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -122,19 +123,6 @@ function isTargetJob(job = {}) {
     company.includes('sps intercert') ||
     url.includes('mtic-group.org')
   );
-}
-
-function isTrustedDomain(rawUrl = '') {
-  try {
-    const host = new URL(rawUrl).hostname.toLowerCase();
-    return (
-      host === 'www.mtic-group.org' ||
-      host === 'mtic-group.org' ||
-      host.endsWith('.mtic-group.org')
-    );
-  } catch {
-    return false;
-  }
 }
 
 function inferCategory(title = '', description = '') {
@@ -396,7 +384,7 @@ function validateLocales() {
     dataJobsPath: DATA_JOBS,
     isTargetJob,
     locales: LOCALES,
-    isTrustedDomain,
+    isTrustedDomain: isMticTrustedUrl,
     untrustedDomainReason: 'url_not_mtic_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No MTIC Group Lugano jobs found — SPS InterCert may have no current openings.',

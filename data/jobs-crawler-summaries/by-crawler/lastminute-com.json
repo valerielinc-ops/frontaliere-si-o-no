@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-15T09:29:27.488Z",
+  "generatedAt": "2026-10-15T21:25:49.120Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9478,
-  "avgDurationMs": 9478,
+  "durationMs": 8950,
+  "avgDurationMs": 8950,
   "durationHistory": [
-    9478
+    8950
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -219,49 +219,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Business Analyst - Payments and Fintech",
-      "slug": "business-analyst-payments-and-fintech-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000155033489&jobName=Business+Analyst+-+Payments+and+Fintech",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000155033489-business-analyst-payments-and-fintech?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-10-12T14:04:40.344Z",
-      "postedDate": "2026-10-12T14:04:40.344Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-bd2220ee6b08",
-      "needsRetranslation": true,
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-12T21:30:47.103Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }

@@ -1,7 +1,7 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-10-15T09:15:22.198Z",
+  "generatedAt": "2026-10-15T21:14:29.252Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7119,
-  "avgDurationMs": 7119,
+  "durationMs": 8543,
+  "avgDurationMs": 8543,
   "durationHistory": [
-    7119
+    8543
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:15:06.107Z",
+      "crawledAt": "2026-10-15T21:14:08.925Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -79,7 +79,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:15:06.106Z",
+      "crawledAt": "2026-10-15T21:14:08.924Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -126,7 +126,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:15:06.109Z",
+      "crawledAt": "2026-10-15T21:14:08.927Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -169,7 +169,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:15:06.108Z",
+      "crawledAt": "2026-10-15T21:14:08.926Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -212,7 +212,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:15:06.108Z",
+      "crawledAt": "2026-10-15T21:14:08.926Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -244,5 +244,5 @@
       }
     }
   ],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }

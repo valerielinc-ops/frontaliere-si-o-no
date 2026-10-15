@@ -80,7 +80,11 @@ import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs
 import { currentPredicateVersion } from './lib/incomplete-predicate-version.mjs';
 import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
-import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
+import {
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+} from './lib/job-locale-utils.mjs';
 import { readCodexReserveReports, summarizeCodexReserve } from './lib/codex-reserve-report.mjs';
 
 /**
@@ -403,7 +407,7 @@ export function formatGenderFormRate(residual, processed) {
 export function classifyJob(job) {
   const tbl = job.titleByLocale || {};
   const sourceTitle = (job.title || '').trim().toLowerCase();
-  const sourceLang = job.sourceLang || 'it';
+  const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
   const incomplete = isIncompleteCanonical(job);
 
   let sourceCopyExcused = false;
@@ -679,13 +683,13 @@ export function summarizeJobs(
         const id = jobCohortId(job);
         if (id) c.incompleteIds.push(id);
       }
-      const sourceDesc = (job.description || '').trim().toLowerCase();
-      const sourceLang = job.sourceLang || 'it';
+      const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
+      const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
       for (const loc of LOCALES) {
         const title = (job.titleByLocale?.[loc] || '').trim();
         const desc = (job.descriptionByLocale?.[loc] || '').trim();
         if (title.length < MIN_TITLE || desc.length < MIN_DESC ||
-            (desc.toLowerCase() === sourceDesc && loc !== sourceLang)) {
+            (loc !== sourceLang && sourceDescriptions.some((source) => isDescriptionSourceCopy(desc, source)))) {
           c.byLocale[loc]++;
         }
       }

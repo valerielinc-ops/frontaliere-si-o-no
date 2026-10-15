@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-10-15T09:28:01.534Z",
+  "assembledAt": "2026-10-15T21:22:58.104Z",
   "jobs": [
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -33,7 +33,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.442Z",
+      "crawledAt": "2026-10-15T21:22:51.879Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.440Z",
+      "crawledAt": "2026-10-15T21:22:51.878Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.439Z",
+      "crawledAt": "2026-10-15T21:22:51.877Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.438Z",
+      "crawledAt": "2026-10-15T21:22:51.876Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -326,7 +326,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.437Z",
+      "crawledAt": "2026-10-15T21:22:51.875Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -400,7 +400,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.436Z",
+      "crawledAt": "2026-10-15T21:22:51.874Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -474,7 +474,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/physiotherapeute-cardio-respiratoire-a-90-cdmax-10-mois-possibilite-cdi-1544",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.435Z",
+      "crawledAt": "2026-10-15T21:22:51.873Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -548,7 +548,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.434Z",
+      "crawledAt": "2026-10-15T21:22:51.872Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -591,80 +591,6 @@
       }
     },
     {
-      "id": "hopital-la-tour-6f5be6499f46",
-      "slug": "responsabile-gestione-80-cdm-12-mesi-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "responsabile-gestione-80-cdm-12-mesi-hopital-de-la-tour-meyrin",
-        "en": "80-management-supervisor-cdm-12-months-hopital-de-la-tour-meyrin",
-        "de": "80-management-supervisor-cdm-12-monate-hopital-de-la-tour-meyrin",
-        "fr": "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Contrôleur·se de gestion à 80% - CDM 12 mois",
-      "titleByLocale": {
-        "it": "Responsabile gestione 80% - CDM 12 mesi",
-        "en": "80% management supervisor - CDM 12 months",
-        "de": "80% Management Supervisor - CDM 12 Monate",
-        "fr": "Contrôleur·se de gestion à 80% - CDM 12 mois"
-      },
-      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nContrôleur·se de gestion à 80% - CDM 12 mois (ref : 2016)\n\nRattaché·e au Responsable du contrôle de gestion au sein de la Direction financière, vous assurez le pilotage financier et le suivi de la performance de l’institution. Vous fournissez à la Direction et aux responsables opérationnels des analyses fiables, des indicateurs pertinents et des outils d’aide à la décision.\n\nVéritable partenaire des différents départements, vous contribuez activement à l’optimisation des processus, de la rentabilité et de l’efficience opérationnelle, ainsi qu’au développement des outils de pilotage et à l’automatisation des flux\n\nVotre mission :\n\nÀ ce titre, vous serez notamment amené·e à :\n\n• Élaborer et suivre les budgets annuels et les forecasts, en collaboration avec la Direction et les différents chefs de service ;\n\n• Réaliser les analyses financières nécessaires au pilotage de la performance de l’institution ;\n\n• Mettre en place des tableaux de bord et des indicateurs de performance pertinents ;\n\n• Identifier et proposer des opportunités d’optimisation de la rentabilité et de l’efficience opérationnelle ;\n\n• Optimiser les processus de clôture en collaboration avec les différents départements et contribuer à l’automatisation des flux ;\n\n• Créer, analyser et publier les rapports financiers mensuels, trimestriels et annuels à l’aide des outils spécifiques, notamment Opale et Power BI ;\n\n• Identifier les écarts et proposer des actions correctives ;\n\n• Assurer la gestion de la comptabilité analytique selon REKOLE, contribuer à son amélioration continue et intégrer les données dans les outils financiers ;\n\n• Participer à la revue, à l’analyse, à l’amélioration continue et à l’harmonisation des processus internes et financiers ;\n\n• Réaliser des analyses ad hoc afin de faciliter la prise de décision ;\n\n• Répondre aux sollicitations des équipes opérationnelles et leur fournir les rapports et analyses nécessaires à leurs prises de décision ou à leurs présentations auprès de la Direction.\n\nNous recherchons un profil répondant aux critères suivants :\n\nNous recherchons une personne disposant d’au minimum 5 années d’expérience dans le contrôle de gestion , complétées par :\n\n• Une formation universitaire ou un Brevet fédéral de spécialiste en finance et comptabilité, ou une formation jugée équivalente ;\n\n• Une expérience dans le domaine de la santé, idéalement dans le secteur hospitalier ;\n\n• D’excellentes capacités d’analyse, de synthèse et de modélisation ;\n\n• Une excellente maîtrise d’Excel et des autres outils de pilotage financier ;\n\n• Une capacité à produire des analyses fiables et pertinentes afin de soutenir la prise de décision ;\n\n• Une aptitude à collaborer avec des interlocuteurs variés et à répondre aux besoins des équipes opérationnelles ;\n\n• Un esprit d’amélioration continue et une capacité à proposer des solutions d’optimisation des processus.\n\nNous vous proposons :\n\nL’opportunité de rejoindre un établissement de santé reconnu, privé, indépendant et à dimension humaine, dans une fonction au cœur du pilotage financier et de la performance de l’institution. Vous collaborerez étroitement avec la Direction, les responsables de service et l’ensemble des départements, dans un environnement où l’amélioration continue, l’excellence et la collaboration occupent une place centrale.\n\n• Type de contrat : Contrat à durée déterminée - 12 mois\n\n• Taux d’activité : 80\n\n• Date de démarrage : Disponible de suite",
-      "descriptionByLocale": {
-        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Fondato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, La Tour Hospital pone il miglioramento continuo, l'eccellenza medica e il supporto del suo personale al centro delle sue priorità. L'istituzione impiega oltre 1.200 dipendenti, che rappresentano più di 60 professioni, e collabora con più di 550 medici registrati.\n\nNoi ne reclutamo uno\n\nResponsabile gestione 80% - CDM 12 mesi (ref: 2016)\n\nAttaccato al Capo Controllo Gestione all'interno della Direzione Finanziaria, assicura il controllo finanziario e il monitoraggio delle prestazioni dell'istituzione. Fornisci alla Direzione e ai leader aziendali analisi affidabili, indicatori rilevanti e strumenti di supporto decisionale.\n\nUn vero partner dei vari reparti, contribuisce attivamente all'ottimizzazione dei processi, all'efficacia dei costi e all'efficienza operativa, nonché allo sviluppo di strumenti di controllo e all'automazione dei flussi.\n\nLa vostra missione:\n\nCome tale, sarete tenuti a:\n\n• Sviluppare e monitorare bilanci e previsioni annuali, in collaborazione con la Direzione e i vari capi dipartimenti;\n\n• effettuare le analisi finanziarie necessarie per gestire le prestazioni dell'istituzione;\n\n• Stabilire schede di punteggio pertinenti e indicatori di performance;\n\n• Identificare e proporre opportunità per ottimizzare l'efficacia dei costi e l'efficienza operativa;\n\n• Ottimizzare i processi di chiusura in collaborazione con diversi reparti e contribuire all'automazione dei flussi;\n\n• Creare, analizzare e pubblicare relazioni finanziarie mensili, trimestrali e annuali utilizzando strumenti specifici, tra cui Opale e Power BI;\n\n• Identificare deviazioni e proporre azioni correttive;\n\n• Assicurare la gestione della contabilità dei costi secondo REKOLE, contribuire al suo continuo miglioramento e integrare i dati in strumenti finanziari;\n\n• Partecipazione alla revisione, analisi, miglioramento continuo e armonizzazione dei processi interni e finanziari;\n\n• condurre analisi ad hoc per facilitare il processo decisionale;\n\n• Rispondere alle richieste dei team operativi e fornire loro i report e le analisi necessarie per il loro processo decisionale o le loro presentazioni alla Direzione.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\nStiamo cercando una persona con almeno 5 anni di esperienza nel controllo della gestione, integrata da:\n\n• Formazione universitaria o brevetto federale come specialista in finanza e contabilità, o formazione considerata equivalente;\n\n• Esperienza nel campo della salute, idealmente nel settore ospedaliero;\n\n• eccellenti capacità analitiche, di sintesi e di modellazione;\n\n• Eccellente padronanza di Excel e altri strumenti finanziari dello sterzo;\n\n• Capacità di produrre analisi affidabili e rilevanti per sostenere il processo decisionale;\n\n• Capacità di collaborare con vari interlocutori e di soddisfare le esigenze dei team operativi;\n\n• Uno spirito di miglioramento continuo e una capacità di proporre soluzioni di ottimizzazione dei processi.\n\nVi offriamo:\n\nL'opportunità di aderire a un riconosciuto, privato, indipendente e struttura sanitaria umana in una funzione al centro della gestione finanziaria e delle prestazioni dell'istituzione. Si lavorerà a stretto contatto con la Direzione, i gestori dei servizi e tutti i dipartimenti in un ambiente in cui il miglioramento continuo, l'eccellenza e la collaborazione sono centrali.\n\n• Tipo di contratto: Contratto a termine fisso - 12 mesi\n\n• Tasso di attività: 80\n\n• Data di inizio: Disponibile immediatamente",
-        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Founded in its mission to restore the best possible quality of life for its patients, La Tour Hospital places continuous improvement, medical excellence and the support of its staff at the heart of its priorities. The institution employs more than 1,200 employees, representing more than 60 professions, and collaborates with more than 550 registered doctors.\n\nWe recruit one\n\n80% management supervisor - CDM 12 months (ref: 2016)\n\nAttached to the Head of Management Control within the Financial Directorate, you ensure the financial control and monitoring of the institution's performance. You provide the Directorate and business leaders with reliable analysis, relevant indicators and decision support tools.\n\nA true partner of the various departments, you actively contribute to the optimization of processes, cost-effectiveness and operational efficiency, as well as to the development of control tools and the automation of flows.\n\nYour mission:\n\nAs such, you will be required to:\n\n• Develop and monitor annual budgets and forecasts, in collaboration with the Directorate and the various heads of departments;\n\n• To carry out the financial analyses necessary to manage the institution's performance;\n\n• Establish relevant scorecards and performance indicators;\n\n• Identify and propose opportunities to optimize cost-effectiveness and operational efficiency;\n\n• Optimize closing processes in collaboration with different departments and contribute to the automation of flows;\n\n• Create, analyse and publish monthly, quarterly and annual financial reports using specific tools, including Opale and Power BI;\n\n• Identify deviations and propose corrective actions;\n\n• Ensure the management of cost accounting according to REKOLE, contribute to its continuous improvement and integrate data into financial tools;\n\n• Participate in the review, analysis, continuous improvement and harmonization of internal and financial processes;\n\n• Conduct ad hoc analyses to facilitate decision-making;\n\n• Respond to requests from operational teams and provide them with the reports and analyses necessary for their decision-making or submissions to the Directorate.\n\nWe are looking for a profile that meets the following criteria:\n\nWe are looking for a person with at least 5 years of experience in management control, supplemented by:\n\n• University training or Federal Patent as a specialist in finance and accounting, or training deemed equivalent;\n\n• Experience in the field of health, ideally in the hospital sector;\n\n• Excellent analytical, synthesis and modelling capabilities;\n\n• Excellent mastery of Excel and other financial steering tools;\n\n• A capacity to produce reliable and relevant analyses to support decision-making;\n\n• Ability to collaborate with various interlocutors and to meet the needs of operational teams;\n\n• A spirit of continuous improvement and an ability to propose process optimization solutions.\n\nWe offer you:\n\nThe opportunity to join a recognized, private, independent and humane health facility in a function at the heart of the institution's financial management and performance. You will work closely with the Directorate, service managers and all departments in an environment where continuous improvement, excellence and collaboration are central.\n\n• Type of contract: Fixed-term contract - 12 months\n\n• Activity rate: 80\n\n• Start date: Available immediately",
-        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. Gegründet in seiner Mission, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, stellt das La Tour Hospital kontinuierliche Verbesserung, medizinische Exzellenz und die Unterstützung seiner Mitarbeiter in den Mittelpunkt seiner Prioritäten. Die Einrichtung beschäftigt mehr als 1.200 Mitarbeiter, die mehr als 60 Berufe repräsentieren, und arbeitet mit mehr als 550 registrierten Ärzten zusammen.\n\nWir rekrutieren einen\n\n80% Management Supervisor - CDM 12 Monate (ref: 2016)\n\nMit dem Leiter der Managementkontrolle innerhalb der Finanzdirektion stellen Sie die Finanzkontrolle und die Überwachung der Leistung der Institution sicher. Sie stellen der Direktion und den Unternehmensleitern zuverlässige Analysen, relevante Indikatoren und Entscheidungshilfe-Tools zur Verfügung.\n\nAls echter Partner der verschiedenen Abteilungen tragen Sie aktiv zur Optimierung von Prozessen, Wirtschaftlichkeit und Betriebseffizienz sowie zur Entwicklung von Steuerungswerkzeugen und zur Automatisierung von Flüssen bei.\n\nIhre Mission:\n\nDaher müssen Sie:\n\n• Ausarbeitung und Überwachung der jährlichen Haushaltspläne und Prognosen in Zusammenarbeit mit der Direktion und den verschiedenen Abteilungsleitern;\n\n• Durchführung der für die Verwaltung der Leistung des Instituts erforderlichen Finanzanalysen;\n\n• Festlegung relevanter Scorecards und Leistungsindikatoren;\n\n• Ermittlung und Vorschlag von Möglichkeiten zur Optimierung der Kosteneffizienz und der betrieblichen Effizienz;\n\n• Optimierung von Schließprozessen in Zusammenarbeit mit verschiedenen Abteilungen und Beitrag zur Automatisierung von Flüssen;\n\n• Erstellung, Analyse und Veröffentlichung von Monats-, Quartals- und Jahresfinanzberichten unter Verwendung spezifischer Instrumente, einschließlich Opale und Power BI;\n\n• Abweichungen ermitteln und Korrekturmaßnahmen vorschlagen;\n\n• Gewährleistung der Verwaltung der Kostenrechnung gemäß REKOLE, Beitrag zu ihrer kontinuierlichen Verbesserung und Integration von Daten in Finanzinstrumente;\n\n• Teilnahme an der Überprüfung, Analyse, kontinuierlichen Verbesserung und Harmonisierung der internen und finanziellen Prozesse;\n\n• Durchführung von Ad-hoc-Analysen zur Erleichterung der Entscheidungsfindung;\n\n• Beantwortung von Anfragen von Einsatzteams und Übermittlung der für ihre Entscheidungsfindung erforderlichen Berichte und Analysen an die Direktion.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\nWir suchen eine Person mit mindestens 5 Jahren Erfahrung in der Managementkontrolle, ergänzt durch:\n\n• Universitätsausbildung oder Bundespatent als Spezialist für Finanzen und Rechnungswesen oder gleichwertige Ausbildung;\n\n• Erfahrung im Gesundheitsbereich, idealerweise im Krankenhausbereich;\n\n• Hervorragende Analyse-, Synthese- und Modellierungsfähigkeiten;\n\n• Ausgezeichnete Beherrschung von Excel und anderen Finanzsteuerungsinstrumenten;\n\n• Fähigkeit, zuverlässige und relevante Analysen zur Unterstützung der Entscheidungsfindung zu erstellen;\n\n• Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten und die Bedürfnisse der operativen Teams zu erfüllen;\n\n• Ein Geist der kontinuierlichen Verbesserung und die Fähigkeit, Prozessoptimierungslösungen vorzuschlagen.\n\nWir bieten Ihnen:\n\nDie Möglichkeit, einer anerkannten, privaten, unabhängigen und humanen Gesundheitseinrichtung in einer Funktion beizutreten, die im Mittelpunkt des Finanzmanagements und der Leistung der Institution steht. Sie arbeiten eng mit der Direktion, den Servicemanagern und allen Abteilungen in einem Umfeld zusammen, in dem kontinuierliche Verbesserung, Exzellenz und Zusammenarbeit von zentraler Bedeutung sind.\n\n• Art des Vertrags: befristeter Vertrag - 12 Monate\n\n• Aktivitätsrate: 80\n\n• Startdatum: Sofort verfügbar",
-        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nContrôleur·se de gestion à 80% - CDM 12 mois (ref : 2016)\n\nRattaché·e au Responsable du contrôle de gestion au sein de la Direction financière, vous assurez le pilotage financier et le suivi de la performance de l’institution. Vous fournissez à la Direction et aux responsables opérationnels des analyses fiables, des indicateurs pertinents et des outils d’aide à la décision.\n\nVéritable partenaire des différents départements, vous contribuez activement à l’optimisation des processus, de la rentabilité et de l’efficience opérationnelle, ainsi qu’au développement des outils de pilotage et à l’automatisation des flux\n\nVotre mission :\n\nÀ ce titre, vous serez notamment amené·e à :\n\n• Élaborer et suivre les budgets annuels et les forecasts, en collaboration avec la Direction et les différents chefs de service ;\n\n• Réaliser les analyses financières nécessaires au pilotage de la performance de l’institution ;\n\n• Mettre en place des tableaux de bord et des indicateurs de performance pertinents ;\n\n• Identifier et proposer des opportunités d’optimisation de la rentabilité et de l’efficience opérationnelle ;\n\n• Optimiser les processus de clôture en collaboration avec les différents départements et contribuer à l’automatisation des flux ;\n\n• Créer, analyser et publier les rapports financiers mensuels, trimestriels et annuels à l’aide des outils spécifiques, notamment Opale et Power BI ;\n\n• Identifier les écarts et proposer des actions correctives ;\n\n• Assurer la gestion de la comptabilité analytique selon REKOLE, contribuer à son amélioration continue et intégrer les données dans les outils financiers ;\n\n• Participer à la revue, à l’analyse, à l’amélioration continue et à l’harmonisation des processus internes et financiers ;\n\n• Réaliser des analyses ad hoc afin de faciliter la prise de décision ;\n\n• Répondre aux sollicitations des équipes opérationnelles et leur fournir les rapports et analyses nécessaires à leurs prises de décision ou à leurs présentations auprès de la Direction.\n\nNous recherchons un profil répondant aux critères suivants :\n\nNous recherchons une personne disposant d’au minimum 5 années d’expérience dans le contrôle de gestion , complétées par :\n\n• Une formation universitaire ou un Brevet fédéral de spécialiste en finance et comptabilité, ou une formation jugée équivalente ;\n\n• Une expérience dans le domaine de la santé, idéalement dans le secteur hospitalier ;\n\n• D’excellentes capacités d’analyse, de synthèse et de modélisation ;\n\n• Une excellente maîtrise d’Excel et des autres outils de pilotage financier ;\n\n• Une capacité à produire des analyses fiables et pertinentes afin de soutenir la prise de décision ;\n\n• Une aptitude à collaborer avec des interlocuteurs variés et à répondre aux besoins des équipes opérationnelles ;\n\n• Un esprit d’amélioration continue et une capacité à proposer des solutions d’optimisation des processus.\n\nNous vous proposons :\n\nL’opportunité de rejoindre un établissement de santé reconnu, privé, indépendant et à dimension humaine, dans une fonction au cœur du pilotage financier et de la performance de l’institution. Vous collaborerez étroitement avec la Direction, les responsables de service et l’ensemble des départements, dans un environnement où l’amélioration continue, l’excellence et la collaboration occupent une place centrale.\n\n• Type de contrat : Contrat à durée déterminée - 12 mois\n\n• Taux d’activité : 80\n\n• Date de démarrage : Disponible de suite"
-      },
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/controleurse-de-gestion-a-80-1550",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.432Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/controleurse-de-gestion-a-80-1550",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T14:09:35.104Z",
-      "salaryMin": 66800,
-      "salaryMax": 101200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66800,
-          "maxValue": 101200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hopital-la-tour-27d334811186",
       "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -695,7 +621,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.431Z",
+      "crawledAt": "2026-10-15T21:22:51.871Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -768,7 +694,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.430Z",
+      "crawledAt": "2026-10-15T21:22:51.869Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -844,7 +770,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/business-intelligence-manager-a-100-1555",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.428Z",
+      "crawledAt": "2026-10-15T21:22:51.868Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -910,7 +836,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-service-des-urgences-cdm-12-mois-a-85-1558",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.427Z",
+      "crawledAt": "2026-10-15T21:22:51.866Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -990,7 +916,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-aux-urgences-a-70-cdm-6-mois-1557",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.422Z",
+      "crawledAt": "2026-10-15T21:22:51.862Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1037,6 +963,81 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "hopital-la-tour-6f5be6499f46",
+      "slug": "responsabile-gestione-80-cdm-12-mesi-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "responsabile-gestione-80-cdm-12-mesi-hopital-de-la-tour-meyrin",
+        "en": "80-management-supervisor-cdm-12-months-hopital-de-la-tour-meyrin",
+        "de": "80-management-supervisor-cdm-12-monate-hopital-de-la-tour-meyrin",
+        "fr": "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Contrôleur·se de gestion à 80% - CDM 12 mois",
+      "titleByLocale": {
+        "it": "Responsabile gestione 80% - CDM 12 mesi",
+        "en": "80% management supervisor - CDM 12 months",
+        "de": "80% Management Supervisor - CDM 12 Monate",
+        "fr": "Contrôleur·se de gestion à 80% - CDM 12 mois"
+      },
+      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nContrôleur·se de gestion à 80% - CDM 12 mois (ref : 2016)\n\nRattaché·e au Responsable du contrôle de gestion au sein de la Direction financière, vous assurez le pilotage financier et le suivi de la performance de l’institution. Vous fournissez à la Direction et aux responsables opérationnels des analyses fiables, des indicateurs pertinents et des outils d’aide à la décision.\n\nVéritable partenaire des différents départements, vous contribuez activement à l’optimisation des processus, de la rentabilité et de l’efficience opérationnelle, ainsi qu’au développement des outils de pilotage et à l’automatisation des flux\n\nVotre mission :\n\nÀ ce titre, vous serez notamment amené·e à :\n\n• Élaborer et suivre les budgets annuels et les forecasts, en collaboration avec la Direction et les différents chefs de service ;\n\n• Réaliser les analyses financières nécessaires au pilotage de la performance de l’institution ;\n\n• Mettre en place des tableaux de bord et des indicateurs de performance pertinents ;\n\n• Identifier et proposer des opportunités d’optimisation de la rentabilité et de l’efficience opérationnelle ;\n\n• Optimiser les processus de clôture en collaboration avec les différents départements et contribuer à l’automatisation des flux ;\n\n• Créer, analyser et publier les rapports financiers mensuels, trimestriels et annuels à l’aide des outils spécifiques, notamment Opale et Power BI ;\n\n• Identifier les écarts et proposer des actions correctives ;\n\n• Assurer la gestion de la comptabilité analytique selon REKOLE, contribuer à son amélioration continue et intégrer les données dans les outils financiers ;\n\n• Participer à la revue, à l’analyse, à l’amélioration continue et à l’harmonisation des processus internes et financiers ;\n\n• Réaliser des analyses ad hoc afin de faciliter la prise de décision ;\n\n• Répondre aux sollicitations des équipes opérationnelles et leur fournir les rapports et analyses nécessaires à leurs prises de décision ou à leurs présentations auprès de la Direction.\n\nNous recherchons un profil répondant aux critères suivants :\n\nNous recherchons une personne disposant d’au minimum 5 années d’expérience dans le contrôle de gestion , complétées par :\n\n• Une formation universitaire ou un Brevet fédéral de spécialiste en finance et comptabilité, ou une formation jugée équivalente ;\n\n• Une expérience dans le domaine de la santé, idéalement dans le secteur hospitalier ;\n\n• D’excellentes capacités d’analyse, de synthèse et de modélisation ;\n\n• Une excellente maîtrise d’Excel et des autres outils de pilotage financier ;\n\n• Une capacité à produire des analyses fiables et pertinentes afin de soutenir la prise de décision ;\n\n• Une aptitude à collaborer avec des interlocuteurs variés et à répondre aux besoins des équipes opérationnelles ;\n\n• Un esprit d’amélioration continue et une capacité à proposer des solutions d’optimisation des processus.\n\nNous vous proposons :\n\nL’opportunité de rejoindre un établissement de santé reconnu, privé, indépendant et à dimension humaine, dans une fonction au cœur du pilotage financier et de la performance de l’institution. Vous collaborerez étroitement avec la Direction, les responsables de service et l’ensemble des départements, dans un environnement où l’amélioration continue, l’excellence et la collaboration occupent une place centrale.\n\n• Type de contrat : Contrat à durée déterminée - 12 mois\n\n• Taux d’activité : 80\n\n• Date de démarrage : Disponible de suite",
+      "descriptionByLocale": {
+        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Fondato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, La Tour Hospital pone il miglioramento continuo, l'eccellenza medica e il supporto del suo personale al centro delle sue priorità. L'istituzione impiega oltre 1.200 dipendenti, che rappresentano più di 60 professioni, e collabora con più di 550 medici registrati.\n\nNoi ne reclutamo uno\n\nResponsabile gestione 80% - CDM 12 mesi (ref: 2016)\n\nAttaccato al Capo Controllo Gestione all'interno della Direzione Finanziaria, assicura il controllo finanziario e il monitoraggio delle prestazioni dell'istituzione. Fornisci alla Direzione e ai leader aziendali analisi affidabili, indicatori rilevanti e strumenti di supporto decisionale.\n\nUn vero partner dei vari reparti, contribuisce attivamente all'ottimizzazione dei processi, all'efficacia dei costi e all'efficienza operativa, nonché allo sviluppo di strumenti di controllo e all'automazione dei flussi.\n\nLa vostra missione:\n\nCome tale, sarete tenuti a:\n\n• Sviluppare e monitorare bilanci e previsioni annuali, in collaborazione con la Direzione e i vari capi dipartimenti;\n\n• effettuare le analisi finanziarie necessarie per gestire le prestazioni dell'istituzione;\n\n• Stabilire schede di punteggio pertinenti e indicatori di performance;\n\n• Identificare e proporre opportunità per ottimizzare l'efficacia dei costi e l'efficienza operativa;\n\n• Ottimizzare i processi di chiusura in collaborazione con diversi reparti e contribuire all'automazione dei flussi;\n\n• Creare, analizzare e pubblicare relazioni finanziarie mensili, trimestrali e annuali utilizzando strumenti specifici, tra cui Opale e Power BI;\n\n• Identificare deviazioni e proporre azioni correttive;\n\n• Assicurare la gestione della contabilità dei costi secondo REKOLE, contribuire al suo continuo miglioramento e integrare i dati in strumenti finanziari;\n\n• Partecipazione alla revisione, analisi, miglioramento continuo e armonizzazione dei processi interni e finanziari;\n\n• condurre analisi ad hoc per facilitare il processo decisionale;\n\n• Rispondere alle richieste dei team operativi e fornire loro i report e le analisi necessarie per il loro processo decisionale o le loro presentazioni alla Direzione.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\nStiamo cercando una persona con almeno 5 anni di esperienza nel controllo della gestione, integrata da:\n\n• Formazione universitaria o brevetto federale come specialista in finanza e contabilità, o formazione considerata equivalente;\n\n• Esperienza nel campo della salute, idealmente nel settore ospedaliero;\n\n• eccellenti capacità analitiche, di sintesi e di modellazione;\n\n• Eccellente padronanza di Excel e altri strumenti finanziari dello sterzo;\n\n• Capacità di produrre analisi affidabili e rilevanti per sostenere il processo decisionale;\n\n• Capacità di collaborare con vari interlocutori e di soddisfare le esigenze dei team operativi;\n\n• Uno spirito di miglioramento continuo e una capacità di proporre soluzioni di ottimizzazione dei processi.\n\nVi offriamo:\n\nL'opportunità di aderire a un riconosciuto, privato, indipendente e struttura sanitaria umana in una funzione al centro della gestione finanziaria e delle prestazioni dell'istituzione. Si lavorerà a stretto contatto con la Direzione, i gestori dei servizi e tutti i dipartimenti in un ambiente in cui il miglioramento continuo, l'eccellenza e la collaborazione sono centrali.\n\n• Tipo di contratto: Contratto a termine fisso - 12 mesi\n\n• Tasso di attività: 80\n\n• Data di inizio: Disponibile immediatamente",
+        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Founded in its mission to restore the best possible quality of life for its patients, La Tour Hospital places continuous improvement, medical excellence and the support of its staff at the heart of its priorities. The institution employs more than 1,200 employees, representing more than 60 professions, and collaborates with more than 550 registered doctors.\n\nWe recruit one\n\n80% management supervisor - CDM 12 months (ref: 2016)\n\nAttached to the Head of Management Control within the Financial Directorate, you ensure the financial control and monitoring of the institution's performance. You provide the Directorate and business leaders with reliable analysis, relevant indicators and decision support tools.\n\nA true partner of the various departments, you actively contribute to the optimization of processes, cost-effectiveness and operational efficiency, as well as to the development of control tools and the automation of flows.\n\nYour mission:\n\nAs such, you will be required to:\n\n• Develop and monitor annual budgets and forecasts, in collaboration with the Directorate and the various heads of departments;\n\n• To carry out the financial analyses necessary to manage the institution's performance;\n\n• Establish relevant scorecards and performance indicators;\n\n• Identify and propose opportunities to optimize cost-effectiveness and operational efficiency;\n\n• Optimize closing processes in collaboration with different departments and contribute to the automation of flows;\n\n• Create, analyse and publish monthly, quarterly and annual financial reports using specific tools, including Opale and Power BI;\n\n• Identify deviations and propose corrective actions;\n\n• Ensure the management of cost accounting according to REKOLE, contribute to its continuous improvement and integrate data into financial tools;\n\n• Participate in the review, analysis, continuous improvement and harmonization of internal and financial processes;\n\n• Conduct ad hoc analyses to facilitate decision-making;\n\n• Respond to requests from operational teams and provide them with the reports and analyses necessary for their decision-making or submissions to the Directorate.\n\nWe are looking for a profile that meets the following criteria:\n\nWe are looking for a person with at least 5 years of experience in management control, supplemented by:\n\n• University training or Federal Patent as a specialist in finance and accounting, or training deemed equivalent;\n\n• Experience in the field of health, ideally in the hospital sector;\n\n• Excellent analytical, synthesis and modelling capabilities;\n\n• Excellent mastery of Excel and other financial steering tools;\n\n• A capacity to produce reliable and relevant analyses to support decision-making;\n\n• Ability to collaborate with various interlocutors and to meet the needs of operational teams;\n\n• A spirit of continuous improvement and an ability to propose process optimization solutions.\n\nWe offer you:\n\nThe opportunity to join a recognized, private, independent and humane health facility in a function at the heart of the institution's financial management and performance. You will work closely with the Directorate, service managers and all departments in an environment where continuous improvement, excellence and collaboration are central.\n\n• Type of contract: Fixed-term contract - 12 months\n\n• Activity rate: 80\n\n• Start date: Available immediately",
+        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. Gegründet in seiner Mission, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, stellt das La Tour Hospital kontinuierliche Verbesserung, medizinische Exzellenz und die Unterstützung seiner Mitarbeiter in den Mittelpunkt seiner Prioritäten. Die Einrichtung beschäftigt mehr als 1.200 Mitarbeiter, die mehr als 60 Berufe repräsentieren, und arbeitet mit mehr als 550 registrierten Ärzten zusammen.\n\nWir rekrutieren einen\n\n80% Management Supervisor - CDM 12 Monate (ref: 2016)\n\nMit dem Leiter der Managementkontrolle innerhalb der Finanzdirektion stellen Sie die Finanzkontrolle und die Überwachung der Leistung der Institution sicher. Sie stellen der Direktion und den Unternehmensleitern zuverlässige Analysen, relevante Indikatoren und Entscheidungshilfe-Tools zur Verfügung.\n\nAls echter Partner der verschiedenen Abteilungen tragen Sie aktiv zur Optimierung von Prozessen, Wirtschaftlichkeit und Betriebseffizienz sowie zur Entwicklung von Steuerungswerkzeugen und zur Automatisierung von Flüssen bei.\n\nIhre Mission:\n\nDaher müssen Sie:\n\n• Ausarbeitung und Überwachung der jährlichen Haushaltspläne und Prognosen in Zusammenarbeit mit der Direktion und den verschiedenen Abteilungsleitern;\n\n• Durchführung der für die Verwaltung der Leistung des Instituts erforderlichen Finanzanalysen;\n\n• Festlegung relevanter Scorecards und Leistungsindikatoren;\n\n• Ermittlung und Vorschlag von Möglichkeiten zur Optimierung der Kosteneffizienz und der betrieblichen Effizienz;\n\n• Optimierung von Schließprozessen in Zusammenarbeit mit verschiedenen Abteilungen und Beitrag zur Automatisierung von Flüssen;\n\n• Erstellung, Analyse und Veröffentlichung von Monats-, Quartals- und Jahresfinanzberichten unter Verwendung spezifischer Instrumente, einschließlich Opale und Power BI;\n\n• Abweichungen ermitteln und Korrekturmaßnahmen vorschlagen;\n\n• Gewährleistung der Verwaltung der Kostenrechnung gemäß REKOLE, Beitrag zu ihrer kontinuierlichen Verbesserung und Integration von Daten in Finanzinstrumente;\n\n• Teilnahme an der Überprüfung, Analyse, kontinuierlichen Verbesserung und Harmonisierung der internen und finanziellen Prozesse;\n\n• Durchführung von Ad-hoc-Analysen zur Erleichterung der Entscheidungsfindung;\n\n• Beantwortung von Anfragen von Einsatzteams und Übermittlung der für ihre Entscheidungsfindung erforderlichen Berichte und Analysen an die Direktion.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\nWir suchen eine Person mit mindestens 5 Jahren Erfahrung in der Managementkontrolle, ergänzt durch:\n\n• Universitätsausbildung oder Bundespatent als Spezialist für Finanzen und Rechnungswesen oder gleichwertige Ausbildung;\n\n• Erfahrung im Gesundheitsbereich, idealerweise im Krankenhausbereich;\n\n• Hervorragende Analyse-, Synthese- und Modellierungsfähigkeiten;\n\n• Ausgezeichnete Beherrschung von Excel und anderen Finanzsteuerungsinstrumenten;\n\n• Fähigkeit, zuverlässige und relevante Analysen zur Unterstützung der Entscheidungsfindung zu erstellen;\n\n• Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten und die Bedürfnisse der operativen Teams zu erfüllen;\n\n• Ein Geist der kontinuierlichen Verbesserung und die Fähigkeit, Prozessoptimierungslösungen vorzuschlagen.\n\nWir bieten Ihnen:\n\nDie Möglichkeit, einer anerkannten, privaten, unabhängigen und humanen Gesundheitseinrichtung in einer Funktion beizutreten, die im Mittelpunkt des Finanzmanagements und der Leistung der Institution steht. Sie arbeiten eng mit der Direktion, den Servicemanagern und allen Abteilungen in einem Umfeld zusammen, in dem kontinuierliche Verbesserung, Exzellenz und Zusammenarbeit von zentraler Bedeutung sind.\n\n• Art des Vertrags: befristeter Vertrag - 12 Monate\n\n• Aktivitätsrate: 80\n\n• Startdatum: Sofort verfügbar",
+        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nContrôleur·se de gestion à 80% - CDM 12 mois (ref : 2016)\n\nRattaché·e au Responsable du contrôle de gestion au sein de la Direction financière, vous assurez le pilotage financier et le suivi de la performance de l’institution. Vous fournissez à la Direction et aux responsables opérationnels des analyses fiables, des indicateurs pertinents et des outils d’aide à la décision.\n\nVéritable partenaire des différents départements, vous contribuez activement à l’optimisation des processus, de la rentabilité et de l’efficience opérationnelle, ainsi qu’au développement des outils de pilotage et à l’automatisation des flux\n\nVotre mission :\n\nÀ ce titre, vous serez notamment amené·e à :\n\n• Élaborer et suivre les budgets annuels et les forecasts, en collaboration avec la Direction et les différents chefs de service ;\n\n• Réaliser les analyses financières nécessaires au pilotage de la performance de l’institution ;\n\n• Mettre en place des tableaux de bord et des indicateurs de performance pertinents ;\n\n• Identifier et proposer des opportunités d’optimisation de la rentabilité et de l’efficience opérationnelle ;\n\n• Optimiser les processus de clôture en collaboration avec les différents départements et contribuer à l’automatisation des flux ;\n\n• Créer, analyser et publier les rapports financiers mensuels, trimestriels et annuels à l’aide des outils spécifiques, notamment Opale et Power BI ;\n\n• Identifier les écarts et proposer des actions correctives ;\n\n• Assurer la gestion de la comptabilité analytique selon REKOLE, contribuer à son amélioration continue et intégrer les données dans les outils financiers ;\n\n• Participer à la revue, à l’analyse, à l’amélioration continue et à l’harmonisation des processus internes et financiers ;\n\n• Réaliser des analyses ad hoc afin de faciliter la prise de décision ;\n\n• Répondre aux sollicitations des équipes opérationnelles et leur fournir les rapports et analyses nécessaires à leurs prises de décision ou à leurs présentations auprès de la Direction.\n\nNous recherchons un profil répondant aux critères suivants :\n\nNous recherchons une personne disposant d’au minimum 5 années d’expérience dans le contrôle de gestion , complétées par :\n\n• Une formation universitaire ou un Brevet fédéral de spécialiste en finance et comptabilité, ou une formation jugée équivalente ;\n\n• Une expérience dans le domaine de la santé, idéalement dans le secteur hospitalier ;\n\n• D’excellentes capacités d’analyse, de synthèse et de modélisation ;\n\n• Une excellente maîtrise d’Excel et des autres outils de pilotage financier ;\n\n• Une capacité à produire des analyses fiables et pertinentes afin de soutenir la prise de décision ;\n\n• Une aptitude à collaborer avec des interlocuteurs variés et à répondre aux besoins des équipes opérationnelles ;\n\n• Un esprit d’amélioration continue et une capacité à proposer des solutions d’optimisation des processus.\n\nNous vous proposons :\n\nL’opportunité de rejoindre un établissement de santé reconnu, privé, indépendant et à dimension humaine, dans une fonction au cœur du pilotage financier et de la performance de l’institution. Vous collaborerez étroitement avec la Direction, les responsables de service et l’ensemble des départements, dans un environnement où l’amélioration continue, l’excellence et la collaboration occupent une place centrale.\n\n• Type de contrat : Contrat à durée déterminée - 12 mois\n\n• Taux d’activité : 80\n\n• Date de démarrage : Disponible de suite"
+      },
+      "needsRetranslation": false,
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/controleurse-de-gestion-a-80-1550",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-15T09:27:54.432Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/controleurse-de-gestion-a-80-1550",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T14:09:35.104Z",
+      "salaryMin": 66800,
+      "salaryMax": 101200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 66800,
+          "maxValue": 101200,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

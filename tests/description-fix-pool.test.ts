@@ -102,6 +102,19 @@ describe('collectDescriptionFixTasks', () => {
     };
     expect(collectDescriptionFixTasks([job]).map((task: { locale: string }) => task.locale)).toEqual(['it']);
   });
+
+  it('uses the source-locale slot when the legacy description differs', () => {
+    const sourceSlot = source.replace(/ /g, '\n  ');
+    const job = {
+      sourceLang: 'de',
+      description: `${source} legacy representation`,
+      descriptionByLocale: { de: sourceSlot, it: sourceSlot, en: 'Translated English description.', fr: '' },
+    };
+    const tasks = collectDescriptionFixTasks([job]);
+    expect(tasks).toHaveLength(1);
+    expect(tasks[0]).toMatchObject({ locale: 'it', sourceDesc: sourceSlot });
+  });
+
   it('skips sources shorter than 120 characters', () => {
     const short = 'Kurzer Text.';
     expect(collectDescriptionFixTasks([{ sourceLang: 'de', description: short, descriptionByLocale: { it: short } }])).toEqual([]);

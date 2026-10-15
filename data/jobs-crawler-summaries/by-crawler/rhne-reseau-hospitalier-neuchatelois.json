@@ -1,7 +1,7 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-10-15T09:25:26.165Z",
+  "generatedAt": "2026-10-15T21:22:59.593Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 11539,
-  "avgDurationMs": 11539,
+  "durationMs": 10697,
+  "avgDurationMs": 10697,
   "durationHistory": [
-    11539
+    10697
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=35dc4618-a615-4940-bfec-5c2b31558bcb&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:25:10.052Z",
+      "crawledAt": "2026-10-15T21:22:45.728Z",
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=9a57e6a7-3ea3-45bb-bd24-c01c38e6d3df&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:25:12.047Z",
+      "crawledAt": "2026-10-15T21:22:47.576Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2d51ebb7-5339-4287-9ce2-925fa72c4c7e&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:25:08.163Z",
+      "crawledAt": "2026-10-15T21:22:43.962Z",
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -155,5 +155,5 @@
       }
     }
   ],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }

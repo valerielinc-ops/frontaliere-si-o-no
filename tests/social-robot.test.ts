@@ -1316,6 +1316,15 @@ describe('workflows', () => {
     }
   });
 
+  it('regenerates the confirmation on the newest main after a concurrent push', () => {
+    const steps = wf('social-robot-confirm.yml').jobs.confirm.steps as Array<{ name?: string; run?: string }>;
+    const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+    expect(commit?.run).toContain('--regenerate-cmd');
+    expect(commit?.run).toContain('scripts/social-robot/confirm.mjs');
+    expect(commit?.run).toContain('$LEDGER_ENTRIES');
+    expect(commit?.run).toContain('git add -- "$f"');
+  });
+
   it('does not hide a failed social ledger push', () => {
     for (const workflow of [
       'instagram-daily-broadcast.yml',

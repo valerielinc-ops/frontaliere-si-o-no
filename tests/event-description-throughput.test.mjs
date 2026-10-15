@@ -39,6 +39,36 @@ test('workflow publishes the site data PR with the site write credential', () =>
   assert.doesNotMatch(workflow, /GITHUB_PAT_NANAKO/u);
 });
 
+test('merge job falls back to the immutable run snapshot when moving main is incomplete', () => {
+  const validationStart = workflow.indexOf('- name: Validate main snapshot runtime');
+  const recoveryStart = workflow.indexOf('- name: Recover immutable run snapshot');
+  const setupStart = workflow.indexOf('- name: Setup Node.js', recoveryStart);
+  assert.ok(validationStart >= 0, 'main snapshot validation step not found');
+  assert.ok(recoveryStart > validationStart, 'immutable snapshot recovery must follow validation');
+  assert.ok(setupStart > recoveryStart, 'runtime setup must follow immutable snapshot recovery');
+
+  const validation = workflow.slice(validationStart, recoveryStart);
+  const recovery = workflow.slice(recoveryStart, setupStart);
+  for (const requiredPath of [
+    'package.json',
+    'package-lock.json',
+    'scripts/merge-event-description-rewrites.mjs',
+    'scripts/assemble-events-dataset.mjs',
+    'scripts/load-rc-env.mjs',
+    'scripts/lib/open-data-refresh-pr.sh',
+    'scripts/ci/pr-body-check-gate.mjs',
+    'data/events-description-rewrites.json',
+    'data/events.json',
+    'public/data/events.json',
+  ]) {
+    assert.match(validation, new RegExp(requiredPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+  assert.match(validation, /echo 'ready=true' >> "\$GITHUB_OUTPUT"/u);
+  assert.match(validation, /echo 'ready=false' >> "\$GITHUB_OUTPUT"/u);
+  assert.match(recovery, /if: steps\.main_snapshot\.outputs\.ready != 'true'/u);
+  assert.match(recovery, /ref: \$\{\{ github\.sha \}\}/u);
+});
+
 test('workflow defaults stay linked to the planner defaults', () => {
   assert.match(workflow, new RegExp(`default: '${DEFAULT_SHARD_COUNT}'`));
   assert.match(workflow, new RegExp(`default: '${DEFAULT_EVENTS_PER_SHARD}'`));

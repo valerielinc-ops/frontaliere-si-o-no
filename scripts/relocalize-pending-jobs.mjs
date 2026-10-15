@@ -40,7 +40,12 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
-import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
+import {
+  detectJobTitleLocaleDetails,
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+} from './lib/job-locale-utils.mjs';
 import { sourceChangedSinceSuppression } from './lib/source-changed-since-suppression.mjs';
 import {
   addPreviousSlugForLocale,
@@ -1311,7 +1316,7 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
         // but if the needsRetranslation flag was cleared before sync, those slugs
         // would be lost. The master slug is job.slug (source language), not
         // hardcoded to IT — jobs may be crawled in EN, DE, or FR.
-        const sourceLang = crawlerJob.sourceLang || 'it';
+        const sourceLang = normalizeJobLocale(crawlerJob.sourceLang) || 'it';
         const masterSlug = String(crawlerJob.slug || '').trim();
         const isUnlocalizedSlug =
           field === 'slugByLocale' &&
@@ -2494,14 +2499,20 @@ export async function runRelocalization(phase) {
     const tbl = job.titleByLocale || {};
     const dbl = job.descriptionByLocale || {};
     const src = (job.title || '').trim().toLowerCase();
-    const srcDesc = (job.description || '').trim().toLowerCase();
+    const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
+    const sourceDescriptions = sourceLocaleTextCandidates({ ...job, sourceLang }, 'description');
     let categorized = false;
     for (const locale of LOCALES) {
       const t = (tbl[locale] || '').trim();
       const d = (dbl[locale] || '').trim();
       if (t.length < MIN_TITLE_CHARS || d.length < MIN_DESC_CHARS) { categories.emptyLocale++; categorized = true; break; }
-      if (d.toLowerCase() === srcDesc && locale !== (job.sourceLang || 'it')) { categories.sourceCopyDesc++; categorized = true; break; }
-      if (t.toLowerCase() === src && locale !== (job.sourceLang || 'it')) { categories.sourceCopyTitle++; categorized = true; break; }
+      if (locale !== sourceLang
+          && sourceDescriptions.some((source) => isDescriptionSourceCopy(d, source))) {
+        categories.sourceCopyDesc++;
+        categorized = true;
+        break;
+      }
+      if (t.toLowerCase() === src && locale !== sourceLang) { categories.sourceCopyTitle++; categorized = true; break; }
     }
     if (!categorized) categories.contaminated++;
   }

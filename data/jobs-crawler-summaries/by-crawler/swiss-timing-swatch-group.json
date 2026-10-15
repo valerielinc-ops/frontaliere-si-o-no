@@ -1,19 +1,22 @@
 {
   "key": "swiss-timing-swatch-group",
   "label": "swiss-timing-swatch-group",
-  "generatedAt": "2026-10-15T09:25:00.053Z",
+  "generatedAt": "2026-10-15T21:25:00.961Z",
   "total": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 469740,
-  "avgDurationMs": 469740,
+  "unchangedCount": 3,
+  "durationMs": 363552,
+  "avgDurationMs": 363552,
   "durationHistory": [
-    469740
+    363552
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-f5up2w",
       "slug": "electronics-ingegnere-all-genders-on-site-presence-swiss-timing-swatch-group-2606-corgemont-f5up2w",
@@ -35,7 +38,6 @@
       "companyDomain": "swisstiming.com",
       "crawledAt": "2026-10-15T09:23:49.431Z",
       "firstSeenAt": "2026-10-15T09:23:49.431Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -44,17 +46,18 @@
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
       "addressRegion": "BE",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "company-xbt61g",
-      "slug": "software-department-manager-all-genders-on-site-swiss-timing-swatch-group-2606-corgemont-xbt61g",
+      "slug": "software-department-manager-tutti-i-generi-on-site-swiss-timing-swatch-group-2606-corgemont",
       "company": "Swiss Timing (Swatch Group)",
       "title": "Software Department Manager (all genders) - On-Site",
       "location": "2606 Corgémont",
@@ -73,7 +76,6 @@
       "companyDomain": "swisstiming.com",
       "crawledAt": "2026-10-15T09:23:49.431Z",
       "firstSeenAt": "2026-10-15T09:23:49.431Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -82,11 +84,12 @@
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
       "addressRegion": "BE",
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -111,7 +114,6 @@
       "companyDomain": "swisstiming.com",
       "crawledAt": "2026-10-15T09:23:49.431Z",
       "firstSeenAt": "2026-10-15T09:23:49.431Z",
-      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -120,17 +122,15 @@
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
       "addressRegion": "BE",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }

@@ -407,6 +407,49 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
+      - name: Validate main snapshot runtime
+        id: main_snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            package.json
+            package-lock.json
+            scripts/merge-event-description-rewrites.mjs
+            scripts/assemble-events-dataset.mjs
+            scripts/load-rc-env.mjs
+            scripts/lib/open-data-refresh-pr.sh
+            scripts/ci/pr-body-check-gate.mjs
+            data/events-description-rewrites.json
+            data/events.json
+            public/data/events.json
+          )
+          missing=()
+          for path in "${required[@]}"; do
+            if [ ! -e "$path" ]; then
+              missing+=("$path")
+            fi
+          done
+          if [ "${#missing[@]}" -eq 0 ]; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+            echo 'Main snapshot contains the event rewrite runtime.'
+          else
+            echo "::warning title=Main snapshot incomplete::Missing event rewrite runtime paths: ${missing[*]}"
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      # The publisher still reconciles against the moving main branch after
+      # this point. If main was briefly published as an incomplete tree while
+      # this run was active, use the immutable run snapshot instead of letting
+      # setup-node or npm ci fail on a missing lockfile/code path.
+      - name: Recover immutable run snapshot
+        if: steps.main_snapshot.outputs.ready != 'true'
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
