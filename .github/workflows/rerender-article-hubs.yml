@@ -213,7 +213,7 @@ jobs:
       # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
       # fallback for a refused deploy key.
       #
-      # Deliberately NO `npm ci`: the driver runs under `npx -y tsx@4.23.15` and its
+      # Deliberately NO `npm ci`: the driver runs through the pinned tsx wrapper and its
       # whole transitive value-import closure (81 files, verified by scanning
       # it — the one `react` edge is reached through an `import type` that tsx
       # erases) touches no npm package at runtime. Same posture as
@@ -370,7 +370,7 @@ jobs:
           # Pinned to the same tsx major package.json declares ("tsx":
           # "^4.21.0"), like every other un-installed path in this repo, so a
           # future tsx major cannot silently change loader behaviour here.
-          npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+          bash scripts/ci/run-pinned-tsx.sh scripts/rerender-article-hubs.mjs "${ARGS[@]}"
 
       # The driver performs the strict client publication immediately before
       # its shard fan-out. Check the watcher after that composite step as well,

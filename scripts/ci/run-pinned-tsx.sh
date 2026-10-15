@@ -24,7 +24,7 @@ attempt=1
 while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
   echo "[tsx-bootstrap] running ${entrypoint} (attempt ${attempt}/${MAX_ATTEMPTS})"
   exit_code=0
-  if timeout --foreground --kill-after="${KILL_AFTER_SECONDS}s" "${ATTEMPT_TIMEOUT_SECONDS}s" \
+  if timeout --kill-after="${KILL_AFTER_SECONDS}s" "${ATTEMPT_TIMEOUT_SECONDS}s" \
     npx --yes "$TSX_SPEC" "$@"; then
     exit 0
   else

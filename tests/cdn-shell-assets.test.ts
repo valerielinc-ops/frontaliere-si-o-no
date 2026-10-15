@@ -818,7 +818,8 @@ describe('pinned tsx bootstrap for fast emitters', () => {
     expect(runner).toContain('set -euo pipefail');
     expect(runner).toContain("readonly MAX_ATTEMPTS=3");
     expect(runner).toContain("readonly ATTEMPT_TIMEOUT_SECONDS=120");
-    expect(runner).toContain('timeout --foreground --kill-after="${KILL_AFTER_SECONDS}s"');
+    expect(runner).toContain('timeout --kill-after="${KILL_AFTER_SECONDS}s"');
+    expect(runner).not.toContain('timeout --foreground');
     expect(runner).toContain('sleep "$retry_delay"');
     expect(runner).toContain('exit "$exit_code"');
     expect(runner).not.toContain('|| true');
@@ -847,7 +848,7 @@ describe('fast emitters run the ensure step before they publish', () => {
     .map((name) => `scripts/${name}`);
   const escapeRx = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const invocationOf = (paths: string[]) => new RegExp(
-    String.raw`(?:^|[\s;&|(])(?:node|bash|tsx(?:@[\w.]+)?)\s+(?:${paths.map(escapeRx).join('|')})(?![\w.-])`,
+    String.raw`(?:^|[\s;&|(])(?:node|bash|tsx(?:@[\w.]+)?)\s+(?:${escapeRx(PINNED_TSX_RUNNER)}\s+)?(?:${paths.map(escapeRx).join('|')})(?![\w.-])`,
     'm',
   );
   const publishes = invocationOf([...emitterScripts, INCREMENTAL_PUSH]);

@@ -321,7 +321,7 @@ jobs:
           # declares ("tsx": "^4.21.0"), matching publish-article-fast.mjs's
           # own invocation — a future tsx major cannot silently change loader
           # behaviour on this un-installed path.
-          npx -y tsx@4.23.15 scripts/rerender-article-corpus.mjs "${ARGS[@]}"
+          bash scripts/ci/run-pinned-tsx.sh scripts/rerender-article-corpus.mjs "${ARGS[@]}"
 
       - name: Report failure to GitHub Issues
         if: failure()
