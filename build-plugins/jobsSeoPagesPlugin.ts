@@ -1307,6 +1307,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   pluginName: 'jobsSeoPagesPlugin',
   postWalkDerivedKind: 'bridge',
  });
+ // `awaitDrainSlot()` bounds only completed background batches. It does not
+ // bound the collector's active Map, whose 5,000-entry default is too large
+ // for the repeated company-hub HTML payloads on the 16 GB build runner. A
+ // full flush at a smaller boundary releases both the strings and the batch
+ // bookkeeping before the next hub burst; the generic collector threshold
+ // remains unchanged for the other emitters.
+ const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 1_024;
+ const flushHubPageWritesIfNeeded = async (): Promise<void> => {
+  if (collector.count < HUB_PAGE_WRITE_FLUSH_THRESHOLD) return;
+  await collector.flush();
+ };
  logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
@@ -4758,9 +4769,9 @@ ${staticAnalyticsHtml}
  // loop — each company emits several large (~50 KB) HTML files and the page
  // rate outruns libuv, so _pendingFlushes (each batch closes over its content)
  // climbed to ~16 batches (~GBs live) by the end of this phase → OOM (#1290).
- // Keep the same two-batch ceiling used by the phase boundary below. With the
- // 5k auto-flush threshold this bounds retained company HTML to three batches
- // (one active map + two flushes), instead of the previous seven.
+ // `flushHubPageWritesIfNeeded()` also drains the active map at 1,024 entries;
+ // `awaitDrainSlot(2)` remains the guard for a batch inherited from the prior
+ // phase, but is not used as the company-page retention bound.
  await collector.awaitDrainSlot(2);
  // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
  // indexable hub here: their jobs already surface on the canonical umbrella via
@@ -5348,6 +5359,7 @@ ${companyFollowHtml}
  }
  companyPagesCount++;
  recordEmit('company-landing', __tCompany);
+ await flushHubPageWritesIfNeeded();
  }
  }
  if (companyPagesCount > 0) {
@@ -9078,6 +9090,7 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCantonBelowFloorBridge(locale, canton, companyName, sortedJobs, `${companyRoutePrefix[locale]}-${cSlug}`);
+ await flushHubPageWritesIfNeeded();
  }
  continue;
  }
@@ -9261,6 +9274,7 @@ ${staticAnalyticsHtml}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  companyCantonPagesCount++;
  recordEmit('company-canton-hub', __tCompanyCanton);
+ await flushHubPageWritesIfNeeded();
  }
  // Sitemap entry (priority 0.75 mirroring TI company hubs).
  const itSection = sharedResolveCantonSection('it', canton);
@@ -9370,6 +9384,7 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCityBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}-${citySlug}`);
+ await flushHubPageWritesIfNeeded();
  }
  continue;
  }
@@ -9523,6 +9538,7 @@ ${staticAnalyticsHtml}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  companyCityPagesCount++;
  recordEmit('company-city-canton-hub', __tCompanyCity);
+ await flushHubPageWritesIfNeeded();
  }
  // Sitemap entry (priority 0.65 -- deeper in the funnel than company hub).
  const itSection = sharedResolveCantonSection('it', canton);
