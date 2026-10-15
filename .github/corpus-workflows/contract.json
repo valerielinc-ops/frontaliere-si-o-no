@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "83bc1378a173db3712ef47edd5896b813f309582",
+  "sourceCommit": "88074aa9a092a772f5fde0c833aca56c6a0e5e23",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "83bc1378a173db3712ef47edd5896b813f309582"
+    "sourceCommit": "88074aa9a092a772f5fde0c833aca56c6a0e5e23"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 628,
+  "crawlerCount": 630,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff",
+    "rosterDigest": "sha256:33eafdc6b782f8f00e749a542a8de680fad85e04361e386bddbc2569719745b4",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -197,6 +197,7 @@
     "scripts/update-ehc-vd-jobs.mjs",
     "scripts/update-ehnv-jobs.mjs",
     "scripts/update-elettra-1938-jobs.mjs",
+    "scripts/update-elite-interim-jobs.mjs",
     "scripts/update-elprom-jobs.mjs",
     "scripts/update-emil-frey-jobs.mjs",
     "scripts/update-emmi-jobs.mjs",
@@ -242,6 +243,7 @@
     "scripts/update-ghol-jobs.mjs",
     "scripts/update-giardino-jobs.mjs",
     "scripts/update-gim-architekten-jobs.mjs",
+    "scripts/update-gipo-jobs.mjs",
     "scripts/update-givaudan-jobs.mjs",
     "scripts/update-gkb-jobs.mjs",
     "scripts/update-globus-jobs.mjs",
@@ -1154,8 +1156,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "bee4c5b0241585ce3fe58a6c339dcb9c7179654c0860c7381bfa94cac3b89fd9",
-      "artifactSha256": "fe9459c718420fbfd9aa3febbbb234b1ab8323730af5522265a879f4e7c82500",
+      "sourceSha256": "b42a5d2e66750b9472addc97b462290ec437021f95266951158ea7447c44e1ed",
+      "artifactSha256": "b2ded6c1c06c212d609580e04b6023a79f0637f130dead29fa88dc7d608d8a39",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1184,7 +1186,8 @@
         "ail",
         "sta",
         "elprom",
-        "sonarsource"
+        "sonarsource",
+        "elite-interim"
       ]
     },
     {
@@ -1412,8 +1415,8 @@
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "69ef0ee5e0f973a9589429f0086afb9796cf3148c674d0a9fb730e64e5e342c7",
-      "artifactSha256": "642055e849c069c23df9fb8797aa5d4a8eb78871661f813bbef65951346fe341",
+      "sourceSha256": "d51f8a878415abbeeb6ae313d3e438a6d9a19eb8c2db770e01501e2403e04fbd",
+      "artifactSha256": "bb7f14f204718e27c8de78025fdf19f44d64047b208aa0381bccba13a3b202a2",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "rittmeyer",
@@ -1443,7 +1446,8 @@
         "ariston",
         "bachtelen",
         "alcon",
-        "yellowshark"
+        "yellowshark",
+        "gipo"
       ]
     },
     {
