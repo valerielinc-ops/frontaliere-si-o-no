@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T08:57:46.689Z",
+  "generatedAt": "2026-10-15T09:57:11.459Z",
   "totalEvents": 13578,
   "events": [
     {
@@ -517666,7 +517666,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di una serata di musica corale ospitata alla Tonhalle, nel cantone SG. Il programma riunisce brani tratti da «Nabucco», «Aida», «Rigoletto» e «La traviata», oltre ad altri estratti.",
+      "descriptionByLocale": {
+        "it": "Si tratta di una serata di musica corale ospitata alla Tonhalle, nel cantone SG. Il programma riunisce brani tratti da «Nabucco», «Aida», «Rigoletto» e «La traviata», oltre ad altri estratti.",
+        "en": "The gala is a choral music event held at the Tonhalle in canton SG. Its programme includes excerpts from Nabucco, Aida, Rigoletto and La Traviata, along with further selections.",
+        "de": "Die Veranstaltung ist der Chormusik gewidmet und findet in der Tonhalle im Kanton SG statt. Das Programm umfasst bekannte Ausschnitte aus mehreren Verdi-Opern, darunter Nabucco, Aida, Rigoletto und La Traviata.",
+        "fr": "Ce rendez-vous de musique chorale se tient à la Tonhalle, dans le canton SG. Le programme propose des extraits de Nabucco, Aida, Rigoletto et La Traviata, ainsi que d’autres passages."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dc3c23ebfc0d4b3d846374ae0e773563",
@@ -519170,7 +519178,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Gragji è una serata disco organizzata a Bellwald. L’accesso è riservato alle persone dai 16 anni in su e prevede il controllo di un documento d’identità.",
+      "descriptionByLocale": {
+        "it": "Gragji è una serata disco organizzata a Bellwald. L’accesso è riservato alle persone dai 16 anni in su e prevede il controllo di un documento d’identità.",
+        "en": "Gragji is a disco event held in Bellwald. Admission is restricted to people aged 16 and over, with identification required for age verification.",
+        "de": "Gragji ist eine Disco-Veranstaltung in Bellwald. Der Zutritt ist ab 16 Jahren möglich und setzt eine Ausweiskontrolle voraus.",
+        "fr": "Gragji est une soirée disco organisée à Bellwald. L’accès est réservé aux personnes âgées de 16 ans et plus, avec contrôle d’identité à l’entrée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e8ee49ff1abb49a699de5ec74e7eea98",
@@ -522542,7 +522558,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si tiene a Lucerna. Il programma accosta opera e canto a jazz, chanson e cabaret.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si tiene a Lucerna. Il programma accosta opera e canto a jazz, chanson e cabaret.",
+        "en": "The event takes place in Lucerne. Its programme brings opera and song together with jazz, chanson and cabaret.",
+        "de": "Die Veranstaltung findet in Luzern statt. Die Auswahl reicht von Oper und Lied bis zu Jazz, Chanson und Kabarett.",
+        "fr": "La manifestation se déroule à Lucerne. La programmation associe l’opéra et le chant au jazz, à la chanson et au cabaret."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e8a875c31e9f485a9269fd6a1dd144f4",
@@ -523603,7 +523627,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è un torneo di pondhockey nella località di Val Surses Savognin Bivio, nel comune di Surses. Si gioca quattro contro quattro con pattini e bastone, in una formula che richiede poca attrezzatura.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un torneo di pondhockey nella località di Val Surses Savognin Bivio, nel comune di Surses. Si gioca quattro contro quattro con pattini e bastone, in una formula che richiede poca attrezzatura.",
+        "en": "The event is a pond hockey tournament held at Val Surses Savognin Bivio in Surses. The format has four players per side and keeps the required equipment to a minimum, with skates and a stick used for play.",
+        "de": "In Val Surses Savognin Bivio in Surses steht ein Pondhockey-Turnier auf dem Programm. Die Partien werden mit vier Personen pro Seite sowie mit Schlittschuhen und Stock ausgetragen, wobei auf überflüssige Ausrüstung weitgehend verzichtet wird.",
+        "fr": "Ce tournoi de pondhockey se déroule à Val Surses Savognin Bivio, dans la commune de Surses. Les équipes s’affrontent à quatre contre quatre avec des patins et une crosse, selon un format qui limite l’équipement nécessaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8e65a110a73e489f80ae73ff1e2a17a8",
@@ -525493,7 +525525,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Schwenden-Grimmialp, nel comune di Diemtigen, l’appuntamento presenta fiabe in dialetto provenienti da varie parti del mondo. La serata si svolge all’aperto davanti al Büchsewäg-Beizli.",
+      "descriptionByLocale": {
+        "it": "A Schwenden-Grimmialp, nel comune di Diemtigen, l’appuntamento presenta fiabe in dialetto provenienti da varie parti del mondo. La serata si svolge all’aperto davanti al Büchsewäg-Beizli.",
+        "en": "The programme at Schwenden-Grimmialp in Diemtigen centres on dialect fairy tales from around the world. This outdoor evening takes place in front of the Büchsewäg-Beizli.",
+        "de": "In Schwenden-Grimmialp bei Diemtigen stehen Mundartmärchen aus aller Welt im Mittelpunkt. Der Abend findet im Freien vor dem Büchsewäg-Beizli statt.",
+        "fr": "À Schwenden-Grimmialp, dans la commune de Diemtigen, la soirée présente des contes en dialecte venus du monde entier. Elle se déroule en plein air devant le Büchsewäg-Beizli."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:791e388f7a614e1bba429c9a6d2a7bb7",
@@ -533599,7 +533639,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un corso dedicato alla lavorazione a maglia raglan. L’attività si svolge presso la Volkshochschule Solothurn, a Solothurn.",
+      "descriptionByLocale": {
+        "it": "È un corso dedicato alla lavorazione a maglia raglan. L’attività si svolge presso la Volkshochschule Solothurn, a Solothurn.",
+        "en": "This is a course focused on raglan knitting. It takes place at Volkshochschule Solothurn in Solothurn.",
+        "de": "Der Kurs widmet sich dem Raglanstricken. Er findet an der Volkshochschule Solothurn in Solothurn statt.",
+        "fr": "Ce cours est consacré au tricot raglan. Il se déroule à la Volkshochschule Solothurn, à Solothurn."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:deb937f157a949fda40c46e21f7e0192",
@@ -535869,7 +535917,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Kulturrausch, Kalles Kaviar si esibisce con ska giamaicano tradizionale, rocksteady ed early reggae. L’evento appartiene alla categoria reggae/dancehall e il gruppo propone questo repertorio dal 1996.",
+      "descriptionByLocale": {
+        "it": "Al Kulturrausch, Kalles Kaviar si esibisce con ska giamaicano tradizionale, rocksteady ed early reggae. L’evento appartiene alla categoria reggae/dancehall e il gruppo propone questo repertorio dal 1996.",
+        "en": "At Kulturrausch, Kalles Kaviar perform traditional Jamaican ska, rocksteady and early reggae. The event is classified as Reggae/Dancehall, and the group has played these styles since 1996.",
+        "de": "Im Kulturrausch tritt Kalles Kaviar mit traditionellem jamaikanischem Ska, Rocksteady und Early Reggae auf. Der Anlass gehört zur Kategorie Reggae/Dancehall; die Gruppe spielt diese Stilrichtungen seit 1996.",
+        "fr": "Au Kulturrausch, Kalles Kaviar interprète du ska jamaïcain traditionnel, du rocksteady et de l’early reggae. Le rendez-vous relève de la catégorie reggae/dancehall, et le groupe joue ces styles depuis 1996."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4c93e1426140444a8626bf8a94f93671",
@@ -537937,7 +537993,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La lezione presenta la Bretagna, una regione dell’Europa occidentale caratterizzata dal mare. L’appuntamento si svolge alla Stadthalle Waldshut.",
+      "descriptionByLocale": {
+        "it": "La lezione presenta la Bretagna, una regione dell’Europa occidentale caratterizzata dal mare. L’appuntamento si svolge alla Stadthalle Waldshut.",
+        "en": "This lecture focuses on Brittany, a region in western Europe shaped by the sea. It is held at Stadthalle Waldshut.",
+        "de": "Die Veranstaltung widmet sich der Bretagne, einer vom Meer geprägten Region im Westen Europas. Sie findet in der Stadthalle Waldshut statt.",
+        "fr": "Cette conférence présente la Bretagne, une région de l’ouest de l’Europe façonnée par la mer. Elle se déroule à la Stadthalle Waldshut."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3c0412414b4d466db5e325455f763622",
@@ -539906,7 +539970,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di una celebrazione liturgica incentrata sulla parola. L’evento è previsto ad Altdorf, nel canton Uri.",
+      "descriptionByLocale": {
+        "it": "Si tratta di una celebrazione liturgica incentrata sulla parola. L’evento è previsto ad Altdorf, nel canton Uri.",
+        "en": "This event is a Liturgy of the Word. It is scheduled in Altdorf, in the canton of Uri.",
+        "de": "Die Veranstaltung ist ein Wortgottesdienst. Sie findet in Altdorf im Kanton Uri statt.",
+        "fr": "Il s’agit d’une célébration de la Parole. L’événement est prévu à Altdorf, dans le canton d’Uri."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f0e24619bd0244948279244930ce22f1",
@@ -540397,7 +540469,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'appuntamento a Soletta è dedicato alla 62a edizione delle Solothurner Filmtage. Il programma comprende un aperitivo e la cerimonia di consegna del premio del pubblico.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento a Soletta è dedicato alla 62a edizione delle Solothurner Filmtage. Il programma comprende un aperitivo e la cerimonia di consegna del premio del pubblico.",
+        "en": "This event in Solothurn is dedicated to the 62nd edition of the Solothurner Filmtage. It includes an aperitif and the presentation of the audience award.",
+        "de": "Die Veranstaltung in Solothurn widmet sich der 62. Ausgabe der Solothurner Filmtage. Vorgesehen sind ein Apéro und die Verleihung des Publikumspreises.",
+        "fr": "Cette manifestation à Soleure est consacrée à la 62e édition des Solothurner Filmtage. Elle comprend un apéritif ainsi que la remise du prix du public."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:112c16662bbb482ba2365513ee2df3e9",
@@ -544055,7 +544135,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento presenta a Monthey il Malandain Ballet Biarritz. La proposta coreografica mette in relazione la musica con il lavoro creativo e con il dialogo instaurato con i compositori.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta a Monthey il Malandain Ballet Biarritz. La proposta coreografica mette in relazione la musica con il lavoro creativo e con il dialogo instaurato con i compositori.",
+        "en": "The event brings the Malandain Ballet Biarritz to Monthey. Its choreographic work is shaped by the relationship between music and creation, with composers serving as dialogue partners.",
+        "de": "In Monthey ist das Malandain Ballet Biarritz zu erleben. Im Mittelpunkt der choreografischen Arbeit steht die Verbindung von Musik und Schaffensprozess, die im Austausch mit Komponisten entsteht.",
+        "fr": "Le Malandain Ballet Biarritz se produit à Monthey dans le cadre de ce rendez-vous. La création chorégraphique s’appuie sur le lien entre musique et travail artistique, nourri par l’échange avec les compositeurs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2ea8283fc1b14231a1c6ef1063907d14",
@@ -546286,7 +546374,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il racconto presenta Valentin Grüner mentre alleva al biberon Sirga, un cucciolo di leone rimasto orfano. Ripercorre quindici anni di esperienze condivise e riflette sul legame tra i due, sulla natura selvaggia e sulla libertà.",
+      "descriptionByLocale": {
+        "it": "Il racconto presenta Valentin Grüner mentre alleva al biberon Sirga, un cucciolo di leone rimasto orfano. Ripercorre quindici anni di esperienze condivise e riflette sul legame tra i due, sulla natura selvaggia e sulla libertà.",
+        "en": "This event follows Valentin Grüner as he raises Sirga, an orphaned lion cub, by bottle. It spans fifteen years of shared experiences and explores the bond between them, the wilderness and freedom.",
+        "de": "Im Mittelpunkt steht Valentin Grüner, der Sirga, ein verwaistes Löwenjunges, mit der Flasche aufzieht. Die Veranstaltung verfolgt fünfzehn Jahre gemeinsamer Erfahrungen und thematisiert ihre Verbundenheit, die Wildnis und die Freiheit.",
+        "fr": "Cette rencontre suit Valentin Grüner, qui élève au biberon Sirga, un lionceau devenu orphelin. Elle retrace quinze années d’expériences partagées et évoque leur lien, la vie sauvage et la liberté."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7675364d12124ba3bb34e486458a1813",
@@ -552404,7 +552500,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un corso avanzato sulla potatura degli alberi da frutto. L’evento ricorrente si svolge a Wilchingen, nel cantone di SH.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un corso avanzato sulla potatura degli alberi da frutto. L’evento ricorrente si svolge a Wilchingen, nel cantone di SH.",
+        "en": "This is an advanced course on pruning fruit trees. The recurring event takes place in Wilchingen, in the canton of SH.",
+        "de": "Der Kurs vermittelt fortgeschrittene Kenntnisse im Schnitt von Obstbäumen. Die wiederkehrende Veranstaltung findet in Wilchingen im Kanton SH statt.",
+        "fr": "Il s’agit d’un cours avancé consacré à la taille des arbres fruitiers. Le rendez-vous récurrent a lieu à Wilchingen, dans le canton de SH."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:5396be97321645339681ba7aeda46ac6",
@@ -556324,7 +556428,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Kammerphilharmonie Graubünden presenta Heidi a Savognin. L’evento si tiene nella sala polivalente Sala Grava di Savognin, in Val Surses.",
+      "descriptionByLocale": {
+        "it": "La Kammerphilharmonie Graubünden presenta Heidi a Savognin. L’evento si tiene nella sala polivalente Sala Grava di Savognin, in Val Surses.",
+        "en": "The Kammerphilharmonie Graubünden presents Heidi in Savognin. The event takes place at the Sala Grava multi-purpose hall in Val Surses.",
+        "de": "Die Kammerphilharmonie Graubünden präsentiert Heidi in Savognin. Die Veranstaltung findet in der Mehrzweckhalle Sala Grava in Val Surses statt.",
+        "fr": "La Kammerphilharmonie Graubünden présente Heidi à Savognin. La représentation se déroule dans la salle polyvalente Sala Grava, à Val Surses."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ade7b0d39e9f49ecaa260245909310ce",
@@ -558639,7 +558751,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento musicale presenta Padi Bernhard e Band presso Höfli Pub Oey, a Diemtigen. Il prezzo d’ingresso è di 30,30 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento musicale presenta Padi Bernhard e Band presso Höfli Pub Oey, a Diemtigen. Il prezzo d’ingresso è di 30,30 CHF.",
+        "en": "This music event features Padi Bernhard and Band at Höfli Pub Oey in Diemtigen. Admission costs CHF 30.30.",
+        "de": "Bei dieser Musikveranstaltung treten Padi Bernhard und Band im Höfli Pub Oey in Diemtigen auf. Der Eintritt kostet CHF 30.30.",
+        "fr": "Cette manifestation musicale présente Padi Bernhard et Band au Höfli Pub Oey, à Diemtigen. Le prix d’entrée est de 30,30 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a6048e861325475380953500218fba92",
@@ -565425,7 +565545,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma comprende opere per orchestra d’archi e quartetto d’archi, tra cui «Summa» e «Company». L’evento si svolge a Windisch, nel cantone AG.",
+      "descriptionByLocale": {
+        "it": "Il programma comprende opere per orchestra d’archi e quartetto d’archi, tra cui «Summa» e «Company». L’evento si svolge a Windisch, nel cantone AG.",
+        "en": "The programme includes works for string orchestra and string quartet, among them «Summa» and «Company». The event takes place in Windisch, in canton AG.",
+        "de": "Das Programm umfasst Werke für Streichorchester und Streichquartett, darunter «Summa» und «Company». Die Veranstaltung findet in Windisch im Kanton AG statt.",
+        "fr": "Le programme comprend des œuvres pour orchestre à cordes et quatuor à cordes, dont «Summa» et «Company». Le rendez-vous a lieu à Windisch, dans le canton AG."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ee06295a441944cda9990ab21e6b4bf8",

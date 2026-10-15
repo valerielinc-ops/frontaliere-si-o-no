@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "39cba260bb9e0a1205b86ba214cc68cd59fe2237",
+  "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "39cba260bb9e0a1205b86ba214cc68cd59fe2237"
+    "sourceCommit": "33cfcd2b6b03197b97b469af2673dde77d40223f"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:1b73c388384c94a3c591380a1b470474cb7fc4eff2f552c633401a07ff087bca",
+    "rosterDigest": "sha256:268e374145adb6a712f037f9253b792432dd622a8d98060960a94d68ccb41668",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -83,6 +83,7 @@
     "scripts/update-adullam-jobs.mjs",
     "scripts/update-adus-klinik-jobs.mjs",
     "scripts/update-afry-jobs.mjs",
+    "scripts/update-agat-jobs.mjs",
     "scripts/update-agie-charmilles-jobs.mjs",
     "scripts/update-agroscope-jobs.mjs",
     "scripts/update-albergo-gardenia-jobs.mjs",
@@ -1270,8 +1271,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "e6ef15351b259143f730493d04b9ce1b55eb2e8a81653269eb5beaa4aa50fea7",
-      "artifactSha256": "8063411bb683263c2661a9573a11f2ae6e9175072e86327227e680cd452b3fe0",
+      "sourceSha256": "7be49495b935281b65a723fdfd71a97b6567646612297f9cb2f44ecf48a38d5a",
+      "artifactSha256": "af16af34db520392a2e770c91b2d73afecf966b0ea08f8ffe341e2e1de557224",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1301,14 +1302,15 @@
         "baloise",
         "etavis",
         "amina-bank",
-        "opus-personal"
+        "opus-personal",
+        "rohrer-gartenbau-und-hauswartungen"
       ]
     },
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "0a2f896565bbcd9df3a37432ea3635c80c9c1e949ea6cd4fc4d10cc25f995dd3",
-      "artifactSha256": "9250e26cf62cda1c740e8d287f141b5f2e58c6f8570320f1b50a937760e32538",
+      "sourceSha256": "51b84d57b91bbf44878f0a936fd46b6535430b6cd12ce0f303bc8e8c49db370b",
+      "artifactSha256": "a20f00fd60b040ce835bb31a1003751d3c9d75b7c7bf666f66e289b4836086db",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "migros",
@@ -1339,7 +1341,7 @@
         "vereinaklosters",
         "unibe",
         "convit",
-        "rohrer-gartenbau-und-hauswartungen"
+        "agat"
       ]
     },
     {
