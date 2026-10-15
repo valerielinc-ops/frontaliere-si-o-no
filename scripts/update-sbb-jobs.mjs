@@ -63,7 +63,7 @@ import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePrese
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { hasUsableTitle, isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
-import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
+import { parseSbbDetailPage, extractSbbBodyLocation, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -1070,7 +1070,9 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
       ? sbbParsed.requirements
       : parseBullets(jobPosting?.qualifications, 14));
   const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, apiMeta);
+  const vacancySummaryLocation = isLoginOrgDetail ? '' : extractSbbBodyLocation(html);
   let location = String(
+    vacancySummaryLocation ||
     sourceLoginData.location ||
     resolvedDetailLocation ||
     sbbParsed?.location ||

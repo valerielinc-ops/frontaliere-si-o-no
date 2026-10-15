@@ -463,12 +463,12 @@
     },
     {
       "id": "epi-geneve-c5abefeebfd8",
-      "slug": "place-de-stage-formation-pratique-delphinium-upsa-100-epi-geneve-collonge-bellerive-ge",
+      "slug": "luogo-di-allenamento-pratico-delphinium-upsa-100-etablissements-publics-pour-l-integration-collonge-bellerive-ge",
       "slugByLocale": {
         "fr": "place-de-stage-formation-pratique-delphinium-upsa-100-epi-geneve-collonge-bellerive-ge",
-        "it": "place-de-stage-formation-pratique-delphinium-upsa-100-epi-geneve-collonge-bellerive-ge",
-        "en": "place-de-stage-formation-pratique-delphinium-upsa-100-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "de": "place-de-stage-formation-pratique-delphinium-upsa-100-epi-geneve-collonge-bellerive-ge"
+        "it": "luogo-di-allenamento-pratico-delphinium-upsa-100-etablissements-publics-pour-l-integration-collonge-bellerive-ge",
+        "en": "practical-training-place-delphinium-upsa-100-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland",
+        "de": "praktischer-ausbildungsplatz-delphinium-upsa-100-etablissements-publics-pour-l-integration-collonge-bellerive-ge"
       },
       "company": "Établissements publics pour l'intégration",
       "companyKey": "epi-geneve",
@@ -528,7 +528,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:13:26.541Z"
+      "firstSeenAt": "2026-10-15T09:13:26.541Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "place-de-stage-formation-pratique-delphinium-upsa-100-epi-geneve-collonge-bellerive-ge"
+        ],
+        "en": [
+          "place-de-stage-formation-pratique-delphinium-upsa-100-etablissements-publics-pour-l-integration-collonge-bellerive"
+        ],
+        "de": [
+          "place-de-stage-formation-pratique-delphinium-upsa-100-epi-geneve-collonge-bellerive-ge"
+        ]
+      },
+      "previousSlugs": [
+        "place-de-stage-formation-pratique-delphinium-upsa-100-epi-geneve-collonge-bellerive-ge",
+        "place-de-stage-formation-pratique-delphinium-upsa-100-etablissements-publics-pour-l-integration-collonge-bellerive"
+      ]
     }
   ]
 }

@@ -70,7 +70,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.775Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1534,12 +1533,12 @@
     },
     {
       "id": "apple-retail-switzerland-0f5e4e6a58b8",
-      "slug": "vulnerability-researcher-sear-apple-retail-switzerland-ch",
+      "slug": "ricercatore-di-vulnerabilita-sear-apple-retail-switzerland-zurich",
       "slugByLocale": {
         "en": "vulnerability-researcher-sear-apple-retail-switzerland-ch",
-        "it": "vulnerability-researcher-sear-apple-retail-switzerland-ch",
-        "de": "vulnerability-researcher-sear-apple-retail-switzerland-ch",
-        "fr": "vulnerability-researcher-sear-apple-retail-switzerland-ch"
+        "it": "ricercatore-di-vulnerabilita-sear-apple-retail-switzerland-zurich",
+        "de": "sicherheitsforscher-sear-apple-retail-switzerland-zurich",
+        "fr": "chercheur-de-vulnerabilite-sear-apple-retail-switzerland-zurich"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
@@ -1597,7 +1596,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-29T21:19:03.998Z"
+      "firstSeenAt": "2026-09-29T21:19:03.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vulnerability-researcher-sear-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "vulnerability-researcher-sear-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "vulnerability-researcher-sear-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch"
+      ]
     },
     {
       "id": "apple-retail-switzerland-3d4b15d6efc3",

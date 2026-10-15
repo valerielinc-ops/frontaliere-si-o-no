@@ -358,7 +358,7 @@ describe('wiring in the crawler slice writer', () => {
   it('writeJobsCrawlerSlice drops spurious flags AFTER its own word-list quality gate', () => {
     const body = fnBody(read('scripts/assemble-jobs-dataset.mjs'), 'export function writeJobsCrawlerSlice(');
     const gate = body.indexOf('if (needsFlag) { job.needsRetranslation = true;');
-    const drop = body.indexOf('dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete })');
+    const drop = body.indexOf('dropSpuriousRetranslationFlags(jobs, baseline, {');
     const persist = body.indexOf('writeJson(slicePath, payload');
     expect(gate).toBeGreaterThan(0);
     expect(drop).toBeGreaterThan(gate);
@@ -372,6 +372,36 @@ describe('wiring in the crawler slice writer', () => {
     // writer also declares that it owns one slice and writes the others only
     // through the single-owner writer (tests/scripts/slice-writer-sibling-slices).
     expect(body).toMatch(/sourceEntries: \[\.\.\.fleet\.entries, currentEntry\],\s+ownedEntries: \[currentEntry\],\s+apply: true,\s+writeSlice: fleet\.writeSlice,/);
+  });
+
+  it('judges completeness on the descriptions as the writer will store them', () => {
+    const body = fnBody(read('scripts/assemble-jobs-dataset.mjs'), 'export function writeJobsCrawlerSlice(');
+    expect(body).toContain('isIncomplete: (job) => isIncomplete(withWrittenDescriptions(job))');
+    // The in-place normalization uses the same helper, so the view cannot drift.
+    expect(body).toContain('const normalized = writtenDescriptionText(job.description);');
+  });
+
+  it('premise: a repeated paragraph in the raw crawl reads as an incomplete record', () => {
+    // Senevita, 2026-10-15: the crawl repeats paragraphs the stored slice no
+    // longer has; the description grows past 1/0.55 of the source-locale slot.
+    const paragraph = 'Senevita ist die grösste integrierte Anbieterin von Dienstleistungen im Alter und beschäftigt rund 4000 Mitarbeitende in der ganzen Schweiz.';
+    const stored = [paragraph, 'Wir suchen eine diplomierte Pflegefachperson HF mit Freude an der Arbeit mit älteren Menschen.'].join('\n\n');
+    const raw = [paragraph, paragraph, paragraph, 'Wir suchen eine diplomierte Pflegefachperson HF mit Freude an der Arbeit mit älteren Menschen.'].join('\n\n');
+    const job = (description: string) => ({
+      title: 'Dipl. Pflegefachperson HF',
+      sourceLang: 'de',
+      description,
+      titleByLocale: { it: 'Infermiere/a diplomato/a SSS', en: 'Registered nurse HF', de: 'Dipl. Pflegefachperson HF', fr: 'Infirmier/ère diplômé/e ES' },
+      descriptionByLocale: {
+        de: stored,
+        it: 'Senevita è il più grande fornitore integrato di servizi per la terza età e impiega circa 4000 collaboratori in tutta la Svizzera. Cerchiamo un infermiere diplomato SSS.',
+        en: 'Senevita is the largest integrated provider of services for older people and employs around 4000 people throughout Switzerland. We are looking for a registered nurse HF.',
+        fr: 'Senevita est le plus grand prestataire intégré de services aux personnes âgées et emploie environ 4000 collaborateurs dans toute la Suisse. Nous cherchons un infirmier diplômé ES.',
+      },
+    });
+    expect(normalizeDescriptionBullets(cleanCrawlerArtifacts(raw))).toBe(stored);
+    expect(isIncomplete(job(raw))).toBe(true);
+    expect(isIncomplete(job(stored))).toBe(false);
   });
 
   it('translate-pending and the slice writer share ONE completeness predicate', () => {

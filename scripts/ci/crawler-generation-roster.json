@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 634,
+  "crawlerCount": 638,
   "groups": {
     "10": [
       "atec-personal",
@@ -168,6 +168,7 @@
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
+      "gipo",
       "grand-hotel-kronenhof",
       "gzo-wetzikon",
       "holcim",
@@ -196,6 +197,7 @@
       "csvm-mustair",
       "davos-klosters-bergbahnen",
       "decathlon",
+      "deillon-delley-architectes",
       "entero",
       "eoc-ente-ospedaliero-cantonale",
       "everest-re",
@@ -244,6 +246,7 @@
       "siemens-healthineers",
       "spital-zofingen",
       "sygnum",
+      "technic-emplois",
       "veeam",
       "zurich-insurance-sede-ticino"
     ],
@@ -267,6 +270,7 @@
       "opus-personal",
       "pkb-private-bank",
       "rheinmetall-air-defence",
+      "rohrer-gartenbau-und-hauswartungen",
       "sfs-group",
       "sicpa",
       "spital-lachen",
@@ -841,6 +845,7 @@
     "davos-klosters-bergbahnen": "data/jobs/by-crawler/davos-klosters-bergbahnen.json",
     "debiopharm": "data/jobs/by-crawler/debiopharm.json",
     "decathlon": "data/jobs/by-crawler/decathlon.json",
+    "deillon-delley-architectes": "data/jobs/by-crawler/deillon-delley-architectes.json",
     "deloitte": "data/jobs/by-crawler/deloitte.json",
     "delvitech-sa": "data/jobs/by-crawler/delvitech-sa.json",
     "denner": "data/jobs/by-crawler/denner.json",
@@ -913,6 +918,7 @@
     "giardino": "data/jobs/by-crawler/giardino.json",
     "gim-architekten": "data/jobs/by-crawler/gim-architekten.json",
     "giorgio-armani": "data/jobs/by-crawler/giorgio-armani.json",
+    "gipo": "data/jobs/by-crawler/gipo.json",
     "givaudan": "data/jobs/by-crawler/givaudan.json",
     "gkb": "data/jobs/by-crawler/gkb.json",
     "globus": "data/jobs/by-crawler/globus.json",
@@ -1166,6 +1172,7 @@
     "rituals-cosmetics": "data/jobs/by-crawler/rituals-cosmetics.json",
     "riveneuve": "data/jobs/by-crawler/riveneuve.json",
     "roche": "data/jobs/by-crawler/roche.json",
+    "rohrer-gartenbau-und-hauswartungen": "data/jobs/by-crawler/rohrer-gartenbau-und-hauswartungen.json",
     "rolex": "data/jobs/by-crawler/rolex.json",
     "rsbj": "data/jobs/by-crawler/rsbj.json",
     "rss-surselva": "data/jobs/by-crawler/rss-surselva.json",
@@ -1262,6 +1269,7 @@
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
     "tarchini-group": "data/jobs/by-crawler/tarchini-group.json",
     "tecan": "data/jobs/by-crawler/tecan.json",
+    "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
@@ -1322,5 +1330,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:624f6f12aebb5261b36dbd37ae564bc153185820188110e59171f9c64cd13725"
+  "digest": "sha256:11f4c2965297301b73317832c73322944c90e5ec1f6f4a62188cbe1f4f6c47c0"
 }

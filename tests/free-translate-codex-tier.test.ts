@@ -875,6 +875,53 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     // Il messaggio dell'errore non finisce nel log.
     expect(lines.every((l) => !l.includes('broker non raggiungibile'))).toBe(true);
   });
+  it('un rifiuto per quota ferma il tier per quota, non come fallimento della lane', async () => {
+    // Run 38686616395: finita la quota, tre chiamate rifiutate diventavano
+    // «3 fallimenti consecutivi» e la riserva dava `codex-failed`.
+    const calls = stubCodex(() => {
+      throw new Error('[codex] skipped — Codex primary circuit open for this run (quota/rate-limit)');
+    });
+    const texts = [`${IT} Quota distinta uno.`, `${IT} Quota distinta due.`];
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const text of texts) results.push(await tr(text));
+      return results;
+    });
+    expect(value).toEqual(Array(2).fill(`MYMEMORY ${EN}`));
+    expect(calls).toHaveLength(1);
+    expect(lines.filter((l) => l.includes('quota esaurita (quota/rate-limit)'))).toHaveLength(1);
+    expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(0);
+    expect(ft.getCodexTierStats().stopReason).toBe('quota esaurita (quota/rate-limit)');
+  });
+
+  it('con il tetto della 2e le chiamate dopo Codex partono una alla volta', async () => {
+    // Review della PR 13395: con piu' descrizioni in volo, quando Codex si
+    // ferma il lavoro gia' partito cade sui motori successivi tutto insieme.
+    stubCodex(() => { throw new Error('broker non raggiungibile'); });
+    const inner = globalThis.fetch;
+    let active = 0;
+    let peak = 0;
+    globalThis.fetch = (async (...args: Parameters<typeof fetch>) => {
+      active += 1;
+      peak = Math.max(peak, active);
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      try { return await inner(...args); } finally { active -= 1; }
+    }) as typeof fetch;
+    try {
+      ft.setFallbackProviderConcurrency(1);
+      await Promise.all([1, 2, 3, 4].map((i) => tr(`${IT} Porta distinta ${i}.`)));
+      expect(peak).toBe(1);
+      // Senza tetto (ogni altro chiamante) restano in parallelo come prima.
+      ft.setFallbackProviderConcurrency(Infinity);
+      peak = 0;
+      await Promise.all([5, 6, 7, 8].map((i) => tr(`${IT} Porta distinta ${i}.`)));
+      expect(peak).toBeGreaterThan(1);
+    } finally {
+      globalThis.fetch = inner;
+      ft.setFallbackProviderConcurrency(Infinity);
+    }
+  });
+
   it('tre echi-source distinti fermano il tier come tre fallimenti', async () => {
     const before = codexCounters();
     const texts = [

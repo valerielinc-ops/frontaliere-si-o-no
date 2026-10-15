@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
+        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -59,11 +59,12 @@
           "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "de": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
-        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
       "salaryMin": 109000,
@@ -883,7 +884,7 @@
         "en": "crm-assistant-booking-center-international-jsafrasarasin-ch",
         "it": "crm-assistant-booking-center-international-jsafrasarasin-ch",
         "de": "crm-assistant-booking-center-international-jsafrasarasin-ch",
-        "fr": "crm-assistant-booking-center-international-j-safra-sarasin-geneva"
+        "fr": "centre-de-reservation-assistant-crm-international-j-safra-sarasin-geneva-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -941,7 +942,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-15T09:15:53.101Z"
+      "firstSeenAt": "2026-10-15T09:15:53.101Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "crm-assistant-booking-center-international-j-safra-sarasin-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "crm-assistant-booking-center-international-j-safra-sarasin-geneva"
+      ]
     }
   ]
 }
