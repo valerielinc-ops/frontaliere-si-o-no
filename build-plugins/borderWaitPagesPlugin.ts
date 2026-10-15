@@ -1428,10 +1428,15 @@ function renderCompactCommuterContextProse(
         : locale === 'de'
           ? `Die Wartezeit bei ${crossingLabel} hängt von Pendlerverkehr, Kontrollen und Ereignissen auf der Strasse ab. Im Gebiet ${regionDisplay} waren ${bestHour} in den letzten 30 Tagen die ruhigste und ${worstHour} die stärkste Zeit. Prüfe Messwert und Webcam vor der Abfahrt: Der Grenzverkehr kann sich rasch ändern.${ticinoNote}`
           : `Le temps d'attente à ${crossingLabel} dépend du trafic pendulaire, des contrôles et des événements routiers. Dans la zone ${regionDisplay}, les 30 derniers jours indiquent ${bestHour} comme créneau le plus calme et ${worstHour} comme le plus chargé. Vérifiez la mesure live et la webcam avant de partir : le trafic frontalier peut changer rapidement.${ticinoNote}`;
-  return `<section class="s-6B_yvh">
-    <h2 style="${H2_STYLE}">${esc(headline)}</h2>
-    <p class="s-KwuhOL">${esc(paragraph)}</p>
-  </section>`;
+  const comparisonNote =
+    locale === 'it'
+      ? ` Confronta rilevazioni raccolte a orari simili e aggiungi sempre il tempo necessario per raggiungere un valico alternativo: i minuti mostrati descrivono il tratto osservato, non l'intero viaggio.`
+      : locale === 'en'
+        ? ` Compare readings collected at similar times and always add the drive needed to reach an alternative crossing: the displayed minutes describe the observed segment, not the whole journey.`
+        : locale === 'de'
+          ? ` Vergleiche Messwerte aus ähnlichen Zeitpunkten und addiere immer die Fahrt zum Alternativübergang: Die angezeigten Minuten beschreiben den beobachteten Abschnitt, nicht die gesamte Reise.`
+          : ` Comparez des mesures prises à des heures proches et ajoutez toujours le trajet vers un autre passage : les minutes affichées décrivent le tronçon observé, pas le voyage entier.`;
+  return `<p class="s-KwuhOL"><strong>${esc(headline)}.</strong> ${esc(paragraph + comparisonNote)}</p>`;
 }
 
 /**
@@ -1528,7 +1533,7 @@ function renderLeafLivePlanningProse(
   return `<section class="s-fwhUlc">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
     ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
-    <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
+    <div class="s-lGLtkq"><strong>${esc(faqLabels.title)}</strong></div>
     <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
@@ -2098,13 +2103,16 @@ function renderLeafPage(inp: LeafInputs): string {
     adviceTemplates,
     ` data-bw-for="${esc(crossing)}"`,
   );
-  const decisionNote = locale === 'it'
+  const compactDecisionNote = locale === 'it'
     ? `Prima di partire controlla il tempo di attesa live alla dogana ${crossingDisplay}, la webcam e la coda dei valichi vicini.`
     : locale === 'de'
       ? `Prüfe vor der Abfahrt die Live-Wartezeit bei ${crossingDisplay}, die Webcam und die Schlange an den nahegelegenen Übergängen.`
       : locale === 'fr'
         ? `Avant de partir, vérifiez le temps d'attente live à ${crossingDisplay}, la webcam et les files aux passages voisins.`
         : `Before leaving, check the live wait at ${crossingDisplay}, the webcam and queues at nearby crossings.`;
+  const decisionNote = hasToday || hasWeekly
+    ? copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour)
+    : compactDecisionNote;
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
@@ -2199,6 +2207,28 @@ function renderLeafPage(inp: LeafInputs): string {
       ).join('')}</ul>
     </section>`
     : '';
+  const comparisonCandidates = getBorderComparisonCandidates(crossing);
+  const comparisonLabels = comparisonCandidates
+    .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
+    .filter(Boolean);
+
+  // The route-specific explanation offsets the large SVG chart payload that
+  // caused #10844. Leaves without chart markup keep the concise variant.
+  const livePlanningHtml = hasToday || hasWeekly
+    ? renderLeafLivePlanningProse(
+        locale,
+        crossingDisplay,
+        region,
+        reg?.peak ?? '',
+        comparisonLabels,
+      )
+    : renderCompactLeafLivePlanningProse(
+        locale,
+        crossingDisplay,
+        region,
+        reg?.peak ?? '',
+        comparisonLabels,
+      );
 
   // Static crossing info
   const infoRows: string[] = [];
@@ -2250,7 +2280,6 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // B.3 — Real alternatives: nearest crossings in the same regional
   // corridor, using the shared nearest-neighbour calculation.
-  const comparisonCandidates = getBorderComparisonCandidates(crossing);
   const alternativeRoutesHtml = renderBorderWaitComparison({
     locale,
     currentSlug: crossing,
@@ -2465,15 +2494,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
   ${renderCompactCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
-  ${renderCompactLeafLivePlanningProse(
-    locale,
-    crossingDisplay,
-    region,
-    reg?.peak ?? '',
-    comparisonCandidates
-      .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
-      .filter(Boolean),
-  )}
+  ${livePlanningHtml}
   <section class="s-GCEyQg" aria-label="${esc(leafFaqTitle)}">
     <p class="s-yOfiVn">${esc(decisionNote)}</p>
   </section>
