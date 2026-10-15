@@ -1029,12 +1029,12 @@
     },
     {
       "id": "sodexo-049695fb00c2",
-      "slug": "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern",
+      "slug": "addetto-a-alle-pulizie-di-manutenzione-m-f-d-circa-15-sodexo-suisse-sa-luzern",
       "slugByLocale": {
         "de": "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-luzern",
-        "it": "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern",
-        "en": "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern",
-        "fr": "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern"
+        "it": "addetto-a-alle-pulizie-di-manutenzione-m-f-d-circa-15-sodexo-suisse-sa-luzern",
+        "en": "maintenance-cleaner-m-f-d-approx-15-sodexo-suisse-sa-luzern",
+        "fr": "agent-e-de-nettoyage-d-entretien-h-f-d-env-15-sodexo-suisse-sa-luzern"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -1082,11 +1082,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-luzern"
+          "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-luzern",
+          "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern"
+        ],
+        "en": [
+          "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern"
+        ],
+        "fr": [
+          "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern"
         ]
       },
       "previousSlugs": [
-        "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-luzern"
+        "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-luzern",
+        "unterhaltsreiniger-in-m-w-d-ca-15-sodexo-suisse-sa-luzern"
       ],
       "salaryMin": 10400,
       "salaryMax": 15900,

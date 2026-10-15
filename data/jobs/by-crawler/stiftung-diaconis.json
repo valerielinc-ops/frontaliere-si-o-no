@@ -491,7 +491,7 @@
       "slug": "cucina-60-100-stiftung-diaconis-bern",
       "slugByLocale": {
         "it": "cucina-60-100-stiftung-diaconis-bern",
-        "en": "kochin-koch-60-stiftung-diaconis-bern",
+        "en": "cook-cook-60-stiftung-diaconis-bern",
         "de": "kochin-koch-60-100-stiftung-diaconis-bern",
         "fr": "cuisiniere-60-100-stiftung-diaconis-bern"
       },
@@ -548,8 +548,7 @@
         "cook-cook-60-100-stiftung-diaconis-bern",
         "cuocere-cucinare-100-stiftung-diaconis-bern",
         "cook-60-stiftung-diaconis-bern",
-        "kochin-koch-60-stiftung-diaconis-bern",
-        "cook-cook-60-stiftung-diaconis-bern"
+        "kochin-koch-60-stiftung-diaconis-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -571,7 +570,7 @@
           "kochin-koch-60-100-stiftung-diaconis-bern",
           "cook-cook-60-100-stiftung-diaconis-bern",
           "cook-60-stiftung-diaconis-bern",
-          "cook-cook-60-stiftung-diaconis-bern"
+          "kochin-koch-60-stiftung-diaconis-bern"
         ],
         "de": [
           "kochin-koch-100-stiftung-diaconis-bern"
@@ -1049,12 +1048,12 @@
     },
     {
       "id": "stiftung-diaconis-234",
-      "slug": "mitarbeiterin-collaboratore-trice-service-50-stiftung-diaconis-bern",
+      "slug": "addetta-addetto-al-servizio-50-stiftung-diaconis-bern",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern",
-        "it": "mitarbeiterin-collaboratore-trice-service-50-stiftung-diaconis-bern",
-        "en": "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern",
-        "fr": "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern"
+        "it": "addetta-addetto-al-servizio-50-stiftung-diaconis-bern",
+        "en": "employee-employee-service-50-stiftung-diaconis-bern",
+        "fr": "employe-service-des-employes-50-stiftung-diaconis-bern"
       },
       "company": "Stiftung Diaconis",
       "companyKey": "stiftung-diaconis",
@@ -1101,11 +1100,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern",
+          "mitarbeiterin-collaboratore-trice-service-50-stiftung-diaconis-bern"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern"
+        "mitarbeiterin-mitarbeiter-service-50-stiftung-diaconis-bern",
+        "mitarbeiterin-collaboratore-trice-service-50-stiftung-diaconis-bern"
       ],
       "salaryMin": 36500,
       "salaryMax": 62300,

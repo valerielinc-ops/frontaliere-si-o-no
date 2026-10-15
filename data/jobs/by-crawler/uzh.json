@@ -1038,7 +1038,7 @@
       "id": "uzh-f81ca21443ea",
       "slug": "assistenza-scientifica-universitat-zurich-zurich-d7cf4e1a41",
       "slugByLocale": {
-        "it": "assistenza-scientifica-universitat-zurich-zurich-d7cf4e1a41",
+        "it": "assistenza-scientifica-universitat-zurich-zurich",
         "en": "scientific-assistance-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-uzh-zurich",
         "fr": "assistance-scientifique-universitat-zurich-zurich"
@@ -1992,7 +1992,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2039,7 +2039,7 @@
       "previousSlugs": [
         "professorship-of-neurology-universitat-zurich-zurich",
         "professorship-of-neurology-uzh-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich"
+        "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2047,7 +2047,7 @@
         ],
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich"
+          "professorship-of-neurology-universitat-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.623Z",
@@ -8215,7 +8215,7 @@
       "id": "uzh-a62aff43d87d",
       "slug": "assistenza-scientifica-universitat-zurich-zurich-7539031e49",
       "slugByLocale": {
-        "it": "assistenza-scientifica-universitat-zurich-zurich-7539031e49",
+        "it": "assistenza-scientifica-universitat-zurich-zurich",
         "en": "scientific-assistance-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-uzh-zurich",
         "fr": "assistance-scientifique-universitat-zurich-zurich"
@@ -9307,10 +9307,10 @@
       "id": "uzh-e0618949b867",
       "slug": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
+        "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9356,15 +9356,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
         ],
         "fr": [
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
         ]
       },
       "salaryMin": 91500,
@@ -9464,12 +9463,12 @@
     },
     {
       "id": "uzh-2250b4dda574",
-      "slug": "three-phd-positions-in-computational-astrophysics-uzh-zurich",
+      "slug": "tre-posizioni-di-dottorato-in-astrofisica-computazionale-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "three-phd-positions-in-computational-astrophysics-uzh-zurich",
-        "it": "three-phd-positions-in-computational-astrophysics-uzh-zurich",
-        "de": "three-phd-positions-in-computational-astrophysics-uzh-zurich",
-        "fr": "three-phd-positions-in-computational-astrophysics-uzh-zurich"
+        "it": "tre-posizioni-di-dottorato-in-astrofisica-computazionale-universitat-zurich-zurich",
+        "de": "drei-phd-positionen-in-computational-astrophysics-universitat-zurich-zurich",
+        "fr": "trois-postes-de-doctorat-en-astrophysique-computationnelle-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9528,16 +9527,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:14:34.645Z"
+      "firstSeenAt": "2026-10-15T21:14:34.645Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "three-phd-positions-in-computational-astrophysics-uzh-zurich"
+        ],
+        "de": [
+          "three-phd-positions-in-computational-astrophysics-uzh-zurich"
+        ],
+        "fr": [
+          "three-phd-positions-in-computational-astrophysics-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "three-phd-positions-in-computational-astrophysics-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-cd0dd2c5673a",
-      "slug": "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds",
+      "slug": "due-posizioni-di-dottorato-per-il-progetto-snsf-governare-il-partito-come-il-partito-comunista-cinese-mantiene-la",
       "slugByLocale": {
         "en": "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds",
-        "it": "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds",
-        "de": "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds",
-        "fr": "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds"
+        "it": "due-posizioni-di-dottorato-per-il-progetto-snsf-governare-il-partito-come-il-partito-comunista-cinese-mantiene-la",
+        "de": "zwei-phd-positionen-snf-projekt-die-partei-regieren-wie-sich-die-kommunistische-partei-chinas-zusammenhalt-universitat",
+        "fr": "deux-postes-de-doctorant-projet-snsf-gerant-le-parti-comment-le-parti-communiste-chinois-se-tient-ensemble-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9596,7 +9609,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:14:34.615Z"
+      "firstSeenAt": "2026-10-15T21:14:34.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds"
+        ],
+        "de": [
+          "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds"
+        ],
+        "fr": [
+          "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds"
+        ]
+      },
+      "previousSlugs": [
+        "two-phd-positions-snsf-project-governing-the-party-how-the-chinese-communist-party-holds"
+      ]
     }
   ]
 }

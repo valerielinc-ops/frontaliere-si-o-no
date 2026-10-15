@@ -1355,7 +1355,7 @@
       "slugByLocale": {
         "it": "strategic-technology-analista-80-100-abb-svizzera-sede-ticino-baden-aargau-4xkrqt",
         "en": "strategic-technology-analyst-80-100-abb-svizzera-sede-ticino-baden-aargau-4xkrqt",
-        "de": "strategic-technology-analyst-80-100-abb-svizzera-sede-ticino-baden-aargau-4xkrqt",
+        "de": "strategischer-technologieanalyst-80-100-abb-svizzera-sede-ticino-baden-aargau",
         "fr": "strategic-technology-analyste-80-100-abb-svizzera-sede-ticino-baden-aargau-4xkrqt"
       },
       "requirementsByLocale": {},
@@ -1364,10 +1364,14 @@
       "previousSlugsByLocale": {
         "it": [
           "strategic-technology-analyst-80-100-abb-svizzera-sede-ticino-baden-aargau"
+        ],
+        "de": [
+          "strategic-technology-analyst-80-100-abb-svizzera-sede-ticino-baden-aargau-4xkrqt"
         ]
       },
       "previousSlugs": [
-        "strategic-technology-analyst-80-100-abb-svizzera-sede-ticino-baden-aargau"
+        "strategic-technology-analyst-80-100-abb-svizzera-sede-ticino-baden-aargau",
+        "strategic-technology-analyst-80-100-abb-svizzera-sede-ticino-baden-aargau-4xkrqt"
       ],
       "salaryMin": 107000,
       "salaryMax": 187500,
