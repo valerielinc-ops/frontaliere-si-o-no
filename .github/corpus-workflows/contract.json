@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9",
+  "sourceCommit": "d707fa0c91835c3fe19c3023897fba1982979c8e",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9"
+    "sourceCommit": "d707fa0c91835c3fe19c3023897fba1982979c8e"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 636,
+  "crawlerCount": 637,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:5e82b8b3e486e75859d37bd9afc2e003abf8296f877f1182307917fb79b142df",
+    "rosterDigest": "sha256:4551e0e648541d0c9eba12d81bfea316fb74a89e4f68259449846b1cac28ebaa",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -189,6 +189,7 @@
     "scripts/update-daler-hopital-jobs.mjs",
     "scripts/update-debiopharm-jobs.mjs",
     "scripts/update-decathlon-jobs.mjs",
+    "scripts/update-deillon-delley-architectes-jobs.mjs",
     "scripts/update-deloitte-jobs.mjs",
     "scripts/update-dic-sa-jobs.mjs",
     "scripts/update-dormakaba-jobs.mjs",
@@ -1162,8 +1163,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "b42a5d2e66750b9472addc97b462290ec437021f95266951158ea7447c44e1ed",
-      "artifactSha256": "b2ded6c1c06c212d609580e04b6023a79f0637f130dead29fa88dc7d608d8a39",
+      "sourceSha256": "36dc6b7602e5627a8e8830b6de567bf92056b268a1af2b80aed6b2788998a643",
+      "artifactSha256": "78942d51ded1f58c6c8ac73d13069b574aff4e5f71f16b48e9dc87b3c618609f",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1193,14 +1194,15 @@
         "sta",
         "elprom",
         "sonarsource",
-        "elite-interim"
+        "elite-interim",
+        "sympajobs-reinach-bl"
       ]
     },
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "6fe81d8a11bc5ba680a0c95e2e97710fe63162fd6d24ca0f26567a08b917a17e",
-      "artifactSha256": "2ca758d9149b3b26bb1dc2a9a5a5bcbb445fee2bee31a1a470f3adb2a603416d",
+      "sourceSha256": "fdf4a5f479d602c6fd80b0d664dd05d63b63ba29be7e774a824c550f2b9db243",
+      "artifactSha256": "a60f6ce7b3bf973782b9c059ac6d1788bd18cc18782ba4fceace78d95711ebd1",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ksgr",
@@ -1231,7 +1233,7 @@
         "adullam",
         "buersten-technik",
         "matterhorn-gotthard-bahn",
-        "sympajobs-reinach-bl"
+        "deillon-delley-architectes"
       ]
     },
     {

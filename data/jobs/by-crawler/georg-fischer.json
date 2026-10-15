@@ -1031,11 +1031,11 @@
     },
     {
       "id": "georg-fischer-6eb80446e812",
-      "slug": "sap-consultant-m-f-d-georg-fischer-ch",
+      "slug": "sap-consulente-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
         "en": "sap-consultant-m-f-d-georg-fischer-ch",
-        "it": "sap-consultant-m-f-d-georg-fischer-ch",
-        "de": "sap-consultant-m-f-d-georg-fischer-ch",
+        "it": "sap-consulente-m-f-d-georg-fischer-schaffhausen",
+        "de": "sap-berater-m-f-d-georg-fischer-schaffhausen",
         "fr": "sap-consultant-m-f-d-georg-fischer-ch"
       },
       "company": "Georg Fischer",
@@ -1095,7 +1095,18 @@
         }
       },
       "postalCode": "8200",
-      "firstSeenAt": "2026-10-15T09:30:43.048Z"
+      "firstSeenAt": "2026-10-15T09:30:43.048Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-consultant-m-f-d-georg-fischer-ch"
+        ],
+        "de": [
+          "sap-consultant-m-f-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sap-consultant-m-f-d-georg-fischer-ch"
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 636,
+  "crawlerCount": 637,
   "groups": {
     "10": [
       "atec-personal",
@@ -183,6 +183,7 @@
       "sonarsource",
       "spital-affoltern",
       "sta",
+      "sympajobs-reinach-bl",
       "unispital-basel",
       "valiant-bank",
       "wagerenhof"
@@ -196,6 +197,7 @@
       "csvm-mustair",
       "davos-klosters-bergbahnen",
       "decathlon",
+      "deillon-delley-architectes",
       "entero",
       "eoc-ente-ospedaliero-cantonale",
       "everest-re",
@@ -215,7 +217,6 @@
       "spitex-zuerich",
       "swica",
       "swisscom-sede-ticino",
-      "sympajobs-reinach-bl",
       "vir-biotechnology"
     ],
     "17": [
@@ -843,6 +844,7 @@
     "davos-klosters-bergbahnen": "data/jobs/by-crawler/davos-klosters-bergbahnen.json",
     "debiopharm": "data/jobs/by-crawler/debiopharm.json",
     "decathlon": "data/jobs/by-crawler/decathlon.json",
+    "deillon-delley-architectes": "data/jobs/by-crawler/deillon-delley-architectes.json",
     "deloitte": "data/jobs/by-crawler/deloitte.json",
     "delvitech-sa": "data/jobs/by-crawler/delvitech-sa.json",
     "denner": "data/jobs/by-crawler/denner.json",
@@ -1326,5 +1328,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:5e82b8b3e486e75859d37bd9afc2e003abf8296f877f1182307917fb79b142df"
+  "digest": "sha256:4551e0e648541d0c9eba12d81bfea316fb74a89e4f68259449846b1cac28ebaa"
 }
