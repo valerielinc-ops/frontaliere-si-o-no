@@ -13229,6 +13229,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.preventivo-lugano-disavanzo-2027.title': 'Lugano: preventivo 2027 stima disavanzo di 14,7 milioni',
     'blog.article.preventivo-lugano-disavanzo-2027.excerpt': 'Lugano prevede un disavanzo di 14,7 milioni Il risultato migliora di 4,8 milioni sul piano 2026-2033 I moltiplicatori restano all\'80% e all\'85% Gli investimenti',
     'blog.article.preventivo-lugano-disavanzo-2027.imageAlt': 'Vista panoramica della città di Lugano e del lago',
+    'blog.article.l-gav-2027-orario-salario.title': 'L‑GAV 2027‑2031: ore 41, stipendio invariato, sconto Cumulus',
+    'blog.article.l-gav-2027-orario-salario.excerpt': 'Nuovo L-GAV per il quinquennio 2027-2031 Orario da 43 a 41 ore a salario invariato Cumulus: sconto effettivo del 10% dal 1 gennaio 2027 100% netto per 90',
+    'blog.article.l-gav-2027-orario-salario.imageAlt': 'Immagine di un edificio aziendale a Lugano con dipendenti in pausa',
 };
 
 export default blogMetaIt;

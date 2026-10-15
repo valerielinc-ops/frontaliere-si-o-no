@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5494
+      "6": 5495
     },
-    "publishedCovers": 7075,
+    "publishedCovers": 7076,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5299
+    "inferredRecords": 5300
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -186831,6 +186831,33 @@
           "id": "kof-nobel-svizzera",
           "category": "novita",
           "date": "2026-10-13T04:15:38.995Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-l-gav-2027-orario-salario": {
+      "cover": "/images/blog/article-l-gav-2027-orario-salario.webp",
+      "hash": "f6de608dbb0fd97371dec5d0a6e3022715d20474b387327de69dd49ff8b61973",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "l-gav-2027-orario-salario",
+          "category": "novita",
+          "date": "2026-10-15T13:36:22.057Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

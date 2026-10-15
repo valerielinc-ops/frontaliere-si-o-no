@@ -108609,6 +108609,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-l-gav-2027-orario-salario': {
+    title: 'L‑GAV 2027‑2031: ore 41, stipendio invariato, sconto Cumulus',
+    description: 'Nuovo L-GAV per il quinquennio 2027-2031 Orario da 43 a 41 ore a salario invariato Cumulus: sconto effettivo del 10% dal 1 gennaio 2027 100% netto per 90',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, invariato, sconto, cumulus',
+    ogTitle: 'L‑GAV 2027‑2031: ore 41, stipendio invariato, sconto Cumulus',
+    ogDescription: 'Nuovo L-GAV per il quinquennio 2027-2031 Orario da 43 a 41 ore a salario invariato Cumulus: sconto effettivo del 10% dal 1 gennaio 2027 100% netto per 90',
+    canonicalPath: '/articoli-frontaliere/l-gav-2027-orario-salario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L‑GAV 2027‑2031: ore 41, stipendio invariato, sconto Cumulus",
+      "description": "Nuovo L-GAV per il quinquennio 2027-2031 Orario da 43 a 41 ore a salario invariato Cumulus: sconto effettivo del 10% dal 1 gennaio 2027 100% netto per 90",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-l-gav-2027-orario-salario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un edificio aziendale a Lugano con dipendenti in pausa"
+      },
+      "datePublished": "2026-10-15T13:36:22+00:00",
+      "dateModified": "2026-10-15T13:36:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/l-gav-2027-orario-salario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -44645,6 +44645,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'l-gav-2027-orario-salario',
+ category: 'novita',
+ date: '2026-10-15T13:36:22.057Z',
+ image: '/images/blog/article-l-gav-2027-orario-salario.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -13227,6 +13227,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.preventivo-lugano-disavanzo-2027.title': 'Lugano: Der Voranschlag 2027 sieht ein Defizit von 14,7 Millionen vor',
     'blog.article.preventivo-lugano-disavanzo-2027.excerpt': 'Lugano erwartet ein Defizit von 14,7 Millionen Das Ergebnis verbessert sich gegenüber dem Plan 2026-2033 um 4,8 Millionen Die Steuerfüsse bleiben bei 80% und 85% Die Investitionen',
     'blog.article.preventivo-lugano-disavanzo-2027.imageAlt': 'Panoramablick auf die Stadt Lugano und den See',
+    'blog.article.l-gav-2027-orario-salario.title': 'L‑GAV 2027‑2031: 41 Stunden, unveränderter Lohn, Cumulus-Rabatt',
+    'blog.article.l-gav-2027-orario-salario.excerpt': 'Neuer L-GAV für den Fünfjahreszeitraum 2027-2031 Arbeitszeit von 43 auf 41 Stunden bei unverändertem Lohn Cumulus: effektiver Rabatt von 10% ab 1.',
+    'blog.article.l-gav-2027-orario-salario.imageAlt': 'Foto eines Firmengebäudes in Lugano mit Mitarbeitenden in Pause',
 };
 
 export default blogMetaDe;

@@ -13228,6 +13228,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.preventivo-lugano-disavanzo-2027.title': 'Lugano: 2027 budget estimates a deficit of 14,7 million',
     'blog.article.preventivo-lugano-disavanzo-2027.excerpt': 'Lugano forecasts a deficit of 14,7 million The result improves by 4,8 million compared with the 2026-2033 plan The multipliers remain at 80% and 85% Investments',
     'blog.article.preventivo-lugano-disavanzo-2027.imageAlt': 'Panoramic view of Lugano city and the lake',
+    'blog.article.l-gav-2027-orario-salario.title': 'L‑GAV 2027‑2031: 41 hours, salary unchanged, Cumulus discount',
+    'blog.article.l-gav-2027-orario-salario.excerpt': 'New L-GAV for the five-year period 2027-2031 Working hours from 43 to 41 with unchanged salary Cumulus: effective discount of 10% from January 1, 2027 100% net for 90',
+    'blog.article.l-gav-2027-orario-salario.imageAlt': 'Photo of a corporate building in Lugano with employees on break',
 };
 
 export default blogMetaEn;
