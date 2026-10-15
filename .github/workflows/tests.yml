@@ -1970,8 +1970,16 @@ jobs:
         # `actions/checkout` does not create it either (it fetches the PR merge
         # ref, not `+refs/heads/*`). The gate below reads
         # `origin/${{ github.base_ref || 'main' }}` BY NAME, so the ref has to
-        # exist. `|| true`: if it fails the gate degrades to a loud no-op rather
-        # than failing the job.
+        # exist. `|| true`: if it fails the normal gate degrades to a loud
+        # no-op rather than failing the job.
+        #
+        # The one recovery branch below is different by construction: its
+        # parent restores the complete tree that existed before the accidental
+        # truncation of main, so comparing it with the one-file main would
+        # classify pre-existing article bodies as newly edited. Keep the same
+        # factuality gate, but scope that recovery diff to the exact healthy
+        # parent of the truncated commit. Every other branch remains on the
+        # base-branch path above.
         #
         # `--depth=50` RIMOSSO con la fusione dei quattro job, e non è un
         # ripulisti cosmetico: il checkout condiviso ora è `fetch-depth: 0`,
@@ -1982,10 +1990,19 @@ jobs:
         # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
         # qui manca solo il NOME del ref.
         env:
-          TESTS_GUARD_REF: ${{ github.base_ref || 'main' }}
+          TESTS_GUARD_REF: ${{ github.head_ref == 'recovery/restore-main-after-da4-20261015' && 'recovery-factuality-base' || github.base_ref || 'main' }}
         run: |
           tests_guard_ref="${TESTS_GUARD_REF:?TESTS_GUARD_REF is required}"
-          git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
+          if [ "$tests_guard_ref" = "recovery-factuality-base" ]; then
+            recovery_base="41832779d1d83245431adbba738accb5afda0be8"
+            if ! git cat-file -e "${recovery_base}^{commit}"; then
+              echo "::error::recovery factuality baseline is missing: ${recovery_base}"
+              exit 1
+            fi
+            git update-ref "refs/remotes/origin/${tests_guard_ref}" "$recovery_base"
+          else
+            git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
+          fi
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
@@ -2003,7 +2020,7 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         env:
-          FACTUALITY_REF: ${{ github.base_ref || 'main' }}
+          FACTUALITY_REF: ${{ github.head_ref == 'recovery/restore-main-after-da4-20261015' && 'recovery-factuality-base' || github.base_ref || 'main' }}
         run: |
           factuality_ref="${FACTUALITY_REF:?FACTUALITY_REF is required}"
           node scripts/audit-article-factuality.mjs --changed "origin/${factuality_ref}"
