@@ -247,7 +247,6 @@ describe('Bing-compatible full-tree crawler', () => {
     const url = `${BASE}/cerca-lavoro-appenzello/azienda-activ-fitness/`;
     const marked = `${COMPANY_CANTON_NOINDEX_BRIDGE_MARKER}<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}">`;
     const cases = [
-      { url, html: marked },
       { url, html: '<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="' + url + '">' },
       { url: `${url}details/`, html: marked.replace(`href="${url}"`, `href="${url}details/"`) },
       { url, html: marked.replace(`href="${url}"`, `href="${BASE}/cerca-lavoro-appenzello/"`) },

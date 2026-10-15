@@ -20,8 +20,8 @@ export const BING_FRONTIER_HTTP_ERROR = 'frontier-http-error';
 /**
  * Scope-specific frontier codes and their issue classification.
  *
- * A declared noindex/follow bridge whose canonical mismatch is already
- * accepted by `classifyCanonicalMismatch` is evidence, not a repair target.
+ * A declared noindex/follow bridge whose emitter marker and route contract are
+ * accepted by the crawler is evidence, not a repair target.
  * A redirect, HTTP error, or unrecognised noindex/canonical target points to
  * an emitter defect and remains actionable.
  */
