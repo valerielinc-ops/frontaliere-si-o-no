@@ -28,18 +28,21 @@ describe('employer publication date provenance', () => {
     expect(resolveRolloutPostingDate(input, legacyDate, now)).toBe(postingDateSource === 'reported' ? yesterday : null);
     expect(legacyDate).not.toHaveBeenCalled();
   });
-  it.each([undefined, 'unknown', 'existing', 'scraped'])('rejects %s provenance despite parseable dates', (postingDateSource) => {
-    expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
-    expect(resolveSchemaPostingDate({ ...job, postingDateSource }, now)).toEqual({
+  it('requires an explicit scope decision before resolving a schema-safe default', () => {
+    expect(resolveSchemaPostingDate({ postingDateSource: 'unknown' }, now)).toBeNull();
+    expect(resolveSchemaPostingDate({ postingDateSource: 'unknown' }, now, true)).toEqual({
       value: JOB_POSTING_DATE_SAFE_DEFAULT,
       provenance: 'safe-default',
     });
-    expect(buildJobPostingSchema({ ...job, postingDateSource }, options).datePosted).toBe(JOB_POSTING_DATE_SAFE_DEFAULT);
   });
-  it.each([undefined, null, 'unknown'])('keeps the schema default independent from collection/build clocks for %s', (postingDateSource) => {
+  it.each([undefined, 'unknown', 'existing', 'scraped'])('rejects %s provenance despite parseable dates', (postingDateSource) => {
+    expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
+    expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
+  });
+  it.each([undefined, null, 'unknown'])('never converts collection/build clocks into publication for %s', (postingDateSource) => {
     for (const clocks of [{}, { firstSeenAt: yesterday }, { crawledAt: yesterday }, { scrapedAt: yesterday }]) {
-      expect(buildJobPostingSchema({ ...job, postingDateSource, ...clocks }, options).datePosted).toBe(JOB_POSTING_DATE_SAFE_DEFAULT);
-      expect(buildJobPostingSchema({ postingDateSource, ...clocks }, options).datePosted).toBe(JOB_POSTING_DATE_SAFE_DEFAULT);
+      expect(buildJobPostingSchema({ ...job, postingDateSource, ...clocks }, options)).toBeNull();
+      expect(buildJobPostingSchema({ postingDateSource, ...clocks }, options)).toBeNull();
     }
   });
   it.each(['', 'not-a-date', '2025-02-29', '2024-04-31', '2024-01-01T24:00:00Z'])('rejects invalid reported date %s', (postedDate) => {
@@ -47,8 +50,8 @@ describe('employer publication date provenance', () => {
   });
   it('rejects future publication and never substitutes collection timestamps', () => {
     const tomorrow = new Date(now.getTime() + 86400000).toISOString();
-    expect(buildJobPostingSchema({ ...job, postingDateSource: 'reported', postedDate: tomorrow, crawledAt: yesterday, scrapedAt: yesterday }, options).datePosted).toBe(JOB_POSTING_DATE_SAFE_DEFAULT);
-    expect(buildJobPostingSchema({ postingDateSource: 'reported', crawledAt: yesterday }, options).datePosted).toBe(JOB_POSTING_DATE_SAFE_DEFAULT);
+    expect(buildJobPostingSchema({ ...job, postingDateSource: 'reported', postedDate: tomorrow, crawledAt: yesterday, scrapedAt: yesterday }, options)).toBeNull();
+    expect(buildJobPostingSchema({ postingDateSource: 'reported', crawledAt: yesterday }, options)).toBeNull();
   });
   it('preserves a verified original date and emits all mandatory schema properties', () => {
     const schema = buildJobPostingSchema({ ...job, postingDateSource: 'reported' }, options);
@@ -58,11 +61,12 @@ describe('employer publication date provenance', () => {
     expect(schema?.jobLocation.address.postalCode).toBeTruthy();
     expect(schema?.baseSalary.value.minValue).toBeGreaterThan(0);
   });
-  it('keeps presentation FAQ independent from the schema-only date default', () => {
+  it('keeps presentation FAQ available without manufacturing a JobPosting', () => {
     const facts = buildJobPostingFacts(job, 'it');
     expect(facts).not.toHaveProperty('datePosted');
     expect(facts).not.toHaveProperty('@type');
     expect(buildJobPostingFaqPairs(facts, { locale: 'it', jobUrl: options.url, cantonDisplay: 'Ticino', isTicino: true })).toHaveLength(4);
+    expect(buildJobPostingSchema(job, options)).toBeNull();
   });
   it('retains explicit provenance in locale payloads and slim hydration records', () => {
     const localized = buildLocaleJob({ ...job, postingDateSource: 'reported' }, 'it');

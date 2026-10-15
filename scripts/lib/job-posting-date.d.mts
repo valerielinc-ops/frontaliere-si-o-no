@@ -14,4 +14,4 @@ export interface ResolvedSchemaPostingDate {
   readonly provenance: 'reported' | 'safe-default';
 }
 /** Mandatory JSON-LD value plus explicit provenance. */
-export function resolveSchemaPostingDate(input: PostingDateInput, now?: Date): ResolvedSchemaPostingDate;
+export function resolveSchemaPostingDate(input: PostingDateInput, now?: Date, allowSafeDefault?: boolean): ResolvedSchemaPostingDate | null;

@@ -1,4 +1,4 @@
-import { resolveSchemaPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -141,15 +141,15 @@ describe('jobs SEO disk HTML reuse', () => {
   it.each(['unknown', 'reported', undefined] as const)('refreshes mixed provenance %s through the cache contract', (postingDateSource) => {
     const sourceDate = new Date(Date.now() - 3 * 86400000).toISOString();
     const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old"}</script>';
-    const date = resolveSchemaPostingDate({ postingDateSource, datePosted: sourceDate }).value;
+    const date = resolveReportedPostingDate({ postingDateSource, datePosted: sourceDate });
     const result = replaceActiveJobPostingDates(fragment, date, new Date(Date.now() + 86400000).toISOString());
-    expect(result).toContain(date);
+    if (postingDateSource === 'reported') expect(result).toContain(date);
+    else expect(result).toBe('');
   });
 
-  it('replaces a cached reported date with the schema-safe default when provenance becomes unknown', () => {
+  it('removes a cached JobPosting when publication provenance becomes unknown', () => {
     const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-01-01","validThrough":"2026-12-31"}</script>';
-    const date = resolveSchemaPostingDate({ postingDateSource: 'unknown' }).value;
-    expect(replaceActiveJobPostingDates(fragment, date, '2026-12-31')).toContain(`"datePosted":"${date}"`);
+    expect(replaceActiveJobPostingDates(fragment, null, '2026-12-31')).toBe('');
   });
 
   it('forces a fresh render when a previously unknown job gains a reported date', () => {

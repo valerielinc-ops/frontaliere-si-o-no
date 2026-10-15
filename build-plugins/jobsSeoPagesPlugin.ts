@@ -930,7 +930,7 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 });
 
 type ActiveJobReuseFragments = {
- jobPostingDatePosted: string;
+ jobPostingDatePosted: string | null;
  jobPostingValidThrough: string;
  heroBadges: string;
  mobileAction: string;
@@ -955,9 +955,10 @@ function replaceActiveJobReuseFragment(
 
 export function replaceActiveJobPostingDates(
  fragment: string,
- datePosted: string,
+ datePosted: string | null,
  validThrough: string,
 ): string {
+ if (!datePosted) return '';
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
@@ -3370,7 +3371,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryCurrency,
    );
    return {
-   jobPostingDatePosted: resolveRolloutSchemaPostingDate(job, jobsSeoReuseBuildNow).value,
+   jobPostingDatePosted: resolveRolloutSchemaPostingDate(
+    job,
+    jobsSeoReuseBuildNow,
+    canonicalUrl,
+   )?.value ?? null,
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,
@@ -3821,7 +3826,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Merge editorial-only fields that sit outside the 9-mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
- const jobLd = inlineScriptJson({
+ const jobLd = canonicalSchema ? inlineScriptJson({
  ...canonicalSchema,
  // validThrough from the legacy helper (may differ from builder default).
  validThrough: toValidThrough(job.postedDate, job.crawledAt, jobsSeoReuseBuildNow),
@@ -3832,7 +3837,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
- });
+ }) : null;
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',

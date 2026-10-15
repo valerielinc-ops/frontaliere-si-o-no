@@ -46,4 +46,21 @@ describe('issue 12937 six-URL JobPosting contract', () => {
       expect(schema.datePosted).not.toContain('2099');
     }
   });
+
+  it('does not emit the schema-only default for an unrelated URL', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Posizione attiva',
+      description: 'Descrizione verificabile della posizione attiva con responsabilità, requisiti e modalità di candidatura.',
+      company: 'Datore verificato',
+      city: 'Bern',
+      canton: 'BE',
+      postingDateSource: 'unknown',
+    }, {
+      locale: 'it',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-berna/un-settimo-annuncio/',
+      now: new Date(),
+    });
+
+    expect(schema).toBeNull();
+  });
 });

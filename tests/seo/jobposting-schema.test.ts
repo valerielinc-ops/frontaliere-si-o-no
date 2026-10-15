@@ -17,7 +17,6 @@ import {
   type JobInput,
   type JobPostingSchema,
 } from '../../build-plugins/shared/jobPostingSchema';
-import { JOB_POSTING_DATE_SAFE_DEFAULT } from '../../scripts/lib/job-posting-date.mjs';
 import { SLIM_INDEX_FIELDS } from '../../build-plugins/shared/slimJobIndex';
 
 const OPTS = {
@@ -226,8 +225,8 @@ describe('buildJobPostingSchema — missing publication under different build cl
   it('never turns a build date into an employer publication date', () => {
     const job: JobInput = { title: 'Operatore amministrativo', company: 'Fixture SA', city: 'Lugano', postingDateSource: 'unknown' };
     const now = new Date();
-    expect(buildRawJobPostingSchema(job, { ...OPTS, now }).datePosted).toBe(JOB_POSTING_DATE_SAFE_DEFAULT);
-    expect(buildRawJobPostingSchema(job, { ...OPTS, now: new Date(now.getTime() + 86400000) }).datePosted).toBe(JOB_POSTING_DATE_SAFE_DEFAULT);
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now })).toBeNull();
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now: new Date(now.getTime() + 86400000) })).toBeNull();
   });
 });
 

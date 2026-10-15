@@ -41,13 +41,15 @@ export function resolveReportedPostingDate(input, now = new Date()) {
 export const JOB_POSTING_DATE_SAFE_DEFAULT = '1970-01-01';
 
 /**
- * Resolve the value emitted at the JSON-LD boundary without changing source
- * provenance. Visible recency UI must continue to use
- * resolveReportedPostingDate(), never this schema-only fallback.
+ * Resolve a value emitted at the JSON-LD boundary without changing source
+ * provenance. Callers must explicitly opt into the safe default only after
+ * checking the exact URL scope that permits it. Visible recency UI must
+ * continue to use resolveReportedPostingDate().
  */
-export function resolveSchemaPostingDate(input, now = new Date()) {
+export function resolveSchemaPostingDate(input, now = new Date(), allowSafeDefault = false) {
   const reported = resolveReportedPostingDate(input, now);
-  return reported
-    ? { value: reported, provenance: 'reported' }
-    : { value: JOB_POSTING_DATE_SAFE_DEFAULT, provenance: 'safe-default' };
+  if (reported) return { value: reported, provenance: 'reported' };
+  return allowSafeDefault
+    ? { value: JOB_POSTING_DATE_SAFE_DEFAULT, provenance: 'safe-default' }
+    : null;
 }

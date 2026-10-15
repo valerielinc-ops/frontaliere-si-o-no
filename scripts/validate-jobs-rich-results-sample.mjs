@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { resolveSchemaPostingDate } from './lib/job-posting-date.mjs';
+import { resolveRolloutSchemaPostingDate } from './lib/job-posting-date-rollout.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const ROOT = process.cwd();
@@ -71,6 +71,23 @@ function extractAlternateHrefLangs(html = '') {
     byLocale[hreflang] = href;
   }
   return byLocale;
+}
+
+function extractCanonicalUrl(html = '') {
+  const linkRe = /<link\b[^>]*>/gi;
+  let match;
+  while ((match = linkRe.exec(html)) !== null) {
+    const attrs = parseHtmlAttributes(match[0] || '');
+    if (String(attrs.rel || '').toLowerCase() !== 'canonical') continue;
+    const href = String(attrs.href || '').trim();
+    if (!href) return null;
+    try {
+      return new URL(href, BASE_URL).toString();
+    } catch {
+      return null;
+    }
+  }
+  return null;
 }
 
 function hrefToDistFile(href = '') {
@@ -284,7 +301,29 @@ function main() {
         continue;
       }
       const jobPosting = getJobPosting(blocks);
-      const schemaDate = resolveSchemaPostingDate(job);
+      const schemaDate = resolveRolloutSchemaPostingDate(
+        job,
+        undefined,
+        extractCanonicalUrl(html),
+      );
+      if (!schemaDate) {
+        report.publicationDateUnverified += 1;
+        if (jobPosting || job?.postingDateSource === 'reported') {
+          report.errors += 1;
+          const issue = jobPosting ? 'jobposting_without_reported_publication_date' : 'jobposting_missing';
+          if (issue === 'jobposting_missing') report.jobPostingMissing += 1;
+          report.details.push({
+            slug: job.slug,
+            locale: loc.code,
+            level: 'error',
+            issue,
+          });
+        } else {
+          report.jobPostingWithheldUnverifiedDate += 1;
+          report.details.push({ slug: job.slug, locale: loc.code, level: 'info', issue: 'jobposting-withheld-unverified-date' });
+        }
+        continue;
+      }
       if (schemaDate.provenance === 'safe-default') {
         report.publicationDateUnverified += 1;
         report.jobPostingSafeDefaultDate += 1;
@@ -333,7 +372,8 @@ function main() {
   console.log(`Errors: ${report.errors} | Warnings: ${report.warnings}`);
   console.log(`Missing files: ${report.filesMissing}`);
   console.log(`Eligible locale checks: ${report.eligibleLocaleChecks}`);
-  console.log(`Publication date unverified (schema safe default required): ${report.publicationDateUnverified}`);
+  console.log(`Publication date unverified (JobPosting must be absent or scoped safe default): ${report.publicationDateUnverified}`);
+  console.log(`JobPosting withheld (unverified publication): ${report.jobPostingWithheldUnverifiedDate}`);
   console.log(`JobPosting safe-default dates: ${report.jobPostingSafeDefaultDate}`);
   console.log(`Missing eligible JobPosting: ${report.jobPostingMissing}`);
   console.log(`JSON-LD parse errors: ${report.parseErrors}`);

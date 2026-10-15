@@ -851,19 +851,21 @@ export function buildJobPostingFacts(
 }
 
 /**
- * Build a complete JobPosting for every active detail page. Reported dates are
- * preserved verbatim; missing or invalid source dates receive only the shared
- * schema-safe sentinel, without changing the job's source provenance.
+ * Build a JobPosting only when publication provenance is verified, except for
+ * the six exact canonical URLs tracked by issue #12937. Their mandatory
+ * datePosted uses the stable schema-only sentinel without changing provenance.
  */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
-): JobPostingSchema {
+): JobPostingSchema | null {
   if (!opts || !opts.locale || !opts.url) {
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, opts.now);
+  const resolvedDate = resolveRolloutSchemaPostingDate(job, opts.now, opts.url);
+  if (!resolvedDate) return null;
+  const { value: datePosted } = resolvedDate;
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
