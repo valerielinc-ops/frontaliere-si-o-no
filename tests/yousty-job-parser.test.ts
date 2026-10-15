@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { htmlFragmentToMarkdown, parseYoustyApprenticeshipHtml } from '@/scripts/lib/yousty-job-parser.mjs';
+import {
+  extractYoustyWidgetApplicationUrl,
+  htmlFragmentToMarkdown,
+  parseYoustyApprenticeshipHtml,
+} from '@/scripts/lib/yousty-job-parser.mjs';
 
 const SAMPLE_HTML = `
 <!DOCTYPE html>
@@ -44,6 +48,18 @@ describe('parseYoustyApprenticeshipHtml', () => {
   it('does not treat the profile page as an application URL when no handoff is parsed', () => {
     const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML);
     expect(parsed.applyUrl).toBe('');
+  });
+
+  it('recognizes only an explicit UUID-bound Yousty application widget URL', () => {
+    const profileUrl = 'https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d';
+    expect(parseYoustyApprenticeshipHtml(SAMPLE_HTML, profileUrl).applyUrl).toBe(profileUrl);
+    expect(extractYoustyWidgetApplicationUrl(profileUrl)).toBe(profileUrl);
+  });
+
+  it('keeps bare, malformed-widget, and non-Yousty profile URLs content-only', () => {
+    expect(extractYoustyWidgetApplicationUrl('https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel')).toBe('');
+    expect(extractYoustyWidgetApplicationUrl('https://www.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel?widget=not-a-uuid')).toBe('');
+    expect(extractYoustyWidgetApplicationUrl('https://evil.yousty.ch/de-CH/lehrstellen/profile/1234-beispiel?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d')).toBe('');
   });
 
   it('uses the JobPosting URL as an application handoff when directApply is true', () => {

@@ -1,6 +1,6 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -931,8 +931,9 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
  recentArticles: 'recent-articles',
 });
 
-type ActiveJobReuseFragments = {
+export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string | null;
+ jobPostingDateProvenance: 'reported' | 'safe-default' | null;
  jobPostingValidThrough: string;
  heroBadges: string;
  mobileAction: string;
@@ -978,15 +979,54 @@ export function replaceActiveJobPostingDates(
  )}`;
 }
 
-function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
+function containsJobPostingType(value: unknown): boolean {
+ if (Array.isArray(value)) return value.some(containsJobPostingType);
+ if (!value || typeof value !== 'object') return false;
+ const record = value as Record<string, unknown>;
+ const type = record['@type'];
+ if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) return true;
+ return Object.entries(record).some(([key, nested]) => key !== '@type' && containsJobPostingType(nested));
+}
+
+export function hasActiveJobPostingJsonLd(fragment: string): boolean {
+ const scriptPattern = /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
+ for (const match of fragment.matchAll(scriptPattern)) {
+  const source = match[2] || '';
+  try {
+   if (containsJobPostingType(JSON.parse(source))) return true;
+  } catch {
+   // A minifier or a legacy cache may leave a non-parseable JSON-LD payload;
+   // retain a narrow fallback so a visible JobPosting is not mistaken for a miss.
+   if (/"@type"\s*:\s*(?:"JobPosting"|\[[^\]]*"JobPosting")/i.test(source)) return true;
+  }
+ }
+ return false;
+}
+
+export function shouldInvalidateActiveJobReuseForSafeDefault(
+ fragment: string,
+ provenance: 'reported' | 'safe-default' | null,
+): boolean {
+ return provenance === 'safe-default' && !hasActiveJobPostingJsonLd(fragment);
+}
+
+export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
  let rewritten = replaceActiveJobReuseFragment(
   html,
   ACTIVE_JOB_REUSE_MARKERS.jobPosting,
-  (current) => replaceActiveJobPostingDates(
-   current,
-   fragments.jobPostingDatePosted,
-   fragments.jobPostingValidThrough,
-  ),
+  (current) => {
+   if (shouldInvalidateActiveJobReuseForSafeDefault(
+    current,
+    fragments.jobPostingDateProvenance,
+   )) {
+    throw new Error('cached active-job HTML missing JobPosting JSON-LD for safe-default date');
+   }
+   return replaceActiveJobPostingDates(
+    current,
+    fragments.jobPostingDatePosted,
+    fragments.jobPostingValidThrough,
+   );
+  },
  );
  rewritten = replaceActiveJobReuseFragment(
   rewritten,
@@ -1307,6 +1347,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   pluginName: 'jobsSeoPagesPlugin',
   postWalkDerivedKind: 'bridge',
  });
+ // `awaitDrainSlot()` bounds only completed background batches. It does not
+ // bound the collector's active Map, whose 5,000-entry default is too large
+ // for the repeated company-hub HTML payloads on the 16 GB build runner. A
+ // full flush at a smaller boundary releases both the strings and the batch
+ // bookkeeping before the next hub burst; the generic collector threshold
+ // remains unchanged for the other emitters.
+ const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 1_024;
+ const flushHubPageWritesIfNeeded = async (): Promise<void> => {
+  if (collector.count < HUB_PAGE_WRITE_FLUSH_THRESHOLD) return;
+  await collector.flush();
+ };
  logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
@@ -3373,8 +3424,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryMax,
     perJob_salaryCurrency,
    );
+  const resolvedJobPostingDate = resolveRolloutSchemaPostingDate(
+   job,
+   jobsSeoReuseBuildNow,
+   canonicalUrl,
+  );
    return {
-   jobPostingDatePosted: resolveReportedPostingDate(job, jobsSeoReuseBuildNow),
+   jobPostingDatePosted: resolvedJobPostingDate?.value ?? null,
+   jobPostingDateProvenance: resolvedJobPostingDate?.provenance ?? null,
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,
@@ -4758,9 +4815,9 @@ ${staticAnalyticsHtml}
  // loop — each company emits several large (~50 KB) HTML files and the page
  // rate outruns libuv, so _pendingFlushes (each batch closes over its content)
  // climbed to ~16 batches (~GBs live) by the end of this phase → OOM (#1290).
- // Keep the same two-batch ceiling used by the phase boundary below. With the
- // 5k auto-flush threshold this bounds retained company HTML to three batches
- // (one active map + two flushes), instead of the previous seven.
+ // `flushHubPageWritesIfNeeded()` also drains the active map at 1,024 entries;
+ // `awaitDrainSlot(2)` remains the guard for a batch inherited from the prior
+ // phase, but is not used as the company-page retention bound.
  await collector.awaitDrainSlot(2);
  // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
  // indexable hub here: their jobs already surface on the canonical umbrella via
@@ -5348,6 +5405,7 @@ ${companyFollowHtml}
  }
  companyPagesCount++;
  recordEmit('company-landing', __tCompany);
+ await flushHubPageWritesIfNeeded();
  }
  }
  if (companyPagesCount > 0) {
@@ -9078,6 +9136,7 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCantonBelowFloorBridge(locale, canton, companyName, sortedJobs, `${companyRoutePrefix[locale]}-${cSlug}`);
+ await flushHubPageWritesIfNeeded();
  }
  continue;
  }
@@ -9261,6 +9320,7 @@ ${staticAnalyticsHtml}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  companyCantonPagesCount++;
  recordEmit('company-canton-hub', __tCompanyCanton);
+ await flushHubPageWritesIfNeeded();
  }
  // Sitemap entry (priority 0.75 mirroring TI company hubs).
  const itSection = sharedResolveCantonSection('it', canton);
@@ -9370,6 +9430,7 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCityBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}-${citySlug}`);
+ await flushHubPageWritesIfNeeded();
  }
  continue;
  }
@@ -9523,6 +9584,7 @@ ${staticAnalyticsHtml}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  companyCityPagesCount++;
  recordEmit('company-city-canton-hub', __tCompanyCity);
+ await flushHubPageWritesIfNeeded();
  }
  // Sitemap entry (priority 0.65 -- deeper in the funnel than company hub).
  const itSection = sharedResolveCantonSection('it', canton);

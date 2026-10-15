@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 636,
+  "crawlerCount": 642,
   "groups": {
     "10": [
       "atec-personal",
@@ -29,6 +29,7 @@
       "richemont",
       "stellentreff",
       "swiss-medical-network",
+      "sympajobs-reinach-bl",
       "triaplus",
       "viva-luzern",
       "vz-vermoegenszentrum"
@@ -168,6 +169,7 @@
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
+      "gipo",
       "grand-hotel-kronenhof",
       "gzo-wetzikon",
       "holcim",
@@ -175,6 +177,7 @@
       "kanton-aargau",
       "kanton-solothurn",
       "klinik-adelheid",
+      "le-team",
       "mabetex",
       "octapharma",
       "pfister",
@@ -196,6 +199,7 @@
       "csvm-mustair",
       "davos-klosters-bergbahnen",
       "decathlon",
+      "deillon-delley-architectes",
       "entero",
       "eoc-ente-ospedaliero-cantonale",
       "everest-re",
@@ -219,6 +223,7 @@
     ],
     "17": [
       "aldi-suisse",
+      "asile-des-aveugles",
       "badrutts-palace",
       "baronie",
       "barry-callebaut",
@@ -393,6 +398,7 @@
       "mks-pamp",
       "oerlikon",
       "otis",
+      "project-interim",
       "reha-bellikon",
       "rh-expert-ch",
       "rittmeyer-ag",
@@ -731,6 +737,7 @@
     "artisa-group": "data/jobs/by-crawler/artisa-group.json",
     "arxada": "data/jobs/by-crawler/arxada.json",
     "asana-spital": "data/jobs/by-crawler/asana-spital.json",
+    "asile-des-aveugles": "data/jobs/by-crawler/asile-des-aveugles.json",
     "atec-personal": "data/jobs/by-crawler/atec-personal.json",
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
     "avaloq": "data/jobs/by-crawler/avaloq.json",
@@ -843,6 +850,7 @@
     "davos-klosters-bergbahnen": "data/jobs/by-crawler/davos-klosters-bergbahnen.json",
     "debiopharm": "data/jobs/by-crawler/debiopharm.json",
     "decathlon": "data/jobs/by-crawler/decathlon.json",
+    "deillon-delley-architectes": "data/jobs/by-crawler/deillon-delley-architectes.json",
     "deloitte": "data/jobs/by-crawler/deloitte.json",
     "delvitech-sa": "data/jobs/by-crawler/delvitech-sa.json",
     "denner": "data/jobs/by-crawler/denner.json",
@@ -915,6 +923,7 @@
     "giardino": "data/jobs/by-crawler/giardino.json",
     "gim-architekten": "data/jobs/by-crawler/gim-architekten.json",
     "giorgio-armani": "data/jobs/by-crawler/giorgio-armani.json",
+    "gipo": "data/jobs/by-crawler/gipo.json",
     "givaudan": "data/jobs/by-crawler/givaudan.json",
     "gkb": "data/jobs/by-crawler/gkb.json",
     "globus": "data/jobs/by-crawler/globus.json",
@@ -1035,6 +1044,7 @@
     "laderach": "data/jobs/by-crawler/laderach.json",
     "lalive": "data/jobs/by-crawler/lalive.json",
     "lastminute-com": "data/jobs/by-crawler/lastminute-com.json",
+    "le-team": "data/jobs/by-crawler/le-team.json",
     "leukerbad-clinic": "data/jobs/by-crawler/leukerbad-clinic.json",
     "lhm-luzerner-hohenklinik-montana": "data/jobs/by-crawler/lhm-luzerner-hohenklinik-montana.json",
     "lidl-svizzera": "data/jobs/by-crawler/lidl-svizzera.json",
@@ -1133,6 +1143,7 @@
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
+    "project-interim": "data/jobs/by-crawler/project-interim.json",
     "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
     "protectas": "data/jobs/by-crawler/protectas.json",
@@ -1259,6 +1270,7 @@
     "swisslog": "data/jobs/by-crawler/swisslog.json",
     "swissquote": "data/jobs/by-crawler/swissquote.json",
     "sygnum": "data/jobs/by-crawler/sygnum.json",
+    "sympajobs-reinach-bl": "data/jobs/by-crawler/sympajobs-reinach-bl.json",
     "szb-chb": "data/jobs/by-crawler/szb-chb.json",
     "talan": "data/jobs/by-crawler/talan.json",
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
@@ -1326,5 +1338,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:1598347d313b005d0ae0ddb605066b937e2aafc59b3c93c0a18af40b63f27d6e"
+  "digest": "sha256:89e9dc022c441b45fbb5f538bcb4a38d5573dcb9c730840e03770fb6c0e1d782"
 }

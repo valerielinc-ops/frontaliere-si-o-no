@@ -13,11 +13,11 @@
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 636,
+  "crawlerCount": 642,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:1598347d313b005d0ae0ddb605066b937e2aafc59b3c93c0a18af40b63f27d6e",
+    "rosterDigest": "sha256:89e9dc022c441b45fbb5f538bcb4a38d5573dcb9c730840e03770fb6c0e1d782",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -106,6 +106,7 @@
     "scripts/update-artificialy-jobs.mjs",
     "scripts/update-arxada-jobs.mjs",
     "scripts/update-asana-spital-jobs.mjs",
+    "scripts/update-asile-des-aveugles-jobs.mjs",
     "scripts/update-atec-personal-jobs.mjs",
     "scripts/update-audemars-piguet-jobs.mjs",
     "scripts/update-axa-jobs.mjs",
@@ -189,6 +190,7 @@
     "scripts/update-daler-hopital-jobs.mjs",
     "scripts/update-debiopharm-jobs.mjs",
     "scripts/update-decathlon-jobs.mjs",
+    "scripts/update-deillon-delley-architectes-jobs.mjs",
     "scripts/update-deloitte-jobs.mjs",
     "scripts/update-dic-sa-jobs.mjs",
     "scripts/update-dormakaba-jobs.mjs",
@@ -244,6 +246,7 @@
     "scripts/update-ghol-jobs.mjs",
     "scripts/update-giardino-jobs.mjs",
     "scripts/update-gim-architekten-jobs.mjs",
+    "scripts/update-gipo-jobs.mjs",
     "scripts/update-givaudan-jobs.mjs",
     "scripts/update-gkb-jobs.mjs",
     "scripts/update-globus-jobs.mjs",
@@ -344,6 +347,7 @@
     "scripts/update-kulm-hotel-jobs.mjs",
     "scripts/update-kzu-jobs.mjs",
     "scripts/update-lalive-jobs.mjs",
+    "scripts/update-le-team-jobs.mjs",
     "scripts/update-leukerbad-clinic-jobs.mjs",
     "scripts/update-lhm-luzerner-hohenklinik-montana-jobs.mjs",
     "scripts/update-liebherr-jobs.mjs",
@@ -423,6 +427,7 @@
     "scripts/update-privatklinik-meiringen-jobs.mjs",
     "scripts/update-privatklinik-obach-jobs.mjs",
     "scripts/update-privatklinik-wyss-jobs.mjs",
+    "scripts/update-project-interim-jobs.mjs",
     "scripts/update-proman-fleurier-jobs.mjs",
     "scripts/update-prosenectute-ti-jobs.mjs",
     "scripts/update-protectas-jobs.mjs",
@@ -537,6 +542,7 @@
     "scripts/update-swisslog-jobs.mjs",
     "scripts/update-swissquote-jobs.mjs",
     "scripts/update-sygnum-jobs.mjs",
+    "scripts/update-sympajobs-reinach-bl-jobs.mjs",
     "scripts/update-szb-chb-jobs.mjs",
     "scripts/update-talan-jobs.mjs",
     "scripts/update-tally-weijl-jobs.mjs",
@@ -973,8 +979,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "34ce4e0997d36d6fb3a7464ec4b9e6ed22198c7c56c9fb2d842ec919ca6d8065",
-      "artifactSha256": "04a4cfcf2b4ee84d60dd06e8c168dd173ea83793924ce94c93ad01aea4786581",
+      "sourceSha256": "532a4fa09062e276985bfe07ff68fff94c9595c7f5e97dc9463b1212b2badaa1",
+      "artifactSha256": "db16a19918393adb67ef312be1b68b9d4e25060ffec4b07bc02d7370e51efc2f",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "jumbo",
@@ -1004,7 +1010,8 @@
         "stellentreff",
         "atec-personal",
         "debiopharm",
-        "fondation-domus"
+        "fondation-domus",
+        "sympajobs-reinach-bl"
       ]
     },
     {
@@ -1162,8 +1169,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "b42a5d2e66750b9472addc97b462290ec437021f95266951158ea7447c44e1ed",
-      "artifactSha256": "b2ded6c1c06c212d609580e04b6023a79f0637f130dead29fa88dc7d608d8a39",
+      "sourceSha256": "7fecca36ba5554b55aa66c17f674e7844feeb63aa827ba2cdca096675b100220",
+      "artifactSha256": "d0a559790a4f7ad2a1d47eae34cb57567818538f989551fb337c81ad85f00f61",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1193,14 +1200,16 @@
         "sta",
         "elprom",
         "sonarsource",
-        "elite-interim"
+        "elite-interim",
+        "gipo",
+        "le-team"
       ]
     },
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "7b6ae9ab533192a44069b46f278a9e0c1e1e4155e7400774cc11cb00bc1df9ab",
-      "artifactSha256": "2ba0036d6836d216f637c5550197123fb01a84e85cac012845c6374738e77631",
+      "sourceSha256": "fdf4a5f479d602c6fd80b0d664dd05d63b63ba29be7e774a824c550f2b9db243",
+      "artifactSha256": "a60f6ce7b3bf973782b9c059ac6d1788bd18cc18782ba4fceace78d95711ebd1",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ksgr",
@@ -1230,14 +1239,15 @@
         "benteler",
         "adullam",
         "buersten-technik",
-        "matterhorn-gotthard-bahn"
+        "matterhorn-gotthard-bahn",
+        "deillon-delley-architectes"
       ]
     },
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "eefc658ea6de6d477913bebc14733a3575c9755297fa992df365b9eba220334b",
-      "artifactSha256": "8be6bb59526c4768c5ade01223091c088a250f2674384f499561eabe29980c4b",
+      "sourceSha256": "06dc6a328cbbd08c3ca517ecd3d40f6ca82c8bbec59b80a89d6e195210c37e1e",
+      "artifactSha256": "3ea699757fc58aef2c28c3b0f1f8a181097f55d95b2306f6d191f97162346cf7",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1268,6 +1278,7 @@
         "board",
         "aldi-suisse",
         "badrutts-palace",
+        "asile-des-aveugles",
         "technic-emplois"
       ]
     },
@@ -1427,8 +1438,8 @@
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "7f0b71ccbe0d41ef934f986d724bb09b00a4c7613d63e84f98185442d1fd4b94",
-      "artifactSha256": "6798740c26555c93b4559714f0ca20ad73d3e768da02d8abad9b9ccf4a5a837e",
+      "sourceSha256": "c5efd362f5b7e4d9938fbf4cb33532b1b86ed0f94c59a54ee1b3b6a223d938f4",
+      "artifactSha256": "5c128759149136a0e7e62a086577aeb39311414057008fcf875580f8af94572e",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "rittmeyer",
@@ -1459,7 +1470,8 @@
         "bachtelen",
         "alcon",
         "yellowshark",
-        "rh-expert-ch"
+        "rh-expert-ch",
+        "project-interim"
       ]
     },
     {

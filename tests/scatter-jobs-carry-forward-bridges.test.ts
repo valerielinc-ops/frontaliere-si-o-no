@@ -734,6 +734,34 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     expect(job.previousSlugsByLocale.en).toContain('legacy-en-bridge');
   });
 
+  it('carries forward an assembled retranslation mark when locale fields are unchanged', () => {
+    const sliceJob = baseSlice();
+    const assembled = {
+      ...baseSlice(),
+      needsRetranslation: true,
+    };
+
+    const first = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(first.changed).toBe(true);
+    expect(first.job.needsRetranslation).toBe(true);
+    expect(sliceJob.needsRetranslation).toBeUndefined();
+
+    // The projection is idempotent once the committed slice carries the mark.
+    expect(applyAssembledToSliceJob(first.job, assembled).changed).toBe(false);
+  });
+
+  it('never clears a retranslation mark already present on the slice', () => {
+    const sliceJob = {
+      ...baseSlice(),
+      needsRetranslation: true,
+    };
+    const assembled = baseSlice();
+
+    const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(changed).toBe(false);
+    expect(job.needsRetranslation).toBe(true);
+  });
+
   it('is a no-op when the slice already holds every assembled bridge', () => {
     const sliceJob = {
       ...baseSlice(),

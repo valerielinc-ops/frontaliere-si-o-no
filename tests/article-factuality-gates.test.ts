@@ -23,6 +23,7 @@ import {
   checkInlineArithmetic,
   checkTaxPlausibility,
   checkCrossSectionNumericConflicts,
+  collectInstitutionAcronyms,
   checkFabricatedInstitutionAcronyms,
   checkFabricatedNormAcronyms,
   FABRICATED_NORM_ACRONYMS,
@@ -587,6 +588,99 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     );
     expect(codes(issues)).toContain('unknown-institution');
     expect(issues[0].severity).toBe('major');
+  });
+
+  it('does not treat a politician affiliation as the institution acronym', () => {
+    const text = 'Nel corso della conferenza stampa, il direttore del Dipartimento '
+      + 'grigionese delle finanze e dei comuni Martin Bühler (PLR) ha precisato.';
+
+    expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+    expect(collectInstitutionAcronyms(text)).toEqual([]);
+  });
+
+  it('keeps a title-cased institution tail as an institution candidate', () => {
+    for (const [text, acronym, name] of [
+      ['Il direttore del Dipartimento Politiche Sociali (PLR).', 'PLR', 'Dipartimento Politiche Sociali'],
+      ['Il direttore del Dipartimento cantonale Politiche Sociali (MPS).', 'MPS', 'Dipartimento cantonale Politiche Sociali'],
+    ] as const) {
+      const issues = checkFabricatedInstitutionAcronyms(text);
+
+      expect(codes(issues)).toEqual(['unknown-institution']);
+      expect(collectInstitutionAcronyms(text, { sourceText: '' }))
+        .toEqual([{ acronym, name, support: 'unknown' }]);
+    }
+  });
+
+  it('keeps a comma-separated institution tail reportable', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento, Politiche Sociali (MPS).',
+    );
+
+    expect(codes(issues)).toEqual(['unknown-institution']);
+  });
+
+  it('does not treat a lowercase institutional tail as a comma-delimited person name', () => {
+    const text = 'Il direttore del Dipartimento delle finanze, Politiche Sociali (MPS).';
+
+    expect(codes(checkFabricatedInstitutionAcronyms(text))).toEqual(['unknown-institution']);
+    expect(collectInstitutionAcronyms(text, { sourceText: '' })).toEqual([{
+      acronym: 'MPS',
+      name: 'Dipartimento delle finanze, Politiche Sociali',
+      support: 'unknown',
+    }]);
+  });
+
+  it('still recognizes a comma-delimited person appositive after a lexical boundary', () => {
+    const text = 'Il direttore del Dipartimento grigionese delle finanze, Martin Bühler (PLR).';
+
+    expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+  });
+
+  it('recognizes a dataset-backed person after the conjunction without hiding an institution tail', () => {
+    const person = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni e Martin Bühler (PLR).';
+    const institution = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni e Politiche Sociali (PLR).';
+
+    expect(checkFabricatedInstitutionAcronyms(person)).toEqual([]);
+    expect(collectInstitutionAcronyms(person, { sourceText: '' })).toEqual([]);
+    expect(codes(checkFabricatedInstitutionAcronyms(institution))).toEqual(['unknown-institution']);
+    expect(collectInstitutionAcronyms(institution, { sourceText: '' })).toEqual([{
+      acronym: 'PLR',
+      name: 'Dipartimento grigionese delle finanze e dei comuni e Politiche Sociali',
+      support: 'unknown',
+    }]);
+  });
+
+  it('keeps denylisted political acronyms blocking', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (PLR).',
+      { learnedDenylist: new Set(['PLR']) },
+    );
+
+    expect(issues).toHaveLength(1);
+    expect(issues[0].code).toBe('fabricated-institution');
+    expect(issues[0].severity).toBe('critical');
+  });
+
+  it('ignores the Ticino MPS affiliation after a person name', () => {
+    const text = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (MPS).';
+
+    expect(collectInstitutionAcronyms(text, { sourceText: '' })).toEqual([]);
+  });
+
+  it('still reports an unknown acronym attached directly to an institution', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il Dipartimento grigionese delle finanze e dei comuni (DFG) ha pubblicato il preventivo.',
+    );
+
+    expect(codes(issues)).toContain('unknown-institution');
+  });
+
+  it('does not let a person-affiliation guard hide a fabricated institution', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento delle finanze Mario Bühler (UFI) ha parlato.',
+    );
+
+    expect(codes(issues)).toContain('fabricated-institution');
   });
 });
 

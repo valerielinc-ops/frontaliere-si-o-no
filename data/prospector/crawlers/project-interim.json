@@ -1,0 +1,25 @@
+{
+  "companyKey": "project-interim",
+  "candidateKey": "project-interim",
+  "revalidateRejectedWithSourceAdapter": true,
+  "companyName": "Project Interim Sàrl",
+  "companyHost": "projectinterim.ch",
+  "platform": "wordpress",
+  "mode": "template",
+  "seedUrls": [
+    "https://projectinterim.ch/work/"
+  ],
+  "detailTemplate": "/work/*",
+  "listingCandidateText": "maçon",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 2,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Maçon Génie Civil (H/F)",
+    "Maçon Gros Oeuvre (H/F)"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "logoUrl": "https://projectinterim.ch/wp-content/uploads/2017/11/cropped-header-logo.png",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

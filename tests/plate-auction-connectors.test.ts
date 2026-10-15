@@ -171,10 +171,21 @@ describe('expanded plate-auction connectors', () => {
     expect(empty).toHaveLength(0);
     expect(isExplicitlyEmptyCatalogue(empty)).toBe(true);
 
+    const noLegacyContainers = `<form><label>Kontrollschildtyp</label><button>Suchen</button></form>
+      <p>Keine Ergebnisse f\u00fcr Ihre Suche.</p>`;
+    const emptyWithoutLegacyShell = parseZhAuctions(noLegacyContainers);
+    expect(emptyWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(emptyWithoutLegacyShell)).toBe(true);
+
     const unparsedCard = parseZhAuctions(`${ZH_EMPTY_SAMPLE}
       <a class="auction-element-link" href="/de/auction/99999">changed card markup</a>`);
     expect(unparsedCard).toHaveLength(0);
     expect(isExplicitlyEmptyCatalogue(unparsedCard)).toBe(false);
+
+    const unparsedCardWithoutLegacyShell = parseZhAuctions(`${noLegacyContainers}
+      <a class="auction-element-link" href="/de/auction/99998">changed card markup</a>`);
+    expect(unparsedCardWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(unparsedCardWithoutLegacyShell)).toBe(false);
   });
 
   it('keeps direct-sale and wanted tabs public even when price/deadline cells are absent', () => {
@@ -335,6 +346,23 @@ describe('expanded plate-auction connectors', () => {
     const rows = parseExpandedCard('vd', EXPANDED_CARD_EMPTY_SAMPLE, { fetchedAt: '2026-10-04T21:30:00.000Z' });
     expect(rows).toEqual([]);
     expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+  });
+
+  it('recognizes the card-platform no-results shell for BE after a round closes', () => {
+    const beNoResultsSample = `<div class="auction-grid"><div class="auctions">
+      <h1>Herzlich willkommen</h1>
+      <div class="auction-filters"><span>Kontrollschildtyp</span><button>Suchen</button></div>
+      <p>Keine Ergebnisse f&uuml;r Ihre Suche.</p>
+    </div></div>`;
+    const rows = parseExpandedCard('be', beNoResultsSample, { fetchedAt: '2026-10-14T21:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+
+    const parserDrift = `${beNoResultsSample}
+      <a href="/de/auction/231118" class="auction-element-link">changed card markup</a>`;
+    const driftRows = parseExpandedCard('be', parserDrift);
+    expect(driftRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
   });
 
   it('recognizes the official no-results page between SH auction rounds', () => {

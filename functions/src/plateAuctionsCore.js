@@ -143,25 +143,28 @@ const CARD_AUCTION_LINK_RE = /<a\b[^>]*\bhref\s*=\s*["'][^"']*\/auction\/[^"']*[
  * True only for the card platform's own complete page with no current cards.
  *
  * The shared card platform returns the normal catalogue shell after a daily
- * auction closes, but with no `auction-element-link` cards. Treating every
- * empty card parse as healthy would hide parser drift, so require the stable
- * shell and reject any auction link that the current parser did not consume.
- * The source page is German for all card connectors and exposes these labels
- * in the catalogue shell even when the current list is empty.
+ * auction closes, but with no `auction-element-link` cards. It has two
+ * observed empty-state headings: the older `Auktion von ...` shell and the
+ * newer `Keine Ergebnisse für Ihre Suche.` variant. Treating every empty card
+ * parse as healthy would hide parser drift, so require either exact heading
+ * plus the stable shell and reject any auction link that the current parser
+ * did not consume. The source page is German for all card connectors and
+ * exposes these labels in the catalogue shell even when the current list is
+ * empty.
  */
 export function isCardCatalogueExplicitlyEmpty(html) {
   const source = String(html || '');
   if (!source) return false;
   if (CARD_AUCTION_LINK_RE.test(source)) return false;
   const text = htmlText(source);
-  const hasSearchControls = /Kontrollschildtyp/i.test(text) && /Suchen/i.test(text);
+  const hasSearchControls = /Kontrollschild(?:typ)?/i.test(text) && /Suchen/i.test(text);
   if (!hasSearchControls) return false;
 
   // Between two rounds the card platform can render its no-results state
   // without the `auction-grid`/`auctions` containers. The exact German
   // marker, together with the platform's search controls and no auction
   // link, is an explicit empty catalogue — not a generic empty parse.
-  const hasNoResultsMarker = /Keine\s+Ergebnisse\s+für\s+Ihre\s+Suche/i.test(text);
+  const hasNoResultsMarker = /Keine\s+Ergebnisse\s+f(?:ü|&uuml;)r\s+Ihre\s+Suche\.?/i.test(text);
   if (hasNoResultsMarker) return true;
 
   return hasHtmlClass(source, 'auction-grid')
