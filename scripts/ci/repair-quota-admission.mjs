@@ -225,6 +225,26 @@ function roundMarkerFor(workflow) {
   return workflow === 'pr-redcheck-fixer.yml' ? 'REDCHECK_FIX_ROUND' : 'REDFLAG_FIX_ROUND';
 }
 
+const TRUSTED_ROUND_MARKER_ACTOR = 'github-actions[bot]';
+
+function currentRoundMarkerLines({ workflow, round, sha, bodyRevision }) {
+  const marker = roundMarkerFor(workflow);
+  const lines = [];
+  if (/^[0-9a-f]{40}$/iu.test(sha)) {
+    if (/^body:[0-9a-f]{64}$/iu.test(bodyRevision || '')) {
+      lines.push(`<!-- ${marker}: ${round} HEAD: ${sha} BODY: ${bodyRevision} -->`);
+    }
+    // Marker emessi prima dell'introduzione della revisione body, ma gia'
+    // legati alla HEAD. Il guard dei due fixer continua ad accettarli.
+    lines.push(`<!-- ${marker}: ${round} HEAD: ${sha} -->`);
+  }
+  // Compatibilita' con i marker storici precedenti al binding sulla HEAD.
+  // L'autore trusted resta obbligatorio, quindi un commento utente non puo'
+  // farsi cancellare dal rimborso quota.
+  lines.push(`<!-- ${marker}: ${round} -->`);
+  return new Set(lines);
+}
+
 function commentArgs(repo, pr) {
   return ['api', `repos/${repo}/issues/${pr}/comments`, '--paginate', '--slurp'];
 }
@@ -244,6 +264,7 @@ function holdCurrentRound({
   pr,
   workflow,
   round,
+  bodyRevision,
   stats,
   decision,
   runJson,
@@ -257,9 +278,17 @@ function holdCurrentRound({
 
     const holdMarker = `<!-- REPAIR_QUOTA_HOLD: ${workflow}:${sha} -->`;
     const roundNumber = String(round || '').trim();
-    const roundToken = `<!-- ${roundMarkerFor(workflow)}: ${roundNumber} -->`;
+    const roundLines = currentRoundMarkerLines({
+      workflow,
+      round: roundNumber,
+      sha,
+      bodyRevision,
+    });
     const roundComment = roundNumber
-      ? [...comments].reverse().find((comment) => String(comment.body || '').includes(roundToken))
+      ? [...comments].reverse().find((comment) => {
+        const firstLine = String(comment.body || '').split('\n', 1)[0];
+        return comment.user?.login === TRUSTED_ROUND_MARKER_ACTOR && roundLines.has(firstLine);
+      })
       : null;
     if (!roundComment?.id) {
       throw new Error('current round marker missing; refuse an untracked hold');
@@ -403,6 +432,7 @@ export function main({
     pr,
     workflow,
     round: env.FIX_ROUND,
+    bodyRevision: env.PR_BODY_EXPECTED_REVISION,
     stats,
     decision,
     runJson,
