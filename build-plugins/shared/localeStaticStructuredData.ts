@@ -1,4 +1,7 @@
-import { normalizeStructuredData } from '../../services/seo/schema-normalizers';
+import {
+  normalizeStructuredData,
+  PAGE_IDENTITY_TYPES,
+} from '../../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../../services/seo/schema-translators';
 import { localizeArticlePageIdentity } from '../../services/seo/article-page-identity';
 import { inlineScriptJson } from './inlineJsonScript';
@@ -8,10 +11,7 @@ import { inlineScriptJson } from './inlineJsonScript';
  * glossary): when one of them still carries the Italian source URL on an
  * EN/DE/FR variant, its identity is the Italian page's.
  */
-export const PAGE_IDENTITY_TYPES: ReadonlySet<string> = new Set([
-  'WebPage', 'AboutPage', 'CollectionPage', 'ContactPage', 'FAQPage', 'ProfilePage', 'ItemPage',
-  'QAPage', 'MedicalWebPage', 'SearchResultsPage', 'DefinedTermSet', 'DefinedTerm',
-]);
+export { PAGE_IDENTITY_TYPES };
 
 /** Page types whose `name`/`description` describe the page itself. */
 const WEB_PAGE_TYPES: ReadonlySet<string> = new Set([
