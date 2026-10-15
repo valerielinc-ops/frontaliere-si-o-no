@@ -349,17 +349,23 @@ function extractBalancedSectionById(html, idValue) {
 }
 
 /**
- * Return the inner HTML of the first `<div>` whose `class` attribute is
- * exactly `className` (no other tokens), balancing nested `<div>` tags —
+ * Return the inner HTML of the first `<div>` whose `class` attribute contains
+ * the complete `className` token, balancing nested `<div>` tags —
  * same rationale as `extractBalancedSectionById` above, but for tenants
  * whose detail page has NO `<section>` tags at all (OTTO'S AG), where the
  * job body instead lives inside a balanced `<div class="…-wrapper">`
  * container. Returns '' when no matching open tag is found.
  * @param {string} html
- * @param {string} className exact class value to match (e.g. `tasks-profile-wrapper`)
+ * @param {string} className complete class token to match (e.g. `tasks-profile-wrapper`)
  */
 function extractBalancedDivByClass(html, className) {
-  const open = new RegExp(`<div\\s+[^>]*class=["']?${className}["']?[^>]*>`, 'i').exec(html);
+  const openTagRx = /<div\b[^>]*>/gi;
+  let open;
+  while ((open = openTagRx.exec(html))) {
+    const classAttr = /\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i.exec(open[0]);
+    const classValue = classAttr?.[1] ?? classAttr?.[2] ?? classAttr?.[3] ?? '';
+    if (classValue.split(/\s+/).includes(className)) break;
+  }
   if (!open) return '';
   const start = open.index + open[0].length;
   const tagRx = /<(\/?)div\b[^>]*>/gi;
@@ -610,28 +616,35 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   // is nested in a balanced `<div class="tasks-profile-wrapper">` container
   // (`<div class="tasks-wrapper">` + `<div class="profile-wrapper">`, each
   // opened by an `<h3 class="subtitle">` heading + `<ul>` body), so this
-  // template scopes the capture to that balanced container FIRST — bounded by
-  // real DOM nesting rather than a lookahead — before any classAttrRx scan can
-  // run unbounded. Checked BEFORE (v) (both gated on `sections.length === 0`)
-  // so OTTO'S never reaches (v)'s unbounded scan; established tenants have no
-  // `tasks-profile-wrapper` container, so `extractBalancedDivByClass` returns
-  // '' for them and this block is a no-op — extraction stays byte-identical.
-  if (sections.length === 0) {
-    const wrapperInner = extractBalancedDivByClass(cleaned, 'tasks-profile-wrapper');
-    if (wrapperInner) {
-      const subtitleRx = /<h3[^>]*class="subtitle"[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3[^>]*class="subtitle"|$)/g;
-      let sm;
-      while ((sm = subtitleRx.exec(wrapperInner))) {
-        const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(sm[1]))));
-        if (!title) continue;
-        let body = sm[2]
-          .replace(/<li[^>]*>/gi, '\n• ')
-          .replace(/<\/li\s*>/gi, '')
-          .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
-          .replace(/<[^>]+>/g, ' ');
-        body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
-        if (body && body.length > 5) sections.push(`${title}\n${body}`);
-      }
+  // template scopes the capture to that balanced container — bounded by real
+  // DOM nesting rather than a lookahead — before any classAttrRx scan can run
+  // unbounded. The wrapper itself is the structural gate: OTTO'S also emits a
+  // sibling `.introduction`, so requiring an empty `sections` array here would
+  // discard every task/profile/benefit list as soon as that lead was captured.
+  // The current board splits the same body across sibling
+  // `tasks-benefits-wrapper` and `profile-gallery-wrapper` containers. Use
+  // those only when the historical combined wrapper is gone, so nested
+  // variants cannot duplicate sections. Established tenants have none of
+  // these containers, therefore their extraction stays byte-identical.
+  const combinedWrapper = extractBalancedDivByClass(cleaned, 'tasks-profile-wrapper');
+  const wrapperInners = combinedWrapper
+    ? [combinedWrapper]
+    : ['tasks-benefits-wrapper', 'profile-gallery-wrapper']
+      .map((className) => extractBalancedDivByClass(cleaned, className))
+      .filter(Boolean);
+  for (const wrapperInner of wrapperInners) {
+    const subtitleRx = /<h3[^>]*class="subtitle"[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3[^>]*class="subtitle"|$)/g;
+    let sm;
+    while ((sm = subtitleRx.exec(wrapperInner))) {
+      const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(sm[1]))));
+      if (!title) continue;
+      let body = sm[2]
+        .replace(/<li[^>]*>/gi, '\n• ')
+        .replace(/<\/li\s*>/gi, '')
+        .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+        .replace(/<[^>]+>/g, ' ');
+      body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+      if (body && body.length > 5) sections.push(`${title}\n${body}`);
     }
   }
 
