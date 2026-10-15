@@ -2753,6 +2753,8 @@ export function renderHistoricalEventsArchivePage(params: {
     page * HISTORICAL_ARCHIVE_PAGE_SIZE,
   );
   const pageTitle = pageCount > 1 ? `${copy.title} — ${copy.pageLabel} ${page}` : copy.title;
+  const historicalEntryHref = ({ canton, comune, slug }: HistoricalDetailEntry): string =>
+    pathForEventDetail(locale, comune, slug, canton);
   const pageNav = pageCount > 1
     ? `<nav class="mt-6 flex flex-wrap gap-2" aria-label="${esc(copy.navLabel)}">${Array.from({ length: pageCount }, (_, index) => index + 1)
       .map((number) => number === page
@@ -2761,7 +2763,7 @@ export function renderHistoricalEventsArchivePage(params: {
       .join('')}</nav>`
     : '';
   const eventLinks = pageEntries
-    .map(({ event, canton, comune, slug }) => `<li class="border-b border-edge py-3"><a class="font-semibold text-link hover:text-link-hover" href="${pathForEventDetail(locale, comune, slug, canton)}">${esc(localizedTitle(event, locale))}</a> <time class="ml-2 text-sm text-muted" datetime="${esc(event.startDate)}">${esc(event.startDate)}</time></li>`)
+    .map((entry) => `<li class="border-b border-edge py-3"><a class="font-semibold text-link hover:text-link-hover" href="${historicalEntryHref(entry)}">${esc(localizedTitle(entry.event, locale))}</a> <time class="ml-2 text-sm text-muted" datetime="${esc(entry.event.startDate)}">${esc(entry.event.startDate)}</time></li>`)
     .join('');
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="historical_archive" data-events-path="${esc(canonicalPath)}">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
@@ -2783,6 +2785,18 @@ export function renderHistoricalEventsArchivePage(params: {
   const wordCount = countHtmlBodyWords(body);
   const indexable = isIndexableWordCount(wordCount);
   const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable, contentHtml: body })}`;
+  const itemListLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: copy.title,
+    numberOfItems: pageEntries.length,
+    itemListElement: pageEntries.map((entry, index) => eventListItemLd(
+      entry.event,
+      locale,
+      index + 1,
+      () => historicalEntryHref(entry),
+    )),
+  });
   const html = buildSeoPageHtml({
     locale,
     title: pageTitle,
@@ -2792,7 +2806,7 @@ export function renderHistoricalEventsArchivePage(params: {
     robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
-    jsonLdScripts: [],
+    jsonLdScripts: [itemListLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });

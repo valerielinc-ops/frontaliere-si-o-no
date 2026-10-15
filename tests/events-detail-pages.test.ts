@@ -985,6 +985,33 @@ describe('historical event archive reachability', () => {
     expect(second.html).not.toContain('href="/eventi/ticino/lugano/evento-passato-0/"');
   });
 
+  it('emits an ItemList whose event URL matches the rendered archive detail link', () => {
+    const page = renderHistoricalEventsArchivePage({
+      locale: 'it',
+      entries: [{
+        event: { ...EVENT, id: 'historical:item-list', title: 'Evento passato' } as never,
+        canton: 'TI',
+        comune: 'Lugano',
+        slug: 'evento-passato',
+      }],
+      page: 1,
+      pageCount: 1,
+      distDir: path.join(os.tmpdir(), 'frontaliere-historical-events-archive-item-list-test'),
+    });
+
+    const itemList = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]) as { '@type'?: string; itemListElement?: Array<{ item?: string }> })
+      .find((script) => script['@type'] === 'ItemList');
+
+    expect(itemList?.itemListElement).toEqual([{
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Evento passato',
+      item: 'https://frontaliereticino.ch/eventi/ticino/lugano/evento-passato/',
+    }]);
+    expect(page.html).toContain('href="/eventi/ticino/lugano/evento-passato/"');
+  });
+
   it('keeps every localized archive page indexable and self-canonical', () => {
     const entries = [{
       event: { ...EVENT, id: 'historical:localized', title: 'Evento passato' } as never,
