@@ -13185,7 +13185,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fibra-ottica-145-comuni-como.imageAlt': 'Installation de câble fibre optique dans une commune de la province de Côme, vue détaillée. (Como)',
     'blog.article.soccorsi-coda-autostrada-lombarda.title': 'Accident sur l’A8 entre Castellanza et Busto : longue file',
     'blog.article.soccorsi-coda-autostrada-lombarda.excerpt': 'Accident sur l’A8 peu après 16 heures Quatre personnes impliquées Deux ambulances et un véhicule médicalisé en code rouge Longue file depuis la bifurcation A8/A9 Quoi : accident de la route',
-    'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Bouchon sur l\'autoroute A8 entre Castellanza et Busto Arsizio après un accident',
+    'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Illustration générée pour cet article',
     'blog.article.arma-biasca-inchiesta.title': 'Biasca, l\'arrestation du jeune de 17 ans confirmée',
     'blog.article.arma-biasca-inchiesta.excerpt': 'L\'attaque au couteau a eu lieu le 5 octobre à Biasca.',
     'blog.article.arma-biasca-inchiesta.imageAlt': 'Illustration générée pour cet article',
@@ -13227,6 +13227,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ata-critica-progetto-a2-mendrisio.title': 'L’ATA s’oppose à l’élargissement de l’A2 Mendrisio‑Melano',
     'blog.article.ata-critica-progetto-a2-mendrisio.excerpt': 'L\'ATA s\'oppose à l\'élargissement de l\'A2 entre Mendrisio et Melano Le projet comprend le viaduc de Lenaccio et des parois antibruit PoLuMe prévoit une troisième voie',
     'blog.article.ata-critica-progetto-a2-mendrisio.imageAlt': 'Viaduc Lenaccio de l\'A2 près de Mendrisio avec des murs anti-bruit en construction',
+    'blog.article.preventivo-lugano-disavanzo-2027.title': 'Lugano : le budget 2027 estime un déficit de 14,7 millions',
+    'blog.article.preventivo-lugano-disavanzo-2027.excerpt': 'Lugano prévoit un déficit de 14,7 millions Le résultat s\'améliore de 4,8 millions par rapport au plan 2026-2033 Les multiplicateurs restent à 80 % et à 85 % Les investissements',
+    'blog.article.preventivo-lugano-disavanzo-2027.imageAlt': 'Vue panoramique de la ville de Lugano et du lac',
 };
 
 export default blogMetaFr;

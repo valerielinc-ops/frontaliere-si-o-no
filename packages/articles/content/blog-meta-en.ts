@@ -13183,7 +13183,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fibra-ottica-145-comuni-como.imageAlt': 'Fiber optic cable installation in a Como province town, close-up and detailed view.',
     'blog.article.soccorsi-coda-autostrada-lombarda.title': 'Accident on the A8 between Castellanza and Busto: long tailback',
     'blog.article.soccorsi-coda-autostrada-lombarda.excerpt': 'Accident on the A8 shortly after 4 p.m.',
-    'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Traffic queue on the A8 motorway between Castellanza and Busto Arsizio after a crash',
+    'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Illustration generated for this article',
     'blog.article.arma-biasca-inchiesta.title': 'Biasca, the 17-year-old\'s arrest confirmed',
     'blog.article.arma-biasca-inchiesta.excerpt': 'The stabbing took place on October 5 in Biasca.',
     'blog.article.arma-biasca-inchiesta.imageAlt': 'Illustration generated for this article',
@@ -13225,6 +13225,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ata-critica-progetto-a2-mendrisio.title': 'ATA opposes the A2 Mendrisio‑Melano expansion',
     'blog.article.ata-critica-progetto-a2-mendrisio.excerpt': 'ATA opposes the expansion of the A2 between Mendrisio and Melano The project includes the Lenaccio viaduct and noise barriers PoLuMe envisages a third lane',
     'blog.article.ata-critica-progetto-a2-mendrisio.imageAlt': 'Lenaccio viaduct on the A2 near Mendrisio with noise barriers under construction',
+    'blog.article.preventivo-lugano-disavanzo-2027.title': 'Lugano: 2027 budget estimates a deficit of 14,7 million',
+    'blog.article.preventivo-lugano-disavanzo-2027.excerpt': 'Lugano forecasts a deficit of 14,7 million The result improves by 4,8 million compared with the 2026-2033 plan The multipliers remain at 80% and 85% Investments',
+    'blog.article.preventivo-lugano-disavanzo-2027.imageAlt': 'Panoramic view of Lugano city and the lake',
 };
 
 export default blogMetaEn;

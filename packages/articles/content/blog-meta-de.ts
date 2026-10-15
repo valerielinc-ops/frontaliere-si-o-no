@@ -13182,7 +13182,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fibra-ottica-145-comuni-como.imageAlt': 'Glasfaserkabelinstallation in einer Gemeinde der Provinz Como, Nahaufnahme mit vielen Details.',
     'blog.article.soccorsi-coda-autostrada-lombarda.title': 'Unfall auf der A8 zwischen Castellanza und Busto: langer Stau',
     'blog.article.soccorsi-coda-autostrada-lombarda.excerpt': 'Unfall auf der A8 kurz nach 16 Uhr Vier Personen beteiligt Zwei Rettungswagen und ein Notarzteinsatzfahrzeug mit höchster Dringlichkeitsstufe Langer Stau ab der Verzweigung A8/A9 Was: Verkehrsunfall',
-    'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Stau auf der A8 zwischen Castellanza und Busto Arsizio nach einem Unfall',
+    'blog.article.soccorsi-coda-autostrada-lombarda.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.arma-biasca-inchiesta.title': 'Biasca, die Festnahme des 17-Jährigen bestätigt',
     'blog.article.arma-biasca-inchiesta.excerpt': 'Der Messerangriff ereignete sich am 5.',
     'blog.article.arma-biasca-inchiesta.imageAlt': 'Für diesen Artikel erstellte Illustration',
@@ -13224,6 +13224,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ata-critica-progetto-a2-mendrisio.title': 'ATA wendet sich gegen den Ausbau der A2 Mendrisio‑Melano',
     'blog.article.ata-critica-progetto-a2-mendrisio.excerpt': 'Die ATA wendet sich gegen den Ausbau der A2 zwischen Mendrisio und Melano Das Projekt umfasst das Lenaccio-Viadukt und Lärmschutzwände PoLuMe sieht eine dritte Fahrspur vor',
     'blog.article.ata-critica-progetto-a2-mendrisio.imageAlt': 'Lenaccio-Brücke der A2 bei Mendrisio mit im Bau befindlichen Lärmschutzwänden',
+    'blog.article.preventivo-lugano-disavanzo-2027.title': 'Lugano: Der Voranschlag 2027 sieht ein Defizit von 14,7 Millionen vor',
+    'blog.article.preventivo-lugano-disavanzo-2027.excerpt': 'Lugano erwartet ein Defizit von 14,7 Millionen Das Ergebnis verbessert sich gegenüber dem Plan 2026-2033 um 4,8 Millionen Die Steuerfüsse bleiben bei 80% und 85% Die Investitionen',
+    'blog.article.preventivo-lugano-disavanzo-2027.imageAlt': 'Panoramablick auf die Stadt Lugano und den See',
 };
 
 export default blogMetaDe;

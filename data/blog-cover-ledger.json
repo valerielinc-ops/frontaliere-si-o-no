@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5492
+      "6": 5494
     },
-    "publishedCovers": 7073,
+    "publishedCovers": 7075,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5297
+    "inferredRecords": 5299
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187927,6 +187927,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-preventivo-lugano-disavanzo-2027": {
+      "cover": "/images/blog/article-preventivo-lugano-disavanzo-2027.webp",
+      "hash": "806a41a1479f811488bb8a4d24c4df66fc9173f1101644df39def7ed8e2d6632",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "preventivo-lugano-disavanzo-2027",
+          "category": "fiscale",
+          "date": "2026-10-15T13:14:32.255Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-previsioni-disoccupazione-ticino-2027": {
       "cover": "/images/blog/article-previsioni-disoccupazione-ticino-2027.webp",
       "hash": "69327120eb58328481d47819213d57a33f75815b2a67277ea9df6e9cf5912e0a",
@@ -188559,6 +188586,33 @@
           "id": "sfida-bar-quartiere-lugano",
           "category": "novita",
           "date": "2026-10-10T19:06:16.336Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-soccorsi-coda-autostrada-lombarda": {
+      "cover": "/images/blog/article-soccorsi-coda-autostrada-lombarda.webp",
+      "hash": "7ee1135ef184ca41ca066786312666bc3b5e9e79f5e1232c6c4aaf841a085d7f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "soccorsi-coda-autostrada-lombarda",
+          "category": "pratico",
+          "date": "2026-10-14T15:46:26.571Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -44493,7 +44493,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'soccorsi-coda-autostrada-lombarda',
  category: 'pratico',
  date: '2026-10-14T15:46:26.571Z',
- image: '/images/places/lugano-view.webp',
+ image: '/images/blog/article-soccorsi-coda-autostrada-lombarda.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
@@ -44633,6 +44633,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  canton: ['TI'],
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'preventivo-lugano-disavanzo-2027',
+ category: 'fiscale',
+ date: '2026-10-15T13:14:32.255Z',
+ image: '/images/blog/article-preventivo-lugano-disavanzo-2027.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
 ];
 

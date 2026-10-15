@@ -108043,10 +108043,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-soccorsi-coda-autostrada-lombarda.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Coda sull'autostrada A8 tra Castellanza e Busto Arsizio dopo un incidente"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-14T15:46:26+00:00",
       "dateModified": "2026-10-14T15:46:26+00:00",
@@ -108566,6 +108566,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ata-critica-progetto-a2-mendrisio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-preventivo-lugano-disavanzo-2027': {
+    title: 'Lugano: preventivo 2027 stima disavanzo di 14,7 milioni',
+    description: 'Lugano prevede un disavanzo di 14,7 milioni Il risultato migliora di 4,8 milioni sul piano 2026-2033 I moltiplicatori restano all\'80% e all\'85% Gli investimenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, preventivo, stima, disavanzo',
+    ogTitle: 'Lugano: preventivo 2027 e moltiplicatori fiscali',
+    ogDescription: 'Lugano prevede un disavanzo di 14,7 milioni Il risultato migliora di 4,8 milioni sul piano 2026-2033 I moltiplicatori restano all\'80% e all\'85% Gli investimenti',
+    canonicalPath: '/articoli-frontaliere/preventivo-lugano-disavanzo-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano: preventivo 2027 stima disavanzo di 14,7 milioni",
+      "description": "Lugano prevede un disavanzo di 14,7 milioni Il risultato migliora di 4,8 milioni sul piano 2026-2033 I moltiplicatori restano all'80% e all'85% Gli investimenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-preventivo-lugano-disavanzo-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica della città di Lugano e del lago"
+      },
+      "datePublished": "2026-10-15T13:14:32+00:00",
+      "dateModified": "2026-10-15T13:14:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/preventivo-lugano-disavanzo-2027/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
