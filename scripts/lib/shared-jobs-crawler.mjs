@@ -148,6 +148,7 @@ import {
   isGrigioniRelevant,
   isKnownSwissCity,
   normalizeCantonCode,
+  swissCityFromLocationField,
   swissMunicipalityCantons,
   TEXT_RESCUE_AMBIGUOUS_TOKENS,
 } from './target-swiss-locations.mjs';
@@ -2082,6 +2083,32 @@ function extractWorkdayApplyUrl(html, baseUrl) {
 
 // extractMigrosStructuredData, extractMigrosSectionItems, extractMigrosBenefitItems
 // are imported from ./migros-job-parser.mjs at the top of this file.
+
+const SWISS_CANTON_SUFFIX_RE = /\b(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)\s*$/i;
+
+/**
+ * Prefer Migros' visible workplace card over stale JobPosting geography.
+ *
+ * The portal can move a vacancy while leaving its JSON-LD `jobLocation`
+ * behind.  Only act when the visible card itself ends in an explicit Swiss
+ * canton code: that source-backed marker lets us update all four geography
+ * fields together without guessing from an employer or street name.
+ */
+function applyMigrosVisibleWorkplaceGeography(job, migrosData) {
+  if (!job || !Array.isArray(migrosData?.workplaces)) return false;
+  for (const workplace of migrosData.workplaces) {
+    const canton = normalizeCantonCode(String(workplace || '').match(SWISS_CANTON_SUFFIX_RE)?.[1] || '');
+    if (!canton) continue;
+    const location = swissCityFromLocationField(workplace, canton);
+    if (!location) continue;
+    job.location = location;
+    job.canton = canton;
+    job.addressLocality = location;
+    job.addressRegion = canton;
+    return true;
+  }
+  return false;
+}
 
 function extractSwissTimingJobDescription(html = '') {
   const blocks = [];
@@ -5711,6 +5738,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
                   parsed.job._migrosResponsibilities = migrosData.responsibilities;
                   parsed.job._migrosBenefits = migrosData.benefits;
                   parsed.job._migrosWorkPercentage = migrosData.workPercentage;
+                  applyMigrosVisibleWorkplaceGeography(parsed.job, migrosData);
                 }
               }
               maybeAcceptCandidate(parsed.job, 'jsonld');
