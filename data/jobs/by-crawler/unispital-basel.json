@@ -11102,7 +11102,7 @@
       "slugByLocale": {
         "de": "duales-studium-dhbw-wirtschaftsinformatik-application-management-unispital-basel-ch",
         "it": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel-3491575fef",
-        "en": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel",
+        "en": "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel-lfxxch",
         "fr": "doubles-etudes-dhbw-informatique-des-affaires-gestion-des-applications-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -11152,7 +11152,8 @@
           "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel"
         ],
         "en": [
-          "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel"
+          "duales-studium-dhbw-wirtschaftsinformatik-application-management-universitatsspital-basel-basel",
+          "dual-studies-dhbw-business-informatics-application-management-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
@@ -11614,7 +11615,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "product-owner-in-netzwerkplattform-safe-unispital-basel-ch"

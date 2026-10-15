@@ -2954,7 +2954,7 @@
       "slug": "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen",
-        "en": "sportlehrperson-m-w-d-kanton-st-gallen",
+        "en": "sports-teacher-m-f-d-kanton-st-gallen-st-gallen",
         "de": "sportlehrperson-m-w-d-kanton-st-gallen-ch",
         "fr": "professeur-de-sport-h-f-d-kanton-st-gallen-st-gallen"
       },
@@ -3004,7 +3004,7 @@
       "previousSlugs": [
         "sportlehrperson-m-w-d-kanton-st-gallen-ch",
         "professeur-de-sport-m-f-d-kanton-st-gallen-st-gallen-und-rheineck",
-        "sports-teacher-m-f-d-kanton-st-gallen-st-gallen"
+        "sportlehrperson-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3013,7 +3013,7 @@
         ],
         "en": [
           "sportlehrperson-m-w-d-kanton-st-gallen-ch",
-          "sports-teacher-m-f-d-kanton-st-gallen-st-gallen"
+          "sportlehrperson-m-w-d-kanton-st-gallen"
         ],
         "fr": [
           "sportlehrperson-m-w-d-kanton-st-gallen-ch"
@@ -6808,9 +6808,9 @@
       "slug": "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen",
       "slugByLocale": {
         "de": "fachperson-behinderung-m-w-d-kanton-st-gallen-ch",
-        "it": "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen",
-        "en": "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen",
-        "fr": "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen"
+        "it": "specialista-per-la-disabilita-l-f-d-kanton-st-gallen-st-gallen",
+        "en": "professional-disability-m-f-d-kanton-st-gallen-st-gallen",
+        "fr": "invalidite-professionnelle-m-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6859,24 +6859,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen-ch",
-          "specialista-per-la-disabilita-l-f-d-kanton-st-gallen-st-gallen"
+          "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen-ch"
         ],
         "de": [
           "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "professional-disability-m-f-d-kanton-st-gallen-st-gallen"
-        ],
-        "fr": [
-          "invalidite-professionnelle-m-f-d-kanton-st-gallen-st-gallen"
         ]
       },
       "previousSlugs": [
-        "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen-ch",
-        "specialista-per-la-disabilita-l-f-d-kanton-st-gallen-st-gallen",
-        "professional-disability-m-f-d-kanton-st-gallen-st-gallen",
-        "invalidite-professionnelle-m-f-d-kanton-st-gallen-st-gallen"
+        "fachperson-angebotsmanagement-behinderung-m-w-d-kanton-st-gallen-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
