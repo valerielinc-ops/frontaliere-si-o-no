@@ -1274,13 +1274,20 @@ function isPoliticalAffiliationAfterPerson(text, match, acronym) {
   const personNameMatch = PERSON_NAME_SUFFIX_RE.exec(match[1]?.trim() || '');
   if (!personNameMatch) return false;
   const { boundaryWord, comma, firstName } = personNameMatch.groups || {};
-  if (boundaryWord && PERSON_NAME_BOUNDARY_STOPWORDS.has(boundaryWord)) return false;
+  const recognizedFirstName = recognizeFirstName(firstName);
+  if (boundaryWord && PERSON_NAME_BOUNDARY_STOPWORDS.has(boundaryWord)) {
+    // A role cue may connect its institution phrase to a named appositive with
+    // "e": "... dei comuni e Martin Bühler". Keep title-cased institution tails
+    // such as "... e Politiche Sociali" reportable by requiring a dataset-backed
+    // first name for this one conjunction boundary.
+    if (boundaryWord !== 'e' || !recognizedFirstName) return false;
+  }
   // A comma is ambiguous here: it separates a real appositive in
   // `... delle finanze, Martin Bühler`, but it also separates an institutional
   // tail in `... delle finanze, Politiche Sociali`. Require the token after
   // that comma to pass the repository's high-confidence first-name validator;
   // the no-comma form keeps the existing lexical-boundary rule.
-  if (comma && !recognizeFirstName(firstName)) return false;
+  if (comma && !recognizedFirstName) return false;
 
   const matchStart = typeof match.index === 'number' ? match.index : -1;
   if (matchStart < 0) return false;

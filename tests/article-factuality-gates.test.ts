@@ -636,6 +636,20 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
   });
 
+  it('recognizes a dataset-backed person after the conjunction without hiding an institution tail', () => {
+    const person = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni e Martin Bühler (PLR).';
+    const institution = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni e Politiche Sociali (PLR).';
+
+    expect(checkFabricatedInstitutionAcronyms(person)).toEqual([]);
+    expect(collectInstitutionAcronyms(person, { sourceText: '' })).toEqual([]);
+    expect(codes(checkFabricatedInstitutionAcronyms(institution))).toEqual(['unknown-institution']);
+    expect(collectInstitutionAcronyms(institution, { sourceText: '' })).toEqual([{
+      acronym: 'PLR',
+      name: 'Dipartimento grigionese delle finanze e dei comuni e Politiche Sociali',
+      support: 'unknown',
+    }]);
+  });
+
   it('keeps denylisted political acronyms blocking', () => {
     const issues = checkFabricatedInstitutionAcronyms(
       'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (PLR).',
