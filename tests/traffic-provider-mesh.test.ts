@@ -63,8 +63,8 @@ describe('traffic provider mesh', () => {
     expect(report.reasons).toEqual(expect.arrayContaining([
       'requires at least 3 distinct feed keys',
       'requires at least 3 valid webcam/provider pairs',
+      'pair coverage 0.000 is below 0.8',
       'baseline collection must add zero paid provider requests',
-      'candidate accuracy is not measured for every valid pair',
     ]));
   });
 

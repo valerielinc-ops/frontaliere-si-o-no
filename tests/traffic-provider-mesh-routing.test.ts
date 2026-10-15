@@ -2,8 +2,16 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fetchCrossingTraffic } from '../functions/src/trafficSchedulerCore.js';
 import { buildTrafficProviderChain } from '../functions/src/trafficProviderMesh.js';
 
+const { webcamVerdict } = vi.hoisted(() => ({ webcamVerdict: vi.fn() }));
+vi.mock('../scripts/analyze-webcam-frame.mjs', () => ({
+  analyzeWebcamForCrossing: (...args: unknown[]) => webcamVerdict(...args),
+}));
+
 describe('traffic provider rotation at crossing level', () => {
-  afterEach(() => vi.unstubAllGlobals());
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    webcamVerdict.mockReset();
+  });
 
   it('uses one route request for a static provider because it cannot measure approach delay', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
