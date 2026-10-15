@@ -1920,11 +1920,11 @@
     },
     {
       "id": "nestle-1437624533",
-      "slug": "stagiaire-ingenieur-e-s-h-safety-health-nestle-ch",
+      "slug": "intern-s-h-engineer-safety-health-nestle-orbe",
       "slugByLocale": {
         "fr": "stagiaire-ingenieur-e-s-h-safety-health-nestle-ch",
         "de": "praktikant-s-h-ingenieur-safety-health-nestle-orbe",
-        "it": "stagiaire-ingenieur-e-s-h-safety-health-nestle-ch",
+        "it": "intern-s-h-engineer-safety-health-nestle-orbe",
         "en": "stagiaire-ingenieur-e-s-h-safety-health-nestle-ch"
       },
       "company": "Nestlé",
@@ -1983,7 +1983,15 @@
       },
       "postalCode": "1350",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-23T11:57:12.090Z"
+      "firstSeenAt": "2026-09-23T11:57:12.090Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-ingenieur-e-s-h-safety-health-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ingenieur-e-s-h-safety-health-nestle-ch"
+      ]
     }
   ]
 }
