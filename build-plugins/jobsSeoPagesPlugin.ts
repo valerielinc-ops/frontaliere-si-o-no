@@ -13290,7 +13290,8 @@ ${staticAnalyticsHtml}
  const hasRealTitle = hasRecordedJobIdentity(ejData) || gscInfo?.recordedIdentity === true;
  const jobCompany = String(hasRealTitle ? ejData?.company || gscInfo?.company || slugInfo?.company || '' : slugInfo?.company || '');
  const jobLocation = String(hasRealTitle ? ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '' : slugInfo?.location || '');
- const jobCanton = sharedResolveJobCanton({ canton: ejData?.canton, location: jobLocation });
+ // A partial record (or URL-derived place) cannot establish a job's canton.
+ const jobCanton = hasRealTitle ? sharedResolveJobCanton({ canton: ejData?.canton, location: jobLocation }) : AGGREGATE_KEY;
  const jobSector = String(ejData?.sector || '');
  const jobContract = String(ejData?.contract || '');
  const jobDatePosted = resolveRolloutPostingDate(ejData || {}, () => String(ejData?.datePosted || '')) || '';
@@ -15192,7 +15193,7 @@ ${staticAnalyticsHtml}
   const titleRaw = recordedIdentity ? stripLiteralMarkdownFromTitle(String(archive?.title || copy.original)) : unknownCopy.title;
   const company = String(recordedIdentity ? archive?.company || slugInfo.company || '' : slugInfo.company || '');
   const location = String(recordedIdentity ? archive?.location || slugInfo.location || '' : slugInfo.location || '');
-  const canton = String(archive?.canton || sharedResolveJobCanton({ location }) || DEFAULT_CANTON);
+  const canton = recordedIdentity ? String(archive?.canton || sharedResolveJobCanton({ location }) || DEFAULT_CANTON) : AGGREGATE_KEY;
   const section = buildCantonAwareSection(locale, canton);
   const listingPath = `${localePrefix[locale]}/${section}`.replace(/\/+/g, '/');
   const historicalUrl = `${BASE_URL}${withSlash(relPath)}`;
@@ -15238,7 +15239,7 @@ ${staticAnalyticsHtml}
    '@type': 'BreadcrumbList',
    itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: `${BASE_URL}/` },
-    { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, canton), item: `${BASE_URL}${withSlash(listingPath)}` },
+    { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, getCantonDisplayLabel(canton, locale)), item: `${BASE_URL}${withSlash(listingPath)}` },
     { '@type': 'ListItem', position: 3, name: titleRaw },
    ],
   });

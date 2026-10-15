@@ -2,8 +2,64 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import ts from 'typescript';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from '../build-plugins/shared/jobArchiveEvidence';
+import { resolveCantonSection, resolveJobCanton } from '../build-plugins/shared/cantonSection';
 
 describe('recorded versus URL-inferred job identity', () => {
+  it.each(['it', 'en', 'de', 'fr'] as const)('does not assign a partial archive canton to unknown %s navigation', (locale) => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const normal = source.slice(source.indexOf('const hasRealTitle = hasRecordedJobIdentity(ejData)'));
+    const safetyStart = source.indexOf('const buildHistoricalArchiveHtml =');
+    const safety = source.slice(safetyStart, source.indexOf('for (const [slug, paths] of Object.entries(tracking)', safetyStart));
+    const execute = (code: string, bindings: Record<string, unknown>) => {
+      const js = ts.transpileModule(code, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } }).outputText;
+      return new Function(...Object.keys(bindings), js)(...Object.values(bindings));
+    };
+    // Execute the actual normal-writer route and emitted breadcrumb, not a
+    // second implementation of its identity decision or canton routing.
+    const declarations = ['jobCanton', 'listingPath', 'displayCanton'].map((name) => {
+      const statement = normal.match(new RegExp(`const ${name} = [^\\n]+;`))?.[0];
+      expect(statement).toBeTruthy();
+      return statement;
+    }).join('\n');
+    const breadcrumbStart = normal.indexOf('const breadcrumbLd =');
+    const breadcrumbEnd = normal.indexOf('</script>`;', breadcrumbStart) + '</script>`;'.length;
+    expect(breadcrumbStart).toBeGreaterThan(-1);
+    expect(breadcrumbEnd).toBeGreaterThan(breadcrumbStart);
+    const bindings = {
+      locale, AGGREGATE_KEY: '_AGGREGATE_', DEFAULT_CANTON: 'TI',
+      localePrefix: { it: '', en: '/en', de: '/de', fr: '/fr' },
+      BASE_URL: 'https://frontaliereticino.ch',
+      sharedResolveJobCanton: resolveJobCanton, buildCantonAwareSection: resolveCantonSection,
+      getCantonDisplayLabel: (canton: string) => canton === '_AGGREGATE_' ? 'National board' : canton,
+      cantonSectionName: (_locale: string, display: string) => display,
+      inlineScriptJson: JSON.stringify, jobLocation: '', jobTitle: 'Reference',
+    };
+    for (const recordedIdentity of [false, true]) {
+      const archive = { canton: 'ZH', recordedIdentity, ...(recordedIdentity ? { title: 'Original title' } : {}) };
+      const section = resolveCantonSection(locale, recordedIdentity ? 'ZH' : '_AGGREGATE_');
+      const path = `${bindings.localePrefix[locale]}/${section}/`.replace(/\/+/g, '/');
+      const normalHtml = execute(`${declarations}\n${normal.slice(breadcrumbStart, breadcrumbEnd)}\nreturn listingPath + breadcrumbLd;`, { ...bindings, hasRealTitle: recordedIdentity, ejData: archive });
+      expect.soft(normalHtml).toContain(path);
+      expect.soft(normalHtml).toContain(recordedIdentity ? 'ZH' : 'National board');
+      const historicalHtml = execute(`${safety}\nreturn buildHistoricalArchiveHtml('url-reference', '/historical-reference/', locale, archive);`, {
+        ...bindings, archive, unverifiedJobCopy,
+        historicalArchiveCopy: { [locale]: { notice: 'Archived', original: 'Original', next: 'Browse', cta: 'Browse', details: 'Details' } },
+        extractInfoFromSlug: () => ({}), stripLiteralMarkdownFromTitle: String,
+        composeSerpJobTitle: String, esc: String, stripLeadingSectionLabel: String,
+        historicalArchiveHeading: String, withSlash: (value: string) => value.replace(/\/+$/, '') + '/',
+        countHtmlBodyWords: () => 100, MIN_INDEXABLE_WORDS: 50,
+        ROBOTS_INDEX_ENHANCED: 'index', ROBOTS_NOINDEX_FOLLOW: 'noindex',
+        buildSoftLandingHtml: (...parts: string[]) => parts.join('\n'),
+      });
+      expect.soft(historicalHtml).toContain(`href="${path}"`);
+      expect.soft(historicalHtml).toContain(recordedIdentity ? 'ZH' : 'National board');
+      if (!recordedIdentity) {
+        expect.soft(normalHtml).not.toContain(resolveCantonSection(locale, 'ZH'));
+        expect.soft(historicalHtml).not.toContain(resolveCantonSection(locale, 'ZH'));
+        expect.soft(historicalHtml).not.toContain('"name":"ZH"');
+      }
+    }
+  });
   it('retains the whole verified record when a stronger same-slug GSC-only row follows', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     const start = source.indexOf('for (const entry of enrichedArr)');
