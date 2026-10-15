@@ -56,7 +56,7 @@ describe('historicalArchiveHeading', () => {
     const start = src.indexOf('const buildHistoricalArchiveHtml = (');
     expect(start).toBeGreaterThan(-1);
     const body = src.slice(start, src.indexOf('return buildSoftLandingHtml(', start));
-    expect(body).toContain('`<h1>${esc(historicalArchiveHeading(titleRaw, company, location, copy.headingQualifier))}</h1>`');
+    expect(body).toContain('`<h1>${esc(historicalArchiveHeading(titleRaw, company, location, recordedIdentity ? copy.headingQualifier : \'\'))}</h1>`');
     expect(body).not.toMatch(/<h1>\$\{esc\(titleRaw\)\}/);
   });
 });

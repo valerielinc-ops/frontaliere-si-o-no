@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+// @ts-expect-error — the recorder is a dependency-free ESM CI script.
+import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 import {
   runL3,
   validateJobSummaries,
@@ -82,6 +84,47 @@ describe('L3 Job Quality → Apply', () => {
     const verdict = validateJobSummaries([summary()], { outcomes: outcomes(), now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
     expect(verdict.snapshot.outcomes).toMatchObject({ eligibleJobSessions: 120, validHandoffs: 90 });
+  });
+
+  it('keeps a source-backed handoff independent when only a sibling summary is stale', async () => {
+    const source = tempSource(summary().data, outcomes());
+    fs.writeFileSync(path.join(source.summaryDir, 'stale.json'), `${JSON.stringify({
+      ...summary().data,
+      key: 'stale',
+      generatedAt: '2026-09-01T12:00:00.000Z',
+      total: 0,
+      newCount: 0,
+      newJobs: [],
+    })}\n`);
+    const result = await runL3({
+      now: NOW,
+      summaryDir: source.summaryDir,
+      outcomePath: source.outcomePath,
+      reportDir: source.dir,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({
+      ok: false,
+      quality: 'partial',
+      issues: [],
+      snapshot: { freshSummaries: 1, staleSummaries: 1, invalidJobs: 0 },
+    });
+    expect(result.outcome).toMatchObject({
+      status: 'observed',
+      independent: true,
+      numerator: 90,
+      denominator: 120,
+    });
+    expect(result.observation).toMatchObject({ numerator: null, denominator: null });
+    expect(result.decision.decision).toBe('candidate');
+
+    const recorded = recordLoopEvidence({ loopId: 'L3', reportDir: source.dir, now: NOW });
+    expect(recorded.health).toMatchObject({
+      ok: false,
+      outcome: { status: 'observed', independent: true, numerator: 90, denominator: 120 },
+      outcomeErrors: [],
+    });
   });
 
   it('requires the CH country field for the three quarantined Swiss-only producers', () => {
