@@ -46,7 +46,7 @@
 
 import { tokenizeIt, containmentSim } from './it-text-similarity.mjs';
 import { escapeRegExpLiteral } from './escape-regexp.mjs';
-import { recognizeFirstName } from './deriveNameFromEmail.mjs';
+import { recognizeFirstName } from './first-name-recognition.mjs';
 import {
   LOCALE_LEXICON,
   lexiconFor,
