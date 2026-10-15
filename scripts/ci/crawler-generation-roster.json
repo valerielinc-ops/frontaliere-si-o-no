@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 631,
+  "crawlerCount": 632,
   "groups": {
     "10": [
       "atec-personal",
@@ -333,6 +333,7 @@
       "strabag",
       "stryker",
       "supsi-dti",
+      "sympajobs-reinach-bl",
       "visionapartments",
       "vontobel",
       "zambon"
@@ -362,10 +363,10 @@
       "orell-fuessli-thalia",
       "pdag",
       "ricola",
+      "seniorenzentrum-engelhof",
       "six-group",
       "spital-buelach",
       "stadtspital-zuerich",
-      "sympajobs-reinach-bl",
       "vtg"
     ],
     "22": [
@@ -1174,6 +1175,7 @@
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
+    "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
     "sfs-group": "data/jobs/by-crawler/sfs-group.json",
     "sicpa": "data/jobs/by-crawler/sicpa.json",
     "siegfried": "data/jobs/by-crawler/siegfried.json",
@@ -1316,5 +1318,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:0bb1455e7d349ce89eea3e78279febceffb1a50ab0442dd2f1615e6f1a8f7967"
+  "digest": "sha256:a40af2b392c72d274677261f194c83deb60daf2074a2b7bb5e6b447cf2d41df7"
 }

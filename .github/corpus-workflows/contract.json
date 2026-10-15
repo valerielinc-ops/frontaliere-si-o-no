@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224",
+  "sourceCommit": "e8b046db155f452621c35a089fc1f711a2a74ac0",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224"
+    "sourceCommit": "e8b046db155f452621c35a089fc1f711a2a74ac0"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 631,
+  "crawlerCount": 632,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:0bb1455e7d349ce89eea3e78279febceffb1a50ab0442dd2f1615e6f1a8f7967",
+    "rosterDigest": "sha256:a40af2b392c72d274677261f194c83deb60daf2074a2b7bb5e6b447cf2d41df7",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -465,6 +465,7 @@
     "scripts/update-see-spital-jobs.mjs",
     "scripts/update-selecta-jobs.mjs",
     "scripts/update-senevita-jobs.mjs",
+    "scripts/update-seniorenzentrum-engelhof-jobs.mjs",
     "scripts/update-sfs-group-jobs.mjs",
     "scripts/update-sicpa-jobs.mjs",
     "scripts/update-siegfried-jobs.mjs",
@@ -1342,8 +1343,8 @@
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "8c31eb96fd5785381da5e52437dc062bfb0d9a3267f5e5c37b05493a6225083a",
-      "artifactSha256": "74fff35831ce3741637fe7d0fe1e5ca8004ab1dd47f683482d1fc47238a9c632",
+      "sourceSha256": "a0dc983da49b0f0229317c979737f4eac5ef4746636731d88629dc0902b79aa8",
+      "artifactSha256": "ba91d1ae37b3900cab5f5f18d7c840df832c98cd407df651e324e7c7d64924b5",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ottos",
@@ -1373,14 +1374,15 @@
         "hrc",
         "arxada",
         "adus-klinik",
-        "ist"
+        "ist",
+        "sympajobs-reinach-bl"
       ]
     },
     {
       "file": "crawler-group-21.yml",
       "sourceLogic": "crawler-group-21-logic.yml",
-      "sourceSha256": "fbd13afe3439197090b8eeb5c766db50f79231d70b518be16b603dc773faa0f7",
-      "artifactSha256": "1a08eaba78e5c003ee3a9e7463b7d36695b030a56853f5861b480642a4e635ff",
+      "sourceSha256": "f4bdc93306d23501e10335cb5f621c08d263320a34155042fcb90abae9c65086",
+      "artifactSha256": "f96a907f460a9de6a13f71745b1dd84ef7c6993ed39da51e1191602649b1faf2",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "orell-fuessli-thalia",
@@ -1411,7 +1413,7 @@
         "geberit",
         "lombard-odier",
         "kone",
-        "sympajobs-reinach-bl"
+        "seniorenzentrum-engelhof"
       ]
     },
     {

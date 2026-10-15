@@ -95,6 +95,7 @@ import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescript
 import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan';
 import { markCantonCompanyHub } from './shared/cantonCompanyHubRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
+import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from './shared/companyCantonBridgeMarker.mjs';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
 // primitives (AGENTS.md §6); see build-plugins/shared/jobEventsCrosslink.ts.
@@ -9034,7 +9035,7 @@ ${staticAnalyticsHtml}
  : locale === 'en' ? `View all jobs in ${cDisplay}`
  : locale === 'de' ? `Alle Stellen in ${cDisplay} ansehen`
  : `Voir toutes les offres à ${cDisplay}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n<ul class="s-0WjlyL">${jobCardListBody(companyJobs, locale)}</ul>\n<p><a href="${sectionRootUrl}">${esc(allJobsLabel)}</a></p>`;
+ const bodyHtml = `${COMPANY_CANTON_NOINDEX_BRIDGE_MARKER}<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n<ul class="s-0WjlyL">${jobCardListBody(companyJobs, locale)}</ul>\n<p><a href="${sectionRootUrl}">${esc(allJobsLabel)}</a></p>`;
  const html = buildSeoPageHtml({
  locale,
  title: pageTitle,
