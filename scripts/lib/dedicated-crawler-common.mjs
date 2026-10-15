@@ -3391,7 +3391,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const currentSourceDescriptionCandidates = [...new Set(
     [currentByLocale[sourceLang], ...sourceLocaleTextCandidates(out, 'description')]
       .map((value) => String(value ?? '').trim())
-      .filter(Boolean),
+      .filter((value) => Boolean(value) && !detectAiReasoningLeak(value)),
   )];
   const currentSourceDescription = currentSourceDescriptionCandidates.find(
     (value) => value.length >= localeDescFloor,
@@ -9091,7 +9091,11 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // a source-language copy to overwrite a shorter real translation in another locale.
     // Language-agnostic: works for EN, IT, DE, or FR source. The source locale is naturally
     // skipped because prev's value for that locale equals the source text.
-    const mergeSourceLang = next.sourceLang || prev.sourceLang || null;
+    // Locale-map keys are canonical even when a source declares a regional
+    // language tag such as it-CH.
+    const mergeSourceLang = normalizeJobLocale(next.sourceLang)
+      || normalizeJobLocale(prev.sourceLang)
+      || null;
     const sourceDescCandidates = [...new Set(
       [
         mergeSourceLang && best.descriptionByLocale?.[mergeSourceLang],
