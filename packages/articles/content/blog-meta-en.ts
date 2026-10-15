@@ -13222,6 +13222,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dimissioni-rapporto-ticino.title': 'Resignation from cross-border commuters: terms and steps in Ticino',
     'blog.article.dimissioni-rapporto-ticino.excerpt': 'Resignation from a job in Ticino: terms to be checked, impact on G permit, taxes, pension and unemployment for border workers.',
     'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Cross-border worker with a Swiss employment contract in a Ticino landscape',
+    'blog.article.ata-critica-progetto-a2-mendrisio.title': 'ATA opposes the A2 Mendrisio‑Melano expansion',
+    'blog.article.ata-critica-progetto-a2-mendrisio.excerpt': 'ATA opposes the expansion of the A2 between Mendrisio and Melano The project includes the Lenaccio viaduct and noise barriers PoLuMe envisages a third lane',
+    'blog.article.ata-critica-progetto-a2-mendrisio.imageAlt': 'Lenaccio viaduct on the A2 near Mendrisio with noise barriers under construction',
 };
 
 export default blogMetaEn;

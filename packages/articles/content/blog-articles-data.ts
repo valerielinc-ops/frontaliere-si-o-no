@@ -44623,6 +44623,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ata-critica-progetto-a2-mendrisio',
+ category: 'pratico',
+ date: '2026-10-15T12:05:56.902Z',
+ image: '/images/blog/article-ata-critica-progetto-a2-mendrisio.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

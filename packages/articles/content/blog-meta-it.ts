@@ -13223,6 +13223,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dimissioni-rapporto-ticino.title': 'Dimissioni da frontaliere: termini e passi in Ticino',
     'blog.article.dimissioni-rapporto-ticino.excerpt': 'Dimissioni da un lavoro in Ticino: termini da controllare, impatto su permesso G, tasse, previdenza e disoccupazione per i frontalieri.',
     'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Frontaliere con contratto di lavoro svizzero in un paesaggio del Ticino',
+    'blog.article.ata-critica-progetto-a2-mendrisio.title': 'ATA si oppone all’ampliamento A2 Mendrisio‑Melano',
+    'blog.article.ata-critica-progetto-a2-mendrisio.excerpt': 'L\'ATA si oppone all\'ampliamento dell\'A2 tra Mendrisio e Melano Il progetto include il viadotto Lenaccio e pareti foniche PoLuMe prevede una terza corsia',
+    'blog.article.ata-critica-progetto-a2-mendrisio.imageAlt': 'Viadotto Lenaccio dell\'A2 vicino a Mendrisio con pareti foniche in costruzione',
 };
 
 export default blogMetaIt;

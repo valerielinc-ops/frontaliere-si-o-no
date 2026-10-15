@@ -108531,6 +108531,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ata-critica-progetto-a2-mendrisio': {
+    title: 'ATA si oppone all’ampliamento A2 Mendrisio‑Melano',
+    description: 'L\'ATA si oppone all\'ampliamento dell\'A2 tra Mendrisio e Melano Il progetto include il viadotto Lenaccio e pareti foniche PoLuMe prevede una terza corsia',
+    keywords: 'frontalieri, ticino, svizzera, italia, oppone, ampliamento, mendrisio, melano',
+    ogTitle: 'ATA oppone ampliamento A2 Mendrisio‑Melano',
+    ogDescription: 'L\'ATA si oppone all\'ampliamento dell\'A2 tra Mendrisio e Melano Il progetto include il viadotto Lenaccio e pareti foniche PoLuMe prevede una terza corsia',
+    canonicalPath: '/articoli-frontaliere/ata-critica-progetto-a2-mendrisio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ATA si oppone all’ampliamento A2 Mendrisio‑Melano",
+      "description": "L'ATA si oppone all'ampliamento dell'A2 tra Mendrisio e Melano Il progetto include il viadotto Lenaccio e pareti foniche PoLuMe prevede una terza corsia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ata-critica-progetto-a2-mendrisio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Viadotto Lenaccio dell'A2 vicino a Mendrisio con pareti foniche in costruzione"
+      },
+      "datePublished": "2026-10-15T12:05:57+00:00",
+      "dateModified": "2026-10-15T12:05:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ata-critica-progetto-a2-mendrisio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

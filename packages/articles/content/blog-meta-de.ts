@@ -13221,6 +13221,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dimissioni-rapporto-ticino.title': 'Rücktritt als Grenzgänger: Fristen und Schritte im Tessin',
     'blog.article.dimissioni-rapporto-ticino.excerpt': 'Rücktritt von einem Job im Tessin: zu kontrollierende Fristen, Auswirkungen auf die Bewilligung G, Steuern, Vorsorge und Arbeitslosigkeit für Grenzgänger.',
     'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Grenzgänger mit Schweizer Arbeitsvertrag in einer Landschaft des Tessins',
+    'blog.article.ata-critica-progetto-a2-mendrisio.title': 'ATA wendet sich gegen den Ausbau der A2 Mendrisio‑Melano',
+    'blog.article.ata-critica-progetto-a2-mendrisio.excerpt': 'Die ATA wendet sich gegen den Ausbau der A2 zwischen Mendrisio und Melano Das Projekt umfasst das Lenaccio-Viadukt und Lärmschutzwände PoLuMe sieht eine dritte Fahrspur vor',
+    'blog.article.ata-critica-progetto-a2-mendrisio.imageAlt': 'Lenaccio-Brücke der A2 bei Mendrisio mit im Bau befindlichen Lärmschutzwänden',
 };
 
 export default blogMetaDe;

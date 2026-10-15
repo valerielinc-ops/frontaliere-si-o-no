@@ -13224,6 +13224,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dimissioni-rapporto-ticino.title': 'Démission de frontalier : conditions et passages au Tessin',
     'blog.article.dimissioni-rapporto-ticino.excerpt': 'Démission d\'un emploi au Tessin : conditions à contrôler, impact sur le permis G, impôts, prévoyance et chômage pour les frontaliers.',
     'blog.article.dimissioni-rapporto-ticino.imageAlt': 'Frontalier avec un contrat de travail suisse dans un paysage tessinois',
+    'blog.article.ata-critica-progetto-a2-mendrisio.title': 'L’ATA s’oppose à l’élargissement de l’A2 Mendrisio‑Melano',
+    'blog.article.ata-critica-progetto-a2-mendrisio.excerpt': 'L\'ATA s\'oppose à l\'élargissement de l\'A2 entre Mendrisio et Melano Le projet comprend le viaduc de Lenaccio et des parois antibruit PoLuMe prévoit une troisième voie',
+    'blog.article.ata-critica-progetto-a2-mendrisio.imageAlt': 'Viaduc Lenaccio de l\'A2 près de Mendrisio avec des murs anti-bruit en construction',
 };
 
 export default blogMetaFr;
