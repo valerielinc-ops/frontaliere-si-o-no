@@ -47,6 +47,21 @@ const REAL_BODY_5283 = [
   '- [ ] Warm-up del dominio mittente.',
 ].join('\n');
 
+/** Forma emessa da issue-decompose per il contenitore residuo professione×cantone. */
+const RESIDUAL_PROFESSION_CANTON_TITLE = 'residuo professione×cantone — 346 gap da scomporre';
+const RESIDUAL_PROFESSION_CANTON_BODY = [
+  '## Scheda',
+  '- CAUSA: il contenitore non ha una root cause implementativa singola.',
+  '',
+  '## Residuo snapshot da scomporre',
+  '- addetto-pulizie (21): AG, APPENZELLO, BE, FR, GE, GL, GR, JU, LU, NE, NW, SG, SH, SO, SZ, TG, UR, VD, VS, ZG, ZH',
+  '- architetto (21): AG, APPENZELLO, BASILEA, BE, GE, GL, GR, JU, LU, NE, NW, OW, SG, SH, SO, SZ, TG, UR, VD, VS, ZG',
+  '- elettricista (2): GL, JU',
+  '',
+  '## Origine',
+  'Parent: #13323',
+].join('\n');
+
 describe('detectBacklogTracker — contenitore di lavoro residuo (park preemptivo)', () => {
   it('rileva la forma reale #5314 (marker "Backlog" + 3 sezioni numerate)', () => {
     expect(
@@ -114,6 +129,28 @@ describe('countBacklogItems', () => {
 
   it('conta checkbox spuntate e non spuntate della forma #5283', () => {
     expect(countBacklogItems(REAL_BODY_5283)).toBe(4);
+  });
+
+  it('conta le righe del residual snapshot solo dentro il suo header di dominio', () => {
+    expect(countBacklogItems(RESIDUAL_PROFESSION_CANTON_BODY)).toBe(3);
+    expect(countBacklogItems(RESIDUAL_PROFESSION_CANTON_BODY.replace(
+      '## Residuo snapshot da scomporre',
+      '## Snapshot non classificato',
+    ))).toBe(0);
+  });
+
+  it('instrada il contenitore professione×cantone allo stadio di decomposizione', () => {
+    expect(detectBacklogTracker(
+      RESIDUAL_PROFESSION_CANTON_TITLE,
+      RESIDUAL_PROFESSION_CANTON_BODY,
+    )).toBe(true);
+  });
+
+  it('non usa il solo elenco di professioni per riconoscere un titolo non-target', () => {
+    expect(detectBacklogTracker(
+      'fix: residuo di una singola pagina professionale',
+      RESIDUAL_PROFESSION_CANTON_BODY,
+    )).toBe(false);
   });
 
   it('non conta un heading `##` non numerato', () => {
