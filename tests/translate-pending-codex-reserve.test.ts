@@ -321,6 +321,23 @@ describe('report della riserva per la storia e per l\'allarme', () => {
     expect(report.summarizeCodexReserve([spent])).toMatchObject({ calls: 350, translated: 41, rejected: 0 });
   });
 
+  it('la quota finita non e\' un guasto della lane', async () => {
+    const report = await import('../scripts/lib/codex-reserve-report.mjs');
+    const base = { lanePresent: true, premiumDown: false, position: 'primary', maxCalls: 350, maxMs: 1500000 };
+    const quota = 'quota esaurita (quota/rate-limit)';
+    // Run 38686616395, fase 2e: 1166 tradotti, poi la quota finisce.
+    const afterWork = report.buildCodexReserveReport('2e-descriptions', { ...base, calls: 249, accepted: 1166, rejected: 60, stopReason: quota }, { calls: 900 });
+    expect(report.classifyCodexReserveReport(afterWork)).toBe('ready');
+    expect(report.codexReserveCoverage([afterWork]).verdict).toBe('covered');
+    // Quota gia' finita prima di tradurre: rosso, con la causa giusta.
+    const before = report.buildCodexReserveReport('2e-descriptions', { ...base, calls: 1, accepted: 0, stopReason: quota }, { calls: 40 });
+    expect(report.classifyCodexReserveReport(before)).toBe('exhausted');
+    expect(report.codexReserveCoverage([before]).verdict).toBe('codex-exhausted');
+    // Una fase davvero rotta resta `codex-failed` anche accanto a una fermata per quota.
+    const broken = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 3, accepted: 0, stopReason: '3 fallimenti consecutivi' }, { calls: 40 });
+    expect(report.codexReserveCoverage([afterWork, broken]).verdict).toBe('codex-failed');
+  });
+
   it('il report si scrive all\'uscita della fase e si rilegge dalla cartella', async () => {
     const report = await import('../scripts/lib/codex-reserve-report.mjs');
     const dir = path.join(tmp, 'reports');
