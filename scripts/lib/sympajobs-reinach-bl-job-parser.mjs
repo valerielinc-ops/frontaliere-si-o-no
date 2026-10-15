@@ -109,12 +109,15 @@ function locationFrom(root, base = {}) {
   // These fields are retained only when they are present in the source's
   // workplace value. The company address elsewhere on the page is not a
   // fallback for a vacancy location.
-  const postalCode = value.match(/\b(?:CH[-\s]?)?(\d{4})\b/)?.[1] || '';
+  const postalMatch = /\b(?:CH[-\s]?)?(\d{4})\b/.exec(value);
+  const postalCode = postalMatch?.[1] || '';
   const addressRegion = BL_LOCATION_RE.test(value) ? 'BL' : '';
   const addressCountry = SWISS_COUNTRY_RE.test(value) ? 'CH' : normalizeSpace(base.addressCountry || '');
+  const localitySource = postalMatch
+    ? value.slice((postalMatch.index ?? 0) + postalMatch[0].length)
+    : value;
   const addressLocality = normalizeSpace(
-    value
-      .replace(/\b(?:CH[-\s]?)?\d{4}\b/g, '')
+    localitySource
       .replace(/\b(?:Basel[\s-]?Landschaft|BL|Schweiz|Suisse|Svizzera|Switzerland)\b/gi, '')
       .replace(/[(),]/g, ' '),
   );

@@ -17,7 +17,7 @@ const DESCRIPTION = `Sympajobs AG sucht eine zuverlässige Reinigungskraft für 
 const DETAIL_HTML = `<html lang="de"><body><main><article class="single_job_listing">
   <h1>Reinigungsmitarbeiter/-in 20-100%</h1>
   <ul class="job_listing-meta">
-    <li class="location">4153 Reinach BL</li>
+    <li class="location">Hauptstrasse 32, 4153 Reinach BL</li>
     <li class="date-posted"><time datetime="2026-08-11">11.08.2026</time></li>
     <li class="job-type">Teilzeit</li>
   </ul>
@@ -44,18 +44,21 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
     expect(detail).toMatchObject({
       title: 'Reinigungsmitarbeiter/-in 20-100%',
       company: 'Sympajobs AG',
-      location: '4153 Reinach BL',
+      location: 'Hauptstrasse 32, 4153 Reinach BL',
       canton: 'BL',
       addressLocality: 'Reinach',
       addressRegion: 'BL',
       postalCode: '4153',
+      streetAddress: 'Hauptstrasse 32',
       datePosted: '2026-08-11',
       postingDateSource: 'reported',
       employmentType: 'PART_TIME',
     });
     expect(detail.description).toBe(DESCRIPTION);
     expect(detail.locationCandidates).toEqual([expect.objectContaining({
-      location: '4153 Reinach BL',
+      location: 'Hauptstrasse 32, 4153 Reinach BL',
+      addressLocality: 'Reinach',
+      streetAddress: 'Hauptstrasse 32',
       canton: 'BL',
     })]);
   });
@@ -104,7 +107,7 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
 
     expect(rows).toEqual([expect.objectContaining({
       url: DETAIL_URL,
-      location: '4153 Reinach BL',
+      location: 'Hauptstrasse 32, 4153 Reinach BL',
       canton: 'BL',
       postingDateSource: 'reported',
     })]);
