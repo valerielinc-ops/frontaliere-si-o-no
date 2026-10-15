@@ -1481,6 +1481,7 @@ jobs:
             # ledger tip. Re-fetching the truncated base here needlessly
             # downloads the damaged history and can leave the advisory step
             # waiting for minutes before the scanner starts.
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
             git update-ref refs/remotes/origin/recovery-main-base "$RECOVERY_BASE_SHA"
             sibling_base=origin/recovery-main-base
           else
