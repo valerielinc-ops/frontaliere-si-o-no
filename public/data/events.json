@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T15:35:57.373Z",
+  "generatedAt": "2026-10-15T22:01:33.358Z",
   "totalEvents": 13716,
   "events": [
     {
@@ -173937,7 +173937,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Samedan, l’evento abbina una conferenza di Michael Kramer all’osservazione del cielo. La conferenza riguarda i pulsar e il «ronzio» dello spazio-tempo; in seguito si osserva il cielo stellato.",
+      "descriptionByLocale": {
+        "it": "A Samedan, l’evento abbina una conferenza di Michael Kramer all’osservazione del cielo. La conferenza riguarda i pulsar e il «ronzio» dello spazio-tempo; in seguito si osserva il cielo stellato.",
+        "en": "In Samedan, the event combines a lecture by Michael Kramer with observations of the sky. The presentation covers pulsars and the 'hum' of spacetime, after which the starry sky is observed.",
+        "de": "Der Anlass in Samedan verbindet einen Vortrag von Michael Kramer mit einer Beobachtung des Himmels. Im Mittelpunkt stehen Pulsare und das «Summen» der Raumzeit; anschliessend wird der Sternenhimmel betrachtet.",
+        "fr": "À Samedan, le rendez-vous associe une conférence de Michael Kramer à une observation du ciel. La présentation aborde les pulsars et le «bourdonnement» de l’espace-temps, puis le ciel étoilé est observé."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3fc851f206434e668a747b40d72a5492",
@@ -173969,7 +173977,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro di Samedan è dedicato ai pulsar e alle onde gravitazionali, con Michael Kramer come relatore. Al termine è prevista un’osservazione collettiva del cielo notturno presso l’osservatorio viadalat.",
+      "descriptionByLocale": {
+        "it": "L’incontro di Samedan è dedicato ai pulsar e alle onde gravitazionali, con Michael Kramer come relatore. Al termine è prevista un’osservazione collettiva del cielo notturno presso l’osservatorio viadalat.",
+        "en": "In Samedan, Michael Kramer gives a lecture on pulsars and gravitational waves. The lecture is followed by observing the night sky together at the viadalat observatory.",
+        "de": "In Samedan geht Michael Kramer auf Pulsare und Gravitationswellen ein. Danach folgt bei der Sternwarte viadalat die gemeinsame Beobachtung des Nachthimmels.",
+        "fr": "À Samedan, Michael Kramer consacre sa conférence aux pulsars et aux ondes gravitationnelles. Une observation commune du ciel nocturne est ensuite prévue à l’observatoire viadalat."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:atelier-9-11ans-apprivoisele-conflit",
@@ -179299,7 +179315,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è un’Oktoberfest presso Bergbahnen Disentis AG, a Disentis / Mustér. Il programma abbina specialità sostanziose e birra alla spina a un’atmosfera informale e conviviale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un’Oktoberfest presso Bergbahnen Disentis AG, a Disentis / Mustér. Il programma abbina specialità sostanziose e birra alla spina a un’atmosfera informale e conviviale.",
+        "en": "The Oktoberfest takes place at Bergbahnen Disentis AG in Disentis / Mustér. It brings together hearty food, draught beer and a relaxed, sociable atmosphere.",
+        "de": "Das Oktoberfest wird bei Bergbahnen Disentis AG in Disentis / Mustér veranstaltet. Auf dem Programm stehen herzhafte Speisen und Bier vom Fass in einer lockeren, geselligen Atmosphäre.",
+        "fr": "L’Oktoberfest est organisé à Bergbahnen Disentis AG, à Disentis / Mustér. Il réunit des spécialités consistantes et de la bière à la pression dans une ambiance détendue et chaleureuse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9f11d788502640fcac3ae6dc763489d9",
@@ -184878,7 +184902,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento con Walter Veltroni è una conferenza sul ruolo del linguaggio nella memoria e nella responsabilità. Si svolge in Piazza del Sole a Bellinzona, con un biglietto di 25 CHF, ed è organizzato da Tio.ch Agenda.",
+      "descriptionByLocale": {
+        "it": "L’evento con Walter Veltroni è una conferenza sul ruolo del linguaggio nella memoria e nella responsabilità. Si svolge in Piazza del Sole a Bellinzona, con un biglietto di 25 CHF, ed è organizzato da Tio.ch Agenda.",
+        "en": "The conference with Walter Veltroni considers the place of language in memory and public responsibility. It is held at Piazza del Sole in Bellinzona, costs CHF 25 and is organised by Tio.ch Agenda.",
+        "de": "Die Konferenz mit Walter Veltroni befasst sich mit der Rolle von Sprache für Erinnerung und Verantwortung. Sie findet auf der Piazza del Sole in Bellinzona statt, kostet 25 CHF und wird von Tio.ch Agenda organisiert.",
+        "fr": "La conférence avec Walter Veltroni examine le rôle des mots dans la mémoire et la responsabilité. Elle a lieu à la Piazza del Sole à Bellinzone, coûte 25 CHF et est organisée par Tio.ch Agenda."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c393c77107904d3187cb6ca55b2a4e82",
@@ -189124,7 +189156,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento associa una camminata per una buona causa a un chilometro aggiuntivo collegato al Musée d’histoire des sciences. L’animazione si svolge a Ginevra e comprende la scoperta di alcuni parchi ginevrini.",
+      "descriptionByLocale": {
+        "it": "L’evento associa una camminata per una buona causa a un chilometro aggiuntivo collegato al Musée d’histoire des sciences. L’animazione si svolge a Ginevra e comprende la scoperta di alcuni parchi ginevrini.",
+        "en": "The event combines a charitable walk with an additional kilometre linked to the Musée d’histoire des sciences. This animation takes place in Geneva and includes the discovery of several city parks.",
+        "de": "Die Veranstaltung verbindet eine Benefizwanderung mit einem zusätzlichen Kilometer im Zusammenhang mit dem Musée d’histoire des sciences. Die Animation findet in Genf statt und umfasst die Erkundung von Parkanlagen der Stadt.",
+        "fr": "L’animation associe une marche solidaire à un kilomètre supplémentaire lié au Musée d’histoire des sciences. Elle se déroule à Genève et comprend la découverte de plusieurs parcs genevois."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:79de3ca83bf1438d89595cbe77ed60d7",
@@ -215997,7 +216037,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone la proiezione di un film di finzione inserita in un festival. Si tiene a Ginevra e prevede un biglietto d’ingresso di 6 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone la proiezione di un film di finzione inserita in un festival. Si tiene a Ginevra e prevede un biglietto d’ingresso di 6 CHF.",
+        "en": "A fiction film is screened at this festival-related event. It is held in Geneva, with admission set at CHF 6.",
+        "de": "Auf dem Programm steht die Vorführung eines fiktionalen Films im Rahmen eines Festivals. Der Anlass findet in Genf statt; der Eintritt beträgt 6 CHF.",
+        "fr": "Au programme figure la projection d’un film de fiction associée à un festival. La séance se déroule à Genève, au tarif de 6 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:62775",
@@ -265560,7 +265608,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al LAC, Sala Teatro di Lugano, Fiorella Mannoia presenta un progetto dal vivo dedicato a brani di Ivano Fossati e Fabrizio De André. Il programma affianca canzoni di Anime Salve ad altre interpretazioni tratte dall’opera dei due cantautori italiani.",
+      "descriptionByLocale": {
+        "it": "Al LAC, Sala Teatro di Lugano, Fiorella Mannoia presenta un progetto dal vivo dedicato a brani di Ivano Fossati e Fabrizio De André. Il programma affianca canzoni di Anime Salve ad altre interpretazioni tratte dall’opera dei due cantautori italiani.",
+        "en": "At LAC, Sala Teatro in Lugano, Fiorella Mannoia presents a live project built around songs by Ivano Fossati and Fabrizio De André. The programme includes music from Anime Salve alongside further interpretations connected with the two Italian songwriters’ work.",
+        "de": "Im LAC, Sala Teatro, in Lugano präsentiert Fiorella Mannoia ein Liveprojekt mit Liedern von Ivano Fossati und Fabrizio De André. Das Programm verbindet Stücke aus Anime Salve mit weiteren Interpretationen aus dem Schaffen der beiden italienischen Liedermacher.",
+        "fr": "Au LAC, Sala Teatro, à Lugano, Fiorella Mannoia présente un projet scénique consacré à des chansons d’Ivano Fossati et de Fabrizio De André. Le programme associe des morceaux d’Anime Salve à d’autres interprétations issues de l’œuvre des deux auteurs-compositeurs italiens."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4svwbH",
@@ -287921,7 +287977,15 @@
       },
       "imageSourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
       "imageCopyrightNotice": "© Hugo Sykes",
-      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/"
+      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "description": "Lo spettacolo teatrale «Icaro» della Compagnia Finzi Pasca è programmato alla Sala Teatro del LAC di Lugano. Per il suo 35° anniversario, l’opera di Daniele Finzi Pasca esplora la mente di un sognatore e affronta il tema della speranza attraverso un antieroe.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale «Icaro» della Compagnia Finzi Pasca è programmato alla Sala Teatro del LAC di Lugano. Per il suo 35° anniversario, l’opera di Daniele Finzi Pasca esplora la mente di un sognatore e affronta il tema della speranza attraverso un antieroe.",
+        "en": "The theatre production «Icaro» by Compagnia Finzi Pasca is scheduled at the LAC Sala Teatro in Lugano. Marking its 35th anniversary, the work by Daniele Finzi Pasca explores a dreamer’s mind and addresses hope through an antihero.",
+        "de": "Die Theaterproduktion «Icaro» der Compagnia Finzi Pasca ist im LAC, Sala Teatro, in Lugano angesetzt. Zum 35. Jahrestag erkundet das Werk von Daniele Finzi Pasca die Gedankenwelt eines Träumers und behandelt Hoffnung anhand eines Antihelden.",
+        "fr": "La production théâtrale «Icaro» de la Compagnia Finzi Pasca est programmée à la Sala Teatro du LAC, à Lugano. Pour son 35e anniversaire, l’œuvre de Daniele Finzi Pasca explore l’univers intérieur d’un rêveur et aborde l’espoir à travers un antihéros."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63867",
@@ -502051,7 +502115,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di una serata ricorrente di kirtan dedicata alla contemplazione e alla meditazione. L’appuntamento si svolge quattro volte l’anno al Klangkeller Bern di Berna, seguendo il ritmo delle stagioni e comprendendo yoga, kirtan e lavoro sul suono.",
+      "descriptionByLocale": {
+        "it": "Si tratta di una serata ricorrente di kirtan dedicata alla contemplazione e alla meditazione. L’appuntamento si svolge quattro volte l’anno al Klangkeller Bern di Berna, seguendo il ritmo delle stagioni e comprendendo yoga, kirtan e lavoro sul suono.",
+        "en": "This recurring event is a kirtan evening associated with contemplation and meditation. It takes place four times a year at Klangkeller Bern in Bern, follows the seasons and involves yoga, kirtan and sound work.",
+        "de": "Die wiederkehrende Veranstaltung ist ein Kirtan-Abend mit Bezug zu Kontemplation und Meditation. Sie findet viermal im Jahr im Klangkeller Bern in Bern statt, orientiert sich am Rhythmus der Jahreszeiten und umfasst Yoga, Kirtan und Klangarbeit.",
+        "fr": "Ce rendez-vous récurrent est une soirée de kirtan liée à la contemplation et à la méditation. Il a lieu quatre fois par an au Klangkeller Bern, à Berne, au rythme des saisons, avec du yoga, du kirtan et du travail sonore."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1c9a71b1214840b7aa67935fe08bba7f",
@@ -578615,7 +578687,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento musicale presenta Loredana e Kilian al Vaduzer-Saal di Vaduz. Il programma è incentrato sulla loro partecipazione congiunta.",
+      "descriptionByLocale": {
+        "it": "L’evento musicale presenta Loredana e Kilian al Vaduzer-Saal di Vaduz. Il programma è incentrato sulla loro partecipazione congiunta.",
+        "en": "This music event features Loredana and Kilian at Vaduzer-Saal in Vaduz. The programme centres on their shared appearance at the venue.",
+        "de": "Die Musikveranstaltung präsentiert Loredana und Kilian im Vaduzer-Saal in Vaduz. Im Mittelpunkt steht ihr gemeinsames Mitwirken am Programm.",
+        "fr": "Cette manifestation musicale présente Loredana et Kilian au Vaduzer-Saal, à Vaduz. Le programme est consacré à leur participation commune."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e672ba26b5eb4934ad1ed56e8420f4a7",
@@ -582385,7 +582465,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La Fondazione Bach di San Gallo presenta la Messa in si minore di Bach al KKL Luzern. L’opera è associata a una forza spirituale senza tempo e viene proposta con dedizione e profondità musicale.",
+      "descriptionByLocale": {
+        "it": "La Fondazione Bach di San Gallo presenta la Messa in si minore di Bach al KKL Luzern. L’opera è associata a una forza spirituale senza tempo e viene proposta con dedizione e profondità musicale.",
+        "en": "The Bach Foundation in St Gallen presents Bach’s Mass in B minor at KKL Luzern. The work has spiritual force and is presented with dedication and musical depth.",
+        "de": "Die Bach-Stiftung in Sankt Gallen führt Bachs Messe in h-Moll im KKL Luzern auf. Das Werk weist spirituelle Kraft auf und wird mit Hingabe und musikalischer Tiefe aufgeführt.",
+        "fr": "La Fondation Bach de Saint-Gall présente la Messe en si mineur de Bach au KKL Luzern. L’œuvre possède une force spirituelle et est proposée avec dévouement et profondeur musicale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:94135",
@@ -582455,7 +582543,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Le processioni della Settimana Santa si svolgono nel centro storico di Mendrisio. Sono riconosciute dall’UNESCO come patrimonio culturale immateriale dell’umanità.",
+      "descriptionByLocale": {
+        "it": "Le processioni della Settimana Santa si svolgono nel centro storico di Mendrisio. Sono riconosciute dall’UNESCO come patrimonio culturale immateriale dell’umanità.",
+        "en": "The Holy Week processions take place in Mendrisio’s historic centre. UNESCO recognises them as part of humanity’s intangible cultural heritage.",
+        "de": "Die Prozessionen der Karwoche finden im historischen Zentrum von Mendrisio statt. Sie zählen zum immateriellen Kulturerbe der Menschheit und sind von der UNESCO anerkannt.",
+        "fr": "Les processions de la Semaine sainte se déroulent dans le centre historique de Mendrisio. L’UNESCO les reconnaît comme élément du patrimoine culturel immatériel de l’humanité."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1c34e68614fb4a97bca074abb4c6a308",
@@ -589980,7 +590076,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un concerto di musica da camera a Zurigo. Il programma riunisce brani per violino, violoncello e pianoforte in diverse formazioni cameristiche.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un concerto di musica da camera a Zurigo. Il programma riunisce brani per violino, violoncello e pianoforte in diverse formazioni cameristiche.",
+        "en": "This event presents a chamber-music concert in Zurich. Its programme brings together works for violin, cello and piano in different chamber combinations.",
+        "de": "Die Veranstaltung ist ein Kammermusikkonzert in Zürich. Das Programm umfasst Werke für Violine, Violoncello und Klavier in unterschiedlichen kammermusikalischen Besetzungen.",
+        "fr": "Ce rendez-vous propose un concert de musique de chambre à Zurich. Le programme réunit des œuvres pour violon, violoncelle et piano dans différentes formations de chambre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a1d48663669d4f7bbd6ffed3de9e15d1",
@@ -591024,7 +591128,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Arn & Arn è un evento che si svolge a Schaan. L’organizzazione è curata da MySwitzerland.",
+      "descriptionByLocale": {
+        "it": "Arn & Arn è un evento che si svolge a Schaan. L’organizzazione è curata da MySwitzerland.",
+        "en": "Arn & Arn is an event taking place in Schaan. It is organized by MySwitzerland.",
+        "de": "„Arn & Arn“ ist eine Veranstaltung in Schaan. Organisiert wird sie von MySwitzerland.",
+        "fr": "« Arn & Arn » est un événement qui se tient à Schaan. Il est organisé par MySwitzerland."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7cb7490210f04b6fa8518e1533c59ff5",
@@ -593510,7 +593622,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento con Carmen Souza si svolge a Schaan. La manifestazione è elencata da MySwitzerland.",
+      "descriptionByLocale": {
+        "it": "L’evento con Carmen Souza si svolge a Schaan. La manifestazione è elencata da MySwitzerland.",
+        "en": "The event featuring Carmen Souza takes place in Schaan. It is listed by MySwitzerland.",
+        "de": "Die Veranstaltung mit Carmen Souza findet in Schaan statt. Sie ist bei MySwitzerland aufgeführt.",
+        "fr": "L’événement avec Carmen Souza a lieu à Schaan. Il est répertorié par MySwitzerland."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2a731513a17e4c51ac88ae06720f6b86",
@@ -593887,7 +594007,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Rhema è una fiera ricorrente che si svolge presso l’Allmendplatz di Altstätten, nel canton San Gallo. L’appuntamento riunisce il Rheintal e le regioni confinanti nell’area dell’Allmend.",
+      "descriptionByLocale": {
+        "it": "Rhema è una fiera ricorrente che si svolge presso l’Allmendplatz di Altstätten, nel canton San Gallo. L’appuntamento riunisce il Rheintal e le regioni confinanti nell’area dell’Allmend.",
+        "en": "Rhema is a recurring trade fair held at Allmendplatz in Altstätten, in the canton of St. Gallen. It brings together the Rheintal and neighboring regions at the Allmend site.",
+        "de": "Rhema ist eine wiederkehrende Messe auf dem Allmendplatz in Altstätten im Kanton SG. Dort kommen das Rheintal und die angrenzenden Regionen zusammen.",
+        "fr": "Rhema est une foire récurrente organisée à l’Allmendplatz, à Altstätten, dans le canton de Saint-Gall. Elle réunit le Rheintal et les régions voisines sur le site de l’Allmend."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9deb403698e746a8af4dd9786f734a7a",
@@ -598525,7 +598653,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento a Zurigo è un concerto di musica da camera con il Quatuor Ébène. Il programma comprende tre quartetti d’archi nelle tonalità di fa maggiore, mi bemolle maggiore e do maggiore.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a Zurigo è un concerto di musica da camera con il Quatuor Ébène. Il programma comprende tre quartetti d’archi nelle tonalità di fa maggiore, mi bemolle maggiore e do maggiore.",
+        "en": "The event in Zurich is a chamber-music concert featuring Quatuor Ébène. Its programme comprises three string quartets in F major, E-flat major and C major.",
+        "de": "Die Veranstaltung in Zürich ist ein Kammermusikkonzert mit dem Quatuor Ébène. Das Programm umfasst drei Streichquartette in F-Dur, Es-Dur und C-Dur.",
+        "fr": "Le rendez-vous à Zurich est un concert de musique de chambre avec le Quatuor Ébène. Le programme réunit trois quatuors à cordes en fa majeur, mi bémol majeur et do majeur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bc1e1886b0c641d38bfc1eae91909645",
@@ -601728,7 +601864,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro di networking professionale presenta a Schlieren un polo d’innovazione per aziende attive nelle tecnologie avanzate, nell’intelligenza artificiale e nella robotica. È il primo evento del polo e si svolge presso FlexOffice JED.",
+      "descriptionByLocale": {
+        "it": "L’incontro di networking professionale presenta a Schlieren un polo d’innovazione per aziende attive nelle tecnologie avanzate, nell’intelligenza artificiale e nella robotica. È il primo evento del polo e si svolge presso FlexOffice JED.",
+        "en": "This business-networking gathering introduces an innovation hub in Schlieren for companies working in deep technology, artificial intelligence and robotics. It is the hub’s first event and takes place at FlexOffice JED.",
+        "de": "Bei diesem Anlass zum geschäftlichen Netzwerken wird ein Innovationszentrum in Schlieren für Unternehmen aus Deep-Tech, künstlicher Intelligenz und Robotik vorgestellt. Es handelt sich um die erste Veranstaltung des Zentrums; sie findet im FlexOffice JED statt.",
+        "fr": "Ce rendez-vous de réseautage professionnel présente à Schlieren un pôle d’innovation destiné aux entreprises de la deep tech, de l’intelligence artificielle et de la robotique. Il s’agit de la première manifestation de ce pôle, organisée au FlexOffice JED."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e85ee15dd57c4d978dc38a00bbed7d85",
@@ -610206,7 +610350,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La bohème è un evento musicale all’Opernhaus di Zurigo. L’Opernhaus figura sia come organizzatore sia come interprete, e la manifestazione è ricorrente.",
+      "descriptionByLocale": {
+        "it": "La bohème è un evento musicale all’Opernhaus di Zurigo. L’Opernhaus figura sia come organizzatore sia come interprete, e la manifestazione è ricorrente.",
+        "en": "La bohème is a music event at the Opernhaus in Zürich. Opernhaus is listed as both the organiser and performer, and the event recurs.",
+        "de": "La bohème ist eine Musikveranstaltung im Opernhaus in Zürich. Das Opernhaus ist sowohl als Veranstalter als auch als auftretende Organisation angegeben, und die Veranstaltung findet wiederkehrend statt.",
+        "fr": "La bohème est un événement musical à l’Opernhaus de Zurich. L’Opernhaus est indiqué comme organisateur et interprète, et le rendez-vous revient régulièrement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2174d15f922247689f1f7616767860ad",
@@ -614363,7 +614515,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La festa nazionale si svolge a St-Luc e in tutta la valle. Il programma comprende animazione, concerti, processioni, punti di ristoro e bar.",
+      "descriptionByLocale": {
+        "it": "La festa nazionale si svolge a St-Luc e in tutta la valle. Il programma comprende animazione, concerti, processioni, punti di ristoro e bar.",
+        "en": "The national celebration takes place in St-Luc and throughout the valley. The programme includes entertainment, concerts, processions, food stalls and bars.",
+        "de": "Der Nationalfeiertag wird in St-Luc und im ganzen Tal gefeiert. Zum Programm gehören Unterhaltung, Konzerte, Umzüge, Verpflegungsstände und Bars.",
+        "fr": "La fête nationale se déroule à St-Luc et dans toute la vallée. Elle comprend des animations, des concerts, des cortèges, des cantines et des bars."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dcd6b6d792ca498ea1aeef5629f98b2b",
@@ -625039,7 +625199,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo propone una riflessione satirica sull’invecchiamento e sulle assurdità della vita, affrontando anche la felicità della vecchiaia e l’arte della menzogna. L’appuntamento si svolge a Dübendorf e presenta un tono ironico accompagnato da grande vitalità.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo propone una riflessione satirica sull’invecchiamento e sulle assurdità della vita, affrontando anche la felicità della vecchiaia e l’arte della menzogna. L’appuntamento si svolge a Dübendorf e presenta un tono ironico accompagnato da grande vitalità.",
+        "en": "The event takes a satirical look at ageing and the absurdities of life, while also addressing the happiness of old age and the art of lying. It takes place in Dübendorf and combines an ironic tone with a strong sense of vitality.",
+        "de": "Die Veranstaltung wirft einen satirischen Blick auf das Älterwerden und die Absurditäten des Lebens; dabei geht es auch um das Glück des Alters und die Kunst des Lügens. Der Abend in Dübendorf verbindet ironische Beobachtungen mit großer Lebensenergie.",
+        "fr": "Le rendez-vous propose une approche satirique du vieillissement et des absurdités de l’existence, en abordant aussi le bonheur de l’âge avancé et l’art du mensonge. À Dübendorf, l’événement associe un ton ironique à une grande vitalité."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AQWmDxe",
