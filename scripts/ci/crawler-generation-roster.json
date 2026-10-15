@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 632,
+  "crawlerCount": 633,
   "groups": {
     "10": [
       "atec-personal",
@@ -284,6 +284,7 @@
       "cseb",
       "csl-behring",
       "forel-klinik",
+      "gipo",
       "goline",
       "grace-la-margna",
       "gz-dielsdorf",
@@ -315,7 +316,6 @@
       "buergenstock-hotels",
       "clinique-de-la-plaine",
       "georg-fischer",
-      "gipo",
       "givaudan",
       "hrc",
       "igroove",
@@ -330,6 +330,7 @@
       "ocst",
       "ottos",
       "privatklinik-meiringen",
+      "proman-fleurier",
       "rfsm-fribourg",
       "strabag",
       "stryker",
@@ -1129,6 +1130,7 @@
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
+    "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
     "protectas": "data/jobs/by-crawler/protectas.json",
     "proton": "data/jobs/by-crawler/proton.json",
@@ -1318,5 +1320,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:db28c5dff933586f186ce0f38d0123276a4c68afa4ed8a123f5e6336d697c6c3"
+  "digest": "sha256:a44ba152cc130069e80322e2608294b59fb91e615bf5a7edddb2ec44cfa333c3"
 }
