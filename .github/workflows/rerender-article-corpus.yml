@@ -272,7 +272,7 @@ jobs:
       # when it cannot — scripts/lib/cdn-shell-assets.mjs.
       - name: Ensure the static shell scripts are on the CDN
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       - name: Rerender and push ${{ matrix.section }} corpus
         id: render

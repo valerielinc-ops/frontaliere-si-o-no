@@ -162,7 +162,7 @@ jobs:
             echo "::notice::this checkout predates scripts/ci/ensure-cdn-shell-assets.mjs — shell assets not checked"
             exit 0
           fi
-          npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+          bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       - name: Render article (fast path)
         id: render

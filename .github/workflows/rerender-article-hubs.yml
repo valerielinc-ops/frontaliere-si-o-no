@@ -231,7 +231,7 @@ jobs:
       # Before the section lock on purpose: a failure here leaves nothing held.
       - name: Ensure the static shell scripts are on the CDN
         if: steps.mode.outputs.dry != 'true'
-        run: npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
       #
