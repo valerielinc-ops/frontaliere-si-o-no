@@ -370,6 +370,21 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(extractSbbBodyLocation(fixture)).toBe('Bellinzona');
     expect(parseSbbDetailPage(fixture).location).toBe('Bellinzona');
   });
+
+  it('rejects an employer name as a summary locality and falls back to JSON-LD', () => {
+    const fixture = `<!doctype html><html lang="de"><head>
+      <meta name="twitter:description" content="SBB, 100%">
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Techniker",
+        "jobLocation":{"address":{"addressLocality":"Bern"}}}</script>
+      </head><body><h1>Techniker</h1><p>Arbeiten bei der SBB.</p></body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('');
+    expect(parseSbbDetailPage(fixture).location).toBe('Bern');
+  });
+
+  it('rejects a generic employer/percentage intro instead of treating it as a city', () => {
+    expect(extractSbbBodyLocation('<html><body><p>SBB, 100%</p></body></html>')).toBe('');
+  });
 });
 
 // ─── parseSbbDetailPage — guards ──────────────────────────────────────────────
