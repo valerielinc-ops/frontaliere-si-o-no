@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-80e4f54df8de",
-      "slug": "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon",
+      "slug": "dipendenti-di-produzione-in-turni-notturni-100-eisberg-ag-dallikon",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-in-nachtschicht-100-hilcona-dallikon",
-        "it": "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon",
-        "en": "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon",
-        "fr": "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon"
+        "it": "dipendenti-di-produzione-in-turni-notturni-100-eisberg-ag-dallikon",
+        "en": "production-employees-in-night-shift-100-eisberg-ag-dallikon",
+        "fr": "employes-de-production-en-poste-de-nuit-100-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -51,11 +51,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-in-nachtschicht-100-hilcona-dallikon"
+          "produktionsmitarbeiter-in-nachtschicht-100-hilcona-dallikon",
+          "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon"
         ]
       },
       "previousSlugs": [
-        "produktionsmitarbeiter-in-nachtschicht-100-hilcona-dallikon"
+        "produktionsmitarbeiter-in-nachtschicht-100-hilcona-dallikon",
+        "produktionsmitarbeiter-in-nachtschicht-100-eisberg-ag-dallikon"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -3662,7 +3670,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3702,7 +3710,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon"
+        "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3712,7 +3720,7 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon"
+          "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },
       "firstSeenAt": "2026-09-26T14:05:29.008Z",

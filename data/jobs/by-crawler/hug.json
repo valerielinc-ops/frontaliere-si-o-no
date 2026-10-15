@@ -1112,7 +1112,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1158,15 +1158,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve"
+          "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-50-hug-geneve"
@@ -3860,12 +3859,12 @@
     },
     {
       "id": "hug-e96c86d56afb",
-      "slug": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-presso-la-divisione-privata-unita-onco-haematology-80-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
-        "it": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
-        "en": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
-        "de": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-presso-la-divisione-privata-unita-onco-haematology-80-hug-geneve",
+        "en": "community-health-and-care-assistant-at-the-private-division-onco-haematology-unit-80-hug-geneve",
+        "de": "fachfrau-oder-fachmann-gesundheit-in-der-privatabteilung-einheit-fur-onkohamatologie-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3923,16 +3922,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        ],
+        "en": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        ],
+        "de": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+      ]
     },
     {
       "id": "hug-f329a3044017",
-      "slug": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+      "slug": "infermiera-crans-montana-80-hug-crans-montana",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "it": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "en": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
+        "it": "infermiera-crans-montana-80-hug-crans-montana",
+        "en": "nurse-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3992,7 +4005,21 @@
         }
       },
       "postalCode": "3963",
-      "firstSeenAt": "2026-10-14T21:19:06.514Z"
+      "firstSeenAt": "2026-10-14T21:19:06.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
+      ]
     },
     {
       "id": "hug-03c2f134ca76",

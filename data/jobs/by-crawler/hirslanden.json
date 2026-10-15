@@ -23621,12 +23621,12 @@
     },
     {
       "id": "hirslanden-2ce32983731b",
-      "slug": "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt",
+      "slug": "operatore-trice-sociosanitario-a-afc-80-100-a-chirurgia-interdisciplinare-specializzazione-in-chirurgia-viscerale",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt",
-        "it": "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt",
-        "en": "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt",
-        "fr": "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt"
+        "it": "operatore-trice-sociosanitario-a-afc-80-100-a-chirurgia-interdisciplinare-specializzazione-in-chirurgia-viscerale",
+        "en": "health-specialist-efz-80-100-a-interdisciplinary-surgery-focus-on-visceral-surgery-hirslanden-klinik-hirslanden-klinik",
+        "fr": "specialiste-de-la-sante-efz-80-100-a-chirurgie-interdisciplinaire-axee-sur-la-chirurgie-viscerale-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -23684,16 +23684,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:22:21.877Z"
+      "firstSeenAt": "2026-10-14T21:22:21.877Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-80-100-a-interdisziplinare-chirurgie-schwerpunkt"
+      ]
     },
     {
       "id": "hirslanden-1dcb9328ef95",
-      "slug": "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik",
+      "slug": "fornitore-di-assistenza-paziente-fornitore-di-cure-mediche-radiologia-a-80-100-hirslanden-klinik-hirslanden-klinik",
       "slugByLocale": {
         "de": "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik",
-        "it": "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik",
-        "en": "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik",
-        "fr": "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik"
+        "it": "fornitore-di-assistenza-paziente-fornitore-di-cure-mediche-radiologia-a-80-100-hirslanden-klinik-hirslanden-klinik",
+        "en": "patient-care-provider-patient-care-provider-radiology-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "fournisseur-de-soins-aux-patients-radiologie-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -23751,7 +23765,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:22:20.951Z"
+      "firstSeenAt": "2026-10-14T21:22:20.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik"
+        ],
+        "en": [
+          "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik"
+        ],
+        "fr": [
+          "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "patientenbetreuerin-patientenbetreuer-radiologie-a-80-100-hirslanden-hirslanden-klinik"
+      ]
     },
     {
       "id": "hirslanden-0ec332679cab",
@@ -23828,12 +23856,12 @@
     },
     {
       "id": "hirslanden-18fdf1f3a4fc",
-      "slug": "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office",
+      "slug": "personale-personale-a-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office",
-        "it": "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office",
-        "en": "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office",
-        "fr": "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office"
+        "it": "personale-personale-a-100-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "personnel-personnel-fees-a-100-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "frais-de-personnel-a-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -23891,7 +23919,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:22:19.051Z"
+      "firstSeenAt": "2026-10-14T21:22:19.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-honorare-a-100-hirslanden-hirslanden-corporate-office"
+      ]
     },
     {
       "id": "hirslanden-50d5be469a85",

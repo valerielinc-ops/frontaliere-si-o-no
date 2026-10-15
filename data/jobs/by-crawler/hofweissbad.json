@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "hofweissbad-b6e21a16c238",
-      "slug": "medizinischer-masseur-efa-60-80-w-m-d-hof-weissbad-weissbad",
+      "slug": "massaggiatore-medico-efa-60-80-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "de": "medizinischer-masseur-efa-60-80-w-m-d-hof-weissbad-weissbad",
-        "it": "medizinischer-masseur-efa-60-80-w-m-d-hof-weissbad-weissbad",
+        "it": "massaggiatore-medico-efa-60-80-m-f-d-hof-weissbad-ag-weissbad",
         "en": "medizinischer-masseur-efa-60-80-w-m-d-hof-weissbad-weissbad",
         "fr": "medizinischer-masseur-efa-60-80-w-m-d-hof-weissbad-weissbad"
       },
@@ -67,7 +67,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:29:57.145Z"
+      "firstSeenAt": "2026-10-14T21:29:57.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischer-masseur-efa-60-80-w-m-d-hof-weissbad-weissbad"
+        ]
+      },
+      "previousSlugs": [
+        "medizinischer-masseur-efa-60-80-w-m-d-hof-weissbad-weissbad"
+      ]
     },
     {
       "id": "hofweissbad-856f2d343f24",
@@ -273,12 +281,12 @@
     },
     {
       "id": "hofweissbad-8239c6d9d259",
-      "slug": "collaboratore-trice-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-ag-weissbad",
+      "slug": "addetto-a-ai-piani-personale-ausiliario-con-percentuale-d-impiego-flessibile-m-f-d-10-20-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "de": "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad",
-        "it": "collaboratore-trice-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-ag-weissbad",
-        "en": "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad",
-        "fr": "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad"
+        "it": "addetto-a-ai-piani-personale-ausiliario-con-percentuale-d-impiego-flessibile-m-f-d-10-20-hof-weissbad-ag-weissbad",
+        "en": "floor-employee-temporary-help-in-a-flexible-workload-m-f-d-10-20-hof-weissbad-ag-weissbad",
+        "fr": "employe-e-d-etage-auxiliaire-avec-un-taux-d-activite-flexible-h-f-d-10-20-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -325,11 +333,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad",
+          "collaboratore-trice-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-ag-weissbad"
+        ],
+        "en": [
+          "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad"
+        ],
+        "fr": [
           "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad"
+        "mitarbeiter-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-weissbad",
+        "collaboratore-trice-in-etage-aushilfe-in-flexiblem-pensum-m-w-d-10-20-hof-weissbad-ag-weissbad"
       ],
       "salaryMin": 12900,
       "salaryMax": 16200,
@@ -348,12 +364,12 @@
     },
     {
       "id": "hofweissbad-7747129759f8",
-      "slug": "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad",
+      "slug": "modulo-di-fisioterapia-di-stage-c-100-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "de": "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad",
-        "it": "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad",
-        "en": "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad",
-        "fr": "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad"
+        "it": "modulo-di-fisioterapia-di-stage-c-100-m-f-d-hof-weissbad-ag-weissbad",
+        "en": "internship-physiotherapy-module-c-100-m-f-d-hof-weissbad-ag-weissbad",
+        "fr": "module-de-physiotherapie-de-stage-c-100-h-f-d-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -411,7 +427,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-29T22:55:40.862Z"
+      "firstSeenAt": "2026-07-29T22:55:40.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad"
+        ],
+        "en": [
+          "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad"
+        ],
+        "fr": [
+          "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad"
+      ]
     },
     {
       "id": "hofweissbad-d887e9a4c0e0",
@@ -549,12 +579,12 @@
     },
     {
       "id": "hofweissbad-efa74dad3dc0",
-      "slug": "collaboratore-trice-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad-ag-weissbad",
+      "slug": "addetto-a-alla-pianificazione-e-all-amministrazione-del-centro-sanitario-80-100-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "de": "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad",
-        "it": "collaboratore-trice-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad-ag-weissbad",
-        "en": "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad",
-        "fr": "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
+        "it": "addetto-a-alla-pianificazione-e-all-amministrazione-del-centro-sanitario-80-100-m-f-d-hof-weissbad-ag-weissbad",
+        "en": "planning-administration-employee-health-center-80-100-m-f-d-hof-weissbad-ag-weissbad",
+        "fr": "collaborateur-trice-en-planification-administration-du-centre-de-sante-80-100-h-f-d-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -601,11 +631,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad",
+          "collaboratore-trice-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad-ag-weissbad"
+        ],
+        "en": [
+          "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
+        ],
+        "fr": [
           "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad"
+        "mitarbeiter-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad",
+        "collaboratore-trice-in-planung-administration-gesundheitszentrum-80-100-m-w-d-hof-weissbad-ag-weissbad"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,
@@ -624,12 +662,12 @@
     },
     {
       "id": "hofweissbad-4a58209e8df3",
-      "slug": "stv-responsabile-reception-reservation-100-m-w-d-hof-weissbad-ag-weissbad",
+      "slug": "vice-responsabile-ricevimento-e-prenotazioni-100-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "de": "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad",
-        "it": "stv-responsabile-reception-reservation-100-m-w-d-hof-weissbad-ag-weissbad",
-        "en": "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad",
-        "fr": "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
+        "it": "vice-responsabile-ricevimento-e-prenotazioni-100-m-f-d-hof-weissbad-ag-weissbad",
+        "en": "deputy-head-of-reception-reservation-100-m-f-d-hof-weissbad-ag-weissbad",
+        "fr": "responsable-adjoint-e-de-la-reception-des-reservations-100-h-f-d-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -676,11 +714,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad",
+          "stv-responsabile-reception-reservation-100-m-w-d-hof-weissbad-ag-weissbad"
+        ],
+        "en": [
+          "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
+        ],
+        "fr": [
           "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
         ]
       },
       "previousSlugs": [
-        "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad"
+        "stv-leiter-in-reception-reservation-100-w-m-d-hof-weissbad-weissbad",
+        "stv-responsabile-reception-reservation-100-m-w-d-hof-weissbad-ag-weissbad"
       ],
       "salaryMin": 86000,
       "salaryMax": 108000,
@@ -699,12 +745,12 @@
     },
     {
       "id": "hofweissbad-4204fe02e176",
-      "slug": "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-ag-weissbad",
+      "slug": "operatore-trice-sociosanitario-a-hf-70-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad",
-        "it": "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-ag-weissbad",
-        "en": "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad",
-        "fr": "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad"
+        "it": "operatore-trice-sociosanitario-a-hf-70-m-f-d-hof-weissbad-ag-weissbad",
+        "en": "healthcare-professional-hf-70-m-f-d-hof-weissbad-ag-weissbad",
+        "fr": "infirmier-ere-diplome-e-es-70-h-f-d-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -751,11 +797,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad",
+          "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-ag-weissbad"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad"
+        "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-weissbad",
+        "fachfrau-mann-gesundheit-hf-70-m-w-d-hof-weissbad-ag-weissbad"
       ],
       "salaryMin": 56700,
       "salaryMax": 79100,
@@ -774,12 +828,12 @@
     },
     {
       "id": "hofweissbad-dab646f9492a",
-      "slug": "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad",
+      "slug": "regolazione-del-pavimento-dipendente-specializzato-r-dell-industria-alberghiera-80-100-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "de": "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad",
-        "it": "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad",
-        "en": "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad",
-        "fr": "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad"
+        "it": "regolazione-del-pavimento-dipendente-specializzato-r-dell-industria-alberghiera-80-100-m-f-d-hof-weissbad-ag-weissbad",
+        "en": "floor-governess-specialist-employee-r-hotel-industry-housekeeping-80-100-m-f-d-hof-weissbad-ag-weissbad",
+        "fr": "administratrice-d-etage-specialiste-employe-r-menagere-de-l-industrie-hoteliere-80-100-h-f-hof-weissbad-ag-weissbad"
       },
       "company": "Hof Weissbad AG",
       "companyKey": "hofweissbad",
@@ -837,7 +891,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:29:48.317Z"
+      "firstSeenAt": "2026-10-14T21:29:48.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad"
+        ],
+        "en": [
+          "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad"
+        ],
+        "fr": [
+          "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad"
+        ]
+      },
+      "previousSlugs": [
+        "etagengouvernante-fachangestellte-r-hotellerie-hauswirtschaft-80-100-m-w-d-hof-weissbad"
+      ]
     }
   ]
 }

@@ -256,12 +256,12 @@
     },
     {
       "id": "ipersonal-ffa39eaf0e81",
-      "slug": "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b",
+      "slug": "operatore-operatrice-sociosanitario-a-afc-m-f-d-medipersonal-muri-b",
       "slugByLocale": {
         "de": "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b",
-        "it": "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b",
-        "en": "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b",
-        "fr": "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
+        "it": "operatore-operatrice-sociosanitario-a-afc-m-f-d-medipersonal-muri-b",
+        "en": "professional-health-professional-efz-m-f-d-medipersonal-muri-b",
+        "fr": "professionnel-professionnel-de-la-sante-efz-h-f-d-medipersonal-muri-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -318,11 +318,20 @@
       "firstSeenAt": "2026-10-14T21:12:29.988Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern"
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern",
+          "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b"
+        ],
+        "en": [
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
+        ],
+        "fr": [
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
         ]
       },
       "previousSlugs": [
-        "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern"
+        "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern",
+        "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b",
+        "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
       ]
     },
     {
@@ -984,12 +993,12 @@
     },
     {
       "id": "ipersonal-ef5b4f08ddb4",
-      "slug": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
+      "slug": "esperta-diplomata-esperto-diplomato-in-cure-infermieristiche-d-emergenza-nds-medipersonal-zuzwil-sg-st-gallen",
       "slugByLocale": {
         "de": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "it": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "en": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "fr": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
+        "it": "esperta-diplomata-esperto-diplomato-in-cure-infermieristiche-d-emergenza-nds-medipersonal-zuzwil-sg-st-gallen",
+        "en": "dipl-expert-expert-for-emergency-care-nds-medipersonal-zuzwil-sg-st-gallen",
+        "fr": "dipl-expert-expert-en-soins-d-urgence-nds-medipersonal-zuzwil-sg-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -1033,12 +1042,20 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-          "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg"
+          "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg",
+          "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
+        ],
+        "en": [
+          "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
+        ],
+        "fr": [
+          "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg"
+        "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg",
+        "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

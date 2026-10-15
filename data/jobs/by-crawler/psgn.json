@@ -743,12 +743,12 @@
     },
     {
       "id": "psgn-2a6b2391c49e",
-      "slug": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
+      "slug": "infermieristico-esperto-infermieristico-apn-forensics-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
-        "it": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
-        "en": "pflegeexpertin-pflegeexperte-apn-forensik-psychiatrie-st-gallen-pfafers",
-        "fr": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+        "it": "infermieristico-esperto-infermieristico-apn-forensics-psychiatrie-st-gallen-pfafers",
+        "en": "nursing-expert-nursing-expert-apn-forensics-psychiatrie-st-gallen-pfafers",
+        "fr": "expert-en-soins-infirmiers-expert-en-soins-infirmiers-apn-forensics-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -806,7 +806,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:14:26.678Z"
+      "firstSeenAt": "2026-10-14T21:14:26.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-apn-forensik-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
+        "pflegeexpertin-pflegeexperte-apn-forensik-psychiatrie-st-gallen-pfafers"
+      ]
     },
     {
       "id": "psgn-4936616ccb5c",

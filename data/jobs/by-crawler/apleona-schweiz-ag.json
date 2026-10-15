@@ -694,12 +694,12 @@
     },
     {
       "id": "apleona-schweiz-ag-8c68c4bd5882",
-      "slug": "collaboratore-trice-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken",
+      "slug": "addetto-a-alle-pulizie-ordinarie-m-f-d-apleona-schweiz-ag-bonigen-interlaken",
       "slugByLocale": {
         "de": "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken",
-        "it": "collaboratore-trice-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken",
-        "en": "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken",
-        "fr": "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken"
+        "it": "addetto-a-alle-pulizie-ordinarie-m-f-d-apleona-schweiz-ag-bonigen-interlaken",
+        "en": "maintenance-cleaning-employee-m-f-d-apleona-schweiz-ag-bonigen-interlaken",
+        "fr": "employe-e-de-nettoyage-d-entretien-h-f-d-apleona-schweiz-ag-bonigen-interlaken"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -745,11 +745,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken",
+          "collaboratore-trice-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken"
+        ],
+        "en": [
+          "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken"
+        ],
+        "fr": [
           "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken"
+        "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken",
+        "collaboratore-trice-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

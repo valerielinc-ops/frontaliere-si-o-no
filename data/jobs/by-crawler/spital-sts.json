@@ -668,12 +668,12 @@
     },
     {
       "id": "spital-sts-4e98c25645f0",
-      "slug": "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez",
+      "slug": "assistente-di-studio-medico-segretario-a-medico-a-centro-di-oncologia-ed-ematologia-spital-sts-thun-und-spiez",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und",
-        "it": "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez",
-        "en": "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und",
-        "fr": "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und"
+        "it": "assistente-di-studio-medico-segretario-a-medico-a-centro-di-oncologia-ed-ematologia-spital-sts-thun-und-spiez",
+        "en": "medical-practice-assistant-medical-secretary-oncology-and-hematology-center-spital-sts-thun-und-spiez",
+        "fr": "assistant-e-medical-e-secretaire-medical-e-centre-d-oncologie-et-d-hematologie-spital-sts-thun-und-spiez"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -720,11 +720,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und",
+          "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und"
+        ],
+        "fr": [
           "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und"
+        "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-und",
+        "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

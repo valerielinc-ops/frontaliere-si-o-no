@@ -1559,12 +1559,12 @@
     },
     {
       "id": "ehnv-132c0697fd70",
-      "slug": "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique",
+      "slug": "un-infermiera-del-70-in-cdd-di-6-mesi-per-l-unita-ospedaliera-infantile-psichiatrica-etab-hospitaliers-du-nord-vaudois",
       "slugByLocale": {
         "fr": "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique",
-        "it": "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique",
-        "en": "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique",
-        "de": "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique"
+        "it": "un-infermiera-del-70-in-cdd-di-6-mesi-per-l-unita-ospedaliera-infantile-psichiatrica-etab-hospitaliers-du-nord-vaudois",
+        "en": "a-70-nurse-in-6-month-cdd-for-the-child-psychiatric-hospital-unit-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
+        "de": "eine-70-krankenschwester-in-6-monats-cdd-fur-die-kinderpsychiatrische-krankenhauseinheit-etab-hospitaliers-du-nord"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1623,16 +1623,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:15:00.083Z"
+      "firstSeenAt": "2026-10-14T21:15:00.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique"
+        ],
+        "en": [
+          "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique"
+        ],
+        "de": [
+          "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-infirmier-ere-a-70-en-cdd-de-6-mois-pour-l-unite-d-hospitalisation-pedopsychiatrique"
+      ]
     },
     {
       "id": "ehnv-ab10b8a313cb",
-      "slug": "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation",
+      "slug": "un-assistente-di-cura-o-un-assc-al-70-di-attivita-notturna-per-l-unita-ospedaliera-infantile-psichiatrica-ref-11-092",
       "slugByLocale": {
         "fr": "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation",
-        "it": "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation",
-        "en": "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation",
-        "de": "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation"
+        "it": "un-assistente-di-cura-o-un-assc-al-70-di-attivita-notturna-per-l-unita-ospedaliera-infantile-psichiatrica-ref-11-092",
+        "en": "a-nursing-assistant-or-an-assc-at-70-night-activity-for-the-child-psychiatric-hospital-unit-ref-11-092-etab-hospitaliers",
+        "de": "ein-pflegeassistent-oder-ein-assc-bei-70-nachtaktivitat-fur-die-kinderpsychiatrische-krankenhauseinheit-ref-11-092-etab"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1691,14 +1705,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:14:59.504Z"
+      "firstSeenAt": "2026-10-14T21:14:59.504Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation"
+        ],
+        "en": [
+          "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation"
+        ],
+        "de": [
+          "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-aide-infirmier-ere-ou-un-e-assc-a-70-activite-de-nuit-pour-l-unite-d-hospitalisation"
+      ]
     },
     {
       "id": "ehnv-f2d88e1737ac",
-      "slug": "un-e-assc-ou-un-e-assistant-e-medical-e-a-80-ehnv-yverdon-les-bains",
+      "slug": "un-assc-o-un-assistente-medico-80-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
       "slugByLocale": {
         "fr": "un-e-assc-ou-un-e-assistant-e-medical-e-a-80-ehnv-yverdon-les-bains",
-        "it": "un-e-assc-ou-un-e-assistant-e-medical-e-a-80-ehnv-yverdon-les-bains",
+        "it": "un-assc-o-un-assistente-medico-80-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "en": "un-e-assc-ou-un-e-assistant-e-medical-e-a-80-ehnv-yverdon-les-bains",
         "de": "un-e-assc-ou-un-e-assistant-e-medical-e-a-80-ehnv-yverdon-les-bains"
       },
@@ -1759,7 +1787,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:14:58.932Z"
+      "firstSeenAt": "2026-10-14T21:14:58.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assc-ou-un-e-assistant-e-medical-e-a-80-ehnv-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-assc-ou-un-e-assistant-e-medical-e-a-80-ehnv-yverdon-les-bains"
+      ]
     }
   ]
 }

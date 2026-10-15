@@ -160,8 +160,8 @@
       "slugByLocale": {
         "de": "wir-suchen-motivierte-lehrperson-oder-heilpadagogin-fur-jugendwohngruppe-keine-40465",
         "it": "wir-suchen-motivierte-lehrperson-o-heilpadagogin-per-jugendwohngruppe-keine-elternarbeit-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kandersteg",
-        "en": "wir-suchen-motivierte-lehrperson-oder-heilpadagogin-fur-jugendwohngruppe-keine-40465",
-        "fr": "wir-suchen-motivierte-lehrperson-oder-heilpadagogin-fur-jugendwohngruppe-keine-40465"
+        "en": "we-are-looking-for-motivated-teacher-or-curative-teacher-for-youth-housing-group-no-parental-work-ksml-kantonaler-40465",
+        "fr": "nous-recherchons-enseignant-motive-ou-professeur-curatif-pour-le-groupe-de-logement-de-jeunes-pas-de-travail-40465"
       },
       "slugDisambiguator": "40465",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -210,6 +210,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "wir-suchen-motivierte-lehrperson-oder-heilpadagogin-fur-jugendwohngruppe-keine-40465"
+        ],
+        "en": [
+          "wir-suchen-motivierte-lehrperson-oder-heilpadagogin-fur-jugendwohngruppe-keine-40465"
+        ],
+        "fr": [
           "wir-suchen-motivierte-lehrperson-oder-heilpadagogin-fur-jugendwohngruppe-keine-40465"
         ]
       },
@@ -8710,8 +8716,8 @@
       "slugByLocale": {
         "de": "lehrperson-fur-den-kindergarten-11-66-lektionen-schule-rudtligen-alchenfluh-alchenfluh-40464",
         "it": "lehrperson-per-den-kindergarten-11-66-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-alchenfluh",
-        "en": "lehrperson-fur-den-kindergarten-11-66-lektionen-schule-rudtligen-alchenfluh-alchenfluh-40464",
-        "fr": "lehrperson-fur-den-kindergarten-11-66-lektionen-schule-rudtligen-alchenfluh-alchenfluh-40464"
+        "en": "teacher-for-kindergarten-11-66-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40464",
+        "fr": "enseignant-pour-la-maternelle-11-66-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40464"
       },
       "slugDisambiguator": "40464",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -8760,6 +8766,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-den-kindergarten-11-66-lektionen-schule-rudtligen-alchenfluh-alchenfluh-40464"
+        ],
+        "en": [
+          "lehrperson-fur-den-kindergarten-11-66-lektionen-schule-rudtligen-alchenfluh-alchenfluh-40464"
+        ],
+        "fr": [
           "lehrperson-fur-den-kindergarten-11-66-lektionen-schule-rudtligen-alchenfluh-alchenfluh-40464"
         ]
       },
@@ -9048,12 +9060,12 @@
     },
     {
       "id": "ksml-0587880db44a",
-      "slug": "lehrperson-60-100-stiftung-you-count-joran-schule-buhl-buhl-bei-aarberg-40467",
+      "slug": "insegnante-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-buhl-bei-aarberg-40467",
       "slugByLocale": {
         "de": "lehrperson-60-100-stiftung-you-count-joran-schule-buhl-buhl-bei-aarberg-40467",
-        "it": "lehrperson-60-100-stiftung-you-count-joran-schule-buhl-buhl-bei-aarberg-40467",
+        "it": "insegnante-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-buhl-bei-aarberg-40467",
         "en": "lehrperson-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-buhl-bei-aarberg-40467",
-        "fr": "lehrperson-60-100-stiftung-you-count-joran-schule-buhl-buhl-bei-aarberg-40467"
+        "fr": "enseignant-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-buhl-bei-aarberg-40467"
       },
       "slugDisambiguator": "40467",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -9113,7 +9125,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:33:49.569Z"
+      "firstSeenAt": "2026-10-14T21:33:49.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-60-100-stiftung-you-count-joran-schule-buhl-buhl-bei-aarberg-40467"
+        ],
+        "fr": [
+          "lehrperson-60-100-stiftung-you-count-joran-schule-buhl-buhl-bei-aarberg-40467"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-60-100-stiftung-you-count-joran-schule-buhl-buhl-bei-aarberg-40467"
+      ]
     },
     {
       "id": "ksml-bed4e66ae2d5",

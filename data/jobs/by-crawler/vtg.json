@@ -389,7 +389,7 @@
     },
     {
       "id": "company-mdmvrn",
-      "slug": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn",
+      "slug": "la-tua-professione-dovrebbe-offrirti-di-piu-diventa-sottufficiale-di-professione-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
       "location": "Bern",
@@ -429,10 +429,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn",
-        "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn",
+        "it": "la-tua-professione-dovrebbe-offrirti-di-piu-diventa-sottufficiale-di-professione-swiss-armed-forces-vtg-bern",
+        "en": "should-your-career-offer-more-become-a-professional-non-commissioned-officer-swiss-armed-forces-vtg-bern",
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn",
-        "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn"
+        "fr": "ton-metier-devrait-t-offrir-davantage-deviens-sous-officier-iere-de-carriere-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "postalCode": "3004",
@@ -441,11 +441,19 @@
       "streetAddress": "Bolligenstrasse 56",
       "previousSlugsByLocale": {
         "it": [
-          "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern"
+          "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
+          "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn"
+        ],
+        "en": [
+          "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn"
+        ],
+        "fr": [
+          "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn"
         ]
       },
       "previousSlugs": [
-        "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern"
+        "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
+        "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern-mdmvrn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12070,7 +12078,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -12078,8 +12086,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -12089,8 +12096,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
       ],
       "salarySource": "estimated",
       "baseSalary": {

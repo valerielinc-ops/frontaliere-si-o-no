@@ -1269,7 +1269,7 @@
       "id": "ikea-afa273a9b1cf",
       "slug": "collaborateur-trice-de-vente-30-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-vente-30-ikea-aubonne",
+        "it": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
         "en": "collaborator-sales-manager-30-ikea-aubonne-vaud",
         "de": "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud",
         "fr": "collaborateur-trice-de-vente-30-ikea-ch"
@@ -1316,13 +1316,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-de-vente-30-ikea-ch",
-        "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+        "collaborateur-trice-de-vente-30-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-vente-30-ikea-ch",
-          "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+          "collaborateur-trice-de-vente-30-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-de-vente-30-ikea-ch"
@@ -3466,12 +3464,12 @@
     },
     {
       "id": "ikea-356af28c0a90",
-      "slug": "collaboratore-trice-kundenservice-60-ikea-spreitenbach",
+      "slug": "addetto-a-al-servizio-clienti-60-ikea-spreitenbach-aargau",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenservice-60-ikea-ch",
-        "it": "collaboratore-trice-kundenservice-60-ikea-spreitenbach",
-        "en": "mitarbeiter-in-kundenservice-60-ikea-spreitenbach",
-        "fr": "mitarbeiter-in-kundenservice-60-ikea-spreitenbach"
+        "it": "addetto-a-al-servizio-clienti-60-ikea-spreitenbach-aargau",
+        "en": "customer-service-representative-60-ikea-spreitenbach-aargau",
+        "fr": "employe-e-au-service-clientele-60-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3518,11 +3516,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenservice-60-ikea-ch"
+          "mitarbeiter-in-kundenservice-60-ikea-ch",
+          "collaboratore-trice-kundenservice-60-ikea-spreitenbach"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenservice-60-ikea-spreitenbach"
+        ],
+        "fr": [
+          "mitarbeiter-in-kundenservice-60-ikea-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-60-ikea-ch"
+        "mitarbeiter-in-kundenservice-60-ikea-ch",
+        "collaboratore-trice-kundenservice-60-ikea-spreitenbach",
+        "mitarbeiter-in-kundenservice-60-ikea-spreitenbach"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,

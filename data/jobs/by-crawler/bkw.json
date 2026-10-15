@@ -590,8 +590,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -638,8 +638,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -647,10 +647,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -11968,7 +11968,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -12017,7 +12017,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12025,7 +12025,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -25399,8 +25399,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-bkw-munsingen",
+        "fr": "place-d-apprentissage-d-installateur-trice-electricien-ne-cfc-tous-bkw-munsingen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25449,6 +25449,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -25471,12 +25477,12 @@
     },
     {
       "id": "bkw-c008d52b9998",
-      "slug": "bauleitende-r-monteur-in-alle-bkw-ch",
+      "slug": "montatore-trice-responsabile-del-cantiere-tutti-bkw-ostermundigen",
       "slugByLocale": {
         "de": "bauleitende-r-monteur-in-alle-bkw-ch",
-        "it": "bauleitende-r-monteur-in-alle-bkw-ch",
-        "en": "bauleitende-r-monteur-in-alle-bkw-ch",
-        "fr": "bauleitende-r-monteur-in-alle-bkw-ch"
+        "it": "montatore-trice-responsabile-del-cantiere-tutti-bkw-ostermundigen",
+        "en": "site-supervising-installer-all-genders-bkw-ostermundigen",
+        "fr": "monteur-euse-responsable-de-chantier-tous-bkw-ostermundigen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25535,7 +25541,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:13:55.808Z"
+      "firstSeenAt": "2026-10-14T21:13:55.808Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-monteur-in-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleitende-r-monteur-in-alle-bkw-ch"
+        ],
+        "fr": [
+          "bauleitende-r-monteur-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-monteur-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-3bb0a91dd0c0",
@@ -25695,8 +25715,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-projektleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-responsabile-di-progetto-elektro-alle-bkw-utzenstorf",
-        "en": "bauleiter-in-projektleiter-in-elektro-alle-bkw-ch",
-        "fr": "bauleiter-in-projektleiter-in-elektro-alle-bkw-ch"
+        "en": "site-manager-electrical-project-manager-all-genders-bkw-utzenstorf",
+        "fr": "conducteur-trice-de-travaux-chef-fe-de-projet-electricite-tous-bkw-utzenstorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25744,6 +25764,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-in-projektleiter-in-elektro-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleiter-in-projektleiter-in-elektro-alle-bkw-ch"
+        ],
+        "fr": [
           "bauleiter-in-projektleiter-in-elektro-alle-bkw-ch"
         ]
       },
@@ -25843,12 +25869,12 @@
     },
     {
       "id": "bkw-55bbf4ea24f9",
-      "slug": "produktmanager-in-alle-bkw-ch",
+      "slug": "responsabile-di-prodotto-tutti-bkw-biel-benken",
       "slugByLocale": {
         "de": "produktmanager-in-alle-bkw-ch",
-        "it": "produktmanager-in-alle-bkw-ch",
-        "en": "produktmanager-in-alle-bkw-ch",
-        "fr": "produktmanager-in-alle-bkw-ch"
+        "it": "responsabile-di-prodotto-tutti-bkw-biel-benken",
+        "en": "product-manager-all-genders-bkw-biel-benken",
+        "fr": "responsable-produit-tous-bkw-biel-benken"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25907,7 +25933,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:13:55.791Z"
+      "firstSeenAt": "2026-10-14T21:13:55.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktmanager-in-alle-bkw-ch"
+        ],
+        "en": [
+          "produktmanager-in-alle-bkw-ch"
+        ],
+        "fr": [
+          "produktmanager-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "produktmanager-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-0eb36f9d75b8",

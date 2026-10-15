@@ -88,7 +88,7 @@
       "slug": "lavoro-meccanico-tuttofare-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "it": "lavoro-meccanico-tuttofare-m-f-d-planzer-dallikon",
-        "en": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
+        "en": "all-rounder-mechanical-work-m-f-d-planzer-dallikon",
         "de": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
         "fr": "ouvrage-mecanique-complet-h-f-d-planzer-dallikon"
       },
@@ -136,15 +136,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
-        "all-rounder-mechanical-work-m-f-d-planzer-dallikon"
+        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "en": [
-          "all-rounder-mechanical-work-m-f-d-planzer-dallikon"
+          "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
         ],
         "fr": [
           "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
@@ -325,12 +324,12 @@
     },
     {
       "id": "planzer-c056b0040c3d",
-      "slug": "collaboratore-trice-umschlag-m-w-d-planzer-kallnach",
+      "slug": "addetto-al-trasbordo-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
-        "it": "collaboratore-trice-umschlag-m-w-d-planzer-kallnach",
-        "en": "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
-        "fr": "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        "it": "addetto-al-trasbordo-m-f-d-planzer-kallnach",
+        "en": "employee-envelope-m-f-d-planzer-kallnach",
+        "fr": "l-enveloppe-des-employes-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -379,11 +378,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
+          "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
           "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
+        "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
