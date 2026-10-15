@@ -1004,12 +1004,12 @@ export async function saveTrafficToFirestore(crossingResults) {
  const currentRef = db.collection('trafficCurrent').doc(slug);
  batch.set(currentRef, docData);
 
- // Historical snapshot – append only
- const historyRef = db
-  .collection('trafficHistory')
-  .doc(slug)
-  .collection('snapshots')
-  .doc(snapshotId);
+  // Historical snapshot – append only
+  const historyRef = db
+ .collection('trafficHistory')
+ .doc(slug)
+ .collection('snapshots')
+ .doc(snapshotId);
  // Keep the raw pair in the append-only operational history, not in the
  // current public document. The daily mirror only aggregates wait minutes,
  // so this shadow evidence never changes the public snapshot shape.
