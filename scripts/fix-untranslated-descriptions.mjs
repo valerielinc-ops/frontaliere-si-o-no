@@ -65,6 +65,86 @@ const SLICE = (() => {
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 
+/**
+ * The slots of one slice that phase 2e repairs: a non-source locale whose
+ * description is still a copy of the source (whitespace/entities aside).
+ */
+export function collectDescriptionFixTasks(jobs) {
+  const tasks = [];
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    const sl = job?.sourceLang || 'it';
+    const sourceDesc = (job?.description || '').trim();
+    if (!sourceDesc || sourceDesc.length < 120) continue;
+    const normalizedSourceDesc = normalizeForLengthComparison(sourceDesc).toLowerCase();
+    const dbl = job.descriptionByLocale || {};
+    for (const locale of LOCALES) {
+      if (locale === sl) continue;
+      const existing = (dbl[locale] || '').trim();
+      if (!existing) continue;
+      // Fix exact source copies and copies that differ only by whitespace/entities.
+      if (normalizeForLengthComparison(existing).toLowerCase() !== normalizedSourceDesc) continue;
+      tasks.push({ job, locale, sl, sourceDesc });
+    }
+  }
+  return tasks;
+}
+
+const DESCRIPTION_FIX_CONCURRENCY_MAX = 8;
+
+function boundedEnvInteger(name, fallback, min, max) {
+  const value = Number(process.env[name]);
+  if (!Number.isSafeInteger(value)) return fallback;
+  return Math.min(Math.max(value, min), max);
+}
+
+/**
+ * Descriptions in flight. Codex groups the texts queued while its lanes are
+ * busy (FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS); one description at a time
+ * only ever queued that description's own lines, so phase 2e sent 4.9 texts
+ * per call against 7.4 in phase 2b (run 38686616395). With the lane up, two
+ * descriptions per lane keep the queue fed. Without it (no broker, budget or
+ * quota spent) the free providers take over, rate-limited per host: one at a
+ * time, as before.
+ */
+export function descriptionFixConcurrency(codexStats) {
+  const laneUp = codexStats?.lanePresent === true && !codexStats?.stopReason;
+  if (!laneUp) return 1;
+  const lanes = boundedEnvInteger('FREE_TRANSLATE_CODEX_LANES', 2, 1, 3);
+  return boundedEnvInteger(
+    'UNTRANSLATED_DESCRIPTION_FIX_CONCURRENCY',
+    Math.min(DESCRIPTION_FIX_CONCURRENCY_MAX, lanes * 2),
+    1,
+    DESCRIPTION_FIX_CONCURRENCY_MAX,
+  );
+}
+
+/**
+ * Run `worker` over `tasks` in order with at most `limit()` in flight; the
+ * limit is read before every start, so it drops to 1 as soon as Codex stops.
+ * Returns 'deadline' when the run deadline stopped it, else 'done'.
+ */
+export async function runDescriptionFixPool(tasks, worker, { budgetOk = () => true, roomFor = () => true, limit = () => 1 } = {}) {
+  const running = new Set();
+  let next = 0;
+  let outcome = 'done';
+  while (next < tasks.length) {
+    if (!budgetOk()) { outcome = 'deadline'; break; }
+    if (!roomFor(running.size)) break;
+    if (running.size >= Math.max(1, limit())) {
+      await Promise.race(running);
+      continue;
+    }
+    const task = tasks[next];
+    next += 1;
+    const pending = Promise.resolve()
+      .then(() => worker(task))
+      .finally(() => running.delete(pending));
+    running.add(pending);
+  }
+  await Promise.all(running);
+  return outcome;
+}
+
 async function main() {
   let files = listSliceFileNames(BY_CRAWLER_DIR);
   if (SLICE) {
@@ -102,79 +182,60 @@ async function main() {
     if (jobs.length === 0) continue;
 
     let sliceChanged = false;
+    const tasks = collectDescriptionFixTasks(jobs);
 
-    for (const job of jobs) {
-      if (!budgetOk()) {
-        deadlineReached = true;
-        break;
-      }
-      if (totalFixed + totalFailed >= MAX) break;
+    const translateTask = async ({ job, locale, sl, sourceDesc }) => {
+      // Translate using free cascade
+      const translated = await freeTranslateWithRetry({
+        text: sourceDesc,
+        sourceLang: sl,
+        targetLang: locale,
+        fieldType: 'description',
+        maxRetries: 1,
+      });
 
-      const sl = job.sourceLang || 'it';
-      const sourceDesc = (job.description || '').trim();
-      if (!sourceDesc || sourceDesc.length < 120) continue;
-      const normalizedSourceDesc = normalizeForLengthComparison(sourceDesc).toLowerCase();
+      const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
+      // Single source of truth: same gate the sibling writers use.
+      const rejection = translationRejectionReason(sourceDesc, translated);
+      const isAcceptable = rejection === null;
 
-      const dbl = job.descriptionByLocale || {};
-
-      for (const locale of LOCALES) {
-        if (!budgetOk()) {
-          deadlineReached = true;
-          break;
+      if (isNewLanguage && isAcceptable && translated.length >= 120) {
+        if (!DRY_RUN) {
+          const dbl = job.descriptionByLocale || {};
+          dbl[locale] = translated;
+          job.descriptionByLocale = dbl;
+          sliceChanged = true;
         }
-        if (locale === sl) continue;
-        if (totalFixed + totalFailed >= MAX) break;
-
-        const existing = (dbl[locale] || '').trim();
-        if (!existing) continue;
-        // Fix exact source copies and copies that differ only by whitespace/entities.
-        if (normalizeForLengthComparison(existing).toLowerCase() !== normalizedSourceDesc) continue;
-
-        // Translate using free cascade
-        const translated = await freeTranslateWithRetry({
-          text: sourceDesc,
-          sourceLang: sl,
-          targetLang: locale,
-          fieldType: 'description',
-          maxRetries: 1,
-        });
-
-        const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
-        // Single source of truth: same gate the sibling writers use.
-        const rejection = translationRejectionReason(sourceDesc, translated);
-        const isAcceptable = rejection === null;
-
-        if (isNewLanguage && isAcceptable && translated.length >= 120) {
-          if (!DRY_RUN) {
-            dbl[locale] = translated;
-            job.descriptionByLocale = dbl;
-            sliceChanged = true;
-          }
-          totalFixed++;
-          charsTranslated += sourceDesc.length;
-          // Log progress every 20 translations
-          if (totalFixed % 20 === 0) {
-            console.log(`   ... ${totalFixed} done, ${(charsTranslated / 1000).toFixed(0)}K chars`);
-          }
-        } else {
-          // Diagnostic: a translation that passes the char floor but that the
-          // quality gate refuses, with the rule that refused it.
-          const refused =
-            isNewLanguage &&
-            translated &&
-            translated.length >= MIN_TRANSLATION_CHARS &&
-            !isAcceptable;
-          if (refused) {
-            const pct = ((translated.length / sourceDesc.length) * 100).toFixed(0);
-            refusals[rejection] = (refusals[rejection] || 0) + 1;
-            console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: translation refused (${rejection}; ${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
-          }
-          totalFailed++;
+        totalFixed++;
+        charsTranslated += sourceDesc.length;
+        // Log progress every 20 translations
+        if (totalFixed % 20 === 0) {
+          console.log(`   ... ${totalFixed} done, ${(charsTranslated / 1000).toFixed(0)}K chars`);
         }
+      } else {
+        // Diagnostic: a translation that passes the char floor but that the
+        // quality gate refuses, with the rule that refused it.
+        const refused =
+          isNewLanguage &&
+          translated &&
+          translated.length >= MIN_TRANSLATION_CHARS &&
+          !isAcceptable;
+        if (refused) {
+          const pct = ((translated.length / sourceDesc.length) * 100).toFixed(0);
+          refusals[rejection] = (refusals[rejection] || 0) + 1;
+          console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: translation refused (${rejection}; ${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
+        }
+        totalFailed++;
       }
+    };
 
-      if (deadlineReached) break;
-    }
+    const outcome = await runDescriptionFixPool(tasks, translateTask, {
+      budgetOk,
+      // Never start more slots than --max still allows, counting those in flight.
+      roomFor: (inFlight) => totalFixed + totalFailed + inFlight < MAX,
+      limit: () => descriptionFixConcurrency(getCodexTierStats()),
+    });
+    if (outcome === 'deadline') deadlineReached = true;
 
     if (sliceChanged && !DRY_RUN) {
       writeJson(slicePath, sliceData);
@@ -184,7 +245,6 @@ async function main() {
 
     if (deadlineReached) break;
   }
-
   if (deadlineReached) {
     const elapsedMin = Math.round((Date.now() - RUN_START_MS) / 60000);
     console.log(`\n⏰ Description-fix deadline reached after ~${elapsedMin}min — completed work was persisted; remaining slices stay queued for the next run.`);
