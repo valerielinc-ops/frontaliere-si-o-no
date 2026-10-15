@@ -27894,6 +27894,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premio-economia-stabilizzazione',
+    category: 'novita',
+    date: '2026-10-15T06:25:40.514Z',
+    image: '/images/blog/article-premio-economia-stabilizzazione.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -105324,6 +105324,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premio-economia-stabilizzazione': {
+    title: 'Nobel economia 2026: premiati Hall e Woodford | Frontaliere Ticino',
+    description: 'Robert E. Hall e Michael Woodford vincono il Nobel 2026 I due insegnano a Stanford e alla Columbia University Gli studi riguardano la stabilizzazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, nobel, economia, premiati, hall',
+    ogTitle: 'Nobel economia 2026: premiati Hall e Woodford',
+    ogDescription: 'Robert E. Hall e Michael Woodford vincono il Nobel 2026 I due insegnano a Stanford e alla Columbia University Gli studi riguardano la stabilizzazione',
+    canonicalPath: '/articoli-svizzera/premio-economia-stabilizzazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nobel economia 2026: premiati Hall e Woodford",
+      "description": "Robert E. Hall e Michael Woodford vincono il Nobel 2026 I due insegnano a Stanford e alla Columbia University Gli studi riguardano la stabilizzazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-premio-economia-stabilizzazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nobel economia 2026, stabilizzazione macroeconomica e inflazione"
+      },
+      "datePublished": "2026-10-15T06:25:40+00:00",
+      "dateModified": "2026-10-15T06:25:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premio-economia-stabilizzazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

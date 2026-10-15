@@ -2803,6 +2803,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rotte-greggio-kurdistan-lugano': { it: 'rotte-greggio-kurdistan-lugano', en: 'oil-routes-kurdistan-lugano', de: 'rohoelhandel-kurdistan-lugano', fr: 'routes-petrole-kurdistan-lugano' },
  'orari-apertura-lucerna-festivi': { it: 'orari-apertura-lucerna-festivi', en: 'lucerne-shop-opening-hours-sundays-public-holidays', de: 'offnungszeiten-der-geschafte-in-luzern-an-sonntagen-und-feiertagen', fr: 'horaires-d-ouverture-des-magasins-a-lucerne-dimanches-et-jours-feries' },
  'ubs-scenari-trasferimento-sede': { it: 'ubs-scenari-trasferimento-sede', en: 'ubs-headquarters-relocation-scenarios', de: 'ubs-hauptsitz-verlegung-szenarien', fr: 'ubs-scenarios-transfert-siege' },
+ 'premio-economia-stabilizzazione': { it: 'premio-economia-stabilizzazione', en: 'economics-prize-stabilization', de: 'wirtschaftspreis-stabilisierung', fr: 'prix-economie-stabilisation' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

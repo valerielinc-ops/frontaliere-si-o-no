@@ -8342,6 +8342,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ubs-scenari-trasferimento-sede.title': 'UBS évalue trois scénarios pour le déplacement du siège',
     'blog.article.ubs-scenari-trasferimento-sede.excerpt': 'UBS évalue trois scénarios pour un siège hors de Suisse Le Conseil des États soutient 100% de capital CET1 L’exigence actuelle pour les filiales étrangères est',
     'blog.article.ubs-scenari-trasferimento-sede.imageAlt': 'Siège d\'une banque en Suisse',
+    'blog.article.premio-economia-stabilizzazione.title': 'Nobel d’économie 2026 : Hall et Woodford récompensés',
+    'blog.article.premio-economia-stabilizzazione.excerpt': 'Robert E. Hall et Michael Woodford remportent le Nobel 2026 Les deux enseignent à Stanford et à la Columbia University Les études portent sur la stabilisation',
+    'blog.article.premio-economia-stabilizzazione.imageAlt': 'Prix Nobel d’économie 2026 pour la stabilisation macroéconomique',
 };
 
 export default blogMetaChFr;

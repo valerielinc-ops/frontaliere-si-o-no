@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5471
+      "6": 5472
     },
-    "publishedCovers": 7052,
+    "publishedCovers": 7053,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5276
+    "inferredRecords": 5277
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187557,6 +187557,33 @@
           "id": "pozzecco-galatasaray-risoluzione-contratto",
           "category": "novita",
           "date": "2026-10-12T22:55:32.897Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-premio-economia-stabilizzazione": {
+      "cover": "/images/blog/article-premio-economia-stabilizzazione.webp",
+      "hash": "82daa254c43747a659656a7a73ee8d0a668cac060714b9f546db2fb1f00e7e2c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "premio-economia-stabilizzazione",
+          "category": "novita",
+          "date": "2026-10-15T06:25:40.514Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
