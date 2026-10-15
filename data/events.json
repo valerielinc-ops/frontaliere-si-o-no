@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T13:57:57.453Z",
+  "generatedAt": "2026-10-15T15:35:57.373Z",
   "totalEvents": 13716,
   "events": [
     {
@@ -186394,7 +186394,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, Ciné-dimanche presenta una selezione di film legata al futuro. L’appuntamento si svolge all’Auditorium ed è collegato a una mostra che interroga il significato del futuro.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, Ciné-dimanche presenta una selezione di film legata al futuro. L’appuntamento si svolge all’Auditorium ed è collegato a una mostra che interroga il significato del futuro.",
+        "en": "In Geneva, Ciné-dimanche presents a film selection connected with the future. The event takes place in the Auditorium and is linked to an exhibition examining what the future means.",
+        "de": "Ciné-dimanche zeigt in Genf eine Filmauswahl mit Zukunftsbezug. Die Veranstaltung findet im Auditorium statt und ist mit einer Ausstellung verbunden, die nach der Bedeutung der Zukunft fragt.",
+        "fr": "À Genève, Ciné-dimanche propose une sélection de films liée à l’avenir. Le rendez-vous a lieu à l’Auditorium et est associé à une exposition qui questionne le sens de l’avenir."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:38196e07e0ed4063a99e7b5059a7c0bc",
@@ -188143,7 +188151,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Hirundo Maris propone un percorso musicale tra il Sud e il Nord. Il programma mette in relazione il Mediterraneo e il Mare del Nord attraverso collegamenti musicali.",
+      "descriptionByLocale": {
+        "it": "Hirundo Maris propone un percorso musicale tra il Sud e il Nord. Il programma mette in relazione il Mediterraneo e il Mare del Nord attraverso collegamenti musicali.",
+        "en": "Hirundo Maris presents music from the South and the North. The programme connects the Mediterranean with the North Sea through musical links.",
+        "de": "Hirundo Maris verbindet Lieder aus dem Süden und dem Norden. Das musikalische Programm stellt eine Verbindung zwischen dem Mittelmeer und der Nordsee her.",
+        "fr": "Hirundo Maris réunit des chants du Sud et du Nord. Le programme musical établit un lien entre la Méditerranée et la mer du Nord."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:62985",
@@ -188344,7 +188360,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "L’appuntamento propone musica classica con Alpine Odyssey nella chiesa cattolica romana Heiliggeist di Belp. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone musica classica con Alpine Odyssey nella chiesa cattolica romana Heiliggeist di Belp. L’ingresso è gratuito.",
+        "en": "The event presents classical music with Alpine Odyssey at the Röm.-kath. Kirche Heiliggeist in Belp. Admission is free.",
+        "de": "Bei der Veranstaltung spielt Alpine Odyssey klassische Musik in der Röm.-kath. Kirche Heiliggeist in Belp. Der Eintritt ist frei.",
+        "fr": "Alpine Odyssey présente un programme de musique classique à l’église catholique romaine Heiliggeist de Belp. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:93427",
@@ -252288,7 +252312,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo presenta una commedia di Oscar Wilde dedicata alla doppiezza umana e al contrasto tra apparenza e verità. La trama segue un politico stimato, il cui passato diventa motivo di ricatto, in un allestimento di Ferdinando Bruni e Francesco Frongia ambientato in un’epoca indefinita al Lac, Sala Teatro di Lugano.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo presenta una commedia di Oscar Wilde dedicata alla doppiezza umana e al contrasto tra apparenza e verità. La trama segue un politico stimato, il cui passato diventa motivo di ricatto, in un allestimento di Ferdinando Bruni e Francesco Frongia ambientato in un’epoca indefinita al Lac, Sala Teatro di Lugano.",
+        "en": "This theatre production presents an Oscar Wilde comedy about human duplicity and the tension between appearance and truth. Its plot follows a respected politician whose hidden past exposes him to blackmail, in a production by Ferdinando Bruni and Francesco Frongia set at Lac, Sala Teatro in Lugano.",
+        "de": "Die Theateraufführung zeigt eine Komödie von Oscar Wilde über menschliche Doppelbödigkeit und das Spannungsfeld zwischen Wahrheit und Schein. Im Mittelpunkt steht ein angesehener Politiker, dessen verborgenes früheres Handeln zu einer Erpressung führt; die Inszenierung von Ferdinando Bruni und Francesco Frongia spielt in einer zeitlich nicht festgelegten Welt im Lac, Sala Teatro in Lugano.",
+        "fr": "Cette production théâtrale présente une comédie d’Oscar Wilde consacrée à la duplicité humaine et aux écarts entre apparence et vérité. L’intrigue suit un homme politique estimé dont un acte ancien devient la source d’un chantage; la mise en scène de Ferdinando Bruni et Francesco Frongia se déroule au Lac, Sala Teatro de Lugano, dans une époque indéterminée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:visite-petits-doigts",
@@ -286287,7 +286319,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento a La Neuveville combina parole, rime e jazz con un preludio musicale e immagini di un ambiente urbano segnato dalla precarietà. Affronta anche i legami d’amore e d’amicizia, il movimento della Terra e il desiderio di vivere.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a La Neuveville combina parole, rime e jazz con un preludio musicale e immagini di un ambiente urbano segnato dalla precarietà. Affronta anche i legami d’amore e d’amicizia, il movimento della Terra e il desiderio di vivere.",
+        "en": "This event in La Neuveville brings together words, rhymes and jazz with a musical prelude and imagery of an urban setting marked by hardship. It also explores bonds of love and friendship, the movement of the Earth, and the desire and determination to live.",
+        "de": "Die Veranstaltung in La Neuveville verbindet Worte, ausgearbeitete Reime und Jazz mit einem musikalischen Präludium sowie Bildern eines von Not geprägten städtischen Umfelds. Zudem behandelt sie Bande der Liebe und Freundschaft, die Bewegung der Erde sowie den Wunsch und den Willen zu leben.",
+        "fr": "Cette manifestation à La Neuveville associe les mots, des rimes travaillées et le jazz à un prélude musical ainsi qu’à des images d’un milieu urbain marqué par la précarité. Elle aborde aussi les liens d’amour et d’amitié, le mouvement de la Terre et le désir de vivre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f1aa91e088814567bd0abe8a00ba6fa5",
@@ -287375,7 +287415,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Nottwil l’incontro celebra i quarant’anni del gruppo di costumi tradizionali locale. Il programma propone una colazione contadina al mattino e, più tardi, un concerto con Sirius Line Dancer Nottwil, Jodlerklub Nottwil, la Trachtengruppe Nottwil/Buttsiholz e la Kindertanzgruppe Buttisholz.",
+      "descriptionByLocale": {
+        "it": "A Nottwil l’incontro celebra i quarant’anni del gruppo di costumi tradizionali locale. Il programma propone una colazione contadina al mattino e, più tardi, un concerto con Sirius Line Dancer Nottwil, Jodlerklub Nottwil, la Trachtengruppe Nottwil/Buttsiholz e la Kindertanzgruppe Buttisholz.",
+        "en": "The event in Nottwil marks forty years of the local traditional costume group. Its programme combines a farmers’ breakfast in the morning with a later concert involving Sirius Line Dancer Nottwil, Jodlerklub Nottwil, the Trachtengruppe from Nottwil/Buttsiholz and Kindertanzgruppe Buttisholz.",
+        "de": "In Nottwil steht das vierzigjährige Bestehen der örtlichen Trachtengruppe im Mittelpunkt. Zum Programm gehören ein Buurezmorge am Vormittag und ein späteres Konzert mit Sirius Line Dancer Nottwil, dem Jodlerklub Nottwil, der Trachtengruppe Nottwil/Buttsiholz sowie der Kindertanzgruppe Buttisholz.",
+        "fr": "À Nottwil, la manifestation est consacrée aux quarante ans du groupe folklorique local. Elle réunit un petit-déjeuner paysan le matin et un concert plus tard dans la journée, avec Sirius Line Dancer Nottwil, le Jodlerklub Nottwil, la Trachtengruppe de Nottwil/Buttsiholz et la Kindertanzgruppe Buttisholz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:892d344d3dbe4ca4bf6ad7b6b405a1dd",
@@ -305367,7 +305415,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un laboratorio immersivo dedicato alla cultura e alla realtà delle persone sorde. Si svolge a Ginevra ed è proposto da 60x60 insieme a Sound Off; la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "È un laboratorio immersivo dedicato alla cultura e alla realtà delle persone sorde. Si svolge a Ginevra ed è proposto da 60x60 insieme a Sound Off; la partecipazione è gratuita.",
+        "en": "This immersive workshop explores aspects of Deaf culture and the world of deaf people. It takes place in Geneva and is presented by 60x60 together with Sound Off; admission is free.",
+        "de": "Der immersive Workshop vermittelt Einblicke in die Welt und Kultur gehörloser Menschen. Er findet in Genf statt und wird von 60x60 zusammen mit Sound Off angeboten; die Teilnahme ist kostenlos.",
+        "fr": "Cet atelier immersif propose une approche de la culture et de l’univers des personnes sourdes. Il est proposé par 60x60 et l’association Sound Off; la participation est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AG3c3VZ",
@@ -314607,7 +314663,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La giornata inaugurale è ospitata dal Teatro Sociale di Bellinzona. Il programma affianca un cine-concerto di Jeff Mills su Metropolis a un set da DJ al Folk Bar.",
+      "descriptionByLocale": {
+        "it": "La giornata inaugurale è ospitata dal Teatro Sociale di Bellinzona. Il programma affianca un cine-concerto di Jeff Mills su Metropolis a un set da DJ al Folk Bar.",
+        "en": "The festival’s opening day is hosted by Teatro Sociale in Bellinzona. The programme pairs a Jeff Mills cine-concert centred on Metropolis with a DJ set at Folk Bar.",
+        "de": "Der Auftakt des Festivals findet im Teatro Sociale in Bellinzona statt. Das Programm verbindet ein von Jeff Mills gestaltetes Cine-Konzert zu Metropolis mit einem DJ-Set in der Folk Bar.",
+        "fr": "La journée d’ouverture est accueillie par le Teatro Sociale de Bellinzona. Elle associe un ciné-concert de Jeff Mills autour de Metropolis à un set de DJ au Folk Bar."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ALnQrva",
@@ -319306,7 +319370,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è una conferenza di viaggio dedicata al Ruanda e all’Uganda. Si svolge a Volketswil ed è organizzato da MySwitzerland.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è una conferenza di viaggio dedicata al Ruanda e all’Uganda. Si svolge a Volketswil ed è organizzato da MySwitzerland.",
+        "en": "The event is a travel presentation about Rwanda and Uganda. It takes place in Volketswil and is organised by MySwitzerland.",
+        "de": "Die Veranstaltung ist ein Reisevortrag über Ruanda und Uganda. Sie findet in Volketswil statt und wird von MySwitzerland organisiert.",
+        "fr": "L’événement est une présentation de voyage consacrée au Rwanda et à l’Ouganda. Il a lieu à Volketswil et est organisé par MySwitzerland."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ca4cec699f164128b47f957198bb8c38",
@@ -343650,7 +343722,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento ricorrente si tiene a Ginevra, nel cantone di Ginevra, ed è organizzato da MySwitzerland. Si svolge nel quadro del Geneva International Film Festival (GIFF), era in precedenza conosciuto come GDM e tratta temi legati all’innovazione audiovisiva.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente si tiene a Ginevra, nel cantone di Ginevra, ed è organizzato da MySwitzerland. Si svolge nel quadro del Geneva International Film Festival (GIFF), era in precedenza conosciuto come GDM e tratta temi legati all’innovazione audiovisiva.",
+        "en": "The recurring event takes place in Geneva and is organised by MySwitzerland. It forms part of the Geneva International Film Festival (GIFF), was previously known as GDM, and focuses on audiovisual innovation.",
+        "de": "Die wiederkehrende Veranstaltung findet in Genf statt und wird von MySwitzerland organisiert. Sie ist in das Geneva International Film Festival (GIFF) eingebunden, hiess zuvor GDM und widmet sich der audiovisuellen Innovation.",
+        "fr": "Cet événement récurrent se déroule à Genève et est organisé par MySwitzerland. Il s’inscrit dans le Geneva International Film Festival (GIFF), portait auparavant le nom de GDM et est consacré à l’innovation audiovisuelle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6a3fb54ebb3344079ed2470a1146f715",
@@ -346572,7 +346652,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento teatrale a Ginevra è dedicato all’improvvisazione in formato lungo. È organizzato da Ville de Genève Agenda e l’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento teatrale a Ginevra è dedicato all’improvvisazione in formato lungo. È organizzato da Ville de Genève Agenda e l’ingresso costa 15 CHF.",
+        "en": "This theatre event in Geneva focuses on long-form improvisation. It is organised by Ville de Genève Agenda, and admission costs CHF 15.",
+        "de": "Bei dieser Theaterveranstaltung in Genf steht Improvisation im Langformat im Mittelpunkt. Sie wird von Ville de Genève Agenda organisiert; der Eintritt kostet 15 CHF.",
+        "fr": "Ce rendez-vous théâtral à Genève est consacré à l’improvisation en format long. L’événement est organisé par Ville de Genève Agenda et l’entrée coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AWGnCA3",
@@ -346966,7 +347054,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza presso La Filanda di Mendrisio ripercorre la nascita e le trasformazioni del calendario nel corso del tempo. Esamina il suo impiego per ordinare il tempo e collocare gli avvenimenti, evidenziando passaggi non lineari e il legame con l’origine romana del calendario oggi utilizzato.",
+      "descriptionByLocale": {
+        "it": "La conferenza presso La Filanda di Mendrisio ripercorre la nascita e le trasformazioni del calendario nel corso del tempo. Esamina il suo impiego per ordinare il tempo e collocare gli avvenimenti, evidenziando passaggi non lineari e il legame con l’origine romana del calendario oggi utilizzato.",
+        "en": "The conference at La Filanda in Mendrisio traces the calendar’s emergence and transformation over time. It considers how calendars help organise time and locate events, highlighting uneven changes and the Roman roots of the system used today.",
+        "de": "Die Konferenz in der La Filanda in Mendrisio verfolgt die Entstehung und die Veränderungen des Kalenders über die Zeit. Sie betrachtet seine Funktion bei der Ordnung von Zeit und Ereignissen, betont nichtlineare Entwicklungen und stellt einen Bezug zu den römischen Ursprüngen des heute verwendeten Systems her.",
+        "fr": "La conférence à La Filanda, à Mendrisio, retrace la naissance et les transformations du calendrier au fil du temps. Elle examine son rôle pour organiser le temps et situer les événements, en soulignant une évolution non linéaire et le lien avec les origines romaines du système actuel."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A8QWmML",
@@ -350236,7 +350332,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro accompagna il ventennale di Cité Seniors e propone uno sguardo alla storia degli squat a Ginevra. La passeggiata guidata da Marylou Grinevald si concentra su circa trent’anni di vita alternativa a Plainpalais; l’evento è gratuito e si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’incontro accompagna il ventennale di Cité Seniors e propone uno sguardo alla storia degli squat a Ginevra. La passeggiata guidata da Marylou Grinevald si concentra su circa trent’anni di vita alternativa a Plainpalais; l’evento è gratuito e si svolge a Ginevra.",
+        "en": "This event marks 20 years of Cité Seniors and addresses the history of squats in Geneva. Marylou Grinevald leads a guided walk about 30 years of alternative life in Plainpalais, and participation is free.",
+        "de": "Die Veranstaltung verbindet das 20-Jahr-Jubiläum von Cité Seniors mit einem Blick auf die Geschichte der besetzten Häuser in Genf. Marylou Grinevald führt durch Plainpalais und thematisiert rund 30 Jahre alternatives Leben; der Eintritt ist frei.",
+        "fr": "Cette rencontre accompagne les 20 ans de Cité Seniors et porte sur l’histoire des squats à Genève. Marylou Grinevald guide une balade consacrée à environ 30 ans de vie alternative à Plainpalais, avec une participation gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AF2H2Q7",
@@ -364325,7 +364429,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Urdorf si tiene un mercato autunnale con prodotti creativi, articoli particolari e un’offerta diversificata. Durante l’evento è disponibile gratuitamente il truccabimbi per i bambini.",
+      "descriptionByLocale": {
+        "it": "A Urdorf si tiene un mercato autunnale con prodotti creativi, articoli particolari e un’offerta diversificata. Durante l’evento è disponibile gratuitamente il truccabimbi per i bambini.",
+        "en": "The Urdorf autumn market brings together creative goods, distinctive individual items and a broad range of offerings. Free face painting is available for children.",
+        "de": "In Urdorf verbindet die Veranstaltung kreative Waren mit besonderen Einzelstücken und einem breiten Angebot. Kinder können dort kostenlos geschminkt werden.",
+        "fr": "À Urdorf, le marché d’automne présente des produits créatifs, des pièces originales et une offre diversifiée. Un service de maquillage gratuit est prévu pour les enfants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AUs9H2L",
@@ -514580,7 +514692,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un programma che unisce musica e testi letterari. È associato a Konstantin Wecker e si tiene al Milchwerk Radolfzell.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un programma che unisce musica e testi letterari. È associato a Konstantin Wecker e si tiene al Milchwerk Radolfzell.",
+        "en": "The event presents an evening program combining music and literary texts. It is associated with Konstantin Wecker and is held at Milchwerk Radolfzell.",
+        "de": "Die Veranstaltung bietet ein Abendprogramm, das Musik und literarische Texte verbindet. Sie ist mit Konstantin Wecker verbunden und findet im Milchwerk Radolfzell statt.",
+        "fr": "Le rendez-vous propose un programme en soirée qui associe musique et textes littéraires. Il est associé à Konstantin Wecker et se déroule au Milchwerk Radolfzell."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:88187",
@@ -526134,7 +526254,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Lo spettacolo rende omaggio a Barry White con Tony Davis e un’orchestra. L’appuntamento si svolge al Musical Theater Basel.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo rende omaggio a Barry White con Tony Davis e un’orchestra. L’appuntamento si svolge al Musical Theater Basel.",
+        "en": "The concert pays tribute to Barry White through a performance by Tony Davis with an orchestra. It is presented at Musical Theater Basel.",
+        "de": "Die Show ist Barry White gewidmet und wird von Tony Davis gemeinsam mit einem Orchester gestaltet. Veranstaltungsort ist das Musical Theater Basel.",
+        "fr": "Ce spectacle rend hommage à Barry White avec Tony Davis et un orchestre. Il est présenté au Musical Theater Basel."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ANeagfU",
@@ -533809,7 +533937,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Restaurant Wasserfall di Engelberg ospita un appuntamento di musica tradizionale Ländler. Il Ländlertrio Ruschbüäblä si esibisce e l’ingresso è fissato a 10 CHF.",
+      "descriptionByLocale": {
+        "it": "Il Restaurant Wasserfall di Engelberg ospita un appuntamento di musica tradizionale Ländler. Il Ländlertrio Ruschbüäblä si esibisce e l’ingresso è fissato a 10 CHF.",
+        "en": "Restaurant Wasserfall in Engelberg hosts a traditional Ländler music event. The Ländlertrio Ruschbüäblä is scheduled to perform, and admission is CHF 10.",
+        "de": "Im Restaurant Wasserfall in Engelberg steht traditionelle Ländlermusik auf dem Programm. Das Ländlertrio Ruschbüäblä tritt dort auf; der Eintritt beträgt 10 CHF.",
+        "fr": "Le Restaurant Wasserfall à Engelberg accueille un rendez-vous de musique traditionnelle de type Ländler. Le Ländlertrio Ruschbüäblä se produit et l’entrée est fixée à 10 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f0ee0e24e4cb492485d10b2803c13524",
@@ -559144,7 +559280,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è presentato all’Atelier-Théâtre du Raccot, a Monthey. Ted, Charlotte e Dan ricordano il decimo anniversario della morte dell’amico Tony e si chiedono come sarebbero cambiate le loro vite se fosse rimasto in vita.",
+      "descriptionByLocale": {
+        "it": "L’evento è presentato all’Atelier-Théâtre du Raccot, a Monthey. Ted, Charlotte e Dan ricordano il decimo anniversario della morte dell’amico Tony e si chiedono come sarebbero cambiate le loro vite se fosse rimasto in vita.",
+        "en": "The event is presented at Atelier-Théâtre du Raccot in Monthey. Ted, Charlotte and Dan mark the tenth anniversary of their friend Tony’s death and consider how their lives might have unfolded if he had survived.",
+        "de": "Die Veranstaltung findet im Atelier-Théâtre du Raccot in Monthey statt. Ted, Charlotte und Dan begehen den zehnten Todestag ihres Freundes Tony und fragen sich, wie sich ihr Leben entwickelt hätte, wenn Tony weitergelebt hätte.",
+        "fr": "L’événement est présenté à l’Atelier-Théâtre du Raccot, à Monthey. Ted, Charlotte et Dan marquent le dixième anniversaire du décès de leur ami Tony et se demandent comment leur vie aurait évolué s’il avait survécu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9a59cbebf0cb458bb7612dc8a0754487",
@@ -570953,7 +571097,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La matinée di musica da camera alla Tonhalle di Zurigo presenta opere di Ludwig van Beethoven e Johannes Brahms. Il programma comprende un trio con pianoforte in si bemolle maggiore, opus 11, e un quintetto con pianoforte in fa minore, opus 34.",
+      "descriptionByLocale": {
+        "it": "La matinée di musica da camera alla Tonhalle di Zurigo presenta opere di Ludwig van Beethoven e Johannes Brahms. Il programma comprende un trio con pianoforte in si bemolle maggiore, opus 11, e un quintetto con pianoforte in fa minore, opus 34.",
+        "en": "The chamber-music matinee at Tonhalle in Zürich presents chamber works by Ludwig van Beethoven and Johannes Brahms. The programme includes a piano trio in B-flat major, opus 11, and a piano quintet in F minor, opus 34.",
+        "de": "Die Matinee für Kammermusik in der Tonhalle in Zürich präsentiert Werke von Ludwig van Beethoven und Johannes Brahms. Auf dem Programm stehen ein Klaviertrio in B-Dur, Opus 11, und ein Klavierquintett in f-Moll, Opus 34.",
+        "fr": "La matinée de musique de chambre à la Tonhalle de Zurich présente des œuvres de Ludwig van Beethoven et de Johannes Brahms. Le programme comprend un trio avec piano en si bémol majeur, opus 11, et un quintette avec piano en fa mineur, opus 34."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0b0299f275a141b88569e418f88b453b",
@@ -571844,7 +571996,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento, ospitato a Neuchâtel, richiama una vicenda ambientata in Alaska nel 2019. Il corpo della diciannovenne Cynthia Hoffman viene trovato in un fiume, mentre Denali e Kayden risultano tra le ultime persone ad averla vista.",
+      "descriptionByLocale": {
+        "it": "L’evento, ospitato a Neuchâtel, richiama una vicenda ambientata in Alaska nel 2019. Il corpo della diciannovenne Cynthia Hoffman viene trovato in un fiume, mentre Denali e Kayden risultano tra le ultime persone ad averla vista.",
+        "en": "The event in Neuchâtel concerns a story set in Alaska in 2019. The body of 19-year-old Cynthia Hoffman is found in a river, and Denali and Kayden are among the last people known to have seen her.",
+        "de": "Die Veranstaltung in Neuchâtel bezieht sich auf eine Geschichte, die 2019 in Alaska angesiedelt ist. Die Leiche der 19-jährigen Cynthia Hoffman wird in einem Fluss gefunden; Denali und Kayden gehören zu den letzten Personen, die sie gesehen haben.",
+        "fr": "L’événement à Neuchâtel évoque une histoire située en Alaska en 2019. Le corps de Cynthia Hoffman, âgée de 19 ans, est retrouvé dans un cours d’eau, tandis que Denali et Kayden font partie des dernières personnes à l’avoir vue."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8f22ac55429844c5b33ff798da8fcb10",
@@ -586989,7 +587149,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento rappresenta la sedicesima edizione del Comptoir a Oron-la-Ville. L’Ufficio del turismo di Anzère è indicato come ospite d’onore.",
+      "descriptionByLocale": {
+        "it": "L’evento rappresenta la sedicesima edizione del Comptoir a Oron-la-Ville. L’Ufficio del turismo di Anzère è indicato come ospite d’onore.",
+        "en": "The event is the sixteenth edition of the Comptoir in Oron-la-Ville. The Anzère Tourism Office is named as the guest of honour.",
+        "de": "Die Veranstaltung ist die sechzehnte Ausgabe des Comptoirs in Oron-la-Ville. Das Tourismusbüro von Anzère wird als Ehrengast genannt.",
+        "fr": "Cette manifestation est la seizième édition du Comptoir à Oron-la-Ville. L’Office du Tourisme d’Anzère y est désigné comme hôte d’honneur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:199d8af1710747e68bdfd13327415255",
@@ -588500,7 +588668,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Quest’opera è associata alle origini dell’opera romantica europea. La trama mette a confronto forze luminose e poteri oscuri in un ambiente naturale selvaggio, mentre lo spettacolo è presentato al Théâtre du Passage di Neuchâtel.",
+      "descriptionByLocale": {
+        "it": "Quest’opera è associata alle origini dell’opera romantica europea. La trama mette a confronto forze luminose e poteri oscuri in un ambiente naturale selvaggio, mentre lo spettacolo è presentato al Théâtre du Passage di Neuchâtel.",
+        "en": "This opera is associated with the beginnings of Romantic opera in Europe. Its plot contrasts forces of light with dark powers against a wild natural backdrop, and the work is presented at Théâtre du Passage in Neuchâtel.",
+        "de": "Das Werk steht im Zusammenhang mit den Anfängen der europäischen romantischen Oper. Die Handlung stellt helle und dunkle Kräfte in einer wilden Naturlandschaft gegenüber, und aufgeführt wird es im Théâtre du Passage in Neuenburg.",
+        "fr": "Cette œuvre s’inscrit dans les débuts de l’opéra romantique en Europe. Son récit oppose des forces claires à des pouvoirs sombres dans un cadre naturel indompté, et elle est présentée au Théâtre du Passage, à Neuchâtel."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ACAGhyE",
@@ -588667,7 +588843,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma con Rudolf Buchbinder comprende il primo Concerto per pianoforte in do maggiore e il quinto in mi bemolle maggiore di Ludwig van Beethoven. L’evento si svolge a Zurigo, nel cantone di Zurigo.",
+      "descriptionByLocale": {
+        "it": "Il programma con Rudolf Buchbinder comprende il primo Concerto per pianoforte in do maggiore e il quinto in mi bemolle maggiore di Ludwig van Beethoven. L’evento si svolge a Zurigo, nel cantone di Zurigo.",
+        "en": "The programme with Rudolf Buchbinder includes Ludwig van Beethoven’s first piano concerto in C major and his fifth piano concerto in E-flat major. It takes place in Zurich, in the canton of Zurich.",
+        "de": "Das Programm mit Rudolf Buchbinder umfasst Beethovens erstes Klavierkonzert in C-Dur und sein fünftes in Es-Dur. Die Veranstaltung findet in Zürich im Kanton Zürich statt.",
+        "fr": "Le programme avec Rudolf Buchbinder comprend le premier Concerto pour piano en do majeur et le cinquième en mi bémol de Ludwig van Beethoven. L’événement a lieu à Zurich, dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1e20a9d8906b481c86617bb841a10e70",
@@ -592748,7 +592932,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Lucerna è previsto un percorso guidato dedicato a un’esposizione di oggetti volanti immaginari. La visita è accompagnata da Henry Wydler, che ne è il co-curatore.",
+      "descriptionByLocale": {
+        "it": "A Lucerna è previsto un percorso guidato dedicato a un’esposizione di oggetti volanti immaginari. La visita è accompagnata da Henry Wydler, che ne è il co-curatore.",
+        "en": "In Lucerne, the programme includes a guided tour of an exhibition devoted to fantastical flying objects. The tour is accompanied by Henry Wydler, the exhibition’s co-curator.",
+        "de": "In Luzern findet ein Rundgang durch eine Ausstellung zu fantastischen Flugobjekten statt. Begleitet wird die Führung von Henry Wydler, dem Co-Kurator der Ausstellung.",
+        "fr": "À Lucerne, une visite guidée présente une exposition consacrée à des objets volants fantastiques. Henry Wydler participe à la visite en tant que co-commissaire de l’exposition."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2b12a69075d84465abc64b9bd3315948",
@@ -593959,7 +594151,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il congresso presso il Landratsamt di Konstanz riunisce organizzazioni dell’Austria, della Svizzera e della Germania impegnate nella politica di sicurezza. L’incontro è dedicato alla situazione della sicurezza e si svolge per la tredicesima volta.",
+      "descriptionByLocale": {
+        "it": "Il congresso presso il Landratsamt di Konstanz riunisce organizzazioni dell’Austria, della Svizzera e della Germania impegnate nella politica di sicurezza. L’incontro è dedicato alla situazione della sicurezza e si svolge per la tredicesima volta.",
+        "en": "The congress at the Landratsamt in Konstanz brings together organisations from Austria, Switzerland and Germany active in security policy. The meeting addresses the security situation and is being held for the thirteenth time.",
+        "de": "Im Landratsamt Konstanz kommen Organisationen aus Österreich, der Schweiz und Deutschland zusammen, die sich mit Sicherheitspolitik befassen. Der Kongress ist der sicherheitspolitischen Lage gewidmet und findet zum dreizehnten Mal statt.",
+        "fr": "Le congrès au Landratsamt de Konstanz réunit des organisations d’Autriche, de Suisse et d’Allemagne actives dans la politique de sécurité. La rencontre est consacrée à la situation sécuritaire et se tient pour la treizième fois."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:395be09fc38349d8a31bff0ec7a10a0e",
@@ -608541,7 +608741,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Dorffest Allschwil è una festa ricorrente del paese che si svolge ad Allschwil. Il programma comprende musica, bancarelle del mercato, bar e proposte gastronomiche.",
+      "descriptionByLocale": {
+        "it": "Il Dorffest Allschwil è una festa ricorrente del paese che si svolge ad Allschwil. Il programma comprende musica, bancarelle del mercato, bar e proposte gastronomiche.",
+        "en": "Dorffest Allschwil is a recurring village festival held in Allschwil. Its programme combines music, market stalls, bars and food-related offerings.",
+        "de": "Das Dorffest Allschwil ist ein wiederkehrendes Dorffest in Allschwil. Zum Angebot gehören Musik, Marktstände, Bars und kulinarische Angebote.",
+        "fr": "Le Dorffest Allschwil est une fête villageoise récurrente organisée à Allschwil. Elle réunit de la musique, des stands de marché, des bars et des offres culinaires."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:94582",

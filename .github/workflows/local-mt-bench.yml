@@ -94,7 +94,10 @@ jobs:
 
       - name: Base worker
         env:
-          BASE_REF: ${{ github.event.pull_request.base.sha || 'origin/main' }}
+          # This recovery PR repairs main itself. Its current base contains
+          # only the truncation artifact and therefore has no worker file;
+          # compare against the exact healthy parent only for this branch.
+          BASE_REF: ${{ (github.head_ref == 'recovery/restore-main-after-da4-20261015' || github.ref_name == 'recovery/restore-main-after-da4-20261015') && '41832779d1d83245431adbba738accb5afda0be8' || github.event.pull_request.base.sha || 'origin/main' }}
         run: git show "$BASE_REF:scripts/local-mt-translate.py" > "$RUNNER_TEMP/base-worker.py"
 
       - name: Bench base vs head

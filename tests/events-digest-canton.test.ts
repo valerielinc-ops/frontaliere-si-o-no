@@ -79,6 +79,23 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(omitted.id).toBe(DIGEST_ARTICLE_ID);
     expect(omitted.slugs).toEqual(DIGEST_ARTICLE_SLUGS);
     expect(omitted.eventCount).toBe(1);
+    expect(omitted.content.it.body2).toContain('<!-- digest-event:ti1 -->');
+    expect(omitted.content.en.body2).toContain('<!-- digest-event:ti1 -->');
+  });
+
+  it('encodes hyphens in event marker payloads so HTML comments stay valid', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'venue--series',
+        title: 'Serie speciale',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+    expect(article.content.it.body2).toContain('<!-- digest-event:venue%2D%2Dseries -->');
+    expect(decodeURIComponent('venue%2D%2Dseries')).toBe('venue--series');
   });
 
   const gr = buildWeekendDigestArticle({ events: EVENTS, todayIso: TODAY, canton: 'GR' });

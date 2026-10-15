@@ -117,6 +117,11 @@ function materialize(repo, snapshot, { dryRun = false, gitFn = git } = {}) {
     gitFn(repo, ['worktree', 'add', '--detach', '--no-checkout', worktree, 'origin/main']);
     gitFn(worktree, ['sparse-checkout', 'init', '--no-cone']);
     gitFn(worktree, ['sparse-checkout', 'set', DATA_PATH]);
+    // A --no-checkout worktree starts with an empty index. sparse-checkout
+    // configures its paths but does not seed that index, so stage only after
+    // restoring the complete HEAD tree or the commit would delete every other
+    // tracked file from main.
+    gitFn(worktree, ['read-tree', '-mu', 'HEAD']);
     mkdirSync(path.join(worktree, 'data'), { recursive: true });
     const destination = path.join(worktree, DATA_PATH);
     writeFileSync(destination, `${JSON.stringify(readSnapshot(snapshot), null, 2)}\n`, 'utf8');

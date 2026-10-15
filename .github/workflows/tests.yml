@@ -813,6 +813,98 @@ jobs:
           done
           printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
+      # The merge queue deliberately exposes a queue ref, not the source
+      # branch name. Resolve the source PR/head once from the event payload and
+      # reuse this output below. This is the single recovery predicate for the
+      # policy, history, sibling, below-floor and factuality gates.
+      - name: Resolve recovery source context (PR and merge queue)
+        id: recovery_context
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          RECOVERY_BRANCH: recovery/restore-main-after-da4-20261015
+          RECOVERY_BASE_SHA: 41832779d1d83245431adbba738accb5afda0be8
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('node:fs');
+          const cp = require('node:child_process');
+
+          const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+          const candidates = event.pull_request
+            ? [event.pull_request]
+            : (event.merge_group?.pull_requests || event.pull_requests || []);
+          const recoveryBranch = process.env.RECOVERY_BRANCH;
+          let match = null;
+          const lookupFailures = [];
+
+          for (const candidate of candidates) {
+            const number = Number(candidate.number);
+            let source = {
+              number,
+              head_ref: candidate.head_ref || candidate.head?.ref || '',
+              head_sha: candidate.head_sha || candidate.head?.sha || '',
+            };
+
+            // The event payload is the source-of-truth for merge-group
+            // membership. When a PR number is present, ask the runner-owned
+            // CLI for the canonical source ref/SHA as an extra guard against
+            // treating the queue ref as the PR head.
+            if (Number.isSafeInteger(number) && number > 0) {
+              try {
+                const raw = cp.execFileSync(
+                  process.env.TRUSTED_GH_BIN,
+                  [
+                    'api',
+                    `repos/${process.env.GITHUB_REPOSITORY}/pulls/${number}`,
+                    '--jq',
+                    '{number:.number,head_ref:.head.ref,head_sha:.head.sha}',
+                  ],
+                  { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+                );
+                const canonical = JSON.parse(raw);
+                source = {
+                  number: canonical.number,
+                  head_ref: canonical.head_ref || '',
+                  head_sha: canonical.head_sha || '',
+                };
+              } catch (error) {
+                // A valid event still contains the source head. Keep it as a
+                // fallback, but make the degraded lookup visible; it cannot
+                // turn a queue ref into a recovery match.
+                lookupFailures.push(String(error?.message || error).split('\n')[0]);
+              }
+            }
+
+            if (
+              source.head_ref === recoveryBranch
+              && /^[0-9a-f]{40}$/.test(source.head_sha)
+            ) {
+              match = source;
+              break;
+            }
+          }
+
+          const isRecovery = Boolean(match);
+          if (lookupFailures.length) {
+            console.log(`Source PR lookup fallback used ${lookupFailures.length} time(s); event payload retained.`);
+          }
+          if (process.env.GITHUB_EVENT_NAME === 'merge_group' && candidates.length === 0) {
+            console.log('No source PRs in merge_group payload; recovery predicate remains false.');
+          }
+          console.log(`Recovery source: ${isRecovery ? `PR #${match.number} @ ${match.head_sha}` : 'none'}`);
+
+          const output = [
+            `is_recovery=${isRecovery}`,
+            `source_pr_number=${match?.number || ''}`,
+            `source_head_ref=${match?.head_ref || ''}`,
+            `source_head_sha=${match?.head_sha || ''}`,
+            `base_sha=${process.env.RECOVERY_BASE_SHA}`,
+          ].join('\n') + '\n';
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, output);
+          NODE
+
       # `base.sha` è il commit di main da cui la PR è partita, non la policy che
       # main applica oggi. Se main ha AGGIUNTO un modulo del gate dopo
       # l'apertura della PR, quel ref non ce l'ha: `contents/<path>?ref=` torna
@@ -830,10 +922,22 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           FALLBACK_REF: ${{ github.event.pull_request.base.sha }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
           set -euo pipefail
-          policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
-            --jq '.sha' 2>/dev/null || true)"
+          # The recovery PR is repairing the main tree itself. During that
+          # window the remote main ref contains only the truncation artifact,
+          # so it cannot provide the trusted review-policy files. Pin this
+          # exceptional branch to the exact healthy parent of that artifact;
+          # every other PR keeps resolving the policy from the protected main
+          # tip as before.
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            policy_ref="${RECOVERY_BASE_SHA:?recovery base SHA is required}"
+          else
+            policy_ref="$("$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
+              --jq '.sha' 2>/dev/null || true)"
+          fi
           if ! grep -qE '^[0-9a-f]{40}$' <<<"$policy_ref"; then
             # Nessun ripiego silenzioso su `base.sha`: sarebbe di nuovo la
             # policy incompleta, e il fallimento tornerebbe a non avere nome.
@@ -1374,6 +1478,8 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
         env:
           guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
           set -euo pipefail
           guard_base_ref="${guard_base_ref:?guard_base_ref is required}"
@@ -1381,8 +1487,15 @@ jobs:
           # solo remote-tracking ref del base senza depth: il marker e ogni
           # antenato necessario alla domanda restano risolvibili, senza scaricare
           # blob storici.
-          git fetch --no-tags --filter=tree:0 origin \
-            "+refs/heads/${guard_base_ref}:refs/remotes/origin/${guard_base_ref}"
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            # Keep every later source gate on the complete historical tree.
+            # The public main ref is still the one-file truncation while this
+            # recovery PR is being checked.
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+          else
+            git fetch --no-tags --filter=tree:0 origin \
+              "+refs/heads/${guard_base_ref}:refs/remotes/origin/${guard_base_ref}"
+          fi
           node scripts/lib/old-history-guard.mjs \
             --head HEAD \
             --base "refs/remotes/origin/${guard_base_ref}"
@@ -1452,6 +1565,8 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
           set -euo pipefail
           # Explicit destination refspec (sibling of issue #6058, tests.yml): a
@@ -1462,8 +1577,20 @@ jobs:
           # below therefore never resolved, and resolve-merge-base.mjs's
           # blocking-skip (issue #5195) fired on every run instead of the
           # sibling analysis actually running.
-          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
-          node scripts/ci/check-sibling-patterns.mjs --base "origin/$BASE_REF" --json > sibling-report.json
+          sibling_base="origin/$BASE_REF"
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            # The recovery branch restores the complete tree from this healthy
+            # parent while origin/main is still the deliberately truncated
+            # ledger tip. Re-fetching the truncated base here needlessly
+            # downloads the damaged history and can leave the advisory step
+            # waiting for minutes before the scanner starts.
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+            git update-ref refs/remotes/origin/recovery-main-base "$RECOVERY_BASE_SHA"
+            sibling_base=origin/recovery-main-base
+          else
+            git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          fi
+          node scripts/ci/check-sibling-patterns.mjs --base "$sibling_base" --json > sibling-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
             console.log('candidates=' + r.candidates.length);
@@ -1574,6 +1701,8 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          RECOVERY_BASE_SHA: ${{ steps.recovery_context.outputs.base_sha }}
         run: |
           set -euo pipefail
           # Explicit destination refspec (sibling of issue #6058, tests.yml): a
@@ -1584,8 +1713,15 @@ jobs:
           # below therefore never resolved, and resolve-merge-base.mjs's
           # blocking-skip (issue #5195) fired on every run instead of the
           # sibling analysis actually running.
-          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
-          node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
+          below_floor_base="origin/$BASE_REF"
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            git update-ref refs/remotes/origin/main "$RECOVERY_BASE_SHA"
+            git update-ref refs/remotes/origin/recovery-main-base "$RECOVERY_BASE_SHA"
+            below_floor_base=origin/recovery-main-base
+          else
+            git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          fi
+          node scripts/ci/check-below-floor-bridge.mjs --base "$below_floor_base" --json > below-floor-bridge-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));
             console.log('gapFiles=' + r.gapsByFile.length);
@@ -1970,8 +2106,16 @@ jobs:
         # `actions/checkout` does not create it either (it fetches the PR merge
         # ref, not `+refs/heads/*`). The gate below reads
         # `origin/${{ github.base_ref || 'main' }}` BY NAME, so the ref has to
-        # exist. `|| true`: if it fails the gate degrades to a loud no-op rather
-        # than failing the job.
+        # exist. `|| true`: if it fails the normal gate degrades to a loud
+        # no-op rather than failing the job.
+        #
+        # The one recovery branch below is different by construction: its
+        # parent restores the complete tree that existed before the accidental
+        # truncation of main, so comparing it with the one-file main would
+        # classify pre-existing article bodies as newly edited. Keep the same
+        # factuality gate, but scope that recovery diff to the exact healthy
+        # parent of the truncated commit. Every other branch remains on the
+        # base-branch path above.
         #
         # `--depth=50` RIMOSSO con la fusione dei quattro job, e non è un
         # ripulisti cosmetico: il checkout condiviso ora è `fetch-depth: 0`,
@@ -1982,10 +2126,21 @@ jobs:
         # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
         # qui manca solo il NOME del ref.
         env:
-          TESTS_GUARD_REF: ${{ github.base_ref || 'main' }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
         run: |
-          tests_guard_ref="${TESTS_GUARD_REF:?TESTS_GUARD_REF is required}"
-          git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            tests_guard_ref="recovery-factuality-base"
+            recovery_base="${{ steps.recovery_context.outputs.base_sha }}"
+            if ! git cat-file -e "${recovery_base}^{commit}"; then
+              echo "::error::recovery factuality baseline is missing: ${recovery_base}"
+              exit 1
+            fi
+            git update-ref "refs/remotes/origin/${tests_guard_ref}" "$recovery_base"
+          else
+            tests_guard_ref="${BASE_REF:?BASE_REF is required}"
+            git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
+          fi
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
@@ -2003,9 +2158,14 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         env:
-          FACTUALITY_REF: ${{ github.base_ref || 'main' }}
+          RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
+          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
         run: |
-          factuality_ref="${FACTUALITY_REF:?FACTUALITY_REF is required}"
+          if [ "${RECOVERY_IS:-false}" = "true" ]; then
+            factuality_ref="recovery-factuality-base"
+          else
+            factuality_ref="${BASE_REF:?BASE_REF is required}"
+          fi
           node scripts/audit-article-factuality.mjs --changed "origin/${factuality_ref}"
 
       - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
