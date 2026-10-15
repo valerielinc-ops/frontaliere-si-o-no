@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 631,
+  "crawlerCount": 632,
   "groups": {
     "10": [
       "atec-personal",
@@ -310,6 +310,7 @@
     "20": [
       "accor",
       "adus-klinik",
+      "agat",
       "arxada",
       "bcvs",
       "buergenstock-hotels",
@@ -338,7 +339,6 @@
       "zambon"
     ],
     "21": [
-      "agat",
       "ardian",
       "beekeeper",
       "bps-suisse",
@@ -363,6 +363,7 @@
       "orell-fuessli-thalia",
       "pdag",
       "ricola",
+      "seniorenzentrum-engelhof",
       "six-group",
       "spital-buelach",
       "stadtspital-zuerich",
@@ -1175,6 +1176,7 @@
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
+    "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
     "sfs-group": "data/jobs/by-crawler/sfs-group.json",
     "sicpa": "data/jobs/by-crawler/sicpa.json",
     "siegfried": "data/jobs/by-crawler/siegfried.json",
@@ -1316,5 +1318,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:2af2b7efe2bfbda832cac3ec16cb8245045b6a9cfb50c690960ed51ac3000423"
+  "digest": "sha256:b6df5ded93ab2e65867a2c106d9cfe4486e0b7227890700b8e713c4283333ba5"
 }

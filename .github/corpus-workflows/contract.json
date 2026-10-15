@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224",
+  "sourceCommit": "0aefe0e2968215e10ae5c6079835d149cba0a863",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "7a95edf33be505cf90981fc30a47af79ac539224"
+    "sourceCommit": "0aefe0e2968215e10ae5c6079835d149cba0a863"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 631,
+  "crawlerCount": 632,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:2af2b7efe2bfbda832cac3ec16cb8245045b6a9cfb50c690960ed51ac3000423",
+    "rosterDigest": "sha256:b6df5ded93ab2e65867a2c106d9cfe4486e0b7227890700b8e713c4283333ba5",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -466,6 +466,7 @@
     "scripts/update-see-spital-jobs.mjs",
     "scripts/update-selecta-jobs.mjs",
     "scripts/update-senevita-jobs.mjs",
+    "scripts/update-seniorenzentrum-engelhof-jobs.mjs",
     "scripts/update-sfs-group-jobs.mjs",
     "scripts/update-sicpa-jobs.mjs",
     "scripts/update-siegfried-jobs.mjs",
@@ -1342,8 +1343,8 @@
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "8c31eb96fd5785381da5e52437dc062bfb0d9a3267f5e5c37b05493a6225083a",
-      "artifactSha256": "74fff35831ce3741637fe7d0fe1e5ca8004ab1dd47f683482d1fc47238a9c632",
+      "sourceSha256": "67197d100dd89200ccc238a60faf7fa099ce3056509973f6bf58085e13c19694",
+      "artifactSha256": "310a3709258aac5e07b7da74427309f94acf2453cb17001633a86d2934a27809",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ottos",
@@ -1373,14 +1374,15 @@
         "hrc",
         "arxada",
         "adus-klinik",
-        "ist"
+        "ist",
+        "agat"
       ]
     },
     {
       "file": "crawler-group-21.yml",
       "sourceLogic": "crawler-group-21-logic.yml",
-      "sourceSha256": "3c3acdec533fb4a077a67a648682f69337a0ecd22369a2add34bcb571e17b40e",
-      "artifactSha256": "39398eb9e549d44e858fd38ce090e740dc83b18e0ad02001e61c97db8a6a2ab5",
+      "sourceSha256": "f4bdc93306d23501e10335cb5f621c08d263320a34155042fcb90abae9c65086",
+      "artifactSha256": "f96a907f460a9de6a13f71745b1dd84ef7c6993ed39da51e1191602649b1faf2",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "orell-fuessli-thalia",
@@ -1411,7 +1413,7 @@
         "geberit",
         "lombard-odier",
         "kone",
-        "agat"
+        "seniorenzentrum-engelhof"
       ]
     },
     {
