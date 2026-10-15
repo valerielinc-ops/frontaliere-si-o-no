@@ -105090,6 +105090,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-licenza-pubblico-berna-requisiti': {
+    title: 'Licenza esercizio pubblico Berna: requisiti e domanda',
+    description: 'Nel Cantone di Berna la licenza riguarda ristoranti e locali. Il requisito può riguardare formazione o responsabilità. Domanda e competenza si verificano',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenza, esercizio, pubblico, berna',
+    ogTitle: 'Licenza esercizio pubblico Berna: requisiti e domanda',
+    ogDescription: 'Nel Cantone di Berna la licenza riguarda ristoranti e locali.',
+    canonicalPath: '/articoli-svizzera/licenza-pubblico-berna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenza esercizio pubblico Berna: requisiti e domanda",
+      "description": "Nel Cantone di Berna la licenza riguarda ristoranti e locali. Il requisito può riguardare formazione o responsabilità. Domanda e competenza si verificano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-licenza-pubblico-berna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti ufficiali e penna su un tavolo davanti a un edificio amministrativo svizzero"
+      },
+      "datePublished": "2026-10-15T04:03:35+00:00",
+      "dateModified": "2026-10-15T04:03:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/licenza-pubblico-berna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

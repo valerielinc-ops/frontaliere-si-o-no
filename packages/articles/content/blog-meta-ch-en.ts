@@ -8324,6 +8324,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.collaudo-veicoli-berna-procedura.title': 'Vehicle inspection in Bern: summons and requirements',
     'blog.article.collaudo-veicoli-berna-procedura.excerpt': 'Guide to the testing procedure in the Canton of Bern: how to verify requirements, deadlines, and amounts using the relevant official source.',
     'blog.article.collaudo-veicoli-berna-procedura.imageAlt': 'Vehicle inspection station in Canton Bern with official documents',
+    'blog.article.licenza-pubblico-berna-requisiti.title': 'Public establishment license in Bern: requirements and application',
+    'blog.article.licenza-pubblico-berna-requisiti.excerpt': 'In the Canton of Bern, the license applies to restaurants and establishments.',
+    'blog.article.licenza-pubblico-berna-requisiti.imageAlt': 'Official documents and a pen on a table in front of a Swiss administrative building',
 };
 
 export default blogMetaChEn;

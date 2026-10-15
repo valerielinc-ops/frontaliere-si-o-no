@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5468
+      "6": 5469
     },
-    "publishedCovers": 7049,
+    "publishedCovers": 7050,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5273
+    "inferredRecords": 5274
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -186731,6 +186731,33 @@
           "id": "licenza-caccia-zurigo-requisiti",
           "category": "pratico",
           "date": "2026-10-14T01:47:38.766Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-licenza-pubblico-berna-requisiti": {
+      "cover": "/images/blog/article-licenza-pubblico-berna-requisiti.webp",
+      "hash": "8ad5242093a6fb73ae8bd564c060928702354dac220dd3cc91364857d4051874",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "licenza-pubblico-berna-requisiti",
+          "category": "pratico",
+          "date": "2026-10-15T04:03:35.085Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

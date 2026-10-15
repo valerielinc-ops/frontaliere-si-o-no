@@ -8324,6 +8324,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.collaudo-veicoli-berna-procedura.title': 'Fahrzeugprüfung in Bern: Aufgebot und Anforderungen',
     'blog.article.collaudo-veicoli-berna-procedura.excerpt': 'Leitfaden zum Verfahren der Fahrzeugprüfung im Kanton Bern: So lassen sich Anforderungen, Fristen und Beträge anhand der zuständigen offiziellen Quelle überprüfen.',
     'blog.article.collaudo-veicoli-berna-procedura.imageAlt': 'Fahrzeugprüfstelle im Kanton Bern mit offiziellen Dokumenten',
+    'blog.article.licenza-pubblico-berna-requisiti.title': 'Gastgewerbebewilligung Bern: Voraussetzungen und Antrag',
+    'blog.article.licenza-pubblico-berna-requisiti.excerpt': 'Im Kanton Bern betrifft die Bewilligung Restaurants und Lokale.',
+    'blog.article.licenza-pubblico-berna-requisiti.imageAlt': 'Offizielle Dokumente und ein Stift auf einem Tisch vor einem Schweizer Verwaltungsgebäude',
 };
 
 export default blogMetaChDe;
