@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4",
+  "sourceCommit": "089f63ede61e6ca636fbfd5760e73ba09fa17034",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4"
+    "sourceCommit": "089f63ede61e6ca636fbfd5760e73ba09fa17034"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 634,
+  "crawlerCount": 635,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:f722fe7a1bb2fe0e42f9684c1f9d1f8b64bc294944c656038b6599fc14c380d1",
+    "rosterDigest": "sha256:bb704335218d85d0a31f0e4f028e36fc50418078e5d2ffd81787d187852206b4",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -454,6 +454,7 @@
     "scripts/update-rituals-cosmetics-jobs.mjs",
     "scripts/update-riveneuve-jobs.mjs",
     "scripts/update-roche-jobs.mjs",
+    "scripts/update-rohrer-gartenbau-und-hauswartungen-jobs.mjs",
     "scripts/update-rolex-jobs.mjs",
     "scripts/update-rsbj-jobs.mjs",
     "scripts/update-rss-surselva-jobs.mjs",
@@ -1271,8 +1272,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "d8b195aacc655da3af4c4833d69c40d5cd3eaef6c93ef24b5a565102a36a02d9",
-      "artifactSha256": "6f7d3c1bfc562bd78f8734a0ff917ffc40108ce9e94cb0a460d0dc28299a5e4d",
+      "sourceSha256": "ae61c93b76837aa6f7ba84963852a4cde7cd4d7934429302ffd7e3ec2a3d9bcb",
+      "artifactSha256": "6e44fb48d851c93d91ba2af56e70c7d4d056ff8488cdbb56649cf8a3a429b110",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1303,6 +1304,7 @@
         "etavis",
         "amina-bank",
         "opus-personal",
+        "rohrer-gartenbau-und-hauswartungen",
         "wokin"
       ]
     },
