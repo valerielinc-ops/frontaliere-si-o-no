@@ -105482,6 +105482,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-produzione-importazione-settembre': {
+    title: 'Prezzi produzione e importazione salgono a settembre',
+    description: 'In settembre l\'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull\'anno Inflazione di settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, produzione, importazione, salgono',
+    ogTitle: 'Prezzi produzione e importazione salgono a settembre',
+    ogDescription: 'In settembre l\'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull\'anno Inflazione di settembre',
+    canonicalPath: '/articoli-svizzera/prezzi-produzione-importazione-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi produzione e importazione salgono a settembre",
+      "description": "In settembre l'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull'anno Inflazione di settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-prezzi-produzione-importazione-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un'area industriale e logistica in Svizzera"
+      },
+      "datePublished": "2026-10-15T10:59:13+00:00",
+      "dateModified": "2026-10-15T10:59:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-produzione-importazione-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

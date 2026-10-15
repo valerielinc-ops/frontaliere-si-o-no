@@ -8354,6 +8354,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.amaudruz-candidatura-federale.title': 'Céline Amaudruz si candida al Consiglio federale',
     'blog.article.amaudruz-candidatura-federale.excerpt': 'Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L\'elezione è fissata il 9 dicembre Scadenza: 23 ottobre',
     'blog.article.amaudruz-candidatura-federale.imageAlt': 'Palazzo federale svizzero in una scena editoriale sulla candidatura al Consiglio federale',
+    'blog.article.prezzi-produzione-importazione-settembre.title': 'Prezzi produzione e importazione salgono a settembre',
+    'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'In settembre l\'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull\'anno Inflazione di settembre',
+    'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'Vista di un\'area industriale e logistica in Svizzera',
 };
 
 export default blogMetaChIt;

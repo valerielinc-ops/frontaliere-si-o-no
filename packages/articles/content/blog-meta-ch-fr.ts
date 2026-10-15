@@ -8354,6 +8354,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.amaudruz-candidatura-federale.title': 'Céline Amaudruz se porte candidate au Conseil fédéral',
     'blog.article.amaudruz-candidatura-federale.excerpt': 'Amaudruz annonce sa candidature à Genève Elle est la première candidate confirmée pour succéder à Parmelin L\'élection est fixée au 9 décembre Échéance : 23 octobre',
     'blog.article.amaudruz-candidatura-federale.imageAlt': 'Bâtiment fédéral suisse dans une scène éditoriale sur une candidature au Conseil fédéral',
+    'blog.article.prezzi-produzione-importazione-settembre.title': 'Les prix à la production et à l\'importation augmentent en septembre',
+    'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'En septembre, l\'indice augmente de 0,3 % par rapport à août La baisse annuelle reste de 0,2 % Importations : +0,9 % sur le mois et +2,1 % sur un an Inflation de septembre',
+    'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'Vue d\'une zone industrielle et logistique en Suisse',
 };
 
 export default blogMetaChFr;

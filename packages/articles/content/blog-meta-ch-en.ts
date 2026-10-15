@@ -8354,6 +8354,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.amaudruz-candidatura-federale.title': 'Céline Amaudruz is running for the Federal Council',
     'blog.article.amaudruz-candidatura-federale.excerpt': 'Amaudruz announces candidacy in Geneva She is the first confirmed candidate to succeed Parmelin The election is set for December 9 Deadline: October 23',
     'blog.article.amaudruz-candidatura-federale.imageAlt': 'Swiss federal building in an editorial scene about a Federal Council candidacy',
+    'blog.article.prezzi-produzione-importazione-settembre.title': 'Production and import prices rise in September',
+    'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'In September the index rises by 0,3% from August The annual decline remains at 0,2% Imports: +0,9% in the month and +2,1% year-on-year September inflation',
+    'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'View of an industrial and logistics area in Switzerland',
 };
 
 export default blogMetaChEn;

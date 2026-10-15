@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5485
+      "6": 5486
     },
-    "publishedCovers": 7066,
+    "publishedCovers": 7067,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5290
+    "inferredRecords": 5291
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187892,6 +187892,33 @@
           "id": "prezzi-auto-nuove-usate-calo",
           "category": "novita",
           "date": "2026-10-14T13:53:50.349Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-prezzi-produzione-importazione-settembre": {
+      "cover": "/images/blog/article-prezzi-produzione-importazione-settembre.webp",
+      "hash": "85511d4d43f6c35193045efb68fdff719dbd8a831a4087d6f6f65b656ea457d1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "prezzi-produzione-importazione-settembre",
+          "category": "novita",
+          "date": "2026-10-15T10:59:13.835Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

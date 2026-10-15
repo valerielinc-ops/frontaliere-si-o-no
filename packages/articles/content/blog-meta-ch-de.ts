@@ -8354,6 +8354,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.amaudruz-candidatura-federale.title': 'Céline Amaudruz kandidiert für den Bundesrat',
     'blog.article.amaudruz-candidatura-federale.excerpt': 'Amaudruz kündigt in Genf ihre Kandidatur an Sie ist die erste bestätigte Kandidatin für die Nachfolge von Parmelin Die Wahl ist für den 9.',
     'blog.article.amaudruz-candidatura-federale.imageAlt': 'Schweizer Bundesgebäude in einer redaktionellen Szene zur Bundesratskandidatur',
+    'blog.article.prezzi-produzione-importazione-settembre.title': 'Produktions- und Importpreise steigen im September',
+    'blog.article.prezzi-produzione-importazione-settembre.excerpt': 'Im September steigt der Index gegenüber August um 0,3% Der jährliche Rückgang bleibt bei 0,2% Importe: +0,9% im Monatsvergleich und +2,1% im Jahresvergleich Inflation im September',
+    'blog.article.prezzi-produzione-importazione-settembre.imageAlt': 'Blick auf ein Industrie- und Logistikgebiet in der Schweiz',
 };
 
 export default blogMetaChDe;
