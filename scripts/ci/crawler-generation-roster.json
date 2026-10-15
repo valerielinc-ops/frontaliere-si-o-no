@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 630,
+  "crawlerCount": 631,
   "groups": {
     "10": [
       "atec-personal",
@@ -349,6 +349,7 @@
       "geberit",
       "hoch-health",
       "kellerhals-carrard",
+      "kita-summervogel",
       "klinik-sonnenhalde",
       "kone",
       "ksbl",
@@ -379,7 +380,6 @@
       "giardino",
       "heineken-ch",
       "huntsman",
-      "kita-summervogel",
       "klinik-seeschau",
       "kudelski-nagra",
       "lindenhofgruppe",
@@ -389,6 +389,7 @@
       "oerlikon",
       "otis",
       "reha-bellikon",
+      "rh-expert-ch",
       "rittmeyer-ag",
       "saint-gobain-weber-isover",
       "scandit",
@@ -1149,6 +1150,7 @@
     "relewant": "data/jobs/by-crawler/relewant.json",
     "rennbahnklinik": "data/jobs/by-crawler/rennbahnklinik.json",
     "rfsm-fribourg": "data/jobs/by-crawler/rfsm-fribourg.json",
+    "rh-expert-ch": "data/jobs/by-crawler/rh-expert-ch.json",
     "rheinmetall-air-defence": "data/jobs/by-crawler/rheinmetall-air-defence.json",
     "rhne-reseau-hospitalier-neuchatelois": "data/jobs/by-crawler/rhne-reseau-hospitalier-neuchatelois.json",
     "richemont": "data/jobs/by-crawler/richemont.json",
@@ -1314,5 +1316,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:70989dff8ca83150c0ce01324c66c366d3d322ee8976068599a2189a54843e82"
+  "digest": "sha256:2123a958ef40459f8b9ea42e6fd3caf41ade77f8320c54162ffe473923be473c"
 }
