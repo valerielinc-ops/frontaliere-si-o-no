@@ -5769,7 +5769,6 @@
           "lehrstelle-als-anlagenfuhrer-in-efz-rolex-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -6088,7 +6087,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:59:19.332Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -6324,7 +6322,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:59:18.327Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -6481,7 +6478,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:59:20.390Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -6952,7 +6948,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-29T09:14:05.771Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -9687,7 +9682,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-industrialisation-h-f-rolex-ch"
+          "charge-de-projets-industrialisation-h-f-rolex-ch",
+          "responsabile-del-progetto-di-industrializzazione-della-logistica-h-f-rolex-geneve",
+          "logistics-industrialization-project-manager-h-f-rolex-geneve",
+          "projektleiter-logistik-industrialisierung-h-f-rolex-geneve",
+          "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
         ],
         "de": [
           "projektmanager-industrialisierung-m-w-rolex-geneve"
@@ -9695,7 +9694,11 @@
       },
       "previousSlugs": [
         "charge-de-projets-industrialisation-h-f-rolex-ch",
-        "projektmanager-industrialisierung-m-w-rolex-geneve"
+        "projektmanager-industrialisierung-m-w-rolex-geneve",
+        "responsabile-del-progetto-di-industrializzazione-della-logistica-h-f-rolex-geneve",
+        "logistics-industrialization-project-manager-h-f-rolex-geneve",
+        "projektleiter-logistik-industrialisierung-h-f-rolex-geneve",
+        "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

@@ -1056,7 +1056,6 @@
       "pensumMin": 40,
       "pensumMax": 60,
       "pensum": "40-60%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kanzleimitarbeiter-in-kanton-gr-ch"
@@ -1137,7 +1136,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-verkehrsadministration-kanton-gr-ch"
@@ -1218,7 +1216,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch"
@@ -1299,7 +1296,6 @@
       "pensumMin": 75,
       "pensumMax": 85,
       "pensum": "75-85%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-administration-abteilung-mittelschulen-kanton-gr-ch"
@@ -1380,7 +1376,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch"
@@ -1461,7 +1456,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1534,7 +1528,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ict-servicedesk-mitarbeiter-in-mit-schwerpunkt-knowledge-management-kanton-gr-ch"
@@ -1730,8 +1723,8 @@
       "id": "kanton-gr-74a97250cd9e",
       "slug": "professionista-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "professionista-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
-        "en": "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur",
+        "it": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
+        "en": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
         "de": "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
         "fr": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
       },
@@ -1782,15 +1775,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
-        "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+        "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+          "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch"
         ],
         "en": [
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+          "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-10-08T09:16:56.030Z",
