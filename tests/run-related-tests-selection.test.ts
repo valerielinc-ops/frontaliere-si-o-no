@@ -101,6 +101,31 @@ afterEach(() => {
 });
 
 describe('run-related-tests selection contract', () => {
+  it('selects pruner subprocess safety tests for a pruner-only change, not unrelated scripts', () => {
+    const prunerTests = [
+      'tests/pruner-isolation.test.ts',
+      'tests/worktree-prune-signals.test.ts',
+      'tests/prune-merged-worktrees-e2e.test.ts',
+      'tests/prune-merged-worktrees-proofs-e2e.test.ts',
+      'tests/prune-merged-worktrees-corpus-e2e.test.ts',
+      'tests/prune-merged-worktrees-expiry-e2e.test.ts',
+    ];
+    const root = fixture({
+      'scripts/prune-merged-worktrees.mjs': 'throw new Error("fixture pruner must never execute");\n',
+      'scripts/unrelated.mjs': 'export const unrelated = true;\n',
+      'tests/unrelated.test.ts': "import '../scripts/unrelated.mjs';\n",
+      ...Object.fromEntries(prunerTests.map((file) => [file, 'export const contract = true;\n'])),
+    });
+    const pruner = select(root, ['scripts/prune-merged-worktrees.mjs']);
+    expect(pruner.status, pruner.stderr || pruner.stdout).toBe(0);
+    for (const file of prunerTests) expect(pruner.stdout).toContain(file);
+    expect(pruner.stdout).not.toContain('tests/unrelated.test.ts');
+
+    const unrelated = select(root, ['scripts/unrelated.mjs']);
+    expect(unrelated.status, unrelated.stderr || unrelated.stdout).toBe(0);
+    for (const file of prunerTests) expect(unrelated.stdout).not.toContain(file);
+  });
+
   it('selects the direct impacted test without broadening to unrelated files', () => {
     const root = fixture({
       'services/changed.mjs': 'export const value = 1;\n',
