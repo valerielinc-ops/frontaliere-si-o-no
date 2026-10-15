@@ -88,6 +88,9 @@ jobs:
         env:
           CHANNEL: ${{ inputs.channel }}
           QUEUE_ID: ${{ inputs.queue_id }}
+          CONFIRMED_AT: ${{ inputs.confirmed_at }}
+          EVIDENCE: ${{ inputs.evidence }}
+          LEDGER_ENTRIES: ${{ inputs.ledger_entries }}
         run: |
           set -euo pipefail
           files=()
