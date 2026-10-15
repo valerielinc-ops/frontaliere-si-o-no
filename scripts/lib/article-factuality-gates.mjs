@@ -1253,15 +1253,26 @@ const INSTITUTION_RE = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?
 // only when both halves of that shape are present; an unknown acronym directly
 // attached to an institution must remain reportable.
 const POLITICAL_AFFILIATION_ACRONYMS = new Set([
-  'PLR', 'PSS', 'PS', 'UDC', 'PDC', 'PPD', 'PVL', 'PEV', 'UDF', 'PBD', 'PCS', 'MCG',
+  'PLR', 'PSS', 'PS', 'UDC', 'PDC', 'PPD', 'PVL', 'PEV', 'UDF', 'PBD', 'PCS', 'MCG', 'MPS',
   'FDP', 'SP', 'SVP', 'CVP', 'GLP', 'EVP', 'EDU', 'BDP', 'LDP',
 ]);
-const PERSON_NAME_SUFFIX_RE = /(?:^|[\s,])(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){1,2}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
+// A person suffix must follow a lowercase lexical word (or an appositive
+// comma), not an arbitrary whitespace boundary. Otherwise title-cased tails
+// such as `Dipartimento Politiche Sociali` look like a person's name.
+const PERSON_NAME_SUFFIX_RE = /(?:(?<!\p{L})([\p{Ll}][\p{Ll}'’.-]*)|,)\s+(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){1,2}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
+const PERSON_NAME_BOUNDARY_STOPWORDS = new Set([
+  'a', 'ad', 'al', 'alla', 'alle', 'agli', 'ai', 'da', 'dal', 'dalla', 'dalle', 'dagli',
+  'dei', 'del', 'dell', 'della', 'delle', 'di', 'e', 'fra', 'in', 'nel', 'nei', 'nella',
+  'nelle', 'per', 'su', 'sul', 'sulla', 'sulle', 'tra', 'con',
+]);
 const PERSON_ROLE_CUE_RE = /\b(?:direttor[ea]|president[ea]|consiglier[ae]|ministr[oa]|assessor[ea]|sindac[oa]|governator[ei]|deputat[oa]|candidat[oa]|esponent[ei]|responsabile|portavoce|segretar[ioae]|capogruppo|membro|vicepresident[ea])\b/iu;
 
 function isPoliticalAffiliationAfterPerson(text, match, acronym) {
   if (!POLITICAL_AFFILIATION_ACRONYMS.has(acronym)) return false;
-  if (!PERSON_NAME_SUFFIX_RE.test(match[1]?.trim() || '')) return false;
+  const personNameMatch = PERSON_NAME_SUFFIX_RE.exec(match[1]?.trim() || '');
+  if (!personNameMatch) return false;
+  const boundaryWord = personNameMatch[1]?.toLowerCase();
+  if (boundaryWord && PERSON_NAME_BOUNDARY_STOPWORDS.has(boundaryWord)) return false;
 
   const matchStart = typeof match.index === 'number' ? match.index : -1;
   if (matchStart < 0) return false;
@@ -1366,7 +1377,8 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
   const seen = new Set();
   for (const m of text.matchAll(INSTITUTION_RE)) {
     const [full, name, acronym] = m;
-    if (isPoliticalAffiliationAfterPerson(text, m, acronym)) continue;
+    const denylisted = FABRICATED_INSTITUTION_ACRONYMS.has(acronym) || learnedDenylist.has(acronym);
+    if (!denylisted && isPoliticalAffiliationAfterPerson(text, m, acronym)) continue;
     // The curated allowlist wins over everything, including the learner: a
     // human checked a register, the learner counted. Belt and braces — the
     // memory refuses to promote allowlisted acronyms too (evaluateEntity).
@@ -1374,7 +1386,7 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
     if (seen.has(acronym)) continue;
     seen.add(acronym);
 
-    if (FABRICATED_INSTITUTION_ACRONYMS.has(acronym) || learnedDenylist.has(acronym)) {
+    if (denylisted) {
       const learned = !FABRICATED_INSTITUTION_ACRONYMS.has(acronym);
       issues.push(issue(
         'fabricated-institution',

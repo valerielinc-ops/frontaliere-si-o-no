@@ -598,6 +598,31 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     expect(collectInstitutionAcronyms(text)).toEqual([]);
   });
 
+  it('keeps a title-cased institution tail as an institution candidate', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento Politiche Sociali (PLR).',
+    );
+
+    expect(codes(issues)).toEqual(['unknown-institution']);
+  });
+
+  it('keeps denylisted political acronyms blocking', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (PLR).',
+      { learnedDenylist: new Set(['PLR']) },
+    );
+
+    expect(issues).toHaveLength(1);
+    expect(issues[0].code).toBe('fabricated-institution');
+    expect(issues[0].severity).toBe('critical');
+  });
+
+  it('ignores the Ticino MPS affiliation after a person name', () => {
+    const text = 'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (MPS).';
+
+    expect(collectInstitutionAcronyms(text, { sourceText: '' })).toEqual([]);
+  });
+
   it('still reports an unknown acronym attached directly to an institution', () => {
     const issues = checkFabricatedInstitutionAcronyms(
       'Il Dipartimento grigionese delle finanze e dei comuni (DFG) ha pubblicato il preventivo.',
