@@ -53,7 +53,10 @@ vi.mock('../../scripts/lib/free-translate.mjs', async (importOriginal) => {
 
 const { __testables } = await import('../../scripts/lib/shared-jobs-crawler.mjs');
 const { detectAiReasoningLeak, detectDegenerateRepetition } = await import('../../scripts/lib/ai-output-fidelity.mjs');
-const { aiTranslateJobDescriptionDCC } = await import('../../scripts/lib/dedicated-crawler-common.mjs');
+const {
+  aiTranslateJobDescriptionDCC,
+  enrichJobLocalesDCC,
+} = await import('../../scripts/lib/dedicated-crawler-common.mjs');
 const {
   structureJobDescription,
   aiEnrichThinDescription,
@@ -255,6 +258,46 @@ describe('repair of the published swiss-medical-network record at its next force
     // The replayed answer was dropped, recomputed once, rejected again.
     expect(aiModelsMock.callLLM.mock.calls.filter(([m]) => isFormatterPrompt(m))).toHaveLength(1);
     expect(getCachedAiResponse(structureKey(RAW_FR, 'fr'))).toBe(AI_CACHE_RAW_SENTINEL);
+  });
+});
+
+describe('enrichJobLocalesDCC — rejected source-map prompt echoes', () => {
+  it('does not resend a leaked source-locale map slot when forced localization has no flat source', async () => {
+    const promptEcho = leakedSlot('it');
+    const aiCache = new Map<string, unknown>();
+    expect(detectAiReasoningLeak(promptEcho)).not.toBeNull();
+
+    aiModelsMock.callLLM.mockResolvedValue('');
+    await enrichJobLocalesDCC({
+      slug: 'prompt-echo-example-job',
+      url: 'https://example.com/jobs/prompt-echo-example-job',
+      title: 'Assistente amministrativo',
+      company: 'Example Company',
+      companyKey: 'example-company',
+      sourceLang: 'it',
+      titleByLocale: { it: 'Assistente amministrativo' },
+      descriptionByLocale: { it: promptEcho },
+    }, {
+      aiLocalizationEnabled: true,
+      aiLocalizationMaxJobsPerRun: 5,
+      minDescriptionChars: 120,
+    }, {
+      FORCE_LOCALIZE_COMPANY_KEYS: new Set(['example-company']),
+      normalizeCompanyKey: (value: string) => String(value || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, ''),
+      getPreferredModel: () => 'mock/model',
+      buildAiCacheKey: (prefix: string, parts: string[]) => [prefix, ...parts].join('|'),
+      getCachedAiResponse: (key: string) => (aiCache.has(key) ? aiCache.get(key) : null),
+      setCachedAiResponse: (key: string, value: unknown) => { aiCache.set(key, value); },
+      AI_CACHE_RAW_SENTINEL: '__RAW__',
+      callLLM: aiModelsMock.callLLM,
+    });
+
+    const prompts = aiModelsMock.callLLM.mock.calls.map(([messages]) => messages[0].content);
+    expect(prompts.length).toBeGreaterThan(0);
+    expect(JSON.stringify(prompts)).not.toContain(promptEcho);
   });
 });
 
