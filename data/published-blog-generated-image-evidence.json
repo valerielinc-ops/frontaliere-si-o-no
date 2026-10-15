@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "5359e19abfc321da69444b06ea2f385bc6763aee",
+  "commit": "4cfa6ece056c570a9dcc76a4dd63ac1e1ffaf3d0",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -22553,6 +22553,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial street scene with distant, unidentifiable person and vehicles; no readable text, logos, or identifiable faces."
+      }
+    },
+    "/images/blog/article-ruag-lockheed-accordo-f35a.webp": {
+      "schema": 1,
+      "assetId": "article-ruag-lockheed-accordo-f35a",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "5304cd1f94257eeaafb2dce9a9645694a739c195189d8d2eb0ebc59f2c974f3c",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "fd8abb09b50212f5b957862016b2c94b95457c0127c8feac7d1eb5f9bccb64a4",
+      "bytes": 138622,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T20:58:09.390Z",
+      "verifiedAt": "2026-10-15T20:58:17.958Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-ruag-lockheed-accordo-f35a.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial illustration of F-35A components at a Swiss aviation facility; no readable text, logos, people, or specific-event documentation."
       }
     },
     "/images/places/lugano-view.webp": {

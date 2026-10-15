@@ -105940,6 +105940,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ruag-lockheed-accordo-f35a': {
+    title: 'RUAG e Lockheed Martin accordo per tre F-35A a Emmen',
+    description: 'RUAG MRO e Lockheed Martin proseguono il progetto RIGI Tre F-35A saranno assemblati nella sede RUAG di Emmen I primi componenti sono attesi nella prima metà',
+    keywords: 'frontalieri, ticino, svizzera, italia, ruag, lockheed, martin, accordo',
+    ogTitle: 'RUAG e Lockheed Martin accordo per tre F-35A a Emmen',
+    ogDescription: 'RUAG MRO e Lockheed Martin proseguono il progetto RIGI Tre F-35A saranno assemblati nella sede RUAG di Emmen I primi componenti sono attesi nella prima metà',
+    canonicalPath: '/articoli-svizzera/ruag-lockheed-accordo-f35a/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "RUAG e Lockheed Martin accordo per tre F-35A a Emmen",
+      "description": "RUAG MRO e Lockheed Martin proseguono il progetto RIGI Tre F-35A saranno assemblati nella sede RUAG di Emmen I primi componenti sono attesi nella prima metà",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ruag-lockheed-accordo-f35a.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Struttura RUAG all'aeroporto di Emmen con componenti F-35A in fase di assemblaggio"
+      },
+      "datePublished": "2026-10-15T20:58:18+00:00",
+      "dateModified": "2026-10-15T20:58:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruag-lockheed-accordo-f35a/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

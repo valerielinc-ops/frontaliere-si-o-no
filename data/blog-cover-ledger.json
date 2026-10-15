@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5509
+      "6": 5510
     },
-    "publishedCovers": 7090,
+    "publishedCovers": 7091,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5314
+    "inferredRecords": 5315
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -188632,6 +188632,33 @@
           "id": "rotte-greggio-kurdistan-lugano",
           "category": "novita",
           "date": "2026-10-15T05:08:36.599Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ruag-lockheed-accordo-f35a": {
+      "cover": "/images/blog/article-ruag-lockheed-accordo-f35a.webp",
+      "hash": "fd8abb09b50212f5b957862016b2c94b95457c0127c8feac7d1eb5f9bccb64a4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ruag-lockheed-accordo-f35a",
+          "category": "novita",
+          "date": "2026-10-15T20:58:18.366Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

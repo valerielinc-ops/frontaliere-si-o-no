@@ -28055,6 +28055,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ruag-lockheed-accordo-f35a',
+    category: 'novita',
+    date: '2026-10-15T20:58:18.366Z',
+    image: '/images/blog/article-ruag-lockheed-accordo-f35a.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['LU'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

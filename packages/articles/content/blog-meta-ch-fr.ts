@@ -8390,6 +8390,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.referendum-armi-sicurezza-svizzera.title': 'Exportations d\'armes et sécurité en Suisse : référendum le 29 novembre',
     'blog.article.referendum-armi-sicurezza-svizzera.excerpt': 'Le référendum sur la loi est prévu le 29 novembre 36 pays occidentaux auraient davantage de liberté d\'achat Le Conseil fédéral conserverait un veto',
     'blog.article.referendum-armi-sicurezza-svizzera.imageAlt': 'Travailleurs de l\'industrie de la défense suisse dans une usine avec le drapeau suisse',
+    'blog.article.ruag-lockheed-accordo-f35a.title': 'Accord entre RUAG et Lockheed Martin pour trois F-35A à Emmen',
+    'blog.article.ruag-lockheed-accordo-f35a.excerpt': 'RUAG MRO et Lockheed Martin poursuivent le projet RIGI Trois F-35A seront assemblés sur le site de RUAG à Emmen Les premiers composants sont attendus au premier semestre',
+    'blog.article.ruag-lockheed-accordo-f35a.imageAlt': 'Installation RUAG à l\'aéroport d\'Emmen avec des composants F-35A en cours d\'assemblage',
 };
 
 export default blogMetaChFr;

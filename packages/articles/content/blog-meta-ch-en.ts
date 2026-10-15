@@ -8390,6 +8390,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.referendum-armi-sicurezza-svizzera.title': 'Arms exports and security in Switzerland: referendum on November 29',
     'blog.article.referendum-armi-sicurezza-svizzera.excerpt': 'The referendum on the law is scheduled for November 29 36 Western countries would have greater purchasing freedom The Federal Council would retain a veto',
     'blog.article.referendum-armi-sicurezza-svizzera.imageAlt': 'Swiss defence industry workers in a factory with the Swiss flag',
+    'blog.article.ruag-lockheed-accordo-f35a.title': 'RUAG and Lockheed Martin agreement for three F-35As in Emmen',
+    'blog.article.ruag-lockheed-accordo-f35a.excerpt': 'RUAG MRO and Lockheed Martin continue the RIGI project Three F-35As will be assembled at the RUAG facility in Emmen The first components are expected in the first half',
+    'blog.article.ruag-lockheed-accordo-f35a.imageAlt': 'RUAG facility at Emmen airport with F-35A components being assembled',
 };
 
 export default blogMetaChEn;
