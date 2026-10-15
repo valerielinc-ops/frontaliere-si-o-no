@@ -171,10 +171,21 @@ describe('expanded plate-auction connectors', () => {
     expect(empty).toHaveLength(0);
     expect(isExplicitlyEmptyCatalogue(empty)).toBe(true);
 
+    const noLegacyContainers = `<form><label>Kontrollschildtyp</label><button>Suchen</button></form>
+      <p>Keine Ergebnisse f\u00fcr Ihre Suche.</p>`;
+    const emptyWithoutLegacyShell = parseZhAuctions(noLegacyContainers);
+    expect(emptyWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(emptyWithoutLegacyShell)).toBe(true);
+
     const unparsedCard = parseZhAuctions(`${ZH_EMPTY_SAMPLE}
       <a class="auction-element-link" href="/de/auction/99999">changed card markup</a>`);
     expect(unparsedCard).toHaveLength(0);
     expect(isExplicitlyEmptyCatalogue(unparsedCard)).toBe(false);
+
+    const unparsedCardWithoutLegacyShell = parseZhAuctions(`${noLegacyContainers}
+      <a class="auction-element-link" href="/de/auction/99998">changed card markup</a>`);
+    expect(unparsedCardWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(unparsedCardWithoutLegacyShell)).toBe(false);
   });
 
   it('keeps direct-sale and wanted tabs public even when price/deadline cells are absent', () => {
