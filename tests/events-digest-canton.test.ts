@@ -98,6 +98,20 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(decodeURIComponent('venue%2D%2Dseries')).toBe('venue--series');
   });
 
+  it('keeps a lone surrogate in an event id from aborting the producer', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'venue\uD800series',
+        title: 'Serie con id malformato',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+    expect(article.content.it.body2).toContain('<!-- digest-event:venue%EF%BF%BDseries -->');
+  });
+
   const gr = buildWeekendDigestArticle({ events: EVENTS, todayIso: TODAY, canton: 'GR' });
 
   it('uses the canton identity and counts only that canton weekend events', () => {
