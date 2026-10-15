@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "groups": {
     "10": [
       "atec-personal",
@@ -270,6 +270,7 @@
       "sfs-group",
       "sicpa",
       "spital-lachen",
+      "sympajobs-reinach-bl",
       "tertianum",
       "tinext",
       "trumpf-schweiz",
@@ -278,6 +279,7 @@
       "zuger-kantonsspital"
     ],
     "19": [
+      "agat",
       "alpiq",
       "bucher-suter",
       "convit-holding",
@@ -304,7 +306,6 @@
       "sulzer",
       "sune-egge",
       "swissquote",
-      "sympajobs-reinach-bl",
       "unibe",
       "vereinaklosters"
     ],
@@ -696,6 +697,7 @@
     "adullam": "data/jobs/by-crawler/adullam.json",
     "adus-klinik": "data/jobs/by-crawler/adus-klinik.json",
     "afry": "data/jobs/by-crawler/afry.json",
+    "agat": "data/jobs/by-crawler/agat.json",
     "agie-charmilles": "data/jobs/by-crawler/agie-charmilles.json",
     "agroscope": "data/jobs/by-crawler/agroscope.json",
     "ail-lugano": "data/jobs/by-crawler/ail-lugano.json",
@@ -1320,5 +1322,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:c6ac176e4df8c01a03c41d6c39eb23f982ca38602eb022ac9b54605ff3497e43"
+  "digest": "sha256:e43778eccb181d3214be6447835d97e5d412bd01d8b705de9f5eb8426e584338"
 }
