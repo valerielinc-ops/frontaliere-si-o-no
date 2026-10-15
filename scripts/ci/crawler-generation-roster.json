@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 633,
+  "crawlerCount": 634,
   "groups": {
     "10": [
       "atec-personal",
@@ -274,6 +274,7 @@
       "tinext",
       "trumpf-schweiz",
       "usi-universita-della-svizzera-italiana",
+      "wokin",
       "zermatt-bergbahnen",
       "zuger-kantonsspital"
     ],
@@ -1308,6 +1309,7 @@
     "vz-vermoegenszentrum": "data/jobs/by-crawler/vz-vermoegenszentrum.json",
     "wagerenhof": "data/jobs/by-crawler/wagerenhof.json",
     "weisse-arena": "data/jobs/by-crawler/weisse-arena.json",
+    "wokin": "data/jobs/by-crawler/wokin.json",
     "wuerth-international": "data/jobs/by-crawler/wuerth-international.json",
     "yapeal": "data/jobs/by-crawler/yapeal.json",
     "yellowshark": "data/jobs/by-crawler/yellowshark.json",
@@ -1320,5 +1322,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:265f9e182882411e8f2fff7880886381456bf5fdccf3e07b69498a37be659107"
+  "digest": "sha256:f722fe7a1bb2fe0e42f9684c1f9d1f8b64bc294944c656038b6599fc14c380d1"
 }
