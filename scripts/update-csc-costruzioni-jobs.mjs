@@ -46,6 +46,13 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+// NCore's listing/detail markup is shared with the Sintetica runner. Keep the
+// platform parser in one place while CSC-specific discovery and trust rules
+// remain local to this adapter.
+import {
+  parseListingPage as parseNcoreListingPage,
+  parseDetailPage as parseNcoreDetailPage,
+} from './lib/sintetica-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -71,6 +78,12 @@ const CSC_LIVE_STRUCTURE_SNAPSHOT = crawlerScratchPathFor(`${CSC_KEY}-live-struc
 const CSC_COMPANY_NAME = 'CSC Costruzioni SA';
 const CSC_HOST = 'csc-sa.ch';
 const CSC_CAREERS_URL = 'https://csc-sa.ch/lavoro-carriera-edilizia';
+const CSC_NCORE_HOST = 'app.ncoreplat.com';
+const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa';
+// NCore serves a short SPA shell to crawler-identifying UAs but the complete
+// server-rendered board/detail markup to a normal browser UA (same platform
+// contract used by the existing Sintetica adapter).
+const CSC_NCORE_BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -104,11 +117,70 @@ function decodeHref(value) {
 }
 
 /**
- * CSC emits three Drupal detail route families. Keep this allowlist local to
- * the adapter: broadening the shared classifier would make unrelated Drupal
- * nodes look like vacancies for every crawler.
+ * CSC emits several Drupal detail route families and now also an NCore tenant
+ * route. Keep both allowlists local to the adapter: broadening the shared
+ * classifier would make unrelated CMS/ATS nodes look like vacancies for
+ * every crawler.
  */
+function canonicalCscNcoreBoardUrl(value) {
+  let url;
+  try {
+    url = new URL(decodeHref(value), CSC_CAREERS_URL);
+  } catch {
+    return null;
+  }
+  if (
+    url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== CSC_NCORE_HOST
+    || url.port
+    || url.username
+    || url.password
+    || url.search
+    || url.hash
+  ) return null;
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname).replace(/\/+$/, '');
+  } catch {
+    return null;
+  }
+  if (pathname.toLowerCase() !== '/jobboard/filters/4321/csc-costruzioni-sa') return null;
+  url.pathname = pathname;
+  return url.href;
+}
+
+function canonicalCscNcoreDetailUrl(value) {
+  let url;
+  try {
+    url = new URL(decodeHref(value), CSC_NCORE_BOARD_URL);
+  } catch {
+    return null;
+  }
+  if (
+    url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== CSC_NCORE_HOST
+    || url.port
+    || url.username
+    || url.password
+    || url.search
+    || url.hash
+  ) return null;
+
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    return null;
+  }
+  if (!/^\/jobposition\/[1-9]\d*\/[^/]+\/csc-costruzioni-sa\/?$/i.test(pathname)) return null;
+  url.pathname = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  return url.href;
+}
+
 export function canonicalCscDetailUrl(value) {
+  const ncore = canonicalCscNcoreDetailUrl(value);
+  if (ncore) return ncore;
+
   let url;
   try {
     url = new URL(decodeHref(value), CSC_CAREERS_URL);
@@ -187,6 +259,33 @@ export function parseCscCareersPage(html) {
   }
 
   return { urls: [...urls], authoritativeEmpty: empty };
+}
+
+/**
+ * Parse the NCore board linked by the current CSC careers page. The generic
+ * NCore parser finds all jobposition links; this adapter accepts only the CSC
+ * tenant route, so unrelated NCore positions cannot enter the CSC slice.
+ */
+export function parseCscNcoreBoardPage(html) {
+  const listings = parseNcoreListingPage(String(html || ''));
+  const urls = [];
+  const seen = new Set();
+  for (const listing of listings) {
+    const canonical = canonicalCscNcoreDetailUrl(listing?.url);
+    if (!canonical || seen.has(canonical)) continue;
+    seen.add(canonical);
+    urls.push(canonical);
+  }
+
+  const plain = cscPlainText(html);
+  const authoritativeEmpty = urls.length === 0 && (
+    /\b(?:non ci sono|nessun[ao]?|non sono presenti)\b.{0,100}\b(?:offert[ae]|posizion[ei]|lavor[oi])\b/i.test(plain)
+    || /\b(?:there are no|no)\b.{0,100}\b(?:open )?(?:jobs?|positions?|vacancies)\b/i.test(plain)
+  );
+  if (!authoritativeEmpty && urls.length === 0) {
+    throw new Error('CSC discovery degraded: NCore job board exposed no verified CSC detail URLs.');
+  }
+  return { urls, authoritativeEmpty };
 }
 
 function readQuotedHtmlAttr(attrs, name) {
@@ -433,21 +532,43 @@ export function parseCscPrimaryJobDetail(html) {
   return { identity, nodeId: /^\d+$/.test(nodeId) ? nodeId : '', hasJobPosting: Boolean(jobPosting) };
 }
 
-export function isCscJobDetailHtml(html) {
+export function isCscJobDetailHtml(html, candidateUrl = '') {
   try {
-    return Boolean(parseCscPrimaryJobDetail(html));
+    return Boolean(
+      parseCscPrimaryJobDetail(html)
+      || (candidateUrl && parseCscNcoreJobDetail(html, candidateUrl)),
+    );
   } catch {
     return false;
   }
+}
+
+function parseCscNcoreJobDetail(html, candidateUrl) {
+  const canonical = canonicalCscNcoreDetailUrl(candidateUrl);
+  if (!canonical) return null;
+  const parsed = parseNcoreDetailPage(String(html || ''));
+  const title = String(parsed?.title || '').trim();
+  const body = String(parsed?.body || '').trim();
+  if (parsed?.closed || title.length < 6 || body.length < 100) return null;
+  const id = canonical.match(/\/jobposition\/([1-9]\d*)\//i)?.[1] || '';
+  if (!id) return null;
+  return { identity: `ncore-job:${id}`, nodeId: '', hasJobPosting: false };
 }
 
 async function fetchCscHtml(url, { fetchImpl, timeoutMs }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
+    const isNcore = (() => {
+      try { return new URL(url).hostname.toLowerCase() === CSC_NCORE_HOST; } catch { return false; }
+    })();
     const res = await fetchImpl(url, {
       signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+        'User-Agent': isNcore ? CSC_NCORE_BROWSER_UA : UA,
+      },
     });
     if (!res?.ok) throw new Error(`${url} returned HTTP ${res?.status ?? 'unknown'}`);
     const contentType = res.headers?.get?.('content-type');
@@ -485,6 +606,10 @@ function cscResponseMatchesCandidate(responseUrl, candidate) {
   return canonicalCscDetailUrl(url.href) === candidate;
 }
 
+function cscResponseMatchesBoard(responseUrl, candidate) {
+  return canonicalCscNcoreBoardUrl(responseUrl) === candidate;
+}
+
 export async function verifyCscDetailUrls(urls, options = {}) {
   const fetchImpl = options.fetchImpl || fetch;
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
@@ -500,7 +625,9 @@ export async function verifyCscDetailUrls(urls, options = {}) {
     if (!cscResponseMatchesCandidate(responseUrl, candidate)) {
       throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
     }
-    const detail = parseCscPrimaryJobDetail(html);
+    const detail = canonicalCscNcoreDetailUrl(candidate)
+      ? parseCscNcoreJobDetail(html, candidate)
+      : parseCscPrimaryJobDetail(html);
     if (!detail) {
       throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
     }
@@ -533,7 +660,32 @@ export async function fetchCscJobUrls(options = {}) {
   if (responseUrl !== CSC_CAREERS_URL) {
     throw new Error(`CSC discovery degraded: careers page redirected to ${responseUrl}.`);
   }
-  const discovery = parseCscCareersPage(html);
+  let discovery;
+  const hasDrupalWorkPositionView = /id=["']block-views-block-work-positions-work-positions-list["']/i.test(html);
+  if (hasDrupalWorkPositionView) {
+    discovery = parseCscCareersPage(html);
+  } else {
+    const boardUrl = (() => {
+      const hrefPattern = /\bhref\s*=\s*(["'])(.*?)\1/gi;
+      let match;
+      while ((match = hrefPattern.exec(html)) !== null) {
+        const canonical = canonicalCscNcoreBoardUrl(match[2]);
+        if (canonical) return canonical;
+      }
+      return null;
+    })();
+    if (!boardUrl) {
+      // Preserve the original, precise failure for a page that is neither the
+      // known Drupal source nor the linked NCore migration.
+      parseCscCareersPage(html);
+    }
+    console.log(`🔗 CSC careers source moved to NCore board: ${boardUrl}`);
+    const boardResponse = await fetchCscHtml(boardUrl, { fetchImpl, timeoutMs });
+    if (!cscResponseMatchesBoard(boardResponse.responseUrl, boardUrl)) {
+      throw new Error(`CSC discovery degraded: NCore board redirected to ${boardResponse.responseUrl}.`);
+    }
+    discovery = parseCscNcoreBoardPage(boardResponse.html);
+  }
   if (discovery.authoritativeEmpty) {
     console.log('ℹ️ CSC careers page explicitly reports zero open positions.');
     return discovery;
