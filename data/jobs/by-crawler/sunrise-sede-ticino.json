@@ -310,7 +310,8 @@
       ],
       "datePosted": "2026-09-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-14T21:18:28.673Z"
+      "crawledAt": "2026-10-14T21:18:28.673Z",
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Oerlikon Sternen",
@@ -1039,8 +1040,8 @@
       },
       "slugByLocale": {
         "it": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-communications-ag-fonds",
-        "en": "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds",
-        "de": "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds",
+        "en": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
+        "de": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
         "fr": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
       },
       "id": "sunrise-sede-ticino-1839b5eb2855",
@@ -1064,17 +1065,19 @@
       "crawledAt": "2026-10-14T21:18:34.560Z",
       "previousSlugsByLocale": {
         "en": [
-          "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+          "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds"
         ],
         "de": [
-          "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+          "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds"
         ],
         "it": [
           "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+        "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
+        "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds",
+        "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds"
       ]
     },
     {
@@ -1268,7 +1271,6 @@
         }
       },
       "firstSeenAt": "2026-09-27T15:15:21.282Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
       "crawledAt": "2026-10-14T21:18:36.522Z",
@@ -1360,8 +1362,7 @@
       ],
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-14T21:18:36.851Z",
-      "needsRetranslation": true
+      "crawledAt": "2026-10-14T21:18:36.851Z"
     },
     {
       "title": "Audio Technician Studio & MCR MySports 40%",

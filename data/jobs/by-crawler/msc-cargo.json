@@ -999,7 +999,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1014,7 +1013,25 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-04T21:27:32.138Z"
+      "firstSeenAt": "2026-10-04T21:27:32.138Z",
+      "previousSlugs": [
+        "responsabile-analisi-aziendale-retail-msc-group-geneva",
+        "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
+        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-analisi-aziendale-retail-msc-group-geneva",
+          "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
+          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+        ],
+        "de": [
+          "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva"
+        ],
+        "fr": [
+          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-1f1a72644d47",
