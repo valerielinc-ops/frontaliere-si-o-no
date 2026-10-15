@@ -11417,9 +11417,9 @@
     },
     {
       "id": "unispital-basel-07d0562abde3",
-      "slug": "study-coorindator-kardiologie-unispital-basel-ch",
+      "slug": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "study-coorindator-kardiologie-unispital-basel-ch",
+        "it": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
         "en": "study-coorindator-cardiology-universitatsspital-basel-basel",
         "de": "study-coordinator-kardiologie-unispital-basel-ch",
         "fr": "coordonateur-de-l-etude-cardiologie-universitatsspital-basel-basel"
@@ -11467,11 +11467,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "study-coordinator-kardiologie-unispital-basel-ch"
+          "study-coordinator-kardiologie-unispital-basel-ch",
+          "study-coorindator-kardiologie-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "study-coordinator-kardiologie-unispital-basel-ch"
+        "study-coordinator-kardiologie-unispital-basel-ch",
+        "study-coorindator-kardiologie-unispital-basel-ch"
       ],
       "firstSeenAt": "2026-10-14T21:24:36.351Z",
       "salaryMin": 62000,
@@ -11495,7 +11497,7 @@
         "de": "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "it": "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "en": "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
-        "fr": "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel"
+        "fr": "med-praxisassistantine-praxisassisantine-mpa-amb-sz-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",

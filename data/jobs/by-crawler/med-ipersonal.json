@@ -667,12 +667,12 @@
     },
     {
       "id": "med-ipersonal-42a8a3bcf659",
-      "slug": "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau",
+      "slug": "automotive-meccatronica-specialista-regione-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau",
       "slugByLocale": {
         "de": "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau",
-        "it": "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau",
-        "en": "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau",
-        "fr": "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau"
+        "it": "automotive-meccatronica-specialista-regione-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau",
+        "en": "automotive-mechatronics-specialist-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau",
+        "fr": "specialiste-mecatronique-automobile-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -726,7 +726,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:41:00.402Z"
+      "firstSeenAt": "2026-10-15T09:41:00.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau"
+        ],
+        "en": [
+          "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau"
+        ],
+        "fr": [
+          "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "automobil-mechatroniker-region-bremgarten-ag-ipersonal-ag-bremgarten-ag-aargau"
+      ]
     },
     {
       "id": "med-ipersonal-d5e1b516acc8",
@@ -797,8 +811,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-muri-ag-ipersonal-ag-muri-ag-aargau",
         "it": "installatore-trice-elettrico-a-region-muri-ag-ipersonal-ag-muri-ag-aargau",
-        "en": "elektroinstallateur-region-muri-ag-ipersonal-ag-muri-ag-aargau",
-        "fr": "elektroinstallateur-region-muri-ag-ipersonal-ag-muri-ag-aargau"
+        "en": "electrical-installer-region-muri-ag-ipersonal-ag-muri-ag-aargau",
+        "fr": "installation-electrique-region-muri-ag-ipersonal-ag-muri-ag-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -843,6 +857,12 @@
         "it": [
           "elektroinstallateur-region-muri-ag-ipersonal-ag-muri-ag-aargau",
           "installatore-trice-elettrico-a-region-muri-ag-ipersonal-ag-muri-ag"
+        ],
+        "en": [
+          "elektroinstallateur-region-muri-ag-ipersonal-ag-muri-ag-aargau"
+        ],
+        "fr": [
+          "elektroinstallateur-region-muri-ag-ipersonal-ag-muri-ag-aargau"
         ]
       },
       "previousSlugs": [

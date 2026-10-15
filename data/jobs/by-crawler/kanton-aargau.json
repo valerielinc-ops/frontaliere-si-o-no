@@ -5547,12 +5547,12 @@
     },
     {
       "id": "kanton-aargau-2b15592aba6f",
-      "slug": "mittelschullehrperson-saxophon-50-kanton-aargau-ch",
+      "slug": "scuola-secondaria-saxophone-50-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "mittelschullehrperson-saxophon-50-kanton-aargau-ch",
-        "it": "mittelschullehrperson-saxophon-50-kanton-aargau-ch",
-        "en": "mittelschullehrperson-saxophon-50-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-saxophon-50-kanton-aargau-ch"
+        "it": "scuola-secondaria-saxophone-50-kanton-aargau-aarau",
+        "en": "secondary-school-teacher-saxophone-50-kanton-aargau-aarau",
+        "fr": "saxophone-enseignant-de-l-ecole-secondaire-50-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5613,16 +5613,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:27:21.324Z"
+      "firstSeenAt": "2026-10-15T09:27:21.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mittelschullehrperson-saxophon-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-saxophon-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mittelschullehrperson-saxophon-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mittelschullehrperson-saxophon-50-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-0b7b52da0645",
-      "slug": "prorektorin-prorektor-50-kanton-aargau-ch",
+      "slug": "prorector-prorector-50-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "prorektorin-prorektor-50-kanton-aargau-ch",
-        "it": "prorektorin-prorektor-50-kanton-aargau-ch",
+        "it": "prorector-prorector-50-kanton-aargau-aarau",
         "en": "prorektorin-prorektor-50-kanton-aargau-ch",
-        "fr": "prorektorin-prorektor-50-kanton-aargau-ch"
+        "fr": "prorecteur-prorecteur-50-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5683,7 +5697,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:26:45.992Z"
+      "firstSeenAt": "2026-10-15T09:26:45.992Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prorektorin-prorektor-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "prorektorin-prorektor-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "prorektorin-prorektor-50-kanton-aargau-ch"
+      ]
     }
   ]
 }

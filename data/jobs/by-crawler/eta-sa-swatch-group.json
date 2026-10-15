@@ -42,7 +42,7 @@
       "slugByLocale": {
         "it": "risorse-umane-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd6",
         "en": "hr-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd6",
-        "de": "personalwesen-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd6",
+        "de": "hr-business-unit-manager-100-vor-ort-schweizer-uhrenmanufaktur-eta-sa-eta-sa-swatch-group-2540-grenchen",
         "fr": "ressources-humaines-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd6"
       },
       "requirementsByLocale": {
@@ -57,10 +57,14 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+        ],
+        "de": [
+          "personalwesen-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd6"
         ]
       },
       "previousSlugs": [
-        "hr-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+        "hr-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
+        "personalwesen-business-unit-manager-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd6"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
