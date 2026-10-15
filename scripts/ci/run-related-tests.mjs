@@ -123,6 +123,17 @@ const socialRobotClosurePaths = new Set([
   'scripts/load-rc-env.mjs',
 ]);
 const sourceTreeLintTests = new Map([
+  // The pruner is executed in a disposable subprocess, never imported into
+  // Vitest (importing it would execute cleanup). These are real runtime/read
+  // dependencies that the static import graph cannot infer from path.join.
+  ...[
+    'tests/pruner-isolation.test.ts',
+    'tests/worktree-prune-signals.test.ts',
+    'tests/prune-merged-worktrees-e2e.test.ts',
+    'tests/prune-merged-worktrees-proofs-e2e.test.ts',
+    'tests/prune-merged-worktrees-corpus-e2e.test.ts',
+    'tests/prune-merged-worktrees-expiry-e2e.test.ts',
+  ].map((test) => [test, /^scripts\/prune-merged-worktrees\.mjs$/]),
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
   // `consent-shown-at-signup` discovers signup writers by reading every file
