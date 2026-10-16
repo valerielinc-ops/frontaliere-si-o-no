@@ -58,6 +58,9 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(publisher).not.toMatch(/--depth=1 "\$PUSH_URL" \\\n\s+"refs\/heads\//);
     expect(publisher).toContain("git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'");
     expect(publisher).toContain('refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}');
+    expect(publisher).toContain(
+      'node scripts/ci/reconcile-data-refresh-main.mjs \\\n    --compat \\\n    --base "$merge_base"',
+    );
     expect(publisher).toContain('reconcile_compat_ref "$COMPAT_REFRESH_BASE" "$REFRESH_COMMIT"');
     expect(publisher).toContain('reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main');
     // A real merge needs the ancestry of both sides on the runner.

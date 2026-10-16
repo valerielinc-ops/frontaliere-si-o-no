@@ -219,6 +219,7 @@ compat_merge_base() {
 reconcile_compat_ref() {
   local merge_base="$1" theirs="$2"
   node scripts/ci/reconcile-data-refresh-main.mjs \
+    --compat \
     --base "$merge_base" --main "$theirs" --message "$COMMIT_MESSAGE"
 }
 
