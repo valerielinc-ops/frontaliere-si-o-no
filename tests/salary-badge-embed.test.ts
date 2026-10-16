@@ -105,6 +105,17 @@ describe('static embed widget files', () => {
     expect(html.length).toBeLessThan(50 * 1024);
   });
 
+  it('currency-widget.html has one self-referencing canonical and stays noindex,follow', () => {
+    const html = fs.readFileSync(path.join(embedDir, 'currency-widget.html'), 'utf-8');
+    const canonicals = html.match(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/gi) ?? [];
+
+    expect(canonicals).toHaveLength(1);
+    expect(canonicals[0]).toMatch(
+      /href=["']https:\/\/frontaliereticino\.ch\/embed\/currency-widget\.html["']/i,
+    );
+    expect(html).toContain('<meta name="robots" content="noindex,follow">');
+  });
+
   it('embed gallery index documents all three widgets', () => {
     const html = fs.readFileSync(path.join(embedDir, 'index.html'), 'utf-8');
     expect(html).toContain('salary-badge.html');
