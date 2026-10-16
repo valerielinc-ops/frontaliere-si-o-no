@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T23:53:20.131Z",
+  "generatedAt": "2026-10-16T01:56:51.369Z",
   "totalEvents": 13716,
   "events": [
     {
@@ -131658,7 +131658,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La visita guidata illustra Bellinzona e la sua storia, seguendo un itinerario dall’Infopoint fino a Castelgrande. Il percorso dura circa due ore e si svolge con l’accompagnamento di una guida.",
+      "descriptionByLocale": {
+        "it": "La visita guidata illustra Bellinzona e la sua storia, seguendo un itinerario dall’Infopoint fino a Castelgrande. Il percorso dura circa due ore e si svolge con l’accompagnamento di una guida.",
+        "en": "The guided tour introduces Bellinzona and its history, following a route from the Infopoint to Castelgrande. It lasts about two hours and is conducted by a guide.",
+        "de": "Die Führung stellt Bellinzona und seine Geschichte vor und folgt einer Route vom Infopoint bis zum Castelgrande. Der Rundgang dauert ungefähr zwei Stunden und wird von einer Führungsperson geleitet.",
+        "fr": "La visite guidée présente Bellinzona et son histoire en suivant un itinéraire de l’Infopoint au Castelgrande. Elle dure environ deux heures et est menée par un guide."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3caa0811b8f248d096090c3fc0db19dd",
@@ -139662,7 +139670,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento sportivo è dedicato al tiro con l’arco 3D nell’ambito dei Campionati svizzeri FAAS. Si svolge al Cioss Prato di Bedretto, nel Cantone Ticino.",
+      "descriptionByLocale": {
+        "it": "L’evento sportivo è dedicato al tiro con l’arco 3D nell’ambito dei Campionati svizzeri FAAS. Si svolge al Cioss Prato di Bedretto, nel Cantone Ticino.",
+        "en": "This sports event is devoted to 3D archery as part of the FAAS Swiss Championships. It is held at Cioss Prato in Bedretto, in the canton of Ticino.",
+        "de": "Die Sportveranstaltung widmet sich dem 3D-Bogenschiessen im Rahmen der FAAS-Schweizermeisterschaften. Sie findet im Cioss Prato in Bedretto im Kanton Tessin statt.",
+        "fr": "Cette manifestation sportive est consacrée au tir à l’arc 3D dans le cadre des championnats suisses FAAS. Elle se déroule au Cioss Prato, à Bedretto, dans le canton du Tessin."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:traces-vegetaux",
@@ -144036,7 +144052,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è dedicato ai viaggi e si riferisce alla Giornata dei Castelli Svizzeri. È indicato in Svizzera, senza una località specificata, nel cantone di Obvaldo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è dedicato ai viaggi e si riferisce alla Giornata dei Castelli Svizzeri. È indicato in Svizzera, senza una località specificata, nel cantone di Obvaldo.",
+        "en": "The event is dedicated to travel and is identified as Swiss Castles Day. It is listed for Switzerland without a specified locality, in the canton of Obwalden.",
+        "de": "Die Veranstaltung widmet sich dem Reisen und ist als Schweizer Schlössertag bezeichnet. Sie ist für die Schweiz ohne Ortsangabe im Kanton Obwalden verzeichnet.",
+        "fr": "Cet événement est consacré aux voyages et est identifié comme la Journée des Châteaux Suisses. Il est indiqué en Suisse, sans localité précisée, dans le canton d’Obwald."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63889",
@@ -144964,7 +144988,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un appuntamento di musica comica con Judith Bach, alla La Cappella di Alle. Nel suo terzo programma solista, Claire interpreta canzoni che ama, suona il pianoforte e annuncia di voler diventare svizzera.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento di musica comica con Judith Bach, alla La Cappella di Alle. Nel suo terzo programma solista, Claire interpreta canzoni che ama, suona il pianoforte e annuncia di voler diventare svizzera.",
+        "en": "This comedy-music event with Judith Bach takes place at La Cappella in Alle. In her third solo programme, Claire performs songs she loves, plays the piano and announces that she wants to become Swiss.",
+        "de": "Die komödiantische Musikveranstaltung mit Judith Bach findet in der La Cappella in Alle statt. Claire präsentiert ihr drittes Soloprogramm mit Lieblingsliedern und Klavierpassagen und spricht über ihren Wunsch, Schweizerin zu werden.",
+        "fr": "Ce rendez-vous de musique comique avec Judith Bach a lieu à La Cappella, à Alle. Dans son troisième programme solo, Claire interprète des chansons qu’elle aime, joue du piano et annonce son souhait de devenir suisse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e5cbe3b99f964c4c941e564ddbeb359f",
@@ -146701,7 +146733,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento consiste in un gioco a indizi in bicicletta, svolto a squadre nella regione di Ginevra. Inserito nel programma di Octobre Rose, combina un’attività sportiva con il sostegno alla lotta contro il cancro al seno e prevede una quota di partecipazione di 15 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento consiste in un gioco a indizi in bicicletta, svolto a squadre nella regione di Ginevra. Inserito nel programma di Octobre Rose, combina un’attività sportiva con il sostegno alla lotta contro il cancro al seno e prevede una quota di partecipazione di 15 CHF.",
+        "en": "The event is a team-based cycling treasure hunt held in Geneva. As part of Octobre Rose, it connects a sporting activity with support for breast cancer efforts and has a participation fee of CHF 15.",
+        "de": "Die Veranstaltung ist eine Fahrradrallye mit Hinweisen, die in Teams in Genf stattfindet. Im Zusammenhang mit «Octobre Rose» verbindet sie eine sportliche Aktivität mit der Unterstützung des Kampfs gegen Brustkrebs; die Teilnahme kostet 15 CHF.",
+        "fr": "Cette activité propose un jeu de piste à vélo en équipe dans la région genevoise. Associée à Octobre Rose, elle soutient la lutte contre le cancer du sein et prévoit un tarif de 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c2246440b43c4b1ebe24b7ceae44c000",
@@ -146871,7 +146911,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un appuntamento musicale proposto nella Chiesa di Santa Croce a Vacallo, nel Mendrisiotto. Il programma combina esecuzioni all’organo, immagini proiettate e testi letti, con ingresso gratuito.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento musicale proposto nella Chiesa di Santa Croce a Vacallo, nel Mendrisiotto. Il programma combina esecuzioni all’organo, immagini proiettate e testi letti, con ingresso gratuito.",
+        "en": "This music event takes place at the Chiesa di Santa Croce in Vacallo, in the Mendrisiotto region. Its format brings together organ music, projected images and spoken texts, with free admission.",
+        "de": "Die musikalische Veranstaltung findet in der Chiesa di Santa Croce in Vacallo im Mendrisiotto statt. Zum Programm gehören Orgelmusik, projizierte Bilder und vorgetragene Texte; der Eintritt ist frei.",
+        "fr": "Cette manifestation musicale se déroule à la Chiesa di Santa Croce, à Vacallo, dans le Mendrisiotto. Elle associe de la musique d’orgue, des images projetées et des textes lus, avec une entrée gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c08b2ef848f840679738695bbb80c875",
@@ -150380,7 +150428,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il workshop esplora la metamatematica e l’incontro tra indagine matematica e riflessione filosofica. Tra i temi figurano codifica, notazione, dimostrabilità e verità; l’evento si tiene presso USI Campus Est Lugano, a Lugano, nel Luganese.",
+      "descriptionByLocale": {
+        "it": "Il workshop esplora la metamatematica e l’incontro tra indagine matematica e riflessione filosofica. Tra i temi figurano codifica, notazione, dimostrabilità e verità; l’evento si tiene presso USI Campus Est Lugano, a Lugano, nel Luganese.",
+        "en": "This workshop examines metamathematics and the links between mathematical and philosophical inquiry. Its subject matter includes coding, notation, provability and truth, and the event takes place at USI Campus Est Lugano in Lugano, in the Luganese region.",
+        "de": "Der Workshop widmet sich der Metamathematik und dem Verhältnis zwischen mathematischer und philosophischer Untersuchung. Zu den behandelten Begriffen gehören Kodierung, Notation, Beweisbarkeit und Wahrheit; die Veranstaltung findet am USI Campus Est Lugano in Lugano im Luganese statt.",
+        "fr": "Cet atelier porte sur la métamathématique et sur les liens entre réflexion mathématique et réflexion philosophique. Zu den notions abordées figurent le codage, la notation, la démontrabilité et la vérité; l’événement a lieu à USI Campus Est Lugano, à Lugano, dans le Luganese."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AvZ5Ygq",
@@ -170849,7 +170905,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo incontro mette al centro Maria Roth-Bernasconi e Philippe Roch, presentati come figure politiche di Lancy. L’appuntamento si svolge a Lancy, nel cantone di Ginevra, è gratuito ed è organizzato da Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "Questo incontro mette al centro Maria Roth-Bernasconi e Philippe Roch, presentati come figure politiche di Lancy. L’appuntamento si svolge a Lancy, nel cantone di Ginevra, è gratuito ed è organizzato da Ville de Genève Agenda.",
+        "en": "This conference-style meeting focuses on Maria Roth-Bernasconi and Philippe Roch, presented as political figures from Lancy. It takes place in Lancy, in the canton of Geneva, is free of charge and is organized by Ville de Genève Agenda.",
+        "de": "Bei diesem Gespräch stehen Maria Roth-Bernasconi und Philippe Roch als politische Persönlichkeiten aus Lancy im Mittelpunkt. Die Veranstaltung findet in Lancy im Kanton Genf statt, ist kostenlos und wird von Ville de Genève Agenda organisiert.",
+        "fr": "Cette rencontre de type conférence présente Maria Roth-Bernasconi et Philippe Roch comme des figures politiques lancéannes. Elle se déroule à Lancy, dans le canton de Genève, est gratuite et est organisée par Ville de Genève Agenda."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AxP7yqe",
@@ -173725,7 +173789,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento consiste in un percorso nel centro storico di Aarau. Aarau è indicata come sede e comune della manifestazione.",
+      "descriptionByLocale": {
+        "it": "L’evento consiste in un percorso nel centro storico di Aarau. Aarau è indicata come sede e comune della manifestazione.",
+        "en": "The event is a walk through the old town of Aarau. Aarau is listed as both the venue and the municipality.",
+        "de": "Die Veranstaltung ist ein Rundgang durch die Altstadt von Aarau. Aarau ist sowohl als Veranstaltungsort als auch als Gemeinde angegeben.",
+        "fr": "Le rendez-vous consiste en un parcours dans la vieille ville d’Aarau. Aarau figure à la fois comme lieu et comme commune de l’événement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:336ec6e764694c75b913bc5a98ce475c",
@@ -173924,7 +173996,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La manifestazione sportiva si svolge in Piazza Grande a Locarno e propone corse lungo le rive del Lago Maggiore. Il fine settimana unisce sport e momenti di relax nel contesto autunnale del Ticino ed è rivolto a tutti.",
+      "descriptionByLocale": {
+        "it": "La manifestazione sportiva si svolge in Piazza Grande a Locarno e propone corse lungo le rive del Lago Maggiore. Il fine settimana unisce sport e momenti di relax nel contesto autunnale del Ticino ed è rivolto a tutti.",
+        "en": "The sports event takes place at Piazza Grande in Locarno and includes runs along the shores of Lake Maggiore. The weekend combines sporting activity with relaxation in Ticino’s autumn setting and is intended for everyone.",
+        "de": "Die Sportveranstaltung findet auf der Piazza Grande in Locarno statt und umfasst Läufe entlang des Lago Maggiore. Das Wochenende verbindet Sport und Erholung mit der herbstlichen Landschaft des Tessins und richtet sich an alle.",
+        "fr": "Cette manifestation sportive se tient sur la Piazza Grande à Locarno et comprend des courses le long du lac Majeur. Le week-end associe sport et détente dans le cadre automnal du Tessin et s’adresse à tout le monde."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:34927dd4ee9f483ca33f7afa0e553fff",
@@ -174513,7 +174593,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "BandXOst Quali 2026 è un evento di musica rock presso Dä 3. Stock - Kultur hoch 3, a Herisau. Vi partecipano 54 act e band, che riuniscono complessivamente 153 musicisti.",
+      "descriptionByLocale": {
+        "it": "BandXOst Quali 2026 è un evento di musica rock presso Dä 3. Stock - Kultur hoch 3, a Herisau. Vi partecipano 54 act e band, che riuniscono complessivamente 153 musicisti.",
+        "en": "BandXOst Quali 2026 is a rock event at Dä 3. Stock - Kultur hoch 3 in Herisau. The participating line-up comprises 54 acts and bands, with 153 musicians in total.",
+        "de": "BandXOst Quali 2026 ist eine Rockveranstaltung im Dä 3. Stock - Kultur hoch 3 in Herisau. Insgesamt gehören 153 Musiker:innen zu den 54 teilnehmenden Acts und Bands.",
+        "fr": "BandXOst Quali 2026 est un événement rock au Dä 3. Stock - Kultur hoch 3, à Herisau. Les 54 acts et groupes participants comptent au total 153 musicien·nes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8280be71abc7475ebc5d674ebccff32f",
@@ -174843,7 +174931,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A La Tour-de-Peilz si svolge un evento dedicato alla brisolée, specialità tradizionale del Vallese. Il programma comprende vino, mosto, vino nuovo, musica, corni delle Alpi e un gruppo folk.",
+      "descriptionByLocale": {
+        "it": "A La Tour-de-Peilz si svolge un evento dedicato alla brisolée, specialità tradizionale del Vallese. Il programma comprende vino, mosto, vino nuovo, musica, corni delle Alpi e un gruppo folk.",
+        "en": "La Tour-de-Peilz hosts an event centred on brisolée, a traditional speciality from Valais. The programme includes wine, grape must, new wine, music, Alpine horns and a folk group.",
+        "de": "In La Tour-de-Peilz findet eine Veranstaltung rund um die Brisolée statt, eine traditionelle Spezialität aus dem Wallis. Zum Programm gehören Wein, Traubenmost, neuer Wein, Musik, Alphörner und eine Volksmusikgruppe.",
+        "fr": "La Tour-de-Peilz accueille un événement consacré à la brisolée, une spécialité traditionnelle du Valais. Le programme réunit du vin, du moût, du vin nouveau, de la musique, des cors des Alpes et un groupe folklorique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0509b176d4b840d3bbbb8417a9e4fbd4",
@@ -175241,7 +175337,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio gratuito a Ginevra è la riunione mensile del comitato cittadino della Caisse genevoise de l'alimentation. L'incontro è aperto anche alle persone curiose e sarà seguito da un pranzo.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio gratuito a Ginevra è la riunione mensile del comitato cittadino della Caisse genevoise de l'alimentation. L'incontro è aperto anche alle persone curiose e sarà seguito da un pranzo.",
+        "en": "This free workshop in Geneva is the monthly meeting of the citizen committee of the Caisse genevoise de l'alimentation. It is also open to curious participants, with lunch scheduled afterwards.",
+        "de": "Dieses kostenlose Atelier in Genf ist die monatliche Sitzung des Bürgerkomitees der Caisse genevoise de l'alimentation. Die Veranstaltung steht auch interessierten Personen offen; im Anschluss findet ein Mittagessen statt.",
+        "fr": "Cet atelier gratuit à Genève correspond à la réunion mensuelle du comité citoyen de la Caisse genevoise de l'alimentation. La rencontre est également ouverte aux personnes curieuses et prévoit ensuite un déjeuner."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AyUXuEh",
@@ -175635,7 +175739,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "L’appuntamento musicale si svolge alla Badi-Lounge di Frutigen. La serata è dedicata a Steve Hophead e alla presentazione dell’album «Drift Away»; l’ingresso costa 25 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale si svolge alla Badi-Lounge di Frutigen. La serata è dedicata a Steve Hophead e alla presentazione dell’album «Drift Away»; l’ingresso costa 25 CHF.",
+        "en": "This music event takes place at Badi-Lounge in Frutigen. The programme centres on Steve Hophead and the album “Drift Away”, with admission priced at CHF 25.",
+        "de": "Die Musikveranstaltung findet in der Badi-Lounge in Frutigen statt. Im Mittelpunkt stehen Steve Hophead und die Veröffentlichung des Albums «Drift Away»; der Eintritt kostet 25 CHF.",
+        "fr": "Ce rendez-vous musical a lieu à la Badi-Lounge, à Frutigen. Il est consacré à Steve Hophead et à la sortie de l’album « Drift Away »; l’entrée est fixée à 25 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64047",
@@ -177445,7 +177557,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento al Mercato coperto di Bellinzona propone un mercatino dedicato ad abiti di seconda mano, oggetti, accessori, articoli vintage e pezzi da collezione. Sono inoltre previsti vinili, fumetti, un bar, una zona relax, food truck e intrattenimento musicale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento al Mercato coperto di Bellinzona propone un mercatino dedicato ad abiti di seconda mano, oggetti, accessori, articoli vintage e pezzi da collezione. Sono inoltre previsti vinili, fumetti, un bar, una zona relax, food truck e intrattenimento musicale.",
+        "en": "The event at the covered market in Bellinzona is a second-hand market featuring clothing, objects, accessories, vintage items and collectibles. Vinyl records and comics are also listed, together with a bar, a relaxation area, food trucks and musical entertainment.",
+        "de": "Die Veranstaltung im überdachten Markt von Bellinzona ist ein Secondhandmarkt mit Kleidung, Gegenständen, Accessoires, Vintage-Artikeln und Sammlerstücken. Angeboten werden außerdem Schallplatten und Comics sowie eine Bar, ein Erholungsbereich, Foodtrucks und musikalische Unterhaltung.",
+        "fr": "Le rendez-vous au marché couvert de Bellinzone propose un marché de seconde main avec des vêtements, des objets, des accessoires, des articles vintage et des pièces de collection. Des vinyles et des bandes dessinées sont également annoncés, ainsi qu’un bar, un espace de détente, des food trucks et une animation musicale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a1deca4b45ed451e84721a324a09534a",
@@ -178618,7 +178738,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Studio Foce, a Lugano, è prevista una serata di musica elettronica dedicata a Ivreatronic. Il DJ set riunisce Enea Pascal, Marco Foresta e Leonar, con influenze che spaziano tra rave, tribal, progressive, UK, breaks, electro e ambient.",
+      "descriptionByLocale": {
+        "it": "A Studio Foce, a Lugano, è prevista una serata di musica elettronica dedicata a Ivreatronic. Il DJ set riunisce Enea Pascal, Marco Foresta e Leonar, con influenze che spaziano tra rave, tribal, progressive, UK, breaks, electro e ambient.",
+        "en": "Studio Foce in Lugano hosts an electronic-music event centred on Ivreatronic. The DJ set features Enea Pascal, Marco Foresta and Leonar, with influences ranging from rave and tribal styles to progressive, UK, breaks, electro and ambient.",
+        "de": "Im Studio Foce in Lugano findet eine Veranstaltung für elektronische Musik rund um Ivreatronik statt. Das DJ-Set mit Enea Pascal, Marco Foresta und Leonar verbindet Einflüsse aus Rave, Tribal, Progressive, UK, Breaks, Electro und Ambient.",
+        "fr": "Le Studio Foce de Lugano accueille une soirée de musique électronique autour d’Ivréatronique. Le DJ set réunit Enea Pascal, Marco Foresta et Leonar et parcourt des influences rave, tribales, progressives, UK, breaks, electro et ambient."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AF8ZqCr",
@@ -179158,7 +179286,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nel convento dei Cappuccini di Soletta si svolge un’attività che combina colazione e realizzazione di candele. L’incontro offre un momento creativo in un contesto storico.",
+      "descriptionByLocale": {
+        "it": "Nel convento dei Cappuccini di Soletta si svolge un’attività che combina colazione e realizzazione di candele. L’incontro offre un momento creativo in un contesto storico.",
+        "en": "At Solothurn’s Capuchin monastery, the event combines breakfast with candle making. It offers a creative activity in a historic monastery setting.",
+        "de": "Im Kapuzinerkloster Solothurn verbindet die Veranstaltung ein Frühstück mit dem Giessen von Kerzen. Sie bietet einen kreativen Ausgleich in einem historischen Kloster.",
+        "fr": "Au couvent des Capucins de Soleure, l’événement associe un petit-déjeuner à la confection de bougies. Il propose une activité créative dans un cadre monastique historique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8039f836b6714892880d8cd51a97b3c5",
@@ -180005,7 +180141,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale è dedicato ad Agatha Christie e ne ripercorre il percorso letterario, i principali successi e alcuni personaggi celebri, tra cui Hercule Poirot e Miss Marple. L’appuntamento si tiene alla Sala Parco San Rocco di Coldrerio, nel Mendrisiotto, con ingresso gratuito e prenotazione necessaria.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale è dedicato ad Agatha Christie e ne ripercorre il percorso letterario, i principali successi e alcuni personaggi celebri, tra cui Hercule Poirot e Miss Marple. L’appuntamento si tiene alla Sala Parco San Rocco di Coldrerio, nel Mendrisiotto, con ingresso gratuito e prenotazione necessaria.",
+        "en": "This theatre production focuses on Agatha Christie, tracing her literary career, major successes and well-known characters such as Hercule Poirot and Miss Marple. It takes place at Sala Parco San Rocco in Coldrerio, in the Mendrisiotto region; admission is free, and advance reservation is required.",
+        "de": "Die Theateraufführung widmet sich Agatha Christie und zeichnet ihre literarische Laufbahn, ihre Erfolge sowie bekannte Figuren wie Hercule Poirot und Miss Marple nach. Sie findet in der Sala Parco San Rocco in Coldrerio im Mendrisiotto statt; der Eintritt ist kostenlos, eine Reservierung ist erforderlich.",
+        "fr": "Ce spectacle théâtral est consacré à Agatha Christie et revient sur son parcours littéraire, ses succès ainsi que sur des personnages connus comme Hercule Poirot et Miss Marple. Il se déroule à la Sala Parco San Rocco, à Coldrerio, dans le Mendrisiotto ; l’entrée est gratuite et une réservation est nécessaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bfad710300eb4706a7959664b891f42a",
@@ -182933,7 +183077,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "«Salsa Party» è un evento ricorrente all’Utopia Club di Aarau, nel cantone di Argovia, con un riferimento alla salsa e a un workshop. Utopia Club Aarau è indicato come organizzatore, mentre Workshop Rayos de Sol è menzionato in relazione all’evento. L’ingresso non è gratuito, secondo le informazioni relative a questo appuntamento ricorrente.",
+      "descriptionByLocale": {
+        "it": "«Salsa Party» è un evento ricorrente all’Utopia Club di Aarau, nel cantone di Argovia, con un riferimento alla salsa e a un workshop. Utopia Club Aarau è indicato come organizzatore, mentre Workshop Rayos de Sol è menzionato in relazione all’evento. L’ingresso non è gratuito, secondo le informazioni relative a questo appuntamento ricorrente.",
+        "en": "“Salsa Party” is a recurring event held at Utopia Club in Aarau, in the canton of Aargau, with a salsa focus and a workshop. Utopia Club Aarau is listed as the organiser, while Workshop Rayos de Sol is named in connection with the event. Admission is not free, according to the details for this recurring event.",
+        "de": "«Salsa Party» ist eine wiederkehrende Veranstaltung im Utopia Club in Aarau, im Kanton Aargau, mit Salsa-Bezug und einem Workshop. Utopia Club Aarau ist als Veranstalter angegeben, während Workshop Rayos de Sol im Zusammenhang mit dem Event genannt wird. Der Eintritt ist laut den Angaben zu dieser wiederkehrenden Veranstaltung nicht kostenlos und damit kostenpflichtig.",
+        "fr": "«Salsa Party» est un événement récurrent à l’Utopia Club d’Aarau, dans le canton d’Argovie, en lien avec la salsa et un atelier. Utopia Club Aarau est indiqué comme organisateur, tandis que Workshop Rayos de Sol est mentionné en lien avec l’événement. L’entrée est payante selon les informations relatives à cet événement récurrent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d082dca1dea24551bcbae40458ddcb71",
@@ -183281,7 +183433,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento offre ai bambini tra i quattro e gli otto anni un primo approccio alla cura e alla conoscenza degli animali. L’attività si svolge presso il Domaine Notre-Dame de la Route, nel comune di Villars-sur-Glâne, nel cantone di Friburgo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento offre ai bambini tra i quattro e gli otto anni un primo approccio alla cura e alla conoscenza degli animali. L’attività si svolge presso il Domaine Notre-Dame de la Route, nel comune di Villars-sur-Glâne, nel cantone di Friburgo.",
+        "en": "This event gives children aged four to eight an introductory opportunity to learn about caring for and discovering animals. It takes place at Le Domaine Notre-Dame de la Route in Villars-sur-Glâne, in the canton of Fribourg.",
+        "de": "Die Veranstaltung richtet sich an Kinder im Alter von vier bis acht Jahren und vermittelt einen ersten Zugang zur Pflege und zum Kennenlernen von Tieren. Sie findet beim Domaine Notre-Dame de la Route in Villars-sur-Glâne im Kanton Freiburg statt.",
+        "fr": "Cette activité propose aux enfants de quatre à huit ans une première approche des soins et de la découverte des animaux. Elle a lieu au Domaine Notre-Dame de la Route, à Villars-sur-Glâne, dans le canton de Fribourg."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:soiree-ouverture",
@@ -187631,7 +187791,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Farm & Food Day - Hasle-Mühle è un evento gratuito dedicato all’agricoltura biologica sostenibile nell’Emmental. A Burgdorf sono previste visite dell’azienda agricola, cibo, bevande e attività.",
+      "descriptionByLocale": {
+        "it": "Il Farm & Food Day - Hasle-Mühle è un evento gratuito dedicato all’agricoltura biologica sostenibile nell’Emmental. A Burgdorf sono previste visite dell’azienda agricola, cibo, bevande e attività.",
+        "en": "Farm & Food Day - Hasle-Mühle is a free event focused on sustainable organic farming in the Emmental. In Burgdorf, it includes farm tours, food and drinks, and activities.",
+        "de": "Der Farm & Food Day von Hasle-Mühle ist eine kostenlose Veranstaltung zur nachhaltigen biologischen Landwirtschaft im Emmental. In Burgdorf gehören Betriebsführungen, Essen und Getränke sowie Aktivitäten zum Angebot.",
+        "fr": "Le Farm & Food Day de Hasle-Mühle est un événement gratuit consacré à l’agriculture biologique durable dans l’Emmental. À Burgdorf, il comprend des visites de l’exploitation, de la nourriture, des boissons et des activités."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63586",
@@ -190215,7 +190383,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Semaine Olympique è un appuntamento ricorrente dedicato a ragazze e ragazzi dai 6 ai 15 anni. A Losanna offre più di 40 attività gratuite dedicate allo sport e alla cultura.",
+      "descriptionByLocale": {
+        "it": "Semaine Olympique è un appuntamento ricorrente dedicato a ragazze e ragazzi dai 6 ai 15 anni. A Losanna offre più di 40 attività gratuite dedicate allo sport e alla cultura.",
+        "en": "Semaine Olympique is a recurring event for young people aged 6 to 15. Held in Lausanne, it offers more than 40 free activities related to sport and culture.",
+        "de": "Die Semaine Olympique ist eine wiederkehrende Veranstaltung für junge Menschen im Alter von 6 bis 15 Jahren. In Lausanne umfasst sie mehr als 40 kostenlose Sport- und Kulturangebote.",
+        "fr": "La Semaine Olympique est un rendez-vous récurrent destiné aux jeunes de 6 à 15 ans. À Lausanne, elle propose plus de 40 activités gratuites liées au sport et à la culture."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:93805",
@@ -190637,7 +190813,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è una tombola autunnale organizzata da SFG Roveredo. Si svolge presso la Palestra in Riva, nel canton Grigioni.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è una tombola autunnale organizzata da SFG Roveredo. Si svolge presso la Palestra in Riva, nel canton Grigioni.",
+        "en": "This event is an autumn tombola organised by SFG Roveredo. It takes place at Palestra in Riva in the canton of Graubünden.",
+        "de": "Die Veranstaltung ist eine Herbsttombola, die von SFG Roveredo organisiert wird. Sie findet in der Palestra in Riva im Kanton Graubünden statt.",
+        "fr": "Cet événement est une tombola d’automne organisée par SFG Roveredo. Il a lieu à la Palestra in Riva, dans le canton des Grisons."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:transformations",
@@ -191228,7 +191412,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento musicale è dedicato a YAIMA. Si svolge alla Salle Communal de Perdtemps, a Nyon.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale è dedicato a YAIMA. Si svolge alla Salle Communal de Perdtemps, a Nyon.",
+        "en": "This musical event presents YAIMA. It is held at Salle Communal de Perdtemps in Nyon.",
+        "de": "Die musikalische Veranstaltung stellt YAIMA vor. Sie findet in der Salle Communal de Perdtemps in Nyon statt.",
+        "fr": "Ce rendez-vous musical présente YAIMA. Il se déroule à la Salle Communal de Perdtemps, à Nyon."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:yamma-teiman",
@@ -607814,7 +608006,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il programma riunisce concerti per pianoforte di Bartók, Saint-Saëns, Rachmaninov, Liszt, Chopin e Beethoven. Questo concerto conclusivo del Concours Géza Anda si tiene alla Tonhalle di Zurigo.",
+      "descriptionByLocale": {
+        "it": "Il programma riunisce concerti per pianoforte di Bartók, Saint-Saëns, Rachmaninov, Liszt, Chopin e Beethoven. Questo concerto conclusivo del Concours Géza Anda si tiene alla Tonhalle di Zurigo.",
+        "en": "The programme presents piano concertos by Bartók, Saint-Saëns, Rachmaninoff, Liszt, Chopin and Beethoven. This final concert of the Géza Anda Competition takes place at Tonhalle in Zürich.",
+        "de": "Zum Programm gehören Klavierkonzerte von Bartók, Saint-Saëns, Rachmaninow, Liszt, Chopin und Beethoven. Das Abschlusskonzert des Géza-Anda-Wettbewerbs findet in der Tonhalle in Zürich statt.",
+        "fr": "Le programme réunit des concertos pour piano de Bartók, Saint-Saëns, Rachmaninov, Liszt, Chopin et Beethoven. Ce concert de clôture du Concours Géza Anda se déroule à la Tonhalle de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f9bb153d5f6146499fb04fd6b69d3b1d",
@@ -611986,7 +612186,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il festival musicale si svolge all’aperto a Hauteville, nel cantone di Friburgo, sulle rive del lago della Gruyère. Tra gli artisti figurano Napalm Death e Six Feet Under.",
+      "descriptionByLocale": {
+        "it": "Il festival musicale si svolge all’aperto a Hauteville, nel cantone di Friburgo, sulle rive del lago della Gruyère. Tra gli artisti figurano Napalm Death e Six Feet Under.",
+        "en": "This music festival is an open-air event in Hauteville, in the canton of Fribourg, on the shores of Lake Gruyère. The programme features Napalm Death and Six Feet Under.",
+        "de": "Das Musikfestival findet unter freiem Himmel in Hauteville im Kanton Freiburg am Greyerzersee statt. Zum Programm gehören Napalm Death und Six Feet Under.",
+        "fr": "Ce festival de musique en plein air se déroule à Hauteville, dans le canton de Fribourg, au bord du lac de la Gruyère. Sa programmation comprend Napalm Death et Six Feet Under."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f449c77281624708ae9014cda92e1f98",
@@ -612659,7 +612867,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è una matinée dedicata alla musica da camera. Si svolge alla Tonhalle di Zurigo, nel cantone di Zurigo.",
+      "descriptionByLocale": {
+        "it": "L’evento è una matinée dedicata alla musica da camera. Si svolge alla Tonhalle di Zurigo, nel cantone di Zurigo.",
+        "en": "This event is a chamber-music matinee. It takes place at Tonhalle in Zurich, in the canton of Zurich.",
+        "de": "Die Veranstaltung ist eine Matinee mit Kammermusik. Sie findet in der Tonhalle in Zürich im Kanton Zürich statt.",
+        "fr": "L’événement est une matinée consacrée à la musique de chambre. Il se déroule à la Tonhalle de Zurich, dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:83a55625f85149c79c5dc3bcc9d9d31d",
@@ -614146,7 +614362,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il festival porta la musica classica internazionale a Saanen e si svolge in varie sedi. Il programma comprende oltre 60 concerti con artisti affermati e talenti emergenti.",
+      "descriptionByLocale": {
+        "it": "Il festival porta la musica classica internazionale a Saanen e si svolge in varie sedi. Il programma comprende oltre 60 concerti con artisti affermati e talenti emergenti.",
+        "en": "The festival presents international classical music in Saanen at various venues. Its programme includes more than 60 concerts with established artists and emerging talent.",
+        "de": "Das Festival widmet sich in Saanen der internationalen klassischen Musik und nutzt verschiedene Spielorte. Zum Programm gehören mehr als 60 Konzerte mit etablierten Künstlern und Nachwuchstalenten.",
+        "fr": "Le festival présente de la musique classique internationale à Saanen, dans plusieurs lieux. Il réunit plus de 60 concerts avec des artistes confirmés et des talents émergents."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b314a80a00fb4848bf000a8df3a1ca13",
@@ -615038,7 +615262,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento si svolge presso l’Office du Tourisme de Moléson, a Moléson-sur-Gruyères. Propone un appuntamento serale dedicato al cielo estivo e all’atmosfera notturna del Moléson.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge presso l’Office du Tourisme de Moléson, a Moléson-sur-Gruyères. Propone un appuntamento serale dedicato al cielo estivo e all’atmosfera notturna del Moléson.",
+        "en": "This event takes place at the Office du Tourisme de Moléson in Moléson-sur-Gruyères. It presents an evening setting associated with Le Moléson and the summer sky.",
+        "de": "Die Veranstaltung findet beim Office du Tourisme de Moléson in Moléson-sur-Gruyères statt. Sie verbindet die nächtliche Atmosphäre des Moléson mit dem sommerlichen Himmel.",
+        "fr": "L’événement se déroule à l’Office du Tourisme de Moléson, à Moléson-sur-Gruyères. Il met en relation le cadre nocturne du Moléson avec le ciel d’été."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fc1c1320433e4595b7ed427703ed4bd9",
@@ -615605,7 +615837,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "A Eggersriet, Sur Le Lac ospita un appuntamento musicale. L’edizione celebra il ventennale di Sur Le Lac.",
+      "descriptionByLocale": {
+        "it": "A Eggersriet, Sur Le Lac ospita un appuntamento musicale. L’edizione celebra il ventennale di Sur Le Lac.",
+        "en": "Sur Le Lac in Eggersriet is the venue for this music event. The edition marks twenty years of Sur Le Lac.",
+        "de": "In Eggersriet ist Sur Le Lac als Veranstaltungsort eines Musikevents angegeben. Die Ausgabe erinnert an 20 Jahre Sur Le Lac.",
+        "fr": "À Eggersriet, Sur Le Lac est indiqué comme lieu d’un événement musical. Cette édition correspond au vingtième anniversaire de Sur Le Lac."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b4d3830a8df743a7b03ec22a19cb7222",
@@ -618545,7 +618785,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone un pasto condiviso presso l’Alterszentrum Weihermatt di Urdorf, nel cantone di Zurigo. L’iniziativa valorizza il piacere di mangiare insieme come alternativa al cucinare e mangiare ogni giorno da soli.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un pasto condiviso presso l’Alterszentrum Weihermatt di Urdorf, nel cantone di Zurigo. L’iniziativa valorizza il piacere di mangiare insieme come alternativa al cucinare e mangiare ogni giorno da soli.",
+        "en": "This event offers a shared meal at the Alterszentrum Weihermatt in Urdorf, in the canton of Zurich. It highlights the enjoyment of eating together as an alternative to preparing and eating every day alone.",
+        "de": "Die Veranstaltung ist ein gemeinsames Essen im Alterszentrum Weihermatt in Urdorf im Kanton Zürich. Im Mittelpunkt stehen das gemeinsame Geniessen und die Möglichkeit, nicht jeden Tag allein zu kochen und zu essen.",
+        "fr": "Cet événement propose un repas partagé à l’Alterszentrum Weihermatt, à Urdorf, dans le canton de Zurich. Il met en avant le plaisir de manger ensemble plutôt que de cuisiner et de manger seul chaque jour."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cc9e93722d8b4dac98af1da65970bfb0",
@@ -618848,7 +619096,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il corso di base si svolge a Coira. Offre una visione d’insieme della Bündner Landeskirche.",
+      "descriptionByLocale": {
+        "it": "Il corso di base si svolge a Coira. Offre una visione d’insieme della Bündner Landeskirche.",
+        "en": "This basic course takes place in Chur. It presents an overview of the Bündner Landeskirche.",
+        "de": "Der Basiskurs findet in Chur statt. Er vermittelt einen Überblick über die Bündner Landeskirche.",
+        "fr": "Ce cours de base a lieu à Coire. Il donne une vue d’ensemble de la Bündner Landeskirche."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f88be8321888454f8d26ff7605e084a0",
@@ -626280,7 +626536,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento presenta un’edizione artistica legata al vino della città di Baden. Il nome dell’artista sarà reso noto durante l’evento, che prevede una degustazione e uno spuntino gratuiti.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta un’edizione artistica legata al vino della città di Baden. Il nome dell’artista sarà reso noto durante l’evento, che prevede una degustazione e uno spuntino gratuiti.",
+        "en": "The event presents an art edition connected with Baden’s city wine. The artist’s name will be announced during the event, which includes a free tasting and snack.",
+        "de": "Die Veranstaltung präsentiert eine Kunstedition zum Stadtwein von Baden. Die beteiligte Kunstschaffende oder der beteiligte Kunstschaffende wird erst während der Veranstaltung genannt; eine Degustation und ein Imbiss sind kostenlos.",
+        "fr": "Le rendez-vous présente une édition artistique liée au vin de la ville de Baden. Le nom de l’artiste sera communiqué pendant l’événement, qui comprend une dégustation et une collation gratuites."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:35535d9715d14cd293e996e88d951685",
