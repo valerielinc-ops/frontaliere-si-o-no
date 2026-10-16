@@ -194,6 +194,30 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).not.toContain('noindex');
   });
 
+  it('keeps the pagination-index H1 distinct when the archive title is over the brand budget', () => {
+    const archiveTitle = 'Same Heading Text '.repeat(5).trim();
+    const html = buildPaginationIndexHtml({
+      locale: 'it',
+      basePath: '/cerca-lavoro-ticino/tutti/',
+      indexPage: 1,
+      totalPages: 15,
+      totalItems: 1500,
+      archiveTitle,
+      archiveDescription: 'Archivio completo delle offerte di lavoro.',
+      parentPath: '/cerca-lavoro-ticino/',
+      parentLabel: 'Cerca lavoro in Ticino',
+      dateStamp: '2026-10-16',
+    });
+    const title = html.match(/<title>([^<]*)<\/title>/i)?.[1];
+    const h1 = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1];
+
+    expect(title).toBeTruthy();
+    expect(h1).toBeTruthy();
+    expect(title).not.toBe(h1);
+    expect(h1).toContain('Pagine 1–15 dell\'archivio');
+    expect(h1).toContain(archiveTitle);
+  });
+
   it('routes emitted page indexes but not article indexes', () => {
     expect(isSeoHubPath('/cerca-lavoro-ticino/tutti/page-index-1/')).toBe(true);
     expect(isSeoHubPath('/cerca-lavoro-ticino/tutti/page-1200/')).toBe(true);
