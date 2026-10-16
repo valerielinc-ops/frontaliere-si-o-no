@@ -1053,6 +1053,68 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
     expect(body).toContain('terminal_exit=143');
   });
 
+  it('keeps the timeout terminal when the worker publishes success after the deadline', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-terminal-race-'));
+    const binDir = path.join(temp, 'bin');
+    fs.mkdirSync(binDir);
+    for (const name of ['bash', 'cat', 'env', 'mkdir', 'mv', 'nohup', 'rm', 'sleep']) {
+      const source = process.env.PATH?.split(path.delimiter)
+        .map((directory) => path.join(directory, name))
+        .find((candidate) => {
+          try {
+            fs.accessSync(candidate, fs.constants.X_OK);
+            return true;
+          } catch {
+            return false;
+          }
+        });
+      if (!source) throw new Error(`missing test executable: ${name}`);
+      fs.symlinkSync(source, path.join(binDir, name));
+    }
+    fs.writeFileSync(
+      path.join(binDir, 'timeout'),
+      [
+        '#!/usr/bin/env bash',
+        'while [[ "${1:-}" == --* ]]; do shift; done',
+        'shift',
+        '"$@" &',
+        'exit 124',
+        '',
+      ].join('\n'),
+      { mode: 0o755 },
+    );
+
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'timeout-race',
+      durationMs: 60_000,
+      runStep: { env: {}, run: 'sleep 0.2; true' },
+      postSteps: [],
+    } as any, 23);
+
+    try {
+      execFileSync('bash', ['-e', '-c', body], {
+        env: { ...process.env, PATH: binDir, RUNNER_TEMP: temp },
+        encoding: 'utf8',
+      });
+
+      const stateDir = path.join(temp, 'crawler-generation', 'group-23');
+      const statusFile = path.join(stateDir, 'timeout-race.status');
+      const workerStatusFile = path.join(stateDir, 'timeout-race.worker.status');
+      const deadline = Date.now() + 5_000;
+      while (!fs.existsSync(statusFile) && Date.now() < deadline) {
+        execFileSync('sleep', ['0.05']);
+      }
+      // The timeout shim returns immediately while the worker remains alive;
+      // let its delayed success publication happen after the terminal write.
+      execFileSync('sleep', ['0.3']);
+      expect(fs.readFileSync(statusFile, 'utf8')).toBe('124\n');
+      expect(fs.readFileSync(workerStatusFile, 'utf8')).toBe('0\n');
+      expect(body).toContain('resolveCrawlerTerminalStatus() {');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
   it('derives a bounded worker watchdog from the target override or duration baseline', () => {
     expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 60 })).toBe(70);
     expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 320 })).toBe(330);
