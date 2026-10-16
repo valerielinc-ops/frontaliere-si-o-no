@@ -682,6 +682,9 @@ try {
 if (!credits || typeof credits !== 'object' || Array.isArray(credits)) {
   fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
 }
+if (typeof credits.commit !== 'string') {
+  fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
 if (credits.commit !== manifest.commit) {
   failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
 }
