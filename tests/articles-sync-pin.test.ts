@@ -437,7 +437,9 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
     const wrapper = fs.readFileSync(path.join(ROOT, 'scripts', 'ci', 'pull-articles-surface.mjs'), 'utf-8');
     expect(wrapper).toContain("runPull('pull-articles-corpus.mjs'");
     expect(wrapper).toContain("runPull('pull-articles-api.mjs'");
-    expect(wrapper).toContain('retryArticleSyncOnMovement');
+    expect(wrapper).toContain("retryableSnapshot: outputs['retryable-snapshot'] === 'true'");
+    expect(wrapper).toContain("reason: outputs['retry-reason'] || outputs['skip-reason']");
+    expect(wrapper).toContain('retryArticleSyncPair');
     expect(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'articles-sync-retry.mjs'), 'utf-8'))
       .toContain('MAX_ARTICLE_SYNC_ATTEMPTS = 3');
   });

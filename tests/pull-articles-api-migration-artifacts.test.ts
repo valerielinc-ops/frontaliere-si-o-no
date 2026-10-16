@@ -416,7 +416,11 @@ function makeCheckout(opts: {
  * hang forever waiting for a server that cannot answer. That deadlock is silent
  * — it looks exactly like a slow test — so it is worth the comment.
  */
-function run(cwd: string, args: string[] = []): Promise<{ code: number | null; out: string }> {
+function run(
+  cwd: string,
+  args: string[] = [],
+  extraEnv: Record<string, string> = {},
+): Promise<{ code: number | null; out: string }> {
   return new Promise((resolve) => {
     const child = spawn(process.execPath, [SCRIPT, ...args], {
       cwd,
@@ -426,6 +430,7 @@ function run(cwd: string, args: string[] = []): Promise<{ code: number | null; o
         // The sandbox exports a proxy; the fixture server is loopback.
         NO_PROXY: '127.0.0.1,localhost',
         no_proxy: '127.0.0.1,localhost',
+        ...extraEnv,
       },
     });
     let out = '';
@@ -870,13 +875,74 @@ describe('pull-articles-api: generated cover evidence', () => {
     manifest.files[BLOG_CREDITS_PATH] += 1;
     routes['manifest.json'] = JSON.stringify(manifest);
     const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
 
-    const { code, out } = await run(dir);
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
 
     expect(code).toBe(1);
     expect(out).toContain(`${BLOG_CREDITS_PATH} byte count differs from manifest`);
+    const outputs = fs.readFileSync(outputFile, 'utf8');
+    expect(outputs).toContain('retryable-snapshot=true\n');
+    expect(outputs).not.toContain('retry-reason=');
     expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
     expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('does not retry a structurally invalid blog index as a snapshot race', async () => {
+    routes = routesWithCredits(JSON.stringify({ schema: 2, section: 'blog', commit: API_COMMIT, generated: {} }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('does not retry a blog index whose commit pin is missing', async () => {
+    routes = routesWithCredits(JSON.stringify({ schema: 1, section: 'blog', generated: {} }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} has an invalid JSON contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('does not retry a stale commit pin when the rest of the blog contract is invalid', async () => {
+    routes = routesWithCredits(JSON.stringify({ commit: 'other' }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).not.toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('marks a valid blog index pinned to another commit as a retryable snapshot mismatch', async () => {
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: 'f'.repeat(40),
+      generated: {},
+    }));
+    const dir = makeCheckout();
+    const outputFile = path.join(dir, 'github-output');
+
+    const { code, out } = await run(dir, [], { GITHUB_OUTPUT: outputFile });
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} does not match the pinned blog-index contract`);
+    expect(fs.readFileSync(outputFile, 'utf8')).toContain('retryable-snapshot=true');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
   });
 
   it('skips the complete staged batch when the release moves before the final manifest check', async () => {

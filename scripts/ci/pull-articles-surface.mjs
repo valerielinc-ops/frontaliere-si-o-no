@@ -2,7 +2,8 @@
 
 /**
  * Pull the corpus and its published HTTP artifacts as one pinned pair.
- * A moving manifest retries both pulls from the new commit, up to a fixed cap.
+ * A moving manifest or a mismatched artifact snapshot retries both pulls, up to
+ * a fixed cap.
  */
 
 import { spawn } from 'node:child_process';
@@ -11,7 +12,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { retryArticleSyncOnMovement } from '../lib/articles-sync-retry.mjs';
+import { retryArticleSyncPair } from '../lib/articles-sync-retry.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const REQUIRE_SUCCESS = process.argv.includes('--require-success');
@@ -67,7 +68,8 @@ function runPull(scriptName, { attempt, commit = null }) {
       resolve({
         exitCode: exitCode ?? 1,
         skipped: outputs.skipped === 'true',
-        reason: outputs['skip-reason'],
+        reason: outputs['retry-reason'] || outputs['skip-reason'],
+        retryableSnapshot: outputs['retryable-snapshot'] === 'true',
         commit: env.ARTICLES_SYNC_COMMIT || null,
       });
     };
@@ -86,7 +88,7 @@ function runPull(scriptName, { attempt, commit = null }) {
 }
 
 try {
-  const result = await retryArticleSyncOnMovement({
+  const result = await retryArticleSyncPair({
     runCorpus: ({ attempt }) => runPull('pull-articles-corpus.mjs', { attempt }),
     runApi: ({ attempt, commit }) => runPull('pull-articles-api.mjs', { attempt, commit }),
     onRetry: ({ nextAttempt, reason }) => {
