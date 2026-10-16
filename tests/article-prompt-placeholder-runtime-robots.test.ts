@@ -9,7 +9,8 @@ import { t } from '../services/i18n';
 
 const { updateMetaTags } = await vi.importActual<typeof import('../services/seoService')>('../services/seoService');
 
-const PLACEHOLDER_ARTICLE = 'como-fai-giornate-autunno';
+const PLACEHOLDER_ARTICLE = 'runtime-localized-placeholder-robots';
+const HEALTHY_ARTICLE = 'como-fai-giornate-autunno';
 const BODY4_PLACEHOLDER_ARTICLE = 'runtime-body4-placeholder-test';
 
 beforeEach(() => {
@@ -27,6 +28,13 @@ async function updateArticleRobots(locale: Locale): Promise<string> {
  await loadAllLocaleChunks(locale);
  setLocale(locale);
  await loadBlogMeta('frontaliere');
+ const placeholderKey = `blog.article.${PLACEHOLDER_ARTICLE}.`;
+ mergeArticleMetaOverlay(locale, {
+  [`${placeholderKey}title`]: 'Localized placeholder test article',
+  [`${placeholderKey}excerpt`]: 'Stable fixture for placeholder robots coverage.',
+  [`${placeholderKey}imageAlt`]: 'Placeholder test fixture',
+  [`${placeholderKey}body1`]: '...',
+ });
  const route: AppRoute = {
  activeTab: 'blog',
  blogArticle: PLACEHOLDER_ARTICLE,
@@ -72,7 +80,7 @@ describe('article prompt-placeholder robots protection after SEO hydration', () 
  expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).not.toContain('noindex');
  });
 
- it.each(['en', 'de', 'fr'] as const)('keeps the placeholder article noindex in %s', async (locale) => {
+ it.each(['en', 'de', 'fr'] as const)('keeps a localized placeholder noindex in %s', async (locale) => {
  expect(await updateArticleRobots(locale)).toBe('noindex, follow');
  });
 
@@ -80,9 +88,9 @@ describe('article prompt-placeholder robots protection after SEO hydration', () 
  await loadAllLocaleChunks('it');
  setLocale('it');
  await loadBlogMeta('frontaliere');
- const route: AppRoute = { activeTab: 'blog', blogArticle: 'como-fai-giornate-autunno' };
+ const route: AppRoute = { activeTab: 'blog', blogArticle: HEALTHY_ARTICLE };
  window.history.replaceState({}, '', buildPath(route, 'it'));
- await updateMetaTags(`blog-${PLACEHOLDER_ARTICLE}`);
+ await updateMetaTags(`blog-${HEALTHY_ARTICLE}`);
 
  const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content') || '';
  expect(robots).toContain('index');
