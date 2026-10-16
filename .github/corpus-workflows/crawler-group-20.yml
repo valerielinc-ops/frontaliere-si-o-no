@@ -2042,7 +2042,7 @@ jobs:
           pid_path="$state_dir/supsi.pid"
           status_path="$state_dir/supsi.status"
           started_path="$state_dir/supsi.started"
-          watchdog_path="$state_dir/supsi.watchdog"
+          watchdog_path="$state_dir/supsi-dti.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/supsi-dti.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -2129,7 +2129,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-20/supsi.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-20/supsi.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-20/supsi.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-20/supsi.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-20/supsi-dti.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-94}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2241,7 +2241,7 @@ jobs:
           pid_path="$state_dir/pizzarotti.pid"
           status_path="$state_dir/pizzarotti.status"
           started_path="$state_dir/pizzarotti.started"
-          watchdog_path="$state_dir/pizzarotti.watchdog"
+          watchdog_path="$state_dir/impresa-pizzarotti.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/impresa-pizzarotti.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -2328,7 +2328,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-20/pizzarotti.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-20/pizzarotti.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-20/pizzarotti.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-20/pizzarotti.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-20/impresa-pizzarotti.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-87}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5627,7 +5627,7 @@ jobs:
           pid_path="$state_dir/ist.pid"
           status_path="$state_dir/ist.status"
           started_path="$state_dir/ist.started"
-          watchdog_path="$state_dir/ist.watchdog"
+          watchdog_path="$state_dir/international-school-of-ticino.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/international-school-of-ticino.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -5714,7 +5714,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-20/ist.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-20/ist.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-20/ist.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-20/ist.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-20/international-school-of-ticino.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-80}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7612,6 +7612,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7640,7 +7641,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7651,35 +7652,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'ottos'
-          aggregate_crawler_member 'kliniken-valens'
-          aggregate_crawler_member 'klinik-lengg'
-          aggregate_crawler_member 'strabag'
-          aggregate_crawler_member 'rfsm-fribourg'
-          aggregate_crawler_member 'vontobel'
-          aggregate_crawler_member 'medics-labor'
-          aggregate_crawler_member 'igroove'
-          aggregate_crawler_member 'zambon'
-          aggregate_crawler_member 'supsi'
-          aggregate_crawler_member 'pizzarotti'
-          aggregate_crawler_member 'privatklinik-meiringen'
-          aggregate_crawler_member 'stryker'
-          aggregate_crawler_member 'accor'
-          aggregate_crawler_member 'ocst'
-          aggregate_crawler_member 'visionapartments'
-          aggregate_crawler_member 'ksb'
-          aggregate_crawler_member 'clinique-de-la-plaine'
-          aggregate_crawler_member 'givaudan'
-          aggregate_crawler_member 'georg-fischer'
-          aggregate_crawler_member 'klinik-wyssholzli'
-          aggregate_crawler_member 'institution-lavigny'
-          aggregate_crawler_member 'buergenstock-hotels'
-          aggregate_crawler_member 'bcvs'
-          aggregate_crawler_member 'hrc'
-          aggregate_crawler_member 'arxada'
-          aggregate_crawler_member 'adus-klinik'
-          aggregate_crawler_member 'ist'
-          aggregate_crawler_member 'proman-fleurier'
+          aggregate_crawler_member 'ottos' 'ottos'
+          aggregate_crawler_member 'kliniken-valens' 'kliniken-valens'
+          aggregate_crawler_member 'klinik-lengg' 'klinik-lengg'
+          aggregate_crawler_member 'strabag' 'strabag'
+          aggregate_crawler_member 'rfsm-fribourg' 'rfsm-fribourg'
+          aggregate_crawler_member 'vontobel' 'vontobel'
+          aggregate_crawler_member 'medics-labor' 'medics-labor'
+          aggregate_crawler_member 'igroove' 'igroove'
+          aggregate_crawler_member 'zambon' 'zambon'
+          aggregate_crawler_member 'supsi' 'supsi-dti'
+          aggregate_crawler_member 'pizzarotti' 'impresa-pizzarotti'
+          aggregate_crawler_member 'privatklinik-meiringen' 'privatklinik-meiringen'
+          aggregate_crawler_member 'stryker' 'stryker'
+          aggregate_crawler_member 'accor' 'accor'
+          aggregate_crawler_member 'ocst' 'ocst'
+          aggregate_crawler_member 'visionapartments' 'visionapartments'
+          aggregate_crawler_member 'ksb' 'ksb'
+          aggregate_crawler_member 'clinique-de-la-plaine' 'clinique-de-la-plaine'
+          aggregate_crawler_member 'givaudan' 'givaudan'
+          aggregate_crawler_member 'georg-fischer' 'georg-fischer'
+          aggregate_crawler_member 'klinik-wyssholzli' 'klinik-wyssholzli'
+          aggregate_crawler_member 'institution-lavigny' 'institution-lavigny'
+          aggregate_crawler_member 'buergenstock-hotels' 'buergenstock-hotels'
+          aggregate_crawler_member 'bcvs' 'bcvs'
+          aggregate_crawler_member 'hrc' 'hrc'
+          aggregate_crawler_member 'arxada' 'arxada'
+          aggregate_crawler_member 'adus-klinik' 'adus-klinik'
+          aggregate_crawler_member 'ist' 'international-school-of-ticino'
+          aggregate_crawler_member 'proman-fleurier' 'proman-fleurier'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

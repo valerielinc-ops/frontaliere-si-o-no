@@ -2443,7 +2443,7 @@ jobs:
           pid_path="$state_dir/michel-gruppe.pid"
           status_path="$state_dir/michel-gruppe.status"
           started_path="$state_dir/michel-gruppe.started"
-          watchdog_path="$state_dir/michel-gruppe.watchdog"
+          watchdog_path="$state_dir/michel-gruppe-ag.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/michel-gruppe-ag.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -2530,7 +2530,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/michel-gruppe-ag.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4036,7 +4036,7 @@ jobs:
           pid_path="$state_dir/axpo.pid"
           status_path="$state_dir/axpo.status"
           started_path="$state_dir/axpo.started"
-          watchdog_path="$state_dir/axpo.watchdog"
+          watchdog_path="$state_dir/axpo-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/axpo-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -4123,7 +4123,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/axpo.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-11/axpo.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/axpo.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/axpo.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/axpo-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4434,7 +4434,7 @@ jobs:
           pid_path="$state_dir/amag.pid"
           status_path="$state_dir/amag.status"
           started_path="$state_dir/amag.started"
-          watchdog_path="$state_dir/amag.watchdog"
+          watchdog_path="$state_dir/amag-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/amag-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -4521,7 +4521,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/amag.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-11/amag.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/amag.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/amag.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/amag-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4633,7 +4633,7 @@ jobs:
           pid_path="$state_dir/a-plus-plus-group.pid"
           status_path="$state_dir/a-plus-plus-group.status"
           started_path="$state_dir/a-plus-plus-group.started"
-          watchdog_path="$state_dir/a-plus-plus-group.watchdog"
+          watchdog_path="$state_dir/a-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/a-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -4720,7 +4720,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-11/a-plus-plus-group.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-11/a-plus-plus-group.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-11/a-plus-plus-group.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/a-plus-plus-group.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-11/a-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7613,6 +7613,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7641,7 +7642,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7652,35 +7653,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'rehab-basel'
-          aggregate_crawler_member 'luks'
-          aggregate_crawler_member 'swiss-re'
-          aggregate_crawler_member 'spitex-ch'
-          aggregate_crawler_member 'pictet'
-          aggregate_crawler_member 'nord-anglia'
-          aggregate_crawler_member 'spital-thurgau'
-          aggregate_crawler_member 'klinik-siloah'
-          aggregate_crawler_member 'tecan'
-          aggregate_crawler_member 'novelis'
-          aggregate_crawler_member 'hornbach'
-          aggregate_crawler_member 'michel-gruppe'
-          aggregate_crawler_member 'jysk'
-          aggregate_crawler_member 'hess-carrosserie'
-          aggregate_crawler_member 'hilcona'
-          aggregate_crawler_member 'msc-cargo'
-          aggregate_crawler_member 'crr-suva-sion'
-          aggregate_crawler_member 'clienia-ag'
-          aggregate_crawler_member 'igs-bern'
-          aggregate_crawler_member 'axpo'
-          aggregate_crawler_member 'ardentis'
-          aggregate_crawler_member 'amag'
-          aggregate_crawler_member 'a-plus-plus-group'
-          aggregate_crawler_member 'stellenpartner'
-          aggregate_crawler_member 'apply'
-          aggregate_crawler_member 'see-spital'
-          aggregate_crawler_member 'bls'
-          aggregate_crawler_member 'cnp'
-          aggregate_crawler_member 'tpl-lugano'
+          aggregate_crawler_member 'rehab-basel' 'rehab-basel'
+          aggregate_crawler_member 'luks' 'luks'
+          aggregate_crawler_member 'swiss-re' 'swiss-re'
+          aggregate_crawler_member 'spitex-ch' 'spitex-ch'
+          aggregate_crawler_member 'pictet' 'pictet'
+          aggregate_crawler_member 'nord-anglia' 'nord-anglia'
+          aggregate_crawler_member 'spital-thurgau' 'spital-thurgau'
+          aggregate_crawler_member 'klinik-siloah' 'klinik-siloah'
+          aggregate_crawler_member 'tecan' 'tecan'
+          aggregate_crawler_member 'novelis' 'novelis'
+          aggregate_crawler_member 'hornbach' 'hornbach'
+          aggregate_crawler_member 'michel-gruppe' 'michel-gruppe-ag'
+          aggregate_crawler_member 'jysk' 'jysk'
+          aggregate_crawler_member 'hess-carrosserie' 'hess-carrosserie'
+          aggregate_crawler_member 'hilcona' 'hilcona'
+          aggregate_crawler_member 'msc-cargo' 'msc-cargo'
+          aggregate_crawler_member 'crr-suva-sion' 'crr-suva-sion'
+          aggregate_crawler_member 'clienia-ag' 'clienia-ag'
+          aggregate_crawler_member 'igs-bern' 'igs-bern'
+          aggregate_crawler_member 'axpo' 'axpo-group'
+          aggregate_crawler_member 'ardentis' 'ardentis'
+          aggregate_crawler_member 'amag' 'amag-group'
+          aggregate_crawler_member 'a-plus-plus-group' 'a-group'
+          aggregate_crawler_member 'stellenpartner' 'stellenpartner'
+          aggregate_crawler_member 'apply' 'apply'
+          aggregate_crawler_member 'see-spital' 'see-spital'
+          aggregate_crawler_member 'bls' 'bls'
+          aggregate_crawler_member 'cnp' 'cnp'
+          aggregate_crawler_member 'tpl-lugano' 'tpl-lugano'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

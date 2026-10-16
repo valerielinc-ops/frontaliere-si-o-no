@@ -649,7 +649,7 @@ jobs:
           pid_path="$state_dir/kempinski.pid"
           status_path="$state_dir/kempinski.status"
           started_path="$state_dir/kempinski.started"
-          watchdog_path="$state_dir/kempinski.watchdog"
+          watchdog_path="$state_dir/grand-hotel-des-bains-kempinski.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/grand-hotel-des-bains-kempinski.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -736,7 +736,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/kempinski.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-05/grand-hotel-des-bains-kempinski.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-138}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1644,7 +1644,7 @@ jobs:
           pid_path="$state_dir/mendrisio.pid"
           status_path="$state_dir/mendrisio.status"
           started_path="$state_dir/mendrisio.started"
-          watchdog_path="$state_dir/mendrisio.watchdog"
+          watchdog_path="$state_dir/citta-di-mendrisio.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/citta-di-mendrisio.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -1731,7 +1731,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-05/citta-di-mendrisio.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-102}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7606,6 +7606,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7634,7 +7635,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7645,35 +7646,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'klinik-schuetzen'
-          aggregate_crawler_member 'epi-geneve'
-          aggregate_crawler_member 'kempinski'
-          aggregate_crawler_member 'vaxcyte'
-          aggregate_crawler_member 'tether'
-          aggregate_crawler_member 'schulthess-klinik'
-          aggregate_crawler_member 'vitrea-gesundheit'
-          aggregate_crawler_member 'mendrisio'
-          aggregate_crawler_member 'valora'
-          aggregate_crawler_member 'talan'
-          aggregate_crawler_member 'straumann'
-          aggregate_crawler_member 'faulhaber'
-          aggregate_crawler_member 'ipersonal'
-          aggregate_crawler_member 'eraneos'
-          aggregate_crawler_member 'h-ju-hopital-du-jura'
-          aggregate_crawler_member 'gavi'
-          aggregate_crawler_member 'clinique-la-source'
-          aggregate_crawler_member 'cedes'
-          aggregate_crawler_member 'bracco'
-          aggregate_crawler_member 'bms-building'
-          aggregate_crawler_member 'citta-di-bellinzona'
-          aggregate_crawler_member 'berner-klinik-montana'
-          aggregate_crawler_member 'agroscope'
-          aggregate_crawler_member 'amstein-walthert'
-          aggregate_crawler_member 'caseificio-gottardo'
-          aggregate_crawler_member 'neoproconseils'
-          aggregate_crawler_member 'rituals-cosmetics'
-          aggregate_crawler_member 'vista'
-          aggregate_crawler_member 'fmi'
+          aggregate_crawler_member 'klinik-schuetzen' 'klinik-schuetzen'
+          aggregate_crawler_member 'epi-geneve' 'epi-geneve'
+          aggregate_crawler_member 'kempinski' 'grand-hotel-des-bains-kempinski'
+          aggregate_crawler_member 'vaxcyte' 'vaxcyte'
+          aggregate_crawler_member 'tether' 'tether'
+          aggregate_crawler_member 'schulthess-klinik' 'schulthess-klinik'
+          aggregate_crawler_member 'vitrea-gesundheit' 'vitrea-gesundheit'
+          aggregate_crawler_member 'mendrisio' 'citta-di-mendrisio'
+          aggregate_crawler_member 'valora' 'valora'
+          aggregate_crawler_member 'talan' 'talan'
+          aggregate_crawler_member 'straumann' 'straumann'
+          aggregate_crawler_member 'faulhaber' 'faulhaber'
+          aggregate_crawler_member 'ipersonal' 'ipersonal'
+          aggregate_crawler_member 'eraneos' 'eraneos'
+          aggregate_crawler_member 'h-ju-hopital-du-jura' 'h-ju-hopital-du-jura'
+          aggregate_crawler_member 'gavi' 'gavi'
+          aggregate_crawler_member 'clinique-la-source' 'clinique-la-source'
+          aggregate_crawler_member 'cedes' 'cedes'
+          aggregate_crawler_member 'bracco' 'bracco'
+          aggregate_crawler_member 'bms-building' 'bms-building'
+          aggregate_crawler_member 'citta-di-bellinzona' 'citta-di-bellinzona'
+          aggregate_crawler_member 'berner-klinik-montana' 'berner-klinik-montana'
+          aggregate_crawler_member 'agroscope' 'agroscope'
+          aggregate_crawler_member 'amstein-walthert' 'amstein-walthert'
+          aggregate_crawler_member 'caseificio-gottardo' 'caseificio-gottardo'
+          aggregate_crawler_member 'neoproconseils' 'neoproconseils'
+          aggregate_crawler_member 'rituals-cosmetics' 'rituals-cosmetics'
+          aggregate_crawler_member 'vista' 'vista'
+          aggregate_crawler_member 'fmi' 'fmi'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

@@ -3631,7 +3631,7 @@ jobs:
           pid_path="$state_dir/lombardi.pid"
           status_path="$state_dir/lombardi.status"
           started_path="$state_dir/lombardi.started"
-          watchdog_path="$state_dir/lombardi.watchdog"
+          watchdog_path="$state_dir/lombardi-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/lombardi-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -3718,7 +3718,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-13/lombardi.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-13/lombardi.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-13/lombardi.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-13/lombardi.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-13/lombardi-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-45}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7602,6 +7602,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7630,7 +7631,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7641,35 +7642,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'pwc'
-          aggregate_crawler_member 'ubp'
-          aggregate_crawler_member 'on-running'
-          aggregate_crawler_member 'uroviva'
-          aggregate_crawler_member 'staubli'
-          aggregate_crawler_member 'reboot-monkey'
-          aggregate_crawler_member 'novartis'
-          aggregate_crawler_member 'zfv-unternehmungen'
-          aggregate_crawler_member 'sophia-genetics'
-          aggregate_crawler_member 'idorsia'
-          aggregate_crawler_member 'nsn-medical'
-          aggregate_crawler_member 'prada'
-          aggregate_crawler_member 'careers'
-          aggregate_crawler_member 'recruitingapp-2677'
-          aggregate_crawler_member 'pbl'
-          aggregate_crawler_member 'riri'
-          aggregate_crawler_member 'helsana'
-          aggregate_crawler_member 'lombardi'
-          aggregate_crawler_member 'kuhn-rikon'
-          aggregate_crawler_member 'cern'
-          aggregate_crawler_member 'groupe-e'
-          aggregate_crawler_member 'banca-sempione'
-          aggregate_crawler_member 'edmond-de-rothschild'
-          aggregate_crawler_member 'csvp-poschiavo'
-          aggregate_crawler_member 'answerconsulting'
-          aggregate_crawler_member '1a-hunkeler'
-          aggregate_crawler_member 'abraxas'
-          aggregate_crawler_member 'afry'
-          aggregate_crawler_member 'buehler'
+          aggregate_crawler_member 'pwc' 'pwc'
+          aggregate_crawler_member 'ubp' 'ubp'
+          aggregate_crawler_member 'on-running' 'on-running'
+          aggregate_crawler_member 'uroviva' 'uroviva'
+          aggregate_crawler_member 'staubli' 'staubli'
+          aggregate_crawler_member 'reboot-monkey' 'reboot-monkey'
+          aggregate_crawler_member 'novartis' 'novartis'
+          aggregate_crawler_member 'zfv-unternehmungen' 'zfv-unternehmungen'
+          aggregate_crawler_member 'sophia-genetics' 'sophia-genetics'
+          aggregate_crawler_member 'idorsia' 'idorsia'
+          aggregate_crawler_member 'nsn-medical' 'nsn-medical'
+          aggregate_crawler_member 'prada' 'prada'
+          aggregate_crawler_member 'careers' 'careers'
+          aggregate_crawler_member 'recruitingapp-2677' 'recruitingapp-2677'
+          aggregate_crawler_member 'pbl' 'pbl'
+          aggregate_crawler_member 'riri' 'riri'
+          aggregate_crawler_member 'helsana' 'helsana'
+          aggregate_crawler_member 'lombardi' 'lombardi-group'
+          aggregate_crawler_member 'kuhn-rikon' 'kuhn-rikon'
+          aggregate_crawler_member 'cern' 'cern'
+          aggregate_crawler_member 'groupe-e' 'groupe-e'
+          aggregate_crawler_member 'banca-sempione' 'banca-sempione'
+          aggregate_crawler_member 'edmond-de-rothschild' 'edmond-de-rothschild'
+          aggregate_crawler_member 'csvp-poschiavo' 'csvp-poschiavo'
+          aggregate_crawler_member 'answerconsulting' 'answerconsulting'
+          aggregate_crawler_member '1a-hunkeler' '1a-hunkeler'
+          aggregate_crawler_member 'abraxas' 'abraxas'
+          aggregate_crawler_member 'afry' 'afry'
+          aggregate_crawler_member 'buehler' 'buehler'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
