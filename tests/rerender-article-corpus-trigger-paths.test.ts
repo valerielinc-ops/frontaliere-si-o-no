@@ -118,6 +118,20 @@ function renderSources(rel: string): string[] {
 }
 
 describe('rerender-article-corpus.yml push filter covers the real article render path', () => {
+  it('gives the full corpus rerender a separate bounded entrypoint timeout', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf8'));
+    const steps = workflow?.jobs?.rerender?.steps;
+    const renderStep = steps?.find((step: { name?: string }) => /^Rerender and push /.test(step.name ?? ''));
+    const shellAssetsStep = steps?.find((step: { name?: string }) =>
+      step.name === 'Ensure the static shell scripts are on the CDN',
+    );
+
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe(
+      "${{ matrix.section == 'frontaliere' && '1800' || '120' }}",
+    );
+    expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
+  });
+
   it('names only files that exist, so a rename cannot silently empty the filter', () => {
     const stale = FILTERS.filter(({ glob }) => !glob.includes('*') && !isTracked(glob)).map(({ glob }) => glob);
     expect(stale).toEqual([]);
