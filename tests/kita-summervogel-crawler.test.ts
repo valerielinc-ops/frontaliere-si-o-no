@@ -115,6 +115,19 @@ describe('Kita Summervogel educator:SG crawler', () => {
     expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBeUndefined();
   });
 
+  it('checks the later heading boundary before reading its empty-state text', () => {
+    const jobs = parseKitaSummervogelJobs(`
+      <main>
+        <h2>Jobangebote:</h2>
+        <p>Aktuelle Angebote folgen.</p>
+        <h2>Kontakt: keine offenen Stellen</h2>
+      </main>
+    `);
+
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBeUndefined();
+  });
+
   it('keeps same-title postings distinct when their official URLs differ', () => {
     const postings = [
       {

@@ -356,9 +356,9 @@ function explicitEmptyState(document) {
           const text = normalizeSpace(candidate.textContent || '');
           if (!text) continue;
           if (candidate.matches(HEADING_SELECTOR)) {
-            if (EMPTY_STATE_RE.test(text)) return true;
             if (isTargetKitaSummervogelRole(text)) break;
             if (Number(candidate.tagName.slice(1)) <= headingLevel) break;
+            if (EMPTY_STATE_RE.test(text)) return true;
           }
           if (EMPTY_STATE_RE.test(text)) return true;
         }
