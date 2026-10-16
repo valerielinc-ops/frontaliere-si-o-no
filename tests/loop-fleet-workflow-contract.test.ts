@@ -67,6 +67,10 @@ function workflowJobs(name: string): Array<[string, WorkflowStep[]]> {
     .map(([job, definition]) => [job, definition.steps ?? []]);
 }
 
+function workflowSteps(name: string): WorkflowStep[] {
+  return workflowJobs(name).flatMap(([, steps]) => steps);
+}
+
 /**
  * Whether a non-cone sparse-checkout pattern list keeps `file`: gitignore
  * syntax, every pattern here is anchored with a leading `/`, a trailing `/`
@@ -457,8 +461,80 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('git checkout FETCH_HEAD -- data/loop-fleet/ledger');
       expect(source, name).toContain('timeout --signal=TERM --kill-after=10s 60s git ls-remote');
       expect(source, name).toContain('timeout --signal=TERM --kill-after=10s 60s git fetch --no-tags --depth 1 origin "$LEDGER_BRANCH"');
-      expect(source, name).toContain('durable ledger fetch for $LEDGER_BRANCH timed out or failed; using the in-tree ledger.');
+      expect(source, name).toContain('id: overlay_durable_ledger');
+      expect(source, name).toContain('echo "overlay_status=failed" >> "$GITHUB_OUTPUT"');
+      expect(source, name).toContain('echo "overlay_status=ready" >> "$GITHUB_OUTPUT"');
+      expect(source, name).toContain('durable ledger fetch for $LEDGER_BRANCH timed out or failed; refusing to use the in-tree ledger.');
+      expect(source, name).not.toContain('using the in-tree ledger.');
       expect(overlayIndex, name).toBeGreaterThan(checkoutIndex);
+    }
+  });
+
+  it('fails closed and gates every ledger consumer when the overlay probe or fetch fails', () => {
+    const workflows = {
+      'loop-l10-fleet-control.yml': [
+        'Collect independent GitHub run oracle',
+        'Audit loop operations',
+        'Validate runner-local L10 outcome export',
+        'Record canonical L10 evidence',
+      ],
+      'technical-operations-supervisor.yml': [
+        'Audit all workflows and extraction contracts',
+        'Record canonical L11 evidence',
+      ],
+      'loop-fleet-status.yml': ['Build read-only fleet status'],
+      'loop-fleet-ledger-audit.yml': ['Build read-only coverage report'],
+      'loop-fleet-ledger-reconcile.yml': ['Reconcile missing immutable evidence'],
+    } as const;
+
+    for (const [name, consumers] of Object.entries(workflows)) {
+      const steps = workflowSteps(name);
+      const overlay = steps.find((step) => step.id === 'overlay_durable_ledger');
+      expect(overlay?.run, `${name}: overlay step`).toBeTruthy();
+
+      for (const failure of ['probe', 'fetch']) {
+        const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-overlay-failure-'));
+        tempDirs.push(dir);
+        const bin = path.join(dir, 'bin');
+        const output = path.join(dir, 'github-output.txt');
+        fs.mkdirSync(bin);
+        fs.writeFileSync(path.join(bin, 'timeout'), [
+          '#!/bin/sh',
+          'case "$*" in',
+          `  *ls-remote*) [ "$OVERLAY_FAILURE" = "${failure === 'probe' ? 'probe' : 'never'}" ] && exit 1 ;;`,
+          `  *fetch*) [ "$OVERLAY_FAILURE" = "${failure === 'fetch' ? 'fetch' : 'never'}" ] && exit 1 ;;`,
+          'esac',
+          'exit 0',
+          '',
+        ].join('\n'), { mode: 0o755 });
+
+        let status = 0;
+        try {
+          execFileSync('bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', overlay?.run ?? 'false'], {
+            cwd: dir,
+            stdio: 'pipe',
+            env: {
+              PATH: `${bin}${path.delimiter}${process.env.PATH ?? ''}`,
+              GITHUB_OUTPUT: output,
+              LEDGER_BRANCH: 'ledger/loop-fleet',
+              OVERLAY_FAILURE: failure,
+            },
+          });
+        } catch (error) {
+          status = typeof error === 'object' && error !== null && 'status' in error
+            && typeof error.status === 'number' ? error.status : -1;
+        }
+
+        expect(status, `${name}: forced ${failure} failure`).not.toBe(0);
+        expect(fs.readFileSync(output, 'utf8'), `${name}: forced ${failure} state`).toContain('overlay_status=failed');
+      }
+
+      for (const consumer of consumers) {
+        const step = steps.find((candidate) => candidate.name === consumer);
+        expect(step?.if, `${name}: ${consumer} gate`).toContain(
+          "steps.overlay_durable_ledger.outputs.overlay_status == 'ready'",
+        );
+      }
     }
   });
 

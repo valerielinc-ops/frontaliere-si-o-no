@@ -88,20 +88,24 @@ jobs:
             /scripts/ci/loop-fleet-registry-audit.mjs
           sparse-checkout-cone-mode: false
       - name: Overlay durable ledger branch
+        id: overlay_durable_ledger
         env:
           LEDGER_BRANCH: ledger/loop-fleet
         run: |
           set -euo pipefail
           if ! timeout --signal=TERM --kill-after=10s 60s git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
-            echo "::notice::durable ledger branch $LEDGER_BRANCH is unavailable or the remote probe timed out; using the in-tree ledger."
-            exit 0
+            echo "overlay_status=failed" >> "$GITHUB_OUTPUT"
+            echo "::error::durable ledger branch $LEDGER_BRANCH is unavailable or the remote probe timed out; refusing to use the in-tree ledger."
+            exit 1
           fi
           if ! timeout --signal=TERM --kill-after=10s 60s git fetch --no-tags --depth 1 origin "$LEDGER_BRANCH"; then
-            echo "::notice::durable ledger fetch for $LEDGER_BRANCH timed out or failed; using the in-tree ledger."
-            exit 0
+            echo "overlay_status=failed" >> "$GITHUB_OUTPUT"
+            echo "::error::durable ledger fetch for $LEDGER_BRANCH timed out or failed; refusing to use the in-tree ledger."
+            exit 1
           fi
           mkdir -p data/loop-fleet/ledger
           git checkout FETCH_HEAD -- data/loop-fleet/ledger
+          echo "overlay_status=ready" >> "$GITHUB_OUTPUT"
           echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
       # Secondo (e ultimo) percorso del repo che gira su un ref di PR con una
       # cache npm: `pull_request` qui sopra è filtrato su `.github/workflows/**`
@@ -129,6 +133,7 @@ jobs:
 
       - name: Audit all workflows and extraction contracts
         id: audit
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -150,7 +155,7 @@ jobs:
           fi
 
       - name: Record canonical L11 evidence
-        if: always()
+        if: ${{ always() && steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           REPORT_DIR: ${{ runner.temp }}
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L11 --report-dir "$REPORT_DIR" --report "$REPORT_DIR/technical-operations-audit.json" --registry data/loop-fleet/loop-registry.json
