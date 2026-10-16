@@ -13340,6 +13340,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziativa-udc-asilo-limite.title': 'Grenzschutz: Die UDC-Initiative ist kontraproduktiv',
     'blog.article.iniziativa-udc-asilo-limite.excerpt': 'Die CIP-S lehnt die UDC-Initiative mit 8 zu 2 Stimmen ab.',
     'blog.article.iniziativa-udc-asilo-limite.imageAlt': 'Zollkontrolle an der italienisch-schweizerischen Grenze nahe Lugano mit Beamten und wartenden Fahrzeugen',
+    'blog.article.giovani-lavoro-futuro-ticino.title': 'Junge Menschen brauchen nicht nur einen Job, sie brauchen eine Zukunft',
+    'blog.article.giovani-lavoro-futuro-ticino.excerpt': 'Im Jahr 2024 betrug der durchschnittliche Bruttomonatslohn im Tessin 5\'708 Franken Der schweizerische Monatsdurchschnitt betrug 7\'024 Franken pro Jahr',
+    'blog.article.giovani-lavoro-futuro-ticino.imageAlt': 'Ein junger Berufstätiger steht auf einem Berggipfel im Tessin, blickt auf ein Tal hinunter und denkt über seine berufliche Zukunft nach.',
 };
 
 export default blogMetaDe;

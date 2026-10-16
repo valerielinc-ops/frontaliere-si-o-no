@@ -45020,6 +45020,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giovani-lavoro-futuro-ticino',
+ category: 'novita',
+ date: '2026-10-16T17:37:11.207Z',
+ image: '/images/blog/article-divario-reddito-giovani-svizzera.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

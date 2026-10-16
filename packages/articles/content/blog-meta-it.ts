@@ -13342,6 +13342,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-udc-asilo-limite.title': 'Protezione delle frontiere: L\'iniziativa UDC è controproducente',
     'blog.article.iniziativa-udc-asilo-limite.excerpt': 'La CIP-S boccia l\'iniziativa UDC con 8 voti contro 2.',
     'blog.article.iniziativa-udc-asilo-limite.imageAlt': 'Controllo doganale al confine italo-svizzero vicino a Lugano con ufficiali e veicoli in attesa',
+    'blog.article.giovani-lavoro-futuro-ticino.title': 'Ai giovani non basta un lavoro. Serve un futuro',
+    'blog.article.giovani-lavoro-futuro-ticino.excerpt': 'Nel 2024, in Ticino il salario mediano lordo mensile si attestava a 5\'708 franchi La media mensile svizzera ammontava a 7\'024 franchi A un anno',
+    'blog.article.giovani-lavoro-futuro-ticino.imageAlt': 'Un giovane professionista in piedi sulla cima di una montagna in Ticino, che osserva la valle e riflette sul proprio futuro professionale.',
 };
 
 export default blogMetaIt;

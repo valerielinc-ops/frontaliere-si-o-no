@@ -110037,6 +110037,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-lavoro-futuro-ticino': {
+    title: 'Ai giovani non basta un lavoro. Serve un futuro',
+    description: 'Nel 2024, in Ticino il salario mediano lordo mensile si attestava a 5\'708 franchi La media mensile svizzera ammontava a 7\'024 franchi A un anno',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, basta, lavoro, serve',
+    ogTitle: 'Opportunità per i giovani in Ticino: lavoro e futuro',
+    ogDescription: 'Nel 2024, in Ticino il salario mediano lordo mensile si attestava a 5\'708 franchi La media mensile svizzera ammontava a 7\'024 franchi A un anno',
+    canonicalPath: '/articoli-frontaliere/giovani-lavoro-futuro-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ai giovani non basta un lavoro. Serve un futuro",
+      "description": "Nel 2024, in Ticino il salario mediano lordo mensile si attestava a 5'708 franchi La media mensile svizzera ammontava a 7'024 franchi A un anno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-divario-reddito-giovani-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giovane professionista in piedi sulla cima di una montagna in Ticino, che osserva la valle e riflette sul proprio futuro professionale."
+      },
+      "datePublished": "2026-10-16T17:37:11+00:00",
+      "dateModified": "2026-10-16T17:37:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovani-lavoro-futuro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
