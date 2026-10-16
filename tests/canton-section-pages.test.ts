@@ -464,6 +464,18 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
     expect(jsonLd(page.html)[1].mainEntity.itemListElement[0].url).toBe(`${BASE}${landingPath(section, 'it')}ultima-notizia/`);
   });
 
+  it('does not render neutral canton news when thematic articles are present', () => {
+    const page = renderCantonTopicHub(hubInput(canton, 'eventi', 'it', {
+      curatedArticles: [{ title: 'Notizia tematica', url: `${landingPath(section, 'it')}tema/` }],
+      latestCantonArticles: [{ title: 'Fallback cantonale', url: `${landingPath(section, 'it')}fallback/` }],
+    }));
+    expect(page.html).not.toContain('cth-latest-news');
+    expect(page.html).not.toContain('Fallback cantonale');
+    expect(jsonLd(page.html)[1].mainEntity.itemListElement.map((item: any) => item.url)).toEqual([
+      `${BASE}${landingPath(section, 'it')}tema/`,
+    ]);
+  });
+
   it('refuses unsafe links, unknown topics and content too thin to stand on its own', () => {
     expect(() => renderCantonTopicHub(hubInput(canton, 'meteo', 'it'))).toThrow(/tema/);
     expect(() => renderCantonTopicHub(hubInput(canton, 'fisco', 'it', { links: [{ label: 'x', url: 'javascript:alert(1)' }] }))).toThrow(/URL/);

@@ -116,4 +116,18 @@ describe('CantonTopicHub route handoff', () => {
     expect(block?.className).toContain('cth-latest-news');
     expect(screen.getByRole('heading', { name: 'Articoli consigliati' })).toBeInTheDocument();
   });
+
+  it('does not render neutral canton news when thematic articles are present', async () => {
+    loadHub.mockResolvedValue({
+      ...hubData('eventi'),
+      curatedArticles: [{ title: 'Notizia tematica', url: '/articoli-zurigo/tema/' }],
+      latestCantonArticles: [{ title: 'Fallback cantonale', url: '/articoli-zurigo/fallback/' }],
+    });
+
+    render(<CantonTopicHub section="canton-zh" topic="eventi" />);
+    await waitFor(() => expect(screen.getByRole('heading', { name: 'Articoli consigliati' })).toBeInTheDocument());
+
+    expect(screen.queryByRole('heading', { name: 'Ultime notizie dal Canton Zurigo' })).toBeNull();
+    expect(screen.queryByText('Fallback cantonale')).toBeNull();
+  });
 });

@@ -681,7 +681,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
   const updatedAt = requireDate(input.updatedAt, 'updatedAt');
   const { baseUrl, organizationLd } = getSiteShell();
   const copy = HUB_COPY[locale];
-  const latestCantonArticles = input.latestCantonArticles ?? [];
+  const latestCantonArticles = input.curatedArticles.length === 0 ? (input.latestCantonArticles ?? []) : [];
   const sectionLabel = cantonSectionLabel(section, locale);
   const hubLabel = cantonTopicHubLabel(section, topic, locale);
   const landingPath = cantonSectionLandingPath(section, locale);
@@ -744,8 +744,8 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
 
   const latestCantonNewsHtml = latestCantonArticles.length
     ? `      <section class="cth-section cth-latest-news" aria-labelledby="hub-latest-news"><div class="cth-section-heading"><h2 id="hub-latest-news" class="s-sXAwQz cth-section-title">${esc(cantonLatestNewsHeading(section, locale))}</h2><span class="cth-section-marker" aria-hidden="true"></span></div><ul class="s-0c2lhY cth-article-list">${latestCantonArticles.map((a) => {
-        const date = a.date ? ` <time datetime="${esc(requireDate(a.date, 'latestCantonArticles.date'))}">${esc(formatDate(a.date, locale))}</time>` : '';
-        return `<li><a class="s-6gbS_B" href="${esc(safeHref(a.url, 'latestCantonArticles.url'))}"><span class="s-lkdl0F">${esc(a.title)}</span>${a.excerpt ? `<span class="s-hNvHD_">${esc(a.excerpt)}</span>` : ''}</a>${date}</li>`;
+        const date = a.date ? `<time class="cth-source-line" datetime="${esc(requireDate(a.date, 'latestCantonArticles.date'))}">${esc(formatDate(a.date, locale))}</time>` : '';
+        return `<li><a class="s-6gbS_B" href="${esc(safeHref(a.url, 'latestCantonArticles.url'))}"><span class="s-lkdl0F">${esc(a.title)}</span>${a.excerpt ? `<span class="s-hNvHD_">${esc(a.excerpt)}</span>` : ''}${date}</a></li>`;
       }).join('')}</ul></section>`
     : '';
 
