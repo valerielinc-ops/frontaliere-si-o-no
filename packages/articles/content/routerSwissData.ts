@@ -2835,6 +2835,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'crediti-bilaterali-iii-svizzera': { it: 'crediti-bilaterali-iii-svizzera', en: 'switzerland-bilateral-iii-credits', de: 'schweiz-bilaterale-iii-kredite', fr: 'credits-bilateraux-iii-suisse' },
  'il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti': { it: 'il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti', en: 'discount-retailer-freezes-2027-hikes-staff-discount-doubles', de: 'der-discounter-stoppt-lohnerhohungen-2027-und-verdoppelt-den-mitarbeiterrabatt', fr: 'le-discounter-bloque-les-augmentations-de-2027-et-double-la-remise-au-personnel' },
  'ia-assistente-shopping-svizzera': { it: 'ia-assistente-shopping-svizzera', en: 'ai-helps-swiss-shoppers-but-stalls-at-checkout', de: 'ki-hilft-den-schweizern-beim-einkaufen-bremst-aber-beim-bezahlen', fr: 'l-ia-aide-les-suisses-a-acheter-mais-freine-au-paiement' },
+ 'sistema-sanitario-lamal-ginevra-2026': { it: 'sistema-sanitario-lamal-ginevra-2026', en: 'swiss-healthcare-system-lamal-geneva-2026', de: 'schweizer-gesundheitssystem-lamal-genf-2026', fr: 'systeme-sante-suisse-lamal-geneve-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

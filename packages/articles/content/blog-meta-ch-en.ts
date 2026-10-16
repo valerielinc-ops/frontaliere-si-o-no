@@ -8438,6 +8438,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ia-assistente-shopping-svizzera.title': 'AI helps Swiss shoppers but stalls at checkout',
     'blog.article.ia-assistente-shopping-svizzera.excerpt': 'Almost 70% of Swiss people use AI for a purchase 49% say that AI influences their choice 67% want to keep payment autonomous Only 17% accept',
     'blog.article.ia-assistente-shopping-svizzera.imageAlt': 'Swiss customer using an AI assistant on a smartphone while shopping in Lugano',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.title': 'Swiss healthcare system: LAMal 2026 guide for the Canton of Geneva',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.excerpt': 'Mandatory insurance, deductibles and premiums: how LAMal works in Geneva in 2026.',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Geneva skyline featuring the Jet d\'Eau fountain, symbolizing the city and its healthcare system.',
 };
 
 export default blogMetaChEn;

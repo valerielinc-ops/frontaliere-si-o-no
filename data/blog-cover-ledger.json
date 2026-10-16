@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5556
+      "6": 5557
     },
-    "publishedCovers": 7137,
+    "publishedCovers": 7138,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5361
+    "inferredRecords": 5362
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -191207,6 +191207,33 @@
           "date": "2026-10-16T18:15:02.449Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-sistema-sanitario-lamal-ginevra-2026": {
+      "cover": "/images/blog/article-sistema-sanitario-lamal-ginevra-2026.webp",
+      "hash": "2db22c1d07f0956298c3fe14958850890f2e5db59f4d71a1379c311a01d092db",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "sistema-sanitario-lamal-ginevra-2026",
+          "category": "pratico",
+          "date": "2026-10-16T22:58:50.925Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
         }
       ],
       "proofLevel": 6,

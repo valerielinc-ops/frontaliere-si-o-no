@@ -8438,6 +8438,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ia-assistente-shopping-svizzera.title': 'KI hilft den Schweizern beim Einkaufen, bremst aber beim Bezahlen',
     'blog.article.ia-assistente-shopping-svizzera.excerpt': 'Fast 70% der Schweizer nutzen KI für einen Einkauf 49% sagen, dass KI die Wahl beeinflusst 67% wollen weiterhin selbst bezahlen Nur 17% akzeptieren',
     'blog.article.ia-assistente-shopping-svizzera.imageAlt': 'Schweizer Kunde, der einen KI‑Assistenten auf dem Smartphone beim Einkaufen in Lugano verwendet',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.title': 'Schweizer Gesundheitssystem: LAMal-Leitfaden 2026 für den Kanton Genf',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.excerpt': 'Versicherungspflicht, Franchisen und Prämien: So funktioniert die LAMal in Genf im Jahr 2026.',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Genfer Skyline mit dem Jet d\'Eau-Brunnen, Symbol der Stadt und ihres Gesundheitssystems.',
 };
 
 export default blogMetaChDe;

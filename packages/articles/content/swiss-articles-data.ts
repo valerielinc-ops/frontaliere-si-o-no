@@ -28221,6 +28221,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sistema-sanitario-lamal-ginevra-2026',
+    category: 'pratico',
+    date: '2026-10-16T22:58:50.925Z',
+    image: '/images/blog/article-sistema-sanitario-lamal-ginevra-2026.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['GE'],
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

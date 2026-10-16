@@ -106574,6 +106574,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-sanitario-lamal-ginevra-2026': {
+    title: 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
+    description: 'Scopri come funziona l\'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra nel 2026. Verifica scadenze, franchigie, premi e sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
+    ogDescription: 'Una guida completa sull\'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra per il 2026. Scopri obblighi, franchigie, premi e sussidi cantonali.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-lamal-ginevra-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra",
+      "description": "Scopri come funziona l'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra nel 2026. Verifica scadenze, franchigie, premi e sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sistema-sanitario-lamal-ginevra-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Ginevra con il Jet d'Eau, simbolo della città e del suo sistema sanitario."
+      },
+      "datePublished": "2026-10-16T22:58:51+00:00",
+      "dateModified": "2026-10-16T22:58:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-lamal-ginevra-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

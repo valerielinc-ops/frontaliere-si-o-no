@@ -8438,6 +8438,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ia-assistente-shopping-svizzera.title': 'IA aiuta gli svizzeri nello shopping ma frena al pagamento',
     'blog.article.ia-assistente-shopping-svizzera.excerpt': 'Quasi il 70% degli svizzeri usa l\'IA per un acquisto Il 49% dice che l\'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta',
     'blog.article.ia-assistente-shopping-svizzera.imageAlt': 'Cliente svizzero che utilizza un assistente IA su smartphone mentre fa shopping a Lugano',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.title': 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.excerpt': 'Obbligo assicurativo, franchigie e premi: come funziona la LAMal a Ginevra nel 2026.',
+    'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Panorama di Ginevra con il Jet d\'Eau, simbolo della città e del suo sistema sanitario.',
 };
 
 export default blogMetaChIt;
