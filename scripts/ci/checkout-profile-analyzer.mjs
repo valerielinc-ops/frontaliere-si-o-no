@@ -247,7 +247,11 @@ function textOfSteps(steps, seen = new Set()) {
 export function checkoutEntryPoints(text, npmScripts, depth = 0) {
   const out = new Set();
   const push = (p) => { if (p && !p.startsWith('-')) out.add(p.replace(/^\.\//, '')); };
-  for (const m of text.matchAll(/\b(?:node|tsx|bash|sh|python3?)\s+((?:--?\S+\s+)*)([\w./@-]+\.(?:mjs|cjs|js|ts|mts|sh|py))/g)) push(m[2]);
+  // A checkout allow-list is also present in the step text. Without the
+  // left-side guard, the `.sh` suffix of one allow-list path becomes the
+  // `sh` command and the next path on the following line becomes a false
+  // entry point (for example `.sh\n/scripts/ci/check.mjs`).
+  for (const m of text.matchAll(/(?<![\w./-])(?:node|tsx|bash|sh|python3?)\s+((?:--?\S+\s+)*)([\w./@-]+\.(?:mjs|cjs|js|ts|mts|sh|py))/g)) push(m[2]);
   for (const m of text.matchAll(/\bnpx\s+(?:-y\s+)?(?:tsx@?\S*|ts-node)\s+((?:--?\S+\s+)*)([\w./@-]+\.(?:ts|mts|mjs|js))/g)) push(m[2]);
   if (depth < 3 && npmScripts) for (const m of text.matchAll(/\bnpm\s+run\s+([\w:.-]+)/g)) {
     const b = npmScripts[m[1]];

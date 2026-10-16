@@ -61,6 +61,13 @@ const workflowFiles = fs.readdirSync(WF_DIR).filter((f) => /\.ya?ml$/.test(f)).s
 const TIMEOUT = 180_000;
 
 describe('profili di sparse-checkout', () => {
+  it('non interpreta un suffisso .sh dell allow-list come comando shell', () => {
+    expect(checkoutEntryPoints([
+      '/scripts/ci/overlay-durable-loop-fleet-ledger.sh',
+      '/scripts/ci/loop-fleet-ledger-reconcile.mjs',
+    ].join('\n'), {})).toEqual([]);
+  });
+
   it('sono coerenti col codice che i job eseguono', () => {
     const { problems } = verifyCheckoutProfiles();
     expect(problems).toEqual([]);
