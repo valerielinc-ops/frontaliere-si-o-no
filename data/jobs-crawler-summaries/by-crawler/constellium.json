@@ -1,7 +1,7 @@
 {
   "key": "constellium",
   "label": "Constellium Valais",
-  "generatedAt": "2026-10-15T21:29:24.545Z",
+  "generatedAt": "2026-10-16T09:33:27.351Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8635,
-  "avgDurationMs": 8635,
+  "durationMs": 7069,
+  "avgDurationMs": 7069,
   "durationHistory": [
-    8635
+    7069
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "constellium-59289459d2d6",
-      "slug": "automatiker-in-elektriker-in-100-1-constellium-ch",
+      "slug": "tecnico-a-di-automazione-elettricista-100-1-constellium-valais-steg",
       "company": "Constellium Valais",
       "companyKey": "constellium",
       "companyDomain": "constellium.com",
@@ -49,24 +50,22 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Automatikerin-Elektrikerin-%28100-%29-1-Vala-3940/1447487733/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:29:08.357Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-16T09:33:12.199Z",
+      "firstSeenAt": "2026-10-15T21:29:08.357Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-15T21:29:08.357Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }
