@@ -1,11 +1,12 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BEEKEEPER_KEY,
   BEEKEEPER_COMPANY_NAME,
+  fetchAllBeekeeperJobs,
   isBeekeeperJob,
   isTrustedDomain,
 } from '../scripts/lib/beekeeper-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Beekeeper crawler parser', () => {
   // ── Constants ──
@@ -151,5 +152,55 @@ describe('Beekeeper crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('Beekeeper Teamtailor feed freshness', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('bypasses a stale CDN feed before filtering locations for Switzerland', async () => {
+    const url = 'https://job.lumapps.com/jobs/8483000-senior-account-executive-germany';
+    const staleItem = {
+      id: '5fc108a3-d274-433d-9a59-17a2f335b244',
+      title: 'Senior Account Executive – Germany',
+      url,
+      _jobposting: {
+        title: 'Senior Account Executive – Germany',
+        jobLocation: [
+          { address: { addressLocality: 'Hamburg', addressCountry: 'DE' } },
+          { address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
+        ],
+      },
+    };
+    const freshItem = {
+      ...staleItem,
+      _jobposting: {
+        ...staleItem._jobposting,
+        jobLocation: [{ address: { addressLocality: 'Hamburg', addressCountry: 'DE' } }],
+      },
+    };
+    const fetchMock = vi.fn(async (input: string | URL) => {
+      const requestUrl = new URL(String(input));
+      const items = requestUrl.searchParams.has('_') ? [freshItem] : [staleItem];
+      return new Response(JSON.stringify({ items }), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(true);
+    expect(new URL(String(fetchMock.mock.calls[0][0])).searchParams.get('_')).toMatch(/^\d+$/);
+  });
+
+  it('does not mark an empty feed as a verified zero-job snapshot', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items: [] }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
   });
 });
