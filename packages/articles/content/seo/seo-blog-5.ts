@@ -109530,6 +109530,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-azalee-calcio-campo-pradisera': {
+    title: 'Gallarate: Azalee Calcio lasciano il campo di via Pradisera',
+    description: 'Le Azalee Calcio lasciano il campo di via Pradisera. Il bando per l\'area è andato deserto. Ugo Tomaselli denuncia una sostanziale estromissione. Il Comune',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, azalee, calcio, lasciano',
+    ogTitle: 'Gallarate: Azalee Calcio lasciano il campo di via Pradisera',
+    ogDescription: 'Le Azalee Calcio lasciano il campo di via Pradisera.',
+    canonicalPath: '/articoli-frontaliere/azalee-calcio-campo-pradisera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate: Azalee Calcio lasciano il campo di via Pradisera",
+      "description": "Le Azalee Calcio lasciano il campo di via Pradisera. Il bando per l'area è andato deserto. Ugo Tomaselli denuncia una sostanziale estromissione. Il Comune",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-azalee-calcio-campo-pradisera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo da calcio locale con manto erboso e porte"
+      },
+      "datePublished": "2026-10-16T06:28:47+00:00",
+      "dateModified": "2026-10-16T06:28:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/azalee-calcio-campo-pradisera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

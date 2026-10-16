@@ -13300,6 +13300,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-macello-belforte-visite-2026.title': 'Varese: former Belforte Slaughterhouse opens for cleanup and guided tour',
     'blog.article.varese-macello-belforte-visite-2026.excerpt': 'On October 17 at Varese, the former Belforte slaughterhouse opens to the public from 14.00 to present the cleanup and remediation work funded by PNRR, followed by an exhibition.',
     'blog.article.varese-macello-belforte-visite-2026.imageAlt': 'View of a regenerated green area in Ticino, with people strolling and relaxing',
+    'blog.article.azalee-calcio-campo-pradisera.title': 'Gallarate: Azalee Calcio leave the field on Via Pradisera',
+    'blog.article.azalee-calcio-campo-pradisera.excerpt': 'Le Azalee Calcio leave the field on Via Pradisera.',
+    'blog.article.azalee-calcio-campo-pradisera.imageAlt': 'Local soccer field with grass pitch and goalposts',
 };
 
 export default blogMetaEn;

@@ -44890,6 +44890,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'azalee-calcio-campo-pradisera',
+ category: 'pratico',
+ date: '2026-10-16T06:28:46.998Z',
+ image: '/images/blog/article-azalee-calcio-campo-pradisera.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

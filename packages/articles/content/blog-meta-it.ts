@@ -13301,6 +13301,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-macello-belforte-visite-2026.title': 'Varese: ex Macello Belforte apre per bonifica e mostra guidata',
     'blog.article.varese-macello-belforte-visite-2026.excerpt': 'Il 17 ottobre a Varese, l\'ex Macello di Belforte apre al pubblico dalle 14.00 per presentare i lavori di bonifica e risanamento con fondi PNRR, seguiti da una mostra.',
     'blog.article.varese-macello-belforte-visite-2026.imageAlt': 'Vista di un\'area verde rigenerata in Ticino, con persone che passeggiano e si rilassano',
+    'blog.article.azalee-calcio-campo-pradisera.title': 'Gallarate: Azalee Calcio lasciano il campo di via Pradisera',
+    'blog.article.azalee-calcio-campo-pradisera.excerpt': 'Le Azalee Calcio lasciano il campo di via Pradisera.',
+    'blog.article.azalee-calcio-campo-pradisera.imageAlt': 'Campo da calcio locale con manto erboso e porte',
 };
 
 export default blogMetaIt;

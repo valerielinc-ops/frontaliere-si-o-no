@@ -13302,6 +13302,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-macello-belforte-visite-2026.title': 'Varese : ex abattoir Belforte, dépollution et visites',
     'blog.article.varese-macello-belforte-visite-2026.excerpt': 'Le 17 octobre à Varese, l’ancien abattoir de Belforte ouvre au public à partir de 14.00 pour présenter les travaux de dépollution et d’assainissement financés par le PNRR, suivis d’une exposition.',
     'blog.article.varese-macello-belforte-visite-2026.imageAlt': 'Vue d\'un espace vert régénéré au Tessin, avec des personnes se promenant et se détendant',
+    'blog.article.azalee-calcio-campo-pradisera.title': 'Gallarate : Azalee Calcio quittent le terrain de la via Pradisera',
+    'blog.article.azalee-calcio-campo-pradisera.excerpt': 'Les Azalee Calcio quittent le terrain de la via Pradisera.',
+    'blog.article.azalee-calcio-campo-pradisera.imageAlt': 'Terrain de football local avec pelouse et poteaux',
 };
 
 export default blogMetaFr;

@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5531
+      "6": 5532
     },
-    "publishedCovers": 7112,
+    "publishedCovers": 7113,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5336
+    "inferredRecords": 5337
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190586,6 +190586,33 @@
           "date": "2026-10-16T04:32:58.586Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-azalee-calcio-campo-pradisera": {
+      "cover": "/images/blog/article-azalee-calcio-campo-pradisera.webp",
+      "hash": "8c91fd4ee9883c22f2816bf92b5f80d52bc4f9ee98b29e7c3e5d43456cb277e4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "azalee-calcio-campo-pradisera",
+          "category": "pratico",
+          "date": "2026-10-16T06:28:46.998Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,

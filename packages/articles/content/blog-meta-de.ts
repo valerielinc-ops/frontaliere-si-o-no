@@ -13299,6 +13299,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-macello-belforte-visite-2026.title': 'Varese: Ex-Schlachthof Belforte öffnet für Sanierung & Führung',
     'blog.article.varese-macello-belforte-visite-2026.excerpt': 'Am 17. Oktober öffnet der ehemalige Schlachthof von Belforte in Varese ab 14.00 Uhr für die Öffentlichkeit, um die mit PNRR-Mitteln finanzierten Sanierungs- und Instandsetzungsarbeiten vorzustellen, anschließend folgt eine Ausstellung.',
     'blog.article.varese-macello-belforte-visite-2026.imageAlt': 'Blick auf eine revitalisierte Grünfläche im Tessin, mit Spaziergängern und Erholungssuchenden',
+    'blog.article.azalee-calcio-campo-pradisera.title': 'Gallarate: Azalee Calcio verlassen den Sportplatz in der Via Pradisera',
+    'blog.article.azalee-calcio-campo-pradisera.excerpt': 'Azalee Calcio verlassen den Sportplatz in der Via Pradisera.',
+    'blog.article.azalee-calcio-campo-pradisera.imageAlt': 'Lokaler Fußballplatz mit Rasen und Toren',
 };
 
 export default blogMetaDe;
