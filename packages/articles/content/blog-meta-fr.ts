@@ -13311,6 +13311,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.premio-furia-giovannini-varese.title': 'Prix Furia 2026 à Giovannini : la durabilité au cœur',
     'blog.article.premio-furia-giovannini-varese.excerpt': 'Prix Furia 2026 à Enrico Giovannini Économiste et statisticien, enseignant à Roma Tor Vergata Il a été statisticien en chef de l\'OCDE et président de l\'ISTAT ASviS fondée',
     'blog.article.premio-furia-giovannini-varese.imageAlt': 'Vue panoramique du lac de Lugano au coucher du soleil, avec montagnes reflétées et ciel clair.',
+    'blog.article.masha-orso-teatro-saronno.title': 'Macha et l\'ours arrivent au théâtre Reina Pacis de Saronno',
+    'blog.article.masha-orso-teatro-saronno.excerpt': 'Samedi 17 octobre, deux répliques du spectacle « Les nouvelles aventures de Masha et d\'Ours » proposé par Le Monde Fantastique des Marionnettes.',
+    'blog.article.masha-orso-teatro-saronno.imageAlt': 'Scène de théâtre italien avec rideaux rouges pour un spectacle de marionnettes',
 };
 
 export default blogMetaFr;

@@ -109647,6 +109647,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-masha-orso-teatro-saronno': {
+    title: 'Masha e orso arrivano al teatro regina pacis di saronno',
+    description: 'Sabato 17 ottobre al Teatro Regina Pacis di Saronno: \'Le nuove avventure di Masha e Orso\'. Due repliche alle 15 e 16.30 con burattini interattivi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, masha, orso, arrivano, teatro',
+    ogTitle: 'Masha e Orso arrivano al Teatro Regina Pacis di Saronno',
+    ogDescription: 'Un appuntamento speciale per i bambini sabato 17 ottobre a Saronno. Due repliche di burattini interattivi con Masha e Orso e foto ricordo gratuita con Bingo.',
+    canonicalPath: '/articoli-frontaliere/masha-orso-teatro-saronno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Masha e orso arrivano al teatro regina pacis di saronno",
+      "description": "Sabato 17 ottobre al Teatro Regina Pacis di Saronno: 'Le nuove avventure di Masha e Orso'. Due repliche alle 15 e 16.30 con burattini interattivi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-masha-orso-teatro-saronno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palcoscenico di un teatro italiano con tende rosse per spettacolo di burattini"
+      },
+      "datePublished": "2026-10-16T09:13:03+00:00",
+      "dateModified": "2026-10-16T09:13:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/masha-orso-teatro-saronno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

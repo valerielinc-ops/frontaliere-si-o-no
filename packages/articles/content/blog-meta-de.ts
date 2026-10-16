@@ -13308,6 +13308,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.premio-furia-giovannini-varese.title': 'Premio Furia 2026 an Giovannini: Nachhaltigkeit im Mittelpunkt',
     'blog.article.premio-furia-giovannini-varese.excerpt': 'Premio Furia 2026 an Enrico Giovannini Ökonom und Statistiker, Dozent an der Universität Roma Tor Vergata Er war Chief Statistician der OCSE und Präsident von ISTAT ASviS gegründet',
     'blog.article.premio-furia-giovannini-varese.imageAlt': 'Panoramablick auf den Luganersee bei Sonnenuntergang, mit reflektierten Bergen und klarem Himmel.',
+    'blog.article.masha-orso-teatro-saronno.title': 'Mascha und Bär kommen im Theater Regina Pacis in Saronno an',
+    'blog.article.masha-orso-teatro-saronno.excerpt': 'Samstag, 17.',
+    'blog.article.masha-orso-teatro-saronno.imageAlt': 'Italienische Theaterbühne mit roten Vorhängen für eine Puppenshow',
 };
 
 export default blogMetaDe;

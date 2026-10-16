@@ -13310,6 +13310,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.premio-furia-giovannini-varese.title': 'Premio Furia 2026 a Giovannini: sostenibilità al centro',
     'blog.article.premio-furia-giovannini-varese.excerpt': 'Premio Furia 2026 a Enrico Giovannini Economista e statistico, docente a Roma Tor Vergata È stato Chief Statistician dell\'OCSE e presidente ISTAT ASviS fondata',
     'blog.article.premio-furia-giovannini-varese.imageAlt': 'Vista panoramica del Lago di Lugano al tramonto, con montagne riflesse e cielo sereno.',
+    'blog.article.masha-orso-teatro-saronno.title': 'Masha e orso arrivano al teatro regina pacis di saronno',
+    'blog.article.masha-orso-teatro-saronno.excerpt': 'Sabato 17 ottobre, due repliche dello spettacolo \'Le nuove avventure di Masha e Orso\' proposto da Il Fantastico Mondo dei Burattini.',
+    'blog.article.masha-orso-teatro-saronno.imageAlt': 'Palcoscenico di un teatro italiano con tende rosse per spettacolo di burattini',
 };
 
 export default blogMetaIt;

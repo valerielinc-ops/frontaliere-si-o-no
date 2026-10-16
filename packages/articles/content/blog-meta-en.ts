@@ -13309,6 +13309,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.premio-furia-giovannini-varese.title': 'Furia Award 2026 for Giovannini: sustainability at the center',
     'blog.article.premio-furia-giovannini-varese.excerpt': '2026 Furia Award to Enrico Giovannini Economist and statistician, professor at Roma Tor Vergata He was Chief Statistician of the OECD and president of ISTAT ASviS founded',
     'blog.article.premio-furia-giovannini-varese.imageAlt': 'Panoramic view of Lake Lugano at sunset, with reflected mountains and clear sky.',
+    'blog.article.masha-orso-teatro-saronno.title': 'Masha and Bear arrive at the Teatro Regina Pacis in Saronno',
+    'blog.article.masha-orso-teatro-saronno.excerpt': 'Saturday, October 17, two reruns of the show \'The new adventures of Masha and the Bear\' proposed by The Fantastic Puppet World.',
+    'blog.article.masha-orso-teatro-saronno.imageAlt': 'Italian theater stage with red curtains for a puppet show',
 };
 
 export default blogMetaEn;
