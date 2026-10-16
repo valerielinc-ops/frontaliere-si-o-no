@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-15",
+  "generatedAt": "2026-10-16",
   "source": {
     "gitCommit": "00a489835b182f51cfcf432e1c8dcdead898e379",
     "heroFiles": 7067,
@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5510
+      "6": 5525
     },
-    "publishedCovers": 7091,
+    "publishedCovers": 7106,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5315
+    "inferredRecords": 5330
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190137,6 +190137,411 @@
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1792,
       "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-agevolazioni-doganali-impiego": {
+      "cover": "/images/blog/article-agevolazioni-doganali-impiego.webp",
+      "hash": "cfdd891a4c0c0d2fb284501853420c57e3768f9dcbe174cfc5574c0b4b107660",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "agevolazioni-doganali-impiego",
+          "category": "novita",
+          "date": "2026-10-15T18:35:16.823Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-arresto-lite-domestica-ticino": {
+      "cover": "/images/blog/article-arresto-lite-domestica-ticino.webp",
+      "hash": "3edba7987614d170a0a032cbec6faf360b8ec0412fc7c3d4b4b160133998fe75",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arresto-lite-domestica-ticino",
+          "category": "novita",
+          "date": "2026-10-16T00:07:16.753Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-attacco-software-pkzh": {
+      "cover": "/images/blog/article-attacco-software-pkzh.webp",
+      "hash": "2533be7ba60087ca60347d65b8933f03fb49dbe944248723e962d74e5b134c0a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "attacco-software-pkzh",
+          "category": "pensione",
+          "date": "2026-10-15T23:41:39.976Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-don-giusto-teatro-nuovo-gloria": {
+      "cover": "/images/blog/article-don-giusto-teatro-nuovo-gloria.webp",
+      "hash": "f11381c51442fad5ae89de046de5165f5f8c41c066951394286ac21d046f49dd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "don-giusto-teatro-nuovo-gloria",
+          "category": "novita",
+          "date": "2026-10-16T02:35:14.247Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-imposte-zurigo-aliquote-deduzioni": {
+      "cover": "/images/blog/article-imposte-zurigo-aliquote-deduzioni.webp",
+      "hash": "6e80579d8f8d2c4067925a6bda734818f1ce767254a894789a792f81efcef6d8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "imposte-zurigo-aliquote-deduzioni",
+          "category": "fiscale",
+          "date": "2026-10-16T02:17:43.978Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-inchiesta-medico-locarnese": {
+      "cover": "/images/blog/article-inchiesta-medico-locarnese.webp",
+      "hash": "3196e86da13a85fb174ca0a9bf398194429c3d09fee2af815a89c7c33ba2164b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "inchiesta-medico-locarnese",
+          "category": "novita",
+          "date": "2026-10-15T21:15:43.477Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-kick-cocaine-gazzada-evento": {
+      "cover": "/images/blog/article-kick-cocaine-gazzada-evento.webp",
+      "hash": "da6640ff3aad59ee28cd224ebfa1084c74f5ca7d681d8110154efd032a3cf1e6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "kick-cocaine-gazzada-evento",
+          "category": "novita",
+          "date": "2026-10-16T01:03:49.070Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-liberta-fondo-pene-sostitutive": {
+      "cover": "/images/blog/article-liberta-fondo-pene-sostitutive.webp",
+      "hash": "fd2aae16331e3c9f7439f2a575c1d98ad849dc81f204783f59813e8fb1a369ca",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "liberta-fondo-pene-sostitutive",
+          "category": "pratico",
+          "date": "2026-10-14T21:58:02.746Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-referendum-armi-sicurezza-svizzera": {
+      "cover": "/images/blog/article-referendum-armi-sicurezza-svizzera.webp",
+      "hash": "3f0ca449db0ef8315ad67ca6b236c3b7dea48ae6243d090d5c49ef7c01b58fe5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "referendum-armi-sicurezza-svizzera",
+          "category": "novita",
+          "date": "2026-10-15T19:42:08.749Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-revoca-bonus-dirigenti-cs": {
+      "cover": "/images/blog/article-revoca-bonus-dirigenti-cs.webp",
+      "hash": "f378220cf1323cfc0411eeb062390cb97dc8d63b0a81811980cd8dea78f888ef",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "revoca-bonus-dirigenti-cs",
+          "category": "novita",
+          "date": "2026-10-16T00:42:37.919Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-saronno-piccole-stelle-softball": {
+      "cover": "/images/blog/article-saronno-piccole-stelle-softball.webp",
+      "hash": "2e34e3181ecf8a0d51cd2f85aac5227affb88f324fe83dd1804194fce8653db3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "saronno-piccole-stelle-softball",
+          "category": "novita",
+          "date": "2026-10-15T17:55:48.993Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-sistema-sanitario-zurigo-guida-2026": {
+      "cover": "/images/blog/article-sistema-sanitario-zurigo-guida-2026.webp",
+      "hash": "3f1c0bbfa64ed8aa8525993322c92e15ed8b3f38619f61febe0c17b2e7412e1c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "sistema-sanitario-zurigo-guida-2026",
+          "category": "pratico",
+          "date": "2026-10-16T01:51:47.381Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ssr-riduce-organico-risparmi": {
+      "cover": "/images/blog/article-ssr-riduce-organico-risparmi.webp",
+      "hash": "6565f2df289901072274d0176898916a25240835b3066627c27618608f584738",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ssr-riduce-organico-risparmi",
+          "category": "novita",
+          "date": "2026-10-15T21:41:26.844Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-svizzera-thailandia-aelss-visita-2026": {
+      "cover": "/images/blog/article-svizzera-thailandia-aelss-visita-2026.webp",
+      "hash": "c6d4e923aa5ac0aa1fd04115a707d7084a29d67ab8a4b9f982bbe363babf1619",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "svizzera-thailandia-aelss-visita-2026",
+          "category": "novita",
+          "date": "2026-10-15T18:53:35.114Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-vantaggi-servizi-associati-ocst": {
+      "cover": "/images/blog/article-vantaggi-servizi-associati-ocst.webp",
+      "hash": "bf751243e99cfb9883b7ced949f0c1e3ff00202fafd43ed1565e7c5c34c70d61",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "vantaggi-servizi-associati-ocst",
+          "category": "pratico",
+          "date": "2026-10-16T00:24:53.370Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 15 Oct 2026 20:58:18 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 02:17:44 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,338 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Impôts à Zurich : taux et déductions</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/impots-zurich-baremes-deduct/</link>
+      <description><![CDATA[Conduite à trois niveaux : fédéral, cantonal et communal.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Trois niveaux : fédéral, cantonal et communal
+- A Zurich, le multiplicateur municipal compte également
+- AFC/ESTV : impôt fédéral direct et TVA
+- Portail en ligne : taux, déductions et délais
+
+## Faits clés
+- Système → IFD fédéral, impôt cantonal et impôt communal
+- AFC/ESTV → IFD et TVA
+- Administrations cantonales → Impôts cantonaux et communaux
+- Multiplicateur communal → appliqué à l'impôt cantonal
+- UST/BFS → statistiques, pas de taux d'imposition
+
+Dans le canton de Zurich, l'analyse des impôts cantonaux et communaux part de la structure à trois niveaux du fisc suisse. Le premier est l'impôt fédéral direct ; les deux autres sont le niveau cantonal et le niveau communal. La distinction est décisive lors de la recherche de taux, de tranches, de déductions admises, de délais de livraison et du portail en ligne de l'administration fiscale cantonale.
+
+Chaque canton a sa propre loi et son propre multiplicateur. Pour les communes, le multiplicateur s'applique à l'impôt cantonal. Une recherche concernant Zurich ne doit donc pas être lue comme s'il n'existait qu'un seul poste fiscal : la composante communale doit être séparée de la composante fédérale et de la composante cantonale.
+
+### Qui est compétent
+
+Le périmètre institutionnel est tout aussi important. L'AFC/ESTV gère l'impôt fédéral direct et la TVA. Les administrations cantonales sont en revanche la référence pour les impôts cantonaux et communaux. L'OFAS/BSV s'occupe de la sécurité sociale, y compris AVS, AI et LPP, mais ne fixe pas d'impôts. L'UST/BFS produit des statistiques et n'établit pas de taux.
+
+Cette séparation évite d'utiliser une source statistique pour rechercher un pourcentage fiscal ou de confondre prévoyance et déclaration d'impôts. Pour ceux qui vivent dans le canton de Zurich, l'itinéraire correct part du niveau fiscal concerné et arrive ensuite à la page officielle relative aux taux, aux tranches et aux déductions.
+
+Le portail en ligne de l'administration fiscale cantonale complète le cadre opérationnel indiqué par la source. Sa fonction, dans la pratique, est de recueillir les informations nécessaires à la remise de la déclaration et à la vérification du délai applicable. Le multiplicateur communal reste un passage distinct : il ne doit pas être remplacé par le taux fédéral et ne doit pas être traité comme un poste de la TVA.
+
+La même logique s'applique à la lecture des déductions admises. On identifie d'abord le niveau fiscal, puis on consulte la règle cantonale ou communale pertinente. De cette façon, la recherche sur les impôts cantonaux du canton de Zurich reste ancrée dans les compétences correctes, sans attribuer à l'AFC/ESTV, à l'OFAS/BSV ou à l'OFS/BFS des fonctions qu'ils n'ont pas.
+Le calcul pratique de la charge mensuelle et de la déclaration nécessite de ne pas confondre trois plans : impôts, cotisations salariales et prime LAMal/KVG. Ce sont des voix différentes, avec des mécanismes et des compétences distincts. La distinction permet également de lire correctement un bulletin de paie avant de rechercher une déduction fiscale dans le canton de Zurich.
+
+### Bulletin de paie et fiscalité
+
+Pour les cotisations sur salaire, la source indique que l'AVS/AI/APG s'élève à 5,3 % à la charge du salarié et à 10,6 % au total avec l'employeur. L'AD/AC est de 1,1 % jusqu'au plafond annuel. Pour la LAA/LAA, la valeur indiquée va de 0,7 % à 1,5 % selon le secteur. La LPP/BVG, calculée sur le salaire coordonné, prévoit 7% entre 25 et 34 ans, 10% entre 35 et 44 ans, 15% entre 45 et 54 ans et 18% entre 55 ans et l'âge de référence.
+
+Ces pourcentages décrivent les cotisations sociales ou d'assurance sur le salaire, et non les taux des impôts cantonaux et communaux. Un numéro vu sur la fiche de paie ne permet donc pas, à lui seul, de reconstituer le calcul de la déclaration. Avant d'évaluer une déduction, il faut identifier la nature de l'élément et le niveau fiscal auquel il se rapporte.
+
+| Voix | Mécanisme indiqué par la source |
+|---|---|
+| AVS/AI/APG | 5,3 % des salariés ; 10,6 % au total |
+| AD/AC | 1,1 % jusqu'au plafond annuel |
+| LAA/LAA | 0,7–1,5% selon le secteur |
+| LPP/BVG | Pourcentages sur le salaire coordonné par tranche d'âge |
+
+La LAMal/KVG doit également être exclue du décompte des impôts. Pour les résidents, elle est obligatoire et doit être stipulée dans les trois mois suivant l'arrivée. Elle est privée, financée par des primes par habitant, et n'est ni une taxe ni une contribution salariale. Les primes dépendent du canton et de la région, tandis que la réduction des primes est une subvention cantonale.
+
+Cette distinction a un effet concret sur le budget familial et le coût de la vie : la prime de la caisse-maladie ne doit pas être présentée comme un taux d'imposition et une retenue sociale ne doit pas être confondue avec le multiplicateur communal. Pour lire le tableau de Zurich, il faut donc séparer le calcul de l'impôt fédéral direct, de l'impôt cantonal et communal, des cotisations sur la masse salariale et des primes LAMal.
+Pour consulter correctement les impôts cantonaux et communaux dans le canton de Zurich, il convient de suivre une séquence fixe. La procédure évite de chercher un pourcentage au mauvais endroit et maintient des taux, des tranches, des déductions et des délais distincts.
+
+### Procédure en cinq étapes
+
+1. **Identifie le niveau fiscal.** Indique si la vérification concerne l'impôt fédéral direct, l'impôt cantonal ou l'impôt communal. Si la TVA apparaît, la référence est l'AFC/ESTV ; pour les impôts cantonaux et communaux, la référence est les administrations cantonales.
+
+2. Ouvrez le portail cantonal. Utilisez le portail en ligne de l'administration fiscale cantonale pour rechercher des informations relatives au canton de Zurich. La consultation doit couvrir les taux, les tranches, les déductions admises et le délai de remise de la déclaration.
+
+3. Contrôlez le multiplicateur municipal. La commune applique le multiplicateur sur l'impôt cantonal. Cette donnée doit donc être lue séparément de la composante fédérale et de la base cantonale, sans la remplacer par un poste de la paie ou par la TVA.
+
+4. Vérifiez l'année de référence. La source signale que certains chiffres sont indexés chaque année. Le contrôle porte, entre autres, sur le plafond du troisième pilier 3a, le seuil ou déduction de coordination LPP, le plafond AD/AC, les primes moyennes LAMal et le salaire médian. Il n'est pas souhaitable de transférer automatiquement un montant d'une année à l'autre.
+
+5. Séparation prévoyance et assurance maladie. AVS/AI/APG, AD/AC, LAA/LAA et LPP/BVG sont des cotisations salariales. La LAMal est une assurance obligatoire pour les résidents, avec des primes par habitant et une réduction des primes cantonales. Si une personne vient d'arriver en Suisse, la stipulation doit être effectuée dans les trois mois suivant son arrivée.
+
+Pour une vérification ordonnée, notez le niveau fiscal, la commune, le multiplicateur, la déduction envisagée et le terme affiché sur le portail. Si la donnée concerne des statistiques, l'OFS/BFS n'est pas la source pour fixer des taux. S'il concerne la prévoyance, l'OFAS/BSV n'est pas le bureau qui détermine les impôts. Pour passer à la compilation, ouvrez dichiarazione delle imposte.]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 02:17:44 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/imposte-zurigo-aliquote-deduzioni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-imposte-zurigo-aliquote-deduzioni.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Système de santé suisse : guide LAMal 2026 dans le canton de Zurich</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/systeme-sante-suisse-zurich-2026-guide/</link>
+      <description><![CDATA[Guide pratique du système de santé dans le canton de Zurich pour 2026 : obligations LAMal, choix de la caisse, franchises et procédures de remboursement pour les résidents.]]></description>
+      <content:encoded><![CDATA[## En bref
+- La LAMal est l'assurance maladie obligatoire pour chaque résident.
+- La couverture doit être stipulée dans les trois mois suivant l'arrivée en Suisse.
+- Les primes varient selon le canton de résidence et la franchise choisie.
+- La réduction des primes est gérée par des subventions cantonales spécifiques.
+
+## Faits clés
+- Obligation d'assurance : Dans les 3 mois suivant l'arrivée
+- Franchises adultes : CHF 300, 500, 1000, 1500, 2000, 2500
+- Gestion des récompenses : Par tête
+- Niveau de compétence : Cantonal et Fédéral
+
+Le système de santé suisse est régi par la loi fédérale sur l'assurance maladie (LAM). Toute personne résidant dans le canton de Zurich, comme dans le reste de la Confédération, est tenue de souscrire une assurance de base dans les trois mois suivant son domicile officiel. Cette assurance est de nature privée, mais les prestations couvertes sont standardisées au niveau fédéral pour garantir un accès équitable aux soins médicaux nécessaires. La prime mensuelle, que chaque assuré doit payer, ne constitue pas un impôt, mais un coût fixe qui varie en fonction du lieu de résidence, de l'âge et de la franchise choisie. Dans le canton de Zurich, les autorités compétentes contrôlent l'application de la législation et gèrent les procédures relatives aux subventions pour la réduction des primes, un mécanisme fondamental pour soutenir les couches de la population aux revenus les plus faibles. Il est important de souligner que la LAMal ne dépend ni du salaire ni de l'employeur, contrairement à d'autres couvertures sociales comme l'AVS ou la LPP/LPP, qui sont strictement liées à la fonction et aux cotisations salariales versées. Le choix de la caisse maladie appartient entièrement au citoyen, qui peut comparer les différentes offres du marché, tout en étant conscient que les prestations de base sont identiques par la loi dans chaque compagnie d'assurance. L'administration fédérale, par l'intermédiaire de l'OFSP/BAG, définit le cadre réglementaire, tandis que les cantons conservent la responsabilité opérationnelle de la bonne mise en œuvre et du soutien aux familles. La structure du système repose sur une séparation claire entre la gestion des primes, qui est privée, et la régulation, qui reste publique, garantissant ainsi que la qualité des soins médicaux reste élevée dans tout le pays.
+
+### La structure des couvertures de base
+Chaque contrat LAMal comprend obligatoirement des prestations de base qui couvrent les frais de diagnostic, de traitement, d'hospitalisation et de médicaments prescrits. La distinction entre les différentes caisses maladie réside principalement dans le service client, dans la rapidité de remboursement et dans la variété des modèles d'assurance alternatifs (comme le médecin de famille ou le modèle Telmed), qui permettent d'obtenir des réductions sur les primes avec une limitation dans le choix immédiat d'un médecin spécialiste. La transparence du système est garantie par une vigilance constante, garantissant qu'aucun citoyen ne soit rejeté pour des raisons de santé sous-jacentes.
+L'analyse pratique du système dans le canton de Zurich nécessite une compréhension claire de la dynamique des coûts et des facilités offertes aux résidents. Contrairement à d'autres systèmes européens, la Suisse adopte un modèle basé sur des primes fixes par habitant, indépendamment du revenu ou de la fortune. Cette caractéristique rend la planification financière individuelle fondamentale. Dans le canton de Zurich, le citoyen a le choix entre plusieurs franchises, représentant le montant annuel que l'assuré paie de sa poche avant que la caisse-maladie ne commence à couvrir les frais de santé. Les franchises autorisées pour les adultes commencent à 300 francs et atteignent un maximum de 2500 francs. Opter pour une franchise plus élevée permet de réduire significativement la prime mensuelle, mais expose à un risque financier plus élevé en cas de besoin de soins médicaux fréquents. C'est un calcul que chaque résident doit effectuer en fonction de son état de santé et de ses disponibilités économiques actuelles. En plus de la franchise, l'assuré participe aux coûts par le biais du taux de pourcentage (généralement 10 %) une fois la franchise atteinte, et de la contribution journalière pour l'hospitalisation. Le canton de Zurich offre un système de réduction des primes (subventions) qui permet d'alléger les familles et les individus se trouvant dans certaines tranches de revenus. La procédure de demande de cette subvention doit être strictement suivie selon les
+
+### Gestion des risques et économies
+La gestion avisée de sa situation d'assurance est une compétence fondamentale pour ceux qui vivent à Zurich. La stratégie d'optimisation passe par le choix du bon modèle d'assurance. Pour ceux qui sont en bonne santé, des modèles comme le Telmed permettent de réduire les coûts fixes. Cependant, il est nécessaire d'évaluer attentivement si la flexibilité requise en cas d'urgence est compatible avec vos besoins personnels. La planification financière doit toujours considérer la part de franchise comme une dépense fixe provisionnée, garantissant la liquidité nécessaire pour couvrir les frais médicaux imprévus au cours de l'exercice.
+Pour activer ou modifier votre couverture d'assurance dans le canton de Zurich, la procédure nécessite quelques étapes précises. Tout d'abord, il faut comparer les offres mises à jour pour 2026, en utilisant les comparateurs officiels reconnus par l'administration fédérale. Une fois que vous avez sélectionné la caisse-maladie qui répond le mieux à vos besoins, l'inscription se fait par la signature d'un contrat d'assurance-maladie. Il est essentiel de conserver une copie de la police et des documents envoyés, car ceux-ci constituent la preuve de la couverture conformément à la loi. Si vous êtes déjà résident, le changement de caisse-maladie est possible dans les délais fixés, qui prévoient généralement la résiliation du contrat précédent avant fin novembre pour l'année suivante. En ce qui concerne la demande de réduction des primes, le citoyen doit en faire la demande auprès des offices cantonaux compétents, en fournissant les documents nécessaires attestant de sa situation financière. Souvent, le canton de Zurich envoie d'office les formulaires nécessaires à ceux qui répondent aux critères, mais il incombe au citoyen de vérifier la bonne réception et la transmission ponctuelle des documents. En cas de besoin, le portail cantonal propose des guides détaillés et des contacts directs avec les bureaux concernés. Un autre aspect à surveiller est la mise à jour de vos données personnelles à la caisse d'assurance ; tout changement d'adresse ou d'état civil doit être
+
+Calcola il tuo budget Approfondisci la copertura sanitaria Verifica il costo della vita]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 01:51:47 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/sistema-sanitario-zurigo-guida-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-sistema-sanitario-zurigo-guida-2026.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Anciens dirigeants de Credit Suisse, l&apos;annulation des bonus confirmée</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/credit-suisse-revocation-bonus/</link>
+      <description><![CDATA[Le TF confirme la révocation des bonus des anciens dirigeants de CS Le TAF avait admis les recours en mars 2025 Réductions des bonus : 100%, 50% et 25% pour trois niveaux Le 19]]></description>
+      <content:encoded><![CDATA[## En bref
+- Le TF confirme la révocation des bonus des anciens dirigeants de CS
+- Le TAF avait admis les recours en mars 2025
+- Réductions des bonus : 100%, 50% et 25% pour trois niveaux
+- Le 19 mars 2023 l'acquisition de CS par UBS a été annoncée
+
+## Faits clés
+- Quoi → révocation des rémunérations variables non encore versées
+- Autorité → TF, après le recours de la Confédération et d'UBS
+- Norme → article 10a de la LBCR
+- Mesures → 100%, 50% et 25% aux trois niveaux hiérarchiques les plus élevés
+- Réduction moyenne → 68'000 francs
+- Aides à la liquidité → 168 milliards de francs, entièrement remboursés
+
+LAUSANNE - Le Tribunal fédéral (TF) a jugé légitime la révocation des bonus accordés aux anciens dirigeants de Credit Suisse (CS), annulant la décision du Tribunal administratif fédéral (TAF) et faisant droit au recours de la Confédération et d'UBS. L'arrêt concerne les rémunérations variables destinées aux trois niveaux hiérarchiques les plus élevés de l'établissement aujourd'hui disparu, mais non encore versées.
+
+Au cœur de l'affaire se trouvait l'article 10a de la Loi sur les banques (LBCR). Le TF devait déterminer si cette norme suffisait à permettre au Conseil fédéral de révoquer totalement ou partiellement les rémunérations encore dues lorsqu'une banque d'importance systémique, ou sa société mère, reçoit une aide étatique directe ou indirecte au moyen de fonds de la Confédération.
+
+Les recours des cadres concernés avaient été admis par le TAF en mars 2025. L'instance inférieure estimait que la norme autorisait exclusivement des mesures temporaires, à savoir la suspension du paiement. Dans son arrêt du 16 septembre, publié aujourd'hui, le TF a en revanche retenu une interprétation différente.
+
+### La lecture de l'article 10a
+
+Pour les juges de Lausanne, la durée du soutien visée par la loi désigne la période pendant laquelle le gouvernement est habilité à édicter des mesures, et non la durée de chaque mesure. En outre, le fait que le droit à la rémunération variable puisse être « limité » indique davantage qu'un simple report du paiement.
+
+Le TF s'est également référé au message du Conseil fédéral au Parlement concernant la modification de la LBCR et l'introduction des règles too big to fail. Dans ce document, selon l'arrêt, le gouvernement précisait que les interventions pouvaient aller jusqu'à la révocation des rémunérations variables et affecter les droits y afférents.
+
+Le but était d'empêcher que des fonds publics financent des bonus jugés inappropriés, y compris ceux prévus contractuellement mais pas encore versés au titre d'exercices précédents. Le TF a considéré que les conditions de l'article 10a étaient remplies et a établi que le Conseil fédéral devait prendre des mesures. La réduction a été appliquée progressivement : 100% au premier niveau hiérarchique, 50% au deuxième et 25% au troisième. En moyenne, la réduction s'est élevée à 68'000 francs, tandis que la rémunération fixe de la dernière année d'emploi, non réduite, était d'environ 1,4 million.
+## Ce qui change pour le cas examiné
+
+La différence pratique entre les deux arrêts concerne la signification de la mesure adoptée par le Conseil fédéral. Le TAF l'avait interprétée comme une suspension temporaire : le versement des rémunérations variables aurait été reporté. Le TF a en revanche estimé que le terme « limité » permettait également une réduction substantielle ou une suppression, totale ou partielle, des bonus non encore versés.
+
+### Trois niveaux, trois mesures
+
+| Niveau hiérarchique | Réduction appliquée aux bonus |
+|---|---:|
+| Premier niveau | 100% |
+| Deuxième niveau | 50% |
+| Troisième niveau | 25% |
+
+Le cas ne présente donc pas une réduction uniforme pour toutes les personnes concernées. Le pourcentage dépend du niveau hiérarchique : 100% indique la mesure la plus large, tandis que 25% est la plus limitée parmi celles indiquées dans la source. La comparaison économique fournie par les juges ajoute deux références : la réduction moyenne s'est élevée à 68'000 francs et, au cours de la dernière année d'emploi, la rémunération fixe moyenne non réduite était d'environ 1,4 million de francs.
+
+Pour qui doit interpréter une rémunération variable dans le cas Credit Suisse, la distinction entre la part fixe et le bonus est donc décisive. L'arrêt concerne des rémunérations variables non encore versées ; selon les données rapportées par le Tribunal fédéral, la rémunération fixe n'a pas été réduite. La source précise en outre que pouvaient être concernées des rémunérations variables prévues par contrat pour des exercices précédents, lorsque les bases de la nécessité de l'aide de l'État avaient été posées.
+
+Les juges ont rejeté l'argument des cadres selon lequel la décision aurait constitué une sanction. L'article 10a, selon l'interprétation du TF, poursuit un objectif préventif et non répressif. Les collaborateurs avaient été informés de la possibilité de suppressions de la part variable par l'intermédiaire de clauses restrictives insérées dans leurs plans de rémunération.
+
+Le champ d'application de la décision reste celui décrit par la source : une aide d'État directe ou indirecte financée par des fonds de la Confédération à une banque d'importance systémique ou à sa société mère. Les mesures s'appliquent pendant la période au cours de laquelle le gouvernement est autorisé à intervenir. L'arrêt ne transforme donc pas tout litige salarial en une question analogue : le raisonnement du TF est lié à la norme, au soutien public et aux trois niveaux hiérarchiques de l'affaire CS.
+## Comment reconstituer l'affaire
+
+La chronologie des événements permet de vérifier pourquoi la question des bonus a été liée à la crise de liquidité et à l'intervention de la Confédération. Pour suivre l'affaire sans confondre les différentes étapes, il convient de procéder par dates et de distinguer les annonces des autorités des décisions judiciaires.
+
+### La séquence institutionnelle
+
+1. Le 15 mars 2023, FINMA et BNS ont annoncé que Credit Suisse continuait de satisfaire aux exigences en matière de fonds propres et de liquidités. Au même moment, la BNS a annoncé un soutien à la liquidité.
+
+2. Le 16 mars, le Conseil fédéral a édicté l'ordonnance sur le soutien à la liquidité. Celle-ci prévoyait des prêts supplémentaires et des garanties de la Confédération en cas de défaillance pour les prêts accordés par la BNS aux banques d'importance systémique.
+
+3. Le 19 mars 2023, l'acquisition de CS par UBS a été annoncée. Le même jour, le Conseil fédéral a modifié l'ordonnance sur les aides à la liquidité, en y ajoutant une disposition sur l'adoption de mesures concernant les rémunérations.
+
+4. À la fin mars 2023, CS avait reçu des aides à la liquidité à hauteur de 168 milliards de francs ; le montant a été intégralement remboursé.
+
+5. Ce n'est qu'après avoir reconstitué cette chronologie que l'on peut lire le volet judiciaire : en mars 2025, le TAF avait admis les recours, tandis que le TF a ensuite annulé cette décision dans l'arrêt du 16 septembre publié aujourd'hui.
+
+Pour appliquer correctement la logique de l'affaire, trois points doivent être vérifiés : la rémunération doit être variable et ne pas encore avoir été versée ; la mesure doit concerner l'un des trois niveaux hiérarchiques les plus élevés ; la référence normative est l'article 10a de la LBCR, lié au soutien public prévu par la loi. L'échelle indiquée par les juges reste celle de 100 %, 50 % et 25 %, et non un pourcentage unique pour tous.
+
+La source ne décrit pas de procédure individuelle, de formulaire ou de délai pour d'autres travailleurs. C'est pourquoi l'affaire doit être lue comme une décision fédérale concernant la rémunération des anciens dirigeants de CS, sans en étendre automatiquement les effets à des situations différentes. Pour relier la distinction entre rémunération fixe et variable à la lecture de votre fiche de paie, consultez la busta paga svizzera.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1956910/federale-cs-misure-consiglio-articolo-liquidita-marzo-confederazione-bonus-dirigenti)*]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 00:42:38 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/revoca-bonus-dirigenti-cs</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-revoca-bonus-dirigenti-cs.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Marchés aux puces : garantie, trottoir et contrefaçons transfrontalières</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/marches-aux-puces-garantie-trottoir-et-contrefacons-transfrontalieres/</link>
+      <description><![CDATA[Articles d'occasion : garantie d'un an, sauf exclusion explicite « Vendu en l'état » exclut la garantie Objets gratuits sur le domaine public : souvent interdits Contrefaçons]]></description>
+      <content:encoded><![CDATA[## En bref
+- Articles d'occasion : garantie d'un an, sauf exclusion explicite
+- « Vendu en l'état » exclut la garantie
+- Objets gratuits sur le domaine public : souvent interdits
+- Contrefaçons de l'étranger : saisie et environ 100 francs
+
+## Faits clés
+- Garantie au marché aux puces → un an, sauf exclusion
+- Reçu → au moins les coordonnées du vendeur
+- Domaine public → aucun droit général de distribuer gratuitement
+- Terrain privé → don généralement autorisé
+- Contrefaçons provenant de l'étranger → saisie possible et taxe d'environ 100 francs
+- Retours et échanges → accordés uniquement sur une base volontaire
+
+Les explications de Gabriela Baumgartner (Radio SRF 1, 5 octobre 2026) partent d'un malentendu concret : un objet portant l'inscription « gratuit » sur le trottoir n'est pas automatiquement un cadeau licite. Le marché comprend également les marchés aux puces, les magasins de seconde main et les plateformes en ligne.
+
+### Espace public et terrain privé
+
+Dans de nombreuses communes, laisser sur le trottoir ou le long de la route des cartons contenant des livres, des meubles ou d'autres objets peut être considéré comme une élimination illégale de déchets et, lorsque cela se produit sur le domaine public, est souvent interdit. Il n'existe en effet aucun droit général de distribuer gratuitement des biens en occupant l'espace public. Certaines villes appliquent des règles strictes, tandis que d'autres tolèrent la pratique pour autant que le passage reste libre et que les objets soient retirés rapidement.
+
+Sur un terrain privé, il est généralement permis de laisser des objets destinés à être donnés : en les mettant à disposition, le propriétaire initial renonce à la propriété et celui qui les récupère en devient légalement propriétaire. Restent exclus les sacs des collectes officielles de vêtements usagés, qui restent la propriété de l'organisation promotrice. La réglementation du Code des obligations s'applique également aux achats effectués au marché aux puces.
+
+En principe, l'acheteur d'un bien d'occasion bénéficie d'une garantie d'un an. Le vendeur peut l'exclure : « vendu tel que vu » constitue une exclusion explicite et l'acheteur renonce aux droits correspondants. Un reçu comportant au moins les coordonnées du vendeur permet d'identifier la personne qui a cédé la marchandise en cas de contestation.
+
+La vente de marchandises volées ou d'articles contrefaits constitue une infraction. En revanche, une personne qui achète de bonne foi un produit de ce type dans un marché aux puces en Suisse ne commet pas d'infraction pénale. Si l'achat a lieu à l'étranger, les produits de marque contrefaits peuvent être saisis et la personne qui les introduit en Suisse risque une taxe d'environ 100 francs.
+
+Dans les magasins de seconde main, la garantie prévue pour les biens d'occasion dure un an au lieu de deux et peut être exclue si le client en est clairement informé. Le droit suisse ne prévoit pas de droit général de rétractation : les retours et échanges dépendent de la volonté du vendeur.
+## Un objet d’occasion ne suit pas toujours la même règle
+
+La distinction pratique concerne le lieu, le type de vendeur et la condition appliquée à l’achat. Une boîte laissée dans la rue n’est pas soumise aux mêmes règles qu’un objet exposé sur un terrain privé. De même, un marché aux puces et un magasin d’occasion offrent des garanties de durée similaire, mais le second est un établissement commercial à part entière.
+
+### Quatre comparaisons utiles
+
+| Situation | Conséquence indiquée par la source |
+|---|---|
+| Sol public | Le don peut être interdit ou considéré comme une élimination illégale |
+| Terrain privé | Le don est généralement autorisé et la propriété revient à celui qui prend l’objet |
+| Marché aux puces en Suisse | Garantie d’un an, sauf exclusion ; l’acheteur de bonne foi ne commet pas d’infraction pénale |
+| Magasin d’occasion | Garantie d’un an au lieu de deux, avec exclusion claire possible |
+| Achat transfrontalier | Les produits de marque contrefaits peuvent être saisis et entraîner une taxe d’environ 100 francs |
+
+La première comparaison montre que le prix n’est pas le seul élément à évaluer. Avant même de se demander si un objet est une bonne affaire, celui qui l’offre gratuitement doit déterminer si l’objet se trouve sur le domaine public ou sur une propriété privée. Il peut en résulter l’interdiction de cette pratique ou le transfert de la propriété à celui qui récupère le bien.
+
+La deuxième concerne la garantie. Au marché aux puces, l’acheteur bénéficie, en principe, d’une garantie d’un an, mais peut la perdre en acceptant une formule comme « vendu en l’état ». Dans le magasin d’occasion, la durée est d’un an au lieu de deux et l’exclusion est possible lorsque le client en est clairement informé. La durée de la garantie ne crée toutefois pas un droit général de retourner la marchandise : le droit suisse n’oblige pas le vendeur à reprendre un achat qui ne convient pas.
+
+Le prix exceptionnellement bas doit ensuite faire l’objet d’une évaluation distincte. Si un véritable sac de marque est proposé bien en dessous de sa valeur marchande, l’acheteur peut l’acheter sans informer le vendeur de sa valeur réelle. Le vendeur peut toutefois contester le contrat s’il prouve avoir vendu l’objet sans en connaître la valeur.
+
+Enfin, le risque lié à la frontière varie. Un achat effectué de bonne foi dans un marché aux puces suisse ne constitue pas une infraction pénale pour l’acheteur. En revanche, pour les achats dans les pays voisins, les contrôles douaniers portant sur les produits de marque contrefaits peuvent entraîner leur saisie et la demande d’une taxe d’environ 100 francs.
+## Avant de conclure l'affaire
+
+### Cinq étapes opérationnelles
+
+1. Si vous voulez donner un objet, vérifiez où vous le déposez. Le trottoir et la rue font partie de l’espace public : dans de nombreuses communes, cette pratique est interdite et peut être considérée comme un dépôt illégal de déchets. Sur un terrain privé, elle est généralement autorisée. Les sacs des collectes officielles de vêtements usagés restent en revanche la propriété de l’organisation qui promeut la collecte.
+
+2. Avant d’acheter, vérifiez soigneusement l’état de l’objet. Posez des questions au vendeur et demandez-vous si le prix est plausible. Lorsqu’il paraît exceptionnellement avantageux, la source invite à se méfier ; si vous décidez malgré tout de procéder, demandez un reçu.
+
+3. Au marché aux puces, faites inscrire sur le reçu au moins les informations du vendeur. En cas de contestation ultérieure, cela permet d’identifier la personne qui a cédé la marchandise. Vérifiez également si des mentions excluant la garantie y figurent : « vendu en l’état » produit cet effet.
+
+4. Dans un magasin d’occasion, demandez quelle garantie couvre le bien. Pour les articles d’occasion, elle dure un an au lieu de deux, mais le commerçant peut l’exclure s’il en informe clairement le client. Ne tenez pas l’échange pour acquis : les retours et les remplacements sont volontaires.
+
+5. Si vous achetez dans les pays voisins et que l’article est de marque, accordez une attention particulière au risque de contrefaçon. Les autorités douanières peuvent saisir le produit et quiconque l’introduit en Suisse risque une taxe d’environ 100 francs. La bonne foi de l’acheteur exclut l’infraction pénale en cas d’achat au marché aux puces en Suisse, mais n’élimine pas le risque indiqué lors du retour de l’étranger.
+
+Après la vente ou l’achat, ne confondez pas la garantie avec le droit de rétractation : ce dernier ne s’applique pas de manière générale. Si l’achat s’avère être une erreur, le vendeur n’est pas tenu de reprendre la marchandise, sauf s’il choisit volontairement d’accorder un retour ou un échange. Pour comparer le taux de change en cas d’achats transfrontaliers, consultez le comparatore CHF/EUR.
+
+*Source: [rsi.ch](https://www.rsi.ch/info/dialogo/Mercatini-e-usato-cinque-cose-da-sapere--4155286.html)*
+
+<footer class="ft-image-credit mt-8 text-sm text-subtle" data-image-credit="wikimedia-commons"><small>Image de couverture : <a href="https://commons.wikimedia.org/wiki/File:View_over_the_Alps_from_Aubrigstrasse_in_Z%C3%BCrich.jpg" target="_blank" rel="noopener" class="underline underline-offset-2">« <bdi>View over the Alps from Aubrigstrasse in Zürich</bdi> »</a> par <a href="https://commons.wikimedia.org/wiki/User:Balise42" target="_blank" rel="noopener" class="underline underline-offset-2"><bdi>Balise42</bdi></a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline underline-offset-2">CC BY 4.0</a>, via Wikimedia Commons (recadrée et redimensionnée).</small></footer>]]></content:encoded>
+      <pubDate>Thu, 15 Oct 2026 23:56:58 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/mercatini-usato-svizzera</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Balise42</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</media:license></media:content>
+    </item>
+    <item>
+      <title>Cyberattaque, la caisse de pension de Zurich touchée</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/cyberattaque-caisse-pension-zurich/</link>
+      <description><![CDATA[Des données personnelles de PKZH volées lors d'une attaque contre un fournisseur de logiciels Les fonds de prévoyance et les rentes n'ont pas été touchés L'attaque remonte à fin septembre]]></description>
+      <content:encoded><![CDATA[## En bref
+- Des données personnelles de PKZH volées lors d'une attaque contre un fournisseur de logiciels
+- Les fonds de prévoyance et les rentes n'ont pas été touchés
+- L'attaque remonte à fin septembre
+- PKZH a déposé une plainte pénale
+
+## Faits clés
+- Caisse : PKZH, caisse de pensions de la ville de Zurich
+- Attaque : contre un fournisseur externe de logiciels
+- Quand : fin septembre
+- Pire scénario : coordonnées, AVS, IBAN et données de prévoyance
+- Effets : fonds de prévoyance et versements des rentes non touchés
+- Système administratif : n'aurait pas été concerné
+- Action : plainte pénale déposée par la PKZH
+- Vérification : données dérobées et personnes concernées encore à déterminer
+
+Jeudi, la PKZH, la caisse de pensions de la ville de Zurich, a annoncé que des données personnelles de ses assurés avaient été dérobées. La cyberattaque a touché un fournisseur externe de logiciels, sans affecter les fonds de prévoyance ni le versement des rentes. La communication distingue donc le vol d'informations du versement des prestations.
+
+L'attaque informatique remonte à fin septembre. Comme le passage à un nouveau système de gestion était prévu, la caisse avait déjà envoyé ses données à l'entreprise. La PKZH a porté plainte pénale. Entre-temps, elle cherche à déterminer précisément quelles informations ont été dérobées et combien de personnes sont concernées.
+
+### La reconstitution de l'attaque
+
+Le pire scénario recensé par la caisse comprend les coordonnées personnelles : nom, adresse, e-mail et numéro de téléphone. Dans la même liste figurent le numéro AVS, l'état civil, les informations relatives aux partenaires, le numéro IBAN et des données de prévoyance telles que le revenu assuré et le patrimoine. La formulation est conditionnelle : la source ne présente pas ces catégories comme une liste déjà confirmée pour chaque personne.
+
+Selon la communication, le système administratif utilisé par PKZH pour gérer les patrimoines et verser les rentes ne semble pas avoir été impliqué dans l'attaque. Pour la partie opérationnelle de la caisse, c'est donc la limite indiquée par la source. En revanche, la reconstitution de l'ensemble des données copiées et le décompte des assurés concernés restent à établir.
+
+L'affaire intervient après des communications d'autres caisses de pensions suisses. Dans les jours précédents, d'autres caisses, dont la caisse publique bernoise, avaient fait savoir qu'elles avaient été victimes de la cyberattaque. Le texte ne précise pas quelles données ont été concernées dans le cas bernois.
+
+Jeudi, une possible implication de la caisse de pensions de la Posta avait également été évoquée. La source précise que ce n'est pas établi. Des avertissements sont apparus sur son site, mais cet élément ne transforme pas l'hypothèse en confirmation. En revanche, le communiqué de la PKZH établit explicitement un lien entre la transmission des données, le projet de nouveau système de gestion et la compromission du fournisseur externe.
+## La portée pratique pour les assurés
+
+Pour les personnes qui vivent ou travaillent en Suisse et sont assurées auprès de la PKZH, la nouvelle présente deux aspects distincts : la continuité de la prévoyance et la confidentialité des informations. Sur le premier point, la caisse indique que les fonds et les paiements des rentes n'ont pas été touchés ; le système administratif utilisé pour gérer les patrimoines et verser les prestations n'aurait pas non plus été affecté. Sur le second, l'éventuelle fuite concerne un ensemble plus large que de simples coordonnées, car le pire scénario inclut le numéro AVS, l'IBAN et des données de prévoyance. La source ne fait état ni de transferts d'argent ni d'un blocage des rentes. L'information disponible concerne le vol d'informations.
+
+### Ce qui est certain et ce qui reste en suspens
+
+| Point | Établi ou communiqué | Reste à clarifier |
+|---|---|---|
+| Données personnelles | La PKZH a signalé un vol | Quelles catégories ont effectivement été dérobées |
+| Personnes concernées | La caisse procède au décompte | Combien sont-elles |
+| Patrimoines et rentes | Les fonds et les paiements n'ont pas été touchés | L'analyse complète chez le fournisseur |
+| Cassa della Posta | Implication non établie | Éventuelle confirmation |
+
+Le passage à un nouveau système de gestion explique pourquoi les données se trouvaient auprès d'une entreprise externe : la source indique qu'elles avaient été transmises avant l'attaque. Elle ne dit pas que le système avec lequel PKZH administre les patrimoines et les rentes a été touché. Pour le lecteur, cette différence permet d'éviter de confondre une fuite de données avec une modification des prestations de prévoyance.
+
+La référence aux autres caisses doit également être lue avec précision. La caisse publique bernoise avait déjà déclaré avoir été victime de la cyberattaque, mais le texte n'attribue pas automatiquement à ce cas les mêmes catégories de données. Pour la caisse de pensions de la Posta, en revanche, l'implication reste non établie, malgré les avertissements apparus sur le site. Tant que PKZH n'a pas terminé la vérification, le nombre de personnes concernées et la liste effective des informations dérobées restent les deux éléments décisifs.
+## Comment suivre le cas sans confondre les alertes
+
+La source ne décrit pas une procédure individuelle avec des formulaires, des délais ou des numéros à appeler. Elle propose toutefois une série de vérifications qui évite les conclusions hâtives.
+
+### Quatre étapes fondées sur la communication
+
+1. Distinguer les caisses concernées. Le cas avéré concerne PKZH. La caisse publique bernoise est citée comme victime déjà annoncée ; la Posta n’est mentionnée que pour une implication non avérée et avec des avertissements sur le site.
+
+2. Considérer la liste des données comme le pire scénario, et non comme une confirmation individuelle. PKZH vérifie quelles informations ont été dérobées et combien de personnes sont concernées.
+
+3. Garder séparées les données et les prestations. La communication indique que les fonds de prévoyance et les paiements des rentes n’ont pas été touchés et que le système administratif n’aurait pas été concerné.
+
+4. Consigner le seul acte formel indiqué : PKZH a déposé une plainte pénale. C’est l’étape procédurale rapportée par la source ; aucune autre démarche pour les assurés n’est décrite.
+
+Ce périmètre permet de ne pas attribuer à la source des instructions qu’elle ne contient pas. Aucun délai dans lequel les assurés devraient répondre, aucun mode de notification individuelle, aucun document à envoyer ni aucun canal dédié ne sont indiqués. L’information ne permet donc pas de fixer un délai personnel.
+
+Le prochain élément vérifiable sera le résultat de l’analyse lancée par PKZH : quelles données ont effectivement été dérobées et combien de personnes sont concernées. D’ici là, la distinction la plus précise reste la suivante : vol de données confirmé, ampleur encore à définir, prestations non touchées selon la communication.
+
+Pour approfondir la prévoyance, utilise le strumento AVS/LPP/rendita.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4167841)*]]></content:encoded>
+      <pubDate>Thu, 15 Oct 2026 23:41:40 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/attacco-software-pkzh</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-attacco-software-pkzh.webp" medium="image"/>
+    </item>
     <item>
       <title>Accord entre RUAG et Lockheed Martin pour trois F-35A à Emmen</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/accord-entre-ruag-et-lockheed-martin-pour-trois-f-35a-a-emmen/</link>
@@ -161,14 +493,12 @@ En cas d'acceptation, le cadre décrit par la nouvelle approche ouvrirait davant
 
 Pour suivre la dimension de l'emploi dans le débat, consultez les annunci di lavoro.
 
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/export-armi-importante-per-sicurezza-della-svizzera/92222311)*
-
-<footer class="ft-image-credit mt-8 text-sm text-subtle" data-image-credit="wikimedia-commons"><small>Image de couverture : <a href="https://commons.wikimedia.org/wiki/File:Bundeshaus_,_Swiss_Parliament_Bern_(_Ank_Kumar_)_13.jpg" target="_blank" rel="noopener" class="underline underline-offset-2">« <bdi>Bundeshaus , Swiss Parliament Bern ( Ank Kumar ) 13</bdi> »</a> par <a href="https://commons.wikimedia.org/wiki/User:Ank_gsx" target="_blank" rel="noopener" class="underline underline-offset-2"><bdi>Ank Kumar</bdi></a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" class="underline underline-offset-2">CC BY-SA 4.0</a>, via Wikimedia Commons (recadrée et redimensionnée).</small></footer>]]></content:encoded>
+*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/export-armi-importante-per-sicurezza-della-svizzera/92222311)*]]></content:encoded>
       <pubDate>Thu, 15 Oct 2026 19:42:08 GMT</pubDate>
       <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/referendum-armi-sicurezza-svizzera</guid>
       <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/accordi-svizzera-ue-consiglio-federale.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Ank Kumar</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</media:license></media:content>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-referendum-armi-sicurezza-svizzera.webp" medium="image"/>
     </item>
     <item>
       <title>La Suisse et la Thaïlande mettent en évidence des opportunités de libre-échange</title>
@@ -243,7 +573,7 @@ Pour une personne résidant en Suisse, c’est une manière concrète de suivre 
       <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/svizzera-thailandia-aelss-visita-2026</guid>
       <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-svizzera-partecipa-fmi-bangkok-2026.webp" medium="image"/>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-svizzera-thailandia-aelss-visita-2026.webp" medium="image"/>
     </item>
     <item>
       <title>Facilitations douanières : nouveautés à compter du 1er novembre 2026</title>
@@ -313,7 +643,7 @@ La procédure la plus fidèle consiste donc à ne pas anticiper de contenus abse
       <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/agevolazioni-doganali-impiego</guid>
       <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/voto-iva-avs-novembre-2026.webp" medium="image"><media:credit role="author" scheme="urn:ebu">US Embassy</media:credit><media:license type="text/html" href="https://commons.wikimedia.org/wiki/File:Memorial_Day_Service_at_Old_St_Paul%27s,_Wellington_-_May_30,_2011.jpg">domaine public</media:license></media:content>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-agevolazioni-doganali-impiego.webp" medium="image"/>
     </item>
     <item>
       <title>Puregym acquiert Nonstop Gym : objectif 100 clubs d&apos;ici 2026</title>
@@ -2789,14 +3119,12 @@ Le texte n'indique pas de procédure identique pour toute la Suisse et n'établi
 
 Pour approfondir l'utilisation quotidienne des mezzi pubblici.
 
-*Source: [tio.ch](https://www.tio.ch/svizzera/cronaca/1956740/multe-non-pagate-ecco-chi-puo-salvarvi-dal-carcere)*
-
-<footer class="ft-image-credit mt-8 text-sm text-subtle" data-image-credit="wikimedia-commons"><small>Image de couverture : <a href="https://commons.wikimedia.org/wiki/File:Locarno_1.jpg" target="_blank" rel="noopener" class="underline underline-offset-2">« <bdi>Locarno 1</bdi> »</a> par <a href="https://de.wikipedia.org/wiki/User:Riessdo" target="_blank" rel="noopener" class="underline underline-offset-2"><bdi>Riessdo</bdi></a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" class="underline underline-offset-2">CC BY-SA 3.0</a>, via Wikimedia Commons (recadrée et redimensionnée).</small></footer>]]></content:encoded>
+*Source: [tio.ch](https://www.tio.ch/svizzera/cronaca/1956740/multe-non-pagate-ecco-chi-puo-salvarvi-dal-carcere)*]]></content:encoded>
       <pubDate>Wed, 14 Oct 2026 21:58:02 GMT</pubDate>
       <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/liberta-fondo-pene-sostitutive</guid>
       <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/lavori-pubblica-utilita-multe-pene.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Riessdo</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</media:license></media:content>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-liberta-fondo-pene-sostitutive.webp" medium="image"/>
     </item>
     <item>
       <title>Suisse, consultation sur l&apos;accord OMC e-commerce</title>
@@ -3386,391 +3714,6 @@ La position suisse doit être considérée conjointement avec la participation d
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/nuovo-accordo-commercio-elettronico</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-nuovo-accordo-commercio-elettronico.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Blanchiment d’argent en Suisse : il faut davantage de ressources et de sanctions</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/suisse-rapport-blanchiment-argent/</link>
-      <description><![CDATA[Les risques restent élevés en Suisse Le Conseil fédéral prend acte du troisième rapport Le GCRF formule huit recommandations Il faut davantage de ressources et de sanctions]]></description>
-      <content:encoded><![CDATA[## En bref
-- Les risques restent élevés en Suisse
-- Le Conseil fédéral prend acte du troisième rapport
-- Le GCRF formule huit recommandations
-- Il faut davantage de ressources et des sanctions plus sévères
-
-## Faits clés
-- Document → troisième rapport national sur les risques
-- Périmètre → blanchiment d'argent et financement du terrorisme
-- Recommandations → huit
-- Autorités → GCRF
-- Objectif des sanctions → « sanctions efficaces et dissuasives »
-- Registre → transparence des bénéficiaires effectifs, en vigueur début octobre
-
-À Berne, le Conseil fédéral a pris connaissance du rapport de la Confédération sur les menaces que font peser sur la Suisse le blanchiment d'argent et le financement du terrorisme. Le document indique que la place financière suisse reste attractive pour les criminels et que le niveau global de risques reste élevé.
-
-Le texte est le troisième rapport national d’évaluation des risques sur le sujet. Le diagnostic combine deux éléments : le système national répressif est globalement solide, mais doit constamment s'adapter aux nouvelles technologies utilisées par les délinquants.
-
-### Ressources, sanctions et criminalité organisée
-
-Pour renforcer la réponse suisse, le GCRF, le Groupe interministériel de coordination chargé de lutter contre le blanchiment d'argent, le financement du terrorisme et de la prolifération, a formulé huit recommandations. Parmi les priorités figure le renforcement du personnel des autorités impliquées dans la lutte contre la criminalité. La forte augmentation des signalements de cas suspects de blanchiment d’argent risque de pousser le système de contrôle dans ses retranchements.
-
-Le rapport réclame donc du personnel supplémentaire pour les autorités de contrôle et d'application, des systèmes informatiques plus efficaces et des ressources financières suffisantes. Un deuxième chapitre concerne la surveillance financière : les efforts en cours pour élargir l'arsenal de sanctions de la Finma doivent se poursuivre, dans le but de parvenir à des « sanctions efficaces et dissuasives ».
-
-Les auteurs pointent ensuite l’infiltration du crime organisé dans le tissu économique légal. Les réseaux criminels utilisent la Suisse pour transférer des fonds et pénétrer dans l'économie légale ; Le GCRF demande que le projet de loi en cours contre les organisations criminelles soit soumis au Parlement dans les plus brefs délais.
-
-D'autres recommandations incluent l'examen et, si nécessaire, la révision de la loi actuelle sur le contrôle des métaux précieux. Le GCRF propose également de surveiller en permanence le registre de transparence relatif aux déclarations des bénéficiaires effectifs, en vigueur depuis début octobre, pour vérifier s'il atteint les objectifs souhaités.
-## La lecture pratique du rapport
-
-La partie opérationnelle du dossier concerne avant tout la capacité du système à gérer les signalements. Le texte lie l'augmentation massive des cas présumés de blanchiment au risque que le système de contrôle atteigne ses limites. La réponse préconisée n'est pas une mesure unique, mais une combinaison de personnel, d'outils informatiques et de ressources financières pour les autorités de surveillance et d'exécution.
-
-Pour les personnes qui vivent ou travaillent en Suisse, le point à suivre est donc l'équilibre entre la solidité du système et son adaptation aux nouveaux outils utilisés par les criminels. Le rapport ne présente pas la résilience du système comme un résultat définitif : il la considère comme suffisante dans l'ensemble, mais soumise à une mise à jour constante.
-
-### Cinq fronts à distinguer
-
-| Domaine | Signal du rapport | Réponse indiquée |
-| Contrôles | Croissance massive des signalements suspects | Davantage de personnel, des outils informatiques efficaces et des ressources financières |
-| Surveillance | Arsenaux de sanctions de la Finma à élargir | Sanctions efficaces et dissuasives |
-| Criminalité organisée | Utilisation de la Suisse pour les fonds et infiltration dans l'économie légale | Examen parlementaire rapide du projet de loi |
-| Métaux précieux | Nécessité d'examiner la loi en vigueur | Révision le cas échéant |
-| Transparence | Registre en vigueur au début octobre | Évaluation constante des effets |
-
-Le tableau aide à ne pas confondre des niveaux différents. Une augmentation des ressources concerne la capacité administrative ; l'élargissement des sanctions concerne les outils de la Finma ; le projet sur la criminalité organisée concerne en revanche le passage au Parlement. Ces démarches sont liées dans le rapport, mais ne se confondent pas.
-
-Le registre de transparence requiert également une lecture prudente. Le fait qu'il soit entré en vigueur au début octobre n'est pas présenté comme une preuve automatique du résultat : le GCRF recommande de vérifier au fil du temps s'il produit les effets escomptés. Il en va de même pour la loi sur les métaux précieux, que le rapport invite à examiner avant une éventuelle révision.
-
-Le message pour le débat national est clair : la solidité reconnue aujourd'hui n'élimine pas la nécessité d'adapter les contrôles, les sanctions et les instruments réglementaires. Les recommandations indiquent des orientations précises, tandis que leur mise en œuvre reste liée aux autorités compétentes et au Parlement.
-## Comment suivre le dossier sans confondre propositions et décisions
-
-Le rapport propose une séquence de vérification utile à qui veut suivre l'évolution de la lutte contre le blanchiment d'argent en Suisse. La règle de lecture consiste à distinguer ce qui est déjà indiqué dans le document des mesures que le GCRF demande de poursuivre.
-
-### Cinq étapes de vérification
-
-1. Commencer par la situation institutionnelle. Le Conseil fédéral a pris connaissance du rapport : c'est l'étape enregistrée par la source. Les huit recommandations décrivent en revanche les interventions considérées comme nécessaires pour améliorer le système.
-2. Vérifier la capacité opérationnelle. La référence concrète concerne la disponibilité de personnel dans les autorités de surveillance et d'exécution, l'efficacité des systèmes informatiques et la présence de ressources financières suffisantes. Ce sont les trois éléments à rechercher lorsqu'on évalue la réponse à l'augmentation massive des signalements suspects.
-3. Distinguer la surveillance financière de la lutte contre la criminalité organisée. Dans le premier cas, le rapport parle de l'arsenal de sanctions de la Finma et de l'objectif de sanctions efficaces et dissuasives. Dans le second, il demande que le projet de loi soit soumis au Parlement dans les meilleurs délais.
-4. Suivre les deux domaines de vérification normative. D'une part, il y a la loi actuelle sur le contrôle des métaux précieux, qui doit être examinée et, le cas échéant, révisée. D'autre part, il y a le registre de transparence relatif aux ayants droit économiques, entré en vigueur au début du mois d'octobre : la question posée par le rapport est de savoir s'il produit les effets escomptés.
-5. Maintenir distinctes l'évaluation et les résultats. La source décrit un système globalement solide, mais exposé à l'évolution technologique et à la pression des signalements. Par conséquent, le suivi ne s'achève pas avec la prise de connaissance du rapport : il porte sur la mise en œuvre des recommandations et la vérification des effets du registre.
-
-Ce schéma permet de suivre le sujet au niveau fédéral sans attribuer au Parlement des décisions dont la source ne fait pas état, ni considérer comme déjà approuvées des mesures présentées comme des recommandations. Pour approfondir le rapport entre les règles et le fonctionnement bancaire, consultez le guide sur les conti bancari in Svizzera.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1956666/svizzera-contrasto-rapporto-riciclaggio-denaro)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 16:21:05 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/rapporto-riciclaggio-denaro-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-rapporto-riciclaggio-denaro-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Déficience intellectuelle : droits politiques, consultation</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/droits-politiques-handicap-intellectuel/</link>
-      <description><![CDATA[Le Conseil fédéral lance la consultation le 14 octobre 2026 Date limite de la consultation : 28 janvier En proposition, vote fédéral et signature d’initiatives]]></description>
-      <content:encoded><![CDATA[## En bref
-- Le Conseil fédéral lance la consultation le 14 octobre 2026
-- Date limite de la consultation : 28 janvier
-- En proposition, vote fédéral et signature d’initiatives et référendums
-- Genève a reconnu le droit en 2020
-
-## Faits clés
-- Promoteur → Conseil fédéral et certains cantons
-- Objet → Modification de la Constitution et de la loi sur les droits politiques
-- Destinataires → Citoyens suisses majeurs
-- Droits indiqués → Élections du Conseil national et votations fédérales
-- Autres droits → Signature d’initiatives populaires et de référendums
-- Précédents cantonaux → Genève 2020 ; Appenzell Rhodes-Intérieures 2024
-
-Le 14 octobre 2026, le Conseil fédéral a lancé la procédure de consultation sur la participation des personnes présentant une déficience intellectuelle à la vie politique de la Suisse. Comme certains cantons, il a ouvert une démarche qui restera active jusqu’au 28 janvier. Le dossier concerne une modification de la Constitution et de la loi sur les droits politiques.
-
-Le cadre actuel au niveau fédéral prévoit l’exclusion des personnes présentant une déficience intellectuelle de l’exercice des droits politiques, comme le rappelle une note du gouvernement. La proposition vise au contraire à permettre à l’avenir aux citoyens suisses majeurs de contribuer à la définition des politiques du pays, en établissant pour le niveau fédéral un périmètre différent de celui d’aujourd’hui.
-
-Selon l’objectif présenté par le Conseil fédéral, à l’avenir, tous les citoyens suisses majeurs devront pouvoir participer à la vie politique. La source énumère concrètement les formes de participation indiquées : les élections du Conseil national, les votations fédérales, la signature d’initiatives populaires et la signature de référendums. Le catalogue comprend donc à la fois le vote et la signature des instruments indiqués.
-
-### Du niveau fédéral aux cantons
-
-La démarche fédérale s’ajoute à des initiatives déjà mentionnées dans certains cantons. À Genève, en 2020, le droit de vote et d’élection au niveau cantonal a été reconnu aux personnes présentant une déficience intellectuelle ; le texte cite également Appenzell Rhodes-Intérieures en 2024. Dans d’autres cantons, ajoute la source, des efforts similaires sont en cours. Sur le plan institutionnel, la consultation du Conseil fédéral est donc mise en parallèle avec les démarches cantonales déjà mentionnées ou encore en cours.
-
-Le reportage, diffusé dans le Radiogiornale de 12.30 du 14 octobre 2026, présente cette perspective comme future. La date limite communiquée pour la consultation est le 28 janvier.
-Le point pratique à garder séparé est le niveau auquel le droit est exercé. La source distingue la situation fédérale actuelle, la consultation lancée par le Conseil fédéral et les évolutions mentionnées dans certains cantons. Pour lire correctement la nouvelle, la reconnaissance cantonale mentionnée pour Genève ne doit pas être confondue avec la proposition qui concerne la Confédération.
-
-| Niveau ou territoire | Donnée de la source | Champ |
-| --- | --- | --- |
-| Confédération | Aujourd’hui, exclusion des droits politiques fédéraux ; consultation jusqu’au 28 janvier | Perspective pour les citoyens suisses majeurs |
-| Genève | Droit de vote et d’éligibilité au niveau cantonal en 2020 | Niveau cantonal |
-| Appenzell Rhodes-Intérieures | Référence à 2024 | Niveau cantonal |
-| Autres cantons | Efforts similaires en cours | Démarches cantonales mentionnées |
-
-### Ce que comprend la perspective fédérale
-
-La proposition décrite ne se limite pas à une seule échéance électorale. La référence aux élections du Conseil national concerne la participation à ce scrutin fédéral ; celle aux votations fédérales élargit le cadre aux consultations mentionnées par la source. La signature d’initiatives populaires et de référendums ajoute les instruments de participation énumérés à côté du vote.
-
-Le destinataire indiqué est précis : tous les citoyens suisses majeurs. Pour une lecture pratique, il convient d’associer le sujet, le niveau et le droit : citoyens suisses majeurs, Confédération, élections du Conseil national, votations fédérales, initiatives populaires ou référendums.
-
-La comparaison chronologique est tout aussi utile. Genève est située en 2020, Appenzell Rhodes-Intérieures en 2024, tandis que, pour le niveau fédéral, la référence est le 14 octobre 2026, avec une consultation jusqu’au 28 janvier. Les autres cantons sont décrits comme engagés dans des efforts similaires. Le cadre est donc différencié selon le territoire et la phase : certaines références concernent les cantons, tandis que d’autres concernent une consultation fédérale ouverte jusqu’au 28 janvier.
-Pour suivre le dossier sans confondre annonce, échéance et contenu, il convient d’utiliser une fiche en cinq étapes. La séquence reste fidèle aux données communiquées et distingue le niveau fédéral des exemples cantonaux.
-
-### Les cinq repères à noter
-
-1. **Date de lancement.** Noter le 14 octobre 2026, date du service et du lancement de la procédure par le Conseil fédéral.
-2. Échéance. Distinguer l’échéance du 28 janvier : il s’agit de la limite temporelle indiquée pour la consultation.
-3. Objet. Rechercher les deux éléments mentionnés : une modification constitutionnelle et une modification de la loi sur les droits politiques.
-4. Destinataires et droits. Vérifier que la perspective concerne tous les citoyens suisses majeurs et inclut le Conseil national, les votations fédérales, les initiatives populaires et les référendums.
-5. Comparaison territoriale. Garder séparés Genève en 2020, Appenzell Rhodes-Intérieures en 2024 et les autres cantons où des efforts similaires sont en cours.
-
-Cette séquence aide à ne pas considérer la consultation comme un droit fédéral déjà étendu. La source décrit en effet la situation actuelle d’exclusion au niveau fédéral et présente l’extension de la participation comme un objectif futur. La date immédiatement exploitable est donc le 28 janvier, liée à la procédure annoncée.
-
-La vérification du niveau institutionnel a également une fonction concrète. Si une mise à jour parle du droit de vote et d’élection dans le cadre de Genève, la référence est cantonale ; si elle évoque les élections du Conseil national, les votations fédérales ou les signatures d’initiatives et de référendums, le périmètre est celui indiqué pour la proposition fédérale.
-
-La distinction est également utile pour la terminologie : la source parle de citoyens suisses majeurs, de droits politiques fédéraux et de la signature d’initiatives populaires et de référendums en plus du vote. Le point opérationnel reste de suivre la consultation jusqu’au 28 janvier, en séparant les références cantonales de celles qui sont fédérales.
-
-*Source: [rsi.ch](https://www.rsi.ch/s/4162597)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 15:17:53 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/diritti-politici-disabilita</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-diritti-politici-disabilita.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Les prix des voitures neuves et d’occasion baissent grâce aux marques chinoises</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/les-prix-des-voitures-neuves-et-d-occasion-baissent-grace-aux-marques-chinoises/</link>
-      <description><![CDATA[Au troisième trimestre, les prix moyens des voitures neuves baissent.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Au troisième trimestre, les prix moyens des voitures neuves baissent.
-- L’occasion baisse également, avec une offre en hausse.
-- Les marques chinoises accentuent la pression sur les prix.
-- Les voitures électriques d’occasion progressent par rapport au trimestre précédent.
-
-## Faits clés
-
-| Terme | Valeur |
-|---|---|
-| Source | AutoScout24 |
-| Période | Troisième trimestre |
-| Voitures neuves | -2,6% sur les trois mois précédents ; -5,8% sur un an |
-| Voitures d'occasion | -0,8% par rapport au deuxième trimestre ; -4,3% en comparaison annuelle |
-| Voitures neuves à essence | -4,4% sur le trimestre ; -4,9% sur un an |
-| Hybrides rechargeables neuves | -16% sur un an |
-| Voitures électriques d'occasion | +1,5% par rapport à avril-juin ; -1,4% sur un an |
-| Annonces | +0,7% sur le trimestre ; +2,6% sur un an |
-
-Au troisième trimestre, en Suisse, les prix moyens demandés pour les voitures neuves annoncées sur AutoScout24 ont enregistré un recul de 2,6% par rapport au trimestre précédent ; sur un an, la baisse a été de 5,8%. Cette donnée est rapportée dans une analyse de marché publiée aujourd'hui par le portail, présenté comme un acteur de premier plan dans la Confédération pour la vente de véhicules. La nouvelle a été diffusée par Keystone-ATS.
-
-Le recul a également touché les véhicules d'occasion : les prix moyens se sont révélés inférieurs de 0,8% par rapport au deuxième trimestre et de 4,3% dans la comparaison annuelle indiquée par l'analyse. La tendance concerne donc les deux principales catégories observées, avec une intensité différente.
-
-### Les catégories affichant les variations les plus marquées
-
-Parmi les voitures neuves, les véhicules à essence ont perdu 4,4% par rapport au trimestre précédent et 4,9% par rapport à l'année précédente. La baisse la plus importante concerne les hybrides rechargeables neuves : leur coût a diminué de 16% en comparaison annuelle.
-
-Le tableau des voitures électriques d'occasion est différent sur la courte période. Les prix ont augmenté de 1,5% par rapport à la période avril-juin, mais la comparaison annuelle reste négative, avec un recul de 1,4%. La source souligne ainsi une différence entre l'évolution trimestrielle et l'évolution annuelle, sans évolution uniforme entre les motorisations.
-
-S'agissant de l'offre, les annonces de véhicules présentes sur AutoScout24 ont augmenté de 0,7% par rapport au trimestre précédent et de 2,6% sur un an. Pour les voitures d'occasion, l'augmentation a été de 0,9% par rapport au trimestre précédent et de 2,5% sur un an ; les annonces de voitures neuves ont en revanche enregistré une variation de -0,8% dans la comparaison trimestrielle et de +3,9% dans la comparaison annuelle.
-
-La baisse des prix s'inscrit dans une dynamique déjà observée depuis quelque temps. Au printemps, AutoScout24, plateforme appartenant à Swiss Marketplace Group, ou SMG, avait signalé la présence croissante en Suisse des constructeurs chinois. Leur offre combine des coûts plus bas, des progrès technologiques et un rythme soutenu d'innovation. La concurrence des marques chinoises est citée par la source parmi les facteurs susceptibles de contribuer à la baisse des prix.
-Pour interpréter le contexte suisse sans confondre des signaux différents, il convient de distinguer trois questions : dans quelle mesure le prix moyen évolue, sur quel intervalle de temps la variation est mesurée et combien de véhicules sont annoncés. L'analyse d'AutoScout24 rassemble ces éléments dans un même cadre, mais ne les utilise pas pour décrire la même dimension du marché.
-
-### Le prix n'est pas le seul indicateur
-
-Comparer le trimestre et l'année permet de lire deux mouvements distincts. Le premier met en évidence la variation la plus récente, car il prend pour référence les trois mois précédents ; le second montre l'évolution par rapport à la période annuelle utilisée par l'analyse. Pour qui examine une annonce en Suisse, cette distinction évite de considérer une variation à court terme comme si elle décrivait à elle seule toute la tendance.
-
-Le nombre d'annonces exige lui aussi une lecture distincte. L'offre globale annoncée sur la plateforme a augmenté, tandis que, pour les voitures neuves, la donnée trimestrielle a baissé et la donnée annuelle a augmenté. Pour les voitures d'occasion, en revanche, les deux comparaisons des annonces indiquent une hausse. Le tableau qui en ressort est nuancé : la baisse des prix moyens et l'évolution du nombre de véhicules annoncés ne constituent pas la même donnée.
-
-| Élément à comparer | Donnée à observer | Lecture cohérente avec la source |
-|---|---|---|
-| Catégorie | neuves ou d'occasion | les deux marchés connaissent leurs propres variations |
-| Période | trimestre ou année | le résultat change selon l'horizon |
-| Motorisation | essence, hybride rechargeable ou électrique d'occasion | les motorisations ne suivent pas toutes la même trajectoire |
-| Offre | total, occasion ou neuf | les annonces suivent des évolutions distinctes |
-
-La concurrence chinoise ajoute une autre clé de lecture. AutoScout24 avait déjà signalé la diffusion en Suisse de constructeurs proposant des véhicules plus économiques. La source relie toutefois également cet intérêt aux progrès technologiques et à la rapidité de l'innovation. Le phénomène n'est donc pas présenté uniquement comme une guerre des prix : les propositions des marques chinoises sont décrites à travers les coûts, la technologie et l'innovation.
-
-Pour un lecteur national, l'essentiel est de garder séparées ces trois vérifications lorsqu'il consulte les données de la plateforme. On commence par identifier la catégorie du véhicule, puis on examine la période de comparaison et, enfin, on prend en compte l'évolution des annonces. Ce n'est qu'ainsi que la baisse des prix peut être interprétée conjointement avec l'évolution de l'offre, sans être confondue avec elle.
-### Une procédure simple pour lire une annonce
-
-Toute personne qui évalue un véhicule en Suisse peut utiliser la mise à jour comme une grille de contrôle, sans transformer la donnée moyenne de la plateforme en décision individuelle. La première étape consiste à définir le périmètre : voiture neuve ou véhicule d'occasion. La source présente en effet deux marchés avec des variations distinctes ; les mélanger dans la même comparaison rend donc la lecture moins claire.
-
-La deuxième étape consiste à fixer l'horizon. On peut partir du troisième trimestre, puis vérifier la référence aux trois mois précédents ; séparément, on observe la comparaison annuelle. Les deux colonnes ne doivent pas être fusionnées : l'une décrit le mouvement le plus proche, l'autre la variation sur une période plus longue indiquée par l'analyse.
-
-### Contrôle en cinq étapes
-
-1. Sélectionner la catégorie du véhicule et maintenir séparés le neuf et l'occasion.
-2. Noter le type de motorisation, en distinguant essence, hybride rechargeable et électrique d'occasion.
-3. Lire la donnée trimestrielle et la donnée annuelle comme des comparaisons distinctes.
-4. Vérifier le nombre d'annonces relatif à la catégorie choisie.
-5. Prendre en compte la concurrence des marques chinoises ainsi que les coûts, la technologie et l'innovation.
-
-La troisième étape est particulièrement utile pour les motorisations qui présentent des signaux non concordants. La source décrit en effet une évolution trimestrielle différente de l'évolution annuelle pour les voitures électriques d'occasion. Appliquer la même vérification aux autres catégories aide à ne pas s'arrêter à la seule donnée la plus récente.
-
-La quatrième étape sert à situer l'annonce dans l'offre observée sur AutoScout24. Le nombre total de véhicules et celui des annonces de véhicules neufs ou d'occasion n'évoluent pas nécessairement de la même manière ; c'est pourquoi il est préférable de consulter la rubrique correspondant au véhicule examiné, sans la remplacer par le total.
-
-Enfin, la concurrence chinoise doit être considérée comme un élément du tableau d'ensemble, et non comme une explication exclusive. Selon la source, aux prix plus abordables s'ajoutent des progrès technologiques et un rythme soutenu de l'innovation. La plateforme, qui appartient à Swiss Marketplace Group, est le point de départ indiqué par l'analyse pour suivre les prix et les annonces.
-
-Pour mettre ce suivi en regard des autres postes du budget familial, consulte le costo della vita in Svizzera.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/vetture-nuove-e-usate%2c-prezzi-medi-in-calo-grazie-ai-marchi-cinesi/92214642)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 13:53:50 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/prezzi-auto-nuove-usate-calo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-prezzi-auto-nuove-usate-calo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Faillites d’entreprises en forte hausse, record en 2025-2026</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/faillites-d-entreprises-en-forte-hausse-record-en-2025-2026/</link>
-      <description><![CDATA[11’063 entreprises insolvables entre janvier et septembre Faillites d’entreprises à 13’660, +38,4% sur un an Nouvelles inscriptions au registre : 41’706 Particuliers : 8’003 faillites]]></description>
-      <content:encoded><![CDATA[## En bref
-- 11’063 entreprises insolvables entre janvier et septembre
-- Faillites d’entreprises à 13’660, +38,4% sur un an
-- Nouvelles inscriptions au registre : 41’706
-- Particuliers : 8’003 faillites au cours des neuf premiers mois
-
-## Faits clés
-- Période → janvier-septembre
-- Insolvabilités d’entreprises → 11’063 (+45,6%)
-- Lacunes organisationnelles → 2’597 (+14,2%)
-- Faillites totales d’entreprises → 13’660 (+38,4%)
-- Nouvelles inscriptions → 41’706 (+2,1%)
-- Radiations → 26’712 (+4,9%)
-- Faillites privées → 8’003 (+6,3%)
-- Fermetures d’entreprises attendues en 2026 → plus de 19’000
-
-Entre janvier et septembre, 11’063 entreprises en Suisse ont déposé leur bilan dans le cadre d’une procédure d’insolvabilité, n’étant pas en mesure d’honorer leurs paiements. Le chiffre, diffusé par la société d’informations économiques Creditreform et rapporté par Keystone-ATS, est supérieur de 45,6% à celui de la même période de 2025. Le relevé concerne la Suisse.
-
-Aux procédures d’insolvabilité s’ajoutent 2’597 fermetures dues à des lacunes organisationnelles, prévues par l’article 731b du Code des obligations. L’augmentation de ce poste a été de 14,2%. Le total des faillites d’entreprises a ainsi atteint 13’660 cas, avec une progression annuelle de 38,4%.
-
-La modification législative entrée en vigueur au début de 2025 a également eu un impact. Depuis lors, les institutions de droit public sont tenues d’exiger des entreprises le paiement des arriérés par la procédure de faillite. Elles ont ainsi été assimilées aux créanciers privés. Les experts de Creditreform estiment que le privilège précédent conduisait les entreprises à s’acquitter de manière insuffisante envers les créanciers publics.
-
-> « La suppression de ce privilège était attendue depuis longtemps ».
-
-Creditreform relie en outre l’augmentation des faillites au boom des nouvelles sociétés, en cours depuis quelques années. Les jeunes entreprises, rappelle la société, sont exposées au risque de fermeture surtout au cours de leurs cinq premières années d’activité.
-
-### Nouvelles inscriptions et radiations
-
-Sur la période considérée, les nouvelles inscriptions au registre du commerce se sont élevées à 41’706, en hausse de 2,1%. Les radiations ont atteint 26’712, avec une augmentation de 4,9%, laissant une croissance nette de 14’994 entreprises. Creditreform suppose que sur l’ensemble de 2026, le nombre de nouvelles sociétés pourrait atteindre 57’000, un niveau record.
-
-Du côté des particuliers, les faillites ont été de 8’003, en hausse de 6,3%. Les successions répudiées, au nombre de 6’353, ont augmenté de 3,8%; les faillites de personnes vivantes ont crû de 17,2%, à 1’650, mais restent moins nombreuses en termes absolus.
-## Lecture pratique de la situation
-
-Pour qui suit l’économie suisse, l’information la plus utile n’est pas un seul chiffre, mais la manière dont Creditreform distingue les causes. Dans le total des entreprises sont regroupées les insolvabilités, liées à l’incapacité d’honorer les paiements, et les fermetures dues à des lacunes organisationnelles. Lire uniquement le total risque donc de masquer deux mécanismes différents. La comparaison correcte porte sur la même rubrique et la même période, et non sur des agrégats construits différemment.
-
-### Un marché qui ouvre et ferme au cours de la même période
-
-Le portrait des entreprises révèle également un double mouvement. Les inscriptions au registre du commerce augmentent, mais les radiations aussi. La croissance nette de 14’994 entreprises n’efface pas le fait que 26’712 aient été radiées au cours de la période : elle décrit un solde positif entre deux mouvements distincts, et non l’absence de fermetures. Creditreform désigne précisément l’essor des nouvelles entreprises comme une composante possible de l’augmentation des faillites et signale les cinq premières années comme une phase particulièrement risquée pour les jeunes entreprises.
-
-Il faut aussi tenir compte de l’effet de la réglementation en vigueur depuis le début de 2025. Les institutions de droit public ont été placées sur un pied d’égalité avec les créanciers privés pour réclamer le paiement des créances arriérées par la procédure de faillite. Pour interpréter la hausse annuelle, cette modification doit être distinguée des autres facteurs indiqués par la société : la donnée est également influencée par la modification des procédures engagées.
-
-### Estimation, pas résultat définitif
-
-L’hypothèse de plus de 19’000 fermetures d’entreprises pour 2026 doit être lue comme une prévision de Creditreform, et non comme une donnée déjà enregistrée. Pour les particuliers, l’estimation annuelle s’élève à plus de 10’600 faillites. La comparaison avec les quelque 8’000 faillites de 2019, dernière année précédant le Covid citée par la source, sert à mesurer l’écart historique.
-
-Pour les particuliers, en revanche, la composition est différente : les successions répudiées représentent la part prépondérante, tandis que les faillites de personnes vivantes ont un poids absolu moindre, bien qu’elles soient en forte augmentation. Distinguer ces catégories permet d’éviter d’attribuer la même dynamique aux ménages et aux entreprises.
-## De l’information à une vérification structurée
-
-Pour exploiter l’information de manière opérationnelle, la démarche la plus prudente consiste en une séquence de vérification qui distingue les catégories, les périodes et les prévisions. Pour quiconque gère une activité, entretient des relations avec une entreprise ou suit les données suisses, les étapes sont au nombre de cinq :
-
-1. Commence par la période : la période de janvier à septembre est celle utilisée pour les données observées. Ne la confonds pas avec la prévision concernant l’année 2026 dans son ensemble, qui porte sur une période différente.
-
-2. Isole la cause : l’incapacité à faire face aux paiements correspond aux insolvabilités ; les lacunes organisationnelles sont la catégorie mentionnée à l’article 731b du Code des obligations.
-
-3. Depuis le début de 2025, les institutions de droit public doivent exiger des entreprises le paiement des arriérés au moyen de la procédure de faillite, à l’instar des créanciers privés.
-
-4. Sépare les particuliers : les successions répudiées et les faillites de personnes vivantes sont comptabilisées séparément. Conserver cette distinction évite de considérer 8’003 cas comme un phénomène unique.
-
-5. Traite les projections comme telles : les plus de 19’000 fermetures d’entreprises attendues pour 2026 constituent une estimation de Creditreform. Pour la comparaison historique, utilise les quelque 8’000 faillites de 2019 indiquées par la source.
-
-### Que contrôler au fil du temps
-
-Le premier élément à surveiller est le passage des données des neuf premiers mois à la clôture de l’année 2026. Creditreform indique un seuil attendu, et non un résultat définitif ; la vérification devra donc comparer la prévision au nombre final de fermetures d’entreprises. Le même critère s’applique à la croissance nette : le solde entre les inscriptions et les radiations décrit le mouvement global, mais ne remplace pas l’analyse séparée des deux séries.
-
-La distinction entre les procédures sert également à ne pas attribuer automatiquement chaque hausse à la même cause. L’insolvabilité concerne l’incapacité à faire face aux paiements ; les lacunes organisationnelles sont une catégorie différente, mentionnée à l’article 731b du Code des obligations. Pour les créanciers publics, la date à retenir est le début de 2025, lorsque la modification qui les a assimilés aux créanciers privés dans la procédure concernant les créances arriérées est entrée en vigueur.
-
-Les personnes qui souhaitent transformer l’analyse de la situation des entreprises en une recherche d’employeurs peuvent consulter aziende che assumono.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/fallimenti-in-netto-aumento%2c-%c3%a8-record-per-quelli-aziendali/92213801)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 13:06:00 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/fallimenti-aziendali-svizzera-aumento</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fallimenti-aziendali-svizzera-aumento.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Caisses de pension : investissements illiquides à 36% du patrimoine</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/investissements-illiquides-pension-2026/</link>
-      <description><![CDATA[36% du patrimoine est investi dans des actifs non immédiatement négociables La part a augmenté au cours des 15 dernières années L’immobilier, les hypothèques et les placements alternatifs offrent de la stabilité]]></description>
-      <content:encoded><![CDATA[## En bref
-- 36% du patrimoine est investi dans des actifs non immédiatement négociables
-- La part a augmenté au cours des 15 dernières années
-- L’immobilier, les hypothèques et les placements alternatifs offrent de la stabilité, mais moins de flexibilité
-- Les risques apparaissent lorsque plusieurs facteurs de stress se produisent simultanément
-
-## Faits clés
-- Lieu → Zurich
-- Étude → Risiko Check-up 2026 de Complementa
-- Part → environ 36% du patrimoine
-- Période → 15 dernières années
-- Activités → immobilier, investissements alternatifs et hypothèques
-- Risque → vente retardée ou avec des décotes sur le prix en cas de turbulences
-
-ZURICH – Dans les portefeuilles des caisses de pension suisses, les investissements dits illiquides occupent une place de plus en plus importante. Avec les faibles taux d'intérêt, la recherche de nouvelles sources de rendement a nettement fait croître la part des fonds allouée à ces actifs.
-
-La diversification, selon les experts, n'est pas en soi une mauvaise idée. La contrepartie est toutefois un portefeuille moins flexible : l'immobilier, les hypothèques et les investissements alternatifs ne peuvent pas être négociés avec la même immédiateté que les actions. Si une caisse doit vendre à brève échéance, la transaction peut devenir plus difficile.
-
-### Le chiffre du Risiko Check-up 2026
-
-Cette situation ressort du Risiko Check-up 2026 de Complementa. L'étude indique qu'au cours des 15 dernières années, la part des investissements illiquides des caisses de pension suisses a sensiblement augmenté. En considérant l'immobilier, les investissements alternatifs et les hypothèques, environ 36% du patrimoine est désormais placé dans des actifs qui ne peuvent pas être négociés immédiatement.
-
-Le bénéfice recherché est la stabilité des rendements. La source associe ce choix à la recherche de nouvelles sources de rendement dans une phase de faibles taux d'intérêt. Mais cette même structure rend une vente plus complexe, surtout si le marché immobilier venait à se refroidir brutalement ou si la dette de certains pays devenait un problème.
-
-### Le moment du stress
-
-Pour les experts, la situation reste gérable tant que les marchés restent stables et que les caisses disposent de liquidités suffisantes. Les difficultés apparaissent lorsque plusieurs facteurs de stress se manifestent simultanément. Parmi les scénarios possibles, Complementa recense une forte turbulence des marchés, au cours de laquelle les institutions pourraient avoir besoin, à court terme, de liquidités pour faire face à leurs engagements ou modifier la structure des portefeuilles.
-
-Une partie des caisses se prépare déjà en misant surtout sur des investissements supplémentaires dans l'immobilier suisse et les infrastructures, avec pour objectif de limiter les risques géopolitiques. Si les marchés entrent dans une phase de forte turbulence, toutefois, les investissements illiquides ne peuvent être cédés qu'avec retard ou moyennant des décotes considérables. En outre, par rapport aux titres cotés en bourse, leur évaluation et la mesure de leurs performances sont plus complexes.
-
-Dans le private equity et le private debt, les engagements en capital des investisseurs peuvent s'étendre sur plusieurs années, tandis que tant le calendrier que l'ampleur des rendements restent incertains. Complementa souligne donc l'importance d'identifier rapidement les besoins de liquidités et de conserver des réserves adéquates.
-### Trois scénarios à distinguer
-
-La lecture pratique de la donnée repose sur une distinction simple : rendement et liquidité ne sont pas la même chose. Un bien immobilier, une hypothèque ou un investissement alternatif peut contribuer à des rendements stables, mais n'offre pas la même flexibilité qu'une action lorsque la caisse doit disposer rapidement de liquidités. Les 36 % indiqués par Complementa mesurent donc aussi la marge de manœuvre du portefeuille.
-
-| Situation | Effet sur les investissements illiquides |
-|---|---|
-| Marchés stables et liquidités suffisantes | L'évolution ne représente pas un problème |
-| Turbulences et besoin de liquidités à court terme | Vente retardée ou avec des décotes sur le prix |
-| Réorientation du portefeuille | Évaluations et mesure des résultats plus complexes |
-
-Le risque ne s'active pas à chaque fluctuation des marchés. Selon les experts, il devient critique lorsque plusieurs facteurs de stress coïncident : la caisse doit honorer des engagements ou réorienter le portefeuille, tandis qu'une part importante du patrimoine n'est pas immédiatement négociable. À ce moment-là, la différence par rapport aux titres cotés concerne à la fois les délais de vente et le prix qui peut être obtenu.
-
-### Pourquoi l'immobilier pèse
-
-Les spécialistes identifient un point sensible dans l'immobilier, qui représente plus d'un cinquième du patrimoine des caisses de pension. Si le secteur perd de son dynamisme ou fait face à une correction prolongée des prix et de la demande, les ventes peuvent devenir plus difficiles et les valorisations subir des pressions. Pour une caisse, le problème n'est pas seulement la valeur théorique de l'actif : la possibilité de le transformer en liquidités au moment où cela est nécessaire compte également.
-
-Le private equity et la dette privée ajoutent une rigidité différente. Les investisseurs doivent souvent honorer des engagements de capital sur plusieurs années, mais ne connaissent pas avec certitude le moment et le montant des flux de retour. Cela peut limiter la capacité à adapter rapidement le portefeuille à l'évolution des conditions de marché ou de liquidité. En période de crise, la pénurie soudaine de liquidités peut donc transformer un investissement pensé pour le long terme en désavantage.
-
-Pour l'heure, la situation financière atténue la pression : la majorité des caisses de pension suisses disposent d'un taux de couverture confortable, dans certains cas à des niveaux records, et bénéficient de rendements élevés. Cette solidité favorise l'augmentation des investissements dans les infrastructures, l'immobilier et d'autres actifs alternatifs, mais n'élimine pas le risque lié à la concomitance de plusieurs facteurs de stress.
-### Une grille opérationnelle en cinq étapes
-
-Pour suivre le sujet, le parcours pratique peut s'appuyer sur les critères utilisés par Complementa. Le rendement et la liquidité doivent être examinés séparément, en tenant également compte de la réaction du portefeuille au stress.
-
-1. Séparer les catégories. Distinguer les biens immobiliers, les hypothèques et les investissements alternatifs : ce sont les composantes incluses dans les 36 % des actifs qui ne sont pas immédiatement négociables.
-2. Mesurer le poids de l'immobilier. L'immobilier représente plus d'un cinquième du patrimoine. Les prix et la demande doivent être observés, car une correction prolongée peut rendre les ventes plus difficiles et comprimer les valorisations.
-3. Vérifier les engagements. Dans le private equity et la dette privée, le capital peut être immobilisé pendant plusieurs années ; le calendrier et le montant des retours restent incertains.
-4. Simuler le stress. Examiner conjointement une forte turbulence des marchés, un besoin de liquidités à court terme et la nécessité d'honorer des engagements ou de réorienter le portefeuille.
-5. Contrôler les réserves. Avec davantage d'actifs immobilisés à long terme, il devient décisif d'identifier à temps les besoins de liquidités et de maintenir des réserves suffisantes.
-
-### Le critère pour évaluer les choix
-
-Pour limiter les risques géopolitiques, certaines caisses entendent consacrer des ressources supplémentaires à l'immobilier suisse et aux infrastructures. Cette orientation ne garantit toutefois pas la liquidité : pendant une période de turbulences, la vente peut malgré tout prendre du temps ou nécessiter une décote sur le prix.
-
-La comparaison doit également être faite avec les titres cotés : pour les actifs illiquides, l'évaluation et la mesure des résultats sont plus complexes. S'il faut réorienter rapidement le portefeuille, cette complexité s'ajoute aux délais de vente.
-
-> « À mesure que les actifs immobilisés à long terme augmentent, il devient de plus en plus essentiel pour une caisse de pensions d'identifier rapidement les besoins de liquidités et de conserver des réserves adéquates ».
-
-Pour qui suit la prévoyance suisse, la vérification utile est triple : part non négociable, engagements futurs et réserves disponibles. Ce sont les trois éléments qui relient le pourcentage agrégé à la flexibilité effective du portefeuille.
-
-Pour approfondir le thème de la prévoyance, consulte la guida alla pensione.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1956672/investimenti-casse-pensioni-illiquidi-rischi)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 11:35:59 GMT</pubDate>
-      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/investimenti-illiquidi-pensione-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-investimenti-illiquidi-pensione-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

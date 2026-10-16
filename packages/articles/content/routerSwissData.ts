@@ -2820,6 +2820,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-thailandia-aelss-visita-2026': { it: 'svizzera-thailandia-aelss-visita-2026', en: 'switzerland-and-thailand-highlight-free-trade-opportunities', de: 'schweiz-und-thailand-zeigen-chancen-fur-den-freihandel-auf', fr: 'la-suisse-et-la-thailande-mettent-en-evidence-des-opportunites-de-libre-echange' },
  'referendum-armi-sicurezza-svizzera': { it: 'referendum-armi-sicurezza-svizzera', en: 'referendum-arms-security-switzerland', de: 'referendum-waffen-sicherheit-schweiz', fr: 'referendum-armes-securite-suisse' },
  'ruag-lockheed-accordo-f35a': { it: 'ruag-lockheed-accordo-f35a', en: 'ruag-and-lockheed-martin-agreement-for-three-f-35as-in-emmen', de: 'ruag-und-lockheed-martin-vereinbarung-uber-drei-f-35a-in-emmen', fr: 'accord-entre-ruag-et-lockheed-martin-pour-trois-f-35a-a-emmen' },
+ 'attacco-software-pkzh': { it: 'attacco-software-pkzh', en: 'zurich-pension-fund-cyberattack', de: 'cyberangriff-pensionskasse-zurich', fr: 'cyberattaque-caisse-pension-zurich' },
+ 'mercatini-usato-svizzera': { it: 'mercatini-usato-svizzera', en: 'secondhand-markets-warranty-sidewalk-and-counterfeit-goods-across-the-border', de: 'gebrauchtwarenmarkte-garantie-gehweg-und-falschungen-uber-die-grenze-hinweg', fr: 'marches-aux-puces-garantie-trottoir-et-contrefacons-transfrontalieres' },
+ 'revoca-bonus-dirigenti-cs': { it: 'revoca-bonus-dirigenti-cs', en: 'credit-suisse-bonus-revocation', de: 'credit-suisse-bonus-widerruf', fr: 'credit-suisse-revocation-bonus' },
+ 'sistema-sanitario-zurigo-guida-2026': { it: 'sistema-sanitario-zurigo-guida-2026', en: 'swiss-healthcare-system-zurich-2026-guide', de: 'schweizer-gesundheitssystem-zuerich-2026-leitfaden', fr: 'systeme-sante-suisse-zurich-2026-guide' },
+ 'imposte-zurigo-aliquote-deduzioni': { it: 'imposte-zurigo-aliquote-deduzioni', en: 'zurich-tax-rates-deductions', de: 'zuerich-steuersaetze-abzugsvo', fr: 'impots-zurich-baremes-deduct' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

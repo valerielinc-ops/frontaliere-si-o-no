@@ -46164,7 +46164,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Eventi del weekend in Ticino"
       },
       "datePublished": "2026-06-29T23:19:06+02:00",
-      "dateModified": "2026-10-08T00:00:00+02:00",
+      "dateModified": "2026-10-16T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -108862,10 +108862,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-saronno-manifestazione-palestina-ottobre-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-saronno-piccole-stelle-softball.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Torneo di softball giovanile sul campo di Saronno per la sesta edizione di Piccole Stelle"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T17:55:49+00:00",
       "dateModified": "2026-10-15T17:55:49+00:00",
@@ -108956,6 +108956,386 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/terzetto-sospetto-melano-chiasso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-inchiesta-medico-locarnese': {
+    title: 'Reati sessuali su pazienti, un medico in carcere',
+    description: 'Medico del Locarnese sotto inchiesta Accertamenti avviati a inizio luglio Uomo ancora in carcerazione preventiva Identificate altre presunte vittime Capo',
+    keywords: 'frontalieri, ticino, svizzera, italia, reati, sessuali, pazienti, medico',
+    ogTitle: 'Medico del Locarnese in carcerazione preventiva',
+    ogDescription: 'Medico del Locarnese sotto inchiesta Accertamenti avviati a inizio luglio Uomo ancora in carcerazione preventiva Identificate altre presunte vittime Capo',
+    canonicalPath: '/articoli-frontaliere/inchiesta-medico-locarnese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reati sessuali su pazienti, un medico in carcere",
+      "description": "Medico del Locarnese sotto inchiesta Accertamenti avviati a inizio luglio Uomo ancora in carcerazione preventiva Identificate altre presunte vittime Capo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-inchiesta-medico-locarnese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T21:15:43+00:00",
+      "dateModified": "2026-10-15T21:15:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inchiesta-medico-locarnese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ssr-riduce-organico-risparmi': {
+    title: 'La SSR taglia altri 202 posti di lavoro | Frontaliere Ticino',
+    description: 'La SSR ha annunciato giovedì il taglio di 202 posti a tempo pieno: 173 nelle Operazioni e 29 nei settori di supporto. Il provvedimento vale 41 milioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglia, altri, posti, lavoro',
+    ogTitle: 'SSR: altri 202 posti di lavoro tagliati',
+    ogDescription: 'La riduzione del canone a 300 franchi impone alla SSR un piano di risparmi: 270 milioni entro il 2029, con 80 milioni già nel 2027. Il piano prevede fluttuazioni naturali, pensionamenti, licenziamenti e prepensionamenti.',
+    canonicalPath: '/articoli-frontaliere/ssr-riduce-organico-risparmi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La SSR taglia altri 202 posti di lavoro",
+      "description": "La SSR ha annunciato giovedì il taglio di 202 posti a tempo pieno: 173 nelle Operazioni e 29 nei settori di supporto. Il provvedimento vale 41 milioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ssr-riduce-organico-risparmi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T21:41:27+00:00",
+      "dateModified": "2026-10-15T21:41:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ssr-riduce-organico-risparmi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-arresto-cittadino-russo-como': {
+    title: 'Como, arrestato cittadino russo per ingresso abusivo',
+    description: 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, arrestato, cittadino, russo',
+    ogTitle: 'Como, arrestato cittadino russo per ingresso abusivo',
+    ogDescription: 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
+    canonicalPath: '/articoli-frontaliere/arresto-cittadino-russo-como/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, arrestato cittadino russo per ingresso abusivo",
+      "description": "Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/devastazione-vagone-como-fermo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta urbana della città di Como"
+      },
+      "datePublished": "2026-10-15T22:59:15+00:00",
+      "dateModified": "2026-10-15T22:59:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-cittadino-russo-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-estradizione-pakistan-como': {
+    title: 'Accusato di omicidio, arrestato a Como per l’estradizione',
+    description: 'Arrestato a Como un uomo di 40 anni. Identificato in via Canturina dalla Polizia di Stato. Il Pakistan aveva chiesto l’estradizione. L’omicidio contestato è',
+    keywords: 'frontalieri, ticino, svizzera, italia, accusato, omicidio, arrestato, como',
+    ogTitle: 'Como, arrestato un 40enne: richiesta di estradizione',
+    ogDescription: 'Arrestato a Como un uomo di 40 anni.',
+    canonicalPath: '/articoli-frontaliere/estradizione-pakistan-como/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accusato di omicidio, arrestato a Como per l’estradizione",
+      "description": "Arrestato a Como un uomo di 40 anni. Identificato in via Canturina dalla Polizia di Stato. Il Pakistan aveva chiesto l’estradizione. L’omicidio contestato è",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/estradizione-arresto-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia di Stato durante un controllo in via Canturina a Como"
+      },
+      "datePublished": "2026-10-15T23:12:57+00:00",
+      "dateModified": "2026-10-15T23:12:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estradizione-pakistan-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-arresto-lite-domestica-ticino': {
+    title: 'Donna ferita in Ticino: arresto per tentato omicidio',
+    description: 'Arrestato il 9 ottobre un 28enne cittadino rumeno dopo una lite domestica in Ticino. Una donna ferita è stata visitata in ospedale, senza pericolo per la vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, donna, ferita, arresto, tentato',
+    ogTitle: 'Arresto in Ticino dopo una lite domestica',
+    ogDescription: 'La polizia cantonale ha reso noto l\'arresto, avvenuto il 9 ottobre, di un 28enne cittadino rumeno residente in Romania. La donna coinvolta nella lite ha riportato ferite che hanno richiesto una visita in ospedale, senza metterne in pericolo la vita.',
+    canonicalPath: '/articoli-frontaliere/arresto-lite-domestica-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Donna ferita in Ticino: arresto per tentato omicidio",
+      "description": "Arrestato il 9 ottobre un 28enne cittadino rumeno dopo una lite domestica in Ticino. Una donna ferita è stata visitata in ospedale, senza pericolo per la vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-arresto-lite-domestica-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano in Canton Ticino per una notizia di cronaca."
+      },
+      "datePublished": "2026-10-16T00:07:16+00:00",
+      "dateModified": "2026-10-16T00:07:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-lite-domestica-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vantaggi-servizi-associati-ocst': {
+    title: 'Assistenza e vantaggi per i frontalieri associati OCST',
+    description: 'OCST offre assistenza su lavoro, busta paga e fiscalità L\'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, vantaggi, associati, ocst',
+    ogTitle: 'Assistenza e vantaggi per i frontalieri associati OCST',
+    ogDescription: 'OCST offre assistenza su lavoro, busta paga e fiscalità L\'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano',
+    canonicalPath: '/articoli-frontaliere/vantaggi-servizi-associati-ocst/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistenza e vantaggi per i frontalieri associati OCST",
+      "description": "OCST offre assistenza su lavoro, busta paga e fiscalità L'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vantaggi-servizi-associati-ocst.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con ufficio moderno in primo piano"
+      },
+      "datePublished": "2026-10-16T00:24:53+00:00",
+      "dateModified": "2026-10-16T00:24:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vantaggi-servizi-associati-ocst/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-kick-cocaine-gazzada-evento': {
+    title: 'Gazzada Schianno: evento sport e solidarietà il 25 ottobre',
+    description: 'Domenica 25 ottobre 2026 sport e solidarietà a Gazzada Schianno L\'incontro è in programma dalle 14:30 alle 19:30 AGIFAR Varese organizza con la dottoressa',
+    keywords: 'frontalieri, ticino, svizzera, italia, gazzada, schianno, evento, sport',
+    ogTitle: 'A Kick to Cocaine: sport e solidarietà a Gazzada Schianno',
+    ogDescription: 'Domenica 25 ottobre 2026 sport e solidarietà a Gazzada Schianno L\'incontro è in programma dalle 14:30 alle 19:30 AGIFAR Varese organizza con la dottoressa',
+    canonicalPath: '/articoli-frontaliere/kick-cocaine-gazzada-evento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gazzada Schianno: evento sport e solidarietà il 25 ottobre",
+      "description": "Domenica 25 ottobre 2026 sport e solidarietà a Gazzada Schianno L'incontro è in programma dalle 14:30 alle 19:30 AGIFAR Varese organizza con la dottoressa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-kick-cocaine-gazzada-evento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento sportivo 'A Kick to Cocaine' a Gazzada Schianno con attività di football fitness e yoga"
+      },
+      "datePublished": "2026-10-16T01:03:49+00:00",
+      "dateModified": "2026-10-16T01:03:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kick-cocaine-gazzada-evento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-varese-piazzale-anastasi-intitolazione': {
+    title: 'Varese: il piazzale dello stadio è intitolato a Anastasi',
+    description: 'Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L\'intitolazione è stata votata all\'unanimità A Masnago',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, piazzale, dello, stadio',
+    ogTitle: 'Varese: piazzale stadio intitolato a Pietro Anastasi',
+    ogDescription: 'Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L\'intitolazione è stata votata all\'unanimità A Masnago',
+    canonicalPath: '/articoli-frontaliere/varese-piazzale-anastasi-intitolazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: il piazzale dello stadio è intitolato a Anastasi",
+      "description": "Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L'intitolazione è stata votata all'unanimità A Masnago",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-manutenzione-prato-franco-ossola-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il piazzale dello stadio Franco Ossola a Varese intitolato a Pietro Anastasi"
+      },
+      "datePublished": "2026-10-16T01:20:06+00:00",
+      "dateModified": "2026-10-16T01:20:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-piazzale-anastasi-intitolazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-don-giusto-teatro-nuovo-gloria': {
+    title: 'Como, don Giusto accoglie gli spettacoli del Gloria al Teatro Nuovo',
+    description: 'Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, giusto, accoglie, spettacoli',
+    ogTitle: 'Como: don Giusto ospita gli eventi del Cinema Gloria',
+    ogDescription: 'Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia',
+    canonicalPath: '/articoli-frontaliere/don-giusto-teatro-nuovo-gloria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, don Giusto accoglie gli spettacoli del Gloria al Teatro Nuovo",
+      "description": "Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-don-giusto-teatro-nuovo-gloria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno del Teatro Nuovo di Rebbio, a disposizione per gli spettacoli del Cinema Gloria."
+      },
+      "datePublished": "2026-10-16T02:35:14+00:00",
+      "dateModified": "2026-10-16T02:35:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/don-giusto-teatro-nuovo-gloria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-olgiate-presidio-vivo-mercato': {
+    title: 'Olgiate: Presidio Vivo e sentinelle nei mercati',
+    description: 'A Olgiate Olona parte il progetto Presidio Vivo Due piazze ospitano i mercati coinvolti Volontari riconoscibili affiancano la Polizia Locale Appuntamenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, olgiate, presidio, vivo, sentinelle',
+    ogTitle: 'Olgiate: Presidio Vivo e sentinelle nei mercati',
+    ogDescription: 'A Olgiate Olona parte il progetto Presidio Vivo Due piazze ospitano i mercati coinvolti Volontari riconoscibili affiancano la Polizia Locale Appuntamenti',
+    canonicalPath: '/articoli-frontaliere/olgiate-presidio-vivo-mercato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Olgiate: Presidio Vivo e sentinelle nei mercati",
+      "description": "A Olgiate Olona parte il progetto Presidio Vivo Due piazze ospitano i mercati coinvolti Volontari riconoscibili affiancano la Polizia Locale Appuntamenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari della Sentinelle del Mercato e agenti di Polizia Locale in piazza a Olgiate Olona."
+      },
+      "datePublished": "2026-10-16T02:57:07+00:00",
+      "dateModified": "2026-10-16T02:57:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/olgiate-presidio-vivo-mercato/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
