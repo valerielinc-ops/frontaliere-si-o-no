@@ -3,15 +3,19 @@ import {
   extractOfficialWidgetUrl,
   extractTechnicEmploisListings,
   fetchAllTechnicEmploisJobs,
+  extractTechnicJobupListings,
   isTechnicDetailUrl,
   isTechnicEmploisJob,
   isTrustedDomain,
   TECHNIC_EMPLOIS_KEY,
+  TECHNIC_EMPLOIS_JOBUP_SEARCH_URL,
 } from '../scripts/lib/technic-emplois-job-parser.mjs';
 
 const OFFICIAL = 'https://technic-emplois.ch/offre-demploi/';
 const WIDGET = 'https://blog.jobeo.ch/technicemploi/';
 const DETAIL = 'https://www.jobeo.ch/candidat/offres/offre-d-emploi-soudeur-tuyauteur-123/';
+const JOBUP_DETAIL = 'https://www.jobup.ch/fr/emplois/detail/11111111-2222-3333-4444-555555555555/';
+const OTHER_JOBUP_DETAIL = 'https://www.jobup.ch/fr/emplois/detail/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/';
 
 const DESCRIPTION = [
   'Technic Emplois SA recherche un soudeur tuyauteur pour renforcer une équipe technique à Genève.',
@@ -27,13 +31,29 @@ const SPEC = {
   platform: 'jobeo.ch',
   mode: 'template',
   seedUrls: [OFFICIAL, WIDGET],
-  allowedDetailOrigins: ['https://jobeo.ch', 'https://www.jobeo.ch'],
-  detailTemplate: '/candidat/offres/offre-d-emploi-*',
+  allowedDetailOrigins: ['https://jobeo.ch', 'https://www.jobeo.ch', 'https://jobup.ch', 'https://www.jobup.ch'],
+  detailTemplate: '/fr/emplois/detail/*',
   detailEnrichment: true,
   detailFetchWorkers: 2,
   canton: 'GE',
   sourceLang: 'fr',
 };
+
+const JOBUP_SEARCH_HTML = `
+  <a data-cy="job-link" href="/fr/emplois/detail/11111111-2222-3333-4444-555555555555/">
+    <span class="textStyle_body2">Monteur électricien</span>
+    <span>Lieu de travail<!-- -->:</span><p>Genève</p>
+    <span>Taux d'activité<!-- -->:</span><p>100%</p>
+    <span>Type de contrat<!-- -->:</span><p>Temporaire</p>
+    <p class="c_gray.700 fw_bold">Technic Emplois SA</p>
+  </a>
+  <a data-cy="job-link" href="/fr/emplois/detail/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/">
+    <span class="textStyle_body2">Electricien</span>
+    <span>Lieu de travail<!-- -->:</span><p>Lausanne</p>
+    <span>Taux d'activité<!-- -->:</span><p>100%</p>
+    <span>Type de contrat<!-- -->:</span><p>Temporaire</p>
+    <p class="c_gray.700 fw_bold">Other Employer SA</p>
+  </a>`;
 
 describe('Technic Emplois crawler parser', () => {
   it('extracts only the tenant iframe from the official page', () => {
@@ -44,10 +64,12 @@ describe('Technic Emplois crawler parser', () => {
 
   it('requires a Jobeo vacancy path and rejects aggregator links', () => {
     expect(isTechnicDetailUrl(DETAIL)).toBe(true);
+    expect(isTechnicDetailUrl(JOBUP_DETAIL)).toBe(true);
     expect(isTechnicDetailUrl(WIDGET)).toBe(false);
     expect(isTechnicDetailUrl('https://jobup.ch/fr/emplois/soudeur-123/')).toBe(false);
     expect(isTrustedDomain(DETAIL)).toBe(true);
-    expect(isTrustedDomain('https://jobup.ch/fr/emplois/soudeur-123/')).toBe(false);
+    expect(isTrustedDomain(JOBUP_DETAIL)).toBe(true);
+    expect(isTrustedDomain('https://jobs.ch/en/vacancies/detail/soudeur-123/')).toBe(false);
   });
 
   it('keeps only explicit Jobeo detail links from the embedded feed', () => {
@@ -56,6 +78,21 @@ describe('Technic Emplois crawler parser', () => {
       + '<a href="https://jobs.ch/en/vacancies/detail/soudeur-123/">Soudeur</a>';
     expect(extractTechnicEmploisListings(html, WIDGET)).toEqual([
       expect.objectContaining({ title: 'Soudeur / Tuyauteur', url: DETAIL }),
+    ]);
+  });
+
+  it('keeps only the exact employer from the current Jobup search', () => {
+    expect(extractTechnicJobupListings(JOBUP_SEARCH_HTML, TECHNIC_EMPLOIS_JOBUP_SEARCH_URL)).toEqual([
+      expect.objectContaining({
+        title: 'Monteur électricien',
+        company: 'Technic Emplois SA',
+        url: JOBUP_DETAIL,
+        location: 'Genève',
+        locationCandidates: [expect.objectContaining({
+          addressLocality: 'Genève',
+          addressCountry: 'CH',
+        })],
+      }),
     ]);
   });
 
@@ -165,5 +202,49 @@ describe('Technic Emplois crawler parser', () => {
       url: DETAIL,
     }));
     expect(jobs[0].description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+  });
+
+  it('falls back to the current Jobup employer search when Jobeo has no listings', async () => {
+    const detailHtml = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Monteur électricien',
+      url: JOBUP_DETAIL,
+      description: DESCRIPTION,
+      hiringOrganization: { '@type': 'Organization', name: 'Technic Emplois SA' },
+      jobLocation: { '@type': 'Place', address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Genève',
+        addressRegion: 'GE',
+        addressCountry: 'CH',
+        postalCode: '1200',
+      } },
+    })}</script>`;
+    const pages = new Map([
+      [OFFICIAL, `<iframe src="${WIDGET}"></iframe>`],
+      [WIDGET, '<main>legacy Jobeo tenant without current listings</main>'],
+      [JOBUP_DETAIL, detailHtml],
+    ]);
+
+    const jobs = await fetchAllTechnicEmploisJobs({
+      spec: { ...SPEC, seedUrls: [OFFICIAL, WIDGET, TECHNIC_EMPLOIS_JOBUP_SEARCH_URL] },
+      runtime: {
+        fetchPageImpl: async (url: string) => pages.get(url) || '',
+        fetchJobupSearchImpl: async () => JOBUP_SEARCH_HTML,
+        browserFetchImpl: async () => '',
+      },
+    });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toEqual(expect.objectContaining({
+      company: 'Technic Emplois SA',
+      companyKey: 'technic-emplois',
+      title: 'Monteur électricien',
+      canton: 'GE',
+      location: 'Genève, GE',
+      url: JOBUP_DETAIL,
+      source: 'Technic Emplois SA (Jobup employer search)',
+    }));
+    expect(isTechnicEmploisJob(jobs[0])).toBe(true);
   });
 });

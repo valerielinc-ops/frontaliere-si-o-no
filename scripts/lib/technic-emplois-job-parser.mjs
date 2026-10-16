@@ -2,10 +2,11 @@
 /**
  * Technic Emplois SA job parser.
  *
- * The employer's official vacancy page embeds the Jobeo tenant at
- * https://blog.jobeo.ch/technicemploi/. The tenant page is the source-backed
- * listing surface; every discovered detail URL is still fetched and checked
- * before a job is published.
+ * The employer's official vacancy page still embeds the legacy Jobeo tenant at
+ * https://blog.jobeo.ch/technicemploi/. Current openings are now published on
+ * Technic Emplois' Jobup employer search, so the legacy tenant is probed first
+ * and Jobup is the source-backed fallback. Every discovered detail URL is still
+ * fetched and checked before a job is published.
  */
 import { createHash } from 'node:crypto';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
@@ -27,17 +28,26 @@ import {
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { mapPool } from './prospector/polite-fetch.mjs';
 import { readAttr, scanStartTags } from './html-attr.mjs';
+import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
+import {
+  filterJobupCardsByEmployer,
+  parseJobupLieu,
+  parseJobupSearchCards,
+} from './jobup-ch-feed-common.mjs';
 
 export const TECHNIC_EMPLOIS_KEY = 'technic-emplois';
 export const TECHNIC_EMPLOIS_COMPANY_NAME = 'Technic Emplois SA';
 export const TECHNIC_EMPLOIS_COMPANY_DOMAIN = 'technic-emplois.ch';
 export const TECHNIC_EMPLOIS_OFFICIAL_URL = 'https://technic-emplois.ch/offre-demploi/';
+export const TECHNIC_EMPLOIS_JOBUP_SEARCH_URL = 'https://www.jobup.ch/fr/emplois/?term=Technic%20Emplois%20SA';
 
 const OFFICIAL_HOST = 'technic-emplois.ch';
 const OFFICIAL_WIDGET_HOST = 'blog.jobeo.ch';
 const OFFICIAL_WIDGET_PATH = '/technicemploi';
 const JOBEO_HOST = 'jobeo.ch';
 const DEFAULT_WIDGET_URL = 'https://blog.jobeo.ch/technicemploi/';
+const JOBUP_HOSTS = new Set(['jobup.ch', 'www.jobup.ch']);
+const JOBUP_DETAIL_PATH_RE = /^\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -94,17 +104,22 @@ function isJobeoHost(host = '') {
   return sameOrSubdomain(host, JOBEO_HOST);
 }
 
+function isJobupHost(host = '') {
+  return JOBUP_HOSTS.has(String(host || '').toLowerCase());
+}
+
 /**
- * Jobeo has used more than one public detail path over time. The path must
- * still identify an employment page; accepting every Jobeo URL would leak
- * blog, account and navigation links from the embedded tenant.
+ * Jobeo has used more than one public detail path over time. Jobup detail
+ * pages use UUID paths. Both shapes must still identify an employment page;
+ * accepting every URL from either host would leak blog, account and navigation
+ * links from the source pages.
  */
 export function isTechnicDetailUrl(rawUrl = '') {
   try {
     const url = new URL(rawUrl);
-    if (!isJobeoHost(url.hostname)) return false;
     const path = url.pathname.replace(/\/{2,}/g, '/').replace(/\/+$/, '').toLowerCase();
-    if (!path || path === OFFICIAL_WIDGET_PATH) return false;
+    if (isJobupHost(url.hostname)) return JOBUP_DETAIL_PATH_RE.test(path);
+    if (!isJobeoHost(url.hostname) || !path || path === OFFICIAL_WIDGET_PATH) return false;
     return path.split('/').filter(Boolean).length >= 2
       && /\/(?:offre|offres|emploi|emplois|job|jobs|candidat|postul|vacan|recrut)/i.test(path);
   } catch {
@@ -130,14 +145,14 @@ export function isTechnicEmploisJob(job) {
 }
 
 /**
- * Trusted source URLs are the employer's official site and the Jobeo host
- * explicitly embedded by that site. Aggregator domains are intentionally not
- * accepted as a fallback.
+ * Trusted source URLs are the employer's official site, the legacy Jobeo host
+ * explicitly embedded by that site, and the employer's current Jobup detail
+ * pages. Other aggregator domains are intentionally not accepted.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return sameOrSubdomain(host, OFFICIAL_HOST) || isJobeoHost(host);
+    return sameOrSubdomain(host, OFFICIAL_HOST) || isJobeoHost(host) || isJobupHost(host);
   } catch {
     return false;
   }
@@ -203,9 +218,9 @@ function addCandidate(byUrl, candidate, sourceUrl) {
 }
 
 /**
- * Extract detail URLs from the rendered tenant page. JSON-LD is preferred,
- * while explicit cross-origin anchors/data URLs are accepted only when their
- * Jobeo path identifies a vacancy detail page.
+ * Extract detail URLs from the rendered Jobeo tenant page. JSON-LD is
+ * preferred, while explicit cross-origin anchors/data URLs are accepted only
+ * when their source path identifies a vacancy detail page.
  */
 export function extractTechnicEmploisListings(html = '', pageUrl = DEFAULT_WIDGET_URL) {
   const byUrl = new Map();
@@ -223,6 +238,38 @@ export function extractTechnicEmploisListings(html = '', pageUrl = DEFAULT_WIDGE
     addCandidate(byUrl, { url: absolute }, pageUrl);
   }
   return [...byUrl.values()];
+}
+
+/**
+ * Extract only Technic Emplois cards from the current Jobup employer search.
+ * The term search is relevance-ranked and can include other employers, so the
+ * exact employer filter is mandatory before any detail URL is followed.
+ */
+export function extractTechnicJobupListings(html = '', pageUrl = TECHNIC_EMPLOIS_JOBUP_SEARCH_URL) {
+  const cards = filterJobupCardsByEmployer(
+    parseJobupSearchCards(html),
+    TECHNIC_EMPLOIS_COMPANY_NAME,
+  );
+  return cards.map((card) => {
+    const parsedLocation = parseJobupLieu(card.location);
+    const listing = {
+      title: card.title,
+      url: card.url,
+      sourceUrl: pageUrl,
+      company: card.company,
+      location: parsedLocation.city || card.location,
+      description: '',
+    };
+    if (parsedLocation.city && !parsedLocation.city.includes(',')) {
+      listing.locationCandidates = [{
+        location: parsedLocation.city,
+        addressLocality: parsedLocation.city,
+        addressCountry: 'CH',
+        ...(parsedLocation.postal ? { postalCode: parsedLocation.postal } : {}),
+      }];
+    }
+    return listing;
+  });
 }
 
 function pageFromResult(result, requestedUrl) {
@@ -257,6 +304,32 @@ async function fetchSourcePage(url, {
   return page;
 }
 
+async function fetchTechnicJobupSearchPage(runtime = {}) {
+  if (typeof runtime.fetchJobupSearchImpl === 'function') {
+    return pageFromResult(
+      await runtime.fetchJobupSearchImpl(TECHNIC_EMPLOIS_JOBUP_SEARCH_URL),
+      TECHNIC_EMPLOIS_JOBUP_SEARCH_URL,
+    );
+  }
+
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 40_000;
+  const response = await fetchViaJinaWithRetry(TECHNIC_EMPLOIS_JOBUP_SEARCH_URL, {
+    timeoutMs,
+    format: 'html',
+  });
+  if (!response.ok) {
+    const reason = response.headers.get('x-jina-retry-reason') || `HTTP ${response.status}`;
+    const error = new Error(`Jobup listing fetch failed (${reason})`);
+    error.status = response.status;
+    error.retryable = response.status === 408 || response.status === 429 || response.status >= 500;
+    throw error;
+  }
+  return {
+    body: await response.text(),
+    url: TECHNIC_EMPLOIS_JOBUP_SEARCH_URL,
+  };
+}
+
 async function fetchTechnicPages({ spec, runtime, officialUrl }) {
   const policy = typeof runtime.fetchPageImpl === 'function'
     ? null
@@ -266,20 +339,37 @@ async function fetchTechnicPages({ spec, runtime, officialUrl }) {
     browserFetchImpl: runtime.browserFetchImpl || fetchHtmlViaBrowser,
   };
   try {
-    const official = await fetchSourcePage(officialUrl, {
-      policy,
-      runtime: pageRuntime,
-      accept: (html, url) => Boolean(extractOfficialWidgetUrl(html, url)),
-    });
-    const widgetUrl = extractOfficialWidgetUrl(official.body, official.url || officialUrl);
-    if (!widgetUrl) return { listings: [], discoveredCount: 0 };
+    let officialError = null;
+    try {
+      const official = await fetchSourcePage(officialUrl, {
+        policy,
+        runtime: pageRuntime,
+        accept: (html, url) => Boolean(extractOfficialWidgetUrl(html, url)),
+      });
+      const widgetUrl = extractOfficialWidgetUrl(official.body, official.url || officialUrl);
+      if (widgetUrl) {
+        const widget = await fetchSourcePage(widgetUrl, {
+          policy,
+          runtime: pageRuntime,
+          accept: (html, url) => extractTechnicEmploisListings(html, url).length > 0,
+        });
+        const listings = extractTechnicEmploisListings(widget.body, widget.url || widgetUrl);
+        if (listings.length) return { listings, discoveredCount: listings.length };
+      }
+    } catch (err) {
+      officialError = err;
+      console.warn(`⚠️ ${TECHNIC_EMPLOIS_COMPANY_NAME}: legacy Jobeo source unavailable: ${err?.message || err}`);
+    }
 
-    const widget = await fetchSourcePage(widgetUrl, {
-      policy,
-      runtime: pageRuntime,
-      accept: (html, url) => extractTechnicEmploisListings(html, url).length > 0,
-    });
-    const listings = extractTechnicEmploisListings(widget.body, widget.url || widgetUrl);
+    const jobup = await fetchTechnicJobupSearchPage(runtime);
+    const listings = extractTechnicJobupListings(jobup.body, jobup.url || TECHNIC_EMPLOIS_JOBUP_SEARCH_URL);
+    if (listings.length) {
+      console.log(`  📋 Jobup listings found: ${listings.length}`);
+    } else if (officialError) {
+      // A successful but empty Jobup response is still a selector miss; keep
+      // the monitor's fail-closed diagnosis rather than hiding the legacy error.
+      console.warn(`⚠️ ${TECHNIC_EMPLOIS_COMPANY_NAME}: both listing sources returned no matching vacancies`);
+    }
     return { listings, discoveredCount: listings.length };
   } finally {
     await policy?.dispatcher?.close?.().catch(() => {});
@@ -334,7 +424,9 @@ function buildTechnicJob(listing, detail) {
     ...(geography.postalCode ? { postalCode: geography.postalCode } : {}),
     ...(geography.streetAddress ? { streetAddress: geography.streetAddress } : {}),
     url: publicUrl,
-    source: 'Technic Emplois SA (official site → Jobeo tenant)',
+    source: publicUrl.includes('jobup.ch')
+      ? 'Technic Emplois SA (Jobup employer search)'
+      : 'Technic Emplois SA (official site → Jobeo tenant)',
     sourceLang,
     crawledAt: new Date().toISOString(),
     category: detectCategory(title),
@@ -377,7 +469,7 @@ export async function fetchAllTechnicEmploisJobs({
 
   const { listings, discoveredCount } = await fetchTechnicPages({ spec, runtime, officialUrl });
   if (!listings.length) {
-    console.warn('⚠️ No Technic Emplois detail links returned by the official iframe.');
+    console.warn('⚠️ No Technic Emplois detail links returned by the configured source pages.');
     const empty = [];
     Object.defineProperties(empty, {
       discoveredCount: { value: discoveredCount, enumerable: false },
