@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-15T21:26:49.378Z",
+  "generatedAt": "2026-10-16T09:23:35.653Z",
   "total": 65,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 60,
-  "durationMs": 84438,
-  "avgDurationMs": 84438,
+  "durationMs": 80957,
+  "avgDurationMs": 80957,
   "durationHistory": [
-    84438
+    80957
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -201,47 +201,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-wfz9gd",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-solothurn-jysk-solothurn-wfz9gd",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Solothurn",
-      "location": "Solothurn",
-      "canton": "SO",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-solothurn",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-08-16T10:05:06.570Z",
-      "firstSeenAt": "2026-07-30T22:22:51.016Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Solothurn",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "SO",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "reported",
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-solothurn",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "4500",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1354,5 +1314,5 @@
       }
     }
   ],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }

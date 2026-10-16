@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-15T21:26:11.443Z",
+  "assembledAt": "2026-10-16T09:22:28.662Z",
   "jobs": [
     {
       "id": "pictet-cb0dff47dc77",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125229&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:26:05.352Z",
+      "crawledAt": "2026-10-16T09:22:23.815Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125232&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:26:04.860Z",
+      "crawledAt": "2026-10-16T09:22:23.200Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124147&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:26:04.386Z",
+      "crawledAt": "2026-10-16T09:22:22.666Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -272,7 +272,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125193&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:26:03.479Z",
+      "crawledAt": "2026-10-16T09:22:21.497Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -352,7 +352,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125240&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:26:02.954Z",
+      "crawledAt": "2026-10-16T09:22:20.915Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -432,7 +432,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125116&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:26:02.479Z",
+      "crawledAt": "2026-10-16T09:22:20.358Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -512,7 +512,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125246&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:26:01.332Z",
+      "crawledAt": "2026-10-16T09:22:19.080Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -531,22 +531,22 @@
       "jobReqId": "125246",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "group-information-security-ai-cyber-6-9-mois-pictet-geneva",
+        "master-s-thesis-information-security-ai-cyber-6-9-mois-pictet-geneva"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "group-information-security-ai-cyber-6-9-mois-pictet-geneva"
-        ],
         "it": [
           "group-information-security-ai-cyber-6-9-mois-pictet-geneva",
           "master-s-thesis-information-security-ai-cyber-6-9-mois-pictet-geneva"
         ],
         "de": [
           "group-information-security-ai-cyber-6-9-mois-pictet-geneva"
+        ],
+        "fr": [
+          "group-information-security-ai-cyber-6-9-mois-pictet-geneva"
         ]
       },
-      "previousSlugs": [
-        "group-information-security-ai-cyber-6-9-mois-pictet-geneva",
-        "master-s-thesis-information-security-ai-cyber-6-9-mois-pictet-geneva"
-      ],
       "firstSeenAt": "2026-10-15T09:23:11.966Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -570,7 +570,7 @@
         "en": "it-security-engineer-pictet-geneva",
         "it": "it-security-ingegnere-pictet-group-geneva",
         "de": "it-security-ingenieur-pictet-group-geneva",
-        "fr": "it-security-engineer-pictet-geneva"
+        "fr": "it-security-ingenieur-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -594,7 +594,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125223&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:26:00.423Z",
+      "crawledAt": "2026-10-16T09:22:17.757Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -612,9 +612,7 @@
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125223&selected_lang=en_GB",
       "jobReqId": "125223",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -636,86 +634,14 @@
         ],
         "de": [
           "it-security-engineer-pictet-geneva"
+        ],
+        "fr": [
+          "it-security-engineer-pictet-geneva"
         ]
       },
       "previousSlugs": [
         "it-security-engineer-pictet-geneva"
       ]
-    },
-    {
-      "id": "pictet-d474bc69f76d",
-      "slug": "master-s-thesis-ai-automation-for-customised-reporting-12-mesi-pictet-group-geneva",
-      "slugByLocale": {
-        "it": "master-s-thesis-ai-automation-for-customised-reporting-12-mesi-pictet-group-geneva",
-        "en": "master-s-thesis-ai-automation-for-customised-reporting-12-months-contract-pictet-geneva",
-        "de": "masterarbeit-ai-automation-fur-customized-reporting-12-monate-vertrag-pictet-group-geneva",
-        "fr": "these-de-maitrise-ai-automation-pour-les-rapports-personnalises-12-mois-de-contrat-pictet-group-geneva"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Master's Thesis - AI & Automation for Customised Reporting (12 months contract)",
-      "titleByLocale": {
-        "it": "Master's Thesis - AI & Automation for Customised Reporting (12 mesi)",
-        "en": "Master's Thesis - AI & Automation for Customised Reporting (12 months contract)",
-        "de": "Masterarbeit - AI & Automation für Customized Reporting (12 Monate Vertrag)",
-        "fr": "Thèse de maîtrise - AI & Automation pour les rapports personnalisés (12 mois de contrat)"
-      },
-      "description": "Your team\n\nWe are looking for an EPFL master’s student to join our four-person Customised Reporting team for a 12-month academic placement. The team produces highly bespoke investment reports and brings deep business expertise; you will complement this knowledge with strong engineering, automation and applied AI capabilities. Working closely with the Customised Solutions team and the relevant data teams, you will help transform a largely manual production model into robust, scalable and AI-enabled reporting solutions. Your work will directly contribute to reducing manual workload, capacity constraints and operational risk, while helping the team adopt modern tools and ways of working.\n\nYour role\n\nKey responsibilities\n\n• Map the end-to-end customised reporting production model, including effort, tools, data flows, controls, risks, dependencies and failure points.\n\n• Identify, assess and prioritise opportunities to industrialise and automate data aggregation, validation and reporting workflows, including the additional complexity created by external bank data.\n\n• Work with Customised Reporting, Customised Solutions and data teams to design solutions aligned with existing architecture, data governance, security and control requirements.\n\n• Design, develop, test and implement practical solutions and AI-enabled use cases for data extraction, anomaly detection, commentary generation and report production.\n\n• Build robust End User Computing capabilities that empower reporting specialists while ensuring appropriate documentation, controls and maintainability.\n\n• Deliver working tools and prototypes, a prioritised roadmap, documented procedures, user guidance and team training, ensuring an effective handover and a structured academic report.\n\nYour profile\n\n• EPFL student in the final year of a relevant master’s degree and eligible for a 12-month academic internship.\n\n• Strong analytical, quantitative and problem-solving skills, with the ability to translate business needs into practical technical solutions.\n\n• Solid programming experience in Python or an equivalent language, together with skills in data manipulation, visualisation and workflow automation.\n\n• Practical knowledge of applied AI, including large language models, retrieval-augmented generation and model evaluation.\n\n• An understanding of the End User Computing lifecycle and familiarity with Microsoft Copilot, GitHub, Snowflake or cloud-based AI services would be advantageous.\n\n• Curious, collaborative and hands-on, with the communication skills to work effectively across business and technology teams and support knowledge transfer.\n\n• Knowledge of banking or investment reporting is welcome but not required.\n\nThis opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nLocation: Geneva\n Team: PWM Customised Reporting\n Start date: February / March 2027\n Duration: 12 months (EPFL master’s internship)\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "it": "La tua squadra\n\nSiamo alla ricerca di uno studente del master EPFL per unirsi al nostro team di report personalizzati per un tirocinio accademico di 12 mesi. Il team produce report di investimento altamente su misura e porta competenze di business profonde; integrare questa conoscenza con forti capacità di ingegneria, automazione e AI applicate. Lavorando a stretto contatto con il team Customised Solutions e con i relativi team di dati, vi aiuterà a trasformare un modello di produzione in soluzioni di reporting robuste, scalabili e abilitate all'intelligenza artificiale. Il vostro lavoro contribuirà direttamente a ridurre il carico di lavoro manuale, i vincoli di capacità e il rischio operativo, aiutando il team ad adottare strumenti moderni e modi di lavoro.\n\nIl tuo ruolo\n\nResponsabilità chiave\n\n• Mappare il modello di produzione di report personalizzati end-to-end, tra cui sforzo, strumenti, flussi di dati, controlli, rischi, dipendenze e punti di guasto.\n\n• Identificare, valutare e privilegiare le opportunità per l'industrializzazione e l'automazione dei flussi di lavoro di aggregazione, convalida e reporting, compresa la complessità aggiuntiva creata da dati bancari esterni.\n\n• Lavora con i team di report personalizzati, soluzioni personalizzate e dati per progettare soluzioni allineate ai requisiti di architettura, governance dei dati, sicurezza e controllo esistenti.\n\n• Progettare, sviluppare, testare e implementare soluzioni pratiche e casi di utilizzo abilitati ad AI per l'estrazione dei dati, il rilevamento di anomalia, la generazione dei commenti e la produzione di report.\n\n• Costruire robuste funzionalità di End User Computing che consentono agli specialisti di reporting, garantendo al tempo stesso documentazione, controlli e manutenbilità adeguate.\n\n• Fornire strumenti di lavoro e prototipi, roadmap a priori, procedure documentate, guida degli utenti e formazione del team, assicurando una consegna efficace e un rapporto accademico strutturato.\n\nIl tuo profilo\n\n• Studente EPFL nell'ultimo anno di un master rilevante e idoneo per un tirocinio accademico di 12 mesi.\n\n• Forte capacità analitiche, quantitative e problem solving, con la capacità di tradurre le esigenze aziendali in soluzioni tecniche pratiche.\n\n• Esperienza di programmazione solida in Python o un linguaggio equivalente, insieme a competenze nella manipolazione dei dati, visualizzazione e automazione del flusso di lavoro.\n\n• Conoscenza pratica dell'IA applicata, compresi i modelli di lingua di grandi dimensioni, la generazione aumentata e la valutazione dei modelli.\n\n• Una comprensione del ciclo di vita End User Computing e la familiarità con Microsoft Copilot, GitHub, Snowflake o servizi AI basati su cloud sarebbe vantaggiosa.\n\n• Curioso, collaborativo e pratico, con le competenze di comunicazione per lavorare efficacemente in team aziendali e tecnologici e supporto trasferimento di conoscenze.\n\n• La conoscenza del reporting bancario o di investimento è benvenuta ma non necessaria.\n\nQuesta opportunità è intesa per gli studenti che completano una tesi di laurea richiesta dal loro programma accademico. Solo i candidati la cui laurea magistrale richiede uno stage sono idonei ad applicare.\n\nUbicazione: Ginevra\nTeam: Reporting personalizzato PWM\nData di inizio: febbraio / marzo 2027\nDurata: 12 mesi (internship del master EPFL)\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "en": "Your team\n\nWe are looking for an EPFL master’s student to join our four-person Customised Reporting team for a 12-month academic placement. The team produces highly bespoke investment reports and brings deep business expertise; you will complement this knowledge with strong engineering, automation and applied AI capabilities. Working closely with the Customised Solutions team and the relevant data teams, you will help transform a largely manual production model into robust, scalable and AI-enabled reporting solutions. Your work will directly contribute to reducing manual workload, capacity constraints and operational risk, while helping the team adopt modern tools and ways of working.\n\nYour role\n\nKey responsibilities\n\n• Map the end-to-end customised reporting production model, including effort, tools, data flows, controls, risks, dependencies and failure points.\n\n• Identify, assess and prioritise opportunities to industrialise and automate data aggregation, validation and reporting workflows, including the additional complexity created by external bank data.\n\n• Work with Customised Reporting, Customised Solutions and data teams to design solutions aligned with existing architecture, data governance, security and control requirements.\n\n• Design, develop, test and implement practical solutions and AI-enabled use cases for data extraction, anomaly detection, commentary generation and report production.\n\n• Build robust End User Computing capabilities that empower reporting specialists while ensuring appropriate documentation, controls and maintainability.\n\n• Deliver working tools and prototypes, a prioritised roadmap, documented procedures, user guidance and team training, ensuring an effective handover and a structured academic report.\n\nYour profile\n\n• EPFL student in the final year of a relevant master’s degree and eligible for a 12-month academic internship.\n\n• Strong analytical, quantitative and problem-solving skills, with the ability to translate business needs into practical technical solutions.\n\n• Solid programming experience in Python or an equivalent language, together with skills in data manipulation, visualisation and workflow automation.\n\n• Practical knowledge of applied AI, including large language models, retrieval-augmented generation and model evaluation.\n\n• An understanding of the End User Computing lifecycle and familiarity with Microsoft Copilot, GitHub, Snowflake or cloud-based AI services would be advantageous.\n\n• Curious, collaborative and hands-on, with the communication skills to work effectively across business and technology teams and support knowledge transfer.\n\n• Knowledge of banking or investment reporting is welcome but not required.\n\nThis opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nLocation: Geneva\nTeam: PWM Customised Reporting\nStart date: February / March 2027\nDuration: 12 months (EPFL master’s internship)\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nWir suchen einen EPFL-Masterstudenten, der sich unserem vierköpfigen Customized Reporting-Team für ein 12-monatiges akademisches Praktikum anschließt. Das Team erstellt maßgeschneiderte Anlageberichte und bringt fundierte Geschäftskenntnisse mit; Sie werden dieses Wissen mit starken Engineering-, Automatisierungs- und angewandten KI-Fähigkeiten ergänzen. In enger Zusammenarbeit mit dem Team von Customized Solutions und den relevanten Datenteams helfen Sie dabei, ein weitgehend manuelles Produktionsmodell in robuste, skalierbare und KI-fähige Berichtslösungen umzuwandeln. Ihre Arbeit wird direkt dazu beitragen, die manuelle Arbeitsbelastung, Kapazitätsbeschränkungen und das Betriebsrisiko zu reduzieren und das Team dabei zu unterstützen, moderne Werkzeuge und Arbeitsweisen anzuwenden.\n\nDeine Rolle\n\nWesentliche Zuständigkeiten\n\n• Bilden Sie das durchgängig angepasste Berichtsproduktionsmodell ab, einschließlich Aufwand, Tools, Datenflüsse, Kontrollen, Risiken, Abhängigkeiten und Fehlerpunkte.\n\n• Identifizieren, bewerten und priorisieren Sie Möglichkeiten zur Industrialisierung und Automatisierung von Workflows zur Datenaggregation, -validierung und -berichterstattung, einschließlich der zusätzlichen Komplexität, die durch externe Bankdaten entsteht.\n\n• Arbeiten Sie mit Customized Reporting, Customised Solutions und Datenteams zusammen, um Lösungen zu entwickeln, die auf bestehende Architektur-, Data Governance-, Sicherheits- und Kontrollanforderungen abgestimmt sind.\n\n• Entwerfen, Entwickeln, Testen und Implementieren von praktischen Lösungen und KI-fähigen Anwendungsfällen für Datenextraktion, Anomalieerkennung, Kommentierung und Berichtserstellung.\n\n• Aufbau robuster Endbenutzer-Computing-Funktionen, die Reporting-Spezialisten befähigen und gleichzeitig eine angemessene Dokumentation, Kontrollen und Wartbarkeit gewährleisten.\n\n• Liefern Sie Arbeitswerkzeuge und Prototypen, eine priorisierte Roadmap, dokumentierte Verfahren, Benutzerführung und Teamschulungen, um eine effektive Übergabe und einen strukturierten akademischen Bericht zu gewährleisten.\n\nDein Profil\n\n• EPFL-Student im letzten Jahr eines relevanten Master-Abschlusses und berechtigt zu einem 12-monatigen akademischen Praktikum.\n\n• Starke analytische, quantitative und Problemlösungskompetenzen mit der Fähigkeit, Geschäftsanforderungen in praktische technische Lösungen umzusetzen.\n\n• Solide Programmiererfahrung in Python oder einer gleichwertigen Sprache, zusammen mit Fähigkeiten in Datenmanipulation, Visualisierung und Workflow-Automatisierung.\n\n• Praktische Kenntnisse der angewandten KI, einschließlich großer Sprachmodelle, retrieval-erweiterter Generierung und Modellbewertung.\n\n• Ein Verständnis des Endbenutzer-Computing-Lebenszyklus und die Vertrautheit mit Microsoft Copilot, GitHub, Snowflake oder Cloud-basierten KI-Diensten wären von Vorteil.\n\n• Neugierig, kooperativ und praktisch, mit den Kommunikationsfähigkeiten, um effektiv in Geschäfts- und Technologieteams zu arbeiten und den Wissenstransfer zu unterstützen.\n\n• Kenntnisse in der Banken- oder Anlageberichterstattung sind willkommen, aber nicht erforderlich.\n\nDiese Gelegenheit ist für Studenten gedacht, die eine Masterarbeit abschließen, die für ihr akademisches Programm erforderlich ist. Nur Kandidaten, deren Master-Abschluss ein Praktikum erfordert, können sich bewerben.\n\nStandort: Genf\nTeam: PWM Customized Reporting\nStartdatum: Februar / März 2027\nDauer: 12 Monate (EPFL Masterpraktikum)\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nNous sommes à la recherche d'un étudiant de maîtrise de l'EPFL pour rejoindre notre équipe de rapport personnalisé de quatre personnes pour un stage universitaire de 12 mois. L'équipe produit des rapports d'investissement sur mesure et apporte une expertise commerciale profonde; vous compléterez cette connaissance par de solides capacités d'ingénierie, d'automatisation et d'intelligence artificielle appliquée. En étroite collaboration avec l'équipe Solutions personnalisées et les équipes de données concernées, vous aiderez à transformer un modèle de production largement manuel en solutions de reporting robustes, évolutives et adaptées à l'IA. Votre travail contribuera directement à réduire la charge de travail manuelle, les contraintes de capacité et les risques opérationnels, tout en aidant l'équipe à adopter des outils et des méthodes de travail modernes.\n\nVotre rôle\n\nPrincipales responsabilités\n\n• Planifier le modèle de production de rapports personnalisés de bout en bout, y compris les efforts, les outils, les flux de données, les contrôles, les risques, les dépendances et les points de défaillance.\n\n• Identifier, évaluer et hiérarchiser les possibilités d'industrialisation et d'automatisation de l'agrégation, de la validation et de la communication des données, y compris la complexité supplémentaire créée par les données bancaires externes.\n\n• Travailler avec des équipes de rapports personnalisés, de solutions personnalisées et de données pour concevoir des solutions alignées sur l'architecture existante, la gouvernance des données, la sécurité et les exigences de contrôle.\n\n• Concevoir, développer, tester et mettre en œuvre des solutions pratiques et des cas d'utilisation de l'IA pour l'extraction de données, la détection d'anomalies, la production de commentaires et la production de rapports.\n\n• Bâtir des capacités de calcul utilisateur final robustes qui responsabilisent les spécialistes des rapports tout en assurant la documentation, les contrôles et la maintenance appropriés.\n\n• Fournir des outils de travail et des prototypes, une feuille de route hiérarchisée, des procédures documentées, des conseils aux utilisateurs et de la formation d'équipe, en assurant un transfert efficace et un rapport académique structuré.\n\nVotre profil\n\n• Etudiant de l'EPFL en dernière année d'un master pertinent et éligible à un stage académique de 12 mois.\n\n• De solides compétences analytiques, quantitatives et de résolution de problèmes, avec la capacité de traduire les besoins des entreprises en solutions techniques pratiques.\n\n• Une solide expérience de programmation en Python ou dans un langage équivalent, ainsi que des compétences en manipulation de données, visualisation et automatisation du workflow.\n\n• Connaissance pratique de l'intelligence artificielle appliquée, y compris les grands modèles linguistiques, la génération augmentée par récupération et l'évaluation des modèles.\n\n• Une compréhension du cycle de vie de l'utilisateur final et de la familiarité avec les services d'IA basés sur Microsoft Copilot, GitHub, Snowflake ou Cloud serait avantageuse.\n\n• Curieux, collaboratif et pratique, avec les compétences en communication pour travailler efficacement entre les équipes commerciales et technologiques et soutenir le transfert de connaissances.\n\n• La connaissance des rapports bancaires ou d'investissement est bienvenue, mais elle n'est pas requise.\n\nCette possibilité est destinée aux étudiants qui terminent une thèse de maîtrise requise par leur programme académique. Seuls les candidats dont le diplôme de maîtrise exige un stage peuvent postuler.\n\nLieu : Genève\nÉquipe: PWM Customized Reporting\nDate de début : février / mars 2027\nDurée: 12 mois\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125195&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:20:32.723Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125195&selected_lang=en_GB",
-      "jobReqId": "125195",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "master-s-thesis-ai-automation-for-customised-reporting-12-months-contract-pictet-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "master-s-thesis-ai-automation-for-customised-reporting-12-months-contract-pictet-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T21:26:12.846Z",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "crawlerMissStreak": 2
     }
   ]
 }
