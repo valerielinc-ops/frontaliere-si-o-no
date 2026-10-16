@@ -57,11 +57,14 @@ jobs:
           LEDGER_BRANCH: ledger/loop-fleet
         run: |
           set -euo pipefail
-          if ! git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
-            echo "::notice::durable ledger branch $LEDGER_BRANCH does not exist yet; using the in-tree ledger."
+          if ! timeout --signal=TERM --kill-after=10s 60s git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
+            echo "::notice::durable ledger branch $LEDGER_BRANCH is unavailable or the remote probe timed out; using the in-tree ledger."
             exit 0
           fi
-          git fetch --depth 1 origin "$LEDGER_BRANCH"
+          if ! timeout --signal=TERM --kill-after=10s 60s git fetch --no-tags --depth 1 origin "$LEDGER_BRANCH"; then
+            echo "::notice::durable ledger fetch for $LEDGER_BRANCH timed out or failed; using the in-tree ledger."
+            exit 0
+          fi
           mkdir -p data/loop-fleet/ledger
           git checkout FETCH_HEAD -- data/loop-fleet/ledger
           echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"

@@ -455,6 +455,9 @@ describe('loop fleet workflow contract', () => {
       expect(checkoutIndex, name).toBeGreaterThanOrEqual(0);
       expect(source, name).toContain('LEDGER_BRANCH: ledger/loop-fleet');
       expect(source, name).toContain('git checkout FETCH_HEAD -- data/loop-fleet/ledger');
+      expect(source, name).toContain('timeout --signal=TERM --kill-after=10s 60s git ls-remote');
+      expect(source, name).toContain('timeout --signal=TERM --kill-after=10s 60s git fetch --no-tags --depth 1 origin "$LEDGER_BRANCH"');
+      expect(source, name).toContain('durable ledger fetch for $LEDGER_BRANCH timed out or failed; using the in-tree ledger.');
       expect(overlayIndex, name).toBeGreaterThan(checkoutIndex);
     }
   });
