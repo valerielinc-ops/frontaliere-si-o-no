@@ -1,28 +1,29 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-10-16T09:20:28.409Z",
-  "total": 2,
+  "generatedAt": "2026-10-16T21:23:51.184Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 1,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 6873,
-  "avgDurationMs": 6873,
+  "durationMs": 5666,
+  "avgDurationMs": 5666,
   "durationHistory": [
-    6873
+    5666
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "klinik-siloah-7b1fc17aa78c",
       "slug": "care-manager-e-dipl-infermiere-sss-sup-privatklinik-siloah-gumligen",
@@ -57,7 +58,6 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -67,7 +67,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "klinik-siloah-6fe47603b42b",
@@ -83,7 +82,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155171119-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:20:13.503Z",
+      "crawledAt": "2026-10-16T21:23:32.989Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
+  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
 }

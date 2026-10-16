@@ -1,7 +1,7 @@
 {
   "key": "apply",
   "label": "LEITpuls AG",
-  "generatedAt": "2026-10-16T09:25:50.828Z",
+  "generatedAt": "2026-10-16T21:17:34.696Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3143,
-  "avgDurationMs": 3143,
+  "durationMs": 3456,
+  "avgDurationMs": 3456,
   "durationHistory": [
-    3143
+    3456
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,11 +37,13 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:25:39.851Z",
+      "crawledAt": "2026-10-16T21:17:19.503Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Länggasstrasse 21",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -57,15 +59,14 @@
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "postalCode": "3004",
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
+  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
 }
