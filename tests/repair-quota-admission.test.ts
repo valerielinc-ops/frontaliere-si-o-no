@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   collectRepairQuotaStats,
+  GH_READ_RETRY_DELAYS_MS,
+  GH_READ_TIMEOUT_MS,
   INITIAL_REPAIR_ALLOWANCE,
   main,
   realRunCount,
@@ -10,6 +12,7 @@ import {
   repairWorkflowFromRef,
   REPAIR_TO_ISSUE_RATIO_MAX,
   REPAIR_WORKFLOWS,
+  runGhJsonBounded,
 } from '../scripts/ci/repair-quota-admission.mjs';
 
 const ACTION = readFileSync(
@@ -106,6 +109,87 @@ describe('telemetry helpers', () => {
     expect(stats.floor).toMatchObject({ ok: true, activeLeases: [], activeCounts: { repair: 0, 'issue-fix': 0 } });
     expect(seen).toHaveLength(REPAIR_WORKFLOWS.length + 3);
   });
+
+  it('retries a transient paginated Actions 504 within a per-read deadline', () => {
+    const calls: string[][] = [];
+    const timeouts: number[] = [];
+    const delays: number[] = [];
+    let failedOnce = false;
+    const runJson = (args: string[]) => runGhJsonBounded(args, {
+      execute: (_binary: string, cliArgs: string[], options: { timeout?: number }) => {
+        calls.push(cliArgs);
+        timeouts.push(options.timeout || 0);
+        if (!failedOnce && cliArgs[0] === 'run' && cliArgs.includes('pr-redflag-fixer.yml')) {
+          failedOnce = true;
+          throw Object.assign(new Error('Command failed: gh run list'), {
+            status: 1,
+            stderr: Buffer.from('failed to get runs: HTTP 504: upstream timed out'),
+          });
+        }
+        return JSON.stringify([]);
+      },
+      sleep: (delayMs: number) => { delays.push(delayMs); },
+      warn: () => {},
+    });
+
+    const stats = collectRepairQuotaStats({ repo: 'owner/repo', since: '2026-10-08', runJson });
+
+    expect(stats).toMatchObject({ ok: true, repairRuns: 0, issueFixRuns: 0, queuedIssues: 0 });
+    expect(calls).toHaveLength(REPAIR_WORKFLOWS.length + 4);
+    expect(calls[0]).toEqual(calls[1]);
+    expect(timeouts).toEqual(Array(calls.length).fill(GH_READ_TIMEOUT_MS));
+    expect(delays).toEqual([GH_READ_RETRY_DELAYS_MS[0]]);
+  });
+
+  it('fails quota admission closed after the bounded retries are exhausted', () => {
+    let attempts = 0;
+    const delays: number[] = [];
+    const runJson = (args: string[]) => runGhJsonBounded(args, {
+      execute: () => {
+        attempts += 1;
+        throw Object.assign(new Error('Command failed: gh run list'), {
+          status: 1,
+          stderr: Buffer.from('failed to get runs: HTTP 504: upstream timed out'),
+        });
+      },
+      sleep: (delayMs: number) => { delays.push(delayMs); },
+      warn: () => {},
+    });
+
+    const result = main({
+      env: {
+        GITHUB_WORKFLOW_REF: 'owner/repo/.github/workflows/pr-redcheck-fixer.yml@refs/heads/main',
+        GITHUB_REPOSITORY: 'owner/repo',
+        PR_NUMBER: '7310',
+      },
+      runJson,
+      runCommand: () => { throw new Error('must not mutate'); },
+    });
+
+    expect(result).toMatchObject({ admit: false, held: false });
+    expect(result.reason).toContain('HTTP 504');
+    expect(attempts).toBe(GH_READ_RETRY_DELAYS_MS.length + 1);
+    expect(delays).toEqual([...GH_READ_RETRY_DELAYS_MS]);
+  });
+
+  it.each(['403: Resource not accessible', '501: Not Implemented'])(
+    'does not retry non-transient GitHub read failures (%s)',
+    (failure) => {
+      let attempts = 0;
+      expect(() => runGhJsonBounded(['run', 'list'], {
+        execute: () => {
+          attempts += 1;
+          throw Object.assign(new Error(`HTTP ${failure}`), {
+            status: 1,
+            stderr: Buffer.from(`HTTP ${failure}`),
+          });
+        },
+        sleep: () => {},
+        warn: () => {},
+      })).toThrow(new RegExp(`HTTP ${failure.split(':')[0]}`, 'u'));
+      expect(attempts).toBe(1);
+    },
+  );
 
   it('fails closed when a telemetry listing is malformed', () => {
     expect(collectRepairQuotaStats({
