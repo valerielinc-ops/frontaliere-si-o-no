@@ -8432,6 +8432,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.crediti-bilaterali-iii-svizzera.title': 'Bilaterali III, first green light for 3,48 billion in credits',
     'blog.article.crediti-bilaterali-iii-svizzera.excerpt': '3.48 billion francs for the period 2030-2036 The FK-N votes: 14 in favor, 8 against, 3 abstentions The National Council should examine the dossier in December',
     'blog.article.crediti-bilaterali-iii-svizzera.imageAlt': 'The Swiss Federal Parliament in Bern, with the Swiss flag prominently displayed.',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.title': 'Discount retailer freezes 2027 hikes, staff discount doubles',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.excerpt': 'Denner does not plan general increases in 2027 The employee discount rises from 10% to 20% Pension fund contributions increase by 1,2 points Minimum wages',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.imageAlt': 'Editorial image related to: Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
 };
 
 export default blogMetaChEn;

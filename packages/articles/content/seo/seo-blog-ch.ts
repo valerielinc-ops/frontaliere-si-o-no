@@ -106501,6 +106501,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti': {
+    title: 'Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
+    description: 'Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi',
+    keywords: 'frontalieri, ticino, svizzera, italia, discount, blocca, aumenti, raddoppia',
+    ogTitle: 'Il discount blocca aumenti 2027 e raddoppia sconto',
+    ogDescription: 'Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi',
+    canonicalPath: '/articoli-svizzera/il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il discount blocca aumenti 2027 e raddoppia sconto dipendenti",
+      "description": "Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Il discount blocca aumenti 2027 e raddoppia sconto dipendenti"
+      },
+      "datePublished": "2026-10-16T20:46:04+00:00",
+      "dateModified": "2026-10-16T20:46:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

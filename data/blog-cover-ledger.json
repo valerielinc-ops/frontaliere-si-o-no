@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5554
+      "6": 5555
     },
-    "publishedCovers": 7135,
+    "publishedCovers": 7136,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5359
+    "inferredRecords": 5360
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190881,6 +190881,33 @@
           "id": "futura-volley-roma-vittoria",
           "category": "novita",
           "date": "2026-10-16T06:52:09.711Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti": {
+      "cover": "/images/blog/article-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.webp",
+      "hash": "83bc8f7ccfd1ed991ce266785f4cf1ba1d5f4a2ca83bba7a07aa1bd2cb8ef878",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti",
+          "category": "novita",
+          "date": "2026-10-16T20:46:04.021Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

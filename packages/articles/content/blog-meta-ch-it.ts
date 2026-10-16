@@ -8432,6 +8432,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.crediti-bilaterali-iii-svizzera.title': 'Bilaterali III, primo via libera ai crediti da 3,48 miliardi',
     'blog.article.crediti-bilaterali-iii-svizzera.excerpt': '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
     'blog.article.crediti-bilaterali-iii-svizzera.imageAlt': 'Il Parlamento federale svizzero a Berna, con la bandiera svizzera in primo piano.',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.title': 'Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.excerpt': 'Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.imageAlt': 'Immagine editoriale relativa a: Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
 };
 
 export default blogMetaChIt;

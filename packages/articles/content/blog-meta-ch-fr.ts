@@ -8432,6 +8432,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.crediti-bilaterali-iii-svizzera.title': 'Bilatérales III, premier feu vert aux crédits de 3,48 milliards',
     'blog.article.crediti-bilaterali-iii-svizzera.excerpt': '3,48 milliards de francs pour la période 2030-2036 La FK-N vote: 14 voix pour, 8 contre, 3 abstentions Le Conseil national devrait examiner le dossier en décembre',
     'blog.article.crediti-bilaterali-iii-svizzera.imageAlt': 'Le Parlement fédéral suisse à Berne, avec le drapeau suisse en premier plan.',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.title': 'Le discounter bloque les augmentations de 2027 et double la remise au personnel',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.excerpt': 'Denner ne prévoit pas d\'augmentations générales en 2027 La remise au personnel passe de 10 % à 20 % Les cotisations à la caisse de pension augmentent de 1,2 point Les salaires minimaux',
+    'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.imageAlt': 'Image éditoriale relative à: Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
 };
 
 export default blogMetaChFr;
