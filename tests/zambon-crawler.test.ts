@@ -18,7 +18,7 @@ import {
   MIN_DESC_LENGTH,
   extractZambonJobBody,
 } from '@/scripts/lib/zambon-job-parser.mjs';
-import { buildZambonJob, computeZambonCrawlResult, mergeZambonJobs, parseZambonApiPayload, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
+import { buildZambonJob, computeZambonCrawlResult, mergeZambonJobs, parseZambonApiPayload, restoreZambonArchivedJobs, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
 import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
@@ -404,5 +404,33 @@ describe('Zambon source text only (issue 5253)', () => {
     const [second] = mergeZambonJobs([first], [buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '')]);
     expect(second.description).toBe(real.description);
     expect(second.sourceLang).toBe('en');
+  });
+
+  it('restores a current row from its source-backed expired record after detail blocking', () => {
+    const source = buildZambonJob(
+      { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' },
+      extractZambonJobBody(NCOREPLAT_PAGE),
+    );
+    const [restored] = restoreZambonArchivedJobs(
+      [{ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }],
+      [{
+        sourceIdentity: `url:${JOB_URL}`,
+        slug: 'buyer-procurement-indirect-zambon',
+        descriptionByLocale: { en: source.description },
+      }],
+    );
+    expect(restored.description).toBe(source.description);
+    expect(restored.sourceLang).toBe('en');
+    expect(restored.descriptionByLocale).toEqual({ en: source.description });
+    expect(restored.url).toBe(JOB_URL);
+  });
+
+  it('does not choose an arbitrary archived locale or publish a thin archive body', () => {
+    const words = (count: number) => Array.from({ length: count }, (_, index) => `parola${index}`).join(' ');
+    const row = { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' };
+    expect(restoreZambonArchivedJobs([row], [{
+      sourceIdentity: `url:${JOB_URL}`,
+      descriptionByLocale: { it: words(80), en: words(49) },
+    }])).toEqual([]);
   });
 });

@@ -33,10 +33,6 @@ export const EMPTY_OK_CRAWLERS = new Set([
   // (Lugano/Locarno/Biasca). Manor has effectively withdrawn from TI hiring
   // for now; parser is healthy and will re-arm when TI listings reappear.
   'manor',
-  // Zambon Cadempino (TI) production site: the ncoreplat careers API
-  // (https://www.zambon.com/it/api/careers-api) returns jobs across
-  // BR/DE/IT/FR/ES/CO but currently 0 CH listings. Parser is healthy.
-  'zambon',
   // AIL Lugano: the AJAX endpoint
   // (https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true)
   // currently returns HTTP 200 with "Al momento non ci sono posizioni aperte".
