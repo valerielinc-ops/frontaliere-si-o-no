@@ -3156,8 +3156,10 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // it, after the duplicate has been published. The same function runs here,
   // on every write: distinct postings keep one id each (the first seen keeps
   // it, the others get a stable id derived from their own identity), true
-  // duplicates collapse with their slugs carried over. Non-fatal, like the
-  // guards above.
+  // duplicates collapse with their slugs carried over. Unlike the guards
+  // above it is fatal: a slice it cannot reconcile is not written, so the last
+  // verified slice stays on disk instead of a duplicate id reaching the
+  // scatter parity (review of PR 13609).
   try {
     const reconciled = reconcileDuplicateIdJobs(finalJobs);
     if (reconciled.groups > 0) {
@@ -3166,7 +3168,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       for (const line of reconciled.report.slice(0, 5)) console.log(`     ${line}`);
     }
   } catch (err) {
-    console.warn(`  ⚠️ Duplicate-id reconciliation skipped for ${crawlerKey}: ${err.message}`);
+    throw new Error(`Duplicate-id reconciliation failed for ${crawlerKey}; slice not written: ${err.message}`);
   }
 
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──

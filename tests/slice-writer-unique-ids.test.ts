@@ -22,6 +22,18 @@ describe('writeJobsCrawlerSlice keeps one id per posting', () => {
     expect(hold).toBeGreaterThan(reconcile);
     expect(body.indexOf('jobs: finalJobs', reconcile)).toBeGreaterThan(reconcile);
   });
+
+  it('a failed reconciliation stops the write: no slice with duplicate ids (review of PR 13609)', () => {
+    const src = read('scripts/assemble-jobs-dataset.mjs');
+    const start = src.indexOf('export function writeJobsCrawlerSlice(');
+    const body = src.slice(start, src.indexOf('\nexport ', start + 10));
+    const reconcile = body.indexOf('reconcileDuplicateIdJobs(finalJobs)');
+    const rethrow = body.indexOf('throw new Error(`Duplicate-id reconciliation failed for ${crawlerKey}; slice not written', reconcile);
+    const write = body.indexOf('writeJson(slicePath', reconcile);
+    expect(rethrow).toBeGreaterThan(reconcile);
+    expect(write).toBeGreaterThan(rethrow);
+    expect(body.slice(reconcile, rethrow)).not.toContain('console.warn');
+  });
 });
 
 describe('the Vista case: two postings, one id', () => {
