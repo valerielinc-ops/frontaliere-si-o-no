@@ -343,7 +343,7 @@ const applyCompatContent = (file, content) => {
   const treeContent = blob(tree, file);
   if (content === null) {
     if (treeContent !== null) compatOverrides.set(file, null);
-    git(['update-index', '--remove', '--ignore-unmatch', '--', file]);
+    git(['update-index', '--force-remove', '--', file]);
     return;
   }
   if (treeContent !== content) compatOverrides.set(file, content);
