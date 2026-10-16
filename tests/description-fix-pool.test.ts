@@ -120,3 +120,22 @@ describe('collectDescriptionFixTasks', () => {
     expect(collectDescriptionFixTasks([{ sourceLang: 'de', description: short, descriptionByLocale: { it: short } }])).toEqual([]);
   });
 });
+
+describe('collectDescriptionFixTasks groups the slots by language pair', () => {
+  const source = 'Wir suchen eine erfahrene Fachperson für unser Team in Lugano, mit Freude an der Arbeit und Sinn für Qualität im Alltag.';
+  const job = (n: number) => ({
+    id: `j${n}`,
+    sourceLang: 'de',
+    description: `${source} (${n})`,
+    descriptionByLocale: { de: `${source} (${n})`, it: `${source} (${n})`, en: `${source} (${n})`, fr: `${source} (${n})` },
+  });
+
+  it('keeps the slots of one pair together, in job order', () => {
+    const tasks = collectDescriptionFixTasks([job(1), job(2), job(3)]);
+    expect(tasks.map((task: { job: { id: string }; locale: string }) => `${task.locale}:${task.job.id}`)).toEqual([
+      'it:j1', 'it:j2', 'it:j3',
+      'en:j1', 'en:j2', 'en:j3',
+      'fr:j1', 'fr:j2', 'fr:j3',
+    ]);
+  });
+});
