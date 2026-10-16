@@ -1,18 +1,18 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-16T09:14:27.198Z",
-  "total": 10,
+  "generatedAt": "2026-10-16T21:21:22.347Z",
+  "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 8807,
-  "avgDurationMs": 8807,
+  "removedCount": 1,
+  "unchangedCount": 6,
+  "durationMs": 8274,
+  "avgDurationMs": 8274,
   "durationHistory": [
-    8807
+    8274
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -142,7 +142,49 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Ecommerce Merchandising Specialist",
+      "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1353588155/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "damiani-group-f5ab2d7c6cb7",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-05-27T22:45:37.761Z",
+      "salarySource": "estimated",
+      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-ecommerce-merchandising-specialist/1353588155",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Customer Service Specialist - German Speaking",
@@ -388,48 +430,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "title": "Ecommerce Merchandising Specialist",
-      "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1353588155/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-f5ab2d7c6cb7",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-05-27T22:45:37.761Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-ecommerce-merchandising-specialist/1353588155",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
+  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
 }
