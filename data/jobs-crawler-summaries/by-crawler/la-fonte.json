@@ -1,18 +1,19 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-10-15T21:21:50.843Z",
+  "generatedAt": "2026-10-16T09:24:10.777Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3268,
-  "avgDurationMs": 3268,
+  "unchangedCount": 1,
+  "durationMs": 3532,
+  "avgDurationMs": 3532,
   "durationHistory": [
-    3268
+    3532
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Stagiaire",
       "slug": "apprendistato-fondazione-la-fonte-luganese-malcantone",
@@ -36,9 +37,8 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-15T21:21:42.405Z",
+      "crawledAt": "2026-10-16T09:23:58.110Z",
       "id": "fondazione-la-fonte-8ea3b422c946",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
@@ -47,14 +47,18 @@
       "addressRegion": "TI",
       "postalCode": "6500",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
-      "_qualityScore": 80,
+      "needsRetranslation": true,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Apprendisti/e operatori/trici socioassistenziali AFC",
       "slug": "apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio",
@@ -78,9 +82,8 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-15T21:21:42.405Z",
+      "crawledAt": "2026-10-16T09:23:58.110Z",
       "id": "fondazione-la-fonte-485211a481ee",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
@@ -90,17 +93,14 @@
       "addressLocality": "Lugano, Neggio",
       "addressRegion": "TI",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }
