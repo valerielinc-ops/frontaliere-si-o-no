@@ -13324,7 +13324,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.concerto-gallarate-uto-ughi-2026.imageAlt': 'Illustration générée pour cet article',
     'blog.article.mostre-maga-gallarate-2026.title': 'Gallarate : trois nouvelles expositions au Maga, de Jago à Leopardi',
     'blog.article.mostre-maga-gallarate-2026.excerpt': 'À partir du 15 novembre 2026 le MAGA ouvre la nouvelle saison «Jago.',
-    'blog.article.mostre-maga-gallarate-2026.imageAlt': 'Monte Generoso au Tessin, avec un ciel bleu et des forêts vertes.',
+    'blog.article.mostre-maga-gallarate-2026.imageAlt': 'Illustration générée pour cet article',
     'blog.article.lavorare-svizzera-conviene-ancora.title': 'Travailler en Suisse est-il encore intéressant ?',
     'blog.article.lavorare-svizzera-conviene-ancora.excerpt': 'En septembre 2026 le chômage suisse s\'élève à 3% En un an le nombre de chômeurs augmente de 5,4% Au deuxième trimestre l\'emploi progresse de 2% Publication',
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Vue panoramique du Monte Generoso dans le Tessin, Suisse, avec un ciel bleu clair et une végétation luxuriante.',

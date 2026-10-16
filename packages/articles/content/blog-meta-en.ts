@@ -13322,7 +13322,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.concerto-gallarate-uto-ughi-2026.imageAlt': 'Illustration generated for this article',
     'blog.article.mostre-maga-gallarate-2026.title': 'Gallarate: three new exhibitions at the Maga, from Jago to Leopardi',
     'blog.article.mostre-maga-gallarate-2026.excerpt': 'Starting November 15, 2026, MAGA opens the new season «Jago.',
-    'blog.article.mostre-maga-gallarate-2026.imageAlt': 'Monte Generoso in Ticino, with a blue sky and green forests.',
+    'blog.article.mostre-maga-gallarate-2026.imageAlt': 'Illustration generated for this article',
     'blog.article.lavorare-svizzera-conviene-ancora.title': 'Is working in Switzerland still worthwhile?',
     'blog.article.lavorare-svizzera-conviene-ancora.excerpt': 'In September 2026 Swiss unemployment is at 3% In one year, the number of unemployed increases by 5,4% In the second quarter, employment grows by 2% Publication',
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Panoramic view of Monte Generoso in Ticino, Switzerland, with a clear blue sky and lush greenery.',

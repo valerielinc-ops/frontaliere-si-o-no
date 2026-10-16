@@ -13323,7 +13323,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.concerto-gallarate-uto-ughi-2026.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.mostre-maga-gallarate-2026.title': 'Gallarate: tre nuove mostre al Maga da Jago a Leopardi',
     'blog.article.mostre-maga-gallarate-2026.excerpt': 'Dal 15 novembre 2026 il MAGA apre la nuova stagione «Jago.',
-    'blog.article.mostre-maga-gallarate-2026.imageAlt': 'Monte Generoso in Ticino, con cielo azzurro e foreste verdi.',
+    'blog.article.mostre-maga-gallarate-2026.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.lavorare-svizzera-conviene-ancora.title': 'Lavorare in Svizzera conviene ancora?',
     'blog.article.lavorare-svizzera-conviene-ancora.excerpt': 'A settembre 2026 la disoccupazione svizzera è al 3% In un anno i disoccupati aumentano del 5,4% Nel secondo trimestre crescono gli impieghi del 2% Pubblicazione',
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Panorama del Monte Generoso in Ticino, Svizzera, con cielo azzurro e natura rigogliosa.',

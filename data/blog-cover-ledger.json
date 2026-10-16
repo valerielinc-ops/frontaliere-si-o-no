@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5555
+      "6": 5556
     },
-    "publishedCovers": 7136,
+    "publishedCovers": 7137,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5360
+    "inferredRecords": 5361
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -191070,6 +191070,33 @@
           "id": "mercatini-usato-svizzera",
           "category": "pratico",
           "date": "2026-10-15T23:56:58.369Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-mostre-maga-gallarate-2026": {
+      "cover": "/images/blog/article-mostre-maga-gallarate-2026.webp",
+      "hash": "80e7d08f7ac617bb29867ab456a3ea049b560539d8cc9571b354841a153bd3bc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "mostre-maga-gallarate-2026",
+          "category": "novita",
+          "date": "2026-10-16T11:58:36.392Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
