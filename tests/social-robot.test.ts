@@ -53,6 +53,7 @@ import {
   TIKTOK_VIDEO_CREATIVE_VARIANTS,
   resolveTikTokVideoCreativeVariant,
 } from '../scripts/lib/tiktok-video-creative.mjs';
+import { STALE_PACK_AGE_MS } from '../scripts/lib/stale-fetch-pack-sweep.mjs';
 import { buildIssueDescription, displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { diagnosticsDir, downloadsDir, pruneRobotState, resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
@@ -1205,6 +1206,19 @@ describe('Mac host launch agent', () => {
     expect(source).toContain('g ls-tree -r --name-only');
     expect(source).toContain('g show "${sha}:${snapshot_file}"');
     expect(source).not.toContain('g archive --format=tar');
+  });
+
+  it('sweeps stale fetch packs before the Mac host fetches main', () => {
+    const fixture = createLaunchFixture();
+    const packDir = path.resolve(fixture.repo, execFileSync('git', ['-C', fixture.repo, 'rev-parse', '--git-path', 'objects/pack'], { encoding: 'utf8' }).trim());
+    const stalePack = path.join(packDir, 'tmp_pack_stale');
+    fs.writeFileSync(stalePack, 'stale');
+    const old = new Date(Date.now() - STALE_PACK_AGE_MS - 1_000);
+    fs.utimesSync(stalePack, old, old);
+
+    runLauncher(fixture, launchEnv(fixture));
+
+    expect(fs.existsSync(stalePack)).toBe(false);
   });
 
   it('uses the destination SHA snapshot list even when the installed copy is old', () => {

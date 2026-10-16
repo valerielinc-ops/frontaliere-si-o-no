@@ -17,6 +17,7 @@
 
 import { readdirSync, statSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
+import { isInvokedDirectly } from './is-invoked-directly.mjs';
 
 // Il fetch di catch-up più lento misurato su questo repo (24k commit di
 // arretrato) è durato ~20 minuti: 60 minuti è ~3x quel caso e non può colpire un
@@ -68,4 +69,17 @@ export function sweepStaleFetchPacks(packDir, options = {}) {
     }
   }
   return { removed, bytes, candidates: stale.length };
+}
+
+if (isInvokedDirectly(import.meta.url)) {
+  const [packDir, ...extra] = process.argv.slice(2);
+  if (!packDir || extra.length > 0) {
+    console.error('usage: node stale-fetch-pack-sweep.mjs PACK_DIR');
+    process.exitCode = 64;
+  } else {
+    const result = sweepStaleFetchPacks(packDir);
+    if (result.removed > 0) {
+      console.log(`🧹 removed ${result.removed} stale fetch pack(s), freeing ${result.bytes} bytes`);
+    }
+  }
 }
