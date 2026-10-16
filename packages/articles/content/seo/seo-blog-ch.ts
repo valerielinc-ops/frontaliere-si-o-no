@@ -106457,6 +106457,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crediti-bilaterali-iii-svizzera': {
+    title: 'Bilaterali III, primo via libera ai crediti da 3,48 miliardi',
+    description: '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, primo, libera, crediti',
+    ogTitle: 'Bilaterali III: approvati crediti da 3,48 miliardi',
+    ogDescription: '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
+    canonicalPath: '/articoli-svizzera/crediti-bilaterali-iii-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III, primo via libera ai crediti da 3,48 miliardi",
+      "description": "3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-crediti-bilaterali-iii-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Parlamento federale svizzero a Berna, con la bandiera svizzera in primo piano."
+      },
+      "datePublished": "2026-10-16T18:35:02+00:00",
+      "dateModified": "2026-10-16T18:35:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/crediti-bilaterali-iii-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

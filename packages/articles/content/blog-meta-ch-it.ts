@@ -8429,6 +8429,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stadler-rail-treno-idrogeno-sardegna.title': 'Stadler Rail testa il primo treno a idrogeno a scartamento ridotto',
     'blog.article.stadler-rail-treno-idrogeno-sardegna.excerpt': 'Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche',
     'blog.article.stadler-rail-treno-idrogeno-sardegna.imageAlt': 'Treno a idrogeno Stadler Rail su un binario a scartamento ridotto in un contesto alpino svizzero.',
+    'blog.article.crediti-bilaterali-iii-svizzera.title': 'Bilaterali III, primo via libera ai crediti da 3,48 miliardi',
+    'blog.article.crediti-bilaterali-iii-svizzera.excerpt': '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
+    'blog.article.crediti-bilaterali-iii-svizzera.imageAlt': 'Il Parlamento federale svizzero a Berna, con la bandiera svizzera in primo piano.',
 };
 
 export default blogMetaChIt;

@@ -2832,6 +2832,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'carburanti-svizzera-rincaro-settimanale': { it: 'carburanti-svizzera-rincaro-settimanale', en: 'swiss-fuel-prices-weekly-rise', de: 'schweizer-treibstoffpreise-wochenanstieg', fr: 'prix-carburants-suisse-hausse-semaine' },
  'svizzera-abbattimenti-lupi-2025': { it: 'svizzera-abbattimenti-lupi-2025', en: 'switzerland-wolf-culling-2025', de: 'schweiz-wolfsabschuss-2025', fr: 'suisse-abattage-loups-2025' },
  'stadler-rail-treno-idrogeno-sardegna': { it: 'stadler-rail-treno-idrogeno-sardegna', en: 'stadler-rail-hydrogen-train-sardinia', de: 'stadler-rail-wasserstoffzug-sardinien', fr: 'stadler-rail-train-hydrogene-sardaigne' },
+ 'crediti-bilaterali-iii-svizzera': { it: 'crediti-bilaterali-iii-svizzera', en: 'switzerland-bilateral-iii-credits', de: 'schweiz-bilaterale-iii-kredite', fr: 'credits-bilateraux-iii-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

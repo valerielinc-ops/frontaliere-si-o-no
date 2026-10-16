@@ -13343,6 +13343,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-lavoro-futuro-ticino.title': 'Junge Menschen brauchen nicht nur einen Job, sie brauchen eine Zukunft',
     'blog.article.giovani-lavoro-futuro-ticino.excerpt': 'Im Jahr 2024 betrug der durchschnittliche Bruttomonatslohn im Tessin 5\'708 Franken Der schweizerische Monatsdurchschnitt betrug 7\'024 Franken pro Jahr',
     'blog.article.giovani-lavoro-futuro-ticino.imageAlt': 'Ein junger Berufstätiger steht auf einem Berggipfel im Tessin, blickt auf ein Tal hinunter und denkt über seine berufliche Zukunft nach.',
+    'blog.article.saronno-produzione-cina-protesta.title': 'Barco di Saronno: Über 50 % der Produktion gehen nach China',
+    'blog.article.saronno-produzione-cina-protesta.excerpt': 'Mehr als 50 % verlagern sich auf den Standort Suzhou, 40 % Einfluss auf das Produktionsgebiet, 30 % Einfluss auf das Bürogebiet Streik, Garnison und Agitation',
+    'blog.article.saronno-produzione-cina-protesta.imageAlt': 'Arbeiter bei einer Kundgebung vor einem Industriebetrieb',
 };
 
 export default blogMetaDe;

@@ -110076,6 +110076,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-saronno-produzione-cina-protesta': {
+    title: 'Barco di Saronno: oltre il 50% della produzione va in Cina',
+    description: 'Spostamento di oltre il 50% verso il sito di Suzhou Impatto del 40% sull\'area produzione Impatto del 30% sull\'area impiegatizia Sciopero, presidio e agitazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, barco, saronno, oltre, produzione',
+    ogTitle: 'Barco di Saronno: oltre il 50% della produzione va in Cina',
+    ogDescription: 'Spostamento di oltre il 50% verso il sito di Suzhou Impatto del 40% sull\'area produzione Impatto del 30% sull\'area impiegatizia Sciopero, presidio e agitazione',
+    canonicalPath: '/articoli-frontaliere/saronno-produzione-cina-protesta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Barco di Saronno: oltre il 50% della produzione va in Cina",
+      "description": "Spostamento di oltre il 50% verso il sito di Suzhou Impatto del 40% sull'area produzione Impatto del 30% sull'area impiegatizia Sciopero, presidio e agitazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori in presidio davanti a uno stabilimento industriale"
+      },
+      "datePublished": "2026-10-16T18:15:02+00:00",
+      "dateModified": "2026-10-16T18:15:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/saronno-produzione-cina-protesta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

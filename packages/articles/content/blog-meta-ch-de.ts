@@ -8429,6 +8429,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stadler-rail-treno-idrogeno-sardegna.title': 'Stadler Rail testet den ersten Wasserstoffzug auf Schmalspur',
     'blog.article.stadler-rail-treno-idrogeno-sardegna.excerpt': 'Stadler Rail testet einen Wasserstoffzug in der Schweiz Der Zug ist für Sardinien bestimmt Die Strecke Hemishofen-Ramsen ist fast 4 km lang Die Prüfungen',
     'blog.article.stadler-rail-treno-idrogeno-sardegna.imageAlt': 'Ein Wasserstoffzug von Stadler Rail auf einer Schmalspurbahn in einer Schweizer Alpenlandschaft.',
+    'blog.article.crediti-bilaterali-iii-svizzera.title': 'Bilaterale III, erste Zustimmung zu Krediten in Höhe von 3,48 Milliarden',
+    'blog.article.crediti-bilaterali-iii-svizzera.excerpt': '3,48 Milliarden Franken für den Zeitraum 2030-2036 Die FK-N stimmt ab: 14 Ja-Stimmen, 8 Nein-Stimmen, 3 Enthaltungen Der Nationalrat dürfte das Dossier im Dezember prüfen',
+    'blog.article.crediti-bilaterali-iii-svizzera.imageAlt': 'Das Schweizer Bundesparlament in Bern, mit der Schweizer Flagge im Vordergrund.',
 };
 
 export default blogMetaChDe;

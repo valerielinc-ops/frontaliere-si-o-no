@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5549
+      "6": 5550
     },
-    "publishedCovers": 7130,
+    "publishedCovers": 7131,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5354
+    "inferredRecords": 5355
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190694,6 +190694,33 @@
           "date": "2026-10-16T11:26:50.827Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-crediti-bilaterali-iii-svizzera": {
+      "cover": "/images/blog/article-crediti-bilaterali-iii-svizzera.webp",
+      "hash": "0ea1d195a5a3469facfac13dac79d3a3c887f5ff1015fca9f77c65b35639017d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "crediti-bilaterali-iii-svizzera",
+          "category": "fiscale",
+          "date": "2026-10-16T18:35:02.591Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
         }
       ],
       "proofLevel": 6,

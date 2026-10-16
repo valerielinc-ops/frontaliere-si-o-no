@@ -13344,6 +13344,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-lavoro-futuro-ticino.title': 'A job is not enough for young people. We need a future',
     'blog.article.giovani-lavoro-futuro-ticino.excerpt': 'In 2024, in Ticino the average gross monthly salary stood at 5,708 francs The Swiss monthly average amounted to 7,024 francs A year',
     'blog.article.giovani-lavoro-futuro-ticino.imageAlt': 'A young professional standing on a mountain peak in Ticino, overlooking a valley, contemplating their future career path.',
+    'blog.article.saronno-produzione-cina-protesta.title': 'Barco di Saronno: over 50% of production goes to China',
+    'blog.article.saronno-produzione-cina-protesta.excerpt': 'More than 50% shift to the Suzhou site 40% impact on the production area 30% impact on the white-collar area Strike, garrison and agitation',
+    'blog.article.saronno-produzione-cina-protesta.imageAlt': 'Workers holding a picket outside an industrial facility',
 };
 
 export default blogMetaEn;
