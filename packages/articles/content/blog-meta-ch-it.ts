@@ -8420,6 +8420,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lupo-abbattimenti-facilitati.title': 'Lupo: abbattimenti più facili, consultazione si chiude oggi',
     'blog.article.lupo-abbattimenti-facilitati.excerpt': 'Il Consiglio federale propone abbattimenti dei lupi più facili.',
     'blog.article.lupo-abbattimenti-facilitati.imageAlt': 'Paesaggio montano svizzero con pascolo sereno, sullo sfondo le vette del Monte Generoso.',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Benzina e diesel in Svizzera: +5 centesimi al litro',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': 'Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Pompa di carburante in una stazione di servizio svizzera',
 };
 
 export default blogMetaChIt;

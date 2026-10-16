@@ -8420,6 +8420,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lupo-abbattimenti-facilitati.title': 'Wolf: Erleichterte Abschüsse, Vernehmlassung endet heute',
     'blog.article.lupo-abbattimenti-facilitati.excerpt': 'Der Bundesrat schlägt erleichterte Wolfsabschüsse vor.',
     'blog.article.lupo-abbattimenti-facilitati.imageAlt': 'Schweizer Berglandschaft mit einer ruhigen Weide, im Hintergrund die Gipfel des Monte Generoso.',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Benzin und Diesel in der Schweiz: +5 Rappen pro Liter',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': 'Benzin 95 bei 2,16 Franken pro Liter Benzin 98 bei 2,27 Franken pro Liter Diesel bei 2,45 Franken, 1 Rappen vom Jahresmaximum entfernt Wöchentlicher Anstieg → 5 Rappen',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Zapfsäule an einer Schweizer Tankstelle',
 };
 
 export default blogMetaChDe;

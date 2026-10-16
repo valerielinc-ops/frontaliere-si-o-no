@@ -28161,6 +28161,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'carburanti-svizzera-rincaro-settimanale',
+    category: 'novita',
+    date: '2026-10-16T10:57:56.427Z',
+    image: '/images/blog/article-carburanti-svizzera-rincaro-settimanale.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

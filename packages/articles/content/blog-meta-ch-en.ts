@@ -8420,6 +8420,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lupo-abbattimenti-facilitati.title': 'Wolf: easier culls, consultation closes today',
     'blog.article.lupo-abbattimenti-facilitati.excerpt': 'The Federal Council proposes making wolf culls easier.',
     'blog.article.lupo-abbattimenti-facilitati.imageAlt': 'Swiss mountain landscape with a serene pasture, with the peaks of Monte Generoso in the background.',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Gasoline and diesel in Switzerland: +5 cents per liter',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': '95 gasoline at 2,16 francs per liter 98 gasoline at 2,27 francs per liter Diesel at 2,45 francs, 1 centime below the annual high Weekly increase → 5 centimes',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Fuel pump at a Swiss petrol station',
 };
 
 export default blogMetaChEn;

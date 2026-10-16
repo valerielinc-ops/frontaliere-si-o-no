@@ -2829,6 +2829,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fisco-zurigo-tre-livelli': { it: 'fisco-zurigo-tre-livelli', en: 'zurich-tax-three-levels', de: 'zuerich-steuer-drei-stufen', fr: 'fiscalite-zurich-trois-niveaux' },
  'tre-milioni-lettere-digitali-posta': { it: 'tre-milioni-lettere-digitali-posta', en: 'three-million-digital-letters-swiss-post', de: 'drei-millionen-digitale-briefe-post-schweiz', fr: 'trois-millions-lettres-numeriques-poste-suisse' },
  'lupo-abbattimenti-facilitati': { it: 'lupo-abbattimenti-facilitati', en: 'wolf-culling-eased', de: 'wolf-abschuss-erleichtert', fr: 'loup-abattages-facilite' },
+ 'carburanti-svizzera-rincaro-settimanale': { it: 'carburanti-svizzera-rincaro-settimanale', en: 'swiss-fuel-prices-weekly-rise', de: 'schweizer-treibstoffpreise-wochenanstieg', fr: 'prix-carburants-suisse-hausse-semaine' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

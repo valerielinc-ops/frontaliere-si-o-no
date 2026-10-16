@@ -8420,6 +8420,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lupo-abbattimenti-facilitati.title': 'Loup : abattages facilités, la consultation se termine aujourd’hui',
     'blog.article.lupo-abbattimenti-facilitati.excerpt': 'Le Conseil fédéral propose de faciliter l’abattage des loups.',
     'blog.article.lupo-abbattimenti-facilitati.imageAlt': 'Paysage montagneux suisse avec un pâturage serein, avec les sommets du Monte Generoso en arrière-plan.',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Essence et diesel en Suisse : +5 centimes par litre',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': 'Essence 95 à 2,16 francs le litre Essence 98 à 2,27 francs le litre Diesel à 2,45 francs, à 1 centime du maximum annuel Hausse hebdomadaire → 5 centimes',
+    'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Pompe à carburant dans une station-service suisse',
 };
 
 export default blogMetaChFr;

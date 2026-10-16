@@ -619,7 +619,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
 
  'blog-passaggio-statuto-s-permesso-b': {
  title: 'Dallo statuto S al permesso B in Ticino | Frontaliere Ticino',
- description: 'Dopo almeno cinque anni di soggiorno ininterrotto, chi beneficia dello statuto S ha diritto a un permesso B collegato: requisiti, ruolo del Cantone e proroga federale fino al 4 marzo 2028.',
+ description: 'Dopo almeno 5 anni di soggiorno ininterrotto, chi ha lo statuto S ha diritto a un permesso B collegato. La proroga federale vale fino al 4 marzo 2028.',
  keywords: 'frontalieri, ticino, svizzera, ucraina, statuto, protezione, permesso, soggiorno, B',
  ogTitle: 'Dallo statuto S al permesso B in Ticino',
  ogDescription: 'Dopo almeno cinque anni di soggiorno ininterrotto, chi beneficia dello statuto S ha diritto a un permesso B collegato: requisiti, ruolo del Cantone e proroga federale fino al 4 marzo 2028.',
