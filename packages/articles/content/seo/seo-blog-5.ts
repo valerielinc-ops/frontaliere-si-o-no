@@ -109247,10 +109247,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-manutenzione-prato-franco-ossola-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-varese-piazzale-anastasi-intitolazione.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Il piazzale dello stadio Franco Ossola a Varese intitolato a Pietro Anastasi"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T01:20:06+00:00",
       "dateModified": "2026-10-16T01:20:06+00:00",
@@ -109359,10 +109359,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Come dare le dimissioni in Ticino: termini di preavviso, impatto su permesso G e disoccupazione. Guida pratica per frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontaliere-dimissioni-termine-preavviso.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Frontaliere che attraversa il valico di Brogeda verso il Ticino al mattino"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T03:19:05+00:00",
       "dateModified": "2026-10-16T03:19:05+00:00",
@@ -109749,10 +109754,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-concerto-gallarate-uto-ughi-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Teatro Condominio Vittorio Gassman a Gallarate, luogo del concerto di Uto Ughi"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T11:26:51+00:00",
       "dateModified": "2026-10-16T11:26:51+00:00",

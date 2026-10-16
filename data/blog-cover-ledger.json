@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5545
+      "6": 5548
     },
-    "publishedCovers": 7126,
+    "publishedCovers": 7129,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5350
+    "inferredRecords": 5353
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190681,6 +190681,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-concerto-gallarate-uto-ughi-2026": {
+      "cover": "/images/blog/article-concerto-gallarate-uto-ughi-2026.webp",
+      "hash": "0d2901d2028f8d67b704166db1ac188c34931cc85357602266e70f383bdbc2f9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "concerto-gallarate-uto-ughi-2026",
+          "category": "novita",
+          "date": "2026-10-16T11:26:50.827Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-farmaci-generici-prezzi-svizzera": {
       "cover": "/images/blog/article-farmaci-generici-prezzi-svizzera.webp",
       "hash": "568b03d7ae493cf7b89433659a07455ddb23df824ff4a87a25e2703f003c0fea",
@@ -190721,6 +190748,33 @@
           "date": "2026-10-16T05:40:11.928Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-frontaliere-dimissioni-termine-preavviso": {
+      "cover": "/images/blog/article-frontaliere-dimissioni-termine-preavviso.webp",
+      "hash": "03fa99657a2abc6585730adb4e142976d1f75b9ff73bf0c72045cec4c0084a7c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontaliere-dimissioni-termine-preavviso",
+          "category": "pratico",
+          "date": "2026-10-16T03:19:05.139Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,
@@ -191043,6 +191097,33 @@
           "id": "varese-macello-belforte-visite-2026",
           "category": "novita",
           "date": "2026-10-16T06:05:11.354Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-varese-piazzale-anastasi-intitolazione": {
+      "cover": "/images/blog/article-varese-piazzale-anastasi-intitolazione.webp",
+      "hash": "e6785d148a773fd55bece0db80bb63ad7d232029a4290c577474e869f63c6bf8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-piazzale-anastasi-intitolazione",
+          "category": "novita",
+          "date": "2026-10-16T01:20:06.109Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
