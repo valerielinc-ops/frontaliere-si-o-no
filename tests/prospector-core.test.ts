@@ -1557,6 +1557,21 @@ describe('promotion gate', () => {
     expect(evaluatePromotion(graded(2)).passed).toBe(true);
   });
 
+  it('requires both good days to come from the candidate source adapter', () => {
+    const mixed = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    mixed.validationHistory[1].sourceAdapterVersion = 'le-team-dedicated-v1';
+    const mixedResult = evaluatePromotion(mixed);
+    expect(mixedResult.passed).toBe(false);
+    expect(mixedResult.checks.runs).toBe(false);
+    expect(mixedResult.checks.days).toBe(false);
+
+    const dedicated = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    dedicated.validationHistory.forEach((entry) => {
+      entry.sourceAdapterVersion = 'le-team-dedicated-v1';
+    });
+    expect(evaluatePromotion(dedicated).passed).toBe(true);
+  });
+
   it('refuses a candidate proven only once, however good', () => {
     const res = evaluatePromotion(graded(1));
     expect(res.passed).toBe(false);
