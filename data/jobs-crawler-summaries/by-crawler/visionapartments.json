@@ -1,7 +1,7 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-10-15T21:45:01.618Z",
+  "generatedAt": "2026-10-16T09:30:54.799Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4682,
-  "avgDurationMs": 4682,
+  "durationMs": 4344,
+  "avgDurationMs": 4344,
   "durationHistory": [
-    4682
+    4344
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "visionapartments-a6f2cb44f0b0",
-      "slug": "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich",
+      "slug": "hr-business-partner-specialista-paghe-100-vision-management-services-gmbh-zurich",
       "company": "Vision Management Services GmbH",
       "companyKey": "visionapartments",
       "companyDomain": "visionapartments.com",
@@ -35,7 +36,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:44:52.685Z",
+      "crawledAt": "2026-10-16T09:30:33.656Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,21 +54,20 @@
       "postedDate": "2026-10-15T13:20:42+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0/",
+      "firstSeenAt": "2026-10-15T21:44:52.685Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-15T21:44:52.685Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }

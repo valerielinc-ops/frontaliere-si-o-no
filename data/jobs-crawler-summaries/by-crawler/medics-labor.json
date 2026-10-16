@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-10-15T21:46:00.497Z",
+  "generatedAt": "2026-10-16T09:33:25.959Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,30 +12,30 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3236,
-  "avgDurationMs": 3236,
+  "durationMs": 3528,
+  "avgDurationMs": 3528,
   "durationHistory": [
-    3236
+    3528
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "medics-labor-6e57b9537272",
-      "slug": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
+      "slug": "analista-biomedico-a-hf-patologia-medics-labor-ag-bern",
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
       "companyDomain": "medics.ch",
       "title": "Biomedizinische:r Analytiker:in HF Pathologie",
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://app.reflinejobs.io/1474/0138/pub/103/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:45:51.244Z",
+      "crawledAt": "2026-10-16T09:33:07.776Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -56,17 +56,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }

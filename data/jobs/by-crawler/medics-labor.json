@@ -1,14 +1,14 @@
 {
   "crawlerKey": "medics-labor",
-  "assembledAt": "2026-10-15T21:45:55.482Z",
+  "assembledAt": "2026-10-16T09:33:13.525Z",
   "jobs": [
     {
       "id": "medics-labor-6e57b9537272",
       "slug": "analista-biomedico-a-hf-patologia-medics-labor-ag-bern",
       "slugByLocale": {
-        "de": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
         "it": "analista-biomedico-a-hf-patologia-medics-labor-ag-bern",
         "en": "biomedical-analyst-hf-pathology-medics-labor-ag-bern",
+        "de": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
         "fr": "analyste-biomedical-e-es-en-pathologie-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
@@ -33,7 +33,7 @@
       "url": "https://app.reflinejobs.io/1474/0138/pub/103/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:45:51.244Z",
+      "crawledAt": "2026-10-16T09:33:07.776Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,9 +51,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://app.reflinejobs.io/1474/0138/pub/103/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "0138",
       "salaryMin": 85000,
       "salaryMax": 119000,
