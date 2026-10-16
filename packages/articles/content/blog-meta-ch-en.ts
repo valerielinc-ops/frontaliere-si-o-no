@@ -8423,6 +8423,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Gasoline and diesel in Switzerland: +5 cents per liter',
     'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': '95 gasoline at 2,16 francs per liter 98 gasoline at 2,27 francs per liter Diesel at 2,45 francs, 1 centime below the annual high Weekly increase → 5 centimes',
     'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Fuel pump at a Swiss petrol station',
+    'blog.article.svizzera-abbattimenti-lupi-2025.title': 'Wolves, easier culls: environmentalists opposed, farmers in favor',
+    'blog.article.svizzera-abbattimenti-lupi-2025.excerpt': 'The Federal Council proposes culling throughout the year.',
+    'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette of a wolf howling at the moon in the Swiss Alps at dusk',
 };
 
 export default blogMetaChEn;

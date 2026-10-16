@@ -109925,6 +109925,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dosso-gaggiolo-disagi-frontalieri': {
+    title: 'Rallentamenti al valico di Gaggiolo dopo il nuovo dosso',
+    description: 'Un nuovo dosso è stato installato sul lato svizzero Code e rallentamenti al valico Stabio-Gaggiolo Disagi soprattutto nelle prime ore del mattino Segnalati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rallentamenti, valico, gaggiolo, dopo',
+    ogTitle: 'Rallentamenti al valico di Gaggiolo dopo il nuovo dosso',
+    ogDescription: 'Un nuovo dosso è stato installato sul lato svizzero Code e rallentamenti al valico Stabio-Gaggiolo Disagi soprattutto nelle prime ore del mattino Segnalati',
+    canonicalPath: '/articoli-frontaliere/dosso-gaggiolo-disagi-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rallentamenti al valico di Gaggiolo dopo il nuovo dosso",
+      "description": "Un nuovo dosso è stato installato sul lato svizzero Code e rallentamenti al valico Stabio-Gaggiolo Disagi soprattutto nelle prime ore del mattino Segnalati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Code e rallentamenti al valico di Stabio-Gaggiolo dopo l'installazione del nuovo dosso sul lato svizzero"
+      },
+      "datePublished": "2026-10-16T14:28:42+00:00",
+      "dateModified": "2026-10-16T14:28:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dosso-gaggiolo-disagi-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

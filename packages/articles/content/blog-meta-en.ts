@@ -13332,6 +13332,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.title': 'Cross-border worker taxes Italy Switzerland 2026: practical simulation',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.excerpt': 'The New Cross-Border Commuter Agreement has been in force since January 1, 2024 Old cross-border commuters: exemption of €7\'500 and transitional period 2024–2033 New cross-border commuters: allowance',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.imageAlt': 'Tax form and calculator on a desk with a view of Mendrisio',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Slowdowns at the Gaggiolo border crossing after the new speed bump',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'A new speed bump has been installed on the Swiss side Queues and delays at the Stabio-Gaggiolo border crossing Disruptions reported especially in the early morning hours',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Queues and slowdowns at the Stabio-Gaggiolo border crossing after the new speed bump was installed on the Swiss side',
 };
 
 export default blogMetaEn;

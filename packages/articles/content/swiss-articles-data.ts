@@ -28171,6 +28171,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-abbattimenti-lupi-2025',
+    category: 'novita',
+    date: '2026-10-16T14:12:01.609Z',
+    image: '/images/blog/article-svizzera-abbattimenti-lupi-2025.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

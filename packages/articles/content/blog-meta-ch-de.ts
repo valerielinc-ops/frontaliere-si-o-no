@@ -8423,6 +8423,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Benzin und Diesel in der Schweiz: +5 Rappen pro Liter',
     'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': 'Benzin 95 bei 2,16 Franken pro Liter Benzin 98 bei 2,27 Franken pro Liter Diesel bei 2,45 Franken, 1 Rappen vom Jahresmaximum entfernt Wöchentlicher Anstieg → 5 Rappen',
     'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Zapfsäule an einer Schweizer Tankstelle',
+    'blog.article.svizzera-abbattimenti-lupi-2025.title': 'Wolf: Leichtere Abschüsse – Umweltschützer dagegen, Landwirte dafür',
+    'blog.article.svizzera-abbattimenti-lupi-2025.excerpt': 'Der Bundesrat schlägt Abschüsse das ganze Jahr über vor.',
+    'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette eines Wolfes, der bei Sonnenuntergang in den Schweizer Alpen zum Mond heult',
 };
 
 export default blogMetaChDe;

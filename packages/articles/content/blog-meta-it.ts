@@ -13333,6 +13333,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.title': 'Frontaliere tasse Italia Svizzera 2026: simulazione pratica',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.excerpt': 'Il Nuovo Accordo Frontalieri è in vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione di €7\'500 e transitorio 2024–2033 Nuovi frontalieri: franchigia',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.imageAlt': 'Modulo fiscale e calcolatrice su una scrivania con vista su Mendrisio',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Rallentamenti al valico di Gaggiolo dopo il nuovo dosso',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'Un nuovo dosso è stato installato sul lato svizzero Code e rallentamenti al valico Stabio-Gaggiolo Disagi soprattutto nelle prime ore del mattino Segnalati',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Code e rallentamenti al valico di Stabio-Gaggiolo dopo l\'installazione del nuovo dosso sul lato svizzero',
 };
 
 export default blogMetaIt;

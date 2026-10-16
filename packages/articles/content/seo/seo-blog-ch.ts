@@ -106384,6 +106384,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-abbattimenti-lupi-2025': {
+    title: 'Lupo, abbattimenti più facili: ambientalisti contrari, contadini favorevoli',
+    description: 'Il Consiglio federale propone abbattimenti durante tutto l’anno. La consultazione sulla revisione della LCP si chiude oggi. Ambientalisti contrari anche',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, abbattimenti, facili, ambientalisti',
+    ogTitle: 'Lupo in Svizzera: abbattimenti più facili nel 2025?',
+    ogDescription: 'Il Consiglio federale propone abbattimenti durante tutto l’anno.',
+    canonicalPath: '/articoli-svizzera/svizzera-abbattimenti-lupi-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo, abbattimenti più facili: ambientalisti contrari, contadini favorevoli",
+      "description": "Il Consiglio federale propone abbattimenti durante tutto l’anno. La consultazione sulla revisione della LCP si chiude oggi. Ambientalisti contrari anche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-abbattimenti-lupi-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Silhouette di un lupo che ulula alla luna sulle Alpi svizzere al tramonto"
+      },
+      "datePublished": "2026-10-16T14:12:01+00:00",
+      "dateModified": "2026-10-16T14:12:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-abbattimenti-lupi-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

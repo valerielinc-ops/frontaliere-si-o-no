@@ -8423,6 +8423,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Essence et diesel en Suisse : +5 centimes par litre',
     'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': 'Essence 95 à 2,16 francs le litre Essence 98 à 2,27 francs le litre Diesel à 2,45 francs, à 1 centime du maximum annuel Hausse hebdomadaire → 5 centimes',
     'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Pompe à carburant dans une station-service suisse',
+    'blog.article.svizzera-abbattimenti-lupi-2025.title': 'Loup, abattages plus faciles : écologistes opposés, paysans favorables',
+    'blog.article.svizzera-abbattimenti-lupi-2025.excerpt': 'Le Conseil fédéral propose des abattages pendant toute l’année.',
+    'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette d\'un loup hurlant à la lune dans les Alpes suisses au crépuscule',
 };
 
 export default blogMetaChFr;

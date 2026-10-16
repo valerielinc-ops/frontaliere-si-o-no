@@ -13331,6 +13331,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.title': 'Grenzgänger-Steuern Italien Schweiz 2026: praktische Simulation',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.excerpt': 'Das neue Grenzgängerabkommen ist seit dem 1.',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.imageAlt': 'Steuerformular und Taschenrechner auf einem Schreibtisch mit Blick auf Mendrisio',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Verzögerungen am Grenzübergang Gaggiolo nach der neuen Bremsschwelle',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'Eine neue Bremsschwelle wurde auf der Schweizer Seite installiert Staus und Verzögerungen am Grenzübergang Stabio-Gaggiolo Beeinträchtigungen vor allem in den frühen Morgenstunden Gemeldet',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Staus und Verzögerungen an der Grenze Stabio-Gaggiolo nach Einbau des neuen Geschwindigkeitsrückhalteers auf der Schweizer Seite',
 };
 
 export default blogMetaDe;

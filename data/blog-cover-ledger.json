@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5544
+      "6": 5545
     },
-    "publishedCovers": 7125,
+    "publishedCovers": 7126,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5349
+    "inferredRecords": 5350
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190962,6 +190962,33 @@
           "id": "premio-furia-giovannini-varese",
           "category": "novita",
           "date": "2026-10-16T08:27:43.117Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-svizzera-abbattimenti-lupi-2025": {
+      "cover": "/images/blog/article-svizzera-abbattimenti-lupi-2025.webp",
+      "hash": "5dc308f8cff35d4df032d8e6d1a9e854c6f41f44c1cb87e5affb021b53c8a976",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "svizzera-abbattimenti-lupi-2025",
+          "category": "novita",
+          "date": "2026-10-16T14:12:01.609Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

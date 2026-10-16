@@ -8423,6 +8423,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carburanti-svizzera-rincaro-settimanale.title': 'Benzina e diesel in Svizzera: +5 centesimi al litro',
     'blog.article.carburanti-svizzera-rincaro-settimanale.excerpt': 'Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi',
     'blog.article.carburanti-svizzera-rincaro-settimanale.imageAlt': 'Pompa di carburante in una stazione di servizio svizzera',
+    'blog.article.svizzera-abbattimenti-lupi-2025.title': 'Lupo, abbattimenti più facili: ambientalisti contrari, contadini favorevoli',
+    'blog.article.svizzera-abbattimenti-lupi-2025.excerpt': 'Il Consiglio federale propone abbattimenti durante tutto l’anno.',
+    'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette di un lupo che ulula alla luna sulle Alpi svizzere al tramonto',
 };
 
 export default blogMetaChIt;

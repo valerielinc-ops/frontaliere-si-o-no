@@ -13334,6 +13334,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.title': 'Impôts des frontaliers Italie-Suisse 2026 : simulation pratique',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.excerpt': 'Le Nouvel Accord sur les frontaliers est en vigueur depuis le 1er janvier 2024 Anciens frontaliers : exonération de €7\'500 et régime transitoire 2024–2033 Nouveaux frontaliers : franchise',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.imageAlt': 'Formule fiscale et calculatrice sur un bureau avec vue sur Mendrisio',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Ralentissements au poste-frontière de Gaggiolo après le nouveau ralentisseur',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'Un nouveau ralentisseur a été installé du côté suisse Files et ralentissements au poste-frontière de Stabio-Gaggiolo Désagréments surtout aux premières heures du matin Signalés',
+    'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Files d\'attente et ralentissements au poste frontière de Stabio-Gaggiolo dopo l\'installazione del nuovo dosso sul lato svizzero',
 };
 
 export default blogMetaFr;
