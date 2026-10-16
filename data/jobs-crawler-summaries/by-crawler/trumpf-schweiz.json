@@ -1,16 +1,16 @@
 {
   "key": "trumpf-schweiz",
   "label": "trumpf",
-  "generatedAt": "2026-10-16T09:32:23.312Z",
+  "generatedAt": "2026-10-16T21:34:23.290Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 6559,
-  "avgDurationMs": 6559,
+  "durationMs": 7399,
+  "avgDurationMs": 7399,
   "durationHistory": [
-    6559
+    7399
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:07.118Z",
+      "crawledAt": "2026-10-16T21:34:06.726Z",
       "id": "trumpf-schweiz-113baa75a22a",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -76,7 +76,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:07.506Z",
+      "crawledAt": "2026-10-16T21:34:07.145Z",
       "id": "trumpf-schweiz-90996f9fca6d",
       "salaryMin": 58500,
       "salaryMax": 103500,
@@ -96,48 +96,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lehrstelle 2027 Logistiker/in EFZ",
-      "slug": "apprendistato-2027-logistiker-in-cfc-trumpf-schweiz-ag-grusch",
-      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Logistiker-in-EFZ_R00039706",
-      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Logistiker-in-EFZ_R00039706",
-      "company": "TRUMPF Schweiz AG",
-      "companyKey": "trumpf-schweiz",
-      "companyDomain": "trumpf.com",
-      "location": "Grüsch",
-      "addressLocality": "Grüsch",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "operations",
-      "sector": "Tecnologia Industriale & Laser",
-      "source": "trumpf-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-05-01",
-      "postedDate": "2026-05-01",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "employmentType": "apprenticeship",
-      "contractType": "apprendistato",
-      "crawledAt": "2026-10-15T21:26:22.346Z",
-      "id": "trumpf-schweiz-3db9093e29f6",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-04-30T22:40:04.876Z",
-      "postalCode": "7214",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "MES Project Engineer (w/m/d)",
@@ -161,7 +120,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:06.719Z",
+      "crawledAt": "2026-10-16T21:34:06.277Z",
       "id": "trumpf-schweiz-1d5e40360c3d",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -202,7 +161,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:07.883Z",
+      "crawledAt": "2026-10-16T21:34:07.626Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -243,7 +202,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:08.289Z",
+      "crawledAt": "2026-10-16T21:34:08.095Z",
       "id": "trumpf-schweiz-7ae5c20dc8af",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -283,7 +242,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:08.932Z",
+      "crawledAt": "2026-10-16T21:34:08.689Z",
       "id": "trumpf-schweiz-5899fea150e2",
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -323,7 +282,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:09.300Z",
+      "crawledAt": "2026-10-16T21:34:09.162Z",
       "id": "trumpf-schweiz-d3594d050292",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -363,7 +322,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T09:32:09.760Z",
+      "crawledAt": "2026-10-16T21:34:09.582Z",
       "id": "trumpf-schweiz-fd5af7684016",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -403,7 +362,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-16T09:32:10.167Z",
+      "crawledAt": "2026-10-16T21:34:10.054Z",
       "id": "trumpf-schweiz-36b915dcb2de",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -444,7 +403,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-16T09:32:10.667Z",
+      "crawledAt": "2026-10-16T21:34:10.595Z",
       "id": "trumpf-schweiz-2d1e6fc71e7a",
       "salaryMin": 46500,
       "salaryMax": 70500,
@@ -463,5 +422,5 @@
       }
     }
   ],
-  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
+  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
 }
