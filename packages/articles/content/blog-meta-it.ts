@@ -13347,7 +13347,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovani-lavoro-futuro-ticino.imageAlt': 'Un giovane professionista in piedi sulla cima di una montagna in Ticino, che osserva la valle e riflette sul proprio futuro professionale.',
     'blog.article.saronno-produzione-cina-protesta.title': 'Barco di Saronno: oltre il 50% della produzione va in Cina',
     'blog.article.saronno-produzione-cina-protesta.excerpt': 'Spostamento di oltre il 50% verso il sito di Suzhou Impatto del 40% sull\'area produzione Impatto del 30% sull\'area impiegatizia Sciopero, presidio e agitazione',
-    'blog.article.saronno-produzione-cina-protesta.imageAlt': 'Lavoratori in presidio davanti a uno stabilimento industriale',
+    'blog.article.saronno-produzione-cina-protesta.imageAlt': 'Illustrazione generata per questo articolo',
 };
 
 export default blogMetaIt;

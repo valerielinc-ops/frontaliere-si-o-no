@@ -8428,7 +8428,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette of a wolf howling at the moon in the Swiss Alps at dusk',
     'blog.article.stadler-rail-treno-idrogeno-sardegna.title': 'Stadler Rail tests the first narrow-gauge hydrogen train',
     'blog.article.stadler-rail-treno-idrogeno-sardegna.excerpt': 'Stadler Rail tests a hydrogen train in Switzerland The train is intended for Sardinia The Hemishofen-Ramsen route measures almost 4 km The tests',
-    'blog.article.stadler-rail-treno-idrogeno-sardegna.imageAlt': 'A Stadler Rail hydrogen train on a narrow-gauge track in a Swiss alpine setting.',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.imageAlt': 'Illustration generated for this article',
     'blog.article.crediti-bilaterali-iii-svizzera.title': 'Bilaterali III, first green light for 3,48 billion in credits',
     'blog.article.crediti-bilaterali-iii-svizzera.excerpt': '3.48 billion francs for the period 2030-2036 The FK-N votes: 14 in favor, 8 against, 3 abstentions The National Council should examine the dossier in December',
     'blog.article.crediti-bilaterali-iii-svizzera.imageAlt': 'The Swiss Federal Parliament in Bern, with the Swiss flag prominently displayed.',

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "0423734195a6ed69a136a87d1e45099e003d9a4f",
+  "commit": "95d68b218d176377d9e18ac459ec86a7f1fdf6bd",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -24388,6 +24388,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original synthetic editorial illustration of the Swiss Federal Parliament and Swiss flag; no people, text, signage, logos, or event-specific cues."
+      }
+    },
+    "/images/blog/article-stadler-rail-treno-idrogeno-sardegna.webp": {
+      "schema": 1,
+      "assetId": "article-stadler-rail-treno-idrogeno-sardegna",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "a7ca02b98564010c1c9f2d8b3f4832547741a53bf06916a92df61f160a935b7d",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "9d460818c48c80b4c90d97043cdc14442bf021f16f4bfd0908bc51443090c543",
+      "bytes": 150568,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T18:46:35.235Z",
+      "verifiedAt": "2026-10-16T18:46:52.014Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-stadler-rail-treno-idrogeno-sardegna.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic illustration of a hydrogen train in a Swiss landscape; no visible text, logos, people, or specific event."
+      }
+    },
+    "/images/blog/article-saronno-produzione-cina-protesta.webp": {
+      "schema": 1,
+      "assetId": "article-saronno-produzione-cina-protesta",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "de8849161bacb6cde3ccb79953a539cbeb9b348c01f5ff4fedd4b87604ce33b6",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "a27bcc3c33b41a12023231f6f42c8b2d6a5602b059b10559720dd9cb50592f9a",
+      "bytes": 88640,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T18:49:13.932Z",
+      "verifiedAt": "2026-10-16T18:49:21.010Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-saronno-produzione-cina-protesta.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic industrial-export illustration; no text, logos, faces, foreground people, or specific real event."
       }
     },
     "/images/places/lugano-view.webp": {

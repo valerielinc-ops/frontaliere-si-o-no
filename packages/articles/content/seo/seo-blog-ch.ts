@@ -106437,10 +106437,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzera-treno-oggetti-binari-2.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-stadler-rail-treno-idrogeno-sardegna.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Treno a idrogeno Stadler Rail su un binario a scartamento ridotto in un contesto alpino svizzero."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T17:07:03+00:00",
       "dateModified": "2026-10-16T17:07:03+00:00",
