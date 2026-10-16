@@ -13274,6 +13274,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vantaggi-servizi-associati-ocst.title': 'Assistenza e vantaggi per i frontalieri associati OCST',
     'blog.article.vantaggi-servizi-associati-ocst.excerpt': 'OCST offre assistenza su lavoro, busta paga e fiscalità L\'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano',
     'blog.article.vantaggi-servizi-associati-ocst.imageAlt': 'Vista panoramica di Lugano con ufficio moderno in primo piano',
+    'blog.article.kick-cocaine-gazzada-evento.title': 'Gazzada Schianno: evento sport e solidarietà il 25 ottobre',
+    'blog.article.kick-cocaine-gazzada-evento.excerpt': 'Domenica 25 ottobre 2026 sport e solidarietà a Gazzada Schianno L\'incontro è in programma dalle 14:30 alle 19:30 AGIFAR Varese organizza con la dottoressa',
+    'blog.article.kick-cocaine-gazzada-evento.imageAlt': 'Evento sportivo \'A Kick to Cocaine\' a Gazzada Schianno con attività di football fitness e yoga',
 };
 
 export default blogMetaIt;

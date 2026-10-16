@@ -13273,6 +13273,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vantaggi-servizi-associati-ocst.title': 'Assistance and benefits for OCST-affiliated cross-border workers',
     'blog.article.vantaggi-servizi-associati-ocst.excerpt': 'OCST offers assistance with employment, payslips and taxation The Cross-Border Workers Office handles tax law and social security AVS, LADI and LPP are included',
     'blog.article.vantaggi-servizi-associati-ocst.imageAlt': 'Panoramic view of Lugano with a modern office in the foreground',
+    'blog.article.kick-cocaine-gazzada-evento.title': 'Gazzada Schianno: sport and solidarity event on October 25',
+    'blog.article.kick-cocaine-gazzada-evento.excerpt': 'Sunday, October 25, 2026 sports and solidarity at Gazzada Schianno The event is scheduled from 14:30 to 19:30 AGIFAR Varese organizes with the doctor',
+    'blog.article.kick-cocaine-gazzada-evento.imageAlt': 'Sports event \'A Kick to Cocaine\' in Gazzada Schianno featuring football fitness and yoga activities',
 };
 
 export default blogMetaEn;

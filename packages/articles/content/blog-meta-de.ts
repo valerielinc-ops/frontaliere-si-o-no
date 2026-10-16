@@ -13272,6 +13272,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vantaggi-servizi-associati-ocst.title': 'Unterstützung und Vorteile für OCST-Mitglieder unter den Grenzgängern',
     'blog.article.vantaggi-servizi-associati-ocst.excerpt': 'OCST bietet Unterstützung bei Arbeit, Lohnabrechnung und Steuerfragen Das Grenzgängerbüro befasst sich mit Steuerrecht und sozialer Sicherheit AVS, LADI und LPP gehören dazu',
     'blog.article.vantaggi-servizi-associati-ocst.imageAlt': 'Panoramablick auf Lugano mit modernem Büro im Vordergrund',
+    'blog.article.kick-cocaine-gazzada-evento.title': 'Gazzada Schianno: Sport- und Solidaritätsveranstaltung am 25. Oktober',
+    'blog.article.kick-cocaine-gazzada-evento.excerpt': 'Sonntag, 25. (Gazzada Schianno, Varese)',
+    'blog.article.kick-cocaine-gazzada-evento.imageAlt': 'Sportereignis \'A Kick to Cocaine\' in Gazzada Schianno mit Fußball-Fitness und Yoga-Aktivitäten',
 };
 
 export default blogMetaDe;

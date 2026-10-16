@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5521
+      "6": 5522
     },
-    "publishedCovers": 7102,
+    "publishedCovers": 7103,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5326
+    "inferredRecords": 5327
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190233,6 +190233,33 @@
           "id": "inchiesta-medico-locarnese",
           "category": "novita",
           "date": "2026-10-15T21:15:43.477Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-kick-cocaine-gazzada-evento": {
+      "cover": "/images/blog/article-kick-cocaine-gazzada-evento.webp",
+      "hash": "da6640ff3aad59ee28cd224ebfa1084c74f5ca7d681d8110154efd032a3cf1e6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "kick-cocaine-gazzada-evento",
+          "category": "novita",
+          "date": "2026-10-16T01:03:49.070Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
