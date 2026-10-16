@@ -4,10 +4,12 @@ import {
   HIRSLANDEN_COMPANY_NAME,
   isHirslandenJob,
   isTrustedDomain,
+  parseLocation,
   parseSearchResults,
   parseDetailPage,
   descriptionBodyToMarkdown,
   resolveHirslandenLocation,
+  resolveHirslandenCanton,
   fetchAllHirslandenJobs,
   hirslandenReferenceNumber,
 } from '../scripts/lib/hirslanden-job-parser.mjs';
@@ -337,6 +339,32 @@ describe('Hirslanden Klinik crawler parser', () => {
       expect(resolveHirslandenLocation('Besetzung per: 1. Oktober 2026', '')).toBe('Besetzung per: 1. Oktober 2026');
     });
   });
+
+  describe('resolveHirslandenCanton', () => {
+    it('uses the listing locality instead of a facility name legal suffix', () => {
+      expect(resolveHirslandenCanton({
+        listingCity: 'Zumikon',
+        detailRegion: 'Zürich',
+        facility: 'Hirslanden OPERA Zumikon AG',
+      })).toBe('ZH');
+    });
+
+    it('fails closed when structured locality and region disagree', () => {
+      expect(resolveHirslandenCanton({
+        listingCity: 'Zumikon',
+        detailRegion: 'Aargau',
+        facility: 'Hirslanden OPERA Zumikon AG',
+      })).toBe('');
+    });
+
+    it('does not infer a canton from an ambiguous facility-only label', () => {
+      expect(resolveHirslandenCanton({ facility: 'Hirslanden OPERA Zumikon AG' })).toBe('');
+    });
+  });
+
+  it('does not invent a Zürich locality when the listing source is empty', () => {
+    expect(parseLocation('')).toEqual({ city: '', postalCode: '' });
+  });
 });
 
 // Only the posting's own text is published (issue 5253). A detail page without
@@ -365,6 +393,7 @@ describe('fetchAllHirslandenJobs — listing without a vacancy body', () => {
       const jobs = await fetchAllHirslandenJobs();
       expect(jobs).toHaveLength(1);
       expect(jobs[0].title).toBe('Dipl. Pflegefachfrau / Pflegefachmann (a) 80-100%');
+      expect(jobs[0].externalId).toBe('1123876301');
       expect(jobs[0].description).toContain('Aufgabe 12: Du betreust Patientinnen');
       expect(jobs[0].description).not.toMatch(/Die Hirslanden-Gruppe ist mit 17 Privatkliniken/);
     } finally {
@@ -450,6 +479,7 @@ describe('Hirslanden — one page per Referenznummer', () => {
     try {
       const jobs = await fetchAllHirslandenJobs();
       expect(jobs.map((job: { url: string }) => job.url.match(/\/(\d+)\/?$/)?.[1]).sort()).toEqual(['1100000001', '1123876301']);
+      expect(jobs.find((job: { url: string }) => job.url.endsWith('/1123876301/'))).toMatchObject({ externalId: '1123876301' });
     } finally {
       vi.unstubAllGlobals();
     }
