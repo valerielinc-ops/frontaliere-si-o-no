@@ -109413,6 +109413,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-farmaci-generici-prezzi-svizzera': {
+    title: 'Farmaci generici: quanto paga di più la Svizzera',
+    description: 'Dieci generici: 241,56 franchi in Svizzera. Un mese costa 2,9 volte la media dei tre Paesi vicini. Metformina: 10,85 franchi in Ticino contro 1,39 in Austria',
+    keywords: 'frontalieri, ticino, svizzera, italia, farmaci, generici, quanto, paga',
+    ogTitle: 'Farmaci generici: la Svizzera paga 2,9 volte di più',
+    ogDescription: 'Dieci generici: 241,56 franchi in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/farmaci-generici-prezzi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmaci generici: quanto paga di più la Svizzera",
+      "description": "Dieci generici: 241,56 franchi in Svizzera. Un mese costa 2,9 volte la media dei tre Paesi vicini. Metformina: 10,85 franchi in Ticino contro 1,39 in Austria",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carne-prezzi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scaffata di farmaci generici con prezzi in franchi svizzero in una farmacia ticinese"
+      },
+      "datePublished": "2026-10-16T04:55:50+00:00",
+      "dateModified": "2026-10-16T04:55:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/farmaci-generici-prezzi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

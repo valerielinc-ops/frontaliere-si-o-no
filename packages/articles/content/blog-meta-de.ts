@@ -13290,6 +13290,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stazione-ffs-coltello-ritrovato.title': 'Messerstecherei in Biasca, Waffe gefunden',
     'blog.article.stazione-ffs-coltello-ritrovato.excerpt': 'Das Messer soll in der Nähe des Tatorts gefunden worden sein Der Angriff ereignete sich am 5.',
     'blog.article.stazione-ffs-coltello-ritrovato.imageAlt': 'Ffs-Bahnhof in Biasca, nahe dem Ort, an dem das Messer gefunden worden sein soll',
+    'blog.article.farmaci-generici-prezzi-svizzera.title': 'Generika: Wie viel mehr zahlt die Schweiz',
+    'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Zehn Generika: 241,56 Franken in der Schweiz.',
+    'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Regal mit Generika und Preisen in Schweizer Franken in einer Tessiner Apotheke',
 };
 
 export default blogMetaDe;

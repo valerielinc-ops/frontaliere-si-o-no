@@ -13293,6 +13293,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stazione-ffs-coltello-ritrovato.title': 'Poignardement à Biasca, l\'arme retrouvée',
     'blog.article.stazione-ffs-coltello-ritrovato.excerpt': 'Le couteau aurait été retrouvé près du lieu de l\'agression L\'agression a eu lieu le 5 octobre à Biasca Le jeune de 17 ans est en détention provisoire',
     'blog.article.stazione-ffs-coltello-ritrovato.imageAlt': 'Gare Ffs de Biasca, près du lieu où le couteau aurait été retrouvé',
+    'blog.article.farmaci-generici-prezzi-svizzera.title': 'Médicaments génériques : combien la Suisse paie-t-elle de plus',
+    'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Dix génériques : 241,56 francs en Suisse.',
+    'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Étagère de médicaments génériques avec prix en francs suisses dans une pharmacie tessinoise',
 };
 
 export default blogMetaFr;

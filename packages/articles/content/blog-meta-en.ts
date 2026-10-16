@@ -13291,6 +13291,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stazione-ffs-coltello-ritrovato.title': 'Biasca stabbing, weapon found',
     'blog.article.stazione-ffs-coltello-ritrovato.excerpt': 'The knife was reportedly found near the scene of the attack The attack took place on October 5 in Biasca The 17-year-old is in pretrial detention',
     'blog.article.stazione-ffs-coltello-ritrovato.imageAlt': 'Biasca FFS station, near the place where the knife was reportedly found',
+    'blog.article.farmaci-generici-prezzi-svizzera.title': 'Generic drugs: how much more does Switzerland pay',
+    'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Ten generic drugs: 241,56 francs in Switzerland.',
+    'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Shelf of generic drugs with Swiss franc prices in a Ticino pharmacy',
 };
 
 export default blogMetaEn;

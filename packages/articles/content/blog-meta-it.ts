@@ -13292,6 +13292,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stazione-ffs-coltello-ritrovato.title': 'Accoltellamento di Biasca, ritrovata l\'arma',
     'blog.article.stazione-ffs-coltello-ritrovato.excerpt': 'Il coltello sarebbe stato ritrovato vicino al luogo dell\'aggressione L\'aggressione è avvenuta il 5 ottobre a Biasca Il 17enne è in carcerazione preventiva',
     'blog.article.stazione-ffs-coltello-ritrovato.imageAlt': 'Stazione Ffs di Biasca, vicino al luogo in cui sarebbe stato ritrovato il coltello',
+    'blog.article.farmaci-generici-prezzi-svizzera.title': 'Farmaci generici: quanto paga di più la Svizzera',
+    'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Dieci generici: 241,56 franchi in Svizzera.',
+    'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Scaffata di farmaci generici con prezzi in franchi svizzero in una farmacia ticinese',
 };
 
 export default blogMetaIt;
