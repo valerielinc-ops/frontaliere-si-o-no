@@ -848,15 +848,15 @@
       "titleByLocale": {
         "fr": "Opérateur en polissage (H/F/D)",
         "it": "Opérateur en polissage (f/m/d)",
-        "en": "Opérateur en polissage (H/F/D)",
-        "de": "Opérateur en polissage (H/F/D)"
+        "en": "Polishing operator (M/F/D)",
+        "de": "Polieroperator (M/W/D)"
       },
       "description": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC.",
       "descriptionByLocale": {
         "fr": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC.",
-        "it": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC.",
-        "en": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC.",
-        "de": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC."
+        "it": "La vostra missione di lucidatura dei componenti in acciaio (attacco, raccordo, lunetta singola, singola piastrelle) in conformità con le scadenze e le istruzioni di sicurezza.\n• Padroneggiare l'esecuzione delle varie operazioni di lucidatura ( lucidatura, feltro, vibrante). Visivamente e dimensionalmente (comparatore, micrometro, panca di controllo, piede di scorrimento) controllano le parti prima e/o dopo l'operazione. Partecipare agli AIC.",
+        "en": "Your mission Polishing of watch-related steel components (attachment, fitting, single bezel, single tile) in accordance with deadlines and safety instructions.\n• Your major responsibilities Master the execution of the various polishing operations (polishing, felting, vibrating). Visually and dimensionally (comparator, micrometer, control bench, slide foot) control the parts before and/or after operation. Participate in AICs.",
+        "de": "Ihre Mission Polieren von uhrbezogenen Stahlkomponenten (Anbau, Montage, einzelne Lünette, einzelne Fliese) in Übereinstimmung mit Fristen und Sicherheitsanweisungen.\n• Ihre Hauptaufgaben Meistern Sie die Ausführung der verschiedenen Polieroperationen (Polieren, Filzen, Vibrieren). Visuell und dimensioniert (Vergleicher, Mikrometer, Bedienstand, Schieberfuß) steuern die Teile vor und/oder nach dem Betrieb. Nehmen Sie an AICs teil."
       },
       "location": "Fleurier",
       "canton": "GE",
@@ -886,7 +886,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
