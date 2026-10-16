@@ -109769,6 +109769,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mostre-maga-gallarate-2026': {
+    title: 'Gallarate: tre nuove mostre al Maga da Jago a Leopardi',
+    description: 'Dal 15 novembre 2026 il MAGA apre la nuova stagione «Jago. Corpi esposti» dal 15 novembre 2026 al 4 aprile 2027 «Acqua» a Palazzo Lombardia dall\'11 novembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, nuove, mostre, maga',
+    ogTitle: 'Gallarate: tre nuove mostre al Maga da Jago a Leopardi',
+    ogDescription: 'Dal 15 novembre 2026 il MAGA apre la nuova stagione «Jago.',
+    canonicalPath: '/articoli-frontaliere/mostre-maga-gallarate-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate: tre nuove mostre al Maga da Jago a Leopardi",
+      "description": "Dal 15 novembre 2026 il MAGA apre la nuova stagione «Jago. Corpi esposti» dal 15 novembre 2026 al 4 aprile 2027 «Acqua» a Palazzo Lombardia dall'11 novembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-teatro-intred-varese-stagione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Monte Generoso in Ticino, con cielo azzurro e foreste verdi."
+      },
+      "datePublished": "2026-10-16T11:58:36+00:00",
+      "dateModified": "2026-10-16T11:58:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostre-maga-gallarate-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

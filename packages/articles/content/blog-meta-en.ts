@@ -13320,6 +13320,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.concerto-gallarate-uto-ughi-2026.title': 'Gallarate: Uto Ughi returns to Teatro Condominio with Vivaldi and Bach',
     'blog.article.concerto-gallarate-uto-ughi-2026.excerpt': 'Uto Ughi returns to Gallarate on October 25, 2026 Concert at 18 at Teatro Condominio Program dedicated to Vivaldi and Bach With the Virtuosi del Lemene and two soloists',
     'blog.article.concerto-gallarate-uto-ughi-2026.imageAlt': 'Teatro Condominio Vittorio Gassman in Gallarate, venue of Uto Ughi\'s concert',
+    'blog.article.mostre-maga-gallarate-2026.title': 'Gallarate: three new exhibitions at the Maga, from Jago to Leopardi',
+    'blog.article.mostre-maga-gallarate-2026.excerpt': 'Starting November 15, 2026, MAGA opens the new season «Jago.',
+    'blog.article.mostre-maga-gallarate-2026.imageAlt': 'Monte Generoso in Ticino, with a blue sky and green forests.',
 };
 
 export default blogMetaEn;
