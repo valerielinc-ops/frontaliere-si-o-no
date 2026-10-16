@@ -110003,6 +110003,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-udc-asilo-limite': {
+    title: 'Protezione delle frontiere: L\'iniziativa UDC è controproducente',
+    description: 'La CIP-S boccia l\'iniziativa UDC con 8 voti contro 2. Il testo chiede controlli sistematici alle frontiere. La Svizzera non concederebbe asilo a oltre 5.000',
+    keywords: 'frontalieri, ticino, svizzera, italia, protezione, frontiere, iniziativa, controproducente',
+    ogTitle: 'Protezione delle frontiere: L\'iniziativa UDC è controproducente',
+    ogDescription: 'La CIP-S boccia l\'iniziativa UDC con 8 voti contro 2.',
+    canonicalPath: '/articoli-frontaliere/iniziativa-udc-asilo-limite/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protezione delle frontiere: L'iniziativa UDC è controproducente",
+      "description": "La CIP-S boccia l'iniziativa UDC con 8 voti contro 2. Il testo chiede controlli sistematici alle frontiere. La Svizzera non concederebbe asilo a oltre 5.000",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-boccia-frontiere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controllo doganale al confine italo-svizzero vicino a Lugano con ufficiali e veicoli in attesa"
+      },
+      "datePublished": "2026-10-16T16:42:43+00:00",
+      "dateModified": "2026-10-16T16:42:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-udc-asilo-limite/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

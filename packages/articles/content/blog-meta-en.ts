@@ -13338,6 +13338,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Gaggiolo safety speed bump for pedestrians and workers',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'The new speed bump has been installed at the Gaggiolo border crossing.',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Speed bump at Gaggiolo customs crossing with redesigned truck parking and upgraded lighting for pedestrian and worker safety',
+    'blog.article.iniziativa-udc-asilo-limite.title': 'Border protection: The UDC initiative is counterproductive',
+    'blog.article.iniziativa-udc-asilo-limite.excerpt': 'The CIP-S rejects the UDC initiative by 8 votes to 2.',
+    'blog.article.iniziativa-udc-asilo-limite.imageAlt': 'Customs control at the Italy-Switzerland border near Lugano with officers and vehicles waiting',
 };
 
 export default blogMetaEn;

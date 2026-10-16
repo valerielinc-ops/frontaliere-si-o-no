@@ -13340,6 +13340,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Ralentisseur de sécurité à Gaggiolo pour les piétons et les travailleurs',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'Le nouveau ralentisseur a été installé au poste-frontière de Gaggiolo.',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Dos ralentisseur au poste frontalier de Gaggiolo avec stationnement des poids lourds réaménagé et éclairage amélioré pour la sicurezza dei piétons e dei lavoratori',
+    'blog.article.iniziativa-udc-asilo-limite.title': 'Protection des frontières : L\'initiative UDC est contre-productive',
+    'blog.article.iniziativa-udc-asilo-limite.excerpt': 'La CIP-S rejette l\'initiative UDC par 8 voix contre 2.',
+    'blog.article.iniziativa-udc-asilo-limite.imageAlt': 'Contrôle douanier à la frontière italo-suisse près de Lugano avec des officiers et des véhicules en attente',
 };
 
 export default blogMetaFr;

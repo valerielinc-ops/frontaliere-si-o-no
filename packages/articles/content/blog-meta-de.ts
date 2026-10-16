@@ -13337,6 +13337,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Sicherheitsschwelle in Gaggiolo für Fußgänger und Beschäftigte',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'Die neue Schwelle wurde am Grenzübergang Gaggiolo installiert.',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Schwelle am Zollübergang Gaggiolo mit neu gestalteten LKW-Parkplätzen und verbesserter Beleuchtung für die Sicherheit von Fußgängern und Arbeitern',
+    'blog.article.iniziativa-udc-asilo-limite.title': 'Grenzschutz: Die UDC-Initiative ist kontraproduktiv',
+    'blog.article.iniziativa-udc-asilo-limite.excerpt': 'Die CIP-S lehnt die UDC-Initiative mit 8 zu 2 Stimmen ab.',
+    'blog.article.iniziativa-udc-asilo-limite.imageAlt': 'Zollkontrolle an der italienisch-schweizerischen Grenze nahe Lugano mit Beamten und wartenden Fahrzeugen',
 };
 
 export default blogMetaDe;

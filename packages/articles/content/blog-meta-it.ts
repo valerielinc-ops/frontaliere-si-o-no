@@ -13339,6 +13339,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Dosso sicurezza Gaggiolo per pedoni e lavoratori',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'Il nuovo dosso è stato installato al valico di Gaggiolo.',
     'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Dosso rallentatore al valico di Gaggiolo con posteggi ridisegnati e illuminazione migliorata per sicurezza di pedoni e lavoratori',
+    'blog.article.iniziativa-udc-asilo-limite.title': 'Protezione delle frontiere: L\'iniziativa UDC è controproducente',
+    'blog.article.iniziativa-udc-asilo-limite.excerpt': 'La CIP-S boccia l\'iniziativa UDC con 8 voti contro 2.',
+    'blog.article.iniziativa-udc-asilo-limite.imageAlt': 'Controllo doganale al confine italo-svizzero vicino a Lugano con ufficiali e veicoli in attesa',
 };
 
 export default blogMetaIt;
