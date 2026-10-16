@@ -131,6 +131,26 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(article.content.it.body2).toContain('[Mostra \\[estate\\] — bambini](https://agenda.example/events/mostra-%28serie%29)');
   });
 
+  it.each([
+    'https://agenda.example/events/mostra (serie)',
+    'https://agenda.example/events/mostra\u0007serie',
+    'nota-url',
+  ])('does not turn a malformed source URL into a Markdown link: %s', (url) => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'agenda-invalid-url',
+        title: 'Mostra senza link',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        url,
+        canton: 'TI',
+      }],
+      todayIso: '2027-01-01',
+    });
+    expect(article.content.it.body2).toContain('Mostra senza link');
+    expect(article.content.it.body2).not.toContain('](https://agenda.example/');
+  });
+
   it('keeps a lone surrogate in an event id from aborting the producer', () => {
     const article = buildWeekendDigestArticle({
       events: [{

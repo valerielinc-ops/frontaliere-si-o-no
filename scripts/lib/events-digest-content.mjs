@@ -151,8 +151,18 @@ function eventDateInWindow(ev, window) {
 /** Cite the actual agenda record, not only the derived canton landing page. */
 function eventTitleWithSource(title, ev) {
   const text = String(title || '').trim();
-  const url = String(ev?.url || '').trim();
-  if (!url || !/^https?:\/\//i.test(url)) return text;
+  const url = String(ev?.url || '');
+  // A source URL is untrusted dataset input. Reject whitespace/control
+  // characters before parsing so URL normalization cannot silently turn a
+  // malformed Markdown destination into a different destination.
+  if (!url || /[\s\u0000-\u001F\u007F]/u.test(url)) return text;
+  let parsedUrl;
+  try {
+    parsedUrl = new URL(url);
+  } catch {
+    return text;
+  }
+  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') return text;
   // A source URL is data from the verified public dataset. Escape label
   // delimiters and encode parentheses so a record cannot change the Markdown
   // link's shape while preserving the visible event title.
