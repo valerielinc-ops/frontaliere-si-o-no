@@ -685,12 +685,12 @@ if (!credits || typeof credits !== 'object' || Array.isArray(credits)) {
 if (typeof credits.commit !== 'string') {
   fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
 }
-if (credits.commit !== manifest.commit) {
-  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
-}
 if (credits.schema !== 1 || credits.section !== 'blog'
   || !credits.generated || typeof credits.generated !== 'object' || Array.isArray(credits.generated)) {
   fail(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
+}
+if (credits.commit !== manifest.commit) {
+  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
 }
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
   const validation = validatePublishedBlogImageEvidence(imageUrl, record);
