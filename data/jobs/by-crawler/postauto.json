@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-10-15T21:39:15.074Z",
+  "assembledAt": "2026-10-16T09:42:47.462Z",
   "jobs": [
     {
       "id": "postauto-1046d4447861",
@@ -82,7 +82,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "postauto-fa476d979e36",
@@ -115,7 +116,7 @@
       "url": "https://job.post.ch/default/job/Sp%C3%A9cialiste-Syst%C3%A8mes-de-gestion-de-la-flotte-et-donn%C3%A9es-des-v%C3%A9hicules/74736-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:39:08.142Z",
+      "crawledAt": "2026-10-16T09:42:42.828Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -198,7 +199,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74922-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:39:06.865Z",
+      "crawledAt": "2026-10-16T09:42:41.553Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -281,7 +282,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/74921-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:39:05.536Z",
+      "crawledAt": "2026-10-16T09:42:40.266Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -366,7 +367,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/74882-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:39:04.244Z",
+      "crawledAt": "2026-10-16T09:42:38.932Z",
       "addressLocality": "Winkel",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -451,7 +452,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74884-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:39:03.033Z",
+      "crawledAt": "2026-10-16T09:42:37.637Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -528,7 +529,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Leitsysteme-und-Ereignisinformation/74920-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:39:00.647Z",
+      "crawledAt": "2026-10-16T09:42:35.042Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -613,7 +614,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74888-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:59.463Z",
+      "crawledAt": "2026-10-16T09:42:33.758Z",
       "addressLocality": "Hochwald",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -696,7 +697,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74887-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:58.221Z",
+      "crawledAt": "2026-10-16T09:42:32.471Z",
       "addressLocality": "Gelterkinden",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -779,7 +780,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74990-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:57.066Z",
+      "crawledAt": "2026-10-16T09:42:31.148Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -861,7 +862,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74661-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:54.678Z",
+      "crawledAt": "2026-10-16T09:42:28.599Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -938,7 +939,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74660-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:53.456Z",
+      "crawledAt": "2026-10-16T09:42:27.310Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -1015,7 +1016,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin-Reichenburg/75029-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:52.290Z",
+      "crawledAt": "2026-10-16T09:42:26.018Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -1037,9 +1038,7 @@
       "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin-Reichenburg/75029-de_DE",
       "jobReqId": "75029",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-reichenburg-postauto-reichenburg",
@@ -1102,7 +1101,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:51.091Z",
+      "crawledAt": "2026-10-16T09:42:24.721Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -1179,7 +1178,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin-im-Stundenlohn/74565-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:38:49.843Z",
+      "crawledAt": "2026-10-16T09:42:23.433Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -1323,7 +1322,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "postauto-92d494df3d06",
@@ -1401,7 +1400,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

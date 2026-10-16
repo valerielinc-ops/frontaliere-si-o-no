@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitaeler-schaffhausen",
-  "assembledAt": "2026-10-15T21:50:19.962Z",
+  "assembledAt": "2026-10-16T09:35:02.069Z",
   "jobs": [
     {
       "id": "spitaeler-schaffhausen-043ddb8a44ce",
@@ -34,7 +34,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-3-jaehrige-ausbildung/46109be5-c8a7-4744-8a56-e59fe3fd6f0d",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.147Z",
+      "crawledAt": "2026-10-16T09:33:58.595Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -132,7 +132,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-2-jaehrige-ausbildung/92dfa61f-39df-4d3b-a328-a11bf8378f52",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.146Z",
+      "crawledAt": "2026-10-16T09:33:58.593Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-fachfrau-fachmann-operationstechnik-hf-in-ausbildung/c9147ef3-1888-43f6-aeb1-896c17ea8ba7",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.145Z",
+      "crawledAt": "2026-10-16T09:33:58.592Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -363,7 +363,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-biomedizinische-analytikerin-biomedizinischer-analytiker-hf-in-ausbildung/33480439-055b-4676-aecc-3dd514771373",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.143Z",
+      "crawledAt": "2026-10-16T09:33:58.590Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -450,7 +450,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-radiologiefachfrau-fachmann-hf-in-ausbildung/cf7b54f7-2fa0-4f6d-b961-633881501977",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.141Z",
+      "crawledAt": "2026-10-16T09:33:58.589Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -556,7 +556,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikant-in-im-sozialdienst-in-ausbildung/a5d2ec1c-bff7-48ea-b8c6-27397bcd3d4c",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.139Z",
+      "crawledAt": "2026-10-16T09:33:58.587Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -634,81 +634,6 @@
           "@type": "QuantitativeValue",
           "minValue": 41600,
           "maxValue": 76000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spitaeler-schaffhausen-f05c059272a6",
-      "slug": "pneumologia-del-medico-principale-principale-spitaler-schaffhausen-schaffhausen",
-      "slugByLocale": {
-        "it": "pneumologia-del-medico-principale-principale-spitaler-schaffhausen-schaffhausen",
-        "en": "principal-physician-principal-physician-pneumology-spitaler-schaffhausen-schaffhausen",
-        "de": "leitende-arztin-leitender-arzt-pneumologie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "pneumologie-du-medecin-principal-physicien-principal-spitaler-schaffhausen-schaffhausen"
-      },
-      "company": "Spitäler Schaffhausen",
-      "companyKey": "spitaeler-schaffhausen",
-      "companyDomain": "spitaeler-sh.ch",
-      "title": "Leitende Ärztin / Leitender Arzt Pneumologie",
-      "titleByLocale": {
-        "it": "Pneumologia del medico principale/principale",
-        "en": "Principal Physician/Principal Physician Pneumology",
-        "de": "Leitende Ärztin / Leitender Arzt Pneumologie",
-        "fr": "Pneumologie du médecin principal/physicien principal"
-      },
-      "description": "Die Medizinische Klinik betreut jedes Jahr 3500 stationäre und 6000 ambulante Patienten/-innen. Das Angebot umfasst eine breite Allgemeine Innere Medizin sowie eine erweiterte Grundversorgung im Bereich der Angiologie, Endokrinologie/Diabetologie, Gastroenterologie, Nephrologie, Kardiologie, Neurologie, Onkologie und Pneumologie/Schlafmedizin. Die Abteilung Pneumologie bietet ein breites Spektrum an pneumologischen Untersuchungs- und Behandlungsmethoden für stationäre und ambulante Patienten/-innen inklusive Schlafmedizin. Wir sind eine FMH Weiterbildungsklinik der Kategorie B für Pneumologie.\n\n## Das erwartet Sie\n• Vielseitige und verantwortungsvolle Tätigkeit im ambulanten und stationären Setting\n• Selbstständige Führung der pneumologischen Sprechstunde inkl. Schlafmedizin\n• Durchführung von Bronchoskopien inkl. EBUS, pleuralen Interventionen und konsiliarische Mitbetreuung stationärer Patientinnen und Patienten\n• Fachliche Supervision sowie Mitwirkung an der Aus-, Weiter- und Fortbildung der Assistenz- und Oberärztinnen und -ärzte\n• Enge interdisziplinäre Zusammenarbeit innerhalb und ausserhalb des Kantonsspitals\n• Beteiligung am Dienstbetrieb der Inneren Medizin\n• Ein engagiertes, familiäres und gut eingespieltes Team\n\n## Damit bringen Sie uns weiter\n• Facharzttitel Pneumologie FMH und Allgemeine Innere Medizin FMH (oder entsprechende MEBEKO-Aequivalente)\n• Fundierte klinische Erfahrung im gesamten Spektrum der Pneumologie\n• Hohe Sozialkompetenz, Kommunikationsfähigkeit und Freude an der interdisziplinären Zusammenarbeit\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise\n• Engagement und Eigeninitiative sowie Interesse, die Pneumologie & Schlafmedizin gemeinsam mit dem bestehenden Team weiterzuentwickeln\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Kantonsspital Schaffhausen\nFür unsere Pneumologie & Schlafmedizin suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte und qualifizierte Persönlichkeit als Leitende Ärztin / Leitender Arzt Pneumologie (80–100%).\nDas erwartet Sie\nDamit bringen Sie uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
-      "descriptionByLocale": {
-        "it": "Ogni anno, la clinica medica serve 3.500 pazienti malati e 6.000 pazienti ambulatoriali. L'offerta comprende un'ampia medicina interna generale e un'estesa assistenza di base nel campo dell'angiologia, endocrinologia/diabetologia, gastroenterologia, nefrologia, cardiologia, neurologia, oncologia e pneumologia/medicina. Il Dipartimento di Pneumologia offre una vasta gamma di metodi di esame pneumologico e di trattamento per i pazienti affetti da ambulanza e ambulatorio, tra cui la medicina del sonno. Siamo una categoria B FMH Clinic per la Pneumologia.\n\nCompiti:\n• Lavoro versatile e responsabile nell'ambientazione ambulatoria e stazionaria\n\n• Gestione indipendente della consultazione pneumologica incl. Medicina del sonno\n\n• Performazione di broncoscopie incl. EBUS, Interventi Pleurali e Cura Consiliare degli Inpatienti\n\n• Supervisione tecnica e partecipazione all'istruzione, formazione e formazione ulteriore di assistenti e medici anziani\n\n• Chiudere la cooperazione interdisciplinare all'interno e all'esterno dell'Ospedale cantonale\n\n• Partecipazione alle operazioni di medicina interna\n\n• Un team dedicato, familiare e consolidato\n\nRequisiti\n• Titolo specialistico Pneumology FMH e medicina interna generale FMH (o equivalenti MEBEKO corrispondenti)\n\n• Esperienza clinica approfondita attraverso lo spettro della polmonologia\n\n• Alte competenze sociali, capacità di comunicazione e godimento della cooperazione interdisciplinare\n\n• Metodi di lavoro indipendenti, strutturati e responsabili\n\n• Impegno e iniziativa, nonché interesse a sviluppare ulteriormente la pneumologia e la medicina del sonno insieme al team esistente\n\nOffriamo:\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche funziona bene.\n\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
-        "en": "Every year, the medical clinic serves 3,500 inpatient and 6,000 outpatient patients. The offer includes a broad general internal medicine as well as an extended basic care in the field of angiology, endocrinology/diabetology, gastroenterology, nephrology, cardiology, neurology, oncology and pneumology/sleep medicine. The Department of Pneumology offers a wide range of pneumological examination and treatment methods for inpatient and outpatient patients, including sleep medicine. We are a category B FMH Clinic for Pneumology.\n\nTasks:\n• Versatile and responsible work in the ambulatory and stationary setting\n\n• Independent management of the pneumological consultation incl. Sleep medicine\n\n• Performation of bronchoscopies incl. EBUS, Pleural Interventions and Consiliar Care of Inpatients\n\n• Technical supervision and participation in the education, training and further training of assistant and senior physicians\n\n• Close interdisciplinary cooperation within and outside the Cantonal Hospital\n\n• Participation in internal medicine operations\n\n• A dedicated, familiar and well-established team\n\nRequirements\n• Specialist title Pneumology FMH and General Internal Medicine FMH (or corresponding MEBEKO equivalents)\n\n• In-depth clinical experience across the spectrum of pulmonology\n\n• High social skills, communication skills and enjoyment of interdisciplinary cooperation\n\n• Independent, structured and responsible working methods\n\n• Commitment and initiative as well as interest in further developing pneumology & sleep medicine together with the existing team\n\nWe offer:\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.",
-        "de": "Die Medizinische Klinik betreut jedes Jahr 3500 stationäre und 6000 ambulante Patienten/-innen. Das Angebot umfasst eine breite Allgemeine Innere Medizin sowie eine erweiterte Grundversorgung im Bereich der Angiologie, Endokrinologie/Diabetologie, Gastroenterologie, Nephrologie, Kardiologie, Neurologie, Onkologie und Pneumologie/Schlafmedizin. Die Abteilung Pneumologie bietet ein breites Spektrum an pneumologischen Untersuchungs- und Behandlungsmethoden für stationäre und ambulante Patienten/-innen inklusive Schlafmedizin. Wir sind eine FMH Weiterbildungsklinik der Kategorie B für Pneumologie.\n\n## Das erwartet Sie\n• Vielseitige und verantwortungsvolle Tätigkeit im ambulanten und stationären Setting\n• Selbstständige Führung der pneumologischen Sprechstunde inkl. Schlafmedizin\n• Durchführung von Bronchoskopien inkl. EBUS, pleuralen Interventionen und konsiliarische Mitbetreuung stationärer Patientinnen und Patienten\n• Fachliche Supervision sowie Mitwirkung an der Aus-, Weiter- und Fortbildung der Assistenz- und Oberärztinnen und -ärzte\n• Enge interdisziplinäre Zusammenarbeit innerhalb und ausserhalb des Kantonsspitals\n• Beteiligung am Dienstbetrieb der Inneren Medizin\n• Ein engagiertes, familiäres und gut eingespieltes Team\n\n## Damit bringen Sie uns weiter\n• Facharzttitel Pneumologie FMH und Allgemeine Innere Medizin FMH (oder entsprechende MEBEKO-Aequivalente)\n• Fundierte klinische Erfahrung im gesamten Spektrum der Pneumologie\n• Hohe Sozialkompetenz, Kommunikationsfähigkeit und Freude an der interdisziplinären Zusammenarbeit\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise\n• Engagement und Eigeninitiative sowie Interesse, die Pneumologie & Schlafmedizin gemeinsam mit dem bestehenden Team weiterzuentwickeln\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Kantonsspital Schaffhausen\nFür unsere Pneumologie & Schlafmedizin suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte und qualifizierte Persönlichkeit als Leitende Ärztin / Leitender Arzt Pneumologie (80–100%).\nDas erwartet Sie\nDamit bringen Sie uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
-        "fr": "Chaque année, la clinique médicale dessert 3 500 patients hospitalisés et 6 000 patients externes. L'offre comprend une médecine interne générale ainsi qu'un traitement de base étendu dans le domaine de l'angiologie, de l'endocrinologie/diabétéologie, de la gastroentérologie, de la néphrologie, de la cardiologie, de la neurologie, de l'oncologie et de la pneumologie/médecine du sommeil. Le Département de pneumologie offre un large éventail de méthodes d'examen et de traitement pneumologiques aux patients hospitalisés et externes, y compris la médecine du sommeil. Nous sommes une clinique FMH de catégorie B pour la pneumologie.\n\nTâches :\n• Travail polyvalent et responsable dans le cadre ambulatoire et stationnaire\n\n• Gestion indépendante de la consultation pneumologique Médecine du sommeil\n\n• Réalisation de bronchoscopies, y compris EBUS, interventions pleurales et soins consiliaires des patients hospitalisés\n\n• Supervision technique et participation à l'éducation, à la formation et à la formation continue des médecins adjoints et supérieurs\n\n• Coopération interdisciplinaire étroite à l'intérieur et à l'extérieur de l'hôpital cantonal\n\n• Participation aux opérations de médecine interne\n\n• Une équipe dévouée, familière et bien établie\n\nExigences\n• Titre du spécialiste Pneumologie FMH et médecine interne générale FMH (ou équivalents MEBEKO correspondants)\n\n• Expérience clinique approfondie dans le spectre de la pulmonologie\n\n• Compétences sociales élevées, compétences en communication et jouissance de la coopération interdisciplinaire\n\n• Méthodes de travail indépendantes, structurées et responsables\n\n• Engagement et initiative ainsi que l'intérêt pour le développement de la pneumologie et de la médecine du sommeil avec l'équipe existante\n\nNous offrons:\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton."
-      },
-      "needsRetranslation": false,
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/leitende-aerztin-leitender-arzt-pneumologie/6b614d77-7e1d-4c0b-abb5-182ca53c8671",
-      "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.138Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8200",
-      "streetAddress": "Geissbergstrasse 81",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-16",
-      "postedDate": "2026-09-16",
-      "postingDateSource": "reported",
-      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/leitende-aerztin-leitender-arzt-pneumologie/6b614d77-7e1d-4c0b-abb5-182ca53c8671",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-pneumologie-spitaeler-schaffhausen-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitende-arztin-leitender-arzt-pneumologie-spitaeler-schaffhausen-schaffhausen"
-        ]
-      },
-      "firstSeenAt": "2026-09-17T07:28:05.119Z",
-      "salaryMin": 110500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 110500,
-          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -834,13 +759,14 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitaeler-schaffhausen-ef31a8a82373",
-      "slug": "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen",
+      "slug": "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen-c762afac25",
       "slugByLocale": {
-        "it": "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen",
+        "it": "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen-c762afac25",
         "en": "health-specialist-efz-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen",
         "de": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
         "fr": "specialiste-de-la-sante-efz-education-des-adultes-selon-l-article-32-bbv-spitaler-schaffhausen-schaffhausen"
@@ -889,12 +815,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
-        "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+        "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+        "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
-          "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+          "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+          "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-17T07:28:05.106Z",
@@ -910,7 +838,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitaeler-schaffhausen-5b880bae9572",
@@ -943,7 +872,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/leitung-zaemehalt/ef978f9d-dc80-4e01-914d-3b619ebf15f4",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.130Z",
+      "crawledAt": "2026-10-16T09:33:58.582Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1017,7 +946,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz/242bb7dc-fb6f-4ce9-ac44-1d86678fe1cd",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.128Z",
+      "crawledAt": "2026-10-16T09:33:58.580Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1091,7 +1020,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz-erwachsenenbildung-art-32-geriatrischen-rehabilitation-und-uebergangspflege/684f5135-9c69-4508-a23e-b9ced5a06aee",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.127Z",
+      "crawledAt": "2026-10-16T09:33:58.579Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1168,7 +1097,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikantin-praktikant-handelsmittelschule/a1ecd7a7-09bd-4a29-9541-0ba386c122ca",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.125Z",
+      "crawledAt": "2026-10-16T09:33:58.577Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1251,7 +1180,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/physiotherapeut-in/a5e7cd28-1c3b-4739-b204-64ea0eac440d",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.124Z",
+      "crawledAt": "2026-10-16T09:33:58.576Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1335,7 +1264,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/leitung-notfall-pflege/a1bf7e6d-e4b1-4dfb-985e-dfc9ba075e70",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.122Z",
+      "crawledAt": "2026-10-16T09:33:58.575Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1409,7 +1338,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/kaderaerztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin/8f09ccce-8e11-474f-88db-dea5aa89d05e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.121Z",
+      "crawledAt": "2026-10-16T09:33:58.573Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1484,7 +1413,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion-fachverantwortung-pflege/8f260f24-b256-4271-8770-1ec0bf771d2e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.120Z",
+      "crawledAt": "2026-10-16T09:33:58.572Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1558,7 +1487,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-geriatrie/8f7421f8-048f-42e4-aeda-e97a2618058e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.118Z",
+      "crawledAt": "2026-10-16T09:33:58.570Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1650,7 +1579,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-innere-medizin/d9482aed-6a92-4d7b-b9f1-69e2ab16b50f",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.117Z",
+      "crawledAt": "2026-10-16T09:33:58.569Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1752,7 +1681,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-notfallmedizin/9138ebe3-10cf-4628-8cf8-ec6f04010204",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.115Z",
+      "crawledAt": "2026-10-16T09:33:58.567Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1844,7 +1773,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-urologie/353bf439-f6ae-4272-b5ed-38a0b41a84c5",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.114Z",
+      "crawledAt": "2026-10-16T09:33:58.566Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1930,7 +1859,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-chirurgie/76ccb79c-eb9a-4d50-8077-921fc355e8ae",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.113Z",
+      "crawledAt": "2026-10-16T09:33:58.564Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2020,7 +1949,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-anaesthesie/d47e644c-c9f3-49fa-b1c8-f2287e41b739",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.111Z",
+      "crawledAt": "2026-10-16T09:33:58.563Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2112,7 +2041,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-psychiatrische-klinik/e1733883-e6e9-4eb1-95ee-dd7c2e038d56",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.110Z",
+      "crawledAt": "2026-10-16T09:33:58.561Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2206,7 +2135,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-psychiatrische-klinik/e44bfdd5-3c9d-46dc-a5c4-3a193bce1e7b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.108Z",
+      "crawledAt": "2026-10-16T09:33:58.560Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2301,7 +2230,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachaerztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie-und-nuklearmedizin/346b1f3c-200f-4225-bc50-7be14ed7a46b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.107Z",
+      "crawledAt": "2026-10-16T09:33:58.558Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2375,7 +2304,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/expertin-experte-anaesthesiepflege-nds-hf-in-ausbildung/f25f7808-cd2c-4485-b226-1ef9b5699552",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.106Z",
+      "crawledAt": "2026-10-16T09:33:58.557Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2449,7 +2378,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/ec3b624e-ad58-4abc-bf7a-aeb55dc5206b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.104Z",
+      "crawledAt": "2026-10-16T09:33:58.555Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2524,7 +2453,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme/f6c59448-841e-4fd6-bbdd-15c7c798db6b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.101Z",
+      "crawledAt": "2026-10-16T09:33:58.554Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2607,7 +2536,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachpsychologe-in-kjpd/342c791e-eee7-45ed-ad36-cca1b11d0779",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.100Z",
+      "crawledAt": "2026-10-16T09:33:58.553Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2687,7 +2616,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/psychologe-in-kjpd/21fb82a3-cb58-48c2-b8ca-6f2250b94eec",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.098Z",
+      "crawledAt": "2026-10-16T09:33:58.551Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2768,7 +2697,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/bereichsmanager-in-psychiatrie/a0c8134f-f017-47d8-a0cd-5fc6a4337e68",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.097Z",
+      "crawledAt": "2026-10-16T09:33:58.549Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2851,7 +2780,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/oberaerztin-oberarzt-schmerzmedizin-und-anaesthesie/6db9ef70-748b-4e55-b8c8-f69a145a8fae",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.095Z",
+      "crawledAt": "2026-10-16T09:33:58.548Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2925,7 +2854,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-mit-fachverantwortung-ausbildung/52554632-7399-4b3d-b2cb-b33a443e57a1",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.094Z",
+      "crawledAt": "2026-10-16T09:33:58.545Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3006,7 +2935,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung/f0ef68d2-5efd-4188-b798-226bf7cd941c",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.092Z",
+      "crawledAt": "2026-10-16T09:33:58.544Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3087,7 +3016,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/mitarbeiter-in-portier/19373658-f0de-47bb-9d83-09083d49f79a",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.090Z",
+      "crawledAt": "2026-10-16T09:33:58.542Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3172,7 +3101,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikant-in-therapien/db880455-873f-4e3f-939a-d8ea99c0c66b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.089Z",
+      "crawledAt": "2026-10-16T09:33:58.541Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3256,7 +3185,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mutterschaftsvertretung/0d8aa31f-21da-4ec0-a7ea-ec77f4eab050",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.088Z",
+      "crawledAt": "2026-10-16T09:33:58.539Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3338,7 +3267,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/oberarzt-oberaerztin-paediatrie/e9b1b83d-c461-43e7-8813-711d6a5767d2",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.086Z",
+      "crawledAt": "2026-10-16T09:33:58.538Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3418,7 +3347,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/mpa-zentrales-ambulatorium/23018d89-da4c-4f0a-b728-fdcbac05f104",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.083Z",
+      "crawledAt": "2026-10-16T09:33:58.535Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3496,7 +3425,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-notfallmedizin/08275be2-c929-4619-9b80-cd188f7b7ac3",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.081Z",
+      "crawledAt": "2026-10-16T09:33:58.534Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3577,7 +3506,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-hauswirtschaft/24fe746c-11a2-4c2c-8a66-96548c461d68",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.079Z",
+      "crawledAt": "2026-10-16T09:33:58.532Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3679,7 +3608,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-kueche-kantonsspital/fb14cd66-bd93-48a7-9ef9-593ec42a1e1c",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.078Z",
+      "crawledAt": "2026-10-16T09:33:58.531Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3775,7 +3704,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-gastronomie-kantonsspital/3cd11c3d-a992-465d-8d25-559bf03677e2",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.076Z",
+      "crawledAt": "2026-10-16T09:33:58.529Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3871,7 +3800,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-ops-vorbereitung-und-gipszimmer/5074efcb-f495-4338-8b27-a53335c79994",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.074Z",
+      "crawledAt": "2026-10-16T09:33:58.527Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3970,7 +3899,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-technischer-dienst/1562e3b0-5fcd-4350-ac5c-772284914505",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.073Z",
+      "crawledAt": "2026-10-16T09:33:58.526Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4045,7 +3974,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-zentrallager-und-patiententransport/7cd530a1-0ff0-4fa8-a1e7-58ecf4596cf1",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.071Z",
+      "crawledAt": "2026-10-16T09:33:58.524Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4138,7 +4067,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-assistenzarzt/bee94b1d-d641-44a2-bcf3-389617691390",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.070Z",
+      "crawledAt": "2026-10-16T09:33:58.523Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4234,7 +4163,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikantin-praktikant-kantonsspital/8e875ffe-b278-4591-870b-9a9415845536",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.068Z",
+      "crawledAt": "2026-10-16T09:33:58.521Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4309,7 +4238,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/sitzwache-im-stundenlohn/64a39e54-f71c-4775-b644-96832ae4d048",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.066Z",
+      "crawledAt": "2026-10-16T09:33:58.519Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4371,11 +4300,11 @@
         "de": "Fachfrau / Fachmann Gesundheit EFZ Langzeitpsychiatrie",
         "fr": "Psychiatrie à long terme de l'EFZ"
       },
-      "description": "Auf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\n## Das erwartet Dich\n• Strukturierte Einführung ins Aufgabengebiet\n• Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n• Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n• Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n• Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n• Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n• Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n• Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80% Psychiatriezentrum Breitenau\nFür die Langzeitpsychiatrie im Psychiatriezentrum Breitenau suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau Gesundheit / Fachmann Gesundheit EFZ 80%.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+      "description": "Auf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\n## Das erwartet Dich\n• Strukturierte Einführung ins Aufgabengebiet\n• Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n• Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n• Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n• Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n• Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n• Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n• Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Psychiatriezentrum Breitenau\nFür die Langzeitpsychiatrie im Psychiatriezentrum Breitenau suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau Gesundheit / Fachmann Gesundheit EFZ.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
       "descriptionByLocale": {
         "it": "Nelle nostre 4 stazioni di psichiatria a lungo termine con 18 letti ciascuno, donne cronicamente malati e uomini con alterazioni cognitive, limitazioni di vita indipendente e vita quotidiana o problemi comportamentali pronunciati sono curati. Inoltre, le stazioni offrono programmi di riabilitazione a bassa soglia per i pazienti che poi ritornano alle loro circostanze ancestrali o si trasferiscono in un'altra istituzione.\n\nCompiti:\n• Introduzione strutturata all'area attività\n\n• Interessante e variegato lavoro in un ambiente apprezzativo in cui una collaborazione e l'umorismo non vengono trascurati\n\n• Cura dei pazienti con malattie mentali croniche e limitazioni nella vita indipendente e nella vita quotidiana\n\n• Sostenere gli assistenti infermieri nell'attuazione del processo di cura, garantendo la massima autonomia possibile dei pazienti\n\n• Opportunità di formazione interessanti\n\n• Posto di lavoro ben accessibile con i mezzi pubblici\n\nRequisiti\n• Formazione completa come specialista Health EFZ\n\n• Esperienza professionale in psichiatria e/o cura a lungo termine e interesse per la cura olistica delle persone con malattie mentali\n\n• Comunicazione aperta e rispettosa con tutti gli stakeholder\n\n• Spirito di squadra, affidabilità e personalità aperta che contribuisce attivamente al team\n\n• Flessibilità, responsabilità e resilienza\n\n• Impegno alla cooperazione di gruppo e interdisciplinare\n\nOffriamo:\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche funziona bene.\n\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
         "en": "On our 4 stations of long-term psychiatry with 18 beds each, chronically ill women and men with cognitive impairments, limitations of independent living and everyday life or pronounced behavioral problems are cared for. Furthermore, the stations offer low-threshold rehabilitation programs for patients who then return to their ancestral circumstances or move to another institution.\n\nTasks:\n• Structured introduction to the task area\n\n• Interesting and varied work in an appreciative environment in which a collaborative togetherness and humor are not neglected\n\n• Care of patients with chronic mental illnesses and limitations in independent living and everyday life\n\n• Supporting nursing caregivers in the implementation of the care process while ensuring the highest possible autonomy of patients\n\n• Attractive training opportunities\n\n• Well accessible place of work by public transport\n\nRequirements\n• Completed training as a specialist Health EFZ\n\n• Professional experience in psychiatry and/or long-term care as well as interest in the holistic care of people with mental illnesses\n\n• Open, respectful communication with all stakeholders\n\n• Team spirit, reliability and an open personality that actively contributes to the team\n\n• Flexibility, responsibility and resilience\n\n• Commitment to team-oriented and interdisciplinary cooperation\n\nWe offer:\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.",
-        "de": "Auf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\n## Das erwartet Dich\n• Strukturierte Einführung ins Aufgabengebiet\n• Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n• Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n• Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n• Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n• Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n• Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n• Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80% Psychiatriezentrum Breitenau\nFür die Langzeitpsychiatrie im Psychiatriezentrum Breitenau suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau Gesundheit / Fachmann Gesundheit EFZ 80%.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "de": "Auf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\n## Das erwartet Dich\n• Strukturierte Einführung ins Aufgabengebiet\n• Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n• Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n• Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n• Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n• Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n• Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n• Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Psychiatriezentrum Breitenau\nFür die Langzeitpsychiatrie im Psychiatriezentrum Breitenau suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau Gesundheit / Fachmann Gesundheit EFZ.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
         "fr": "Sur nos 4 stations de psychiatrie à long terme avec 18 lits chacun, les femmes et les hommes souffrant de troubles cognitifs chroniques, les limitations de la vie indépendante et de la vie quotidienne ou des problèmes comportementaux prononcés sont pris en charge. De plus, les stations offrent des programmes de réadaptation à faible seuil pour les patients qui retournent ensuite dans leur situation ancestrale ou s'installent dans un autre établissement.\n\nTâches :\n• Introduction structurée au domaine d'activité\n\n• Travail intéressant et varié dans un environnement appréciant où la collaboration et l'humour ne sont pas négligés\n\n• Soins aux patients atteints de maladies mentales chroniques et limitations dans la vie autonome et quotidienne\n\n• Aider les soignants à mettre en œuvre le processus de soins tout en assurant la plus grande autonomie possible aux patients\n\n• Possibilités de formation attrayantes\n\n• Lieu de travail bien accessible par les transports publics\n\nExigences\n• Formation complète en tant que spécialiste de la santé EFZ\n\n• Expérience professionnelle en psychiatrie et/ou soins de longue durée ainsi que l'intérêt pour les soins holistiques des personnes atteintes de maladies mentales\n\n• Communication ouverte et respectueuse avec toutes les parties prenantes\n\n• Esprit d'équipe, fiabilité et personnalité ouverte qui contribue activement à l'équipe\n\n• Flexibilité, responsabilité et résilience\n\n• Engagement en faveur de la coopération en équipe et interdisciplinaire\n\nNous offrons:\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton."
       },
       "needsRetranslation": true,
@@ -4384,7 +4313,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie/e1f0617c-f5e8-4ec9-8786-aebe87991aeb",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.063Z",
+      "crawledAt": "2026-10-16T09:33:58.515Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4393,7 +4322,7 @@
       "streetAddress": "Nordstrasse 111",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
@@ -4461,7 +4390,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool/02be821d-0ecd-4055-bae7-49d2c48e7412",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:49:50.048Z",
+      "crawledAt": "2026-10-16T09:33:58.517Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4507,72 +4436,67 @@
       }
     },
     {
-      "id": "spitaeler-schaffhausen-fce4eeded52d",
-      "slug": "professionale-salute-efz-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+      "id": "spitaeler-schaffhausen-4a55ce0456db",
+      "slug": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "professionale-salute-efz-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
-        "en": "professional-health-efz-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
-        "de": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "psychiatrie-a-long-terme-de-l-efz-spitaler-schaffhausen-schaffhausen"
+        "de": "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen",
+        "it": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen",
+        "en": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen",
+        "fr": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
       "companyDomain": "spitaeler-sh.ch",
-      "title": "Fachfrau / Fachmann Gesundheit EFZ Langzeitpsychiatrie",
+      "title": "Bildungsverantwortung NDS Intensivpflege",
       "titleByLocale": {
-        "it": "Professionale / Salute EFZ psichiatria a lungo termine",
-        "en": "Professional / Health EFZ long-term psychiatry",
-        "de": "Fachfrau / Fachmann Gesundheit EFZ Langzeitpsychiatrie",
-        "fr": "Psychiatrie à long terme de l'EFZ"
+        "de": "Bildungsverantwortung NDS Intensivpflege",
+        "it": "Bildungsverantwortung NDS Intensivpflege",
+        "en": "Bildungsverantwortung NDS Intensivpflege",
+        "fr": "Bildungsverantwortung NDS Intensivpflege"
       },
-      "description": "Auf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\n## Das erwartet Dich\n• Strukturierte Einführung ins Aufgabengebiet\n• Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n• Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n• Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n• Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n• Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n• Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n• Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80% Psychiatriezentrum Breitenau\nFür die Langzeitpsychiatrie im Psychiatriezentrum Breitenau suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau Gesundheit / Fachmann Gesundheit EFZ 80%.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+      "description": "## Das erwartet Dich\n• Du steuerst und koordinierst das gesamte Nachdiplomstudium Intensivpflege NDS HF von der Einführung bis zum erfolgreichen Abschluss\n• Du entwickelst das betriebliche Ausbildungskonzept kontinuierlich weiter und passt es an modernste Standards und an den Rahmenlehrplan an\n• Du bist ein aktives Mitglied im Shared Leadership Team und arbeitest eng mit den Berufsbildner/innen sowie dem Bildungsanbieter NDS zusammen\n• Du begleitest die Studierenden und Berufsbildner/innen im Lernprozess und sicherst den Theorie-Praxis-Transfer\n• Du planst, organisierst und führst die theoretischen Studientage für die Studierenden und das Team eigenständig durch und agierst als zentrale Schnittstelle für alle Bildungsfragen\n\n## Damit bringst Du uns weiter\n• Du verfügst über ein abgeschlossenes Diplom als Dipl. Expertin beziehungsweise Experte Intensivpflege NDS HF und bringst mehrjährige, fundierte Berufserfahrung im Bereich der Intensivpflege sowie ein breites klinisches Fachwissen mit\n• Du besitzt eine pädagogische Weiterbildung (SVEB -Zertifikat oder CAS) im Bereich der Erwachsenenbildung beziehungsweise bist bereit, diese zu absolvieren\n• Du zeichnest dich durch eine hohe Kommunikationskompetenz, Organisationsgeschick, Belastbarkeit in ausserordentlichen Situationen und Freude an der Förderung von Kolleginnen und Kollegen aus\n• Du arbeitest mindestens 20% direkt in der Pflegepraxis mit, um den Praxisbezug zu gewährleisten (kein Nachtdienst, max. 1 Wochenende)\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Kantonsspital Schaffhausen\nNotfallsituationen und komplexe Patientensituationen lassen Dein Herz höher schlagen? Für unsere interdisziplinäre Intensivstation, wo wir Teamgeist, Offenheit und eine flache Hierarchie grossschreiben, suchen wir eine/n engagierte/n Bildungsverantwortliche/r mit einem Pensum von 80-100%.\nAuch Bewerbungen für ein Job-Sharing sind bei uns herzlich willkommen.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
       "descriptionByLocale": {
-        "it": "Nelle nostre 4 stazioni di psichiatria a lungo termine con 18 letti ciascuno, donne cronicamente malati e uomini con alterazioni cognitive, limitazioni di vita indipendente e vita quotidiana o problemi comportamentali pronunciati sono curati. Inoltre, le stazioni offrono programmi di riabilitazione a bassa soglia per i pazienti che poi ritornano alle loro circostanze ancestrali o si trasferiscono in un'altra istituzione.\n\nCompiti:\n• Introduzione strutturata all'area attività\n\n• Interessante e variegato lavoro in un ambiente apprezzativo in cui una collaborazione e l'umorismo non vengono trascurati\n\n• Cura dei pazienti con malattie mentali croniche e limitazioni nella vita indipendente e nella vita quotidiana\n\n• Sostenere gli assistenti infermieri nell'attuazione del processo di cura, garantendo la massima autonomia possibile dei pazienti\n\n• Opportunità di formazione interessanti\n\n• Posto di lavoro ben accessibile con i mezzi pubblici\n\nRequisiti\n• Formazione completa come specialista Health EFZ\n\n• Esperienza professionale in psichiatria e/o cura a lungo termine e interesse per la cura olistica delle persone con malattie mentali\n\n• Comunicazione aperta e rispettosa con tutti gli stakeholder\n\n• Spirito di squadra, affidabilità e personalità aperta che contribuisce attivamente al team\n\n• Flessibilità, responsabilità e resilienza\n\n• Impegno alla cooperazione di gruppo e interdisciplinare\n\nOffriamo:\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche funziona bene.\n\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
-        "en": "On our 4 stations of long-term psychiatry with 18 beds each, chronically ill women and men with cognitive impairments, limitations of independent living and everyday life or pronounced behavioral problems are cared for. Furthermore, the stations offer low-threshold rehabilitation programs for patients who then return to their ancestral circumstances or move to another institution.\n\nTasks:\n• Structured introduction to the task area\n\n• Interesting and varied work in an appreciative environment in which a collaborative togetherness and humor are not neglected\n\n• Care of patients with chronic mental illnesses and limitations in independent living and everyday life\n\n• Supporting nursing caregivers in the implementation of the care process while ensuring the highest possible autonomy of patients\n\n• Attractive training opportunities\n\n• Well accessible place of work by public transport\n\nRequirements\n• Completed training as a specialist Health EFZ\n\n• Professional experience in psychiatry and/or long-term care as well as interest in the holistic care of people with mental illnesses\n\n• Open, respectful communication with all stakeholders\n\n• Team spirit, reliability and an open personality that actively contributes to the team\n\n• Flexibility, responsibility and resilience\n\n• Commitment to team-oriented and interdisciplinary cooperation\n\nWe offer:\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.",
-        "de": "Auf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\n## Das erwartet Dich\n• Strukturierte Einführung ins Aufgabengebiet\n• Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n• Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n• Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n• Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n• Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n• Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n• Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80% Psychiatriezentrum Breitenau\nFür die Langzeitpsychiatrie im Psychiatriezentrum Breitenau suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau Gesundheit / Fachmann Gesundheit EFZ 80%.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
-        "fr": "Sur nos 4 stations de psychiatrie à long terme avec 18 lits chacun, les femmes et les hommes souffrant de troubles cognitifs chroniques, les limitations de la vie indépendante et de la vie quotidienne ou des problèmes comportementaux prononcés sont pris en charge. De plus, les stations offrent des programmes de réadaptation à faible seuil pour les patients qui retournent ensuite dans leur situation ancestrale ou s'installent dans un autre établissement.\n\nTâches :\n• Introduction structurée au domaine d'activité\n\n• Travail intéressant et varié dans un environnement appréciant où la collaboration et l'humour ne sont pas négligés\n\n• Soins aux patients atteints de maladies mentales chroniques et limitations dans la vie autonome et quotidienne\n\n• Aider les soignants à mettre en œuvre le processus de soins tout en assurant la plus grande autonomie possible aux patients\n\n• Possibilités de formation attrayantes\n\n• Lieu de travail bien accessible par les transports publics\n\nExigences\n• Formation complète en tant que spécialiste de la santé EFZ\n\n• Expérience professionnelle en psychiatrie et/ou soins de longue durée ainsi que l'intérêt pour les soins holistiques des personnes atteintes de maladies mentales\n\n• Communication ouverte et respectueuse avec toutes les parties prenantes\n\n• Esprit d'équipe, fiabilité et personnalité ouverte qui contribue activement à l'équipe\n\n• Flexibilité, responsabilité et résilience\n\n• Engagement en faveur de la coopération en équipe et interdisciplinaire\n\nNous offrons:\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton."
+        "de": "## Das erwartet Dich\n• Du steuerst und koordinierst das gesamte Nachdiplomstudium Intensivpflege NDS HF von der Einführung bis zum erfolgreichen Abschluss\n• Du entwickelst das betriebliche Ausbildungskonzept kontinuierlich weiter und passt es an modernste Standards und an den Rahmenlehrplan an\n• Du bist ein aktives Mitglied im Shared Leadership Team und arbeitest eng mit den Berufsbildner/innen sowie dem Bildungsanbieter NDS zusammen\n• Du begleitest die Studierenden und Berufsbildner/innen im Lernprozess und sicherst den Theorie-Praxis-Transfer\n• Du planst, organisierst und führst die theoretischen Studientage für die Studierenden und das Team eigenständig durch und agierst als zentrale Schnittstelle für alle Bildungsfragen\n\n## Damit bringst Du uns weiter\n• Du verfügst über ein abgeschlossenes Diplom als Dipl. Expertin beziehungsweise Experte Intensivpflege NDS HF und bringst mehrjährige, fundierte Berufserfahrung im Bereich der Intensivpflege sowie ein breites klinisches Fachwissen mit\n• Du besitzt eine pädagogische Weiterbildung (SVEB -Zertifikat oder CAS) im Bereich der Erwachsenenbildung beziehungsweise bist bereit, diese zu absolvieren\n• Du zeichnest dich durch eine hohe Kommunikationskompetenz, Organisationsgeschick, Belastbarkeit in ausserordentlichen Situationen und Freude an der Förderung von Kolleginnen und Kollegen aus\n• Du arbeitest mindestens 20% direkt in der Pflegepraxis mit, um den Praxisbezug zu gewährleisten (kein Nachtdienst, max. 1 Wochenende)\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Kantonsspital Schaffhausen\nNotfallsituationen und komplexe Patientensituationen lassen Dein Herz höher schlagen? Für unsere interdisziplinäre Intensivstation, wo wir Teamgeist, Offenheit und eine flache Hierarchie grossschreiben, suchen wir eine/n engagierte/n Bildungsverantwortliche/r mit einem Pensum von 80-100%.\nAuch Bewerbungen für ein Job-Sharing sind bei uns herzlich willkommen.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "it": "## Das erwartet Dich\n• Du steuerst und koordinierst das gesamte Nachdiplomstudium Intensivpflege NDS HF von der Einführung bis zum erfolgreichen Abschluss\n• Du entwickelst das betriebliche Ausbildungskonzept kontinuierlich weiter und passt es an modernste Standards und an den Rahmenlehrplan an\n• Du bist ein aktives Mitglied im Shared Leadership Team und arbeitest eng mit den Berufsbildner/innen sowie dem Bildungsanbieter NDS zusammen\n• Du begleitest die Studierenden und Berufsbildner/innen im Lernprozess und sicherst den Theorie-Praxis-Transfer\n• Du planst, organisierst und führst die theoretischen Studientage für die Studierenden und das Team eigenständig durch und agierst als zentrale Schnittstelle für alle Bildungsfragen\n\n## Damit bringst Du uns weiter\n• Du verfügst über ein abgeschlossenes Diplom als Dipl. Expertin beziehungsweise Experte Intensivpflege NDS HF und bringst mehrjährige, fundierte Berufserfahrung im Bereich der Intensivpflege sowie ein breites klinisches Fachwissen mit\n• Du besitzt eine pädagogische Weiterbildung (SVEB -Zertifikat oder CAS) im Bereich der Erwachsenenbildung beziehungsweise bist bereit, diese zu absolvieren\n• Du zeichnest dich durch eine hohe Kommunikationskompetenz, Organisationsgeschick, Belastbarkeit in ausserordentlichen Situationen und Freude an der Förderung von Kolleginnen und Kollegen aus\n• Du arbeitest mindestens 20% direkt in der Pflegepraxis mit, um den Praxisbezug zu gewährleisten (kein Nachtdienst, max. 1 Wochenende)\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Kantonsspital Schaffhausen\nNotfallsituationen und komplexe Patientensituationen lassen Dein Herz höher schlagen? Für unsere interdisziplinäre Intensivstation, wo wir Teamgeist, Offenheit und eine flache Hierarchie grossschreiben, suchen wir eine/n engagierte/n Bildungsverantwortliche/r mit einem Pensum von 80-100%.\nAuch Bewerbungen für ein Job-Sharing sind bei uns herzlich willkommen.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "en": "## Das erwartet Dich\n• Du steuerst und koordinierst das gesamte Nachdiplomstudium Intensivpflege NDS HF von der Einführung bis zum erfolgreichen Abschluss\n• Du entwickelst das betriebliche Ausbildungskonzept kontinuierlich weiter und passt es an modernste Standards und an den Rahmenlehrplan an\n• Du bist ein aktives Mitglied im Shared Leadership Team und arbeitest eng mit den Berufsbildner/innen sowie dem Bildungsanbieter NDS zusammen\n• Du begleitest die Studierenden und Berufsbildner/innen im Lernprozess und sicherst den Theorie-Praxis-Transfer\n• Du planst, organisierst und führst die theoretischen Studientage für die Studierenden und das Team eigenständig durch und agierst als zentrale Schnittstelle für alle Bildungsfragen\n\n## Damit bringst Du uns weiter\n• Du verfügst über ein abgeschlossenes Diplom als Dipl. Expertin beziehungsweise Experte Intensivpflege NDS HF und bringst mehrjährige, fundierte Berufserfahrung im Bereich der Intensivpflege sowie ein breites klinisches Fachwissen mit\n• Du besitzt eine pädagogische Weiterbildung (SVEB -Zertifikat oder CAS) im Bereich der Erwachsenenbildung beziehungsweise bist bereit, diese zu absolvieren\n• Du zeichnest dich durch eine hohe Kommunikationskompetenz, Organisationsgeschick, Belastbarkeit in ausserordentlichen Situationen und Freude an der Förderung von Kolleginnen und Kollegen aus\n• Du arbeitest mindestens 20% direkt in der Pflegepraxis mit, um den Praxisbezug zu gewährleisten (kein Nachtdienst, max. 1 Wochenende)\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Kantonsspital Schaffhausen\nNotfallsituationen und komplexe Patientensituationen lassen Dein Herz höher schlagen? Für unsere interdisziplinäre Intensivstation, wo wir Teamgeist, Offenheit und eine flache Hierarchie grossschreiben, suchen wir eine/n engagierte/n Bildungsverantwortliche/r mit einem Pensum von 80-100%.\nAuch Bewerbungen für ein Job-Sharing sind bei uns herzlich willkommen.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "fr": "## Das erwartet Dich\n• Du steuerst und koordinierst das gesamte Nachdiplomstudium Intensivpflege NDS HF von der Einführung bis zum erfolgreichen Abschluss\n• Du entwickelst das betriebliche Ausbildungskonzept kontinuierlich weiter und passt es an modernste Standards und an den Rahmenlehrplan an\n• Du bist ein aktives Mitglied im Shared Leadership Team und arbeitest eng mit den Berufsbildner/innen sowie dem Bildungsanbieter NDS zusammen\n• Du begleitest die Studierenden und Berufsbildner/innen im Lernprozess und sicherst den Theorie-Praxis-Transfer\n• Du planst, organisierst und führst die theoretischen Studientage für die Studierenden und das Team eigenständig durch und agierst als zentrale Schnittstelle für alle Bildungsfragen\n\n## Damit bringst Du uns weiter\n• Du verfügst über ein abgeschlossenes Diplom als Dipl. Expertin beziehungsweise Experte Intensivpflege NDS HF und bringst mehrjährige, fundierte Berufserfahrung im Bereich der Intensivpflege sowie ein breites klinisches Fachwissen mit\n• Du besitzt eine pädagogische Weiterbildung (SVEB -Zertifikat oder CAS) im Bereich der Erwachsenenbildung beziehungsweise bist bereit, diese zu absolvieren\n• Du zeichnest dich durch eine hohe Kommunikationskompetenz, Organisationsgeschick, Belastbarkeit in ausserordentlichen Situationen und Freude an der Förderung von Kolleginnen und Kollegen aus\n• Du arbeitest mindestens 20% direkt in der Pflegepraxis mit, um den Praxisbezug zu gewährleisten (kein Nachtdienst, max. 1 Wochenende)\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 80–100% Kantonsspital Schaffhausen\nNotfallsituationen und komplexe Patientensituationen lassen Dein Herz höher schlagen? Für unsere interdisziplinäre Intensivstation, wo wir Teamgeist, Offenheit und eine flache Hierarchie grossschreiben, suchen wir eine/n engagierte/n Bildungsverantwortliche/r mit einem Pensum von 80-100%.\nAuch Bewerbungen für ein Job-Sharing sind bei uns herzlich willkommen.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:"
       },
       "needsRetranslation": true,
       "location": "Schaffhausen",
       "canton": "SH",
-      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie/90cf3973-11a7-4d76-bc28-45283ccb4752",
+      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/bildungsverantwortung-nds-intensivpflege/0dd33d02-8d82-42e8-a87d-7c9abc5ba553",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:38:04.777Z",
+      "crawledAt": "2026-10-16T09:33:58.513Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8200",
-      "streetAddress": "Nordstrasse 111",
+      "streetAddress": "Geissbergstrasse 81",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-16",
-      "postedDate": "2026-09-16",
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
       "postingDateSource": "reported",
-      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie/90cf3973-11a7-4d76-bc28-45283ccb4752",
+      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/bildungsverantwortung-nds-intensivpflege/0dd33d02-8d82-42e8-a87d-7c9abc5ba553",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
-        "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2",
-        "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "professionale-salute-efz-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen-999c77ef99"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
-          "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2",
-          "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-          "professionale-salute-efz-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen-999c77ef99"
+          "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "firstSeenAt": "2026-09-17T07:28:05.117Z",
+      "previousSlugs": [
+        "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen"
+      ],
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -4586,41 +4510,41 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-10-16T09:33:58.513Z"
     },
     {
-      "id": "spitaeler-schaffhausen-bcdeae304240",
-      "slug": "dipl-cura-professionale-hf-fh-esperienza-diversita-nella-piscina-flex-spitaler-schaffhausen-schaffhausen",
+      "id": "spitaeler-schaffhausen-4f5c58894ed8",
+      "slug": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-cura-professionale-hf-fh-esperienza-diversita-nella-piscina-flex-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-care-professional-hf-fh-experience-diversity-in-the-flex-pool-spitaler-schaffhausen-schaffhausen",
-        "de": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
-        "fr": "dipl-soins-professionnels-hf-fh-experience-de-la-diversite-dans-le-pool-flexible-spitaler-schaffhausen-schaffhausen"
+        "de": "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen",
+        "it": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen",
+        "en": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen",
+        "fr": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
       "companyDomain": "spitaeler-sh.ch",
-      "title": "Dipl. Pflegefachperson HF / FH – Vielfalt erleben im Flex-Pool",
+      "title": "Pflegeassistent/-in Intensivstation",
       "titleByLocale": {
-        "it": "Dipl. Cura professionale HF / FH – esperienza diversità nella piscina flex",
-        "en": "Dipl. Care professional HF / FH – experience diversity in the flex pool",
-        "de": "Dipl. Pflegefachperson HF / FH – Vielfalt erleben im Flex-Pool",
-        "fr": "Dipl. Soins professionnels HF / FH – expérience de la diversité dans le pool flexible"
+        "de": "Pflegeassistent/-in Intensivstation",
+        "it": "Pflegeassistent/-in Intensivstation",
+        "en": "Pflegeassistent/-in Intensivstation",
+        "fr": "Pflegeassistent/-in Intensivstation"
       },
-      "description": "## Das erwartet Dich\n• Du wirst auf verschiedenen interdisziplinären Stationen eingesetzt, lernst das gesamte Spital kennen und erweiterst stetig Dein Fachwissen\n• Vom Eintritt bis Austritt nimmst Du die Fäden in die Hand. Du planst, steuerst und evaluierst den gesamten Pflegeprozess absolut eigenverantwortlich\n• Täglich neue Teams und Patientengruppen spornen Dich an. Du fügst Dich schnell und unkompliziert in neue Strukturen ein\n• Du unterstützt uns im regulären Schichtbetrieb, hauptsächlich im Früh- und Spätdienst, auch Wochenend- und Feiertagseinsätze gehören für Dich ganz normal dazu\n• Du kannst Deine Wunschdienste oder auch fixe Tage eingeben, wir tun unser Bestes, Deine Wünsche in der Planung zu berücksichtigen\n\n## Damit bringst Du uns weiter\n• Du hast eine abgeschlossene Ausbildung als Dipl. Pflegefachperson HF / FH oder ein ausländisches Diplom mit SRK-Anerkennung\n• Ein ausgeprägtes Verantwortungsbewusstsein ist für Dich selbstverständlich\n• Du blühst in wechselnden Situationen auf, behältst auch in stressigen Momenten die Ruhe und bist sehr belastbar\n• Du liebst die tägliche Herausforderung und freust Dich darauf, jeden Tag neuen Menschen zu begegnen\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 60–80% Kantonsspital Schaffhausen\nPer sofort oder nach Vereinbarung suchen wir eine motivierte Persönlichkeit, die die Abwechslung liebt und unseren Flex-Pool bereichert. Suchst Du einen Job in der Pflege, bei dem Du Deinen Dienstplan aktiv mitgestalten kannst, ohne Dich festzufahren? Dann lies unbedingt weiter!\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+      "description": "Unsere 8 Betten-Intensivstation mit 3 Telemetrie-Plätzen behandelt Patientinnen und Patienten mit akuten kardiovaskulären Störungen, lebensbedrohlichen bronchopulmonalen Erkrankungen, akutem und chronischem Nierenversagen, Vergiftungen, lebensbedrohlichen Stoffwechselentgleisungen und endogenen Krisen, Bewusstseinsstörungen und Komata sowie Schocks verschiedener Ursachen. Ebenso werden Patientinnen und Patienten mit unfallbedingten Traumen und nach ausgedehnten Operationen postoperativ auf unserer Intensivstation behandelt.\n\n## Das erwartet Dich\n• Du unterstützt das Pflegeteam bei der Betreuung und Pflege unserer Patientinnen und Patienten.\n• Du sorgst dafür, dass Material und Medikamente aufgefüllt und bereitgestellt werden.\n• Du erledigst verschiedene Botengänge, beispielsweise ins Labor, zur Bettenzentrale oder in die Küche.\n• Du übernimmst anfallende Reinigungs- und Aufräumarbeiten und trägst zu einem reibungslosen Ablauf auf der Intensivstation bei.\n• Du übernimmst Einsätze im Früh- und Spätdienst.\n\n## Damit bringst Du uns weiter\n• Du verfügst über eine abgeschlossene Ausbildung als Pflegeassistentin/Pflegeassistent.\n• Du bringst Erfahrung in der Akutpflege mit.\n• Du arbeitest selbstständig, zuverlässig und gerne im Team.\n• Du hast Freude an organisatorischen und unterstützenden Tätigkeiten.\n• Du bist körperlich belastbar und flexibel.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 20–30% Kantonsspital Schaffhausen\nWir suchen per 1. Oktober 2026 eine engagierte Pflegeassistentin oder einen engagierten Pflegeassistenten zur Unterstützung unseres Teams auf der Intensivstation mit einem 20-30% Pensum.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
       "descriptionByLocale": {
-        "it": "Compiti:\n• Sarete impiegati in varie stazioni interdisciplinari, conoscere l'intero ospedale e ampliare costantemente la vostra competenza\n\n• Dall'ingresso all'uscita, prendi le corde in mano. Pianifica, controlla e valuta l'intero processo di cura in modo assolutamente indipendente\n\n• Ogni giorno nuove squadre e gruppi di pazienti ti ispirano. Si adatta rapidamente e facilmente a nuove strutture\n\n• Ci supporta nel regolare funzionamento a turni, principalmente in servizio anticipato e tardivo, anche gli incarichi di fine settimana e vacanza sono normali per voi\n\n• È possibile inserire i vostri servizi desiderati o anche giorni fissi, facciamo del nostro meglio per considerare i vostri desideri nella pianificazione\n\nRequisiti\n• Hai completato l'allenamento come Dipl. Infermiera HF / FH o un diploma straniero con riconoscimento SRK\n\n• Un forte senso di responsabilità è una questione naturalmente per voi\n\n• Tu fiori in situazioni mutevoli, mantieni la calma anche in momenti stressanti e sei molto resistente\n\n• Amate la sfida quotidiana e aspettatevi di incontrare nuove persone ogni giorno\n\nOffriamo:\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche funziona bene.\n\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
-        "en": "Tasks:\n• You will be employed at various interdisciplinary stations, get to know the entire hospital and constantly expand your expertise\n\n• From entry to exit, you take the strings in your hand. You plan, control and evaluate the entire care process absolutely independently\n\n• Every day new teams and patient groups inspire you. You fit quickly and easily into new structures\n\n• You support us in the regular shift operation, mainly in early and late service, also weekend and holiday assignments are normal for you\n\n• You can Enter your desired services or even fixed days, we do our best to consider your wishes in the planning\n\nRequirements\n• You have completed training as a Dipl. Nurse HF / FH or a foreign diploma with SRK recognition\n\n• A strong sense of responsibility is a matter of course for you\n\n• You flourish in changing situations, keep calm even in stressful moments and are very resilient\n\n• You love the daily challenge and look forward to meeting new people every day\n\nWe offer:\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.",
-        "de": "## Das erwartet Dich\n• Du wirst auf verschiedenen interdisziplinären Stationen eingesetzt, lernst das gesamte Spital kennen und erweiterst stetig Dein Fachwissen\n• Vom Eintritt bis Austritt nimmst Du die Fäden in die Hand. Du planst, steuerst und evaluierst den gesamten Pflegeprozess absolut eigenverantwortlich\n• Täglich neue Teams und Patientengruppen spornen Dich an. Du fügst Dich schnell und unkompliziert in neue Strukturen ein\n• Du unterstützt uns im regulären Schichtbetrieb, hauptsächlich im Früh- und Spätdienst, auch Wochenend- und Feiertagseinsätze gehören für Dich ganz normal dazu\n• Du kannst Deine Wunschdienste oder auch fixe Tage eingeben, wir tun unser Bestes, Deine Wünsche in der Planung zu berücksichtigen\n\n## Damit bringst Du uns weiter\n• Du hast eine abgeschlossene Ausbildung als Dipl. Pflegefachperson HF / FH oder ein ausländisches Diplom mit SRK-Anerkennung\n• Ein ausgeprägtes Verantwortungsbewusstsein ist für Dich selbstverständlich\n• Du blühst in wechselnden Situationen auf, behältst auch in stressigen Momenten die Ruhe und bist sehr belastbar\n• Du liebst die tägliche Herausforderung und freust Dich darauf, jeden Tag neuen Menschen zu begegnen\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 60–80% Kantonsspital Schaffhausen\nPer sofort oder nach Vereinbarung suchen wir eine motivierte Persönlichkeit, die die Abwechslung liebt und unseren Flex-Pool bereichert. Suchst Du einen Job in der Pflege, bei dem Du Deinen Dienstplan aktiv mitgestalten kannst, ohne Dich festzufahren? Dann lies unbedingt weiter!\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
-        "fr": "Tâches :\n• Vous serez employé dans diverses stations interdisciplinaires, apprendre à connaître l'ensemble de l'hôpital et constamment développer votre expertise\n\n• De l'entrée à la sortie, vous prenez les cordes dans votre main. Vous planifiez, contrôlez et évaluez tout le processus de soins absolument indépendamment\n\n• Chaque jour, de nouvelles équipes et des groupes de patients vous inspirent. Vous vous installez rapidement et facilement dans de nouvelles structures\n\n• Vous nous soutenez dans l'opération régulière de quart, principalement en début de service et en fin de service, aussi les affectations week-end et vacances sont normales pour vous\n\n• Vous pouvez entrer vos services souhaités ou même des jours fixes, nous faisons de notre mieux pour tenir compte de vos souhaits dans la planification\n\nExigences\n• Vous avez terminé la formation en tant que Dipl. Infirmière HF / FH ou un diplôme étranger avec reconnaissance SRK\n\n• Un fort sens des responsabilités est bien sûr une question pour vous\n\n• Vous prospérez dans des situations changeantes, restez calme même dans des moments stressants et êtes très résistant\n\n• Vous aimez le défi quotidien et attendez avec impatience de rencontrer de nouvelles personnes chaque jour\n\nNous offrons:\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton."
+        "de": "Unsere 8 Betten-Intensivstation mit 3 Telemetrie-Plätzen behandelt Patientinnen und Patienten mit akuten kardiovaskulären Störungen, lebensbedrohlichen bronchopulmonalen Erkrankungen, akutem und chronischem Nierenversagen, Vergiftungen, lebensbedrohlichen Stoffwechselentgleisungen und endogenen Krisen, Bewusstseinsstörungen und Komata sowie Schocks verschiedener Ursachen. Ebenso werden Patientinnen und Patienten mit unfallbedingten Traumen und nach ausgedehnten Operationen postoperativ auf unserer Intensivstation behandelt.\n\n## Das erwartet Dich\n• Du unterstützt das Pflegeteam bei der Betreuung und Pflege unserer Patientinnen und Patienten.\n• Du sorgst dafür, dass Material und Medikamente aufgefüllt und bereitgestellt werden.\n• Du erledigst verschiedene Botengänge, beispielsweise ins Labor, zur Bettenzentrale oder in die Küche.\n• Du übernimmst anfallende Reinigungs- und Aufräumarbeiten und trägst zu einem reibungslosen Ablauf auf der Intensivstation bei.\n• Du übernimmst Einsätze im Früh- und Spätdienst.\n\n## Damit bringst Du uns weiter\n• Du verfügst über eine abgeschlossene Ausbildung als Pflegeassistentin/Pflegeassistent.\n• Du bringst Erfahrung in der Akutpflege mit.\n• Du arbeitest selbstständig, zuverlässig und gerne im Team.\n• Du hast Freude an organisatorischen und unterstützenden Tätigkeiten.\n• Du bist körperlich belastbar und flexibel.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 20–30% Kantonsspital Schaffhausen\nWir suchen per 1. Oktober 2026 eine engagierte Pflegeassistentin oder einen engagierten Pflegeassistenten zur Unterstützung unseres Teams auf der Intensivstation mit einem 20-30% Pensum.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "it": "Unsere 8 Betten-Intensivstation mit 3 Telemetrie-Plätzen behandelt Patientinnen und Patienten mit akuten kardiovaskulären Störungen, lebensbedrohlichen bronchopulmonalen Erkrankungen, akutem und chronischem Nierenversagen, Vergiftungen, lebensbedrohlichen Stoffwechselentgleisungen und endogenen Krisen, Bewusstseinsstörungen und Komata sowie Schocks verschiedener Ursachen. Ebenso werden Patientinnen und Patienten mit unfallbedingten Traumen und nach ausgedehnten Operationen postoperativ auf unserer Intensivstation behandelt.\n\n## Das erwartet Dich\n• Du unterstützt das Pflegeteam bei der Betreuung und Pflege unserer Patientinnen und Patienten.\n• Du sorgst dafür, dass Material und Medikamente aufgefüllt und bereitgestellt werden.\n• Du erledigst verschiedene Botengänge, beispielsweise ins Labor, zur Bettenzentrale oder in die Küche.\n• Du übernimmst anfallende Reinigungs- und Aufräumarbeiten und trägst zu einem reibungslosen Ablauf auf der Intensivstation bei.\n• Du übernimmst Einsätze im Früh- und Spätdienst.\n\n## Damit bringst Du uns weiter\n• Du verfügst über eine abgeschlossene Ausbildung als Pflegeassistentin/Pflegeassistent.\n• Du bringst Erfahrung in der Akutpflege mit.\n• Du arbeitest selbstständig, zuverlässig und gerne im Team.\n• Du hast Freude an organisatorischen und unterstützenden Tätigkeiten.\n• Du bist körperlich belastbar und flexibel.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 20–30% Kantonsspital Schaffhausen\nWir suchen per 1. Oktober 2026 eine engagierte Pflegeassistentin oder einen engagierten Pflegeassistenten zur Unterstützung unseres Teams auf der Intensivstation mit einem 20-30% Pensum.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "en": "Unsere 8 Betten-Intensivstation mit 3 Telemetrie-Plätzen behandelt Patientinnen und Patienten mit akuten kardiovaskulären Störungen, lebensbedrohlichen bronchopulmonalen Erkrankungen, akutem und chronischem Nierenversagen, Vergiftungen, lebensbedrohlichen Stoffwechselentgleisungen und endogenen Krisen, Bewusstseinsstörungen und Komata sowie Schocks verschiedener Ursachen. Ebenso werden Patientinnen und Patienten mit unfallbedingten Traumen und nach ausgedehnten Operationen postoperativ auf unserer Intensivstation behandelt.\n\n## Das erwartet Dich\n• Du unterstützt das Pflegeteam bei der Betreuung und Pflege unserer Patientinnen und Patienten.\n• Du sorgst dafür, dass Material und Medikamente aufgefüllt und bereitgestellt werden.\n• Du erledigst verschiedene Botengänge, beispielsweise ins Labor, zur Bettenzentrale oder in die Küche.\n• Du übernimmst anfallende Reinigungs- und Aufräumarbeiten und trägst zu einem reibungslosen Ablauf auf der Intensivstation bei.\n• Du übernimmst Einsätze im Früh- und Spätdienst.\n\n## Damit bringst Du uns weiter\n• Du verfügst über eine abgeschlossene Ausbildung als Pflegeassistentin/Pflegeassistent.\n• Du bringst Erfahrung in der Akutpflege mit.\n• Du arbeitest selbstständig, zuverlässig und gerne im Team.\n• Du hast Freude an organisatorischen und unterstützenden Tätigkeiten.\n• Du bist körperlich belastbar und flexibel.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 20–30% Kantonsspital Schaffhausen\nWir suchen per 1. Oktober 2026 eine engagierte Pflegeassistentin oder einen engagierten Pflegeassistenten zur Unterstützung unseres Teams auf der Intensivstation mit einem 20-30% Pensum.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "fr": "Unsere 8 Betten-Intensivstation mit 3 Telemetrie-Plätzen behandelt Patientinnen und Patienten mit akuten kardiovaskulären Störungen, lebensbedrohlichen bronchopulmonalen Erkrankungen, akutem und chronischem Nierenversagen, Vergiftungen, lebensbedrohlichen Stoffwechselentgleisungen und endogenen Krisen, Bewusstseinsstörungen und Komata sowie Schocks verschiedener Ursachen. Ebenso werden Patientinnen und Patienten mit unfallbedingten Traumen und nach ausgedehnten Operationen postoperativ auf unserer Intensivstation behandelt.\n\n## Das erwartet Dich\n• Du unterstützt das Pflegeteam bei der Betreuung und Pflege unserer Patientinnen und Patienten.\n• Du sorgst dafür, dass Material und Medikamente aufgefüllt und bereitgestellt werden.\n• Du erledigst verschiedene Botengänge, beispielsweise ins Labor, zur Bettenzentrale oder in die Küche.\n• Du übernimmst anfallende Reinigungs- und Aufräumarbeiten und trägst zu einem reibungslosen Ablauf auf der Intensivstation bei.\n• Du übernimmst Einsätze im Früh- und Spätdienst.\n\n## Damit bringst Du uns weiter\n• Du verfügst über eine abgeschlossene Ausbildung als Pflegeassistentin/Pflegeassistent.\n• Du bringst Erfahrung in der Akutpflege mit.\n• Du arbeitest selbstständig, zuverlässig und gerne im Team.\n• Du hast Freude an organisatorischen und unterstützenden Tätigkeiten.\n• Du bist körperlich belastbar und flexibel.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 20–30% Kantonsspital Schaffhausen\nWir suchen per 1. Oktober 2026 eine engagierte Pflegeassistentin oder einen engagierten Pflegeassistenten zur Unterstützung unseres Teams auf der Intensivstation mit einem 20-30% Pensum.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:"
       },
       "needsRetranslation": true,
       "location": "Schaffhausen",
       "canton": "SH",
-      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool/9e440503-ed0a-414c-9b1a-398f11e0034e",
+      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/pflegeassistent-in-intensivstation/258be2a9-fd6a-4c6d-b06e-71ecb4aeab08",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:38:04.775Z",
+      "crawledAt": "2026-10-16T09:33:58.511Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4634,25 +4558,98 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-16",
-      "postedDate": "2026-09-16",
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
       "postingDateSource": "reported",
-      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool/9e440503-ed0a-414c-9b1a-398f11e0034e",
+      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/pflegeassistent-in-intensivstation/258be2a9-fd6a-4c6d-b06e-71ecb4aeab08",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaler-schaffhausen-schaffhausen",
-        "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
-        "dipl-cura-professionale-hf-fh-esperienza-diversita-nella-piscina-flex-spitaler-schaffhausen-schaffhausen-a2a7bcd1bd"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaler-schaffhausen-schaffhausen",
-          "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
-          "dipl-cura-professionale-hf-fh-esperienza-diversita-nella-piscina-flex-spitaler-schaffhausen-schaffhausen-a2a7bcd1bd"
+          "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "firstSeenAt": "2026-09-17T07:28:05.118Z",
+      "previousSlugs": [
+        "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen"
+      ],
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spitaeler-schaffhausen-3090f2b9581f",
+      "slug": "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen-865e489310",
+      "slugByLocale": {
+        "de": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+        "it": "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen-865e489310",
+        "en": "health-specialist-efz-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen",
+        "fr": "specialiste-de-la-sante-efz-education-des-adultes-selon-l-article-32-bbv-spitaler-schaffhausen-schaffhausen"
+      },
+      "company": "Spitäler Schaffhausen",
+      "companyKey": "spitaeler-schaffhausen",
+      "companyDomain": "spitaeler-sh.ch",
+      "title": "Fachmann/-frau Gesundheit EFZ (Erwachsenenbildung nach Art. 32 BBV)",
+      "titleByLocale": {
+        "it": "Specialista della salute EFZ (educazione degli adulti ai sensi dell'art. 32 BBV)",
+        "en": "Health specialist EFZ (adult education according to Art. 32 BBV)",
+        "de": "Fachmann/-frau Gesundheit EFZ (Erwachsenenbildung nach Art. 32 BBV)",
+        "fr": "Spécialiste de la santé EFZ (éducation des adultes selon l ' article 32 BBV)"
+      },
+      "description": "In dieser zweijährigen Ausbildung arbeitest Du auf verschiedenen Stationen des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.\nSämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.\nVoraussetzungen für den Ausbildungsbeginn:\n• Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung\n• Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen\n\n## Das erwartet Dich\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n• Interessante pflegerische und medizinaltechnische Aufgaben\n• Hauswirtschaftliche und administrative Tätigkeiten\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung\n\n## Damit bringst Du uns weiter\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit – davon mindestens 2 Jahre in der Langzeitpflege oder 1,5 Jahre im Akutbereich. Falls Du 2 Jahre in der Langzeitpflege gearbeitet hast, beträgt die Anstellung im Akutbereich des Kantonsspitals Schaffhausen mindestens 12 Monate. Wenn Du 1, 5 Jahre im Akutbereich gearbeitet hast, beträgt die Anstellung im Kantonsspital Schaffhausen mindestens 6 Monate\n• Älter als 25 Jahre\n• Arbeitspensum von mindestens 80% und maximal 100%, ergänzt durch einen Schultag pro Woche (20%)\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2)\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n60–100% Kantonsspital Schaffhausen\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+      "descriptionByLocale": {
+        "it": "In questa formazione di due anni, lavorerai in varie stazioni dell'Ospedale cantonale di Sciaffusa per imparare i compiti di uno specialista sanitario. Sarete accompagnati e sostenuti dai vostri assistenti ogni giorno. Inoltre, è possibile concentrarsi sulle attività individuali durante i giorni di apprendimento regolari con l'istruzione e gli specialisti. Dopo il tuo apprendistato di successo, sei altamente addestrato e può fare i compiti di un professionista sanitario indipendentemente.\nTutte le tasse e le spese sono prese da noi come società di formazione.\nPrerequisiti per la formazione di base:\n• Lavoro da 6 a 12 mesi presso l'Ospedale cantonale di Sciaffusa, a seconda dell'esperienza professionale\n• Questo lavoro serve come base per un test di attitudine da parte nostra al fine di decidere se si desidera per l'educazione degli adulti secondo l'art. 32 BBV raccomanda o permette\n\n## Questo è ciò che vi aspetta\n• Cura professionale e cura delle persone ammalate e anziane\n• Interessanti compiti di cura e di medicina\n• Attività interne e amministrative\n• Responsabilità per la pulizia, la disinfezione e l'operabilità degli strumenti e degli apparecchi nonché degli appalti materiali\n\n## Questo ci porterà oltre.\n• Almeno 3 anni di esperienza professionale a tempo pieno – compresi almeno 2 anni di assistenza a lungo termine o 1,5 anni di cura acuta. Se avete lavorato a lungo termine per 2 anni, l'occupazione nella zona di cura acuta dell'Ospedale cantonale di Sciaffusa è di almeno 12 mesi. Se avete lavorato nel campo acuto per 1,5 anni, l'occupazione nell'ospedale cantonale Schaffhausen è di almeno 6 mesi\n• Più vecchio di 25 anni\n• Carico di lavoro di almeno l'80% e massimo 100%, completato da una giornata scolastica a settimana (20%)\n• Buona conoscenza del tedesco (almeno B2)\nPrecauzione\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche bene.\n60–100% Ospedale cantonale Schaffhausen\nQuesto è ciò che vi aspetta\nQuesto ci porterà oltre.\nVantaggi\nAmicizia familiare\n\n## Bilancia della vita lavorativa\nLa tua vita è sfaccettata e lo capiamo. Se part-time, la condivisione di lavoro (anche in posizioni di gestione), il congedo di maternità prolungato, il congedo non retribuito o ferie aggiuntive al posto di 13. Scommessa mensile: progettiamo soluzioni flessibili con voi.\n\n## Precauzione\nPensiamo a te. Con una quota del datore di lavoro del 60% dei contributi del fondo pensione, forniamo già per il vostro futuro in modo che siete ben protetti in pensione e la vostra qualità di vita è mantenuta.\n\n## Alloggio\nSei nuovo a Schaffhausen o hai bisogno di una casa temporanea? Nessun problema. Vi forniamo camere arredate, semplici, vicino al posto di lavoro e perfetto per il vostro inizio.\n\n## Parcheggio per i dipendenti e controlli REKA\nPotete raggiungerci bene in autobus, treno o auto. Nelle immediate vicinanze dell'ospedale, numerosi parcheggi per i dipendenti sono disponibili in condizioni interessanti. Trasporto pubblico invece delle auto? Pensiamo grande e ti premiamo con i controlli Reka con fino al 20% di sconto.\n\n## Formazione\nVuoi saperne di più, essere in grado di fare di più, spostare di più? Vi offriamo una vasta gamma di opportunità di formazione interna per il vostro prossimo passo, la vostra sete di conoscenza e il vostro sviluppo personale.\n\n## Ospedali Schaffhausen come datore di lavoro\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.\nPagina della Carriera\nApplicare ora:",
+        "en": "During this two-year training, you will work at various stations of the Cantonal Hospital Schaffhausen in order to learn the tasks of a health specialist. You will be accompanied and supported by your day caregivers every day. In addition, you can focus on individual activities during regular learning days with education and specialists. After your successful apprenticeship, you are highly trained and can do the tasks of a health professional independently. <br/><br/>All fees and expenses are covered by us as a training company. <br/><br/><b>Requirements for the start of training:</b><ul><li>A job of 6 to 12 months in the Cantonal Hospital Schaffhausen, depending on professional experience</li><li>This employment serves as the basis for an aptitude test by us to decide whether we want you for adult education according to art. 32 BBV recommend or allow</li></ul>\n\nTasks:\n• Professional care and care of sick and elderly people\n\n• Interesting nursing and medical tasks\n\n• Domestic and administrative activities\n\n• Responsibility for cleaning, disinfecting and operability of instruments and apparatus as well as material procurement\n\nRequirements\n• At least 3 years of full-time professional experience – including at least 2 years in long-term care or 1.5 years in acute care.\nIf you have worked in long-term care for 2 years, the employment in the acute care area of the Cantonal Hospital Schaffhausen is at least 12 months.\nIf you have worked in the acute field for 1.5 years, the employment in the Cantonal Hospital Schaffhausen is at least 6 months\n\n• Older than 25 years\n\n• Workload of at least 80% and maximum 100%, supplemented by one school day per week (20%)\n\n• Good knowledge of German (at least B2)\n\nWe offer:\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.",
+        "de": "In dieser zweijährigen Ausbildung arbeitest Du auf verschiedenen Stationen des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.\nSämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.\nVoraussetzungen für den Ausbildungsbeginn:\n• Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung\n• Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen\n\n## Das erwartet Dich\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n• Interessante pflegerische und medizinaltechnische Aufgaben\n• Hauswirtschaftliche und administrative Tätigkeiten\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung\n\n## Damit bringst Du uns weiter\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit – davon mindestens 2 Jahre in der Langzeitpflege oder 1,5 Jahre im Akutbereich. Falls Du 2 Jahre in der Langzeitpflege gearbeitet hast, beträgt die Anstellung im Akutbereich des Kantonsspitals Schaffhausen mindestens 12 Monate. Wenn Du 1, 5 Jahre im Akutbereich gearbeitet hast, beträgt die Anstellung im Kantonsspital Schaffhausen mindestens 6 Monate\n• Älter als 25 Jahre\n• Arbeitspensum von mindestens 80% und maximal 100%, ergänzt durch einen Schultag pro Woche (20%)\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2)\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n60–100% Kantonsspital Schaffhausen\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "fr": "Au cours de cette formation de deux ans, vous travaillerez dans différentes stations de l'hôpital cantonal de Schaffhausen afin d'apprendre les tâches d'un spécialiste de la santé. Vous serez accompagné et soutenu par vos soignants quotidiens chaque jour. En outre, vous pouvez vous concentrer sur des activités individuelles pendant les journées d'apprentissage régulières avec l'éducation et les spécialistes. Après votre apprentissage réussi, vous êtes hautement formé et pouvez accomplir les tâches d'un professionnel de la santé indépendamment. <br/><br/> Tous les frais et dépenses sont pris en charge par nous en tant qu'entreprise de formation. <br/><br/><b> Exigences relatives au début de la formation :</b><ul><li>Un emploi de 6 à 12 mois à l'hôpital cantonal de Schaffhausen, selon l'expérience professionnelle</li><li> Cet emploi sert de base à un test d'aptitude par nous pour décider si nous voulons que vous pour l'éducation des adultes selon l'art. 32 BBV recommander ou autoriser </li></ul>\n\nTâches :\n• Soins professionnels aux malades et aux personnes âgées\n\n• Intéressantes tâches infirmières et médicales\n\n• Activités domestiques et administratives\n\n• Responsabilité en matière de nettoyage, de désinfection et de fonctionnement des instruments et appareils ainsi que d'acquisition de matériel\n\nExigences\n• Au moins 3 ans d'expérience professionnelle à temps plein – y compris au moins 2 ans en soins de longue durée ou 1,5 ans en soins actifs.\nSi vous avez travaillé en soins de longue durée pendant 2 ans, l'emploi dans la zone de soins actifs de l'hôpital cantonal de Schaffhausen est d'au moins 12 mois.\nSi vous avez travaillé dans le domaine aigu pendant 1,5 ans, l'emploi à l'hôpital cantonal de Schaffhausen est d'au moins 6 mois\n\n• Plus de 25 ans\n\n• Charge de travail d'au moins 80 % et 100 % maximum, complétée par une journée scolaire par semaine (20 %)\n\n• Bonne connaissance de l'allemand (au moins B2)\n\nNous offrons:\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton."
+      },
+      "needsRetranslation": true,
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv/4067a415-5af9-4a2f-8fa2-adce1490f151",
+      "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-16T09:33:58.508Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8200",
+      "streetAddress": "Geissbergstrasse 81",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv/4067a415-5af9-4a2f-8fa2-adce1490f151",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+          "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+        "specialista-della-salute-efz-educazione-degli-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen"
+      ],
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -4666,7 +4663,82 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-09-17T07:28:05.106Z"
+    },
+    {
+      "id": "spitaeler-schaffhausen-b075c78d191a",
+      "slug": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen",
+      "slugByLocale": {
+        "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
+        "it": "operatore-trice-sociosanitario-a-afc-spitaler-schaffhausen-schaffhausen",
+        "en": "healthcare-professional-efz-spitaler-schaffhausen-schaffhausen",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-spitaler-schaffhausen-schaffhausen"
+      },
+      "company": "Spitäler Schaffhausen",
+      "companyKey": "spitaeler-schaffhausen",
+      "companyDomain": "spitaeler-sh.ch",
+      "title": "Fachmann/-frau Gesundheit EFZ",
+      "titleByLocale": {
+        "it": "Operatore/trice sociosanitario/a AFC",
+        "en": "Healthcare Professional EFZ",
+        "de": "Fachmann/-frau Gesundheit EFZ",
+        "fr": "Assistant/e en soins et santé communautaire CFC"
+      },
+      "description": "## Das erwartet Dich\n• Du entwickelst die Pflegequalität auf unserer Privatstation mit hohem Service-Anspruch aktiv weiter\n• Professionelle Pflege und Betreuung unserer Patienten in enger Zusammenarbeit mit dem diplomierten Personal\n• Du übernimmst administrative und logistische Aufgaben, die einen reibungslosen Stationsalltag garantieren\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n• Offene und respektvolle Kommunikation mit allen Anspruchsgruppen\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 50% Kantonsspital Schaffhausen\nFür unsere interdisziplinäre Privatstation mit 21 Betten suchen wir per sofort oder nach Vereinbarung eine Fachperson Gesundheit EFZ.\nWenn Du Freude an einer ganzheitlichen Betreuung hast und unseren Patientinnen und Patienten mit viel Empathie begegnest, freuen wir uns auf Dich.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+      "descriptionByLocale": {
+        "it": "## Questo è ciò che vi aspetta\n• Si svilupperà attivamente la qualità della cura sulla nostra stazione privata con elevate esigenze di servizio\n• Assistenza professionale e cura dei nostri pazienti in stretta collaborazione con il personale qualificato\n• Si assumono compiti amministrativi e logistici che garantiscono una regolare routine di stazione\n\n## Questo ci porterà oltre.\n• Formazione completa e esperienza professionale come una salute professionale EFZ\n• Comunicazione aperta e rispettosa con tutti gli stakeholder\n• Flessibilità, responsabilità e resilienza\n• Impegno alla cooperazione di gruppo e interdisciplinare\nPrecauzione\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche bene.\n\n## 50% Ospedale cantonale Sciaffusa\nPer la nostra stazione privata interdisciplinare con 21 posti letto, stiamo cercando un professionista sanitario EFZ immediatamente o di accordo.\nSe vi piace una cura olistica e incontrare i nostri pazienti con un sacco di empatia, non vediamo l'ora di voi.\nQuesto è ciò che vi aspetta\nQuesto ci porterà oltre.\nVantaggi\nAmicizia familiare\n\n## Bilancia della vita lavorativa\nLa tua vita è sfaccettata e lo capiamo. Se part-time, la condivisione di lavoro (anche in posizioni di gestione), il congedo di maternità prolungato, il congedo non retribuito o ferie aggiuntive al posto di 13. Scommessa mensile: progettiamo soluzioni flessibili con voi.\n\n## Precauzione\nPensiamo a te. Con una quota del datore di lavoro del 60% dei contributi del fondo pensione, forniamo già per il vostro futuro in modo che siete ben protetti in pensione e la vostra qualità di vita è mantenuta.\n\n## Alloggio\nSei nuovo a Schaffhausen o hai bisogno di una casa temporanea? Nessun problema. Vi forniamo camere arredate, semplici, vicino al posto di lavoro e perfetto per il vostro inizio.\n\n## Parcheggio per i dipendenti e controlli REKA\nPotete raggiungerci bene in autobus, treno o auto. Nelle immediate vicinanze dell'ospedale, numerosi parcheggi per i dipendenti sono disponibili in condizioni interessanti. Trasporto pubblico invece delle auto? Pensiamo grande e ti premiamo con i controlli Reka con fino al 20% di sconto.\n\n## Formazione\nVuoi saperne di più, essere in grado di fare di più, spostare di più? Vi offriamo una vasta gamma di opportunità di formazione interna per il vostro prossimo passo, la vostra sete di conoscenza e il vostro sviluppo personale.\n\n## Ospedali Schaffhausen come datore di lavoro\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.\nPagina della Carriera\nApplicare ora:",
+        "en": "## This is what awaits you\n• You will actively develop the care quality on our private station with high service demands\n• Professional care and care of our patients in close cooperation with the qualified staff\n• You take on administrative and logistical tasks that guarantee a smooth station routine\n\n## This will take us further.\n• Completed education and professional experience as a professional health EFZ\n• Open and respectful communication with all stakeholders\n• Flexibility, responsibility and resilience\n• Commitment to team-oriented and interdisciplinary cooperation\nPrecautionary benefit\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\n## 50% Cantonal Hospital Schaffhausen\nFor our interdisciplinary private station with 21 beds, we are looking for a health professional EFZ immediately or by agreement.\nIf you enjoy a holistic care and meet our patients with a lot of empathy, we look forward to you.\nThis is what awaits you\nThis will take us further.\nBenefits\nFamily friendliness\n\n## Work-life balance\nYour life is multifaceted and we understand that. Whether part-time, job sharing (also in management positions), extended maternity leave, unpaid leave or additional holidays instead of 13. Monthly wage: We design flexible solutions with you.\n\n## Precautionary benefit\nWe think ahead with you. With an employer share of 60% of the pension fund contributions, we already provide for your future so that you are well protected in retirement and your quality of life is maintained.\n\n## Accommodation\nAre you new to Schaffhausen or need a temporary home? No problem. We provide you with furnished rooms, uncomplicated, close to the workplace and perfect for your start.\n\n## Employee parking and REKA checks\nYou can reach us well by bus, train or car. In the immediate vicinity of the hospital, numerous employee parking spaces are available at attractive conditions. Public transport instead of cars? We think great and reward you with Reka checks with up to 20% discount.\n\n## Training\nYou want to know more, be able to do more, move more? We offer you a wide range of internal training opportunities for your next step, your thirst for knowledge and your personal development.\n\n## Hospitals Schaffhausen as an employer\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.\nThe Career Page\nApply now:",
+        "de": "## Das erwartet Dich\n• Du entwickelst die Pflegequalität auf unserer Privatstation mit hohem Service-Anspruch aktiv weiter\n• Professionelle Pflege und Betreuung unserer Patienten in enger Zusammenarbeit mit dem diplomierten Personal\n• Du übernimmst administrative und logistische Aufgaben, die einen reibungslosen Stationsalltag garantieren\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n• Offene und respektvolle Kommunikation mit allen Anspruchsgruppen\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 50% Kantonsspital Schaffhausen\nFür unsere interdisziplinäre Privatstation mit 21 Betten suchen wir per sofort oder nach Vereinbarung eine Fachperson Gesundheit EFZ.\nWenn Du Freude an einer ganzheitlichen Betreuung hast und unseren Patientinnen und Patienten mit viel Empathie begegnest, freuen wir uns auf Dich.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "fr": "## C'est ce qui vous attend\n• Vous développerez activement la qualité des soins sur notre station privée avec des exigences de service élevées\n• Soins professionnels et soins de nos patients en étroite collaboration avec le personnel qualifié\n• Vous assumez des tâches administratives et logistiques qui garantissent une routine de station en douceur\n\n## Cela nous mènera plus loin.\n• Études et expérience professionnelles terminées en tant que professionnel de la santé EFZ\n• Communication ouverte et respectueuse avec toutes les parties prenantes\n• Flexibilité, responsabilité et résilience\n• Engagement en faveur de la coopération en équipe et interdisciplinaire\nPrestations de précaution\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\n## 50% Hôpital cantonal Schaffhausen\nPour notre station privée interdisciplinaire avec 21 lits, nous sommes à la recherche d'un professionnel de la santé EFZ immédiatement ou par accord.\nSi vous profitez d'un soin holistique et rencontrez nos patients avec beaucoup d'empathie, nous vous attendons avec impatience.\nC'est ce qui vous attend\nCela nous mènera plus loin.\nAvantages\nAmabilité de la famille\n\n## Équilibre travail-vie privée\nVotre vie est multiforme et nous le comprenons. Qu'il s'agisse de temps partiel, de partage de l'emploi (également à des postes de direction), de congé de maternité prolongé, de congé non rémunéré ou de congés supplémentaires au lieu de 13. Salaire mensuel: Nous concevons des solutions flexibles avec vous.\n\n## Prestations de précaution\nNous pensons en avant avec vous. Avec une part de l'employeur de 60 % des cotisations du fonds de pension, nous fournissons déjà votre avenir afin que vous soyez bien protégé à la retraite et que votre qualité de vie soit maintenue.\n\n## Hébergement\nÊtes-vous nouveau à Schaffhausen ou besoin d'une maison temporaire? Pas de problème. Nous vous fournissons des chambres meublées, simples, à proximité du lieu de travail et parfaites pour votre départ.\n\n## Stationnement des employés et contrôles REKA\nVous pouvez bien nous rejoindre en bus, en train ou en voiture. Dans les environs immédiats de l'hôpital, de nombreuses places de stationnement sont disponibles dans des conditions attrayantes. Les transports publics au lieu des voitures ? Nous pensons grand et vous récompenser avec des chèques Reka avec jusqu'à 20% de réduction.\n\n## Formation\nTu veux en savoir plus, être capable de faire plus, bouger plus ? Nous vous offrons un large éventail de possibilités de formation interne pour votre prochaine étape, votre soif de connaissances et votre développement personnel.\n\n## Hospitals Schaffhausen en tant qu'employeur\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton.\nPage de carrière\nAppliquer maintenant:"
+      },
+      "needsRetranslation": true,
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz/30d6c510-ab11-4607-a1f2-35ccb8dfa79e",
+      "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-16T09:33:58.491Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8200",
+      "streetAddress": "Geissbergstrasse 81",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz/30d6c510-ab11-4607-a1f2-35ccb8dfa79e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
+      ],
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-17T07:28:05.113Z"
     }
   ]
 }

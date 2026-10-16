@@ -1,18 +1,19 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-10-15T21:45:55.187Z",
+  "generatedAt": "2026-10-16T09:30:56.152Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 11204,
-  "avgDurationMs": 11204,
+  "durationMs": 10548,
+  "avgDurationMs": 10548,
   "durationHistory": [
-    11204
+    10548
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "alpiq-b2db871ec913",
       "slug": "da-id-power-trader-uk-focus-alpiq-switzerland",
@@ -39,11 +40,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=196&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:45:41.163Z",
+      "crawledAt": "2026-10-16T09:30:36.221Z",
+      "firstSeenAt": "2026-10-05T09:28:37.523Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T09:28:37.523Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -53,7 +54,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -82,7 +82,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:45:41.143Z",
+      "crawledAt": "2026-10-16T09:30:36.187Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -121,7 +121,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:45:41.156Z",
+      "crawledAt": "2026-10-16T09:30:36.209Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -160,7 +160,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=138&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:45:41.157Z",
+      "crawledAt": "2026-10-16T09:30:36.212Z",
       "firstSeenAt": "2026-10-07T09:41:55.800Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -199,7 +199,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:45:41.158Z",
+      "crawledAt": "2026-10-16T09:30:36.213Z",
       "firstSeenAt": "2026-09-24T00:02:12.812Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -238,7 +238,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=150&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:45:41.162Z",
+      "crawledAt": "2026-10-16T09:30:36.219Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
@@ -254,7 +254,7 @@
     },
     {
       "id": "alpiq-f86495c1bdcc",
-      "slug": "da-id-power-trader-uk-focus-alpiq-switzerland",
+      "slug": "da-id-power-trader-centro-uk-alpiq-lausanne-319afad074",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
@@ -283,7 +283,7 @@
       "salaryMin": 83000,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -293,5 +293,5 @@
       }
     }
   ],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }
