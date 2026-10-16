@@ -150,6 +150,15 @@ describe('expired soft-landing cluster claims stay shard-invariant', () => {
     const claimed = new Set(['en/find-jobs-appenzell/job-en']);
     expect(hasUnclaimedLocaleCluster({ ...paths, en: '//en/find-jobs-appenzell/job-en///' }, claimed)).toBe(false);
   });
+
+  it('rejects duplicate normalized locale paths before claiming the cluster', () => {
+    expect(
+      hasUnclaimedLocaleCluster(
+        { it: '/it/x/', en: '/it/x/', de: '/de/x/', fr: '/fr/x/' },
+        new Set(),
+      ),
+    ).toBe(false);
+  });
 });
 
 describe('search-landing emitters route every hreflang block through the shared builder', () => {

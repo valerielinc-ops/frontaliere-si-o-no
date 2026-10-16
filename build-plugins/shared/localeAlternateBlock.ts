@@ -67,9 +67,16 @@ export function hasUnclaimedLocaleCluster(
   paths: Readonly<Partial<Record<AlternateLocale, string>>>,
   claimedPaths: ReadonlySet<string>,
 ): boolean {
+  const normalizedKeys = new Set<string>();
   return ALTERNATE_LOCALES.every((locale) => {
     const path = paths[locale];
-    return Boolean(path) && !claimedPaths.has(localePathClaimKey(path));
+    if (!path) return false;
+
+    const normalizedKey = localePathClaimKey(path);
+    if (normalizedKeys.has(normalizedKey)) return false;
+    normalizedKeys.add(normalizedKey);
+
+    return !claimedPaths.has(normalizedKey);
   });
 }
 
