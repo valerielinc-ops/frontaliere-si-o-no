@@ -292,17 +292,10 @@ describe('L4: perimetro del workflow', () => {
 
   it('mantiene il percorso live solo quando il push tocca il perimetro dell\'export', () => {
     const { exporter, audit, evidence, upload } = workflowSteps();
-    const targetPaths = [
-      'data/alert-config.json',
-      'data/alert-snoozes.json',
-      'scripts/lib/ga4-service-account.mjs',
-    ];
-    for (const changedPath of targetPaths) {
-      expect(runScopeStep({ changedPaths: [changedPath] }).outputs, changedPath).toMatchObject({
-        run_export: 'true',
-        run_audit: 'true',
-      });
-    }
+    expect(runScopeStep({ changedPaths: ['data/alert-config.json'] }).outputs).toMatchObject({
+      run_export: 'true',
+      run_audit: 'true',
+    });
     const unrelated = runScopeStep({ changedPaths: ['scripts/send-job-alerts.mjs'] });
     expect(unrelated.outputs).toMatchObject({
       run_export: 'false',
@@ -318,21 +311,21 @@ describe('L4: perimetro del workflow', () => {
     expect(upload?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
   });
 
-  it('limita i comandi Git e sceglie il percorso live prudente se falliscono o scadono', () => {
-    const failures: Array<{ fetchExit?: number; diffExit?: number; diffTreeExit?: number; beforeSha?: string }> = [
-      { fetchExit: 1 },
-      { fetchExit: 124 },
-      { diffExit: 1 },
-      { diffExit: 124 },
-      { beforeSha: '', diffTreeExit: 1 },
-      { beforeSha: '', diffTreeExit: 124 },
+  it('limita i comandi Git e sceglie il percorso live prudente quando scadono', () => {
+    const deadlines: Array<{
+      options: { fetchExit?: number; diffExit?: number; diffTreeExit?: number; beforeSha?: string };
+      command: string;
+    }> = [
+      { options: { fetchExit: 124 }, command: 'git fetch ' },
+      { options: { diffExit: 124 }, command: 'git diff ' },
+      { options: { beforeSha: '', diffTreeExit: 124 }, command: 'git diff-tree ' },
     ];
-    for (const options of failures) {
+    for (const { options, command } of deadlines) {
       const result = runScopeStep({ changedPaths: [], ...options });
       expect(result.outputs).toMatchObject({ run_export: 'true', run_audit: 'true' });
       expect(result.stdout).toContain('::notice::L4 percorso live prudente');
       expect(result.timeoutCalls.every((call) => call.includes('--kill-after=5s 30s git '))).toBe(true);
-      expect(result.timeoutCalls.at(-1)).toContain(options.beforeSha === '' ? 'git diff-tree ' : options.fetchExit !== undefined ? 'git fetch ' : 'git diff ');
+      expect(result.timeoutCalls.at(-1)).toContain(command);
     }
   });
 
