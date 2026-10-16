@@ -1,7 +1,7 @@
 {
   "key": "deillon-delley-architectes",
   "label": "Deillon Delley Architectes SA",
-  "generatedAt": "2026-10-15T21:27:05.470Z",
+  "generatedAt": "2026-10-16T09:29:47.964Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5402,
-  "avgDurationMs": 5402,
+  "durationMs": 3997,
+  "avgDurationMs": 3997,
   "durationHistory": [
-    5402
+    3997
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "deillon-delley-architectes-2d8720d32dd1",
-      "slug": "architecte-developpement-junior-deillon-delley-architectes-bulle",
+      "slug": "architetto-junior-development-deillon-delley-architectes-sa-bulle",
       "company": "Deillon Delley Architectes SA",
       "companyKey": "deillon-delley-architectes",
       "companyDomain": "deillondelley.ch",
@@ -51,23 +52,22 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20junior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:26:50.037Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-16T09:29:38.828Z",
+      "firstSeenAt": "2026-10-15T21:26:50.037Z",
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-15T21:26:50.037Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
     {
       "id": "deillon-delley-architectes-1106213010e9",
-      "slug": "architecte-developpement-senior-deillon-delley-architectes-bulle",
+      "slug": "senior-development-architetto-deillon-delley-architectes-sa-bulle",
       "company": "Deillon Delley Architectes SA",
       "companyKey": "deillon-delley-architectes",
       "companyDomain": "deillondelley.ch",
@@ -94,23 +94,21 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20senior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:26:50.037Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-16T09:29:38.828Z",
+      "firstSeenAt": "2026-10-15T21:26:50.037Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-15T21:26:50.037Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }
