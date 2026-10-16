@@ -126,9 +126,7 @@ describe('rerender-article-corpus.yml push filter covers the real article render
       step.name === 'Ensure the static shell scripts are on the CDN',
     );
 
-    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe(
-      "${{ matrix.section == 'frontaliere' && '1800' || '120' }}",
-    );
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('1800');
     expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
   });
 
