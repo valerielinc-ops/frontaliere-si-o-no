@@ -2033,6 +2033,106 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
 }
 
 /**
+ * Stop any detached group-23 launcher still waiting for a slot, then remove
+ * its temporary scripts, status files, and semaphore files. Only process
+ * groups whose command line points into this run's state directory are
+ * signalled; an uncertain process group leaves the files in place.
+ */
+export function cleanupCrawlerGenerationState({ phase = 'final' } = {}) {
+  if (phase !== 'startup' && phase !== 'final') {
+    throw new Error(`unsupported crawler generation cleanup phase: ${phase}`);
+  }
+  const startup = phase === 'startup';
+  return {
+    name: startup ? 'Cleanup stale crawler generation state' : 'Cleanup crawler generation state',
+    ...(startup ? {} : { if: 'always()', 'continue-on-error': true }),
+    run: [
+      'set -uo pipefail',
+      'runner_temp="${RUNNER_TEMP:-}"',
+      'runner_temp="${runner_temp%/}"',
+      'case "$runner_temp" in /*[!/]*) ;; *)',
+      '  echo "::warning::crawler generation cleanup skipped: RUNNER_TEMP is unavailable or unsafe"',
+      '  exit 0',
+      '  ;;',
+      'esac',
+      'generation_dir="$runner_temp/crawler-generation"',
+      'if [ -L "$generation_dir" ]; then',
+      '  echo "::warning::crawler generation cleanup refused a symlinked generation directory"',
+      '  exit 1',
+      'fi',
+      'state_dir="$generation_dir/group-23"',
+      'if [ ! -d "$state_dir" ]; then exit 0; fi',
+      'if [ -L "$state_dir" ]; then',
+      '  echo "::warning::crawler generation cleanup refused a symlinked state directory"',
+      '  exit 1',
+      'fi',
+      'cleanupCrawlerGenerationState() {',
+      '  local own_pgid process_listing process_groups process_states active_groups pgid active attempt',
+      '  own_pgid="$(ps -o pgid= -p "$$" 2>/dev/null | tr -d \'[:space:]\')"',
+      '  if ! [[ "$own_pgid" =~ ^[1-9][0-9]*$ ]]; then',
+      '    echo "::warning::crawler generation cleanup could not identify its own process group"',
+      '    return 1',
+      '  fi',
+      '  if ! process_listing="$(ps -ww -eo pgid=,comm=,args= 2>/dev/null)"; then',
+      '    echo "::warning::crawler generation cleanup could not inspect runner processes"',
+      '    return 1',
+      '  fi',
+      "  process_groups=\"$(printf '%s\\n' \"$process_listing\" | awk -v target=\"$state_dir/\" '$2 ~ /^(bash|timeout|flock|nohup|setsid)$/ && index($0, target) > 0 { print $1 }' | sort -nu)\"",
+      '  for pgid in $process_groups; do',
+      '    if ! [[ "$pgid" =~ ^[1-9][0-9]*$ ]] || [ "$pgid" -le 1 ] || [ "$pgid" = "$own_pgid" ]; then',
+      '      echo "::warning::crawler generation cleanup refused an unsafe process group: $pgid"',
+      '      return 1',
+      '    fi',
+      '  done',
+      '  for pgid in $process_groups; do kill -TERM -- "-$pgid" 2>/dev/null || true; done',
+      '  active=0',
+      '  for attempt in 1 2 3 4 5; do',
+      '    if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then',
+      '      echo "::warning::crawler generation cleanup could not verify terminated workers"',
+      '      return 1',
+      '    fi',
+      "    active_groups=\"$(printf '%s\\n' \"$process_states\" | awk '$2 !~ /^Z/ { print $1 }' | sort -nu)\"",
+      '    active=0',
+      '    for pgid in $process_groups; do',
+      '      case " $active_groups " in *" $pgid "*) active=1 ;; esac',
+      '    done',
+      '    [ "$active" -eq 1 ] || break',
+      '    sleep 1',
+      '  done',
+      '  if [ "$active" -eq 1 ]; then',
+      '    for pgid in $process_groups; do',
+      '      case " $active_groups " in *" $pgid "*) kill -KILL -- "-$pgid" 2>/dev/null || true ;; esac',
+      '    done',
+      '    for attempt in 1 2 3; do',
+      '      if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then',
+      '        echo "::warning::crawler generation cleanup could not verify killed workers"',
+      '        return 1',
+      '      fi',
+      "      active_groups=\"$(printf '%s\\n' \"$process_states\" | awk '$2 !~ /^Z/ { print $1 }' | sort -nu)\"",
+      '      active=0',
+      '      for pgid in $process_groups; do',
+      '        case " $active_groups " in *" $pgid "*) active=1 ;; esac',
+      '      done',
+      '      [ "$active" -eq 1 ] || break',
+      '      sleep 1',
+      '    done',
+      '  fi',
+      '  if [ "$active" -eq 1 ]; then',
+      '    echo "::warning::crawler generation cleanup left state intact because a worker is still running"',
+      '    return 1',
+      '  fi',
+      '  if ! rm -rf "$state_dir"; then',
+      '    echo "::warning::crawler generation cleanup could not remove the state directory"',
+      '    return 1',
+      '  fi',
+      '  echo "🧹 Removed crawler generation temporary files and slot locks."',
+      '}',
+      'cleanupCrawlerGenerationState',
+    ].join('\n'),
+  };
+}
+
+/**
  * The broker serves a bounded sequence of Codex Luna Max requests. Keep an
  * explicit always-run cleanup at the end of the job as well: this covers runs
  * that never reach Codex and persistent runners where the TTL should remain
@@ -3365,6 +3465,11 @@ export function buildStandaloneCrossRepoWorkflow({
       throw new Error(`${name}: undeclared job-level permissions`);
     }
     job.permissions = withSourceRelayJobPermissions(STANDALONE_PERMISSIONS);
+  }
+
+  if (workflowFile === 'crawler-group-23.yml') {
+    job.steps.unshift(cleanupCrawlerGenerationState({ phase: 'startup' }));
+    job.steps.push(cleanupCrawlerGenerationState());
   }
 
   const standalone = {
