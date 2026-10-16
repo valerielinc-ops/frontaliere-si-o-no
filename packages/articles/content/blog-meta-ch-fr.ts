@@ -8426,6 +8426,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-abbattimenti-lupi-2025.title': 'Loup, abattages plus faciles : écologistes opposés, paysans favorables',
     'blog.article.svizzera-abbattimenti-lupi-2025.excerpt': 'Le Conseil fédéral propose des abattages pendant toute l’année.',
     'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette d\'un loup hurlant à la lune dans les Alpes suisses au crépuscule',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.title': 'Stadler Rail teste le premier train à hydrogène à voie étroite',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.excerpt': 'Stadler Rail teste un train à hydrogène en Suisse Le convoi est destiné à la Sardaigne Le tracé Hemishofen-Ramsen mesure presque 4 km Les vérifications',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.imageAlt': 'Un train à hydrogène de Stadler Rail sur une voie étroite dans un cadre alpin suisse.',
 };
 
 export default blogMetaChFr;

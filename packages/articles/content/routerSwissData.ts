@@ -2831,6 +2831,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lupo-abbattimenti-facilitati': { it: 'lupo-abbattimenti-facilitati', en: 'wolf-culling-eased', de: 'wolf-abschuss-erleichtert', fr: 'loup-abattages-facilite' },
  'carburanti-svizzera-rincaro-settimanale': { it: 'carburanti-svizzera-rincaro-settimanale', en: 'swiss-fuel-prices-weekly-rise', de: 'schweizer-treibstoffpreise-wochenanstieg', fr: 'prix-carburants-suisse-hausse-semaine' },
  'svizzera-abbattimenti-lupi-2025': { it: 'svizzera-abbattimenti-lupi-2025', en: 'switzerland-wolf-culling-2025', de: 'schweiz-wolfsabschuss-2025', fr: 'suisse-abattage-loups-2025' },
+ 'stadler-rail-treno-idrogeno-sardegna': { it: 'stadler-rail-treno-idrogeno-sardegna', en: 'stadler-rail-hydrogen-train-sardinia', de: 'stadler-rail-wasserstoffzug-sardinien', fr: 'stadler-rail-train-hydrogene-sardaigne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

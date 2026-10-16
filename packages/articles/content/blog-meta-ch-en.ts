@@ -8426,6 +8426,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-abbattimenti-lupi-2025.title': 'Wolves, easier culls: environmentalists opposed, farmers in favor',
     'blog.article.svizzera-abbattimenti-lupi-2025.excerpt': 'The Federal Council proposes culling throughout the year.',
     'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette of a wolf howling at the moon in the Swiss Alps at dusk',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.title': 'Stadler Rail tests the first narrow-gauge hydrogen train',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.excerpt': 'Stadler Rail tests a hydrogen train in Switzerland The train is intended for Sardinia The Hemishofen-Ramsen route measures almost 4 km The tests',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.imageAlt': 'A Stadler Rail hydrogen train on a narrow-gauge track in a Swiss alpine setting.',
 };
 
 export default blogMetaChEn;

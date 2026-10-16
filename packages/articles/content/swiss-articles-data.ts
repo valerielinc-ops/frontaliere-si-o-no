@@ -28181,6 +28181,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'stadler-rail-treno-idrogeno-sardegna',
+    category: 'novita',
+    date: '2026-10-16T17:07:03.165Z',
+    image: '/images/blog/svizzera-treno-oggetti-binari-2.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

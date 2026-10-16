@@ -8426,6 +8426,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-abbattimenti-lupi-2025.title': 'Wolf: Leichtere Abschüsse – Umweltschützer dagegen, Landwirte dafür',
     'blog.article.svizzera-abbattimenti-lupi-2025.excerpt': 'Der Bundesrat schlägt Abschüsse das ganze Jahr über vor.',
     'blog.article.svizzera-abbattimenti-lupi-2025.imageAlt': 'Silhouette eines Wolfes, der bei Sonnenuntergang in den Schweizer Alpen zum Mond heult',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.title': 'Stadler Rail testet den ersten Wasserstoffzug auf Schmalspur',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.excerpt': 'Stadler Rail testet einen Wasserstoffzug in der Schweiz Der Zug ist für Sardinien bestimmt Die Strecke Hemishofen-Ramsen ist fast 4 km lang Die Prüfungen',
+    'blog.article.stadler-rail-treno-idrogeno-sardegna.imageAlt': 'Ein Wasserstoffzug von Stadler Rail auf einer Schmalspurbahn in einer Schweizer Alpenlandschaft.',
 };
 
 export default blogMetaChDe;
