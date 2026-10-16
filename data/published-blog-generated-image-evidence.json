@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "0f6f7705edfd0e91d8fe0adf6ec5e0f3751dcaf4",
+  "commit": "bac331dc53071da6a24623cbcebc0fc5242aac54",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -24517,6 +24517,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial scene of a laptop, notebook, and coffee overlooking Lugano, with no people, text, logos, or event-specific cues."
+      }
+    },
+    "/images/blog/article-industria-ticino-futuro-lavoro.webp": {
+      "schema": 1,
+      "assetId": "article-industria-ticino-futuro-lavoro",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "2e181a73216abc21743491e6525fd95aff7442ba56f87c22a4160c0714216899",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "62388658ca2d6695c543e8cd543297d443ededbe834a6c68209a476bb9b8558b",
+      "bytes": 120108,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T20:29:45.879Z",
+      "verifiedAt": "2026-10-16T20:29:56.331Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-industria-ticino-futuro-lavoro.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic industrial illustration with no readable text, logos, identifiable faces, or specific real-event cues."
       }
     },
     "/images/places/lugano-view.webp": {

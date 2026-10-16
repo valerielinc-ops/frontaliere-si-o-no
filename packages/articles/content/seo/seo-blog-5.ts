@@ -110154,6 +110154,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-industria-ticino-futuro-lavoro': {
+    title: 'Industria in Ticino: carenza di personale e innovazione',
+    description: 'Negli ultimi 18 mesi, numerosi licenziamenti nell’industria ticinese Quindici licenziamenti collettivi seguiti nell’ultimo anno e mezzo Circa 16 mila',
+    keywords: 'frontalieri, ticino, svizzera, italia, industria, carenza, personale, innovazione',
+    ogTitle: 'Industria Ticino: tra carenza di personale e innovazione',
+    ogDescription: 'Negli ultimi 18 mesi, numerosi licenziamenti nell’industria ticinese Quindici licenziamenti collettivi seguiti nell’ultimo anno e mezzo Circa 16 mila',
+    canonicalPath: '/articoli-frontaliere/industria-ticino-futuro-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Industria in Ticino: carenza di personale e innovazione",
+      "description": "Negli ultimi 18 mesi, numerosi licenziamenti nell’industria ticinese Quindici licenziamenti collettivi seguiti nell’ultimo anno e mezzo Circa 16 mila",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-industria-ticino-futuro-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto industriale moderno in Ticino con operatori qualificati"
+      },
+      "datePublished": "2026-10-16T20:29:57+00:00",
+      "dateModified": "2026-10-16T20:29:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/industria-ticino-futuro-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

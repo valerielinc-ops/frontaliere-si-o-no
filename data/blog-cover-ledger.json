@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5553
+      "6": 5554
     },
-    "publishedCovers": 7134,
+    "publishedCovers": 7135,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5358
+    "inferredRecords": 5359
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190908,6 +190908,33 @@
           "id": "indennita-stage-lugano-2027",
           "category": "novita",
           "date": "2026-10-16T20:06:57.615Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-industria-ticino-futuro-lavoro": {
+      "cover": "/images/blog/article-industria-ticino-futuro-lavoro.webp",
+      "hash": "62388658ca2d6695c543e8cd543297d443ededbe834a6c68209a476bb9b8558b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "industria-ticino-futuro-lavoro",
+          "category": "pratico",
+          "date": "2026-10-16T20:29:56.949Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

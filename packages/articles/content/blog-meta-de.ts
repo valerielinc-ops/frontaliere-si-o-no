@@ -13349,6 +13349,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.indennita-stage-lugano-2027.title': 'Lugano: Neue Zuwendung für Praktika im Jahr 2027',
     'blog.article.indennita-stage-lugano-2027.excerpt': 'Einmalige Zuwendung: 2.000 Francs brutto für 12 Monate Haushalt 2027: 700.000 bis 755.000 Francs Geschätzte Niedrigkosten: 30.700 Francs 43 % des Haushalts',
     'blog.article.indennita-stage-lugano-2027.imageAlt': 'Schreibtisch eines jungen Berufstätigen mit Laptop, Notizbuch und Kaffee, Blick auf Lugano vom Monte Brè',
+    'blog.article.industria-ticino-futuro-lavoro.title': 'Industrie im Tessin: Personalmangel und Innovation',
+    'blog.article.industria-ticino-futuro-lavoro.excerpt': 'In den letzten 18 Monaten zahlreiche Entlassungen in der Tessiner Industrie Fünfzehn verzeichnete Massenentlassungen in den letzten anderthalb Jahren Etwa 16 Tausend',
+    'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Moderne Industrieanlage im Tessin mit qualifizierten Fachkräften',
 };
 
 export default blogMetaDe;

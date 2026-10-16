@@ -13351,6 +13351,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indennita-stage-lugano-2027.title': 'Lugano: nuova indennità per gli stage nel 2027',
     'blog.article.indennita-stage-lugano-2027.excerpt': 'Indennità unica: 2\'000 franchi lordi per 12 mensilità Budget 2027: da 700\'000 a 755\'000 franchi Minor costo stimato: 30\'700 franchi Il 43% del budget è',
     'blog.article.indennita-stage-lugano-2027.imageAlt': 'Scrivania di un giovane professionista con laptop, taccuino e caffè, vista su Lugano da Monte Brè',
+    'blog.article.industria-ticino-futuro-lavoro.title': 'Industria in Ticino: carenza di personale e innovazione',
+    'blog.article.industria-ticino-futuro-lavoro.excerpt': 'Negli ultimi 18 mesi, numerosi licenziamenti nell’industria ticinese Quindici licenziamenti collettivi seguiti nell’ultimo anno e mezzo Circa 16 mila',
+    'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Impianto industriale moderno in Ticino con operatori qualificati',
 };
 
 export default blogMetaIt;

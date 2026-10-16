@@ -45052,6 +45052,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'industria-ticino-futuro-lavoro',
+ category: 'pratico',
+ date: '2026-10-16T20:29:56.949Z',
+ image: '/images/blog/article-industria-ticino-futuro-lavoro.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

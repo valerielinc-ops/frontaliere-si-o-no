@@ -13350,6 +13350,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.indennita-stage-lugano-2027.title': 'Lugano: new allowance for internships in 2027',
     'blog.article.indennita-stage-lugano-2027.excerpt': 'One-off allowance: 2,000 francs gross for 12 months Budget 2027: 700,000 to 755,000 francs Estimated lower cost: 30,700 francs 43% of the budget is',
     'blog.article.indennita-stage-lugano-2027.imageAlt': 'A young professional\'s desk with a laptop, notebook, and coffee, overlooking Lugano from Monte Brè',
+    'blog.article.industria-ticino-futuro-lavoro.title': 'Industry in Ticino: staff shortages and innovation',
+    'blog.article.industria-ticino-futuro-lavoro.excerpt': 'In the last 18 months, numerous layoffs in Ticino’s industry Fifteen collective redundancies recorded over the past year and a half Approximately 16 thousand',
+    'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Modern industrial plant in Ticino with qualified operators',
 };
 
 export default blogMetaEn;

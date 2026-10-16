@@ -13352,6 +13352,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.indennita-stage-lugano-2027.title': 'Lugano : nouvelle allocation pour les stages en 2027',
     'blog.article.indennita-stage-lugano-2027.excerpt': 'Allocation ponctuelle : 2 000 francs bruts pour 12 mois Budget 2027 : 700 000 à 755 000 francs Coût estimé inférieur : 30 700 francs 43 % du budget est',
     'blog.article.indennita-stage-lugano-2027.imageAlt': 'Bureau d\'un jeune professionnel avec un ordinateur portable, un carnet et un café, vue sur Lugano depuis le Monte Brè',
+    'blog.article.industria-ticino-futuro-lavoro.title': 'Industrie au Tessin : manque de personnel et innovation',
+    'blog.article.industria-ticino-futuro-lavoro.excerpt': 'Au cours des 18 derniers mois, de nombreux licenciements dans l\'industrie tessinoise Quinze licenciements collectifs suivis au cours de la dernière année et demie Environ 16 000',
+    'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Usine industrielle moderne au Tessin avec des opérateurs qualifiés',
 };
 
 export default blogMetaFr;
