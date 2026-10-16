@@ -111,6 +111,97 @@ function createScenario() {
   return { repository, base, refresh, main };
 }
 
+function createNoShardScenario() {
+  const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'compat-refresh-no-shard-'));
+  temporaryRepositories.push(repository);
+  git(repository, ['init', '-q', '-b', 'main']);
+  git(repository, ['config', 'user.name', 'compat-reconcile-test']);
+  git(repository, ['config', 'user.email', 'compat-reconcile-test@example.invalid']);
+  writeJson(repository, 'data/cf-hot-404s.json', {
+    generatedAt: '2026-10-07T00:00:00.000Z',
+    source: 'cloudflare',
+    paths: [{ path: '/base', hits: 4, lastSeen: '2026-10-07' }],
+  });
+  writeJson(repository, 'data/seo-404-compat/manifest.json', {
+    source: 'cloudflare',
+    lastUpdated: '2026-10-07',
+    shardCount: 3,
+    totalPaths: 3,
+  });
+  const base = commit(repository, 'base compatibility manifest without shards');
+
+  git(repository, ['checkout', '-q', '-b', 'refresh']);
+  writeJson(repository, 'data/cf-hot-404s.json', {
+    generatedAt: '2026-10-08T02:00:00.000Z',
+    source: 'cloudflare',
+    paths: [{ path: '/refresh', hits: 9, lastSeen: '2026-10-08' }],
+  });
+  writeJson(repository, 'data/seo-404-compat/manifest.json', {
+    source: 'cloudflare',
+    lastUpdated: '2026-10-08',
+    shardCount: 3,
+    totalPaths: 3,
+  });
+  const refresh = commit(repository, 'refresh compatibility manifest without shards');
+
+  git(repository, ['checkout', '-q', 'main']);
+  writeJson(repository, 'data/cf-hot-404s.json', {
+    generatedAt: '2026-10-08T01:00:00.000Z',
+    source: 'cloudflare',
+    paths: [{ path: '/main', hits: 7, lastSeen: '2026-10-08' }],
+  });
+  writeJson(repository, 'data/seo-404-compat/manifest.json', {
+    source: 'cloudflare',
+    lastUpdated: '2026-10-09',
+    shardCount: 3,
+    totalPaths: 3,
+  });
+  const main = commit(repository, 'main compatibility manifest without shards');
+
+  git(repository, ['checkout', '-q', 'refresh']);
+  return { repository, base, refresh, main };
+}
+
+function createManifestDeletionScenario() {
+  const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'compat-refresh-manifest-delete-'));
+  temporaryRepositories.push(repository);
+  git(repository, ['init', '-q', '-b', 'main']);
+  git(repository, ['config', 'user.name', 'compat-reconcile-test']);
+  git(repository, ['config', 'user.email', 'compat-reconcile-test@example.invalid']);
+  writeJson(repository, 'data/cf-hot-404s.json', {
+    generatedAt: '2026-10-07T00:00:00.000Z',
+    source: 'cloudflare',
+    paths: [{ path: '/base', hits: 4, lastSeen: '2026-10-07' }],
+  });
+  writeJson(repository, 'data/seo-404-compat/manifest.json', {
+    source: 'cloudflare',
+    lastUpdated: '2026-10-07',
+    shardCount: 1,
+    totalPaths: 1,
+  });
+  const base = commit(repository, 'base compatibility manifest');
+
+  git(repository, ['checkout', '-q', '-b', 'refresh']);
+  writeJson(repository, 'data/cf-hot-404s.json', {
+    generatedAt: '2026-10-08T02:00:00.000Z',
+    source: 'cloudflare',
+    paths: [{ path: '/refresh', hits: 9, lastSeen: '2026-10-08' }],
+  });
+  const refresh = commit(repository, 'refresh keeps base compatibility manifest');
+
+  git(repository, ['checkout', '-q', 'main']);
+  fs.rmSync(path.join(repository, 'data/seo-404-compat/manifest.json'));
+  writeJson(repository, 'data/cf-hot-404s.json', {
+    generatedAt: '2026-10-08T01:00:00.000Z',
+    source: 'cloudflare',
+    paths: [{ path: '/main', hits: 7, lastSeen: '2026-10-08' }],
+  });
+  const main = commit(repository, 'main deletes compatibility manifest');
+
+  git(repository, ['checkout', '-q', 'refresh']);
+  return { repository, base, refresh, main };
+}
+
 describe('compatibility data refresh reconciliation', () => {
   it('merges Cloudflare data and recomputes the compat manifest after main moves', () => {
     const scenario = createScenario();
@@ -158,5 +249,49 @@ describe('compatibility data refresh reconciliation', () => {
     });
     expect(git(scenario.repository, ['rev-list', '--parents', '-n', '1', 'HEAD']).split(' ').slice(1))
       .toEqual([scenario.refresh, scenario.main]);
+  });
+
+  it('reports zero shards when the merged tree has no compatibility shard files', () => {
+    const scenario = createNoShardScenario();
+    const result = spawnSync(process.execPath, [
+      RECONCILE_SCRIPT,
+      '--compat',
+      '--base', scenario.base,
+      '--main', scenario.main,
+      '--message', 'reconcile empty compatibility shard set',
+    ], {
+      cwd: scenario.repository,
+      env: { ...TEST_GIT_ENV, GIT_NO_LAZY_FETCH: '1' },
+      encoding: 'utf8',
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    const manifest = JSON.parse(fs.readFileSync(
+      path.join(scenario.repository, 'data/seo-404-compat/manifest.json'),
+      'utf8',
+    ));
+    expect(manifest.shardCount).toBe(0);
+    expect(manifest.totalPaths).toBe(0);
+  });
+
+  it('keeps a manifest deletion when the refresh side is unchanged from base', () => {
+    const scenario = createManifestDeletionScenario();
+    const result = spawnSync(process.execPath, [
+      RECONCILE_SCRIPT,
+      '--compat',
+      '--base', scenario.base,
+      '--main', scenario.main,
+      '--message', 'reconcile deleted compatibility manifest',
+    ], {
+      cwd: scenario.repository,
+      env: { ...TEST_GIT_ENV, GIT_NO_LAZY_FETCH: '1' },
+      encoding: 'utf8',
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(git(scenario.repository, ['ls-files', '--stage', '--', 'data/seo-404-compat/manifest.json']))
+      .toBe('');
+    expect(git(scenario.repository, ['ls-tree', '-r', '--name-only', 'HEAD', '--', 'data/seo-404-compat/manifest.json']))
+      .toBe('');
   });
 });

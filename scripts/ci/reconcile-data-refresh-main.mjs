@@ -137,6 +137,14 @@ function mergedCompatPathCount(tree) {
 }
 
 function mergeCompatManifest(tree, baseRaw, mainRaw, headRaw) {
+  // Resolve deletions against the merge base before dropping missing blobs.
+  // When one branch deletes the manifest and the other is unchanged, the
+  // deletion is the only change and must survive the reconciliation instead
+  // of being replaced by the unchanged base/current-refresh copy.
+  const mainChanged = mainRaw !== baseRaw;
+  const headChanged = headRaw !== baseRaw;
+  if ((mainRaw === null && !headChanged) || (headRaw === null && !mainChanged)) return null;
+
   // `head` is the current refresh and wins ties; main wins only when it has a
   // strictly newer freshness marker. Counts are always recomputed from the
   // merged shards, never copied from either stale manifest.
@@ -157,7 +165,7 @@ function mergeCompatManifest(tree, baseRaw, mainRaw, headRaw) {
   const shardFiles = treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate));
   return `${JSON.stringify({
     ...metadata,
-    shardCount: shardFiles.length || Number(winner.manifest.shardCount) || 0,
+    shardCount: shardFiles.length,
     totalPaths: mergedCompatPathCount(tree),
   }, null, 2)}\n`;
 }
