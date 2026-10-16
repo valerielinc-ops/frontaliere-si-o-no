@@ -18,6 +18,10 @@ overlay_durable_loop_fleet_ledger() {
       checkout_timeout=120
       ledger_paths=(':(glob)data/loop-fleet/ledger/loop-health-history*.jsonl')
       ;;
+    lifecycle)
+      checkout_timeout=120
+      ledger_paths=(':(glob)data/loop-fleet/ledger/lifecycle-events*.jsonl')
+      ;;
     status)
       checkout_timeout=240
       ledger_paths=(

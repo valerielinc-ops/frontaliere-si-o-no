@@ -524,6 +524,12 @@ describe('loop fleet workflow contract', () => {
         consumers: ['Build read-only fleet status'],
       },
       {
+        name: 'loop-fleet-lifecycle-observer.yml',
+        profile: 'lifecycle',
+        paths: ['lifecycle-events*.jsonl'],
+        consumers: ['Observe PR, Actions and post-merge evidence'],
+      },
+      {
         name: 'loop-fleet-ledger-audit.yml',
         profile: 'full',
         paths: ['loop-observations*.jsonl', 'loop-decisions*.jsonl', 'loop-health-history*.jsonl', 'lifecycle-events*.jsonl'],
@@ -674,14 +680,14 @@ describe('loop fleet workflow contract', () => {
     }
 
     const observer = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
-    const overlay = observer.indexOf('git checkout FETCH_HEAD -- data/loop-fleet/ledger/');
+    const overlay = observer.indexOf('bash scripts/ci/overlay-durable-loop-fleet-ledger.sh lifecycle');
     const observeCall = observer.indexOf('node scripts/ci/observe-loop-fleet-lifecycle.mjs');
     expect(overlay).toBeGreaterThanOrEqual(0);
     expect(observeCall).toBeGreaterThan(overlay);
+    expect(observer).toContain('/data/loop-fleet/ledger/lifecycle-events*.jsonl');
+    expect(observer).toContain("steps.overlay_durable_ledger.outputs.overlay_status == 'ready'");
     expect(observer).toContain('git checkout origin/main -- data/loop-fleet/ledger/');
-    expect(observer).toContain(
-      'timeout --signal=TERM --kill-after=10s 90s git fetch --no-tags --depth=1 origin "$ledger_branch"',
-    );
+    expect(observer).toContain('bounded_remote git fetch --no-tags --depth=1 origin "$ledger_branch"');
   });
 
   it('preserves a separate bridge concurrency group for each immutable source run', () => {

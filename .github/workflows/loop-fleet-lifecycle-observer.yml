@@ -33,7 +33,8 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
-            /data/loop-fleet/ledger/
+            /data/loop-fleet/ledger/lifecycle-events*.jsonl
+            /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/observe-loop-fleet-lifecycle.mjs
             /scripts/ci/append-loop-fleet-lifecycle.mjs
             /scripts/ci/mint-app-token.mjs
@@ -57,17 +58,14 @@ jobs:
           git fetch origin main
           git checkout --detach origin/main
 
-      - name: Overlay durable ledger data for observation
-        run: |
-          set -euo pipefail
-          ledger_branch='ledger/loop-fleet'
-          if timeout --signal=TERM --kill-after=10s 90s git fetch --no-tags --depth=1 origin "$ledger_branch"; then
-            git checkout FETCH_HEAD -- data/loop-fleet/ledger/
-          else
-            echo '::notice::durable ledger branch is unavailable; observing the main seed data.'
-          fi
+      - name: Overlay bounded lifecycle ledger input
+        id: overlay_durable_ledger
+        env:
+          LEDGER_BRANCH: ledger/loop-fleet
+        run: bash scripts/ci/overlay-durable-loop-fleet-ledger.sh lifecycle
 
       - name: Observe PR, Actions and post-merge evidence
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
