@@ -62,6 +62,17 @@ export function isVistaJob(job) {
   return false;
 }
 
+/**
+ * Match Vista postings by the stable ID generated from Ostendis `entry.id`.
+ * Older rows already persist this ID; rows without one safely fall back to
+ * their detail URL instead of sharing an empty key.
+ */
+export function vistaMatchKey(job = {}) {
+  const id = String(job?.id || '').trim();
+  if (id) return id;
+  return String(job?.url || '').trim();
+}
+
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();

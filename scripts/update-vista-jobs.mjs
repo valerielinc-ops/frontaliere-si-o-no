@@ -14,6 +14,7 @@ import {
   isTrustedDomain,
   VISTA_KEY,
   VISTA_COMPANY_NAME,
+  vistaMatchKey,
 } from './lib/vista-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -26,6 +27,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllVistaJobs,
   isCompanyJob: isVistaJob,
   isTrustedDomain,
+  matchKey: vistaMatchKey,
   defaultSourceLang: 'de',
 }).catch((err) => {
   console.error(`❌ Vista crawler failed: ${err?.message || err}`);
