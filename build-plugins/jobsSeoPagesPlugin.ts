@@ -89,6 +89,8 @@ import {
   buildLocaleAlternateBlock,
   buildLocaleAlternateEntries,
   buildSitemapAlternateBlock,
+  hasUnclaimedLocaleCluster,
+  localePathClaimKey,
   type AlternateLocale,
 } from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
@@ -13294,13 +13296,15 @@ ${staticAnalyticsHtml}
  return a.localeCompare(b);
  });
 
- // Set of (locale-prefixed) paths already emitted as soft-landing pages
- // in THIS phase. Multiple distinct slugs can map to the same
+ // Set of (locale-prefixed) paths claimed by the recency-ordered
+ // soft-landing sweep in THIS phase. Multiple distinct slugs can map to the same
  // `tracking[slug][locale]` value (1349 IT / 2999 EN / 3072 DE / 3224 FR
  // such collisions in the current registry — typically AI-translated
  // slugs converging on the IT path). Without dedup each collider would
  // fire `_qw` and produce a write-registry collision report; with dedup
- // only the most-recent (per the sort above) lands on disk.
+ // only the most-recent (per the sort above) lands on disk. The registry is
+ // intentionally claimed before BUILD_LOCALE filtering so every shard picks
+ // the same winner, even though only one shard writes each locale's HTML.
  const emittedSoftLandingPaths = new Set<string>();
 
  for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
@@ -13327,6 +13331,7 @@ ${staticAnalyticsHtml}
  // pages. Such a cluster must NOT be treated as full — force zero hreflang
  // so the audit-hreflang invariants (esp. #4) never see the mismatched set.
  const expiredHasFullCluster = expiredLocaleHreflangs.length === localeList.length
+ && hasUnclaimedLocaleCluster(paths, emittedSoftLandingPaths)
  && !cantonDriftCompatSlugs.has(slug);
  // When emitting the cluster, force x-default to be present alongside the
  // 4 locale entries — fall back to the IT alternate href when paths.it
@@ -13400,11 +13405,16 @@ ${staticAnalyticsHtml}
  // claimed this exact locale-prefixed path, skip BEFORE assembling
  // title / body / wc-robots / jsonld / shell. Run 26469566046 profiling
  // showed ~7k iterations doing the full ph:ejp:* pipeline only to be
- // dropped by the dedup `continue` later — wasted ~3-4s wall. The set
- // is still populated AT WRITE TIME below so dedup membership reflects
- // actually-emitted paths, not just attempted ones.
- const __slPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
+ // dropped by the dedup `continue` later — wasted ~3-4s wall. The claim
+ // below deliberately precedes the BUILD_LOCALE ownership check: a shard
+ // that does not write this locale must still reserve the same path winner
+ // as every other shard.
+ const __slPathKey = localePathClaimKey(relPath);
  if (emittedSoftLandingPaths.has(__slPathKey)) continue;
+ // Claim before the shard-ownership filter: every BUILD_LOCALE shard must
+ // reserve the same winner for a colliding tracking path, even though only
+ // one shard writes that locale's HTML.
+ emittedSoftLandingPaths.add(__slPathKey);
  // Per-locale shard build (BUILD_LOCALE): skip the expensive soft-landing
  // render/emit for locales this shard isn't responsible for (this loop is
  // ~57% of jobs-seo wall, 319k pages). The expired sitemap (it/main-owned,
@@ -13999,13 +14009,6 @@ ${staticAnalyticsHtml}
   else softLandingFullCount++;
  }
  jobsSeoReuse?.finish(softLandingReuse, softLandingHtml);
-
- // Dedup membership: __slPathKey is computed and checked at the top of
- // this locale iteration (hoisted to avoid running the full ph:ejp:*
- // pipeline on doomed paths). Only the `.add()` lives here so the set
- // reflects ACTUALLY-emitted paths, not just attempted ones — keeps
- // dist/.write-collisions.json clean across slugs that converge here.
- emittedSoftLandingPaths.add(__slPathKey);
 
  const __tEjpWrite = phaseTimer();
  const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml);

@@ -42,6 +42,8 @@ import {
   ALTERNATE_LOCALES,
   buildLocaleAlternateBlock,
   buildSitemapAlternateBlock,
+  hasUnclaimedLocaleCluster,
+  localePathClaimKey,
 } from '../build-plugins/shared/localeAlternateBlock';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -127,6 +129,38 @@ describe('search-landing hreflang: alternates never outrun emitted pages (#5114)
   });
 });
 
+describe('expired soft-landing cluster claims stay shard-invariant', () => {
+  const paths = {
+    it: '/cerca-lavoro-appenzello/job-it/',
+    en: '/en/find-jobs-appenzell/job-en/',
+    de: '/de/jobs-in-appenzell/job-de/',
+    fr: '/fr/trouver-emploi-appenzell/job-fr/',
+  } as const;
+
+  it('accepts a complete cluster when none of its paths is claimed', () => {
+    expect(hasUnclaimedLocaleCluster(paths, new Set())).toBe(true);
+  });
+
+  it('voids the whole cluster when one locale path already belongs to an earlier slug', () => {
+    const claimed = new Set([localePathClaimKey(paths.en)]);
+    expect(hasUnclaimedLocaleCluster(paths, claimed)).toBe(false);
+  });
+
+  it('normalises URL-shaped and registry-shaped path keys identically', () => {
+    const claimed = new Set(['en/find-jobs-appenzell/job-en']);
+    expect(hasUnclaimedLocaleCluster({ ...paths, en: '//en/find-jobs-appenzell/job-en///' }, claimed)).toBe(false);
+  });
+
+  it('rejects duplicate normalized locale paths before claiming the cluster', () => {
+    expect(
+      hasUnclaimedLocaleCluster(
+        { it: '/it/x/', en: '/it/x/', de: '/de/x/', fr: '/fr/x/' },
+        new Set(),
+      ),
+    ).toBe(false);
+  });
+});
+
 describe('search-landing emitters route every hreflang block through the shared builder', () => {
   // Source guard. Pre-fix, the search-landing emit sites in
   // jobsSeoPagesPlugin carried their own `localeList.map(...)` +
@@ -198,11 +232,17 @@ describe('search-landing emitters route every hreflang block through the shared 
   it('jobsSeoPagesPlugin derives the alternate set from eligibility, not the locale list', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
     const calls = callSites(src);
-    // GSC keyword landings + search-stats leaders + combo landings + active
-    // job detail pages, whose per-locale deduplication can also remove a
-    // target after another locale has already been rendered.
-    expect(calls.length, 'expected every all-or-nothing hreflang emit site').toBe(4);
-    for (const call of calls) {
+    // Four sites are floor/dedup-gated: GSC keyword landings + search-stats
+    // leaders + combo landings + active job detail pages. The canton hub is
+    // the one full-locale site in this file: its four locale pages are always
+    // emitted, so its localeList eligibility is safe by construction.
+    expect(calls.length, 'expected every hreflang emit site').toBe(5);
+    const gatedCalls = calls.filter((call) => !/eligibleLocales:\s*localeList/.test(call));
+    expect(gatedCalls.length, 'expected every floor/dedup-gated hreflang site').toBe(4);
+    const alwaysCompleteCalls = calls.filter((call) => /eligibleLocales:\s*localeList/.test(call));
+    expect(alwaysCompleteCalls.length, 'expected only the always-emitted canton hub to use localeList').toBe(1);
+    expect(alwaysCompleteCalls[0]).toMatch(/buildCantonAwareSection/);
+    for (const call of gatedCalls) {
       expect(call).toMatch(/eligibleLocales:/);
       // The regression: the alternate set taken straight from the locale
       // list, decoupled from whether that locale's page is written.
