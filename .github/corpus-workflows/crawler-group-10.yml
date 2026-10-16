@@ -2243,7 +2243,7 @@ jobs:
           pid_path="$state_dir/lis.pid"
           status_path="$state_dir/lis.status"
           started_path="$state_dir/lis.started"
-          watchdog_path="$state_dir/lis.watchdog"
+          watchdog_path="$state_dir/lis-lugano-istituti-sociali.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/lis-lugano-istituti-sociali.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -2330,7 +2330,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-10/lis.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-10/lis.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-10/lis.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-10/lis.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-10/lis-lugano-istituti-sociali.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-86}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2442,7 +2442,7 @@ jobs:
           pid_path="$state_dir/mtic.pid"
           status_path="$state_dir/mtic.status"
           started_path="$state_dir/mtic.started"
-          watchdog_path="$state_dir/mtic.watchdog"
+          watchdog_path="$state_dir/mtic-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/mtic-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -2529,7 +2529,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-10/mtic.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-10/mtic.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-10/mtic.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-10/mtic.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-10/mtic-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-82}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4034,7 +4034,7 @@ jobs:
           pid_path="$state_dir/hamilton.pid"
           status_path="$state_dir/hamilton.status"
           started_path="$state_dir/hamilton.started"
-          watchdog_path="$state_dir/hamilton.watchdog"
+          watchdog_path="$state_dir/hamilton-bonaduz-ag.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/hamilton-bonaduz-ag.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -4121,7 +4121,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-10/hamilton.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-10/hamilton.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-10/hamilton.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-10/hamilton.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-10/hamilton-bonaduz-ag.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7612,6 +7612,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7640,7 +7641,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7651,35 +7652,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'jumbo'
-          aggregate_crawler_member 'swiss-medical-network'
-          aggregate_crawler_member 'viva-luzern'
-          aggregate_crawler_member 'kiabi'
-          aggregate_crawler_member 'richemont'
-          aggregate_crawler_member 'hug'
-          aggregate_crawler_member 'triaplus'
-          aggregate_crawler_member 'interroll'
-          aggregate_crawler_member 'laderach'
-          aggregate_crawler_member 'ems-chemie'
-          aggregate_crawler_member 'lis'
-          aggregate_crawler_member 'mtic'
-          aggregate_crawler_member 'hilti'
-          aggregate_crawler_member 'vz-vermoegenszentrum'
-          aggregate_crawler_member 'kulm-hotel'
-          aggregate_crawler_member 'ipw'
-          aggregate_crawler_member 'medbase'
-          aggregate_crawler_member 'centiel'
-          aggregate_crawler_member 'bucherer'
-          aggregate_crawler_member 'hamilton'
-          aggregate_crawler_member 'emmi'
-          aggregate_crawler_member 'ksgl'
-          aggregate_crawler_member 'endress-hauser'
-          aggregate_crawler_member 'berit-klinik'
-          aggregate_crawler_member 'stellentreff'
-          aggregate_crawler_member 'atec-personal'
-          aggregate_crawler_member 'debiopharm'
-          aggregate_crawler_member 'fondation-domus'
-          aggregate_crawler_member 'sympajobs-reinach-bl'
+          aggregate_crawler_member 'jumbo' 'jumbo'
+          aggregate_crawler_member 'swiss-medical-network' 'swiss-medical-network'
+          aggregate_crawler_member 'viva-luzern' 'viva-luzern'
+          aggregate_crawler_member 'kiabi' 'kiabi'
+          aggregate_crawler_member 'richemont' 'richemont'
+          aggregate_crawler_member 'hug' 'hug'
+          aggregate_crawler_member 'triaplus' 'triaplus'
+          aggregate_crawler_member 'interroll' 'interroll'
+          aggregate_crawler_member 'laderach' 'laderach'
+          aggregate_crawler_member 'ems-chemie' 'ems-chemie'
+          aggregate_crawler_member 'lis' 'lis-lugano-istituti-sociali'
+          aggregate_crawler_member 'mtic' 'mtic-group'
+          aggregate_crawler_member 'hilti' 'hilti'
+          aggregate_crawler_member 'vz-vermoegenszentrum' 'vz-vermoegenszentrum'
+          aggregate_crawler_member 'kulm-hotel' 'kulm-hotel'
+          aggregate_crawler_member 'ipw' 'ipw'
+          aggregate_crawler_member 'medbase' 'medbase'
+          aggregate_crawler_member 'centiel' 'centiel'
+          aggregate_crawler_member 'bucherer' 'bucherer'
+          aggregate_crawler_member 'hamilton' 'hamilton-bonaduz-ag'
+          aggregate_crawler_member 'emmi' 'emmi'
+          aggregate_crawler_member 'ksgl' 'ksgl'
+          aggregate_crawler_member 'endress-hauser' 'endress-hauser'
+          aggregate_crawler_member 'berit-klinik' 'berit-klinik'
+          aggregate_crawler_member 'stellentreff' 'stellentreff'
+          aggregate_crawler_member 'atec-personal' 'atec-personal'
+          aggregate_crawler_member 'debiopharm' 'debiopharm'
+          aggregate_crawler_member 'fondation-domus' 'fondation-domus'
+          aggregate_crawler_member 'sympajobs-reinach-bl' 'sympajobs-reinach-bl'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

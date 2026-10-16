@@ -253,7 +253,7 @@ jobs:
           pid_path="$state_dir/rittmeyer.pid"
           status_path="$state_dir/rittmeyer.status"
           started_path="$state_dir/rittmeyer.started"
-          watchdog_path="$state_dir/rittmeyer.watchdog"
+          watchdog_path="$state_dir/rittmeyer-ag.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/rittmeyer-ag.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -340,7 +340,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-22/rittmeyer.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/rittmeyer.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-22/rittmeyer.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/rittmeyer.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/rittmeyer-ag.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-169}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1845,7 +1845,7 @@ jobs:
           pid_path="$state_dir/mkspamp.pid"
           status_path="$state_dir/mkspamp.status"
           started_path="$state_dir/mkspamp.started"
-          watchdog_path="$state_dir/mkspamp.watchdog"
+          watchdog_path="$state_dir/mks-pamp.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/mks-pamp.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -1932,7 +1932,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-22/mkspamp.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/mkspamp.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-22/mkspamp.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/mkspamp.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/mks-pamp.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-100}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4035,7 +4035,7 @@ jobs:
           pid_path="$state_dir/corner.pid"
           status_path="$state_dir/corner.status"
           started_path="$state_dir/corner.started"
-          watchdog_path="$state_dir/corner.watchdog"
+          watchdog_path="$state_dir/corner-banca.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/corner-banca.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -4122,7 +4122,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-22/corner.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/corner.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-22/corner.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/corner.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/corner-banca.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-42}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5030,7 +5030,7 @@ jobs:
           pid_path="$state_dir/ariston.pid"
           status_path="$state_dir/ariston.status"
           started_path="$state_dir/ariston.started"
-          watchdog_path="$state_dir/ariston.watchdog"
+          watchdog_path="$state_dir/ariston-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/ariston-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -5117,7 +5117,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-22/ariston.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/ariston.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-22/ariston.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/ariston.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/ariston-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7866,6 +7866,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7894,7 +7895,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7905,36 +7906,36 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'rittmeyer'
-          aggregate_crawler_member 'saint-gobain-weber-isover'
-          aggregate_crawler_member 'spital-davos'
-          aggregate_crawler_member 'lindenhofgruppe'
-          aggregate_crawler_member 'scandit'
-          aggregate_crawler_member 'spital-thusis'
-          aggregate_crawler_member 'reha-bellikon'
-          aggregate_crawler_member 'heineken-ch'
-          aggregate_crawler_member 'mkspamp'
-          aggregate_crawler_member 'ferring'
-          aggregate_crawler_member 'mistral-ai'
-          aggregate_crawler_member 'stadt-zuerich'
-          aggregate_crawler_member 'klinik-seeschau'
-          aggregate_crawler_member 'huntsman'
-          aggregate_crawler_member 'med-ipersonal'
-          aggregate_crawler_member 'kudelski-nagra'
-          aggregate_crawler_member 'tl-lausanne'
-          aggregate_crawler_member 'otis'
-          aggregate_crawler_member 'oerlikon'
-          aggregate_crawler_member 'corner'
-          aggregate_crawler_member 'eth-zurich'
-          aggregate_crawler_member 'giardino'
-          aggregate_crawler_member 'bossard'
-          aggregate_crawler_member 'clinica-holistica-engiadina'
-          aggregate_crawler_member 'ariston'
-          aggregate_crawler_member 'bachtelen'
-          aggregate_crawler_member 'alcon'
-          aggregate_crawler_member 'yellowshark'
-          aggregate_crawler_member 'rh-expert-ch'
-          aggregate_crawler_member 'project-interim'
+          aggregate_crawler_member 'rittmeyer' 'rittmeyer-ag'
+          aggregate_crawler_member 'saint-gobain-weber-isover' 'saint-gobain-weber-isover'
+          aggregate_crawler_member 'spital-davos' 'spital-davos'
+          aggregate_crawler_member 'lindenhofgruppe' 'lindenhofgruppe'
+          aggregate_crawler_member 'scandit' 'scandit'
+          aggregate_crawler_member 'spital-thusis' 'spital-thusis'
+          aggregate_crawler_member 'reha-bellikon' 'reha-bellikon'
+          aggregate_crawler_member 'heineken-ch' 'heineken-ch'
+          aggregate_crawler_member 'mkspamp' 'mks-pamp'
+          aggregate_crawler_member 'ferring' 'ferring'
+          aggregate_crawler_member 'mistral-ai' 'mistral-ai'
+          aggregate_crawler_member 'stadt-zuerich' 'stadt-zuerich'
+          aggregate_crawler_member 'klinik-seeschau' 'klinik-seeschau'
+          aggregate_crawler_member 'huntsman' 'huntsman'
+          aggregate_crawler_member 'med-ipersonal' 'med-ipersonal'
+          aggregate_crawler_member 'kudelski-nagra' 'kudelski-nagra'
+          aggregate_crawler_member 'tl-lausanne' 'tl-lausanne'
+          aggregate_crawler_member 'otis' 'otis'
+          aggregate_crawler_member 'oerlikon' 'oerlikon'
+          aggregate_crawler_member 'corner' 'corner-banca'
+          aggregate_crawler_member 'eth-zurich' 'eth-zurich'
+          aggregate_crawler_member 'giardino' 'giardino'
+          aggregate_crawler_member 'bossard' 'bossard'
+          aggregate_crawler_member 'clinica-holistica-engiadina' 'clinica-holistica-engiadina'
+          aggregate_crawler_member 'ariston' 'ariston-group'
+          aggregate_crawler_member 'bachtelen' 'bachtelen'
+          aggregate_crawler_member 'alcon' 'alcon'
+          aggregate_crawler_member 'yellowshark' 'yellowshark'
+          aggregate_crawler_member 'rh-expert-ch' 'rh-expert-ch'
+          aggregate_crawler_member 'project-interim' 'project-interim'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

@@ -251,7 +251,7 @@ jobs:
           pid_path="$state_dir/ksgr.pid"
           status_path="$state_dir/ksgr.status"
           started_path="$state_dir/ksgr.started"
-          watchdog_path="$state_dir/ksgr.watchdog"
+          watchdog_path="$state_dir/kantonsspital-graubuenden-ksgr.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/kantonsspital-graubuenden-ksgr.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -338,7 +338,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-16/ksgr.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-16/ksgr.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-16/ksgr.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/ksgr.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/kantonsspital-graubuenden-ksgr.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-175}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -849,7 +849,7 @@ jobs:
           pid_path="$state_dir/eoc.pid"
           status_path="$state_dir/eoc.status"
           started_path="$state_dir/eoc.started"
-          watchdog_path="$state_dir/eoc.watchdog"
+          watchdog_path="$state_dir/eoc-ente-ospedaliero-cantonale.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/eoc-ente-ospedaliero-cantonale.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -936,7 +936,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-16/eoc.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-16/eoc.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-16/eoc.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/eoc.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/eoc-ente-ospedaliero-cantonale.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-133}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1048,7 +1048,7 @@ jobs:
           pid_path="$state_dir/tich.pid"
           status_path="$state_dir/tich.status"
           started_path="$state_dir/tich.started"
-          watchdog_path="$state_dir/tich.watchdog"
+          watchdog_path="$state_dir/amministrazione-cantonale-ti.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/amministrazione-cantonale-ti.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -1135,7 +1135,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-16/tich.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-16/tich.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-16/tich.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/tich.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/amministrazione-cantonale-ti.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-125}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1247,7 +1247,7 @@ jobs:
           pid_path="$state_dir/swisscom.pid"
           status_path="$state_dir/swisscom.status"
           started_path="$state_dir/swisscom.started"
-          watchdog_path="$state_dir/swisscom.watchdog"
+          watchdog_path="$state_dir/swisscom-sede-ticino.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/swisscom-sede-ticino.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -1334,7 +1334,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-16/swisscom.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-16/swisscom.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-16/swisscom.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/swisscom.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/swisscom-sede-ticino.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-119}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4033,7 +4033,7 @@ jobs:
           pid_path="$state_dir/lastminute.pid"
           status_path="$state_dir/lastminute.status"
           started_path="$state_dir/lastminute.started"
-          watchdog_path="$state_dir/lastminute.watchdog"
+          watchdog_path="$state_dir/lastminute-com.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/lastminute-com.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -4120,7 +4120,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-16/lastminute.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-16/lastminute.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-16/lastminute.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/lastminute.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-16/lastminute-com.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7611,6 +7611,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7639,7 +7640,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7650,35 +7651,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'ksgr'
-          aggregate_crawler_member 'senevita'
-          aggregate_crawler_member 'rehaklinik-hasliberg'
-          aggregate_crawler_member 'eoc'
-          aggregate_crawler_member 'tich'
-          aggregate_crawler_member 'swisscom'
-          aggregate_crawler_member 'swica'
-          aggregate_crawler_member 'spital-nidwalden'
-          aggregate_crawler_member 'spitex-zuerich'
-          aggregate_crawler_member 'fhgr'
-          aggregate_crawler_member 'vir-biotechnology'
-          aggregate_crawler_member 'kispi-sg'
-          aggregate_crawler_member 'recruitingapp-1154'
-          aggregate_crawler_member 'decathlon'
-          aggregate_crawler_member 'gemeinde-st-moritz'
-          aggregate_crawler_member 'hopital-la-tour'
-          aggregate_crawler_member 'davos-klosters-bergbahnen'
-          aggregate_crawler_member 'claraspital'
-          aggregate_crawler_member 'ghol'
-          aggregate_crawler_member 'lastminute'
-          aggregate_crawler_member 'entero'
-          aggregate_crawler_member 'franklin-university'
-          aggregate_crawler_member 'everest-re'
-          aggregate_crawler_member 'csvm-mustair'
-          aggregate_crawler_member 'benteler'
-          aggregate_crawler_member 'adullam'
-          aggregate_crawler_member 'buersten-technik'
-          aggregate_crawler_member 'matterhorn-gotthard-bahn'
-          aggregate_crawler_member 'deillon-delley-architectes'
+          aggregate_crawler_member 'ksgr' 'kantonsspital-graubuenden-ksgr'
+          aggregate_crawler_member 'senevita' 'senevita'
+          aggregate_crawler_member 'rehaklinik-hasliberg' 'rehaklinik-hasliberg'
+          aggregate_crawler_member 'eoc' 'eoc-ente-ospedaliero-cantonale'
+          aggregate_crawler_member 'tich' 'amministrazione-cantonale-ti'
+          aggregate_crawler_member 'swisscom' 'swisscom-sede-ticino'
+          aggregate_crawler_member 'swica' 'swica'
+          aggregate_crawler_member 'spital-nidwalden' 'spital-nidwalden'
+          aggregate_crawler_member 'spitex-zuerich' 'spitex-zuerich'
+          aggregate_crawler_member 'fhgr' 'fhgr'
+          aggregate_crawler_member 'vir-biotechnology' 'vir-biotechnology'
+          aggregate_crawler_member 'kispi-sg' 'kispi-sg'
+          aggregate_crawler_member 'recruitingapp-1154' 'recruitingapp-1154'
+          aggregate_crawler_member 'decathlon' 'decathlon'
+          aggregate_crawler_member 'gemeinde-st-moritz' 'gemeinde-st-moritz'
+          aggregate_crawler_member 'hopital-la-tour' 'hopital-la-tour'
+          aggregate_crawler_member 'davos-klosters-bergbahnen' 'davos-klosters-bergbahnen'
+          aggregate_crawler_member 'claraspital' 'claraspital'
+          aggregate_crawler_member 'ghol' 'ghol'
+          aggregate_crawler_member 'lastminute' 'lastminute-com'
+          aggregate_crawler_member 'entero' 'entero'
+          aggregate_crawler_member 'franklin-university' 'franklin-university'
+          aggregate_crawler_member 'everest-re' 'everest-re'
+          aggregate_crawler_member 'csvm-mustair' 'csvm-mustair'
+          aggregate_crawler_member 'benteler' 'benteler'
+          aggregate_crawler_member 'adullam' 'adullam'
+          aggregate_crawler_member 'buersten-technik' 'buersten-technik'
+          aggregate_crawler_member 'matterhorn-gotthard-bahn' 'matterhorn-gotthard-bahn'
+          aggregate_crawler_member 'deillon-delley-architectes' 'deillon-delley-architectes'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
