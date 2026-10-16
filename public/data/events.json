@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T07:52:38.856Z",
+  "generatedAt": "2026-10-16T08:57:35.972Z",
   "totalEvents": 13716,
   "events": [
     {
@@ -117438,7 +117438,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, la conferenza-incontro propone una visita tematica dedicata a Rodolphe Töpffer. Il percorso riguarda i suoi viaggi e i suoi disegni a zigzag.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, la conferenza-incontro propone una visita tematica dedicata a Rodolphe Töpffer. Il percorso riguarda i suoi viaggi e i suoi disegni a zigzag.",
+        "en": "In Geneva, the talk and meeting includes a thematic visit devoted to Rodolphe Töpffer. It addresses his travels and zigzag drawings.",
+        "de": "In Genf bietet die Begegnung eine thematische Führung zu Rodolphe Töpffer. Behandelt werden seine Reisen und seine Zeichnungen im Zickzack.",
+        "fr": "À Genève, cette rencontre propose une visite thématique consacrée à Rodolphe Töpffer. Elle porte sur ses voyages et ses dessins en zigzag."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:urban-climate-circles-atelier-art-science-imagination-action-rencontrent",
@@ -119572,7 +119580,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Il concerto blues di Black Patti è in programma al Dixie- und Jazz-Club di Sargans. Il duo riunisce due musicisti blues e roots, attivi insieme su palchi internazionali e nei festival da oltre dieci anni.",
+      "descriptionByLocale": {
+        "it": "Il concerto blues di Black Patti è in programma al Dixie- und Jazz-Club di Sargans. Il duo riunisce due musicisti blues e roots, attivi insieme su palchi internazionali e nei festival da oltre dieci anni.",
+        "en": "Black Patti is scheduled for a blues performance at the Dixie- und Jazz-Club in Sargans. The duo consists of two blues and roots musicians who have worked together on international stages and at festivals for more than ten years.",
+        "de": "Im Dixie- und Jazz-Club in Sargans ist Black Patti mit einem Blues-Auftritt angekündigt. Das Duo besteht aus zwei Blues- und Roots-Musikern, die seit mehr als zehn Jahren gemeinsam auf internationalen Bühnen und bei Festivals aktiv sind.",
+        "fr": "Black Patti est à l’affiche d’un concert de blues au Dixie- und Jazz-Club de Sargans. Le duo réunit deux musiciens de blues et de roots, actifs ensemble sur des scènes et dans des festivals internationaux depuis plus de dix ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8ea7c1148898403abcaf55dfa4182107",
@@ -121633,7 +121649,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un appuntamento di area cantautore dedicato all’ascolto in anteprima di un album di Florian Paul e Die Kapelle der letzten Hoffnung. Si svolge allo Zeughaus Lindau, a Lindau.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento di area cantautore dedicato all’ascolto in anteprima di un album di Florian Paul e Die Kapelle der letzten Hoffnung. Si svolge allo Zeughaus Lindau, a Lindau.",
+        "en": "This singer-songwriter event offers an advance listening of an album by Florian Paul and Die Kapelle der letzten Hoffnung. It takes place at Zeughaus Lindau in Lindau.",
+        "de": "Die Cantautore-Veranstaltung bietet ein Vorab-Hören eines Albums von Florian Paul und Die Kapelle der letzten Hoffnung. Sie findet im Zeughaus Lindau in Lindau statt.",
+        "fr": "Ce rendez-vous de type cantautore propose l’écoute en avant-première d’un album de Florian Paul et Die Kapelle der letzten Hoffnung. Il se déroule au Zeughaus Lindau, à Lindau."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f1aca38f4c524d4f9200a38a54038ac0",
@@ -122640,7 +122664,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di Arosa presenta il canto dei partecipanti alla settimana corale d’autunno. Per assistere non è necessario prenotare un posto.",
+      "descriptionByLocale": {
+        "it": "L’evento di Arosa presenta il canto dei partecipanti alla settimana corale d’autunno. Per assistere non è necessario prenotare un posto.",
+        "en": "The event in Arosa features singing by participants in the autumn choir week. No seat reservation is required.",
+        "de": "In Arosa singen die Teilnehmenden der Herbst-Chorwoche im Rahmen der Veranstaltung. Für den Besuch ist keine Sitzplatzreservierung erforderlich.",
+        "fr": "À Arosa, les participants à la semaine chorale d’automne assurent la partie chantée de l’événement. Il n’est pas nécessaire de réserver une place."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A31kfS6",
@@ -131668,7 +131700,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Vevey, Les Coulisses Atelier Expo ospita un’esposizione di Patricia Maisch dedicata all’incisione. Il percorso descrive le trasformazioni della lastra e il suo impiego come matrice per la stampa.",
+      "descriptionByLocale": {
+        "it": "A Vevey, Les Coulisses Atelier Expo ospita un’esposizione di Patricia Maisch dedicata all’incisione. Il percorso descrive le trasformazioni della lastra e il suo impiego come matrice per la stampa.",
+        "en": "At Les Coulisses Atelier Expo in Vevey, Patricia Maisch presents an exhibition devoted to etching. It follows the changes made to the plate and its use as a matrix for printing.",
+        "de": "Im Les Coulisses Atelier Expo in Vevey zeigt Patricia Maisch eine Ausstellung über Radierung. Sie verfolgt die Bearbeitung der Platte und deren Verwendung als Grundlage für den Druck.",
+        "fr": "À Vevey, Les Coulisses Atelier Expo accueille une exposition de Patricia Maisch consacrée à la gravure. Elle retrace les transformations de la plaque et son utilisation comme matrice pour l’impression."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1dda73492d934968ae0fb54fec57286d",
@@ -134398,7 +134438,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un festival di grafica di più giorni che si svolge ogni anno dal 2009. A Lucerna presenta mostre e altri eventi distribuiti in diversi luoghi della città e favorisce lo scambio tra professionisti della grafica e persone interessate.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un festival di grafica di più giorni che si svolge ogni anno dal 2009. A Lucerna presenta mostre e altri eventi distribuiti in diversi luoghi della città e favorisce lo scambio tra professionisti della grafica e persone interessate.",
+        "en": "This is a multi-day graphic design festival held annually since 2009. In Luzern, it presents exhibitions and other events at various locations across the city and provides a forum for graphic designers and interested visitors.",
+        "de": "Die Veranstaltung ist ein mehrtägiges Festival für Grafikdesign, das seit 2009 jährlich stattfindet. In Luzern umfasst sie Ausstellungen und weitere Veranstaltungen an verschiedenen Orten der Stadt und dient dem Austausch zwischen Grafikschaffenden und interessierten Besuchenden.",
+        "fr": "Il s’agit d’un festival de design graphique organisé sur plusieurs jours et proposé chaque année depuis 2009. À Lucerne, il réunit des expositions et d’autres événements répartis dans la ville, tout en offrant un espace d’échange aux professionnels du graphisme et aux personnes intéressées."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2f395e0c2c9f48fd8f40de3c38369fe3",
@@ -156183,7 +156231,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento musicale presenta Marcol Savoy e Bugge Wesseltoft in formazione trio al Centre des Musiques Actuelles. L’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale presenta Marcol Savoy e Bugge Wesseltoft in formazione trio al Centre des Musiques Actuelles. L’ingresso costa 15 CHF.",
+        "en": "This music event features Marcol Savoy and Bugge Wesseltoft in a trio setting at the Centre des Musiques Actuelles. Admission costs CHF 15.",
+        "de": "Die Musikveranstaltung bringt Marcol Savoy und Bugge Wesseltoft in einer Trioformation ins Centre des Musiques Actuelles. Der Eintritt kostet 15 CHF.",
+        "fr": "Ce rendez-vous musical associe Marcol Savoy et Bugge Wesseltoft au Centre des Musiques Actuelles. L’entrée coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:cafe-quartier-libraire-passionne",
@@ -164654,7 +164710,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata di danza a Ginevra propone uno stage di tango con Ricardo Astrada e Constanza Vieyto e una milonga con il DJ Mar Verdemar. L’appuntamento si svolge all’Espace de quartier de Sécheron, include un open bar e costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "La serata di danza a Ginevra propone uno stage di tango con Ricardo Astrada e Constanza Vieyto e una milonga con il DJ Mar Verdemar. L’appuntamento si svolge all’Espace de quartier de Sécheron, include un open bar e costa 15 CHF.",
+        "en": "This dance evening in Geneva features a tango workshop with Ricardo Astrada and Constanza Vieyto, together with a milonga with DJ Mar Verdemar. It takes place at Espace de quartier de Sécheron, includes an open bar, and costs CHF 15.",
+        "de": "Der Tanzabend in Genf umfasst einen Tangoworkshop mit Ricardo Astrada und Constanza Vieyto sowie eine Milonga mit DJ Mar Verdemar. Die Veranstaltung findet im Espace de quartier de Sécheron statt, eine offene Bar ist inbegriffen und der Eintritt kostet 15 CHF.",
+        "fr": "Cette soirée de danse à Genève propose un stage de tango avec Ricardo Astrada et Constanza Vieyto ainsi qu’une milonga avec DJ Mar Verdemar. Elle se tient à l’Espace de quartier de Sécheron, inclut un open bar et coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:mouvements-singuliers-jeudi-8-dimanche-11-octobre-2026",
@@ -166709,7 +166773,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È prevista una proiezione cinematografica accompagnata da un momento di confronto. L’appuntamento rientra nella Semaine de la démocratie, si svolge in inglese a Ginevra e prevede ingresso gratuito, con il coinvolgimento della Fondation Caux Initiative et Changement.",
+      "descriptionByLocale": {
+        "it": "È prevista una proiezione cinematografica accompagnata da un momento di confronto. L’appuntamento rientra nella Semaine de la démocratie, si svolge in inglese a Ginevra e prevede ingresso gratuito, con il coinvolgimento della Fondation Caux Initiative et Changement.",
+        "en": "The programme brings together a film screening and an opportunity for discussion. It is part of Semaine de la démocratie, takes place in Geneva in English, and offers free admission, with the Fondation Caux Initiative et Changement involved.",
+        "de": "Auf dem Programm stehen eine Filmvorführung und ein Austausch. Die Veranstaltung gehört zur Semaine de la démocratie, findet in Genf auf Englisch statt und ist kostenlos; beteiligt ist die Fondation Caux Initiative et Changement.",
+        "fr": "Le rendez-vous réunit une projection de film et un temps d’échange. Il s’inscrit dans la Semaine de la démocratie, se tient en anglais à Genève et est accessible gratuitement, avec la participation de la Fondation Caux Initiative et Changement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ABvfa1W",
@@ -168160,7 +168232,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento per le scuole si tiene al Musée national suisse di Prangins. L’incontro illustra come si sviluppa un’iniziativa e utilizza gli oggetti esposti in una mostra sulla Svizzera come punto di partenza.",
+      "descriptionByLocale": {
+        "it": "L’evento per le scuole si tiene al Musée national suisse di Prangins. L’incontro illustra come si sviluppa un’iniziativa e utilizza gli oggetti esposti in una mostra sulla Svizzera come punto di partenza.",
+        "en": "This event for schools takes place at the Musée national suisse in Prangins. It explains how an initiative is developed and uses objects displayed in an exhibition about Switzerland as a starting point.",
+        "de": "Die Veranstaltung für Schulen findet im Musée national suisse in Prangins statt. Sie zeigt, wie eine Initiative entsteht, und greift dabei auf ausgestellte Objekte aus einer Ausstellung über die Schweiz zurück.",
+        "fr": "Cet événement destiné aux écoles a lieu au Musée national suisse à Prangins. Il présente le déroulement d’une initiative et s’appuie sur des objets présentés dans une exposition consacrée à la Suisse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64429",
@@ -171640,7 +171720,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, l’evento per le persone anziane comprende tre passeggiate sensoriali nei quartieri della città. La geografa e urbanista Sandra Piriz accompagna i percorsi, che permettono di esplorare l’ambiente urbano da un punto di vista diverso; la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, l’evento per le persone anziane comprende tre passeggiate sensoriali nei quartieri della città. La geografa e urbanista Sandra Piriz accompagna i percorsi, che permettono di esplorare l’ambiente urbano da un punto di vista diverso; la partecipazione è gratuita.",
+        "en": "In Geneva, the event for older people comprises three sensory walks in the city’s neighborhoods. Geographer and urban planner Sandra Piriz accompanies the walks, which offer another way to explore the city, and attendance is free.",
+        "de": "In Genf umfasst die Veranstaltung für Seniorinnen und Senioren drei Spaziergänge, bei denen die Sinne im Mittelpunkt stehen. Sandra Piriz, Geografin und Stadtplanerin, begleitet die Spaziergänge; dabei lässt sich die Stadt aus einer anderen Perspektive erkunden, und die Teilnahme ist kostenlos.",
+        "fr": "À Genève, l’événement destiné aux seniors comprend trois promenades sensorielles dans les quartiers de la ville. Sandra Piriz, géographe-urbaniste, accompagne les parcours, qui permettent d’explorer l’espace urbain autrement; la participation est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:62916",
@@ -182288,7 +182376,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento si tiene al ristorante di montagna Tigignas, sopra Savognin, nella Val Surses. La celebrazione riprende l’apertura tradizionale dell’Oktoberfest con la spillatura della birra.",
+      "descriptionByLocale": {
+        "it": "L’evento si tiene al ristorante di montagna Tigignas, sopra Savognin, nella Val Surses. La celebrazione riprende l’apertura tradizionale dell’Oktoberfest con la spillatura della birra.",
+        "en": "The event is held at the Tigignas mountain restaurant above Savognin, in Val Surses. It adopts the Oktoberfest tradition of opening the celebration by tapping the beer.",
+        "de": "Die Veranstaltung findet im Bergrestaurant Tigignas oberhalb von Savognin in der Val Surses statt. Sie greift die Oktoberfest-Tradition auf, das Fest mit dem Anzapfen des Bieres zu eröffnen.",
+        "fr": "Cette manifestation se déroule à Tigignas, un restaurant de montagne situé au-dessus de Savognin, dans le Val Surses. Elle reprend la tradition de l’Oktoberfest qui consiste à inaugurer la fête par la mise en perce de la bière."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a4e30e853dc04f36a88963203d010b4e",
