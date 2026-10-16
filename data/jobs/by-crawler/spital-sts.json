@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-15T21:21:02.170Z",
+  "assembledAt": "2026-10-16T09:13:54.961Z",
   "jobs": [
     {
       "id": "spital-sts-66c6323510a7",
@@ -33,7 +33,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:56.208Z",
+      "crawledAt": "2026-10-16T09:13:46.105Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2425bdbe-06b6-4676-9124-a101e1c624ea/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:55.649Z",
+      "crawledAt": "2026-10-16T09:13:45.699Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -183,7 +183,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:55.104Z",
+      "crawledAt": "2026-10-16T09:13:45.290Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4d61a5c9-146f-429b-9f9a-3123a4279ecc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:54.564Z",
+      "crawledAt": "2026-10-16T09:13:44.872Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:54.001Z",
+      "crawledAt": "2026-10-16T09:13:44.476Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -409,7 +409,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:53.446Z",
+      "crawledAt": "2026-10-16T09:13:44.080Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -475,7 +475,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:52.899Z",
+      "crawledAt": "2026-10-16T09:13:43.682Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -548,7 +548,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:52.349Z",
+      "crawledAt": "2026-10-16T09:13:43.290Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -628,7 +628,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/86f24237-a339-46ca-baf6-0e076f12a645/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:51.776Z",
+      "crawledAt": "2026-10-16T09:13:42.897Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -702,7 +702,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:48.283Z",
+      "crawledAt": "2026-10-16T09:13:42.489Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -749,157 +749,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-sts-d6731ef92279",
-      "slug": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
-      "slugByLocale": {
-        "it": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
-        "en": "professional-health-emergency-center-spital-sts-thun",
-        "de": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-        "fr": "centre-professionnel-d-urgence-en-sante-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Fachfrau/ -mann Gesundheit Notfallzentrum",
-      "titleByLocale": {
-        "it": "Centro di emergenza sanitaria professionale",
-        "en": "Professional Health Emergency Center",
-        "de": "Fachfrau/ -mann Gesundheit Notfallzentrum",
-        "fr": "Centre professionnel d'urgence en santé"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUns ist eine individuelle, kompetente und kundenorientierte Patientenbetreuung wichtig. Die Bezugspflege ist ein prägendes Element unseres Notfallprozesses. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und dem Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Du betreust die Patient:innen zum grössten Teil selbständig oder auf Delegation. Zusätzlich arbeitest du im Fasttrack mit (Praxisbereich innerhalb NFZ).\n\nEintritt per 1. Februar 2027 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interessantes und anspruchsvolles Arbeitsumfeld\n• Spannende und abwechslungsreiche Tätigkeit\n• Entwicklungsmöglichkeiten\n• Interdisziplinäres Team\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Berufserfahrung, vorzugsweise bereits im Akutbereich\n• Engagierte und belastbare Art\n• Freude an schnellen Prozessen\n• Ruhe bewahren auch in hektischen Situationen",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nPer noi, la cura individuale, competente e orientata al cliente è importante. La manutenzione è un elemento determinante del nostro processo di emergenza. Trattare con la documentazione di assistenza elettronica, il monitoraggio centrale e il sistema di distribuzione della droga fanno parte del vostro lavoro quotidiano. Si prende cura del paziente: per lo più indipendente o su delegazione. Inoltre, si lavora nel Fasttrack (area pratica all'interno di NFZ).\n\nEntrata a decorrere dal 1° febbraio 2027 o per accordo\n\nTi sta aspettando.\n\n• Ambiente di lavoro interessante ed esigente\n• Attività emozionanti e varie\n• Opportunità di sviluppo\n• Gruppo interdisciplinare\n\nDiventa parte del nostro team\n\n• Formazione completa come specialista Health EFZ\n• Esperienza professionale, preferibilmente già nel campo acuto\n• Tipo misto e resiliente\n• Godere di processi veloci\n• Tenere la calma anche in situazioni frenetiche",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nFor us, individual, competent and customer-oriented patient care is important. Maintenance is a defining element of our emergency process. Dealing with electronic care documentation, central monitoring and the drug distribution system are part of your daily work. You look after the patient: mostly independently or on delegation. In addition, you work in the Fasttrack (practical area within NFZ).\n\nEntry as of 1 February 2027 or by agreement\n\nThis is waiting for you\n\n• Interesting and demanding working environment\n• Exciting and varied activity\n• Development opportunities\n• Interdisciplinary team\n\nBecome part of our team\n\n• Completed training as a specialist Health EFZ\n• Professional experience, preferably already in the acute field\n• Committed and resilient type\n• Enjoying fast processes\n• Keep calm even in hectic situations",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUns ist eine individuelle, kompetente und kundenorientierte Patientenbetreuung wichtig. Die Bezugspflege ist ein prägendes Element unseres Notfallprozesses. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und dem Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Du betreust die Patient:innen zum grössten Teil selbständig oder auf Delegation. Zusätzlich arbeitest du im Fasttrack mit (Praxisbereich innerhalb NFZ).\n\nEintritt per 1. Februar 2027 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interessantes und anspruchsvolles Arbeitsumfeld\n• Spannende und abwechslungsreiche Tätigkeit\n• Entwicklungsmöglichkeiten\n• Interdisziplinäres Team\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Berufserfahrung, vorzugsweise bereits im Akutbereich\n• Engagierte und belastbare Art\n• Freude an schnellen Prozessen\n• Ruhe bewahren auch in hektischen Situationen",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nPour nous, les soins individuels, compétents et axés sur le client sont importants. L'entretien est un élément déterminant de notre processus d'urgence. Le traitement de la documentation sur les soins électroniques, la surveillance centrale et le système de distribution des médicaments font partie de votre travail quotidien. Vous prenez soin du patient : la plupart du temps indépendamment ou en délégation. De plus, vous travaillez dans le Fasttrack (zone pratique au sein de NFZ).\n\nEntrée au 1er février 2027 ou par accord\n\nÇa vous attend.\n\n• Environnement de travail intéressant et exigeant\n• Activité passionnante et variée\n• Possibilités de développement\n• Équipe interdisciplinaire\n\nDevenez membre de notre équipe\n\n• Formation complète en tant que spécialiste de la santé EFZ\n• Expérience professionnelle, de préférence déjà dans le domaine aigu\n• Type engagé et résistant\n• Profiter de processus rapides\n• Restez calme même dans des situations agitées"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/7fefd7e3-8955-495c-805e-aea9db9b1ea8/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:21:11.348Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7fefd7e3-8955-495c-805e-aea9db9b1ea8",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
-        ]
-      },
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "spital-sts-2a6b37120a79",
-      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-        "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale",
-        "en": "Dipl. Nursing professional / Dipl. Nursing professional",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nSi lavora su un reparto letto chirurgico con un focus su ortopedia / traumatologia, chirurgia spinale e viscerale. Un ambiente di lavoro interessante e vario vi aspetta. Trattare con la documentazione di assistenza elettronica e il sistema di distribuzione della droga è una parte integrata del nostro lavoro quotidiano.\n\nEntrata immediata o di accordo\n\nTi sta aspettando.\n\n• Un team divertente, giovane e motivato con una buona coesione di squadra\n• Progetto di pianificazione del servizio guidato dai dipendenti\n• sfide emozionanti con la propria area di responsabilità\n• Buona collaborazione con il team e la gestione della stazione\n• Possibilità di acquisto di vacanza supplementare, condizioni di lavoro interessanti\n\nDiventa parte del nostro team\n\n• Complezione come dipl. Infermieristica\n• Esperienza professionale preferibilmente in ortopedia\n• Ispiranti, Commessi, Responsabili e Professionali – I nostri valori STS dell'ospedale che si oppongono a noi",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nYou work on a surgical bed ward with a focus on orthopaedics / traumatology, spinal and visceral surgery. An interesting and varied working environment awaits you. Dealing with electronic care documentation and the drug distribution system is an integrated part of our daily work.\n\nEntry by immediate or by agreement\n\nThis is waiting for you\n\n• A humorous, young, motivated team with good team cohesion\n• Ongoing employee-driven service planning project\n• Exciting challenges with their own area of responsibility\n• Good cooperation with the team and the station management\n• Possibility of additional holiday purchase, attractive employment conditions\n\nBecome part of our team\n\n• Completion as a dipl. Nurse practitioner\n• Preferably professional experience in orthopaedics\n• Inspiring, Committed, Responsible and Professional – Our Hospital STS Values That Matter to Us",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous travaillez sur un service de lit chirurgical avec un accent sur l'orthopédie / traumatologie, la colonne vertébrale et la chirurgie viscérale. Un environnement de travail intéressant et varié vous attend. La documentation sur les soins électroniques et le système de distribution des médicaments font partie intégrante de notre travail quotidien.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Une équipe humoristique, jeune et motivée avec une bonne cohésion d'équipe\n• Projet de planification des services dirigé par les employés\n• Des défis passionnants avec leur propre domaine de responsabilité\n• Bonne coopération avec l'équipe et la direction de la station\n• Possibilité d'achat de vacances supplémentaires, conditions d'emploi attrayantes\n\nDevenez membre de notre équipe\n\n• Achèvement en tant que dipl. Infirmière praticienne\n• Expérience professionnelle de préférence en orthopédie\n• Inspirant, engagé, responsable et professionnel – Notre hôpital STS valeurs qui nous importe"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/1949b04a-7c46-475f-a2f8-90ee4fc5f989/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:21:10.326Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/1949b04a-7c46-475f-a2f8-90ee4fc5f989",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:19:32.112Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,18 +1,99 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-15T21:19:32.165Z",
-  "total": 27,
-  "newCount": 0,
+  "generatedAt": "2026-10-16T09:13:39.435Z",
+  "total": 29,
+  "newCount": 2,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 19,
-  "durationMs": 1490,
-  "avgDurationMs": 1490,
+  "durationMs": 1590,
+  "avgDurationMs": 1590,
   "durationHistory": [
-    1490
+    1590
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Front Office Agent 80-100% (all genders) ",
+      "slug": "front-office-agent-80-100-all-genders-the-living-circle-thalwil",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68143651/Front-Office-Agent-80-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68143651/Front-Office-Agent-80-100%25-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Thalwil",
+      "addressLocality": "Thalwil",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-16T10:27:49.388+02:00",
+      "postedDate": "2026-10-16T10:27:49.388+02:00",
+      "postingDateSource": "reported",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "id": "the-living-circle-8faa16ff792c",
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8800",
+      "firstSeenAt": "2026-10-16T09:13:26.581Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Aushilfe Housekeeping Porter (all genders)",
+      "slug": "aushilfe-housekeeping-porter-all-genders-the-living-circle-thalwil",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68144021/Aushilfe-Housekeeping-Porter-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68144021/Aushilfe-Housekeeping-Porter-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Thalwil",
+      "addressLocality": "Thalwil",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-16T10:32:42.643+02:00",
+      "postedDate": "2026-10-16T10:32:42.643+02:00",
+      "postingDateSource": "reported",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "id": "the-living-circle-bf5edeed05e8",
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8800",
+      "firstSeenAt": "2026-10-16T09:13:26.581Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
@@ -1084,5 +1165,5 @@
       }
     }
   ],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }
