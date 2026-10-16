@@ -13307,6 +13307,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.futura-volley-roma-vittoria.title': 'Futura volley busto arsizio vince 3-1 contro roma',
     'blog.article.futura-volley-roma-vittoria.excerpt': 'Erreci Busto Arsizio supera Roma 3-1.',
     'blog.article.futura-volley-roma-vittoria.imageAlt': 'Partita di pallavolo femminile A2 tra Futura Volley Busto Arsizio e Roma, con Šiftar top scorer e vittoria 3-1',
+    'blog.article.premio-furia-giovannini-varese.title': 'Premio Furia 2026 a Giovannini: sostenibilità al centro',
+    'blog.article.premio-furia-giovannini-varese.excerpt': 'Premio Furia 2026 a Enrico Giovannini Economista e statistico, docente a Roma Tor Vergata È stato Chief Statistician dell\'OCSE e presidente ISTAT ASviS fondata',
+    'blog.article.premio-furia-giovannini-varese.imageAlt': 'Vista panoramica del Lago di Lugano al tramonto, con montagne riflesse e cielo sereno.',
 };
 
 export default blogMetaIt;

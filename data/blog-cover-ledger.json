@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5534
+      "6": 5535
     },
-    "publishedCovers": 7115,
+    "publishedCovers": 7116,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5339
+    "inferredRecords": 5340
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190746,6 +190746,33 @@
           "id": "olgiate-presidio-vivo-mercato",
           "category": "novita",
           "date": "2026-10-16T02:57:06.729Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-premio-furia-giovannini-varese": {
+      "cover": "/images/blog/article-premio-furia-giovannini-varese.webp",
+      "hash": "1fdae5008bb64184b36f178657578d2ffcaa048132bf35d2aa11dfbc926b152d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "premio-furia-giovannini-varese",
+          "category": "novita",
+          "date": "2026-10-16T08:27:43.117Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

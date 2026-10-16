@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "c7bb306b6944e57700fa3162360f382276df53eb",
+  "commit": "af803c563aa6bc1d157e60e56a76de9322133046",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -23671,6 +23671,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original synthetic Swiss mountain pasture scene with a cow; no text, logos, people, or specific real event."
+      }
+    },
+    "/images/blog/article-premio-furia-giovannini-varese.webp": {
+      "schema": 1,
+      "assetId": "article-premio-furia-giovannini-varese",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "9926f6fe720860fa1c32c55ec9ca788cd0464c15a5dfafc664b3ba6af1ad4ef1",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "1fdae5008bb64184b36f178657578d2ffcaa048132bf35d2aa11dfbc926b152d",
+      "bytes": 91802,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T08:27:36.019Z",
+      "verifiedAt": "2026-10-16T08:27:42.566Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-premio-furia-giovannini-varese.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic scenic illustration of Lake Lugano at sunset, with no people, text, signage, logos, or identifiable event."
       }
     },
     "/images/places/lugano-view.webp": {

@@ -109608,6 +109608,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premio-furia-giovannini-varese': {
+    title: 'Premio Furia 2026 a Giovannini: sostenibilità al centro',
+    description: 'Premio Furia 2026 a Enrico Giovannini Economista e statistico, docente a Roma Tor Vergata È stato Chief Statistician dell\'OCSE e presidente ISTAT ASviS fondata',
+    keywords: 'frontalieri, ticino, svizzera, italia, premio, furia, giovannini, sostenibilità',
+    ogTitle: 'Premio Furia 2026 a Giovannini: sviluppo sostenibile',
+    ogDescription: 'Premio Furia 2026 a Enrico Giovannini Economista e statistico, docente a Roma Tor Vergata È stato Chief Statistician dell\'OCSE e presidente ISTAT ASviS fondata',
+    canonicalPath: '/articoli-frontaliere/premio-furia-giovannini-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premio Furia 2026 a Giovannini: sostenibilità al centro",
+      "description": "Premio Furia 2026 a Enrico Giovannini Economista e statistico, docente a Roma Tor Vergata È stato Chief Statistician dell'OCSE e presidente ISTAT ASviS fondata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-premio-furia-giovannini-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano al tramonto, con montagne riflesse e cielo sereno."
+      },
+      "datePublished": "2026-10-16T08:27:43+00:00",
+      "dateModified": "2026-10-16T08:27:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premio-furia-giovannini-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

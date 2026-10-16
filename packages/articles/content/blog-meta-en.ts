@@ -13306,6 +13306,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.futura-volley-roma-vittoria.title': 'Futura volley busto arsizio wins 3-1 against roma',
     'blog.article.futura-volley-roma-vittoria.excerpt': 'Erreci Busto Arsizio beats Roma 3-1.',
     'blog.article.futura-volley-roma-vittoria.imageAlt': 'Women\'s A2 volleyball match between Futura Volley Busto Arsizio and Roma, Šiftar top scorer, 3-1 win',
+    'blog.article.premio-furia-giovannini-varese.title': 'Furia Award 2026 for Giovannini: sustainability at the center',
+    'blog.article.premio-furia-giovannini-varese.excerpt': '2026 Furia Award to Enrico Giovannini Economist and statistician, professor at Roma Tor Vergata He was Chief Statistician of the OECD and president of ISTAT ASviS founded',
+    'blog.article.premio-furia-giovannini-varese.imageAlt': 'Panoramic view of Lake Lugano at sunset, with reflected mountains and clear sky.',
 };
 
 export default blogMetaEn;
