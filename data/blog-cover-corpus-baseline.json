@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "source": "nanakokyobashi-rgb/frontaliere-articles",
-  "sourceCommit": "d577757818d9743c0a260674ce9232b9186a6875",
+  "sourceCommit": "87c83287e66defc2547719fc2fe745ae25f6a926",
   "generatedAt": "2026-10-16",
   "registries": {
     "packages/articles/content/blog-articles-data.ts": {
       "corpusPath": "content/blog-articles-data.ts",
-      "articles": 4390,
+      "articles": 4391,
       "distinctImages": 4340
     },
     "packages/articles/content/swiss-articles-data.ts": {

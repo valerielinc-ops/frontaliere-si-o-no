@@ -13303,6 +13303,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.azalee-calcio-campo-pradisera.title': 'Gallarate: Azalee Calcio leave the field on Via Pradisera',
     'blog.article.azalee-calcio-campo-pradisera.excerpt': 'Le Azalee Calcio leave the field on Via Pradisera.',
     'blog.article.azalee-calcio-campo-pradisera.imageAlt': 'Local soccer field with grass pitch and goalposts',
+    'blog.article.futura-volley-roma-vittoria.title': 'Futura volley busto arsizio wins 3-1 against roma',
+    'blog.article.futura-volley-roma-vittoria.excerpt': 'Erreci Busto Arsizio beats Roma 3-1.',
+    'blog.article.futura-volley-roma-vittoria.imageAlt': 'Women\'s A2 volleyball match between Futura Volley Busto Arsizio and Roma, Šiftar top scorer, 3-1 win',
 };
 
 export default blogMetaEn;

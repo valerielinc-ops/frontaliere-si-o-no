@@ -109569,6 +109569,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-futura-volley-roma-vittoria': {
+    title: 'Futura volley busto arsizio vince 3-1 contro roma',
+    description: 'Erreci Busto Arsizio supera Roma 3-1. Tre vittorie da tre punti in A2 femminile. Šiftar chiude con 24 punti e il 61% in attacco. Prossima sfida: Costa Volpino',
+    keywords: 'frontalieri, ticino, svizzera, italia, futura, volley, busto, arsizio',
+    ogTitle: 'Futura volley busto arsizio vince 3-1 contro roma',
+    ogDescription: 'Erreci Busto Arsizio supera Roma 3-1.',
+    canonicalPath: '/articoli-frontaliere/futura-volley-roma-vittoria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Futura volley busto arsizio vince 3-1 contro roma",
+      "description": "Erreci Busto Arsizio supera Roma 3-1. Tre vittorie da tre punti in A2 femminile. Šiftar chiude con 24 punti e il 61% in attacco. Prossima sfida: Costa Volpino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-erreci-busto-marsala-vittoria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di pallavolo femminile A2 tra Futura Volley Busto Arsizio e Roma, con Šiftar top scorer e vittoria 3-1"
+      },
+      "datePublished": "2026-10-16T06:52:09+00:00",
+      "dateModified": "2026-10-16T06:52:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/futura-volley-roma-vittoria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

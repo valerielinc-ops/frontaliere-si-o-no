@@ -44900,6 +44900,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'futura-volley-roma-vittoria',
+ category: 'novita',
+ date: '2026-10-16T06:52:09.711Z',
+ image: '/images/blog/article-erreci-busto-marsala-vittoria.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
