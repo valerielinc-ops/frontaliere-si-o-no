@@ -13314,6 +13314,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.masha-orso-teatro-saronno.title': 'Macha et l\'ours arrivent au théâtre Reina Pacis de Saronno',
     'blog.article.masha-orso-teatro-saronno.excerpt': 'Samedi 17 octobre, deux répliques du spectacle « Les nouvelles aventures de Masha et d\'Ours » proposé par Le Monde Fantastique des Marionnettes.',
     'blog.article.masha-orso-teatro-saronno.imageAlt': 'Scène de théâtre italien avec rideaux rouges pour un spectacle de marionnettes',
+    'blog.article.bollettino-frontaliere-2026-10-16.title': 'Frontaliers : 726 nouvelles offres en Suisse hier — 16 octobre 2026',
+    'blog.article.bollettino-frontaliere-2026-10-16.excerpt': 'Les chiffres du jour, 16 octobre 2026, pour les frontaliers : les dernières attentes relevées à chaque douane, les communes où l\'essence coûte le moins cher, le dernier taux franc-euro relevé et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-10-16.imageAlt': 'Les chiffres du jour pour les frontaliers – 16 octobre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-10-16.seoDescription': 'Bulletin du frontalier du 16 octobre 2026 : les files relevées aux douanes, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-10-16.ogDescription': 'Les chiffres du 16 octobre 2026 pour les frontaliers : combien de temps on attend à chaque douane, où l\'essence coûte le moins cher, quel est le dernier taux franc-euro relevé et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

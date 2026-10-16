@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "52ae784a566fb61a9df7fbc90d4dd8c1dbd419c6",
+  "commit": "80f71c15cf741437790a8b814ec49a1fb1cfd03c",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -23758,6 +23758,24 @@
         "is_topic_relevant": true,
         "notes": "Original synthetic illustration of a generic children's puppet theater featuring a girl and bear; no text, logos, identifiable people, or specific real event."
       }
+    },
+    "/images/blog/bollettino-frontaliere-2026-10-16.webp": {
+      "schema": 1,
+      "assetId": "bollettino-frontaliere-2026-10-16",
+      "source": "deterministic-card",
+      "provider": "site-owned",
+      "note": "Deterministic SVG card rendered by the repository; no external image provider is used.",
+      "credit": "frontaliereticino.ch",
+      "producer": "generator/scripts/lib/daily-brief-image.mjs",
+      "templateVersion": "frontaliereticino.daily-brief-card.v1",
+      "license": "private-grant",
+      "sha256": "17d27af4ee2b8893a7950eb05626ee331dced1bf717e4e4664e8c4a31f9c9f85",
+      "bytes": 27096,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/bollettino-frontaliere-2026-10-16.webp"
     },
     "/images/places/lugano-view.webp": {
       "schema": 1,

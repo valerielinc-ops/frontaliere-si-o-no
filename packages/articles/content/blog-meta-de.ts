@@ -13311,6 +13311,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.masha-orso-teatro-saronno.title': 'Mascha und Bär kommen im Theater Regina Pacis in Saronno an',
     'blog.article.masha-orso-teatro-saronno.excerpt': 'Samstag, 17.',
     'blog.article.masha-orso-teatro-saronno.imageAlt': 'Italienische Theaterbühne mit roten Vorhängen für eine Puppenshow',
+    'blog.article.bollettino-frontaliere-2026-10-16.title': 'Grenzgänger: 726 neue Stellen in der Schweiz gestern — 16. Oktober 2026',
+    'blog.article.bollettino-frontaliere-2026-10-16.excerpt': 'Die Zahlen von heute, 16. Oktober 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der zuletzt erfasste Franken-Euro-Kurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-16.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 16. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-10-16.seoDescription': 'Grenzgänger-Bulletin vom 16. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-16.ogDescription': 'Die Zahlen vom 16. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, wie der Franken zuletzt zum Euro stand und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Oct 2026 09:13:03 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 09:38:34 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,115 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cross-border workers: 726 new Swiss job listings yesterday — October 16, 2026</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-daily-brief-2026-10-16/</link>
+      <description><![CDATA[Today's numbers, October 16, 2026, for cross-border commuters: the latest waits measured at each crossing, the municipalities where fuel is cheapest, the latest reported franc-euro rate and the jobs newly posted in Switzerland. Measured daily by our own monitoring.]]></description>
+      <content:encoded><![CDATA[Hello — it's Friday, October 16, 2026. This is the daily brief for people who live on one side of the border and work on the other: four topics tracked by our monitoring — border queues, fuel, the exchange rate and jobs — each with a link to its live page.
+
+## Border waits: available readings
+
+The available readings show smooth crossings: of 141 monitored crossings, 136 report no queue and the longest recorded wait is just **8 minutes** (Campione d'Italia-Bissone).
+
+| Crossing | Wait | Status |
+|---|---|---|
+| Campione d'Italia-Bissone | 8 min | slow |
+| Ferney-Voltaire / Grand-Saconnex | 8 min | slow |
+| Gaggiolo (Cantello-Stabio) | 8 min | slow |
+| San Pietro (Clivio-Stabio) | 8 min | slow |
+| Bardonnex | 5 min | slow |
+
+### Comparison with the previous edition
+Campione d'Italia-Bissone: 8 → 8 min (2026-10-15 → 2026-10-16).
+
+Traffic shifts by the hour — every crossing's live status is on the [border traffic page](/en/border-wait/).
+## Fuel: reported prices near the border
+
+| Municipality (IT) | Unleaded, reported minimum |
+|---|---|
+| Aprica (SO) | €1.919/L |
+| Anzano del Parco (CO) | €1.989/L |
+| Bregnano (CO) | €1.989/L |
+| Cermenate (CO) | €1.989/L |
+| Fino Mornasco (CO) | €1.989/L |
+
+📊 **The right side for a full tank.** In **Aprica** (SO) the reported price gap is worth **€17.95 on a 50-litre tank** (€1.919/L in Italy vs €2.278/L at the nearest Swiss station).
+
+### Reported prices at the same stations
+| Company / location | Petrol EUR/L | Diesel EUR/L | Last report |
+|---|---|---|---|
+| Aprica | 1.919 | 2.064 | 13/10/2026 21:39:56 |
+| Anzano del Parco | 1.989 | 2.249 | 13/10/2026 01:03:04 |
+| Bregnano | 1.989 | 2.249 | 14/10/2026 06:28:21 |
+| Cermenate | 1.989 | 2.290 | 12/10/2026 07:58:46 |
+| Fino Mornasco | 1.989 | 2.249 | 13/10/2026 14:13:35 |
+
+Observation: 2026-10-16T06:18:34.256Z.
+
+Prices town by town, updated daily: [border fuel prices today](/en/gasoline-price-switzerland/today/).
+## CHF–EUR exchange rate
+
+One franc buys **€1.0718** (reported on 2026-10-15). Versus the previous reading it gains +0.0001 €; against the available weekly reference the move is -0.0001 €.
+
+### Exchange-only illustration for CHF 4,000
+Gross euro equivalent: **4'287.20 EUR** (2026-10-15).
+
+Difference from the available weekly exchange-rate reference: **-0.40 EUR**.
+
+💡 If you earn francs and spend euros, the rate IS part of your salary: on CHF 4,000, one cent of movement is worth €40 a month. The [net salary calculator](/en/calculate-salary/) and the [currency-exchange comparison](/en/service-comparison/chf-eur-exchange-rate/) run the numbers for your case.
+## Jobs: yesterday’s numbers
+
+**726 new Swiss job listings** landed on our job board yesterday; 6'376 over the last seven days. Active listings now total **32'560** from 869 companies.
+
+Filter by canton, sector and city: [find jobs in Ticino and Switzerland](/en/find-jobs-ticino/).
+
+### Listings added in the last two complete weeks
+| Seven days ending | Previous seven days | Change |
+|---|---|---|
+| 2026-10-15: 7'370 | 9'242 | -1'872 |
+
+### Companies with the most active listings in Switzerland
+| Company / location | Active listings |
+|---|---|
+| fachkraft.ch GmbH | 3'557 |
+| STA Personal AG | 1'689 |
+| Coop Genossenschaft | 1'064 |
+| yellowshark AG | 898 |
+| Stellentreff AG | 892 |
+
+### Locations with the most active listings
+| Company / location | Active listings |
+|---|---|
+| Zurich | 3'965 |
+| Lucerne | 1'268 |
+| Bern | 1'253 |
+| Basel | 872 |
+| Winterthur | 869 |
+
+## Topics readers search for
+2026-10-07 → 2026-10-13
+
+| Topic | Google Search impressions | Site search events |
+|---|---|---|
+| Jobs | 3'211 | 5'714 |
+| Fuel | 1'320 | 0 |
+| Border crossings and mobility | 30 | 0 |
+| Cost of living | 23 | 0 |
+| Pension | 21 | 0 |
+
+Aggregated topics only: individual searches are never published. Impressions measure Google exposure. Site events may include search updates; these are not counts of people or unique searches.
+
+Source: Google Search Console, Firebase Analytics / GA4 (partial sample).
+
+## How this brief is made
+
+None of the numbers above come from an agency feed — they are our own monitoring: border queues sampled several times an hour at every Swiss crossing, fuel prices across Italian border municipalities and nearby Swiss stations, the official daily CHF/EUR series, and our job-board crawlers. The brief is published daily and may be refreshed during the day; observation periods depend on the source, the linked pages stay live all day.]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 09:38:34 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/bollettino-frontaliere-2026-10-16</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-10-16.webp" medium="image"/>
+    </item>
     <item>
       <title>Masha and Bear arrive at the Teatro Regina Pacis in Saronno</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/masha-bear-saronno-theater/</link>
@@ -3220,89 +3329,6 @@ These are the operational elements that the source makes available. It does not 
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/infortuni-lavoro-lombardia-dati-2026-peggiorano-picchi-como</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-infortuni-lavoro-lombardia-dati-2026-peggiorano-picchi-como.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Porto Ceresio: former customs house reborn as tourist office</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/porto-ceresio-customs-tourist-office/</link>
-      <description><![CDATA[Sunday, October 18, ribbon-cutting at 11 a.m.]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- Sunday, October 18: ribbon-cutting at 11 a.m.
-- The former Regia Dogana is on Via Mazzini
-- The building becomes the new Tourist Office
-- Restoration supported by Regione Lombardia and Autorità di Bacino Lacuale
-
-## Key facts
-- What: former Regia Dogana di Porto Ceresio
-- When: Sunday, October 18, at 11 a.m.
-- Where: Via Mazzini, opposite the railway station
-- Plan: Nuovo Baricentro Ceresino
-- Opening: event open to all residents
-
-On Sunday, October 18, at 11 a.m., Porto Ceresio will inaugurate the former Regia Dogana on Via Mazzini, the historic building located directly opposite the railway station. The ribbon-cutting ceremony will accompany the reopening to the public of a fully restored site destined to become the town’s new Tourist Office.
-
-The restoration has returned to the local community a building of architectural and cultural significance. The project was made possible by financial support from Regione Lombardia and the Autorità di Bacino Lacuale. The funding made it possible to protect and repurpose one of the most distinctive views on the Italian shore of the lake, preserving both the building’s historical dimension and its new public use.
-
-### Redevelopment with a specific service
-The site is located in a strategic position for arrivals. Opposite the station, the Tourist Office will provide a first point of welcome, guidance and information for those reaching Porto Ceresio by train and for those visiting the lakeside village. Those using mezzi pubblici will therefore find the station to be the designated reference point for locating the new site.
-
-The function described by the source is twofold: enhancing a restored building and giving the town a recognizable place for visitors and tourists. The project is not limited to preserving the historic appearance, but involves repurposing the building through a service aimed at the public.
-
-The project is part of the urban development plan called «Nuovo Baricentro Ceresino». The strategy concerns this specific area of Porto Ceresio and aims to redesign and enhance it, with new public spaces, modern services and gathering places intended for residents and tourists. The new office thus forms part of a broader plan.
-
-The Municipal Administration described the restoration as a significant investment in enhancing Porto Ceresio and its heritage, emphasizing that the restoration preserves the building’s memory, gives it a future and reintegrates it into the life of the town.
-
-The ribbon-cutting ceremony is open to all residents.
-## What changes for people who visit Porto Ceresio
-
-The practical value of the intervention lies in the transition from a restored historic building to a place with a recognizable public function. The source describes the former Regia Dogana not merely as a property to be preserved, but as a venue that once again becomes part of the town’s life. The restoration thus translates into a new purpose: tourist services.
-
-### Three levels of the same project
-For those arriving by train, the location in front of the station makes the link between arrival and information immediate. Visitors can find the welcome point at the same place designated for arrivals; those who already spend time in the town can turn to the new office for directions and information. This is the role the source assigns to the building: a first point for visitors and tourists, without separating heritage preservation from its public use.
-
-| Dimension | What the intervention indicates |
-|---|---|
-| Heritage | Restoration and protection of a property of architectural and identity value |
-| Visitor reception | A visitor reception, orientation and information point |
-| Urban area | New public spaces, modern services and gathering places |
-| Community | A venue returned to citizens and tourists |
-
-The second level concerns the area. The Tourist Office is part of the «Nuovo Baricentro Ceresino», an urban development plan that aims to redesign and enhance a specific area of Porto Ceresio. The presence of new public spaces, modern services and gathering places is identified as part of the same strategy. The restoration of the customs house thus becomes a component of the area’s redesign, not an intervention separate from the rest of the project.
-
-The third level is financial support. Regione Lombardia and Autorità di Bacino Lacuale made it possible to complete the works, which protected and repurposed a characteristic stretch of the Italian lakeshore. The result described by the source is a historic building reopening to the public with a defined function.
-
-For those using the railway, the decisive point remains the location: the station and the mezzi pubblici connect arrival to the new venue. Tourist services and the urban project thus meet at the same address, in front of the railway station.
-
-## Recommended tools
-For an updated estimate, use the net salary calculator and the CHF-EUR exchange comparator.
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
-## How to attend the event
-
-Participation in the inauguration revolves around three essential pieces of information: the date, time and address. The report presents the ribbon-cutting as an event open to the entire community and identifies the former Regia Dogana as the town’s new tourist reference point.
-
-### Four practical steps
-1. Mark Sunday, October 18, at 11 a.m.
-2. Go to Via Mazzini in Porto Ceresio: the former Regia Dogana is opposite the railway station.
-3. Attend the ribbon-cutting, open to the entire community.
-4. Consider the site the town’s new Tourist Office, intended to welcome, guide and inform visitors and tourists.
-
-For those arriving by train, the address provides a clear reference point at the town entrance: the site is right in front of the station. For those visiting the lakeside village, the same building will be the reception point indicated in the report. Its task is to provide initial guidance and information, as well as return a restored historic building to the community.
-
-The inauguration should be viewed within the «Nuovo Baricentro Ceresino». After its restoration, the building will in fact be part of an urban development strategy focused on new public spaces, modern services and gathering places. The former customs house’s new function is therefore linked both to the history of the building and to the project to enhance the area.
-
-The inauguration also makes it possible to observe concretely the result of funding from Regione Lombardia and Autorità di Bacino Lacuale: a protected, repurposed building intended for a public service aimed at citizens and tourists.
-
-To plan your arrival by train, consult the guide to mezzi pubblici.
-
-For a precise net salary calculation, use our tax comparator: compare take-home pay between G and B permits with all 2026 deductions.
-
-*Source: [varesenews.it](https://www.varesenews.it/2026/10/lex-regia-dogana-di-porto-ceresio-rinasce-e-diventa-il-nuovo-ufficio-turistico/2707654/)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 10:42:39 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/porto-ceresio-dogana-ufficio-turistico</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-porto-ceresio-dogana-ufficio-turistico.webp" medium="image"/>
     </item>
   </channel>
 </rss>

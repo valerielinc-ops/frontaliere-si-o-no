@@ -13313,6 +13313,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.masha-orso-teatro-saronno.title': 'Masha e orso arrivano al teatro regina pacis di saronno',
     'blog.article.masha-orso-teatro-saronno.excerpt': 'Sabato 17 ottobre, due repliche dello spettacolo \'Le nuove avventure di Masha e Orso\' proposto da Il Fantastico Mondo dei Burattini.',
     'blog.article.masha-orso-teatro-saronno.imageAlt': 'Palcoscenico di un teatro italiano con tende rosse per spettacolo di burattini',
+    'blog.article.bollettino-frontaliere-2026-10-16.title': 'Frontalieri: 726 nuovi annunci in Svizzera ieri — 16 ottobre 2026',
+    'blog.article.bollettino-frontaliere-2026-10-16.excerpt': 'I numeri di oggi, 16 ottobre 2026, per chi attraversa il confine: le ultime attese rilevate ai valichi, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-16.imageAlt': 'I numeri del giorno per i frontalieri – 16 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-16.seoDescription': 'Bollettino frontalieri del 16 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-16.ogDescription': 'I numeri del 16 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti nuovi annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
