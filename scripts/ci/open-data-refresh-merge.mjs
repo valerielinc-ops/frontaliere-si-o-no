@@ -4,6 +4,7 @@ const TELEGRAM_LEDGER_PATHS = new Set([
 ]);
 const INSPECTION_STATE_PATH = 'data/inspection-state.json';
 const PHARMACY_ENRICHMENT_PATH = 'data/pharmacy-enrichment.json';
+const CF_HOT_404_PATH = 'data/cf-hot-404s.json';
 const LEDGER_TRIM_LIMIT = 1000;
 export const EVENT_CACHE_PATHS = new Set([
   'data/events-geocode-cache.json',
@@ -143,6 +144,81 @@ function mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw)
   }, null, 2)}\n`;
 }
 
+function parseHot404Document(raw, label) {
+  const document = parseObject(raw, label);
+  if (!Array.isArray(document.paths)) {
+    throw new Error(`${label} must contain a paths array`);
+  }
+  const entries = new Map();
+  for (const entry of document.paths) {
+    if (!entry || typeof entry !== 'object' || typeof entry.path !== 'string' || !entry.path) {
+      throw new Error(`${label} contains an invalid path entry`);
+    }
+    if (!Number.isFinite(entry.hits) || entry.hits < 0) {
+      throw new Error(`${label} contains an invalid hit count for ${entry.path}`);
+    }
+    entries.set(entry.path, { ...entry });
+  }
+  return { document, entries };
+}
+
+function hot404Freshness(document) {
+  for (const key of ['generatedAt', 'lastUpdated', 'updatedAt']) {
+    if (typeof document[key] === 'string' && document[key]) return document[key];
+  }
+  return '';
+}
+
+function mergeHot404Entry(remote, refresh) {
+  const remoteLastSeen = typeof remote.lastSeen === 'string' ? remote.lastSeen : '';
+  const refreshLastSeen = typeof refresh.lastSeen === 'string' ? refresh.lastSeen : '';
+  const newest = refreshLastSeen >= remoteLastSeen ? refresh : remote;
+  return {
+    ...remote,
+    ...newest,
+    path: remote.path,
+    hits: Math.max(remote.hits, refresh.hits),
+    ...(remoteLastSeen || refreshLastSeen
+      ? { lastSeen: refreshLastSeen >= remoteLastSeen ? refreshLastSeen : remoteLastSeen }
+      : {}),
+  };
+}
+
+/**
+ * Merge the bounded Cloudflare 404 accumulator as a 3-way set of paths.
+ *
+ * The file is an accumulator, not a complete snapshot: two pending sweeps can
+ * each add a different hot path. A plain "current refresh wins" merge loses
+ * one of those paths, while an unconditional union resurrects paths that one
+ * side intentionally aged out. Keep additions from either side and honour a
+ * deletion of a base path by either side; when both retain a path, keep the
+ * strongest hit count and newest last-seen date.
+ */
+function mergeCloudflareHot404s(baseRaw, remoteRaw, refreshRaw) {
+  const base = parseHot404Document(baseRaw ?? '{"paths":[]}', `${CF_HOT_404_PATH} merge base`);
+  const remote = parseHot404Document(remoteRaw, `${CF_HOT_404_PATH} stable branch`);
+  const refresh = parseHot404Document(refreshRaw, `${CF_HOT_404_PATH} current refresh`);
+
+  const paths = new Set([...remote.entries.keys(), ...refresh.entries.keys()]);
+  for (const path of base.entries.keys()) {
+    if (!remote.entries.has(path) || !refresh.entries.has(path)) paths.delete(path);
+  }
+
+  const mergedPaths = [...paths].map((path) => {
+    const remoteEntry = remote.entries.get(path);
+    const refreshEntry = refresh.entries.get(path);
+    if (!remoteEntry) return refreshEntry;
+    if (!refreshEntry) return remoteEntry;
+    return mergeHot404Entry(remoteEntry, refreshEntry);
+  }).sort((left, right) => right.hits - left.hits || left.path.localeCompare(right.path));
+
+  const metadata = hot404Freshness(remote.document) >= hot404Freshness(refresh.document)
+    ? remote.document
+    : refresh.document;
+  const { paths: _paths, ...rest } = metadata;
+  return `${JSON.stringify({ ...rest, paths: mergedPaths }, null, 2)}\n`;
+}
+
 function validPharmacyUsage(value) {
   const month = String(value?.month || '');
   const requests = value?.googlePlaces?.requests;
@@ -187,6 +263,7 @@ function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
   if (file === 'data/events-description-rewrites.json') {
     return mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw);
   }
+  if (file === CF_HOT_404_PATH) return mergeCloudflareHot404s(baseRaw, remoteRaw, refreshRaw);
   if (file === PHARMACY_ENRICHMENT_PATH) return mergePharmacyEnrichment(remoteRaw, refreshRaw);
   if (EVENT_CACHE_PATHS.has(file)) return mergeEventCache(file, baseRaw, remoteRaw, refreshRaw);
   if (file.endsWith('.jsonl')) return mergeJsonLines(remoteRaw, refreshRaw);

@@ -94,6 +94,47 @@ describe('merge-open-data-refresh', () => {
     expect(mergedLedger.posted.map((entry) => entry.id)).toEqual(['base', 'first', 'second']);
   });
 
+  it('merges both Cloudflare hot-404 refreshes without resurrecting aged-out paths', () => {
+    const base = JSON.stringify({
+      generatedAt: '2026-10-07T00:00:00.000Z',
+      source: 'cloudflare',
+      paths: [
+        { path: '/shared', hits: 4, lastSeen: '2026-10-06' },
+        { path: '/aged-out', hits: 3, lastSeen: '2026-09-01' },
+      ],
+    });
+    const remote = JSON.stringify({
+      generatedAt: '2026-10-08T01:00:00.000Z',
+      source: 'cloudflare',
+      paths: [
+        { path: '/shared', hits: 8, lastSeen: '2026-10-08' },
+        { path: '/remote', hits: 6, lastSeen: '2026-10-08' },
+      ],
+    });
+    const refresh = JSON.stringify({
+      generatedAt: '2026-10-08T02:00:00.000Z',
+      source: 'cloudflare',
+      paths: [
+        { path: '/shared', hits: 7, lastSeen: '2026-10-07' },
+        { path: '/refresh', hits: 9, lastSeen: '2026-10-08' },
+      ],
+    });
+
+    const merged = JSON.parse(mergeRefreshContent(
+      'data/cf-hot-404s.json',
+      base,
+      remote,
+      refresh,
+    ) as string);
+
+    expect(merged.generatedAt).toBe('2026-10-08T02:00:00.000Z');
+    expect(merged.paths).toEqual([
+      { path: '/refresh', hits: 9, lastSeen: '2026-10-08' },
+      { path: '/shared', hits: 8, lastSeen: '2026-10-08' },
+      { path: '/remote', hits: 6, lastSeen: '2026-10-08' },
+    ]);
+  });
+
   it('unites event description rewrite cache entries when main and the refresh both advance', () => {
     const base = JSON.stringify({ schemaVersion: 1, entries: { 'event:base::hash': { id: 'event:base' } } });
     const remote = JSON.stringify({
