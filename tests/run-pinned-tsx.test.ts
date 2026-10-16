@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -20,6 +20,7 @@ describe('run-pinned-tsx', () => {
     const entrypointPath = path.join(tempDir, 'entrypoint.mjs');
     const wrapperPath = path.resolve('scripts/ci/run-pinned-tsx.sh');
 
+    mkdirSync(binDir);
     writeFileSync(npxPath, `#!/usr/bin/env bash
 set -euo pipefail
 if [[ "$#" -ge 3 && "$3" == "--version" ]]; then
