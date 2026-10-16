@@ -33,6 +33,8 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { markAuthoritativeEmptySnapshot, isAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
+import { isExplicitlyForeign } from './lib/prospector/location-evidence.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -51,6 +53,11 @@ const COMPANY_HOST = 'www.zambon.com';
 const CAREERS_URL = 'https://www.zambon.com/en/open-positions';
 const CAREERS_API = 'https://www.zambon.com/it/api/careers-api?visibility=external';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const EXPIRED_JOBS_ARCHIVE = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler', `${COMPANY_KEY}.json`);
+// The archived Zambon detail records were crawled from the English NcorePlat
+// page. The archive writer does not persist sourceLang, so use only this
+// explicitly evidenced slot; never pick an arbitrary locale as a fallback.
+const ARCHIVE_SOURCE_LOCALE = 'en';
 
 function normalize(v = '') { return String(v || '').trim().toLowerCase(); }
 function isCompanyJob(job) {
@@ -72,9 +79,116 @@ async function fetchPage(url, timeoutMs = 20000) {
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
 }
 
-function isZambonSwissSiteLocation(rawLocation = '') {
+function classifyCountryEvidence(values = []) {
+  const classifications = values
+    .map((value) => classifyCountryValue(value))
+    .filter((classification) => classification !== 'unknown');
+  const hasSwiss = classifications.includes('CH');
+  const hasForeign = classifications.includes('foreign');
+  if (hasSwiss && hasForeign) return 'unknown';
+  if (hasSwiss) return 'swiss';
+  if (hasForeign) return 'foreign';
+  return 'unknown';
+}
+
+/**
+ * Classify the API's country evidence without treating an arbitrary non-empty
+ * value as a foreign country. Unknown values must keep the source fail-closed.
+ */
+export function classifyZambonApiLocation(job = {}) {
+  return classifyCountryEvidence([job?.country, job?.country_label]);
+}
+
+/**
+ * Classify the HTML listing location. Cadempino is the reviewed Swiss source
+ * site; country labels are accepted only when the shared country inventory
+ * recognises them. A free-form unknown location is never a zero proof.
+ */
+export function classifyZambonHtmlLocation(rawLocation = '') {
   const location = normalize(rawLocation);
-  return !location || /\bcadempino\b/.test(location);
+  if (!location) return 'unknown';
+
+  const segments = String(rawLocation)
+    .split(/[,;/|()]+|\s+-\s+/)
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+  const countryClassifications = segments
+    .map((segment) => classifyCountryValue(segment))
+    .filter((classification) => classification !== 'unknown');
+  const hasSwissCountry = countryClassifications.includes('CH');
+  const hasForeignCountry = countryClassifications.includes('foreign');
+  const hasSwissSite = /\bcadempino\b/.test(location);
+
+  if (hasSwissCountry && hasForeignCountry) return 'unknown';
+  if (hasForeignCountry && (hasSwissCountry || hasSwissSite)) return 'unknown';
+  if (hasForeignCountry || isExplicitlyForeign(rawLocation)) return 'foreign';
+  if (hasSwissCountry || hasSwissSite) return 'swiss';
+  return 'unknown';
+}
+
+/**
+ * Return the API rows and outcome that the runner may safely publish. A
+ * filtered-empty result is valid only when every discovered row is explicitly
+ * foreign; any unknown row makes the batch a parser/source failure.
+ */
+export function classifyZambonApiRows(allJobs = []) {
+  const rows = Array.isArray(allJobs) ? allJobs : [];
+  const classifications = rows.map(classifyZambonApiLocation);
+  const swissJobs = rows.filter((_, index) => classifications[index] === 'swiss');
+
+  if (classifications.some((classification) => classification === 'unknown')) {
+    return {
+      swissJobs: [],
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+    };
+  }
+  if (swissJobs.length === 0) {
+    return {
+      swissJobs,
+      parsed: 0,
+      lastFetchOutcome: rows.length > 0 ? 'filtered_empty' : 'selector_miss',
+      abortKind: rows.length > 0 ? null : 'no-jobs-parsed',
+    };
+  }
+  return { swissJobs, parsed: swissJobs.length, lastFetchOutcome: 'ok', abortKind: null };
+}
+
+/**
+ * Apply the same fail-closed zero-path contract to HTML listings. Unknown
+ * locations are not silently dropped as if they were known foreign rows.
+ */
+export function classifyZambonHtmlListings(listings = []) {
+  const rows = Array.isArray(listings) ? listings : [];
+  const classifications = rows.map((listing) => classifyZambonHtmlLocation(listing?.location));
+  const sourceBackedListings = rows.filter((_, index) => classifications[index] === 'swiss');
+
+  if (classifications.some((classification) => classification === 'unknown')) {
+    return {
+      sourceBackedListings: [],
+      classifications,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+    };
+  }
+  if (sourceBackedListings.length === 0) {
+    return {
+      sourceBackedListings,
+      classifications,
+      parsed: 0,
+      lastFetchOutcome: rows.length > 0 ? 'filtered_empty' : 'selector_miss',
+      abortKind: rows.length > 0 ? null : 'no-jobs-parsed',
+    };
+  }
+  return {
+    sourceBackedListings,
+    classifications,
+    parsed: sourceBackedListings.length,
+    lastFetchOutcome: 'ok',
+    abortKind: null,
+  };
 }
 
 /**
@@ -100,6 +214,83 @@ const DETAIL_DELAY_MS = 1000;
 // and "<titolo> — posizione presso Zambon Svizzera SA a Cadempino (TI).").
 // Only ever recognised to be removed from stored records.
 export const ZAMBON_FABRICATED_DESCRIPTION_RE = /opportunità professionale presso Zambon Svizzera SA|— posizione presso Zambon Svizzera SA a /;
+
+function readZambonExpiredJobs() {
+  try {
+    const parsed = JSON.parse(fs.readFileSync(EXPIRED_JOBS_ARCHIVE, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function archivedZambonSourceUrl(entry = {}) {
+  const identity = String(entry?.sourceIdentity || '').trim();
+  return identity.startsWith('url:') ? identity.slice('url:'.length) : '';
+}
+
+function buildZambonArchiveFallback(row, archivedEntry) {
+  const archivedDescriptions = archivedEntry?.descriptionByLocale;
+  if (!archivedDescriptions || typeof archivedDescriptions !== 'object' || Array.isArray(archivedDescriptions)) {
+    return null;
+  }
+  const sourceBody = String(archivedDescriptions[ARCHIVE_SOURCE_LOCALE] || '').trim();
+  if (!meetsSourceBodyFloor(sourceBody)) return null;
+
+  const restored = buildZambonJob(row, sourceBody);
+  const descriptionByLocale = Object.fromEntries(
+    Object.entries(archivedDescriptions)
+      .filter(([locale, text]) => LOCALES.includes(locale) && meetsSourceBodyFloor(text))
+      .map(([locale, text]) => [locale, String(text).trim()]),
+  );
+  descriptionByLocale[ARCHIVE_SOURCE_LOCALE] = sourceBody;
+
+  return {
+    ...restored,
+    descriptionByLocale,
+    titleByLocale: {
+      ...(archivedEntry.titleByLocale || {}),
+      ...(restored.titleByLocale || {}),
+    },
+    slugByLocale: {
+      ...(archivedEntry.slugByLocale || {}),
+      ...(restored.slugByLocale || {}),
+    },
+    ...(archivedEntry.slug ? { slug: archivedEntry.slug } : {}),
+    ...(Array.isArray(archivedEntry.previousSlugs) ? { previousSlugs: [...archivedEntry.previousSlugs] } : {}),
+    ...(archivedEntry.previousSlugsByLocale && typeof archivedEntry.previousSlugsByLocale === 'object'
+      ? { previousSlugsByLocale: structuredClone(archivedEntry.previousSlugsByLocale) }
+      : {}),
+    ...(archivedEntry.firstSeenAt ? { firstSeenAt: archivedEntry.firstSeenAt } : {}),
+  };
+}
+
+/**
+ * Restore current source rows from source-backed expired records when the
+ * listing is readable but every NcorePlat detail request is blocked. Matching
+ * requires an unambiguous stable URL key and the archive's explicit English
+ * source slot with the shared 50-word floor. No title or locale guess is used.
+ */
+export function restoreZambonArchivedJobs(rows = [], archivedJobs = []) {
+  const archivedByKey = new Map();
+  const ambiguousKeys = new Set();
+  for (const entry of Array.isArray(archivedJobs) ? archivedJobs : []) {
+    const key = extractStableJobId(archivedZambonSourceUrl(entry));
+    if (!key) continue;
+    if (archivedByKey.has(key)) {
+      ambiguousKeys.add(key);
+      continue;
+    }
+    archivedByKey.set(key, entry);
+  }
+
+  return (Array.isArray(rows) ? rows : []).map((row) => {
+    const key = extractStableJobId(row?.url);
+    if (!key || ambiguousKeys.has(key)) return null;
+    const archivedEntry = archivedByKey.get(key);
+    return archivedEntry ? buildZambonArchiveFallback(row, archivedEntry) : null;
+  }).filter(Boolean);
+}
 
 /**
  * Build one Zambon job from its source row and the vacancy text of its
@@ -137,27 +328,62 @@ export function buildZambonJob({ id = '', url, title, datePosted = '', contract 
   };
 }
 
-async function readZambonBodies(rows) {
+async function readZambonBodies(rows, { archivedJobs = [], summaryCounts = null } = {}) {
   let read = 0;
+  let restored = 0;
+  const sourceBodyFailures = [];
+  const archivedFallbacks = new Map(
+    restoreZambonArchivedJobs(rows, archivedJobs)
+      .map((job) => [extractStableJobId(job.url), job])
+      .filter(([key]) => Boolean(key)),
+  );
   const jobs = [];
   for (const [index, row] of rows.entries()) {
     if (index > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
     const job = buildZambonJob(row, extractZambonJobBody(await fetchPage(row.url)));
     if (job.description) read += 1;
-    else console.warn(`  ⚠️ ${row.title}: no vacancy text on ${row.url}`);
-    jobs.push(job);
+    else {
+      const fallback = archivedFallbacks.get(extractStableJobId(row?.url));
+      sourceBodyFailures.push({
+        title: row.title,
+        url: row.url,
+        reason: 'detail_body_unreadable',
+        ...(fallback ? { fallback: 'expired-job-archive' } : {}),
+      });
+      if (fallback) {
+        restored += 1;
+        console.warn(`  ⚠️ ${row.title}: no vacancy text on ${row.url}; using its source-backed expired archive record.`);
+        jobs.push(fallback);
+      } else {
+        console.warn(`  ⚠️ ${row.title}: no vacancy text on ${row.url}`);
+        jobs.push(job);
+      }
+    }
+  }
+  const parsed = jobs.filter((job) => Boolean(job.description)).length;
+  if (summaryCounts) {
+    summaryCounts.parsed = parsed;
+    summaryCounts.lastFetchOutcome = read === rows.length ? 'ok' : 'anti_bot_block';
+    summaryCounts.sourceBodyFailures = sourceBodyFailures;
+    summaryCounts.abortKind = null;
   }
   // Not one page readable is a source-level failure (e.g. a WAF in front of
-  // NcorePlat), not "every vacancy lost its text": return nothing so main()
-  // leaves the stored slice untouched instead of unpublishing every job.
-  if (rows.length > 0 && read === 0) {
-    console.warn('  ⚠️ No NcorePlat page readable in this run — keeping the stored Zambon slice.');
+  // NcorePlat), not "every vacancy lost its text": return nothing only when
+  // the source-backed archive cannot safely recover any current row. When it
+  // can, the recovered rows keep the active slice publishable without making
+  // up a description.
+  if (rows.length > 0 && parsed === 0) {
+    if (summaryCounts) summaryCounts.abortKind = 'no-jobs-parsed';
+    console.warn('  ⚠️ No NcorePlat page or source-backed archive record readable in this run — keeping the stored Zambon slice.');
     return [];
+  }
+  if (restored > 0) {
+    console.log(`  🗄️ Recovered ${restored} current Zambon row(s) from source-backed expired records after detail blocking.`);
   }
   return jobs;
 }
 
-async function fetchJobs() {
+async function fetchJobs(summaryCounts = null) {
   // Primary: use the JSON API (Vue.js frontend loads from this)
   console.log(`🔍 Fetching Zambon jobs from API: ${CAREERS_API}`);
   const controller = new AbortController();
@@ -174,16 +400,33 @@ async function fetchJobs() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const body = await res.json();
     const allJobs = parseZambonApiPayload(body);
+    if (summaryCounts) {
+      summaryCounts.discovered = allJobs.length;
+      summaryCounts.lastFetchOutcome = 'ok';
+      summaryCounts.abortKind = null;
+    }
     if (isAuthoritativeEmptySnapshot(allJobs)) {
       console.log('  📋 Zambon careers API explicitly reports no open positions.');
+      if (summaryCounts) summaryCounts.parsed = 0;
       return allJobs;
     }
 
-    // Filter to Switzerland only
-    const swissJobs = allJobs.filter(j => j.country === 'CH' || (j.country_label || '').toLowerCase().includes('switz'));
+    // Filter to Switzerland only, but fail closed when the source's location
+    // vocabulary is unknown rather than treating it as a healthy foreign zero.
+    const locationResult = classifyZambonApiRows(allJobs);
+    const swissJobs = locationResult.swissJobs;
     console.log(`  📋 API returned ${allJobs.length} total positions, ${swissJobs.length} in Switzerland`);
 
-    return await readZambonBodies(swissJobs.map((raw) => ({
+    if (summaryCounts) {
+      summaryCounts.parsed = locationResult.parsed;
+      summaryCounts.lastFetchOutcome = locationResult.lastFetchOutcome;
+      summaryCounts.abortKind = locationResult.abortKind;
+    }
+    if (locationResult.lastFetchOutcome !== 'ok') {
+      return [];
+    }
+
+    const rows = swissJobs.map((raw) => ({
       id: `zambon-${raw.id}`,
       url: raw.web_url || `https://app.ncoreplat.com/jobposition/${raw.id}`,
       title: (raw.title || '').trim(),
@@ -191,7 +434,11 @@ async function fetchJobs() {
       contract: raw.contract_type_3 || '',
       department: raw.job_family || '',
       seniority: raw.seniority || '',
-    })));
+    }));
+    return await readZambonBodies(rows, {
+      archivedJobs: readZambonExpiredJobs(),
+      summaryCounts,
+    });
   } catch (err) {
     console.warn(`⚠️ API fetch failed: ${err.message} — falling back to HTML parsing`);
   } finally {
@@ -201,21 +448,48 @@ async function fetchJobs() {
   // Fallback: HTML parsing (unlikely to work for Vue.js rendered pages)
   console.log(`🔍 Fallback: Fetching Zambon jobs from ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL, 25000);
-  if (!html) { console.error('❌ Failed to fetch Zambon careers page.'); return []; }
+  if (!html) {
+    if (summaryCounts) {
+      summaryCounts.discovered = 0;
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'connection_error';
+      summaryCounts.abortKind = 'connection-level-fetch';
+    }
+    console.error('❌ Failed to fetch Zambon careers page.');
+    return [];
+  }
   const listings = parseListingPage(html);
   console.log(`  📋 HTML fallback found: ${listings.length} jobs`);
+  if (summaryCounts) summaryCounts.discovered = listings.length;
 
-  const sourceBackedListings = listings.filter((raw) => {
-    if (isZambonSwissSiteLocation(raw.location)) return true;
-    console.warn(`  ⏭️ Dropping fallback row with non-Cadempino source location: ${raw.location}`);
-    return false;
-  });
+  const locationResult = classifyZambonHtmlListings(listings);
+  for (const [index, raw] of listings.entries()) {
+    const classification = locationResult.classifications[index];
+    if (classification === 'foreign') {
+      console.warn(`  ⏭️ Dropping fallback row with non-Cadempino source location: ${raw.location}`);
+    } else if (classification === 'unknown') {
+      console.warn(`  ⚠️ Unrecognized fallback source location: ${raw.location}`);
+    }
+  }
+  if (summaryCounts) {
+    summaryCounts.parsed = locationResult.parsed;
+    summaryCounts.lastFetchOutcome = locationResult.lastFetchOutcome;
+    summaryCounts.abortKind = locationResult.abortKind;
+  }
+  if (locationResult.lastFetchOutcome !== 'ok') {
+    return [];
+  }
+  const sourceBackedListings = locationResult.sourceBackedListings;
 
-  return readZambonBodies(sourceBackedListings.map((raw) => ({
+  const rows = sourceBackedListings.map((raw) => ({
     url: raw.url,
     title: raw.title,
     source: 'zambon-careers-crawler',
-  })));
+  }));
+  return readZambonBodies(rows, {
+    archivedJobs: readZambonExpiredJobs(),
+    summaryCounts,
+  });
 }
 
 
@@ -364,14 +638,22 @@ function updateAdapterConfig(seedUrls) {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    sourceBodyFailures: [],
+  };
+  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME, summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Zambon Svizzera SA — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
   const beforeJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
-  const discovered = await fetchJobs();
+  const discovered = await fetchJobs(summaryCounts);
   const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discovered);
-  if (!discovered.length && !authoritativeEmptySnapshot) {
+  const filteredEmpty = summaryCounts.lastFetchOutcome === 'filtered_empty';
+  if (!discovered.length && !authoritativeEmptySnapshot && !filteredEmpty) {
     console.log('⚠️ No Zambon jobs discovered from a complete source snapshot; keeping the stored slice.');
     return;
   }
@@ -398,10 +680,13 @@ async function main() {
     label: COMPANY_NAME,
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
-    discovered: discovered.length,
-    parsed: discovered.length,
+    discovered: Number.isFinite(summaryCounts.discovered) ? summaryCounts.discovered : discovered.length,
+    parsed: Number.isFinite(summaryCounts.parsed) ? summaryCounts.parsed : discovered.length,
     written: _sliceJobs.length,
-    lastFetchOutcome: 'ok',
+    lastFetchOutcome: summaryCounts.lastFetchOutcome || 'ok',
+    abortKind: summaryCounts.abortKind,
+    sourceBodyFailureCount: summaryCounts.sourceBodyFailures.length,
+    sourceBodyFailures: summaryCounts.sourceBodyFailures,
     authoritativeEmptySnapshot,
     authoritativeSnapshotVerified: authoritativeEmptySnapshot,
     ...(authoritativeEmptySnapshot
