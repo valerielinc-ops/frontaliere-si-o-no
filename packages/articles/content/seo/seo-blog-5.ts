@@ -109847,6 +109847,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maratona-laghi-varese-2027': {
+    title: 'Maratona dei Laghi 2027: attesi 2000 runner tra Varese e Monate',
+    description: 'Domenica 11 aprile 2027: partenza e arrivo ad Angera Tre laghi e otto comuni nel progetto Circa 2.000 runner stimati per la prima edizione Ricadute economiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, maratona, laghi, attesi, runner',
+    ogTitle: 'Maratona dei Laghi 2027: tutto quello che c\'è da sapere',
+    ogDescription: 'Domenica 11 aprile 2027: partenza e arrivo ad Angera Tre laghi e otto comuni nel progetto Circa 2.000 runner stimati per la prima edizione Ricadute economiche',
+    canonicalPath: '/articoli-frontaliere/maratona-laghi-varese-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maratona dei Laghi 2027: attesi 2000 runner tra Varese e Monate",
+      "description": "Domenica 11 aprile 2027: partenza e arrivo ad Angera Tre laghi e otto comuni nel progetto Circa 2.000 runner stimati per la prima edizione Ricadute economiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago Maggiore con corridori lungo la riva, circondati da villaggi pittoreschi e colline verdi."
+      },
+      "datePublished": "2026-10-16T13:10:19+00:00",
+      "dateModified": "2026-10-16T13:10:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maratona-laghi-varese-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

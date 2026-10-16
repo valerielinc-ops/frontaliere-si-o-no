@@ -13327,6 +13327,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavorare-svizzera-conviene-ancora.title': 'Lavorare in Svizzera conviene ancora?',
     'blog.article.lavorare-svizzera-conviene-ancora.excerpt': 'A settembre 2026 la disoccupazione svizzera è al 3% In un anno i disoccupati aumentano del 5,4% Nel secondo trimestre crescono gli impieghi del 2% Pubblicazione',
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Panorama del Monte Generoso in Ticino, Svizzera, con cielo azzurro e natura rigogliosa.',
+    'blog.article.maratona-laghi-varese-2027.title': 'Maratona dei Laghi 2027: attesi 2000 runner tra Varese e Monate',
+    'blog.article.maratona-laghi-varese-2027.excerpt': 'Domenica 11 aprile 2027: partenza e arrivo ad Angera Tre laghi e otto comuni nel progetto Circa 2.000 runner stimati per la prima edizione Ricadute economiche',
+    'blog.article.maratona-laghi-varese-2027.imageAlt': 'Vista aerea del Lago Maggiore con corridori lungo la riva, circondati da villaggi pittoreschi e colline verdi.',
 };
 
 export default blogMetaIt;

@@ -13326,6 +13326,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavorare-svizzera-conviene-ancora.title': 'Is working in Switzerland still worthwhile?',
     'blog.article.lavorare-svizzera-conviene-ancora.excerpt': 'In September 2026 Swiss unemployment is at 3% In one year, the number of unemployed increases by 5,4% In the second quarter, employment grows by 2% Publication',
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Panoramic view of Monte Generoso in Ticino, Switzerland, with a clear blue sky and lush greenery.',
+    'blog.article.maratona-laghi-varese-2027.title': 'Lakes Marathon 2027: 2000 runners expected between Varese and Monate',
+    'blog.article.maratona-laghi-varese-2027.excerpt': 'Sunday, April 11, 2027: start and finish in Angera Three lakes and eight municipalities in the project Approximately 2.000 runners estimated for the first edition Economic impact',
+    'blog.article.maratona-laghi-varese-2027.imageAlt': 'Aerial view of Lake Maggiore with runners along the shore, surrounded by picturesque villages and green hills.',
 };
 
 export default blogMetaEn;

@@ -13328,6 +13328,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavorare-svizzera-conviene-ancora.title': 'Travailler en Suisse est-il encore intéressant ?',
     'blog.article.lavorare-svizzera-conviene-ancora.excerpt': 'En septembre 2026 le chômage suisse s\'élève à 3% En un an le nombre de chômeurs augmente de 5,4% Au deuxième trimestre l\'emploi progresse de 2% Publication',
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Vue panoramique du Monte Generoso dans le Tessin, Suisse, avec un ciel bleu clair et une végétation luxuriante.',
+    'blog.article.maratona-laghi-varese-2027.title': 'Maratona dei Laghi 2027 : 2000 coureurs attendus entre Varese et Monate',
+    'blog.article.maratona-laghi-varese-2027.excerpt': 'Dimanche 11 avril 2027 : départ et arrivée à Angera Trois lacs et huit communes dans le projet Environ 2.000 coureurs estimés pour la première édition Retombées économiques',
+    'blog.article.maratona-laghi-varese-2027.imageAlt': 'Vue aérienne du Lac Majeur avec des coureurs le long de la rive, entourés de villages pittoresques et de collines verdoyantes.',
 };
 
 export default blogMetaFr;
