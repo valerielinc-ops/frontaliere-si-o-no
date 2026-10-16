@@ -27688,7 +27688,7 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     id: 'liberta-fondo-pene-sostitutive',
     category: 'pratico',
     date: '2026-10-14T21:58:02.746Z',
-    image: '/images/blog/lavori-pubblica-utilita-multe-pene.webp',
+    image: '/images/blog/article-liberta-fondo-pene-sostitutive.webp',
     hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',

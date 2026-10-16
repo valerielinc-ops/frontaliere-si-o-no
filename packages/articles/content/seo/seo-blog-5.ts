@@ -108979,10 +108979,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-inchiesta-medico-locarnese.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Strada del Locarnese con un edificio pubblico in una scena sobria"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T21:15:43+00:00",
       "dateModified": "2026-10-15T21:15:43+00:00",
@@ -109013,10 +109013,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "La SSR ha annunciato giovedì il taglio di 202 posti a tempo pieno: 173 nelle Operazioni e 29 nei settori di supporto. Il provvedimento vale 41 milioni",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/swiss-life-taglio-posti-lavoro-2028.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ssr-riduce-organico-risparmi.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Redazione radiotelevisiva in Ticino con vista urbana, immagine simbolica dei tagli SSR."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T21:41:27+00:00",
       "dateModified": "2026-10-15T21:41:27+00:00",
@@ -109097,6 +109102,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estradizione-pakistan-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-arresto-lite-domestica-ticino': {
+    title: 'Donna ferita in Ticino: arresto per tentato omicidio',
+    description: 'Arrestato il 9 ottobre un 28enne cittadino rumeno dopo una lite domestica in Ticino. Una donna ferita è stata visitata in ospedale, senza pericolo per la vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, donna, ferita, arresto, tentato',
+    ogTitle: 'Arresto in Ticino dopo una lite domestica',
+    ogDescription: 'La polizia cantonale ha reso noto l\'arresto, avvenuto il 9 ottobre, di un 28enne cittadino rumeno residente in Romania. La donna coinvolta nella lite ha riportato ferite che hanno richiesto una visita in ospedale, senza metterne in pericolo la vita.',
+    canonicalPath: '/articoli-frontaliere/arresto-lite-domestica-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Donna ferita in Ticino: arresto per tentato omicidio",
+      "description": "Arrestato il 9 ottobre un 28enne cittadino rumeno dopo una lite domestica in Ticino. Una donna ferita è stata visitata in ospedale, senza pericolo per la vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-arresto-lite-domestica-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano in Canton Ticino per una notizia di cronaca."
+      },
+      "datePublished": "2026-10-16T00:07:16+00:00",
+      "dateModified": "2026-10-16T00:07:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-lite-domestica-ticino/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

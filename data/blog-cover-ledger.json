@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5515
+      "6": 5519
     },
-    "publishedCovers": 7096,
+    "publishedCovers": 7100,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5320
+    "inferredRecords": 5324
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190168,6 +190168,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-arresto-lite-domestica-ticino": {
+      "cover": "/images/blog/article-arresto-lite-domestica-ticino.webp",
+      "hash": "3edba7987614d170a0a032cbec6faf360b8ec0412fc7c3d4b4b160133998fe75",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arresto-lite-domestica-ticino",
+          "category": "novita",
+          "date": "2026-10-16T00:07:16.753Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-attacco-software-pkzh": {
       "cover": "/images/blog/article-attacco-software-pkzh.webp",
       "hash": "2533be7ba60087ca60347d65b8933f03fb49dbe944248723e962d74e5b134c0a",
@@ -190181,6 +190208,60 @@
           "date": "2026-10-15T23:41:39.976Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-inchiesta-medico-locarnese": {
+      "cover": "/images/blog/article-inchiesta-medico-locarnese.webp",
+      "hash": "3196e86da13a85fb174ca0a9bf398194429c3d09fee2af815a89c7c33ba2164b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "inchiesta-medico-locarnese",
+          "category": "novita",
+          "date": "2026-10-15T21:15:43.477Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-liberta-fondo-pene-sostitutive": {
+      "cover": "/images/blog/article-liberta-fondo-pene-sostitutive.webp",
+      "hash": "fd2aae16331e3c9f7439f2a575c1d98ad849dc81f204783f59813e8fb1a369ca",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "liberta-fondo-pene-sostitutive",
+          "category": "pratico",
+          "date": "2026-10-14T21:58:02.746Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,
@@ -190233,6 +190314,33 @@
           "id": "saronno-piccole-stelle-softball",
           "category": "novita",
           "date": "2026-10-15T17:55:48.993Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ssr-riduce-organico-risparmi": {
+      "cover": "/images/blog/article-ssr-riduce-organico-risparmi.webp",
+      "hash": "6565f2df289901072274d0176898916a25240835b3066627c27618608f584738",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ssr-riduce-organico-risparmi",
+          "category": "novita",
+          "date": "2026-10-15T21:41:26.844Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

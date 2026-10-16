@@ -13257,16 +13257,19 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso: checks on a car with Czech plates after three arrests over suspected shock calls',
     'blog.article.inchiesta-medico-locarnese.title': 'Sexual offenses against patients, a doctor in prison',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Doctor from the Locarno region under investigation Investigations launched in early July Man still in pretrial detention Other alleged victims identified Chief',
-    'blog.article.inchiesta-medico-locarnese.imageAlt': 'A Locarnese street with a public building in a restrained scene',
+    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Illustration generated for this article',
     'blog.article.ssr-riduce-organico-risparmi.title': 'SSR cuts another 202 jobs',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'SSR is eliminating 202 full-time positions and expects savings of 41 million.',
-    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Broadcast newsroom in Ticino with an urban view, symbolizing SSR job cuts.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Illustration generated for this article',
     'blog.article.arresto-cittadino-russo-como.title': 'Como, Russian citizen arrested for unlawful entry',
     'blog.article.arresto-cittadino-russo-como.excerpt': '26-year-old Russian citizen arrested Garage window damaged Attempted escape after detention Como prison awaiting immediate trial What →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Urban view of the city of Como',
     'blog.article.estradizione-pakistan-como.title': 'Accused of murder, arrested in Como for extradition',
     'blog.article.estradizione-pakistan-como.excerpt': 'A 40-year-old man was arrested in Como.',
     'blog.article.estradizione-pakistan-como.imageAlt': 'Italian State Police during a check on Via Canturina in Como',
+    'blog.article.arresto-lite-domestica-ticino.title': 'Woman injured in Ticino: arrest for attempted murder',
+    'blog.article.arresto-lite-domestica-ticino.excerpt': 'A 28-year-old Romanian citizen was arrested on October 9 after a domestic dispute in Ticino.',
+    'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Lugano view in Canton Ticino for a local crime news article.',
 };
 
 export default blogMetaEn;

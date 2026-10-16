@@ -13259,16 +13259,19 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso : contrôles d\'un véhicule aux plaques tchèques après trois arrestations liées aux appels choc',
     'blog.article.inchiesta-medico-locarnese.title': 'Délits sexuels sur des patients, un médecin en prison',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Médecin du Locarnese sous enquête Investigations entamées début juillet Homme toujours en détention préventive D\'autres victimes présumées identifiées Chapeau',
-    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Rue du Locarnese avec un bâtiment public dans une scène sobre',
+    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Illustration générée pour cet article',
     'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR supprime 202 postes supplémentaires',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR supprime 202 postes à temps plein et prévoit 41 millions d\'économies.',
-    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Rédaction radiotélévisée au Tessin, avec vue urbaine, symbole des suppressions de postes à la SSR.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Illustration générée pour cet article',
     'blog.article.arresto-cittadino-russo-como.title': 'Como, un citoyen russe arrêté pour entrée illégale',
     'blog.article.arresto-cittadino-russo-como.excerpt': 'Un citoyen russe de 26 ans arrêté Vitrage d’un garage endommagé Tentative de fuite après l’interpellation Prison de Como en attendant la comparution immédiate Quoi →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Vue urbaine de la ville de Côme (Como)',
     'blog.article.estradizione-pakistan-como.title': 'Accusé de meurtre, arrêté à Como en vue de son extradition',
     'blog.article.estradizione-pakistan-como.excerpt': 'Arrêté à Como, un homme de 40 ans.',
     'blog.article.estradizione-pakistan-como.imageAlt': 'Police d’État italienne lors d’un contrôle via Canturina à Côme (Como)',
+    'blog.article.arresto-lite-domestica-ticino.title': 'Femme blessée au Tessin : arrestation pour tentative d’homicide',
+    'blog.article.arresto-lite-domestica-ticino.excerpt': 'Un ressortissant roumain de 28 ans a été arrêté le 9 octobre après une dispute domestique au Tessin.',
+    'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Vue de Lugano au Tessin pour un article de faits divers locaux.',
 };
 
 export default blogMetaFr;

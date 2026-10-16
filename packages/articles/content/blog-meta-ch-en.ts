@@ -8284,7 +8284,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consultazione-omc-commercio-digitale.imageAlt': 'Bellinzona, a symbolic Swiss setting for digital commerce.',
     'blog.article.liberta-fondo-pene-sostitutive.title': 'Unpaid fines? Here’s who can save you from prison',
     'blog.article.liberta-fondo-pene-sostitutive.excerpt': 'Freiheitsfonds has raised almost 100\'000 francs.',
-    'blog.article.liberta-fondo-pene-sostitutive.imageAlt': 'Person with fine and freedom fund symbol, Switzerland',
+    'blog.article.liberta-fondo-pene-sostitutive.imageAlt': 'Illustration generated for this article',
     'blog.article.ordinanza-animali-compagnia-ue.title': 'Pets: 2026 ordinance amended',
     'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'The Federal Council adopted the amendment on October 14, 2026 The revision concerns import, transit and export The provisions are being adapted',
     'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Dog beside a Swiss document on the companion animal ordinance',

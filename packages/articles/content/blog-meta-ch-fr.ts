@@ -8284,7 +8284,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consultazione-omc-commercio-digitale.imageAlt': 'Bellinzone, décor suisse symbolique du commerce numérique.',
     'blog.article.liberta-fondo-pene-sostitutive.title': 'Amendes impayées ? Voici qui peut vous sauver de la prison',
     'blog.article.liberta-fondo-pene-sostitutive.excerpt': 'Le Freiheitsfonds a récolté près de 100\'000 francs.',
-    'blog.article.liberta-fondo-pene-sostitutive.imageAlt': 'Personne avec amende et symbole du fonds de liberté, Suisse',
+    'blog.article.liberta-fondo-pene-sostitutive.imageAlt': 'Illustration générée pour cet article',
     'blog.article.ordinanza-animali-compagnia-ue.title': 'Animaux de compagnie : ordonnance 2026 modifiée',
     'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'Le Conseil fédéral a adopté la modification le 14 octobre 2026 La révision concerne l’importation, le transit et l’exportation Les dispositions s’adaptent',
     'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Chien à côté d\'un document suisse sur l\'ordonnance relative aux animaux de compagnie',

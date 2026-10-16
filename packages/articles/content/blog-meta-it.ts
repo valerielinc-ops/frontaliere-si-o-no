@@ -13258,16 +13258,19 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso: controlli su un veicolo con targhe ceche dopo tre arresti per sospette chiamate shock',
     'blog.article.inchiesta-medico-locarnese.title': 'Reati sessuali su pazienti, un medico in carcere',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Medico del Locarnese sotto inchiesta Accertamenti avviati a inizio luglio Uomo ancora in carcerazione preventiva Identificate altre presunte vittime Capo',
-    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Strada del Locarnese con un edificio pubblico in una scena sobria',
+    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR taglia altri 202 posti di lavoro',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR sopprime 202 posti a tempo pieno e prevede risparmi per 41 milioni.',
-    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Redazione radiotelevisiva in Ticino con vista urbana, immagine simbolica dei tagli SSR.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.arresto-cittadino-russo-como.title': 'Como, arrestato cittadino russo per ingresso abusivo',
     'blog.article.arresto-cittadino-russo-como.excerpt': 'Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un\'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Veduta urbana della città di Como',
     'blog.article.estradizione-pakistan-como.title': 'Accusato di omicidio, arrestato a Como per l’estradizione',
     'blog.article.estradizione-pakistan-como.excerpt': 'Arrestato a Como un uomo di 40 anni.',
     'blog.article.estradizione-pakistan-como.imageAlt': 'Polizia di Stato durante un controllo in via Canturina a Como',
+    'blog.article.arresto-lite-domestica-ticino.title': 'Donna ferita in Ticino: arresto per tentato omicidio',
+    'blog.article.arresto-lite-domestica-ticino.excerpt': 'Arrestato il 9 ottobre un 28enne cittadino rumeno dopo una lite domestica in Ticino.',
+    'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Veduta di Lugano in Canton Ticino per una notizia di cronaca.',
 };
 
 export default blogMetaIt;

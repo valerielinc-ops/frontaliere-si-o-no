@@ -104563,10 +104563,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Freiheitsfonds ha raccolto quasi 100'000 franchi. 47 persone hanno evitato complessivamente 451 giorni di carcere. Nel 2024 ci sono stati 3'935 ingressi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lavori-pubblica-utilita-multe-pene.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-liberta-fondo-pene-sostitutive.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Persona con multa e simbolo del fondo libertà, Svizzera"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-14T21:58:02+00:00",
       "dateModified": "2026-10-14T21:58:02+00:00",

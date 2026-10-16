@@ -13256,16 +13256,19 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso: Kontrollen eines Autos mit tschechischen Kennzeichen nach drei Festnahmen wegen Schockanrufen',
     'blog.article.inchiesta-medico-locarnese.title': 'Sexualdelikte an Patienten, ein Arzt in Haft',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Gegen einen Arzt aus dem Locarnese wird ermittelt Ermittlungen Anfang Juli eingeleitet Mann weiterhin in Untersuchungshaft Weitere mutmassliche Opfer identifiziert Vorspann',
-    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Strasse im Locarnese mit einem öffentlichen Gebäude in sachlicher Szene',
+    'blog.article.inchiesta-medico-locarnese.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.ssr-riduce-organico-risparmi.title': 'Die SSR streicht weitere 202 Arbeitsplätze',
     'blog.article.ssr-riduce-organico-risparmi.excerpt': 'Die SSR streicht 202 Vollzeitstellen und sieht Einsparungen von 41 Millionen vor.',
-    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Rundfunkredaktion im Tessin mit Stadtblick als Symbol für den Stellenabbau bei der SSR.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.arresto-cittadino-russo-como.title': 'Como, russischer Staatsbürger wegen unbefugten Eindringens festgenommen',
     'blog.article.arresto-cittadino-russo-como.excerpt': '26-jähriger russischer Staatsbürger festgenommen Glasfront eines Parkhauses beschädigt Fluchtversuch nach der Festnahme Gefängnis in Como in Erwartung des Schnellverfahrens Was →',
     'blog.article.arresto-cittadino-russo-como.imageAlt': 'Stadtansicht von Como',
     'blog.article.estradizione-pakistan-como.title': 'Wegen Mordes beschuldigt, in Como zur Auslieferung festgenommen',
     'blog.article.estradizione-pakistan-como.excerpt': 'In Como wurde ein 40-jähriger Mann festgenommen.',
     'blog.article.estradizione-pakistan-como.imageAlt': 'Italienische Staatspolizei bei einer Kontrolle in der Via Canturina in Como',
+    'blog.article.arresto-lite-domestica-ticino.title': 'Frau im Tessin verletzt: Festnahme wegen versuchter vorsätzlicher Tötung',
+    'blog.article.arresto-lite-domestica-ticino.excerpt': 'Am 9. Oktober wurde nach einem Streit im häuslichen Umfeld im Tessin ein 28-jähriger rumänischer Staatsangehöriger festgenommen.',
+    'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Blick auf Lugano im Kanton Tessin zu einer lokalen Kriminalmeldung.',
 };
 
 export default blogMetaDe;
