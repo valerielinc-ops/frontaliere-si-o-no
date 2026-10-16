@@ -44828,6 +44828,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'olgiate-presidio-vivo-mercato',
+ category: 'novita',
+ date: '2026-10-16T02:57:06.729Z',
+ image: '/images/places/lugano-view.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

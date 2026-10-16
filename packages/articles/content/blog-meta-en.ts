@@ -13282,6 +13282,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.don-giusto-teatro-nuovo-gloria.title': 'Como, don Giusto welcomes the Gloria shows at Teatro Nuovo',
     'blog.article.don-giusto-teatro-nuovo-gloria.excerpt': 'The Gloria Cinema is closed for fire-safety compliance Don Giusto offers the Teatro Nuovo di Rebbio Sunday the 18th at 16 the Barabàn-Musica Spiccia concert',
     'blog.article.don-giusto-teatro-nuovo-gloria.imageAlt': 'Interior of the Teatro Nuovo in Rebbio, available for Cinema Gloria performances.',
+    'blog.article.olgiate-presidio-vivo-mercato.title': 'Olgiate: Living Outpost and Sentinels in the Markets',
+    'blog.article.olgiate-presidio-vivo-mercato.excerpt': 'The Presidio Vivo project gets underway in Olgiate Olona Two squares host the participating markets Easily identifiable volunteers assist the Local Police Events',
+    'blog.article.olgiate-presidio-vivo-mercato.imageAlt': 'Market Sentinels volunteers and local police officers in a square in Olgiate Olona.',
 };
 
 export default blogMetaEn;

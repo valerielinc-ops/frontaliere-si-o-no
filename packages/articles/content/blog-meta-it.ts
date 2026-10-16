@@ -13283,6 +13283,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.don-giusto-teatro-nuovo-gloria.title': 'Como, don Giusto accoglie gli spettacoli del Gloria al Teatro Nuovo',
     'blog.article.don-giusto-teatro-nuovo-gloria.excerpt': 'Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia',
     'blog.article.don-giusto-teatro-nuovo-gloria.imageAlt': 'Interno del Teatro Nuovo di Rebbio, a disposizione per gli spettacoli del Cinema Gloria.',
+    'blog.article.olgiate-presidio-vivo-mercato.title': 'Olgiate: Presidio Vivo e sentinelle nei mercati',
+    'blog.article.olgiate-presidio-vivo-mercato.excerpt': 'A Olgiate Olona parte il progetto Presidio Vivo Due piazze ospitano i mercati coinvolti Volontari riconoscibili affiancano la Polizia Locale Appuntamenti',
+    'blog.article.olgiate-presidio-vivo-mercato.imageAlt': 'Volontari della Sentinelle del Mercato e agenti di Polizia Locale in piazza a Olgiate Olona.',
 };
 
 export default blogMetaIt;
