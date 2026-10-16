@@ -10,6 +10,20 @@ const workflow = fs.readFileSync(
 );
 
 describe('Audit Parser Quality workflow observability', () => {
+  it('runs strict audits only after crawler groups finish their publication window', () => {
+    // Run 38810039890 audited the pre-publication Sprüngli slice at 21:30 UTC;
+    // the corrected crawler output landed six minutes later. Early triggers
+    // turn that transient snapshot into a false parser failure.
+    const doc = YAML.parse(workflow) as {
+      on?: { schedule?: Array<{ cron?: string }>; workflow_run?: unknown };
+    };
+    expect(doc.on?.schedule?.map(({ cron }) => cron)).toEqual([
+      '15 15 * * *',
+      '15 3 * * *',
+    ]);
+    expect(doc.on).not.toHaveProperty('workflow_run');
+  });
+
   it('installs declared dependencies before the strict audit imports them', () => {
     expect(workflow).toMatch(/name: Setup Node[\s\S]*?name: Install audit dependencies[\s\S]*?run: npm ci[\s\S]*?name: Run parser quality audit \(strict\)/);
   });
