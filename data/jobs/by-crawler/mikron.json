@@ -1,7 +1,62 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-10-16T09:29:16.194Z",
+  "assembledAt": "2026-10-16T21:38:01.737Z",
   "jobs": [
+    {
+      "url": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
+      "applyUrl": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
+      "title": "Production Planning Analyst (Ordonnanceur) – F/M/D",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "description": "Making complexity accessible\nMikron Automation is your worldwide partner for advanced automation solutions. At Mikron we are committed to delivering the best assembly systems and all needed services throughout your product’s entire life cycle. With our extensive engineering know-how, complex process expertise, scalable platforms, and lifelong support we are driving lasting success for your business.\nJob Description\nThe Production planning Analyst ensures the feasibility and execution of the production plan, taking into account customer priorities, capacity constraints, and material availability. They anticipate risks and secure customer demand. They optimize the use of resources and storage space while meeting customer delivery dates.\nYour main tasks\n• Prepare the weekly and daily workload plan for each workshop.\n• Facilitate and lead meetings with the workshops\n• Release production orders according to the workload plan defined and approved by the stakeholders\n• Monitor the progress of production orders and support the workshops in the event of a blockage\n• Identify workshop delays and deviations from customer demand\n• Anticipate critical shortages and manage safety buffers in collaboration with the relevant departments\n• Reschedule in the event of unforeseen circumstances or changes in demand, in accordance with established priority rules\n• Monitor changes in workshop capacity and anticipate bottlenecks\n• Analyze differences between planned and actual results\n• Conduct scenario analyses based on demand forecasts\n\nYour profile\n• Higher education qualification (ES or HES) in Supply Chain Management\n• Experience in production scheduling and planning\n• Languages: French and English required\n• Organized, thorough, and methodical\n• Strong analytical skills and a highly developed ability to anticipate\n• Strong problem-solving skills and attention to detail\n• Excellent communication skills in a collaborative environment\n• Experience with SAP ERP is an advantage\n\nWhat we offer\n• The opportunity to tackle a variety of challenges and contribute to the continuous improvement of an international company focused on the market and customer satisfaction in a constantly evolving technical environment\n• A position that matches your ambitions, with opportunities for advancement within a company that is attentive to its employees’ continuing education needs\n• People-centered project management and multidisciplinary teams that foster knowledge sharing and both personal and professional development\n• A multicultural, friendly, and dynamic environment focused on teamwork\n• Working conditions that ensure employees have a good work-life balance\n• Monthly mobility allowance\n• Flexible schedule (40-hour workweek)\n• 20 vacation days starting at age 20 / 27 vacation days starting at age 40 / 30 vacation days starting at age 50\n• Additional bridge days to be taken later\n• A home office policy",
+      "descriptionByLocale": {
+        "en": "Making complexity accessible\nMikron Automation is your worldwide partner for advanced automation solutions. At Mikron we are committed to delivering the best assembly systems and all needed services throughout your product’s entire life cycle. With our extensive engineering know-how, complex process expertise, scalable platforms, and lifelong support we are driving lasting success for your business.\nJob Description\nThe Production planning Analyst ensures the feasibility and execution of the production plan, taking into account customer priorities, capacity constraints, and material availability. They anticipate risks and secure customer demand. They optimize the use of resources and storage space while meeting customer delivery dates.\nYour main tasks\n• Prepare the weekly and daily workload plan for each workshop.\n• Facilitate and lead meetings with the workshops\n• Release production orders according to the workload plan defined and approved by the stakeholders\n• Monitor the progress of production orders and support the workshops in the event of a blockage\n• Identify workshop delays and deviations from customer demand\n• Anticipate critical shortages and manage safety buffers in collaboration with the relevant departments\n• Reschedule in the event of unforeseen circumstances or changes in demand, in accordance with established priority rules\n• Monitor changes in workshop capacity and anticipate bottlenecks\n• Analyze differences between planned and actual results\n• Conduct scenario analyses based on demand forecasts\n\nYour profile\n• Higher education qualification (ES or HES) in Supply Chain Management\n• Experience in production scheduling and planning\n• Languages: French and English required\n• Organized, thorough, and methodical\n• Strong analytical skills and a highly developed ability to anticipate\n• Strong problem-solving skills and attention to detail\n• Excellent communication skills in a collaborative environment\n• Experience with SAP ERP is an advantage\n\nWhat we offer\n• The opportunity to tackle a variety of challenges and contribute to the continuous improvement of an international company focused on the market and customer satisfaction in a constantly evolving technical environment\n• A position that matches your ambitions, with opportunities for advancement within a company that is attentive to its employees’ continuing education needs\n• People-centered project management and multidisciplinary teams that foster knowledge sharing and both personal and professional development\n• A multicultural, friendly, and dynamic environment focused on teamwork\n• Working conditions that ensure employees have a good work-life balance\n• Monthly mobility allowance\n• Flexible schedule (40-hour workweek)\n• 20 vacation days starting at age 20 / 27 vacation days starting at age 40 / 30 vacation days starting at age 50\n• Additional bridge days to be taken later\n• A home office policy"
+      },
+      "titleByLocale": {
+        "en": "Production Planning Analyst (Ordonnanceur) – F/M/D"
+      },
+      "slugByLocale": {
+        "en": "production-planning-analyst-ordonnanceur-f-m-d-mikron"
+      },
+      "slug": "production-planning-analyst-ordonnanceur-f-m-d-mikron",
+      "sourceLang": "en",
+      "category": "production",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-16T21:37:43.804Z",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "needsRetranslation": true,
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-16T21:37:43.804Z"
+    },
     {
       "url": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
       "applyUrl": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
@@ -38,7 +93,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:28:58.352Z",
+      "crawledAt": "2026-10-16T21:37:44.945Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -101,7 +156,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:28:59.477Z",
+      "crawledAt": "2026-10-16T21:37:46.037Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -164,7 +219,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:29:02.812Z",
+      "crawledAt": "2026-10-16T21:37:49.399Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -227,7 +282,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:29:03.921Z",
+      "crawledAt": "2026-10-16T21:37:50.495Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -290,7 +345,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:29:07.172Z",
+      "crawledAt": "2026-10-16T21:37:53.828Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -378,7 +433,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

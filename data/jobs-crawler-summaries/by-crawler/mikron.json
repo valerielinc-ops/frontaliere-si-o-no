@@ -1,18 +1,61 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-16T09:29:27.085Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-10-16T21:38:12.920Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 15326,
-  "avgDurationMs": 15326,
+  "durationMs": 15601,
+  "avgDurationMs": 15601,
   "durationHistory": [
-    15326
+    15601
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
+      "applyUrl": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
+      "title": "Production Planning Analyst (Ordonnanceur) – F/M/D",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "production-planning-analyst-ordonnanceur-f-m-d-mikron",
+      "sourceLang": "en",
+      "category": "production",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-16T21:37:43.804Z",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "needsRetranslation": true,
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-16T21:37:43.804Z",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -33,7 +76,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:28:58.352Z",
+      "crawledAt": "2026-10-16T21:37:44.945Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -74,7 +117,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:28:59.477Z",
+      "crawledAt": "2026-10-16T21:37:46.037Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -115,7 +158,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:29:02.812Z",
+      "crawledAt": "2026-10-16T21:37:49.399Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -156,7 +199,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:29:03.921Z",
+      "crawledAt": "2026-10-16T21:37:50.495Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -197,7 +240,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:29:07.172Z",
+      "crawledAt": "2026-10-16T21:37:53.828Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -255,6 +298,7 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -264,5 +308,5 @@
       }
     }
   ],
-  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
+  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
 }
