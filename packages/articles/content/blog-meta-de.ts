@@ -1513,7 +1513,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.ogm-fallimento-ticino.excerpt': 'Die Volksinitiative zur Kontrolle der GVO in der Schweiz hat die nötige Unterschriftenquorum von 100.000 nicht erreicht, was auch für das Tessin bedeutende Konsequenzen hat.',
  'blog.article.ogm-fallimento-ticino.imageAlt': 'Lugano-See mit Bergen im Hintergrund, typisch Tessiner Landschaft',
  'blog.article.passaggio-statuto-s-permesso-b.title': 'Vom Status S zum Permis B im Tessin',
- 'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Nach mindestens fünf Jahren ununterbrochenem Aufenthalt besteht für Personen mit Schutzstatus S Anspruch auf eine verbundene B-Bewilligung: Voraussetzungen, Kanton und Verlängerung bis zum 4. März 2028.',
+ 'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Schutzstatus S und B-Bewilligung im Tessin: Anspruch nach fünf Jahren ununterbrochenem Aufenthalt, Voraussetzungen und Verlängerung bis 4. März 2028.',
  'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Panoramablick auf Bellinzona mit seinen Burgen und den umliegenden Bergen, Symbol der Schweizer-italienischen Grenze.',
  'blog.article.chiusure-notturne-autostrada.title': 'Nächtliche Sperrungen auf der Autobahn A9',
  'blog.article.chiusure-notturne-autostrada.excerpt': 'In der nächsten Woche werden nächtliche Sperrungen auf der Autobahn A9 durchgeführt.',

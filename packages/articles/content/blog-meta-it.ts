@@ -1514,7 +1514,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.ogm-fallimento-ticino.excerpt': 'L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.',
  'blog.article.ogm-fallimento-ticino.imageAlt': 'Lago di Lugano con montagne sullo sfondo, paesaggio naturale in Ticino',
  'blog.article.passaggio-statuto-s-permesso-b.title': 'Dallo statuto S al permesso B in Ticino',
- 'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Dopo almeno cinque anni di soggiorno ininterrotto, chi beneficia dello statuto S ha diritto a un permesso B collegato: requisiti, ruolo del Cantone e proroga federale fino al 4 marzo 2028.',
+ 'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Dopo almeno cinque anni di soggiorno ininterrotto, chi ha lo statuto S ha diritto a un permesso B collegato in Ticino: requisiti e proroga fino al 4 marzo 2028.',
  'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Panorama di Bellinzona con le sue torri e il paesaggio montano circostante, rappresentativo del confine tra Italia e Svizzera.',
  'blog.article.chiusure-notturne-autostrada.title': 'Chiusure notturne sull\'autostrada A9',
  'blog.article.chiusure-notturne-autostrada.excerpt': 'La prossima settimana saranno effettuate chiusure notturne sull\'autostrada A9',
