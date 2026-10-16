@@ -51,7 +51,7 @@
       },
       "slugByLocale": {
         "it": "sr-drug-safety-specialista-deputy-qppv-ibsa-institut-biochimique-collina-d-ti-uxcw7b",
-        "en": "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-oro",
+        "en": "sr-drug-safet-special-ibsa-institut-biochimique-collina-d-oro",
         "de": "sr-drug-safety-spezialist-deputy-qppv-ibsa-institut-biochimique-collina-d-ti-uxcw7b",
         "fr": "sr-drug-safety-specialiste-deputy-qppv-ibsa-institut-biochimique-collina-d-ti-uxcw7b"
       },
@@ -78,12 +78,14 @@
           "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-ti"
         ],
         "en": [
-          "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-ti-uxcw7b"
+          "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-ti-uxcw7b",
+          "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-oro"
         ]
       },
       "previousSlugs": [
         "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-ti",
-        "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-ti-uxcw7b"
+        "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-ti-uxcw7b",
+        "sr-drug-safety-specialist-deputy-qppv-ibsa-institut-biochimique-collina-d-oro"
       ],
       "salaryMin": 95000,
       "salaryMax": 132500,
@@ -898,7 +900,7 @@
       "slugByLocale": {
         "de": "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
         "it": "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area-um2f7f",
-        "fr": "industrial-controlling-manager-ibsa-institut-biochimique-collina-d-oro",
+        "fr": "directeur-du-controle-industriel-ibsa-institut-biochimique-collina-d-oro",
         "en": "industrial-controlling-manager-ibsa-institut-biochimique-collina-d-oro"
       },
       "titleByLocale": {
@@ -928,11 +930,11 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-du-controle-industriel-ibsa-institut-biochimique-collina-d-oro"
+          "industrial-controlling-manager-ibsa-institut-biochimique-collina-d-oro"
         ]
       },
       "previousSlugs": [
-        "directeur-du-controle-industriel-ibsa-institut-biochimique-collina-d-oro"
+        "industrial-controlling-manager-ibsa-institut-biochimique-collina-d-oro"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,

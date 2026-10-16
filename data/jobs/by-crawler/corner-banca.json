@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
-        "fr": "apprentissage-spontane-corner-banca-switzerland"
+        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -60,16 +60,16 @@
       "crawledAt": "2026-10-15T21:44:42.361Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
-        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "spontaner-ausbildungseinsatz-corner-banca-switzerland",
+        "apprentissage-spontane-corner-banca-switzerland"
       ],
       "previousSlugsByLocale": {
         "de": [
           "initiativbewerbung-lehre-corner-banca-switzerland",
-          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
+          "spontaner-ausbildungseinsatz-corner-banca-switzerland"
         ],
         "fr": [
-          "unsolicited-application-apprenticeship-corner-banca-switzerland"
+          "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
@@ -804,8 +804,8 @@
       "slugByLocale": {
         "it": "collaboratore-ufficio-contenzioso-ref-1131-corner-banca-lugano",
         "en": "litigation-department-officer-ref-1131-corner-banca-lugano",
-        "de": "litigation-department-officer-ref-1131-corner-banca-lugano",
-        "fr": "litigation-department-officer-ref-1131-corner-banca-lugano"
+        "de": "justizministerium-ref-1131-corner-banca-lugano",
+        "fr": "administrateur-du-departement-du-contentieux-ref-1131-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -872,7 +872,18 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131"
+      "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
+      "previousSlugsByLocale": {
+        "de": [
+          "litigation-department-officer-ref-1131-corner-banca-lugano"
+        ],
+        "fr": [
+          "litigation-department-officer-ref-1131-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "litigation-department-officer-ref-1131-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-e77e18a8741a",
@@ -1047,7 +1058,7 @@
       "slugByLocale": {
         "it": "specialista-corporate-actions-ref-1132-corner-banca-lugano",
         "en": "corporate-actions-specialist-ref-1132-corner-banca-lugano",
-        "de": "corporate-actions-specialist-ref-1132-corner-banca-lugano",
+        "de": "unternehmensaktionen-spezialist-ref-1132-corner-banca-lugano",
         "fr": "corporate-actions-specialist-ref-1132-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
@@ -1128,7 +1139,15 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/corporate-actions-specialist-ref-1132"
+      "applyUrl": "https://jobs.corner.ch/o/corporate-actions-specialist-ref-1132",
+      "previousSlugsByLocale": {
+        "de": [
+          "corporate-actions-specialist-ref-1132-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "corporate-actions-specialist-ref-1132-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-3132975eb0ea",

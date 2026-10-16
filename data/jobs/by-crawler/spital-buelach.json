@@ -795,9 +795,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "en": "two-themed-birthplace-spital-bulach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "maison-de-naissance-spital-bulach"
+        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -874,11 +874,11 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "two-themed-birthplace-spital-bulach-bulach"
+          "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+          "maison-de-naissance-spital-bulach"
         ]
       },
       "previousSlugs": [
@@ -889,8 +889,8 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
-        "two-themed-birthplace-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "maison-de-naissance-spital-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
@@ -1732,10 +1732,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricisti-commerciali-spital-bulach",
+        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electriciens-d-affaires-spital-bulach"
+        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1781,16 +1781,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
-        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
-          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+          "electriciens-d-affaires-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
@@ -3591,7 +3589,7 @@
       "slug": "case-manager-in-spital-buelach-bulach",
       "slugByLocale": {
         "it": "case-manager-in-spital-buelach-bulach",
-        "en": "case-manager-in-spital-bulach",
+        "en": "casemanager-spital-bulach-bulach",
         "de": "case-manager-in-spital-buelach-bulach",
         "fr": "gestionnaire-decas-spital-bulach-bulach"
       },
@@ -3638,11 +3636,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "casemanager-spital-bulach-bulach"
+        "case-manager-in-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "casemanager-spital-bulach-bulach"
+          "case-manager-in-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:04.532Z",
@@ -4662,12 +4660,12 @@
     },
     {
       "id": "spital-buelach-905bf6686f7e",
-      "slug": "sitzwache-pflege-pool-spital-buelach-bulach",
+      "slug": "piscina-riscaldata-spital-bulach-bulach",
       "slugByLocale": {
         "de": "sitzwache-pflege-pool-spital-buelach-bulach",
-        "it": "sitzwache-pflege-pool-spital-buelach-bulach",
-        "en": "sitzwache-pflege-pool-spital-buelach-bulach",
-        "fr": "sitzwache-pflege-pool-spital-buelach-bulach"
+        "it": "piscina-riscaldata-spital-bulach-bulach",
+        "en": "seated-nursing-pool-spital-bulach-bulach",
+        "fr": "piscine-de-soins-infirmiers-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4726,13 +4724,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:41:44.806Z"
+      "firstSeenAt": "2026-10-15T21:41:44.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sitzwache-pflege-pool-spital-buelach-bulach"
+        ],
+        "en": [
+          "sitzwache-pflege-pool-spital-buelach-bulach"
+        ],
+        "fr": [
+          "sitzwache-pflege-pool-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "sitzwache-pflege-pool-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-ff8f872d5e69",
       "slug": "urologia-praticante-mpa-nurse-spital-bulach-bulach-7602db6aed",
       "slugByLocale": {
-        "it": "urologia-praticante-mpa-nurse-spital-bulach-bulach-7602db6aed",
+        "it": "urologia-praticante-mpa-nurse-spital-bulach-bulach",
         "en": "mpa-nurse-practitioner-urology-spital-bulach-bulach",
         "de": "mpa-pflegefachperson-urologie-spital-buelach-bulach",
         "fr": "mpa-infirmiere-praticien-urologie-spital-bulach-bulach"
@@ -4781,13 +4793,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-pflegefachperson-urologie-spital-buelach-bulach",
-        "urologia-praticante-mpa-nurse-spital-bulach-bulach"
+        "mpa-pflegefachperson-urologie-spital-buelach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-pflegefachperson-urologie-spital-buelach-bulach",
-          "urologia-praticante-mpa-nurse-spital-bulach-bulach"
+          "mpa-pflegefachperson-urologie-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-09-19T23:14:19.220Z",
@@ -4810,7 +4820,7 @@
       "id": "spital-buelach-807aee77bf04",
       "slug": "stazione-privata-specializzata-spital-bulach-bulach-0ede5440f6",
       "slugByLocale": {
-        "it": "stazione-privata-specializzata-spital-bulach-bulach-0ede5440f6",
+        "it": "stazione-privata-specializzata-spital-bulach-bulach",
         "en": "specialist-health-private-station-spital-bulach-bulach",
         "de": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
         "fr": "station-privee-specialisee-en-sante-spital-bulach-bulach"
@@ -4863,14 +4873,12 @@
         "professional-health-acute-geriatrics-spital-bulach-bulach",
         "fachperson-gesundheit-akutgeriatrie-spital-buelach-bulach",
         "sante-professionnelle-geriatrie-aigue-spital-bulach-bulach",
-        "fachperson-gesundheit-privatstation-spital-buelach-bulach",
-        "stazione-privata-specializzata-spital-bulach-bulach"
+        "fachperson-gesundheit-privatstation-spital-buelach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "salute-professionale-geriatria-acuta-spital-bulach-bulach",
-          "fachperson-gesundheit-privatstation-spital-buelach-bulach",
-          "stazione-privata-specializzata-spital-bulach-bulach"
+          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
         ],
         "en": [
           "professional-health-acute-geriatrics-spital-bulach-bulach"

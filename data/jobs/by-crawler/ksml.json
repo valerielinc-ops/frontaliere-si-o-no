@@ -7611,8 +7611,8 @@
       "slugByLocale": {
         "de": "logopadin-oder-logopade-4-6-lektionen-schule-eriswil-eriswil-40485",
         "it": "logopadin-o-logopade-4-6-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-eriswil",
-        "en": "logopadin-oder-logopade-4-6-lektionen-schule-eriswil-eriswil-40485",
-        "fr": "logopadin-oder-logopade-4-6-lektionen-schule-eriswil-eriswil-40485"
+        "en": "speech-pediatrician-or-speech-pediatrician-4-6-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40485",
+        "fr": "pediatre-du-discours-ou-pediatre-du-discours-4-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40485"
       },
       "slugDisambiguator": "40485",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -7661,6 +7661,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logopadin-oder-logopade-4-6-lektionen-schule-eriswil-eriswil-40485"
+        ],
+        "en": [
+          "logopadin-oder-logopade-4-6-lektionen-schule-eriswil-eriswil-40485"
+        ],
+        "fr": [
           "logopadin-oder-logopade-4-6-lektionen-schule-eriswil-eriswil-40485"
         ]
       },
@@ -9999,12 +10005,12 @@
     },
     {
       "id": "ksml-899ba20a1f62",
-      "slug": "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472",
+      "slug": "insegnante-60-80-in-una-classe-bvs-plus-dal-febbraio-2027-forse-prima-giorni-lavorativi-mo-di-mi-fr-ksml-40472",
       "slugByLocale": {
         "de": "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472",
-        "it": "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472",
-        "en": "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472",
-        "fr": "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472"
+        "it": "insegnante-60-80-in-una-classe-bvs-plus-dal-febbraio-2027-forse-prima-giorni-lavorativi-mo-di-mi-fr-ksml-40472",
+        "en": "teacher-60-80-at-a-bvs-plus-class-from-february-2027-possibly-earlier-working-days-mo-di-mi-fr-ksml-kantonaler-40472",
+        "fr": "professeur-60-80-dans-une-classe-bvs-plus-a-partir-de-fevrier-2027-peut-etre-plus-tot-jours-ouvrables-mo-di-mi-fr-40472"
       },
       "slugDisambiguator": "40472",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -10064,7 +10070,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:29:58.359Z"
+      "firstSeenAt": "2026-10-15T21:29:58.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472"
+        ],
+        "en": [
+          "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472"
+        ],
+        "fr": [
+          "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-60-80-an-einer-bvs-plus-klasse-ab-februar-2027-evtl-schon-fruher-arbeitstage-mo-40472"
+      ]
     },
     {
       "id": "ksml-0587880db44a",
@@ -15465,10 +15485,10 @@
     },
     {
       "id": "ksml-074a9eedb9ed",
-      "slug": "4-l-bvsa-int-mr-region-schwarzenburg-schwarzenburg-40484",
+      "slug": "4-lvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-schwarzenburg-40484",
       "slugByLocale": {
         "de": "4-l-bvsa-int-mr-region-schwarzenburg-schwarzenburg-40484",
-        "it": "4-l-bvsa-int-mr-region-schwarzenburg-schwarzenburg-40484",
+        "it": "4-lvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-schwarzenburg-40484",
         "en": "4-l-bvsa-int-mr-region-schwarzenburg-schwarzenburg-40484",
         "fr": "4-l-bvsa-int-mr-region-schwarzenburg-schwarzenburg-40484"
       },
@@ -15530,7 +15550,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:29:58.345Z"
+      "firstSeenAt": "2026-10-15T21:29:58.345Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "4-l-bvsa-int-mr-region-schwarzenburg-schwarzenburg-40484"
+        ]
+      },
+      "previousSlugs": [
+        "4-l-bvsa-int-mr-region-schwarzenburg-schwarzenburg-40484"
+      ]
     },
     {
       "id": "ksml-1959f687e2f2",
@@ -16113,12 +16141,12 @@
     },
     {
       "id": "ksml-8c672781dcd4",
-      "slug": "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469",
+      "slug": "17-l-promozione-integrativa-a-3-4-kl-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40469",
       "slugByLocale": {
         "de": "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469",
-        "it": "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469",
-        "en": "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469",
-        "fr": "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469"
+        "it": "17-l-promozione-integrativa-a-3-4-kl-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40469",
+        "en": "17-l-integrative-promotion-at-a-3-4-kl-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40469",
+        "fr": "17-l-promotion-integrative-au-3-4-kl-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40469"
       },
       "slugDisambiguator": "40469",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -16178,7 +16206,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:29:58.343Z"
+      "firstSeenAt": "2026-10-15T21:29:58.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469"
+        ],
+        "en": [
+          "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469"
+        ],
+        "fr": [
+          "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469"
+        ]
+      },
+      "previousSlugs": [
+        "17-l-integrative-forderung-an-einer-3-4-kl-schule-laupen-laupen-40469"
+      ]
     },
     {
       "id": "ksml-3c75030e558b",

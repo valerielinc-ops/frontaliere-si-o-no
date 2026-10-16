@@ -255,7 +255,7 @@
         "de": "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch",
         "it": "sachbearbeiter-in-customer-sales-support-birsfelden-holcim-group-birsfelden",
         "en": "sachbearbeiter-in-customer-sales-support-birsfelden-holcim-group-birsfelden",
-        "fr": "sachbearbeiter-in-customer-sales-support-birsfelden-holcim-group-birsfelden"
+        "fr": "collaborateur-rice-administratif-ve-customer-sales-support-birsfelden-holcim-group-birsfelden"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -409,8 +409,8 @@
       "slugByLocale": {
         "de": "leiter-in-produktion-holcim-ch",
         "it": "responsabile-produktion-holcim-group-birsfelden",
-        "en": "leiter-in-produktion-holcim-ch",
-        "fr": "leiter-in-produktion-holcim-ch"
+        "en": "head-of-production-holcim-group-birsfelden",
+        "fr": "responsable-de-production-holcim-group-birsfelden"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -457,6 +457,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-produktion-holcim-ch"
+        ],
+        "en": [
+          "leiter-in-produktion-holcim-ch"
+        ],
+        "fr": [
+          "leiter-in-produktion-holcim-ch"
         ]
       },
       "previousSlugs": [
@@ -480,12 +486,12 @@
     },
     {
       "id": "holcim-34e7b41daf88",
-      "slug": "lastwagenfuhrer-in-c-e-holcim-group-mulligen",
+      "slug": "autista-di-camion-c-e-holcim-group-mulligen",
       "slugByLocale": {
         "de": "lastwagenfuhrer-in-c-e-holcim-ch",
-        "it": "lastwagenfuhrer-in-c-e-holcim-group-mulligen",
-        "en": "lastwagenfuhrer-in-c-e-holcim-group-mulligen",
-        "fr": "lastwagenfuhrer-in-c-e-holcim-group-mulligen"
+        "it": "autista-di-camion-c-e-holcim-group-mulligen",
+        "en": "truck-driver-c-e-holcim-group-mulligen",
+        "fr": "chauffeur-euse-de-poids-lourds-c-e-holcim-group-mulligen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -531,11 +537,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lastwagenfuhrer-in-c-e-holcim-ch"
+          "lastwagenfuhrer-in-c-e-holcim-ch",
+          "lastwagenfuhrer-in-c-e-holcim-group-mulligen"
+        ],
+        "en": [
+          "lastwagenfuhrer-in-c-e-holcim-group-mulligen"
+        ],
+        "fr": [
+          "lastwagenfuhrer-in-c-e-holcim-group-mulligen"
         ]
       },
       "previousSlugs": [
-        "lastwagenfuhrer-in-c-e-holcim-ch"
+        "lastwagenfuhrer-in-c-e-holcim-ch",
+        "lastwagenfuhrer-in-c-e-holcim-group-mulligen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

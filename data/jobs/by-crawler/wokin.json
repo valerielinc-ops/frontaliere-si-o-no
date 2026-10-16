@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "wokin-service-frauenfeld",
-      "slug": "servicemitarbeiter-in-50-100-wokin-frauenfeld",
+      "slug": "addetto-a-al-servizio-50-100-wokin-gmbh-frauenfeld",
       "slugByLocale": {
         "de": "servicemitarbeiter-in-50-100-wokin-frauenfeld",
-        "it": "servicemitarbeiter-in-50-100-wokin-frauenfeld",
-        "en": "servicemitarbeiter-in-50-100-wokin-frauenfeld",
-        "fr": "servicemitarbeiter-in-50-100-wokin-frauenfeld"
+        "it": "addetto-a-al-servizio-50-100-wokin-gmbh-frauenfeld",
+        "en": "service-employee-50-100-wokin-gmbh-frauenfeld",
+        "fr": "collaborateur-trice-de-service-50-100-wokin-gmbh-frauenfeld"
       },
       "company": "WOKIN GmbH",
       "companyKey": "wokin",
@@ -69,7 +69,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:30:25.183Z"
+      "firstSeenAt": "2026-10-15T21:30:25.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicemitarbeiter-in-50-100-wokin-frauenfeld"
+        ],
+        "en": [
+          "servicemitarbeiter-in-50-100-wokin-frauenfeld"
+        ],
+        "fr": [
+          "servicemitarbeiter-in-50-100-wokin-frauenfeld"
+        ]
+      },
+      "previousSlugs": [
+        "servicemitarbeiter-in-50-100-wokin-frauenfeld"
+      ]
     }
   ]
 }

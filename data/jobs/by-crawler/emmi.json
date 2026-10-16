@@ -96,7 +96,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -157,7 +157,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -165,7 +165,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -7864,7 +7864,7 @@
         "it": "risorse-umane-business-partner-emmi-bischofszell",
         "en": "hr-business-partner-emmi-ch",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-bischofszell"
+        "fr": "partenaire-rh-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7921,14 +7921,14 @@
       },
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
-        "partenaire-rh-emmi-bischofszell-thurgau"
+        "hr-business-partner-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-emmi-ch"
         ],
         "fr": [
-          "partenaire-rh-emmi-bischofszell-thurgau"
+          "hr-business-partner-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -7953,7 +7953,7 @@
         "it": "hr-business-partner-emmi-ch-2",
         "en": "hr-business-partner-emmi-ch-2",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-suhr"
+        "fr": "partenaire-rh-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8011,11 +8011,11 @@
         ]
       },
       "previousSlugs": [
-        "partenaire-rh-emmi-suhr-aargau"
+        "hr-business-partner-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-rh-emmi-suhr-aargau"
+          "hr-business-partner-emmi-suhr"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8499,12 +8499,12 @@
     },
     {
       "id": "emmi-2c911f7030c9",
-      "slug": "collaborateur-affinage-de-fromage-emmi-ch",
+      "slug": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
       "slugByLocale": {
         "fr": "collaborateur-affinage-de-fromage-emmi-ch",
-        "it": "collaborateur-affinage-de-fromage-emmi-ch",
-        "en": "collaborateur-affinage-de-fromage-emmi-ch",
-        "de": "collaborateur-affinage-de-fromage-emmi-ch"
+        "it": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
+        "en": "collaborative-cheese-refining-emmi-saignelegier-jura",
+        "de": "verbundkaseraffination-emmi-saignelegier-jura"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8576,13 +8576,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:20:06.797Z"
+      "firstSeenAt": "2026-10-15T21:20:06.797Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-affinage-de-fromage-emmi-ch"
+        ],
+        "en": [
+          "collaborateur-affinage-de-fromage-emmi-ch"
+        ],
+        "de": [
+          "collaborateur-affinage-de-fromage-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-affinage-de-fromage-emmi-ch"
+      ]
     },
     {
       "id": "emmi-cfb6415b85ed-r5fbd0b15",
       "slug": "responsabile-di-progetto-engineering-emmi-dagmersellen-a86ea507c8",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-engineering-emmi-dagmersellen-a86ea507c8",
+        "it": "responsabile-di-progetto-engineering-emmi-dagmersellen",
         "en": "project-manager-engineering-emmi-dagmersellen-luzern",
         "de": "projektleiter-in-engineering-emmi-ch",
         "fr": "chef-de-projet-engineering-emmi-dagmersellen-luzern"

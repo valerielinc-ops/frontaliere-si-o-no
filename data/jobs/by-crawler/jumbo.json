@@ -18281,12 +18281,12 @@
     },
     {
       "id": "jumbo-9a9e16fb-f77",
-      "slug": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
+      "slug": "consulente-di-vendita-garden-e-piante-jumbo-arbon",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-        "it": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
-        "en": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-        "fr": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        "it": "consulente-di-vendita-garden-e-piante-jumbo-arbon",
+        "en": "sales-consultant-garden-and-plants-jumbo-arbon",
+        "fr": "conseiller-ere-de-vente-garden-et-plantes-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18348,11 +18348,19 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+          "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        ],
+        "fr": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+        "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,

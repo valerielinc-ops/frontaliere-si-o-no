@@ -4787,7 +4787,7 @@
         "it": "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-svizzera-st-gallen",
         "en": "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-svizzera-st-gallen",
         "de": "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-st-gallen-3yyy7f",
-        "fr": "expert-en-vehicules-region-du-grand-wil-sg-tous-sexes-axa-svizzera-st-gallen"
+        "fr": "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-svizzera-st-gallen"
       },
       "id": "axa-svizzera-cd21417a85c8",
       "salaryMin": 60000,
@@ -4810,12 +4810,12 @@
           "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-st-gallen-3yyy7f"
         ],
         "fr": [
-          "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-svizzera-st-gallen"
+          "expert-en-vehicules-region-du-grand-wil-sg-tous-sexes-axa-svizzera-st-gallen"
         ]
       },
       "previousSlugs": [
         "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-st-gallen-3yyy7f",
-        "fahrzeugexperte-gebiet-grossraum-wil-sg-all-genders-axa-svizzera-st-gallen"
+        "expert-en-vehicules-region-du-grand-wil-sg-tous-sexes-axa-svizzera-st-gallen"
       ]
     },
     {
@@ -8391,7 +8391,7 @@
       },
       "slugByLocale": {
         "it": "vorsorgeberater-in-per-la-agenzia-generale-previdenza-patrimonio-rapperswil-axa-svizzera-rapperswil",
-        "en": "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-rapperswil-axa-svizzera-rapperswil",
+        "en": "pension-advisor-for-the-general-agency-for-pensions-assets-rapperswil-axa-svizzera-rapperswil",
         "de": "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-rapperswil-axa-svizzera-rapperswil",
         "fr": "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-rapperswil-axa-svizzera-rapperswil"
       },
@@ -8399,7 +8399,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "pension-advisor-for-the-general-agency-for-pensions-assets-rapperswil-axa-svizzera-rapperswil"
+          "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-rapperswil-axa-svizzera-rapperswil"
         ],
         "it": [
           "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-rapperswil-axa-3ywafm"
@@ -8410,7 +8410,7 @@
       },
       "previousSlugs": [
         "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-rapperswil-axa-3ywafm",
-        "pension-advisor-for-the-general-agency-for-pensions-assets-rapperswil-axa-svizzera-rapperswil"
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-rapperswil-axa-svizzera-rapperswil"
       ],
       "salaryMin": 58500,
       "salaryMax": 103500,
@@ -10876,8 +10876,8 @@
       "slugByLocale": {
         "de": "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-svizzera-sursee",
         "it": "versicherungsberater-in-per-la-hauptagentur-sursee-axa-svizzera-sursee",
-        "en": "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-svizzera-sursee",
-        "fr": "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-svizzera-sursee"
+        "en": "insurance-advisor-for-the-sursee-main-agency-axa-svizzera-sursee",
+        "fr": "conseiller-ere-en-assurances-pour-l-agence-principale-de-sursee-axa-svizzera-sursee"
       },
       "id": "axa-svizzera-1783bf5979bb",
       "previousSlugsByLocale": {
@@ -10886,10 +10886,17 @@
         ],
         "de": [
           "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-sursee-3ywac5"
+        ],
+        "en": [
+          "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-svizzera-sursee"
+        ],
+        "fr": [
+          "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-svizzera-sursee"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-sursee-3ywac5"
+        "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-sursee-3ywac5",
+        "versicherungsberater-in-fur-die-hauptagentur-sursee-axa-svizzera-sursee"
       ],
       "salaryMin": 72500,
       "salaryMax": 128500,

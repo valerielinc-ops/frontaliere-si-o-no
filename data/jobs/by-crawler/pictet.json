@@ -565,11 +565,11 @@
     },
     {
       "id": "pictet-00abbc675c37",
-      "slug": "it-security-engineer-pictet-geneva",
+      "slug": "it-security-ingegnere-pictet-group-geneva",
       "slugByLocale": {
         "en": "it-security-engineer-pictet-geneva",
-        "it": "it-security-engineer-pictet-geneva",
-        "de": "it-security-engineer-pictet-geneva",
+        "it": "it-security-ingegnere-pictet-group-geneva",
+        "de": "it-security-ingenieur-pictet-group-geneva",
         "fr": "it-security-engineer-pictet-geneva"
       },
       "company": "Pictet Group",
@@ -629,7 +629,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-15T21:26:00.423Z"
+      "firstSeenAt": "2026-10-15T21:26:00.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-security-engineer-pictet-geneva"
+        ],
+        "de": [
+          "it-security-engineer-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "it-security-engineer-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-d474bc69f76d",

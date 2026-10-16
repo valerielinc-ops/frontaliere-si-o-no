@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medics-labor-6e57b9537272",
-      "slug": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
+      "slug": "analista-biomedico-a-hf-patologia-medics-labor-ag-bern",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
-        "it": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
-        "en": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
-        "fr": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        "it": "analista-biomedico-a-hf-patologia-medics-labor-ag-bern",
+        "en": "biomedical-analyst-hf-pathology-medics-labor-ag-bern",
+        "fr": "analyste-biomedical-e-es-en-pathologie-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
@@ -67,7 +67,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        ],
+        "en": [
+          "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        ],
+        "fr": [
+          "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        ]
+      },
+      "previousSlugs": [
+        "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+      ]
     }
   ]
 }

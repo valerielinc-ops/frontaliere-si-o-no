@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rohrer-gartenbau-und-hauswartungen-120bf78775de",
-      "slug": "collaboratore-trice-treppenhausreinigung-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden",
+      "slug": "addetto-a-alla-pulizia-delle-scale-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden",
       "slugByLocale": {
         "de": "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch",
-        "it": "collaboratore-trice-treppenhausreinigung-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden",
-        "en": "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch",
-        "fr": "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch"
+        "it": "addetto-a-alla-pulizia-delle-scale-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden",
+        "en": "stairwell-cleaning-employee-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden",
+        "fr": "employe-e-au-nettoyage-des-cages-d-escalier-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden"
       },
       "company": "Rohrer Gartenbau und Hauswartungen GmbH",
       "companyKey": "rohrer-gartenbau-und-hauswartungen",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch",
+          "collaboratore-trice-treppenhausreinigung-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden"
+        ],
+        "en": [
+          "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch"
+        "mitarbeiter-in-treppenhausreinigung-40-obwalden-rohrer-gartenbau-und-hauswartungen-ch",
+        "collaboratore-trice-treppenhausreinigung-40-rohrer-gartenbau-und-hauswartungen-gmbh-obwalden"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400,

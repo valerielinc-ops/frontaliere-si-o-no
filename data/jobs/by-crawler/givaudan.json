@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "givaudan-079c0cb7e714",
-      "slug": "operator-sampling-m-w-d-givaudan-ch",
+      "slug": "operatore-sampling-m-w-d-givaudan-dubendorf-switzerland",
       "slugByLocale": {
         "de": "operator-sampling-m-w-d-givaudan-ch",
-        "it": "operator-sampling-m-w-d-givaudan-ch",
+        "it": "operatore-sampling-m-w-d-givaudan-dubendorf-switzerland",
         "en": "operator-sampling-m-w-d-givaudan-ch",
-        "fr": "operator-sampling-m-w-d-givaudan-ch"
+        "fr": "operateur-sampling-m-w-d-givaudan-dubendorf-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -68,7 +68,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:46:19.154Z"
+      "firstSeenAt": "2026-10-15T21:46:19.154Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operator-sampling-m-w-d-givaudan-ch"
+        ],
+        "fr": [
+          "operator-sampling-m-w-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operator-sampling-m-w-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-6da9daa72174",

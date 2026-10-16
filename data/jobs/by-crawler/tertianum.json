@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "tertianum-d5812f04a6a6",
-      "slug": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur",
+      "slug": "dipl-specialista-di-attivazione-specialista-di-attivazione-hf-40-tertianum-winterthur",
       "slugByLocale": {
         "de": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur",
-        "it": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur",
-        "en": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur",
-        "fr": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur"
+        "it": "dipl-specialista-di-attivazione-specialista-di-attivazione-hf-40-tertianum-winterthur",
+        "en": "dipl-activation-specialist-activation-specialist-hf-40-tertianum-winterthur",
+        "fr": "dipl-specialiste-de-l-activation-specialiste-de-l-activation-hf-40-tertianum-winterthur"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -67,7 +67,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:29:17.620Z"
+      "firstSeenAt": "2026-10-15T21:29:17.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur"
+        ],
+        "en": [
+          "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur"
+        ],
+        "fr": [
+          "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-40-tertianum-winterthur"
+      ]
     },
     {
       "id": "tertianum-cff41b94fcc7",
@@ -76,7 +90,7 @@
         "de": "senior-hr-controller-in-80-100-tertianum-dubendorf",
         "it": "senior-hr-controller-in-80-100-tertianum-dubendorf",
         "en": "senior-hr-controller-in-80-100-tertianum-dubendorf",
-        "fr": "senior-hr-controller-in-80-100-tertianum-dubendorf"
+        "fr": "controleur-euse-de-gestion-rh-senior-80-100-tertianum-dubendorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -557,7 +571,7 @@
       "slug": "ristorazione-professionale-tertianum-meilen",
       "slugByLocale": {
         "it": "ristorazione-professionale-tertianum-meilen",
-        "en": "restaurant-specialist-tertianum-meilen",
+        "en": "restoration-professional-tertianum-meilen",
         "de": "restaurationsfachfrau-mann-tertianum-meilen",
         "fr": "professionnel-de-restauration-tertianum-meilen"
       },
@@ -633,14 +647,15 @@
       },
       "previousSlugs": [
         "restaurationsfachfrau-mann-tertianum-meilen",
-        "restoration-professional-tertianum-meilen"
+        "restoration-professional-tertianum-meilen",
+        "restaurant-specialist-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "restaurationsfachfrau-mann-tertianum-meilen"
         ],
         "en": [
-          "restoration-professional-tertianum-meilen"
+          "restaurant-specialist-tertianum-meilen"
         ],
         "fr": [
           "restaurationsfachfrau-mann-tertianum-meilen"
@@ -3278,9 +3293,9 @@
       "slug": "apprendista-di-hoteleria-e-servizi-alberghieri-tertianum-zurich",
       "slugByLocale": {
         "it": "apprendista-di-hoteleria-e-servizi-alberghieri-tertianum-zurich",
-        "en": "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich",
+        "en": "apprentice-hotelfachfrau-mann-tertianum-zurich",
         "de": "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-zurich",
-        "fr": "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
+        "fr": "apprenti-en-service-hotelier-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -3358,8 +3373,8 @@
         "lernende-r-hotelfachfrau-mann-tertianum-zurich",
         "hotel-services-apprentice-tertianum-zurich",
         "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-zurich",
-        "apprentice-hotelfachfrau-mann-tertianum-zurich",
-        "apprenti-en-service-hotelier-tertianum-zurich"
+        "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich",
+        "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3368,13 +3383,13 @@
         ],
         "en": [
           "hotel-services-apprentice-tertianum-zurich",
-          "apprentice-hotelfachfrau-mann-tertianum-zurich"
+          "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich"
         ],
         "de": [
           "lernende-r-hotelfachfrau-mann-tertianum-zurich"
         ],
         "fr": [
-          "apprenti-en-service-hotelier-tertianum-zurich"
+          "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:54.881Z",
@@ -3889,7 +3904,7 @@
         "it": "cucina-tertianum-thun",
         "en": "cook-chef-apprenticeship-certificate-100-tertianum-thun",
         "de": "kochin-koch-tertianum-thun",
-        "fr": "cuisinier-cuisiniere-cfc-100-tertianum-thun"
+        "fr": "cuire-tertianum-thun"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -3968,7 +3983,7 @@
         "kochin-koch-tertianum-thun",
         "cook-tertianum-thun",
         "kochin-koch-efz-100-tertianum-thun",
-        "cuire-tertianum-thun"
+        "cuisinier-cuisiniere-cfc-100-tertianum-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3981,7 +3996,7 @@
         ],
         "fr": [
           "kochin-koch-tertianum-thun",
-          "cuire-tertianum-thun"
+          "cuisinier-cuisiniere-cfc-100-tertianum-thun"
         ]
       },
       "firstSeenAt": "2026-07-31T22:25:29.876Z",
@@ -4205,7 +4220,7 @@
         "it": "specialista-ristorante-20-60-tertianum-solothurn",
         "en": "restaurant-specialist-20-60-tertianum-solothurn",
         "de": "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "fr": "restaurantfachmann-frau-20-60-tertianum-solothurn"
+        "fr": "specialiste-en-restauration-20-60-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4250,8 +4265,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-des-restaurants-20-60-tertianum-solothurn",
-        "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "specialiste-en-restauration-20-60-tertianum-solothurn"
+        "restaurantfachmann-frau-20-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4259,7 +4273,7 @@
         ],
         "fr": [
           "specialiste-des-restaurants-20-60-tertianum-solothurn",
-          "specialiste-en-restauration-20-60-tertianum-solothurn"
+          "restaurantfachmann-frau-20-60-tertianum-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:38.859Z",
@@ -4393,9 +4407,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-80-100-tertianum-rheinfelden",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-80-100-tertianum-rheinfelden",
-        "en": "registered-nurse-hf-fh-80-100-tertianum-rheinfelden",
+        "en": "nursing-professional-tertianum-rheinfelden",
         "de": "pflegefachfrau-mann-tertianum-rheinfelden",
-        "fr": "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-rheinfelden"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4475,17 +4489,17 @@
           "infermieristica-professionale-tertianum-rheinfelden"
         ],
         "en": [
-          "nursing-professional-tertianum-rheinfelden"
+          "registered-nurse-hf-fh-80-100-tertianum-rheinfelden"
         ],
         "fr": [
-          "professionnels-des-soins-infirmiers-tertianum-rheinfelden"
+          "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-mann-tertianum-rheinfelden",
         "infermieristica-professionale-tertianum-rheinfelden",
-        "nursing-professional-tertianum-rheinfelden",
-        "professionnels-des-soins-infirmiers-tertianum-rheinfelden"
+        "registered-nurse-hf-fh-80-100-tertianum-rheinfelden",
+        "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
       ],
       "firstSeenAt": "2026-07-29T22:58:06.026Z",
       "salaryMin": 88000,
@@ -4507,7 +4521,7 @@
       "slug": "specialista-della-salute-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "specialista-della-salute-tertianum-zollikerberg",
-        "en": "professional-health-efz-80-100-tertianum-zollikerberg",
+        "en": "healthcare-specialist-tertianum-zollikerberg",
         "de": "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg",
         "fr": "specialiste-en-sante-tertianum-zollikerberg"
       },
@@ -4554,14 +4568,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg",
-        "healthcare-specialist-tertianum-zollikerberg"
+        "professional-health-efz-80-100-tertianum-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg"
         ],
         "en": [
-          "healthcare-specialist-tertianum-zollikerberg"
+          "professional-health-efz-80-100-tertianum-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-09-26T14:11:58.181Z",
@@ -4693,7 +4707,7 @@
       "slug": "cuoco-cuoca-tertianum-horgen",
       "slugByLocale": {
         "it": "cuoco-cuoca-tertianum-horgen",
-        "en": "cook-efz-80-100-tertianum-horgen",
+        "en": "chef-co-chef-tertianum-horgen",
         "de": "kochin-koch-tertianum-horgen",
         "fr": "cuisinier-chef-cuisinier-tertianum-horgen"
       },
@@ -4773,7 +4787,7 @@
         "kochin-koch-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-bern",
         "kochin-koch-efz-80-100-tertianum-horgen",
-        "chef-co-chef-tertianum-horgen"
+        "cook-efz-80-100-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4782,7 +4796,7 @@
           "kochin-koch-efz-80-100-tertianum-horgen"
         ],
         "en": [
-          "chef-co-chef-tertianum-horgen"
+          "cook-efz-80-100-tertianum-horgen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:06.890Z",
@@ -5441,7 +5455,7 @@
       "id": "tertianum-57f61878cf77",
       "slug": "pflegefachfrau-mann-tertianum-uster",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-uster",
+        "it": "infermiera-tertianum-uster",
         "en": "nursing-professional-tertianum-uster",
         "de": "pflegefachfrau-mann-tertianum-uster",
         "fr": "professionnels-des-soins-infirmiers-tertianum-uster"
@@ -5488,13 +5502,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermieristica-professionale-tertianum-uster",
-        "infermiera-tertianum-uster"
+        "infermieristica-professionale-tertianum-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermieristica-professionale-tertianum-uster",
-          "infermiera-tertianum-uster"
+          "infermieristica-professionale-tertianum-uster"
         ]
       },
       "firstSeenAt": "2026-09-04T13:49:28.804Z",
@@ -11505,7 +11517,7 @@
       "slug": "apprendista-cuoco-cuoca-tertianum-luzern",
       "slugByLocale": {
         "it": "apprendista-cuoco-cuoca-tertianum-luzern",
-        "en": "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern",
+        "en": "apprentice-koch-kochin-tertianum-luzern",
         "de": "lernende-r-koch-kochin-tertianum-luzern",
         "fr": "apprenti-e-cuisinier-cuisiniere-tertianum-luzern"
       },
@@ -11592,14 +11604,14 @@
         ],
         "en": [
           "apprentice-cook-tertianum-luzern",
-          "apprentice-koch-kochin-tertianum-luzern"
+          "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern"
         ]
       },
       "previousSlugs": [
         "lernende-r-koch-kochin-tertianum-luzern",
         "apprentice-cook-tertianum-luzern",
         "lehrstelle-als-kochin-koch-efz-oder-als-kuchenangestellte-kuchenangestellter-eba-tertianum",
-        "apprentice-koch-kochin-tertianum-luzern"
+        "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern"
       ],
       "firstSeenAt": "2026-05-19T12:22:02.750Z",
       "salaryMin": 58500,
@@ -12502,9 +12514,9 @@
       "slug": "infermieristica-professionale-tertianum-stadel",
       "slugByLocale": {
         "it": "infermieristica-professionale-tertianum-stadel",
-        "en": "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel",
+        "en": "nurse-tertianum-stadel",
         "de": "pflegefachfrau-mann-tertianum-stadel",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
+        "fr": "infirmier-infirmiere-tertianum-stadel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -12558,18 +12570,18 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel"
         ],
         "en": [
-          "nurse-tertianum-stadel"
+          "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel"
         ],
         "fr": [
-          "infirmier-infirmiere-tertianum-stadel"
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
         ]
       },
       "previousSlugs": [
         "dipl-infermiere-i-hf-fh-dnii-in-servizio-notturno-60-100-tertianum-stadel",
         "pflegefachfrau-mann-tertianum-stadel-mqcj0r",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel",
-        "nurse-tertianum-stadel",
-        "infirmier-infirmiere-tertianum-stadel"
+        "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
       ],
       "firstSeenAt": "2026-09-01T14:28:03.699Z",
       "salaryMin": 91500,
@@ -12593,7 +12605,7 @@
         "it": "sous-chef-cuoco-100-tertianum-horgen",
         "en": "second-sous-chef-tertianum-horgen",
         "de": "sous-chefin-sous-chef-tertianum-horgen",
-        "fr": "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
+        "fr": "second-de-cuisine-tertianum-horgen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -12671,7 +12683,7 @@
       "previousSlugs": [
         "sous-chefin-sous-chef-tertianum-horgen",
         "sous-chefin-sous-chef-oder-kochin-koch-100-tertianum-horgen",
-        "second-de-cuisine-tertianum-horgen"
+        "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12679,7 +12691,7 @@
           "sous-chefin-sous-chef-oder-kochin-koch-100-tertianum-horgen"
         ],
         "fr": [
-          "second-de-cuisine-tertianum-horgen"
+          "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:05.773Z",
@@ -13580,7 +13592,7 @@
       "id": "tertianum-32ca17a198df",
       "slug": "infermiere-a-diplomato-a-all-80-tertianum-delemont",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-all-80-tertianum-delemont",
+        "it": "80-laurea-in-infermiera-tertianum-delemont",
         "en": "80-graduate-nurse-tertianum-delemont",
         "de": "80-diplom-krankenschwester-tertianum-delemont",
         "fr": "infirmier-ere-diplome-e-a-80-tertianum-delemont"
@@ -13658,8 +13670,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-          "80-laurea-in-infermiera-tertianum-delemont"
+          "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ],
         "de": [
           "infirmier-ere-diplome-e-a-80-tertianum-delemont"
@@ -15836,7 +15847,7 @@
         "it": "dipl-infermieristica-professionale-infermieristica-tertianum-lenzburg",
         "en": "diploma-in-nursing-nurse-tertianum-lenzburg",
         "de": "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
-        "fr": "inf-dipl-tertianum-lenzburg"
+        "fr": "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -15918,7 +15929,7 @@
         "dipl-pflegefachfrau-pflegefachmann-im-spatdienst-60-100-tertianum-winterthur",
         "dipl-specialiste-des-soins-infirmiers-60-100-tertianum-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
-        "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
+        "inf-dipl-tertianum-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15926,7 +15937,7 @@
           "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
+          "inf-dipl-tertianum-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:44.364Z",
@@ -15949,9 +15960,9 @@
       "slug": "dipl-infermieristica-professionale-hf-60-100-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-hf-60-100-tertianum-zollikerberg",
-        "en": "registered-nurse-hf-60-100-tertianum-zollikerberg",
+        "en": "nursing-professional-tertianum-zollikerberg",
         "de": "pflegefachfrau-mann-tertianum-zollikerberg",
-        "fr": "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-zollikerberg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -16029,11 +16040,11 @@
         ],
         "en": [
           "pflegefachfrau-mann-tertianum-zollikerberg",
-          "nursing-professional-tertianum-zollikerberg"
+          "registered-nurse-hf-60-100-tertianum-zollikerberg"
         ],
         "fr": [
           "pflegefachfrau-mann-tertianum-zollikerberg",
-          "professionnels-des-soins-infirmiers-tertianum-zollikerberg"
+          "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
         ]
       },
       "previousSlugs": [
@@ -16041,8 +16052,8 @@
         "pflegefachfrau-mann-tertianum-zollikerberg",
         "dipl-pflegefachfrau-pflegefachmann-hf-60-100-tertianum-zollikerberg",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-zollikerberg",
-        "nursing-professional-tertianum-zollikerberg",
-        "professionnels-des-soins-infirmiers-tertianum-zollikerberg"
+        "registered-nurse-hf-60-100-tertianum-zollikerberg",
+        "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
       ],
       "firstSeenAt": "2026-08-04T11:53:59.236Z",
       "salaryMin": 91500,
@@ -17169,7 +17180,7 @@
       "slug": "gruppenleiter-in-pflege-e-betreuung-tertianum-wattwil",
       "slugByLocale": {
         "it": "gruppenleiter-in-pflege-e-betreuung-tertianum-wattwil",
-        "en": "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil",
+        "en": "group-leader-care-and-care-tertianum-wattwil",
         "de": "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
         "fr": "chef-de-groupe-soins-et-soins-tertianum-wattwil"
       },
@@ -17225,7 +17236,7 @@
         ],
         "en": [
           "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
-          "group-leader-care-and-care-tertianum-wattwil"
+          "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil"
         ],
         "fr": [
           "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil"
@@ -17234,7 +17245,7 @@
       "previousSlugs": [
         "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
         "teamleitung-dipl-pflegefachfrau-pflegefachmann-hf-dnii-80-100-tertianum-wattwil",
-        "group-leader-care-and-care-tertianum-wattwil"
+        "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil"
       ],
       "firstSeenAt": "2026-08-20T22:13:18.526Z",
       "salaryMin": 81500,
@@ -17934,7 +17945,7 @@
       "slug": "cuoco-cuoca-tertianum-bern",
       "slugByLocale": {
         "it": "cuoco-cuoca-tertianum-bern",
-        "en": "kochin-koch-tertianum-bern",
+        "en": "chef-tertianum-bern",
         "de": "kochin-koch-tertianum-bern",
         "fr": "cuisinier-cuisiniere-tertianum-bern"
       },
@@ -18020,8 +18031,7 @@
         "cook-cook-50-70-tertianum-bern",
         "cuisson-cuisson-50-70-tertianum-bern",
         "cook-tertianum-bern",
-        "kochin-koch-tertianum-bern",
-        "chef-tertianum-bern"
+        "kochin-koch-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18036,7 +18046,7 @@
         ],
         "en": [
           "cook-tertianum-bern",
-          "chef-tertianum-bern"
+          "kochin-koch-tertianum-bern"
         ],
         "de": [
           "kochin-koch-50-70-tertianum-bern"
@@ -19932,9 +19942,9 @@
       "slug": "dipl-infermieristica-professionale-hf-80-100-tertianum-unterterzen",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-hf-80-100-tertianum-unterterzen",
-        "en": "dipl-nurse-hf-80-100-tertianum-unterterzen",
+        "en": "nursing-professional-tertianum-unterterzen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-80-100-tertianum-unterterzen",
-        "fr": "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-unterterzen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -20020,8 +20030,8 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildungsverantwortliche-r-80-100-tertianum",
         "dipl-pflegefachfrau-pflegefachmann-hf-mit-berufsbildungsverantwortung-80-100-tertianum",
         "dipl-pflegefachfrau-pflegefachmann-hf-80-100-tertianum-unterterzen",
-        "nursing-professional-tertianum-unterterzen",
-        "professionnels-des-soins-infirmiers-tertianum-unterterzen"
+        "dipl-nurse-hf-80-100-tertianum-unterterzen",
+        "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20042,7 +20052,7 @@
         "en": [
           "pflegefachfrau-mann-tertianum-unterterzen",
           "dipl-care-professional-hf-as-vocational-training-responsible-80-100-tertianum-bern",
-          "nursing-professional-tertianum-unterterzen"
+          "dipl-nurse-hf-80-100-tertianum-unterterzen"
         ],
         "de": [
           "pflegefachfrau-mann-tertianum-unterterzen",
@@ -20051,7 +20061,7 @@
         "fr": [
           "pflegefachfrau-mann-tertianum-unterterzen",
           "diplome-e-en-soins-infirmiers-hf-en-tant-que-responsable-de-la-formation-professionnelle-80-100-tertianum-bern",
-          "professionnels-des-soins-infirmiers-tertianum-unterterzen"
+          "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
         ]
       },
       "firstSeenAt": "2026-05-19T23:48:30.250Z",
@@ -22234,10 +22244,10 @@
       "id": "tertianum-6e0952954c0e",
       "slug": "dettagli-del-lavoro-tertianum-thun",
       "slugByLocale": {
-        "it": "dettagli-del-lavoro-tertianum-thun",
-        "en": "job-details-tertianum-thun",
+        "it": "salute-professionale-50-sul-servizio-notturno-tertianum-thun",
+        "en": "professional-health-50-on-night-duty-tertianum-thun",
         "de": "fachfrau-mann-gesundheit-50-im-nachtdienst-tertianum-thun",
-        "fr": "details-du-travail-tertianum-thun"
+        "fr": "sante-professionnelle-50-en-service-de-nuit-tertianum-thun"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -22289,16 +22299,15 @@
           "fachfrau-mann-gesundheit-50-im-nachtdienst-tertianum-thun",
           "fachfrau-fachmann-gesundheit-50-im-nachtdienst-tertianum-thun",
           "fachfrau-fachmann-gesundheit-50-100-im-nachtdienst-tertianum-thun",
-          "stellendetails-tertianum-thun",
-          "salute-professionale-50-sul-servizio-notturno-tertianum-thun"
+          "stellendetails-tertianum-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-50-im-nachtdienst-tertianum-thun",
-          "professional-health-50-on-night-duty-tertianum-thun"
+          "job-details-tertianum-thun"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-50-im-nachtdienst-tertianum-thun",
-          "sante-professionnelle-50-en-service-de-nuit-tertianum-thun"
+          "details-du-travail-tertianum-thun"
         ]
       },
       "previousSlugs": [
@@ -22306,9 +22315,8 @@
         "fachfrau-fachmann-gesundheit-50-im-nachtdienst-tertianum-thun",
         "fachfrau-fachmann-gesundheit-50-100-im-nachtdienst-tertianum-thun",
         "stellendetails-tertianum-thun",
-        "salute-professionale-50-sul-servizio-notturno-tertianum-thun",
-        "professional-health-50-on-night-duty-tertianum-thun",
-        "sante-professionnelle-50-en-service-de-nuit-tertianum-thun"
+        "job-details-tertianum-thun",
+        "details-du-travail-tertianum-thun"
       ],
       "firstSeenAt": "2026-05-19T12:23:21.438Z",
       "salaryMin": 85000,
@@ -22331,9 +22339,9 @@
       "slug": "collaboratore-trice-hauswirtschaft-40-tertianum-heimenschwand",
       "slugByLocale": {
         "it": "collaboratore-trice-hauswirtschaft-40-tertianum-heimenschwand",
-        "en": "job-details-tertianum-heimenschwand",
+        "en": "employee-housekeeping-40-tertianum-heimenschwand",
         "de": "mitarbeiter-in-hauswirtschaft-40-tertianum-heimenschwand",
-        "fr": "details-du-travail-tertianum-heimenschwand"
+        "fr": "employe-menage-40-tertianum-heimenschwand"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -22387,18 +22395,18 @@
         ],
         "en": [
           "stellendetails-tertianum-heimenschwand",
-          "employee-housekeeping-40-tertianum-heimenschwand"
+          "job-details-tertianum-heimenschwand"
         ],
         "fr": [
           "stellendetails-tertianum-heimenschwand",
-          "employe-menage-40-tertianum-heimenschwand"
+          "details-du-travail-tertianum-heimenschwand"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-hauswirtschaft-40-tertianum-heimenschwand",
         "stellendetails-tertianum-heimenschwand",
-        "employee-housekeeping-40-tertianum-heimenschwand",
-        "employe-menage-40-tertianum-heimenschwand"
+        "job-details-tertianum-heimenschwand",
+        "details-du-travail-tertianum-heimenschwand"
       ],
       "firstSeenAt": "2026-10-03T09:28:26.141Z",
       "salaryMin": 85000,
@@ -22595,7 +22603,7 @@
       "slug": "pflegefachfrau-mann-come-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
       "slugByLocale": {
         "it": "pflegefachfrau-mann-come-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
-        "en": "registered-nurse-diploma-hf-as-training-instructor-80-100-tertianum-rheinfelden",
+        "en": "nursing-professional-as-vocational-trainer-tertianum-rheinfelden",
         "de": "pflegefachfrau-mann-als-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
         "fr": "professionnel-des-soins-infirmiers-en-tant-que-formateur-professionnel-tertianum-rheinfelden"
       },
@@ -22681,7 +22689,7 @@
         "en": [
           "pflegefachfrau-mann-als-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
           "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildnerin-berufsbildner-80-100-tertianum-rheinfelden",
-          "nursing-professional-as-vocational-trainer-tertianum-rheinfelden"
+          "registered-nurse-diploma-hf-as-training-instructor-80-100-tertianum-rheinfelden"
         ],
         "fr": [
           "pflegefachfrau-mann-als-berufsbildnerin-berufsbildner-tertianum-rheinfelden"
@@ -22691,7 +22699,7 @@
         "pflegefachfrau-mann-als-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
         "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildnerin-berufsbildner-80-100-tertianum-rheinfelden",
         "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildnerin-berufsbildner-80-100-tertianum",
-        "nursing-professional-as-vocational-trainer-tertianum-rheinfelden"
+        "registered-nurse-diploma-hf-as-training-instructor-80-100-tertianum-rheinfelden"
       ],
       "firstSeenAt": "2026-07-30T22:18:32.424Z",
       "salaryMin": 88000,
@@ -22832,7 +22840,7 @@
         "it": "collaboratore-trice-hauswirtschaft-tertianum-horgen",
         "en": "staff-home-management-tertianum-horgen",
         "de": "mitarbeiter-in-hauswirtschaft-tertianum-horgen",
-        "fr": "agent-e-d-entretien-80-tertianum-horgen"
+        "fr": "personnel-gestion-du-domicile-tertianum-horgen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -22909,14 +22917,14 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-hauswirtschaft-80-tertianum-horgen",
-        "personnel-gestion-du-domicile-tertianum-horgen"
+        "agent-e-d-entretien-80-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-80-tertianum-horgen"
         ],
         "fr": [
-          "personnel-gestion-du-domicile-tertianum-horgen"
+          "agent-e-d-entretien-80-tertianum-horgen"
         ]
       },
       "firstSeenAt": "2026-08-27T00:55:22.270Z",

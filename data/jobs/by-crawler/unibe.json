@@ -727,7 +727,7 @@
         "it": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
         "en": "managing-director-administrative-director-administrative-director-universitat-bern-bern",
         "de": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "fr": "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
+        "fr": "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -774,14 +774,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+        "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
         ],
         "fr": [
-          "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+          "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.257Z",
@@ -962,7 +962,7 @@
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
         "it": "artigiano-specializzato-ii-universitat-bern-bern",
-        "en": "spezialhandwerker-in-ii-universitat-bern",
+        "en": "specialist-skilled-worker-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
         "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
       },
@@ -1014,7 +1014,7 @@
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
         "spezialhandwerker-in-ii-universitat-bern-bern",
-        "specialist-skilled-worker-ii-universitat-bern-bern"
+        "spezialhandwerker-in-ii-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1024,7 +1024,7 @@
         ],
         "en": [
           "spezialhandwerker-in-ii-universitat-bern-bern",
-          "specialist-skilled-worker-ii-universitat-bern-bern"
+          "spezialhandwerker-in-ii-universitat-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
@@ -1300,7 +1300,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1348,7 +1348,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1359,7 +1359,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+          "data-science-officer-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -1947,9 +1947,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -1999,13 +1999,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern"
         ],
         "en": [
           "it-systemadministrator-in-universitat-bern-bern"
@@ -4059,12 +4059,12 @@
     },
     {
       "id": "unibe-807489da0b9c",
-      "slug": "wissenschaftliche-r-collaboratore-trice-in-beratung-business-development-controlling-e-analyse-universitat-bern",
+      "slug": "collaboratore-trice-scientifico-a-consulenza-business-development-controllo-di-gestione-e-analisi-universitat-bern-bern",
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse",
-        "it": "wissenschaftliche-r-collaboratore-trice-in-beratung-business-development-controlling-e-analyse-universitat-bern",
-        "en": "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse"
+        "it": "collaboratore-trice-scientifico-a-consulenza-business-development-controllo-di-gestione-e-analisi-universitat-bern-bern",
+        "en": "research-associate-consulting-business-development-controlling-and-analysis-universitat-bern-bern",
+        "fr": "collaborateur-rice-scientifique-conseil-en-developpement-commercial-controle-de-gestion-et-analyse-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4112,11 +4112,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse",
+          "wissenschaftliche-r-collaboratore-trice-in-beratung-business-development-controlling-e-analyse-universitat-bern"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse"
+        ],
+        "fr": [
           "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse"
+        "wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse",
+        "wissenschaftliche-r-collaboratore-trice-in-beratung-business-development-controlling-e-analyse-universitat-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

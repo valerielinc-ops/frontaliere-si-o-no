@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "visionapartments-a6f2cb44f0b0",
-      "slug": "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich",
+      "slug": "hr-business-partner-specialista-paghe-100-vision-management-services-gmbh-zurich",
       "slugByLocale": {
         "de": "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich",
-        "it": "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich",
+        "it": "hr-business-partner-specialista-paghe-100-vision-management-services-gmbh-zurich",
         "en": "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich",
-        "fr": "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich"
+        "fr": "partenaire-rh-et-specialiste-de-la-paie-100-vision-management-services-gmbh-zurich"
       },
       "company": "Vision Management Services GmbH",
       "companyKey": "visionapartments",
@@ -57,11 +57,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich"
+          "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich",
+          "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich"
+        ],
+        "fr": [
+          "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich"
         ]
       },
       "previousSlugs": [
-        "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich"
+        "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich",
+        "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

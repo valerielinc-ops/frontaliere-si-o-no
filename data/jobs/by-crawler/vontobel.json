@@ -431,7 +431,7 @@
         "it": "legal-entity-contabile-vontobel-zurich-gotthardstrasse-35",
         "en": "legal-entity-accountant-vontobel-ch",
         "de": "legal-entity-buchhalter-vontobel-zurich-gotthardstrasse-35",
-        "fr": "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
+        "fr": "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -483,7 +483,7 @@
         "comptable-des-entites-juridiques-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-en-personne-morale-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-        "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+        "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -505,7 +505,7 @@
         "fr": [
           "legal-entity-accountant-us-vontobel-zurich-gotthardstrasse-35",
           "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-          "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+          "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
         ]
       },
       "firstSeenAt": "2026-08-10T22:04:14.969Z",
@@ -1866,12 +1866,12 @@
     },
     {
       "id": "vontobel-5fe064ff7861",
-      "slug": "executive-assistant-with-paralegal-background-100-vontobel-ch",
+      "slug": "assistente-esecutivo-con-sfondo-paralegale-100-vontobel-zurich-gotthardstrasse-43",
       "slugByLocale": {
         "en": "executive-assistant-with-paralegal-background-100-vontobel-ch",
-        "it": "executive-assistant-with-paralegal-background-100-vontobel-ch",
+        "it": "assistente-esecutivo-con-sfondo-paralegale-100-vontobel-zurich-gotthardstrasse-43",
         "de": "executive-assistant-with-paralegal-background-100-vontobel-ch",
-        "fr": "executive-assistant-with-paralegal-background-100-vontobel-ch"
+        "fr": "assistant-executif-avec-formation-parajuridique-100-vontobel-zurich-gotthardstrasse-43"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -1930,7 +1930,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-15T21:46:40.940Z"
+      "firstSeenAt": "2026-10-15T21:46:40.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-with-paralegal-background-100-vontobel-ch"
+        ],
+        "fr": [
+          "executive-assistant-with-paralegal-background-100-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-with-paralegal-background-100-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-9bc51815bd0d",

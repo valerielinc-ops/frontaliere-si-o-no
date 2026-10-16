@@ -2237,12 +2237,12 @@
     },
     {
       "id": "bls-dde46699c2a1",
-      "slug": "vorarbeiter-in-bls-ch",
+      "slug": "caposquadra-bls-ag-hasle-bei-burgdorf",
       "slugByLocale": {
         "de": "vorarbeiter-in-bls-ch",
-        "it": "vorarbeiter-in-bls-ch",
-        "en": "vorarbeiter-in-bls-ch",
-        "fr": "vorarbeiter-in-bls-ch"
+        "it": "caposquadra-bls-ag-hasle-bei-burgdorf",
+        "en": "foreperson-bls-ag-hasle-bei-burgdorf",
+        "fr": "contremaitre-sse-bls-ag-hasle-bei-burgdorf"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2321,7 +2321,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-15T21:24:17.014Z"
+      "firstSeenAt": "2026-10-15T21:24:17.014Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-bls-ch"
+        ],
+        "en": [
+          "vorarbeiter-in-bls-ch"
+        ],
+        "fr": [
+          "vorarbeiter-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-bls-ch"
+      ]
     },
     {
       "id": "bls-7e801d82f3f9",

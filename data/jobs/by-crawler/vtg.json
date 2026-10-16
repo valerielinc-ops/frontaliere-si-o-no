@@ -100,7 +100,7 @@
     },
     {
       "id": "company-czd57g",
-      "slug": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g",
+      "slug": "polizia-penale-capo-swiss-armed-forces-vtg-sion",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Stv Chef Kriminalpolizei",
       "location": "Sion",
@@ -140,10 +140,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g",
-        "en": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g",
+        "it": "polizia-penale-capo-swiss-armed-forces-vtg-sion",
+        "en": "deputy-chief-of-criminal-police-swiss-armed-forces-vtg-sion",
         "de": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g",
-        "fr": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g"
+        "fr": "adjoint-e-au-chef-de-la-police-criminelle-swiss-armed-forces-vtg-sion"
       },
       "sourceLang": "de",
       "postalCode": "1950",
@@ -153,21 +153,25 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion",
-          "stv-chef-kriminalpolizei-confederazione-sion"
+          "stv-chef-kriminalpolizei-confederazione-sion",
+          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g"
         ],
         "en": [
-          "stv-chef-kriminalpolizei-confederazione-sion"
+          "stv-chef-kriminalpolizei-confederazione-sion",
+          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g"
         ],
         "de": [
           "stv-chef-kriminalpolizei-confederazione-sion"
         ],
         "fr": [
-          "stv-chef-kriminalpolizei-confederazione-sion"
+          "stv-chef-kriminalpolizei-confederazione-sion",
+          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g"
         ]
       },
       "previousSlugs": [
         "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion",
-        "stv-chef-kriminalpolizei-confederazione-sion"
+        "stv-chef-kriminalpolizei-confederazione-sion",
+        "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-czd57g"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -11539,7 +11543,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -11547,8 +11551,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -11558,8 +11561,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
       ],
       "salarySource": "estimated",
       "baseSalary": {

@@ -2250,8 +2250,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
         "it": "apprendistato-come-polymechaniker-in-cfc-brack-alltron-ag-willisau",
-        "en": "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
-        "fr": "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
+        "en": "apprenticeship-as-a-polymechanic-efz-brack-alltron-ag-willisau",
+        "fr": "place-d-apprentissage-de-polymecanicien-ne-cfc-brack-alltron-ag-willisau"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2300,6 +2300,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
+        ],
+        "en": [
+          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
+        ],
+        "fr": [
+          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
         ]
       },
       "previousSlugs": [
@@ -2322,12 +2328,12 @@
     },
     {
       "id": "brack-alltron-79cfa79bd8ea",
-      "slug": "product-manager-in-physical-security-brack-alltron-magenwil",
+      "slug": "responsabile-di-prodotto-per-la-sicurezza-fisica-brack-alltron-ag-magenwil",
       "slugByLocale": {
         "de": "product-manager-in-physical-security-brack-alltron-magenwil",
-        "it": "product-manager-in-physical-security-brack-alltron-magenwil",
+        "it": "responsabile-di-prodotto-per-la-sicurezza-fisica-brack-alltron-ag-magenwil",
         "en": "product-manager-in-physical-security-brack-alltron-magenwil",
-        "fr": "product-manager-in-physical-security-brack-alltron-magenwil"
+        "fr": "responsable-produit-en-securite-physique-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2387,7 +2393,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:21:18.573Z"
+      "firstSeenAt": "2026-10-15T21:21:18.573Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-in-physical-security-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "product-manager-in-physical-security-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-in-physical-security-brack-alltron-magenwil"
+      ]
     }
   ]
 }

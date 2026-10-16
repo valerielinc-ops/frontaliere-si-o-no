@@ -2513,12 +2513,12 @@
     },
     {
       "id": "hornbach-155678",
-      "slug": "verkaufer-in-fliesen-hornbach-biel-bienne",
+      "slug": "addetto-a-alla-vendita-di-piastrelle-hornbach-biel-bienne",
       "slugByLocale": {
         "de": "verkaufer-in-fliesen-hornbach-biel-bienne",
-        "it": "verkaufer-in-fliesen-hornbach-biel-bienne",
-        "en": "verkaufer-in-fliesen-hornbach-biel-bienne",
-        "fr": "verkaufer-in-fliesen-hornbach-biel-bienne"
+        "it": "addetto-a-alla-vendita-di-piastrelle-hornbach-biel-bienne",
+        "en": "tile-salesperson-hornbach-biel-bienne",
+        "fr": "vendeur-euse-de-carrelage-hornbach-biel-bienne"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2577,7 +2577,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:23:43.033Z"
+      "firstSeenAt": "2026-10-15T21:23:43.033Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-fliesen-hornbach-biel-bienne"
+        ],
+        "en": [
+          "verkaufer-in-fliesen-hornbach-biel-bienne"
+        ],
+        "fr": [
+          "verkaufer-in-fliesen-hornbach-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-fliesen-hornbach-biel-bienne"
+      ]
     },
     {
       "id": "hornbach-155518",

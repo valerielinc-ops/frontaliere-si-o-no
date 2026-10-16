@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gipo-d61ceb9f0a2f",
-      "slug": "projektleiter-elektro-gipo-gisler-power-ag-seedorf",
+      "slug": "project-manager-electric-gipo-gisler-power-ag-seedorf-d61ceb9f",
       "slugByLocale": {
         "de": "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f",
-        "it": "projektleiter-elektro-gipo-gisler-power-ag-seedorf",
+        "it": "project-manager-electric-gipo-gisler-power-ag-seedorf-d61ceb9f",
         "en": "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f",
-        "fr": "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f"
+        "fr": "gestionnaire-de-projet-electric-gipo-gisler-power-ag-seedorf-d61ceb9f"
       },
       "slugDisambiguator": "d61ceb9f",
       "company": "GIPO GISLER POWER AG",
@@ -69,11 +69,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f",
+          "projektleiter-elektro-gipo-gisler-power-ag-seedorf"
+        ],
+        "fr": [
           "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f"
         ]
       },
       "previousSlugs": [
-        "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f"
+        "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f",
+        "projektleiter-elektro-gipo-gisler-power-ag-seedorf"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,

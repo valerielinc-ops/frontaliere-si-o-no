@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "constellium-59289459d2d6",
-      "slug": "automatiker-in-elektriker-in-100-1-constellium-ch",
+      "slug": "tecnico-a-di-automazione-elettricista-100-1-constellium-valais-steg",
       "slugByLocale": {
         "de": "automatiker-in-elektriker-in-100-1-constellium-ch",
-        "it": "automatiker-in-elektriker-in-100-1-constellium-ch",
-        "en": "automatiker-in-elektriker-in-100-1-constellium-ch",
-        "fr": "automatiker-in-elektriker-in-100-1-constellium-ch"
+        "it": "tecnico-a-di-automazione-elettricista-100-1-constellium-valais-steg",
+        "en": "automation-technician-electrician-100-1-constellium-valais-steg",
+        "fr": "automaticien-ne-electricien-ne-100-1-constellium-valais-steg"
       },
       "company": "Constellium Valais",
       "companyKey": "constellium",
@@ -67,7 +67,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-15T21:29:08.357Z"
+      "firstSeenAt": "2026-10-15T21:29:08.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-elektriker-in-100-1-constellium-ch"
+        ],
+        "en": [
+          "automatiker-in-elektriker-in-100-1-constellium-ch"
+        ],
+        "fr": [
+          "automatiker-in-elektriker-in-100-1-constellium-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-elektriker-in-100-1-constellium-ch"
+      ]
     }
   ]
 }

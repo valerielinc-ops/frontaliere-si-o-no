@@ -1114,7 +1114,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1160,15 +1160,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve"
+          "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-50-hug-geneve"
@@ -3943,7 +3942,7 @@
       "slug": "psicologo-psicoterapeuta-40-hug-geneve",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-40-hug-geneve",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve",
         "de": "psychologe-psychotherapeut-40-hug-geneve",
         "fr": "psychologue-psychotherapeute-40-hug-geneve"
       },
@@ -3989,15 +3988,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-40-hug-geneve",
-        "psychologist-psychotherapist-40-hug-geneve"
+        "psychologue-psychotherapeute-40-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-40-hug-geneve"
         ],
         "en": [
-          "psychologist-psychotherapist-40-hug-geneve"
+          "psychologue-psychotherapeute-40-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-40-hug-geneve"
@@ -4106,7 +4104,7 @@
       "slugByLocale": {
         "it": "infermiera-crans-montana-80-hug-crans-montana",
         "en": "nurse-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana",
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
@@ -4151,8 +4149,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "krankenschwester-crans-montana-80-hug-crans-montana"
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4162,7 +4159,7 @@
           "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ],
         "de": [
-          "krankenschwester-crans-montana-80-hug-crans-montana"
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ]
       },
       "needsRetranslation": true,
@@ -4263,12 +4260,12 @@
     },
     {
       "id": "hug-20b638d2c0a6",
-      "slug": "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug",
+      "slug": "ingegnere-testa-o-testa-di-risoluzione-dei-problemi-it-100-hug-geneve",
       "slugByLocale": {
         "fr": "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug",
-        "it": "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug",
-        "en": "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug",
-        "de": "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug"
+        "it": "ingegnere-testa-o-testa-di-risoluzione-dei-problemi-it-100-hug-geneve",
+        "en": "systems-engineer-head-or-head-of-it-troubleshooting-100-hug-geneve",
+        "de": "systemtechniker-leiter-oder-leiter-der-it-fehlersuche-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4327,7 +4324,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-09-21T16:02:35.393Z"
+      "firstSeenAt": "2026-09-21T16:02:35.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug"
+        ],
+        "en": [
+          "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug"
+        ],
+        "de": [
+          "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieure-ou-ingenieur-systemes-cheffe-ou-chef-du-secteur-depannage-informatique-100-hug"
+      ]
     },
     {
       "id": "hug-6e993aa9d1d1",
@@ -4490,12 +4501,12 @@
     },
     {
       "id": "hug-96de843ff976",
-      "slug": "acheteur-ou-acheteuse-en-informatique-100-hug-geneve",
+      "slug": "acquirente-in-informatica-100-hug-geneve",
       "slugByLocale": {
         "fr": "acheteur-ou-acheteuse-en-informatique-100-hug-geneve",
-        "it": "acheteur-ou-acheteuse-en-informatique-100-hug-geneve",
-        "en": "acheteur-ou-acheteuse-en-informatique-100-hug-geneve",
-        "de": "acheteur-ou-acheteuse-en-informatique-100-hug-geneve"
+        "it": "acquirente-in-informatica-100-hug-geneve",
+        "en": "purchaser-in-computer-science-100-hug-geneve",
+        "de": "einkaufer-in-informatik-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4554,7 +4565,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-15T21:19:27.005Z"
+      "firstSeenAt": "2026-10-15T21:19:27.005Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "acheteur-ou-acheteuse-en-informatique-100-hug-geneve"
+        ],
+        "en": [
+          "acheteur-ou-acheteuse-en-informatique-100-hug-geneve"
+        ],
+        "de": [
+          "acheteur-ou-acheteuse-en-informatique-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "acheteur-ou-acheteuse-en-informatique-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-a07ad46f53c8",

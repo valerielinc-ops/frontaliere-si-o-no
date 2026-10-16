@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "engadin-tourismus-78fa7a41626e",
-      "slug": "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus",
+      "slug": "tirocinante-nel-settore-del-turismo-100-m-f-d-engadin-tourismus-ag-st-moritz",
       "slugByLocale": {
         "de": "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus",
-        "it": "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus",
-        "en": "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus",
-        "fr": "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus"
+        "it": "tirocinante-nel-settore-del-turismo-100-m-f-d-engadin-tourismus-ag-st-moritz",
+        "en": "tourism-intern-100-m-f-d-engadin-tourismus-ag-st-moritz",
+        "fr": "stagiaire-en-tourisme-100-h-f-d-engadin-tourismus-ag-st-moritz"
       },
       "company": "Engadin Tourismus AG",
       "companyKey": "engadin-tourismus",
@@ -63,7 +63,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:23:05.663Z"
+      "firstSeenAt": "2026-10-15T21:23:05.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus"
+        ],
+        "en": [
+          "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus"
+        ],
+        "fr": [
+          "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus"
+      ]
     }
   ]
 }
