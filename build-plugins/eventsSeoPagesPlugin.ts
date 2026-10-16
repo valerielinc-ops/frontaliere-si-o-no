@@ -2797,6 +2797,15 @@ export function renderHistoricalEventsArchivePage(params: {
       () => historicalEntryHref(entry),
     )),
   });
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: COPY[locale].hubLabel, item: `${BASE_URL}${pathFor(locale, 'TI')}` },
+      { '@type': 'ListItem', position: 3, name: copy.title, item: canonicalUrl },
+    ],
+  });
   const html = buildSeoPageHtml({
     locale,
     title: pageTitle,
@@ -2806,7 +2815,7 @@ export function renderHistoricalEventsArchivePage(params: {
     robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
-    jsonLdScripts: [itemListLd],
+    jsonLdScripts: [itemListLd, breadcrumbLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
