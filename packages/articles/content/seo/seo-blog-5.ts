@@ -109320,10 +109320,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-olgiate-presidio-vivo-mercato.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Volontari della Sentinelle del Mercato e agenti di Polizia Locale in piazza a Olgiate Olona."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T02:57:07+00:00",
       "dateModified": "2026-10-16T02:57:07+00:00",
@@ -109427,10 +109427,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Dieci generici: 241,56 franchi in Svizzera. Un mese costa 2,9 volte la media dei tre Paesi vicini. Metformina: 10,85 franchi in Ticino contro 1,39 in Austria",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carne-prezzi-svizzera.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-farmaci-generici-prezzi-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Scaffata di farmaci generici con prezzi in franchi svizzero in una farmacia ticinese"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T04:55:50+00:00",
       "dateModified": "2026-10-16T04:55:50+00:00",
