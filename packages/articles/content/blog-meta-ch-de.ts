@@ -8007,7 +8007,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mastercard-pagamenti-rete-assente.excerpt': 'Mastercard führt die Funktion in der Schweiz ab 2027 ein Neue Karten werden sie ab Februar 2027 unterstützen Neue oder ausgetauschte Terminals: Technologie bis Mai',
     'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.title': 'Mehrwertsteuer-Referendum 2026: Erhöhung für die 13. Rente',
-    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.excerpt': 'Das Referendum über den Vorschlag findet am 29.',
+    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.excerpt': 'Das Referendum über den Vorschlag findet am 29. November statt.',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.imageAlt': 'Redaktionelles Bild zu: Referendum IVA 2026: aumento per la tredicesima pensione',
     'blog.article.referendum-nucleare-svizzera-2027.title': 'Referendum gegen neue Kernkraftwerke in der Schweiz',
     'blog.article.referendum-nucleare-svizzera-2027.excerpt': 'Mehr als 131.800 Unterschriften von SP, Grünen, GLP und einem Teil der Mitte in Bern eingereicht, um das Verbot der Kernenergie aufrechtzuerhalten; Abstimmung möglicherweise am 28.',
