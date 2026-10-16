@@ -1,14 +1,14 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-10-15T21:19:16.511Z",
+  "assembledAt": "2026-10-16T09:22:06.458Z",
   "jobs": [
     {
       "id": "fondation-domus-925dd7117fc4",
       "slug": "assistente-socio-educativo-75-fondation-domus-ardon",
       "slugByLocale": {
         "it": "assistente-socio-educativo-75-fondation-domus-ardon",
-        "en": "assistant-socio-educatif-75-fondation-domus-ch",
-        "de": "assistant-socio-educatif-75-fondation-domus-ch",
+        "en": "socio-educational-assistant-75-fondation-domus-ardon",
+        "de": "assistent-socio-educatif-75-fondation-domus-ardon",
         "fr": "assistant-socio-educatif-75-fondation-domus-ch"
       },
       "company": "Fondation Domus",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/en/jobs/detail/0fcd991d-f109-4497-bd68-80b990ea4367/?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:19:10.649Z",
+      "crawledAt": "2026-10-16T09:22:00.364Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -56,6 +56,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistant-socio-educatif-75-fondation-domus-ch"
+        ],
+        "en": [
+          "assistant-socio-educatif-75-fondation-domus-ch"
+        ],
+        "de": [
           "assistant-socio-educatif-75-fondation-domus-ch"
         ]
       },
