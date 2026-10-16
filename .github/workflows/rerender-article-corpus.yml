@@ -302,9 +302,10 @@ jobs:
       - name: Rerender and push ${{ matrix.section }} corpus
         id: render
         env:
-          # A complete frontaliere rerender previously took about 11 minutes;
-          # keep the shared npm bootstrap short and give this entrypoint 30m.
-          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: ${{ matrix.section == 'frontaliere' && '1800' || '120' }}
+          # A complete corpus rerender previously took 7–11 minutes depending
+          # on the section; keep the shared npm bootstrap short and give this
+          # entrypoint the same bounded 30m budget for both sections.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '1800'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
