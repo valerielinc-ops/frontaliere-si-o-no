@@ -6,6 +6,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import {
+  fetchNationalListings,
   filterConfederazioneApiRecords,
   confederazionePublishableBody,
   isRetiredFederalFiller,
@@ -41,6 +42,28 @@ describe('Confederazione publish floor', () => {
 });
 
 describe('Confederazione shared federal-feed ownership', () => {
+  it('continues pagination when a source page contains only VTG-owned records', async () => {
+    const offsets: number[] = [];
+    const result = await fetchNationalListings({
+      fetchJsonImpl: async (url: string) => {
+        const offset = Number(new URL(url).searchParams.get('offset'));
+        offsets.push(offset);
+        return {
+          total: 0,
+          jobs: offset === 0
+            ? [{
+                viewkey: 'd2492cff-4df3-416d-8f31-a948ed1dfd83',
+                attributes: { verwaltungseinheit_1132414: ['Gruppe Verteidigung'] },
+              }]
+            : [],
+        };
+      },
+    });
+
+    expect(offsets).toEqual([0, 100]);
+    expect(result).toEqual([]);
+  });
+
   it('excludes the reported VTG posting by its source facet without reading a published VTG slice', () => {
     const vtgPosting = {
       viewkey: 'd2492cff-4df3-416d-8f31-a948ed1dfd83',

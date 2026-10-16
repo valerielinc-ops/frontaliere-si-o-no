@@ -346,7 +346,7 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
  * Fetch the unfiltered national federal listing (all 26 cantons).
  * No `f=region:` facet → the API returns every Swiss federal job.
  */
-async function fetchNationalListings() {
+export async function fetchNationalListings({ fetchJsonImpl = fetchJson } = {}) {
   console.log('\nFetching CH-wide federal jobs (national, unfiltered)...');
 
   const allItems = [];
@@ -365,7 +365,7 @@ async function fetchNationalListings() {
     const url = `${API_BASE}?lang=it&offset=${pageOffset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
-    const data = await fetchJson(url, {
+    const data = await fetchJsonImpl(url, {
       timeoutMs: TIMEOUT_MS,
       headers: {
         Origin: 'https://jobs.admin.ch',
@@ -428,7 +428,7 @@ async function fetchNationalListings() {
       }
       break;
     }
-    if (items.length === 0) {
+    if (recorded.items.length === 0) {
       if (declaredTotal !== null && progress.scannedRows < declaredTotal) {
         throw new Error(
           `Confederazione API pagination incomplete: received ${progress.scannedRows} of ${declaredTotal} declared rows (${progress.uniqueCount} unique).`,
