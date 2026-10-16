@@ -76,6 +76,37 @@ jobs:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
+      # A refresh PR is a moving branch: updating it restarts its required test
+      # and review run. When one is already open, hold this dispatch briefly so
+      # the stable concurrency group can coalesce newer events into its single
+      # pending run, which will pull the newest published snapshot.
+      - name: Coalesce refreshes while the stable PR is open
+        if: github.event_name != 'push' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          should_wait=false
+          if ! pr_number="$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --head chore/sync-articles-sitemaps \
+            --state open \
+            --limit 1 \
+            --json number \
+            --jq '.[0].number // empty')"; then
+            echo '::warning::Could not check for the stable article refresh PR; delaying conservatively.'
+            should_wait=true
+          elif [ -n "$pr_number" ]; then
+            echo "Article refresh PR #$pr_number is open; coalescing dispatches for 12 minutes."
+            should_wait=true
+          else
+            echo 'No stable article refresh PR is open; syncing immediately.'
+          fi
+
+          if [ "$should_wait" = true ]; then
+            sleep 720
+          fi
+
       - uses: actions/checkout@v7
         with:
           # The refresh is published through an authenticated stable PR branch;
