@@ -109223,6 +109223,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-piazzale-anastasi-intitolazione': {
+    title: 'Varese: il piazzale dello stadio è intitolato a Anastasi',
+    description: 'Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L\'intitolazione è stata votata all\'unanimità A Masnago',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, piazzale, dello, stadio',
+    ogTitle: 'Varese: piazzale stadio intitolato a Pietro Anastasi',
+    ogDescription: 'Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L\'intitolazione è stata votata all\'unanimità A Masnago',
+    canonicalPath: '/articoli-frontaliere/varese-piazzale-anastasi-intitolazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: il piazzale dello stadio è intitolato a Anastasi",
+      "description": "Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L'intitolazione è stata votata all'unanimità A Masnago",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-manutenzione-prato-franco-ossola-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il piazzale dello stadio Franco Ossola a Varese intitolato a Pietro Anastasi"
+      },
+      "datePublished": "2026-10-16T01:20:06+00:00",
+      "dateModified": "2026-10-16T01:20:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-piazzale-anastasi-intitolazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

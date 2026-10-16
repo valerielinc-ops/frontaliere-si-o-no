@@ -44808,6 +44808,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-piazzale-anastasi-intitolazione',
+ category: 'novita',
+ date: '2026-10-16T01:20:06.109Z',
+ image: '/images/blog/article-manutenzione-prato-franco-ossola-2026.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

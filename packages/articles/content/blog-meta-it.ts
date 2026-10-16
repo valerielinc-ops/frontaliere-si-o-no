@@ -13277,6 +13277,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kick-cocaine-gazzada-evento.title': 'Gazzada Schianno: evento sport e solidarietà il 25 ottobre',
     'blog.article.kick-cocaine-gazzada-evento.excerpt': 'Domenica 25 ottobre 2026 sport e solidarietà a Gazzada Schianno L\'incontro è in programma dalle 14:30 alle 19:30 AGIFAR Varese organizza con la dottoressa',
     'blog.article.kick-cocaine-gazzada-evento.imageAlt': 'Evento sportivo \'A Kick to Cocaine\' a Gazzada Schianno con attività di football fitness e yoga',
+    'blog.article.varese-piazzale-anastasi-intitolazione.title': 'Varese: il piazzale dello stadio è intitolato a Anastasi',
+    'blog.article.varese-piazzale-anastasi-intitolazione.excerpt': 'Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L\'intitolazione è stata votata all\'unanimità A Masnago',
+    'blog.article.varese-piazzale-anastasi-intitolazione.imageAlt': 'Il piazzale dello stadio Franco Ossola a Varese intitolato a Pietro Anastasi',
 };
 
 export default blogMetaIt;

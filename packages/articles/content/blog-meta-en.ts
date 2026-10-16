@@ -13276,6 +13276,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kick-cocaine-gazzada-evento.title': 'Gazzada Schianno: sport and solidarity event on October 25',
     'blog.article.kick-cocaine-gazzada-evento.excerpt': 'Sunday, October 25, 2026 sports and solidarity at Gazzada Schianno The event is scheduled from 14:30 to 19:30 AGIFAR Varese organizes with the doctor',
     'blog.article.kick-cocaine-gazzada-evento.imageAlt': 'Sports event \'A Kick to Cocaine\' in Gazzada Schianno featuring football fitness and yoga activities',
+    'blog.article.varese-piazzale-anastasi-intitolazione.title': 'Varese: the stadium forecourt is named after Anastasi',
+    'blog.article.varese-piazzale-anastasi-intitolazione.excerpt': 'The Franco Ossola forecourt bears the name of Pietro Anastasi The plaque was installed by the Municipality The naming was approved unanimously In Masnago',
+    'blog.article.varese-piazzale-anastasi-intitolazione.imageAlt': 'The square in front of Franco Ossola stadium in Varese dedicated to Pietro Anastasi',
 };
 
 export default blogMetaEn;
