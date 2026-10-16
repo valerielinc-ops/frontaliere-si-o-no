@@ -74,6 +74,8 @@ export interface CantonTopicHubData {
   keyFacts: CantonHubKeyFact[];
   dataBlocks: CantonHubDataBlock[];
   curatedArticles: CantonHubArticle[];
+  /** Neutral canton news rail; absent only in pre-fallback payloads. */
+  latestCantonArticles: CantonHubArticle[];
   links: CantonHubLink[];
   updatedAt: string;
 }
@@ -176,13 +178,15 @@ function readLocale(value: unknown, section: CantonArticleSection, topic: string
     || !Array.isArray(value.keyFacts)
     || !Array.isArray(value.dataBlocks)
     || !Array.isArray(value.curatedArticles)
+    || (value.latestCantonArticles !== undefined && !Array.isArray(value.latestCantonArticles))
     || !Array.isArray(value.links)) return null;
 
   const keyFacts = value.keyFacts.map(readKeyFact);
   const dataBlocks = value.dataBlocks.map(readDataBlock);
   const curatedArticles = value.curatedArticles.map(readCuratedArticle);
+  const latestCantonArticles = (Array.isArray(value.latestCantonArticles) ? value.latestCantonArticles : []).map(readCuratedArticle);
   const links = value.links.map(readHubLink);
-  if ([...keyFacts, ...dataBlocks, ...curatedArticles, ...links].some((item) => item === null)) return null;
+  if ([...keyFacts, ...dataBlocks, ...curatedArticles, ...latestCantonArticles, ...links].some((item) => item === null)) return null;
   return {
     canton: value.canton as string,
     topic,
@@ -191,6 +195,7 @@ function readLocale(value: unknown, section: CantonArticleSection, topic: string
     keyFacts: keyFacts as CantonHubKeyFact[],
     dataBlocks: dataBlocks as CantonHubDataBlock[],
     curatedArticles: curatedArticles as CantonHubArticle[],
+    latestCantonArticles: latestCantonArticles as CantonHubArticle[],
     links: links as CantonHubLink[],
     updatedAt: value.updatedAt,
   };

@@ -49,6 +49,7 @@ import {
   CANTON_SECTION_LOCALES,
   cantonArchiveCopy,
   cantonDisplayName,
+  cantonLatestNewsHeading,
   cantonSectionArchivePath,
   cantonSectionEntry,
   cantonSectionLabel,
@@ -619,6 +620,8 @@ export interface CantonTopicHubInput {
   readonly keyFacts: readonly CantonHubKeyFact[];
   readonly dataBlocks: readonly CantonHubDataBlock[];
   readonly curatedArticles: readonly CantonHubArticle[];
+  /** Neutral canton news shown only when the thematic list is empty. */
+  readonly latestCantonArticles?: readonly CantonHubArticle[];
   readonly links: readonly CantonHubLink[];
   /** ISO timestamp of the last content change of this hub. */
   readonly updatedAt: string;
@@ -678,6 +681,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
   const updatedAt = requireDate(input.updatedAt, 'updatedAt');
   const { baseUrl, organizationLd } = getSiteShell();
   const copy = HUB_COPY[locale];
+  const latestCantonArticles = input.latestCantonArticles ?? [];
   const sectionLabel = cantonSectionLabel(section, locale);
   const hubLabel = cantonTopicHubLabel(section, topic, locale);
   const landingPath = cantonSectionLandingPath(section, locale);
@@ -694,7 +698,8 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
     input.keyFacts.reduce((n, f) => n + countWords(`${f.label} ${f.value} ${f.note ?? ''}`), 0) +
     input.dataBlocks.reduce((n, b) => n + countWords(`${b.title} ${b.description ?? ''}`) +
       b.items.reduce((m, it) => m + countWords(`${it.label} ${it.value ?? ''} ${it.detail ?? ''}`), 0), 0) +
-    input.curatedArticles.reduce((n, a) => n + countWords(`${a.title} ${a.excerpt ?? ''}`), 0);
+    input.curatedArticles.reduce((n, a) => n + countWords(`${a.title} ${a.excerpt ?? ''}`), 0) +
+    latestCantonArticles.reduce((n, a) => n + countWords(`${a.title} ${a.excerpt ?? ''}`), 0);
   if (contentWords < CANTON_HUB_MIN_CONTENT_WORDS) {
     throw new Error(`hub ${section}/${topic}/${locale}: contenuto insufficiente (${contentWords} parole < ${CANTON_HUB_MIN_CONTENT_WORDS})`);
   }
@@ -737,6 +742,13 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
       }).join('')}</ul>`
     : `<p class="s-s6RP5r">${esc(copy.noCurated)}</p>`}</section>`;
 
+  const latestCantonNewsHtml = latestCantonArticles.length
+    ? `      <section class="cth-section cth-latest-news" aria-labelledby="hub-latest-news"><div class="cth-section-heading"><h2 id="hub-latest-news" class="s-sXAwQz cth-section-title">${esc(cantonLatestNewsHeading(section, locale))}</h2><span class="cth-section-marker" aria-hidden="true"></span></div><ul class="s-0c2lhY cth-article-list">${latestCantonArticles.map((a) => {
+        const date = a.date ? ` <time datetime="${esc(requireDate(a.date, 'latestCantonArticles.date'))}">${esc(formatDate(a.date, locale))}</time>` : '';
+        return `<li><a class="s-6gbS_B" href="${esc(safeHref(a.url, 'latestCantonArticles.url'))}"><span class="s-lkdl0F">${esc(a.title)}</span>${a.excerpt ? `<span class="s-hNvHD_">${esc(a.excerpt)}</span>` : ''}</a>${date}</li>`;
+      }).join('')}</ul></section>`
+    : '';
+
   const toolsHtml = input.links.length
     ? `      <section class="cth-section cth-tools" aria-labelledby="hub-tools"><div class="cth-section-heading"><h2 id="hub-tools" class="s-sXAwQz cth-section-title">${esc(copy.tools)}</h2><span class="cth-section-marker" aria-hidden="true"></span></div><ul class="s-N93mPe cth-data-list">${input.links.map((l) =>
         `<li><a class="s-7DS5hj" href="${esc(safeHref(l.url, 'links.url'))}">${esc(l.label)}</a>${l.description ? ` — ${esc(l.description)}` : ''}</li>`).join('')}</ul></section>`
@@ -754,6 +766,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
     blocksHtml,
     input.dataBlocks.length > 0 ? cantonAdHtml('canton-hub-inline-2', copy.advertisement, 'cth-ad-inline cth-ad-inline-two') : '',
     curatedHtml,
+    latestCantonNewsHtml,
     toolsHtml,
     navHtml,
     cantonAdHtml('canton-hub-end', copy.advertisement, 'cth-ad-bottom'),
@@ -761,6 +774,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
 
   const pageUrl = `${baseUrl}${canonicalPath}`;
   const description = paragraphs[0];
+  const itemListArticles = input.curatedArticles.length > 0 ? input.curatedArticles : latestCantonArticles;
   const jsonLd: unknown[] = [
     breadcrumbLd([
       { name: sectionLabel, url: `${baseUrl}${landingPath}` },
@@ -778,8 +792,8 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
       isPartOf: { '@type': 'CollectionPage', name: sectionLabel, url: `${baseUrl}${landingPath}` },
       mainEntity: {
         '@type': 'ItemList',
-        numberOfItems: input.curatedArticles.length,
-        itemListElement: input.curatedArticles.map((a, i) => ({
+        numberOfItems: itemListArticles.length,
+        itemListElement: itemListArticles.map((a, i) => ({
           '@type': 'ListItem',
           position: i + 1,
           name: a.title,

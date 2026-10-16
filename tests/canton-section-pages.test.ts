@@ -184,6 +184,7 @@ function hubInput(canton: string, topic: string, locale: Loc, over: Partial<Cant
       updatedAt: daysAgoIso(1),
     }],
     curatedArticles: [],
+    latestCantonArticles: [],
     links: [{ label: 'Calcolatore stipendio netto', url: '/calcola-stipendio/' }],
     updatedAt: daysAgoIso(1),
     ...over,
@@ -448,6 +449,19 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
       `${BASE}${landingPath(section, 'it')}orari-sportelli-cantonali/`,
       `${BASE}/articoli-svizzera/una-notizia/`,
     ]);
+  });
+
+  it('renders the neutral latest-canton-news block with localized article links', () => {
+    const page = renderCantonTopicHub(hubInput(canton, 'eventi', 'it', {
+      latestCantonArticles: [
+        { title: 'Ultima notizia cantonale', url: `${landingPath(section, 'it')}ultima-notizia/`, date: daysAgoIso(1) },
+      ],
+    }));
+    expect(page.html).toContain('id="hub-latest-news"');
+    expect(page.html).toContain(`Ultime notizie dal Canton ${CANTON_DISPLAY_NAMES[canton].it}`);
+    expect(page.html).toContain(`href="${landingPath(section, 'it')}ultima-notizia/"`);
+    expect(page.html).toContain('class="cth-section cth-latest-news"');
+    expect(jsonLd(page.html)[1].mainEntity.itemListElement[0].url).toBe(`${BASE}${landingPath(section, 'it')}ultima-notizia/`);
   });
 
   it('refuses unsafe links, unknown topics and content too thin to stand on its own', () => {

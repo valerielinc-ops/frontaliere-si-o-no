@@ -40,6 +40,7 @@ function documentPayload(commit = COMMIT) {
         keyFacts: [{ label: 'Prezzo medio', value: '1,80 CHF/l' }],
         dataBlocks: [{ id: 'prezzi', title: 'Prezzi correnti', items: [{ label: 'Zurigo', value: '1,80 CHF/l', url: '/carburanti/' }] }],
         curatedArticles: [],
+        latestCantonArticles: [],
         links: [{ label: 'Confronta i prezzi', url: '/confronti/prezzi-carburanti/' }],
         updatedAt: '2026-10-07T09:49:20.921Z',
       },

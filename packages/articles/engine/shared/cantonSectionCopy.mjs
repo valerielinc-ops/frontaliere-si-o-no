@@ -102,6 +102,24 @@ export function cantonDisplayName(section, locale) {
 }
 
 /**
+ * Heading of the neutral latest-news rail used when a topic has no matching
+ * article. It deliberately names the canton, not the topic: the rail is a
+ * section fallback and must never be mistaken for thematic relevance.
+ * @param {string} section
+ * @param {string} locale
+ */
+export function cantonLatestNewsHeading(section, locale) {
+  const name = cantonDisplayName(section, locale);
+  switch (checkLocale(locale)) {
+    case 'it': return `Ultime notizie dal Canton ${name}`;
+    case 'en': return `Latest news from the canton of ${name}`;
+    case 'de': return `Neueste Nachrichten aus dem Kanton ${name}`;
+    case 'fr': return `Dernières nouvelles du canton de ${name}`;
+    default: throw new Error(`locale non gestita: ${locale}`);
+  }
+}
+
+/**
  * The section's own name: landing H1, breadcrumb label, RSS channel suffix.
  * «Articoli Ticino» / «Ticino articles» / «Tessin-Artikel» / «Articles Tessin».
  * @param {string} section
