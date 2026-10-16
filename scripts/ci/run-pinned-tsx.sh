@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # Run an uninstalled, pinned tsx entrypoint on a fast-publish path.
 #
-# These workflows deliberately skip npm ci, so the first npx invocation has a
-# small external npm bootstrap in front of the real gate. A transient registry
-# or runner failure must not strand one matrix leg while its sibling proceeds.
-# The wrapped entrypoints are idempotent/fail-closed: retrying them cannot
-# publish HTML after a failed ensure, and the final exit code is preserved.
+# These workflows deliberately skip npm ci, so resolving the pinned tsx package
+# is a small external npm bootstrap in front of the real gate. Retry only that
+# harmless version probe: once the entrypoint starts, it is invoked exactly once
+# because it may already have performed a remote side effect before failing.
 set -euo pipefail
 
 if [ "$#" -eq 0 ]; then
@@ -20,27 +19,37 @@ readonly KILL_AFTER_SECONDS=15
 readonly RETRY_DELAYS_SECONDS=(5 15)
 
 entrypoint="$1"
+shift
 attempt=1
 while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-  echo "[tsx-bootstrap] running ${entrypoint} (attempt ${attempt}/${MAX_ATTEMPTS})"
+  echo "[tsx-bootstrap] resolving ${TSX_SPEC} (attempt ${attempt}/${MAX_ATTEMPTS})"
   exit_code=0
   if timeout --kill-after="${KILL_AFTER_SECONDS}s" "${ATTEMPT_TIMEOUT_SECONDS}s" \
-    npx --yes "$TSX_SPEC" "$@"; then
-    exit 0
+    npx --yes "$TSX_SPEC" --version; then
+    break
   else
     exit_code=$?
   fi
 
   if [ "$attempt" -eq "$MAX_ATTEMPTS" ]; then
-    echo "::error::[tsx-bootstrap] ${entrypoint} failed after ${MAX_ATTEMPTS} attempts (exit ${exit_code})" >&2
+    echo "::error::[tsx-bootstrap] resolving ${TSX_SPEC} failed after ${MAX_ATTEMPTS} attempts (exit ${exit_code})" >&2
     exit "$exit_code"
   fi
 
   retry_delay="${RETRY_DELAYS_SECONDS[$((attempt - 1))]}"
-  echo "::warning::[tsx-bootstrap] ${entrypoint} failed (exit ${exit_code}); retrying in ${retry_delay}s (attempt $((attempt + 1))/${MAX_ATTEMPTS})" >&2
+  echo "::warning::[tsx-bootstrap] resolving ${TSX_SPEC} failed (exit ${exit_code}); retrying in ${retry_delay}s (attempt $((attempt + 1))/${MAX_ATTEMPTS})" >&2
   sleep "$retry_delay"
   attempt=$((attempt + 1))
 done
 
-echo "::error::[tsx-bootstrap] retry loop ended without a verdict" >&2
-exit 1
+echo "[tsx-bootstrap] running ${entrypoint} once"
+exit_code=0
+if timeout --kill-after="${KILL_AFTER_SECONDS}s" "${ATTEMPT_TIMEOUT_SECONDS}s" \
+  npx --yes "$TSX_SPEC" "$entrypoint" "$@"; then
+  exit 0
+else
+  exit_code=$?
+fi
+
+echo "::error::[tsx-bootstrap] ${entrypoint} failed after its single invocation (exit ${exit_code}); entrypoints are not retried after start" >&2
+exit "$exit_code"
