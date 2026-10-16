@@ -604,7 +604,7 @@ describe('loop fleet workflow contract', () => {
     const successGitCalls = callsFor(overlay.gitCalls, 'success');
     expect(successGitCalls).toHaveLength(3);
     expect(successGitCalls[0]).toContain('ls-remote --exit-code --heads origin refs/heads/ledger/loop-fleet');
-    expect(successGitCalls[1]).toBe('fetch --depth 1 origin ledger/loop-fleet');
+    expect(successGitCalls[1]).toBe('fetch --depth 1 --filter=blob:limit=1g origin ledger/loop-fleet');
     expect(successGitCalls[2]).toContain('checkout FETCH_HEAD --');
     expect(successGitCalls[2]).toContain('loop-health-history*.jsonl');
     expect(callsFor(overlay.gitCalls, 'branch-absent')).toHaveLength(1);
@@ -614,7 +614,7 @@ describe('loop fleet workflow contract', () => {
 
     const successTimeouts = callsFor(overlay.timeoutCalls, 'success');
     expect(successTimeouts[0]).toContain('15s|git ls-remote');
-    expect(successTimeouts[1]).toContain('30s|git fetch');
+    expect(successTimeouts[1]).toContain('180s|git fetch');
     expect(successTimeouts[2]).toContain('120s|git checkout');
   });
 

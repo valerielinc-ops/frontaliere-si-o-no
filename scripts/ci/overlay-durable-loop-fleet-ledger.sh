@@ -11,7 +11,8 @@ write_overlay_status() {
 
 overlay_durable_loop_fleet_ledger() {
   local profile="${1:-}"
-  local checkout_timeout probe_status=0 fetch_status checkout_status
+  local checkout_timeout fetch_timeout=180 probe_status=0 fetch_status checkout_status
+  local ledger_blob_filter='blob:limit=1g'
   local -a ledger_paths
   case "$profile" in
     l10)
@@ -61,8 +62,12 @@ overlay_durable_loop_fleet_ledger() {
     return "$probe_status"
   fi
 
-  if timeout --signal=TERM --kill-after=5s 30s \
-    git fetch --depth 1 origin "$LEDGER_BRANCH"; then
+  # Actions uses a blobless partial clone. A normal fetch therefore leaves the
+  # ledger blobs remote and the checkout lazily downloads every shard one by
+  # one. The durable branch is JSONL-only, so request its blobs in one bounded
+  # filtered pack before materializing the selected profile.
+  if timeout --signal=TERM --kill-after=5s "${fetch_timeout}s" \
+    git fetch --depth 1 --filter="$ledger_blob_filter" origin "$LEDGER_BRANCH"; then
     :
   else
     fetch_status=$?
