@@ -2479,16 +2479,14 @@
           "Handwerkliches Geschick, Verantwortungsbewusstsein und eine exakte, sichere Arbeitsweise zeichnen dich aus"
         ]
       },
-      "previousSlugs": [
-        "mechaniker-in-schienenfahrzeuge-bls-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-in-schienenfahrzeuge-bls-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T23:39:55.517Z",
+      "previousSlugs": [
+        "mechaniker-in-schienenfahrzeuge-bls-ch"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2502,7 +2500,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-26T23:39:55.517Z"
     }
   ]
 }

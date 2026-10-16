@@ -8,8 +8,8 @@
       "slugByLocale": {
         "fr": "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
         "it": "cucina-aiuto-50-zfv-unternehmungen-epalinges",
-        "en": "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
-        "de": "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
+        "en": "kitchen-help-50-zfv-unternehmungen-epalinges",
+        "de": "kuchenhilfe-50-zfv-unternehmungen-epalinges"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -59,16 +59,14 @@
           "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ],
         "en": [
-          "kitchen-help-50-zfv-unternehmungen-epalinges"
+          "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ],
         "de": [
-          "kuchenhilfe-50-zfv-unternehmungen-epalinges"
+          "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ]
       },
       "previousSlugs": [
-        "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
-        "kitchen-help-50-zfv-unternehmungen-epalinges",
-        "kuchenhilfe-50-zfv-unternehmungen-epalinges"
+        "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
       ],
       "salaryMin": 32800,
       "salaryMax": 41300,
@@ -573,7 +571,7 @@
         "it": "addetto-a-polivalente-50-zfv-unternehmungen-zurich",
         "en": "operations-all-rounder-50-zfv-unternehmungen-zurich",
         "de": "betriebstournant-e-50-zfv-unternehmungen-zurich",
-        "fr": "betriebstournant-e-50-zfv-unternehmungen-zurich"
+        "fr": "tour-operateur-e-50-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -620,8 +618,7 @@
       "previousSlugs": [
         "betriebstournant-e-50-zfv-unternehmungen-zurich",
         "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
-        "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
-        "tour-operateur-e-50-zfv-unternehmungen-zurich"
+        "operating-tour-operator-e-50-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -633,7 +630,7 @@
           "operating-tour-operator-e-50-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "tour-operateur-e-50-zfv-unternehmungen-zurich"
+          "betriebstournant-e-50-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-10-08T09:19:40.110Z",
@@ -1302,7 +1299,7 @@
         "it": "f-b-direttore-zfv-unternehmungen-zurich",
         "en": "f-b-director-zfv-unternehmungen-zurich",
         "de": "f-b-director-zfv-unternehmungen-zurich",
-        "fr": "f-b-director-zfv-unternehmungen-zurich"
+        "fr": "directeur-f-b-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -1346,15 +1343,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "f-b-director-zfv-unternehmungen-zurich",
-        "directeur-f-b-zfv-unternehmungen-zurich"
+        "f-b-director-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "f-b-director-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "directeur-f-b-zfv-unternehmungen-zurich"
+          "f-b-director-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-08-05T11:37:46.415Z",
@@ -2017,7 +2013,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
-        "en": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
+        "en": "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich",
         "de": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-zurich"
       },
@@ -2064,15 +2060,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
-        "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
+        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
+          "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
@@ -2098,7 +2093,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
-        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
+        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-adliswil"
       },
@@ -2144,15 +2139,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
-        "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "en": [
-          "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "fr": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
@@ -2501,7 +2495,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-baden",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-baden",
-        "en": "kochin-koch-zfv-unternehmungen-baden",
+        "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
         "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
@@ -2548,15 +2542,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-zfv-unternehmungen-baden",
-        "cook-cook-zfv-unternehmungen-baden"
+        "kochin-koch-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
-          "cook-cook-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden"
@@ -2676,7 +2669,7 @@
       "slug": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
       "slugByLocale": {
         "it": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
-        "en": "kochin-koch-70-80-zfv-unternehmungen-basel",
+        "en": "cook-cook-70-80-zfv-unternehmungen-basel",
         "de": "kochin-koch-70-80-zfv-unternehmungen-basel",
         "fr": "cuisiniere-70-80-zfv-unternehmungen-basel"
       },
@@ -2735,8 +2728,7 @@
         "operating-tournament-e-40-zfv-unternehmungen-basel",
         "betriebstournant-e-40-zfv-unternehmungen-basel",
         "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
-        "tour-operateur-e-40-zfv-unternehmungen-basel",
-        "cook-cook-70-80-zfv-unternehmungen-basel"
+        "tour-operateur-e-40-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2758,7 +2750,7 @@
         "en": [
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "operational-assistant-in-zfv-unternehmungen-basel",
-          "cook-cook-70-80-zfv-unternehmungen-basel"
+          "kochin-koch-70-80-zfv-unternehmungen-basel"
         ],
         "de": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
@@ -2789,7 +2781,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
-        "en": "kochin-koch-80-zfv-unternehmungen-adliswil",
+        "en": "cook-cook-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
         "fr": "cuire-80-zfv-unternehmungen-adliswil"
       },
@@ -2841,8 +2833,7 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
-        "cook-cook-zfv-unternehmungen-adliswil"
+        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2854,7 +2845,7 @@
         ],
         "en": [
           "cook-cook-40-60-zfv-unternehmungen-adliswil",
-          "cook-cook-zfv-unternehmungen-adliswil"
+          "kochin-koch-80-zfv-unternehmungen-adliswil"
         ],
         "de": [
           "kochin-koch-80-zfv-unternehmungen-adliswil",
