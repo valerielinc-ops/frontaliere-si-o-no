@@ -11,6 +11,16 @@ function normalizeCrawler(value) {
   return String(value || '').trim();
 }
 
+function sourceOrigin(sourceUrl) {
+  try {
+    const parsed = new URL(sourceUrl);
+    if (!['http:', 'https:'].includes(parsed.protocol) || !parsed.hostname) return '';
+    return parsed.origin.toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
 function sourceJobId(job) {
   for (const field of ['externalId', 'sourceJobId', 'jobId', 'sourceId', 'identifier']) {
     const value = String(job?.[field] ?? '').trim();
@@ -28,6 +38,15 @@ function sourceIdentity(job) {
     sourceStableId: stableIdFromUrl || (explicitSourceJobId ? `id:${normalizeJobId(explicitSourceJobId)}` : ''),
     sourceJobId: explicitSourceJobId || (stableIdFromUrl.startsWith('num:') ? stableIdFromUrl.slice(4) : ''),
   };
+}
+
+function sourceStableIndexKey(identity) {
+  const stableId = String(identity?.sourceStableId || '').trim();
+  if (!stableId) return '';
+  // `extractStableJobId()` deliberately returns hostless numeric keys; keep
+  // separate source origins from collapsing into one collision bucket.
+  const origin = sourceOrigin(identity?.sourceUrl || '');
+  return origin ? `${origin}|${stableId}` : stableId;
 }
 
 function locationRecord(job, { crawler = '', includeProvenance = false } = {}, identity = sourceIdentity(job)) {
@@ -94,7 +113,7 @@ function addUniqueRecord(index, key, record, identityByRecord) {
   }
 }
 
-function lookupRecord(job, byJobId, bySourceStableId, byStableIdentity) {
+function lookupRecord(job, byJobId, bySourceStableId, byStableIdentity, identityByRecord) {
   if (!job || typeof job !== 'object' || Array.isArray(job)) {
     return { record: null, status: 'missing' };
   }
@@ -107,19 +126,27 @@ function lookupRecord(job, byJobId, bySourceStableId, byStableIdentity) {
       : { record, status: 'found' };
   }
 
-  const stableId = sourceIdentity(job).sourceStableId;
-  if (stableId && bySourceStableId.has(stableId)) {
-    const record = bySourceStableId.get(stableId);
-    return record === AMBIGUOUS_RECORD
-      ? { record: null, status: 'ambiguous' }
-      : { record, status: 'found' };
+  const sourceIdentityValue = sourceIdentity(job);
+  const sourceStableKey = sourceStableIndexKey(sourceIdentityValue);
+  if (sourceStableKey && bySourceStableId.has(sourceStableKey)) {
+    const record = bySourceStableId.get(sourceStableKey);
+    if (record === AMBIGUOUS_RECORD) return { record: null, status: 'ambiguous' };
+
+    const indexedIdentity = identityByRecord.get(record);
+    const indexedSourceJobId = indexedIdentity?.sourceJobId || record.sourceJobId || '';
+    const targetSourceJobId = sourceIdentityValue.sourceJobId || '';
+    if (indexedSourceJobId && targetSourceJobId
+      && normalizeJobId(indexedSourceJobId) !== normalizeJobId(targetSourceJobId)) {
+      return { record: null, status: 'ambiguous' };
+    }
+    return { record, status: 'found' };
   }
 
-  const identity = buildStableJobIdentity(job);
-  if (!identity || !byStableIdentity.has(identity)) {
+  const stableIdentity = buildStableJobIdentity(job);
+  if (!stableIdentity || !byStableIdentity.has(stableIdentity)) {
     return { record: null, status: 'missing' };
   }
-  const record = byStableIdentity.get(identity);
+  const record = byStableIdentity.get(stableIdentity);
   return record === AMBIGUOUS_RECORD
     ? { record: null, status: 'ambiguous' }
     : { record, status: 'found' };
@@ -153,16 +180,16 @@ export function createCrawlerLocationRecordIndex({ includeProvenance = false } =
       // the caller does not request provenance fields on the returned record.
       identityByRecord.set(record, identity);
       addUniqueRecord(byJobId, normalizeJobId(job.id), record, identityByRecord);
-      addUniqueRecord(bySourceStableId, identity.sourceStableId, record, identityByRecord);
+      addUniqueRecord(bySourceStableId, sourceStableIndexKey(identity), record, identityByRecord);
       addUniqueRecord(byStableIdentity, buildStableJobIdentity(job), record, identityByRecord);
     },
 
     getWithStatus(job) {
-      return lookupRecord(job, byJobId, bySourceStableId, byStableIdentity);
+      return lookupRecord(job, byJobId, bySourceStableId, byStableIdentity, identityByRecord);
     },
 
     get(job) {
-      return lookupRecord(job, byJobId, bySourceStableId, byStableIdentity).record;
+      return lookupRecord(job, byJobId, bySourceStableId, byStableIdentity, identityByRecord).record;
     },
 
     get size() {

@@ -193,4 +193,54 @@ describe('crawler location record index', () => {
       status: 'found',
     });
   });
+
+  it('namespaces numeric source stable IDs by URL origin', () => {
+    const index = createCrawlerLocationRecordIndex({ includeProvenance: true });
+    index.add({
+      id: 'h',
+      url: 'https://hirslanden.example/job/123456-old',
+      externalId: '123456',
+      canton: 'ZH',
+      addressLocality: 'Zürich',
+      location: 'Zürich',
+    }, { crawler: 'hirslanden' });
+    index.add({
+      id: 'o',
+      url: 'https://other.example/job/123456',
+      externalId: '123456',
+      canton: 'BE',
+      addressLocality: 'Bern',
+      location: 'Bern',
+    }, { crawler: 'other' });
+
+    expect(index.getWithStatus({
+      id: 'published',
+      url: 'https://hirslanden.example/job/123456-new',
+      externalId: '123456',
+    })).toEqual({
+      record: expect.objectContaining({ canton: 'ZH', city: 'Zürich' }),
+      status: 'found',
+    });
+  });
+
+  it('rejects a renamed URL when its explicit source ID conflicts', () => {
+    const index = createCrawlerLocationRecordIndex();
+    index.add({
+      id: 'source',
+      url: 'https://jobs.example/job/123456-old',
+      externalId: '101',
+      canton: 'ZH',
+      addressLocality: 'Zürich',
+      location: 'Zürich',
+    }, { crawler: 'hirslanden' });
+
+    expect(index.getWithStatus({
+      id: 'published',
+      url: 'https://jobs.example/job/123456-new',
+      externalId: '202',
+    })).toEqual({
+      record: null,
+      status: 'ambiguous',
+    });
+  });
 });
