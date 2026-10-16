@@ -48,6 +48,8 @@ export const REPORT_LIMIT = 1000;
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/u;
 const CONSENT_STATES = Object.freeze(['granted', 'denied', 'none']);
+const GATE_STATUSES = Object.freeze(['held', 'released', 'suppressed', 'off_board', 'absent']);
+const REASON_QUALIFIERS = new Set(['spa', 'fcoec']);
 const SPECIAL_DIMENSION_VALUES = new Set(['(not set)', '(other)', '(data not available)']);
 
 function isRecord(value) {
@@ -167,8 +169,11 @@ function readCount(row, index, label) {
 }
 
 function stageFromReason(reason) {
-  const [stage] = reason.split('+');
+  const [stage, ...qualifiers] = reason.split('+');
   if (!nonEmptyText(stage)) throw new Error('GA4 row has an invalid reason stage');
+  if (qualifiers.some((qualifier) => !REASON_QUALIFIERS.has(qualifier))) {
+    throw new Error(`GA4 row has an unexpected reason qualifier: ${reason}`);
+  }
   return stage;
 }
 
@@ -215,6 +220,7 @@ export function normalizeGa4Rows(response) {
     const gateStatus = readDimension(row, 2, `gate_status at row ${index}`);
     const consentState = readDimension(row, 3, `consent_state at row ${index}`);
     if (!GATE_DIAGNOSTIC_EVENTS.includes(eventName)) throw new Error(`GA4 row has an unexpected eventName: ${eventName}`);
+    if (!GATE_STATUSES.includes(gateStatus)) throw new Error(`GA4 row has an unexpected gate_status: ${gateStatus}`);
     if (!CONSENT_STATES.includes(consentState)) throw new Error(`GA4 row has an unexpected consent_state: ${consentState}`);
     return {
       eventName,
