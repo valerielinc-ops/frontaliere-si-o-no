@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
-import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { loadSpec, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   extractUmantisDetailFields,
   extractUmantisListingEvidence,
@@ -129,6 +129,63 @@ describe('Prospector Umantis detail boundary', () => {
 
     expect(extractUmantisListingEvidence(listing, 'https://recruitingapp-1154.umantis.com/Jobs/1').get('3801'))
       .toMatchObject({ location: 'Buchs', addressLocality: 'Buchs', postalCode: '9471' });
+  });
+
+  it('resolves only reviewed SGKB postcode/locality pairs and keeps the detail-drop gate', async () => {
+    const spec = loadSpec('recruitingapp-1154');
+    const seed = spec.seedUrls[0];
+    const locations = [
+      ['9011', '9102 Herisau', 'AR'],
+      ['9012', '9450 Altstätten', 'SG'],
+      ['9013', '9471 Buchs', 'SG'],
+    ] as const;
+    const listing = `<table>${locations.map(([id, value]) => `
+      <tr><td><a href="/Vacancies/${id}/Description/1">Vacancy ${id}</a></td>
+      <td><span class="column-value" id="column_value_location">${value}</span></td></tr>`).join('')}
+    </table>`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === 'https://recruitingapp-1154.umantis.com/robots.txt') {
+        return response(url, 200, 'User-agent: *\nAllow: /');
+      }
+      if (url === seed) return response(url, 200, listing);
+      if (/^https:\/\/recruitingapp-1154\.umantis\.com\/Vacancies\/\d+\/Description\/1$/.test(url)) {
+        return response(url, 200, fixture('umantis-prospector-1154-detail.html'));
+      }
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction(spec, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+    });
+
+    expect(rows).toHaveLength(3);
+    expect(rows.map(({ addressLocality, addressRegion, canton, postalCode }) => ({
+      addressLocality, addressRegion, canton, postalCode,
+    }))).toEqual([
+      { addressLocality: 'Herisau', addressRegion: 'AR', canton: 'AR', postalCode: '9102' },
+      { addressLocality: 'Altstätten', addressRegion: 'SG', canton: 'SG', postalCode: '9450' },
+      { addressLocality: 'Buchs', addressRegion: 'SG', canton: 'SG', postalCode: '9471' },
+    ]);
+
+    const mismatched = extractUmantisListingEvidence(listing, seed, {
+      cantonOverrides: spec.umantisListingCantonOverrides.map((entry: any) => ({
+        ...entry,
+        postalCode: '9999',
+      })),
+    });
+    expect([...mismatched.values()].every((candidate) => !candidate.addressRegion)).toBe(true);
+
+    const mismatchedLocality = extractUmantisListingEvidence(
+      listing.replace('9102 Herisau', '9102 North Little Rock'),
+      seed,
+      { cantonOverrides: spec.umantisListingCantonOverrides },
+    );
+    expect(mismatchedLocality.get('9011')).toMatchObject({
+      addressLocality: 'North Little Rock', postalCode: '9102', addressRegion: '',
+    });
   });
 
   it('does not treat a postal/locality suffix in a generic metadata field as location evidence', () => {

@@ -1124,7 +1124,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     if (!html) continue;
     let effectiveSeedUrl = page.url || seed;
     let umantisListingEvidence = spec.platform === 'umantis.com'
-      ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+      ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+        cantonOverrides: spec.umantisListingCantonOverrides,
+      })
       : new Map();
     let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx, spec);
     candidates = filterListingCandidates(spec, candidates);
@@ -1164,7 +1166,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           ({ links, candidates } = rescued);
           effectiveSeedUrl = page.url || seed;
           umantisListingEvidence = spec.platform === 'umantis.com'
-            ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+            ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+              cantonOverrides: spec.umantisListingCantonOverrides,
+            })
             : new Map();
         }
       }
@@ -1184,7 +1188,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
             ({ links, candidates } = rescued);
             effectiveSeedUrl = page.url || seed;
             umantisListingEvidence = spec.platform === 'umantis.com'
-              ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+              ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+                cantonOverrides: spec.umantisListingCantonOverrides,
+              })
               : new Map();
           }
         }
@@ -1311,7 +1317,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         pageUrl = next.url || nextUrl;
         const body = next.body || '';
         const nextEvidence = spec.platform === 'umantis.com'
-          ? extractUmantisListingEvidence(body, pageUrl)
+          ? extractUmantisListingEvidence(body, pageUrl, {
+            cantonOverrides: spec.umantisListingCantonOverrides,
+          })
           : new Map();
         const extracted = extractListingCandidates(body, pageUrl, templateRx, spec);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);

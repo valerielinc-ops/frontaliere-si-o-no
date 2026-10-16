@@ -688,6 +688,27 @@ describe('vacancy extraction', () => {
     });
   });
 
+  it('accepts colliding Swiss canton codes only when the locality corroborates them', () => {
+    const herisau = {
+      location: 'Herisau', addressLocality: 'Herisau', addressRegion: 'AR', postalCode: '9102',
+    };
+    expect(evaluateSourceBackedSwissGeography([herisau])).toMatchObject({
+      geography: { location: 'Herisau', canton: 'AR' },
+      explicitlyForeign: false,
+    });
+
+    const foreignArkansas = {
+      location: 'North Little Rock',
+      addressLocality: 'North Little Rock',
+      addressRegion: 'AR',
+      postalCode: '72116',
+    };
+    expect(resolveDetailOrListingSwissGeography(
+      { locationCandidates: [foreignArkansas] },
+      herisau,
+    )).toMatchObject({ geography: null, explicitlyForeign: true });
+  });
+
   it('fails closed on a tenant-flagged locationGateRejected without falling back to listing evidence', () => {
     // A tenant-specific extractor (e.g. Apleona's canton-suffix gate) can
     // verify and explicitly refuse a candidate; that refusal must not be
