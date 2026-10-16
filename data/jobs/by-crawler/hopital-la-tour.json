@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-10-16T09:32:03.927Z",
+  "assembledAt": "2026-10-16T21:28:19.124Z",
   "jobs": [
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -33,7 +33,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.361Z",
+      "crawledAt": "2026-10-16T21:28:12.094Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.360Z",
+      "crawledAt": "2026-10-16T21:28:12.092Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.359Z",
+      "crawledAt": "2026-10-16T21:28:12.091Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -208,79 +208,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:24.957Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hopital-la-tour-81ab730d13f0",
-      "slug": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
-        "en": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
-        "de": "diatetiker-in-cdi-80-hopital-de-la-tour-meyrin",
-        "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Diététicien(-ne) en CDI 80%",
-      "titleByLocale": {
-        "it": "Dietician in CDI 80%",
-        "en": "Dietician in CDI 80%",
-        "de": "Diätetiker in CDI 80%",
-        "fr": "Diététicien(-ne) en CDI 80%"
-      },
-      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir.",
-      "descriptionByLocale": {
-        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Ancorato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, La Tour Hospital ha posto il miglioramento continuo e lo sviluppo di eccellenza medica al centro delle sue priorità.\n\nPer completare le nostre squadre, reclutamo un\n\nDieticiano in CDI 80% (rif: 2009)\n\nLa vostra missione:\n\nDovrai aiutare a mantenere o riabilitare lo stato di salute dei nostri pazienti accompagnandoli nell'attuazione di buone pratiche alimentari.\n\nIn questa capacità siete responsabili di:\n\n• Collaborare con i medici sui progetti in corso e necessari presso l'Istituto\n\n• Fornire consultazioni ambulatoriale per i pazienti con obesità (trattamento chirurgico, farmacologico o conservatore), disturbi metabolici e pediatrico.\n\n• Prevenzione e/o laboratori informativi del paziente nella ricerca per l'educazione terapeutica per migliorare la loro qualità di vita\n\n• Fornisci la valutazione nutrizionale e consultazioni di follow-up con i pazienti ospedalizzati in terapia intensiva, chirurgia, medicina.\n\n• Partecipa allo sviluppo della nostra piattaforma digitale Engage per i pazienti, finalizzata all'educazione terapeutica\n\n• Promuovere una comunicazione di successo con i vari attori del Centro e dell'Istituzione in generale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Riconoscimento Dietician HES o CRS (per diplomi stranieri)\n\n• Una prima esperienza precedente, idealmente nel campo ospedaliero\n\n• Praticato in Obesità (Chirurgia Bariatrica) e Pediatria\n\n• Caso di Practitioner Trainer, un bene\n\n• Comunicazione fluida in inglese\n\nVuoi unire ricchezza e flessibilità professionale? Il nostro ospedale privato vi offre una posizione dietizia part-time in un team stimolante multidisciplinare. Scopri un'ampia varietà di specialità mentre ti godi un ritmo di lavoro adattato al tuo equilibrio di vita.\n\nVi offriamo:\n\nContratto: 80% CDI\nData di inizio: Idealmente 1 ottobre 2026, o da concordare.",
-        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Anchored in its mission to restore the best possible quality of life for its patients, La Tour Hospital has placed continuous improvement and the development of medical excellence at the heart of its priorities.\n\nIn order to complete our teams, we recruit a\n\nDietician in CDI 80% (ref: 2009)\n\nYour mission:\n\nYou will need to help maintain or rehabilitate the health status of our patients by accompanying them in the implementation of good food practices.\n\nIn this capacity you are in charge of:\n\n• Collaborate with physicians on ongoing and necessary projects at the Institution\n\n• Provide outpatient consultations for patients with obesity (surgical, pharmacological or conservative treatment), metabolic disorders and paediatrics.\n\n• Conduct prevention and/or patient information workshops in research for therapeutic education to improve their quality of life\n\n• Provide nutritional assessment and follow-up consultations with patients hospitalized in intensive care, surgery, medicine.\n\n• Participate in the development of our digital platform Engage for patients, aimed at therapeutic education\n\n• Promoting successful communication with the various actors of the Centre and the Institution in general\n\nWe are looking for a profile that meets the following criteria:\n\n• Dietician HES or CRS recognition (for foreign diplomas)\n\n• A first prior experience, ideally in the hospital field\n\n• Practiced in Obesity (Bariatric Surgery) and Pediatrics\n\n• Case of Practitioner Trainer, an asset\n\n• Fluid communication in English\n\nWant to combine professional wealth and flexibility? Our private hospital offers you a part-time dietitian position in a stimulating multidisciplinary team. Discover a wide variety of specialties while enjoying a working rhythm adapted to your life balance.\n\nWe offer you:\n\nContract: 80% CDI\nStart date: Ideally October 1, 2026, or to be agreed.",
-        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. In seiner Mission verankert, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, hat das La Tour Hospital die kontinuierliche Verbesserung und die Entwicklung medizinischer Exzellenz in den Mittelpunkt seiner Prioritäten gestellt.\n\nUm unsere Teams zu vervollständigen, rekrutieren wir eine\n\nDiätassistent in CDI 80% (ref: 2009)\n\nIhre Mission:\n\nSie müssen dazu beitragen, den Gesundheitszustand unserer Patienten zu erhalten oder zu rehabilitieren, indem Sie sie bei der Umsetzung guter Ernährungspraktiken begleiten.\n\nIn dieser Funktion sind Sie verantwortlich für:\n\n• Zusammenarbeit mit Ärzten bei laufenden und notwendigen Projekten an der Institution\n\n• Ambulante Konsultationen für Patienten mit Fettleibigkeit (chirurgische, pharmakologische oder konservative Behandlung), Stoffwechselstörungen und Kinderheilkunde.\n\n• Durchführung von Präventions- und/oder Patienteninformationsworkshops in der Forschung zur therapeutischen Ausbildung zur Verbesserung ihrer Lebensqualität\n\n• Geben Sie Ernährungsbewertung und Follow-up-Konsultationen mit Patienten ins Krankenhaus auf der Intensivstation, Chirurgie, Medizin.\n\n• Beteiligen Sie sich an der Entwicklung unserer digitalen Plattform Engage für Patienten, die auf die therapeutische Ausbildung ausgerichtet ist\n\n• Förderung einer erfolgreichen Kommunikation mit den verschiedenen Akteuren des Zentrums und der Institution im Allgemeinen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Dietician HES oder CRS Anerkennung (für ausländische Diplome)\n\n• Eine erste Vorerfahrung, idealerweise im Krankenhausbereich\n\n• Geübt in Adipositas (Bariatric Surgery) und Pädiatrie\n\n• Fall von Practitioner Trainer, ein Asset\n\n• Fluide Kommunikation auf Englisch\n\nMöchten Sie beruflichen Reichtum und Flexibilität kombinieren? Unser privates Krankenhaus bietet Ihnen eine Teilzeit-Diätetiker-Position in einem anregenden multidisziplinären Team. Entdecken Sie eine Vielzahl von Spezialitäten, während Sie einen Arbeitsrhythmus genießen, der an Ihre Lebensbalance angepasst ist.\n\nWir bieten Ihnen:\n\nVertrag: 80% CDI\nStartdatum: Idealerweise 1. Oktober 2026, oder vereinbart werden.",
-        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\nDate d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir."
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.358Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:13:01.832Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -326,7 +253,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.358Z",
+      "crawledAt": "2026-10-16T21:28:12.090Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -354,6 +281,79 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:24.956Z",
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hopital-la-tour-81ab730d13f0",
+      "slug": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
+        "en": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
+        "de": "diatetiker-in-cdi-80-hopital-de-la-tour-meyrin",
+        "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Diététicien(-ne) en CDI 80%",
+      "titleByLocale": {
+        "it": "Dietician in CDI 80%",
+        "en": "Dietician in CDI 80%",
+        "de": "Diätetiker in CDI 80%",
+        "fr": "Diététicien(-ne) en CDI 80%"
+      },
+      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir.",
+      "descriptionByLocale": {
+        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Ancorato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, La Tour Hospital ha posto il miglioramento continuo e lo sviluppo di eccellenza medica al centro delle sue priorità.\n\nPer completare le nostre squadre, reclutamo un\n\nDieticiano in CDI 80% (rif: 2009)\n\nLa vostra missione:\n\nDovrai aiutare a mantenere o riabilitare lo stato di salute dei nostri pazienti accompagnandoli nell'attuazione di buone pratiche alimentari.\n\nIn questa capacità siete responsabili di:\n\n• Collaborare con i medici sui progetti in corso e necessari presso l'Istituto\n\n• Fornire consultazioni ambulatoriale per i pazienti con obesità (trattamento chirurgico, farmacologico o conservatore), disturbi metabolici e pediatrico.\n\n• Prevenzione e/o laboratori informativi del paziente nella ricerca per l'educazione terapeutica per migliorare la loro qualità di vita\n\n• Fornisci la valutazione nutrizionale e consultazioni di follow-up con i pazienti ospedalizzati in terapia intensiva, chirurgia, medicina.\n\n• Partecipa allo sviluppo della nostra piattaforma digitale Engage per i pazienti, finalizzata all'educazione terapeutica\n\n• Promuovere una comunicazione di successo con i vari attori del Centro e dell'Istituzione in generale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Riconoscimento Dietician HES o CRS (per diplomi stranieri)\n\n• Una prima esperienza precedente, idealmente nel campo ospedaliero\n\n• Praticato in Obesità (Chirurgia Bariatrica) e Pediatria\n\n• Caso di Practitioner Trainer, un bene\n\n• Comunicazione fluida in inglese\n\nVuoi unire ricchezza e flessibilità professionale? Il nostro ospedale privato vi offre una posizione dietizia part-time in un team stimolante multidisciplinare. Scopri un'ampia varietà di specialità mentre ti godi un ritmo di lavoro adattato al tuo equilibrio di vita.\n\nVi offriamo:\n\nContratto: 80% CDI\nData di inizio: Idealmente 1 ottobre 2026, o da concordare.",
+        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Anchored in its mission to restore the best possible quality of life for its patients, La Tour Hospital has placed continuous improvement and the development of medical excellence at the heart of its priorities.\n\nIn order to complete our teams, we recruit a\n\nDietician in CDI 80% (ref: 2009)\n\nYour mission:\n\nYou will need to help maintain or rehabilitate the health status of our patients by accompanying them in the implementation of good food practices.\n\nIn this capacity you are in charge of:\n\n• Collaborate with physicians on ongoing and necessary projects at the Institution\n\n• Provide outpatient consultations for patients with obesity (surgical, pharmacological or conservative treatment), metabolic disorders and paediatrics.\n\n• Conduct prevention and/or patient information workshops in research for therapeutic education to improve their quality of life\n\n• Provide nutritional assessment and follow-up consultations with patients hospitalized in intensive care, surgery, medicine.\n\n• Participate in the development of our digital platform Engage for patients, aimed at therapeutic education\n\n• Promoting successful communication with the various actors of the Centre and the Institution in general\n\nWe are looking for a profile that meets the following criteria:\n\n• Dietician HES or CRS recognition (for foreign diplomas)\n\n• A first prior experience, ideally in the hospital field\n\n• Practiced in Obesity (Bariatric Surgery) and Pediatrics\n\n• Case of Practitioner Trainer, an asset\n\n• Fluid communication in English\n\nWant to combine professional wealth and flexibility? Our private hospital offers you a part-time dietitian position in a stimulating multidisciplinary team. Discover a wide variety of specialties while enjoying a working rhythm adapted to your life balance.\n\nWe offer you:\n\nContract: 80% CDI\nStart date: Ideally October 1, 2026, or to be agreed.",
+        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. In seiner Mission verankert, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, hat das La Tour Hospital die kontinuierliche Verbesserung und die Entwicklung medizinischer Exzellenz in den Mittelpunkt seiner Prioritäten gestellt.\n\nUm unsere Teams zu vervollständigen, rekrutieren wir eine\n\nDiätassistent in CDI 80% (ref: 2009)\n\nIhre Mission:\n\nSie müssen dazu beitragen, den Gesundheitszustand unserer Patienten zu erhalten oder zu rehabilitieren, indem Sie sie bei der Umsetzung guter Ernährungspraktiken begleiten.\n\nIn dieser Funktion sind Sie verantwortlich für:\n\n• Zusammenarbeit mit Ärzten bei laufenden und notwendigen Projekten an der Institution\n\n• Ambulante Konsultationen für Patienten mit Fettleibigkeit (chirurgische, pharmakologische oder konservative Behandlung), Stoffwechselstörungen und Kinderheilkunde.\n\n• Durchführung von Präventions- und/oder Patienteninformationsworkshops in der Forschung zur therapeutischen Ausbildung zur Verbesserung ihrer Lebensqualität\n\n• Geben Sie Ernährungsbewertung und Follow-up-Konsultationen mit Patienten ins Krankenhaus auf der Intensivstation, Chirurgie, Medizin.\n\n• Beteiligen Sie sich an der Entwicklung unserer digitalen Plattform Engage für Patienten, die auf die therapeutische Ausbildung ausgerichtet ist\n\n• Förderung einer erfolgreichen Kommunikation mit den verschiedenen Akteuren des Zentrums und der Institution im Allgemeinen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Dietician HES oder CRS Anerkennung (für ausländische Diplome)\n\n• Eine erste Vorerfahrung, idealerweise im Krankenhausbereich\n\n• Geübt in Adipositas (Bariatric Surgery) und Pädiatrie\n\n• Fall von Practitioner Trainer, ein Asset\n\n• Fluide Kommunikation auf Englisch\n\nMöchten Sie beruflichen Reichtum und Flexibilität kombinieren? Unser privates Krankenhaus bietet Ihnen eine Teilzeit-Diätetiker-Position in einem anregenden multidisziplinären Team. Entdecken Sie eine Vielzahl von Spezialitäten, während Sie einen Arbeitsrhythmus genießen, der an Ihre Lebensbalance angepasst ist.\n\nWir bieten Ihnen:\n\nVertrag: 80% CDI\nStartdatum: Idealerweise 1. Oktober 2026, oder vereinbart werden.",
+        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 2009)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\nDate d'entrée en fonction: Idéalement 1er octobre 2026, ou à convenir."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-16T21:28:12.088Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T23:13:01.832Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -400,7 +400,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.357Z",
+      "crawledAt": "2026-10-16T21:28:12.086Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -443,80 +443,6 @@
       }
     },
     {
-      "id": "hopital-la-tour-43b34ace2c10",
-      "slug": "midwife-in-cdm-7-mesi-all-80-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "midwife-in-cdm-7-mesi-all-80-hopital-de-la-tour-meyrin",
-        "en": "midwife-in-cdm-7-months-at-80-hopital-de-la-tour-meyrin",
-        "de": "hebamme-im-cdm-7-monate-bei-80-hopital-de-la-tour-meyrin",
-        "fr": "sage-femme-en-cdm-7-mois-a-80-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Sage-femme en CDM (7 mois) à 80%",
-      "titleByLocale": {
-        "it": "Midwife in CDM (7 mesi) all'80%",
-        "en": "Midwife in CDM (7 months) at 80%",
-        "de": "Hebamme im CDM (7 Monate) bei 80%",
-        "fr": "Sage-femme en CDM (7 mois) à 80%"
-      },
-      "description": "Au sein du département mère-enfant, la Maternité offre aux futurs parents un accompagnement bienveillant, global et personnalisé. Une équipe multidisciplinaire expérimentée, composée de sage-femmes et aides-soignantes, en collaboration directe avec les gynécologues, pédiatres, infirmières de pédiatrie, prend en charge les parents et leur(s) nouveau-né(s) dans un environnement chaleureux alliant sécurité et confort.\n\nDans le cadre d'un remplacement maternité , nous recherchons un.e\n\nSage-femme en CDM (7 mois) à 80% (ref : 2011)\n\nDans un établissement de pointe, vous occuperez un poste varié (prénatal, salle d'accouchement, post-partum, gynécologie) et devrez assurer l’accueil des patientes et de leurs familles.\n\nA ce titre vous êtes en charge :\n\n• D’accompagner les familles dans l'apprentissage de la parentalité tout en participant au développement et à l'optimisation du service\n\n• De gérer les situations d'urgences, pour accompagner les patients et leurs proches, en mettant à contribution vos qualités humaines et techniques\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme de sage-femme ou au bénéfice d'une reconnaissance de la Croix-Rouge Suisse\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience indispensable en salle d'accouchement, postpartum et prise de naissance\n\n• Formation de conseillère en allaitement, un atout\n\nNous vous proposons :\n\nType de contrat :   Contrat à Durée Maximale\n Pourcentage : 80%\n Type d'horaires :  Irréguliers en 12h.\n Date d'entrée en fonction: 1er novembre 2026\nDate de fin de contrat : 31 mai 2027",
-      "descriptionByLocale": {
-        "it": "All'interno del Dipartimento Madre e del Bambino, la maternità offre ai genitori futuri un sostegno gentile, completo e personalizzato. Un esperto team multidisciplinare di ostetriche e caregiver, in collaborazione diretta con ginecologi, pediatri, infermieri pediatrici, sostiene i genitori e i loro neonati in un ambiente caldo che unisce sicurezza e comfort.\n\nCome parte di un sostituto di maternità, ne stiamo cercando uno. E\n\nMidwife in HOM (7 mesi) all'80% (rif: 2011)\n\nIn una struttura all'avanguardia, si avrà una varietà di posizioni (prenatale, sala di consegna, postpartum, ginecologia) e dovrà ospitare i pazienti e le loro famiglie.\n\nIn questa capacità siete responsabili:\n\n• Sostenere le famiglie nell'apprendimento della genitorialità partecipando allo sviluppo e all'ottimizzazione del servizio\n\n• Gestire le emergenze, supportare i pazienti e i loro cari, utilizzando le qualità umane e tecniche\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Esperienza minima da 2 a 3 anni con struttura ospedaliera\n\n• Diploma di ostetrica o riconoscimento della Croce Rossa svizzera\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• Esperienza essenziale nella sala parto, post-partum e nascita prendendo\n\n• Formazione del consulente di allattamento, un bene\n\nVi offriamo:\n\nTipo di contratto: Contratto di durata massima\nPercentuale: 80%\nTipo di programma: irregolare in 12 ore.\nData effettiva: 1 novembre 2026\nData di fine contratto: 31 maggio 2027",
-        "en": "Within the Mother and Child Department, Motherhood offers future parents a kind, comprehensive and personalized support. An experienced multidisciplinary team of midwives and caregivers, in direct collaboration with gynaecologists, paediatricians, paediatric nurses, supports parents and their newborns in a warm environment combining safety and comfort.\n\nAs part of a maternity replacement, we are looking for one. e\n\nMidwife in HOM (7 months) at 80% (ref: 2011)\n\nIn a state-of-the-art facility, you will have a variety of positions (prenatal, delivery room, postpartum, gynaecology) and will have to accommodate patients and their families.\n\nIn this capacity you are in charge:\n\n• To support families in learning parenting while participating in the development and optimization of the service\n\n• Managing emergencies, to support patients and their loved ones, using your human and technical qualities\n\nWe are looking for a profile that meets the following criteria:\n\n• 2 to 3 years minimum experience with a hospital structure\n\n• Diploma of midwife or for recognition by the Swiss Red Cross\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Essential experience in delivery room, postpartum and birth taking\n\n• Breastfeeding counsellor training, an asset\n\nWe offer you:\n\nContract Type: Maximum Duration Contract\nPercentage: 80%\nSchedule type: Irregular in 12 hours.\nEffective date: 1 November 2026\nContract End Date: May 31, 2027",
-        "de": "Innerhalb der Mutter-Kind-Abteilung bietet Motherhood zukünftigen Eltern eine freundliche, umfassende und personalisierte Unterstützung. Ein erfahrenes multidisziplinäres Team von Hebammen und Betreuern unterstützt in direkter Zusammenarbeit mit Gynäkologen, Kinderärzten und Kinderkrankenschwestern Eltern und ihre Neugeborenen in einer warmen Umgebung, die Sicherheit und Komfort kombiniert.\n\nAls Teil eines Mutterschaftsersatzes suchen wir einen. e\n\nHebamme in HOM (7 Monate) bei 80% (ref: 2011)\n\nIn einer hochmodernen Einrichtung haben Sie eine Vielzahl von Positionen (pränatal, Kreißsaal, postpartale, Gynäkologie) und müssen Patienten und ihre Familien unterbringen.\n\nIn dieser Eigenschaft sind Sie verantwortlich:\n\n• Unterstützung von Familien bei der Erziehung zum Lernen und Teilnahme an der Entwicklung und Optimierung des Dienstes\n\n• Bewältigung von Notfällen, um Patienten und ihre Angehörigen zu unterstützen, indem Sie Ihre menschlichen und technischen Qualitäten nutzen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• 2 bis 3 Jahre Mindesterfahrung mit einer Krankenhausstruktur\n\n• Hebammendiplom oder zur Anerkennung durch das Schweizerische Rote Kreuz\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Wesentliche Erfahrung im Kreißsaal, nach der Geburt und Geburt\n\n• Stillberatertraining, ein Asset\n\nWir bieten Ihnen:\n\nVertragsart: Maximallaufzeitvertrag\nProzentsatz: 80%\nZeitplan: Unregelmäßig in 12 Stunden.\nDatum des Inkrafttretens: 1. November 2026\nVertragsende: 31. Mai 2027",
-        "fr": "Au sein du département mère-enfant, la Maternité offre aux futurs parents un accompagnement bienveillant, global et personnalisé. Une équipe multidisciplinaire expérimentée, composée de sage-femmes et aides-soignantes, en collaboration directe avec les gynécologues, pédiatres, infirmières de pédiatrie, prend en charge les parents et leur(s) nouveau-né(s) dans un environnement chaleureux alliant sécurité et confort.\n\nDans le cadre d'un remplacement maternité , nous recherchons un.e\n\nSage-femme en CDM (7 mois) à 80% (ref : 2011)\n\nDans un établissement de pointe, vous occuperez un poste varié (prénatal, salle d'accouchement, post-partum, gynécologie) et devrez assurer l’accueil des patientes et de leurs familles.\n\nA ce titre vous êtes en charge :\n\n• D’accompagner les familles dans l'apprentissage de la parentalité tout en participant au développement et à l'optimisation du service\n\n• De gérer les situations d'urgences, pour accompagner les patients et leurs proches, en mettant à contribution vos qualités humaines et techniques\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme de sage-femme ou au bénéfice d'une reconnaissance de la Croix-Rouge Suisse\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience indispensable en salle d'accouchement, postpartum et prise de naissance\n\n• Formation de conseillère en allaitement, un atout\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Maximale\nPourcentage : 80%\nType d'horaires : Irréguliers en 12h.\nDate d'entrée en fonction: 1er novembre 2026\nDate de fin de contrat : 31 mai 2027"
-      },
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.356Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sage-femme-en-cdm-7-mois-a-80-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sage-femme-en-cdm-7-mois-a-80-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-25T14:53:58.318Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hopital-la-tour-2c25b5aa8ec1",
       "slug": "fisioterapia-cardio-respiratorio-90-cdmax-10-mesi-possibilita-cdi-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -548,7 +474,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/physiotherapeute-cardio-respiratoire-a-90-cdmax-10-mois-possibilite-cdi-1544",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.356Z",
+      "crawledAt": "2026-10-16T21:28:12.085Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -591,6 +517,80 @@
       }
     },
     {
+      "id": "hopital-la-tour-43b34ace2c10",
+      "slug": "midwife-in-cdm-7-mesi-all-80-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "midwife-in-cdm-7-mesi-all-80-hopital-de-la-tour-meyrin",
+        "en": "midwife-in-cdm-7-months-at-80-hopital-de-la-tour-meyrin",
+        "de": "hebamme-im-cdm-7-monate-bei-80-hopital-de-la-tour-meyrin",
+        "fr": "sage-femme-en-cdm-7-mois-a-80-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Sage-femme en CDM (7 mois) à 80%",
+      "titleByLocale": {
+        "it": "Midwife in CDM (7 mesi) all'80%",
+        "en": "Midwife in CDM (7 months) at 80%",
+        "de": "Hebamme im CDM (7 Monate) bei 80%",
+        "fr": "Sage-femme en CDM (7 mois) à 80%"
+      },
+      "description": "Au sein du département mère-enfant, la Maternité offre aux futurs parents un accompagnement bienveillant, global et personnalisé. Une équipe multidisciplinaire expérimentée, composée de sage-femmes et aides-soignantes, en collaboration directe avec les gynécologues, pédiatres, infirmières de pédiatrie, prend en charge les parents et leur(s) nouveau-né(s) dans un environnement chaleureux alliant sécurité et confort.\n\nDans le cadre d'un remplacement maternité , nous recherchons un.e\n\nSage-femme en CDM (7 mois) à 80% (ref : 2011)\n\nDans un établissement de pointe, vous occuperez un poste varié (prénatal, salle d'accouchement, post-partum, gynécologie) et devrez assurer l’accueil des patientes et de leurs familles.\n\nA ce titre vous êtes en charge :\n\n• D’accompagner les familles dans l'apprentissage de la parentalité tout en participant au développement et à l'optimisation du service\n\n• De gérer les situations d'urgences, pour accompagner les patients et leurs proches, en mettant à contribution vos qualités humaines et techniques\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme de sage-femme ou au bénéfice d'une reconnaissance de la Croix-Rouge Suisse\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience indispensable en salle d'accouchement, postpartum et prise de naissance\n\n• Formation de conseillère en allaitement, un atout\n\nNous vous proposons :\n\nType de contrat :   Contrat à Durée Maximale\n Pourcentage : 80%\n Type d'horaires :  Irréguliers en 12h.\n Date d'entrée en fonction: 1er novembre 2026\nDate de fin de contrat : 31 mai 2027",
+      "descriptionByLocale": {
+        "it": "All'interno del Dipartimento Madre e del Bambino, la maternità offre ai genitori futuri un sostegno gentile, completo e personalizzato. Un esperto team multidisciplinare di ostetriche e caregiver, in collaborazione diretta con ginecologi, pediatri, infermieri pediatrici, sostiene i genitori e i loro neonati in un ambiente caldo che unisce sicurezza e comfort.\n\nCome parte di un sostituto di maternità, ne stiamo cercando uno. E\n\nMidwife in HOM (7 mesi) all'80% (rif: 2011)\n\nIn una struttura all'avanguardia, si avrà una varietà di posizioni (prenatale, sala di consegna, postpartum, ginecologia) e dovrà ospitare i pazienti e le loro famiglie.\n\nIn questa capacità siete responsabili:\n\n• Sostenere le famiglie nell'apprendimento della genitorialità partecipando allo sviluppo e all'ottimizzazione del servizio\n\n• Gestire le emergenze, supportare i pazienti e i loro cari, utilizzando le qualità umane e tecniche\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Esperienza minima da 2 a 3 anni con struttura ospedaliera\n\n• Diploma di ostetrica o riconoscimento della Croce Rossa svizzera\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• Esperienza essenziale nella sala parto, post-partum e nascita prendendo\n\n• Formazione del consulente di allattamento, un bene\n\nVi offriamo:\n\nTipo di contratto: Contratto di durata massima\nPercentuale: 80%\nTipo di programma: irregolare in 12 ore.\nData effettiva: 1 novembre 2026\nData di fine contratto: 31 maggio 2027",
+        "en": "Within the Mother and Child Department, Motherhood offers future parents a kind, comprehensive and personalized support. An experienced multidisciplinary team of midwives and caregivers, in direct collaboration with gynaecologists, paediatricians, paediatric nurses, supports parents and their newborns in a warm environment combining safety and comfort.\n\nAs part of a maternity replacement, we are looking for one. e\n\nMidwife in HOM (7 months) at 80% (ref: 2011)\n\nIn a state-of-the-art facility, you will have a variety of positions (prenatal, delivery room, postpartum, gynaecology) and will have to accommodate patients and their families.\n\nIn this capacity you are in charge:\n\n• To support families in learning parenting while participating in the development and optimization of the service\n\n• Managing emergencies, to support patients and their loved ones, using your human and technical qualities\n\nWe are looking for a profile that meets the following criteria:\n\n• 2 to 3 years minimum experience with a hospital structure\n\n• Diploma of midwife or for recognition by the Swiss Red Cross\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Essential experience in delivery room, postpartum and birth taking\n\n• Breastfeeding counsellor training, an asset\n\nWe offer you:\n\nContract Type: Maximum Duration Contract\nPercentage: 80%\nSchedule type: Irregular in 12 hours.\nEffective date: 1 November 2026\nContract End Date: May 31, 2027",
+        "de": "Innerhalb der Mutter-Kind-Abteilung bietet Motherhood zukünftigen Eltern eine freundliche, umfassende und personalisierte Unterstützung. Ein erfahrenes multidisziplinäres Team von Hebammen und Betreuern unterstützt in direkter Zusammenarbeit mit Gynäkologen, Kinderärzten und Kinderkrankenschwestern Eltern und ihre Neugeborenen in einer warmen Umgebung, die Sicherheit und Komfort kombiniert.\n\nAls Teil eines Mutterschaftsersatzes suchen wir einen. e\n\nHebamme in HOM (7 Monate) bei 80% (ref: 2011)\n\nIn einer hochmodernen Einrichtung haben Sie eine Vielzahl von Positionen (pränatal, Kreißsaal, postpartale, Gynäkologie) und müssen Patienten und ihre Familien unterbringen.\n\nIn dieser Eigenschaft sind Sie verantwortlich:\n\n• Unterstützung von Familien bei der Erziehung zum Lernen und Teilnahme an der Entwicklung und Optimierung des Dienstes\n\n• Bewältigung von Notfällen, um Patienten und ihre Angehörigen zu unterstützen, indem Sie Ihre menschlichen und technischen Qualitäten nutzen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• 2 bis 3 Jahre Mindesterfahrung mit einer Krankenhausstruktur\n\n• Hebammendiplom oder zur Anerkennung durch das Schweizerische Rote Kreuz\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Wesentliche Erfahrung im Kreißsaal, nach der Geburt und Geburt\n\n• Stillberatertraining, ein Asset\n\nWir bieten Ihnen:\n\nVertragsart: Maximallaufzeitvertrag\nProzentsatz: 80%\nZeitplan: Unregelmäßig in 12 Stunden.\nDatum des Inkrafttretens: 1. November 2026\nVertragsende: 31. Mai 2027",
+        "fr": "Au sein du département mère-enfant, la Maternité offre aux futurs parents un accompagnement bienveillant, global et personnalisé. Une équipe multidisciplinaire expérimentée, composée de sage-femmes et aides-soignantes, en collaboration directe avec les gynécologues, pédiatres, infirmières de pédiatrie, prend en charge les parents et leur(s) nouveau-né(s) dans un environnement chaleureux alliant sécurité et confort.\n\nDans le cadre d'un remplacement maternité , nous recherchons un.e\n\nSage-femme en CDM (7 mois) à 80% (ref : 2011)\n\nDans un établissement de pointe, vous occuperez un poste varié (prénatal, salle d'accouchement, post-partum, gynécologie) et devrez assurer l’accueil des patientes et de leurs familles.\n\nA ce titre vous êtes en charge :\n\n• D’accompagner les familles dans l'apprentissage de la parentalité tout en participant au développement et à l'optimisation du service\n\n• De gérer les situations d'urgences, pour accompagner les patients et leurs proches, en mettant à contribution vos qualités humaines et techniques\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière\n\n• Diplôme de sage-femme ou au bénéfice d'une reconnaissance de la Croix-Rouge Suisse\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience indispensable en salle d'accouchement, postpartum et prise de naissance\n\n• Formation de conseillère en allaitement, un atout\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Maximale\nPourcentage : 80%\nType d'horaires : Irréguliers en 12h.\nDate d'entrée en fonction: 1er novembre 2026\nDate de fin de contrat : 31 mai 2027"
+      },
+      "needsRetranslation": false,
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-16T21:28:12.084Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sage-femme-en-cdm-7-mois-a-80-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sage-femme-en-cdm-7-mois-a-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-25T14:53:58.318Z",
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hopital-la-tour-27d334811186",
       "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -621,7 +621,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.355Z",
+      "crawledAt": "2026-10-16T21:28:12.083Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -694,7 +694,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.354Z",
+      "crawledAt": "2026-10-16T21:28:12.082Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -770,7 +770,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/business-intelligence-manager-a-100-1555",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.353Z",
+      "crawledAt": "2026-10-16T21:28:12.079Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -836,7 +836,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-service-des-urgences-cdm-12-mois-a-85-1558",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.352Z",
+      "crawledAt": "2026-10-16T21:28:12.075Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -916,7 +916,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-aux-urgences-a-70-cdm-6-mois-1557",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:31:59.349Z",
+      "crawledAt": "2026-10-16T21:28:12.073Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -965,44 +965,44 @@
       }
     },
     {
-      "id": "hopital-la-tour-6f5be6499f46",
-      "slug": "responsabile-gestione-80-cdm-12-mesi-hopital-de-la-tour-meyrin",
+      "id": "hopital-la-tour-39b8fc39b8ba",
+      "slug": "infirmier-iere-a-l-unite-de-chirurgie-orthopedique-cdm-4-mois-a-80-hopital-la-tour-meyrin",
       "slugByLocale": {
-        "it": "responsabile-gestione-80-cdm-12-mesi-hopital-de-la-tour-meyrin",
-        "en": "80-management-supervisor-cdm-12-months-hopital-de-la-tour-meyrin",
-        "de": "80-management-supervisor-cdm-12-monate-hopital-de-la-tour-meyrin",
-        "fr": "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
+        "fr": "infirmier-iere-a-l-unite-de-chirurgie-orthopedique-cdm-4-mois-a-80-hopital-la-tour-meyrin",
+        "it": "infirmier-iere-a-l-unite-de-chirurgie-orthopedique-cdm-4-mois-a-80-hopital-la-tour-meyrin",
+        "en": "infirmier-iere-a-l-unite-de-chirurgie-orthopedique-cdm-4-mois-a-80-hopital-la-tour-meyrin",
+        "de": "infirmier-iere-a-l-unite-de-chirurgie-orthopedique-cdm-4-mois-a-80-hopital-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
       "companyDomain": "la-tour.ch",
-      "title": "Contrôleur·se de gestion à 80% - CDM 12 mois",
+      "title": "Infirmier(-ière) à l'Unité de Chirurgie Orthopédique - CDM 4 mois à 80%",
       "titleByLocale": {
-        "it": "Responsabile gestione 80% - CDM 12 mesi",
-        "en": "80% management supervisor - CDM 12 months",
-        "de": "80% Management Supervisor - CDM 12 Monate",
-        "fr": "Contrôleur·se de gestion à 80% - CDM 12 mois"
+        "fr": "Infirmier(-ière) à l'Unité de Chirurgie Orthopédique - CDM 4 mois à 80%",
+        "it": "Infirmier(-ière) à l'Unité de Chirurgie Orthopédique - CDM 4 mois à 80%",
+        "en": "Infirmier(-ière) à l'Unité de Chirurgie Orthopédique - CDM 4 mois à 80%",
+        "de": "Infirmier(-ière) à l'Unité de Chirurgie Orthopédique - CDM 4 mois à 80%"
       },
-      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nContrôleur·se de gestion à 80% - CDM 12 mois (ref : 2016)\n\nRattaché·e au Responsable du contrôle de gestion au sein de la Direction financière, vous assurez le pilotage financier et le suivi de la performance de l’institution. Vous fournissez à la Direction et aux responsables opérationnels des analyses fiables, des indicateurs pertinents et des outils d’aide à la décision.\n\nVéritable partenaire des différents départements, vous contribuez activement à l’optimisation des processus, de la rentabilité et de l’efficience opérationnelle, ainsi qu’au développement des outils de pilotage et à l’automatisation des flux\n\nVotre mission :\n\nÀ ce titre, vous serez notamment amené·e à :\n\n• Élaborer et suivre les budgets annuels et les forecasts, en collaboration avec la Direction et les différents chefs de service ;\n\n• Réaliser les analyses financières nécessaires au pilotage de la performance de l’institution ;\n\n• Mettre en place des tableaux de bord et des indicateurs de performance pertinents ;\n\n• Identifier et proposer des opportunités d’optimisation de la rentabilité et de l’efficience opérationnelle ;\n\n• Optimiser les processus de clôture en collaboration avec les différents départements et contribuer à l’automatisation des flux ;\n\n• Créer, analyser et publier les rapports financiers mensuels, trimestriels et annuels à l’aide des outils spécifiques, notamment Opale et Power BI ;\n\n• Identifier les écarts et proposer des actions correctives ;\n\n• Assurer la gestion de la comptabilité analytique selon REKOLE, contribuer à son amélioration continue et intégrer les données dans les outils financiers ;\n\n• Participer à la revue, à l’analyse, à l’amélioration continue et à l’harmonisation des processus internes et financiers ;\n\n• Réaliser des analyses ad hoc afin de faciliter la prise de décision ;\n\n• Répondre aux sollicitations des équipes opérationnelles et leur fournir les rapports et analyses nécessaires à leurs prises de décision ou à leurs présentations auprès de la Direction.\n\nNous recherchons un profil répondant aux critères suivants :\n\nNous recherchons une personne disposant d’au minimum 5 années d’expérience dans le contrôle de gestion , complétées par :\n\n• Une formation universitaire ou un Brevet fédéral de spécialiste en finance et comptabilité, ou une formation jugée équivalente ;\n\n• Une expérience dans le domaine de la santé, idéalement dans le secteur hospitalier ;\n\n• D’excellentes capacités d’analyse, de synthèse et de modélisation ;\n\n• Une excellente maîtrise d’Excel et des autres outils de pilotage financier ;\n\n• Une capacité à produire des analyses fiables et pertinentes afin de soutenir la prise de décision ;\n\n• Une aptitude à collaborer avec des interlocuteurs variés et à répondre aux besoins des équipes opérationnelles ;\n\n• Un esprit d’amélioration continue et une capacité à proposer des solutions d’optimisation des processus.\n\nNous vous proposons :\n\nL’opportunité de rejoindre un établissement de santé reconnu, privé, indépendant et à dimension humaine, dans une fonction au cœur du pilotage financier et de la performance de l’institution. Vous collaborerez étroitement avec la Direction, les responsables de service et l’ensemble des départements, dans un environnement où l’amélioration continue, l’excellence et la collaboration occupent une place centrale.\n\n• Type de contrat : Contrat à durée déterminée - 12 mois\n\n• Taux d’activité : 80\n\n• Date de démarrage : Disponible de suite",
+      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nLa chirurgie orthopédique traite les maladies et les accidents touchant l’appareil moteur, soit, les os, les articulations, les muscles, les tendons et les nerfs.\n\nNous recrutons un/e\n\nInfirmier(-ière) à l'UCO - CDM 4 mois à 80% (ref : 2036)\n\nVotre mission :\n\nVous devrez assurer l’accueil du patient et le préparer physiquement et psychologiquement à l’intervention chirurgicale.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative\n\n• Assurer les soins et les surveillances pré et post opératoires ainsi que les soins techniques en chirurgie orthopédique\n\n• Prévenir la survenue des infections nosocomiales en favorisant un environnement sain autour du patient, par le respect des règles d’hygiène et d’asepsie\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé (Carefolio)\n\n• Assister aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Savoir s’adapter face aux situations d’urgences ; savoir alerter et contacter le bon interlocuteur et assurer les gestes d’urgences\n\n• Participer activement à l’organisation de l’unité\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la Reconnaissance Croix rouge (pour les diplômes étrangers)\n\n• 2-3 années d'expériences en milieu hospitalier\n\n• Répondre aux exigences de tous nos patients (semi-privé, privé et VIP)\n\n• Langues : français, anglais (idéalement)\n\n• Expérience en chirurgie orthopédique\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence (pôle chirurgie), capacité d’adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Faire preuve de flexibilité dans son planning\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Bonne connaissance des outils informatiques (Opale, Carefolio)\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Déterminée Maximale de 4 mois\n Pourcentage : 80%\n Date d'entrée en fonction: Dès que possible.",
       "descriptionByLocale": {
-        "it": "L'ospedale La Tour è una struttura acuta di alto livello, privata, indipendente e su scala umana. Fondato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, La Tour Hospital pone il miglioramento continuo, l'eccellenza medica e il supporto del suo personale al centro delle sue priorità. L'istituzione impiega oltre 1.200 dipendenti, che rappresentano più di 60 professioni, e collabora con più di 550 medici registrati.\n\nNoi ne reclutamo uno\n\nResponsabile gestione 80% - CDM 12 mesi (ref: 2016)\n\nAttaccato al Capo Controllo Gestione all'interno della Direzione Finanziaria, assicura il controllo finanziario e il monitoraggio delle prestazioni dell'istituzione. Fornisci alla Direzione e ai leader aziendali analisi affidabili, indicatori rilevanti e strumenti di supporto decisionale.\n\nUn vero partner dei vari reparti, contribuisce attivamente all'ottimizzazione dei processi, all'efficacia dei costi e all'efficienza operativa, nonché allo sviluppo di strumenti di controllo e all'automazione dei flussi.\n\nLa vostra missione:\n\nCome tale, sarete tenuti a:\n\n• Sviluppare e monitorare bilanci e previsioni annuali, in collaborazione con la Direzione e i vari capi dipartimenti;\n\n• effettuare le analisi finanziarie necessarie per gestire le prestazioni dell'istituzione;\n\n• Stabilire schede di punteggio pertinenti e indicatori di performance;\n\n• Identificare e proporre opportunità per ottimizzare l'efficacia dei costi e l'efficienza operativa;\n\n• Ottimizzare i processi di chiusura in collaborazione con diversi reparti e contribuire all'automazione dei flussi;\n\n• Creare, analizzare e pubblicare relazioni finanziarie mensili, trimestrali e annuali utilizzando strumenti specifici, tra cui Opale e Power BI;\n\n• Identificare deviazioni e proporre azioni correttive;\n\n• Assicurare la gestione della contabilità dei costi secondo REKOLE, contribuire al suo continuo miglioramento e integrare i dati in strumenti finanziari;\n\n• Partecipazione alla revisione, analisi, miglioramento continuo e armonizzazione dei processi interni e finanziari;\n\n• condurre analisi ad hoc per facilitare il processo decisionale;\n\n• Rispondere alle richieste dei team operativi e fornire loro i report e le analisi necessarie per il loro processo decisionale o le loro presentazioni alla Direzione.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\nStiamo cercando una persona con almeno 5 anni di esperienza nel controllo della gestione, integrata da:\n\n• Formazione universitaria o brevetto federale come specialista in finanza e contabilità, o formazione considerata equivalente;\n\n• Esperienza nel campo della salute, idealmente nel settore ospedaliero;\n\n• eccellenti capacità analitiche, di sintesi e di modellazione;\n\n• Eccellente padronanza di Excel e altri strumenti finanziari dello sterzo;\n\n• Capacità di produrre analisi affidabili e rilevanti per sostenere il processo decisionale;\n\n• Capacità di collaborare con vari interlocutori e di soddisfare le esigenze dei team operativi;\n\n• Uno spirito di miglioramento continuo e una capacità di proporre soluzioni di ottimizzazione dei processi.\n\nVi offriamo:\n\nL'opportunità di aderire a un riconosciuto, privato, indipendente e struttura sanitaria umana in una funzione al centro della gestione finanziaria e delle prestazioni dell'istituzione. Si lavorerà a stretto contatto con la Direzione, i gestori dei servizi e tutti i dipartimenti in un ambiente in cui il miglioramento continuo, l'eccellenza e la collaborazione sono centrali.\n\n• Tipo di contratto: Contratto a termine fisso - 12 mesi\n\n• Tasso di attività: 80\n\n• Data di inizio: Disponibile immediatamente",
-        "en": "La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Founded in its mission to restore the best possible quality of life for its patients, La Tour Hospital places continuous improvement, medical excellence and the support of its staff at the heart of its priorities. The institution employs more than 1,200 employees, representing more than 60 professions, and collaborates with more than 550 registered doctors.\n\nWe recruit one\n\n80% management supervisor - CDM 12 months (ref: 2016)\n\nAttached to the Head of Management Control within the Financial Directorate, you ensure the financial control and monitoring of the institution's performance. You provide the Directorate and business leaders with reliable analysis, relevant indicators and decision support tools.\n\nA true partner of the various departments, you actively contribute to the optimization of processes, cost-effectiveness and operational efficiency, as well as to the development of control tools and the automation of flows.\n\nYour mission:\n\nAs such, you will be required to:\n\n• Develop and monitor annual budgets and forecasts, in collaboration with the Directorate and the various heads of departments;\n\n• To carry out the financial analyses necessary to manage the institution's performance;\n\n• Establish relevant scorecards and performance indicators;\n\n• Identify and propose opportunities to optimize cost-effectiveness and operational efficiency;\n\n• Optimize closing processes in collaboration with different departments and contribute to the automation of flows;\n\n• Create, analyse and publish monthly, quarterly and annual financial reports using specific tools, including Opale and Power BI;\n\n• Identify deviations and propose corrective actions;\n\n• Ensure the management of cost accounting according to REKOLE, contribute to its continuous improvement and integrate data into financial tools;\n\n• Participate in the review, analysis, continuous improvement and harmonization of internal and financial processes;\n\n• Conduct ad hoc analyses to facilitate decision-making;\n\n• Respond to requests from operational teams and provide them with the reports and analyses necessary for their decision-making or submissions to the Directorate.\n\nWe are looking for a profile that meets the following criteria:\n\nWe are looking for a person with at least 5 years of experience in management control, supplemented by:\n\n• University training or Federal Patent as a specialist in finance and accounting, or training deemed equivalent;\n\n• Experience in the field of health, ideally in the hospital sector;\n\n• Excellent analytical, synthesis and modelling capabilities;\n\n• Excellent mastery of Excel and other financial steering tools;\n\n• A capacity to produce reliable and relevant analyses to support decision-making;\n\n• Ability to collaborate with various interlocutors and to meet the needs of operational teams;\n\n• A spirit of continuous improvement and an ability to propose process optimization solutions.\n\nWe offer you:\n\nThe opportunity to join a recognized, private, independent and humane health facility in a function at the heart of the institution's financial management and performance. You will work closely with the Directorate, service managers and all departments in an environment where continuous improvement, excellence and collaboration are central.\n\n• Type of contract: Fixed-term contract - 12 months\n\n• Activity rate: 80\n\n• Start date: Available immediately",
-        "de": "La Tour Hospital ist eine hochrangige, private, unabhängige und menschliche Akutversorgungseinrichtung. Gegründet in seiner Mission, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, stellt das La Tour Hospital kontinuierliche Verbesserung, medizinische Exzellenz und die Unterstützung seiner Mitarbeiter in den Mittelpunkt seiner Prioritäten. Die Einrichtung beschäftigt mehr als 1.200 Mitarbeiter, die mehr als 60 Berufe repräsentieren, und arbeitet mit mehr als 550 registrierten Ärzten zusammen.\n\nWir rekrutieren einen\n\n80% Management Supervisor - CDM 12 Monate (ref: 2016)\n\nMit dem Leiter der Managementkontrolle innerhalb der Finanzdirektion stellen Sie die Finanzkontrolle und die Überwachung der Leistung der Institution sicher. Sie stellen der Direktion und den Unternehmensleitern zuverlässige Analysen, relevante Indikatoren und Entscheidungshilfe-Tools zur Verfügung.\n\nAls echter Partner der verschiedenen Abteilungen tragen Sie aktiv zur Optimierung von Prozessen, Wirtschaftlichkeit und Betriebseffizienz sowie zur Entwicklung von Steuerungswerkzeugen und zur Automatisierung von Flüssen bei.\n\nIhre Mission:\n\nDaher müssen Sie:\n\n• Ausarbeitung und Überwachung der jährlichen Haushaltspläne und Prognosen in Zusammenarbeit mit der Direktion und den verschiedenen Abteilungsleitern;\n\n• Durchführung der für die Verwaltung der Leistung des Instituts erforderlichen Finanzanalysen;\n\n• Festlegung relevanter Scorecards und Leistungsindikatoren;\n\n• Ermittlung und Vorschlag von Möglichkeiten zur Optimierung der Kosteneffizienz und der betrieblichen Effizienz;\n\n• Optimierung von Schließprozessen in Zusammenarbeit mit verschiedenen Abteilungen und Beitrag zur Automatisierung von Flüssen;\n\n• Erstellung, Analyse und Veröffentlichung von Monats-, Quartals- und Jahresfinanzberichten unter Verwendung spezifischer Instrumente, einschließlich Opale und Power BI;\n\n• Abweichungen ermitteln und Korrekturmaßnahmen vorschlagen;\n\n• Gewährleistung der Verwaltung der Kostenrechnung gemäß REKOLE, Beitrag zu ihrer kontinuierlichen Verbesserung und Integration von Daten in Finanzinstrumente;\n\n• Teilnahme an der Überprüfung, Analyse, kontinuierlichen Verbesserung und Harmonisierung der internen und finanziellen Prozesse;\n\n• Durchführung von Ad-hoc-Analysen zur Erleichterung der Entscheidungsfindung;\n\n• Beantwortung von Anfragen von Einsatzteams und Übermittlung der für ihre Entscheidungsfindung erforderlichen Berichte und Analysen an die Direktion.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\nWir suchen eine Person mit mindestens 5 Jahren Erfahrung in der Managementkontrolle, ergänzt durch:\n\n• Universitätsausbildung oder Bundespatent als Spezialist für Finanzen und Rechnungswesen oder gleichwertige Ausbildung;\n\n• Erfahrung im Gesundheitsbereich, idealerweise im Krankenhausbereich;\n\n• Hervorragende Analyse-, Synthese- und Modellierungsfähigkeiten;\n\n• Ausgezeichnete Beherrschung von Excel und anderen Finanzsteuerungsinstrumenten;\n\n• Fähigkeit, zuverlässige und relevante Analysen zur Unterstützung der Entscheidungsfindung zu erstellen;\n\n• Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten und die Bedürfnisse der operativen Teams zu erfüllen;\n\n• Ein Geist der kontinuierlichen Verbesserung und die Fähigkeit, Prozessoptimierungslösungen vorzuschlagen.\n\nWir bieten Ihnen:\n\nDie Möglichkeit, einer anerkannten, privaten, unabhängigen und humanen Gesundheitseinrichtung in einer Funktion beizutreten, die im Mittelpunkt des Finanzmanagements und der Leistung der Institution steht. Sie arbeiten eng mit der Direktion, den Servicemanagern und allen Abteilungen in einem Umfeld zusammen, in dem kontinuierliche Verbesserung, Exzellenz und Zusammenarbeit von zentraler Bedeutung sind.\n\n• Art des Vertrags: befristeter Vertrag - 12 Monate\n\n• Aktivitätsrate: 80\n\n• Startdatum: Sofort verfügbar",
-        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nContrôleur·se de gestion à 80% - CDM 12 mois (ref : 2016)\n\nRattaché·e au Responsable du contrôle de gestion au sein de la Direction financière, vous assurez le pilotage financier et le suivi de la performance de l’institution. Vous fournissez à la Direction et aux responsables opérationnels des analyses fiables, des indicateurs pertinents et des outils d’aide à la décision.\n\nVéritable partenaire des différents départements, vous contribuez activement à l’optimisation des processus, de la rentabilité et de l’efficience opérationnelle, ainsi qu’au développement des outils de pilotage et à l’automatisation des flux\n\nVotre mission :\n\nÀ ce titre, vous serez notamment amené·e à :\n\n• Élaborer et suivre les budgets annuels et les forecasts, en collaboration avec la Direction et les différents chefs de service ;\n\n• Réaliser les analyses financières nécessaires au pilotage de la performance de l’institution ;\n\n• Mettre en place des tableaux de bord et des indicateurs de performance pertinents ;\n\n• Identifier et proposer des opportunités d’optimisation de la rentabilité et de l’efficience opérationnelle ;\n\n• Optimiser les processus de clôture en collaboration avec les différents départements et contribuer à l’automatisation des flux ;\n\n• Créer, analyser et publier les rapports financiers mensuels, trimestriels et annuels à l’aide des outils spécifiques, notamment Opale et Power BI ;\n\n• Identifier les écarts et proposer des actions correctives ;\n\n• Assurer la gestion de la comptabilité analytique selon REKOLE, contribuer à son amélioration continue et intégrer les données dans les outils financiers ;\n\n• Participer à la revue, à l’analyse, à l’amélioration continue et à l’harmonisation des processus internes et financiers ;\n\n• Réaliser des analyses ad hoc afin de faciliter la prise de décision ;\n\n• Répondre aux sollicitations des équipes opérationnelles et leur fournir les rapports et analyses nécessaires à leurs prises de décision ou à leurs présentations auprès de la Direction.\n\nNous recherchons un profil répondant aux critères suivants :\n\nNous recherchons une personne disposant d’au minimum 5 années d’expérience dans le contrôle de gestion , complétées par :\n\n• Une formation universitaire ou un Brevet fédéral de spécialiste en finance et comptabilité, ou une formation jugée équivalente ;\n\n• Une expérience dans le domaine de la santé, idéalement dans le secteur hospitalier ;\n\n• D’excellentes capacités d’analyse, de synthèse et de modélisation ;\n\n• Une excellente maîtrise d’Excel et des autres outils de pilotage financier ;\n\n• Une capacité à produire des analyses fiables et pertinentes afin de soutenir la prise de décision ;\n\n• Une aptitude à collaborer avec des interlocuteurs variés et à répondre aux besoins des équipes opérationnelles ;\n\n• Un esprit d’amélioration continue et une capacité à proposer des solutions d’optimisation des processus.\n\nNous vous proposons :\n\nL’opportunité de rejoindre un établissement de santé reconnu, privé, indépendant et à dimension humaine, dans une fonction au cœur du pilotage financier et de la performance de l’institution. Vous collaborerez étroitement avec la Direction, les responsables de service et l’ensemble des départements, dans un environnement où l’amélioration continue, l’excellence et la collaboration occupent une place centrale.\n\n• Type de contrat : Contrat à durée déterminée - 12 mois\n\n• Taux d’activité : 80\n\n• Date de démarrage : Disponible de suite"
+        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nLa chirurgie orthopédique traite les maladies et les accidents touchant l’appareil moteur, soit, les os, les articulations, les muscles, les tendons et les nerfs.\n\nNous recrutons un/e\n\nInfirmier(-ière) à l'UCO - CDM 4 mois à 80% (ref : 2036)\n\nVotre mission :\n\nVous devrez assurer l’accueil du patient et le préparer physiquement et psychologiquement à l’intervention chirurgicale.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative\n\n• Assurer les soins et les surveillances pré et post opératoires ainsi que les soins techniques en chirurgie orthopédique\n\n• Prévenir la survenue des infections nosocomiales en favorisant un environnement sain autour du patient, par le respect des règles d’hygiène et d’asepsie\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé (Carefolio)\n\n• Assister aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Savoir s’adapter face aux situations d’urgences ; savoir alerter et contacter le bon interlocuteur et assurer les gestes d’urgences\n\n• Participer activement à l’organisation de l’unité\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la Reconnaissance Croix rouge (pour les diplômes étrangers)\n\n• 2-3 années d'expériences en milieu hospitalier\n\n• Répondre aux exigences de tous nos patients (semi-privé, privé et VIP)\n\n• Langues : français, anglais (idéalement)\n\n• Expérience en chirurgie orthopédique\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence (pôle chirurgie), capacité d’adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Faire preuve de flexibilité dans son planning\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Bonne connaissance des outils informatiques (Opale, Carefolio)\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Déterminée Maximale de 4 mois\n Pourcentage : 80%\n Date d'entrée en fonction: Dès que possible.",
+        "it": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nLa chirurgie orthopédique traite les maladies et les accidents touchant l’appareil moteur, soit, les os, les articulations, les muscles, les tendons et les nerfs.\n\nNous recrutons un/e\n\nInfirmier(-ière) à l'UCO - CDM 4 mois à 80% (ref : 2036)\n\nVotre mission :\n\nVous devrez assurer l’accueil du patient et le préparer physiquement et psychologiquement à l’intervention chirurgicale.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative\n\n• Assurer les soins et les surveillances pré et post opératoires ainsi que les soins techniques en chirurgie orthopédique\n\n• Prévenir la survenue des infections nosocomiales en favorisant un environnement sain autour du patient, par le respect des règles d’hygiène et d’asepsie\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé (Carefolio)\n\n• Assister aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Savoir s’adapter face aux situations d’urgences ; savoir alerter et contacter le bon interlocuteur et assurer les gestes d’urgences\n\n• Participer activement à l’organisation de l’unité\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la Reconnaissance Croix rouge (pour les diplômes étrangers)\n\n• 2-3 années d'expériences en milieu hospitalier\n\n• Répondre aux exigences de tous nos patients (semi-privé, privé et VIP)\n\n• Langues : français, anglais (idéalement)\n\n• Expérience en chirurgie orthopédique\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence (pôle chirurgie), capacité d’adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Faire preuve de flexibilité dans son planning\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Bonne connaissance des outils informatiques (Opale, Carefolio)\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Déterminée Maximale de 4 mois\n Pourcentage : 80%\n Date d'entrée en fonction: Dès que possible.",
+        "en": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nLa chirurgie orthopédique traite les maladies et les accidents touchant l’appareil moteur, soit, les os, les articulations, les muscles, les tendons et les nerfs.\n\nNous recrutons un/e\n\nInfirmier(-ière) à l'UCO - CDM 4 mois à 80% (ref : 2036)\n\nVotre mission :\n\nVous devrez assurer l’accueil du patient et le préparer physiquement et psychologiquement à l’intervention chirurgicale.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative\n\n• Assurer les soins et les surveillances pré et post opératoires ainsi que les soins techniques en chirurgie orthopédique\n\n• Prévenir la survenue des infections nosocomiales en favorisant un environnement sain autour du patient, par le respect des règles d’hygiène et d’asepsie\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé (Carefolio)\n\n• Assister aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Savoir s’adapter face aux situations d’urgences ; savoir alerter et contacter le bon interlocuteur et assurer les gestes d’urgences\n\n• Participer activement à l’organisation de l’unité\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la Reconnaissance Croix rouge (pour les diplômes étrangers)\n\n• 2-3 années d'expériences en milieu hospitalier\n\n• Répondre aux exigences de tous nos patients (semi-privé, privé et VIP)\n\n• Langues : français, anglais (idéalement)\n\n• Expérience en chirurgie orthopédique\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence (pôle chirurgie), capacité d’adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Faire preuve de flexibilité dans son planning\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Bonne connaissance des outils informatiques (Opale, Carefolio)\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Déterminée Maximale de 4 mois\n Pourcentage : 80%\n Date d'entrée en fonction: Dès que possible.",
+        "de": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nLa chirurgie orthopédique traite les maladies et les accidents touchant l’appareil moteur, soit, les os, les articulations, les muscles, les tendons et les nerfs.\n\nNous recrutons un/e\n\nInfirmier(-ière) à l'UCO - CDM 4 mois à 80% (ref : 2036)\n\nVotre mission :\n\nVous devrez assurer l’accueil du patient et le préparer physiquement et psychologiquement à l’intervention chirurgicale.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative\n\n• Assurer les soins et les surveillances pré et post opératoires ainsi que les soins techniques en chirurgie orthopédique\n\n• Prévenir la survenue des infections nosocomiales en favorisant un environnement sain autour du patient, par le respect des règles d’hygiène et d’asepsie\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé (Carefolio)\n\n• Assister aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Savoir s’adapter face aux situations d’urgences ; savoir alerter et contacter le bon interlocuteur et assurer les gestes d’urgences\n\n• Participer activement à l’organisation de l’unité\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la Reconnaissance Croix rouge (pour les diplômes étrangers)\n\n• 2-3 années d'expériences en milieu hospitalier\n\n• Répondre aux exigences de tous nos patients (semi-privé, privé et VIP)\n\n• Langues : français, anglais (idéalement)\n\n• Expérience en chirurgie orthopédique\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence (pôle chirurgie), capacité d’adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Faire preuve de flexibilité dans son planning\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Bonne connaissance des outils informatiques (Opale, Carefolio)\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Déterminée Maximale de 4 mois\n Pourcentage : 80%\n Date d'entrée en fonction: Dès que possible."
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Meyrin",
       "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/controleurse-de-gestion-a-80-1550",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lunite-de-chirurgie-orthopedique-cdm-4-mois-a-80-1559",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T09:27:54.432Z",
+      "crawledAt": "2026-10-16T21:28:12.068Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1217",
-      "category": "Amministrazione",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -1012,32 +1012,25 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/controleurse-de-gestion-a-80-1550",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lunite-de-chirurgie-orthopedique-cdm-4-mois-a-80-1559",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "controleur-se-de-gestion-a-80-cdm-12-mois-hopital-la-tour-meyrin"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "firstSeenAt": "2026-09-26T14:09:35.104Z",
-      "salaryMin": 66800,
-      "salaryMax": 101200,
+      "salaryMin": 69200,
+      "salaryMax": 96400,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 66800,
-          "maxValue": 101200,
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-10-16T21:28:12.068Z"
     }
   ]
 }
