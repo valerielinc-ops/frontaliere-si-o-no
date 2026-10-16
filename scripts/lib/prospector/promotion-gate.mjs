@@ -108,7 +108,14 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const checks = {};
   const mark = (name, ok, why) => { checks[name] = ok; if (!ok) reasons.push(why); return ok; };
 
-  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  const validationHistory = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  // A generic runSpec grading cannot establish stability for a candidate that
+  // now uses a dedicated source adapter. Keep both the two-day proof and the
+  // latest quality measurements on that adapter's history.
+  const sourceAdapterVersion = String(candidate.sourceAdapterVersion || '').trim();
+  const history = sourceAdapterVersion
+    ? validationHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
+    : validationHistory;
   const good = history.filter((h) => h.verdict === 'good');
   const latest = history[history.length - 1] || {};
 
