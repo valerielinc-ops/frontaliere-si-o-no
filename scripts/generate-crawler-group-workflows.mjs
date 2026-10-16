@@ -1903,7 +1903,7 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
     // capability crosses the background-process boundary. Most crawlers route
     // callLLM through dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
   };
-  Object.assign(merged, crawler.runStep.env || {});
+  Object.assign(merged, crawler.runStep?.env || {});
   for (const step of crawler.postSteps) {
     Object.assign(merged, step.env || {});
   }
