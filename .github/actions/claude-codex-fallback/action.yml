@@ -522,6 +522,7 @@ runs:
         codex_realpath="${CODEX_REALPATH:?Pinned Codex CLI realpath unavailable}"
         codex_launcher_dir="${CODEX_LAUNCHER_DIR:?Codex launcher directory unavailable}"
         codex_runtime_root="${CODEX_RUNTIME_ROOT:?Codex runtime directory unavailable}"
+        codex_primary_runtime_root="${CODEX_RUNTIME_SNAPSHOT:?Codex primary runtime snapshot unavailable}"
         [ -x "$codex_realpath" ] || { echo '::error::Pinned Codex CLI realpath is not executable.'; exit 1; }
         codex_version="$("$codex_bin" --version 2>/dev/null || true)"
         [ "$codex_version" = 'codex-cli 0.153.4' ] || { echo "::error::Codex CLI version changed: $codex_version"; exit 1; }
@@ -1304,7 +1305,7 @@ runs:
         # The model's RUNNER_TEMP remains confined to scratch. Export only the
         # trusted caller's declared response, including when Codex exits nonzero.
         if [ -n "$CODEX_RESPONSE_ARTIFACT" ]; then
-          "$node_realpath" "$runtime_root/action/response-artifact.mjs" export "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$scratch_dir" || codex_status=1
+          "$node_realpath" "$codex_primary_runtime_root/action/response-artifact.mjs" export "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$scratch_dir" || codex_status=1
         fi
         if ! restore_sanitized_git_config; then
           echo '::error::Codex primary cannot continue because Git configuration restoration failed.'
