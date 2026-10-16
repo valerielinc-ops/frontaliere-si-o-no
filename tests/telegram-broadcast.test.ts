@@ -132,6 +132,23 @@ describe('getChatMemberCount', () => {
     expect(capturedUrl).toBe('https://api.telegram.org/botTKN/getChatMemberCount?chat_id=%40c');
   });
 
+  it.each([
+    ['negative', -1],
+    ['fractional', 1.5],
+    ['non-finite', Number.POSITIVE_INFINITY],
+  ])('rejects a %s member count as a soft failure', async (_label, result) => {
+    const fetchImpl = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ ok: true, result }),
+    })) as unknown as typeof fetch;
+
+    const res = await getChatMemberCount({ token: 'T', chatId: '@c', fetchImpl });
+
+    expect(res).toMatchObject({ ok: false, count: null });
+    expect(res.error).toContain('non-negative safe integer');
+  });
+
   it('maps an API error envelope to a soft failure', async () => {
     const fetchImpl = (async () => ({
       ok: false,
