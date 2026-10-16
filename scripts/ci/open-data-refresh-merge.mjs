@@ -204,6 +204,9 @@ function mergeCloudflareHot404s(baseRaw, remoteRaw, refreshRaw) {
     if (!remote.entries.has(path) || !refresh.entries.has(path)) paths.delete(path);
   }
 
+  const metadata = hot404Freshness(remote.document) >= hot404Freshness(refresh.document)
+    ? remote.document
+    : refresh.document;
   const mergedPaths = [...paths].map((path) => {
     const remoteEntry = remote.entries.get(path);
     const refreshEntry = refresh.entries.get(path);
@@ -212,11 +215,19 @@ function mergeCloudflareHot404s(baseRaw, remoteRaw, refreshRaw) {
     return mergeHot404Entry(remoteEntry, refreshEntry);
   }).sort((left, right) => right.hits - left.hits || left.path.localeCompare(right.path));
 
-  const metadata = hot404Freshness(remote.document) >= hot404Freshness(refresh.document)
-    ? remote.document
-    : refresh.document;
+  const cap = Number.isInteger(metadata.cap) && metadata.cap > 0 ? metadata.cap : mergedPaths.length;
+  const retainedPaths = mergedPaths.length > cap
+    ? [...mergedPaths]
+      .sort((left, right) => (
+        String(right.lastSeen || '').localeCompare(String(left.lastSeen || ''))
+        || right.hits - left.hits
+        || left.path.localeCompare(right.path)
+      ))
+      .slice(0, cap)
+    : mergedPaths;
+  retainedPaths.sort((left, right) => right.hits - left.hits || left.path.localeCompare(right.path));
   const { paths: _paths, ...rest } = metadata;
-  return `${JSON.stringify({ ...rest, paths: mergedPaths }, null, 2)}\n`;
+  return `${JSON.stringify({ ...rest, paths: retainedPaths }, null, 2)}\n`;
 }
 
 function validPharmacyUsage(value) {

@@ -135,6 +135,28 @@ describe('merge-open-data-refresh', () => {
     ]);
   });
 
+  it('keeps the Cloudflare accumulator under the configured retention cap', () => {
+    const document = (generatedAt: string, paths: Array<{ path: string; hits: number; lastSeen: string }>) => (
+      JSON.stringify({ generatedAt, source: 'cloudflare', cap: 2, paths })
+    );
+    const merged = JSON.parse(mergeRefreshContent(
+      'data/cf-hot-404s.json',
+      document('2026-10-07T00:00:00.000Z', []),
+      document('2026-10-08T01:00:00.000Z', [
+        { path: '/remote', hits: 20, lastSeen: '2026-10-08' },
+        { path: '/old', hits: 100, lastSeen: '2026-10-01' },
+      ]),
+      document('2026-10-08T02:00:00.000Z', [
+        { path: '/refresh', hits: 1, lastSeen: '2026-10-09' },
+      ]),
+    ) as string);
+
+    expect(merged.paths).toEqual([
+      { path: '/remote', hits: 20, lastSeen: '2026-10-08' },
+      { path: '/refresh', hits: 1, lastSeen: '2026-10-09' },
+    ]);
+  });
+
   it('unites event description rewrite cache entries when main and the refresh both advance', () => {
     const base = JSON.stringify({ schemaVersion: 1, entries: { 'event:base::hash': { id: 'event:base' } } });
     const remote = JSON.stringify({
