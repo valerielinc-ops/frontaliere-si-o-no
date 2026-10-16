@@ -98,6 +98,24 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(decodeURIComponent('venue%2D%2Dseries')).toBe('venue--series');
   });
 
+  it('renders the current weekend date for a spanning event and cites its source record', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'agenda-series',
+        title: 'Mostra ricorrente',
+        comune: 'Lugano',
+        startDate: '2026-01-01',
+        endDate: '2027-01-03',
+        url: 'https://agenda.example/events/mostra-(serie)',
+        canton: 'TI',
+      }],
+      todayIso: '2027-01-01',
+    });
+    expect(article.content.it.body2).toContain('**2 gennaio**');
+    expect(article.content.it.body2).toContain('[Mostra ricorrente](https://agenda.example/events/mostra-%28serie%29)');
+    expect(article.content.it.body2).not.toContain('**1 gennaio** —');
+  });
+
   it('keeps a lone surrogate in an event id from aborting the producer', () => {
     const article = buildWeekendDigestArticle({
       events: [{
