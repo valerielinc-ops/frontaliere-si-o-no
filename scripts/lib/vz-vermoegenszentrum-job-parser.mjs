@@ -228,7 +228,7 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllVzVermoegenszentrumJobs() {
+export async function fetchAllVzVermoegenszentrumJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching VZ VermögensZentrum jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
@@ -245,7 +245,7 @@ export async function fetchAllVzVermoegenszentrumJobs() {
 
   // A reference code shared by distinct postings gets one id per posting
   // (lib/prospective-reference-ids.mjs).
-  const idByListing = assignProspectiveListingIds(listings, 'vz-vermoegenszentrum', CAREER_URL);
+  const idByListing = assignProspectiveListingIds(listings, 'vz-vermoegenszentrum', CAREER_URL, { existingJobs });
 
   for (const [listingIndex, listing] of listings.entries()) {
     const szas = listing.szas || {};

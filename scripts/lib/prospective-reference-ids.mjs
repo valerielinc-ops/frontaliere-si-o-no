@@ -21,32 +21,81 @@ export function prospectiveStableRef(listing = {}) {
   return String(szas.sza_reference_code || listing?.viewkey || listing?.id || '').trim();
 }
 
+function urlKey(url) {
+  return String(url || '').trim().replace(/\/+$/, '');
+}
+
+/** The ids the slice already gives each vacancy URL, for `key`'s crawler. */
+export function existingIdsByUrl(existingJobs = [], key) {
+  const byUrl = new Map();
+  for (const job of Array.isArray(existingJobs) ? existingJobs : []) {
+    const id = String(job?.id || '');
+    const url = urlKey(job?.url);
+    if (!url || !id.startsWith(`${key}-`) || byUrl.has(url)) continue;
+    byUrl.set(url, id);
+  }
+  return byUrl;
+}
+
 /**
+ * One id per entry. A URL the slice already knows keeps its id, so a
+ * posting's id never moves to another one between crawls (review of PR
+ * 13506: «the first URL in sorted order» rotated the code's id to a newly
+ * published URL). An id claimed by two URLs at once (the corrupted state of
+ * 2026-10-15) stays with the first in sorted order. A new URL gets the code's
+ * id when nobody holds it, else the hash of code and URL; without a code, the
+ * hash of the URL, as before.
+ *
  * @param {Array<{stableRef: string, publicUrl: string}>} entries
  * @param {string} key  crawler key, both id prefix and hash namespace
+ * @param {{existingIdByUrl?: Map<string, string>}} [options]
  * @returns {string[]} one id per entry
  */
-export function assignReferenceJobIds(entries = [], key) {
+export function assignReferenceJobIds(entries = [], key, { existingIdByUrl = new Map() } = {}) {
+  if (!key) throw new TypeError('assignReferenceJobIds: crawler key is required');
+  const hash = (value) => createHash('sha1').update(value).digest('hex').slice(0, 12);
+  const idByUrl = new Map();
+  const claimed = new Set();
+  const urls = [...new Set(entries.map(({ publicUrl }) => urlKey(publicUrl)))].sort();
+
+  for (const url of urls) {
+    const known = existingIdByUrl.get(url);
+    if (known && !claimed.has(known)) {
+      idByUrl.set(url, known);
+      claimed.add(known);
+    }
+  }
+  const refByUrl = new Map(entries.map(({ stableRef, publicUrl }) => [urlKey(publicUrl), stableRef]));
+  for (const url of urls) {
+    if (idByUrl.has(url)) continue;
+    const stableRef = refByUrl.get(url);
+    let id;
+    if (!stableRef) id = `${key}-${hash(url)}`;
+    else {
+      const codeId = `${key}-${hash(`${key}:${stableRef}`)}`;
+      id = claimed.has(codeId) ? `${key}-${hash(`${key}:${stableRef}|${url}`)}` : codeId;
+    }
+    idByUrl.set(url, id);
+    claimed.add(id);
+  }
+  return entries.map(({ publicUrl }) => idByUrl.get(urlKey(publicUrl)));
+}
+
+/** Ids for a whole listing array, in order. */
+export function assignProspectiveListingIds(listings = [], key, fallbackUrl, { existingJobs = [] } = {}) {
+  const entries = listings.map((listing) => ({
+    stableRef: prospectiveStableRef(listing),
+    publicUrl: listing?.links?.directlink || fallbackUrl,
+  }));
   const urlsByRef = new Map();
   for (const { stableRef, publicUrl } of entries) {
     if (!stableRef) continue;
     if (!urlsByRef.has(stableRef)) urlsByRef.set(stableRef, new Set());
-    urlsByRef.get(stableRef).add(publicUrl);
+    urlsByRef.get(stableRef).add(urlKey(publicUrl));
   }
-  const hash = (value) => createHash('sha1').update(value).digest('hex').slice(0, 12);
-  return entries.map(({ stableRef, publicUrl }) => {
-    if (!stableRef) return `${key}-${hash(publicUrl)}`;
-    const [owner] = [...urlsByRef.get(stableRef)].sort();
-    return publicUrl === owner
-      ? `${key}-${hash(`${key}:${stableRef}`)}`
-      : `${key}-${hash(`${key}:${stableRef}|${publicUrl}`)}`;
-  });
-}
-
-/** Ids for a whole listing array, in order. */
-export function assignProspectiveListingIds(listings = [], key, fallbackUrl) {
-  return assignReferenceJobIds(listings.map((listing) => ({
-    stableRef: prospectiveStableRef(listing),
-    publicUrl: listing?.links?.directlink || fallbackUrl,
-  })), key);
+  const shared = [...urlsByRef].filter(([, urls]) => urls.size > 1);
+  if (shared.length > 0) {
+    console.log(`  🔀 ${key}: ${shared.length} reference code(s) shared by distinct postings, one id per posting (${shared.slice(0, 3).map(([ref, urls]) => `${ref}×${urls.size}`).join(', ')})`);
+  }
+  return assignReferenceJobIds(entries, key, { existingIdByUrl: existingIdsByUrl(existingJobs, key) });
 }

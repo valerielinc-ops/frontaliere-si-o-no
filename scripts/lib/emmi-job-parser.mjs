@@ -232,11 +232,11 @@ async function fetchEmmiVacancyHtml(url) {
  */
 /** See lib/prospective-reference-ids.mjs: kept for this parser's callers and tests. */
 export const emmiStableRef = prospectiveStableRef;
-export function assignEmmiJobIds(entries = []) {
-  return assignReferenceJobIds(entries, 'emmi');
+export function assignEmmiJobIds(entries = [], options = {}) {
+  return assignReferenceJobIds(entries, 'emmi', options);
 }
 
-export async function fetchAllEmmiJobs() {
+export async function fetchAllEmmiJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching Emmi jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
@@ -266,7 +266,7 @@ export async function fetchAllEmmiJobs() {
   const jobs = [];
   const seen = new Set();
   // A reference code shared by distinct postings gets one id per posting.
-  const idByListing = assignProspectiveListingIds(listings, 'emmi', CAREER_URL);
+  const idByListing = assignProspectiveListingIds(listings, 'emmi', CAREER_URL, { existingJobs });
 
   for (const [listingIndex, listing] of listings.entries()) {
     const szas = listing.szas || {};
