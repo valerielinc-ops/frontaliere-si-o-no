@@ -106067,6 +106067,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-revoca-bonus-dirigenti-cs': {
+    title: 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
+    description: 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
+    keywords: 'frontalieri, ticino, svizzera, italia, dirigenti, credit, suisse, confermata',
+    ogTitle: 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
+    ogDescription: 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
+    canonicalPath: '/articoli-svizzera/revoca-bonus-dirigenti-cs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus",
+      "description": "Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-revoca-bonus-dirigenti-cs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede centrale di Credit Suisse in Svizzera"
+      },
+      "datePublished": "2026-10-16T00:42:38+00:00",
+      "dateModified": "2026-10-16T00:42:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revoca-bonus-dirigenti-cs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

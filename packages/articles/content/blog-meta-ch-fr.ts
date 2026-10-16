@@ -8399,6 +8399,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercatini-usato-svizzera.title': 'Marchés aux puces : garantie, trottoir et contrefaçons transfrontalières',
     'blog.article.mercatini-usato-svizzera.excerpt': 'Articles d\'occasion : garantie d\'un an, sauf exclusion explicite « Vendu en l\'état » exclut la garantie Objets gratuits sur le domaine public : souvent interdits Contrefaçons',
     'blog.article.mercatini-usato-svizzera.imageAlt': 'Étale de marché aux puces suisse avec objets d\'occasion et vendeur délivrant un reçu',
+    'blog.article.revoca-bonus-dirigenti-cs.title': 'Anciens dirigeants de Credit Suisse, l\'annulation des bonus confirmée',
+    'blog.article.revoca-bonus-dirigenti-cs.excerpt': 'Le TF confirme la révocation des bonus des anciens dirigeants de CS Le TAF avait admis les recours en mars 2025 Réductions des bonus : 100%, 50% et 25% pour trois niveaux Le 19',
+    'blog.article.revoca-bonus-dirigenti-cs.imageAlt': 'Siège de Credit Suisse en Suisse',
 };
 
 export default blogMetaChFr;

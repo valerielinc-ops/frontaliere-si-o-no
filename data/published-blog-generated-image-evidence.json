@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "819a6d68e0fce5d731851c5ec115598237617ea3",
+  "commit": "b98870379904bceea06274ff134c3cb422476771",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -23026,6 +23026,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic office illustration with a lake view; no text, logos, people, or event-specific cues."
+      }
+    },
+    "/images/blog/article-revoca-bonus-dirigenti-cs.webp": {
+      "schema": 1,
+      "assetId": "article-revoca-bonus-dirigenti-cs",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "5b2fd5ddd96104791d0004a08bf3bd956c48e4e1564a91d196814c498364ddcd",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "f378220cf1323cfc0411eeb062390cb97dc8d63b0a81811980cd8dea78f888ef",
+      "bytes": 122232,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T00:42:27.693Z",
+      "verifiedAt": "2026-10-16T00:42:37.479Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-revoca-bonus-dirigenti-cs.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic architectural illustration of a Swiss financial headquarters; no readable text, logos, faces, or recognizable foreground people."
       }
     },
     "/images/places/lugano-view.webp": {
