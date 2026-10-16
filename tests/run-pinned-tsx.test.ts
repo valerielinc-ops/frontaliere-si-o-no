@@ -33,7 +33,7 @@ exec node "$3" "\${@:4}"
     chmodSync(npxPath, 0o755);
     writeFileSync(entrypointPath, `
 import { appendFileSync } from 'node:fs';
-appendFileSync(process.env.SIDE_EFFECT_MARKER, 'published\n');
+appendFileSync(process.env.SIDE_EFFECT_MARKER, 'published\\n');
 process.exit(17);
 `);
 
