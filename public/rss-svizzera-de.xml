@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Thu, 15 Oct 2026 20:58:18 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 23:41:40 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,82 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cyberangriff: Pensionskasse Zürich getroffen</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/cyberangriff-pensionskasse-zurich/</link>
+      <description><![CDATA[Persönliche Daten der PKZH bei einem Angriff auf einen Softwareanbieter entwendet Vorsorgegelder und Renten wurden nicht angetastet Der Angriff ereignete sich Ende September]]></description>
+      <content:encoded><![CDATA[## Auf einen Blick
+- Persönliche Daten der PKZH bei einem Angriff auf einen Softwareanbieter entwendet
+- Vorsorgegelder und Renten wurden nicht angetastet
+- Der Angriff ereignete sich Ende September
+- PKZH hat Strafanzeige erstattet
+
+## Wichtige Fakten
+- Kasse: PKZH, Pensionskasse der Stadt Zürich
+- Angriff: gegen einen externen Softwareanbieter
+- Wann: Ende September
+- Schlimmstes Szenario: Kontaktdaten, AHV, IBAN und Vorsorgedaten
+- Auswirkungen: Vorsorgegelder und Rentenzahlungen nicht betroffen
+- Verwaltungssystem: wäre nicht betroffen gewesen
+- Vorgehen: Strafanzeige von der PKZH eingereicht
+- Abklärung: Entwendete Daten und betroffene Personen noch zu bestimmen
+
+Am Donnerstag teilte die PKZH, die Pensionskasse der Stadt Zürich, mit, dass persönliche Daten ihrer Versicherten entwendet worden seien. Der Cyberangriff traf einen externen Softwareanbieter, ohne die Vorsorgegelder oder die Auszahlung der Renten zu beeinträchtigen. Die Mitteilung trennt somit den Diebstahl von Informationen von der Auszahlung der Leistungen.
+
+Der Cyberangriff geht auf Ende September zurück. Da der Wechsel zu einem neuen Verwaltungssystem vorgesehen war, hatte die Kasse ihre Daten bereits an das Unternehmen übermittelt. Die PKZH hat Strafanzeige erstattet. Inzwischen versucht sie genau zu ermitteln, welche Informationen entwendet wurden und wie viele Personen betroffen sind.
+
+### Die Rekonstruktion des Angriffs
+
+Das von der Kasse genannte schlimmste Szenario umfasst persönliche Kontaktdaten: Name, Adresse, E-Mail und Telefonnummer. In derselben Liste erscheinen die AHV-Nummer, der Zivilstand, Informationen zu den Partnern, die IBAN-Nummer und Vorsorgedaten wie das versicherte Einkommen und das Vermögen. Die Formulierung ist bedingt: Die Quelle stellt diese Kategorien nicht als bereits für jede Person bestätigte Liste dar.
+
+Laut Mitteilung scheint das von der PKZH zur Verwaltung der Vermögen und zur Auszahlung der Renten verwendete Verwaltungssystem nicht vom Angriff betroffen zu sein. Für den operativen Bereich der Kasse ist dies somit die von der Quelle angegebene Grenze. Offen bleiben hingegen die Rekonstruktion der Gesamtheit der kopierten Daten und die Ermittlung der Zahl der betroffenen Versicherten.
+
+Der Fall folgt auf Mitteilungen anderer Schweizer Pensionskassen. In den Tagen zuvor hatten andere Kassen, darunter die öffentliche Berner Pensionskasse, bekannt gegeben, Opfer des Cyberangriffs geworden zu sein. Der Text legt nicht fest, welche Daten im Berner Fall betroffen waren.
+
+Am Donnerstag war auch eine mögliche Beteiligung der Pensionskasse der Posta vermutet worden. Die Quelle präzisiert, dass dies nicht bestätigt ist. Auf ihrer Website erschienen Warnhinweise, doch dieses Element macht aus der Vermutung keine Bestätigung. Die Mitteilung der PKZH stellt hingegen ausdrücklich einen Zusammenhang zwischen der Übermittlung der Daten, dem Projekt eines neuen Verwaltungssystems und dem Sicherheitsvorfall beim externen Anbieter her.
+## Die praktische Bedeutung für die Versicherten
+
+Für Personen, die in der Schweiz leben oder arbeiten und bei der PKZH versichert sind, hat die Nachricht zwei getrennte Ebenen: die Kontinuität der Vorsorge und die Vertraulichkeit der Informationen. In Bezug auf die erste Ebene teilt die Kasse mit, dass Gelder und Rentenzahlungen nicht angetastet wurden; auch das Verwaltungssystem, das zur Verwaltung von Vermögen und zur Auszahlung von Leistungen verwendet wird, soll nicht betroffen gewesen sein. In Bezug auf die zweite Ebene betrifft der mögliche Datenabfluss mehr als bloße Kontaktdaten, denn das schlimmste Szenario umfasst die AHV-Nummer, die IBAN und Vorsorgedaten. Die Quelle berichtet nicht über Geldtransfers oder eine Sperrung der Renten. Die verfügbaren Angaben betreffen die Entwendung von Informationen.
+
+### Was feststeht und was offen bleibt
+
+| Punkt | Festgestellt oder mitgeteilt | Noch zu klären |
+|---|---|---|
+| Persönliche Daten | Die PKZH hat eine Entwendung gemeldet | Welche Kategorien tatsächlich entwendet wurden |
+| Betroffene Personen | Die Kasse ermittelt derzeit die Zahl | Wie viele es sind |
+| Vermögen und Renten | Gelder und Zahlungen wurden nicht angetastet | Die vollständige Analyse beim Anbieter |
+| Pensionskasse der Post | Beteiligung nicht bestätigt | Allfällige Bestätigung |
+
+Der Wechsel zu einem neuen Verwaltungssystem erklärt, warum sich die Daten bei einem externen Unternehmen befanden: Die Quelle sagt, dass sie vor dem Angriff übermittelt worden waren. Sie sagt nicht, dass das System, mit dem die PKZH Vermögen und Renten verwaltet, getroffen wurde. Für die Leserschaft verhindert dieser Unterschied, dass ein Datenabfluss mit einer Änderung der Vorsorgeleistungen verwechselt wird.
+
+Auch der Verweis auf die anderen Kassen muss genau gelesen werden. Die öffentliche Berner Kasse hatte bereits erklärt, Opfer des Cyberangriffs geworden zu sein, aber der Text ordnet diesem Fall nicht automatisch dieselben Datenkategorien zu. Bei der Pensionskasse der Post ist die Beteiligung dagegen weiterhin nicht bestätigt, trotz der auf der Website erschienenen Warnungen. Solange die PKZH die Überprüfung nicht abgeschlossen hat, bleiben die Zahl der Betroffenen und die tatsächliche Liste der entwendeten Informationen die beiden entscheidenden Elemente.
+## Wie man den Fall verfolgen kann, ohne die Hinweise zu verwechseln
+
+Die Quelle beschreibt kein individuelles Verfahren mit Formularen, Fristen oder anzurufenden Nummern. Sie bietet jedoch eine Abfolge von Überprüfungen, die voreilige Schlussfolgerungen vermeidet.
+
+### Vier auf der Kommunikation basierende Schritte
+
+1. Die betroffenen Kassen voneinander trennen. Der bestätigte Fall betrifft PKZH. Die Berner öffentliche Kasse wird als bereits angekündigtes Opfer erwähnt; Posta erscheint nur im Zusammenhang mit einer nicht bestätigten Beteiligung und Warnhinweisen auf der Website.
+
+2. Die Liste der Daten als Worst-Case-Szenario behandeln, nicht als individuelle Bestätigung. PKZH prüft, welche Informationen entwendet wurden und wie viele Personen betroffen sind.
+
+3. Daten und Leistungen getrennt halten. Die Mitteilung besagt, dass Vorsorgegelder und Rentenzahlungen nicht angetastet wurden und dass das Verwaltungssystem nicht betroffen gewesen sein soll.
+
+4. Nur die angegebene formelle Handlung festhalten: PKZH hat Strafanzeige erstattet. Dies ist der von der Quelle angegebene verfahrensrechtliche Schritt; weitere Pflichten für die Versicherten werden nicht beschrieben.
+
+Dieser Rahmen verhindert, der Quelle Anweisungen zuzuschreiben, die sie nicht enthält. Es wird weder eine Frist angegeben, innerhalb derer die Versicherten antworten müssten, noch eine individuelle Benachrichtigungsart, ein einzureichendes Dokument oder ein eigener Kommunikationskanal. Die Nachricht erlaubt es daher nicht, eine persönliche Frist festzulegen.
+
+Das nächste überprüfbare Element wird das Ergebnis der von PKZH eingeleiteten Analyse sein: Welche Daten tatsächlich entwendet wurden und wie viele Personen betroffen sind. Bis dahin bleibt die präziseste Unterscheidung diese: bestätigter Datendiebstahl, Ausmaß noch zu bestimmen, Leistungen laut Mitteilung nicht betroffen.
+
+Für weitere Informationen zur Vorsorge nutze strumento AVS/LPP/rendita.
+
+*Quelle: [rsi.ch](https://www.rsi.ch/s/4167841)*]]></content:encoded>
+      <pubDate>Thu, 15 Oct 2026 23:41:40 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/attacco-software-pkzh</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-attacco-software-pkzh.webp" medium="image"/>
+    </item>
     <item>
       <title>RUAG und Lockheed Martin: Vereinbarung über drei F-35A in Emmen</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/ruag-und-lockheed-martin-vereinbarung-uber-drei-f-35a-in-emmen/</link>
@@ -3686,89 +3762,6 @@ Wer die Analyse der Unternehmenslandschaft in eine Suche nach Arbeitgebern umwan
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/fallimenti-aziendali-svizzera-aumento</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fallimenti-aziendali-svizzera-aumento.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Pensionskassen: Illiquide Anlagen machen 36% des Vermögens aus</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/illiquide-anlagen-pension-2026/</link>
-      <description><![CDATA[36% des Vermögens sind in nicht unmittelbar handelbaren Anlagen investiert Der Anteil ist in den letzten 15 Jahren gestiegen Immobilien, Hypotheken und alternative Anlagen bieten Stabilität]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- 36% des Vermögens sind in nicht unmittelbar handelbaren Anlagen investiert
-- Der Anteil ist in den letzten 15 Jahren gestiegen
-- Immobilien, Hypotheken und alternative Anlagen bieten Stabilität, aber weniger Flexibilität
-- Risiken treten auf, wenn mehrere Stressfaktoren gleichzeitig eintreten
-
-## Wichtige Fakten
-- Ort → Zürich
-- Studie → Risiko Check-up 2026 von Complementa
-- Anteil → rund 36% des Vermögens
-- Zeitraum → letzte 15 Jahre
-- Anlagen → Immobilien, alternative Anlagen und Hypotheken
-- Risiko → verzögerter Verkauf oder Verkauf mit Preisabschlägen im Fall von Turbulenzen
-
-ZÜRICH – In den Portfolios der Schweizer Pensionskassen nehmen sogenannte illiquide Anlagen immer mehr Raum ein. Bei niedrigen Zinsen hat die Suche nach neuen Renditequellen den Anteil der in diese Anlagen investierten Gelder deutlich erhöht.
-
-Die Diversifikation ist laut Experten an sich keine schlechte Idee. Der Preis dafür ist jedoch ein weniger flexibles Portfolio: Immobilien, Hypotheken und alternative Anlagen können nicht ebenso kurzfristig wie Aktien gehandelt werden. Wenn eine Pensionskasse kurzfristig verkaufen muss, kann die Transaktion schwieriger werden.
-
-### Die Daten des Risiko Check-up 2026
-
-Das Bild geht aus dem Risiko Check-up 2026 von Complementa hervor. Die Studie zeigt, dass der Anteil illiquider Anlagen der Schweizer Pensionskassen in den letzten 15 Jahren deutlich gestiegen ist. Rechnet man Immobilien, alternative Anlagen und Hypotheken ein, sind nun rund 36% des Vermögens in nicht unmittelbar handelbaren Anlagen angelegt.
-
-Der angestrebte Vorteil ist die Stabilität der Renditen. Die Quelle bringt diese Entscheidung mit der Suche nach neuen Renditequellen in einer Phase niedriger Zinsen in Verbindung. Doch dieselbe Struktur erschwert einen Verkauf, insbesondere wenn der Immobilienmarkt sich abrupt abkühlen sollte oder die Verschuldung einiger Länder zum Problem werden sollte.
-
-### Der Stressfall
-
-Für die Experten bleibt die Situation beherrschbar, solange die Märkte stabil bleiben und die Pensionskassen über ausreichende Liquidität verfügen. Die Schwierigkeiten treten auf, wenn mehrere Stressfaktoren gleichzeitig auftreten. Zu den möglichen Szenarien zählt Complementa eine starke Marktturbulenz, in deren Verlauf die Institute kurzfristig Liquidität benötigen könnten, um ihren Verpflichtungen nachzukommen oder die Portfoliostruktur zu verändern.
-
-Ein Teil der Pensionskassen bereitet sich bereits darauf vor, indem er vor allem auf weitere Investitionen in Schweizer Immobilien und Infrastruktur setzt, mit dem Ziel, geopolitische Risiken zu begrenzen. Wenn die Märkte jedoch in eine Phase starker Turbulenzen eintreten, können illiquide Anlagen nur mit Verzögerung oder mit erheblichen Preisabschlägen veräußert werden. Zudem sind ihre Bewertung und die Messung der Ergebnisse im Vergleich zu börsennotierten Wertpapieren komplexer.
-
-Bei Private Equity und Private Debt können sich die Kapitalzusagen der Anleger über mehrere Jahre erstrecken, während sowohl der Zeitpunkt als auch die Höhe der Rückflüsse ungewiss bleiben. Complementa betont daher, wie wichtig es ist, den Liquiditätsbedarf frühzeitig zu erkennen und angemessene Reserven vorzuhalten.
-### Drei zu unterscheidende Szenarien
-
-Die praktische Einordnung der Zahl beginnt mit einer einfachen Unterscheidung: Rendite und Liquidität sind nicht dasselbe. Eine Immobilie, eine Hypothek oder eine alternative Anlage kann zu stabilen Renditen beitragen, bietet aber nicht die gleiche Flexibilität wie eine Aktie, wenn die Kasse schnell über Geld verfügen muss. Die von Complementa angegebenen 36% messen daher auch den Handlungsspielraum des Portfolios.
-
-| Situation | Auswirkung auf illiquide Anlagen |
-|---|---|
-| Stabile Märkte und ausreichende Liquidität | Die Entwicklung stellt kein Problem dar |
-| Turbulenzen und kurzfristiger Liquiditätsbedarf | Verzögerter Verkauf oder Verkauf mit Preisabschlägen |
-| Neuausrichtung des Portfolios | Komplexere Bewertungen und Erfolgsmessung |
-
-Das Risiko wird nicht durch jede Marktschwankung ausgelöst. Nach Einschätzung der Experten wird es kritisch, wenn mehrere Stressfaktoren zusammentreffen: Die Kasse muss Verpflichtungen erfüllen oder das Portfolio neu ausrichten, während ein erheblicher Teil des Vermögens nicht unmittelbar handelbar ist. In diesem Moment betrifft der Unterschied zu börsennotierten Wertpapieren sowohl die Verkaufsdauer als auch den erzielbaren Preis.
-
-### Warum Immobilien ins Gewicht fallen
-
-Die Fachleute sehen einen kritischen Punkt bei Immobilien, die mehr als ein Fünftel des Vermögens der Pensionskassen ausmachen. Wenn der Sektor an Dynamik verliert oder mit einer länger anhaltenden Korrektur bei Preisen und Nachfrage konfrontiert ist, können Verkäufe schwieriger werden und die Bewertungen unter Druck geraten. Für eine Pensionskasse besteht das Problem nicht nur im theoretischen Wert des Vermögenswerts: Es zählt auch die Möglichkeit, ihn bei Bedarf in Liquidität umzuwandeln.
-
-Private Equity und Private Debt bringen eine andere Form der Unflexibilität mit sich. Die Investoren müssen häufig über mehrere Jahre Kapitalzusagen erfüllen, kennen aber den Zeitpunkt und die Höhe der Rückflüsse nicht mit Sicherheit. Dies kann die Fähigkeit einschränken, das Portfolio schnell an veränderte Markt- oder Liquiditätsbedingungen anzupassen. In einer Krise kann eine plötzliche Liquiditätsknappheit eine langfristig gedachte Anlage daher in einen Nachteil verwandeln.
-
-Vorerst mildert die finanzielle Lage den Druck: Die Mehrheit der Schweizer Pensionskassen verfügt über einen komfortablen Deckungsgrad, in einigen Fällen auf Rekordniveau, und profitiert von hohen Renditen. Diese Solidität begünstigt die Zunahme der Investitionen in Infrastruktur, Immobilien und andere alternative Anlagen, beseitigt aber nicht das Risiko, das mit dem gleichzeitigen Auftreten mehrerer Stressfaktoren verbunden ist.
-### Ein operatives Raster in fünf Schritten
-
-Um das Thema zu verfolgen, kann der praktische Weg bei den von Complementa verwendeten Kriterien beginnen. Rendite und Liquidität sind getrennt zu betrachten, zusammen mit der Reaktion des Portfolios auf Stress.
-
-1. Kategorien trennen. Immobilien, Hypotheken und alternative Anlagen unterscheiden: Sie sind die Komponenten, die in den 36% der nicht unmittelbar handelbaren Vermögenswerte enthalten sind.
-2. Immobilienanteil messen. Der Immobilienanteil übersteigt ein Fünftel des Vermögens. Preise und Nachfrage müssen beobachtet werden, da eine anhaltende Korrektur Verkäufe erschweren und die Bewertungen drücken kann.
-3. Verpflichtungen prüfen. Bei Private Equity und Private Debt kann das Kapital über mehrere Jahre gebunden sein; Zeitpunkt und Höhe der Rückflüsse bleiben ungewiss.
-4. Stress simulieren. Gleichzeitig starke Marktturbulenzen, kurzfristigen Liquiditätsbedarf und die Notwendigkeit prüfen, Verpflichtungen zu erfüllen oder das Portfolio neu auszurichten.
-5. Reserven kontrollieren. Je mehr Vermögenswerte langfristig gebunden sind, desto entscheidender wird es, den Liquiditätsbedarf rechtzeitig zu erkennen und ausreichende Reserven vorzuhalten.
-
-### Das Kriterium zur Bewertung der Entscheidungen
-
-Um geopolitische Risiken zu begrenzen, beabsichtigen einige Pensionskassen, zusätzliche Mittel in Schweizer Immobilien und Infrastrukturen zu investieren. Dieser Kurs gewährleistet jedoch keine Liquidität: Während einer Turbulenz kann der Verkauf dennoch Zeit erfordern oder einen Preisabschlag notwendig machen.
-
-Der Vergleich muss auch mit börsenkotierten Titeln gezogen werden: Bei illiquiden Vermögenswerten sind Bewertung und Ergebnismessung komplexer. Wenn das Portfolio rasch neu ausgerichtet werden muss, kommt diese Komplexität zu den Verkaufszeiten hinzu.
-
-> «Mit zunehmenden langfristig gebundenen Vermögenswerten wird es für eine Pensionskasse immer wichtiger, den Liquiditätsbedarf rechtzeitig zu erkennen und angemessene Reserven zu halten».
-
-Für diejenigen, die die Schweizer Vorsorge verfolgen, ist die nützliche Prüfung dreifach: nicht handelbarer Anteil, künftige Verpflichtungen und verfügbare Reserven. Das sind die drei Elemente, die den aggregierten Prozentsatz mit der tatsächlichen Flexibilität des Portfolios verbinden.
-
-Um das Thema der Vorsorge zu vertiefen, konsultieren Sie guida alla pensione.
-
-*Quelle: [tio.ch](https://www.tio.ch/svizzera/economia/1956672/investimenti-casse-pensioni-illiquidi-rischi)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 11:35:59 GMT</pubDate>
-      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/investimenti-illiquidi-pensione-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-investimenti-illiquidi-pensione-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

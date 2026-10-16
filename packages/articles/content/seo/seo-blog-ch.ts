@@ -105989,6 +105989,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attacco-software-pkzh': {
+    title: 'Ciberattacco, colpita la cassa pensioni di Zurigo',
+    description: 'Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L\'attacco risale alla fine di settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, ciberattacco, colpita, cassa, pensioni',
+    ogTitle: 'Ciberattacco, colpita la cassa pensioni di Zurigo',
+    ogDescription: 'Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L\'attacco risale alla fine di settembre',
+    canonicalPath: '/articoli-svizzera/attacco-software-pkzh/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ciberattacco, colpita la cassa pensioni di Zurigo",
+      "description": "Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L'attacco risale alla fine di settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-attacco-software-pkzh.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero in città, con un richiamo discreto alla sicurezza digitale"
+      },
+      "datePublished": "2026-10-15T23:41:40+00:00",
+      "dateModified": "2026-10-15T23:41:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-software-pkzh/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

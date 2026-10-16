@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5514
+      "6": 5515
     },
-    "publishedCovers": 7095,
+    "publishedCovers": 7096,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5319
+    "inferredRecords": 5320
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190154,6 +190154,33 @@
           "date": "2026-10-15T18:35:16.823Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-attacco-software-pkzh": {
+      "cover": "/images/blog/article-attacco-software-pkzh.webp",
+      "hash": "2533be7ba60087ca60347d65b8933f03fb49dbe944248723e962d74e5b134c0a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "attacco-software-pkzh",
+          "category": "pensione",
+          "date": "2026-10-15T23:41:39.976Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
         }
       ],
       "proofLevel": 6,

@@ -8393,6 +8393,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ruag-lockheed-accordo-f35a.title': 'Accord entre RUAG et Lockheed Martin pour trois F-35A à Emmen',
     'blog.article.ruag-lockheed-accordo-f35a.excerpt': 'RUAG MRO et Lockheed Martin poursuivent le projet RIGI Trois F-35A seront assemblés sur le site de RUAG à Emmen Les premiers composants sont attendus au premier semestre',
     'blog.article.ruag-lockheed-accordo-f35a.imageAlt': 'Installation RUAG à l\'aéroport d\'Emmen avec des composants F-35A en cours d\'assemblage',
+    'blog.article.attacco-software-pkzh.title': 'Cyberattaque, la caisse de pension de Zurich touchée',
+    'blog.article.attacco-software-pkzh.excerpt': 'Des données personnelles de PKZH volées lors d\'une attaque contre un fournisseur de logiciels Les fonds de prévoyance et les rentes n\'ont pas été touchés L\'attaque remonte à fin septembre',
+    'blog.article.attacco-software-pkzh.imageAlt': 'Bâtiment administratif suisse en ville, avec une allusion discrète à la cybersécurité',
 };
 
 export default blogMetaChFr;

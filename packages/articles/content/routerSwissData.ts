@@ -2820,6 +2820,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-thailandia-aelss-visita-2026': { it: 'svizzera-thailandia-aelss-visita-2026', en: 'switzerland-and-thailand-highlight-free-trade-opportunities', de: 'schweiz-und-thailand-zeigen-chancen-fur-den-freihandel-auf', fr: 'la-suisse-et-la-thailande-mettent-en-evidence-des-opportunites-de-libre-echange' },
  'referendum-armi-sicurezza-svizzera': { it: 'referendum-armi-sicurezza-svizzera', en: 'referendum-arms-security-switzerland', de: 'referendum-waffen-sicherheit-schweiz', fr: 'referendum-armes-securite-suisse' },
  'ruag-lockheed-accordo-f35a': { it: 'ruag-lockheed-accordo-f35a', en: 'ruag-and-lockheed-martin-agreement-for-three-f-35as-in-emmen', de: 'ruag-und-lockheed-martin-vereinbarung-uber-drei-f-35a-in-emmen', fr: 'accord-entre-ruag-et-lockheed-martin-pour-trois-f-35a-a-emmen' },
+ 'attacco-software-pkzh': { it: 'attacco-software-pkzh', en: 'zurich-pension-fund-cyberattack', de: 'cyberangriff-pensionskasse-zurich', fr: 'cyberattaque-caisse-pension-zurich' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Thu, 15 Oct 2026 20:58:18 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 23:41:40 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,82 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Ciberattacco, colpita la cassa pensioni di Zurigo</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/attacco-software-pkzh/</link>
+      <description><![CDATA[Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L'attacco risale alla fine di settembre]]></description>
+      <content:encoded><![CDATA[## In breve
+- Dati personali PKZH sottratti in un attacco a un fornitore software
+- Fondi previdenziali e rendite non sono stati toccati
+- L'attacco risale alla fine di settembre
+- PKZH ha sporto denuncia penale
+
+## Fatti chiave
+- Cassa: PKZH, cassa pensioni della città di Zurigo
+- Attacco: contro un fornitore esterno di software
+- Quando: alla fine di settembre
+- Scenario peggiore: contatti, AVS, IBAN e dati previdenziali
+- Effetti: fondi previdenziali e pagamenti delle rendite non toccati
+- Sistema amministrativo: non sarebbe stato interessato
+- Azione: denuncia penale presentata dalla PKZH
+- Verifica: dati sottratti e persone coinvolte ancora da determinare
+
+Giovedì la PKZH, la cassa pensioni della città di Zurigo, ha comunicato che dati personali dei suoi assicurati sono stati sottratti. L'attacco informatico ha colpito un fornitore esterno di software, senza incidere sui fondi previdenziali né sull'erogazione delle rendite. La comunicazione separa quindi il furto di informazioni dall'erogazione delle prestazioni.
+
+Il ciberattacco risale alla fine di settembre. Poiché era previsto il passaggio a un nuovo sistema gestionale, la cassa aveva già inviato i propri dati all'azienda. La PKZH ha sporto denuncia penale. Nel frattempo sta cercando di determinare con esattezza quali informazioni siano state sottratte e quante persone siano coinvolte.
+
+### La ricostruzione dell'attacco
+
+Lo scenario peggiore elencato dalla cassa comprende i dati di contatto personali: nome, indirizzo, e-mail e numero di telefono. Nello stesso elenco compaiono il numero AVS, lo stato civile, le informazioni relative ai partner, il numero IBAN e dati previdenziali come il reddito assicurato e il patrimonio. La formulazione è condizionale: la fonte non presenta queste categorie come un elenco già confermato per ogni persona.
+
+Secondo la comunicazione, il sistema amministrativo usato da PKZH per gestire i patrimoni e versare le rendite non risulta coinvolto nell'attacco. Per la parte operativa della cassa, questo è dunque il limite indicato dalla fonte. Restano invece aperte la ricostruzione dell'insieme dei dati copiati e la quantificazione degli assicurati coinvolti.
+
+Il caso arriva dopo comunicazioni di altre casse pensioni svizzere. Nei giorni precedenti, altre casse, tra cui quella pubblica bernese, avevano reso noto di essere state vittima del ciberattacco. Il testo non specifica quali dati siano stati coinvolti nel caso bernese.
+
+Giovedì era stata ipotizzata anche una possibile partecipazione della cassa pensioni della Posta. La fonte precisa che non è accertata. Sul suo sito sono apparse delle avvertenze, ma questo elemento non trasforma l'ipotesi in una conferma. Il comunicato della PKZH collega invece in modo esplicito la trasmissione dei dati al progetto di nuovo sistema gestionale e alla violazione del fornitore esterno.
+## La portata pratica per gli assicurati
+
+Per chi vive o lavora in Svizzera ed è assicurato presso la PKZH, la notizia presenta due piani distinti: continuità della previdenza e riservatezza delle informazioni. Sul primo, la cassa comunica che fondi e pagamenti delle rendite non sono stati toccati; anche il sistema amministrativo usato per gestire patrimoni ed erogare prestazioni non sarebbe stato interessato. Sul secondo, l'eventuale fuga riguarda un insieme più ampio di semplici recapiti, perché lo scenario peggiore comprende numero AVS, IBAN e dati previdenziali. La fonte non comunica trasferimenti di denaro o un blocco delle rendite. Il dato disponibile riguarda la sottrazione di informazioni.
+
+### Cosa è certo e cosa resta aperto
+
+| Punto | Accertato o comunicato | Ancora da chiarire |
+|---|---|---|
+| Dati personali | La PKZH ha comunicato una sottrazione | Quali categorie sono state effettivamente prese |
+| Persone coinvolte | La cassa sta svolgendo il conteggio | Quante sono |
+| Patrimoni e rendite | Fondi e pagamenti non sono stati toccati | L'analisi completa presso il fornitore |
+| Cassa della Posta | Coinvolgimento non accertato | Eventuale conferma |
+
+Il passaggio a un nuovo sistema gestionale spiega perché i dati si trovassero presso un'azienda esterna: la fonte dice che erano stati trasmessi prima dell'attacco. Non dice che il sistema con cui PKZH amministra patrimoni e rendite sia stato colpito. Per il lettore, la differenza evita di confondere una fuga di dati con una modifica delle prestazioni previdenziali.
+
+Anche il riferimento alle altre casse va letto con precisione. La cassa pubblica bernese aveva già dichiarato di essere stata vittima del ciberattacco, ma il testo non attribuisce automaticamente a quel caso le medesime categorie di dati. Per la cassa pensioni della Posta, invece, il coinvolgimento resta non accertato, nonostante le avvertenze apparse sul sito. Finché PKZH non conclude la verifica, il numero degli interessati e l'elenco effettivo delle informazioni sottratte restano i due elementi decisivi.
+## Come seguire il caso senza confondere gli avvisi
+
+La fonte non descrive una procedura individuale con moduli, scadenze o numeri da chiamare. Offre però una sequenza di verifiche che evita conclusioni premature.
+
+### Quattro passaggi basati sulla comunicazione
+
+1. Separare le casse coinvolte. Il caso accertato riguarda PKZH. La cassa pubblica bernese è citata come vittima già annunciata; la Posta compare solo con un coinvolgimento non accertato e con avvertenze sul sito.
+
+2. Trattare l'elenco dei dati come scenario peggiore, non come conferma individuale. La PKZH sta verificando quali informazioni siano state sottratte e quante persone siano coinvolte.
+
+3. Tenere separati dati e prestazioni. La comunicazione indica che fondi previdenziali e pagamenti delle rendite non sono stati toccati e che il sistema amministrativo non sarebbe stato interessato.
+
+4. Registrare il solo atto formale indicato: la PKZH ha sporto denuncia penale. Questo è il passaggio procedurale riportato dalla fonte; non vengono descritti altri adempimenti per gli assicurati.
+
+Questo perimetro consente di non attribuire alla fonte istruzioni che non contiene. Non sono indicati un termine entro cui gli assicurati debbano rispondere, una modalità di notifica individuale, un documento da inviare o un canale dedicato. La notizia non consente quindi di fissare una scadenza personale.
+
+Il prossimo elemento verificabile sarà l'esito dell'analisi avviata dalla PKZH: quali dati risultano effettivamente sottratti e quante persone sono coinvolte. Fino ad allora, la distinzione più precisa resta questa: furto di dati confermato, ampiezza ancora da definire, prestazioni non toccate secondo la comunicazione.
+
+Per approfondire la previdenza, usa lo strumento AVS/LPP/rendita.
+
+*Fonte: [rsi.ch](https://www.rsi.ch/s/4167841)*]]></content:encoded>
+      <pubDate>Thu, 15 Oct 2026 23:41:40 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/attacco-software-pkzh</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-attacco-software-pkzh.webp" medium="image"/>
+    </item>
     <item>
       <title>RUAG e Lockheed Martin accordo per tre F-35A a Emmen</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/ruag-lockheed-accordo-f35a/</link>
@@ -3692,89 +3768,6 @@ Chi vuole trasformare la lettura del quadro delle imprese in una ricerca di dato
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/fallimenti-aziendali-svizzera-aumento</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fallimenti-aziendali-svizzera-aumento.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Casse pensioni: investimenti illiquidi al 36% del patrimonio</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/investimenti-illiquidi-pensione-2026/</link>
-      <description><![CDATA[Il 36% del patrimonio è in attività non immediatamente negoziabili La quota è cresciuta negli ultimi 15 anni Immobili, ipoteche e alternativi offrono stabilità]]></description>
-      <content:encoded><![CDATA[## In breve
-- Il 36% del patrimonio è in attività non immediatamente negoziabili
-- La quota è cresciuta negli ultimi 15 anni
-- Immobili, ipoteche e alternativi offrono stabilità, ma meno flessibilità
-- I rischi emergono con più fattori di stress insieme
-
-## Fatti chiave
-- Luogo → Zurigo
-- Studio → Risiko Check-up 2026 di Complementa
-- Quota → circa il 36% del patrimonio
-- Periodo → ultimi 15 anni
-- Attività → immobili, investimenti alternativi e ipoteche
-- Rischio → vendita ritardata o con sconti sul prezzo in caso di turbolenze
-
-ZURIGO – Nei portafogli delle casse pensioni svizzere gli investimenti cosiddetti illiquidi occupano uno spazio sempre maggiore. Con i tassi d'interesse bassi, la ricerca di nuove fonti di rendimento ha fatto crescere nettamente la quota di fondi allocata a queste attività.
-
-La diversificazione, secondo gli esperti, non è di per sé una cattiva idea. La contropartita è però un portafoglio meno flessibile: immobili, ipoteche e investimenti alternativi non possono essere negoziati con la stessa immediatezza delle azioni. Se una cassa deve vendere in tempi brevi, la transazione può diventare più difficile.
-
-### Il dato del Risiko Check-up 2026
-
-Il quadro emerge dal Risiko Check-up 2026 di Complementa. Lo studio indica che, negli ultimi 15 anni, la quota di investimenti illiquidi delle casse pensioni elvetiche è aumentata sensibilmente. Considerando immobili, investimenti alternativi e ipoteche, circa il 36% del patrimonio risulta ora collocato in attività non immediatamente negoziabili.
-
-Il vantaggio ricercato è la stabilità dei rendimenti. La fonte associa questa scelta alla ricerca di nuove fonti di rendimento in una fase di tassi d'interesse bassi. Ma la stessa struttura rende più complessa una vendita, soprattutto se il mercato immobiliare dovesse raffreddarsi bruscamente o se il debito di alcuni Paesi diventasse un problema.
-
-### Il momento dello stress
-
-Per gli esperti, la situazione resta gestibile finché i mercati rimangono stabili e le casse dispongono di liquidità sufficiente. Le difficoltà emergono quando più fattori di stress si presentano contemporaneamente. Tra gli scenari possibili, Complementa annovera una forte turbolenza dei mercati, durante la quale gli istituti potrebbero necessitare, nel breve periodo, di liquidità per far fronte agli impegni o modificare l'assetto dei portafogli.
-
-Una parte delle casse si prepara già puntando soprattutto su ulteriori investimenti in immobili svizzeri e infrastrutture, con l'obiettivo di limitare i rischi geopolitici. Se i mercati entrano in una fase di forte turbolenza, però, gli investimenti illiquidi possono essere ceduti solo con ritardo o a fronte di sconti considerevoli. Inoltre, rispetto ai titoli quotati in borsa, la loro valutazione e la misurazione dei risultati sono più complesse.
-
-Nel private equity e nel private debt, gli impegni di capitale degli investitori possono estendersi per più anni, mentre restano incerti sia i tempi sia l'entità dei ritorni. Complementa sottolinea dunque l'importanza di individuare tempestivamente il fabbisogno di liquidità e di conservare riserve adeguate.
-### Tre scenari da distinguere
-
-La lettura pratica del dato passa da una distinzione semplice: rendimento e liquidità non sono la stessa cosa. Un immobile, un'ipoteca o un investimento alternativo può contribuire a rendimenti stabili, ma non offre la stessa flessibilità di un'azione quando la cassa deve disporre rapidamente di denaro. Il 36% indicato da Complementa misura quindi anche il margine di manovra del portafoglio.
-
-| Situazione | Effetto sugli investimenti illiquidi |
-|---|---|
-| Mercati stabili e liquidità sufficiente | L'evoluzione non rappresenta un problema |
-| Turbolenza e bisogno di liquidità a breve | Vendita ritardata o con sconti sul prezzo |
-| Riorientamento del portafoglio | Valutazioni e misurazione dei risultati più complesse |
-
-Il rischio non si attiva con ogni oscillazione dei mercati. Secondo gli esperti diventa critico quando più fattori di stress coincidono: la cassa deve onorare impegni o riorientare il portafoglio, mentre una parte rilevante del patrimonio non è immediatamente negoziabile. In quel momento la differenza rispetto ai titoli quotati riguarda sia i tempi di vendita sia il prezzo ottenibile.
-
-### Perché l'immobiliare pesa
-
-Gli specialisti individuano un punto sensibile nell'immobiliare, che rappresenta più di un quinto del patrimonio delle casse pensioni. Se il settore perde dinamismo oppure affronta una correzione prolungata dei prezzi e della domanda, le vendite possono diventare più difficili e le valutazioni finire sotto pressione. Per una cassa, il problema non è soltanto il valore teorico dell'attivo: conta anche la possibilità di trasformarlo in liquidità quando serve.
-
-Private equity e private debt aggiungono una rigidità diversa. Gli investitori devono spesso onorare impegni di capitale su più anni, ma non conoscono con certezza il momento e l'ammontare dei flussi di ritorno. Questo può limitare la capacità di adattare rapidamente il portafoglio a condizioni mutate di mercato o liquidità. In una crisi, la scarsità improvvisa di liquidità può quindi trasformare un investimento pensato per il lungo periodo in uno svantaggio.
-
-Per ora, la situazione finanziaria attenua la pressione: la maggioranza delle casse pensioni svizzere dispone di un grado di copertura confortevole, in alcuni casi ai livelli record, e beneficia di rendimenti elevati. Questa solidità favorisce l'incremento degli investimenti in infrastrutture, immobili e altre attività alternative, ma non elimina il rischio legato alla concomitanza di più fattori di stress.
-### Una griglia operativa in cinque passaggi
-
-Per seguire il tema, il percorso pratico può partire dai criteri usati da Complementa. Rendimento e liquidità vanno letti separatamente, insieme alla risposta del portafoglio allo stress.
-
-1. Separare le categorie. Distinguere immobili, ipoteche e investimenti alternativi: sono le componenti incluse nel 36% delle attività non immediatamente negoziabili.
-2. Misurare il peso immobiliare. L'immobiliare supera un quinto del patrimonio. Prezzi e domanda vanno osservati perché una correzione prolungata può rendere più difficili le vendite e comprimere le valutazioni.
-3. Verificare gli impegni. Nel private equity e nel private debt il capitale può essere vincolato per più anni; tempi e ammontare dei ritorni restano incerti.
-4. Simulare lo stress. Esaminare insieme forte turbolenza dei mercati, bisogno di liquidità a breve termine e necessità di onorare impegni o riorientare il portafoglio.
-5. Controllare le riserve. Con più attività vincolate a lungo termine, diventa decisivo riconoscere per tempo i fabbisogni di liquidità e mantenere riserve sufficienti.
-
-### Il criterio per valutare le scelte
-
-Per limitare i rischi geopolitici, alcune casse intendono destinare ulteriori risorse a immobili svizzeri e infrastrutture. Questo orientamento non garantisce però liquidità: durante una turbolenza, la vendita può comunque richiedere tempo o uno sconto sul prezzo.
-
-Il confronto va fatto anche con i titoli quotati: per gli attivi illiquidi, la valutazione e la misurazione dei risultati sono più complesse. Se occorre riorientare il portafoglio rapidamente, questa complessità si somma ai tempi di vendita.
-
-> «Con l'aumentare delle attività vincolate a lungo termine, per una cassa pensioni diventa sempre più essenziale individuare tempestivamente i fabbisogni di liquidità e conservare riserve adeguate».
-
-Per chi segue la previdenza svizzera, la verifica utile è tripla: quota non negoziabile, impegni futuri e riserve disponibili. Sono i tre elementi che collegano la percentuale aggregata alla flessibilità effettiva del portafoglio.
-
-Per approfondire il tema della previdenza, consulta la guida alla pensione.
-
-*Fonte: [tio.ch](https://www.tio.ch/svizzera/economia/1956672/investimenti-casse-pensioni-illiquidi-rischi)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 11:35:59 GMT</pubDate>
-      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/investimenti-illiquidi-pensione-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-investimenti-illiquidi-pensione-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

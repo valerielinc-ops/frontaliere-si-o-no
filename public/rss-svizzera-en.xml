@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Oct 2026 20:58:18 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 23:41:40 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,82 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cyberattack hits Zurich’s pension fund</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/zurich-pension-fund-cyberattack/</link>
+      <description><![CDATA[PKZH personal data stolen in an attack on a software provider Pension funds and annuities were not affected The attack dates back to the end of September]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- PKZH personal data stolen in an attack on a software provider
+- Pension assets and pension payments were not affected
+- The attack dates back to the end of September
+- PKZH filed a criminal complaint
+
+## Key facts
+- Fund: PKZH, the pension fund of the City of Zurich
+- Attack: against an external software provider
+- When: at the end of September
+- Worst-case scenario: contact details, AVS, IBAN and pension data
+- Effects: pension assets and pension payments unaffected
+- Administrative system: reportedly not affected
+- Action: criminal complaint filed by PKZH
+- Verification: stolen data and affected people still to be determined
+
+On Thursday, PKZH, the pension fund of the City of Zurich, announced that personal data of its insured members had been stolen. The cyberattack targeted an external software provider, without affecting pension assets or pension payments. The statement thus distinguishes the theft of information from the payment of benefits.
+
+The cyberattack dates back to the end of September. Since a switch to a new management system was planned, the fund had already sent its data to the company. PKZH filed a criminal complaint. In the meantime, it is trying to determine precisely what information was stolen and how many people were affected.
+
+### Reconstructing the attack
+
+The worst-case scenario listed by the fund includes personal contact details: name, address, email and telephone number. The same list includes the AVS number, marital status, information about partners, the IBAN number and pension data such as insured income and assets. The wording is conditional: the source does not present these categories as a list already confirmed for every person.
+
+According to the statement, the administrative system used by PKZH to manage assets and pay pensions does not appear to have been involved in the attack. For the fund’s operations, this is therefore the limit indicated by the source. What remains unresolved, however, is reconstructing the full set of copied data and determining the number of insured members affected.
+
+The case follows announcements from other Swiss pension funds. In the preceding days, other funds, including the public-sector fund in Bern, had announced that they had fallen victim to the cyberattack. The text does not specify which data were involved in the Bern case.
+
+On Thursday, possible involvement by the Posta pension fund had also been raised. The source clarifies that this has not been established. Warnings appeared on its website, but this does not turn the hypothesis into a confirmation. The PKZH statement, by contrast, explicitly links the transmission of the data to the new management system project and the breach at the external provider.
+## The practical implications for insured persons
+
+For those who live or work in Switzerland and are insured with PKZH, the news has two distinct aspects: continuity of pension provision and the confidentiality of information. Regarding the former, the fund says that assets and pension payments have not been affected; the administrative system used to manage assets and pay benefits would also not have been affected. Regarding the latter, the potential leak concerns more than mere contact details, because the worst-case scenario includes an AHV number, an IBAN and pension data. The source does not report any money transfers or a suspension of pension payments. The available information concerns the theft of information.
+
+### What is certain and what remains open
+
+| Point | Confirmed or reported | Still to be clarified |
+|---|---|---|
+| Personal data | PKZH has reported a data theft | Which categories were actually taken |
+| People affected | The fund is determining the number | How many |
+| Assets and pensions | Funds and payments have not been affected | The complete analysis at the provider |
+| Posta's pension fund | Involvement not established | Possible confirmation |
+
+The transition to a new management system explains why the data were held by an external company: the source says that they had been transmitted before the attack. It does not say that the system PKZH uses to manage assets and pay benefits was hit. For readers, this distinction prevents confusing a data leak with a change in pension benefits.
+
+The reference to the other funds should also be read carefully. The Bernese public pension fund had already stated that it had fallen victim to the cyberattack, but the text does not automatically attribute the same categories of data to that case. As for Posta's pension fund, however, its involvement remains unconfirmed, despite the warnings that appeared on the website. Until PKZH completes its investigation, the number of people affected and the actual list of information stolen remain the two decisive elements.
+## How to follow the case without confusing the notices
+
+The source does not describe an individual procedure involving forms, deadlines or numbers to call. It does, however, offer a sequence of checks that avoids premature conclusions.
+
+### Four steps based on the communication
+
+1. Separate the funds involved. The confirmed case concerns PKZH. The Bernese public fund is mentioned as an already announced victim; Posta appears only with unconfirmed involvement and warnings on the website.
+
+2. Treat the list of data as a worst-case scenario, not as individual confirmation. PKZH is verifying which information was stolen and how many people are involved.
+
+3. Keep data and benefits separate. The communication states that pension funds and pension payments were not affected and that the administrative system would not have been affected.
+
+4. Record the only formal act indicated: PKZH has filed a criminal complaint. This is the procedural step reported by the source; no other requirements for insured persons are described.
+
+This scope makes it possible not to attribute instructions to the source that it does not contain. No deadline by which insured persons must respond, method of individual notification, document to send or dedicated channel is indicated. The news therefore does not make it possible to set a personal deadline.
+
+The next verifiable element will be the outcome of the analysis launched by PKZH: which data were actually stolen and how many people are involved. Until then, the most precise distinction remains this: data theft confirmed, scope still to be determined, benefits unaffected according to the communication.
+
+For more information about pensions, use strumento AVS/LPP/rendita.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4167841)*]]></content:encoded>
+      <pubDate>Thu, 15 Oct 2026 23:41:40 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/attacco-software-pkzh</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-attacco-software-pkzh.webp" medium="image"/>
+    </item>
     <item>
       <title>RUAG and Lockheed Martin agreement for three F-35As in Emmen</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/ruag-and-lockheed-martin-agreement-for-three-f-35as-in-emmen/</link>
@@ -3686,89 +3762,6 @@ Those who want to turn a reading of the business landscape into a search for emp
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/fallimenti-aziendali-svizzera-aumento</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fallimenti-aziendali-svizzera-aumento.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Pension funds: illiquid investments account for 36% of assets</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/illiquid-investments-pension-2026/</link>
-      <description><![CDATA[36% of the assets are in investments that are not immediately tradable The share has grown over the past 15 years Real estate, mortgages and alternative investments offer stability]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- 36% of the assets is held in investments that cannot be traded immediately
-- The share has increased over the past 15 years
-- Real estate, mortgages and alternative investments offer stability, but less flexibility
-- Risks emerge when multiple stress factors occur together
-
-## Key facts
-- Location → Zurich
-- Study → Complementa's 2026 Risk Check-up
-- Share → approximately 36% of assets
-- Period → past 15 years
-- Assets → real estate, alternative investments and mortgages
-- Risk → delayed sale or sale at price discounts in the event of turbulence
-
-ZURICH – In Swiss pension fund portfolios, so-called illiquid investments are taking up an increasingly large share. With low interest rates, the search for new sources of returns has caused the share of funds allocated to these assets to rise significantly.
-
-According to experts, diversification is not in itself a bad idea. The trade-off, however, is a less flexible portfolio: real estate, mortgages and alternative investments cannot be traded as quickly as shares. If a fund has to sell at short notice, the transaction may become more difficult.
-
-### The 2026 Risk Check-up finding
-
-The picture emerges from Complementa's 2026 Risk Check-up. The study indicates that, over the past 15 years, the share of illiquid investments held by Swiss pension funds has increased significantly. Taking real estate, alternative investments and mortgages into account, approximately 36% of assets are now invested in assets that cannot be traded immediately.
-
-The sought-after advantage is stable returns. The source associates this choice with the search for new sources of returns during a period of low interest rates. But the same structure makes a sale more complex, especially if the real estate market were to cool sharply or if the debt of some countries were to become a problem.
-
-### The moment of stress
-
-For experts, the situation remains manageable as long as markets remain stable and the funds have sufficient liquidity. Difficulties arise when several stress factors occur simultaneously. Among the possible scenarios, Complementa includes severe market turbulence, during which institutions may need liquidity in the short term to meet their obligations or adjust the structure of their portfolios.
-
-Some funds are already preparing by focusing primarily on further investments in Swiss real estate and infrastructure, with the aim of limiting geopolitical risks. If markets enter a phase of severe turbulence, however, illiquid investments can only be sold after a delay or at considerable discounts. Moreover, compared with securities listed on the stock exchange, their valuation and the measurement of returns are more complex.
-
-In private equity and private debt, investors' capital commitments may extend over several years, while both the timing and the magnitude of returns remain uncertain. Complementa therefore emphasizes the importance of identifying liquidity needs at an early stage and maintaining adequate reserves.
-### Three scenarios to distinguish
-
-The practical interpretation of the figure starts with a simple distinction: return and liquidity are not the same thing. A property, a mortgage or an alternative investment can contribute to stable returns, but it does not offer the same flexibility as a stock when the fund needs to raise cash quickly. The 36% indicated by Complementa therefore also measures the portfolio's room for manoeuvre.
-
-| Situation | Effect on illiquid investments |
-|---|---|
-| Stable markets and sufficient liquidity | The trend does not pose a problem |
-| Turbulence and short-term liquidity needs | Delayed sale or sale at a discount |
-| Portfolio reorientation | More complex valuations and performance measurement |
-
-The risk is not triggered by every market fluctuation. According to experts, it becomes critical when several stress factors coincide: the fund must meet obligations or reorient the portfolio, while a significant portion of its assets is not immediately tradable. At that point, the difference compared with listed securities concerns both the time needed to sell and the price that can be obtained.
-
-### Why real estate matters
-
-Specialists identify a point of vulnerability in real estate, which accounts for more than a fifth of pension funds' assets. If the sector loses momentum or faces a prolonged correction in prices and demand, sales may become more difficult and valuations may come under pressure. For a fund, the problem is not only the theoretical value of the asset: the possibility of converting it into liquidity when needed also matters.
-
-Private equity and private debt add a different kind of rigidity. Investors often have to honor capital commitments over several years, but they do not know with certainty the timing and amount of return flows. This can limit the ability to quickly adapt the portfolio to changed market or liquidity conditions. In a crisis, a sudden shortage of liquidity can therefore turn an investment intended for the long term into a disadvantage.
-
-For now, the financial situation eases the pressure: the majority of Swiss pension funds have a comfortable funding ratio, in some cases at record levels, and benefit from high returns. This financial strength supports increased investment in infrastructure, real estate and other alternative assets, but does not eliminate the risk associated with several stress factors occurring at the same time.
-### A five-step operational framework
-
-To follow the topic, the practical approach can start with the criteria used by Complementa. Returns and liquidity should be considered separately, together with the portfolio's response to stress.
-
-1. Separate the categories. Distinguish real estate, mortgages and alternative investments: these are the components included in the 36% of assets that are not immediately tradable.
-2. Measure the real estate weighting. Real estate accounts for more than one fifth of wealth. Prices and demand should be monitored because a prolonged correction can make sales more difficult and depress valuations.
-3. Check commitments. In private equity and private debt, capital may be tied up for several years; the timing and amount of returns remain uncertain.
-4. Simulate stress. Examine together severe market turbulence, the need for short-term liquidity and the need to honour commitments or reorient the portfolio.
-5. Check reserves. With more assets tied up for the long term, it becomes crucial to identify liquidity needs in good time and maintain sufficient reserves.
-
-### The criterion for assessing choices
-
-To limit geopolitical risks, some pension funds intend to allocate additional resources to Swiss real estate and infrastructure. This approach does not, however, guarantee liquidity: during turbulence, a sale may still require time or a discount on the price.
-
-The comparison should also be made with listed securities: for illiquid assets, valuation and performance measurement are more complex. If the portfolio needs to be reoriented quickly, this complexity is added to the time required for a sale.
-
-> “As the amount of assets tied up for the long term increases, it becomes increasingly essential for a pension fund to identify liquidity needs promptly and maintain adequate reserves”.
-
-For those following Swiss pension provision, the useful check is threefold: the non-tradable share, future commitments and available reserves. These are the three elements that link the aggregate percentage to the portfolio's actual flexibility.
-
-To learn more about pension provision, consult guida alla pensione.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1956672/investimenti-casse-pensioni-illiquidi-rischi)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 11:35:59 GMT</pubDate>
-      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/investimenti-illiquidi-pensione-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-investimenti-illiquidi-pensione-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>
