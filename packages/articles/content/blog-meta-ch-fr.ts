@@ -8396,6 +8396,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.attacco-software-pkzh.title': 'Cyberattaque, la caisse de pension de Zurich touchée',
     'blog.article.attacco-software-pkzh.excerpt': 'Des données personnelles de PKZH volées lors d\'une attaque contre un fournisseur de logiciels Les fonds de prévoyance et les rentes n\'ont pas été touchés L\'attaque remonte à fin septembre',
     'blog.article.attacco-software-pkzh.imageAlt': 'Bâtiment administratif suisse en ville, avec une allusion discrète à la cybersécurité',
+    'blog.article.mercatini-usato-svizzera.title': 'Marchés aux puces : garantie, trottoir et contrefaçons transfrontalières',
+    'blog.article.mercatini-usato-svizzera.excerpt': 'Articles d\'occasion : garantie d\'un an, sauf exclusion explicite « Vendu en l\'état » exclut la garantie Objets gratuits sur le domaine public : souvent interdits Contrefaçons',
+    'blog.article.mercatini-usato-svizzera.imageAlt': 'Étale de marché aux puces suisse avec objets d\'occasion et vendeur délivrant un reçu',
 };
 
 export default blogMetaChFr;

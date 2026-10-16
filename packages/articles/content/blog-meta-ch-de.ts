@@ -8396,6 +8396,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.attacco-software-pkzh.title': 'Cyberangriff: Pensionskasse Zürich getroffen',
     'blog.article.attacco-software-pkzh.excerpt': 'Persönliche Daten der PKZH bei einem Angriff auf einen Softwareanbieter entwendet Vorsorgegelder und Renten wurden nicht angetastet Der Angriff ereignete sich Ende September',
     'blog.article.attacco-software-pkzh.imageAlt': 'Schweizer Verwaltungsgebäude in der Stadt mit einem dezenten Hinweis auf Cybersicherheit',
+    'blog.article.mercatini-usato-svizzera.title': 'Gebrauchtwarenmärkte: Garantie, Gehweg und Fälschungen über die Grenze hinweg',
+    'blog.article.mercatini-usato-svizzera.excerpt': 'Gebrauchtwaren: ein Jahr Garantie, sofern nicht ausdrücklich ausgeschlossen «Verkauft wie gesehen» schließt die Garantie aus Kostenlose Gegenstände auf öffentlichem Grund: oft verboten Fälschungen',
+    'blog.article.mercatini-usato-svizzera.imageAlt': 'Schweizer Flohmarktstand mit Second-Hand-Waren und Verkäufer, der eine Quittung ausstellt',
 };
 
 export default blogMetaChDe;

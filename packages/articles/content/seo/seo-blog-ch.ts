@@ -106028,6 +106028,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercatini-usato-svizzera': {
+    title: 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
+    description: 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercatini, usato, garanzia, marciapiede',
+    ogTitle: 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
+    ogDescription: 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
+    canonicalPath: '/articoli-svizzera/mercatini-usato-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercatini usato: garanzia, marciapiede e falsi oltreconfine",
+      "description": "Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bancarella di mercatino dell'usato in Svizzera con venditore che rilascia ricevuta"
+      },
+      "datePublished": "2026-10-15T23:56:58+00:00",
+      "dateModified": "2026-10-15T23:56:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercatini-usato-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -8396,6 +8396,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attacco-software-pkzh.title': 'Ciberattacco, colpita la cassa pensioni di Zurigo',
     'blog.article.attacco-software-pkzh.excerpt': 'Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L\'attacco risale alla fine di settembre',
     'blog.article.attacco-software-pkzh.imageAlt': 'Edificio amministrativo svizzero in città, con un richiamo discreto alla sicurezza digitale',
+    'blog.article.mercatini-usato-svizzera.title': 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
+    'blog.article.mercatini-usato-svizzera.excerpt': 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
+    'blog.article.mercatini-usato-svizzera.imageAlt': 'Bancarella di mercatino dell\'usato in Svizzera con venditore che rilascia ricevuta',
 };
 
 export default blogMetaChIt;
