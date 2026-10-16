@@ -13272,6 +13272,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-lite-domestica-ticino.title': 'Femme blessée au Tessin : arrestation pour tentative d’homicide',
     'blog.article.arresto-lite-domestica-ticino.excerpt': 'Un ressortissant roumain de 28 ans a été arrêté le 9 octobre après une dispute domestique au Tessin.',
     'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Vue de Lugano au Tessin pour un article de faits divers locaux.',
+    'blog.article.vantaggi-servizi-associati-ocst.title': 'Assistance et avantages pour les frontaliers affiliés à l\'OCST',
+    'blog.article.vantaggi-servizi-associati-ocst.excerpt': 'OCST offre une assistance en matière de travail, de fiches de paie et de fiscalité Le Bureau des frontaliers s\'occupe du droit fiscal et de la sécurité sociale L\'AVS, la LADI et la LPP en font partie',
+    'blog.article.vantaggi-servizi-associati-ocst.imageAlt': 'Vue panoramique de Lugano avec un bureau moderne au premier plan',
 };
 
 export default blogMetaFr;

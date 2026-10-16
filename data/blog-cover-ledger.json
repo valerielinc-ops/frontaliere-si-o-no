@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5519
+      "6": 5520
     },
-    "publishedCovers": 7100,
+    "publishedCovers": 7101,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5324
+    "inferredRecords": 5325
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190368,6 +190368,33 @@
           "id": "svizzera-thailandia-aelss-visita-2026",
           "category": "novita",
           "date": "2026-10-15T18:53:35.114Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-vantaggi-servizi-associati-ocst": {
+      "cover": "/images/blog/article-vantaggi-servizi-associati-ocst.webp",
+      "hash": "bf751243e99cfb9883b7ced949f0c1e3ff00202fafd43ed1565e7c5c34c70d61",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "vantaggi-servizi-associati-ocst",
+          "category": "pratico",
+          "date": "2026-10-16T00:24:53.370Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

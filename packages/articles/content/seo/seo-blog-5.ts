@@ -109145,6 +109145,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vantaggi-servizi-associati-ocst': {
+    title: 'Assistenza e vantaggi per i frontalieri associati OCST',
+    description: 'OCST offre assistenza su lavoro, busta paga e fiscalità L\'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, vantaggi, associati, ocst',
+    ogTitle: 'Assistenza e vantaggi per i frontalieri associati OCST',
+    ogDescription: 'OCST offre assistenza su lavoro, busta paga e fiscalità L\'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano',
+    canonicalPath: '/articoli-frontaliere/vantaggi-servizi-associati-ocst/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistenza e vantaggi per i frontalieri associati OCST",
+      "description": "OCST offre assistenza su lavoro, busta paga e fiscalità L'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vantaggi-servizi-associati-ocst.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con ufficio moderno in primo piano"
+      },
+      "datePublished": "2026-10-16T00:24:53+00:00",
+      "dateModified": "2026-10-16T00:24:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vantaggi-servizi-associati-ocst/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

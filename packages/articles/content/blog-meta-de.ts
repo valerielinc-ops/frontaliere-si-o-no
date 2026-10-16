@@ -13269,6 +13269,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-lite-domestica-ticino.title': 'Frau im Tessin verletzt: Festnahme wegen versuchter vorsätzlicher Tötung',
     'blog.article.arresto-lite-domestica-ticino.excerpt': 'Am 9. Oktober wurde nach einem Streit im häuslichen Umfeld im Tessin ein 28-jähriger rumänischer Staatsangehöriger festgenommen.',
     'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Blick auf Lugano im Kanton Tessin zu einer lokalen Kriminalmeldung.',
+    'blog.article.vantaggi-servizi-associati-ocst.title': 'Unterstützung und Vorteile für OCST-Mitglieder unter den Grenzgängern',
+    'blog.article.vantaggi-servizi-associati-ocst.excerpt': 'OCST bietet Unterstützung bei Arbeit, Lohnabrechnung und Steuerfragen Das Grenzgängerbüro befasst sich mit Steuerrecht und sozialer Sicherheit AVS, LADI und LPP gehören dazu',
+    'blog.article.vantaggi-servizi-associati-ocst.imageAlt': 'Panoramablick auf Lugano mit modernem Büro im Vordergrund',
 };
 
 export default blogMetaDe;

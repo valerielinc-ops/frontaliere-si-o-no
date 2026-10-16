@@ -13271,6 +13271,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-lite-domestica-ticino.title': 'Donna ferita in Ticino: arresto per tentato omicidio',
     'blog.article.arresto-lite-domestica-ticino.excerpt': 'Arrestato il 9 ottobre un 28enne cittadino rumeno dopo una lite domestica in Ticino.',
     'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Veduta di Lugano in Canton Ticino per una notizia di cronaca.',
+    'blog.article.vantaggi-servizi-associati-ocst.title': 'Assistenza e vantaggi per i frontalieri associati OCST',
+    'blog.article.vantaggi-servizi-associati-ocst.excerpt': 'OCST offre assistenza su lavoro, busta paga e fiscalità L\'Ufficio frontalieri segue diritto tributario e sicurezza sociale AVS, LADI e LPP rientrano',
+    'blog.article.vantaggi-servizi-associati-ocst.imageAlt': 'Vista panoramica di Lugano con ufficio moderno in primo piano',
 };
 
 export default blogMetaIt;

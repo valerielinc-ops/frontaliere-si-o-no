@@ -13270,6 +13270,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-lite-domestica-ticino.title': 'Woman injured in Ticino: arrest for attempted murder',
     'blog.article.arresto-lite-domestica-ticino.excerpt': 'A 28-year-old Romanian citizen was arrested on October 9 after a domestic dispute in Ticino.',
     'blog.article.arresto-lite-domestica-ticino.imageAlt': 'Lugano view in Canton Ticino for a local crime news article.',
+    'blog.article.vantaggi-servizi-associati-ocst.title': 'Assistance and benefits for OCST-affiliated cross-border workers',
+    'blog.article.vantaggi-servizi-associati-ocst.excerpt': 'OCST offers assistance with employment, payslips and taxation The Cross-Border Workers Office handles tax law and social security AVS, LADI and LPP are included',
+    'blog.article.vantaggi-servizi-associati-ocst.imageAlt': 'Panoramic view of Lugano with a modern office in the foreground',
 };
 
 export default blogMetaEn;
