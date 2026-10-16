@@ -104563,10 +104563,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Freiheitsfonds ha raccolto quasi 100'000 franchi. 47 persone hanno evitato complessivamente 451 giorni di carcere. Nel 2024 ci sono stati 3'935 ingressi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lavori-pubblica-utilita-multe-pene.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-liberta-fondo-pene-sostitutive.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Persona con multa e simbolo del fondo libertà, Svizzera"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-14T21:58:02+00:00",
       "dateModified": "2026-10-14T21:58:02+00:00",
@@ -105847,10 +105852,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-agevolazioni-doganali-impiego.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Documenti doganali svizzeri e calendario con il 1° novembre 2026"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T18:35:16+00:00",
       "dateModified": "2026-10-15T18:35:16+00:00",
@@ -105886,10 +105896,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-svizzera-partecipa-fmi-bangkok-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-svizzera-thailandia-aelss-visita-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Incontro tra rappresentanti svizzeri e thailandesi a Bangkok per discutere dell'accordo di libero scambio"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T18:53:35+00:00",
       "dateModified": "2026-10-15T18:53:35+00:00",
@@ -105920,10 +105930,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d'acquisto Il Consiglio federale manterrebbe un veto",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-consiglio-federale.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-armi-sicurezza-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Lavoratori dell'industria della difesa svizzera in una fabbrica con bandiera svizzera"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T19:42:08+00:00",
       "dateModified": "2026-10-15T19:42:08+00:00",
@@ -105975,6 +105990,196 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruag-lockheed-accordo-f35a/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-attacco-software-pkzh': {
+    title: 'Ciberattacco, colpita la cassa pensioni di Zurigo',
+    description: 'Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L\'attacco risale alla fine di settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, ciberattacco, colpita, cassa, pensioni',
+    ogTitle: 'Ciberattacco, colpita la cassa pensioni di Zurigo',
+    ogDescription: 'Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L\'attacco risale alla fine di settembre',
+    canonicalPath: '/articoli-svizzera/attacco-software-pkzh/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ciberattacco, colpita la cassa pensioni di Zurigo",
+      "description": "Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L'attacco risale alla fine di settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-attacco-software-pkzh.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero in città, con un richiamo discreto alla sicurezza digitale"
+      },
+      "datePublished": "2026-10-15T23:41:40+00:00",
+      "dateModified": "2026-10-15T23:41:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-software-pkzh/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercatini-usato-svizzera': {
+    title: 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
+    description: 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercatini, usato, garanzia, marciapiede',
+    ogTitle: 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
+    ogDescription: 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
+    canonicalPath: '/articoli-svizzera/mercatini-usato-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercatini usato: garanzia, marciapiede e falsi oltreconfine",
+      "description": "Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bancarella di mercatino dell'usato in Svizzera con venditore che rilascia ricevuta"
+      },
+      "datePublished": "2026-10-15T23:56:58+00:00",
+      "dateModified": "2026-10-15T23:56:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercatini-usato-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-revoca-bonus-dirigenti-cs': {
+    title: 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
+    description: 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
+    keywords: 'frontalieri, ticino, svizzera, italia, dirigenti, credit, suisse, confermata',
+    ogTitle: 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
+    ogDescription: 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
+    canonicalPath: '/articoli-svizzera/revoca-bonus-dirigenti-cs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus",
+      "description": "Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-revoca-bonus-dirigenti-cs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede centrale di Credit Suisse in Svizzera"
+      },
+      "datePublished": "2026-10-16T00:42:38+00:00",
+      "dateModified": "2026-10-16T00:42:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revoca-bonus-dirigenti-cs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sistema-sanitario-zurigo-guida-2026': {
+    title: 'Sistema sanitario svizzero: guida LAMal 2026 nel canton Zurigo',
+    description: 'Guida pratica 2026 al sistema sanitario nel canton Zurigo: obblighi LAMal, scelta cassa malati, franchigie e come richiedere i sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Guida 2026: sistema sanitario e LAMal nel canton Zurigo',
+    ogDescription: 'Tutto quello che c\'è da sapere sul sistema sanitario nel canton Zurigo: obblighi, scelta della cassa, franchigie e gestione dei premi per il 2026.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-zurigo-guida-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero: guida LAMal 2026 nel canton Zurigo",
+      "description": "Guida pratica 2026 al sistema sanitario nel canton Zurigo: obblighi LAMal, scelta cassa malati, franchigie e come richiedere i sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sistema-sanitario-zurigo-guida-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di una moderna struttura sanitaria nel canton Zurigo"
+      },
+      "datePublished": "2026-10-16T01:51:47+00:00",
+      "dateModified": "2026-10-16T01:51:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-zurigo-guida-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposte-zurigo-aliquote-deduzioni': {
+    title: 'Imposte a Zurigo: aliquote e deduzioni | Frontaliere Ticino',
+    description: 'Guida alle imposte a Zurigo: struttura a tre livelli, competenze AFC e cantonali, moltiplicatore comunale e contributi sociali sulla busta paga.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, zurigo, aliquote, deduzioni',
+    ogTitle: 'Imposte Cantone Zurigo: aliquote e deduzioni',
+    ogDescription: 'Scopri come funzionano le imposte nel Cantone di Zurigo. Guida pratica su aliquote, deduzioni, moltiplicatore comunale e distinzione tra contributi sociali e tasse federali o cantonali.',
+    canonicalPath: '/articoli-svizzera/imposte-zurigo-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte a Zurigo: aliquote e deduzioni",
+      "description": "Guida alle imposte a Zurigo: struttura a tre livelli, competenze AFC e cantonali, moltiplicatore comunale e contributi sociali sulla busta paga.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposte-zurigo-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Zurigo sul lago con skyline cittadino sotto un cielo sereno"
+      },
+      "datePublished": "2026-10-16T02:17:44+00:00",
+      "dateModified": "2026-10-16T02:17:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-zurigo-aliquote-deduzioni/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

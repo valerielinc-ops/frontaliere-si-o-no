@@ -159,6 +159,8 @@ on:
       # The site shell the renderer reads through getSiteShell().
       - 'build-plugins/articlesSiteShellBootstrap.ts'
       - 'build-plugins/constants.ts'
+      # Shared markup consumed by the shell and emitted article pages.
+      - 'build-plugins/lib/adSlotHtml.ts'
       - 'build-plugins/htmlTemplate.ts'
       - 'build-plugins/batchWrite.ts'
       - 'build-plugins/spaBundleResolver.ts'
@@ -234,6 +236,29 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -272,11 +297,15 @@ jobs:
       # when it cannot — scripts/lib/cdn-shell-assets.mjs.
       - name: Ensure the static shell scripts are on the CDN
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       - name: Rerender and push ${{ matrix.section }} corpus
         id: render
         env:
+          # A complete corpus rerender previously took 7–11 minutes depending
+          # on the section; keep the shared npm bootstrap short and give this
+          # entrypoint the same bounded 30m budget for both sections.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '1800'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
@@ -319,7 +348,7 @@ jobs:
           # declares ("tsx": "^4.21.0"), matching publish-article-fast.mjs's
           # own invocation — a future tsx major cannot silently change loader
           # behaviour on this un-installed path.
-          npx -y tsx@4.23.15 scripts/rerender-article-corpus.mjs "${ARGS[@]}"
+          bash scripts/ci/run-pinned-tsx.sh scripts/rerender-article-corpus.mjs "${ARGS[@]}"
 
       - name: Report failure to GitHub Issues
         if: failure()

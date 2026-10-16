@@ -319,16 +319,16 @@ jobs:
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-01/coop.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-01/coop.started"
           export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-01/coop-ticino.crawl-exit"
           export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-01/coop.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
-          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
-          mv "$status_tmp" "$status_file"
+          printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
+          mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
@@ -336,6 +336,7 @@ jobs:
           worker_path="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-01/coop.started"
           watchdog_file="$RUNNER_TEMP/crawler-generation/group-01/coop.watchdog"
           worker_watchdog_max=330
@@ -344,32 +345,49 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 330)"
             worker_watchdog_minutes=330
           fi
+          resolveCrawlerTerminalStatus() {
+            local wrapper_exit="$1"
+            local worker_status=""
+            local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
+            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
+              terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
+            else
+              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
+            fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
+            if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
+              echo "::error::could not publish the crawler terminal status" >&2
+              return 1
+            fi
+            printf '\''%s\n'\'' "$terminal_exit"
+          }
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
-            printf '\''1\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 1
+            terminal_exit="$(resolveCrawlerTerminalStatus 1)"
+            exit "$terminal_exit"
           fi
           if ! command -v timeout >/dev/null 2>&1; then
             echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
-            printf '\''127\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 127
+            terminal_exit="$(resolveCrawlerTerminalStatus 127)"
+            exit "$terminal_exit"
           fi
           if ! command -v flock >/dev/null 2>&1; then
             echo "flock is unavailable; running this crawler without the group semaphore"
             timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
             flock_exit=$?
-            if [ -s "$status_file" ]; then
-              status="$(cat "$status_file" 2>/dev/null || true)"
-              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-            fi
-            terminal_exit="$flock_exit"
-            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
-            printf "%s\n" "$terminal_exit" > "$status_tmp"
-            mv "$status_tmp" "$status_file"
+            terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
             exit "$terminal_exit"
           fi
           while :; do
@@ -378,31 +396,24 @@ jobs:
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
-                exit 0
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
               fi
-              if [ -s "$status_file" ]; then
-                status="$(cat "$status_file" 2>/dev/null || true)"
-                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-                printf '\''1\n'\'' > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit 1
+              if [ -s "$worker_status_file" ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
                 # A worker that acquired a slot but disappeared before its atomic
                 # status write must not be retried or waited on for the full budget.
                 # Preserve the child status when available; 143 is the conventional
                 # fallback for a SIGTERM from the runner/host.
-                terminal_exit="$flock_exit"
-                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
-                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
-                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
               if [ "$flock_exit" -ne 1 ]; then
-                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit "$flock_exit"
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
               fi
             done
             sleep 1

@@ -1,13 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  createBoundedHreflangTargetResolver,
   findHreflangReciprocityFailures,
+  findHreflangReciprocityFailuresForPage,
   normalizeHreflangUrl,
 } from '../../scripts/lib/hreflang-reciprocity.mjs';
-import {
-  indexReciprocitySource,
-  summarizeReciprocityTarget,
-} from '../../scripts/audit-hreflang.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -79,53 +77,43 @@ describe('hreflang reciprocal return-link invariant', () => {
     expect(pageIndex.get(normalizeHreflangUrl(enUrl))).toBe(english);
   });
 
-  it('retains only parsed target metadata, including the noindex decision', () => {
-    const enUrl = `${BASE}/en/guide/`;
-    const target = { href: enUrl, file: '/dist/en/guide/index.html' };
-    const html = `<head><meta name="robots" content="noindex,follow"><link rel="alternate" hreflang="en" href="${enUrl}"></head>`;
+  it('matches the full-index verdict while bounding retained target metadata', async () => {
+    const sampledSources = [];
+    const pages = [];
+    const byUrl = new Map();
+    for (let i = 0; i < 40; i += 1) {
+      const itUrl = `${BASE}/guida-${i}/`;
+      const enUrl = `${BASE}/en/guide-${i}/`;
+      const italian = page(itUrl, { it: itUrl, en: enUrl, 'x-default': itUrl });
+      const missingBacklink = i === 17;
+      const english = page(enUrl, {
+        it: missingBacklink ? `${BASE}/wrong/` : itUrl,
+        en: enUrl,
+        'x-default': missingBacklink ? `${BASE}/wrong/` : itUrl,
+      });
+      pages.push(italian, english);
+      sampledSources.push(italian);
+      byUrl.set(normalizeHreflangUrl(itUrl), italian);
+      byUrl.set(normalizeHreflangUrl(enUrl), english);
+    }
 
-    summarizeReciprocityTarget(target, html);
+    let targetReads = 0;
+    const resolveTarget = createBoundedHreflangTargetResolver(async (href) => {
+      targetReads += 1;
+      return byUrl.get(normalizeHreflangUrl(href)) ?? null;
+    }, { maxEntries: 8 });
+    const observed = [];
+    for (const source of sampledSources) {
+      resolveTarget.remember(source.url, source);
+      observed.push(...await findHreflangReciprocityFailuresForPage(source, {
+        resolveTargetPage: resolveTarget.resolve,
+      }));
+    }
 
-    expect(target.noindex).toBe(true);
-    expect(target.alternates).toEqual(new Map([['en', enUrl]]));
-    expect(target).not.toHaveProperty('html');
-  });
-
-  it('reuses a target record for the same source file instead of retaining two alternate Maps', () => {
-    const itUrl = `${BASE}/guida/`;
-    const file = 'dist/guida/index.html';
-    const target = { href: itUrl, file, isTarget: true };
-    const alternates = new Map([
-      ['it', itUrl],
-      ['en', `${BASE}/en/guide/`],
-    ]);
-    const source = { url: itUrl, relPath: 'guida/index.html', file, alternates };
-    const pageIndex = new Map([[normalizeHreflangUrl(itUrl), target]]);
-
-    const indexedSource = indexReciprocitySource(pageIndex, source);
-
-    expect(indexedSource).toBe(target);
-    expect(pageIndex.get(normalizeHreflangUrl(itUrl))).toBe(target);
-    expect(indexedSource.alternates).toBe(alternates);
-    expect(indexedSource.isTarget).toBe(true);
-  });
-
-  it('keeps a distinct target file when duplicate canonical URLs resolve differently', () => {
-    const itUrl = `${BASE}/guida/`;
-    const target = { href: itUrl, file: 'dist/guida/index.html', isTarget: true };
-    const source = {
-      url: itUrl,
-      relPath: 'legacy-guida/index.html',
-      file: 'dist/legacy-guida/index.html',
-      alternates: new Map([['it', itUrl]]),
-    };
-    const pageIndex = new Map([[normalizeHreflangUrl(itUrl), target]]);
-
-    const indexedSource = indexReciprocitySource(pageIndex, source);
-
-    expect(indexedSource).toBe(source);
-    expect(pageIndex.get(normalizeHreflangUrl(itUrl))).toBe(target);
-    expect(target).not.toHaveProperty('alternates');
+    expect(observed).toEqual(findHreflangReciprocityFailures(sampledSources, { pageIndex: byUrl }));
+    expect(resolveTarget.cacheSize).toBeLessThanOrEqual(8);
+    expect(resolveTarget.peakCacheSize).toBe(8);
+    expect(targetReads).toBeGreaterThan(8);
   });
 
   it('allows a target served by another repository when the caller marks it external', () => {

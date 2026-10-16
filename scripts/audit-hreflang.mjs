@@ -53,15 +53,15 @@
  *   2. It read every file in full (`readFileSync`) to regex a handful of
  *      `<link rel=alternate>` tags that are only ever valid inside `<head>`.
  *      Reads now stop at the first `</head>` (scripts/lib/readHead.mjs).
- *   3. The target closure used to retain every parsed `<head>` and then clone
- *      the target pages into a second index. On the 4 GiB post-deploy runner
- *      that made the larger live corpus OOM before the report was written.
- *      Keep only parsed metadata, flatten regex captures so they release the
- *      source head, and reuse the closure Map as the reciprocity index.
+ *   3. The target closure retained metadata for nearly the entire corpus even
+ *      on a sampled run. Run 38689309946 reached the 4 GiB V8 heap ceiling on
+ *      5.5 M files after the earlier duplicate-index fix. Check each sampled
+ *      source immediately and keep only a bounded LRU of target metadata.
  *
- * Both are pure I/O eliminations: the same files are inspected and the same
- * verdicts are produced. On top of that the file walk and the per-file reads
- * now run concurrently instead of sequentially.
+ * The first two avoid redundant I/O; the third bounds retained memory. Every
+ * sampled source still gets its reciprocal check, and rotating buckets retain
+ * full source coverage over the configured sampling window. The file walk and
+ * per-file reads run concurrently instead of sequentially.
  *
  * Sampling: this gate additionally honours `AUDIT_SAMPLE_RATE` /
  * `AUDIT_SAMPLE_SALT` (the same rotating-bucket mechanism `audit:all` uses —
@@ -83,13 +83,17 @@ import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runn
 import { readHeadOrAll } from './lib/readHead.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
-import { findHreflangReciprocityFailures, normalizeHreflangUrl } from './lib/hreflang-reciprocity.mjs';
+import {
+  createBoundedHreflangTargetResolver,
+  findHreflangReciprocityFailuresForPage,
+} from './lib/hreflang-reciprocity.mjs';
 import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-alternates.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const PREFIXED_LOCALES = ['en', 'de', 'fr'];
+const skipReciprocityTarget = (href) => !href.startsWith(BASE_URL) || isExternallyServedUrl(href);
 
 // A noindex relocation/compat page can survive in a reassembled shard even
 // after the source emitter that produced it has changed. Its copied hreflang
@@ -135,41 +139,7 @@ export function isHistoricalMissingTarget(html, failureKind) {
 // far below the 65535 fd ulimit, high enough that Linux readahead stays
 // saturated.
 const IN_FLIGHT = 64;
-
-/** Keep only the parsed state needed after a target head has been inspected. */
-export function summarizeReciprocityTarget(target, html) {
-  target.noindex = isNoindexPage(html);
-  target.alternates = extractAlternates(html);
-}
-
-/**
- * Put a parsed source page in the reciprocity index, reusing its target entry
- * when both URLs resolve to the same file. Production clusters make nearly
- * every sampled source an alternate target too; keeping a second page object
- * and alternate Map for those pages doubled the dominant per-page state.
- */
-export function indexReciprocitySource(targets, source) {
-  const key = normalizeHreflangUrl(source.url, BASE_URL);
-  if (!key) return source;
-
-  const indexed = targets.get(key);
-  if (!indexed) {
-    source.isTarget = false;
-    targets.set(key, source);
-    return source;
-  }
-
-  // A target URL can resolve through a different file than a duplicate
-  // canonical source. Share metadata only when the physical page is the same;
-  // otherwise retain both records so the target is still read independently.
-  if (!indexed.alternates && indexed.file === source.file) {
-    const isTarget = indexed.isTarget === true;
-    Object.assign(indexed, source, { isTarget });
-    return indexed;
-  }
-
-  return source;
-}
+const RECIPROCITY_TARGET_CACHE_SIZE = 4096;
 
 /** Map an absolute canonical URL to the file that would serve it in dist/. */
 function urlToDistFile(url) {
@@ -321,8 +291,18 @@ async function main() {
   const historicalPagesWithFailure = new Set();
   let scanned = 0;
   let withHreflang = 0;
-  const reciprocitySources = [];
-  const reciprocityTargets = new Map();
+  const resolveReciprocityTarget = createBoundedHreflangTargetResolver(async (href) => {
+    const file = targetFileFor(href, distFiles);
+    if (!file) return null;
+    const html = await readHeadOrAll(file);
+    if (html === null || isNoindexPage(html)) return null;
+    return {
+      href,
+      relPath: path.relative(DIST, file),
+      file,
+      alternates: extractAlternates(html),
+    };
+  }, { baseUrl: BASE_URL, maxEntries: RECIPROCITY_TARGET_CACHE_SIZE });
 
   // Bounded-concurrency scan. Each lane pulls the next file off a shared
   // cursor; the per-file body below is byte-for-byte the previous sequential
@@ -354,26 +334,17 @@ async function main() {
           file,
           alternates,
         };
-        reciprocitySources.push(indexReciprocitySource(reciprocityTargets, source));
-        for (const href of alternates.values()) {
-          if (!href.startsWith(BASE_URL) || isExternallyServedUrl(href)) continue;
-          const targetFile = targetFileFor(href, distFiles);
-          if (!targetFile) continue;
-          const key = normalizeHreflangUrl(href, BASE_URL);
-          if (!key) continue;
-          const target = reciprocityTargets.get(key);
-          if (target) {
-            if (!target.isTarget && target.file !== targetFile) {
-              // A source may share a canonical URL with a different physical
-              // file. Preserve the old target-path resolution in that case.
-              reciprocityTargets.set(key, { href, file: targetFile, isTarget: true });
-            } else {
-              target.isTarget = true;
-              if (!target.file) target.file = targetFile;
-            }
-          } else {
-            reciprocityTargets.set(key, { href, file: targetFile, isTarget: true });
-          }
+        const sourceTargetFile = targetFileFor(source.url, distFiles);
+        if (sourceTargetFile === file) resolveReciprocityTarget.remember(source.url, source);
+        for (const issue of await findHreflangReciprocityFailuresForPage(source, {
+          baseUrl: BASE_URL,
+          skipTarget: skipReciprocityTarget,
+          resolveTargetPage: resolveReciprocityTarget.resolve,
+          getPagePath: (page) => page.file ? path.relative(DIST, page.file) : undefined,
+        })) {
+          failures.missingReturn.push(
+            flatString(`${issue.sourcePath}: hreflang="${issue.hreflang}" target ${issue.target} has no reciprocal link back to ${issue.source}`),
+          );
         }
       }
 
@@ -423,52 +394,6 @@ async function main() {
   await Promise.all(
     Array.from({ length: Math.min(IN_FLIGHT, sampled.length) }, () => lane()),
   );
-
-  // Read the target closure of the sampled source pages before checking the
-  // return-link invariant. This keeps sampled runs bounded while still
-  // checking both sides of every alternate edge they inspect; a full run
-  // naturally closes over the entire local graph.
-  const targetEntries = reciprocityTargets.values();
-  const targetLane = async () => {
-    while (true) {
-      const next = targetEntries.next();
-      if (next.done) return;
-      const target = next.value;
-      // Source pages already carry the exact alternates Map parsed in the
-      // first pass. Re-reading them into a second Map recreates the OOM shape.
-      if (target.alternates) continue;
-      const html = await readHeadOrAll(target.file);
-      if (html === null) continue;
-      summarizeReciprocityTarget(target, html);
-    }
-  };
-  await Promise.all(
-    Array.from({ length: Math.min(IN_FLIGHT, reciprocityTargets.size) }, () => targetLane()),
-  );
-
-  // Preserve the prior page set: noindex bridges and unreadable targets are
-  // not reciprocity pages. Delete them before using this Map as the index.
-  for (const [key, target] of reciprocityTargets) {
-    if (!target.alternates || target.noindex) reciprocityTargets.delete(key);
-  }
-
-  function* reciprocityPages() {
-    yield* reciprocitySources;
-    for (const target of reciprocityTargets.values()) {
-      if (target.isTarget && target.file) yield target;
-    }
-  }
-
-  for (const issue of findHreflangReciprocityFailures(reciprocityPages(), {
-    baseUrl: BASE_URL,
-    skipTarget: isExternallyServedUrl,
-    pageIndex: reciprocityTargets,
-    getPagePath: (page) => page.file ? path.relative(DIST, page.file) : undefined,
-  })) {
-    failures.missingReturn.push(
-      flatString(`${issue.sourcePath}: hreflang="${issue.hreflang}" target ${issue.target} has no reciprocal link back to ${issue.source}`),
-    );
-  }
 
   // Lanes complete out of order, so sort each bucket to keep the CI log (and
   // the audit report) stable between runs over identical input.
