@@ -13336,6 +13336,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Rallentamenti al valico di Gaggiolo dopo il nuovo dosso',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'Un nuovo dosso è stato installato sul lato svizzero Code e rallentamenti al valico Stabio-Gaggiolo Disagi soprattutto nelle prime ore del mattino Segnalati',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Code e rallentamenti al valico di Stabio-Gaggiolo dopo l\'installazione del nuovo dosso sul lato svizzero',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Dosso sicurezza Gaggiolo per pedoni e lavoratori',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'Il nuovo dosso è stato installato al valico di Gaggiolo.',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Dosso rallentatore al valico di Gaggiolo con posteggi ridisegnati e illuminazione migliorata per sicurezza di pedoni e lavoratori',
 };
 
 export default blogMetaIt;

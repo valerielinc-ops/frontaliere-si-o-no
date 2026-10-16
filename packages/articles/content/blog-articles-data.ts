@@ -45000,6 +45000,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dosso-gaggiolo-sicurezza-lavoratori',
+ category: 'novita',
+ date: '2026-10-16T15:40:56.045Z',
+ image: '/images/blog/article-dosso-gaggiolo-sicurezza-lavoratori.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -13334,6 +13334,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Verzögerungen am Grenzübergang Gaggiolo nach der neuen Bremsschwelle',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'Eine neue Bremsschwelle wurde auf der Schweizer Seite installiert Staus und Verzögerungen am Grenzübergang Stabio-Gaggiolo Beeinträchtigungen vor allem in den frühen Morgenstunden Gemeldet',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Staus und Verzögerungen an der Grenze Stabio-Gaggiolo nach Einbau des neuen Geschwindigkeitsrückhalteers auf der Schweizer Seite',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Sicherheitsschwelle in Gaggiolo für Fußgänger und Beschäftigte',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'Die neue Schwelle wurde am Grenzübergang Gaggiolo installiert.',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Schwelle am Zollübergang Gaggiolo mit neu gestalteten LKW-Parkplätzen und verbesserter Beleuchtung für die Sicherheit von Fußgängern und Arbeitern',
 };
 
 export default blogMetaDe;

@@ -109964,6 +109964,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dosso-gaggiolo-sicurezza-lavoratori': {
+    title: 'Dosso sicurezza Gaggiolo per pedoni e lavoratori',
+    description: 'Il nuovo dosso è stato installato al valico di Gaggiolo. L\'UDSC lo collega alla sicurezza, soprattutto di notte. Al valico i veicoli devono procedere a passo',
+    keywords: 'frontalieri, ticino, svizzera, italia, dosso, sicurezza, gaggiolo, pedoni',
+    ogTitle: 'Dosso sicurezza Gaggiolo per pedoni e lavoratori',
+    ogDescription: 'Il nuovo dosso è stato installato al valico di Gaggiolo.',
+    canonicalPath: '/articoli-frontaliere/dosso-gaggiolo-sicurezza-lavoratori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dosso sicurezza Gaggiolo per pedoni e lavoratori",
+      "description": "Il nuovo dosso è stato installato al valico di Gaggiolo. L'UDSC lo collega alla sicurezza, soprattutto di notte. Al valico i veicoli devono procedere a passo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-dosso-gaggiolo-sicurezza-lavoratori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dosso rallentatore al valico di Gaggiolo con posteggi ridisegnati e illuminazione migliorata per sicurezza di pedoni e lavoratori"
+      },
+      "datePublished": "2026-10-16T15:40:56+00:00",
+      "dateModified": "2026-10-16T15:40:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dosso-gaggiolo-sicurezza-lavoratori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -13337,6 +13337,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Ralentissements au poste-frontière de Gaggiolo après le nouveau ralentisseur',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'Un nouveau ralentisseur a été installé du côté suisse Files et ralentissements au poste-frontière de Stabio-Gaggiolo Désagréments surtout aux premières heures du matin Signalés',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Files d\'attente et ralentissements au poste frontière de Stabio-Gaggiolo dopo l\'installazione del nuovo dosso sul lato svizzero',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Ralentisseur de sécurité à Gaggiolo pour les piétons et les travailleurs',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'Le nouveau ralentisseur a été installé au poste-frontière de Gaggiolo.',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Dos ralentisseur au poste frontalier de Gaggiolo avec stationnement des poids lourds réaménagé et éclairage amélioré pour la sicurezza dei piétons e dei lavoratori',
 };
 
 export default blogMetaFr;

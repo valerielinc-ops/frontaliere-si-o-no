@@ -13335,6 +13335,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dosso-gaggiolo-disagi-frontalieri.title': 'Slowdowns at the Gaggiolo border crossing after the new speed bump',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.excerpt': 'A new speed bump has been installed on the Swiss side Queues and delays at the Stabio-Gaggiolo border crossing Disruptions reported especially in the early morning hours',
     'blog.article.dosso-gaggiolo-disagi-frontalieri.imageAlt': 'Queues and slowdowns at the Stabio-Gaggiolo border crossing after the new speed bump was installed on the Swiss side',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.title': 'Gaggiolo safety speed bump for pedestrians and workers',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.excerpt': 'The new speed bump has been installed at the Gaggiolo border crossing.',
+    'blog.article.dosso-gaggiolo-sicurezza-lavoratori.imageAlt': 'Speed bump at Gaggiolo customs crossing with redesigned truck parking and upgraded lighting for pedestrian and worker safety',
 };
 
 export default blogMetaEn;

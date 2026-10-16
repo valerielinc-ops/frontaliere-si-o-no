@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5548
+      "6": 5549
     },
-    "publishedCovers": 7129,
+    "publishedCovers": 7130,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5353
+    "inferredRecords": 5354
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190692,6 +190692,33 @@
           "id": "concerto-gallarate-uto-ughi-2026",
           "category": "novita",
           "date": "2026-10-16T11:26:50.827Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-dosso-gaggiolo-sicurezza-lavoratori": {
+      "cover": "/images/blog/article-dosso-gaggiolo-sicurezza-lavoratori.webp",
+      "hash": "25ac1159a3d5cd6adc187fa8f5b810cd5fcb971006eaf2e2569671b9d584f939",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "dosso-gaggiolo-sicurezza-lavoratori",
+          "category": "novita",
+          "date": "2026-10-16T15:40:56.045Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
