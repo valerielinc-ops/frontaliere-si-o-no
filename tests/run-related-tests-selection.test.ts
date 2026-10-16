@@ -141,6 +141,30 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).not.toContain('selection_failed=true');
   });
 
+  it('selects the source-backed AIL, JobBoard and Google News tests', () => {
+    const contracts = [
+      {
+        source: 'scripts/update-ail-jobs.mjs',
+        test: 'tests/ail-crawler.test.ts',
+      },
+      {
+        source: 'services/jobBoardSearchPipeline.ts',
+        test: 'tests/jobboard-interruptible-search-pipeline.test.ts',
+      },
+      {
+        source: 'scripts/lib/discovery/googleNewsUrlResolver.mjs',
+        test: 'tests/google-news-url-resolver.test.ts',
+      },
+    ];
+
+    for (const { source, test } of contracts) {
+      const root = fixture({}, [source, test]);
+      const result = select(root, [source]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      expect(result.stdout).toContain(test);
+    }
+  });
+
   it('does not turn a documented asset path into a directory-wide dependency', () => {
     const root = fixture({
       '.github/workflows/full-suite-dispatch.yml': 'name: full-suite\n',

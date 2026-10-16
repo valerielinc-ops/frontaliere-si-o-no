@@ -1,3 +1,4 @@
+// @ts-check
 // scripts/lib/discovery/googleNewsUrlResolver.mjs
 //
 // Resolve a Google News RSS wrapper link

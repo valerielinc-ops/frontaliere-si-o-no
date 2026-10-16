@@ -4,8 +4,12 @@
 // 29142084681 (2026-07-11): ~219 Google-News news candidates/run dropped as
 // "non risolto a fonte diretta", forcing the generator into evergreen. All
 // network is mocked — no live Google calls in CI.
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import * as ts from 'typescript';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
+const resolverPath = resolve(process.cwd(), 'scripts/lib/discovery/googleNewsUrlResolver.mjs');
 const mod = await import('../scripts/lib/discovery/googleNewsUrlResolver.mjs');
 const {
   decodeGoogleNewsUrl,
@@ -58,6 +62,38 @@ describe('decodeOfflineBase64 (legacy format, no network)', () => {
 });
 
 describe('decodeGoogleNewsUrl', () => {
+  it('keeps the resolver inside the project and checks its JavaScript types', () => {
+    const tsconfigPath = resolve(process.cwd(), 'tsconfig.json');
+    const loadedConfig = ts.readConfigFile(tsconfigPath, ts.sys.readFile);
+    expect(loadedConfig.error).toBeUndefined();
+    const project = ts.parseJsonConfigFileContent(
+      loadedConfig.config,
+      ts.sys,
+      process.cwd(),
+      undefined,
+      tsconfigPath,
+    );
+    expect(project.options.allowJs).toBe(true);
+    expect(project.fileNames).toContain(resolverPath);
+    expect(readFileSync(resolverPath, 'utf8')).toMatch(/^\/\/ @ts-check(?:\r?\n)/);
+
+    const program = ts.createProgram({
+      rootNames: [resolverPath],
+      options: {
+        ...project.options,
+        checkJs: true,
+        noEmit: true,
+        incremental: false,
+        tsBuildInfoFile: undefined,
+        types: ['node'],
+      },
+    });
+    const diagnostics = ts.getPreEmitDiagnostics(program).map((diagnostic) => (
+      ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n')
+    ));
+    expect(diagnostics).toEqual([]);
+  });
+
   it('short-circuits offline for a legacy token without hitting the network', async () => {
     const real = 'https://www.corriere.ch/economia/frontalieri-berna.html';
     const fetchImpl = vi.fn();
