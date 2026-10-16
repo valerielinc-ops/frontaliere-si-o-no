@@ -16,7 +16,7 @@ const municipalityHtml = `
     <body>
       <h1>Farmacia internazionale di Casciago</h1>
       <p>Via Giacomo Matteotti, 43 — Casciago (VA)</p>
-      <a href="tel:+390332227362">+39 0332 227362</a>
+      <a href="tel:+390332227362">+390332227362</a>
       <a href="mailto:farmaciadicasciago@enterpoint.it">farmaciadicasciago@enterpoint.it</a>
       <section><h2>Orario per il pubblico</h2><p>Orario continuato da lunedì a sabato: 8.30-20.00</p></section>
       <p>Consegna a domicilio.</p>
@@ -90,7 +90,7 @@ describe('pharmacy enrichment', () => {
     expect(result.warnings).toEqual([]);
     expect(record).toMatchObject({
       checkedAt,
-      phone: '+39 0332 227362',
+      phone: '+390332227362',
       contactEmail: 'farmaciadicasciago@enterpoint.it',
       openingHours: expect.arrayContaining([
         { dayOfWeek: 'monday', opens: '08:30', closes: '20:00' },
