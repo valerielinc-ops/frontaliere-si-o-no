@@ -737,7 +737,7 @@ async function main() {
       fs.mkdirSync(distDir, { recursive: true });
 
       console.log(`${LOG} ── rendering ${section} hubs into ${distDir}`);
-      const { hubResult, topicHubResult } = await renderHubsAndOffload({
+      const { landingResult, hubResult, topicHubResult } = await renderHubsAndOffload({
         rootDir: ROOT_DIR,
         distDir,
         section,
@@ -748,10 +748,11 @@ async function main() {
       for (const locale of LOCALES) {
         archivePathsByLocale[locale] = hubResult.pathsByLocale?.[locale] ?? [];
       }
-      const pathsByLocale = hubPathsByLocale({ hubResult, topicHubResult }, LOCALES);
+      const pathsByLocale = hubPathsByLocale({ landingResult, hubResult, topicHubResult }, LOCALES);
       const totalPaths = Object.values(pathsByLocale).reduce((n, l) => n + l.length, 0);
       console.log(
-        `${LOG} ${section}: ${hubResult.written} archive file(s) + ${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
+        `${LOG} ${section}: ${landingResult.written} root landing(s) + ${hubResult.written} archive file(s) + ` +
+          `${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
       );
 
       // A topic-hub render that produced nothing is NOT fatal — step 6b is
@@ -770,6 +771,7 @@ async function main() {
         pathsByLocale,
         archivePathsByLocale,
       });
+      for (const landingError of landingResult.errors ?? []) errors.push(landingError);
       for (const n of notes) console.log(`${LOG} ${n}`);
 
       const freshness = await checkCorpusFreshness(section, itemCount, {
@@ -791,8 +793,11 @@ async function main() {
       summary.sections[section] = {
         shardToken: shardTokenForSection(section),
         distDir,
+        landingWritten: landingResult.written,
         archiveWritten: hubResult.written,
         topicHubWritten: topicHubResult.written,
+        landingPathsByLocale: landingResult.pathsByLocale,
+        landingErrors: landingResult.errors,
         archiveLandingByLocale: Object.fromEntries(
           LOCALES.map((l) => [l, findArchiveLanding(archivePathsByLocale[l])]),
         ),
