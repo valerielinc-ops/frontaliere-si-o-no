@@ -13354,6 +13354,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.industria-ticino-futuro-lavoro.title': 'Industria in Ticino: carenza di personale e innovazione',
     'blog.article.industria-ticino-futuro-lavoro.excerpt': 'Negli ultimi 18 mesi, numerosi licenziamenti nell’industria ticinese Quindici licenziamenti collettivi seguiti nell’ultimo anno e mezzo Circa 16 mila',
     'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Impianto industriale moderno in Ticino con operatori qualificati',
+    'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, si accendono semafori… e proteste',
+    'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% contrari al progetto votato il 19 maggio 2019 Primi semafori a Cadenazzo il 29 agosto scorso USTRA stima un risparmio del 30% nel 2028 Voto → 73% di voti',
+    'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Semafori e traffico a Cadenazzo, Ticino, con veicoli in attesa al rosso.',
 };
 
 export default blogMetaIt;

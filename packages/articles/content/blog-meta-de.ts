@@ -13352,6 +13352,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.industria-ticino-futuro-lavoro.title': 'Industrie im Tessin: Personalmangel und Innovation',
     'blog.article.industria-ticino-futuro-lavoro.excerpt': 'In den letzten 18 Monaten zahlreiche Entlassungen in der Tessiner Industrie Fünfzehn verzeichnete Massenentlassungen in den letzten anderthalb Jahren Etwa 16 Tausend',
     'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Moderne Industrieanlage im Tessin mit qualifizierten Fachkräften',
+    'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, Ampeln gehen an… und Proteste',
+    'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% gegen das am 19.',
+    'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Verkehrsampeln und Verkehr in Cadenazzo, Tessin, mit Fahrzeugen, die an der roten Ampel warten.',
 };
 
 export default blogMetaDe;

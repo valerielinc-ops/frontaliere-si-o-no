@@ -13353,6 +13353,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.industria-ticino-futuro-lavoro.title': 'Industry in Ticino: staff shortages and innovation',
     'blog.article.industria-ticino-futuro-lavoro.excerpt': 'In the last 18 months, numerous layoffs in Ticino’s industry Fifteen collective redundancies recorded over the past year and a half Approximately 16 thousand',
     'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Modern industrial plant in Ticino with qualified operators',
+    'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, traffic lights come on… and protests flare up',
+    'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% opposed to the project voted on May 19, 2019 First traffic lights in Cadenazzo on August 29 last year USTRA estimates a 30% saving in 2028 Vote → 73% of votes',
+    'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Traffic lights and traffic in Cadenazzo, Ticino, with vehicles waiting at the red light.',
 };
 
 export default blogMetaEn;

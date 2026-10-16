@@ -13355,6 +13355,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.industria-ticino-futuro-lavoro.title': 'Industrie au Tessin : manque de personnel et innovation',
     'blog.article.industria-ticino-futuro-lavoro.excerpt': 'Au cours des 18 derniers mois, de nombreux licenciements dans l\'industrie tessinoise Quinze licenciements collectifs suivis au cours de la dernière année et demie Environ 16 000',
     'blog.article.industria-ticino-futuro-lavoro.imageAlt': 'Usine industrielle moderne au Tessin avec des opérateurs qualifiés',
+    'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, des feux s’allument… et des protestations',
+    'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% opposés au projet voté le 19 mai 2019 Premiers feux à Cadenazzo le 29 août dernier USTRA estime une économie de 30% en 2028 Vote → 73% des voix',
+    'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Feux de circulation et trafic à Cadenazzo, Tessin, avec des véhicules attendant au feu rouge.',
 };
 
 export default blogMetaFr;

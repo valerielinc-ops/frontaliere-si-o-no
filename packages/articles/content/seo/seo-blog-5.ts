@@ -110193,6 +110193,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-semafori-cadenazzo-proteste-ustra': {
+    title: 'PATTI CHIARI Cadenazzo, si accendono semafori… e proteste',
+    description: '73% contrari al progetto votato il 19 maggio 2019 Primi semafori a Cadenazzo il 29 agosto scorso USTRA stima un risparmio del 30% nel 2028 Voto → 73% di voti',
+    keywords: 'frontalieri, ticino, svizzera, italia, patti, chiari, cadenazzo, accendono',
+    ogTitle: 'Semafori a Cadenazzo: proteste e promesse di miglioramenti',
+    ogDescription: '73% contrari al progetto votato il 19 maggio 2019 Primi semafori a Cadenazzo il 29 agosto scorso USTRA stima un risparmio del 30% nel 2028 Voto → 73% di voti',
+    canonicalPath: '/articoli-frontaliere/semafori-cadenazzo-proteste-ustra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PATTI CHIARI Cadenazzo, si accendono semafori… e proteste",
+      "description": "73% contrari al progetto votato il 19 maggio 2019 Primi semafori a Cadenazzo il 29 agosto scorso USTRA stima un risparmio del 30% nel 2028 Voto → 73% di voti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-semafori-autostrade-ustra-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Semafori e traffico a Cadenazzo, Ticino, con veicoli in attesa al rosso."
+      },
+      "datePublished": "2026-10-16T21:09:57+00:00",
+      "dateModified": "2026-10-16T21:09:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/semafori-cadenazzo-proteste-ustra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
