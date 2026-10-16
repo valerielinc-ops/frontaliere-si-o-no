@@ -7,6 +7,8 @@ import {
   isEmmiJob,
   isTrustedDomain,
   extractEmmiVacancyHtml,
+  assignEmmiJobIds,
+  emmiStableRef,
 } from '../scripts/lib/emmi-job-parser.mjs';
 import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
 
@@ -181,5 +183,42 @@ describe('extractEmmiVacancyHtml', () => {
 
   it('returns nothing for a page without the ad sections, so the OHWS blocks are used', () => {
     expect(extractEmmiVacancyHtml('<html><body><section id="contact">x</section></body></html>')).toBe('');
+  });
+});
+
+// 2026-10-15: «Projektleiter/in Engineering» in Dagmersellen was published
+// twice under one Emmi reference code, at two vacancy URLs. One id for both
+// put a duplicate key in the slice and failed translate-pending's scatter
+// parity (run 38854975768).
+describe('assignEmmiJobIds', () => {
+  const a = 'https://jobs.emmi.com/offene-stellen/projektleiter-in-engineering/4803d1e3-93c2-4108-b84f-ad85dd574200';
+  const b = 'https://jobs.emmi.com/offene-stellen/projektleiter-in-engineering/32f9576c-c60f-4714-b63d-80d3f8bb3ce3';
+
+  it('a reference code alone keeps the id it always had', () => {
+    const [alone] = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: a }]);
+    const [first] = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: b }, { stableRef: 'REF-1', publicUrl: a }]);
+    expect(alone).toMatch(/^emmi-[0-9a-f]{12}$/);
+    // The first URL in sorted order (b) keeps the code's id.
+    expect(first).toBe(alone);
+  });
+
+  it('distinct postings under one code get distinct ids, in any listing order', () => {
+    const forward = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: a }, { stableRef: 'REF-1', publicUrl: b }]);
+    const backward = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: b }, { stableRef: 'REF-1', publicUrl: a }]);
+    expect(new Set(forward).size).toBe(2);
+    expect(backward).toEqual([forward[1], forward[0]]);
+  });
+
+  it('the same URL listed twice keeps one id, and no code falls back to the URL', () => {
+    const ids = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: a }, { stableRef: 'REF-1', publicUrl: a }, { stableRef: '', publicUrl: a }]);
+    expect(ids[0]).toBe(ids[1]);
+    expect(ids[2]).not.toBe(ids[0]);
+  });
+
+  it('reads the reference code first, then viewkey, then the listing id', () => {
+    expect(emmiStableRef({ szas: { sza_reference_code: ' R ' }, viewkey: 'V', id: 1 })).toBe('R');
+    expect(emmiStableRef({ viewkey: 'V', id: 1 })).toBe('V');
+    expect(emmiStableRef({ id: 7 })).toBe('7');
+    expect(emmiStableRef({})).toBe('');
   });
 });

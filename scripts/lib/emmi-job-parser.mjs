@@ -230,6 +230,44 @@ async function fetchEmmiVacancyHtml(url) {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
+/** The reference a listing's id is derived from (empty: none published). */
+export function emmiStableRef(listing = {}) {
+  const szas = listing?.szas || {};
+  return String(szas.sza_reference_code || listing?.viewkey || listing?.id || '').trim();
+}
+
+/**
+ * One id per listing. Normally `emmi-` + the hash of the reference code, or of
+ * the URL when there is none. Emmi reuses a reference code for distinct
+ * postings: on 2026-10-15 «Projektleiter/in Engineering» in Dagmersellen was
+ * published twice under one code, at two vacancy URLs. Both got the same id,
+ * the parser kept only one, the slice kept both, and translate-pending's
+ * scatter parity failed on the duplicate key (run 38854975768). Now, when a
+ * code covers several URLs, the first URL in sorted order keeps the code's id
+ * and every other URL gets the hash of code and URL, so each posting has its
+ * own id. Listings that repeat the same URL keep sharing one id and are merged
+ * as before.
+ *
+ * @param {Array<{stableRef: string, publicUrl: string}>} entries
+ * @returns {string[]}
+ */
+export function assignEmmiJobIds(entries = []) {
+  const urlsByRef = new Map();
+  for (const { stableRef, publicUrl } of entries) {
+    if (!stableRef) continue;
+    if (!urlsByRef.has(stableRef)) urlsByRef.set(stableRef, new Set());
+    urlsByRef.get(stableRef).add(publicUrl);
+  }
+  const hash = (value) => createHash('sha1').update(value).digest('hex').slice(0, 12);
+  return entries.map(({ stableRef, publicUrl }) => {
+    if (!stableRef) return `emmi-${hash(publicUrl)}`;
+    const [owner] = [...urlsByRef.get(stableRef)].sort();
+    return publicUrl === owner
+      ? `emmi-${hash(`emmi:${stableRef}`)}`
+      : `emmi-${hash(`emmi:${stableRef}|${publicUrl}`)}`;
+  });
+}
+
 export async function fetchAllEmmiJobs() {
   console.log(`🔍 Fetching Emmi jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
@@ -259,8 +297,12 @@ export async function fetchAllEmmiJobs() {
 
   const jobs = [];
   const seen = new Set();
+  const idByListing = assignEmmiJobIds(listings.map((listing) => ({
+    stableRef: emmiStableRef(listing),
+    publicUrl: listing.links?.directlink || CAREER_URL,
+  })));
 
-  for (const listing of listings) {
+  for (const [listingIndex, listing] of listings.entries()) {
     const szas = listing.szas || {};
 
     // Switzerland-only guard (board is CH-only; defensive check anyway).
@@ -292,13 +334,9 @@ export async function fetchAllEmmiJobs() {
     const descriptionHtml = vacancyHtml || [tasksHtml, reqsHtml].filter(Boolean).join('\n');
     const descriptionText = stripHtml(descriptionHtml) || stripHtml(tasksHtml);
 
-    // Stable reference: prefer prospective viewkey/reference, fallback URL hash.
-    const stableRef =
-      String(szas.sza_reference_code || listing.viewkey || listing.id || '').trim();
-    const urlHash = stableRef
-      ? createHash('sha1').update(`emmi:${stableRef}`).digest('hex').slice(0, 12)
-      : createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const id = `emmi-${urlHash}`;
+    // Stable reference: prefer prospective viewkey/reference, fallback URL
+    // hash; a reference shared by distinct postings is resolved up front.
+    const id = idByListing[listingIndex];
     if (seen.has(id)) continue;
     seen.add(id);
 
