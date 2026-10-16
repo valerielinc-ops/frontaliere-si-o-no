@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 16 Oct 2026 02:17:44 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 04:32:58 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,70 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cyberattaque : la caisse de pension de Zurich et Posta touchées</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/fuite-donnees-caisses-zurich-poste/</link>
+      <description><![CDATA[L'attaque contre le fournisseur remonte à fin septembre.]]></description>
+      <content:encoded><![CDATA[## En bref
+- L'attaque contre le fournisseur remonte à fin septembre.
+- PKZH enquête sur les données personnelles des assurés dérobées.
+- Les fonds et les versements des rentes n'ont pas été touchés.
+- Pour Posta, il n'est pas clair si les données sont compromises.
+
+## Faits clés
+- Fournisseur → entreprise externe de logiciels
+- Connexion → données de PKZH transmises pour un nouveau système de gestion
+- PKZH → plainte pénale déposée
+- Posta → attaque confirmée, données des assurés encore incertaines
+- Prestations → fonds et prestations de retraite non menacés
+
+### Le fournisseur au cœur de l’attaque
+Une attaque informatique visant un fournisseur externe de logiciels a touché la caisse de pensions de la ville de Zurich et, dans un contexte encore à clarifier, la caisse de pensions de la Posta. L’attaque remonte à fin septembre. PKZH a expliqué que ses propres données avaient été transmises au fournisseur en vue du passage à un nouveau système de gestion.
+
+Pour les assurés, le point essentiel réside dans la distinction entre les données personnelles et la gestion du patrimoine de prévoyance. Selon PKZH, ni les fonds de prévoyance ni les paiements des rentes ne sont concernés. Le système administratif utilisé pour gérer les patrimoines et verser les rentes n’aurait pas non plus été touché par l’attaque. PKZH a déposé une plainte pénale et cherche à déterminer l’ampleur de la soustraction, tant en ce qui concerne les informations concernées que le nombre de personnes impliquées.
+
+Dans le pire des cas, la fuite de données de la caisse zurichoise concernerait des informations de contact personnelles, notamment le nom, l’adresse, l’e-mail et le numéro de téléphone. Le scénario envisagé pourrait également inclure le numéro AVS, des données sur l’état civil et les partenaires, les coordonnées IBAN et d’autres informations de prévoyance, telles que le revenu assuré et le patrimoine. Cette description concerne le pire scénario, tandis que l’établissement de l’ampleur effective de la fuite est encore en cours.
+
+La caisse de pensions de la Posta a également annoncé avoir été victime de l’attaque visant le fournisseur. Il n’est toutefois pas encore clair si les données des assurés ont été compromises. Parmi les informations potentiellement concernées figurent des données de prévoyance, les coordonnées et l’adresse e-mail, ainsi que le nom, l’adresse, la date de naissance et le numéro AVS. La Posta précise que les avoirs de prévoyance et les prestations de retraite ne sont pas menacés.
+
+Le cas concerne également d’autres caisses. La semaine dernière, la soustraction de données de la caisse de pensions bernoise et de la caisse d’assurance des enseignants bernois avait été révélée. La situation reste donc nuancée pour l’instant : pour PKZH, les vérifications sur l’ampleur sont en cours ; pour la Posta, il n’est pas établi si les données des assurés ont été compromises, tandis que les communications citées confirment que l’attaque visant le fournisseur a touché plusieurs institutions de prévoyance.
+## Ce que cela signifie pour les assurés
+Pour un assuré, le principal élément pratique est la distinction entre l'éventuel vol d'informations et la sécurité des avoirs. Les communiqués ne décrivent pas la même situation pour chaque caisse : PKZH vérifie l'étendue des données, tandis que la Poste n'a pas encore établi si les données des assurés ont été compromises. Dans les deux cas, toutefois, la communication distingue les données personnelles des prestations de prévoyance.
+
+### Deux plans distincts
+| Caisse ou institution | Ce qui ressort du communiqué | Question en suspens |
+|---|---|---|
+| PKZH | Données transmises au fournisseur ; fonds, paiements et système administratif non touchés | Informations volées et nombre de personnes |
+| Caisse de pensions de la Poste | Attaque subie ; avoirs et prestations non menacés | Données des assurés effectivement compromises |
+| BPK et caisse des enseignants bernois | Vol de données révélé | Catégories de données non indiquées dans le texte |
+
+Cette grille évite deux erreurs. La première consiste à transformer le scénario du pire de PKZH en une liste définitive : la caisse vérifie encore si des données ont été volées et, le cas échéant, lesquelles. La seconde consiste à considérer comme déjà établie la compromission des données pour la Poste : le communiqué laisse précisément cette vérification en suspens.
+
+Le contenu des catégories rend les différences concrètes. Dans le cas de PKZH, les coordonnées, l'AVS, l'état civil, le partenaire, l'IBAN, le revenu assuré et le patrimoine appartiennent à des plans différents, mais apparaissent dans le même scénario du pire. Pour la Poste, en revanche, la note cite le nom, l'adresse, la date de naissance, l'AVS, les coordonnées, l'adresse e-mail et les données de prévoyance comme informations potentiellement concernées. Le chevauchement ne suffit pas à dire que l'exposition est identique.
+
+Le point technique est également défini : l'attaque a touché le fournisseur externe, tandis que le système administratif de PKZH qui gère les patrimoines et verse les rentes n'aurait pas été concerné. La source ne fait donc pas état d'un blocage des rentes. Elle décrit une vérification de l'étendue des données liées au fournisseur.
+
+Pour les personnes qui suivent leur situation de prévoyance, la conséquence pratique est de lire chaque communication selon la caisse et la catégorie : données certaines, données possibles, prestations non menacées. Les informations concernant la BPK et la caisse des enseignants bernois élargissent le périmètre de l'attaque, mais le texte ne fournit ni total des personnes concernées ni liste commune pour l'ensemble des institutions.
+## Comment s’orienter parmi les informations disponibles
+La source permet une démarche de lecture, et non une demande standard pour tous les assurés. Le premier critère consiste à comprendre quelle institution de prévoyance est citée ; le second, à distinguer ce qui est confirmé de ce qui reste à vérifier.
+
+### Quatre étapes pour ne pas confondre les statuts
+1. **Identifier la caisse.** Les communiqués concernent PKZH et la caisse de pension de la Posta ; la nouvelle précédente concernait la BPK et la caisse d’assurance des enseignants bernois. La situation d’une institution ne doit pas être automatiquement transposée aux autres.
+2. Distinguer le confirmé du possible. Pour PKZH, les vérifications concernant les informations dérobées et le nombre de personnes concernées sont toujours en cours. Pour la Posta, il n’est pas encore clair si les données des assurés ont été compromises.
+3. Garder les données et les prestations distinctes. Les catégories de données personnelles et de prévoyance énumérées dans les communiqués ne correspondent pas à une perte des avoirs. PKZH indique que les fonds et les versements des rentes n’ont pas été touchés ; la Posta affirme que les avoirs et les prestations de retraite ne sont pas menacés.
+4. Reconnaître les actes formels déjà mentionnés. PKZH a déposé une plainte pénale et la Posta a publié un communiqué sur l’attaque. Ce sont les étapes officielles citées par la source ; elles ne permettent pas à elles seules de déterminer quelles personnes sont concernées.
+
+Le texte n’indique pas de délai pour les assurés, de formulaire, de canal de demande ou de procédure individuelle à suivre. Il n’est donc pas possible d’attribuer à la source une date limite pour présenter une demande ou une liste définitive des données exposées. Les questions encore ouvertes sont précises : PKZH doit déterminer les informations dérobées et le nombre de personnes concernées ; pour la Posta, il faut encore clarifier si les données des assurés ont été compromises.
+
+La lecture la plus fidèle consiste donc à ne pas transformer une liste correspondant au pire scénario en une confirmation complète et à ne pas confondre l’attaque contre le fournisseur avec un risque pour les rentes. Pour approfondir le thème général des rentes, consulte rendite pensionistiche.
+
+*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/attacco-informatico-a-casse-pensioni-citt%c3%a0-zurigo-e-posta/92224356)*]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 04:32:58 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/dati-assicurati-casse-zurigo-posta</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-dati-assicurati-casse-zurigo-posta.webp" medium="image"/>
+    </item>
     <item>
       <title>Impôts à Zurich : taux et déductions</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/impots-zurich-baremes-deduct/</link>
@@ -3642,78 +3706,6 @@ Les personnes à la recherche d'un emploi peuvent consulter les aziende che assu
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/assunzioni-svizzera-cautela-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-assunzioni-svizzera-cautela-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Nouvel accord sur le commerce électronique</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/nouvel-accord-commerce-electronique/</link>
-      <description><![CDATA[Le Conseil fédéral lance la consultation sur l'ACE.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Le Conseil fédéral lance la consultation sur l'ACE.
-- L'accord réunit 67 membres de l'OMC.
-- La consultation se termine le 28 janvier 2027.
-- L'ACE interdit les droits de douane sur les transmissions électroniques.
-
-## Faits clés
-- Début : 14 octobre 2026
-- Échéance : 28 janvier 2027
-- Accord : plurilatéral sur le commerce électronique
-- Participants : 67 membres de l'OMC
-- Couverture : environ 70 pour cent du commerce mondial
-- Cadre : règles internationales communes
-- Partie suisse : Suisse
-- Déclaration ministérielle : 28 mars 2026
-
-### Le calendrier fédéral
-
-Le 14 octobre 2026, à Berne, le Conseil fédéral a lancé la procédure de consultation sur l'accord plurilatéral sur le commerce électronique, désigné par le sigle ACE. La consultation restera ouverte jusqu'au 28 janvier 2027. Par l'intermédiaire de l'ACE, 67 membres de l'OMC se dotent d'un cadre réglementaire commun pour le commerce électronique ; selon le communiqué, l'accord renforce également la sécurité juridique pour les entreprises.
-
-Les 67 membres de l'Organisation mondiale du commerce concernés par l'accord représentent au total environ 70 pour cent du commerce mondial. Parmi les participants figurent l'Union européenne et ses États membres, l'Australie, la Chine, le Japon, le Canada, Singapour, le Royaume-Uni et la Suisse. Comme l'accord est plurilatéral, l'adhésion reste ouverte à tous les membres de l'OMC.
-
-### Les règles contenues dans l'ACE
-
-Le communiqué présente l'ACE comme un instrument visant à faciliter le commerce numérique transfrontalier de biens et de services. La disposition présentée comme centrale interdit d'appliquer des droits de douane aux transmissions électroniques. L'accord favorise en outre la reconnaissance des procédures et des documents électroniques ainsi que la réalisation de transactions commerciales sans support papier.
-
-Parmi les dispositions visant à consolider la confiance dans le commerce numérique figurent la protection des consommateurs, la protection des données et la cybersécurité. Le communiqué rappelle que la Suisse a participé aux négociations dès le début et a contribué à la rédaction de l'accord. Le pays s'engage à promouvoir des règles modernes pour le commerce électronique tant au niveau bilatéral que dans le cadre de l'AELE. Selon la communication, l'ACE est cohérent avec les normes élevées poursuivies par la Suisse dans ses accords commerciaux les plus récents et tient compte des intérêts de la Suisse, notamment en ce qui concerne la protection des données.
-
-Les négociations se sont achevées sur le fond en 2024. La déclaration ministérielle du 28 mars 2026 a prévu l'entrée en vigueur au moyen d'une annexe contenant des dispositions provisoires, tandis que l'inclusion formelle dans le cadre juridique de l'OMC reste un objectif commun.
-## L'effet pratique pour les entreprises suisses
-
-### Davantage de prévisibilité dans les opérations numériques
-
-Pour l'économie suisse, l'impact décrit par l'ACE passe par la prévisibilité des opérations numériques transfrontalières. Le communiqué parle du commerce de biens et de services, de conditions-cadres plus fiables et d'une plus grande sécurité juridique. Ce sont ces éléments qui intéressent une entreprise suisse lorsqu'elle exerce des activités dans le commerce numérique transfrontalier avec l'une des parties à l'accord.
-
-La disposition sur les droits de douane a un champ d'application précis : la source parle de l'interdiction d'appliquer des droits de douane aux transmissions électroniques. À côté de cette règle, le texte indique la reconnaissance des procédures et des documents électroniques. Le troisième élément est la possibilité d'effectuer des transactions commerciales sans support papier. Pris ensemble, ces points dessinent un modèle d'échange fondé sur des procédures numériques reconnues entre les participants.
-
-Du côté de la confiance, l'accord lie le commerce électronique à la protection des consommateurs, à la protection des données et à la cybersécurité. Ils ne sont pas présentés comme des aspects distincts du commerce : le communiqué les indique comme des dispositions destinées à renforcer la confiance dans le numérique. Pour la Suisse, la protection des données est en outre mentionnée parmi les intérêts pris en considération dans l'accord.
-
-### La dimension concurrentielle
-
-Le communiqué attribue à l'ACE deux résultats spécifiques pour la Suisse : éviter que le pays ne soit désavantagé par rapport aux autres parties contractantes et améliorer les conditions de concurrence pour les entreprises suisses. La référence aux 67 membres et aux quelque 70 pour cent du commerce mondial montre la dimension internationale du cadre réglementaire.
-
-La structure plurilatérale maintient l'accord ouvert à l'adhésion de tous les membres de l'OMC. Cet élément élargit le périmètre prévu par le texte sans le transformer en un accord limité à la Suisse ou à un seul groupe de pays. La consultation permet désormais d'examiner le dossier, tandis que reste distinct l'objectif, encore partagé par les participants, de l'inclusion formelle de l'ACE dans le cadre juridique de l'OMC.
-## Comment suivre la consultation
-
-### Quatre étapes opérationnelles
-
-Toute personne qui suit le dossier sur le commerce électronique peut organiser la lecture de la communication du Conseil fédéral en quatre étapes, sans confondre le calendrier de la consultation avec le processus de l'accord.
-
-- Noter le 14 octobre 2026 comme date de début et le 28 janvier 2027 comme échéance de la consultation.
-- Définir le périmètre : commerce numérique transfrontalier de biens et de services entre les 67 membres de l'OMC.
-- Examiner les domaines opérationnels indiqués par l'ACE : transmissions électroniques, documents et procédures électroniques, transactions sans support papier.
-- Distinguer le régime provisoire de l'objectif de l'inclusion formelle dans le cadre juridique de l'OMC.
-
-Le dossier se décompose en trois étapes temporelles. Les négociations se sont pour l'essentiel achevées en 2024. À l'occasion de la 14e Conférence ministérielle ordinaire de l'OMC, le 28 mars 2026, 67 membres ont publié une déclaration ministérielle par laquelle ils sont convenus de mettre en vigueur l'ACE au moyen d'une annexe contenant des dispositions provisoires. Enfin, le 14 octobre 2026, le Conseil fédéral a lancé la procédure de consultation.
-
-Pour une entreprise suisse, l'examen interne peut suivre le même ordre. On examine d'abord si l'activité relève du commerce numérique transfrontalier de biens et de services. On isole ensuite les opérations fondées sur des transmissions électroniques et on examine la reconnaissance des documents et des procédures électroniques. Enfin, on évalue les références à la protection des consommateurs, à la protection des données et à la sécurité informatique.
-
-La position suisse doit être considérée conjointement avec la participation du pays aux négociations et avec son engagement, également dans le cadre de l'AELE, en faveur de règles modernes sur le commerce électronique. Pour qui doit retenir une seule échéance, celle indiquée par le Conseil fédéral est le 28 janvier 2027.
-
-*Source: [seco.admin.ch](https://www.seco.admin.ch/it/newnsb/cX62ZqR2mreH)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 17:04:53 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/nuovo-accordo-commercio-elettronico</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-nuovo-accordo-commercio-elettronico.webp" medium="image"/>
     </item>
   </channel>
 </rss>

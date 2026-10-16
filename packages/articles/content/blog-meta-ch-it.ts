@@ -8408,6 +8408,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-zurigo-aliquote-deduzioni.title': 'Imposte a Zurigo: aliquote e deduzioni',
     'blog.article.imposte-zurigo-aliquote-deduzioni.excerpt': 'Guida a tre livelli: federale, cantonale e comunale.',
     'blog.article.imposte-zurigo-aliquote-deduzioni.imageAlt': 'Vista panoramica di Zurigo sul lago con skyline cittadino sotto un cielo sereno',
+    'blog.article.dati-assicurati-casse-zurigo-posta.title': 'Attacco informatico: cassa pensioni Zurigo e Posta colpite',
+    'blog.article.dati-assicurati-casse-zurigo-posta.excerpt': 'L\'attacco al fornitore risale alla fine di settembre.',
+    'blog.article.dati-assicurati-casse-zurigo-posta.imageAlt': 'Edificio amministrativo svizzero legato alla gestione delle casse pensioni',
 };
 
 export default blogMetaChIt;

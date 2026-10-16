@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5526
+      "6": 5527
     },
-    "publishedCovers": 7107,
+    "publishedCovers": 7108,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5331
+    "inferredRecords": 5332
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190559,6 +190559,33 @@
           "date": "2026-10-16T03:33:05.895Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-dati-assicurati-casse-zurigo-posta": {
+      "cover": "/images/blog/article-dati-assicurati-casse-zurigo-posta.webp",
+      "hash": "c438252751fbb6a245e45215c87faf614b4143c48a99cc0e43dc0620b8e04333",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "dati-assicurati-casse-zurigo-posta",
+          "category": "pensione",
+          "date": "2026-10-16T04:32:58.586Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
         }
       ],
       "proofLevel": 6,

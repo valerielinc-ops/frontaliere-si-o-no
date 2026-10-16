@@ -106184,6 +106184,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dati-assicurati-casse-zurigo-posta': {
+    title: 'Attacco informatico: cassa pensioni Zurigo e Posta colpite',
+    description: 'L\'attacco al fornitore risale alla fine di settembre. PKZH indaga sui dati personali degli assicurati sottratti. Fondi e pagamenti delle rendite non sono stati',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, informatico, cassa, pensioni',
+    ogTitle: 'Dati degli assicurati: attacco a PKZH e Posta',
+    ogDescription: 'L\'attacco al fornitore risale alla fine di settembre.',
+    canonicalPath: '/articoli-svizzera/dati-assicurati-casse-zurigo-posta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco informatico: cassa pensioni Zurigo e Posta colpite",
+      "description": "L'attacco al fornitore risale alla fine di settembre. PKZH indaga sui dati personali degli assicurati sottratti. Fondi e pagamenti delle rendite non sono stati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-dati-assicurati-casse-zurigo-posta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero legato alla gestione delle casse pensioni"
+      },
+      "datePublished": "2026-10-16T04:32:58+00:00",
+      "dateModified": "2026-10-16T04:32:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dati-assicurati-casse-zurigo-posta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

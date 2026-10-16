@@ -8408,6 +8408,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-zurigo-aliquote-deduzioni.title': 'Taxes in Zurich: rates and deductions',
     'blog.article.imposte-zurigo-aliquote-deduzioni.excerpt': 'Guide to three levels: federal, cantonal and municipal.',
     'blog.article.imposte-zurigo-aliquote-deduzioni.imageAlt': 'Panoramic view of Zurich on the lake with city skyline under a clear sky',
+    'blog.article.dati-assicurati-casse-zurigo-posta.title': 'Cyberattack: Zurich pension fund and Swiss Post hit',
+    'blog.article.dati-assicurati-casse-zurigo-posta.excerpt': 'The attack on the supplier dates back to the end of September.',
+    'blog.article.dati-assicurati-casse-zurigo-posta.imageAlt': 'Swiss administrative building linked to pension fund management',
 };
 
 export default blogMetaChEn;

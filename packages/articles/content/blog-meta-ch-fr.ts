@@ -8408,6 +8408,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-zurigo-aliquote-deduzioni.title': 'Impôts à Zurich : taux et déductions',
     'blog.article.imposte-zurigo-aliquote-deduzioni.excerpt': 'Conduite à trois niveaux : fédéral, cantonal et communal.',
     'blog.article.imposte-zurigo-aliquote-deduzioni.imageAlt': 'Vue panoramique de Zurich sur le lac avec silhouette urbaine sous un ciel dégagé',
+    'blog.article.dati-assicurati-casse-zurigo-posta.title': 'Cyberattaque : la caisse de pension de Zurich et Posta touchées',
+    'blog.article.dati-assicurati-casse-zurigo-posta.excerpt': 'L\'attaque contre le fournisseur remonte à fin septembre.',
+    'blog.article.dati-assicurati-casse-zurigo-posta.imageAlt': 'Bâtiment administratif suisse lié à la gestion des caisses de pension',
 };
 
 export default blogMetaChFr;
