@@ -67,6 +67,7 @@ import {
   sourceLocaleTextForTranslation,
   titleLooksUntranslated,
 } from './lib/job-locale-utils.mjs';
+import { fillUnsupportedSourceTitleSlots } from './lib/dedicated-crawler-common.mjs';
 import {
   isTitleRepairQueueSlot,
   titleRepairDetectorVerdict,
@@ -1420,6 +1421,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
   // tier too, at the cost of reading every slice instead of stopping early.
   const candidates = []; // { file, jobIdx, job, slots }
   let scannedJobs = 0;
+  let unsupportedSourceFallbacks = 0;
   // Misura la copertura della coorte <24h nella scansione che stiamo gia'
   // facendo — la corsia freschezza ordina `candidates`, non la coda pending
   // (issue #7362). Stesso `now` per tutta la passata, cosi' la finestra non
@@ -1430,6 +1432,21 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
     const filePath = path.join(BY_CRAWLER_DIR, file);
     const data = readJson(filePath);
     if (!data || !Array.isArray(data.jobs)) continue;
+
+    // Argos has no Romansh model and the Codex title lane historically only
+    // admitted non-empty slots. Apply only the reviewed source-title mappings
+    // before queueing, so a source-only unsupported-language record is repaired
+    // by this lane instead of sending impossible `rm -> locale` requests.
+    let fallbackChanged = false;
+    if (!dryRun) {
+      for (const job of data.jobs) {
+        const repaired = fillUnsupportedSourceTitleSlots(job, LOCALES);
+        if (!repaired.changed) continue;
+        fallbackChanged = true;
+        unsupportedSourceFallbacks += repaired.filled;
+      }
+      if (fallbackChanged) writeMopupSlice(filePath, data);
+    }
 
     for (let jobIdx = 0; jobIdx < data.jobs.length; jobIdx++) {
       scannedJobs++;
@@ -1532,6 +1549,9 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
   }
 
   console.log(`📊 [local-mt] Scanned ${scannedJobs} jobs across ${sliceFiles.length} slices · ${candidates.length} candidates in the queue.`);
+  if (unsupportedSourceFallbacks > 0) {
+    console.log(`   🧩 ${unsupportedSourceFallbacks} unsupported-source title slot(s) repaired from reviewed mappings.`);
+  }
   console.log(`   ${jobsInScope.length} jobs in scope · ${requests.length} field translations queued.\n`);
   if (negativeCacheHits > 0) {
     console.log(`   ♻️  ${negativeCacheHits} fields skipped by the negative MT cache (TTL ${Math.round(NEGATIVE_CACHE_TTL_MS / 86400000)}d).`);

@@ -759,6 +759,52 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
 }
 
 /**
+ * Fill missing published title slots when the source language is not one of
+ * the four site locales. The local MT lane has no Romansh model, while the
+ * title repair lane historically admitted only non-empty slots; a source-only
+ * record could therefore pass through both lanes without a writer ever seeing
+ * its empty targets.
+ *
+ * Only explicit, quality-reviewed heuristic mappings are accepted here. An
+ * unknown unsupported-source title stays empty and remains blocking rather than
+ * receiving a generic or source-language placeholder.
+ *
+ * @param {object} job mutates the passed job in place
+ * @param {string[]} [locales] published locale keys to fill
+ * @returns {{ changed: boolean, filled: number }}
+ */
+export function fillUnsupportedSourceTitleSlots(job, locales = DEFAULT_LOCALES) {
+  const sourceLang = normalizeJobLocale(job?.sourceLang);
+  if (!isUnsupportedSourceLang(sourceLang)) return { changed: false, filled: 0 };
+
+  const sourceTitle = sourceLocaleTextForTranslation(
+    { ...job, sourceLang },
+    'title',
+    MIN_TITLE_CHARS,
+  );
+  if (!hasUsableTitle(sourceTitle)) return { changed: false, filled: 0 };
+
+  const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+    ? job.titleByLocale
+    : (job.titleByLocale = {});
+  let filled = 0;
+  for (const locale of locales) {
+    if (locale === sourceLang) continue;
+    const existing = String(titleByLocale[locale] || '').trim();
+    if (hasUsableTitle(existing)) continue;
+
+    const translated = heuristicTranslateJobTitle(sourceTitle, locale);
+    if (!hasUsableTitle(translated)
+      || translated.toLowerCase() === sourceTitle.toLowerCase()
+      || isLowQualityLocalizedTitle(translated)) continue;
+
+    titleByLocale[locale] = translated;
+    filled += 1;
+  }
+  return { changed: filled > 0, filled };
+}
+
+/**
  * Detect if a description contains code/script artifacts instead of real content.
  * Returns { isCode: boolean, reason: string } if code detected.
  */

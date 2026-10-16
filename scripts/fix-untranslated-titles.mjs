@@ -38,6 +38,7 @@ import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats as getCodexT
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import { fillUnsupportedSourceTitleSlots } from './lib/dedicated-crawler-common.mjs';
 import { isTitleRepairQueueVerdict, titleRepairQueueLocales, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -407,6 +408,8 @@ async function main() {
   const attemptState = readAttemptState();
   const candidates = [];
   const discoveryNowMs = Date.now();
+  const fallbackChangedFiles = new Set();
+  let fallbackFilled = 0;
   let backedOff = 0;
   const sliceCache = new Map();
 
@@ -419,6 +422,14 @@ async function main() {
     const sliceData = readJson(slicePath);
     sliceCache.set(file, sliceData);
     const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
+    if (!DRY_RUN) {
+      for (const job of jobs) {
+        const repaired = fillUnsupportedSourceTitleSlots(job, LOCALES);
+        if (!repaired.changed) continue;
+        fallbackChangedFiles.add(file);
+        fallbackFilled += repaired.filled;
+      }
+    }
     for (let jobIdx = 0; jobIdx < jobs.length; jobIdx++) {
       const job = jobs[jobIdx];
       // Same source-title fallback and admission predicate as the Argos
@@ -462,8 +473,11 @@ async function main() {
     dryRun: DRY_RUN,
     budgetOk,
   });
+  if (fallbackFilled > 0) {
+    console.log(`   🧩 ${fallbackFilled} unsupported-source title slot(s) repaired from reviewed mappings`);
+  }
   const slicesChanged = DRY_RUN ? 0 : persistTitleFixWork({
-    changedFiles: result.changedFiles,
+    changedFiles: new Set([...fallbackChangedFiles, ...result.changedFiles]),
     sliceCache,
     attemptState: result.attemptState,
     stateChanged: result.stateChanged,
