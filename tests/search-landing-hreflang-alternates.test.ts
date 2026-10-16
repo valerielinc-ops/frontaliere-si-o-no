@@ -42,6 +42,8 @@ import {
   ALTERNATE_LOCALES,
   buildLocaleAlternateBlock,
   buildSitemapAlternateBlock,
+  hasUnclaimedLocaleCluster,
+  localePathClaimKey,
 } from '../build-plugins/shared/localeAlternateBlock';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -124,6 +126,29 @@ describe('search-landing hreflang: alternates never outrun emitted pages (#5114)
     expect(xml).toContain(`hreflang="en"`);
     expect(xml).not.toContain(`hreflang="de"`);
     expect(xml).not.toContain(`hreflang="fr"`);
+  });
+});
+
+describe('expired soft-landing cluster claims stay shard-invariant', () => {
+  const paths = {
+    it: '/cerca-lavoro-appenzello/job-it/',
+    en: '/en/find-jobs-appenzell/job-en/',
+    de: '/de/jobs-in-appenzell/job-de/',
+    fr: '/fr/trouver-emploi-appenzell/job-fr/',
+  } as const;
+
+  it('accepts a complete cluster when none of its paths is claimed', () => {
+    expect(hasUnclaimedLocaleCluster(paths, new Set())).toBe(true);
+  });
+
+  it('voids the whole cluster when one locale path already belongs to an earlier slug', () => {
+    const claimed = new Set([localePathClaimKey(paths.en)]);
+    expect(hasUnclaimedLocaleCluster(paths, claimed)).toBe(false);
+  });
+
+  it('normalises URL-shaped and registry-shaped path keys identically', () => {
+    const claimed = new Set(['en/find-jobs-appenzell/job-en']);
+    expect(hasUnclaimedLocaleCluster({ ...paths, en: '//en/find-jobs-appenzell/job-en///' }, claimed)).toBe(false);
   });
 });
 

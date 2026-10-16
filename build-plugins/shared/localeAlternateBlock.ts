@@ -45,6 +45,34 @@ export const ALTERNATE_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 export type AlternateLocale = (typeof ALTERNATE_LOCALES)[number];
 
+/**
+ * Normalise a locale page path to the key used by the build's path-claim
+ * registries. Tracking data may contain either URL shape, while those
+ * registries store relative paths without a leading or trailing slash.
+ */
+export function localePathClaimKey(path: string): string {
+  return String(path ?? '').replace(/^\/+/, '').replace(/\/+$/, '');
+}
+
+/**
+ * Return true when every locale path is still available to one cluster.
+ *
+ * Sharded builds render one locale at a time, but the winner of a colliding
+ * tracking path must be identical on every shard. Callers therefore claim
+ * all four paths before applying their BUILD_LOCALE write filter and use this
+ * predicate to void the whole block when an earlier slug already won one
+ * member of the cluster.
+ */
+export function hasUnclaimedLocaleCluster(
+  paths: Readonly<Partial<Record<AlternateLocale, string>>>,
+  claimedPaths: ReadonlySet<string>,
+): boolean {
+  return ALTERNATE_LOCALES.every((locale) => {
+    const path = paths[locale];
+    return Boolean(path) && !claimedPaths.has(localePathClaimKey(path));
+  });
+}
+
 export interface LocaleAlternateBlockOptions {
   /**
    * Locales the build has decided to emit for this slug. Anything not in

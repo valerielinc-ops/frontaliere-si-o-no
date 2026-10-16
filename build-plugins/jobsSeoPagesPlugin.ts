@@ -89,6 +89,8 @@ import {
   buildLocaleAlternateBlock,
   buildLocaleAlternateEntries,
   buildSitemapAlternateBlock,
+  hasUnclaimedLocaleCluster,
+  localePathClaimKey,
   type AlternateLocale,
 } from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
@@ -13327,6 +13329,7 @@ ${staticAnalyticsHtml}
  // pages. Such a cluster must NOT be treated as full — force zero hreflang
  // so the audit-hreflang invariants (esp. #4) never see the mismatched set.
  const expiredHasFullCluster = expiredLocaleHreflangs.length === localeList.length
+ && hasUnclaimedLocaleCluster(paths, emittedSoftLandingPaths)
  && !cantonDriftCompatSlugs.has(slug);
  // When emitting the cluster, force x-default to be present alongside the
  // 4 locale entries — fall back to the IT alternate href when paths.it
@@ -13403,8 +13406,12 @@ ${staticAnalyticsHtml}
  // dropped by the dedup `continue` later — wasted ~3-4s wall. The set
  // is still populated AT WRITE TIME below so dedup membership reflects
  // actually-emitted paths, not just attempted ones.
- const __slPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
+ const __slPathKey = localePathClaimKey(relPath);
  if (emittedSoftLandingPaths.has(__slPathKey)) continue;
+ // Claim before the shard-ownership filter: every BUILD_LOCALE shard must
+ // reserve the same winner for a colliding tracking path, even though only
+ // one shard writes that locale's HTML.
+ emittedSoftLandingPaths.add(__slPathKey);
  // Per-locale shard build (BUILD_LOCALE): skip the expensive soft-landing
  // render/emit for locales this shard isn't responsible for (this loop is
  // ~57% of jobs-seo wall, 319k pages). The expired sitemap (it/main-owned,
@@ -13999,13 +14006,6 @@ ${staticAnalyticsHtml}
   else softLandingFullCount++;
  }
  jobsSeoReuse?.finish(softLandingReuse, softLandingHtml);
-
- // Dedup membership: __slPathKey is computed and checked at the top of
- // this locale iteration (hoisted to avoid running the full ph:ejp:*
- // pipeline on doomed paths). Only the `.add()` lives here so the set
- // reflects ACTUALLY-emitted paths, not just attempted ones — keeps
- // dist/.write-collisions.json clean across slugs that converge here.
- emittedSoftLandingPaths.add(__slPathKey);
 
  const __tEjpWrite = phaseTimer();
  const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml);
