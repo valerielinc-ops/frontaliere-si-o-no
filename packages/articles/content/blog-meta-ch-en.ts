@@ -8398,7 +8398,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attacco-software-pkzh.imageAlt': 'Swiss administrative building in an urban setting, with a discreet cybersecurity cue',
     'blog.article.mercatini-usato-svizzera.title': 'Secondhand markets: warranty, sidewalk and counterfeit goods across the border',
     'blog.article.mercatini-usato-svizzera.excerpt': 'Used: one-year warranty, unless explicitly excluded «Sold as seen» excludes the warranty Free items on public land: often prohibited Fakes',
-    'blog.article.mercatini-usato-svizzera.imageAlt': 'Swiss flea market stall with second-hand goods and vendor issuing a receipt',
+    'blog.article.mercatini-usato-svizzera.imageAlt': 'Illustration generated for this article',
     'blog.article.revoca-bonus-dirigenti-cs.title': 'Former Credit Suisse executives, cancellation of bonuses confirmed',
     'blog.article.revoca-bonus-dirigenti-cs.excerpt': 'The TF confirms the revocation of bonuses for former CS executives The TAF had upheld the appeals in March 2025 Bonus cuts: 100%, 50% and 25% for three levels The 19th',
     'blog.article.revoca-bonus-dirigenti-cs.imageAlt': 'Credit Suisse headquarters in Switzerland',

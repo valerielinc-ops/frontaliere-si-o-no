@@ -8398,7 +8398,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attacco-software-pkzh.imageAlt': 'Edificio amministrativo svizzero in città, con un richiamo discreto alla sicurezza digitale',
     'blog.article.mercatini-usato-svizzera.title': 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
     'blog.article.mercatini-usato-svizzera.excerpt': 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
-    'blog.article.mercatini-usato-svizzera.imageAlt': 'Bancarella di mercatino dell\'usato in Svizzera con venditore che rilascia ricevuta',
+    'blog.article.mercatini-usato-svizzera.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.revoca-bonus-dirigenti-cs.title': 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
     'blog.article.revoca-bonus-dirigenti-cs.excerpt': 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
     'blog.article.revoca-bonus-dirigenti-cs.imageAlt': 'Sede centrale di Credit Suisse in Svizzera',

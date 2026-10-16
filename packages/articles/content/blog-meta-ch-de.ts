@@ -8398,7 +8398,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.attacco-software-pkzh.imageAlt': 'Schweizer Verwaltungsgebäude in der Stadt mit einem dezenten Hinweis auf Cybersicherheit',
     'blog.article.mercatini-usato-svizzera.title': 'Gebrauchtwarenmärkte: Garantie, Gehweg und Fälschungen über die Grenze hinweg',
     'blog.article.mercatini-usato-svizzera.excerpt': 'Gebrauchtwaren: ein Jahr Garantie, sofern nicht ausdrücklich ausgeschlossen «Verkauft wie gesehen» schließt die Garantie aus Kostenlose Gegenstände auf öffentlichem Grund: oft verboten Fälschungen',
-    'blog.article.mercatini-usato-svizzera.imageAlt': 'Schweizer Flohmarktstand mit Second-Hand-Waren und Verkäufer, der eine Quittung ausstellt',
+    'blog.article.mercatini-usato-svizzera.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.revoca-bonus-dirigenti-cs.title': 'Ehemalige Führungskräfte von Credit Suisse: Streichung der Boni bestätigt',
     'blog.article.revoca-bonus-dirigenti-cs.excerpt': 'Das Bundesgericht bestätigt die Streichung der Boni für ehemalige CS-Führungskräfte Das Bundesverwaltungsgericht hatte den Beschwerden im März 2025 stattgegeben Kürzungen der Boni: 100%, 50% und 25% für drei Ebenen Der 19.',
     'blog.article.revoca-bonus-dirigenti-cs.imageAlt': 'Credit Suisse Hauptsitz in der Schweiz',

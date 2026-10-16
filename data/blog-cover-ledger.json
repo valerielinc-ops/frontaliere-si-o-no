@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5537
+      "6": 5541
     },
-    "publishedCovers": 7118,
+    "publishedCovers": 7122,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5342
+    "inferredRecords": 5346
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190600,6 +190600,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-arresto-cittadino-russo-como": {
+      "cover": "/images/blog/article-arresto-cittadino-russo-como.webp",
+      "hash": "cd9b68442a0ca77f5c7f184da5549d3488b31d11727bebeb9ea714a0643d22f8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arresto-cittadino-russo-como",
+          "category": "novita",
+          "date": "2026-10-15T22:59:14.775Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-azalee-calcio-campo-pradisera": {
       "cover": "/images/blog/article-azalee-calcio-campo-pradisera.webp",
       "hash": "8c91fd4ee9883c22f2816bf92b5f80d52bc4f9ee98b29e7c3e5d43456cb277e4",
@@ -190681,6 +190708,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-futura-volley-roma-vittoria": {
+      "cover": "/images/blog/article-futura-volley-roma-vittoria.webp",
+      "hash": "2a2a8344ab9f7b70611f2ef0b81f0c0a630e1ab34e478debd7f41b1465263166",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "futura-volley-roma-vittoria",
+          "category": "novita",
+          "date": "2026-10-16T06:52:09.711Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-lupo-abbattimenti-facilitati": {
       "cover": "/images/blog/article-lupo-abbattimenti-facilitati.webp",
       "hash": "b725654ebcd99a65400277514bc03c7143b1c35af2f1c83e47e3ba16ed4286d9",
@@ -190719,6 +190773,33 @@
           "id": "masha-orso-teatro-saronno",
           "category": "novita",
           "date": "2026-10-16T09:13:02.988Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-mercatini-usato-svizzera": {
+      "cover": "/images/blog/article-mercatini-usato-svizzera.webp",
+      "hash": "20ca32501b26189cdfb393a0a2b95c758a3c36dcacdc1c32215a3c696112f73d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "mercatini-usato-svizzera",
+          "category": "pratico",
+          "date": "2026-10-15T23:56:58.369Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -190827,6 +190908,33 @@
           "id": "tre-milioni-lettere-digitali-posta",
           "category": "novita",
           "date": "2026-10-16T07:08:57.024Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-varese-macello-belforte-visite-2026": {
+      "cover": "/images/blog/article-varese-macello-belforte-visite-2026.webp",
+      "hash": "001b71f8e2aa983df6603317adf86ce9b8c4da86673f1d239d9f45fdad871ecc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-macello-belforte-visite-2026",
+          "category": "novita",
+          "date": "2026-10-16T06:05:11.354Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

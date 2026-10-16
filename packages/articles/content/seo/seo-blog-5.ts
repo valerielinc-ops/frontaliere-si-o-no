@@ -109052,10 +109052,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Arrestato un cittadino russo di 26 anni Danneggiata la vetrata di un'autorimessa Tentata fuga dopo il fermo Carcere di Como in attesa della direttissima Cosa →",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/devastazione-vagone-como-fermo.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-arresto-cittadino-russo-como.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Veduta urbana della città di Como"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T22:59:15+00:00",
       "dateModified": "2026-10-15T22:59:15+00:00",
@@ -109510,10 +109515,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-lavori-autolaghi-ottobre-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-varese-macello-belforte-visite-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Vista di un'area verde rigenerata in Ticino, con persone che passeggiano e si rilassano"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T06:05:11+00:00",
       "dateModified": "2026-10-16T06:05:11+00:00",
@@ -109588,10 +109593,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-erreci-busto-marsala-vittoria.webp`,
+        "url": `${BASE_URL}/images/blog/article-futura-volley-roma-vittoria.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Partita di pallavolo femminile A2 tra Futura Volley Busto Arsizio e Roma, con Šiftar top scorer e vittoria 3-1"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T06:52:09+00:00",
       "dateModified": "2026-10-16T06:52:09+00:00",

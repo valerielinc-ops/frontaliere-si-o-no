@@ -106047,10 +106047,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mercatini-usato-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Bancarella di mercatino dell'usato in Svizzera con venditore che rilascia ricevuta"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T23:56:58+00:00",
       "dateModified": "2026-10-15T23:56:58+00:00",
