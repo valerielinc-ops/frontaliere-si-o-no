@@ -13,6 +13,7 @@ on:
       # filter prevents ledger -> L10 -> ledger recursion; pull_request below
       # still validates changes to the input contract.
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
       - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
@@ -30,6 +31,7 @@ on:
       - 'data/quota-history.jsonl'
       - 'data/loop-fleet/ledger/loop-health-history*.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
       - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
@@ -72,6 +74,7 @@ jobs:
             /data/quota-history.jsonl
             /data/loop-fleet/ledger/loop-health-history*.jsonl
             /scripts/ci/loop-l10-fleet-control.mjs
+            /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/collect-independent-fleet-outcome.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
@@ -84,26 +87,11 @@ jobs:
             /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l10-fleet-control.yml
           sparse-checkout-cone-mode: false
-      - name: Overlay durable ledger branch
+      - name: Overlay bounded durable health ledger
         id: overlay_durable_ledger
         env:
           LEDGER_BRANCH: ledger/loop-fleet
-        run: |
-          set -euo pipefail
-          if ! timeout --signal=TERM --kill-after=10s 60s git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
-            echo "overlay_status=failed" >> "$GITHUB_OUTPUT"
-            echo "::error::durable ledger branch $LEDGER_BRANCH is unavailable or the remote probe timed out; refusing to use the in-tree ledger."
-            exit 1
-          fi
-          if ! timeout --signal=TERM --kill-after=10s 60s git fetch --no-tags --depth 1 origin "$LEDGER_BRANCH"; then
-            echo "overlay_status=failed" >> "$GITHUB_OUTPUT"
-            echo "::error::durable ledger fetch for $LEDGER_BRANCH timed out or failed; refusing to use the in-tree ledger."
-            exit 1
-          fi
-          mkdir -p data/loop-fleet/ledger
-          git checkout FETCH_HEAD -- data/loop-fleet/ledger
-          echo "overlay_status=ready" >> "$GITHUB_OUTPUT"
-          echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
+        run: bash scripts/ci/overlay-durable-loop-fleet-ledger.sh l10
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
