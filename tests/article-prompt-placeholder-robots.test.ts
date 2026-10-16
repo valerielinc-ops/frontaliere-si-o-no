@@ -18,6 +18,8 @@ afterEach(() => {
 
 describe('article prompt-placeholder robots protection', () => {
   it('quarantines a synthetic placeholder translation in every affected locale', async () => {
+    // Keep the placeholder synthetic: the live corpus entry is repaired over
+    // time, so it cannot serve as a stable negative fixture.
     fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-placeholder-fixture-'));
     distDir = path.join(fixtureRoot, 'dist');
     const articleId = 'placeholder-render-robots-fixture';
