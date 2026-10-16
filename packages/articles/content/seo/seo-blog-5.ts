@@ -109808,6 +109808,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavorare-svizzera-conviene-ancora': {
+    title: 'Lavorare in Svizzera conviene ancora? | Frontaliere Ticino',
+    description: 'A settembre 2026 la disoccupazione svizzera è al 3% In un anno i disoccupati aumentano del 5,4% Nel secondo trimestre crescono gli impieghi del 2% Pubblicazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, conviene, ancora, settembre',
+    ogTitle: 'Lavorare in Svizzera conviene ancora? Analisi 2026',
+    ogDescription: 'A settembre 2026 la disoccupazione svizzera è al 3% In un anno i disoccupati aumentano del 5,4% Nel secondo trimestre crescono gli impieghi del 2% Pubblicazione',
+    canonicalPath: '/articoli-frontaliere/lavorare-svizzera-conviene-ancora/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare in Svizzera conviene ancora?",
+      "description": "A settembre 2026 la disoccupazione svizzera è al 3% In un anno i disoccupati aumentano del 5,4% Nel secondo trimestre crescono gli impieghi del 2% Pubblicazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lavorare-svizzera-conviene-ancora.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Monte Generoso in Ticino, Svizzera, con cielo azzurro e natura rigogliosa."
+      },
+      "datePublished": "2026-10-16T12:43:52+00:00",
+      "dateModified": "2026-10-16T12:43:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavorare-svizzera-conviene-ancora/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

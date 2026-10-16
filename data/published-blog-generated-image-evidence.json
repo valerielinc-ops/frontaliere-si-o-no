@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "e4715ff32acfeb072e72e85d48330be438dd7b80",
+  "commit": "fc3aa23fb195e50e411f3c5b65096064f0ec5c6b",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -121,7 +121,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic illustrated alpine market scene with no readable text, logos, recognizable faces, or depiction of a specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-caduta-scala-locate-varesino.webp": {
       "schema": 1,
@@ -160,7 +161,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic editorial illustration of a lakeside vineyard landscape; no text, logos, signatures, or recognizable people."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-carriere-politica-economica.webp": {
       "schema": 1,
@@ -319,7 +321,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic illustrated train-station scene with no readable text, logos, watermark, signature, identifiable person, or specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-fischiava-treno-gorla.webp": {
       "schema": 1,
@@ -398,7 +401,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Generic illustrative nighttime lakeside scene; no readable text, logos, recognizable faces, or specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-hotel-ticino-140-licenziati.webp": {
       "schema": 1,
@@ -517,7 +521,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic editorial illustration with no readable text, logos, identifiable faces, or depiction of a specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-lavaggio-denaro-avvocatura.webp": {
       "schema": 1,
@@ -636,7 +641,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Generic illustrated desk scene with an architectural landmark; no readable lettering, logos, faces, or depiction of a specific event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-lucerna-salute-mentale-banchi.webp": {
       "schema": 1,
@@ -675,7 +681,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic editorial illustration with no readable text, logos, recognizable people, or depiction of a specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-marcel-salathe-ia-commento.webp": {
       "schema": 1,
@@ -714,7 +721,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic illustrative mountain-lake landscape with no text, logos, faces, or depiction of a specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-monte-olimpino-treni-weekend.webp": {
       "schema": 1,
@@ -913,7 +921,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic illustrated alpine lakeside scene with abstract chart panels and a clock; no text, logos, faces, or depiction of a specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-riserve-valutarie-settembre-stabili.webp": {
       "schema": 1,
@@ -952,7 +961,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Generic illustrative office scene with abstract banknotes and charts; no readable text, logos, recognizable faces, or specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-scambio-dati-salariali-2027.webp": {
       "schema": 1,
@@ -1031,7 +1041,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic editorial-style illustration with no readable text, logos, recognizable faces, or depiction of a specific real event."
-      }
+      },
+      "kind": "generated"
     },
     "/images/blog/article-vendemmia-mendrisiotto-lavoratori-terra.webp": {
       "schema": 1,
@@ -23992,6 +24003,49 @@
         "notes": "Original generic synthetic petrol-station illustration with a Swiss landscape; no readable text, logos, people, or specific event."
       }
     },
+    "/images/blog/article-lavorare-svizzera-conviene-ancora.webp": {
+      "schema": 1,
+      "assetId": "article-lavorare-svizzera-conviene-ancora",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "4e93cf84869ab4dcb6ed260ffcbeb1337c71a2ed0a335ae37e4fd872e76aff00",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "fa844c6071e812f231fda28b6c9b9bc7c357dfe625dcadf4f86f62aa0ae13f1f",
+      "bytes": 216426,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T12:43:43.727Z",
+      "verifiedAt": "2026-10-16T12:43:52.524Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-lavorare-svizzera-conviene-ancora.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial landscape illustrating Ticino and cross-border commuting; no text, logos, or people."
+      }
+    },
     "/images/places/lugano-view.webp": {
       "schema": 1,
       "assetId": "lugano-view",
@@ -24029,7 +24083,8 @@
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
         "notes": "Original generic illustrated landscape; no readable text, logos, signatures, recognizable faces, or specific real event."
-      }
+      },
+      "kind": "generated"
     }
   }
 }

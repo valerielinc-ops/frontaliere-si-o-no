@@ -44960,6 +44960,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavorare-svizzera-conviene-ancora',
+ category: 'pratico',
+ date: '2026-10-16T12:43:52.854Z',
+ image: '/images/blog/article-lavorare-svizzera-conviene-ancora.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

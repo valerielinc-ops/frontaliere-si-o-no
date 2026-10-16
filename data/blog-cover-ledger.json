@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5542
+      "6": 5543
     },
-    "publishedCovers": 7123,
+    "publishedCovers": 7124,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5347
+    "inferredRecords": 5348
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190746,6 +190746,33 @@
           "id": "futura-volley-roma-vittoria",
           "category": "novita",
           "date": "2026-10-16T06:52:09.711Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lavorare-svizzera-conviene-ancora": {
+      "cover": "/images/blog/article-lavorare-svizzera-conviene-ancora.webp",
+      "hash": "fa844c6071e812f231fda28b6c9b9bc7c357dfe625dcadf4f86f62aa0ae13f1f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lavorare-svizzera-conviene-ancora",
+          "category": "pratico",
+          "date": "2026-10-16T12:43:52.854Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
