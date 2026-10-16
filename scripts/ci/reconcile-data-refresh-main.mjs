@@ -330,17 +330,30 @@ for (const file of conflicts) {
 }
 
 const compatOverrides = new Map();
-for (const file of conflicts) {
-  if (file !== CF_HOT_404_PATH || !compatPaths.has(file)) continue;
-  const content = mergeRefreshContent(file, blob(options.base, file), blob(options.main, file), blob(head, file));
+const applyCompatContent = (file, content) => {
+  const treeContent = blob(tree, file);
   if (content === null) {
+    if (treeContent !== null) compatOverrides.set(file, null);
     git(['update-index', '--remove', '--ignore-unmatch', '--', file]);
-  } else {
-    compatOverrides.set(file, content);
-    writeIndexBlob(file, content);
+    return;
   }
-}
+  if (treeContent !== content) compatOverrides.set(file, content);
+  writeIndexBlob(file, content);
+};
 if (options.compat) {
+  // Git can merge the pretty-printed accumulator cleanly while still choosing
+  // one side's complete snapshot. Always apply the semantic 3-way merge so a
+  // clean textual merge cannot discard a path added by the other refresh.
+  applyCompatContent(
+    CF_HOT_404_PATH,
+    mergeRefreshContent(
+      CF_HOT_404_PATH,
+      blob(options.base, CF_HOT_404_PATH),
+      blob(options.main, CF_HOT_404_PATH),
+      blob(head, CF_HOT_404_PATH),
+    ),
+  );
+
   // Even when Git sees identical manifest bytes, a compat shard driver may
   // have combined two different sets whose cardinality changes. Recompute the
   // manifest from the merged tree every time so totalPaths cannot go stale.
@@ -350,12 +363,7 @@ if (options.compat) {
     blob(options.main, COMPAT_MANIFEST_PATH),
     blob(head, COMPAT_MANIFEST_PATH),
   );
-  if (manifest === null) {
-    git(['update-index', '--remove', '--ignore-unmatch', '--', COMPAT_MANIFEST_PATH]);
-  } else {
-    if (conflicts.includes(COMPAT_MANIFEST_PATH)) compatOverrides.set(COMPAT_MANIFEST_PATH, manifest);
-    writeIndexBlob(COMPAT_MANIFEST_PATH, manifest);
-  }
+  applyCompatContent(COMPAT_MANIFEST_PATH, manifest);
 }
 
 const derivedConflicts = conflicts.filter((file) => derivedDatasetPaths.has(file));
