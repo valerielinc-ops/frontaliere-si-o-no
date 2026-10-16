@@ -13296,13 +13296,15 @@ ${staticAnalyticsHtml}
  return a.localeCompare(b);
  });
 
- // Set of (locale-prefixed) paths already emitted as soft-landing pages
- // in THIS phase. Multiple distinct slugs can map to the same
+ // Set of (locale-prefixed) paths claimed by the recency-ordered
+ // soft-landing sweep in THIS phase. Multiple distinct slugs can map to the same
  // `tracking[slug][locale]` value (1349 IT / 2999 EN / 3072 DE / 3224 FR
  // such collisions in the current registry — typically AI-translated
  // slugs converging on the IT path). Without dedup each collider would
  // fire `_qw` and produce a write-registry collision report; with dedup
- // only the most-recent (per the sort above) lands on disk.
+ // only the most-recent (per the sort above) lands on disk. The registry is
+ // intentionally claimed before BUILD_LOCALE filtering so every shard picks
+ // the same winner, even though only one shard writes each locale's HTML.
  const emittedSoftLandingPaths = new Set<string>();
 
  for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
@@ -13403,9 +13405,10 @@ ${staticAnalyticsHtml}
  // claimed this exact locale-prefixed path, skip BEFORE assembling
  // title / body / wc-robots / jsonld / shell. Run 26469566046 profiling
  // showed ~7k iterations doing the full ph:ejp:* pipeline only to be
- // dropped by the dedup `continue` later — wasted ~3-4s wall. The set
- // is still populated AT WRITE TIME below so dedup membership reflects
- // actually-emitted paths, not just attempted ones.
+ // dropped by the dedup `continue` later — wasted ~3-4s wall. The claim
+ // below deliberately precedes the BUILD_LOCALE ownership check: a shard
+ // that does not write this locale must still reserve the same path winner
+ // as every other shard.
  const __slPathKey = localePathClaimKey(relPath);
  if (emittedSoftLandingPaths.has(__slPathKey)) continue;
  // Claim before the shard-ownership filter: every BUILD_LOCALE shard must

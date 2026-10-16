@@ -223,11 +223,17 @@ describe('search-landing emitters route every hreflang block through the shared 
   it('jobsSeoPagesPlugin derives the alternate set from eligibility, not the locale list', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
     const calls = callSites(src);
-    // GSC keyword landings + search-stats leaders + combo landings + active
-    // job detail pages, whose per-locale deduplication can also remove a
-    // target after another locale has already been rendered.
-    expect(calls.length, 'expected every all-or-nothing hreflang emit site').toBe(4);
-    for (const call of calls) {
+    // Four sites are floor/dedup-gated: GSC keyword landings + search-stats
+    // leaders + combo landings + active job detail pages. The canton hub is
+    // the one full-locale site in this file: its four locale pages are always
+    // emitted, so its localeList eligibility is safe by construction.
+    expect(calls.length, 'expected every hreflang emit site').toBe(5);
+    const gatedCalls = calls.filter((call) => !/eligibleLocales:\s*localeList/.test(call));
+    expect(gatedCalls.length, 'expected every floor/dedup-gated hreflang site').toBe(4);
+    const alwaysCompleteCalls = calls.filter((call) => /eligibleLocales:\s*localeList/.test(call));
+    expect(alwaysCompleteCalls.length, 'expected only the always-emitted canton hub to use localeList').toBe(1);
+    expect(alwaysCompleteCalls[0]).toMatch(/buildCantonAwareSection/);
+    for (const call of gatedCalls) {
       expect(call).toMatch(/eligibleLocales:/);
       // The regression: the alternate set taken straight from the locale
       // list, decoupled from whether that locale's page is written.
