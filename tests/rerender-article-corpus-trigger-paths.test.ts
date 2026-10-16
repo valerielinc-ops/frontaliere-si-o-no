@@ -133,6 +133,12 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     for (const source of HUB_OVERLAY_SOURCES) expect(isHubCovered(source)).toBe(true);
   });
 
+  it('rerenders articles and hubs when their shared ad-slot markup changes', () => {
+    const source = 'build-plugins/lib/adSlotHtml.ts';
+    expect(isCovered(source)).toBe(true);
+    expect(isHubCovered(source)).toBe(true);
+  });
+
   it('covers every module the driver renders with, behind shims and symlinks', () => {
     const driver = fs.readFileSync(path.join(ROOT, DRIVER), 'utf8');
     const loaded = [...driver.matchAll(/await import\('(\.\.\/build-plugins\/[^']+)'\)/g)].map((m) =>
