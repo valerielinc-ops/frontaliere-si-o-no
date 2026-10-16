@@ -92,7 +92,13 @@ export function collectDescriptionFixTasks(jobs) {
       tasks.push({ job, locale, sl, sourceDesc });
     }
   }
-  return tasks;
+  // Grouped by language pair, job order kept inside each pair: Codex joins
+  // only queued texts of the same pair, and in job order the descriptions in
+  // flight were split across it/en/fr (run 38937686046: 3.5 texts per call in
+  // phase 2e against 11.3 in phase 2b).
+  const pair = (task) => `${task.sl}>${task.locale}`;
+  const pairOrder = [...new Set(tasks.map(pair))];
+  return pairOrder.flatMap((key) => tasks.filter((task) => pair(task) === key));
 }
 
 const DESCRIPTION_FIX_CONCURRENCY_MAX = 8;
