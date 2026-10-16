@@ -13297,6 +13297,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ocst-storia-frontalieri-ticino.title': 'OCST history: from 1919 to protecting cross-border commuters in Ticino',
     'blog.article.ocst-storia-frontalieri-ticino.excerpt': 'The Chamber of Labor was founded in 1902.',
     'blog.article.ocst-storia-frontalieri-ticino.imageAlt': 'Historic building in Bellinzona, symbolizing trade union history in Ticino.',
+    'blog.article.varese-macello-belforte-visite-2026.title': 'Varese: former Belforte Slaughterhouse opens for cleanup and guided tour',
+    'blog.article.varese-macello-belforte-visite-2026.excerpt': 'On October 17 at Varese, the former Belforte slaughterhouse opens to the public from 14.00 to present the cleanup and remediation work funded by PNRR, followed by an exhibition.',
+    'blog.article.varese-macello-belforte-visite-2026.imageAlt': 'View of a regenerated green area in Ticino, with people strolling and relaxing',
 };
 
 export default blogMetaEn;

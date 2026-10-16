@@ -44880,6 +44880,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-macello-belforte-visite-2026',
+ category: 'novita',
+ date: '2026-10-16T06:05:11.354Z',
+ image: '/images/blog/article-lavori-autolaghi-ottobre-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

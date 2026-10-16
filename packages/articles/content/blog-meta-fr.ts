@@ -13299,6 +13299,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ocst-storia-frontalieri-ticino.title': 'Histoire de l\'OCST : de 1919 à la protection des frontaliers au Tessin',
     'blog.article.ocst-storia-frontalieri-ticino.excerpt': 'La Chambre du travail naquit en 1902.',
     'blog.article.ocst-storia-frontalieri-ticino.imageAlt': 'Bâtiment historique à Bellinzona, symbolisant l\'histoire syndicale au Tessin.',
+    'blog.article.varese-macello-belforte-visite-2026.title': 'Varese : ex abattoir Belforte, dépollution et visites',
+    'blog.article.varese-macello-belforte-visite-2026.excerpt': 'Le 17 octobre à Varese, l’ancien abattoir de Belforte ouvre au public à partir de 14.00 pour présenter les travaux de dépollution et d’assainissement financés par le PNRR, suivis d’une exposition.',
+    'blog.article.varese-macello-belforte-visite-2026.imageAlt': 'Vue d\'un espace vert régénéré au Tessin, avec des personnes se promenant et se détendant',
 };
 
 export default blogMetaFr;

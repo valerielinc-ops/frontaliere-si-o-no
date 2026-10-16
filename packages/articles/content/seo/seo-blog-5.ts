@@ -109491,6 +109491,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-macello-belforte-visite-2026': {
+    title: 'Varese: ex Macello Belforte apre per bonifica e mostra guidata',
+    description: 'A Varese, il 17 ottobre, l\'ex Macello Civico di Belforte apre al pubblico per un incontro sui lavori di bonifica PNRR e una mostra guidata del Festival',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, macello, belforte, apre',
+    ogTitle: 'Varese: ex Macello Belforte, bonifica e mostra il 17 ottobre',
+    ogDescription: 'Sabato 17 ottobre, dalle 14.00 in via Tonale a Varese, l\'ex Macello Civico di Belforte apre per presentare i lavori di bonifica e risanamento ambientale, sostenuti dai fondi europei PNRR. Seguirà una mostra con mini tour guidato del Festival',
+    canonicalPath: '/articoli-frontaliere/varese-macello-belforte-visite-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: ex Macello Belforte apre per bonifica e mostra guidata",
+      "description": "A Varese, il 17 ottobre, l'ex Macello Civico di Belforte apre al pubblico per un incontro sui lavori di bonifica PNRR e una mostra guidata del Festival",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lavori-autolaghi-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un'area verde rigenerata in Ticino, con persone che passeggiano e si rilassano"
+      },
+      "datePublished": "2026-10-16T06:05:11+00:00",
+      "dateModified": "2026-10-16T06:05:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-macello-belforte-visite-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
