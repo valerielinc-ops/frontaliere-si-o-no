@@ -58,6 +58,14 @@ on:
       - 'build-plugins/topicClusterHubsData.ts'
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'
+      - 'packages/articles/engine/articlesHubCards.ts'
+      - 'packages/articles/engine/blogImageCdnFinalize.ts'
+      - 'packages/articles/engine/shared/articleReaders.ts'
+      - 'packages/articles/engine/shared/articleRegistryEntries.ts'
+      - 'packages/articles/engine/shared/articleReaderSource.mjs'
+      - 'packages/articles/engine/shared/sourceDates.ts'
+      - 'build-plugins/shared/articleSectionCore.mjs'
+      - 'services/articleSourceDates.ts'
       # Keep the checked-in content path as a trigger for preserved site-side
       # files; the corpus-main overlay sources are listed explicitly below.
       - 'packages/articles/content/**'
