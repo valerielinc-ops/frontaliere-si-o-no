@@ -13296,6 +13296,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.farmaci-generici-prezzi-svizzera.title': 'Médicaments génériques : combien la Suisse paie-t-elle de plus',
     'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Dix génériques : 241,56 francs en Suisse.',
     'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Étagère de médicaments génériques avec prix en francs suisses dans une pharmacie tessinoise',
+    'blog.article.ocst-storia-frontalieri-ticino.title': 'Histoire de l\'OCST : de 1919 à la protection des frontaliers au Tessin',
+    'blog.article.ocst-storia-frontalieri-ticino.excerpt': 'La Chambre du travail naquit en 1902.',
+    'blog.article.ocst-storia-frontalieri-ticino.imageAlt': 'Bâtiment historique à Bellinzona, symbolisant l\'histoire syndicale au Tessin.',
 };
 
 export default blogMetaFr;

@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5527
+      "6": 5528
     },
-    "publishedCovers": 7108,
+    "publishedCovers": 7109,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5332
+    "inferredRecords": 5333
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190586,6 +190586,33 @@
           "date": "2026-10-16T04:32:58.586Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ocst-storia-frontalieri-ticino": {
+      "cover": "/images/blog/article-ocst-storia-frontalieri-ticino.webp",
+      "hash": "f3eebc6cc2d0c16007ce2b83ec443371693c63d164bfe495ddbb15dea2fcffc2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ocst-storia-frontalieri-ticino",
+          "category": "pratico",
+          "date": "2026-10-16T05:14:59.548Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,

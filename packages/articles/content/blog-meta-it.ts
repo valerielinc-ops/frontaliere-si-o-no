@@ -13295,6 +13295,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.farmaci-generici-prezzi-svizzera.title': 'Farmaci generici: quanto paga di più la Svizzera',
     'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Dieci generici: 241,56 franchi in Svizzera.',
     'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Scaffata di farmaci generici con prezzi in franchi svizzero in una farmacia ticinese',
+    'blog.article.ocst-storia-frontalieri-ticino.title': 'Storia OCST: dal 1919 alla tutela dei frontalieri in Ticino',
+    'blog.article.ocst-storia-frontalieri-ticino.excerpt': 'La Camera del Lavoro nacque nel 1902.',
+    'blog.article.ocst-storia-frontalieri-ticino.imageAlt': 'Edificio storico a Bellinzona, simbolo della storia sindacale in Ticino.',
 };
 
 export default blogMetaIt;

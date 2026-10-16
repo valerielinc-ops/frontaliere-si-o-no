@@ -13293,6 +13293,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.farmaci-generici-prezzi-svizzera.title': 'Generika: Wie viel mehr zahlt die Schweiz',
     'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Zehn Generika: 241,56 Franken in der Schweiz.',
     'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Regal mit Generika und Preisen in Schweizer Franken in einer Tessiner Apotheke',
+    'blog.article.ocst-storia-frontalieri-ticino.title': 'Geschichte der OCST: von 1919 bis zum Schutz der Grenzgänger im Tessin',
+    'blog.article.ocst-storia-frontalieri-ticino.excerpt': 'Die Arbeiterkammer wurde 1902 gegründet.',
+    'blog.article.ocst-storia-frontalieri-ticino.imageAlt': 'Historisches Gebäude in Bellinzona, das die Geschichte der Gewerkschaften im Tessin symbolisiert.',
 };
 
 export default blogMetaDe;

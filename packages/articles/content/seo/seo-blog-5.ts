@@ -109447,6 +109447,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ocst-storia-frontalieri-ticino': {
+    title: 'Storia OCST: dal 1919 alla tutela dei frontalieri in Ticino',
+    description: 'La Camera del Lavoro nacque nel 1902. L\'OCST fu fondata il 18 maggio 1919. Gli statuti furono adottati il 16 novembre a Bellinzona. Molti frontalieri si',
+    keywords: 'frontalieri, ticino, svizzera, italia, storia, ocst, alla, tutela',
+    ogTitle: 'Storia OCST: dal 1919 alla tutela dei frontalieri in Ticino',
+    ogDescription: 'La Camera del Lavoro nacque nel 1902.',
+    canonicalPath: '/articoli-frontaliere/ocst-storia-frontalieri-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Storia OCST: dal 1919 alla tutela dei frontalieri in Ticino",
+      "description": "La Camera del Lavoro nacque nel 1902. L'OCST fu fondata il 18 maggio 1919. Gli statuti furono adottati il 16 novembre a Bellinzona. Molti frontalieri si",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ocst-storia-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio storico a Bellinzona, simbolo della storia sindacale in Ticino."
+      },
+      "datePublished": "2026-10-16T05:14:59+00:00",
+      "dateModified": "2026-10-16T05:14:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ocst-storia-frontalieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

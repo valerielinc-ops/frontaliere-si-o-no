@@ -13294,6 +13294,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.farmaci-generici-prezzi-svizzera.title': 'Generic drugs: how much more does Switzerland pay',
     'blog.article.farmaci-generici-prezzi-svizzera.excerpt': 'Ten generic drugs: 241,56 francs in Switzerland.',
     'blog.article.farmaci-generici-prezzi-svizzera.imageAlt': 'Shelf of generic drugs with Swiss franc prices in a Ticino pharmacy',
+    'blog.article.ocst-storia-frontalieri-ticino.title': 'OCST history: from 1919 to protecting cross-border commuters in Ticino',
+    'blog.article.ocst-storia-frontalieri-ticino.excerpt': 'The Chamber of Labor was founded in 1902.',
+    'blog.article.ocst-storia-frontalieri-ticino.imageAlt': 'Historic building in Bellinzona, symbolizing trade union history in Ticino.',
 };
 
 export default blogMetaEn;
