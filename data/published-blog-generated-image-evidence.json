@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "653d3bbcc8740abecad3484ce9a44c834c06e21e",
+  "commit": "56dd513497c838c26ebad19a187462648e8cc1f1",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -23241,6 +23241,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic parish hall interior with pews and a prepared performance stage; no people, text, logos, or event-specific cues."
+      }
+    },
+    "/images/blog/article-frontalieri-tassa-salute-omnibus-giugno-2026.webp": {
+      "schema": 1,
+      "assetId": "article-frontalieri-tassa-salute-omnibus-giugno-2026",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "49a69d06bdf7fefa6c621b4ea5f941082c7f31e8084628dec4fbaa5871514d97",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "38122e287afd47212a1ecd4f2b29c87b7c1804eed046fc4cbf856873edac955a",
+      "bytes": 194384,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T03:10:40.038Z",
+      "verifiedAt": "2026-10-16T03:10:47.497Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-frontalieri-tassa-salute-omnibus-giugno-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic illustration of Lugano, Lake Lugano, and Ticino; no people, text, logos, or event-specific content."
       }
     },
     "/images/places/lugano-view.webp": {
