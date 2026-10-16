@@ -6,9 +6,11 @@
  */
 import { describe, expect, it } from 'vitest';
 import {
+  filterConfederazioneApiRecords,
   confederazionePublishableBody,
   isRetiredFederalFiller,
 } from '../scripts/update-confederazione-jobs.mjs';
+import { VTG_VERWALTUNGSEINHEIT_IDS } from '../scripts/lib/federal-job-ownership.mjs';
 
 // Real API wording (jobs.admin.ch, "Laborant/in EFZ Biologie"), repeated to
 // reach an exact word count.
@@ -35,5 +37,47 @@ describe('Confederazione publish floor', () => {
     expect(isRetiredFederalFiller(padded)).toBe(true);
     expect(confederazionePublishableBody(job(padded), null)).toBeNull();
     expect(confederazionePublishableBody(job(words(49)), job(padded))).toBeNull();
+  });
+});
+
+describe('Confederazione shared federal-feed ownership', () => {
+  it('excludes the reported VTG posting by its source facet without reading a published VTG slice', () => {
+    const vtgPosting = {
+      viewkey: 'd2492cff-4df3-416d-8f31-a948ed1dfd83',
+      title: 'Stv Chef Kriminalpolizei',
+      attributes: { verwaltungseinheit_1132414: ['Gruppe Verteidigung'] },
+    };
+
+    expect(filterConfederazioneApiRecords([vtgPosting])).toEqual([]);
+  });
+
+  it('shares the VTG query IDs, excludes Agroscope, and keeps adjacent DEFR-owned jobs', () => {
+    const vtgPostings = VTG_VERWALTUNGSEINHEIT_IDS.map((id) => ({
+      attributes: { [`verwaltungseinheit_${id}`]: ['source unit'] },
+    }));
+    const agroscopePosting = {
+      attributes: { verwaltungseinheit_1083373: ['Agroscope'] },
+    };
+    const vtgByLabel = {
+      attributes: { verwaltungseinheit: ['Gruppe Verteidigung'] },
+    };
+    const secoPosting = {
+      attributes: { verwaltungseinheit_1083373: ['SECO'] },
+    };
+
+    expect(filterConfederazioneApiRecords([
+      ...vtgPostings,
+      agroscopePosting,
+      vtgByLabel,
+      secoPosting,
+    ])).toEqual([secoPosting]);
+  });
+
+  it('does not treat an empty VTG sub-facet as positive ownership evidence', () => {
+    const unresolvedPosting = {
+      attributes: { verwaltungseinheit_1132414: ['  '] },
+    };
+
+    expect(filterConfederazioneApiRecords([unresolvedPosting])).toEqual([unresolvedPosting]);
   });
 });

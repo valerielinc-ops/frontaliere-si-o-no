@@ -67,6 +67,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { VTG_VERWALTUNGSEINHEIT_FILTER } from './lib/federal-job-ownership.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -86,12 +87,9 @@ const VTG_HOST = 'jobs.admin.ch';
 /**
  * Prospective.ch API — medium 1000624 = Stellenportal Bund (jobs.admin.ch).
  *
- * VTG verwaltungseinheit IDs (military administration departments):
- *   1083433 — VBS/DDPS (Dept. Verteidigung)
- *   1132413 — Armasuisse
- *   1526654 — Nachrichtendienst NDB
- *   1132414 — Gruppe Verteidigung
- *   1083406 — Generalstab / Führungsstab der Armee
+ * The shared unit-ID list lives in lib/federal-job-ownership.mjs so the
+ * Confederazione crawler can apply the same ownership boundary to its
+ * unfiltered feed without depending on a concurrently published VTG slice.
  *
  * The production discovery is Swiss-wide and sends only the department facet.
  * The legacy regional filter map remains available to direct helper callers
@@ -99,7 +97,6 @@ const VTG_HOST = 'jobs.admin.ch';
  * always passes `scope: 'ch-wide'`.
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000624';
-const VTG_VERWALTUNGSEINHEIT = '1083433,1132413,1526654,1132414,1083406';
 const LEGACY_REGION_IDS = {
   TI: '1083341',
   Ostschweiz1: '1083334',
@@ -239,7 +236,7 @@ export async function fetchVtgJobUrls(options = {}) {
         offset: String(offset),
         limit: String(API_LIMIT),
       });
-      params.append('f', `verwaltungseinheit:${VTG_VERWALTUNGSEINHEIT}`);
+      params.append('f', `verwaltungseinheit:${VTG_VERWALTUNGSEINHEIT_FILTER}`);
       if (regionId) params.append('f', `region:${regionId}`);
 
       const apiUrl = `${API_BASE}/jobs?${params}`;
