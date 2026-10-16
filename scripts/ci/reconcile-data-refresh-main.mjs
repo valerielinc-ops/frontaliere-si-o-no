@@ -330,6 +330,7 @@ for (const file of conflicts) {
 }
 
 const compatOverrides = new Map();
+const compatWorktreePaths = new Set();
 const applyCompatContent = (file, content) => {
   const treeContent = blob(tree, file);
   if (content === null) {
@@ -338,6 +339,7 @@ const applyCompatContent = (file, content) => {
     return;
   }
   if (treeContent !== content) compatOverrides.set(file, content);
+  compatWorktreePaths.add(file);
   writeIndexBlob(file, content);
 };
 if (options.compat) {
@@ -364,6 +366,17 @@ if (options.compat) {
     blob(head, COMPAT_MANIFEST_PATH),
   );
   applyCompatContent(COMPAT_MANIFEST_PATH, manifest);
+
+  // `read-tree` seeds the index without touching the worktree, and the
+  // plumbing commit below updates HEAD without checking it out. Keep the
+  // compatibility files on disk aligned with the committed tree as well;
+  // callers read these generated files immediately after reconciliation.
+  for (const file of treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate))) {
+    compatWorktreePaths.add(file);
+  }
+  if (compatWorktreePaths.size > 0) {
+    git(['checkout-index', '--force', '--ignore-skip-worktree-bits', '--', ...[...compatWorktreePaths].sort()]);
+  }
 }
 
 const derivedConflicts = conflicts.filter((file) => derivedDatasetPaths.has(file));
