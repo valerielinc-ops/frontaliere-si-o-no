@@ -158,6 +158,7 @@ CI required job `tests.yml` (`vitest (unit + integration)`): `npm ci`, source gu
 - Solo semantic color token esistenti; no inline hex.
 - **Content-first / mobile-first contract:** dopo H1 e lede breve devono arrivare subito risposta operativa, CTA o dati utili; intro editoriale, metodologia e FAQ vanno dopo l’area d’azione/dati o in accordion. Verificare ogni nuova landing a 390px: niente overflow orizzontale, tap target comodi e nessun paragrafo lungo above-the-fold.
 - Crawler dedicati: merge job by stable id `extractStableJobId(job.url)`, preserva previous slug, truncate via `truncateSlugAtWordBoundary`.
+- **Article/corpus sync:** prima della PR verifica ogni nuovo record in tutte le 4 localizzazioni e nei consumer card/SEO/OG/NewsArticle/feed: excerpt/description plain-text senza Markdown, placeholder (`...`) o vuoti, date valide e immagine pertinente; source e consumer devono restare coerenti.
 - SEO landing moratorium **RIMOSSO** (owner 2026-06-24): nuove SEO landing consentite. Posizione media 7-day GSC (`data/gsc-position-rolling.json`) resta tracciata ma solo informativa — `scripts/check-seo-moratorium.mjs` report-only, step CI `continue-on-error`. NON re-introdurre gate bloccante sulla posizione senza richiesta esplicita owner. Dettaglio/incidente: `docs/AGENTS-HISTORY.md#seo-moratorium-removed`.
 
 ## Accessibility And UX
