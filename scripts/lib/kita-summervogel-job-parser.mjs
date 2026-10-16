@@ -33,6 +33,7 @@ const TARGET_ROLE_RE = /\b(?:miterzieher(?:in)?|fachfrau(?:mann)?\s+betreuung\s+
 const LOCATION_LABEL_RE = /^(?:arbeitsort|arbeitsplatz|einsatzort|standort|ort)\s*[:\-]?\s*(.*)$/i;
 const DATE_LABEL_RE = /^(?:publiziert|veröffentlicht|online\s+seit|inseriert|datum|date)\s*[:\-]?\s*(.*)$/i;
 const EMPTY_STATE_RE = /(?:zurzeit|derzeit|aktuell|momentan|zur\s+zeit)?\s*keine\s+(?:offenen?\s+)?(?:stellen|positionen|jobangebote|stellenangebote)\b/i;
+const JOB_SECTION_HEADING_RE = /^jobangebote\s*:?$/i;
 const JOB_LIST_SELECTOR = [
   '[data-job-list]',
   '[data-jobs-list]',
@@ -53,6 +54,11 @@ const EMPTY_STATE_MARKER_SELECTOR = [
   '[data-jobs-empty]',
   '[data-no-jobs]',
 ].join(',');
+const HEADING_SELECTOR = 'h1,h2,h3,h4,h5,h6';
+const ELEMENTOR_HEADING_WIDGET_SELECTOR = '.elementor-widget-heading';
+const ELEMENTOR_LOOP_GRID_WIDGET_SELECTOR = '.elementor-widget-loop-grid';
+const ELEMENTOR_LOOP_GRID_EMPTY_STATE_SELECTOR = '.e-loop-nothing-found-message';
+const SIDEBAR_SELECTOR = 'aside,[role="complementary"],.sidebar,.widget-area';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -312,7 +318,7 @@ function explicitEmptyState(document) {
     !jobListNodes.some((nested) => nested !== node && node.contains(nested))
   ));
 
-  return leafJobListNodes.some((jobListNode) => {
+  const markedEmptyState = leafJobListNodes.some((jobListNode) => {
     const emptyStateNodes = [
       jobListNode.matches?.(EMPTY_STATE_MARKER_SELECTOR) ? jobListNode : null,
       ...[...jobListNode.children].filter((node) => node.matches?.(EMPTY_STATE_MARKER_SELECTOR)),
@@ -333,6 +339,35 @@ function explicitEmptyState(document) {
       .filter((node) => node.tagName === 'P' && !node.id && !node.className)
       .some((node) => EMPTY_STATE_RE.test(normalizeSpace(node.textContent || '')));
   });
+  if (markedEmptyState) return true;
+
+  // The current official page renders the empty state in an Elementor
+  // loop-grid widget immediately after the `Jobangebote:` heading widget.
+  // Require those two widgets to be adjacent children of the same Elementor
+  // container; page-wide heading order can otherwise borrow sidebar copy.
+  for (const heading of document.querySelectorAll(
+    `${ELEMENTOR_HEADING_WIDGET_SELECTOR} ${HEADING_SELECTOR}`,
+  )) {
+    if (!JOB_SECTION_HEADING_RE.test(normalizeSpace(heading.textContent || ''))) continue;
+    if (heading.closest(SIDEBAR_SELECTOR)) continue;
+    const headingWidget = heading.closest(ELEMENTOR_HEADING_WIDGET_SELECTOR);
+    const container = headingWidget?.parentElement;
+    if (!container?.matches('.e-con')) continue;
+
+    const widgets = [...container.children];
+    const headingWidgetIndex = widgets.indexOf(headingWidget);
+    const loopGridWidget = widgets[headingWidgetIndex + 1];
+    if (!loopGridWidget?.matches(ELEMENTOR_LOOP_GRID_WIDGET_SELECTOR)) continue;
+
+    const emptyStateNodes = loopGridWidget.querySelectorAll(
+      ELEMENTOR_LOOP_GRID_EMPTY_STATE_SELECTOR,
+    );
+    if ([...emptyStateNodes].some((node) => (
+      !node.closest(SIDEBAR_SELECTOR)
+      && EMPTY_STATE_RE.test(normalizeSpace(node.textContent || ''))
+    ))) return true;
+  }
+  return false;
 }
 
 function structuredLocationCandidates(record) {
