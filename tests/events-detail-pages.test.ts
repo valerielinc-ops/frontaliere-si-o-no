@@ -976,11 +976,13 @@ describe('historical event archive reachability', () => {
 
     expect(first.urlPath).toBe('/eventi/ticino/archivio/');
     expect(first.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(first.html).toContain('"@type":"BreadcrumbList"');
     expect(first.html).toContain('href="/eventi/ticino/lugano/evento-passato-0/"');
     expect(first.html).not.toContain('href="/eventi/ticino/lugano/evento-passato-100/"');
     expect(first.html).toContain(`href="${historicalEventsArchivePath('it', 2)}"`);
     expect(second.urlPath).toBe(historicalEventsArchivePath('it', 2));
     expect(second.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(second.html).toContain('"@type":"BreadcrumbList"');
     expect(second.html).toContain('href="/eventi/ticino/lugano/evento-passato-100/"');
     expect(second.html).not.toContain('href="/eventi/ticino/lugano/evento-passato-0/"');
   });
