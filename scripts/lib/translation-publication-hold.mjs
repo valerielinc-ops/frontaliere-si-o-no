@@ -32,7 +32,7 @@
  *
  * «TITOLO TRADOTTO» riusa i predicati condivisi, non ne inventa uno:
  * `hasUsableTitle` (translation-quality.mjs, soglia del validatore di deploy),
- * `isTitleSourceCopy` e `titleContainsLlmReasoning` (job-locale-utils.mjs, gli
+ * `isTitleSourceCopy` e `titleContainsLlmReasoning` (job-locale-core.mjs, gli
  * stessi con cui `scripts/fix-untranslated-titles.mjs` mette in coda i titoli).
  * Deliberatamente NON `titleLooksUntranslated()` intero: i suoi segnali lessicali
  * (residui composti, parole funzione) non hanno un traduttore che li chiuda per
@@ -50,7 +50,7 @@ import {
   isTitleSourceCopy,
   normalizeJobLocale,
   titleContainsLlmReasoning,
-} from './job-locale-utils.mjs';
+} from './job-locale-core.mjs';
 import { hasUsableTitle } from './translation-quality.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
 import { previousRunSliceJobs } from './crawler-previous-run-slice.mjs';
