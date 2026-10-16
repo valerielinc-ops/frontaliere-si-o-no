@@ -7,9 +7,53 @@ import {
   isTitleRepairQueueVerdict,
   TITLE_REPAIR_QUEUE_REASONS,
 } from '../scripts/lib/untranslated-title-repair.mjs';
-import { shouldQueueArgosSlot } from '../scripts/local-mt-mopup.mjs';
+import { fillUnsupportedSourceTitleSlots } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { missingSlots, shouldQueueArgosSlot } from '../scripts/local-mt-mopup.mjs';
 
 describe('title repair queue admission', () => {
+  it('fills source-only Romansh title slots from reviewed mappings without inventing unknown titles', () => {
+    const cases = [
+      {
+        sourceTitle: 'Redactura / Redactur Engiadina',
+        expected: {
+          it: 'Redattrice / Redattore Engiadina',
+          en: 'Editor Engiadina',
+          de: 'Redaktorin / Redaktor Engiadina',
+          fr: 'Rédactrice / Rédacteur Engiadina',
+        },
+      },
+      {
+        sourceTitle: 'Redactura / Redactur Surselva',
+        expected: {
+          it: 'Redattrice / Redattore Surselva',
+          en: 'Editor Surselva',
+          de: 'Redaktorin / Redaktor Surselva',
+          fr: 'Rédactrice / Rédacteur Surselva',
+        },
+      },
+    ];
+
+    for (const { sourceTitle, expected } of cases) {
+      const job = {
+        sourceLang: 'rm',
+        title: sourceTitle,
+        titleByLocale: { rm: sourceTitle },
+      };
+
+      expect(fillUnsupportedSourceTitleSlots(job)).toEqual({ changed: true, filled: 4 });
+      expect(job.titleByLocale).toEqual({ rm: sourceTitle, ...expected });
+      expect(missingSlots(job)).toEqual([]);
+    }
+
+    const unknown = {
+      sourceLang: 'rm',
+      title: 'Invenziun nun cartografada',
+      titleByLocale: { rm: 'Invenziun nun cartografada' },
+    };
+    expect(fillUnsupportedSourceTitleSlots(unknown)).toEqual({ changed: false, filled: 0 });
+    expect(unknown.titleByLocale).toEqual({ rm: 'Invenziun nun cartografada' });
+  });
+
   it('admits marker-backed real partial German residues from the language-arm queue', () => {
     const cases = [
       {
