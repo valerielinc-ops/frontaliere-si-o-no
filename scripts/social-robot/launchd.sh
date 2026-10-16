@@ -44,7 +44,7 @@ max_log_lines=4000
 # for every run. The installed copy can be one run behind while it refreshes.
 # tests/social-robot.test.ts checks that it covers every relative import of
 # run.mjs and of the loader, so a new import cannot silently break the Mac host.
-snapshot_paths="scripts/social-robot scripts/lib/is-invoked-directly.mjs scripts/lib/single-flight-lock.mjs scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+snapshot_paths="scripts/social-robot scripts/lib/is-invoked-directly.mjs scripts/lib/single-flight-lock.mjs scripts/lib/stale-fetch-pack-sweep.mjs scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
 social_robot_issue_title='Social robot Mac host failure'
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
@@ -99,6 +99,20 @@ prune_state_tree() {
 prune_stale_state() {
   prune_state_tree "$state_dir/downloads" 86400
   prune_state_tree "$state_dir/diagnostics" $((14 * 24 * 3600))
+}
+
+# A fetch killed by ENOSPC can leave a large tmp_pack_* in the repository's
+# object store. Reclaim only files older than the shared one-hour safety window
+# before and after the fetch; a live fetch keeps its mtime fresh. The helper is
+# intentionally best-effort so a cleanup problem never hides origin/main.
+sweep_stale_fetch_packs() {
+  pack_dir=$(g rev-parse --git-path objects/pack 2>/dev/null) || return 0
+  case "$pack_dir" in
+    /*) ;;
+    *) pack_dir="$site/$pack_dir" ;;
+  esac
+  sweep_output=$(node "$site/scripts/lib/stale-fetch-pack-sweep.mjs" "$pack_dir" 2>/dev/null) || return 0
+  [ -n "$sweep_output" ] && log "$sweep_output"
 }
 
 g() {
@@ -229,9 +243,11 @@ load_rc_environment() {
 cmd_run() {
   /bin/mkdir -p "$log_dir" "$state_dir" 2>/dev/null
   prune_stale_state
+  sweep_stale_fetch_packs
   if ! out=$(g -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=60 fetch -q origin main 2>&1); then
     log "fetch failed, using the last fetched origin/main: $(printf '%s' "$out" | /usr/bin/tr '\n' ' ' | /usr/bin/cut -c1-200)"
   fi
+  sweep_stale_fetch_packs
   ref=${SR_REF:-origin/main} # SR_REF: another commit, only to try a branch by hand
   sha=$(g rev-parse --verify -q "$ref^{commit}") || { log "$ref unknown in $site: nothing run"; return 0; }
   runner=$(snapshot "$sha") || { log "snapshot of ${sha:0:8} failed: nothing run"; alarm_issue; trim_log; return 0; }

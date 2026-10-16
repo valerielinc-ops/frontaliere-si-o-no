@@ -6,6 +6,7 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { persistBrowserInsights } from '../scripts/social-robot/persist-browser-insights.mjs';
+import { STALE_PACK_AGE_MS } from '../scripts/lib/stale-fetch-pack-sweep.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SCRIPT = path.join(ROOT, 'scripts/social-robot/persist-browser-insights.mjs');
@@ -247,5 +248,26 @@ describe('persistBrowserInsights', () => {
       gitFn: git,
     })).toThrow(/No space left on device/);
     expect(worktreeAdds).toBe(1);
+  });
+
+  it('removes stale fetch packs before creating the Insights worktree', () => {
+    const root = tempDir();
+    const repo = path.join(root, 'site');
+    fs.mkdirSync(repo);
+    runGit(repo, ['init', '-b', 'main']);
+    const packDir = path.resolve(repo, runGit(repo, ['rev-parse', '--git-path', 'objects/pack']).trim());
+    const stalePack = path.join(packDir, 'tmp_pack_stale');
+    fs.writeFileSync(stalePack, Buffer.alloc(4096));
+    const old = new Date(Date.now() - STALE_PACK_AGE_MS - 1_000);
+    fs.utimesSync(stalePack, old, old);
+
+    const result = persistBrowserInsights({
+      repo,
+      snapshot: snapshotPath(root),
+      gitFn: fakeGit().git,
+    });
+
+    expect(result).toEqual({ status: 'pushed', attempt: 1 });
+    expect(fs.existsSync(stalePack)).toBe(false);
   });
 });

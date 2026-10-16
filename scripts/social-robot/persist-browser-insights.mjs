@@ -21,6 +21,7 @@ import {
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { withSingleFlightLock } from '../lib/single-flight-lock.mjs';
+import { sweepStaleFetchPacks } from '../lib/stale-fetch-pack-sweep.mjs';
 
 const DATA_PATH = 'data/instagram-insights.json';
 const GIT_TIMEOUT_MS = 120_000;
@@ -64,6 +65,34 @@ function git(repo, args, { allowFailure = false, env } = {}) {
     if (error?.stderr) process.stderr.write(String(error.stderr));
     if (allowFailure) return null;
     throw error;
+  }
+}
+
+function gitOutput(repo, args) {
+  return execFileSync('git', ['-C', repo, ...args], {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'ignore'],
+    timeout: GIT_TIMEOUT_MS,
+    killSignal: 'SIGTERM',
+  }).trim();
+}
+
+/**
+ * A failed fetch can leave a large tmp_pack_* behind. Git does not prune those
+ * files itself, so clear only entries older than the shared safety threshold
+ * before asking Git to create another Insights worktree. A live fetch keeps
+ * updating its mtime and is never selected.
+ */
+function sweepRepositoryFetchPacks(repo) {
+  try {
+    const packDir = path.resolve(repo, gitOutput(repo, ['rev-parse', '--git-path', 'objects/pack']));
+    const result = sweepStaleFetchPacks(packDir);
+    if (result.removed > 0) {
+      process.stderr.write(`🧹 removed ${result.removed} stale fetch pack(s), freeing ${result.bytes} bytes\n`);
+    }
+  } catch {
+    // Storage recovery is best-effort; the persistence operation remains the
+    // source of truth and must still fail closed if Git cannot proceed.
   }
 }
 
@@ -161,6 +190,7 @@ function refreshMain(repo, gitFn) {
 function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
   let refreshBeforeAttempt = false;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    sweepRepositoryFetchPacks(repo);
     if (refreshBeforeAttempt) {
       refreshMain(repo, gitFn);
       refreshBeforeAttempt = false;
