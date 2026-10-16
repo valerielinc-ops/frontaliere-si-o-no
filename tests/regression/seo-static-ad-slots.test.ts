@@ -215,10 +215,9 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
   // two profession×canton plugins. Counts match the number of index,follow
   // render templates per plugin.
   const FAMILY_SPECS: Array<{ file: string; count: number }> = [
-    // 7 render templates since #7329: the overflow ladder page
-    // (`renderOverflowLadderPage`, `<bucket>/page-N/`) is an index,follow
-    // surface like the other six, so it carries the slot too.
-    { file: 'build-plugins/eventsSeoPagesPlugin.ts', count: 7 },
+    // 8 render templates: the digest page restored in #13434 is an additional
+    // index,follow surface alongside the seven existing event pages.
+    { file: 'build-plugins/eventsSeoPagesPlugin.ts', count: 8 },
     { file: 'build-plugins/careerLandingsPlugin.ts', count: 1 },
     { file: 'build-plugins/costOfLivingLandingsPlugin.ts', count: 1 },
     { file: 'build-plugins/comparisonsHubPlugin.ts', count: 1 },

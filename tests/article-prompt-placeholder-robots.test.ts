@@ -7,20 +7,56 @@ import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
 
 const rootDir = process.cwd();
 let distDir: string | undefined;
+let fixtureRoot: string | undefined;
 
 afterEach(() => {
   if (distDir) fs.rmSync(distDir, { recursive: true, force: true });
   distDir = undefined;
+  if (fixtureRoot) fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  fixtureRoot = undefined;
 });
 
 describe('article prompt-placeholder robots protection', () => {
-  it('quarantines the known placeholder translation in every affected locale', async () => {
-    distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'article-placeholder-robots-'));
+  it('quarantines a synthetic placeholder translation in every affected locale', async () => {
+    // Keep the placeholder synthetic: the live corpus entry is repaired over
+    // time, so it cannot serve as a stable negative fixture.
+    fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-placeholder-fixture-'));
+    distDir = path.join(fixtureRoot, 'dist');
+    const articleId = 'placeholder-render-robots-fixture';
+    const write = (relativePath: string, contents: string) => {
+      const target = path.join(fixtureRoot!, relativePath);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, contents);
+    };
+
+    write('data/blog-articles-data.ts', `const RAW_ARTICLES = [
+      { id: '${articleId}', category: 'pratico', date: '2026-10-01' },
+    ];`);
+    write('services/seo/seo-blog.ts', `export const entries = {
+      'blog-${articleId}': {
+        title: 'Placeholder renderer fixture',
+        description: 'A synthetic article for robots coverage.',
+        canonicalPath: '/articoli-frontaliere/${articleId}/',
+        structuredData: {"@context":"https://schema.org","@type":"Article","headline":"Placeholder renderer fixture"},
+      },
+    };`);
+    write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify({
+      [articleId]: { it: articleId, en: articleId, de: articleId, fr: articleId },
+    })};`);
+
+    const italianBody = 'Contenuto dimostrativo per mantenere la pagina indicizzabile. '.repeat(35);
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const body = locale === 'it' ? italianBody : '...';
+      write(`services/locales/blog-body/${locale}/${articleId}.ts`, `export const body = {
+        'blog.article.${articleId}.body1': \`${body}\`,
+      };`);
+    }
+
     const result = await renderArticlePages({
-      rootDir,
+      rootDir: fixtureRoot,
       distDir,
       section: 'frontaliere',
-      onlyArticleId: 'como-fai-giornate-autunno',
+      onlyArticleId: articleId,
     });
 
     expect(result.entries).toHaveLength(1);
