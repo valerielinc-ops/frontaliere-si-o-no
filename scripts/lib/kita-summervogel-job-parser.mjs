@@ -55,6 +55,10 @@ const EMPTY_STATE_MARKER_SELECTOR = [
   '[data-no-jobs]',
 ].join(',');
 const HEADING_SELECTOR = 'h1,h2,h3,h4,h5,h6';
+const ELEMENTOR_HEADING_WIDGET_SELECTOR = '.elementor-widget-heading';
+const ELEMENTOR_LOOP_GRID_WIDGET_SELECTOR = '.elementor-widget-loop-grid';
+const ELEMENTOR_LOOP_GRID_EMPTY_STATE_SELECTOR = '.e-loop-nothing-found-message';
+const SIDEBAR_SELECTOR = 'aside,[role="complementary"],.sidebar,.widget-area';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -337,35 +341,31 @@ function explicitEmptyState(document) {
   });
   if (markedEmptyState) return true;
 
-  // The current official page renders the empty state as a semantic heading
-  // pair (`Jobangebote:` followed by `Zurzeit keine offenen Stellen...`) and
-  // no longer wraps it in the old job-list class/data marker. Keep the proof
-  // scoped to that section: a matching sentence in a later page section or
-  // footer must not authorize retiring live jobs.
-  for (const heading of document.querySelectorAll(HEADING_SELECTOR)) {
+  // The current official page renders the empty state in an Elementor
+  // loop-grid widget immediately after the `Jobangebote:` heading widget.
+  // Require those two widgets to be adjacent children of the same Elementor
+  // container; page-wide heading order can otherwise borrow sidebar copy.
+  for (const heading of document.querySelectorAll(
+    `${ELEMENTOR_HEADING_WIDGET_SELECTOR} ${HEADING_SELECTOR}`,
+  )) {
     if (!JOB_SECTION_HEADING_RE.test(normalizeSpace(heading.textContent || ''))) continue;
-    let ancestor = heading.parentElement;
-    let depth = 0;
-    while (ancestor && ancestor.tagName !== 'BODY' && depth < 8) {
-      const sectionNodes = [...ancestor.querySelectorAll(`${HEADING_SELECTOR},p,li`)]
-        .filter((node) => node === heading || node.textContent);
-      const headingIndex = sectionNodes.indexOf(heading);
-      if (headingIndex >= 0) {
-        const headingLevel = Number(heading.tagName.slice(1));
-        for (const candidate of sectionNodes.slice(headingIndex + 1)) {
-          const text = normalizeSpace(candidate.textContent || '');
-          if (!text) continue;
-          if (candidate.matches(HEADING_SELECTOR)) {
-            if (isTargetKitaSummervogelRole(text)) break;
-            if (Number(candidate.tagName.slice(1)) <= headingLevel) break;
-            if (EMPTY_STATE_RE.test(text)) return true;
-          }
-          if (EMPTY_STATE_RE.test(text)) return true;
-        }
-      }
-      ancestor = ancestor.parentElement;
-      depth += 1;
-    }
+    if (heading.closest(SIDEBAR_SELECTOR)) continue;
+    const headingWidget = heading.closest(ELEMENTOR_HEADING_WIDGET_SELECTOR);
+    const container = headingWidget?.parentElement;
+    if (!container?.matches('.e-con')) continue;
+
+    const widgets = [...container.children];
+    const headingWidgetIndex = widgets.indexOf(headingWidget);
+    const loopGridWidget = widgets[headingWidgetIndex + 1];
+    if (!loopGridWidget?.matches(ELEMENTOR_LOOP_GRID_WIDGET_SELECTOR)) continue;
+
+    const emptyStateNodes = loopGridWidget.querySelectorAll(
+      ELEMENTOR_LOOP_GRID_EMPTY_STATE_SELECTOR,
+    );
+    if ([...emptyStateNodes].some((node) => (
+      !node.closest(SIDEBAR_SELECTOR)
+      && EMPTY_STATE_RE.test(normalizeSpace(node.textContent || ''))
+    ))) return true;
   }
   return false;
 }

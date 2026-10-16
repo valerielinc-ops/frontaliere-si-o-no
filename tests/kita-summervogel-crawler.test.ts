@@ -89,17 +89,65 @@ describe('Kita Summervogel educator:SG crawler', () => {
     expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBe('authoritative-source-zero');
   });
 
-  it('recognizes the classless Jobangebote empty state emitted by the official page', () => {
+  it('recognizes the official Elementor Jobangebote heading and loop-grid empty state', () => {
     const jobs = parseKitaSummervogelJobs(`
-      <main>
-        <h1>Jobs</h1>
-        <h2>Jobangebote:</h2>
-        <h5>Zurzeit keine offenen Stellen. Wir freuen uns aber über Blindbewerbungen.</h5>
+      <main class="elementor elementor-1029">
+        <div class="elementor-element e-con e-child">
+          <div class="elementor-element elementor-widget elementor-widget-heading">
+            <div class="elementor-widget-container">
+              <h2 class="elementor-heading-title">Jobangebote:</h2>
+            </div>
+          </div>
+          <div class="elementor-element elementor-widget elementor-widget-loop-grid">
+            <div class="elementor-widget-container">
+              <div class="e-loop-nothing-found-message">
+                <h5 class="e-loop-nothing-found-message__text">
+                  Zurzeit keine offenen Stellen. Wir freuen uns aber über Blindbewerbungen.
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     `);
 
     expect(jobs).toEqual([]);
     expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBe('authoritative-source-zero');
+  });
+
+  it('does not accept the same Elementor loop-grid empty message from a sidebar', () => {
+    const jobs = parseKitaSummervogelJobs(`
+      <div class="page-layout">
+        <main>
+          <div class="elementor-element e-con e-child">
+            <div class="elementor-element elementor-widget elementor-widget-heading">
+              <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title">Jobangebote:</h2>
+              </div>
+            </div>
+            <div class="elementor-element elementor-widget elementor-widget-text-editor">
+              <div class="elementor-widget-container">Aktuelle Angebote folgen.</div>
+            </div>
+          </div>
+        </main>
+        <aside class="sidebar">
+          <div class="elementor-element e-con e-child">
+            <div class="elementor-element elementor-widget elementor-widget-loop-grid">
+              <div class="elementor-widget-container">
+                <div class="e-loop-nothing-found-message">
+                  <h5 class="e-loop-nothing-found-message__text">
+                    Zurzeit keine offenen Stellen. Wir freuen uns aber über Blindbewerbungen.
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    `);
+
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBeUndefined();
   });
 
   it('does not borrow an empty notice from a later page section', () => {
