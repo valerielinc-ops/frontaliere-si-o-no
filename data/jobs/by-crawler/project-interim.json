@@ -1,15 +1,15 @@
 {
   "crawlerKey": "project-interim",
-  "assembledAt": "2026-10-15T21:42:22.296Z",
+  "assembledAt": "2026-10-16T09:39:34.188Z",
   "jobs": [
     {
       "id": "project-interim-495",
       "slug": "mason-ingegneria-civile-m-f-project-interim-sarl-geneve-495",
       "slugByLocale": {
-        "fr": "macon-genie-civil-h-f-project-interim-geneve-495",
         "it": "mason-ingegneria-civile-m-f-project-interim-sarl-geneve-495",
         "en": "mason-civil-engineering-m-f-project-interim-sarl-geneve-495",
-        "de": "maurer-bauingenieurwesen-m-w-project-interim-sarl-geneve-495"
+        "de": "maurer-bauingenieurwesen-m-w-project-interim-sarl-geneve-495",
+        "fr": "macon-genie-civil-h-f-project-interim-geneve-495"
       },
       "slugDisambiguator": "495",
       "company": "Project Interim Sàrl",
@@ -41,7 +41,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-genie-civil-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:42:15.304Z",
+      "crawledAt": "2026-10-16T09:39:29.139Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -51,9 +51,7 @@
       "currency": "CHF",
       "featured": false,
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "startDate": "01.10.2026",
       "activity": "100%",
       "datePosted": "2023-10-09T12:32:00Z",
@@ -86,7 +84,8 @@
       },
       "previousSlugs": [
         "macon-genie-civil-h-f-project-interim-geneve-495"
-      ]
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "project-interim-1062",
@@ -94,7 +93,7 @@
       "slugByLocale": {
         "fr": "macon-gros-oeuvre-h-f-project-interim-geneve-1062",
         "it": "mason-big-work-m-f-project-interim-sarl-geneve-1062",
-        "en": "macon-gros-oeuvre-h-f-project-interim-geneve-1062",
+        "en": "mason-big-work-m-f-project-interim-sarl-geneve-1062",
         "de": "mason-big-work-m-w-project-interim-sarl-geneve-1062"
       },
       "slugDisambiguator": "1062",
@@ -127,7 +126,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-construction-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:42:15.304Z",
+      "crawledAt": "2026-10-16T09:39:29.139Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -137,9 +136,7 @@
       "currency": "CHF",
       "featured": false,
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "startDate": "01.10.2026",
       "activity": "100%",
       "datePosted": "2023-07-24T08:00:00Z",
@@ -164,6 +161,9 @@
           "macon-gros-oeuvre-h-f-project-interim-geneve-1062"
         ],
         "de": [
+          "macon-gros-oeuvre-h-f-project-interim-geneve-1062"
+        ],
+        "en": [
           "macon-gros-oeuvre-h-f-project-interim-geneve-1062"
         ]
       },

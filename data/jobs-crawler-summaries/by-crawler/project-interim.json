@@ -1,7 +1,7 @@
 {
   "key": "project-interim",
   "label": "Project Interim Sàrl",
-  "generatedAt": "2026-10-15T21:42:30.406Z",
+  "generatedAt": "2026-10-16T09:39:41.242Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,25 +12,26 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4884,
-  "avgDurationMs": 4884,
+  "durationMs": 4152,
+  "avgDurationMs": 4152,
   "durationHistory": [
-    4884
+    4152
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "project-interim-495",
-      "slug": "macon-genie-civil-h-f-project-interim-geneve-495",
+      "slug": "mason-ingegneria-civile-m-f-project-interim-sarl-geneve-495",
       "slugDisambiguator": "495",
       "company": "Project Interim Sàrl",
       "companyKey": "project-interim",
       "companyDomain": "projectinterim.ch",
       "title": "Maçon Génie Civil (H/F)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Genève",
       "canton": "GE",
       "addressCountry": "CH",
@@ -43,7 +44,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-genie-civil-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:42:15.304Z",
+      "crawledAt": "2026-10-16T09:39:29.139Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -57,27 +58,26 @@
       "datePosted": "2023-10-09T12:32:00Z",
       "postedDate": "2023-10-09T12:32:00Z",
       "postingDateSource": "reported",
+      "firstSeenAt": "2026-10-15T21:42:15.304Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-15T21:42:15.304Z",
-      "_qualityScore": 77,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
     {
       "id": "project-interim-1062",
-      "slug": "macon-gros-oeuvre-h-f-project-interim-geneve-1062",
+      "slug": "mason-big-work-m-f-project-interim-sarl-geneve-1062",
       "slugDisambiguator": "1062",
       "company": "Project Interim Sàrl",
       "companyKey": "project-interim",
       "companyDomain": "projectinterim.ch",
       "title": "Maçon Gros Oeuvre (H/F)",
-      "needsRetranslation": true,
       "location": "Genève",
       "canton": "GE",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-construction-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:42:15.304Z",
+      "crawledAt": "2026-10-16T09:39:29.139Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -104,21 +104,20 @@
       "datePosted": "2023-07-24T08:00:00Z",
       "postedDate": "2023-07-24T08:00:00Z",
       "postingDateSource": "reported",
+      "firstSeenAt": "2026-10-15T21:42:15.304Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-15T21:42:15.304Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }

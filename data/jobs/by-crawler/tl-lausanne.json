@@ -1,15 +1,15 @@
 {
   "crawlerKey": "tl-lausanne",
-  "assembledAt": "2026-10-15T21:43:58.354Z",
+  "assembledAt": "2026-10-16T09:36:53.488Z",
   "jobs": [
     {
       "id": "tl-lausanne-3bda6e5f4b57",
       "slug": "costruzioni-ferroviarie-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "fr": "constructeurs-rices-de-voies-ferrees-tl-lausanne-lausanne",
         "it": "costruzioni-ferroviarie-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "railway-constructors-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "eisenbahnbauer-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "de": "eisenbahnbauer-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "fr": "constructeurs-rices-de-voies-ferrees-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -33,7 +33,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Constructeurs%C2%B7rices-de-voies-ferr%C3%A9es/1415576133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:50.573Z",
+      "crawledAt": "2026-10-16T09:36:35.252Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -51,9 +51,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1415576133/?locale=fr_FR",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -82,7 +80,8 @@
       },
       "previousSlugs": [
         "constructeurs-rices-de-voies-ferrees-tl-lausanne-lausanne"
-      ]
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "tl-lausanne-fd345cc7ecfa",
@@ -116,7 +115,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9catronicien%C2%B7nes-d'automobiles-v%C3%A9hicules-utilitaires-%28%C3%A9galement-RAC-3%C3%A8me%29/1428720633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:49.995Z",
+      "crawledAt": "2026-10-16T09:36:45.609Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -191,7 +190,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-relation-client/1428711533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:49.333Z",
+      "crawledAt": "2026-10-16T09:36:46.215Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -266,7 +265,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9canicien%C2%B7nes-en-maintenance-automobiles-v%C3%A9hicules-utilitaires/1428715533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:48.743Z",
+      "crawledAt": "2026-10-16T09:36:47.459Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -340,7 +339,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-d'exploitation/1428728233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:48.100Z",
+      "crawledAt": "2026-10-16T09:36:44.996Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -423,7 +422,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-logisticien%C2%B7ne/1428665133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:47.519Z",
+      "crawledAt": "2026-10-16T09:36:44.395Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -506,7 +505,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-vernisseur%C2%B7euse-industriel/1428725433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:46.922Z",
+      "crawledAt": "2026-10-16T09:36:43.811Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -585,7 +584,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-automaticien%C2%B7nes/1428782833/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:46.253Z",
+      "crawledAt": "2026-10-16T09:36:43.217Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -668,7 +667,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-employ%C3%A9%C2%B7es-de-commerce/1428672533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:45.625Z",
+      "crawledAt": "2026-10-16T09:36:46.828Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -743,7 +742,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-agent%C2%B7es-de-transports-publics/1429059433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:45.006Z",
+      "crawledAt": "2026-10-16T09:36:42.635Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -822,7 +821,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:44.400Z",
+      "crawledAt": "2026-10-16T09:36:42.022Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -921,7 +920,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Planificateur_ice-m3/1442148633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:43.815Z",
+      "crawledAt": "2026-10-16T09:36:41.418Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -941,20 +940,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-29T09:34:45.995Z",
       "previousSlugs": [
         "planificateur-ice-m3-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "planificateur-ice-m3-tl-lausanne-lausanne"
@@ -970,6 +955,20 @@
         "de": [
           "planificateur-ice-m3-tl-lausanne-lausanne"
         ]
+      },
+      "firstSeenAt": "2026-09-29T09:34:45.995Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -1004,7 +1003,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Assistant%C2%B7e-de-projets-LEB/1444225033/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:43.185Z",
+      "crawledAt": "2026-10-16T09:36:39.576Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1083,7 +1082,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-environnement-LEB-%28hf%29/1444241433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:42.590Z",
+      "crawledAt": "2026-10-16T09:36:40.830Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1162,7 +1161,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-BIM-Manager-LEB-%28hf%29/1444255133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:41.989Z",
+      "crawledAt": "2026-10-16T09:36:38.961Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1236,7 +1235,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-en-planification-ferroviaire-LEB/1444330633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:41.390Z",
+      "crawledAt": "2026-10-16T09:36:40.217Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1311,7 +1310,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-infrastructures-LEB/1444766633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:40.780Z",
+      "crawledAt": "2026-10-16T09:36:37.748Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1391,7 +1390,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projets-%C3%A9lectricit%C3%A9-LEB/1444762233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:40.196Z",
+      "crawledAt": "2026-10-16T09:36:38.344Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1468,7 +1467,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-pluridisciplinaire-LEB/1444790533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:39.620Z",
+      "crawledAt": "2026-10-16T09:36:37.150Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1551,7 +1550,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-informaticien%C2%B7ne-Exploitation-et-infrastructure/1434487133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:39.019Z",
+      "crawledAt": "2026-10-16T09:36:36.547Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1629,7 +1628,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-s%C3%A9curit%C3%A9-SI/1446598533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:43:38.396Z",
+      "crawledAt": "2026-10-16T09:36:35.940Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
