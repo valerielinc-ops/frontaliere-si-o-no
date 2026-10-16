@@ -1514,7 +1514,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.ogm-fallimento-ticino.excerpt': 'L’initiative populaire pour le contrôle des OGM en Suisse n’a pas atteint le quorum de 100’000 signatures, avec des implications importantes également pour le Tessin.',
  'blog.article.ogm-fallimento-ticino.imageAlt': 'Lac de Lugano avec montagnes en arrière-plan, paysage typique du Tessin',
  'blog.article.passaggio-statuto-s-permesso-b.title': 'Du statut S au permis B au Tessin',
- 'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Après au moins cinq ans de séjour ininterrompu, les bénéficiaires du statut S ont droit à une autorisation B liée : conditions, rôle du canton et prolongation fédérale jusqu’au 4 mars 2028.',
+ 'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Après cinq ans de séjour ininterrompu, le statut S donne droit à un permis B lié dans le Tessin : conditions et prolongation jusqu’au 4 mars 2028.',
  'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Vue panoramique de Bellinzona avec ses châteaux et ses montagnes environnantes, symbolisant la frontière suisse-italienne.',
  'blog.article.chiusure-notturne-autostrada.title': 'Fermetures nocturnes sur l\'autoroute A9',
  'blog.article.chiusure-notturne-autostrada.excerpt': 'La semaine prochaine, des fermetures nocturnes seront effectuées sur l\'autoroute A9',
