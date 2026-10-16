@@ -102,7 +102,7 @@ describe('buildWeekendDigestArticle with a canton', () => {
     const article = buildWeekendDigestArticle({
       events: [{
         id: 'agenda-series',
-        title: 'Mostra ricorrente',
+        title: 'Mostra [ricorrente]',
         comune: 'Lugano',
         startDate: '2026-01-01',
         endDate: '2027-01-03',
@@ -112,7 +112,7 @@ describe('buildWeekendDigestArticle with a canton', () => {
       todayIso: '2027-01-01',
     });
     expect(article.content.it.body2).toContain('**2 gennaio**');
-    expect(article.content.it.body2).toContain('[Mostra ricorrente](https://agenda.example/events/mostra-%28serie%29)');
+    expect(article.content.it.body2).toContain('[Mostra \\[ricorrente\\]](https://agenda.example/events/mostra-%28serie%29)');
     expect(article.content.it.body2).not.toContain('**1 gennaio** —');
   });
 
