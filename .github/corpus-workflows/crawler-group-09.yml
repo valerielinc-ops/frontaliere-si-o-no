@@ -850,7 +850,7 @@ jobs:
           pid_path="$state_dir/livingcircle.pid"
           status_path="$state_dir/livingcircle.status"
           started_path="$state_dir/livingcircle.started"
-          watchdog_path="$state_dir/livingcircle.watchdog"
+          watchdog_path="$state_dir/the-living-circle.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/the-living-circle.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -937,7 +937,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/the-living-circle.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-131}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3039,7 +3039,7 @@ jobs:
           pid_path="$state_dir/zegna.pid"
           status_path="$state_dir/zegna.status"
           started_path="$state_dir/zegna.started"
-          watchdog_path="$state_dir/zegna.watchdog"
+          watchdog_path="$state_dir/ermenegildo-zegna-logistica.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/ermenegildo-zegna-logistica.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -3126,7 +3126,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/zegna.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-09/zegna.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/zegna.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/zegna.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/ermenegildo-zegna-logistica.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-58}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5626,7 +5626,7 @@ jobs:
           pid_path="$state_dir/sunrise.pid"
           status_path="$state_dir/sunrise.status"
           started_path="$state_dir/sunrise.started"
-          watchdog_path="$state_dir/sunrise.watchdog"
+          watchdog_path="$state_dir/sunrise-sede-ticino.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/sunrise-sede-ticino.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -5713,7 +5713,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/sunrise.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-09/sunrise.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/sunrise.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/sunrise.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/sunrise-sede-ticino.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-86}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7611,6 +7611,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7639,7 +7640,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7650,35 +7651,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'solina'
-          aggregate_crawler_member 'spital-muri'
-          aggregate_crawler_member 'localsearch'
-          aggregate_crawler_member 'livingcircle'
-          aggregate_crawler_member 'klinik-barmelweid'
-          aggregate_crawler_member 'hirslanden'
-          aggregate_crawler_member 'oetiker'
-          aggregate_crawler_member 'suva'
-          aggregate_crawler_member 'weisse-arena'
-          aggregate_crawler_member 'csc-costruzioni'
-          aggregate_crawler_member 'spital-sts'
-          aggregate_crawler_member 'ete'
-          aggregate_crawler_member 'spital-oberengadin'
-          aggregate_crawler_member 'paraplegie'
-          aggregate_crawler_member 'zegna'
-          aggregate_crawler_member 'fusalp'
-          aggregate_crawler_member 'concara'
-          aggregate_crawler_member 'fielmann'
-          aggregate_crawler_member 'concordia'
-          aggregate_crawler_member 'engadin-tourismus'
-          aggregate_crawler_member 'colin-cie'
-          aggregate_crawler_member 'bcv'
-          aggregate_crawler_member 'apple-retail-switzerland'
-          aggregate_crawler_member 'bethesda-spital'
-          aggregate_crawler_member 'air-zermatt'
-          aggregate_crawler_member 'benu'
-          aggregate_crawler_member 'bitfinex'
-          aggregate_crawler_member 'sunrise'
-          aggregate_crawler_member 'lwphr'
+          aggregate_crawler_member 'solina' 'solina'
+          aggregate_crawler_member 'spital-muri' 'spital-muri'
+          aggregate_crawler_member 'localsearch' 'localsearch'
+          aggregate_crawler_member 'livingcircle' 'the-living-circle'
+          aggregate_crawler_member 'klinik-barmelweid' 'klinik-barmelweid'
+          aggregate_crawler_member 'hirslanden' 'hirslanden'
+          aggregate_crawler_member 'oetiker' 'oetiker'
+          aggregate_crawler_member 'suva' 'suva'
+          aggregate_crawler_member 'weisse-arena' 'weisse-arena'
+          aggregate_crawler_member 'csc-costruzioni' 'csc-costruzioni'
+          aggregate_crawler_member 'spital-sts' 'spital-sts'
+          aggregate_crawler_member 'ete' 'ete'
+          aggregate_crawler_member 'spital-oberengadin' 'spital-oberengadin'
+          aggregate_crawler_member 'paraplegie' 'paraplegie'
+          aggregate_crawler_member 'zegna' 'ermenegildo-zegna-logistica'
+          aggregate_crawler_member 'fusalp' 'fusalp'
+          aggregate_crawler_member 'concara' 'concara'
+          aggregate_crawler_member 'fielmann' 'fielmann'
+          aggregate_crawler_member 'concordia' 'concordia'
+          aggregate_crawler_member 'engadin-tourismus' 'engadin-tourismus'
+          aggregate_crawler_member 'colin-cie' 'colin-cie'
+          aggregate_crawler_member 'bcv' 'bcv'
+          aggregate_crawler_member 'apple-retail-switzerland' 'apple-retail-switzerland'
+          aggregate_crawler_member 'bethesda-spital' 'bethesda-spital'
+          aggregate_crawler_member 'air-zermatt' 'air-zermatt'
+          aggregate_crawler_member 'benu' 'benu'
+          aggregate_crawler_member 'bitfinex' 'bitfinex'
+          aggregate_crawler_member 'sunrise' 'sunrise-sede-ticino'
+          aggregate_crawler_member 'lwphr' 'lwphr'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

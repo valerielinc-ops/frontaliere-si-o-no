@@ -7604,6 +7604,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7632,7 +7633,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7643,35 +7644,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'spital-limmattal'
-          aggregate_crawler_member 'nant'
-          aggregate_crawler_member 'volksschule-luzern'
-          aggregate_crawler_member 'pemsa'
-          aggregate_crawler_member 'tarchini-group'
-          aggregate_crawler_member 'puk-zuerich'
-          aggregate_crawler_member 'zurzach-care'
-          aggregate_crawler_member 'hitachi-energy'
-          aggregate_crawler_member 'google-switzerland'
-          aggregate_crawler_member 'suedhang'
-          aggregate_crawler_member 'honegger'
-          aggregate_crawler_member 'jsafrasarasin'
-          aggregate_crawler_member 'kanton-basel-landschaft'
-          aggregate_crawler_member 'hermes'
-          aggregate_crawler_member 'ergolz-klinik'
-          aggregate_crawler_member 'emil-frey'
-          aggregate_crawler_member 'ferrovia-retica'
-          aggregate_crawler_member 'klinik-im-hasel'
-          aggregate_crawler_member 'gkb'
-          aggregate_crawler_member 'cereneo'
-          aggregate_crawler_member 'equans'
-          aggregate_crawler_member 'clariant'
-          aggregate_crawler_member 'ameos-ch'
-          aggregate_crawler_member 'anybotics'
-          aggregate_crawler_member 'aarreha-schinznach'
-          aggregate_crawler_member 'parmag'
-          aggregate_crawler_member 'spitex-basel'
-          aggregate_crawler_member 'hospice-general'
-          aggregate_crawler_member 'pole-sante-pays-enhaut'
+          aggregate_crawler_member 'spital-limmattal' 'spital-limmattal'
+          aggregate_crawler_member 'nant' 'nant'
+          aggregate_crawler_member 'volksschule-luzern' 'volksschule-luzern'
+          aggregate_crawler_member 'pemsa' 'pemsa'
+          aggregate_crawler_member 'tarchini-group' 'tarchini-group'
+          aggregate_crawler_member 'puk-zuerich' 'puk-zuerich'
+          aggregate_crawler_member 'zurzach-care' 'zurzach-care'
+          aggregate_crawler_member 'hitachi-energy' 'hitachi-energy'
+          aggregate_crawler_member 'google-switzerland' 'google-switzerland'
+          aggregate_crawler_member 'suedhang' 'suedhang'
+          aggregate_crawler_member 'honegger' 'honegger'
+          aggregate_crawler_member 'jsafrasarasin' 'jsafrasarasin'
+          aggregate_crawler_member 'kanton-basel-landschaft' 'kanton-basel-landschaft'
+          aggregate_crawler_member 'hermes' 'hermes'
+          aggregate_crawler_member 'ergolz-klinik' 'ergolz-klinik'
+          aggregate_crawler_member 'emil-frey' 'emil-frey'
+          aggregate_crawler_member 'ferrovia-retica' 'ferrovia-retica'
+          aggregate_crawler_member 'klinik-im-hasel' 'klinik-im-hasel'
+          aggregate_crawler_member 'gkb' 'gkb'
+          aggregate_crawler_member 'cereneo' 'cereneo'
+          aggregate_crawler_member 'equans' 'equans'
+          aggregate_crawler_member 'clariant' 'clariant'
+          aggregate_crawler_member 'ameos-ch' 'ameos-ch'
+          aggregate_crawler_member 'anybotics' 'anybotics'
+          aggregate_crawler_member 'aarreha-schinznach' 'aarreha-schinznach'
+          aggregate_crawler_member 'parmag' 'parmag'
+          aggregate_crawler_member 'spitex-basel' 'spitex-basel'
+          aggregate_crawler_member 'hospice-general' 'hospice-general'
+          aggregate_crawler_member 'pole-sante-pays-enhaut' 'pole-sante-pays-enhaut'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

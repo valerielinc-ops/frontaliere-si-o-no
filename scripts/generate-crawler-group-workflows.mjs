@@ -108,7 +108,7 @@ import {
   registeredCorpusSitePaths,
 } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from './lib/crawler-generation-runtime-paths.mjs';
-import { memberCrawlExitFileName } from './crawler-group-generation-finalizer.mjs';
+import { memberCrawlExitFileName, memberCrawlWatchdogFileName } from './crawler-group-generation-finalizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -1311,9 +1311,9 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
   // receipts carry), not by the slug: for the step-id overrides the two differ
   // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
-  const crawlExitFileName = memberCrawlExitFileName(
-    buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE,
-  );
+  const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE;
+  const crawlExitFileName = memberCrawlExitFileName(crawlerId);
+  const watchdogFileName = memberCrawlWatchdogFileName(crawlerId) ?? `${slug}.watchdog`;
   const worker = [
     'set +e',
     `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
@@ -1372,7 +1372,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
     `worker_status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.status"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
-    `watchdog_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.watchdog"`,
+    `watchdog_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${watchdogFileName}"`,
     `worker_watchdog_max=${CRAWLER_WORKER_WATCHDOG_MAX_MINUTES}`,
     `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-${watchdogMinutes}}"`,
     'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then',
@@ -1445,7 +1445,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `pid_path="$state_dir/${slug}.pid"`,
     `status_path="$state_dir/${slug}.status"`,
     `started_path="$state_dir/${slug}.started"`,
-    `watchdog_path="$state_dir/${slug}.watchdog"`,
+    `watchdog_path="$state_dir/${watchdogFileName}"`,
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     // A leftover crawl-exit would be positive proof this launch never gave.
     ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
@@ -1550,12 +1550,13 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
  * the worker, 137 when it had to escalate to SIGKILL after --kill-after. The
  * member then failed with no issue at all (sbb, three generations in a row at
  * the 91 minute watchdog, never reported). The launcher leaves
- * `<slug>.watchdog` (the effective minutes) only in that case — a worker that
- * published its own status (an explicit `targetTimeoutMinutes`, whose
+ * `<crawlerId>.watchdog` (the effective minutes) only in that case — a worker
+ * that published its own status (an explicit `targetTimeoutMinutes`, whose
  * reporter runs outside the inner timeout, publishes 124 or 1) has already
- * reported — and the aggregate files the same issue the reporter would have:
- * same stable title, same `--workflow` id, so dedup, escalation and recovery
- * close treat it as one.
+ * reported. The finalizer uses this marker as proof of an incomplete crawl
+ * only when the crawl-exit signal is absent. The aggregate files the same
+ * issue the reporter would have: same stable title, same `--workflow` id, so
+ * dedup, escalation and recovery close treat it as one.
  */
 const WATCHDOG_KILL_EXIT = 137;
 const WATCHDOG_MARK_LINES = [
@@ -1570,12 +1571,12 @@ const WATCHDOG_MARK_LINES = [
  */
 const SHELL_SLUG_VAR = '$slug';
 
-function buildWatchdogKillIssueLines(slug) {
+function buildWatchdogKillIssueLines(slug, crawlerId = slug) {
   const dynamic = slug === SHELL_SLUG_VAR;
   const quoteArg = (text) => (dynamic ? `"${text}"` : shellQuote(text));
   const statusFile = `"$state_dir/${slug}.status"`;
   return [
-    `watchdog_file="$state_dir/${slug}.watchdog"`,
+    `watchdog_file="$state_dir/${crawlerId}.watchdog"`,
     `watchdog_status="$(cat ${statusFile} 2>/dev/null || true)"`,
     `if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "${TARGET_TIMEOUT_EXIT}" ] || [ "$watchdog_status" = "${WATCHDOG_KILL_EXIT}" ]; }; then`,
     '  watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"',
@@ -1634,6 +1635,7 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
   const slug = SHELL_SLUG_VAR;
   const memberBody = [
     'slug="$1"',
+    'crawler_id="$2"',
     `status_file="$state_dir/${slug}.status"`,
     'if [ ! -s "$status_file" ]; then',
     `  echo "::warning::${slug}: no terminal status was published"`,
@@ -1662,13 +1664,16 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
     '    failure_count=$((failure_count + 1))',
     '  fi',
     'fi',
-    ...buildWatchdogKillIssueLines(slug),
+    ...buildWatchdogKillIssueLines(slug, '$crawler_id'),
   ];
   lines.push(
     `${AGGREGATE_MEMBER_FUNCTION}() {`,
     ...memberBody.map((line) => `  ${line}`),
     '}',
-    ...crawlers.map((crawler) => `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)}`),
+    ...crawlers.map((crawler) => {
+      const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE || crawler.slug;
+      return `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)} ${shellQuote(crawlerId)}`;
+    }),
   );
   lines.push(
     `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"`,
@@ -1728,6 +1733,7 @@ function buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine) {
   ];
   for (const crawler of crawlers) {
     const slug = crawler.slug;
+    const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE || slug;
     const known = tolerated.get(slug);
     const failureBranch = known
       ? [
@@ -1776,7 +1782,7 @@ function buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine) {
       '    outcome=success',
       ...failureBranch,
       'fi',
-      ...buildWatchdogKillIssueLines(slug),
+      ...buildWatchdogKillIssueLines(slug, crawlerId),
       `outcomes_json="\${outcomes_json}\${outcomes_json:+,}\\"${slug}\\":\\"$outcome\\""`,
     );
   }

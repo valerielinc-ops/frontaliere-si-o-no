@@ -3440,7 +3440,7 @@ jobs:
           pid_path="$state_dir/fincons.pid"
           status_path="$state_dir/fincons.status"
           started_path="$state_dir/fincons.started"
-          watchdog_path="$state_dir/fincons.watchdog"
+          watchdog_path="$state_dir/fincons-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/fincons-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -3527,7 +3527,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-06/fincons.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-06/fincons.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-06/fincons.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-06/fincons.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-06/fincons-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-57}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5229,7 +5229,7 @@ jobs:
           pid_path="$state_dir/abb.pid"
           status_path="$state_dir/abb.status"
           started_path="$state_dir/abb.started"
-          watchdog_path="$state_dir/abb.watchdog"
+          watchdog_path="$state_dir/abb-svizzera-sede-ticino.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/abb-svizzera-sede-ticino.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -5316,7 +5316,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-06/abb.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-06/abb.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-06/abb.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-06/abb.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-06/abb-svizzera-sede-ticino.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7612,6 +7612,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7640,7 +7641,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7651,35 +7652,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'merian-iselin'
-          aggregate_crawler_member 'julius-baer'
-          aggregate_crawler_member 'hochgebirgsklinik-davos'
-          aggregate_crawler_member 'srg-ssr'
-          aggregate_crawler_member 'privatklinik-hohenegg'
-          aggregate_crawler_member 'rolex'
-          aggregate_crawler_member 'spital-uster'
-          aggregate_crawler_member 'transgourmet'
-          aggregate_crawler_member 'reha-andeer'
-          aggregate_crawler_member 'planzer'
-          aggregate_crawler_member 'migrolino'
-          aggregate_crawler_member 'swatchgroup'
-          aggregate_crawler_member 'hopital-de-lavaux'
-          aggregate_crawler_member 'gmo'
-          aggregate_crawler_member 'privatklinik-bethanien'
-          aggregate_crawler_member 'palliativklinik'
-          aggregate_crawler_member 'fincons'
-          aggregate_crawler_member 'denner'
-          aggregate_crawler_member 'hoval'
-          aggregate_crawler_member 'croix-rouge-fribourgeoise'
-          aggregate_crawler_member 'modellstation-somosa'
-          aggregate_crawler_member 'epi-stiftung'
-          aggregate_crawler_member 'hopital-du-valais'
-          aggregate_crawler_member 'arsante-clinique-de-carouge'
-          aggregate_crawler_member 'grand-resort-bad-ragaz'
-          aggregate_crawler_member 'abb'
-          aggregate_crawler_member 'ehnv'
-          aggregate_crawler_member 'mueller-steinmaur'
-          aggregate_crawler_member 'siegfried'
+          aggregate_crawler_member 'merian-iselin' 'merian-iselin'
+          aggregate_crawler_member 'julius-baer' 'julius-baer'
+          aggregate_crawler_member 'hochgebirgsklinik-davos' 'hochgebirgsklinik-davos'
+          aggregate_crawler_member 'srg-ssr' 'srg-ssr'
+          aggregate_crawler_member 'privatklinik-hohenegg' 'privatklinik-hohenegg'
+          aggregate_crawler_member 'rolex' 'rolex'
+          aggregate_crawler_member 'spital-uster' 'spital-uster'
+          aggregate_crawler_member 'transgourmet' 'transgourmet'
+          aggregate_crawler_member 'reha-andeer' 'reha-andeer'
+          aggregate_crawler_member 'planzer' 'planzer'
+          aggregate_crawler_member 'migrolino' 'migrolino'
+          aggregate_crawler_member 'swatchgroup' 'swatchgroup'
+          aggregate_crawler_member 'hopital-de-lavaux' 'hopital-de-lavaux'
+          aggregate_crawler_member 'gmo' 'gmo'
+          aggregate_crawler_member 'privatklinik-bethanien' 'privatklinik-bethanien'
+          aggregate_crawler_member 'palliativklinik' 'palliativklinik'
+          aggregate_crawler_member 'fincons' 'fincons-group'
+          aggregate_crawler_member 'denner' 'denner'
+          aggregate_crawler_member 'hoval' 'hoval'
+          aggregate_crawler_member 'croix-rouge-fribourgeoise' 'croix-rouge-fribourgeoise'
+          aggregate_crawler_member 'modellstation-somosa' 'modellstation-somosa'
+          aggregate_crawler_member 'epi-stiftung' 'epi-stiftung'
+          aggregate_crawler_member 'hopital-du-valais' 'hopital-du-valais'
+          aggregate_crawler_member 'arsante-clinique-de-carouge' 'arsante-clinique-de-carouge'
+          aggregate_crawler_member 'grand-resort-bad-ragaz' 'grand-resort-bad-ragaz'
+          aggregate_crawler_member 'abb' 'abb-svizzera-sede-ticino'
+          aggregate_crawler_member 'ehnv' 'ehnv'
+          aggregate_crawler_member 'mueller-steinmaur' 'mueller-steinmaur'
+          aggregate_crawler_member 'siegfried' 'siegfried'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

@@ -1189,7 +1189,7 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
   // reader. flock/setsid/timeout are shimmed so this runs on macOS too: the
   // semaphore and the watchdog are not what is under test, the file key and
   // its contents are.
-  function launchMember(runCommand: string, commitExit: number) {
+  function launchMember(runCommand: string, commitExit: number, fakeTimeout: Record<string, string> = {}) {
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-crawl-exit-'));
     const bin = path.join(temp, 'bin');
     fs.mkdirSync(bin);
@@ -1206,6 +1206,10 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
       '#!/usr/bin/env bash',
       'while [[ "${1:-}" == --* ]]; do shift; done',
       'shift',
+      'if [ -n "${FAKE_TIMEOUT_EXIT:-}" ]; then',
+      '  if [ "${FAKE_TIMEOUT_RUN_COMMAND:-0}" = "1" ]; then "$@"; fi',
+      '  exit "$FAKE_TIMEOUT_EXIT"',
+      'fi',
       'exec "$@"',
       '',
     ].join('\n'), { mode: 0o755 });
@@ -1223,7 +1227,7 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
       ],
     } as any, 15);
     execFileSync('bash', ['-e', '-c', body], {
-      env: { ...process.env, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
+      env: { ...process.env, ...fakeTimeout, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
       encoding: 'utf8',
     });
     const stateDir = memberCrawlStateDir(temp, '15');
@@ -1249,6 +1253,36 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
     const { temp, stateDir, statusFile } = launchMember('true', 1);
     try {
       expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_ok' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.each([124, 137])('records watchdog exit %s as a roster-keyed crawl failure', (exit) => {
+    const { temp, stateDir, statusFile } = launchMember('true', 0, {
+      FAKE_TIMEOUT_EXIT: String(exit),
+      FAKE_TIMEOUT_RUN_COMMAND: '0',
+    });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe(String(exit));
+      expect(fs.readFileSync(path.join(stateDir, 'acme-europe.watchdog'), 'utf8').trim()).toBeTruthy();
+      expect(fs.existsSync(path.join(stateDir, 'acme-europe.crawl-exit'))).toBe(false);
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_failed' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('preserves a recorded crawl success when the watchdog wins a late status race', () => {
+    const { temp, stateDir, statusFile } = launchMember('true', 0, {
+      FAKE_TIMEOUT_EXIT: '124',
+      FAKE_TIMEOUT_RUN_COMMAND: '1',
+    });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('124');
+      expect(fs.readFileSync(path.join(stateDir, 'acme-europe.crawl-exit'), 'utf8')).toBe('0\n');
+      expect(fs.existsSync(path.join(stateDir, 'acme-europe.watchdog'))).toBe(true);
       expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_ok' });
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
@@ -1561,6 +1595,16 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     expect(body).toContain('watchdog_status="$(cat "$state_dir/sbb.status" 2>/dev/null || true)"');
     expect(body).toContain('if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then');
     expect(body).toContain("node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run sbb'");
+  });
+
+  it('looks up the watchdog marker by roster id while reporting by crawler slug', () => {
+    const body = buildCrawlerAggregateShellBody([{
+      slug: 'sbb',
+      runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'sbb-europe' }, run: 'true' },
+      postSteps: [],
+    }] as any, 15);
+    expect(body).toContain('aggregate_crawler_member \'sbb\' \'sbb-europe\'');
+    expect(body).toContain('watchdog_file="$state_dir/$crawler_id.watchdog"');
   });
 
   it('keeps the aggregate green when the issue cannot be filed', () => {

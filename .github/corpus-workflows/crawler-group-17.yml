@@ -1448,7 +1448,7 @@ jobs:
           pid_path="$state_dir/zurich.pid"
           status_path="$state_dir/zurich.status"
           started_path="$state_dir/zurich.started"
-          watchdog_path="$state_dir/zurich.watchdog"
+          watchdog_path="$state_dir/zurich-insurance-sede-ticino.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/zurich-insurance-sede-ticino.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -1535,7 +1535,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-17/zurich.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-17/zurich.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-17/zurich.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-17/zurich.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-17/zurich-insurance-sede-ticino.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-111}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5229,7 +5229,7 @@ jobs:
           pid_path="$state_dir/board.pid"
           status_path="$state_dir/board.status"
           started_path="$state_dir/board.started"
-          watchdog_path="$state_dir/board.watchdog"
+          watchdog_path="$state_dir/board-international.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/board-international.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -5316,7 +5316,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-17/board.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-17/board.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-17/board.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-17/board.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-17/board-international.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7866,6 +7866,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7894,7 +7895,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7905,36 +7906,36 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'siemens-healthineers'
-          aggregate_crawler_member 'proton'
-          aggregate_crawler_member 'spital-zofingen'
-          aggregate_crawler_member 'sygnum'
-          aggregate_crawler_member 'gim-architekten'
-          aggregate_crawler_member 'klinik-arlesheim'
-          aggregate_crawler_member 'zurich'
-          aggregate_crawler_member 'veeam'
-          aggregate_crawler_member 'kispi'
-          aggregate_crawler_member 'pigna'
-          aggregate_crawler_member 'new-yorker'
-          aggregate_crawler_member 'relewant'
-          aggregate_crawler_member 'implenia'
-          aggregate_crawler_member 'baronie'
-          aggregate_crawler_member 'recruitingapp-1123'
-          aggregate_crawler_member 'pdgr'
-          aggregate_crawler_member 'imerys'
-          aggregate_crawler_member 'elettra-1938'
-          aggregate_crawler_member 'cerbios-pharma'
-          aggregate_crawler_member 'clinique-de-montchoisi'
-          aggregate_crawler_member 'ophtalmique'
-          aggregate_crawler_member 'barry-callebaut'
-          aggregate_crawler_member 'evam-vaud'
-          aggregate_crawler_member 'holmes-place'
-          aggregate_crawler_member 'clinique-generale-beaulieu'
-          aggregate_crawler_member 'board'
-          aggregate_crawler_member 'aldi-suisse'
-          aggregate_crawler_member 'badrutts-palace'
-          aggregate_crawler_member 'asile-des-aveugles'
-          aggregate_crawler_member 'technic-emplois'
+          aggregate_crawler_member 'siemens-healthineers' 'siemens-healthineers'
+          aggregate_crawler_member 'proton' 'proton'
+          aggregate_crawler_member 'spital-zofingen' 'spital-zofingen'
+          aggregate_crawler_member 'sygnum' 'sygnum'
+          aggregate_crawler_member 'gim-architekten' 'gim-architekten'
+          aggregate_crawler_member 'klinik-arlesheim' 'klinik-arlesheim'
+          aggregate_crawler_member 'zurich' 'zurich-insurance-sede-ticino'
+          aggregate_crawler_member 'veeam' 'veeam'
+          aggregate_crawler_member 'kispi' 'kispi'
+          aggregate_crawler_member 'pigna' 'pigna'
+          aggregate_crawler_member 'new-yorker' 'new-yorker'
+          aggregate_crawler_member 'relewant' 'relewant'
+          aggregate_crawler_member 'implenia' 'implenia'
+          aggregate_crawler_member 'baronie' 'baronie'
+          aggregate_crawler_member 'recruitingapp-1123' 'recruitingapp-1123'
+          aggregate_crawler_member 'pdgr' 'pdgr'
+          aggregate_crawler_member 'imerys' 'imerys'
+          aggregate_crawler_member 'elettra-1938' 'elettra-1938'
+          aggregate_crawler_member 'cerbios-pharma' 'cerbios-pharma'
+          aggregate_crawler_member 'clinique-de-montchoisi' 'clinique-de-montchoisi'
+          aggregate_crawler_member 'ophtalmique' 'ophtalmique'
+          aggregate_crawler_member 'barry-callebaut' 'barry-callebaut'
+          aggregate_crawler_member 'evam-vaud' 'evam-vaud'
+          aggregate_crawler_member 'holmes-place' 'holmes-place'
+          aggregate_crawler_member 'clinique-generale-beaulieu' 'clinique-generale-beaulieu'
+          aggregate_crawler_member 'board' 'board-international'
+          aggregate_crawler_member 'aldi-suisse' 'aldi-suisse'
+          aggregate_crawler_member 'badrutts-palace' 'badrutts-palace'
+          aggregate_crawler_member 'asile-des-aveugles' 'asile-des-aveugles'
+          aggregate_crawler_member 'technic-emplois' 'technic-emplois'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

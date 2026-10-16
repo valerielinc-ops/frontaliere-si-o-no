@@ -2063,7 +2063,7 @@ jobs:
           pid_path="$state_dir/skyguide.pid"
           status_path="$state_dir/skyguide.status"
           started_path="$state_dir/skyguide.started"
-          watchdog_path="$state_dir/skyguide.watchdog"
+          watchdog_path="$state_dir/skyguide-sa.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/skyguide-sa.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -2150,7 +2150,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-08/skyguide.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-08/skyguide.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-08/skyguide.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/skyguide.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/skyguide-sa.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-86}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2462,7 +2462,7 @@ jobs:
           pid_path="$state_dir/volg.pid"
           status_path="$state_dir/volg.status"
           started_path="$state_dir/volg.started"
-          watchdog_path="$state_dir/volg.watchdog"
+          watchdog_path="$state_dir/volg-fenaco.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/volg-fenaco.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -2549,7 +2549,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-08/volg.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-08/volg.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-08/volg.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/volg.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/volg-fenaco.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-76}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4451,7 +4451,7 @@ jobs:
           pid_path="$state_dir/dxt.pid"
           status_path="$state_dir/dxt.status"
           started_path="$state_dir/dxt.started"
-          watchdog_path="$state_dir/dxt.watchdog"
+          watchdog_path="$state_dir/dxt-commodities.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/dxt-commodities.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -4538,7 +4538,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-08/dxt.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-08/dxt.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-08/dxt.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/dxt.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/dxt-commodities.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5052,7 +5052,7 @@ jobs:
           pid_path="$state_dir/damiani.pid"
           status_path="$state_dir/damiani.status"
           started_path="$state_dir/damiani.started"
-          watchdog_path="$state_dir/damiani.watchdog"
+          watchdog_path="$state_dir/damiani-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/damiani-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -5139,7 +5139,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-08/damiani.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-08/damiani.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-08/damiani.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/damiani.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/damiani-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5450,7 +5450,7 @@ jobs:
           pid_path="$state_dir/ruag.pid"
           status_path="$state_dir/ruag.status"
           started_path="$state_dir/ruag.started"
-          watchdog_path="$state_dir/ruag.watchdog"
+          watchdog_path="$state_dir/ruag-ag.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/ruag-ag.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -5537,7 +5537,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-08/ruag.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-08/ruag.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-08/ruag.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/ruag.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/ruag-ag.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-163}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7634,6 +7634,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7662,7 +7663,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7673,35 +7674,35 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'salina-reha'
-          aggregate_crawler_member 'thurklinik'
-          aggregate_crawler_member 'smg-swiss-marketplace-group'
-          aggregate_crawler_member 'rieter'
-          aggregate_crawler_member 'molecular-partners'
-          aggregate_crawler_member 'sro'
-          aggregate_crawler_member 'victorinox'
-          aggregate_crawler_member 'soh-solothurner-spitaeler'
-          aggregate_crawler_member 'patek-philippe'
-          aggregate_crawler_member 'skyguide'
-          aggregate_crawler_member 'klinik-schoenberg'
-          aggregate_crawler_member 'volg'
-          aggregate_crawler_member 'cs-bregaglia'
-          aggregate_crawler_member 'szb-chb'
-          aggregate_crawler_member 'hes-so-valais'
-          aggregate_crawler_member 'josef-mueller'
-          aggregate_crawler_member 'caritas-schweiz'
-          aggregate_crawler_member 'burkhalter'
-          aggregate_crawler_member 'dic-sa'
-          aggregate_crawler_member 'ehc-vd'
-          aggregate_crawler_member 'chopard'
-          aggregate_crawler_member 'dxt'
-          aggregate_crawler_member 'cds-savognin'
-          aggregate_crawler_member 'has-healthcare'
-          aggregate_crawler_member 'damiani'
-          aggregate_crawler_member 'blatters-hotel'
-          aggregate_crawler_member 'ruag'
-          aggregate_crawler_member 'usz'
-          aggregate_crawler_member 'c-and-a-schweiz'
+          aggregate_crawler_member 'salina-reha' 'salina-reha'
+          aggregate_crawler_member 'thurklinik' 'thurklinik'
+          aggregate_crawler_member 'smg-swiss-marketplace-group' 'smg-swiss-marketplace-group'
+          aggregate_crawler_member 'rieter' 'rieter'
+          aggregate_crawler_member 'molecular-partners' 'molecular-partners'
+          aggregate_crawler_member 'sro' 'sro'
+          aggregate_crawler_member 'victorinox' 'victorinox'
+          aggregate_crawler_member 'soh-solothurner-spitaeler' 'soh-solothurner-spitaeler'
+          aggregate_crawler_member 'patek-philippe' 'patek-philippe'
+          aggregate_crawler_member 'skyguide' 'skyguide-sa'
+          aggregate_crawler_member 'klinik-schoenberg' 'klinik-schoenberg'
+          aggregate_crawler_member 'volg' 'volg-fenaco'
+          aggregate_crawler_member 'cs-bregaglia' 'cs-bregaglia'
+          aggregate_crawler_member 'szb-chb' 'szb-chb'
+          aggregate_crawler_member 'hes-so-valais' 'hes-so-valais'
+          aggregate_crawler_member 'josef-mueller' 'josef-mueller'
+          aggregate_crawler_member 'caritas-schweiz' 'caritas-schweiz'
+          aggregate_crawler_member 'burkhalter' 'burkhalter'
+          aggregate_crawler_member 'dic-sa' 'dic-sa'
+          aggregate_crawler_member 'ehc-vd' 'ehc-vd'
+          aggregate_crawler_member 'chopard' 'chopard'
+          aggregate_crawler_member 'dxt' 'dxt-commodities'
+          aggregate_crawler_member 'cds-savognin' 'cds-savognin'
+          aggregate_crawler_member 'has-healthcare' 'has-healthcare'
+          aggregate_crawler_member 'damiani' 'damiani-group'
+          aggregate_crawler_member 'blatters-hotel' 'blatters-hotel'
+          aggregate_crawler_member 'ruag' 'ruag-ag'
+          aggregate_crawler_member 'usz' 'usz'
+          aggregate_crawler_member 'c-and-a-schweiz' 'c-and-a-schweiz'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

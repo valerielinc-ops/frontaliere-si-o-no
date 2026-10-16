@@ -850,7 +850,7 @@ jobs:
           pid_path="$state_dir/trumpf.pid"
           status_path="$state_dir/trumpf.status"
           started_path="$state_dir/trumpf.started"
-          watchdog_path="$state_dir/trumpf.watchdog"
+          watchdog_path="$state_dir/trumpf-schweiz.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/trumpf-schweiz.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -937,7 +937,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-18/trumpf.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf-schweiz.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-133}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1248,7 +1248,7 @@ jobs:
           pid_path="$state_dir/usi.pid"
           status_path="$state_dir/usi.status"
           started_path="$state_dir/usi.started"
-          watchdog_path="$state_dir/usi.watchdog"
+          watchdog_path="$state_dir/usi-universita-della-svizzera-italiana.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/usi-universita-della-svizzera-italiana.crawl-exit"
           # shellcheck disable=SC2016,SC1003
@@ -1335,7 +1335,7 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-18/usi.status.tmp.$$"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/usi.worker.status"
           started_file="$RUNNER_TEMP/crawler-generation/group-18/usi.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/usi.watchdog"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/usi-universita-della-svizzera-italiana.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-119}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7906,6 +7906,7 @@ jobs:
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
           aggregate_crawler_member() {
             slug="$1"
+            crawler_id="$2"
             status_file="$state_dir/$slug.status"
             if [ ! -s "$status_file" ]; then
               echo "::warning::$slug: no terminal status was published"
@@ -7934,7 +7935,7 @@ jobs:
                 failure_count=$((failure_count + 1))
               fi
             fi
-            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_file="$state_dir/$crawler_id.watchdog"
             watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
             if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
@@ -7945,36 +7946,36 @@ jobs:
               fi
             fi
           }
-          aggregate_crawler_member 'tertianum'
-          aggregate_crawler_member 'etat-de-vaud'
-          aggregate_crawler_member 'rheinmetall-air-defence'
-          aggregate_crawler_member 'trumpf'
-          aggregate_crawler_member 'sfs-group'
-          aggregate_crawler_member 'usi'
-          aggregate_crawler_member 'ksml'
-          aggregate_crawler_member 'spital-lachen'
-          aggregate_crawler_member 'kanton-zuerich'
-          aggregate_crawler_member 'zuger-kantonsspital'
-          aggregate_crawler_member 'sicpa'
-          aggregate_crawler_member 'hofweissbad'
-          aggregate_crawler_member 'tinext'
-          aggregate_crawler_member 'apleona-schweiz-ag'
-          aggregate_crawler_member 'pkb-private-bank'
-          aggregate_crawler_member 'klinik-schloss-mammern'
-          aggregate_crawler_member 'zermatt-bergbahnen'
-          aggregate_crawler_member 'etat-de-fribourg'
-          aggregate_crawler_member 'huber-suhner'
-          aggregate_crawler_member 'canton-valais'
-          aggregate_crawler_member 'constellium'
-          aggregate_crawler_member 'empa'
-          aggregate_crawler_member 'kantonsspital-uri'
-          aggregate_crawler_member 'bobst'
-          aggregate_crawler_member 'baloise'
-          aggregate_crawler_member 'etavis'
-          aggregate_crawler_member 'amina-bank'
-          aggregate_crawler_member 'opus-personal'
-          aggregate_crawler_member 'rohrer-gartenbau-und-hauswartungen'
-          aggregate_crawler_member 'wokin'
+          aggregate_crawler_member 'tertianum' 'tertianum'
+          aggregate_crawler_member 'etat-de-vaud' 'etat-de-vaud'
+          aggregate_crawler_member 'rheinmetall-air-defence' 'rheinmetall-air-defence'
+          aggregate_crawler_member 'trumpf' 'trumpf-schweiz'
+          aggregate_crawler_member 'sfs-group' 'sfs-group'
+          aggregate_crawler_member 'usi' 'usi-universita-della-svizzera-italiana'
+          aggregate_crawler_member 'ksml' 'ksml'
+          aggregate_crawler_member 'spital-lachen' 'spital-lachen'
+          aggregate_crawler_member 'kanton-zuerich' 'kanton-zuerich'
+          aggregate_crawler_member 'zuger-kantonsspital' 'zuger-kantonsspital'
+          aggregate_crawler_member 'sicpa' 'sicpa'
+          aggregate_crawler_member 'hofweissbad' 'hofweissbad'
+          aggregate_crawler_member 'tinext' 'tinext'
+          aggregate_crawler_member 'apleona-schweiz-ag' 'apleona-schweiz-ag'
+          aggregate_crawler_member 'pkb-private-bank' 'pkb-private-bank'
+          aggregate_crawler_member 'klinik-schloss-mammern' 'klinik-schloss-mammern'
+          aggregate_crawler_member 'zermatt-bergbahnen' 'zermatt-bergbahnen'
+          aggregate_crawler_member 'etat-de-fribourg' 'etat-de-fribourg'
+          aggregate_crawler_member 'huber-suhner' 'huber-suhner'
+          aggregate_crawler_member 'canton-valais' 'canton-valais'
+          aggregate_crawler_member 'constellium' 'constellium'
+          aggregate_crawler_member 'empa' 'empa'
+          aggregate_crawler_member 'kantonsspital-uri' 'kantonsspital-uri'
+          aggregate_crawler_member 'bobst' 'bobst'
+          aggregate_crawler_member 'baloise' 'baloise'
+          aggregate_crawler_member 'etavis' 'etavis'
+          aggregate_crawler_member 'amina-bank' 'amina-bank'
+          aggregate_crawler_member 'opus-personal' 'opus-personal'
+          aggregate_crawler_member 'rohrer-gartenbau-und-hauswartungen' 'rohrer-gartenbau-und-hauswartungen'
+          aggregate_crawler_member 'wokin' 'wokin'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
