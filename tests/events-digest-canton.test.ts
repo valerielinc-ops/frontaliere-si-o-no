@@ -112,7 +112,7 @@ describe('buildWeekendDigestArticle with a canton', () => {
       todayIso: '2027-01-01',
     });
     expect(article.content.it.body2).toContain('**2 gennaio**');
-    expect(article.content.it.body2).toContain('[Mostra ricorrente](https://agenda.example/events/mostra-(serie%29)');
+    expect(article.content.it.body2).toContain('[Mostra ricorrente](https://agenda.example/events/mostra-%28serie%29)');
     expect(article.content.it.body2).not.toContain('**1 gennaio** —');
   });
 
