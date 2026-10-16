@@ -19,11 +19,11 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -1024,7 +1024,67 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
   });
 });
 
-describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
+describe('crawler generation state cleanup', () => {
+  it('stops a stale detached slot waiter at startup and remains idempotent at final cleanup', async () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-cleanup-'));
+    const stateDir = path.join(temp, 'crawler-generation', 'group-23');
+    const slotsDir = path.join(stateDir, 'slots');
+    fs.mkdirSync(slotsDir, { recursive: true });
+    fs.writeFileSync(path.join(slotsDir, 'slot-1.lock'), '');
+
+    const launcherPath = path.join(stateDir, 'waiting-launcher.sh');
+    fs.writeFileSync(launcherPath, [
+      '#!/usr/bin/env bash',
+      'state_dir="$(dirname "$0")"',
+      'while [ -e "$state_dir/slots/slot-1.lock" ]; do sleep 1; done',
+      'touch "$state_dir/started-after-slot"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    const child = spawn('bash', [launcherPath], { detached: true, stdio: 'ignore' });
+    if (!child.pid) throw new Error('detached launcher did not receive a pid');
+    const childExited = new Promise<void>((resolve) => child.once('exit', () => resolve()));
+    fs.writeFileSync(path.join(stateDir, 'waiting-launcher.pid'), `${child.pid}\n`);
+
+    try {
+      const startupCleanup = cleanupCrawlerGenerationState({ phase: 'startup' });
+      const finalCleanup = cleanupCrawlerGenerationState();
+      expect(startupCleanup).toMatchObject({ name: 'Cleanup stale crawler generation state' });
+      expect(startupCleanup).not.toHaveProperty('if');
+      expect(finalCleanup).toMatchObject({
+        name: 'Cleanup crawler generation state',
+        if: 'always()',
+        'continue-on-error': true,
+      });
+      execFileSync('bash', ['-e', '-c', startupCleanup.run], {
+        encoding: 'utf8',
+        env: { ...process.env, RUNNER_TEMP: temp },
+      });
+      expect(fs.existsSync(stateDir)).toBe(false);
+      await new Promise<void>((resolve, reject) => {
+        const timeout = setTimeout(() => reject(new Error('detached crawler launcher survived cleanup')), 5_000);
+        childExited.then(() => {
+          clearTimeout(timeout);
+          resolve();
+        });
+      });
+
+      execFileSync('bash', ['-e', '-c', finalCleanup.run], {
+        encoding: 'utf8',
+        env: { ...process.env, RUNNER_TEMP: temp },
+      });
+      expect(fs.existsSync(stateDir)).toBe(false);
+    } finally {
+      if (child.exitCode === null) {
+        try {
+          process.kill(-child.pid, 'SIGKILL');
+        } catch {
+          // The cleanup function may already have stopped the process group.
+        }
+      }
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  }, 10_000);
+
   it('does not pass RUNNER_TRACKING_ID to either detached launcher branch', () => {
     const body = buildCrawlerLaunchShellBody({
       slug: 'tracking-isolated',
@@ -2366,6 +2426,22 @@ describe('cross-repo crawler execution artifacts', () => {
       sourceCommit: contract.sourceCommit,
     });
     expect(contract.artifacts.every((artifact: any) => artifact.generatorSha256 === contract.generatorSha256)).toBe(true);
+    const cleanupArtifacts = contract.artifacts.filter((artifact: any) => {
+      const generated = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job = Object.values(generated.jobs ?? {})[0] as any;
+      return job.steps.some((step: any) => step.name === 'Cleanup stale crawler generation state')
+        && job.steps.some((step: any) => step.name === 'Cleanup crawler generation state');
+    }).map((artifact: any) => artifact.file);
+    expect(cleanupArtifacts).toEqual(['crawler-group-23.yml']);
+    const generatedGroup23 = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-23.yml'), 'utf8'));
+    const group23Job = Object.values(generatedGroup23.jobs ?? {})[0] as any;
+    const startupCleanup = group23Job.steps.find((step: any) => step.name === 'Cleanup stale crawler generation state');
+    const finalCleanup = group23Job.steps.find((step: any) => step.name === 'Cleanup crawler generation state');
+    expect(group23Job.steps[0]).toBe(startupCleanup);
+    expect(group23Job.steps[group23Job.steps.length - 1]).toBe(finalCleanup);
+    expect(startupCleanup.run).toContain('cleanupCrawlerGenerationState() {');
+    expect(finalCleanup).toMatchObject({ if: 'always()', 'continue-on-error': true });
+    expect(finalCleanup.run).toContain('rm -rf "$state_dir"');
     expect(contract.observerCount).toBe(CORPUS_OBSERVER_FILES.length);
     expect(contract.observers.map(({ source, target }: any) => ({ source, target })))
       .toEqual(CORPUS_OBSERVER_FILES);
