@@ -2664,7 +2664,8 @@
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
         "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
-        "gestion-des-marches-stadler-rail-bussnang"
+        "gestion-des-marches-stadler-rail-bussnang",
+        "contract-manager-procurement-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2691,8 +2692,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-45ccbad0485f",

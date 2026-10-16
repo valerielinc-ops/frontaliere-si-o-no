@@ -1779,7 +1779,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40475",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stv-klassenlehrperson-3-klasse-schule-wittigkofen-bern-40475"
@@ -9624,10 +9623,7 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36334",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334",
-        "lehrperson-an-der-3-4-klasse-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334",
@@ -9637,8 +9633,10 @@
           "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-15T21:29:58.360Z",
+      "previousSlugs": [
+        "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334",
+        "lehrperson-an-der-3-4-klasse-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -9651,7 +9649,9 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-15T21:29:58.360Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "ksml-e2e6671dbb67",

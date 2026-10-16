@@ -3023,14 +3023,16 @@
         "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-uznach",
         "apotheker-apothekerin-come-stellvertretung-w-m-d-galenica-galenica-uznach",
         "apotheker-apothekerin-als-stellvertretung-m-f-d-galenica-galenica-uznach",
-        "apotheker-apothekerin-als-stellvertretung-h-f-d-galenica-galenica-uznach"
+        "apotheker-apothekerin-als-stellvertretung-h-f-d-galenica-galenica-uznach",
+        "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-uznach-nwjnbf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-bern",
           "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-bern",
           "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-uznach",
-          "apotheker-apothekerin-come-stellvertretung-w-m-d-galenica-galenica-uznach"
+          "apotheker-apothekerin-come-stellvertretung-w-m-d-galenica-galenica-uznach",
+          "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-uznach-nwjnbf"
         ],
         "en": [
           "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-bern",
@@ -3401,7 +3403,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -4694,7 +4697,8 @@
       "id": "galenica-20ecbfd05e2c",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden"
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden",
+          "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden-nx10ev"
         ],
         "en": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden"
@@ -4704,7 +4708,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden"
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden",
+        "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden-nx10ev"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
