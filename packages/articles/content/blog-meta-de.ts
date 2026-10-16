@@ -13316,6 +13316,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-16.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 16. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-10-16.seoDescription': 'Grenzgänger-Bulletin vom 16. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-10-16.ogDescription': 'Die Zahlen vom 16. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, wie der Franken zuletzt zum Euro stand und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.concerto-gallarate-uto-ughi-2026.title': 'Gallarate: Uto Ughi kehrt mit Vivaldi und Bach ins Teatro Condominio zurück',
+    'blog.article.concerto-gallarate-uto-ughi-2026.excerpt': 'Uto Ughi kehrt am 25. (Gallarate)',
+    'blog.article.concerto-gallarate-uto-ughi-2026.imageAlt': 'Teatro Condominio Vittorio Gassman in Gallarate, Ort des Konzerts von Uto Ughi',
 };
 
 export default blogMetaDe;

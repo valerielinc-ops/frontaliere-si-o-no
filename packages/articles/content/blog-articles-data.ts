@@ -44940,6 +44940,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'concerto-gallarate-uto-ughi-2026',
+ category: 'novita',
+ date: '2026-10-16T11:26:50.827Z',
+ image: '/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

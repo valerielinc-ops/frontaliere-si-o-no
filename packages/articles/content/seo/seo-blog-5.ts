@@ -109730,6 +109730,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-concerto-gallarate-uto-ughi-2026': {
+    title: 'Gallarate: uto ughi torna al teatro condominio con vivaldi e bach',
+    description: 'Uto Ughi torna a Gallarate il 25 ottobre 2026 Concerto alle 18 al Teatro Condominio Programma dedicato a Vivaldi e Bach Con i Virtuosi del Lemene e due solisti',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, ughi, torna, teatro',
+    ogTitle: 'Uto Ughi a Gallarate: Concerto con Vivaldi e Bach il 25 ottobre 2026',
+    ogDescription: 'Uto Ughi torna a Gallarate il 25 ottobre 2026 Concerto alle 18 al Teatro Condominio Programma dedicato a Vivaldi e Bach Con i Virtuosi del Lemene e due solisti',
+    canonicalPath: '/articoli-frontaliere/concerto-gallarate-uto-ughi-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate: uto ughi torna al teatro condominio con vivaldi e bach",
+      "description": "Uto Ughi torna a Gallarate il 25 ottobre 2026 Concerto alle 18 al Teatro Condominio Programma dedicato a Vivaldi e Bach Con i Virtuosi del Lemene e due solisti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Teatro Condominio Vittorio Gassman a Gallarate, luogo del concerto di Uto Ughi"
+      },
+      "datePublished": "2026-10-16T11:26:51+00:00",
+      "dateModified": "2026-10-16T11:26:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/concerto-gallarate-uto-ughi-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

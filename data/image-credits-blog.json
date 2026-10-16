@@ -10624,6 +10624,36 @@
         "attributionRequired": true
       },
       "fetchedAt": "2026-10-04"
+    },
+    "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/": {
+      "source": "licensed-photo",
+      "photo": {
+        "provider": "pixabay",
+        "title": "Arches, Leaning tower of pisa",
+        "pageUrl": "https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
+        "width": 2496,
+        "height": 1664
+      },
+      "pageUrl": "https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
+      "author": {
+        "text": "Pixabay contributor",
+        "name": "Pixabay contributor",
+        "url": null,
+        "type": "Person"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Pixabay Content License",
+        "url": "https://pixabay.com/service/license-summary/",
+        "family": "pixabay",
+        "attributionRequired": false
+      },
+      "restrictions": [
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
+      ],
+      "fetchedAt": "2026-10-16"
     }
   },
   "covers": {
@@ -10818,7 +10848,7 @@
       "status": "no-credit"
     },
     "abbonamenti-sconti-frontalieri-transporti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "abbonamenti-sconti-frontalieri-trasporti": {
@@ -11750,7 +11780,7 @@
       "status": "no-credit"
     },
     "albizzate-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "alcon-risultati-finanziari-q2-2026": {
@@ -16866,7 +16896,7 @@
       "status": "no-credit"
     },
     "brienno-frontaliere-checklist": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "brienno-ticino-frontaliere-guida": {
@@ -16942,7 +16972,7 @@
       "status": "no-credit"
     },
     "busta-paga-frontalieri-2026-oltre-20km": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "busta-paga-frontalieri-netto-nuovo-accordo": {
@@ -16990,7 +17020,7 @@
       "modified": "resized"
     },
     "cadorago-frontaliere-pendolare-guida": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "cairate-fisco-confine": {
@@ -17650,7 +17680,7 @@
       "status": "no-credit"
     },
     "caos-applicazione-decreto-omnibus": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "caos-medioriente-e-impatti-costruzione-ticino": {
@@ -17924,7 +17954,7 @@
       "status": "no-credit"
     },
     "carugo-ticino-fisco": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "casa-appenzello-esterno-acquisto-mutuo": {
@@ -18264,7 +18294,7 @@
       "modified": "cropped"
     },
     "castello-cabiaglio-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "castelmarte-lavorare-ticino-frontaliere": {
@@ -19036,7 +19066,7 @@
       "status": "no-credit"
     },
     "citta-laghi-innovativa-transfrontaliera": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "civate-frontaliere-ticino-lavoro": {
@@ -19136,7 +19166,7 @@
       "status": "no-credit"
     },
     "codice-tributo-ritenute-rendite-avs-lpp": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "cof-lanzo-igiene-mani-2026": {
@@ -19282,7 +19312,7 @@
       "status": "no-credit"
     },
     "come-va-leconomia-di-confine-con-il-canton-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "comitati-malpensa-cuv-2026": {
@@ -19742,7 +19772,7 @@
       "status": "no-credit"
     },
     "comuni-frontiera-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "comuni-investono-turismo-ticino": {
@@ -19996,7 +20026,7 @@
       "status": "no-credit"
     },
     "congedo-parentale-frontalieri-svizzera-italia": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "congedo-parentale-svizzera-durata": {
@@ -20186,7 +20216,7 @@
       "status": "no-credit"
     },
     "conto-bancario-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "conto-postfinance-carta-credito-frontaliere": {
@@ -20540,7 +20570,7 @@
       "modified": "cropped"
     },
     "corsi-di-tedesco-o-francese-per-frontalieri-italofoni": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "corsi-gratuiti-varese-sociale-2026": {
@@ -21042,7 +21072,7 @@
       "status": "no-credit"
     },
     "crescere-figli-bilingue-frontalieri-italiano-tedesco-francese": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "crescita-assicurazioni-cyber-2025": {
@@ -21172,7 +21202,7 @@
       "modified": "cropped"
     },
     "crosio-della-valle-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "cross-border-teleworking-2026": {
@@ -21390,7 +21420,7 @@
       "status": "no-credit"
     },
     "dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "dati-srf-dipendenti-rubati": {
@@ -21906,7 +21936,7 @@
       "status": "no-credit"
     },
     "dichiarazione-redditi-frontaliere-730-guida": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "dichiarazione-redditi-ticino-2026": {
@@ -22058,7 +22088,7 @@
       "status": "no-credit"
     },
     "diritti-frontaliere-genitorialit": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "diritti-inquilini-zurigo-2026": {
@@ -22566,7 +22596,7 @@
       "status": "no-credit"
     },
     "dogana-stabio-gaggiolo": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "dogane-strumenti-digitali-merci": {
@@ -22628,7 +22658,7 @@
       "status": "no-credit"
     },
     "domicilio-c-appenzello-interno-domanda": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "domicilio-c-canton-basilea-diritti": {
@@ -23430,7 +23460,7 @@
       "modified": "cropped"
     },
     "estetista-frontaliere-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "estival-jazz-lugano-cambia-formula-2026": {
@@ -23622,7 +23652,7 @@
       "modified": "cropped"
     },
     "falegname-guadagno-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "falegnami-stipendi-2025": {
@@ -23680,7 +23710,7 @@
       "modified": "resized"
     },
     "farmacista-frontaliero-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "fart-2025-frontalieri-transporti": {
@@ -24040,7 +24070,7 @@
       "status": "no-credit"
     },
     "figino-serenza-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "film-swiss-sabotage-frontalieri-ticinesi": {
@@ -24328,7 +24358,7 @@
       "status": "no-credit"
     },
     "fondi-comuni-frontiera-decreto": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "fondi-europei-ticino-2026": {
@@ -24578,7 +24608,7 @@
       "modified": "cropped"
     },
     "franco-digitale-bns-dice-no": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "franco-euro-analisi-cambio-dati": {
@@ -24708,11 +24738,11 @@
       "status": "no-credit"
     },
     "frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-2026-residenza-italia-svizzera": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-55-nuovo-datore-avs": {
@@ -24784,7 +24814,7 @@
       "modified": "cropped"
     },
     "frontaliere-assistente-di-cura-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-assistente-sociale-ticino-stipendio-requisiti": {
@@ -24954,7 +24984,7 @@
       "status": "no-credit"
     },
     "frontaliere-esenzione-franchigia-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-falegname-ticino-lavoro": {
@@ -25074,7 +25104,7 @@
       "status": "no-credit"
     },
     "frontaliere-insegnante-scuola-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-lattoniere-ticino-stipendio-requisiti": {
@@ -25108,7 +25138,7 @@
       "status": "no-credit"
     },
     "frontaliere-licenziamento-diritti-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km": {
@@ -25234,7 +25264,7 @@
       "status": "no-credit"
     },
     "frontaliere-parrucchiere-estetista-ticino-permesso-stipendio": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-pasticcere-ticino-stipendio-requisiti": {
@@ -25256,7 +25286,7 @@
       "status": "no-credit"
     },
     "frontaliere-pensione-2026-famiglia-figli": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-pensione-avs-inps-2026": {
@@ -25360,15 +25390,15 @@
       "status": "no-credit"
     },
     "frontaliere-risorse-umane-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-ritiro-anticipato-2026-guida": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-saldatore-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-scelta-comune-residenza-italia-svizzera-2026-single": {
@@ -25384,7 +25414,7 @@
       "status": "no-credit"
     },
     "frontaliere-segretaria-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-smart-working-regole": {
@@ -25400,7 +25430,7 @@
       "status": "no-credit"
     },
     "frontaliere-spese-sanitarie-rimborsabili": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-stagionale-diritti-fiscali": {
@@ -25426,15 +25456,15 @@
       "status": "no-credit"
     },
     "frontaliere-tassazione-crediti-detrazioni": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-tasse-single-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-tecnico-radiologia-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-terzo-pilastro-vantaggi": {
@@ -25510,7 +25540,7 @@
       "status": "no-credit"
     },
     "frontaliere-tubre-grigioni-guida": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontaliere-venditore-ticino-stipendio-requisiti": {
@@ -25568,7 +25598,7 @@
       "status": "no-credit"
     },
     "frontalieri-apprendisti-lugano": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-arresto-maggia-truffa": {
@@ -25722,7 +25752,7 @@
       "status": "no-credit"
     },
     "frontalieri-disoccupati-riforma-bruxelles": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-disoccupati-riforma-ue": {
@@ -25792,7 +25822,7 @@
       "status": "no-credit"
     },
     "frontalieri-esposto-oil-discriminazioni": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-guadagno-ticino": {
@@ -25806,7 +25836,7 @@
       "modified": "cropped"
     },
     "frontalieri-immondizia-cantello-multa": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-imposta-calcolo-2026": {
@@ -25834,7 +25864,7 @@
       "status": "no-credit"
     },
     "frontalieri-italiani-canton-ticino-calano": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-italiani-ticino-risorsa": {
@@ -26080,11 +26110,11 @@
       "status": "no-credit"
     },
     "frontalieri-ticino-aumento-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-ticino-calano": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-ticino-calo-2026": {
@@ -26104,7 +26134,7 @@
       "status": "no-credit"
     },
     "frontalieri-ticino-dati-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-ticino-dati-ingannevoli": {
@@ -26138,7 +26168,7 @@
       "status": "no-credit"
     },
     "frontalieri-ticino-numeri-in-calo": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-ticino-omnibus-2026": {
@@ -26192,7 +26222,7 @@
       "status": "no-credit"
     },
     "frontalieri-ticino-stipendio-tecnico-automazione": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieri-ticino-tendenze-occupazionali": {
@@ -26244,7 +26274,7 @@
       "status": "no-credit"
     },
     "frontalieriprogettista-elettricoin-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "frontalieriticone2026-q2": {
@@ -26860,7 +26890,7 @@
       "status": "no-credit"
     },
     "giorgetti-firma-decreto-contributi-comuni-confine": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "giornata-contro-rumore-lugano-2024": {
@@ -27104,7 +27134,7 @@
       "modified": "cropped"
     },
     "gornate-olona-regime-fiscale": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "gottardo-lavoratori-frontalieri": {
@@ -27382,7 +27412,7 @@
       "status": "no-credit"
     },
     "gruista-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "gruppo-moncucco-2025-risultati": {
@@ -27528,7 +27558,7 @@
       "status": "no-credit"
     },
     "guida-autista-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "guida-avvio-impresa-canton-svitto": {
@@ -29044,7 +29074,7 @@
       "status": "no-credit"
     },
     "infernieri-frontalieri-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "infiltrazioni-criminali-ticino-grigioni": {
@@ -29184,7 +29214,7 @@
       "status": "no-credit"
     },
     "infortunio-tragitto-lavoro-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "ingegnere-frontaliero-ticino-stipendio-requisiti": {
@@ -29212,7 +29242,7 @@
       "status": "no-credit"
     },
     "ingresso-svizzera-documenti-dogana-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "ingresso-svizzera-frontalieri-2026": {
@@ -29614,7 +29644,7 @@
       "modified": "cropped"
     },
     "investimento-immobiliare-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "investimento-pedone-bioggio": {
@@ -29894,7 +29924,7 @@
       "status": "no-credit"
     },
     "kebab-case-3-5-words-max-40-chars": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "kebab-case-rossi-bruxelles-ticino": {
@@ -30728,7 +30758,7 @@
       "status": "no-credit"
     },
     "lavoro-media-ssr-talenti-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "lavoro-nero-dumping-2025-svizzera": {
@@ -31002,7 +31032,7 @@
       "modified": "cropped"
     },
     "libro-boom-frontalieri-svizzera": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "licata-lombardia-bulgaria-opportunita": {
@@ -32596,7 +32626,7 @@
       "status": "no-credit"
     },
     "miazzina-pendolare-fisco-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "micasa-investitori-svizzeri-chiude-filiali": {
@@ -32984,7 +33014,7 @@
       "modified": "cropped"
     },
     "montatore-frontaliere-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "monte-olimpino-collegamenti-tilo": {
@@ -33196,7 +33226,7 @@
       "modified": "cropped"
     },
     "mutuo-acquisto-casa-frontaliere-italia": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "mutuo-casa-frontalieri-italia": {
@@ -33438,7 +33468,7 @@
       "status": "no-credit"
     },
     "naturalizzazione-svizzera-dopo-anni-da-frontaliere-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "naturalizzazione-turgovia-requisiti-procedura": {
@@ -33874,7 +33904,7 @@
       "status": "no-credit"
     },
     "novita-fiscale-730-2025-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "novita-frontalieri-legge-217-2025": {
@@ -34372,7 +34402,7 @@
       "modified": "cropped"
     },
     "operatore-cnc-frontaliero-ticino-stipendio-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "operatore-socio-sanitario-frontaliere": {
@@ -34878,7 +34908,7 @@
       "status": "no-credit"
     },
     "parlamento-avs-frontalieri-2025": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "parlamento-avs-protezione-adozione": {
@@ -35010,7 +35040,7 @@
       "status": "no-credit"
     },
     "partita-iva-frontaliere-svizzera-2024": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "partita-iva-frontaliere-svizzera-requisiti-fiscalita": {
@@ -35044,7 +35074,7 @@
       "status": "no-credit"
     },
     "passaggio-ticino-grigioni-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "passante-milano-treno-evacuati": {
@@ -35378,7 +35408,7 @@
       "status": "no-credit"
     },
     "pensione-frontalieri-errori-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "pensione-iva-parlamento": {
@@ -35542,7 +35572,7 @@
       "status": "no-credit"
     },
     "permesso-b-berna-requisiti-rinnovo": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-b-canton-uri-requisiti-rinnovo": {
@@ -35570,7 +35600,7 @@
       "status": "no-credit"
     },
     "permesso-b-lucerna-requisiti-rinnovo": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-b-nidvaldo": {
@@ -35586,7 +35616,7 @@
       "status": "no-credit"
     },
     "permesso-b-obvaldo-guida-pratica": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-b-quellensteuer": {
@@ -35620,11 +35650,11 @@
       "status": "no-credit"
     },
     "permesso-b-zugo-guida-pratica": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-c-appenzello-esterno-domanda": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-c-basilea-requisiti-domanda": {
@@ -35638,15 +35668,15 @@
       "status": "no-credit"
     },
     "permesso-c-friburgo-guida-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-c-glarona-come-richiederlo": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-c-glarona-requisiti": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-c-lucerna-guida": {
@@ -35656,7 +35686,7 @@
       "status": "no-credit"
     },
     "permesso-c-lucerna-requisiti-domanda": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-c-nidvaldo-requisiti": {
@@ -35784,7 +35814,7 @@
       "status": "no-credit"
     },
     "permesso-dimora-b-canton-turgovia-requisiti-rinnovo": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-dimora-b-canton-vallese-requisiti-rinnovo": {
@@ -35866,7 +35896,7 @@
       "status": "no-credit"
     },
     "permesso-domicilio-c-ginevra": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-domicilio-c-grigioni-requisiti": {
@@ -35900,7 +35930,7 @@
       "status": "no-credit"
     },
     "permesso-domicilio-c-zugo-guida": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-domicilio-c-zurigo-requisiti-domanda": {
@@ -35998,7 +36028,7 @@
       "status": "no-credit"
     },
     "permesso-g-vs-b-frontalieri-2026-oltre-20-km": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-appenzello-proroga": {
@@ -36012,7 +36042,7 @@
       "modified": "cropped"
     },
     "permesso-l-basilea-campagna": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-breve-durata-basilea-campagna": {
@@ -36028,7 +36058,7 @@
       "status": "no-credit"
     },
     "permesso-l-breve-durata-canton-soletta": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-breve-durata-canton-uri": {
@@ -36038,7 +36068,7 @@
       "status": "no-credit"
     },
     "permesso-l-breve-durata-canton-vallese": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-breve-durata-canton-zugo-validita-proroga": {
@@ -36078,11 +36108,11 @@
       "status": "no-credit"
     },
     "permesso-l-breve-durata-vaud-proroga": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-canton-friburgo-validita-e-proroga": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-canton-glarona": {
@@ -36104,7 +36134,7 @@
       "status": "no-credit"
     },
     "permesso-l-canton-svitto-validita-e-proroga": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-cantone-appenzello-validita": {
@@ -36136,7 +36166,7 @@
       "modified": "cropped"
     },
     "permesso-l-ginevra-validita-proroga": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "permesso-l-grigioni-validita-proroga": {
@@ -37782,7 +37812,7 @@
       "status": "no-credit"
     },
     "quellensteuer-tarife-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "quellensteuer-tarife-svizzera-2026": {
@@ -37934,7 +37964,7 @@
       "modified": "cropped"
     },
     "rapporto-schengen-dublino-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri": {
@@ -37956,7 +37986,7 @@
       "status": "no-credit"
     },
     "rc-auto-svizzera-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "real-madrid-caos-rissa-tchouameni-valverde": {
@@ -38446,7 +38476,7 @@
       "modified": "cropped"
     },
     "richiesta-permesso-dimora-berna": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "richiesta-permesso-g-step": {
@@ -38456,7 +38486,7 @@
       "status": "no-credit"
     },
     "richiesta-permesso-g-step-by-step": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "richiesta-permesso-g-step-by-step-2026": {
@@ -39110,7 +39140,7 @@
       "status": "no-credit"
     },
     "rovellasca-vita-transfrontaliera": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "rovello-porro-regole-frontaliere": {
@@ -39492,7 +39522,7 @@
       "status": "no-credit"
     },
     "salario-minimo-ticino-frontalieri-2029": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "salario-minimo-ticino-intesa-storica": {
@@ -39900,7 +39930,7 @@
       "modified": "cropped"
     },
     "sciaffusa-permesso-dimora-b": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "scienza-medicina-attualita-svizzera": {
@@ -40278,7 +40308,7 @@
       "modified": "cropped"
     },
     "secondo-pilastro-prelievo-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "secondo-pilastro-previdenza-professionale-lpp-svizzera": {
@@ -40288,7 +40318,7 @@
       "status": "no-credit"
     },
     "sede-legale-datore-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "sedia-rotelle-genny-zero-design": {
@@ -40332,7 +40362,7 @@
       "status": "no-credit"
     },
     "sempre-meno-frontalieri-ticino-calof-lievelie": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "sensibilita-al-lavoro-personale": {
@@ -40608,7 +40638,7 @@
       "status": "no-credit"
     },
     "sia-tredicesima-avs-guadagnarci-due-volte": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "siccit-estate-2026-ticino": {
@@ -41530,11 +41560,11 @@
       "modified": "cropped"
     },
     "stabio-dogana-nuovo-accordo-fiscale": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "stabio-dogana-svizzera": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "stablecoin-franco-fase-operativa": {
@@ -41786,7 +41816,7 @@
       "status": "no-credit"
     },
     "stipendio-frontaliere-single-2026": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "stipendio-frontaliere-ticino-2024": {
@@ -41814,7 +41844,7 @@
       "status": "no-credit"
     },
     "stipendio-magazziniere-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "stipendio-meccanico-frontaliere-ticino": {
@@ -41848,7 +41878,7 @@
       "status": "no-credit"
     },
     "stipendio-veterinario-frontaliere-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "stop-agli-artigiani-per-caso": {
@@ -42022,7 +42052,7 @@
       "status": "no-credit"
     },
     "successione-eredita-frontaliere-conto-svizzero": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "successo-farmaceutica-ticino": {
@@ -42486,7 +42516,7 @@
       "modified": "resized"
     },
     "svizzera-restituisce-regole-eu-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "svizzera-robotica-crescita-aziende": {
@@ -43550,7 +43580,7 @@
       "status": "no-credit"
     },
     "tendenza-frontalieri-ticino-2026-q2": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "tendicione-arresti-veicoli-ricerca-2024": {
@@ -44084,7 +44114,7 @@
       "status": "no-credit"
     },
     "totalizzazione-contributi-avs-inps-frontalieri-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "totalizzazione-pensione-svizzera-italia-frontalieri": {
@@ -44186,7 +44216,7 @@
       "status": "no-credit"
     },
     "traffico-frontalieri-como-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "traffico-intenso-a2-lugano-ritardi": {
@@ -44348,15 +44378,15 @@
       "status": "no-credit"
     },
     "trasferirsi-a-aprica-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-bianzone-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-bormio-da-frontaliere-pro-e-contro": {
@@ -44366,11 +44396,11 @@
       "status": "no-credit"
     },
     "trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro": {
@@ -44404,11 +44434,11 @@
       "status": "no-credit"
     },
     "trasferirsi-a-germignaga-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-luino-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-maccagno-con-pino-e-veddasca-da-frontaliere-pro-e-contro": {
@@ -44446,11 +44476,11 @@
       "status": "no-credit"
     },
     "trasferirsi-a-saltrio-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-sarre-da-frontaliere-pro-e-contro": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-a-sondalo-da-frontaliere-pro-e-contro": {
@@ -44526,7 +44556,7 @@
       "modified": "cropped"
     },
     "trasferirsi-canzo-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-clivio-frontaliere-pro-contro": {
@@ -44560,15 +44590,15 @@
       "status": "no-credit"
     },
     "trasferirsi-orino-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-porto-ceresio-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-svizzera-guida": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasferirsi-svizzera-italiano-guida-permessi": {
@@ -44636,7 +44666,7 @@
       "modified": "cropped"
     },
     "trasporti-chiasso-lugano-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "trasporti-eccezionali-standard-federali": {
@@ -45714,7 +45744,7 @@
       "status": "no-credit"
     },
     "valute-frontiere-svizzera-italia": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vandalismo-bar-bellinzona-2026": {
@@ -45734,7 +45764,7 @@
       "status": "no-credit"
     },
     "varcare-confine-documenti-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "varese-arrampicata-salewa-cube-2026": {
@@ -46024,7 +46054,7 @@
       "status": "no-credit"
     },
     "vecchi-nuovi-frontalieri-tassazione": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vedano-olona-frontaliere-ticino": {
@@ -46260,7 +46290,7 @@
       "status": "no-credit"
     },
     "vignetta-autostradale-svizzera-2026-costo-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vignone-trasferimento-frontaliere": {
@@ -46410,7 +46440,7 @@
       "status": "no-credit"
     },
     "vivere-agra-lavorare-ticino-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-albavilla-lavorare-ticino": {
@@ -46522,7 +46552,7 @@
       "status": "no-credit"
     },
     "vivere-barni-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-bellagio-lavorare-ticino-frontaliere": {
@@ -46586,7 +46616,7 @@
       "status": "no-credit"
     },
     "vivere-borgomezzavalle-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-bosisio-parini-lavorare-ticino-da-frontaliere": {
@@ -46684,11 +46714,11 @@
       "status": "no-credit"
     },
     "vivere-cantu-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-caprezzo-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-carate-urio-lavorare-ticino-frontaliere": {
@@ -46710,7 +46740,7 @@
       "status": "no-credit"
     },
     "vivere-carlazzo-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-casale-litta-ticino-frontaliere": {
@@ -46774,7 +46804,7 @@
       "status": "no-credit"
     },
     "vivere-cavaria-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-cazzago-brabbia-frontaliere": {
@@ -46868,7 +46898,7 @@
       "status": "no-credit"
     },
     "vivere-como-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-corrido-frontaliere-ticino": {
@@ -46900,7 +46930,7 @@
       "status": "no-credit"
     },
     "vivere-crevoladossola-lavorare-ticino-frontalieri": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-cuasso-al-monte-lavorare-ticino-frontaliere": {
@@ -46932,7 +46962,7 @@
       "status": "no-credit"
     },
     "vivere-dongo-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-doues-lavorare-vallese": {
@@ -46942,11 +46972,11 @@
       "status": "no-credit"
     },
     "vivere-druogno-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-dumenza-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-edolo-lavorare-grigioni-frontaliere": {
@@ -46956,7 +46986,7 @@
       "status": "no-credit"
     },
     "vivere-erba-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-etroubles-lavorare-vallese": {
@@ -46984,7 +47014,7 @@
       "status": "no-credit"
     },
     "vivere-gallarate-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-galliate-lavorare-ticino-frontaliere": {
@@ -47016,11 +47046,11 @@
       "status": "no-credit"
     },
     "vivere-grandate-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-grandola-uniti-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-grantola-lavorare-ticino": {
@@ -47042,7 +47072,7 @@
       "status": "no-credit"
     },
     "vivere-griante-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-grosio-lavorare-grigioni-frontaliere": {
@@ -47058,11 +47088,11 @@
       "status": "no-credit"
     },
     "vivere-gurro-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-incudine-lavorare-grigioni-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-induno-olona-lavorare-ticino-frontaliere": {
@@ -47106,7 +47136,7 @@
       "status": "no-credit"
     },
     "vivere-laglio-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-lambrugo-lavorare-ticino-frontaliere": {
@@ -47288,7 +47318,7 @@
       "status": "no-credit"
     },
     "vivere-montano-lucino-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-montorfano-lavorare-ticino": {
@@ -47304,7 +47334,7 @@
       "status": "no-credit"
     },
     "vivere-morazzone-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-mozzate-lavorare-ticino-frontaliere": {
@@ -47406,7 +47436,7 @@
       "modified": "resized"
     },
     "vivere-piuro-lavorare-grigioni-front": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-pollein-lavorare-vallese-frontaliere": {
@@ -47416,7 +47446,7 @@
       "status": "no-credit"
     },
     "vivere-ponna-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-ponte-lambro-lavorare-ticino-frontaliere": {
@@ -47432,7 +47462,7 @@
       "status": "no-credit"
     },
     "vivere-porto-ceresio-lavoro-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-porto-valtravaglia-lavorare-ticino-frontaliere": {
@@ -47454,7 +47484,7 @@
       "status": "no-credit"
     },
     "vivere-pusiano-lavorare-ticino-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-quart-lavorare-vallese-frontaliere": {
@@ -47542,7 +47572,7 @@
       "status": "no-credit"
     },
     "vivere-samolaco-lavorare-grigioni-da-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-sangiano-lavorare-ticino": {
@@ -47582,7 +47612,7 @@
       "status": "no-credit"
     },
     "vivere-solbiate-arno-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-solbiate-cagno-frontaliere-ticino": {
@@ -47702,7 +47732,7 @@
       "status": "no-credit"
     },
     "vivere-valpelline-lavorare-vallese": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-valsolda-lavorare-ticino": {
@@ -47760,7 +47790,7 @@
       "status": "no-credit"
     },
     "vivere-veniano-lavorare-ticino": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-verbania-lavorare-ticino-frontaliere": {
@@ -47800,7 +47830,7 @@
       "status": "no-credit"
     },
     "vivere-villeneuve-lavorare-vallese-frontaliere": {
-      "file": "Lago de Como, Italia, 2016-06-25, DD 02-06 PAN.jpg",
+      "file": "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
       "modified": "cropped"
     },
     "vivere-villette-frontaliere": {

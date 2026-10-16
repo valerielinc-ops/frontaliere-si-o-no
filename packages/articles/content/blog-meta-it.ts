@@ -13318,6 +13318,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-16.imageAlt': 'I numeri del giorno per i frontalieri – 16 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-10-16.seoDescription': 'Bollettino frontalieri del 16 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-10-16.ogDescription': 'I numeri del 16 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti nuovi annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.concerto-gallarate-uto-ughi-2026.title': 'Gallarate: uto ughi torna al teatro condominio con vivaldi e bach',
+    'blog.article.concerto-gallarate-uto-ughi-2026.excerpt': 'Uto Ughi torna a Gallarate il 25 ottobre 2026 Concerto alle 18 al Teatro Condominio Programma dedicato a Vivaldi e Bach Con i Virtuosi del Lemene e due solisti',
+    'blog.article.concerto-gallarate-uto-ughi-2026.imageAlt': 'Teatro Condominio Vittorio Gassman a Gallarate, luogo del concerto di Uto Ughi',
 };
 
 export default blogMetaIt;

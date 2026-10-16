@@ -13317,6 +13317,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-16.imageAlt': 'The day\'s numbers for cross-border commuters – October 16, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-10-16.seoDescription': 'Cross-border brief, October 16, 2026: latest measured border waiting times, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-10-16.ogDescription': 'The numbers for October 16, 2026, for cross-border commuters: how long the queue is at each crossing, which towns have the cheapest fuel, what the latest recorded franc-euro rate is and how many Swiss job listings were posted.',
+    'blog.article.concerto-gallarate-uto-ughi-2026.title': 'Gallarate: Uto Ughi returns to Teatro Condominio with Vivaldi and Bach',
+    'blog.article.concerto-gallarate-uto-ughi-2026.excerpt': 'Uto Ughi returns to Gallarate on October 25, 2026 Concert at 18 at Teatro Condominio Program dedicated to Vivaldi and Bach With the Virtuosi del Lemene and two soloists',
+    'blog.article.concerto-gallarate-uto-ughi-2026.imageAlt': 'Teatro Condominio Vittorio Gassman in Gallarate, venue of Uto Ughi\'s concert',
 };
 
 export default blogMetaEn;
