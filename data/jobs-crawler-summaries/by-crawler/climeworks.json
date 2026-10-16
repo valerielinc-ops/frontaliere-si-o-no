@@ -1,30 +1,31 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-10-15T21:17:54.360Z",
-  "total": 4,
+  "generatedAt": "2026-10-16T09:16:51.920Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 4,
+  "written": 3,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 3824,
-  "avgDurationMs": 3824,
+  "unchangedCount": 2,
+  "durationMs": 4449,
+  "avgDurationMs": 4449,
   "durationHistory": [
-    3824
+    4449
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-109f6051b84a",
-      "slug": "filtration-module-product-owner-80-100-climeworks-zurich",
+      "slug": "proprietario-del-prodotto-del-modulo-di-filtrazione-80-100-climeworks-zurich",
       "company": "Climeworks",
       "companyKey": "climeworks",
       "companyDomain": "climeworks.com",
@@ -34,7 +35,7 @@
       "url": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:17:36.434Z",
+      "crawledAt": "2026-10-16T09:16:32.822Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,22 +52,21 @@
       "applyUrl": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "remote": true,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-15T21:17:36.434Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-15T21:17:36.434Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +81,7 @@
       "url": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:17:36.442Z",
+      "crawledAt": "2026-10-16T09:16:32.832Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,7 +123,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:17:36.439Z",
+      "crawledAt": "2026-10-16T09:16:32.829Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,50 +152,7 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "id": "climeworks-81a8f1260c6e",
-      "slug": "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich",
-      "company": "Climeworks",
-      "companyKey": "climeworks",
-      "companyDomain": "climeworks.com",
-      "title": "Sorbent Module Product Owner (80-100%)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
-      "source": "Climeworks Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-15T09:15:33.264Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Clima e Sostenibilità",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
-      "remote": true,
-      "firstSeenAt": "2026-07-08T22:24:43.541Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }
