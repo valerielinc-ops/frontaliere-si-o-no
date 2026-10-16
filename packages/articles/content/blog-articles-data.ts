@@ -44838,6 +44838,27 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-dimissioni-termine-preavviso',
+ category: 'pratico',
+ date: '2026-10-16T03:19:05.139Z',
+ image: '/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'stazione-ffs-coltello-ritrovato',
+ category: 'novita',
+ date: '2026-10-16T03:33:05.895Z',
+ image: '/images/blog/article-stazione-ffs-coltello-ritrovato.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
