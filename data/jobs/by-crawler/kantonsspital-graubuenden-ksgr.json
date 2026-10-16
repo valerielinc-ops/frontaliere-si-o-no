@@ -25,12 +25,12 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-15T21:22:47.131Z",
-      "slug": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt",
+      "slug": "infermieristica-professionale-infermieristica-professionale-cura-intermedia-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt",
-        "it": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt",
-        "en": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt",
-        "fr": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt"
+        "it": "infermieristica-professionale-infermieristica-professionale-cura-intermedia-kantonsspital-graubunden-walenstadt",
+        "en": "nursing-professional-nursing-professional-intermediate-care-kantonsspital-graubunden-walenstadt",
+        "fr": "soins-intermediaires-professionnels-et-infirmiers-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Intermediate Care",
@@ -61,7 +61,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-10-15T21:22:47.131Z"
+      "firstSeenAt": "2026-10-15T21:22:47.131Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-walenstadt"
+      ]
     },
     {
       "id": "10226786",

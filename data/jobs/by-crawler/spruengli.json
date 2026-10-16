@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spruengli-c6a8fff34342",
-      "slug": "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug",
+      "slug": "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug",
       "slugByLocale": {
         "de": "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
-        "it": "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-        "en": "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-        "fr": "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug"
+        "it": "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug",
+        "en": "christmas-relief-80-100-train-station-confiserie-sprungli-ag-zug",
+        "fr": "relief-de-noel-80-100-gare-confiserie-sprungli-ag-zug"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -59,11 +59,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug"
+          "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
+          "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug"
+        ],
+        "en": [
+          "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug"
         ]
       },
       "previousSlugs": [
-        "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug"
+        "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
+        "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -82,12 +90,12 @@
     },
     {
       "id": "spruengli-5654551ca19b",
-      "slug": "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug",
+      "slug": "consulente-di-vendita-60-80-stazione-ferroviaria-di-zugo-confiserie-sprungli-ag-zug",
       "slugByLocale": {
         "de": "verkaufsberater-in-60-80-zug-bahnhof-spruengli-zug",
-        "it": "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug",
-        "en": "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug",
-        "fr": "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug"
+        "it": "consulente-di-vendita-60-80-stazione-ferroviaria-di-zugo-confiserie-sprungli-ag-zug",
+        "en": "sales-advisor-60-80-zug-train-station-confiserie-sprungli-ag-zug",
+        "fr": "conseiller-ere-de-vente-60-80-gare-de-zoug-confiserie-sprungli-ag-zug"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -137,11 +145,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-60-80-zug-bahnhof-spruengli-zug"
+          "verkaufsberater-in-60-80-zug-bahnhof-spruengli-zug",
+          "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug"
+        ],
+        "en": [
+          "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug"
+        ],
+        "fr": [
+          "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-60-80-zug-bahnhof-spruengli-zug"
+        "verkaufsberater-in-60-80-zug-bahnhof-spruengli-zug",
+        "verkaufsberater-in-60-80-zug-bahnhof-confiserie-sprungli-ag-zug"
       ],
       "salaryMin": 63200,
       "salaryMax": 97200,
@@ -160,12 +176,12 @@
     },
     {
       "id": "spruengli-e2f1e4b09380",
-      "slug": "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich",
+      "slug": "consulente-di-vendita-60-stazione-ferroviaria-di-stadelhofen-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
         "de": "verkaufsberater-in-60-bahnhof-stadelhofen-spruengli-zurich",
-        "it": "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich",
-        "en": "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich",
-        "fr": "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich"
+        "it": "consulente-di-vendita-60-stazione-ferroviaria-di-stadelhofen-confiserie-sprungli-ag-zurich",
+        "en": "sales-advisor-60-stadelhofen-train-station-confiserie-sprungli-ag-zurich",
+        "fr": "conseiller-ere-de-vente-60-gare-de-stadelhofen-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -215,11 +231,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-60-bahnhof-stadelhofen-spruengli-zurich"
+          "verkaufsberater-in-60-bahnhof-stadelhofen-spruengli-zurich",
+          "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich"
+        ],
+        "fr": [
+          "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-60-bahnhof-stadelhofen-spruengli-zurich"
+        "verkaufsberater-in-60-bahnhof-stadelhofen-spruengli-zurich",
+        "verkaufsberater-in-60-bahnhof-stadelhofen-confiserie-sprungli-ag-zurich"
       ],
       "salaryMin": 49800,
       "salaryMax": 76500,
@@ -238,12 +262,12 @@
     },
     {
       "id": "spruengli-9655faa79928",
-      "slug": "auxiliaire-de-noel-80-100-aeroport-de-geneve-confiserie-sprungli-ag-genf",
+      "slug": "ausiliare-di-natale-80-100-aeroporto-di-ginevra-confiserie-sprungli-ag-genf",
       "slugByLocale": {
         "fr": "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf",
-        "it": "auxiliaire-de-noel-80-100-aeroport-de-geneve-confiserie-sprungli-ag-genf",
-        "en": "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf",
-        "de": "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf"
+        "it": "ausiliare-di-natale-80-100-aeroporto-di-ginevra-confiserie-sprungli-ag-genf",
+        "en": "christmas-auxiliary-80-100-geneva-airport-confiserie-sprungli-ag-genf",
+        "de": "weihnachtshilfswerk-80-100-flughafen-genf-confiserie-sprungli-ag-genf"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -293,11 +317,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf",
+          "auxiliaire-de-noel-80-100-aeroport-de-geneve-confiserie-sprungli-ag-genf"
+        ],
+        "en": [
+          "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf"
+        ],
+        "de": [
           "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf"
+        "auxiliaire-de-noel-80-100-aeroport-de-geneve-spruengli-genf",
+        "auxiliaire-de-noel-80-100-aeroport-de-geneve-confiserie-sprungli-ag-genf"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

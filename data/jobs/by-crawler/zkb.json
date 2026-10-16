@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zkb-c00bc5e43a9e",
-      "slug": "spezialist-in-data-services-operations-m-w-d-zkb-zurich",
+      "slug": "specialista-delle-operazioni-dei-servizi-dati-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "spezialist-in-data-services-operations-m-w-d-zkb-zurich",
-        "it": "spezialist-in-data-services-operations-m-w-d-zkb-zurich",
+        "it": "specialista-delle-operazioni-dei-servizi-dati-m-f-d-zurcher-kantonalbank-zurich",
         "en": "spezialist-in-data-services-operations-m-w-d-zurcher-kantonalbank-zurich",
-        "fr": "spezialist-in-data-services-operations-m-w-d-zkb-zurich"
+        "fr": "specialiste-des-operations-de-services-de-donnees-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -71,16 +71,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:13:40.839Z"
+      "firstSeenAt": "2026-10-15T21:13:40.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-data-services-operations-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "spezialist-in-data-services-operations-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-data-services-operations-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-909462b2f677",
-      "slug": "collaboratore-trice-business-management-support-uhnwi-philanthropy-foundations-zurcher-kantonalbank-zurich",
+      "slug": "collaboratore-trice-per-il-supporto-aziendale-e-gestionale-uhnwi-filantropia-e-fondazioni-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-business-management-support-uhnwi-philanthropy-foundations-zkb-zurich",
-        "it": "collaboratore-trice-business-management-support-uhnwi-philanthropy-foundations-zurcher-kantonalbank-zurich",
+        "it": "collaboratore-trice-per-il-supporto-aziendale-e-gestionale-uhnwi-filantropia-e-fondazioni-zurcher-kantonalbank-zurich",
         "en": "mitarbeiter-in-business-management-support-uhnwi-philanthropy-foundations-zkb-zurich",
-        "fr": "mitarbeiter-in-business-management-support-uhnwi-philanthropy-foundations-zkb-zurich"
+        "fr": "collaborateur-trice-en-soutien-aux-affaires-et-a-la-gestion-des-uhnwi-de-la-philanthropie-et-des-fondations-zurcher"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -132,11 +143,16 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-business-management-support-uhnwi-philanthropy-foundations-zkb-zurich",
+          "collaboratore-trice-business-management-support-uhnwi-philanthropy-foundations-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-business-management-support-uhnwi-philanthropy-foundations-zkb-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-business-management-support-uhnwi-philanthropy-foundations-zkb-zurich"
+        "mitarbeiter-in-business-management-support-uhnwi-philanthropy-foundations-zkb-zurich",
+        "collaboratore-trice-business-management-support-uhnwi-philanthropy-foundations-zurcher-kantonalbank-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -155,12 +171,12 @@
     },
     {
       "id": "zkb-6bed86cc5b04",
-      "slug": "junior-portfolio-manager-in-real-estate-zkb-zurich",
+      "slug": "junior-portfolio-manager-immobiliare-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "junior-portfolio-manager-in-real-estate-zkb-zurich",
-        "it": "junior-portfolio-manager-in-real-estate-zkb-zurich",
+        "it": "junior-portfolio-manager-immobiliare-zurcher-kantonalbank-zurich",
         "en": "junior-portfolio-manager-in-real-estate-zurcher-kantonalbank-zurich",
-        "fr": "junior-portfolio-manager-in-real-estate-zkb-zurich"
+        "fr": "gestionnaire-de-portefeuille-junior-en-immobilier-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -223,14 +239,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:13:40.004Z"
+      "firstSeenAt": "2026-10-15T21:13:40.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-portfolio-manager-in-real-estate-zkb-zurich"
+        ],
+        "fr": [
+          "junior-portfolio-manager-in-real-estate-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "junior-portfolio-manager-in-real-estate-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-d7ff11f1ffe8",
-      "slug": "business-partner-assistent-in-uhnwi-philanthropy-foundations-zkb-zurich",
+      "slug": "business-partner-assistente-uhnwi-filantropia-e-fondazioni-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "business-partner-assistent-in-uhnwi-philanthropy-foundations-zkb-zurich",
-        "it": "business-partner-assistent-in-uhnwi-philanthropy-foundations-zkb-zurich",
+        "it": "business-partner-assistente-uhnwi-filantropia-e-fondazioni-zurcher-kantonalbank-zurich",
         "en": "business-partner-assistent-in-uhnwi-philanthropy-foundations-zkb-zurich",
         "fr": "business-partner-assistent-in-uhnwi-philanthropy-foundations-zkb-zurich"
       },
@@ -294,7 +321,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:13:39.588Z"
+      "firstSeenAt": "2026-10-15T21:13:39.588Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-partner-assistent-in-uhnwi-philanthropy-foundations-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-partner-assistent-in-uhnwi-philanthropy-foundations-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-a5b7c631d2bc",
@@ -2682,10 +2717,10 @@
       "id": "zkb-f5a8e3192afb",
       "slug": "senior-business-engineer-processi-di-apertura-digitali-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "senior-business-engineer-processi-di-apertura-digitali-m-f-d-zurcher-kantonalbank-zurich",
+        "it": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
         "en": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
         "de": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
-        "fr": "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
+        "fr": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -2734,15 +2769,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
-        "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
+        "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
-          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich"
         ],
         "fr": [
-          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
+          "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-28T21:12:15.459Z",

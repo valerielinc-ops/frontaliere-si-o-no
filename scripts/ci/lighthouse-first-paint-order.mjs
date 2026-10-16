@@ -7,12 +7,11 @@ import { realpathSync } from 'node:fs';
  *
  * index.tsx sets `ft:static-handoff-hide` before fading #root (which holds the
  * static HTML) to `opacity: 0`, or `ft:static-handoff-preserve` when the
- * already-visible JobBoard main stays in place. If the observed first
- * contentful paint comes after the relevant mark, the static HTML never
- * reached the screen before the handoff: a simulated mobile FCP of 8-13 s
- * instead of ~4.6 s on /cerca-lavoro-ticino/. That race is invisible to the
- * budget assertions, which judge the BEST of 3 runs, so this check judges
- * EVERY run.
+ * already-visible JobBoard main stays in place. The bare JobBoard root MUST
+ * use the preserve path: run 38814246437 proved that FCP can precede `hide` in
+ * all three attempts while LCP still lands at 9.3-10.0 s because the painted
+ * candidate is removed during the takeover. This check therefore verifies
+ * both the route-specific handoff kind and its ordering on EVERY run.
  *
  * Usage: node scripts/ci/lighthouse-first-paint-order.mjs [--dir .lighthouseci]
  * Exit 0 = every checked run painted first; 1 = a run handed off before
@@ -32,6 +31,9 @@ export const PRESERVE_MARK = 'ft:static-handoff-preserve';
  * the mark would never be set there.
  */
 export const CHECKED_PATHS = ['/cerca-lavoro-ticino/']; // cathedral-allow: URL pubblica della pagina misurata da Lighthouse; script .mjs, non puo' importare SECTION_LEGACY_TI_PATH (TS)
+export const REQUIRED_HANDOFF_MARK_BY_PATH = Object.freeze({
+  '/cerca-lavoro-ticino/': PRESERVE_MARK, // cathedral-allow: same measured public URL as CHECKED_PATHS
+});
 
 /** One verdict per LHR of a checked page; `null` for pages this check ignores. */
 export function evaluateLhr(lhr) {
@@ -45,7 +47,9 @@ export function evaluateLhr(lhr) {
   const metrics = lhr.audits?.metrics?.details?.items?.[0] ?? {};
   const fcp = metrics.observedFirstContentfulPaint;
   const marks = lhr.audits?.['user-timings']?.details?.items ?? [];
-  const mark = marks.find((item) => item?.name === HIDE_MARK || item?.name === PRESERVE_MARK);
+  const requiredMarkName = REQUIRED_HANDOFF_MARK_BY_PATH[pathname];
+  const handoffMarks = marks.filter((item) => item?.name === HIDE_MARK || item?.name === PRESERVE_MARK);
+  const mark = handoffMarks.find((item) => item?.name === requiredMarkName);
   const base = { pathname, formFactor: lhr.configSettings?.formFactor ?? 'unknown', fetchTime: lhr.fetchTime };
   if (typeof fcp !== 'number') return { ...base, ok: false, reason: 'observed FCP missing from the LHR' };
   if (!mark || typeof mark.startTime !== 'number') {
@@ -53,7 +57,18 @@ export function evaluateLhr(lhr) {
       ...base,
       fcp,
       ok: false,
-      reason: `mark ${HIDE_MARK} or ${PRESERVE_MARK} missing (mount without the first-paint wait?)`,
+      reason: `required mark ${requiredMarkName} missing (observed: ${handoffMarks.map((item) => item.name).join(', ') || 'none'})`,
+    };
+  }
+  const unexpectedMark = handoffMarks.find((item) => item?.name !== requiredMarkName);
+  if (unexpectedMark) {
+    return {
+      ...base,
+      fcp,
+      handoff: mark.startTime,
+      handoffKind: 'preserve',
+      ok: false,
+      reason: `unexpected mark ${unexpectedMark.name} observed alongside required ${requiredMarkName}`,
     };
   }
   const ok = fcp <= mark.startTime;

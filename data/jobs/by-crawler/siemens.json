@@ -3910,12 +3910,12 @@
     },
     {
       "id": "siemens-3fb7ccaac7f3",
-      "slug": "werkstudent-in-per-managementunterstutzung-40-60-siemens-volketswil",
+      "slug": "studente-ssa-lavoratore-trice-per-il-supporto-al-management-40-60-siemens-volketswil",
       "slugByLocale": {
         "de": "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil",
-        "it": "werkstudent-in-per-managementunterstutzung-40-60-siemens-volketswil",
-        "en": "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil",
-        "fr": "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil"
+        "it": "studente-ssa-lavoratore-trice-per-il-supporto-al-management-40-60-siemens-volketswil",
+        "en": "working-student-for-management-support-40-60-siemens-volketswil",
+        "fr": "etudiant-e-salarie-e-pour-le-soutien-au-management-40-60-siemens-volketswil"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3965,11 +3965,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil",
+          "werkstudent-in-per-managementunterstutzung-40-60-siemens-volketswil"
+        ],
+        "en": [
+          "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil"
+        ],
+        "fr": [
           "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil"
         ]
       },
       "previousSlugs": [
-        "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil"
+        "werkstudent-in-fur-managementunterstutzung-40-60-siemens-volketswil",
+        "werkstudent-in-per-managementunterstutzung-40-60-siemens-volketswil"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -3992,8 +4000,8 @@
       "slugByLocale": {
         "en": "working-student-si-b-academy-business-and-portfolio-management-40-60-siemens-zug",
         "it": "working-student-si-b-academy-business-and-portfolio-management-40-60-siemens-zug",
-        "de": "working-student-si-b-academy-business-and-portfolio-management-40-60-siemens-zug",
-        "fr": "working-student-si-b-academy-business-and-portfolio-management-40-60-siemens-zug"
+        "de": "werkstudent-in-si-b-academy-business-und-portfoliomanagement-40-60-siemens-zug",
+        "fr": "etudiant-en-travail-si-b-academy-gestion-d-entreprise-et-de-portefeuille-40-60-siemens-zug"
       },
       "company": "Siemens",
       "companyKey": "siemens",

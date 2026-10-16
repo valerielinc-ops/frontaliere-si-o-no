@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,14 +52,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz"
+          "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -3959,7 +3959,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -4002,7 +4002,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4012,7 +4012,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -4819,7 +4819,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -4863,12 +4863,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -7516,12 +7520,12 @@
     },
     {
       "id": "roche-5c1b31b460db",
-      "slug": "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch",
+      "slug": "tecnico-a-di-laboratorio-per-il-controllo-qualita-contratto-a-tempo-determinato-di-2-anni-roche-basel",
       "slugByLocale": {
         "de": "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch",
-        "it": "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch",
-        "en": "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch",
-        "fr": "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch"
+        "it": "tecnico-a-di-laboratorio-per-il-controllo-qualita-contratto-a-tempo-determinato-di-2-anni-roche-basel",
+        "en": "laboratory-technician-quality-control-2-year-fixed-term-contract-roche-basel",
+        "fr": "laborantin-e-en-controle-qualite-contrat-a-duree-determinee-de-2-ans-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7579,16 +7583,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-15T21:14:42.796Z"
+      "firstSeenAt": "2026-10-15T21:14:42.796Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch"
+        ],
+        "en": [
+          "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch"
+        ],
+        "fr": [
+          "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laborant-in-qualitatskontrolle-2-jahre-befristung-roche-ch"
+      ]
     },
     {
       "id": "roche-85742ba24ee1",
-      "slug": "global-expert-project-reviews-80-100-roche-ch",
+      "slug": "recensioni-di-progetti-esperti-globali-80-100-roche-basel",
       "slugByLocale": {
         "en": "global-expert-project-reviews-80-100-roche-ch",
-        "it": "global-expert-project-reviews-80-100-roche-ch",
-        "de": "global-expert-project-reviews-80-100-roche-ch",
-        "fr": "global-expert-project-reviews-80-100-roche-ch"
+        "it": "recensioni-di-progetti-esperti-globali-80-100-roche-basel",
+        "de": "globale-expertenprojektprufungen-80-100-roche-basel",
+        "fr": "examens-de-projets-par-des-experts-mondiaux-80-100-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7646,7 +7664,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-15T21:14:41.389Z"
+      "firstSeenAt": "2026-10-15T21:14:41.389Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-expert-project-reviews-80-100-roche-ch"
+        ],
+        "de": [
+          "global-expert-project-reviews-80-100-roche-ch"
+        ],
+        "fr": [
+          "global-expert-project-reviews-80-100-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-expert-project-reviews-80-100-roche-ch"
+      ]
     },
     {
       "id": "roche-0e41e9c3f8b5",
@@ -7654,8 +7686,8 @@
       "slugByLocale": {
         "en": "global-expert-reporting-insights-80-100-roche-ch",
         "it": "global-expert-reporting-insights-80-100-roche-ch",
-        "de": "global-expert-reporting-insights-80-100-roche-ch",
-        "fr": "global-expert-reporting-insights-80-100-roche-ch"
+        "de": "globale-expertenberichte-und-einblicke-80-100-roche-basel",
+        "fr": "rapports-d-experts-mondiaux-et-perspectives-80-100-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7717,12 +7749,12 @@
     },
     {
       "id": "roche-efe0624bae4d",
-      "slug": "global-expert-contracting-partner-management-roche-ch",
+      "slug": "gestione-globale-dei-contratti-e-dei-partner-roche-basel",
       "slugByLocale": {
         "en": "global-expert-contracting-partner-management-roche-ch",
-        "it": "global-expert-contracting-partner-management-roche-ch",
-        "de": "global-expert-contracting-partner-management-roche-ch",
-        "fr": "global-expert-contracting-partner-management-roche-ch"
+        "it": "gestione-globale-dei-contratti-e-dei-partner-roche-basel",
+        "de": "globales-experten-contracting-partner-management-roche-basel",
+        "fr": "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7780,16 +7812,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-15T21:14:39.547Z"
+      "firstSeenAt": "2026-10-15T21:14:39.547Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-expert-contracting-partner-management-roche-ch"
+        ],
+        "de": [
+          "global-expert-contracting-partner-management-roche-ch"
+        ],
+        "fr": [
+          "global-expert-contracting-partner-management-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-expert-contracting-partner-management-roche-ch"
+      ]
     },
     {
       "id": "roche-cbd1e6ab0e0d",
-      "slug": "global-expert-estimating-benchmarking-80-100-roche-ch",
+      "slug": "esperto-globale-di-valutazione-e-benchmarking-80-100-roche-basel",
       "slugByLocale": {
         "en": "global-expert-estimating-benchmarking-80-100-roche-ch",
-        "it": "global-expert-estimating-benchmarking-80-100-roche-ch",
+        "it": "esperto-globale-di-valutazione-e-benchmarking-80-100-roche-basel",
         "de": "global-expert-estimating-benchmarking-80-100-roche-ch",
-        "fr": "global-expert-estimating-benchmarking-80-100-roche-ch"
+        "fr": "expert-mondial-estimation-et-benchmarking-80-100-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7847,16 +7893,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-15T21:14:38.282Z"
+      "firstSeenAt": "2026-10-15T21:14:38.282Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-expert-estimating-benchmarking-80-100-roche-ch"
+        ],
+        "fr": [
+          "global-expert-estimating-benchmarking-80-100-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-expert-estimating-benchmarking-80-100-roche-ch"
+      ]
     },
     {
       "id": "roche-e746c5cad584",
-      "slug": "global-lead-construction-safety-80-100-roche-ch",
+      "slug": "sicurezza-globale-delle-costruzioni-piombo-80-100-roche-basel",
       "slugByLocale": {
         "en": "global-lead-construction-safety-80-100-roche-ch",
-        "it": "global-lead-construction-safety-80-100-roche-ch",
-        "de": "global-lead-construction-safety-80-100-roche-ch",
-        "fr": "global-lead-construction-safety-80-100-roche-ch"
+        "it": "sicurezza-globale-delle-costruzioni-piombo-80-100-roche-basel",
+        "de": "weltweite-sicherheit-im-bleibau-80-100-roche-basel",
+        "fr": "securite-mondiale-du-plomb-dans-la-construction-80-100-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7914,7 +7971,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-15T21:14:37.160Z"
+      "firstSeenAt": "2026-10-15T21:14:37.160Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-lead-construction-safety-80-100-roche-ch"
+        ],
+        "de": [
+          "global-lead-construction-safety-80-100-roche-ch"
+        ],
+        "fr": [
+          "global-lead-construction-safety-80-100-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-lead-construction-safety-80-100-roche-ch"
+      ]
     },
     {
       "id": "roche-f19470064b43",

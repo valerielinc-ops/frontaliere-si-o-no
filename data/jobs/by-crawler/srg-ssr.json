@@ -3072,9 +3072,9 @@
       "slug": "sviluppatore-trice-organizzativo-a-srg-ssr-lausanne",
       "slugByLocale": {
         "it": "sviluppatore-trice-organizzativo-a-srg-ssr-lausanne",
-        "en": "sviluppatore-trice-organizzativo-a-srg-ssr-lausanne",
-        "de": "sviluppatore-trice-organizzativo-a-srg-ssr-lausanne",
-        "fr": "sviluppatore-trice-organizzativo-a-srg-ssr-lausanne"
+        "en": "developer-organization-a-srg-ssr-lausanne",
+        "de": "entwickler-organisation-a-srg-ssr-lausanne",
+        "fr": "developpeur-organisation-a-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3157,12 +3157,12 @@
     },
     {
       "id": "srg-ssr-bacc233574de",
-      "slug": "organisationsentwickler-in-srg-ssr-lausanne",
+      "slug": "specialista-dello-sviluppo-organizzativo-srg-ssr-lausanne",
       "slugByLocale": {
         "de": "organisationsentwickler-in-srg-ssr-lausanne",
-        "it": "organisationsentwickler-in-srg-ssr-lausanne",
-        "en": "organisationsentwickler-in-srg-ssr-lausanne",
-        "fr": "organisationsentwickler-in-srg-ssr-lausanne"
+        "it": "specialista-dello-sviluppo-organizzativo-srg-ssr-lausanne",
+        "en": "organizational-developer-srg-ssr-lausanne",
+        "fr": "developpeur-euse-organisationnel-le-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3241,7 +3241,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "organisationsentwickler-in-srg-ssr-lausanne"
+        ],
+        "en": [
+          "organisationsentwickler-in-srg-ssr-lausanne"
+        ],
+        "fr": [
+          "organisationsentwickler-in-srg-ssr-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "organisationsentwickler-in-srg-ssr-lausanne"
+      ]
     },
     {
       "id": "srg-ssr-ed0c092c030a",
@@ -3249,8 +3263,8 @@
       "slugByLocale": {
         "fr": "developpeur-d-39-organisation-f-h-d-srg-ssr-lausanne",
         "it": "developpeur-d-39-organisation-f-h-d-srg-ssr-lausanne",
-        "en": "developpeur-d-39-organisation-f-h-d-srg-ssr-lausanne",
-        "de": "developpeur-d-39-organisation-f-h-d-srg-ssr-lausanne"
+        "en": "organization-developer-m-f-d-srg-ssr-lausanne",
+        "de": "organisationsentwickler-m-w-d-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",

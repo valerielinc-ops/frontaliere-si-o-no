@@ -6160,8 +6160,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-restauration-40-hopital-du-valais-visp",
         "it": "collaboratore-trice-restauration-40-hopital-du-valais-visp",
-        "en": "mitarbeiter-in-restauration-40-hopital-du-valais-visp",
-        "fr": "mitarbeiter-in-restauration-40-hopital-du-valais-visp"
+        "en": "restaurant-service-staff-40-hopital-du-valais-visp",
+        "fr": "collaborateur-trice-en-restauration-40-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -6208,6 +6208,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-restauration-40-hopital-du-valais-visp"
+        ],
+        "en": [
+          "mitarbeiter-in-restauration-40-hopital-du-valais-visp"
+        ],
+        "fr": [
           "mitarbeiter-in-restauration-40-hopital-du-valais-visp"
         ]
       },
