@@ -284,7 +284,9 @@ export async function runSpec(spec, runtime = {}) {
       // recruitingapp-2924, che pubblica 6 annunci con geografia Rheinfelden AG
       // mentre la validazione ne misurava 0%.
       const listingEvidence = spec.platform === 'umantis.com'
-        ? extractUmantisListingEvidence(res.body, res.url)
+        ? extractUmantisListingEvidence(res.body, res.url, {
+          cantonOverrides: spec.umantisListingCantonOverrides,
+        })
         : new Map();
       const links = extractLinks(res.body, res.url);
       const { vacancies } = extractVacancies(res.body, res.url, links);
