@@ -2823,6 +2823,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'attacco-software-pkzh': { it: 'attacco-software-pkzh', en: 'zurich-pension-fund-cyberattack', de: 'cyberangriff-pensionskasse-zurich', fr: 'cyberattaque-caisse-pension-zurich' },
  'mercatini-usato-svizzera': { it: 'mercatini-usato-svizzera', en: 'secondhand-markets-warranty-sidewalk-and-counterfeit-goods-across-the-border', de: 'gebrauchtwarenmarkte-garantie-gehweg-und-falschungen-uber-die-grenze-hinweg', fr: 'marches-aux-puces-garantie-trottoir-et-contrefacons-transfrontalieres' },
  'revoca-bonus-dirigenti-cs': { it: 'revoca-bonus-dirigenti-cs', en: 'credit-suisse-bonus-revocation', de: 'credit-suisse-bonus-widerruf', fr: 'credit-suisse-revocation-bonus' },
+ 'sistema-sanitario-zurigo-guida-2026': { it: 'sistema-sanitario-zurigo-guida-2026', en: 'swiss-healthcare-system-zurich-2026-guide', de: 'schweizer-gesundheitssystem-zuerich-2026-leitfaden', fr: 'systeme-sante-suisse-zurich-2026-guide' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

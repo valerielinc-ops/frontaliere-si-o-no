@@ -106106,6 +106106,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-sanitario-zurigo-guida-2026': {
+    title: 'Sistema sanitario svizzero: guida LAMal 2026 nel canton Zurigo',
+    description: 'Guida pratica 2026 al sistema sanitario nel canton Zurigo: obblighi LAMal, scelta cassa malati, franchigie e come richiedere i sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Guida 2026: sistema sanitario e LAMal nel canton Zurigo',
+    ogDescription: 'Tutto quello che c\'è da sapere sul sistema sanitario nel canton Zurigo: obblighi, scelta della cassa, franchigie e gestione dei premi per il 2026.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-zurigo-guida-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero: guida LAMal 2026 nel canton Zurigo",
+      "description": "Guida pratica 2026 al sistema sanitario nel canton Zurigo: obblighi LAMal, scelta cassa malati, franchigie e come richiedere i sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sistema-sanitario-zurigo-guida-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di una moderna struttura sanitaria nel canton Zurigo"
+      },
+      "datePublished": "2026-10-16T01:51:47+00:00",
+      "dateModified": "2026-10-16T01:51:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-zurigo-guida-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5522
+      "6": 5523
     },
-    "publishedCovers": 7103,
+    "publishedCovers": 7104,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5327
+    "inferredRecords": 5328
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190368,6 +190368,33 @@
           "id": "saronno-piccole-stelle-softball",
           "category": "novita",
           "date": "2026-10-15T17:55:48.993Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-sistema-sanitario-zurigo-guida-2026": {
+      "cover": "/images/blog/article-sistema-sanitario-zurigo-guida-2026.webp",
+      "hash": "3f1c0bbfa64ed8aa8525993322c92e15ed8b3f38619f61febe0c17b2e7412e1c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "sistema-sanitario-zurigo-guida-2026",
+          "category": "pratico",
+          "date": "2026-10-16T01:51:47.381Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -28097,6 +28097,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sistema-sanitario-zurigo-guida-2026',
+    category: 'pratico',
+    date: '2026-10-16T01:51:47.381Z',
+    image: '/images/blog/article-sistema-sanitario-zurigo-guida-2026.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['ZH'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

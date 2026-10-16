@@ -8402,6 +8402,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.revoca-bonus-dirigenti-cs.title': 'Former Credit Suisse executives, cancellation of bonuses confirmed',
     'blog.article.revoca-bonus-dirigenti-cs.excerpt': 'The TF confirms the revocation of bonuses for former CS executives The TAF had upheld the appeals in March 2025 Bonus cuts: 100%, 50% and 25% for three levels The 19th',
     'blog.article.revoca-bonus-dirigenti-cs.imageAlt': 'Credit Suisse headquarters in Switzerland',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.title': 'Swiss health system: LAMal 2026 guide in the canton of Zurich',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.excerpt': 'Practical guide to the health system in the canton of Zurich for 2026: LAMal obligations, choice of cash, deductibles and reimbursement procedures for residents.',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.imageAlt': 'Modern healthcare facility entrance in the canton of Zurich',
 };
 
 export default blogMetaChEn;

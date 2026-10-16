@@ -8402,6 +8402,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.revoca-bonus-dirigenti-cs.title': 'Ehemalige Führungskräfte von Credit Suisse: Streichung der Boni bestätigt',
     'blog.article.revoca-bonus-dirigenti-cs.excerpt': 'Das Bundesgericht bestätigt die Streichung der Boni für ehemalige CS-Führungskräfte Das Bundesverwaltungsgericht hatte den Beschwerden im März 2025 stattgegeben Kürzungen der Boni: 100%, 50% und 25% für drei Ebenen Der 19.',
     'blog.article.revoca-bonus-dirigenti-cs.imageAlt': 'Credit Suisse Hauptsitz in der Schweiz',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.title': 'Schweizerisches Gesundheitssystem: KVG-Leitfaden 2026 im Kanton Zürich',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.excerpt': 'Praktischer Leitfaden zum Gesundheitssystem im Kanton Zürich für das Jahr 2026: KVG-Pflichten, Kassenwahl, Franchisen und Rückerstattungsverfahren für Residenten.',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.imageAlt': 'Eingang einer modernen Gesundheitseinrichtung im Kanton Zürich',
 };
 
 export default blogMetaChDe;

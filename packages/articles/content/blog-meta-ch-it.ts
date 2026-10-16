@@ -8402,6 +8402,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.revoca-bonus-dirigenti-cs.title': 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
     'blog.article.revoca-bonus-dirigenti-cs.excerpt': 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
     'blog.article.revoca-bonus-dirigenti-cs.imageAlt': 'Sede centrale di Credit Suisse in Svizzera',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.title': 'Sistema sanitario svizzero: guida LAMal 2026 nel canton Zurigo',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.excerpt': 'Guida pratica al sistema sanitario nel canton Zurigo per il 2026: obblighi LAMal, scelta della cassa, franchigie e procedure di rimborso per i residenti.',
+    'blog.article.sistema-sanitario-zurigo-guida-2026.imageAlt': 'Facciata di una moderna struttura sanitaria nel canton Zurigo',
 };
 
 export default blogMetaChIt;
