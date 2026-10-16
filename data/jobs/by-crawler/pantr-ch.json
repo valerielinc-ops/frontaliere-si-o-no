@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pantr-ch",
-  "assembledAt": "2026-10-16T09:39:15.927Z",
+  "assembledAt": "2026-10-16T21:34:47.605Z",
   "jobs": [
     {
       "id": "pantr-ch-cfd0a7b808cb",
@@ -34,7 +34,7 @@
       "url": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.023Z",
+      "crawledAt": "2026-10-16T21:34:41.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.022Z",
+      "crawledAt": "2026-10-16T21:34:41.299Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
         "it": "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "en": "financial-accountants-pantr-gmbh-zurich-fa865fd8b331",
         "de": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-        "fr": "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
+        "fr": "financial-accountant-pantr-gmbh-zurich"
       },
       "slugDisambiguator": "fa865fd8b331",
       "company": "Pantr GmbH",
@@ -196,7 +196,7 @@
       "url": "https://pantr.ch/jobs/financial-accountant-138/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.022Z",
+      "crawledAt": "2026-10-16T21:34:41.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "previousSlugs": [
         "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
         "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-        "financial-accountant-pantr-gmbh-zurich"
+        "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -231,7 +231,7 @@
         "fr": [
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
           "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-          "financial-accountant-pantr-gmbh-zurich"
+          "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
         ]
       },
       "firstSeenAt": "2026-10-01T09:35:20.253Z",
@@ -248,88 +248,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "pantr-ch-da4578af7f16",
-      "slug": "fiduciario-a-con-attestato-professionale-federale-o-in-formazione-pantr-gmbh-dudingen-bern-da4578af7f16",
-      "slugByLocale": {
-        "it": "fiduciario-a-con-attestato-professionale-federale-o-in-formazione-pantr-gmbh-dudingen-bern-da4578af7f16",
-        "en": "trustee-with-a-federal-diploma-of-higher-education-or-in-training-pantr-gmbh-dudingen-bern-da4578af7f16",
-        "de": "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
-        "fr": "fiduciaire-avec-brevet-federal-ou-en-formation-pantr-gmbh-dudingen-bern-da4578af7f16"
-      },
-      "slugDisambiguator": "da4578af7f16",
-      "company": "Pantr GmbH",
-      "companyKey": "pantr-ch",
-      "companyDomain": "pantr.ch",
-      "title": "Treuhänder/in mit eidg. Fachausweis oder in Ausbildung",
-      "titleByLocale": {
-        "it": "Fiduciario/a con attestato professionale federale o in formazione",
-        "en": "Trustee with a Federal Diploma of Higher Education or in training",
-        "de": "Treuhänder/in mit eidg. Fachausweis oder in Ausbildung",
-        "fr": "Fiduciaire avec brevet fédéral ou en formation"
-      },
-      "description": "Für eine renommierte Schweizer Treuhand- und Beratungsgesellschaft mit rund 90 Mitarbeitenden an drei Standorten suchen wir eine fachstarke Persönlichkeit zur Erweiterung des Teams in Düdingen. Das Unternehmen bietet ein umfassendes Dienstleistungsportfolio von der klassischen Buchführung über die Steuerberatung bis hin zu digitalen Abacus-Lösungen. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Mandatsführung: Selbständige Betreuung und Führung von vielseitigen Treuhandmandaten unterschiedlicher Branchen unter Einsatz digitalisierter Prozesse.\n- Finanzwesen & Steuern: Fachgerechtes Erstellen von Zwischen- und Jahresabschlüssen, Ausarbeitung von MWST-Abrechnungen sowie ganzheitliche Steuer- und Unternehmensberatung.\n- Payroll & Consulting: Führen von Lohnbuchhaltungen inklusive des gesamten Sozialversicherungswesens, Mithilfe bei zukunftsgerichteten Projekten sowie punktuelle externe Einsätze vor Ort bei Kundinnen und Kunden.\nDas bringst du mit:\n- Ausbildung: Treuhänder:in mit eidg. Fachausweis, Fachfrau/-mann Finanz- und Rechnungswesen oder du hast eine entsprechende Weiterbildung bereits gestartet oder geplant.\n- Erfahrung & Sprachen: Einige Jahre fundierte Berufserfahrung in der Treuhandbranche von Vorteil; Deutsch auf Muttersprachniveau, gute Französischkenntnisse sind ein Pluspunkt.\n- Arbeitsweise & IT: Ausgeprägte IT-Affinität, Interesse an digitalen Abläufen sowie eine selbständige, strukturierte und kundenorientierte Arbeitsweise.\nDas erwartet dich beim Kunden:\n- Arbeitsmodell & Kultur: Ein hilfsbereites, kompetentes Team in einem wertschätzenden Umfeld mit Jahresarbeitszeitmodell und flexiblen Arbeitszeiten für eine optimale Work-Life-Balance.\n- Weiterbildung: Interne Fachbereichsschulungen durch betriebseigene Spezialisten sowie die gezielte finanzielle und zeitliche Förderung branchenspezifischer Weiterbildungen.\n- Technologie & Teamspirit: Zeitgemässes, modernes Arbeiten mit digitalen Tools (Abacus, MS Teams) sowie regelmässige Teamevents und Betriebsausflüge zur Stärkung des Zusammenhalts.",
-      "descriptionByLocale": {
-        "it": "Per una rinomata società svizzera di fiducia e consulenza con circa 90 dipendenti in tre sedi, stiamo cercando una forte personalità per espandere il team a Düdingen. L'azienda offre un portafoglio completo di servizi dalla contabilità classica e consulenza fiscale alle soluzioni digitali Abacus. Immediatamente o con accordo, ti stiamo cercando!\nQuesto è il tuo lavoro:\n- Gestione obbligatoria: supporto indipendente e gestione di mandati fiduciari versatili di diverse industrie utilizzando processi digitalizzati.\n- Finanza & Fiscalità: Preparazione del bilancio intermedio e annuale, preparazione dei conti IVA e consulenza olistica e societaria.\n- Payroll & Consulting: Gestione della contabilità di payroll compreso l'intero sistema di sicurezza sociale, assistenza con progetti orientati al futuro e specifiche assegnazioni esterne in loco con i clienti.\nQuesto è ciò che portate con voi:\n- Formazione: Trustee: in una carta professionale federale, finanza specializzata e contabilità o hai già iniziato o pianificato un'ulteriore formazione corrispondente.\n- Esperienza e lingue: Alcuni anni di profonda esperienza professionale nel settore della fiducia è benefico; tedesco a livello di lingua madre, buona conoscenza del francese è un plus.\n- Metodi di lavoro & IT: Forte affinità IT, interesse nei processi digitali e un metodo di lavoro indipendente, strutturato e orientato al cliente.\nQuesto è ciò che vi aspetta dal cliente:\n- Modello di lavoro & cultura: Un team disponibile e competente in un ambiente apprezzabile con un modello di tempo di lavoro annuale e ore di lavoro flessibili per un equilibrio ottimale tra vita lavorativa.\n- Ulteriore formazione: formazione specialistica interna da parte di specialisti interni, nonché il supporto finanziario e temporale mirato di formazione continua specifica per l'industria.\n- Tecnologia & Team Spirit: Lavoro moderno e contemporaneo con strumenti digitali (Abacus, MS Teams) e regolari eventi di squadra e viaggi aziendali per rafforzare la coesione.",
-        "en": "For a renowned Swiss trust and consulting company with around 90 employees at three locations, we are looking for a strong personality to expand the team in Düdingen. The company offers a comprehensive portfolio of services from classical accounting and tax consulting to digital Abacus solutions. Immediately or by agreement, we are looking for you!\nThis is your job:\n- Mandate management: Independent support and management of versatile fiduciary mandates of different industries using digitized processes.\n- Finance & Taxation: Competent preparation of interim and annual financial statements, preparation of VAT accounts and holistic tax and corporate consulting.\n- Payroll & Consulting: Management of payroll accounting including the entire social security system, assistance with future-oriented projects as well as specific external assignments on site with customers.\nThis is what you bring with you:\n- Training: Trustee: in a federal professional card, specialist finance and accounting or you have already started or planned a corresponding further education.\n- Experience & Languages: Some years of profound professional experience in the trust industry is beneficial; German at native language level, good knowledge of French is a plus.\n- Working methods & IT: Strong IT affinity, interest in digital processes and an independent, structured and customer-oriented working method.\nThis is what awaits you from the customer:\n- Work model & culture: A helpful, competent team in an appreciative environment with an annual working time model and flexible working hours for an optimal work-life balance.\n- Further training: internal specialist training by in-house specialists as well as the targeted financial and time support of industry-specific further training.\n- Technology & Team Spirit: Contemporary, modern working with digital tools (Abacus, MS Teams) as well as regular team events and company trips to strengthen cohesion.",
-        "de": "Für eine renommierte Schweizer Treuhand- und Beratungsgesellschaft mit rund 90 Mitarbeitenden an drei Standorten suchen wir eine fachstarke Persönlichkeit zur Erweiterung des Teams in Düdingen. Das Unternehmen bietet ein umfassendes Dienstleistungsportfolio von der klassischen Buchführung über die Steuerberatung bis hin zu digitalen Abacus-Lösungen. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Mandatsführung: Selbständige Betreuung und Führung von vielseitigen Treuhandmandaten unterschiedlicher Branchen unter Einsatz digitalisierter Prozesse.\n- Finanzwesen & Steuern: Fachgerechtes Erstellen von Zwischen- und Jahresabschlüssen, Ausarbeitung von MWST-Abrechnungen sowie ganzheitliche Steuer- und Unternehmensberatung.\n- Payroll & Consulting: Führen von Lohnbuchhaltungen inklusive des gesamten Sozialversicherungswesens, Mithilfe bei zukunftsgerichteten Projekten sowie punktuelle externe Einsätze vor Ort bei Kundinnen und Kunden.\nDas bringst du mit:\n- Ausbildung: Treuhänder:in mit eidg. Fachausweis, Fachfrau/-mann Finanz- und Rechnungswesen oder du hast eine entsprechende Weiterbildung bereits gestartet oder geplant.\n- Erfahrung & Sprachen: Einige Jahre fundierte Berufserfahrung in der Treuhandbranche von Vorteil; Deutsch auf Muttersprachniveau, gute Französischkenntnisse sind ein Pluspunkt.\n- Arbeitsweise & IT: Ausgeprägte IT-Affinität, Interesse an digitalen Abläufen sowie eine selbständige, strukturierte und kundenorientierte Arbeitsweise.\nDas erwartet dich beim Kunden:\n- Arbeitsmodell & Kultur: Ein hilfsbereites, kompetentes Team in einem wertschätzenden Umfeld mit Jahresarbeitszeitmodell und flexiblen Arbeitszeiten für eine optimale Work-Life-Balance.\n- Weiterbildung: Interne Fachbereichsschulungen durch betriebseigene Spezialisten sowie die gezielte finanzielle und zeitliche Förderung branchenspezifischer Weiterbildungen.\n- Technologie & Teamspirit: Zeitgemässes, modernes Arbeiten mit digitalen Tools (Abacus, MS Teams) sowie regelmässige Teamevents und Betriebsausflüge zur Stärkung des Zusammenhalts.",
-        "fr": "Pour une société suisse de confiance et de conseil renommée avec environ 90 employés dans trois sites, nous recherchons une forte personnalité pour développer l'équipe à Düdingen. L'entreprise offre un portefeuille complet de services de conseil en comptabilité et en fiscalité classiques aux solutions Abacus numériques. Immédiatement ou d'accord, nous vous recherchons !\nC'est ton boulot :\n- Gestion du mandat : Appui indépendant et gestion de mandats fiduciaires polyvalents de différentes industries utilisant des processus numérisés.\n- Finance & Fiscalité: Préparation compétente d'états financiers intermédiaires et annuels, préparation de comptes de TVA et de consultations fiscales et corporatives globales.\n- Payroll & Consulting: Gestion de la comptabilité de la paie, y compris l'ensemble du système de sécurité sociale, assistance pour des projets orientés vers l'avenir ainsi que des missions externes spécifiques sur place avec les clients.\nC'est ce que vous apportez avec vous :\n- Formation: Fiduciaire: dans une carte professionnelle fédérale, spécialiste des finances et de la comptabilité ou vous avez déjà commencé ou planifié une formation complémentaire correspondante.\n- Expérience & Langues: Quelques années d'expérience professionnelle profonde dans l'industrie de la confiance est bénéfique; l'allemand au niveau de la langue maternelle, une bonne connaissance du français est un plus.\n- Méthodes de travail et informatique: forte affinité informatique, intérêt pour les processus numériques et une méthode de travail indépendante, structurée et orientée vers le client.\nC'est ce qui vous attend du client :\n- Modèle de travail & culture: Une équipe utile et compétente dans un environnement d'appréciation avec un modèle annuel de temps de travail et des heures de travail flexibles pour un équilibre optimal entre le travail et la vie personnelle.\n- Formation complémentaire: formation spécialisée interne par des spécialistes internes ainsi que le soutien financier et temporel ciblé de la formation complémentaire spécifique à l'industrie.\n- Technologie et esprit d'équipe : contemporain, moderne avec des outils numériques (Abacus, MS Teams) ainsi que des événements en équipe réguliers et des voyages d'entreprise pour renforcer la cohésion."
-      },
-      "location": "Düdingen, Bern",
-      "canton": "FR",
-      "url": "https://pantr.ch/jobs/treuhaender-in-mit-eidg-fachausweis-oder-in-ausbildung-182/",
-      "source": "Pantr GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.020Z",
-      "addressLocality": "Düdingen",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Revisione contabile e servizi fiduciari",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-01T08:51:09+00:00",
-      "postedDate": "2026-09-01T08:51:09+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://pantr.ch/jobs/treuhaender-in-mit-eidg-fachausweis-oder-in-ausbildung-182/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
-        "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
-          "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen"
-        ],
-        "en": [
-          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
-        ],
-        "fr": [
-          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T21:52:19.208Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3186"
     },
     {
       "id": "pantr-ch-a6cd462ca484",
@@ -363,7 +281,7 @@
       "url": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.021Z",
+      "crawledAt": "2026-10-16T21:34:41.298Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -446,7 +364,7 @@
       "url": "https://pantr.ch/jobs/steuerberater-159/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.021Z",
+      "crawledAt": "2026-10-16T21:34:41.298Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -496,6 +414,164 @@
       }
     },
     {
+      "id": "pantr-ch-da4578af7f16",
+      "slug": "fiduciario-a-con-attestato-professionale-federale-o-in-formazione-pantr-gmbh-dudingen-bern-da4578af7f16",
+      "slugByLocale": {
+        "it": "fiduciario-a-con-attestato-professionale-federale-o-in-formazione-pantr-gmbh-dudingen-bern-da4578af7f16",
+        "en": "trustee-with-a-federal-diploma-of-higher-education-or-in-training-pantr-gmbh-dudingen-bern-da4578af7f16",
+        "de": "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
+        "fr": "fiduciaire-avec-brevet-federal-ou-en-formation-pantr-gmbh-dudingen-bern-da4578af7f16"
+      },
+      "slugDisambiguator": "da4578af7f16",
+      "company": "Pantr GmbH",
+      "companyKey": "pantr-ch",
+      "companyDomain": "pantr.ch",
+      "title": "Treuhänder/in mit eidg. Fachausweis oder in Ausbildung",
+      "titleByLocale": {
+        "it": "Fiduciario/a con attestato professionale federale o in formazione",
+        "en": "Trustee with a Federal Diploma of Higher Education or in training",
+        "de": "Treuhänder/in mit eidg. Fachausweis oder in Ausbildung",
+        "fr": "Fiduciaire avec brevet fédéral ou en formation"
+      },
+      "description": "Für eine renommierte Schweizer Treuhand- und Beratungsgesellschaft mit rund 90 Mitarbeitenden an drei Standorten suchen wir eine fachstarke Persönlichkeit zur Erweiterung des Teams in Düdingen. Das Unternehmen bietet ein umfassendes Dienstleistungsportfolio von der klassischen Buchführung über die Steuerberatung bis hin zu digitalen Abacus-Lösungen. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Mandatsführung: Selbständige Betreuung und Führung von vielseitigen Treuhandmandaten unterschiedlicher Branchen unter Einsatz digitalisierter Prozesse.\n- Finanzwesen & Steuern: Fachgerechtes Erstellen von Zwischen- und Jahresabschlüssen, Ausarbeitung von MWST-Abrechnungen sowie ganzheitliche Steuer- und Unternehmensberatung.\n- Payroll & Consulting: Führen von Lohnbuchhaltungen inklusive des gesamten Sozialversicherungswesens, Mithilfe bei zukunftsgerichteten Projekten sowie punktuelle externe Einsätze vor Ort bei Kundinnen und Kunden.\nDas bringst du mit:\n- Ausbildung: Treuhänder:in mit eidg. Fachausweis, Fachfrau/-mann Finanz- und Rechnungswesen oder du hast eine entsprechende Weiterbildung bereits gestartet oder geplant.\n- Erfahrung & Sprachen: Einige Jahre fundierte Berufserfahrung in der Treuhandbranche von Vorteil; Deutsch auf Muttersprachniveau, gute Französischkenntnisse sind ein Pluspunkt.\n- Arbeitsweise & IT: Ausgeprägte IT-Affinität, Interesse an digitalen Abläufen sowie eine selbständige, strukturierte und kundenorientierte Arbeitsweise.\nDas erwartet dich beim Kunden:\n- Arbeitsmodell & Kultur: Ein hilfsbereites, kompetentes Team in einem wertschätzenden Umfeld mit Jahresarbeitszeitmodell und flexiblen Arbeitszeiten für eine optimale Work-Life-Balance.\n- Weiterbildung: Interne Fachbereichsschulungen durch betriebseigene Spezialisten sowie die gezielte finanzielle und zeitliche Förderung branchenspezifischer Weiterbildungen.\n- Technologie & Teamspirit: Zeitgemässes, modernes Arbeiten mit digitalen Tools (Abacus, MS Teams) sowie regelmässige Teamevents und Betriebsausflüge zur Stärkung des Zusammenhalts.",
+      "descriptionByLocale": {
+        "it": "Per una rinomata società svizzera di fiducia e consulenza con circa 90 dipendenti in tre sedi, stiamo cercando una forte personalità per espandere il team a Düdingen. L'azienda offre un portafoglio completo di servizi dalla contabilità classica e consulenza fiscale alle soluzioni digitali Abacus. Immediatamente o con accordo, ti stiamo cercando!\nQuesto è il tuo lavoro:\n- Gestione obbligatoria: supporto indipendente e gestione di mandati fiduciari versatili di diverse industrie utilizzando processi digitalizzati.\n- Finanza & Fiscalità: Preparazione del bilancio intermedio e annuale, preparazione dei conti IVA e consulenza olistica e societaria.\n- Payroll & Consulting: Gestione della contabilità di payroll compreso l'intero sistema di sicurezza sociale, assistenza con progetti orientati al futuro e specifiche assegnazioni esterne in loco con i clienti.\nQuesto è ciò che portate con voi:\n- Formazione: Trustee: in una carta professionale federale, finanza specializzata e contabilità o hai già iniziato o pianificato un'ulteriore formazione corrispondente.\n- Esperienza e lingue: Alcuni anni di profonda esperienza professionale nel settore della fiducia è benefico; tedesco a livello di lingua madre, buona conoscenza del francese è un plus.\n- Metodi di lavoro & IT: Forte affinità IT, interesse nei processi digitali e un metodo di lavoro indipendente, strutturato e orientato al cliente.\nQuesto è ciò che vi aspetta dal cliente:\n- Modello di lavoro & cultura: Un team disponibile e competente in un ambiente apprezzabile con un modello di tempo di lavoro annuale e ore di lavoro flessibili per un equilibrio ottimale tra vita lavorativa.\n- Ulteriore formazione: formazione specialistica interna da parte di specialisti interni, nonché il supporto finanziario e temporale mirato di formazione continua specifica per l'industria.\n- Tecnologia & Team Spirit: Lavoro moderno e contemporaneo con strumenti digitali (Abacus, MS Teams) e regolari eventi di squadra e viaggi aziendali per rafforzare la coesione.",
+        "en": "For a renowned Swiss trust and consulting company with around 90 employees at three locations, we are looking for a strong personality to expand the team in Düdingen. The company offers a comprehensive portfolio of services from classical accounting and tax consulting to digital Abacus solutions. Immediately or by agreement, we are looking for you!\nThis is your job:\n- Mandate management: Independent support and management of versatile fiduciary mandates of different industries using digitized processes.\n- Finance & Taxation: Competent preparation of interim and annual financial statements, preparation of VAT accounts and holistic tax and corporate consulting.\n- Payroll & Consulting: Management of payroll accounting including the entire social security system, assistance with future-oriented projects as well as specific external assignments on site with customers.\nThis is what you bring with you:\n- Training: Trustee: in a federal professional card, specialist finance and accounting or you have already started or planned a corresponding further education.\n- Experience & Languages: Some years of profound professional experience in the trust industry is beneficial; German at native language level, good knowledge of French is a plus.\n- Working methods & IT: Strong IT affinity, interest in digital processes and an independent, structured and customer-oriented working method.\nThis is what awaits you from the customer:\n- Work model & culture: A helpful, competent team in an appreciative environment with an annual working time model and flexible working hours for an optimal work-life balance.\n- Further training: internal specialist training by in-house specialists as well as the targeted financial and time support of industry-specific further training.\n- Technology & Team Spirit: Contemporary, modern working with digital tools (Abacus, MS Teams) as well as regular team events and company trips to strengthen cohesion.",
+        "de": "Für eine renommierte Schweizer Treuhand- und Beratungsgesellschaft mit rund 90 Mitarbeitenden an drei Standorten suchen wir eine fachstarke Persönlichkeit zur Erweiterung des Teams in Düdingen. Das Unternehmen bietet ein umfassendes Dienstleistungsportfolio von der klassischen Buchführung über die Steuerberatung bis hin zu digitalen Abacus-Lösungen. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Mandatsführung: Selbständige Betreuung und Führung von vielseitigen Treuhandmandaten unterschiedlicher Branchen unter Einsatz digitalisierter Prozesse.\n- Finanzwesen & Steuern: Fachgerechtes Erstellen von Zwischen- und Jahresabschlüssen, Ausarbeitung von MWST-Abrechnungen sowie ganzheitliche Steuer- und Unternehmensberatung.\n- Payroll & Consulting: Führen von Lohnbuchhaltungen inklusive des gesamten Sozialversicherungswesens, Mithilfe bei zukunftsgerichteten Projekten sowie punktuelle externe Einsätze vor Ort bei Kundinnen und Kunden.\nDas bringst du mit:\n- Ausbildung: Treuhänder:in mit eidg. Fachausweis, Fachfrau/-mann Finanz- und Rechnungswesen oder du hast eine entsprechende Weiterbildung bereits gestartet oder geplant.\n- Erfahrung & Sprachen: Einige Jahre fundierte Berufserfahrung in der Treuhandbranche von Vorteil; Deutsch auf Muttersprachniveau, gute Französischkenntnisse sind ein Pluspunkt.\n- Arbeitsweise & IT: Ausgeprägte IT-Affinität, Interesse an digitalen Abläufen sowie eine selbständige, strukturierte und kundenorientierte Arbeitsweise.\nDas erwartet dich beim Kunden:\n- Arbeitsmodell & Kultur: Ein hilfsbereites, kompetentes Team in einem wertschätzenden Umfeld mit Jahresarbeitszeitmodell und flexiblen Arbeitszeiten für eine optimale Work-Life-Balance.\n- Weiterbildung: Interne Fachbereichsschulungen durch betriebseigene Spezialisten sowie die gezielte finanzielle und zeitliche Förderung branchenspezifischer Weiterbildungen.\n- Technologie & Teamspirit: Zeitgemässes, modernes Arbeiten mit digitalen Tools (Abacus, MS Teams) sowie regelmässige Teamevents und Betriebsausflüge zur Stärkung des Zusammenhalts.",
+        "fr": "Pour une société suisse de confiance et de conseil renommée avec environ 90 employés dans trois sites, nous recherchons une forte personnalité pour développer l'équipe à Düdingen. L'entreprise offre un portefeuille complet de services de conseil en comptabilité et en fiscalité classiques aux solutions Abacus numériques. Immédiatement ou d'accord, nous vous recherchons !\nC'est ton boulot :\n- Gestion du mandat : Appui indépendant et gestion de mandats fiduciaires polyvalents de différentes industries utilisant des processus numérisés.\n- Finance & Fiscalité: Préparation compétente d'états financiers intermédiaires et annuels, préparation de comptes de TVA et de consultations fiscales et corporatives globales.\n- Payroll & Consulting: Gestion de la comptabilité de la paie, y compris l'ensemble du système de sécurité sociale, assistance pour des projets orientés vers l'avenir ainsi que des missions externes spécifiques sur place avec les clients.\nC'est ce que vous apportez avec vous :\n- Formation: Fiduciaire: dans une carte professionnelle fédérale, spécialiste des finances et de la comptabilité ou vous avez déjà commencé ou planifié une formation complémentaire correspondante.\n- Expérience & Langues: Quelques années d'expérience professionnelle profonde dans l'industrie de la confiance est bénéfique; l'allemand au niveau de la langue maternelle, une bonne connaissance du français est un plus.\n- Méthodes de travail et informatique: forte affinité informatique, intérêt pour les processus numériques et une méthode de travail indépendante, structurée et orientée vers le client.\nC'est ce qui vous attend du client :\n- Modèle de travail & culture: Une équipe utile et compétente dans un environnement d'appréciation avec un modèle annuel de temps de travail et des heures de travail flexibles pour un équilibre optimal entre le travail et la vie personnelle.\n- Formation complémentaire: formation spécialisée interne par des spécialistes internes ainsi que le soutien financier et temporel ciblé de la formation complémentaire spécifique à l'industrie.\n- Technologie et esprit d'équipe : contemporain, moderne avec des outils numériques (Abacus, MS Teams) ainsi que des événements en équipe réguliers et des voyages d'entreprise pour renforcer la cohésion."
+      },
+      "location": "Düdingen, Bern",
+      "canton": "FR",
+      "url": "https://pantr.ch/jobs/treuhaender-in-mit-eidg-fachausweis-oder-in-ausbildung-182/",
+      "source": "Pantr GmbH Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-16T21:34:41.297Z",
+      "addressLocality": "Düdingen",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Revisione contabile e servizi fiduciari",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-01T08:51:09+00:00",
+      "postedDate": "2026-09-01T08:51:09+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://pantr.ch/jobs/treuhaender-in-mit-eidg-fachausweis-oder-in-ausbildung-182/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
+        "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
+          "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen"
+        ],
+        "en": [
+          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
+        ],
+        "fr": [
+          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
+        ]
+      },
+      "firstSeenAt": "2026-10-07T21:52:19.208Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3186"
+    },
+    {
+      "id": "pantr-ch-dbf01c94d0ef",
+      "slug": "controller-aziendale-senior-pantr-gmbh-oberkirch-dbf01c94d0ef",
+      "slugByLocale": {
+        "it": "controller-aziendale-senior-pantr-gmbh-oberkirch-dbf01c94d0ef",
+        "en": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
+        "de": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
+        "fr": "controleur-principal-des-entreprises-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
+      },
+      "slugDisambiguator": "dbf01c94d0ef",
+      "company": "Pantr GmbH",
+      "companyKey": "pantr-ch",
+      "companyDomain": "pantr.ch",
+      "title": "Senior Business Controller",
+      "titleByLocale": {
+        "it": "Controller aziendale senior",
+        "en": "Senior Business Controller",
+        "de": "Senior Business Controller",
+        "fr": "Contrôleur principal des entreprises"
+      },
+      "description": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.",
+      "descriptionByLocale": {
+        "it": "Per un marchio svizzero di moda e lavanderia a prova di crisi leader a livello internazionale con oltre 80 anni di tradizione, stiamo cercando una personalità analiticamente forte come Senior Business Controller Sales presso la nostra sede nella zona di Sursee (Oberkirch). In un ambiente dinamico che si è sempre concentrato sulla sostenibilità e la massima qualità, si consiglia la gestione delle vendite e la gestione direttamente con preziose informazioni. Immediatamente o con accordo, ti stiamo cercando!\nIl tuo campo di attività:\n- Business Partnering: consulenza attiva per la gestione, la gestione delle vendite e vari dipartimenti in tutti gli aspetti aziendali.\n- Analizzazioni e processi decisionali: creazione di una sana redditività, redditività e analisi dei casi aziendali, nonché la derivazione di raccomandazioni concrete per l'azione da sviluppi di vendite, margini e guadagni.\n- Reporting & Business Intelligence: sviluppo continuo del reporting gestionale, co-design del paesaggio BI interno e ottimizzazione dei processi di controllo e pianificazione.\n- Pianificazione e controllo: partecipazione a budget, previsioni e pianificazione a medio termine, implementazione di confronti obiettivi e valutazione di indicatori di performance rilevanti.\n- Progetti & Data Quality: Lavorare in progetti cross-divisionali per garantire elevata trasparenza e qualità dei dati di tutte le informazioni finanziarie.\nQuesto è ciò che portate con voi:\n- Formazione: studi aziendali completi (università, università di scienze applicate o formazione comparabile) con un focus sulla finanza / controllo.\n- Esperienza: Diversi anni di profonda esperienza professionale nel controllo aziendale, idealmente raccolti nell'ambiente di vendita o FMCG/retail.\n- Competenze informatiche: abilità utente sella-hard in MS Excel; esperienza pratica con SAP così come Cognos Analytics o strumenti BI comparabili è un chiaro vantaggio.\n- Lingue: Comunicazione stilistica in tedesco e inglese per la cooperazione quotidiana in un ambiente internazionale.\n- Personalità: pensiero analitico e in rete, metodi di lavoro indipendenti e orientati alla soluzione, competenza di consulenza pronunciata e un alto livello di iniziativa.\nQuesto è ciò che vi aspetta dal cliente:\n- Work-Life Balance & Flessibilità: Ore lavorative flessibili con Mobile / Remote Working e la copertura completa dei costi dei premi KTG e NBU.\n- Vantaggi & Infrastrutture: Parcheggio gratuito presso la sede, cibo scontato nel nostro ristorante personale, interessanti sconti sui dipendenti sull'intera gamma di marchi e regolari vendite di rampa.\n- Cultura & Eventi: Una cultura aziendale caratterizzata da valori e sostenibilità con regolari eventi di team, apéros aziendali e eventi unici.\n- Sviluppo: Opportunità di sviluppo professionale e personale mirate attraverso la partecipazione finanziaria all'ulteriore istruzione esterna.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
+        "en": "For an internationally leading, crisis-proof Swiss fashion and laundry brand with over 80 years of tradition, we are looking for an analytically strong personality as Senior Business Controller Sales at our headquarters in the Sursee (Oberkirch) area. In a dynamic environment that has always focused on sustainability and the highest quality, you will advise sales management and management directly with valuable insights. Immediately or by agreement, we are looking for you!\nYour field of activity:\n- Business Partnering: Proactive advice to the management, sales management and various departments in all business aspects.\n- Analyses & decision-making: Creation of sound profitability, profitability and business case analyses as well as the derivation of concrete recommendations for action from sales, margin and earnings developments.\n- Reporting & Business Intelligence: Continuous development of management reporting, co-design of the internal BI landscape and optimization of controlling and planning processes.\n- Planning & Control: Participation in budget, forecast and medium-term planning, implementation of target-actual comparisons and evaluation of relevant performance indicators.\n- Projects & Data Quality: Working in cross-divisional projects to ensure high transparency and data quality of all financial information.\nThis is what you bring with you:\n- Training: Completed business studies (university, university of applied sciences or comparable training) with a focus on finance/controlling.\n- Experience: Several years of profound professional experience in business controlling, ideally collected in the sales or FMCG/retail environment.\n- IT skills: saddle-hard user skills in MS Excel; Practical experience with SAP as well as Cognos Analytics or comparable BI tools is a clear advantage.\n- Languages: Stylistic communication in German and English for daily cooperation in an international environment.\n- Personality: Analytical and networked thinking, independent and solution-oriented working methods, pronounced consulting competence and a high level of initiative.\nThis is what awaits you from the customer:\n- Work-Life Balance & Flexibility: Flexible working hours with Mobile / Remote Working as well as the full cost coverage of KTG and NBU premiums.\n- Benefits & Infrastructure: Free parking at headquarters, discounted food in our own staff restaurant, attractive employee discounts on the entire brand range and regular ramp sales.\n- Culture & Events: A corporate culture characterized by values and sustainability with regular team events, company apéros and unique events.\n- Development: Targeted professional and personal development opportunities through financial participation in external further education.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
+        "de": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.",
+        "fr": "Pour une marque suisse de mode et de lessive à la pointe de la scène internationale et résistante à la crise avec plus de 80 ans de tradition, nous recherchons une personnalité analytique forte en tant que Senior Business Controller Sales à notre siège dans la région de Sursee (Oberkirch). Dans un environnement dynamique qui a toujours été axé sur la durabilité et la plus haute qualité, vous conseillerez directement la gestion et la gestion des ventes avec des idées précieuses. Immédiatement ou d'accord, nous vous recherchons !\nVotre domaine d'activité:\n- Partenaires d'affaires : Conseils proactifs à la direction, à la gestion des ventes et à divers ministères dans tous les aspects d'affaires.\n- Analyses et prise de décision: Création d'analyses solides de rentabilité, de rentabilité et d'analyses de rentabilisation, ainsi que de recommandations concrètes pour l'action à partir de l'évolution des ventes, des marges et des bénéfices.\n- Reporting & Business Intelligence: Développement continu des rapports de gestion, co-conception du paysage interne BI et optimisation des processus de contrôle et de planification.\n- Planification et contrôle: participation au budget, aux prévisions et à la planification à moyen terme, mise en œuvre de comparaisons entre objectifs et faits et évaluation des indicateurs de performance pertinents.\n- Projets & Qualité des données: Travailler dans des projets interdivisions pour assurer une grande transparence et la qualité des données de toutes les informations financières.\nC'est ce que vous apportez avec vous :\n- Formation : Études d'entreprise terminées (université, université de sciences appliquées ou formation comparable) en mettant l'accent sur la finance et le contrôle.\n- Expérience: Plusieurs années d'expérience professionnelle profonde dans le contrôle d'entreprise, idéalement collectées dans l'environnement des ventes ou FMCG/de détail.\n- Compétences informatiques : compétences utilisateur difficiles en MS Excel ; une expérience pratique avec SAP ainsi que Cognos Analytics ou des outils BI comparables est un avantage évident.\n- Langues : Communication styliste en allemand et en anglais pour une coopération quotidienne dans un environnement international.\n- Personnalité: réflexion analytique et en réseau, méthodes de travail indépendantes et orientées vers la solution, compétence de conseil prononcée et haut niveau d'initiative.\nC'est ce qui vous attend du client :\n- Équilibre et flexibilité entre le travail et la vie personnelle : horaires flexibles avec travail à distance et couverture complète des coûts des primes KTG et NBU.\n- Avantages et infrastructures: Parking gratuit au siège social, restauration à prix réduit dans notre propre restaurant personnel, rabais attrayants pour les employés sur toute la gamme de la marque et les ventes régulières de rampes.\n- Culture & Événements: Une culture d'entreprise caractérisée par des valeurs et la durabilité avec des événements d'équipe réguliers, des apéros d'entreprise et des événements uniques.\n- Développement : Des possibilités de perfectionnement professionnel et personnel ciblées grâce à la participation financière à des études complémentaires externes.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
+      },
+      "location": "Oberkirch, Luzern",
+      "canton": "LU",
+      "url": "https://pantr.ch/jobs/senior-business-controller-196/",
+      "source": "Pantr GmbH Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-16T21:34:41.296Z",
+      "addressLocality": "Oberkirch",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6208",
+      "streetAddress": "Bahnstrasse 40",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Revisione contabile e servizi fiduciari",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-08T14:52:06+00:00",
+      "postedDate": "2026-09-08T14:52:06+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://pantr.ch/jobs/senior-business-controller-196/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-01T09:35:20.250Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "pantr-ch-09f427342f61",
       "slug": "responsabile-steuerteam-pantr-gmbh-basel",
       "slugByLocale": {
@@ -527,7 +603,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.018Z",
+      "crawledAt": "2026-10-16T21:34:41.295Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -577,44 +653,44 @@
       }
     },
     {
-      "id": "pantr-ch-dbf01c94d0ef",
-      "slug": "controller-aziendale-senior-pantr-gmbh-oberkirch-dbf01c94d0ef",
+      "id": "pantr-ch-7008056e5554",
+      "slug": "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554",
       "slugByLocale": {
-        "it": "controller-aziendale-senior-pantr-gmbh-oberkirch-dbf01c94d0ef",
-        "en": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
-        "de": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
-        "fr": "controleur-principal-des-entreprises-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
+        "it": "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554",
+        "en": "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
+        "de": "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
+        "fr": "assistant-principal-pantr-gmbh-st-gallen-7008056e5554"
       },
-      "slugDisambiguator": "dbf01c94d0ef",
+      "slugDisambiguator": "7008056e5554",
       "company": "Pantr GmbH",
       "companyKey": "pantr-ch",
       "companyDomain": "pantr.ch",
-      "title": "Senior Business Controller",
+      "title": "Senior Assistant Wirtschaftsprüfung",
       "titleByLocale": {
-        "it": "Controller aziendale senior",
-        "en": "Senior Business Controller",
-        "de": "Senior Business Controller",
-        "fr": "Contrôleur principal des entreprises"
+        "it": "Audit aggiunto senior",
+        "en": "Senior Assistant Audit",
+        "de": "Senior Assistant Wirtschaftsprüfung",
+        "fr": "Assistant principal"
       },
-      "description": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.",
+      "description": "Für eines der führenden Schweizer Beratungs- und Wirtschaftsprüfungsunternehmen mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine zahlenaffine und qualitätsbewusste Persönlichkeit für das Revisions-Team in St. Gallen. In dieser vielseitigen Rolle begleitest du nationale sowie internationale Mandate und treibst die digitale Arbeitsweise aktiv voran. Gesucht wird per 1. Oktober 2027 oder nach Vereinbarung!\nDas ist deine Tätigkeit:\n- Abschlussprüfungen: Mitwirkung bei der Durchführung von Prüfungen von Einzel- und Konzernabschlüssen nach OR, Swiss GAAP FER und IFRS.\n- Teamleitung & Review: Mandatsbezogene Teamleitung bei kleineren Unternehmungen in Absprache mit der vorgesetzten Stelle sowie Qualitätssicherung und Reviewtätigkeiten gemäss internen Vorgaben.\n- Beratung & Kundenkontakt: Beratung in der Abschlussgestaltung aus handelsrechtlicher sowie steuerlicher Sicht und die aktive Pflege nachhaltiger Kundenbeziehungen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes Studium (Universität, FH, HF) oder Fachausweis, kombiniert mit der bereits gestarteten Ausbildung zum/zur dipl. Wirtschaftsprüfer:in.\n- Erfahrung: Mindestens zwei erfolgreich absolvierte Prüfungssaisons in der Wirtschaftsprüfung.\n- IT & Mindset: Ausgeprägtes Zahlenflair, starke analytische Fähigkeiten sowie eine hohe Motivation, moderne und digitale Arbeitsmethoden einzusetzen.\n- Persönlichkeit: Selbstständige, exakte Arbeitsweise mit hohem Qualitätsanspruch, professionelles Auftreten, Belastbarkeit und Freude am direkten Menschenkontakt.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende, familiäre Arbeitsatmosphäre mit gelebter DU-Kultur in einem eingespielten, motivierten Team.\n- Flexibilität: Flexible Arbeitszeitmodelle mit Kompensationsmöglichkeit sowie die Möglichkeit zur Homeoffice-Nutzung.\n- Entwicklung & Benefits: Fundierte Einarbeitung, zielgerichtete Unterstützung bei der Ausbildung zum/zur dipl. Wirtschaftsprüfer:in, moderne Arbeitsplätze und attraktive Mitarbeiter-Benefits.",
       "descriptionByLocale": {
-        "it": "Per un marchio svizzero di moda e lavanderia a prova di crisi leader a livello internazionale con oltre 80 anni di tradizione, stiamo cercando una personalità analiticamente forte come Senior Business Controller Sales presso la nostra sede nella zona di Sursee (Oberkirch). In un ambiente dinamico che si è sempre concentrato sulla sostenibilità e la massima qualità, si consiglia la gestione delle vendite e la gestione direttamente con preziose informazioni. Immediatamente o con accordo, ti stiamo cercando!\nIl tuo campo di attività:\n- Business Partnering: consulenza attiva per la gestione, la gestione delle vendite e vari dipartimenti in tutti gli aspetti aziendali.\n- Analizzazioni e processi decisionali: creazione di una sana redditività, redditività e analisi dei casi aziendali, nonché la derivazione di raccomandazioni concrete per l'azione da sviluppi di vendite, margini e guadagni.\n- Reporting & Business Intelligence: sviluppo continuo del reporting gestionale, co-design del paesaggio BI interno e ottimizzazione dei processi di controllo e pianificazione.\n- Pianificazione e controllo: partecipazione a budget, previsioni e pianificazione a medio termine, implementazione di confronti obiettivi e valutazione di indicatori di performance rilevanti.\n- Progetti & Data Quality: Lavorare in progetti cross-divisionali per garantire elevata trasparenza e qualità dei dati di tutte le informazioni finanziarie.\nQuesto è ciò che portate con voi:\n- Formazione: studi aziendali completi (università, università di scienze applicate o formazione comparabile) con un focus sulla finanza / controllo.\n- Esperienza: Diversi anni di profonda esperienza professionale nel controllo aziendale, idealmente raccolti nell'ambiente di vendita o FMCG/retail.\n- Competenze informatiche: abilità utente sella-hard in MS Excel; esperienza pratica con SAP così come Cognos Analytics o strumenti BI comparabili è un chiaro vantaggio.\n- Lingue: Comunicazione stilistica in tedesco e inglese per la cooperazione quotidiana in un ambiente internazionale.\n- Personalità: pensiero analitico e in rete, metodi di lavoro indipendenti e orientati alla soluzione, competenza di consulenza pronunciata e un alto livello di iniziativa.\nQuesto è ciò che vi aspetta dal cliente:\n- Work-Life Balance & Flessibilità: Ore lavorative flessibili con Mobile / Remote Working e la copertura completa dei costi dei premi KTG e NBU.\n- Vantaggi & Infrastrutture: Parcheggio gratuito presso la sede, cibo scontato nel nostro ristorante personale, interessanti sconti sui dipendenti sull'intera gamma di marchi e regolari vendite di rampa.\n- Cultura & Eventi: Una cultura aziendale caratterizzata da valori e sostenibilità con regolari eventi di team, apéros aziendali e eventi unici.\n- Sviluppo: Opportunità di sviluppo professionale e personale mirate attraverso la partecipazione finanziaria all'ulteriore istruzione esterna.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
-        "en": "For an internationally leading, crisis-proof Swiss fashion and laundry brand with over 80 years of tradition, we are looking for an analytically strong personality as Senior Business Controller Sales at our headquarters in the Sursee (Oberkirch) area. In a dynamic environment that has always focused on sustainability and the highest quality, you will advise sales management and management directly with valuable insights. Immediately or by agreement, we are looking for you!\nYour field of activity:\n- Business Partnering: Proactive advice to the management, sales management and various departments in all business aspects.\n- Analyses & decision-making: Creation of sound profitability, profitability and business case analyses as well as the derivation of concrete recommendations for action from sales, margin and earnings developments.\n- Reporting & Business Intelligence: Continuous development of management reporting, co-design of the internal BI landscape and optimization of controlling and planning processes.\n- Planning & Control: Participation in budget, forecast and medium-term planning, implementation of target-actual comparisons and evaluation of relevant performance indicators.\n- Projects & Data Quality: Working in cross-divisional projects to ensure high transparency and data quality of all financial information.\nThis is what you bring with you:\n- Training: Completed business studies (university, university of applied sciences or comparable training) with a focus on finance/controlling.\n- Experience: Several years of profound professional experience in business controlling, ideally collected in the sales or FMCG/retail environment.\n- IT skills: saddle-hard user skills in MS Excel; Practical experience with SAP as well as Cognos Analytics or comparable BI tools is a clear advantage.\n- Languages: Stylistic communication in German and English for daily cooperation in an international environment.\n- Personality: Analytical and networked thinking, independent and solution-oriented working methods, pronounced consulting competence and a high level of initiative.\nThis is what awaits you from the customer:\n- Work-Life Balance & Flexibility: Flexible working hours with Mobile / Remote Working as well as the full cost coverage of KTG and NBU premiums.\n- Benefits & Infrastructure: Free parking at headquarters, discounted food in our own staff restaurant, attractive employee discounts on the entire brand range and regular ramp sales.\n- Culture & Events: A corporate culture characterized by values and sustainability with regular team events, company apéros and unique events.\n- Development: Targeted professional and personal development opportunities through financial participation in external further education.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
-        "de": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.",
-        "fr": "Pour une marque suisse de mode et de lessive à la pointe de la scène internationale et résistante à la crise avec plus de 80 ans de tradition, nous recherchons une personnalité analytique forte en tant que Senior Business Controller Sales à notre siège dans la région de Sursee (Oberkirch). Dans un environnement dynamique qui a toujours été axé sur la durabilité et la plus haute qualité, vous conseillerez directement la gestion et la gestion des ventes avec des idées précieuses. Immédiatement ou d'accord, nous vous recherchons !\nVotre domaine d'activité:\n- Partenaires d'affaires : Conseils proactifs à la direction, à la gestion des ventes et à divers ministères dans tous les aspects d'affaires.\n- Analyses et prise de décision: Création d'analyses solides de rentabilité, de rentabilité et d'analyses de rentabilisation, ainsi que de recommandations concrètes pour l'action à partir de l'évolution des ventes, des marges et des bénéfices.\n- Reporting & Business Intelligence: Développement continu des rapports de gestion, co-conception du paysage interne BI et optimisation des processus de contrôle et de planification.\n- Planification et contrôle: participation au budget, aux prévisions et à la planification à moyen terme, mise en œuvre de comparaisons entre objectifs et faits et évaluation des indicateurs de performance pertinents.\n- Projets & Qualité des données: Travailler dans des projets interdivisions pour assurer une grande transparence et la qualité des données de toutes les informations financières.\nC'est ce que vous apportez avec vous :\n- Formation : Études d'entreprise terminées (université, université de sciences appliquées ou formation comparable) en mettant l'accent sur la finance et le contrôle.\n- Expérience: Plusieurs années d'expérience professionnelle profonde dans le contrôle d'entreprise, idéalement collectées dans l'environnement des ventes ou FMCG/de détail.\n- Compétences informatiques : compétences utilisateur difficiles en MS Excel ; une expérience pratique avec SAP ainsi que Cognos Analytics ou des outils BI comparables est un avantage évident.\n- Langues : Communication styliste en allemand et en anglais pour une coopération quotidienne dans un environnement international.\n- Personnalité: réflexion analytique et en réseau, méthodes de travail indépendantes et orientées vers la solution, compétence de conseil prononcée et haut niveau d'initiative.\nC'est ce qui vous attend du client :\n- Équilibre et flexibilité entre le travail et la vie personnelle : horaires flexibles avec travail à distance et couverture complète des coûts des primes KTG et NBU.\n- Avantages et infrastructures: Parking gratuit au siège social, restauration à prix réduit dans notre propre restaurant personnel, rabais attrayants pour les employés sur toute la gamme de la marque et les ventes régulières de rampes.\n- Culture & Événements: Une culture d'entreprise caractérisée par des valeurs et la durabilité avec des événements d'équipe réguliers, des apéros d'entreprise et des événements uniques.\n- Développement : Des possibilités de perfectionnement professionnel et personnel ciblées grâce à la participation financière à des études complémentaires externes.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
+        "it": "Per una delle principali società di consulenza e controllo svizzere con circa 550 dipendenti in undici sedi, stiamo cercando una personalità numerica e di qualità consapevole per il team di audit di St. Gallen. In questo ruolo versatile, accompagni i mandati nazionali e internazionali e promuovi attivamente il modo di lavorare digitale. Stiamo cercando dal 1 ottobre 2027 o d'accordo!\nQuesto è il tuo lavoro:\n- Audit: Partecipazione all'esecuzione di audit di bilancio individuale e consolidato in conformità con OR, Swiss GAAP FER e IFRS.\n- Gestione e revisione del team: gestione del team legata al mandato per le aziende più piccole in consultazione con le attività di assicurazione e revisione superiore e di qualità secondo le specifiche interne.\n- Consulenza e contatto con i clienti: Consulenza nella redazione dei rendiconti finanziari da un punto di vista commerciale e fiscale e mantenimento attivo delle relazioni con i clienti sostenibili.\nQuesto è ciò che portate con voi:\n- Istruzione: Studi completi (università, FH, HF) o carta specialistica, combinato con la formazione già iniziata per/per dipl. Auditori:\n- Esperienza: Almeno due stagioni di audit completate con successo in auditing.\n- IT & Mindset: Forte sfioramento numerico, forti competenze analitiche e un'alta motivazione per utilizzare metodi di lavoro moderni e digitali.\n- Personalità: Indipendente, metodo di lavoro esatto con standard di alta qualità, aspetto professionale, resilienza e godimento di contatto umano diretto.\nQuesto è ciò che vi aspetta dal cliente:\n- Cultura: Un'atmosfera di lavoro apprezzata e familiare con una cultura DU vissuta in un team ben arrotondato e motivato.\n- Flessibilità: Modelli di tempo di lavoro flessibili con opzioni di compensazione e la possibilità di utilizzare l'ufficio domestico.\n- Sviluppo e vantaggi: formazione approfondita, supporto mirato nella formazione per/per dipl. Revisori dei conti: nei luoghi di lavoro moderni e nei benefici dei dipendenti attraenti.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
+        "en": "For one of the leading Swiss consulting and auditing companies with around 550 employees at eleven locations, we are looking for a numerical and quality-conscious personality for the audit team in St. Gallen. In this versatile role, you accompany national and international mandates and actively promote the digital way of working. We are looking for from 1 October 2027 or by agreement!\nThis is your job:\n- Audits: Participation in carrying out audits of individual and consolidated financial statements in accordance with OR, Swiss GAAP FER and IFRS.\n- Team management & review: Mandate-related team management for smaller companies in consultation with the superior as well as quality assurance and review activities according to internal specifications.\n- Consulting & customer contact: Advice in the drafting of financial statements from a commercial and tax perspective and the active maintenance of sustainable customer relationships.\nThis is what you bring with you:\n- Education: Completed studies (university, FH, HF) or specialist card, combined with the already started training for/for dipl. Auditors:\n- Experience: At least two successfully completed audit seasons in auditing.\n- IT & Mindset: Strong numerical flair, strong analytical skills and a high motivation to use modern and digital working methods.\n- Personality: Independent, exact working method with high quality standards, professional appearance, resilience and enjoyment of direct human contact.\nThis is what awaits you from the customer:\n- Culture: An appreciative, familiar working atmosphere with a lived DU culture in a well-rounded, motivated team.\n- Flexibility: Flexible working time models with compensation options as well as the possibility to use the home office.\n- Development & Benefits: In-depth training, targeted support in the training for/for dipl. Auditors: in, modern workplaces and attractive employee benefits.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
+        "de": "Für eines der führenden Schweizer Beratungs- und Wirtschaftsprüfungsunternehmen mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine zahlenaffine und qualitätsbewusste Persönlichkeit für das Revisions-Team in St. Gallen. In dieser vielseitigen Rolle begleitest du nationale sowie internationale Mandate und treibst die digitale Arbeitsweise aktiv voran. Gesucht wird per 1. Oktober 2027 oder nach Vereinbarung!\nDas ist deine Tätigkeit:\n- Abschlussprüfungen: Mitwirkung bei der Durchführung von Prüfungen von Einzel- und Konzernabschlüssen nach OR, Swiss GAAP FER und IFRS.\n- Teamleitung & Review: Mandatsbezogene Teamleitung bei kleineren Unternehmungen in Absprache mit der vorgesetzten Stelle sowie Qualitätssicherung und Reviewtätigkeiten gemäss internen Vorgaben.\n- Beratung & Kundenkontakt: Beratung in der Abschlussgestaltung aus handelsrechtlicher sowie steuerlicher Sicht und die aktive Pflege nachhaltiger Kundenbeziehungen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes Studium (Universität, FH, HF) oder Fachausweis, kombiniert mit der bereits gestarteten Ausbildung zum/zur dipl. Wirtschaftsprüfer:in.\n- Erfahrung: Mindestens zwei erfolgreich absolvierte Prüfungssaisons in der Wirtschaftsprüfung.\n- IT & Mindset: Ausgeprägtes Zahlenflair, starke analytische Fähigkeiten sowie eine hohe Motivation, moderne und digitale Arbeitsmethoden einzusetzen.\n- Persönlichkeit: Selbstständige, exakte Arbeitsweise mit hohem Qualitätsanspruch, professionelles Auftreten, Belastbarkeit und Freude am direkten Menschenkontakt.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende, familiäre Arbeitsatmosphäre mit gelebter DU-Kultur in einem eingespielten, motivierten Team.\n- Flexibilität: Flexible Arbeitszeitmodelle mit Kompensationsmöglichkeit sowie die Möglichkeit zur Homeoffice-Nutzung.\n- Entwicklung & Benefits: Fundierte Einarbeitung, zielgerichtete Unterstützung bei der Ausbildung zum/zur dipl. Wirtschaftsprüfer:in, moderne Arbeitsplätze und attraktive Mitarbeiter-Benefits.",
+        "fr": "Pour l'une des plus grandes sociétés suisses de conseil et d'audit avec environ 550 employés dans onze sites, nous recherchons une personnalité numérique et sensible à la qualité pour l'équipe d'audit de St. Gallen. Dans ce rôle polyvalent, vous accompagnez les mandats nationaux et internationaux et promeuvez activement le mode de travail numérique. Nous sommes à la recherche à partir du 1er octobre 2027 ou par accord!\nC'est ton boulot :\n- Audits: Participation à la réalisation d'audits d'états financiers individuels et consolidés conformément à OR, Swiss GAAP FER et IFRS.\n- Gestion et examen de l'équipe : Gestion de l'équipe liée au mandat pour les petites entreprises en consultation avec le supérieur ainsi que les activités d'assurance de la qualité et d'examen conformément aux spécifications internes.\n- Conseil & contact client : Conseils pour la rédaction des états financiers d'un point de vue commercial et fiscal et le maintien actif de relations client durables.\nC'est ce que vous apportez avec vous :\n- Éducation: études terminées (université, FH, HF) ou carte spécialisée, combinée avec la formation déjà commencée pour/pour le dipl. Auditeurs:\n- Expérience : Au moins deux saisons de vérification ont été menées à bien.\n- IT & Mindset: Un style numérique fort, de solides compétences analytiques et une forte motivation à utiliser des méthodes de travail modernes et numériques.\n- Personnalité: Méthode de travail indépendante et exacte avec des normes de qualité élevées, apparence professionnelle, résilience et jouissance du contact humain direct.\nC'est ce qui vous attend du client :\n- Culture : Une ambiance de travail appréciée et familière avec une culture DU vécue dans une équipe bien équilibrée et motivée.\n- Flexibilité: Modèles de temps de travail flexibles avec des options de rémunération ainsi que la possibilité d'utiliser le bureau à domicile.\n- Développement et avantages: Formation approfondie, soutien ciblé dans la formation pour/pour les dipl. Auditeurs: dans des lieux de travail modernes et des avantages pour les employés.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
       },
-      "location": "Oberkirch, Luzern",
-      "canton": "LU",
-      "url": "https://pantr.ch/jobs/senior-business-controller-196/",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.019Z",
-      "addressLocality": "Oberkirch",
-      "addressRegion": "LU",
+      "crawledAt": "2026-10-16T21:34:41.295Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6208",
-      "streetAddress": "Bahnstrasse 40",
+      "postalCode": "9000",
+      "streetAddress": "Rorschacher Str. 63",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -622,32 +698,34 @@
       "sector": "Finanza / Revisione contabile e servizi fiduciari",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-08T14:52:06+00:00",
-      "postedDate": "2026-09-08T14:52:06+00:00",
+      "datePosted": "2026-09-23T10:30:37+00:00",
+      "postedDate": "2026-09-23T10:30:37+00:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://pantr.ch/jobs/senior-business-controller-196/",
+      "applyUrl": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
+        "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
+          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
+        ],
+        "fr": [
+          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:35:20.250Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "firstSeenAt": "2026-10-01T09:35:20.247Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       }
@@ -684,7 +762,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-finanzen-255/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.016Z",
+      "crawledAt": "2026-10-16T21:34:41.294Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -734,84 +812,6 @@
       }
     },
     {
-      "id": "pantr-ch-7008056e5554",
-      "slug": "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554",
-      "slugByLocale": {
-        "it": "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554",
-        "en": "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
-        "de": "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
-        "fr": "assistant-principal-pantr-gmbh-st-gallen-7008056e5554"
-      },
-      "slugDisambiguator": "7008056e5554",
-      "company": "Pantr GmbH",
-      "companyKey": "pantr-ch",
-      "companyDomain": "pantr.ch",
-      "title": "Senior Assistant Wirtschaftsprüfung",
-      "titleByLocale": {
-        "it": "Audit aggiunto senior",
-        "en": "Senior Assistant Audit",
-        "de": "Senior Assistant Wirtschaftsprüfung",
-        "fr": "Assistant principal"
-      },
-      "description": "Für eines der führenden Schweizer Beratungs- und Wirtschaftsprüfungsunternehmen mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine zahlenaffine und qualitätsbewusste Persönlichkeit für das Revisions-Team in St. Gallen. In dieser vielseitigen Rolle begleitest du nationale sowie internationale Mandate und treibst die digitale Arbeitsweise aktiv voran. Gesucht wird per 1. Oktober 2027 oder nach Vereinbarung!\nDas ist deine Tätigkeit:\n- Abschlussprüfungen: Mitwirkung bei der Durchführung von Prüfungen von Einzel- und Konzernabschlüssen nach OR, Swiss GAAP FER und IFRS.\n- Teamleitung & Review: Mandatsbezogene Teamleitung bei kleineren Unternehmungen in Absprache mit der vorgesetzten Stelle sowie Qualitätssicherung und Reviewtätigkeiten gemäss internen Vorgaben.\n- Beratung & Kundenkontakt: Beratung in der Abschlussgestaltung aus handelsrechtlicher sowie steuerlicher Sicht und die aktive Pflege nachhaltiger Kundenbeziehungen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes Studium (Universität, FH, HF) oder Fachausweis, kombiniert mit der bereits gestarteten Ausbildung zum/zur dipl. Wirtschaftsprüfer:in.\n- Erfahrung: Mindestens zwei erfolgreich absolvierte Prüfungssaisons in der Wirtschaftsprüfung.\n- IT & Mindset: Ausgeprägtes Zahlenflair, starke analytische Fähigkeiten sowie eine hohe Motivation, moderne und digitale Arbeitsmethoden einzusetzen.\n- Persönlichkeit: Selbstständige, exakte Arbeitsweise mit hohem Qualitätsanspruch, professionelles Auftreten, Belastbarkeit und Freude am direkten Menschenkontakt.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende, familiäre Arbeitsatmosphäre mit gelebter DU-Kultur in einem eingespielten, motivierten Team.\n- Flexibilität: Flexible Arbeitszeitmodelle mit Kompensationsmöglichkeit sowie die Möglichkeit zur Homeoffice-Nutzung.\n- Entwicklung & Benefits: Fundierte Einarbeitung, zielgerichtete Unterstützung bei der Ausbildung zum/zur dipl. Wirtschaftsprüfer:in, moderne Arbeitsplätze und attraktive Mitarbeiter-Benefits.",
-      "descriptionByLocale": {
-        "it": "Per una delle principali società di consulenza e controllo svizzere con circa 550 dipendenti in undici sedi, stiamo cercando una personalità numerica e di qualità consapevole per il team di audit di St. Gallen. In questo ruolo versatile, accompagni i mandati nazionali e internazionali e promuovi attivamente il modo di lavorare digitale. Stiamo cercando dal 1 ottobre 2027 o d'accordo!\nQuesto è il tuo lavoro:\n- Audit: Partecipazione all'esecuzione di audit di bilancio individuale e consolidato in conformità con OR, Swiss GAAP FER e IFRS.\n- Gestione e revisione del team: gestione del team legata al mandato per le aziende più piccole in consultazione con le attività di assicurazione e revisione superiore e di qualità secondo le specifiche interne.\n- Consulenza e contatto con i clienti: Consulenza nella redazione dei rendiconti finanziari da un punto di vista commerciale e fiscale e mantenimento attivo delle relazioni con i clienti sostenibili.\nQuesto è ciò che portate con voi:\n- Istruzione: Studi completi (università, FH, HF) o carta specialistica, combinato con la formazione già iniziata per/per dipl. Auditori:\n- Esperienza: Almeno due stagioni di audit completate con successo in auditing.\n- IT & Mindset: Forte sfioramento numerico, forti competenze analitiche e un'alta motivazione per utilizzare metodi di lavoro moderni e digitali.\n- Personalità: Indipendente, metodo di lavoro esatto con standard di alta qualità, aspetto professionale, resilienza e godimento di contatto umano diretto.\nQuesto è ciò che vi aspetta dal cliente:\n- Cultura: Un'atmosfera di lavoro apprezzata e familiare con una cultura DU vissuta in un team ben arrotondato e motivato.\n- Flessibilità: Modelli di tempo di lavoro flessibili con opzioni di compensazione e la possibilità di utilizzare l'ufficio domestico.\n- Sviluppo e vantaggi: formazione approfondita, supporto mirato nella formazione per/per dipl. Revisori dei conti: nei luoghi di lavoro moderni e nei benefici dei dipendenti attraenti.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
-        "en": "For one of the leading Swiss consulting and auditing companies with around 550 employees at eleven locations, we are looking for a numerical and quality-conscious personality for the audit team in St. Gallen. In this versatile role, you accompany national and international mandates and actively promote the digital way of working. We are looking for from 1 October 2027 or by agreement!\nThis is your job:\n- Audits: Participation in carrying out audits of individual and consolidated financial statements in accordance with OR, Swiss GAAP FER and IFRS.\n- Team management & review: Mandate-related team management for smaller companies in consultation with the superior as well as quality assurance and review activities according to internal specifications.\n- Consulting & customer contact: Advice in the drafting of financial statements from a commercial and tax perspective and the active maintenance of sustainable customer relationships.\nThis is what you bring with you:\n- Education: Completed studies (university, FH, HF) or specialist card, combined with the already started training for/for dipl. Auditors:\n- Experience: At least two successfully completed audit seasons in auditing.\n- IT & Mindset: Strong numerical flair, strong analytical skills and a high motivation to use modern and digital working methods.\n- Personality: Independent, exact working method with high quality standards, professional appearance, resilience and enjoyment of direct human contact.\nThis is what awaits you from the customer:\n- Culture: An appreciative, familiar working atmosphere with a lived DU culture in a well-rounded, motivated team.\n- Flexibility: Flexible working time models with compensation options as well as the possibility to use the home office.\n- Development & Benefits: In-depth training, targeted support in the training for/for dipl. Auditors: in, modern workplaces and attractive employee benefits.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
-        "de": "Für eines der führenden Schweizer Beratungs- und Wirtschaftsprüfungsunternehmen mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine zahlenaffine und qualitätsbewusste Persönlichkeit für das Revisions-Team in St. Gallen. In dieser vielseitigen Rolle begleitest du nationale sowie internationale Mandate und treibst die digitale Arbeitsweise aktiv voran. Gesucht wird per 1. Oktober 2027 oder nach Vereinbarung!\nDas ist deine Tätigkeit:\n- Abschlussprüfungen: Mitwirkung bei der Durchführung von Prüfungen von Einzel- und Konzernabschlüssen nach OR, Swiss GAAP FER und IFRS.\n- Teamleitung & Review: Mandatsbezogene Teamleitung bei kleineren Unternehmungen in Absprache mit der vorgesetzten Stelle sowie Qualitätssicherung und Reviewtätigkeiten gemäss internen Vorgaben.\n- Beratung & Kundenkontakt: Beratung in der Abschlussgestaltung aus handelsrechtlicher sowie steuerlicher Sicht und die aktive Pflege nachhaltiger Kundenbeziehungen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes Studium (Universität, FH, HF) oder Fachausweis, kombiniert mit der bereits gestarteten Ausbildung zum/zur dipl. Wirtschaftsprüfer:in.\n- Erfahrung: Mindestens zwei erfolgreich absolvierte Prüfungssaisons in der Wirtschaftsprüfung.\n- IT & Mindset: Ausgeprägtes Zahlenflair, starke analytische Fähigkeiten sowie eine hohe Motivation, moderne und digitale Arbeitsmethoden einzusetzen.\n- Persönlichkeit: Selbstständige, exakte Arbeitsweise mit hohem Qualitätsanspruch, professionelles Auftreten, Belastbarkeit und Freude am direkten Menschenkontakt.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende, familiäre Arbeitsatmosphäre mit gelebter DU-Kultur in einem eingespielten, motivierten Team.\n- Flexibilität: Flexible Arbeitszeitmodelle mit Kompensationsmöglichkeit sowie die Möglichkeit zur Homeoffice-Nutzung.\n- Entwicklung & Benefits: Fundierte Einarbeitung, zielgerichtete Unterstützung bei der Ausbildung zum/zur dipl. Wirtschaftsprüfer:in, moderne Arbeitsplätze und attraktive Mitarbeiter-Benefits.",
-        "fr": "Pour l'une des plus grandes sociétés suisses de conseil et d'audit avec environ 550 employés dans onze sites, nous recherchons une personnalité numérique et sensible à la qualité pour l'équipe d'audit de St. Gallen. Dans ce rôle polyvalent, vous accompagnez les mandats nationaux et internationaux et promeuvez activement le mode de travail numérique. Nous sommes à la recherche à partir du 1er octobre 2027 ou par accord!\nC'est ton boulot :\n- Audits: Participation à la réalisation d'audits d'états financiers individuels et consolidés conformément à OR, Swiss GAAP FER et IFRS.\n- Gestion et examen de l'équipe : Gestion de l'équipe liée au mandat pour les petites entreprises en consultation avec le supérieur ainsi que les activités d'assurance de la qualité et d'examen conformément aux spécifications internes.\n- Conseil & contact client : Conseils pour la rédaction des états financiers d'un point de vue commercial et fiscal et le maintien actif de relations client durables.\nC'est ce que vous apportez avec vous :\n- Éducation: études terminées (université, FH, HF) ou carte spécialisée, combinée avec la formation déjà commencée pour/pour le dipl. Auditeurs:\n- Expérience : Au moins deux saisons de vérification ont été menées à bien.\n- IT & Mindset: Un style numérique fort, de solides compétences analytiques et une forte motivation à utiliser des méthodes de travail modernes et numériques.\n- Personnalité: Méthode de travail indépendante et exacte avec des normes de qualité élevées, apparence professionnelle, résilience et jouissance du contact humain direct.\nC'est ce qui vous attend du client :\n- Culture : Une ambiance de travail appréciée et familière avec une culture DU vécue dans une équipe bien équilibrée et motivée.\n- Flexibilité: Modèles de temps de travail flexibles avec des options de rémunération ainsi que la possibilité d'utiliser le bureau à domicile.\n- Développement et avantages: Formation approfondie, soutien ciblé dans la formation pour/pour les dipl. Auditeurs: dans des lieux de travail modernes et des avantages pour les employés.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
-      "source": "Pantr GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.017Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9000",
-      "streetAddress": "Rorschacher Str. 63",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Revisione contabile e servizi fiduciari",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23T10:30:37+00:00",
-      "postedDate": "2026-09-23T10:30:37+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
-        ],
-        "fr": [
-          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:35:20.247Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "pantr-ch-09daa25a48a9",
       "slug": "impiegato-a-nel-settore-fiduciario-pantr-gmbh-chur-09daa25a48a9",
       "slugByLocale": {
@@ -843,7 +843,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-261/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:39:11.015Z",
+      "crawledAt": "2026-10-16T21:34:41.293Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
