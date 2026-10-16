@@ -33,6 +33,7 @@ const TARGET_ROLE_RE = /\b(?:miterzieher(?:in)?|fachfrau(?:mann)?\s+betreuung\s+
 const LOCATION_LABEL_RE = /^(?:arbeitsort|arbeitsplatz|einsatzort|standort|ort)\s*[:\-]?\s*(.*)$/i;
 const DATE_LABEL_RE = /^(?:publiziert|veröffentlicht|online\s+seit|inseriert|datum|date)\s*[:\-]?\s*(.*)$/i;
 const EMPTY_STATE_RE = /(?:zurzeit|derzeit|aktuell|momentan|zur\s+zeit)?\s*keine\s+(?:offenen?\s+)?(?:stellen|positionen|jobangebote|stellenangebote)\b/i;
+const JOB_SECTION_HEADING_RE = /^jobangebote\s*:?$/i;
 const JOB_LIST_SELECTOR = [
   '[data-job-list]',
   '[data-jobs-list]',
@@ -53,6 +54,7 @@ const EMPTY_STATE_MARKER_SELECTOR = [
   '[data-jobs-empty]',
   '[data-no-jobs]',
 ].join(',');
+const HEADING_SELECTOR = 'h1,h2,h3,h4,h5,h6';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -312,7 +314,7 @@ function explicitEmptyState(document) {
     !jobListNodes.some((nested) => nested !== node && node.contains(nested))
   ));
 
-  return leafJobListNodes.some((jobListNode) => {
+  const markedEmptyState = leafJobListNodes.some((jobListNode) => {
     const emptyStateNodes = [
       jobListNode.matches?.(EMPTY_STATE_MARKER_SELECTOR) ? jobListNode : null,
       ...[...jobListNode.children].filter((node) => node.matches?.(EMPTY_STATE_MARKER_SELECTOR)),
@@ -333,6 +335,39 @@ function explicitEmptyState(document) {
       .filter((node) => node.tagName === 'P' && !node.id && !node.className)
       .some((node) => EMPTY_STATE_RE.test(normalizeSpace(node.textContent || '')));
   });
+  if (markedEmptyState) return true;
+
+  // The current official page renders the empty state as a semantic heading
+  // pair (`Jobangebote:` followed by `Zurzeit keine offenen Stellen...`) and
+  // no longer wraps it in the old job-list class/data marker. Keep the proof
+  // scoped to that section: a matching sentence in a later page section or
+  // footer must not authorize retiring live jobs.
+  for (const heading of document.querySelectorAll(HEADING_SELECTOR)) {
+    if (!JOB_SECTION_HEADING_RE.test(normalizeSpace(heading.textContent || ''))) continue;
+    let ancestor = heading.parentElement;
+    let depth = 0;
+    while (ancestor && ancestor.tagName !== 'BODY' && depth < 8) {
+      const sectionNodes = [...ancestor.querySelectorAll(`${HEADING_SELECTOR},p,li`)]
+        .filter((node) => node === heading || node.textContent);
+      const headingIndex = sectionNodes.indexOf(heading);
+      if (headingIndex >= 0) {
+        const headingLevel = Number(heading.tagName.slice(1));
+        for (const candidate of sectionNodes.slice(headingIndex + 1)) {
+          const text = normalizeSpace(candidate.textContent || '');
+          if (!text) continue;
+          if (candidate.matches(HEADING_SELECTOR)) {
+            if (EMPTY_STATE_RE.test(text)) return true;
+            if (isTargetKitaSummervogelRole(text)) break;
+            if (Number(candidate.tagName.slice(1)) <= headingLevel) break;
+          }
+          if (EMPTY_STATE_RE.test(text)) return true;
+        }
+      }
+      ancestor = ancestor.parentElement;
+      depth += 1;
+    }
+  }
+  return false;
 }
 
 function structuredLocationCandidates(record) {

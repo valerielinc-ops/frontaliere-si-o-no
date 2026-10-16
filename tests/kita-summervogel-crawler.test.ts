@@ -89,6 +89,32 @@ describe('Kita Summervogel educator:SG crawler', () => {
     expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBe('authoritative-source-zero');
   });
 
+  it('recognizes the classless Jobangebote empty state emitted by the official page', () => {
+    const jobs = parseKitaSummervogelJobs(`
+      <main>
+        <h1>Jobs</h1>
+        <h2>Jobangebote:</h2>
+        <h5>Zurzeit keine offenen Stellen. Wir freuen uns aber über Blindbewerbungen.</h5>
+      </main>
+    `);
+
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBe('authoritative-source-zero');
+  });
+
+  it('does not borrow an empty notice from a later page section', () => {
+    const jobs = parseKitaSummervogelJobs(`
+      <main>
+        <h2>Jobangebote:</h2>
+        <h2>Über uns</h2>
+        <p>Zurzeit keine offenen Stellen — diese Nachricht betrifft eine spätere sezione.</p>
+      </main>
+    `);
+
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBeUndefined();
+  });
+
   it('keeps same-title postings distinct when their official URLs differ', () => {
     const postings = [
       {
