@@ -417,7 +417,25 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-09-30T21:18:24.182Z"
+      "firstSeenAt": "2026-09-30T21:18:24.182Z",
+      "previousSlugs": [
+        "talent-acquisition-specialista-temporary-6-months-msc-group-geneva",
+        "talent-acquisition-spezialist-temporary-6-months-msc-group-geneva",
+        "talent-acquisition-specialiste-temporary-6-months-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "talent-acquisition-specialista-temporary-6-months-msc-group-geneva",
+          "talent-acquisition-spezialist-temporary-6-months-msc-group-geneva",
+          "talent-acquisition-specialiste-temporary-6-months-msc-group-geneva"
+        ],
+        "de": [
+          "talent-acquisition-spezialist-temporary-6-months-msc-group-geneva"
+        ],
+        "fr": [
+          "talent-acquisition-specialiste-temporary-6-months-msc-group-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-03e8357f1cd4",
@@ -484,7 +502,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugs": [
+        "global-responsabile-crm-msc-group-geneva",
+        "global-leiter-crm-msc-group-geneva",
+        "global-responsable-crm-msc-group-geneva",
+        "global-head-of-crm-msc-geneva-dm98bb"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-responsabile-crm-msc-group-geneva",
+          "global-leiter-crm-msc-group-geneva",
+          "global-responsable-crm-msc-group-geneva",
+          "global-head-of-crm-msc-geneva-dm98bb"
+        ],
+        "de": [
+          "global-leiter-crm-msc-group-geneva"
+        ],
+        "fr": [
+          "global-responsable-crm-msc-group-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-bf32d3dcad46",

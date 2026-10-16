@@ -832,7 +832,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "wir-suchen-ab-11-januar-2027-eine-mutterschaftsvertretung-fur-die-2-3-klasse-primarschule-40116"
@@ -938,7 +937,7 @@
         "de": "stellvertretung-kindergarten-9-52-lektionen-gemeindeverband-schule-zollbruck-standort-40299",
         "it": "stellvertretung-kindergarten-9-52-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lauperswil",
         "en": "stellvertretung-kindergarten-9-52-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40299",
-        "fr": "teilpensum-1-2-standort-than-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollbruck-40299"
+        "fr": "stellvertretung-kindergarten-9-52-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40299"
       },
       "slugDisambiguator": "40299",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -993,12 +992,12 @@
           "teilpensum-1-2-standort-than-gemeindeverband-schule-zollbruck-standort-ruderswil-zollbruck-40299"
         ],
         "fr": [
-          "stellvertretung-kindergarten-9-52-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40299"
+          "teilpensum-1-2-standort-than-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollbruck-40299"
         ]
       },
       "previousSlugs": [
         "teilpensum-1-2-standort-than-gemeindeverband-schule-zollbruck-standort-ruderswil-zollbruck-40299",
-        "stellvertretung-kindergarten-9-52-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40299"
+        "teilpensum-1-2-standort-than-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollbruck-40299"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -1095,7 +1094,7 @@
       "slug": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
       "slugByLocale": {
         "it": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
-        "en": "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
+        "en": "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
         "de": "teilpensum-psychomotorik-bewegungstherapie-2-3-lektionen-schule-kallnach-kallnach-36735",
         "fr": "temps-partiel-psychomotricite-therapie-par-le-mouvement-2-3-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-un-36735"
       },
@@ -1182,7 +1181,7 @@
         "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-schule-kallnach-kallnach-36735",
-        "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735"
+        "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1197,7 +1196,7 @@
           "partial-course-psychomotor-movement-therapy-2-3-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
           "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
           "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
-          "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735"
+          "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
         ],
         "fr": [
           "teilpensum-psychomotorik-bewegungstherapie-2-3-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-k-36735"
@@ -1547,7 +1546,7 @@
         "it": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-butzberg",
         "en": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105",
         "de": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "fr": "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
+        "fr": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
       },
       "slugDisambiguator": "40105",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -1607,7 +1606,7 @@
       "previousSlugs": [
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105",
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
+        "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1618,7 +1617,7 @@
           "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105"
         ],
         "fr": [
-          "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
+          "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:57.762Z",
@@ -2020,7 +2019,7 @@
           "teilpensenlehrperson-16-lektionen-schulen-krauchthal-krauchthal-40075"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:21:54.909Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -2034,7 +2033,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-3b51ad887c6d",
@@ -4624,7 +4624,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stellvertetende-schulleiterin-oder-einen-stellvertretenden-schulleiter-schule-rothus-40477"
@@ -7203,8 +7202,8 @@
       "slugByLocale": {
         "de": "musiklehrperson-5-6-klasse-schule-wangen-an-der-aare-standort-wangen-wangen-an-der-aare-40225",
         "it": "insegnante-musicale-5-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-40225",
-        "en": "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare",
-        "fr": "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare"
+        "en": "music-teacher-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225",
+        "fr": "professeur-de-musique-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-40225"
       },
       "slugDisambiguator": "40225",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -7256,16 +7255,15 @@
           "musiklehrperson-5-6-klasse-schule-wangen-an-der-aare-standort-wangen-wangen-an-der-aare-40225"
         ],
         "en": [
-          "music-teacher-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225"
+          "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare"
         ],
         "fr": [
-          "professeur-de-musique-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-40225"
+          "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare"
         ]
       },
       "previousSlugs": [
         "musiklehrperson-5-6-klasse-schule-wangen-an-der-aare-standort-wangen-wangen-an-der-aare-40225",
-        "music-teacher-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare-40225",
-        "professeur-de-musique-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-40225"
+        "musiklehrperson-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wangen-an-der-aare"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -7661,7 +7659,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "logopadin-oder-logopade-4-6-lektionen-schule-eriswil-eriswil-40485"
@@ -9583,9 +9580,9 @@
       "slug": "lehrperson-an-der-3-4-klasse-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg",
       "slugByLocale": {
         "de": "lehrperson-an-der-3-4-klasse-13-lektionen-schule-muhleberg-muhleberg-36334",
-        "it": "lehrperson-an-der-3-4-klasse-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg",
-        "en": "lehrperson-an-der-3-4-klasse-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg",
-        "fr": "lehrperson-an-der-3-4-klasse-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg"
+        "it": "insegnante-a-3-4-classe-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334",
+        "en": "teacher-at-3-4-class-13-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334",
+        "fr": "enseignant-a-3-4-classe-13-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334"
       },
       "slugDisambiguator": "36334",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -9635,24 +9632,14 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334",
-          "insegnante-a-3-4-classe-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334"
+          "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334"
         ],
         "de": [
           "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334"
-        ],
-        "en": [
-          "teacher-at-3-4-class-13-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334"
-        ],
-        "fr": [
-          "enseignant-a-3-4-classe-13-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334"
         ]
       },
       "previousSlugs": [
-        "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334",
-        "insegnante-a-3-4-classe-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334",
-        "teacher-at-3-4-class-13-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334",
-        "enseignant-a-3-4-classe-13-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-muhleberg-36334"
+        "lehrperson-an-der-3-4-klasse-15-lektionen-schule-muhleberg-muhleberg-36334"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -9667,7 +9654,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T21:29:58.360Z"
+      "firstSeenAt": "2026-10-15T21:29:58.360Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-e2e6671dbb67",
@@ -9995,7 +9983,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:08:41.093Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -10650,8 +10637,8 @@
       "slugByLocale": {
         "de": "lehrperson-3-klasse-12-lektionen-schulhaus-saget-jegenstorf-36460",
         "it": "maestro-di-terza-elementare-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf",
-        "en": "lehrperson-3-klasse-7-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf",
-        "fr": "lehrperson-3-klasse-7-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf"
+        "en": "teacher-3rd-grade-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf-36460",
+        "fr": "enseignant-3e-annee-12-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf-36460"
       },
       "slugDisambiguator": "36460",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -10706,16 +10693,15 @@
           "lehrperson-3-klasse-7-lektionen-schulhaus-saget-jegenstorf-36460"
         ],
         "en": [
-          "teacher-3rd-grade-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf-36460"
+          "lehrperson-3-klasse-7-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf"
         ],
         "fr": [
-          "enseignant-3e-annee-12-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf-36460"
+          "lehrperson-3-klasse-7-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf"
         ]
       },
       "previousSlugs": [
         "lehrperson-3-klasse-7-lektionen-schulhaus-saget-jegenstorf-36460",
-        "teacher-3rd-grade-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf-36460",
-        "enseignant-3e-annee-12-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf-36460"
+        "lehrperson-3-klasse-7-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,

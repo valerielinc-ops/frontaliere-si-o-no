@@ -3839,7 +3839,7 @@
       "slugByLocale": {
         "it": "assistente-medico-pratico-swiss-medical-network-egerkingen-a6c2beb5d3",
         "en": "medical-practice-assistant-swiss-medical-network-egerkingen",
-        "de": "medizinische-r-praxisassistent-in-swiss-medical-network",
+        "de": "medizinische-r-praxisassistent-in-swiss-medical-network-gxs07u",
         "fr": "assistant-medical-et-professionnel-swiss-medical-network-egerkingen"
       },
       "slug": "assistente-medico-pratico-swiss-medical-network-egerkingen-a6c2beb5d3",
@@ -3874,11 +3874,15 @@
       },
       "crawlerMissStreak": 2,
       "previousSlugs": [
-        "assistente-medico-pratico-swiss-medical-network-egerkingen"
+        "assistente-medico-pratico-swiss-medical-network-egerkingen",
+        "medizinische-r-praxisassistent-in-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-medico-pratico-swiss-medical-network-egerkingen"
+        ],
+        "de": [
+          "medizinische-r-praxisassistent-in-swiss-medical-network"
         ]
       }
     },

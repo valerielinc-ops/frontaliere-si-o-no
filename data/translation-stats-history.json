@@ -1,99 +1,5 @@
 [
   {
-    "timestamp": "2026-09-23T21:42:38.190Z",
-    "label": "before",
-    "total": 27215,
-    "needsRetranslation": 1603,
-    "suppressed": 239,
-    "incomplete": 1886,
-    "complete": 25329,
-    "slotsPresent": 25329,
-    "flaggedAmongSlotsPresent": 239,
-    "verifiedTranslated": 25090,
-    "sourceCopyExcused": 585,
-    "slotsPresentByLength": 27102,
-    "languageVerified": 25624,
-    "missingByLocale": {
-      "it": 264,
-      "en": 262,
-      "de": 84,
-      "fr": 278
-    },
-    "queueAge": {
-      "count": 1603,
-      "withTimestamp": 1603,
-      "oldestAgeDays": 163.4,
-      "p50AgeDays": 20.3,
-      "p90AgeDays": 104.4,
-      "buckets": {
-        "0-1d": 109,
-        "1-2d": 18,
-        "2-7d": 379,
-        "0-7d": 506,
-        "7-30d": 515,
-        "30-90d": 384,
-        "90-180d": 198,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "genderFormRepair": {
-      "measured": false,
-      "status": "cohort-captured",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 209,
-      "sampled": 120,
-      "processed": 0,
-      "residual": 0,
-      "residualRate": null
-    },
-    "topPending": [
-      {
-        "company": "VOLG",
-        "pending": 193
-      },
-      {
-        "company": "PEMSA",
-        "pending": 175
-      },
-      {
-        "company": "Roche",
-        "pending": 119
-      },
-      {
-        "company": "Manor AG",
-        "pending": 68
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 49
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 46
-      },
-      {
-        "company": "Jaeger-LeCoultre",
-        "pending": 45
-      },
-      {
-        "company": "Swiss Life",
-        "pending": 42
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 41
-      },
-      {
-        "company": "Guyer Wärme und Wasser AG",
-        "pending": 39
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-24T01:53:59.903Z",
     "label": "after",
     "total": 26733,
@@ -25077,5 +24983,114 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-16T05:29:13.768Z",
+    "label": "before",
+    "total": 32878,
+    "needsRetranslation": 3140,
+    "suppressed": 144,
+    "incomplete": 3641,
+    "complete": 29237,
+    "slotsPresent": 29237,
+    "flaggedAmongSlotsPresent": 79,
+    "verifiedTranslated": 29158,
+    "sourceCopyExcused": 304,
+    "slotsPresentByLength": 32787,
+    "languageVerified": 31265,
+    "missingByLocale": {
+      "it": 798,
+      "en": 769,
+      "de": 85,
+      "fr": 755
+    },
+    "queueAge": {
+      "count": 3140,
+      "withTimestamp": 3140,
+      "oldestAgeDays": 185.8,
+      "p50AgeDays": 22.4,
+      "p90AgeDays": 103.8,
+      "buckets": {
+        "0-1d": 447,
+        "1-2d": 47,
+        "2-7d": 148,
+        "0-7d": 642,
+        "7-30d": 1148,
+        "30-90d": 879,
+        "90-180d": 459,
+        "180d+": 12
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 1244,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 182,
+      "byCrawler": {
+        "fachkraft": 125,
+        "sta": 33,
+        "stellenpartner": 21,
+        "stellentreff": 3
+      }
+    },
+    "predicateVersion": "0c4787a69f53fd20",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 959,
+      "complete": 911
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 766
+      },
+      {
+        "company": "LANDI Nord vaudois-Venoge SA",
+        "pending": 250
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 158
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 145
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 142
+      },
+      {
+        "company": "Medbase",
+        "pending": 115
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 105
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 78
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 63
+      },
+      {
+        "company": "Fielmann Group",
+        "pending": 55
+      }
+    ]
   }
 ]
