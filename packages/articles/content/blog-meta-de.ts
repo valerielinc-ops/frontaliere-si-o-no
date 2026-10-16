@@ -13278,6 +13278,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-piazzale-anastasi-intitolazione.title': 'Varese: Der Stadionvorplatz ist nach Anastasi benannt',
     'blog.article.varese-piazzale-anastasi-intitolazione.excerpt': 'Der Vorplatz des Franco Ossola trägt den Namen von Pietro Anastasi Die Tafel wurde von der Gemeinde angebracht Die Benennung wurde einstimmig beschlossen In Masnago',
     'blog.article.varese-piazzale-anastasi-intitolazione.imageAlt': 'Der Platz vor dem Stadion Franco Ossola in Varese, benannt nach Pietro Anastasi',
+    'blog.article.don-giusto-teatro-nuovo-gloria.title': 'Como, don Giusto veranstaltet die Vorstellungen des Gloria im Teatro Nuovo',
+    'blog.article.don-giusto-teatro-nuovo-gloria.excerpt': 'Das Cinema Gloria ist wegen der Anpassung an die Brandschutzvorschriften geschlossen Don Giusto stellt das Teatro Nuovo di Rebbio zur Verfügung Am Sonntag, den 18., um 16 Uhr das Konzert Barabàn-Musica Spiccia',
+    'blog.article.don-giusto-teatro-nuovo-gloria.imageAlt': 'Innenansicht des Teatro Nuovo in Rebbio, bereit für die Auftritte des Cinema Gloria.',
 };
 
 export default blogMetaDe;

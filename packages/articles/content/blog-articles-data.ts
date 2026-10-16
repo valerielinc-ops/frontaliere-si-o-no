@@ -44818,6 +44818,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'don-giusto-teatro-nuovo-gloria',
+ category: 'novita',
+ date: '2026-10-16T02:35:14.247Z',
+ image: '/images/blog/article-don-giusto-teatro-nuovo-gloria.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -109262,6 +109262,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-don-giusto-teatro-nuovo-gloria': {
+    title: 'Como, don Giusto accoglie gli spettacoli del Gloria al Teatro Nuovo',
+    description: 'Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, giusto, accoglie, spettacoli',
+    ogTitle: 'Como: don Giusto ospita gli eventi del Cinema Gloria',
+    ogDescription: 'Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia',
+    canonicalPath: '/articoli-frontaliere/don-giusto-teatro-nuovo-gloria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, don Giusto accoglie gli spettacoli del Gloria al Teatro Nuovo",
+      "description": "Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-don-giusto-teatro-nuovo-gloria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno del Teatro Nuovo di Rebbio, a disposizione per gli spettacoli del Cinema Gloria."
+      },
+      "datePublished": "2026-10-16T02:35:14+00:00",
+      "dateModified": "2026-10-16T02:35:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/don-giusto-teatro-nuovo-gloria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -13279,6 +13279,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-piazzale-anastasi-intitolazione.title': 'Varese: the stadium forecourt is named after Anastasi',
     'blog.article.varese-piazzale-anastasi-intitolazione.excerpt': 'The Franco Ossola forecourt bears the name of Pietro Anastasi The plaque was installed by the Municipality The naming was approved unanimously In Masnago',
     'blog.article.varese-piazzale-anastasi-intitolazione.imageAlt': 'The square in front of Franco Ossola stadium in Varese dedicated to Pietro Anastasi',
+    'blog.article.don-giusto-teatro-nuovo-gloria.title': 'Como, don Giusto welcomes the Gloria shows at Teatro Nuovo',
+    'blog.article.don-giusto-teatro-nuovo-gloria.excerpt': 'The Gloria Cinema is closed for fire-safety compliance Don Giusto offers the Teatro Nuovo di Rebbio Sunday the 18th at 16 the Barabàn-Musica Spiccia concert',
+    'blog.article.don-giusto-teatro-nuovo-gloria.imageAlt': 'Interior of the Teatro Nuovo in Rebbio, available for Cinema Gloria performances.',
 };
 
 export default blogMetaEn;

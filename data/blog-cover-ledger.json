@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5524
+      "6": 5525
     },
-    "publishedCovers": 7105,
+    "publishedCovers": 7106,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5329
+    "inferredRecords": 5330
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190208,6 +190208,33 @@
           "date": "2026-10-15T23:41:39.976Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-don-giusto-teatro-nuovo-gloria": {
+      "cover": "/images/blog/article-don-giusto-teatro-nuovo-gloria.webp",
+      "hash": "f11381c51442fad5ae89de046de5165f5f8c41c066951394286ac21d046f49dd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "don-giusto-teatro-nuovo-gloria",
+          "category": "novita",
+          "date": "2026-10-16T02:35:14.247Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,

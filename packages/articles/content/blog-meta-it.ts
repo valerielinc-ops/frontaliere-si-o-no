@@ -13280,6 +13280,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-piazzale-anastasi-intitolazione.title': 'Varese: il piazzale dello stadio è intitolato a Anastasi',
     'blog.article.varese-piazzale-anastasi-intitolazione.excerpt': 'Il piazzale del Franco Ossola porta il nome di Pietro Anastasi La targa è stata posizionata dal Comune L\'intitolazione è stata votata all\'unanimità A Masnago',
     'blog.article.varese-piazzale-anastasi-intitolazione.imageAlt': 'Il piazzale dello stadio Franco Ossola a Varese intitolato a Pietro Anastasi',
+    'blog.article.don-giusto-teatro-nuovo-gloria.title': 'Como, don Giusto accoglie gli spettacoli del Gloria al Teatro Nuovo',
+    'blog.article.don-giusto-teatro-nuovo-gloria.excerpt': 'Il Cinema Gloria è chiuso per la messa a norma antincendio Don Giusto offre il Teatro Nuovo di Rebbio Domenica 18 alle 16 il concerto Barabàn-Musica Spiccia',
+    'blog.article.don-giusto-teatro-nuovo-gloria.imageAlt': 'Interno del Teatro Nuovo di Rebbio, a disposizione per gli spettacoli del Cinema Gloria.',
 };
 
 export default blogMetaIt;
