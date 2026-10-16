@@ -15,8 +15,14 @@ fi
 readonly TSX_SPEC='tsx@4.23.15'
 readonly MAX_ATTEMPTS=3
 readonly ATTEMPT_TIMEOUT_SECONDS=120
+readonly ENTRYPOINT_TIMEOUT_SECONDS="${PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS:-$ATTEMPT_TIMEOUT_SECONDS}"
 readonly KILL_AFTER_SECONDS=15
 readonly RETRY_DELAYS_SECONDS=(5 15)
+
+if ! [[ "$ENTRYPOINT_TIMEOUT_SECONDS" =~ ^[1-9][0-9]*$ ]]; then
+  echo "::error::[tsx-bootstrap] PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS must be a positive integer" >&2
+  exit 2
+fi
 
 entrypoint="$1"
 shift
@@ -44,7 +50,7 @@ done
 
 echo "[tsx-bootstrap] running ${entrypoint} once"
 exit_code=0
-if timeout --kill-after="${KILL_AFTER_SECONDS}s" "${ATTEMPT_TIMEOUT_SECONDS}s" \
+if timeout --kill-after="${KILL_AFTER_SECONDS}s" "${ENTRYPOINT_TIMEOUT_SECONDS}s" \
   npx --yes "$TSX_SPEC" "$entrypoint" "$@"; then
   exit 0
 else
