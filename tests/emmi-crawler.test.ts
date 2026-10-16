@@ -196,10 +196,11 @@ describe('assignEmmiJobIds', () => {
 
   it('a reference code alone keeps the id it always had', () => {
     const [alone] = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: a }]);
-    const [first] = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: b }, { stableRef: 'REF-1', publicUrl: a }]);
+    const both = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: b }, { stableRef: 'REF-1', publicUrl: a }]);
     expect(alone).toMatch(/^emmi-[0-9a-f]{12}$/);
-    // The first URL in sorted order (b) keeps the code's id.
-    expect(first).toBe(alone);
+    // Without history the last URL in sorted order (a, the 4803d1e3 posting
+    // that existed first on 2026-10-15) keeps the code's id.
+    expect(both[1]).toBe(alone);
   });
 
   it('distinct postings under one code get distinct ids, in any listing order', () => {

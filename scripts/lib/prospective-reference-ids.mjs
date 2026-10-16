@@ -43,8 +43,8 @@ export function existingIdsByUrl(existingJobs = [], key) {
  * 13506: «the first URL in sorted order» rotated the code's id to a newly
  * published URL). An id claimed by two URLs at once (the corrupted state of
  * 2026-10-15) stays with the first in sorted order. A new URL gets the code's
- * id when nobody holds it, else the hash of code and URL; without a code, the
- * hash of the URL, as before.
+ * id when nobody holds it (the last URL in sorted order, when several are new),
+ * else the hash of code and URL; without a code, the hash of the URL, as before.
  *
  * @param {Array<{stableRef: string, publicUrl: string}>} entries
  * @param {string} key  crawler key, both id prefix and hash namespace
@@ -66,7 +66,12 @@ export function assignReferenceJobIds(entries = [], key, { existingIdByUrl = new
     }
   }
   const refByUrl = new Map(entries.map(({ stableRef, publicUrl }) => [urlKey(publicUrl), stableRef]));
-  for (const url of urls) {
+  // URLs with no known id, last in sorted order first: without history the
+  // order is a tie-break, and the code's id goes to the last URL so that a
+  // newly listed URL sorting before a lone known one does not take its id
+  // even when the caller passes no history (review of PR 13506). Callers in
+  // production pass the slice's ids, which decide before this order does.
+  for (const url of [...urls].reverse()) {
     if (idByUrl.has(url)) continue;
     const stableRef = refByUrl.get(url);
     let id;
