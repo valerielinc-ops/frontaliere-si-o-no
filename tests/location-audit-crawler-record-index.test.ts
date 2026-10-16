@@ -149,10 +149,29 @@ describe('crawler location record index', () => {
     });
   });
 
-  it('keeps a stable-ID URL rename correlated instead of selecting a first match', () => {
+  it('does not collapse conflicting source IDs that share a URL stable ID', () => {
     const index = createCrawlerLocationRecordIndex({ includeProvenance: true });
-    const first = {
-      id: 'same-generated-id',
+    for (const [id, externalId] of [['a', '101'], ['b', '202']]) {
+      index.add({
+        id,
+        url: 'https://jobs.example/hirslanden/role',
+        externalId,
+        canton: 'ZH',
+        addressLocality: 'Zürich',
+        location: 'Zürich',
+      }, { crawler: 'hirslanden' });
+    }
+
+    expect(index.getWithStatus({ url: 'https://jobs.example/hirslanden/role' })).toEqual({
+      record: null,
+      status: 'ambiguous',
+    });
+  });
+
+  it('keeps a stable-ID URL rename correlated when the assembled ID changes', () => {
+    const index = createCrawlerLocationRecordIndex({ includeProvenance: true });
+    const source = {
+      id: 'source',
       url: 'https://jobs.example/role-old/1443371633',
       externalId: '1443371633',
       addressLocality: 'Zumikon',
@@ -160,13 +179,18 @@ describe('crawler location record index', () => {
       location: 'Zumikon',
     };
     const renamed = {
-      ...first,
+      ...source,
+      id: 'published',
       url: 'https://jobs.example/role-renamed/1443371633',
     };
-    index.add(first, { crawler: 'hirslanden' });
-    index.add(renamed, { crawler: 'hirslanden' });
+    index.add(source, { crawler: 'hirslanden' });
 
-    expect(index.getWithStatus(first).status).toBe('found');
-    expect(index.getWithStatus(first).record?.sourceStableId).toBe('num:1443371633');
+    expect(index.getWithStatus(renamed)).toEqual({
+      record: expect.objectContaining({
+        sourceStableId: 'num:1443371633',
+        sourceJobId: '1443371633',
+      }),
+      status: 'found',
+    });
   });
 });

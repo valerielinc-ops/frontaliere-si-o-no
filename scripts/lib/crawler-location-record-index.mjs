@@ -19,7 +19,18 @@ function sourceJobId(job) {
   return '';
 }
 
-function locationRecord(job, { crawler = '', includeProvenance = false } = {}) {
+function sourceIdentity(job) {
+  const sourceUrl = String(job?.url || '').trim();
+  const stableIdFromUrl = extractStableJobId(sourceUrl);
+  const explicitSourceJobId = sourceJobId(job);
+  return {
+    sourceUrl,
+    sourceStableId: stableIdFromUrl || (explicitSourceJobId ? `id:${normalizeJobId(explicitSourceJobId)}` : ''),
+    sourceJobId: explicitSourceJobId || (stableIdFromUrl.startsWith('num:') ? stableIdFromUrl.slice(4) : ''),
+  };
+}
+
+function locationRecord(job, { crawler = '', includeProvenance = false } = {}, identity = sourceIdentity(job)) {
   const sourceLocationCanton = String(job.sourceLocationCanton || '').trim().toUpperCase();
   const record = {
     crawler: normalizeCrawler(crawler),
@@ -32,33 +43,40 @@ function locationRecord(job, { crawler = '', includeProvenance = false } = {}) {
   if (!includeProvenance) return record;
 
   const sourceUrl = String(job.url || '').trim();
-  const stableIdFromUrl = extractStableJobId(sourceUrl);
-  const explicitSourceJobId = sourceJobId(job);
   return {
     ...record,
-    sourceStableId: stableIdFromUrl || (explicitSourceJobId ? `id:${explicitSourceJobId.toLowerCase()}` : ''),
-    sourceJobId: explicitSourceJobId || (stableIdFromUrl.startsWith('num:') ? stableIdFromUrl.slice(4) : ''),
+    sourceStableId: identity.sourceStableId,
+    sourceJobId: identity.sourceJobId,
     sourceUrl,
     sourceRegion: String(job.addressRegion || job.region || '').trim(),
     sourcePostalCode: String(job.postalCode || '').trim(),
   };
 }
 
-function sameLocationRecord(left, right) {
+function sameLocationRecord(left, right, leftIdentity = {}, rightIdentity = {}) {
   const leftSource = left.sourceLocationCanton || '';
   const rightSource = right.sourceLocationCanton || '';
-  const sameSourceIdentity = left.sourceStableId && right.sourceStableId
-    ? left.sourceStableId === right.sourceStableId
-    : (!left.sourceUrl || !right.sourceUrl || left.sourceUrl === right.sourceUrl);
+  const leftSourceStableId = leftIdentity.sourceStableId || left.sourceStableId || '';
+  const rightSourceStableId = rightIdentity.sourceStableId || right.sourceStableId || '';
+  const leftSourceUrl = leftIdentity.sourceUrl || left.sourceUrl || '';
+  const rightSourceUrl = rightIdentity.sourceUrl || right.sourceUrl || '';
+  const leftSourceJobId = leftIdentity.sourceJobId || left.sourceJobId || '';
+  const rightSourceJobId = rightIdentity.sourceJobId || right.sourceJobId || '';
+  const sameSourceStableId = leftSourceStableId && rightSourceStableId
+    ? leftSourceStableId === rightSourceStableId
+    : (!leftSourceUrl || !rightSourceUrl || leftSourceUrl === rightSourceUrl);
+  const sameSourceJobId = !leftSourceJobId || !rightSourceJobId
+    || normalizeJobId(leftSourceJobId) === normalizeJobId(rightSourceJobId);
   return left.crawler === right.crawler
     && left.canton === right.canton
     && left.city === right.city
     && left.location === right.location
     && (!leftSource || !rightSource || leftSource === rightSource)
-    && sameSourceIdentity;
+    && sameSourceStableId
+    && sameSourceJobId;
 }
 
-function addUniqueRecord(index, key, record) {
+function addUniqueRecord(index, key, record, identityByRecord) {
   if (!key) return;
   if (!index.has(key)) {
     index.set(key, record);
@@ -66,12 +84,17 @@ function addUniqueRecord(index, key, record) {
   }
 
   const previous = index.get(key);
-  if (previous !== AMBIGUOUS_RECORD && !sameLocationRecord(previous, record)) {
+  if (previous !== AMBIGUOUS_RECORD && !sameLocationRecord(
+    previous,
+    record,
+    identityByRecord.get(previous),
+    identityByRecord.get(record),
+  )) {
     index.set(key, AMBIGUOUS_RECORD);
   }
 }
 
-function lookupRecord(job, byJobId, byStableIdentity) {
+function lookupRecord(job, byJobId, bySourceStableId, byStableIdentity) {
   if (!job || typeof job !== 'object' || Array.isArray(job)) {
     return { record: null, status: 'missing' };
   }
@@ -79,6 +102,14 @@ function lookupRecord(job, byJobId, byStableIdentity) {
   const jobId = normalizeJobId(job.id);
   if (jobId && byJobId.has(jobId)) {
     const record = byJobId.get(jobId);
+    return record === AMBIGUOUS_RECORD
+      ? { record: null, status: 'ambiguous' }
+      : { record, status: 'found' };
+  }
+
+  const stableId = sourceIdentity(job).sourceStableId;
+  if (stableId && bySourceStableId.has(stableId)) {
+    const record = bySourceStableId.get(stableId);
     return record === AMBIGUOUS_RECORD
       ? { record: null, status: 'ambiguous' }
       : { record, status: 'found' };
@@ -95,8 +126,8 @@ function lookupRecord(job, byJobId, byStableIdentity) {
 }
 
 /**
- * Index crawler location evidence by the per-record ID, with URL identity as
- * a fallback only when it maps consistently to one location record.
+ * Index crawler location evidence by the per-record ID, with source-stable and
+ * URL identities as fallbacks only when they map consistently to one record.
  *
  * `crawler` is supplied by the slice loader, rather than inferred from the
  * company name: one crawler can publish several brands and the parser file is
@@ -104,27 +135,34 @@ function lookupRecord(job, byJobId, byStableIdentity) {
  */
 export function createCrawlerLocationRecordIndex({ includeProvenance = false } = {}) {
   const byJobId = new Map();
+  const bySourceStableId = new Map();
   const byStableIdentity = new Map();
+  const identityByRecord = new WeakMap();
   let size = 0;
 
   return {
     add(job, source = {}) {
       if (!job || typeof job !== 'object' || Array.isArray(job)) return;
 
-      const record = locationRecord(job, { ...source, includeProvenance });
+      const identity = sourceIdentity(job);
+      const record = locationRecord(job, { ...source, includeProvenance }, identity);
       if (!record.canton && !record.city) return;
       size += 1;
 
-      addUniqueRecord(byJobId, normalizeJobId(job.id), record);
-      addUniqueRecord(byStableIdentity, buildStableJobIdentity(job), record);
+      // Keep source identity metadata available for collision checks even when
+      // the caller does not request provenance fields on the returned record.
+      identityByRecord.set(record, identity);
+      addUniqueRecord(byJobId, normalizeJobId(job.id), record, identityByRecord);
+      addUniqueRecord(bySourceStableId, identity.sourceStableId, record, identityByRecord);
+      addUniqueRecord(byStableIdentity, buildStableJobIdentity(job), record, identityByRecord);
     },
 
     getWithStatus(job) {
-      return lookupRecord(job, byJobId, byStableIdentity);
+      return lookupRecord(job, byJobId, bySourceStableId, byStableIdentity);
     },
 
     get(job) {
-      return lookupRecord(job, byJobId, byStableIdentity).record;
+      return lookupRecord(job, byJobId, bySourceStableId, byStableIdentity).record;
     },
 
     get size() {
