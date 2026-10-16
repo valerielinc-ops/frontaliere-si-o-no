@@ -386,7 +386,7 @@
       "slug": "da-id-power-trader-centro-uk-alpiq-lausanne-319afad074",
       "slugByLocale": {
         "it": "da-id-power-trader-centro-uk-alpiq-lausanne-319afad074",
-        "en": "da-id-power-trader-uk-focus-alpiq-switzerland",
+        "en": "da-id-power-trader-uk-focus-alpiq-switzerland-jjm0f4",
         "de": "da-id-power-trader-uk-fokus-alpiq-lausanne",
         "fr": "da-id-power-trader-coordonne-au-royaume-uni-alpiq-lausanne"
       },
@@ -445,11 +445,15 @@
       },
       "crawlerMissStreak": 2,
       "previousSlugs": [
-        "da-id-power-trader-centro-uk-alpiq-lausanne"
+        "da-id-power-trader-centro-uk-alpiq-lausanne",
+        "da-id-power-trader-uk-focus-alpiq-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "da-id-power-trader-centro-uk-alpiq-lausanne"
+        ],
+        "en": [
+          "da-id-power-trader-uk-focus-alpiq-switzerland"
         ]
       }
     }

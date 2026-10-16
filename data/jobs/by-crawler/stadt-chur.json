@@ -48,7 +48,6 @@
       },
       "crawledAt": "2026-10-16T09:26:09.843Z",
       "id": "stadt-chur-e0e50388d680",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -112,7 +111,6 @@
       },
       "crawledAt": "2026-10-16T09:27:16.819Z",
       "id": "stadt-chur-5da5e02cdf17",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-parkuhrentechnik-und-logistik-stadt-chur-1730"
@@ -527,7 +525,8 @@
       },
       "previousSlugs": [
         "kaufmannisches-kurzzeitpraktikum-hms-3-1-100-1-monat-stadt-chur-1723"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Vorarbeiter/in Betrieblicher Unterhalt mit Stellvertretungsfunktion Bereichsleiter (100%)",
