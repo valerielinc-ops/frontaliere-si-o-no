@@ -33,6 +33,8 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { markAuthoritativeEmptySnapshot, isAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
+import { isExplicitlyForeign } from './lib/prospector/location-evidence.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -77,9 +79,116 @@ async function fetchPage(url, timeoutMs = 20000) {
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
 }
 
-function isZambonSwissSiteLocation(rawLocation = '') {
+function classifyCountryEvidence(values = []) {
+  const classifications = values
+    .map((value) => classifyCountryValue(value))
+    .filter((classification) => classification !== 'unknown');
+  const hasSwiss = classifications.includes('CH');
+  const hasForeign = classifications.includes('foreign');
+  if (hasSwiss && hasForeign) return 'unknown';
+  if (hasSwiss) return 'swiss';
+  if (hasForeign) return 'foreign';
+  return 'unknown';
+}
+
+/**
+ * Classify the API's country evidence without treating an arbitrary non-empty
+ * value as a foreign country. Unknown values must keep the source fail-closed.
+ */
+export function classifyZambonApiLocation(job = {}) {
+  return classifyCountryEvidence([job?.country, job?.country_label]);
+}
+
+/**
+ * Classify the HTML listing location. Cadempino is the reviewed Swiss source
+ * site; country labels are accepted only when the shared country inventory
+ * recognises them. A free-form unknown location is never a zero proof.
+ */
+export function classifyZambonHtmlLocation(rawLocation = '') {
   const location = normalize(rawLocation);
-  return !location || /\bcadempino\b/.test(location);
+  if (!location) return 'unknown';
+
+  const segments = String(rawLocation)
+    .split(/[,;/|()]+|\s+-\s+/)
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+  const countryClassifications = segments
+    .map((segment) => classifyCountryValue(segment))
+    .filter((classification) => classification !== 'unknown');
+  const hasSwissCountry = countryClassifications.includes('CH');
+  const hasForeignCountry = countryClassifications.includes('foreign');
+  const hasSwissSite = /\bcadempino\b/.test(location);
+
+  if (hasSwissCountry && hasForeignCountry) return 'unknown';
+  if (hasForeignCountry && (hasSwissCountry || hasSwissSite)) return 'unknown';
+  if (hasForeignCountry || isExplicitlyForeign(rawLocation)) return 'foreign';
+  if (hasSwissCountry || hasSwissSite) return 'swiss';
+  return 'unknown';
+}
+
+/**
+ * Return the API rows and outcome that the runner may safely publish. A
+ * filtered-empty result is valid only when every discovered row is explicitly
+ * foreign; any unknown row makes the batch a parser/source failure.
+ */
+export function classifyZambonApiRows(allJobs = []) {
+  const rows = Array.isArray(allJobs) ? allJobs : [];
+  const classifications = rows.map(classifyZambonApiLocation);
+  const swissJobs = rows.filter((_, index) => classifications[index] === 'swiss');
+
+  if (classifications.some((classification) => classification === 'unknown')) {
+    return {
+      swissJobs: [],
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+    };
+  }
+  if (swissJobs.length === 0) {
+    return {
+      swissJobs,
+      parsed: 0,
+      lastFetchOutcome: rows.length > 0 ? 'filtered_empty' : 'selector_miss',
+      abortKind: rows.length > 0 ? null : 'no-jobs-parsed',
+    };
+  }
+  return { swissJobs, parsed: swissJobs.length, lastFetchOutcome: 'ok', abortKind: null };
+}
+
+/**
+ * Apply the same fail-closed zero-path contract to HTML listings. Unknown
+ * locations are not silently dropped as if they were known foreign rows.
+ */
+export function classifyZambonHtmlListings(listings = []) {
+  const rows = Array.isArray(listings) ? listings : [];
+  const classifications = rows.map((listing) => classifyZambonHtmlLocation(listing?.location));
+  const sourceBackedListings = rows.filter((_, index) => classifications[index] === 'swiss');
+
+  if (classifications.some((classification) => classification === 'unknown')) {
+    return {
+      sourceBackedListings: [],
+      classifications,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+    };
+  }
+  if (sourceBackedListings.length === 0) {
+    return {
+      sourceBackedListings,
+      classifications,
+      parsed: 0,
+      lastFetchOutcome: rows.length > 0 ? 'filtered_empty' : 'selector_miss',
+      abortKind: rows.length > 0 ? null : 'no-jobs-parsed',
+    };
+  }
+  return {
+    sourceBackedListings,
+    classifications,
+    parsed: sourceBackedListings.length,
+    lastFetchOutcome: 'ok',
+    abortKind: null,
+  };
 }
 
 /**
@@ -302,19 +411,18 @@ async function fetchJobs(summaryCounts = null) {
       return allJobs;
     }
 
-    // Filter to Switzerland only
-    const swissJobs = allJobs.filter(j => j.country === 'CH' || (j.country_label || '').toLowerCase().includes('switz'));
+    // Filter to Switzerland only, but fail closed when the source's location
+    // vocabulary is unknown rather than treating it as a healthy foreign zero.
+    const locationResult = classifyZambonApiRows(allJobs);
+    const swissJobs = locationResult.swissJobs;
     console.log(`  📋 API returned ${allJobs.length} total positions, ${swissJobs.length} in Switzerland`);
 
-    if (summaryCounts) summaryCounts.parsed = swissJobs.length;
-    if (swissJobs.length === 0) {
-      const everyRowHasLocation = allJobs.length > 0 && allJobs.every((job) =>
-        String(job?.country || job?.country_label || '').trim(),
-      );
-      if (summaryCounts) {
-        summaryCounts.lastFetchOutcome = everyRowHasLocation ? 'filtered_empty' : 'selector_miss';
-        summaryCounts.abortKind = everyRowHasLocation ? null : 'no-jobs-parsed';
-      }
+    if (summaryCounts) {
+      summaryCounts.parsed = locationResult.parsed;
+      summaryCounts.lastFetchOutcome = locationResult.lastFetchOutcome;
+      summaryCounts.abortKind = locationResult.abortKind;
+    }
+    if (locationResult.lastFetchOutcome !== 'ok') {
       return [];
     }
 
@@ -354,20 +462,24 @@ async function fetchJobs(summaryCounts = null) {
   console.log(`  📋 HTML fallback found: ${listings.length} jobs`);
   if (summaryCounts) summaryCounts.discovered = listings.length;
 
-  const sourceBackedListings = listings.filter((raw) => {
-    if (isZambonSwissSiteLocation(raw.location)) return true;
-    console.warn(`  ⏭️ Dropping fallback row with non-Cadempino source location: ${raw.location}`);
-    return false;
-  });
-  if (summaryCounts) summaryCounts.parsed = sourceBackedListings.length;
-  if (sourceBackedListings.length === 0) {
-    if (summaryCounts) {
-      const filteredEmpty = listings.length > 0;
-      summaryCounts.lastFetchOutcome = filteredEmpty ? 'filtered_empty' : 'selector_miss';
-      summaryCounts.abortKind = filteredEmpty ? null : 'no-jobs-parsed';
+  const locationResult = classifyZambonHtmlListings(listings);
+  for (const [index, raw] of listings.entries()) {
+    const classification = locationResult.classifications[index];
+    if (classification === 'foreign') {
+      console.warn(`  ⏭️ Dropping fallback row with non-Cadempino source location: ${raw.location}`);
+    } else if (classification === 'unknown') {
+      console.warn(`  ⚠️ Unrecognized fallback source location: ${raw.location}`);
     }
+  }
+  if (summaryCounts) {
+    summaryCounts.parsed = locationResult.parsed;
+    summaryCounts.lastFetchOutcome = locationResult.lastFetchOutcome;
+    summaryCounts.abortKind = locationResult.abortKind;
+  }
+  if (locationResult.lastFetchOutcome !== 'ok') {
     return [];
   }
+  const sourceBackedListings = locationResult.sourceBackedListings;
 
   const rows = sourceBackedListings.map((raw) => ({
     url: raw.url,

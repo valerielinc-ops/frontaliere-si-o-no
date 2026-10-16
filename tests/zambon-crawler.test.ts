@@ -18,7 +18,7 @@ import {
   MIN_DESC_LENGTH,
   extractZambonJobBody,
 } from '@/scripts/lib/zambon-job-parser.mjs';
-import { buildZambonJob, computeZambonCrawlResult, mergeZambonJobs, parseZambonApiPayload, restoreZambonArchivedJobs, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
+import { buildZambonJob, classifyZambonApiRows, classifyZambonHtmlListings, computeZambonCrawlResult, mergeZambonJobs, parseZambonApiPayload, restoreZambonArchivedJobs, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
 import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
@@ -193,6 +193,32 @@ describe('parseListingPage — guards', () => {
 
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
+  });
+});
+
+describe('Zambon location outcome guard', () => {
+  it('fails closed for an unknown API country instead of proving filtered_empty', () => {
+    const data = parseZambonApiPayload({ status: 200, data: [{ id: 1, country: 'XX', country_label: 'mystery' }] });
+    const result = classifyZambonApiRows(data);
+    expect(result).toMatchObject({ lastFetchOutcome: 'selector_miss', abortKind: 'no-jobs-parsed' });
+    expect(result.lastFetchOutcome).not.toBe('filtered_empty');
+  });
+
+  it('fails closed for an unknown HTML location instead of proving filtered_empty', () => {
+    const result = classifyZambonHtmlListings([{ id: '1', location: 'mystery' }]);
+    expect(result).toMatchObject({ lastFetchOutcome: 'selector_miss', abortKind: 'no-jobs-parsed' });
+    expect(result.lastFetchOutcome).not.toBe('filtered_empty');
+  });
+
+  it('keeps filtered_empty for rows with explicit foreign country evidence', () => {
+    expect(classifyZambonApiRows([{ id: 1, country: 'IT', country_label: 'Italy' }])).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      abortKind: null,
+    });
+    expect(classifyZambonHtmlListings([{ id: '1', location: 'Milan, Italy' }])).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      abortKind: null,
+    });
   });
 });
 
