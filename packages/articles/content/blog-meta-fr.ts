@@ -13349,6 +13349,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.saronno-produzione-cina-protesta.title': 'Barco di Saronno : plus de 50 % de la production va à la Chine',
     'blog.article.saronno-produzione-cina-protesta.excerpt': 'Plus de 50 % de transfert vers le site de Suzhou, 40 % d\'impact sur la zone de production, 30 % d\'impact sur la zone de cols blancs Grève, garnison et agitation',
     'blog.article.saronno-produzione-cina-protesta.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.indennita-stage-lugano-2027.title': 'Lugano : nouvelle allocation pour les stages en 2027',
+    'blog.article.indennita-stage-lugano-2027.excerpt': 'Allocation ponctuelle : 2 000 francs bruts pour 12 mois Budget 2027 : 700 000 à 755 000 francs Coût estimé inférieur : 30 700 francs 43 % du budget est',
+    'blog.article.indennita-stage-lugano-2027.imageAlt': 'Bureau d\'un jeune professionnel avec un ordinateur portable, un carnet et un café, vue sur Lugano depuis le Monte Brè',
 };
 
 export default blogMetaFr;

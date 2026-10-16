@@ -13348,6 +13348,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.saronno-produzione-cina-protesta.title': 'Barco di Saronno: oltre il 50% della produzione va in Cina',
     'blog.article.saronno-produzione-cina-protesta.excerpt': 'Spostamento di oltre il 50% verso il sito di Suzhou Impatto del 40% sull\'area produzione Impatto del 30% sull\'area impiegatizia Sciopero, presidio e agitazione',
     'blog.article.saronno-produzione-cina-protesta.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.indennita-stage-lugano-2027.title': 'Lugano: nuova indennità per gli stage nel 2027',
+    'blog.article.indennita-stage-lugano-2027.excerpt': 'Indennità unica: 2\'000 franchi lordi per 12 mensilità Budget 2027: da 700\'000 a 755\'000 franchi Minor costo stimato: 30\'700 franchi Il 43% del budget è',
+    'blog.article.indennita-stage-lugano-2027.imageAlt': 'Scrivania di un giovane professionista con laptop, taccuino e caffè, vista su Lugano da Monte Brè',
 };
 
 export default blogMetaIt;

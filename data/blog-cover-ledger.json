@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5552
+      "6": 5553
     },
-    "publishedCovers": 7133,
+    "publishedCovers": 7134,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5357
+    "inferredRecords": 5358
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190881,6 +190881,33 @@
           "id": "futura-volley-roma-vittoria",
           "category": "novita",
           "date": "2026-10-16T06:52:09.711Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-indennita-stage-lugano-2027": {
+      "cover": "/images/blog/article-indennita-stage-lugano-2027.webp",
+      "hash": "dff2981b7e5342ed6b8f6d4f97fd2c5733af7598a952655bb6b53f74a7159215",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "indennita-stage-lugano-2027",
+          "category": "novita",
+          "date": "2026-10-16T20:06:57.615Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

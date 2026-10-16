@@ -45041,6 +45041,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'indennita-stage-lugano-2027',
+ category: 'novita',
+ date: '2026-10-16T20:06:57.615Z',
+ image: '/images/blog/article-indennita-stage-lugano-2027.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

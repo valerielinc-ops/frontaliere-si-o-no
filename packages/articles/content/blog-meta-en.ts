@@ -13347,6 +13347,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.saronno-produzione-cina-protesta.title': 'Barco di Saronno: over 50% of production goes to China',
     'blog.article.saronno-produzione-cina-protesta.excerpt': 'More than 50% shift to the Suzhou site 40% impact on the production area 30% impact on the white-collar area Strike, garrison and agitation',
     'blog.article.saronno-produzione-cina-protesta.imageAlt': 'Illustration generated for this article',
+    'blog.article.indennita-stage-lugano-2027.title': 'Lugano: new allowance for internships in 2027',
+    'blog.article.indennita-stage-lugano-2027.excerpt': 'One-off allowance: 2,000 francs gross for 12 months Budget 2027: 700,000 to 755,000 francs Estimated lower cost: 30,700 francs 43% of the budget is',
+    'blog.article.indennita-stage-lugano-2027.imageAlt': 'A young professional\'s desk with a laptop, notebook, and coffee, overlooking Lugano from Monte Brè',
 };
 
 export default blogMetaEn;

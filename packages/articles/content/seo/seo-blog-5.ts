@@ -110115,6 +110115,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indennita-stage-lugano-2027': {
+    title: 'Lugano: nuova indennità per gli stage nel 2027',
+    description: 'Indennità unica: 2\'000 franchi lordi per 12 mensilità Budget 2027: da 700\'000 a 755\'000 franchi Minor costo stimato: 30\'700 franchi Il 43% del budget è',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, nuova, indennità, stage',
+    ogTitle: 'Nuova indennità per gli stage a Lugano nel 2027',
+    ogDescription: 'Indennità unica: 2\'000 franchi lordi per 12 mensilità Budget 2027: da 700\'000 a 755\'000 franchi Minor costo stimato: 30\'700 franchi Il 43% del budget è',
+    canonicalPath: '/articoli-frontaliere/indennita-stage-lugano-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano: nuova indennità per gli stage nel 2027",
+      "description": "Indennità unica: 2'000 franchi lordi per 12 mensilità Budget 2027: da 700'000 a 755'000 franchi Minor costo stimato: 30'700 franchi Il 43% del budget è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-indennita-stage-lugano-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania di un giovane professionista con laptop, taccuino e caffè, vista su Lugano da Monte Brè"
+      },
+      "datePublished": "2026-10-16T20:06:58+00:00",
+      "dateModified": "2026-10-16T20:06:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indennita-stage-lugano-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
