@@ -123,4 +123,29 @@ describe('crawler location record index', () => {
       location: 'Thun',
     });
   });
+
+  it('exposes source stable ID and primary location provenance when requested', () => {
+    const index = createCrawlerLocationRecordIndex({ includeProvenance: true });
+    const job = {
+      id: 'hirslanden-generated-id',
+      url: 'https://careers.mediclinic.com/Hirslanden/job/Zumikon-Role-8126/1443371633/',
+      externalId: '1443371633',
+      addressLocality: 'Hirslanden OPERA Zumikon AG',
+      addressRegion: 'Aargau',
+      postalCode: '8126',
+      canton: 'AG',
+      location: 'Hirslanden OPERA Zumikon AG',
+    };
+
+    index.add(job, { crawler: 'hirslanden' });
+
+    expect(index.get(job)).toMatchObject({
+      crawler: 'hirslanden',
+      sourceStableId: 'num:1443371633',
+      sourceJobId: '1443371633',
+      sourceUrl: job.url,
+      sourceRegion: 'Aargau',
+      sourcePostalCode: '8126',
+    });
+  });
 });

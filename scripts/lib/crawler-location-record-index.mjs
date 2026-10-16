@@ -1,4 +1,5 @@
 import { buildStableJobIdentity } from './job-identity.mjs';
+import { extractStableJobId } from './job-match-key.mjs';
 
 const AMBIGUOUS_RECORD = Symbol('ambiguous crawler location record');
 
@@ -10,14 +11,36 @@ function normalizeCrawler(value) {
   return String(value || '').trim();
 }
 
-function locationRecord(job, { crawler = '' } = {}) {
+function sourceJobId(job) {
+  for (const field of ['externalId', 'sourceJobId', 'jobId', 'sourceId', 'identifier']) {
+    const value = String(job?.[field] ?? '').trim();
+    if (value) return value;
+  }
+  return '';
+}
+
+function locationRecord(job, { crawler = '', includeProvenance = false } = {}) {
   const sourceLocationCanton = String(job.sourceLocationCanton || '').trim().toUpperCase();
-  return {
+  const record = {
     crawler: normalizeCrawler(crawler),
     canton: String(job.canton || '').trim().toUpperCase(),
     city: String(job.addressLocality || job.location || '').trim(),
     location: String(job.location || '').trim(),
     ...(sourceLocationCanton ? { sourceLocationCanton } : {}),
+  };
+
+  if (!includeProvenance) return record;
+
+  const sourceUrl = String(job.url || '').trim();
+  const stableIdFromUrl = extractStableJobId(sourceUrl);
+  const explicitSourceJobId = sourceJobId(job);
+  return {
+    ...record,
+    sourceStableId: stableIdFromUrl || (explicitSourceJobId ? `id:${explicitSourceJobId.toLowerCase()}` : ''),
+    sourceJobId: explicitSourceJobId || (stableIdFromUrl.startsWith('num:') ? stableIdFromUrl.slice(4) : ''),
+    sourceUrl,
+    sourceRegion: String(job.addressRegion || job.region || '').trim(),
+    sourcePostalCode: String(job.postalCode || '').trim(),
   };
 }
 
@@ -28,7 +51,9 @@ function sameLocationRecord(left, right) {
     && left.canton === right.canton
     && left.city === right.city
     && left.location === right.location
-    && (!leftSource || !rightSource || leftSource === rightSource);
+    && (!leftSource || !rightSource || leftSource === rightSource)
+    && (!left.sourceStableId || !right.sourceStableId || left.sourceStableId === right.sourceStableId)
+    && (!left.sourceUrl || !right.sourceUrl || left.sourceUrl === right.sourceUrl);
 }
 
 function addUniqueRecord(index, key, record) {
@@ -75,7 +100,7 @@ function lookupRecord(job, byJobId, byStableIdentity) {
  * company name: one crawler can publish several brands and the parser file is
  * the actionable provenance the audit must expose.
  */
-export function createCrawlerLocationRecordIndex() {
+export function createCrawlerLocationRecordIndex({ includeProvenance = false } = {}) {
   const byJobId = new Map();
   const byStableIdentity = new Map();
   let size = 0;
@@ -84,7 +109,7 @@ export function createCrawlerLocationRecordIndex() {
     add(job, source = {}) {
       if (!job || typeof job !== 'object' || Array.isArray(job)) return;
 
-      const record = locationRecord(job, source);
+      const record = locationRecord(job, { ...source, includeProvenance });
       if (!record.canton && !record.city) return;
       size += 1;
 

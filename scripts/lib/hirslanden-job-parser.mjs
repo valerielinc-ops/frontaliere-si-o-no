@@ -121,11 +121,11 @@ function detectExperienceLevel(title = '') {
  */
 export function parseLocation(raw = '') {
   const text = normalizeSpace(raw);
-  if (!text) return { city: 'Zürich', postalCode: '8008' };
+  if (!text) return { city: '', postalCode: '' };
   const m = text.match(/^([^,]+)(?:,\s*CH)?(?:,\s*(\d{4}))?/i);
   if (!m) return { city: text, postalCode: '' };
   return {
-    city: normalizeSpace(m[1]) || 'Zürich',
+    city: normalizeSpace(m[1]),
     postalCode: m[2] || '',
   };
 }
@@ -543,6 +543,31 @@ export function resolveHirslandenLocation(detailLocationText, listingCity) {
   return detail || listing;
 }
 
+/**
+ * Resolve the canton from structured locality evidence only.
+ *
+ * A facility label is not a canton source: `Hirslanden OPERA Zumikon AG`
+ * contains the legal suffix `AG`, although Zumikon is in ZH. Prefer the
+ * known listing locality, then the structured address region. If those two
+ * primary sources disagree, return no canton so the caller can fail closed;
+ * do not reinterpret an ambiguous facility label or a nearby field.
+ */
+export function resolveHirslandenCanton({ listingCity = '', detailRegion = '', facility = '' } = {}) {
+  const listing = normalizeSpace(listingCity);
+  const region = normalizeSpace(detailRegion);
+  const facilityText = normalizeSpace(facility);
+  const listingCanton = isKnownSwissCity(listing) ? inferSwissTargetCanton(listing) : '';
+  const regionCanton = inferSwissTargetCanton(region);
+
+  if (listingCanton && regionCanton && listingCanton !== regionCanton) return '';
+  if (listingCanton) return listingCanton;
+  if (regionCanton) return regionCanton;
+
+  // Only an exact known city is safe as a last resort. Free-text facility
+  // names are deliberately not passed through inferSwissTargetCanton().
+  return isKnownSwissCity(facilityText) ? inferSwissTargetCanton(facilityText) : '';
+}
+
 // "Referenznummer: 43018" (German ads), "Numéro de référence: 70053" (French).
 const REFERENCE_NUMBER_RE = /\b(?:Referenznummer|Numéro de référence)\s*:\s*(\d{3,})/iu;
 
@@ -628,15 +653,16 @@ export async function fetchAllHirslandenJobs() {
       const location = detail?.locationEvidence === 'microdata'
         ? realLocationText
         : resolveHirslandenLocation(realLocationText, city);
-      const inferredCanton = inferSwissTargetCanton(location)
-        || inferSwissTargetCanton(detail?.region || '')
-        || inferSwissTargetCanton(city)
-        || null;
-      if (realLocationText && !inferredCanton) {
+      const inferredCanton = resolveHirslandenCanton({
+        listingCity: city,
+        detailRegion: detail?.region || '',
+        facility: location,
+      }) || null;
+      if (!inferredCanton) {
         console.warn(`  ⚠️ Hirslanden: skipping unresolvable location "${realLocationText}" (${title})`);
         continue;
       }
-      const canton = inferredCanton || 'ZH';
+      const canton = inferredCanton;
       // 8008 is the Zürich fallback of parseLocation: only for a Zürich vacancy (#9841).
       const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008');
 
@@ -664,6 +690,7 @@ export async function fetchAllHirslandenJobs() {
 
       const job = {
         id: `${HIRSLANDEN_KEY}-${urlHash}`,
+        externalId: listing.jobId,
         slug: jobSlug,
         slugByLocale: { [sourceLang]: jobSlug },
         company: HIRSLANDEN_COMPANY_NAME,
