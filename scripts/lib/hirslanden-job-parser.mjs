@@ -663,7 +663,8 @@ export async function fetchAllHirslandenJobs() {
         continue;
       }
       const canton = inferredCanton;
-      // 8008 is the Zürich fallback of parseLocation: only for a Zürich vacancy (#9841).
+      // Keep the existing safe postal fallback when the source omits a CAP;
+      // the canton itself is never inferred from this fallback.
       const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008');
 
       // Only the posting's own text is published (issue 5253). A detail page

@@ -47,13 +47,15 @@ function locationRecord(job, { crawler = '', includeProvenance = false } = {}) {
 function sameLocationRecord(left, right) {
   const leftSource = left.sourceLocationCanton || '';
   const rightSource = right.sourceLocationCanton || '';
+  const sameSourceIdentity = left.sourceStableId && right.sourceStableId
+    ? left.sourceStableId === right.sourceStableId
+    : (!left.sourceUrl || !right.sourceUrl || left.sourceUrl === right.sourceUrl);
   return left.crawler === right.crawler
     && left.canton === right.canton
     && left.city === right.city
     && left.location === right.location
     && (!leftSource || !rightSource || leftSource === rightSource)
-    && (!left.sourceStableId || !right.sourceStableId || left.sourceStableId === right.sourceStableId)
-    && (!left.sourceUrl || !right.sourceUrl || left.sourceUrl === right.sourceUrl);
+    && sameSourceIdentity;
 }
 
 function addUniqueRecord(index, key, record) {

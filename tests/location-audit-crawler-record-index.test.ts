@@ -148,4 +148,25 @@ describe('crawler location record index', () => {
       sourcePostalCode: '8126',
     });
   });
+
+  it('keeps a stable-ID URL rename correlated instead of selecting a first match', () => {
+    const index = createCrawlerLocationRecordIndex({ includeProvenance: true });
+    const first = {
+      id: 'same-generated-id',
+      url: 'https://jobs.example/role-old/1443371633',
+      externalId: '1443371633',
+      addressLocality: 'Zumikon',
+      canton: 'ZH',
+      location: 'Zumikon',
+    };
+    const renamed = {
+      ...first,
+      url: 'https://jobs.example/role-renamed/1443371633',
+    };
+    index.add(first, { crawler: 'hirslanden' });
+    index.add(renamed, { crawler: 'hirslanden' });
+
+    expect(index.getWithStatus(first).status).toBe('found');
+    expect(index.getWithStatus(first).record?.sourceStableId).toBe('num:1443371633');
+  });
 });
