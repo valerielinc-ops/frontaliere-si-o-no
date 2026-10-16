@@ -1,7 +1,7 @@
 {
   "key": "project-interim",
   "label": "Project Interim Sàrl",
-  "generatedAt": "2026-10-16T09:39:41.242Z",
+  "generatedAt": "2026-10-16T21:49:57.611Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4152,
-  "avgDurationMs": 4152,
+  "unchangedCount": 2,
+  "durationMs": 3717,
+  "avgDurationMs": 3717,
   "durationHistory": [
-    4152
+    3717
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "project-interim-495",
       "slug": "mason-ingegneria-civile-m-f-project-interim-sarl-geneve-495",
@@ -44,7 +46,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-genie-civil-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:39:29.139Z",
+      "crawledAt": "2026-10-16T21:49:41.639Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -90,7 +92,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-construction-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T09:39:29.139Z",
+      "crawledAt": "2026-10-16T21:49:41.639Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -117,7 +119,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
+  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
 }
