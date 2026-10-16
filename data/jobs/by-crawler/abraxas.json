@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-10-15T21:21:30.457Z",
+  "assembledAt": "2026-10-16T09:23:43.998Z",
   "jobs": [
     {
       "id": "abraxas-5832d629699c",
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/werkstudentin-recruiting-50-60-12-monate-befristet-ab-januar-2027-6666",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:26.485Z",
+      "crawledAt": "2026-10-16T09:23:35.555Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -120,7 +120,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-mit-projekterfahrung-80-100-8712",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:26.042Z",
+      "crawledAt": "2026-10-16T09:23:35.075Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-7856",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:25.599Z",
+      "crawledAt": "2026-10-16T09:23:34.576Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -277,7 +277,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:25.143Z",
+      "crawledAt": "2026-10-16T09:23:34.081Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -347,7 +347,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-6610",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:24.700Z",
+      "crawledAt": "2026-10-16T09:23:33.594Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -404,7 +404,7 @@
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
+        "en": "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
         "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -430,7 +430,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:24.256Z",
+      "crawledAt": "2026-10-16T09:23:33.104Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -456,14 +456,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-        "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
         ],
         "en": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:24.423Z",
@@ -483,28 +483,28 @@
     },
     {
       "id": "abraxas-43ec8fa61322",
-      "slug": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+      "slug": "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "de": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
-        "it": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "it": "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "en": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
-        "fr": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        "de": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "senior-servicenow-ki-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
       "title": "Senior ServiceNow KI Engineer 80-100 %",
       "titleByLocale": {
-        "de": "Senior ServiceNow KI Ingenieur 80-100 %",
-        "en": "Senior Service: AI Engineer 80 100 %",
         "it": "Senior ServiceNow KI Ingegnere 80-100 %",
+        "en": "Senior Service: AI Engineer 80 100 %",
+        "de": "Senior ServiceNow KI Ingenieur 80-100 %",
         "fr": "Senior ServiceNow KI Ingénieur 80-100 %"
       },
       "description": "Künstliche Intelligenz verändert die Art, wie Services erbracht, Wissen genutzt und Prozesse automatisiert werden. ServiceNow gehört dabei zu den führenden Plattformen weltweit. Bei Abraxas haben wir das klare Ziel, KI, GenAI und intelligente Automatisierung konsequent in unsere ServiceNow-Plattform zu integrieren und daraus echten Mehrwert für Kunden, Mitarbeitende und Prozesse zu schaffen. Für diese strategisch wichtige Rolle suchen wir eine erfahrene Persönlichkeit, die ServiceNow und KI zusammenführt, neue Möglichkeiten erkennt und daraus produktive Lösungen entwickelt. Du arbeitest nicht an theoretischen Konzepten, sondern gestaltest aktiv die nächste Generation unserer ServiceNow-Plattform mit.\nDu verstärkst unser ServiceNow-Team und treibst die nächste Evolutionsstufe unserer Plattform voran: den gezielten Einsatz von KI-Assisted Features, Automatisierung und datengetriebenen Services. Im Rahmen einer strategischen Initiative identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst diese gemeinsam mit dem Team in skalierbare Lösungen für unsere Kunden und internen Prozesse.\nDeine Rolle\n• Entwicklung und Umsetzung der ServiceNow KI- und Automatisierungs-Roadmap\n• Identifikation, Bewertung und Priorisierung von KI Use Cases\n• Konzeption und Implementierung von Lösungen auf Basis von Now Assist und weiteren KI-Features\n• Aufbau von intelligenten Assistenten, KI Agents und automatisierten Service-Prozessen\n• Durchführung von Proof of Concepts und Pilotprojekten\n• Überführung erfolgreicher Lösungen in den produktiven Betrieb\n• Beratung von Kunden und internen Stakeholdern bezüglich des sinnvollen Einsatzes von KI\n• Weiterentwicklung von Architektur, Standards und Governance für den Einsatz von KI innerhalb von ServiceNow\n• Förderung einer hohen Datenqualität als Grundlage erfolgreicher KI-Lösungen\n• Aktiver Wissenstransfer innerhalb des ServiceNow-Teams\nDein Profil\n• Mehrjährige praktische Erfahrung als ServiceNow Engineer, Developer, Architect oder Senior Consultant\n• Fundierte Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Flow Designer, IntegrationHub und Automatisierungslösungen\n• Nachweisbare praktische Erfahrung mit Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Erfahrung in der Konzeption und Umsetzung produktiver AI-Lösungen\n• ServiceNow-Zertifizierungen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\nNice-to-have\n• Erfahrung mit GenAI-, LLM- oder KI-Agent-Ansätzen\n• Architektur-Erfahrung im Enterprise-Umfeld\n• Erfahrung in öffentlichen Verwaltungen oder regulierten Umfeldern\n• Kenntnisse in Data Governance und KI Governance\nDeine Benefits\n• Du erhältst die Möglichkeit, den KI-Einsatz innerhalb unserer ServiceNow-Plattform aktiv mitzugestalten und strategisch zu prägen.\n• Neue Ideen, Pilotierungen und innovative Lösungsansätze sind ausdrücklich erwünscht. Du kannst Themen von der ersten Idee bis zur produktiven Umsetzung begleiten.\n• Now Assist, AI Agents, Generative AI und intelligente Automatisierung sind für uns keine Zukunftsthemen, sondern konkrete Handlungsfelder.\n• Die von dir entwickelten Lösungen unterstützen zahlreiche Kunden, Mitarbeitende und Prozesse und schaffen messbaren Mehrwert.\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
       "descriptionByLocale": {
-        "de": "Künstliche Intelligenz verändert die Art, wie Services erbracht, Wissen genutzt und Prozesse automatisiert werden. ServiceNow gehört dabei zu den führenden Plattformen weltweit. Bei Abraxas haben wir das klare Ziel, KI, GenAI und intelligente Automatisierung konsequent in unsere ServiceNow-Plattform zu integrieren und daraus echten Mehrwert für Kunden, Mitarbeitende und Prozesse zu schaffen. Für diese strategisch wichtige Rolle suchen wir eine erfahrene Persönlichkeit, die ServiceNow und KI zusammenführt, neue Möglichkeiten erkennt und daraus produktive Lösungen entwickelt. Du arbeitest nicht an theoretischen Konzepten, sondern gestaltest aktiv die nächste Generation unserer ServiceNow-Plattform mit.\nDu verstärkst unser ServiceNow-Team und treibst die nächste Evolutionsstufe unserer Plattform voran: den gezielten Einsatz von KI-Assisted Features, Automatisierung und datengetriebenen Services. Im Rahmen einer strategischen Initiative identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst diese gemeinsam mit dem Team in skalierbare Lösungen für unsere Kunden und internen Prozesse.\nDeine Rolle\n• Entwicklung und Umsetzung der ServiceNow KI- und Automatisierungs-Roadmap\n• Identifikation, Bewertung und Priorisierung von KI Use Cases\n• Konzeption und Implementierung von Lösungen auf Basis von Now Assist und weiteren KI-Features\n• Aufbau von intelligenten Assistenten, KI Agents und automatisierten Service-Prozessen\n• Durchführung von Proof of Concepts und Pilotprojekten\n• Überführung erfolgreicher Lösungen in den produktiven Betrieb\n• Beratung von Kunden und internen Stakeholdern bezüglich des sinnvollen Einsatzes von KI\n• Weiterentwicklung von Architektur, Standards und Governance für den Einsatz von KI innerhalb von ServiceNow\n• Förderung einer hohen Datenqualität als Grundlage erfolgreicher KI-Lösungen\n• Aktiver Wissenstransfer innerhalb des ServiceNow-Teams\nDein Profil\n• Mehrjährige praktische Erfahrung als ServiceNow Engineer, Developer, Architect oder Senior Consultant\n• Fundierte Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Flow Designer, IntegrationHub und Automatisierungslösungen\n• Nachweisbare praktische Erfahrung mit Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Erfahrung in der Konzeption und Umsetzung produktiver AI-Lösungen\n• ServiceNow-Zertifizierungen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\nNice-to-have\n• Erfahrung mit GenAI-, LLM- oder KI-Agent-Ansätzen\n• Architektur-Erfahrung im Enterprise-Umfeld\n• Erfahrung in öffentlichen Verwaltungen oder regulierten Umfeldern\n• Kenntnisse in Data Governance und KI Governance\nDeine Benefits\n• Du erhältst die Möglichkeit, den KI-Einsatz innerhalb unserer ServiceNow-Plattform aktiv mitzugestalten und strategisch zu prägen.\n• Neue Ideen, Pilotierungen und innovative Lösungsansätze sind ausdrücklich erwünscht. Du kannst Themen von der ersten Idee bis zur produktiven Umsetzung begleiten.\n• Now Assist, AI Agents, Generative AI und intelligente Automatisierung sind für uns keine Zukunftsthemen, sondern konkrete Handlungsfelder.\n• Die von dir entwickelten Lösungen unterstützen zahlreiche Kunden, Mitarbeitende und Prozesse und schaffen messbaren Mehrwert.\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
         "it": "L'intelligenza artificiale sta cambiando il modo in cui vengono forniti i servizi, viene utilizzata la conoscenza e i processi sono automatizzati. ServiceNow è una delle principali piattaforme in tutto il mondo. A Abraxas, abbiamo l'obiettivo chiaro di integrare costantemente AI, GenAI e l'automazione intelligente nella nostra piattaforma ServiceNow e creare valore aggiunto reale per clienti, dipendenti e processi. Per questo ruolo strategicamente importante, stiamo cercando una personalità esperta che riunisce ServiceNow e AI, riconosce nuove possibilità e sviluppa soluzioni produttive da loro. Non si sta lavorando su concetti teorici, ma stanno attivamente modellando la prossima generazione della nostra piattaforma ServiceNow.\nPotenzierai il nostro team ServiceNow e guiderai la prossima fase evolutiva della nostra piattaforma: l'uso mirato delle funzionalità, dell'automazione e dei servizi basati sui dati. Nell'ambito di un'iniziativa strategica, si identificano casi di utilizzo AI rilevanti, si sviluppano prototipi e li convertono in soluzioni scalabili per i nostri clienti e processi interni insieme al team.\nIl tuo ruolo\n• Sviluppo e implementazione della roadmap ServiceNow AI e automazione\n• Identificazione, valutazione e priorità dei casi di utilizzo dell'IA\n• Concezione e realizzazione di soluzioni basate su Now Assist e altre funzionalità AI\n• Costruire assistenti intelligenti, agenti AI e processi di servizio automatizzati\n• Attuazione della prova di concetti e progetti pilota\n• Trasferimento di soluzioni di successo in operazioni produttive\n• Consultare i clienti e gli stakeholder interni sull'uso significativo dell'IA\n• Ulteriore sviluppo di architettura, standard e governance per l'uso di AI all'interno di ServiceNow\n• Promuovere l'alta qualità dei dati come base per soluzioni AI di successo\n• Trasferimento di conoscenze attivo all'interno del team ServiceNow\nIl tuo profilo\n• Diversi anni di esperienza pratica come ServiceNow Ingegnere, Sviluppatore, Architetto o Consulente senior\n• Conoscenza approfondita di ServiceNow ITSM e idealmente altri moduli come CSM o ITOM\n• Esperienza con Flow Designer, IntegrationHub e soluzioni di automazione\n• Dimostrare esperienza pratica con Ora Assist, intelligenza predittiva, Task Intelligence, agente virtuale, ricerca AI\n• Esperienza nella progettazione e realizzazione di soluzioni AI produttive\n• Certificazioni ServiceNow\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese\nBello da avere\n• Esperienza con gli approcci di agente GenAI, LLM o AI\n• Esperienza di architettura nell'ambiente aziendale\n• Esperienza nelle pubbliche amministrazioni o negli ambienti regolamentati\n• Conoscenza della governance dei dati e della governance AI\nI tuoi vantaggi\n• Avrete l'opportunità di modellare attivamente e plasmare strategicamente l'uso di AI all'interno della nostra piattaforma ServiceNow.\n• Nuove idee, progetti pilota e soluzioni innovative sono espressamente desiderate. Puoi accompagnare argomenti dalla prima idea all'implementazione produttiva.\n• Ora Assist, Agenti AI, AI Generative e automazione intelligente non sono argomenti futuri per noi, ma campi di azione concreti.\n• Le soluzioni sviluppate supportano numerosi clienti, dipendenti e processi e creano un valore aggiunto misurabile.\n• Un team motivato e collaborativo con elevati standard di qualità e innovazione\n• Clienti emozionanti, problemi impegnativi e complessi ambienti ServiceNow\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nAbraxas è uno dei principali fornitori di servizi IT svizzeri per il settore pubblico. Uniamo l'innovazione alla rilevanza sociale e usiamo tecnologie moderne dove fanno una vera differenza.\nSe non solo si opera ServiceNow, ma anche vuole plasmare attivamente il futuro di AI, automazione e gestione dei servizi, non vediamo l'ora della vostra applicazione.\nDiventa parte del nostro #TeamAbraxas e modella la prossima generazione di ServiceNow con noi.",
         "en": "Artificial intelligence is changing the way services are delivered, knowledge is used and processes are automated. ServiceNow is one of the leading platforms worldwide. At Abraxas, we have the clear goal of consistently integrating AI, GenAI and intelligent automation into our ServiceNow platform and creating real added value for customers, employees and processes. For this strategically important role, we are looking for an experienced personality who brings together ServiceNow and AI, recognizes new possibilities and develops productive solutions from them. You are not working on theoretical concepts, but are actively shaping the next generation of our ServiceNow platform.\nYou will strengthen our ServiceNow team and drive the next evolutionary stage of our platform: the targeted use of AI-assisted features, automation and data-driven services. As part of a strategic initiative, you will identify relevant AI use cases, develop prototypes and convert them into scalable solutions for our customers and internal processes together with the team.\nYour role\n• Development and implementation of the ServiceNow AI and automation roadmap\n• Identification, evaluation and prioritization of AI use cases\n• Conception and implementation of solutions based on Now Assist and other AI features\n• Building intelligent assistants, AI agents and automated service processes\n• Implementation of proof of concepts and pilot projects\n• Transfer of successful solutions into productive operations\n• Advising customers and internal stakeholders on the meaningful use of AI\n• Further development of architecture, standards and governance for the use of AI within ServiceNow\n• Promoting high data quality as the basis for successful AI solutions\n• Active knowledge transfer within the ServiceNow team\nYour profile\n• Several years of practical experience as ServiceNow Engineer, Developer, Architect or Senior Consultant\n• In-depth knowledge of ServiceNow ITSM and ideally other modules such as CSM or ITOM\n• Experience with Flow Designer, IntegrationHub and automation solutions\n• Demonstrate practical experience with Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Experience in the design and implementation of productive AI solutions\n• ServiceNow certifications\n• Very good knowledge of German and good knowledge of English\nNice-to-have\n• Experience with GenAI, LLM or AI agent approaches\n• Architecture experience in the enterprise environment\n• Experience in public administrations or regulated environments\n• Knowledge of Data Governance and AI Governance\nYour Benefits\n• You will have the opportunity to actively shape and strategically shape the use of AI within our ServiceNow platform.\n• New ideas, pilot projects and innovative solutions are expressly desired. You can accompany topics from the first idea to the productive implementation.\n• Now Assist, AI Agents, Generative AI and intelligent automation are not future topics for us, but concrete fields of action.\n• The solutions you develop support numerous customers, employees and processes and create measurable added value.\n• A motivated, collaborative team with high quality standards and innovation\n• Exciting customers, challenging issues and complex ServiceNow environments\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nAbraxas is one of the leading Swiss IT service providers for the public sector. We combine innovation with social relevance and use modern technologies where they make a real difference.\nIf you not only operate ServiceNow, but also want to actively shape the future of AI, automation and service management, we look forward to your application.\nBecome part of our #TeamAbraxas and shape the next generation of ServiceNow with us.",
+        "de": "Künstliche Intelligenz verändert die Art, wie Services erbracht, Wissen genutzt und Prozesse automatisiert werden. ServiceNow gehört dabei zu den führenden Plattformen weltweit. Bei Abraxas haben wir das klare Ziel, KI, GenAI und intelligente Automatisierung konsequent in unsere ServiceNow-Plattform zu integrieren und daraus echten Mehrwert für Kunden, Mitarbeitende und Prozesse zu schaffen. Für diese strategisch wichtige Rolle suchen wir eine erfahrene Persönlichkeit, die ServiceNow und KI zusammenführt, neue Möglichkeiten erkennt und daraus produktive Lösungen entwickelt. Du arbeitest nicht an theoretischen Konzepten, sondern gestaltest aktiv die nächste Generation unserer ServiceNow-Plattform mit.\nDu verstärkst unser ServiceNow-Team und treibst die nächste Evolutionsstufe unserer Plattform voran: den gezielten Einsatz von KI-Assisted Features, Automatisierung und datengetriebenen Services. Im Rahmen einer strategischen Initiative identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst diese gemeinsam mit dem Team in skalierbare Lösungen für unsere Kunden und internen Prozesse.\nDeine Rolle\n• Entwicklung und Umsetzung der ServiceNow KI- und Automatisierungs-Roadmap\n• Identifikation, Bewertung und Priorisierung von KI Use Cases\n• Konzeption und Implementierung von Lösungen auf Basis von Now Assist und weiteren KI-Features\n• Aufbau von intelligenten Assistenten, KI Agents und automatisierten Service-Prozessen\n• Durchführung von Proof of Concepts und Pilotprojekten\n• Überführung erfolgreicher Lösungen in den produktiven Betrieb\n• Beratung von Kunden und internen Stakeholdern bezüglich des sinnvollen Einsatzes von KI\n• Weiterentwicklung von Architektur, Standards und Governance für den Einsatz von KI innerhalb von ServiceNow\n• Förderung einer hohen Datenqualität als Grundlage erfolgreicher KI-Lösungen\n• Aktiver Wissenstransfer innerhalb des ServiceNow-Teams\nDein Profil\n• Mehrjährige praktische Erfahrung als ServiceNow Engineer, Developer, Architect oder Senior Consultant\n• Fundierte Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Flow Designer, IntegrationHub und Automatisierungslösungen\n• Nachweisbare praktische Erfahrung mit Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Erfahrung in der Konzeption und Umsetzung produktiver AI-Lösungen\n• ServiceNow-Zertifizierungen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\nNice-to-have\n• Erfahrung mit GenAI-, LLM- oder KI-Agent-Ansätzen\n• Architektur-Erfahrung im Enterprise-Umfeld\n• Erfahrung in öffentlichen Verwaltungen oder regulierten Umfeldern\n• Kenntnisse in Data Governance und KI Governance\nDeine Benefits\n• Du erhältst die Möglichkeit, den KI-Einsatz innerhalb unserer ServiceNow-Plattform aktiv mitzugestalten und strategisch zu prägen.\n• Neue Ideen, Pilotierungen und innovative Lösungsansätze sind ausdrücklich erwünscht. Du kannst Themen von der ersten Idee bis zur produktiven Umsetzung begleiten.\n• Now Assist, AI Agents, Generative AI und intelligente Automatisierung sind für uns keine Zukunftsthemen, sondern konkrete Handlungsfelder.\n• Die von dir entwickelten Lösungen unterstützen zahlreiche Kunden, Mitarbeitende und Prozesse und schaffen messbaren Mehrwert.\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
         "fr": "L'intelligence artificielle modifie la façon dont les services sont fournis, les connaissances utilisées et les processus automatisés. ServiceNow est l'une des principales plateformes dans le monde. Chez Abraxas, nous avons l'objectif clair d'intégrer systématiquement l'IA, le GenAI et l'automatisation intelligente dans notre plateforme ServiceNow et de créer une réelle valeur ajoutée pour les clients, les employés et les processus. Pour ce rôle stratégiquement important, nous recherchons une personnalité expérimentée qui rassemble ServiceNow et AI, reconnaît de nouvelles possibilités et développe des solutions productives à partir d'elles. Vous ne travaillez pas sur des concepts théoriques, mais vous façonnez activement la prochaine génération de notre plateforme ServiceNow.\nVous renforcerez notre équipe ServiceNow et piloterez la prochaine étape évolutive de notre plateforme : l'utilisation ciblée de fonctionnalités assistées par l'IA, l'automatisation et les services axés sur les données. Dans le cadre d'une initiative stratégique, vous identifierez les cas d'utilisation de l'IA pertinents, développerez des prototypes et les convertirez en solutions évolutives pour nos clients et les processus internes avec l'équipe.\nVotre rôle\n• Élaboration et mise en œuvre de la feuille de route ServiceNow AI et automatisation\n• Identification, évaluation et hiérarchisation des cas d'utilisation de l'IA\n• Conception et mise en œuvre de solutions basées sur Now Assist et d'autres fonctionnalités d'IA\n• Bâtir des assistants intelligents, des agents d'IA et des processus de service automatisés\n• Mise en œuvre de la preuve des concepts et des projets pilotes\n• Transfert de solutions réussies dans des opérations productives\n• Conseiller les clients et les intervenants internes sur l'utilisation significative de l'IA\n• Poursuite du développement de l'architecture, des normes et de la gouvernance pour l'utilisation de l'IA au sein de ServiceNow\n• Promouvoir la haute qualité des données comme base pour des solutions d'IA réussies\n• Transfert actif des connaissances au sein de l'équipe ServiceNow\nVotre profil\n• Plusieurs années d'expérience pratique comme ingénieur ServiceNow, développeur, architecte ou consultant principal\n• Connaissance approfondie de ServiceNow ITSM et idéalement d'autres modules tels que CSM ou ITOM\n• Expérience avec Flow Designer, IntegrationHub et solutions d'automatisation\n• Démontrer une expérience pratique avec Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Expérience dans la conception et la mise en œuvre de solutions d'IA productives\n• Certifications ServiceNow\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais\nJoli à avoir\n• Expérience des approches GenAI, LLM ou AI\n• Expérience en architecture dans l'environnement d'entreprise\n• Expérience dans les administrations publiques ou les environnements réglementés\n• Connaissance de la gouvernance des données et de l'IA\nVos avantages\n• Vous aurez la possibilité de façonner activement et stratégiquement l'utilisation de l'IA au sein de notre plateforme ServiceNow.\n• De nouvelles idées, des projets pilotes et des solutions innovantes sont expressément souhaités. Vous pouvez accompagner les sujets de la première idée à la mise en œuvre productive.\n• Maintenant Assistez, Agents AI, l'IA Generative et l'automatisation intelligente ne sont pas des sujets futurs pour nous, mais des champs d'action concrets.\n• Les solutions que vous développez soutiennent de nombreux clients, employés et processus et créent une valeur ajoutée mesurable.\n• Une équipe motivée et collaborative avec des normes de qualité et de l'innovation\n• Des clients passionnants, des problèmes difficiles et des environnements complexes ServiceNow\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nAbraxas est l'un des principaux fournisseurs suisses de services informatiques pour le secteur public. Nous combinons innovation et pertinence sociale et utilisons des technologies modernes où elles font une réelle différence.\nSi vous n'exploitez pas seulement ServiceNow, mais voulez également façonner activement l'avenir de l'IA, de l'automatisation et de la gestion de service, nous attendons avec impatience votre application.\nFaites partie de notre #TeamAbraxas et formez la prochaine génération de ServiceNow avec nous."
       },
       "location": "Zürich-Flughafen",
@@ -512,7 +512,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-4387",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:23.786Z",
+      "crawledAt": "2026-10-16T09:23:32.619Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -531,13 +531,23 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2521/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2521",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "firstSeenAt": "2026-08-18T09:46:23.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        ],
+        "fr": [
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+      ],
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -550,8 +560,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-18T09:46:23.561Z"
+      }
     },
     {
       "id": "abraxas-cbaf62d04181",
@@ -584,7 +593,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:23.342Z",
+      "crawledAt": "2026-10-16T09:23:32.129Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -636,9 +645,9 @@
       "id": "abraxas-62ce20fd87f1",
       "slug": "collaboratore-trice-servizio-clienti-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "de": "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen",
         "it": "collaboratore-trice-servizio-clienti-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen",
+        "en": "associate-customer-service-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "de": "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen",
         "fr": "collaborateur-trice-service-client-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
@@ -646,16 +655,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Mitarbeiter:in Customer Service 80–100 %",
       "titleByLocale": {
-        "de": "Mitarbeiter:in Customer Service 80–100 %",
         "it": "Collaboratore/trice Servizio Clienti 80–100 %",
         "en": "Associate Customer Service 80–100 %",
+        "de": "Mitarbeiter:in Customer Service 80–100 %",
         "fr": "Collaborateur/trice Service Client 80–100 %"
       },
       "description": "Unser Customer-Service-Team unterstützt die Account- und Service Manager:innen in allen administrativen Belangen und sorgt für eine reibungslose Koordination sowie Abwicklung von Kundenaufträgen.\nZur Verstärkung unseres Teams am Zürich-Flughafen suchen wir per 1. Februar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Customer Service.\nDeine Rolle\n• Koordination und Bearbeitung von Kundenaufträgen von der Erfassung bis zum Abschluss\n• Unterstützung der Account- und Service Manager:innen bei administrativen und organisatorischen Aufgaben\n• Erfassung und Pflege von Vertrags- und Kundendaten in den ERP-Systemen\n• Verantwortung für die periodische Verrechnung in enger Zusammenarbeit mit internen Fachspezialist:innen\n• Übernahme des Vertragsmanagements von der Erstellung über die Pflege bis zur Ablage und Verwaltung\n• Sicherstellung einer korrekten und termingerechten Rechnungsstellung sowie Durchführung entsprechender Kontrollen\n• Kompetente und serviceorientierte Betreuung der Kundschaft\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung sowie Interesse an IT-Themen\n• Erfahrung im Customer Service, in der Auftragsabwicklung oder in einer vergleichbaren Funktion idealerweise im IT-Umfeld\n• Sicherer Umgang mit MS Office, SAP-Kenntnisse sind von Vorteil\n• Ausgeprägte Kunden- und Serviceorientierung sowie eine selbstständige, strukturierte, sorgfältige und zuverlässige Arbeitsweise\n• Gutes Prozessverständnis sowie rasche Auffassungsgabe\n• Teamorientierte Persönlichkeit mit offener und kommunikativer Art\n• Stilsichere Deutschkenntnisse auf C1-Niveau, Französischkenntnisse sind von Vorteil\n• Bereitschaft für gelegentliche Einsätze an den Standorten St. Gallen und Bern\nDeine Benefits\n• Bis zu 60% Home-Office bei einem 100% Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBei uns pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
       "descriptionByLocale": {
-        "de": "Unser Customer-Service-Team unterstützt die Account- und Service Manager:innen in allen administrativen Belangen und sorgt für eine reibungslose Koordination sowie Abwicklung von Kundenaufträgen.\nZur Verstärkung unseres Teams am Zürich-Flughafen suchen wir per 1. Februar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Customer Service.\nDeine Rolle\n• Koordination und Bearbeitung von Kundenaufträgen von der Erfassung bis zum Abschluss\n• Unterstützung der Account- und Service Manager:innen bei administrativen und organisatorischen Aufgaben\n• Erfassung und Pflege von Vertrags- und Kundendaten in den ERP-Systemen\n• Verantwortung für die periodische Verrechnung in enger Zusammenarbeit mit internen Fachspezialist:innen\n• Übernahme des Vertragsmanagements von der Erstellung über die Pflege bis zur Ablage und Verwaltung\n• Sicherstellung einer korrekten und termingerechten Rechnungsstellung sowie Durchführung entsprechender Kontrollen\n• Kompetente und serviceorientierte Betreuung der Kundschaft\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung sowie Interesse an IT-Themen\n• Erfahrung im Customer Service, in der Auftragsabwicklung oder in einer vergleichbaren Funktion idealerweise im IT-Umfeld\n• Sicherer Umgang mit MS Office, SAP-Kenntnisse sind von Vorteil\n• Ausgeprägte Kunden- und Serviceorientierung sowie eine selbstständige, strukturierte, sorgfältige und zuverlässige Arbeitsweise\n• Gutes Prozessverständnis sowie rasche Auffassungsgabe\n• Teamorientierte Persönlichkeit mit offener und kommunikativer Art\n• Stilsichere Deutschkenntnisse auf C1-Niveau, Französischkenntnisse sind von Vorteil\n• Bereitschaft für gelegentliche Einsätze an den Standorten St. Gallen und Bern\nDeine Benefits\n• Bis zu 60% Home-Office bei einem 100% Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBei uns pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
         "it": "Il nostro team di assistenza clienti supporta i responsabili dell'account e dei servizi in tutte le questioni amministrative e garantisce un coordinamento e un trattamento regolare degli ordini dei clienti.\nPer rafforzare il nostro team all'aeroporto di Zurigo, stiamo cercando 1. Febbraio 2027 o d'intesa una personalità impegnata come dipendente: nel Servizio Clienti.\nIl tuo ruolo\n• Coordinamento e elaborazione degli ordini del cliente dall'ingresso al completamento\n• Sostegno ai responsabili dell'account e dei servizi: nei compiti amministrativi e organizzativi\n• Raccolta e manutenzione dei dati contrattuali e dei clienti nei sistemi ERP\n• Responsabilità per la fatturazione periodica in stretta collaborazione con gli specialisti interni:\n• Assunzione della gestione dei contratti dalla creazione alla manutenzione fino al deposito e all'amministrazione\n• Assicurare la fatturazione corretta e tempestiva e effettuare controlli appropriati\n• Assistenza clienti competente e orientata al servizio\nIl tuo profilo\n• Formazione commerciale completa e interesse per gli argomenti IT\n• Esperienza nel servizio clienti, nell'elaborazione degli ordini o in una funzione paragonabile idealmente nell'ambiente IT\n• Gestione sicura di MS Office, la conoscenza di SAP è un vantaggio\n• Forte orientamento al cliente e al servizio, nonché un metodo di lavoro indipendente, strutturato, attento e affidabile\n• Buona comprensione del processo e rapida comprensione\n• Personalità orientata al team con natura aperta e comunicativa\n• Conoscenza sicura del tedesco a livello C1, la conoscenza del francese è un vantaggio\n• Prontezza per incarichi occasionali presso le sedi di San Gallo e Berna\nI tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
         "en": "Our customer service team supports the account and service managers in all administrative matters and ensures smooth coordination and processing of customer orders.\nTo strengthen our team at Zurich Airport, we are looking for 1. February 2027 or by agreement a committed personality as an employee: in Customer Service.\nYour role\n• Coordination and processing of client orders from entry to completion\n• Support for account and service managers: in administrative and organizational tasks\n• Collection and maintenance of contract and customer data in ERP systems\n• Responsibility for periodic billing in close cooperation with internal specialists:\n• Assumption of contract management from creation to maintenance up to filing and administration\n• Ensure correct and timely invoicing and carry out appropriate checks\n• Competent and service-oriented customer support\nYour profile\n• Completed commercial training and interest in IT topics\n• Experience in customer service, in order processing or in a comparable function ideally in the IT environment\n• Secure handling of MS Office, SAP knowledge is an advantage\n• Strong customer and service orientation as well as an independent, structured, careful and reliable working method\n• Good process understanding and quick understanding\n• Team-oriented personality with an open and communicative nature\n• Confident knowledge of German at C1 level, knowledge of French is an advantage\n• Readiness for occasional assignments at the St. Gallen and Bern locations\nYour Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Unser Customer-Service-Team unterstützt die Account- und Service Manager:innen in allen administrativen Belangen und sorgt für eine reibungslose Koordination sowie Abwicklung von Kundenaufträgen.\nZur Verstärkung unseres Teams am Zürich-Flughafen suchen wir per 1. Februar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Customer Service.\nDeine Rolle\n• Koordination und Bearbeitung von Kundenaufträgen von der Erfassung bis zum Abschluss\n• Unterstützung der Account- und Service Manager:innen bei administrativen und organisatorischen Aufgaben\n• Erfassung und Pflege von Vertrags- und Kundendaten in den ERP-Systemen\n• Verantwortung für die periodische Verrechnung in enger Zusammenarbeit mit internen Fachspezialist:innen\n• Übernahme des Vertragsmanagements von der Erstellung über die Pflege bis zur Ablage und Verwaltung\n• Sicherstellung einer korrekten und termingerechten Rechnungsstellung sowie Durchführung entsprechender Kontrollen\n• Kompetente und serviceorientierte Betreuung der Kundschaft\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung sowie Interesse an IT-Themen\n• Erfahrung im Customer Service, in der Auftragsabwicklung oder in einer vergleichbaren Funktion idealerweise im IT-Umfeld\n• Sicherer Umgang mit MS Office, SAP-Kenntnisse sind von Vorteil\n• Ausgeprägte Kunden- und Serviceorientierung sowie eine selbstständige, strukturierte, sorgfältige und zuverlässige Arbeitsweise\n• Gutes Prozessverständnis sowie rasche Auffassungsgabe\n• Teamorientierte Persönlichkeit mit offener und kommunikativer Art\n• Stilsichere Deutschkenntnisse auf C1-Niveau, Französischkenntnisse sind von Vorteil\n• Bereitschaft für gelegentliche Einsätze an den Standorten St. Gallen und Bern\nDeine Benefits\n• Bis zu 60% Home-Office bei einem 100% Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBei uns pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
         "fr": "Notre équipe de service à la clientèle accompagne les gestionnaires de comptes et de services dans toutes les questions administratives et assure une coordination et un traitement sans heurts des commandes des clients.\nPour renforcer notre équipe à l'aéroport de Zurich, nous cherchons 1. Février 2027 ou par accord une personnalité engagée en tant qu'employé: dans Service à la clientèle.\nVotre rôle\n• Coordination et traitement des commandes des clients de l'entrée à la fin\n• Appui aux gestionnaires de comptes et de services : dans les tâches administratives et organisationnelles\n• Collecte et maintenance des données relatives aux contrats et aux clients dans les systèmes ERP\n• Responsabilité de la facturation périodique en étroite collaboration avec les spécialistes internes :\n• Hypothèse de la gestion des contrats, de la création à la maintenance jusqu'au dépôt et à l'administration\n• Assurer une facturation correcte et en temps opportun et effectuer des vérifications appropriées\n• Soutien à la clientèle compétent et axé sur le service\nVotre profil\n• Formation commerciale terminée et intérêt pour les sujets de TI\n• Expérience du service à la clientèle, du traitement des commandes ou d'une fonction comparable idéalement dans l'environnement informatique\n• Gestion sécurisée de MS Office, les connaissances SAP sont un avantage\n• Une forte orientation client et service ainsi qu'une méthode de travail indépendante, structurée, prudente et fiable\n• Bonne compréhension du processus et compréhension rapide\n• Personnalité orientée équipe à caractère ouvert et communicatif\n• Connaissance de l'allemand au niveau C1, connaissance du français est un avantage\n• Préparation aux affectations occasionnelles aux endroits de St. Gallen et de Berne\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "Zürich-Flughafen",
@@ -663,7 +672,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/mitarbeiterin-customer-service-80-100-3237",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:22.899Z",
+      "crawledAt": "2026-10-16T09:23:31.633Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -682,24 +691,26 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2556/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2556",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen"
         ],
         "fr": [
           "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen"
+        ],
+        "en": [
+          "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-customer-service-80-100-abraxas-zurich-flughafen"
-      ],
+      "firstSeenAt": "2026-10-15T21:21:22.899Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -712,8 +723,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-15T21:21:22.899Z"
+      }
     },
     {
       "id": "abraxas-8533e30a2142",
@@ -746,7 +756,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:22.455Z",
+      "crawledAt": "2026-10-16T09:23:31.142Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -829,7 +839,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-5197",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:22.008Z",
+      "crawledAt": "2026-10-16T09:23:30.651Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -907,7 +917,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-4522",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:21.562Z",
+      "crawledAt": "2026-10-16T09:23:30.163Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -978,7 +988,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operations-engineer-engineer-staedte-amp-gemeinden-80-100-8816",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:21.109Z",
+      "crawledAt": "2026-10-16T09:23:29.674Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1056,7 +1066,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operation-engineer-kmu-kunden-80-100-6989",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:20.658Z",
+      "crawledAt": "2026-10-16T09:23:29.183Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1140,7 +1150,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:20.215Z",
+      "crawledAt": "2026-10-16T09:23:28.700Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1183,9 +1193,9 @@
       "id": "abraxas-e6610515d2bf",
       "slug": "risorse-umane-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "hr-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-st-gallen",
         "it": "risorse-umane-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-informatik-ag-st-gallen",
         "en": "hr-specialist-60-80-fixed-term-for-6-months-starting-in-january-2027-abraxas-informatik-ag-st-gallen",
+        "de": "hr-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-st-gallen",
         "fr": "specialiste-rh-60-80-contrat-a-duree-determinee-de-6-mois-a-partir-de-janvier-2027-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -1193,16 +1203,16 @@
       "companyDomain": "abraxas.ch",
       "title": "HR Fachspezialist:in 60–80 %, 6 Monate befristet ab Januar 2027",
       "titleByLocale": {
-        "de": "HR Fachspezialist:in 60–80 %, 6 Monate befristet ab Januar 2027",
         "it": "Specialista HR 60–80 %, a tempo determinato per 6 mesi da gennaio 2027",
         "en": "HR Specialist 60–80 %, fixed-term for 6 months starting in January 2027",
+        "de": "HR Fachspezialist:in 60–80 %, 6 Monate befristet ab Januar 2027",
         "fr": "Spécialiste RH 60–80 %, contrat à durée déterminée de 6 mois à partir de janvier 2027"
       },
       "description": "Du liebst es, wenn administrative Prozesse wie am Schnürchen laufen und möchtest der erste positive Eindruck für unsere neuen Teammitglieder sein? Dann bist du bei uns genau richtig! Unser motiviertes HR-Team sucht ab Januar 2027 für 6 Monate temporäre Unterstützung in einem Pensum von 60-80%. In dieser Rolle übernimmst du Aufgaben aus der HR-Administration mit einem klaren Schwerpunkt auf dem Onboardingprozess. Wenn du strukturiert arbeitest und dich in einem dynamischen Umfeld wohlfühlst, wollen wir dich unbedingt kennenlernen!\nDeine Rolle\n• Onboarding-Administration: Komplette administrative Abwicklung von Neueintritten von A bis Z\n• Vertragswesen: Erstellen von Arbeitsverträgen, Vereinbarungen und Eintrittsunterlagen\n• Arbeitsbewilligungen: Einholen und Koordinieren von Arbeitsbewilligungen für ausländische Mitarbeitende\n• Systemerfassung: Erfassen und Pflegen aller eintrittsrelevanten Daten in SAP HCM und SuccessFactors\n• Stammdatenpflege: Laufende Aktualisierung und Mutation von Personalstammdaten\n• Dossierpflege: Digitale Archivierung und Pflege der HR-Personaldossiers\n• Sonderprojekte: Mitwirkung und administrative Unterstützung bei aktuellen HR-Projekten\nDein Profil\n• Abgeschlossene Weiterbildung zur HR-Assistentin, bevorzugt Weiterbildung zur HR-Fachfrau\n• fundierte Berufserfahrung in der HR-Administration\n• fundierte und praxiserprobte Erfahrung mit SAP HCM und SuccessFactors\n• Du arbeitest strukturiert, zuverlässig und behältst auch bei mehreren Aufgaben den Überblick\n• Mit deiner offenen, hilfsbereiten Art gehst du gerne auf Menschen zu und bringst zudem eine gute Portion Humor mit\n• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Du liebst es, wenn administrative Prozesse wie am Schnürchen laufen und möchtest der erste positive Eindruck für unsere neuen Teammitglieder sein? Dann bist du bei uns genau richtig! Unser motiviertes HR-Team sucht ab Januar 2027 für 6 Monate temporäre Unterstützung in einem Pensum von 60-80%. In dieser Rolle übernimmst du Aufgaben aus der HR-Administration mit einem klaren Schwerpunkt auf dem Onboardingprozess. Wenn du strukturiert arbeitest und dich in einem dynamischen Umfeld wohlfühlst, wollen wir dich unbedingt kennenlernen!\nDeine Rolle\n• Onboarding-Administration: Komplette administrative Abwicklung von Neueintritten von A bis Z\n• Vertragswesen: Erstellen von Arbeitsverträgen, Vereinbarungen und Eintrittsunterlagen\n• Arbeitsbewilligungen: Einholen und Koordinieren von Arbeitsbewilligungen für ausländische Mitarbeitende\n• Systemerfassung: Erfassen und Pflegen aller eintrittsrelevanten Daten in SAP HCM und SuccessFactors\n• Stammdatenpflege: Laufende Aktualisierung und Mutation von Personalstammdaten\n• Dossierpflege: Digitale Archivierung und Pflege der HR-Personaldossiers\n• Sonderprojekte: Mitwirkung und administrative Unterstützung bei aktuellen HR-Projekten\nDein Profil\n• Abgeschlossene Weiterbildung zur HR-Assistentin, bevorzugt Weiterbildung zur HR-Fachfrau\n• fundierte Berufserfahrung in der HR-Administration\n• fundierte und praxiserprobte Erfahrung mit SAP HCM und SuccessFactors\n• Du arbeitest strukturiert, zuverlässig und behältst auch bei mehreren Aufgaben den Überblick\n• Mit deiner offenen, hilfsbereiten Art gehst du gerne auf Menschen zu und bringst zudem eine gute Portion Humor mit\n• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Ti piace quando i processi amministrativi funzionano come orologi e vogliono essere la prima impressione positiva per i nostri nuovi membri del team? Allora hai proprio ragione con noi! Dal gennaio 2027, il nostro team di risorse umane motivato cerca un supporto temporaneo per 6 mesi in un carico di lavoro del 60-80%. In questo ruolo, si assume compiti da amministrazione HR con una chiara attenzione al processo di onboarding. Se lavori strutturato e ti senti a tuo agio in un ambiente dinamico, vogliamo sicuramente conoscerti!\nIl tuo ruolo\n• Amministrazione di bordo: Gestione amministrativa completa di nuove voci da A a Z\n• Contratti: stipulazione di contratti di lavoro, accordi e documenti di entrata\n• Permessi di lavoro: ottenere e coordinare permessi di lavoro per i dipendenti stranieri\n• Capture di sistema: Catturare e mantenere tutti i dati rilevanti in SAP HCM e SuccessFactors\n• Manutenzione dei dati master: aggiornamento continuo e mutazione dei dati master HR\n• Manutenzione file: archiviazione digitale e manutenzione dei dossier del personale HR\n• Progetti speciali: partecipazione e supporto amministrativo nei progetti HR attuali\nIl tuo profilo\n• Completato ulteriore formazione come assistente HR, preferibilmente ulteriore formazione come specialista HR\n• esperienza professionale nella gestione delle risorse umane\n• profonda e comprovata esperienza con SAP HCM e SuccessFactors\n• Si lavora strutturato, affidabile e tenere traccia di diversi compiti\n• Con la vostra natura aperta e disponibile, vi piace avvicinare alle persone e anche portare una buona dose di umorismo con voi.\n• Si comunica con stile in tedesco, la conoscenza del francese è un vantaggio\nI tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
         "en": "You love it when administrative processes run like clockwork and want to be the first positive impression for our new team members? Then you are exactly right with us! From January 2027, our motivated HR team is looking for temporary support for 6 months in a workload of 60-80%. In this role, you take on tasks from HR administration with a clear focus on the onboarding process. If you work structured and feel comfortable in a dynamic environment, we definitely want to get to know you!\nYour role\n• Onboarding administration: Complete administrative handling of new entries from A to Z\n• Contracting: drawing up employment contracts, agreements and entry documents\n• Work permits: obtaining and coordinating work permits for foreign employees\n• System Capture: Capture and maintain all entry-relevant data in SAP HCM and SuccessFactors\n• Master data maintenance: Ongoing update and mutation of HR master data\n• File maintenance: Digital archiving and maintenance of HR personnel dossiers\n• Special projects: Participation and administrative support in current HR projects\nYour profile\n• Completed further training as HR assistant, preferably further training as HR specialist\n• sound professional experience in HR administration\n• profound and proven experience with SAP HCM and SuccessFactors\n• You work structured, reliable and keep track of several tasks\n• With your open, helpful nature, you like to approach people and also bring a good dose of humor with you.\n• You communicate stylishly in German, knowledge of French is an advantage\nYour Benefits\n• Up to 60% home office possible with a 100% pension\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Du liebst es, wenn administrative Prozesse wie am Schnürchen laufen und möchtest der erste positive Eindruck für unsere neuen Teammitglieder sein? Dann bist du bei uns genau richtig! Unser motiviertes HR-Team sucht ab Januar 2027 für 6 Monate temporäre Unterstützung in einem Pensum von 60-80%. In dieser Rolle übernimmst du Aufgaben aus der HR-Administration mit einem klaren Schwerpunkt auf dem Onboardingprozess. Wenn du strukturiert arbeitest und dich in einem dynamischen Umfeld wohlfühlst, wollen wir dich unbedingt kennenlernen!\nDeine Rolle\n• Onboarding-Administration: Komplette administrative Abwicklung von Neueintritten von A bis Z\n• Vertragswesen: Erstellen von Arbeitsverträgen, Vereinbarungen und Eintrittsunterlagen\n• Arbeitsbewilligungen: Einholen und Koordinieren von Arbeitsbewilligungen für ausländische Mitarbeitende\n• Systemerfassung: Erfassen und Pflegen aller eintrittsrelevanten Daten in SAP HCM und SuccessFactors\n• Stammdatenpflege: Laufende Aktualisierung und Mutation von Personalstammdaten\n• Dossierpflege: Digitale Archivierung und Pflege der HR-Personaldossiers\n• Sonderprojekte: Mitwirkung und administrative Unterstützung bei aktuellen HR-Projekten\nDein Profil\n• Abgeschlossene Weiterbildung zur HR-Assistentin, bevorzugt Weiterbildung zur HR-Fachfrau\n• fundierte Berufserfahrung in der HR-Administration\n• fundierte und praxiserprobte Erfahrung mit SAP HCM und SuccessFactors\n• Du arbeitest strukturiert, zuverlässig und behältst auch bei mehreren Aufgaben den Überblick\n• Mit deiner offenen, hilfsbereiten Art gehst du gerne auf Menschen zu und bringst zudem eine gute Portion Humor mit\n• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Vous l'aimez quand les processus administratifs fonctionnent comme une horloge et voulez être la première impression positive pour nos nouveaux membres de l'équipe? Alors tu as raison avec nous ! À partir de janvier 2027, notre équipe de RH motivée est à la recherche d'un soutien temporaire pour 6 mois dans une charge de travail de 60-80%. Dans ce rôle, vous assumez les tâches de l'administration des RH en mettant clairement l'accent sur le processus d'embarquement. Si vous travaillez structuré et que vous vous sentez à l'aise dans un environnement dynamique, nous voulons certainement vous connaître!\nVotre rôle\n• Administration de bord: Traitement administratif complet des nouvelles entrées de A à Z\n• Contrats: établissement de contrats, de contrats et de documents d'entrée\n• Permis de travail: obtention et coordination de permis de travail pour les employés étrangers\n• Capture du système: Capturer et maintenir toutes les données pertinentes dans SAP HCM et SuccessFactors\n• Maintenance des données maîtresses : Mise à jour et mutation continues des données maîtresses RH\n• Maintenance des dossiers: archivage numérique et maintenance des dossiers du personnel des RH\n• Projets spéciaux: Participation et appui administratif aux projets de RH en cours\nVotre profil\n• Achèvement de la formation continue en tant qu'assistant en RH, de préférence en tant que spécialiste des RH\n• une solide expérience professionnelle en administration des RH\n• expérience profonde et éprouvée avec SAP HCM et SuccessFactors\n• Vous travaillez de manière structurée, fiable et suivez plusieurs tâches\n• Avec votre nature ouverte et utile, vous aimez approcher les gens et aussi apporter une bonne dose d'humour avec vous.\n• Vous communiquez élégamment en allemand, la connaissance du français est un avantage\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "St. Gallen",
@@ -1210,7 +1220,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/hr-fachspezialistin-60-80-6-monate-befristet-ab-januar-2027-8918",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:19.763Z",
+      "crawledAt": "2026-10-16T09:23:28.128Z",
+      "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1229,13 +1240,14 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2558/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2558",
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
+      "previousSlugs": [
+        "hr-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hr-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-st-gallen"
@@ -1247,9 +1259,7 @@
           "hr-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "hr-fachspezialist-in-60-80-6-monate-befristet-ab-januar-2027-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-10-15T21:21:19.763Z",
       "salaryMin": 48000,
       "salaryMax": 81600,
       "salarySource": "estimated",
@@ -1262,8 +1272,7 @@
           "maxValue": 81600,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-15T21:21:19.763Z"
+      }
     },
     {
       "id": "abraxas-47fd29e94ecf",
@@ -1296,7 +1305,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:19.320Z",
+      "crawledAt": "2026-10-16T09:23:27.639Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1375,7 +1384,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-1721",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:18.876Z",
+      "crawledAt": "2026-10-16T09:23:27.155Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1456,7 +1465,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-4304",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:21:18.320Z",
+      "crawledAt": "2026-10-16T09:23:26.521Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1563,77 +1572,6 @@
           "@type": "QuantitativeValue",
           "minValue": 92000,
           "maxValue": 156500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "abraxas-b1869ccf30ba",
-      "slug": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
-      "slugByLocale": {
-        "it": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
-        "en": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
-        "de": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
-        "fr": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "ICT-System Engineer Citrix 80–100 %",
-      "titleByLocale": {
-        "it": "ICT-System Ingegnere Citrix 80–100 %",
-        "en": "ICT Systems Engineer Citrix 80–100 %",
-        "de": "ICT-System Ingenieur Citrix 80–100 %",
-        "fr": "ICT-System Ingénieur Citrix 80–100 %"
-      },
-      "description": "Du betreust komplexe Microsoft- und Citrix-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unseren Standort Zürich Kloten suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Betrieb, Administration und Weiterentwicklung von Citrix Virtual Apps and Desktops Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Erfahrung im Betrieb von Citrix Virtual Apps and Desktops\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\n• Zertifizierungen im Bereich Citrix oder Microsoft Azure sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Potrai supervisionare complesse infrastrutture dei clienti Microsoft e Citrix, garantendo operazioni sicure, stabili ed efficienti. Porti la tua esperienza nell'ulteriore sviluppo dei nostri sistemi IT e lavori a stretto contatto con gli stakeholder e i clienti interni.\nPer la nostra posizione a Zurigo Kloten stiamo cercando 1. Gennaio 2027 o su appuntamento una personalità dedicata come ICT System Engineer.\nIl tuo ruolo\n• Ulteriore sviluppo degli ambienti dei clienti in ambienti cloud e on-premise\n• Operazione, amministrazione e ulteriore sviluppo degli ambienti Citrix Virtual Apps and Desktops\n• Amministrazione e funzionamento di Microsoft 365, Azure e Windows 11\n• Gestione intune e SCCM per il controllo di dispositivi e software\n• Creazione e manutenzione di ambienti server\n• Sostegno di livello 2nd/3rd incl. Gestione degli infortuni e dei problemi\n• Supporto dei servizi server Windows (AD, DHCP, GPO, Printservice)\n• Integrazione di nuove sedi dei clienti nell'infrastruttura esistente\n• Collaborazione in progetti IT per l'ulteriore sviluppo del paesaggio del sistema\n• Attuazione delle politiche di sicurezza e partecipazione al Pikettdienst\nIl tuo profilo\n• Formazione informatica completata o qualificazione comparabile (ad esempio HF, FH, tessera federale di identificazione professionale)\n• Conoscenza approfondita di server Windows, client, M365 e Azure\n• Esperienza in esecuzione Citrix Virtual Apps and Desktops\n• Rapida comprensione e grande disponibilità ad imparare\n• Divertimento di consulenza clienti e aspetto professionale\n• Capacità tedesche fluide nella parola e nella scrittura (livello C1)\n• Prontezza al lavoro in ambienti dinamici\n• Certificazioni nell'area di Citrix o Microsoft Azure sono vantaggiose\nI tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You will oversee complex Microsoft and Citrix customer infrastructures, ensuring secure, stable and efficient operations. You bring your expertise to the further development of our IT systems and work closely with internal stakeholders and customers.\nFor our location in Zurich Kloten we are looking for 1. January 2027 or by appointment a dedicated personality as ICT System Engineer.\nYour role\n• Further development of customer environments on-premise and cloud environments\n• Operation, administration and further development of Citrix Virtual Apps and Desktops environments\n• Administration and operation of Microsoft 365, Azure and Windows 11\n• Intune and SCCM management for device and software control\n• Establishment and maintenance of server environments\n• 2nd/3rd level support incl. Incident and problem management\n• Support of Windows server services (AD, DHCP, GPO, Printservice)\n• Integration of new customer locations into the existing infrastructure\n• Collaboration in IT projects for the further development of the system landscape\n• Implementation of security policies and participation in the Pikettdienst\nYour profile\n• Completed computer science training or comparable qualification (e.g. HF, FH, Federal Professional ID card)\n• In-depth knowledge of Windows servers, clients, M365 and Azure\n• Experience running Citrix Virtual Apps and Desktops\n• Rapid comprehension and a high willingness to learn\n• Enjoyment of customer advice and professional appearance\n• Fluent German skills in word and writing (C1 level)\n• Readiness to work in dynamic environments\n• Certifications in the area of Citrix or Microsoft Azure are advantageous\nYour Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du betreust komplexe Microsoft- und Citrix-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unseren Standort Zürich Kloten suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Betrieb, Administration und Weiterentwicklung von Citrix Virtual Apps and Desktops Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Erfahrung im Betrieb von Citrix Virtual Apps and Desktops\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\n• Zertifizierungen im Bereich Citrix oder Microsoft Azure sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous superviserez des infrastructures clientes complexes de Microsoft et Citrix, assurant des opérations sûres, stables et efficaces. Vous apportez votre expertise au développement de nos systèmes informatiques et travaillez en étroite collaboration avec les intervenants internes et les clients.\nPour notre emplacement à Zurich Kloten nous cherchons 1. Janvier 2027 ou sur rendez-vous une personnalité dédiée en tant qu'ingénieur système TIC.\nVotre rôle\n• Poursuite du développement des environnements client sur site et cloud\n• Fonctionnement, administration et développement ultérieur des environnements Citrix Virtual Apps and Desktops\n• Administration et fonctionnement de Microsoft 365, Azure et Windows 11\n• Gestion Intune et SCCM pour le contrôle des appareils et logiciels\n• Création et maintenance d'environnements serveurs\n• Support 2ème/3ème niveau incl. Gestion des incidents et des problèmes\n• Prise en charge des services de serveur Windows (AD, DHCP, GPO, Printservice)\n• Intégration de nouveaux emplacements clients dans l'infrastructure existante\n• Collaboration à des projets informatiques pour le développement du paysage système\n• Mise en œuvre des politiques de sécurité et participation au Pikettdienst\nVotre profil\n• Formation en informatique terminée ou qualification comparable (p. ex. HF, FH, carte d'identité professionnelle fédérale)\n• Connaissance approfondie des serveurs Windows, clients, M365 et Azure\n• Expérience de fonctionnement de Citrix Virtual Apps and Desktops\n• Compréhension rapide et grande volonté d'apprendre\n• Appréciation des conseils clients et de l'apparence professionnelle\n• Compétences linguistiques en allemand (niveau C1)\n• Disponibilité au travail dans des environnements dynamiques\n• Les certifications dans le domaine de Citrix ou Microsoft Azure sont avantageuses\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-4754",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:22:50.624Z",
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://apply.refline.ch/215876/2512/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2512",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-07-23T22:07:23.364Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
           "unitText": "YEAR"
         }
       },

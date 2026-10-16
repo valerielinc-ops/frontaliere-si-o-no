@@ -1,6 +1,6 @@
 {
   "crawlerKey": "careers",
-  "assembledAt": "2026-10-15T21:20:56.494Z",
+  "assembledAt": "2026-10-16T09:26:40.863Z",
   "jobs": [
     {
       "id": "careers-6445b15a4260",
@@ -33,7 +33,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:52.201Z",
+      "crawledAt": "2026-10-16T09:26:34.091Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:52.200Z",
+      "crawledAt": "2026-10-16T09:26:34.090Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Management-&-QMQS%2C-40-100-BL/1447904133/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:20:52.199Z",
+      "crawledAt": "2026-10-16T09:26:34.087Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -205,7 +205,9 @@
       "requirementsByLocale": {},
       "datePosted": "",
       "postingDateSource": "unknown",
-      "firstSeenAt": "2026-10-15T09:26:19.897Z",
+      "previousSlugs": [
+        "praktikant-in-product-management-qm-qs-40-100-careers-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-product-management-qm-qs-40-100-careers-ch"
@@ -214,9 +216,7 @@
           "praktikant-in-product-management-qm-qs-40-100-careers-ch"
         ]
       },
-      "previousSlugs": [
-        "praktikant-in-product-management-qm-qs-40-100-careers-ch"
-      ],
+      "firstSeenAt": "2026-10-15T09:26:19.897Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
