@@ -844,6 +844,11 @@ function loadGraph(files, assets) {
   return graph;
 }
 
+const candidates = [...new Set(changed.filter((file) =>
+  file !== 'scripts/ci/run-related-tests.mjs'
+    && (!ignoredRe.test(file) || dataAssetRe.test(file))
+    && (sourceRe.test(file) || isRelatedAsset(file))
+    && !alwaysExcludedTests.has(file)))];
 const runnerChanged = changed.includes(runnerPath);
 const globalVitestConfigChanged = changed.some((file) => globalVitestConfigPaths.has(file));
 const fullSuiteRequired = globalVitestConfigChanged;
@@ -852,11 +857,6 @@ if (changedStatus !== 'complete') {
   stopWithoutFullSuite(`changed-paths status is ${changedStatus}`);
 }
 requireFullCheckoutForVerdict();
-const candidates = [...new Set(changed.filter((file) =>
-  file !== 'scripts/ci/run-related-tests.mjs'
-    && (!ignoredRe.test(file) || dataAssetRe.test(file))
-    && (sourceRe.test(file) || isRelatedAsset(file))
-    && !alwaysExcludedTests.has(file)))];
 const triggeredSourceTreeLints = sourceTreeLintsFor(changed);
 // Un diff senza candidati per il grafo esce qui solo se non rientra nemmeno nel
 // perimetro di un lint dell'albero dei sorgenti: altrimenti l'uscita anticipata
