@@ -42,6 +42,9 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  *   before enrichment. Neither a missing detail marker nor absent target text
  *   is a positive mismatch.
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {Array<{ postalCode: string, locality: string, canton: string }>} [umantisListingCantonOverrides]
+ *   Reviewed exact Umantis listing postcode/locality pairs used only to
+ *   disambiguate the canton; the shared Swiss geography resolver still validates them.
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
  * @property {'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path

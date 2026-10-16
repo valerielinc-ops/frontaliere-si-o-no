@@ -156,6 +156,37 @@ function locationCandidate(value = '') {
   };
 }
 
+/** @param {unknown} value */
+function normalizedOverrideLocality(value) {
+  return cleanLocation(String(value || ''))
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/**
+ * A small number of Umantis tenants publish a Swiss Post postcode whose
+ * locality is also registered in another canton (or use a special branch /
+ * PO-box postcode). Only a source-reviewed exact postcode + locality pair may
+ * supply the missing canton; the normal Swiss geography resolver still checks
+ * that the locality belongs to that canton before publication.
+ * @param {NonNullable<ReturnType<typeof locationCandidate>>} candidate
+ * @param {Array<{ postalCode?: string, locality?: string, canton?: string }>} overrides
+ */
+function reviewedListingCanton(candidate, overrides = []) {
+  const postalCode = String(candidate.postalCode || '').trim();
+  const locality = normalizedOverrideLocality(candidate.addressLocality);
+  if (!/^\d{4}$/.test(postalCode) || !locality || !Array.isArray(overrides)) return '';
+  const matches = overrides.filter((entry) =>
+    String(entry?.postalCode || '').trim() === postalCode
+      && normalizedOverrideLocality(entry?.locality) === locality
+      && /^[A-Z]{2}$/.test(String(entry?.canton || '').trim()));
+  const cantons = [...new Set(matches.map((entry) => String(entry.canton).trim()))];
+  return cantons.length === 1 ? cantons[0] : '';
+}
+
 /** @param {string} url */
 export function umantisVacancyIdentity(url = '') {
   try {
@@ -172,9 +203,10 @@ export function umantisVacancyIdentity(url = '') {
  * newer `column-value` metadata value are supported.
  * @param {string} html
  * @param {string} baseUrl
+ * @param {{ cantonOverrides?: Array<{ postalCode: string, locality: string, canton: string }> }} [options]
  * @returns {Map<string, ReturnType<typeof locationCandidate>>}
  */
-export function extractUmantisListingEvidence(html = '', baseUrl = '') {
+export function extractUmantisListingEvidence(html = '', baseUrl = '', { cantonOverrides = [] } = {}) {
   const source = String(html || '');
   const index = indexContainers(source);
   const rows = containersMatching(source, index, (tag) => tag.name === 'tr');
@@ -231,6 +263,9 @@ export function extractUmantisListingEvidence(html = '', baseUrl = '') {
       rawLocation = /(?:Standort|Arbeitsort|Lieu de travail|Location)\s*:\s*([^\n|]{2,80})/i.exec(structuredText(row))?.[1] || '';
     }
     const candidate = locationCandidate(rawLocation);
+    if (candidate && !candidate.addressRegion) {
+      candidate.addressRegion = reviewedListingCanton(candidate, cantonOverrides);
+    }
     if (vacancyId && candidate) evidence.set(vacancyId, candidate);
   }
   return evidence;

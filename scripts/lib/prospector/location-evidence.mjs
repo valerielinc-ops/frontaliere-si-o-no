@@ -500,10 +500,23 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
     const location = String(candidate?.location || '').trim();
     const country = String(candidate?.addressCountry || candidate?.country || '').trim();
     const region = String(candidate?.addressRegion || '').trim();
+    const regionCanton = normalizeSwissCantonCode(region);
+    const hasPostalAddressEvidence = Boolean(String(candidate?.postalCode || '').trim())
+      || /(?:^|\D)(?:CH[\s-]?)?\d{4}(?:\D|$)/.test(location);
+    const regionLocality = String(candidate?.addressLocality || stripLocationCodes(location))
+      .replace(/^\s*(?:CH[\s-]?)?\d{4}\s+/i, '')
+      .trim();
+    const regionIsCorroboratedSwiss = Boolean(regionCanton
+      && isKnownSwissMunicipalityInCanton(regionLocality, regionCanton, {
+        allowOfficialLocality: hasPostalAddressEvidence,
+      }));
     if (isExplicitlyForeign(location, country)
       || hasUncorroboratedForeignSubdivision(location)
-      || (region && !normalizeSwissCantonCode(region))
-      || isKnownForeignSubdivision(region)) {
+      || (region && !regionCanton)
+      // Codes such as AR/NE can name both a Swiss canton and a foreign
+      // subdivision. Keep the foreign veto unless the source locality proves
+      // that this structured region is the Swiss canton.
+      || (isKnownForeignSubdivision(region) && !regionIsCorroboratedSwiss)) {
       explicitlyForeign = true;
       continue;
     }
