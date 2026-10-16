@@ -1,7 +1,7 @@
 {
   "key": "riveneuve",
   "label": "Fondation Rive-Neuve",
-  "generatedAt": "2026-10-15T21:19:02.888Z",
+  "generatedAt": "2026-10-16T09:20:11.016Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8351,
-  "avgDurationMs": 8351,
+  "durationMs": 7804,
+  "avgDurationMs": 7804,
   "durationHistory": [
-    8351
+    7804
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:18:47.693Z",
+      "crawledAt": "2026-10-16T09:19:56.894Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:18:46.560Z",
+      "crawledAt": "2026-10-16T09:19:56.046Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:18:45.701Z",
+      "crawledAt": "2026-10-16T09:19:54.864Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:18:44.386Z",
+      "crawledAt": "2026-10-16T09:19:53.710Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -192,5 +192,5 @@
       }
     }
   ],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }

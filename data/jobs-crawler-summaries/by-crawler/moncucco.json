@@ -1,7 +1,7 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-10-15T21:19:16.196Z",
+  "generatedAt": "2026-10-16T09:20:44.103Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2978,
-  "avgDurationMs": 2978,
+  "durationMs": 2804,
+  "avgDurationMs": 2804,
   "durationHistory": [
-    2978
+    2804
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://www.moncucco.ch/capoclinica_chirurgia_viscerale.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-15T21:19:02.592Z",
+      "crawledAt": "2026-10-16T09:20:31.957Z",
       "firstSeenAt": "2026-09-25T14:43:35.632Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
+  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
 }
