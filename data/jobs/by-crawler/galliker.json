@@ -1,14 +1,14 @@
 {
   "crawlerKey": "galliker",
-  "assembledAt": "2026-10-16T09:11:53.727Z",
+  "assembledAt": "2026-10-16T21:16:17.798Z",
   "jobs": [
     {
       "id": "galliker-7b770570923a",
       "slug": "autotrasporto-ce-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "de": "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen",
         "it": "autotrasporto-ce-a-galliker-transport-ag-altishofen",
         "en": "temporary-chauffeur-ce-autotransporte-a-galliker-transport-ag-altishofen",
+        "de": "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen",
         "fr": "chauffeur-temporaire-ce-autotransporte-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
@@ -28,12 +28,13 @@
         "de": "Aushilfschauffeur CE Autotransporte (a)\nZur Verstärkung unseres Teams suchen wir motivierte Aushilfschauffeure im Bereich Autotransporte auf Abruf und in flexiblem Tageseinsätzen.\nAufgabengebiet\n\n• Transporte von Personenwagen und Nutzfahrzeugen mit modernen Galliker-Autotransportern\n• Zweitagestouren auf Linienverkehr von Schweiz nach Belgien mit einer Übernachtung\nAnforderungsprofil\n\n• Führerausweis CE\n• Erfahrung auf Zentralachsanhänger (Von Vorteil)\n• Leidenschaft am Fahren von längeren Strecken im Ausland (mehrheitlich Autobahn)\n• Nur Fahrkenntnisse erforderlich. Belad/ Entlad Autotransporter durch Galliker Personal.\n• Deutschkenntnisse von Vorteil\nAngebot\n\n• Spannender und abwechslungsreicher Arbeitsplatz mit viel Eigenverantwortung\n• Einwandfrei gewarteter Fuhrpark durch eigene LKW-Werkstatt\n• asa-anerkannte Weiterbildungsstätte für CZV\nChauffeusen und Chauffeure mit wenig Erfahrung im Transport von Autos sind herzlich willkommen und werden professionell ausgebildet.\nWir bieten dir eine abwechslungsreiche und interessante Tätigkeit in einem zukunftsorientierten und aufgeschlossenen Team.\nHaben wir dein Interesse geweckt? Dann freuen wir uns auf dein Bewerbungsdossier.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nPaolo Studer, Human Resources, Telefon: +41 62 748 82 02.",
         "fr": "Chauffeur temporaire CE Autotransporte (a)\nPour renforcer notre équipe, nous recherchons des chauffeurs auxiliaires motivés dans le domaine du transport automobile à la demande et dans des opérations quotidiennes flexibles.\nDomaine d ' activité\n\n• Transport de voitures particulières et de véhicules utilitaires avec des transporteurs Galliker modernes\n• Visites de deux jours sur les services réguliers de la Suisse à la Belgique avec une nuitée\nProfil des besoins\n\n• Permis de conduire CE\n• Expérience sur les remorques à essieu central (avantageuses)\n• Passion pour la conduite de plus longues distances à l'étranger (principalement autoroutière)\n• Seule une connaissance de la conduite est requise. Transporteur de voiture Belad/Entlad par le personnel Galliker.\n• La connaissance de l'allemand est avantageuse\nOffre\n\n• Un lieu de travail passionnant et varié avec beaucoup de responsabilités personnelles\n• Une flotte bien entretenue par son propre atelier de camionnage\n• établissement de formation reconnu pour la CZV\nLes chauffeurs et les chauffeurs peu expérimentés dans le transport des voitures sont les bienvenus et sont formés professionnellement.\nNous vous proposons un travail varié et intéressant dans une équipe orientée vers l'avenir et ouverte d'esprit.\nOn a eu votre intérêt ? Nous attendons avec impatience votre candidature.\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nPaolo Studer, Ressources humaines, téléphone: +41 62 748 82 02."
       },
+      "needsRetranslation": false,
       "location": "Altishofen",
       "canton": "LU",
       "url": "https://apply.refline.ch/878019/0465/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:47.095Z",
+      "crawledAt": "2026-10-16T21:16:12.022Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -54,14 +55,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0465",
+      "previousSlugs": [
+        "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen"
         ]
       },
-      "previousSlugs": [
-        "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:08.979Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -74,8 +76,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-23T23:38:08.979Z"
+      }
     },
     {
       "id": "galliker-3685a68ac3b6",
@@ -109,7 +110,7 @@
       "url": "https://apply.refline.ch/878019/0475/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:46.729Z",
+      "crawledAt": "2026-10-16T21:16:11.595Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -191,7 +192,7 @@
       "url": "https://apply.refline.ch/878019/0380/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:46.364Z",
+      "crawledAt": "2026-10-16T21:16:11.168Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -242,7 +243,7 @@
       "slug": "elettricisti-commerciali-a-galliker-transport-ag-altishofen-cdcf5a397a",
       "slugByLocale": {
         "it": "elettricisti-commerciali-a-galliker-transport-ag-altishofen-cdcf5a397a",
-        "en": "business-electricians-a-galliker-transport-ag-altishofen",
+        "en": "betriebselektriker-a-galliker-transport-ag-altishofen",
         "de": "betriebselektriker-a-galliker-altishofen",
         "fr": "electriciens-d-affaires-a-galliker-transport-ag-altishofen"
       },
@@ -268,7 +269,7 @@
       "url": "https://apply.refline.ch/878019/0382/pub/20/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:45.998Z",
+      "crawledAt": "2026-10-16T21:16:10.739Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -292,7 +293,7 @@
       "previousSlugs": [
         "betriebselektriker-a-galliker-altishofen",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
-        "betriebselektriker-a-galliker-transport-ag-altishofen"
+        "business-electricians-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -300,7 +301,7 @@
           "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
         ],
         "en": [
-          "betriebselektriker-a-galliker-transport-ag-altishofen"
+          "business-electricians-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:03.309Z",
@@ -349,7 +350,7 @@
       "url": "https://apply.refline.ch/878019/0474/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:45.633Z",
+      "crawledAt": "2026-10-16T21:16:10.311Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -417,7 +418,7 @@
       "url": "https://apply.refline.ch/878019/0150/pub/23/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:45.267Z",
+      "crawledAt": "2026-10-16T21:16:09.882Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -495,7 +496,7 @@
       "url": "https://apply.refline.ch/878019/0472/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:44.901Z",
+      "crawledAt": "2026-10-16T21:16:09.454Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -576,7 +577,7 @@
       "url": "https://apply.refline.ch/878019/0176/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:44.527Z",
+      "crawledAt": "2026-10-16T21:16:07.763Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -658,7 +659,7 @@
       "url": "https://apply.refline.ch/878019/0158/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:44.161Z",
+      "crawledAt": "2026-10-16T21:16:07.336Z",
       "addressLocality": "Möhlin",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -739,7 +740,7 @@
       "url": "https://apply.refline.ch/878019/0431/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:43.790Z",
+      "crawledAt": "2026-10-16T21:16:06.906Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -815,7 +816,7 @@
       "url": "https://apply.refline.ch/878019/0471/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:43.425Z",
+      "crawledAt": "2026-10-16T21:16:06.478Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -891,7 +892,7 @@
       "url": "https://apply.refline.ch/878019/0468/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:43.054Z",
+      "crawledAt": "2026-10-16T21:16:06.049Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -967,7 +968,7 @@
       "url": "https://apply.refline.ch/878019/0469/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:42.690Z",
+      "crawledAt": "2026-10-16T21:16:05.623Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1043,7 +1044,7 @@
       "url": "https://apply.refline.ch/878019/0225/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:42.326Z",
+      "crawledAt": "2026-10-16T21:16:05.186Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1118,7 +1119,7 @@
       "url": "https://apply.refline.ch/878019/0417/pub/7/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:41.961Z",
+      "crawledAt": "2026-10-16T21:16:04.760Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1207,7 +1208,7 @@
       "url": "https://apply.refline.ch/878019/0414/pub/9/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:41.598Z",
+      "crawledAt": "2026-10-16T21:16:04.331Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1282,7 +1283,7 @@
       "url": "https://apply.refline.ch/878019/0403/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:41.233Z",
+      "crawledAt": "2026-10-16T21:16:03.879Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1389,7 +1390,7 @@
       "url": "https://apply.refline.ch/878019/0046/pub/25/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:40.869Z",
+      "crawledAt": "2026-10-16T21:16:03.450Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1465,7 +1466,7 @@
       "url": "https://apply.refline.ch/878019/0451/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:40.502Z",
+      "crawledAt": "2026-10-16T21:16:03.017Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1551,7 +1552,7 @@
       "url": "https://apply.refline.ch/878019/0452/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:40.137Z",
+      "crawledAt": "2026-10-16T21:16:02.589Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1626,7 +1627,7 @@
       "url": "https://apply.refline.ch/878019/0470/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:39.772Z",
+      "crawledAt": "2026-10-16T21:16:02.160Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1701,7 +1702,7 @@
       "url": "https://apply.refline.ch/878019/0178/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:39.408Z",
+      "crawledAt": "2026-10-16T21:16:01.733Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1778,7 +1779,7 @@
       "url": "https://apply.refline.ch/878019/0466/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:38.963Z",
+      "crawledAt": "2026-10-16T21:16:01.305Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1855,7 +1856,7 @@
       "url": "https://apply.refline.ch/878019/0454/pub/5/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:37.915Z",
+      "crawledAt": "2026-10-16T21:16:00.877Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1956,7 +1957,7 @@
         "it": "pw-a-galliker-transport-ag-altishofen",
         "en": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
         "de": "carrosseriespengler-pw-a-galliker-altishofen",
-        "fr": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
+        "fr": "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -1980,7 +1981,7 @@
       "url": "https://apply.refline.ch/878019/0126/pub/32/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:37.550Z",
+      "crawledAt": "2026-10-16T21:16:00.449Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2006,8 +2007,7 @@
         "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen",
         "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
         "carrossier-pw-a-galliker-transport-ag-altishofen",
-        "carrosseriespengler-pw-a-galliker-altishofen",
-        "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+        "carrosseriespengler-pw-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2021,7 +2021,7 @@
         "fr": [
           "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
           "carrossier-pw-a-galliker-transport-ag-altishofen",
-          "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+          "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:04.864Z",
@@ -2071,7 +2071,7 @@
       "url": "https://apply.refline.ch/878019/0032/pub/27/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:37.185Z",
+      "crawledAt": "2026-10-16T21:16:00.020Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2183,7 +2183,7 @@
       "url": "https://apply.refline.ch/878019/0407/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:36.819Z",
+      "crawledAt": "2026-10-16T21:15:59.594Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2275,7 +2275,7 @@
       "url": "https://apply.refline.ch/878019/0446/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:36.454Z",
+      "crawledAt": "2026-10-16T21:15:57.784Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2365,7 +2365,7 @@
       "url": "https://apply.refline.ch/878019/0219/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:36.089Z",
+      "crawledAt": "2026-10-16T21:15:57.357Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2441,7 +2441,7 @@
       "url": "https://apply.refline.ch/878019/0376/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:35.725Z",
+      "crawledAt": "2026-10-16T21:15:56.928Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2508,7 +2508,7 @@
       "url": "https://apply.refline.ch/878019/0264/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:35.352Z",
+      "crawledAt": "2026-10-16T21:15:56.499Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2603,7 +2603,7 @@
       "url": "https://apply.refline.ch/878019/0409/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:34.988Z",
+      "crawledAt": "2026-10-16T21:15:56.070Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2678,7 +2678,7 @@
       "url": "https://apply.refline.ch/878019/0106/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:34.624Z",
+      "crawledAt": "2026-10-16T21:15:55.641Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2762,7 +2762,7 @@
       "url": "https://apply.refline.ch/878019/0154/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:34.260Z",
+      "crawledAt": "2026-10-16T21:15:55.213Z",
       "addressLocality": "Staad",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2852,7 +2852,7 @@
       "url": "https://apply.refline.ch/878019/0459/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:33.896Z",
+      "crawledAt": "2026-10-16T21:15:54.785Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2928,7 +2928,7 @@
       "url": "https://apply.refline.ch/878019/0268/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:33.530Z",
+      "crawledAt": "2026-10-16T21:15:54.357Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2979,7 +2979,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logistique-a-galliker-transport-ag-altishofen"
+        "fr": "logisticien-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3003,7 +3003,7 @@
       "url": "https://apply.refline.ch/878019/0056/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:33.163Z",
+      "crawledAt": "2026-10-16T21:15:53.928Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3027,7 +3027,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logisticien-a-galliker-transport-ag-altishofen"
+        "logistique-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3039,7 +3039,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logisticien-a-galliker-transport-ag-altishofen"
+          "logistique-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3089,7 +3089,7 @@
       "url": "https://apply.refline.ch/878019/0458/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:32.799Z",
+      "crawledAt": "2026-10-16T21:15:53.500Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3167,7 +3167,7 @@
       "url": "https://apply.refline.ch/878019/0445/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:32.430Z",
+      "crawledAt": "2026-10-16T21:15:53.063Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3243,7 +3243,7 @@
       "url": "https://apply.refline.ch/878019/0457/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:32.061Z",
+      "crawledAt": "2026-10-16T21:15:52.631Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3294,7 +3294,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3318,7 +3318,7 @@
       "url": "https://apply.refline.ch/878019/0456/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:31.676Z",
+      "crawledAt": "2026-10-16T21:15:52.202Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3341,14 +3341,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "soins-de-sante-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+          "soins-de-sante-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",
@@ -3398,7 +3398,7 @@
       "url": "https://apply.refline.ch/878019/0257/pub/7/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:31.310Z",
+      "crawledAt": "2026-10-16T21:15:51.775Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3479,7 +3479,7 @@
       "url": "https://apply.refline.ch/878019/0231/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:30.944Z",
+      "crawledAt": "2026-10-16T21:15:51.345Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3557,7 +3557,7 @@
       "url": "https://apply.refline.ch/878019/0039/pub/55/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:30.576Z",
+      "crawledAt": "2026-10-16T21:15:50.915Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3633,7 +3633,7 @@
       "url": "https://apply.refline.ch/878019/0042/pub/42/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:30.208Z",
+      "crawledAt": "2026-10-16T21:15:50.485Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3709,7 +3709,7 @@
       "url": "https://apply.refline.ch/878019/0043/pub/38/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:11:29.840Z",
+      "crawledAt": "2026-10-16T21:15:50.054Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3827,161 +3827,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:08.979Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "galliker-cffe0c7051d7",
-      "slug": "collaboratore-trice-technischer-unterhalt-logistikanlagen-a-galliker-transport-ag-altishofen",
-      "slugByLocale": {
-        "it": "collaboratore-trice-technischer-unterhalt-logistikanlagen-a-galliker-transport-ag-altishofen",
-        "en": "technical-maintenance-employees-logistics-facilities-a-galliker-transport-ag-altishofen",
-        "de": "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen",
-        "fr": "employes-de-maintenance-technique-installations-logistiques-a-galliker-transport-ag-altishofen"
-      },
-      "company": "Galliker Transport AG",
-      "companyKey": "galliker",
-      "companyDomain": "galliker.com",
-      "title": "Mitarbeiter technischer Unterhalt – Logistikanlagen (a)",
-      "titleByLocale": {
-        "it": "Collaboratore/trice technischer Unterhalt – Logistikanlagen (a)",
-        "en": "Technical maintenance employees – logistics facilities (a)",
-        "de": "Mitarbeiter technischer Unterhalt – Logistikanlagen (a)",
-        "fr": "Employés de maintenance technique – installations logistiques (a)"
-      },
-      "description": "Mitarbeiter technischer Unterhalt – Logistikanlagen (a)\n Die Galliker Transport AG konzentriert sich als national und international ausgerichtetes Transport- und Logistik-Unternehmen auf seine Kernbereiche Car, Cargo sowie Food Logistics. Der Logistikpark Altishofen LU ist der Dreh- und Angelpunkt des nationalen und internationalen Galliker-Netzwerks. Wir bieten hier für unsere Kunden umfassende Lager-, Kommissionier- und Konfektionier- Dienstleistungen an.\n In diversen Logistikcentern befinden sich Logistikanlagen wie Palettenlifte, automatische Hochregallager, Fördertechniken usw…\n Zur Ergänzung des technischen-Teams welches für den Unterhalt, Wartung und Support der Logistikanlagen verantwortlich ist suchen wir per sofort oder nach Vereinbarung einen Mitarbeiter / eine Mitarbeiterin für den technischen Unterhalt der Logistikanlagen.\n Aufgabengebiet\n\n• mitwirken bei der Gewährleistung und Sicherstellung einer optimalen Funktionstüchtigkeit von Förderanlagen, Hebe- oder Toranlagen der Automatiklager\n• ausführen von Revisions- und Reparaturarbeiten\n• durchführen von Wartungsarbeiten an Lager- und Förderanlagen\n• beheben von Störungen, Pannen, Betriebsunterbrüchen\n• mitwirken beim regelmässigen Pikettdienst (alle 4-8 Wochen)\n• betreuen/bedienen der dazugehörigen Systeme (Lagerverwaltung, Materialflussrechner, Visualisierungen, usw.)\n Anforderungsprofil\n\n• Grundausbildung oder fundierte Erfahrung im Bereich Elektrik / Elektromechanik\n• Gute EDV-Anwenderkenntnisse (Office Programme, ev. bereits Kenntnisse mit Materialfluss-/ und Lagerverwaltungssystemen)\n• Kenntnisse im Bereich Fördertechnik und Materialflusssysteme von Vorteil\n• gutes technisches Verständnis\n• Bewilligung Art. 15 NIV oder höher vorhanden, oder die Bereitschaft diese zu absolvieren\n• selbständig, teamfähig, ausgeglichen, hilfsbereit und flexibel\n Angebot\n\n• top moderne Infrastruktur\n• ein vielfältiges, abwechslungsreiches und interessantes Aufgabengebiet\n• moderne Pausen- / Kantinenbereiche\n• interne sowie externe Weiterbildungsmöglichkeiten\n Das Aufgabengebiet umfasst Tätigkeiten im elektrischen, mechanischen sowie systemtechnischen Bereich.\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nElisha Affentranger, Human Resources, Telefon: +41 62 748 80 70.",
-      "descriptionByLocale": {
-        "it": "Dipendenti di manutenzione tecnica – strutture logistiche (a)\nIn qualità di società di trasporto e logistica a livello nazionale e internazionale, Galliker Transport AG si concentra sulle aree centrali della logistica dell'automobile, del carico e del cibo. L'Altishofen LU Logistics Park è il fulcro della rete Galliker nazionale ed internazionale. Offriamo servizi di storage, prelievo e imballaggio completi per i nostri clienti.\nIn vari centri logistici si trovano strutture logistiche come ascensori per pallet, magazzini automatici, tecniche di trasporto, ecc...\nPer completare il team tecnico responsabile per la manutenzione, la manutenzione e il supporto delle strutture logistiche, stiamo cercando un dipendente per la manutenzione tecnica delle strutture logistiche immediatamente o di accordo.\nSettore\n\n• assistenza per garantire e garantire la massima funzionalità dei sistemi di trasporto, sollevamento o porta dei cuscinetti automatici\n• Eseguire i lavori di ispezione e riparazione\n• Eseguire lavori di manutenzione su attrezzature di stoccaggio e trasporto\n• Risolvere malfunzionamenti, guasti, interruzioni operative\n• Partecipa al pikettdienst regolare (ogni 4-8 settimane)\n• Mantenere/operare i sistemi associati (gestione della casa, calcolatore del flusso materiale, visualizzazioni, ecc.)\nProfilo di richiesta\n\n• Formazione di base o esperienza approfondita nel campo dell'elettromeccanica\n• Buona conoscenza degli utenti IT (programmi di ufficio, possibilmente già conoscenza con i sistemi di gestione del flusso materiale e del magazzino)\n• La conoscenza della tecnologia di trasporto e dei sistemi di flusso dei materiali è vantaggiosa\n• Buona comprensione tecnica\n• Approvazione Art. 15 NIV o superiore, o la volontà di completarlo\n• indipendente, capace di lavoro di squadra, equilibrato, disponibile e flessibile\nOfferta\n\n• infrastruttura superiore moderna\n• un'area di responsabilità diversa, varia e interessante\n• Moderne aree di pausa / mensa\n• opportunità di formazione interna ed esterna\nL'area di responsabilità comprende attività nel settore dell'ingegneria elettrica, meccanica e sistemistica.\nAbbiamo avuto il tuo interesse?\nAttendiamo con ansia la vostra applicazione.\nElisha Affentranger, Risorse Umane, telefono: +41 62 748 80 70.",
-        "en": "Technical maintenance employees – logistics facilities (a)\nAs a nationally and internationally oriented transport and logistics company, Galliker Transport AG concentrates on its core areas of car, cargo and food logistics. The Altishofen LU Logistics Park is the hub of the national and international Galliker network. We offer comprehensive storage, picking and packaging services for our customers.\nIn various logistics centers are located logistics facilities such as pallet lifts, automatic high-bay warehouses, conveying techniques, etc. ...\nTo complement the technical team responsible for the maintenance, maintenance and support of the logistics facilities, we are looking for an employee for the technical maintenance of the logistics facilities immediately or by agreement.\nTask area\n\n• assist in ensuring and ensuring optimum functionality of conveyor systems, lifting or door systems of automatic bearings\n• Carrying out inspection and repair work\n• Carrying out maintenance work on storage and conveying equipment\n• Resolving malfunctions, breakdowns, operational interruptions\n• Participate in the regular pikettdienst (every 4-8 weeks)\n• Maintain/operate the associated systems (warehouse management, material flow calculator, visualizations, etc.)\nRequirement profile\n\n• Basic training or in-depth experience in the field of electrical / electromechanics\n• Good IT user knowledge (office programs, possibly already knowledge with material flow and warehouse management systems)\n• Knowledge of conveying technology and material flow systems is advantageous\n• Good technical understanding\n• Approval Art. 15 NIV or higher, or the willingness to complete it\n• independent, capable of teamwork, balanced, helpful and flexible\nOffer\n\n• top modern infrastructure\n• a diverse, varied and interesting area of responsibility\n• Modern break/canteen areas\n• internal and external training opportunities\nThe area of responsibility includes activities in the electrical, mechanical and system engineering sectors.\nDid we get your interest?\nWe look forward to your application.\nElisha Affentranger, Human Resources, telephone: +41 62 748 80 70.",
-        "de": "Mitarbeiter technischer Unterhalt – Logistikanlagen (a)\nDie Galliker Transport AG konzentriert sich als national und international ausgerichtetes Transport- und Logistik-Unternehmen auf seine Kernbereiche Car, Cargo sowie Food Logistics. Der Logistikpark Altishofen LU ist der Dreh- und Angelpunkt des nationalen und internationalen Galliker-Netzwerks. Wir bieten hier für unsere Kunden umfassende Lager-, Kommissionier- und Konfektionier- Dienstleistungen an.\nIn diversen Logistikcentern befinden sich Logistikanlagen wie Palettenlifte, automatische Hochregallager, Fördertechniken usw…\nZur Ergänzung des technischen-Teams welches für den Unterhalt, Wartung und Support der Logistikanlagen verantwortlich ist suchen wir per sofort oder nach Vereinbarung einen Mitarbeiter / eine Mitarbeiterin für den technischen Unterhalt der Logistikanlagen.\nAufgabengebiet\n\n• mitwirken bei der Gewährleistung und Sicherstellung einer optimalen Funktionstüchtigkeit von Förderanlagen, Hebe- oder Toranlagen der Automatiklager\n• ausführen von Revisions- und Reparaturarbeiten\n• durchführen von Wartungsarbeiten an Lager- und Förderanlagen\n• beheben von Störungen, Pannen, Betriebsunterbrüchen\n• mitwirken beim regelmässigen Pikettdienst (alle 4-8 Wochen)\n• betreuen/bedienen der dazugehörigen Systeme (Lagerverwaltung, Materialflussrechner, Visualisierungen, usw.)\nAnforderungsprofil\n\n• Grundausbildung oder fundierte Erfahrung im Bereich Elektrik / Elektromechanik\n• Gute EDV-Anwenderkenntnisse (Office Programme, ev. bereits Kenntnisse mit Materialfluss-/ und Lagerverwaltungssystemen)\n• Kenntnisse im Bereich Fördertechnik und Materialflusssysteme von Vorteil\n• gutes technisches Verständnis\n• Bewilligung Art. 15 NIV oder höher vorhanden, oder die Bereitschaft diese zu absolvieren\n• selbständig, teamfähig, ausgeglichen, hilfsbereit und flexibel\nAngebot\n\n• top moderne Infrastruktur\n• ein vielfältiges, abwechslungsreiches und interessantes Aufgabengebiet\n• moderne Pausen- / Kantinenbereiche\n• interne sowie externe Weiterbildungsmöglichkeiten\nDas Aufgabengebiet umfasst Tätigkeiten im elektrischen, mechanischen sowie systemtechnischen Bereich.\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nElisha Affentranger, Human Resources, Telefon: +41 62 748 80 70.",
-        "fr": "Employés de maintenance technique – installations logistiques (a)\nEn tant qu'entreprise nationale et internationale de transport et de logistique, Galliker Transport AG se concentre sur ses principaux domaines de la logistique automobile, de la logistique du fret et de l'alimentation. Le parc logistique Altishofen LU est le centre du réseau Galliker national et international. Nous offrons des services complets de stockage, de cueillette et d'emballage pour nos clients.\nDans différents centres logistiques sont situés des installations logistiques telles que des ascenseurs à palettes, des entrepôts automatiques à grande baie, des techniques de transport, etc ...\nPour compléter l'équipe technique responsable de l'entretien, de l'entretien et du soutien des installations logistiques, nous recherchons un employé pour l'entretien technique des installations logistiques immédiatement ou par accord.\nDomaine d ' activité\n\n• aider à assurer et assurer la fonctionnalité optimale des systèmes de convoyeur, de levage ou de porte des roulements automatiques\n• Travaux d'inspection et de réparation\n• Exécution des travaux d ' entretien du matériel de stockage et de transport\n• Résolution des dysfonctionnements, pannes, interruptions opérationnelles\n• Participer au pikettdienst régulier (toutes les 4-8 semaines)\n• Maintenir et exploiter les systèmes associés (gestion des entrepôts, calculateur de flux de matériaux, visualisations, etc.)\nProfil des besoins\n\n• Formation de base ou expérience approfondie dans le domaine de l'électromécanique\n• Bonne connaissance de l'utilisateur de la TI (programmes de bureau, peut-être déjà connaissance des systèmes de gestion des flux de matériel et des entrepôts)\n• La connaissance de la technologie de transport et des systèmes de flux de matériaux est avantageuse\n• Bonne compréhension technique\n• Approbation Art. 15 NIV ou plus, ou la volonté de l'achever\n• indépendant, capable de travailler en équipe, équilibré, utile et flexible\nOffre\n\n• haute infrastructure moderne\n• un domaine de responsabilité diversifié, varié et intéressant\n• Zones modernes de pause/cantine\n• possibilités de formation interne et externe\nLe domaine de responsabilité comprend des activités dans les secteurs de l'électricité, de la mécanique et de l'ingénierie des systèmes.\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nElisha Affentranger, Ressources humaines, téléphone: +41 62 748 80 70."
-      },
-      "needsRetranslation": false,
-      "location": "Altishofen",
-      "canton": "LU",
-      "url": "https://apply.refline.ch/878019/0439/pub/6/index.html",
-      "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:17:25.231Z",
-      "addressLocality": "Altishofen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6246",
-      "streetAddress": "Kantonsstrasse 2",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Logistica / Trasporti",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-30T14:28:17.607990+00:00",
-      "postedDate": "2026-06-30T14:28:17.607990+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/878019/0439/pub/6/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0439",
-      "previousSlugs": [
-        "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:31:20.423Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "galliker-1f7cb10e655e",
-      "slug": "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
-      "slugByLocale": {
-        "it": "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
-        "en": "betriebselektriker-a-galliker-transport-ag-altishofen",
-        "de": "betriebselektriker-a-galliker-altishofen",
-        "fr": "electriciens-d-affaires-a-galliker-transport-ag-altishofen"
-      },
-      "company": "Galliker Transport AG",
-      "companyKey": "galliker",
-      "companyDomain": "galliker.com",
-      "title": "Betriebselektriker (a)",
-      "titleByLocale": {
-        "it": "Elettricisti commerciali (a)",
-        "en": "Business electricians (a)",
-        "de": "Betriebselektriker (a)",
-        "fr": "Électriciens d'affaires a)"
-      },
-      "description": "Betriebselektriker (a)\n Als führendes Transportunternehmen setzen wir auf Qualität, Zuverlässigkeit und Innovation in all unseren Dienstleistungen. Dies widerspiegelt sich auch in unseren vielfältigen Logistikbauten, -gewerken und Gebäudetechnikanlagen. Diese werden durch eine zentrale Abteilung am Standort Altishofen geplant, überwacht und gesteuert. Zur Verstärkung unseres Teams in der Betriebstechnik suchen wir dich als Betriebselektriker (a).\n Aufgabengebiet\n\n• I nstandhaltung und Wartung von elektrischen und mechanischen Einrichtungen in den Bereichen Gebäudehülle, Heizung, Lüftung, Klima, Kälte und Fördertechnik\n• I nstandhaltung der wachsenden E-Mobility Infrastruktur\n• Beheben von auftretenden Störungen\n• Bedienen und Betreuen des modernen Gebäude leitsystems\n• Durchführen von einfachen Montage- und Revisionsarbeiten\n• Selbständiges Umsetzen von kleineren Projekten\n• Zusammenarbeiten mit Drittdienstleistern\n Anforderungsprofil\n\n• Grundausbildung als Elektromonteur EFZ / Elektroinstallateur EFZ\n• Kenntnisse der Mess-, Steuer- und Regeltechnik sind von Vorteil\n• Erfahrung in Erstprüfungen nach NIN\n• Mindestens 3 Jahre praktische Berufserfahrung\n• Erfahrung als PC-Anwender\n• Bereitschaft für alternierenden Pikettdienst\n• Eigeninitiative, teamorientierte und vertrauenswürdige Persönlichkeit\n Angebot\n\n• Ein cooles, schlagkräftiges, motiviertes, kollegiales Betriebstechnikteam\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Topmoderne Infrastrukturen mit eigenem Servicefahrzeug\n• Abwechslungsreiches, breites Einsatzgebiet in der Welt von Transport und Logistik\n• Innovative Bauprojekte mit vielen neuen Anlagen im Bereich alternativer, nachhaltiger Energieträger\n Haben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 82 03.",
-      "descriptionByLocale": {
-        "it": "Elettricisti commerciali (a)\nCome azienda di trasporto leader, ci concentriamo sulla qualità, l'affidabilità e l'innovazione in tutti i nostri servizi. Questo si riflette anche nei nostri diversi edifici logistici, strutture e sistemi di tecnologia di costruzione. Questi sono progettati, monitorati e controllati da un dipartimento centrale del sito Altishofen. Per rafforzare il nostro team nell'ingegneria operativa, ti stiamo cercando come elettricista aziendale (a).\nSettore\n\n• Manutenzione e manutenzione di apparecchiature elettriche e meccaniche per la costruzione di buste, riscaldamento, ventilazione, aria condizionata, refrigerazione e trasporto attrezzature\n• Manutenzione della crescente infrastruttura di e-mobility\n• Risolvere gli incidenti\n• Funzionamento e manutenzione del moderno sistema di controllo degli edifici\n• Eseguire semplici lavori di assemblaggio e ispezione\n• Realizzazione indipendente di piccoli progetti\n• Cooperazione con fornitori di servizi terzi\nProfilo di richiesta\n\n• Formazione di base come installatore elettrico EFZ / installatore elettrico EFZ\n• La conoscenza della tecnologia di misura, controllo e regolazione è un vantaggio\n• Esperienza negli esami iniziali dopo NIN\n• Almeno 3 anni di esperienza professionale pratica\n• Esperienza come utente del PC\n• Prontezza per la cura alternativa\n• Auto-iniziativa, personalità orientata al team e affidabile\nOfferta\n\n• Un team di ingegneria operativa cool, potente, motivato e collaborativo\n• Serious, conoscenza completa con l'emozionante area di attività\n• Infrastrutture all'avanguardia con il proprio veicolo di servizio\n• Ampia applicazione nel mondo dei trasporti e della logistica\n• Progetti di costruzione innovativi con molti nuovi impianti nel settore delle fonti energetiche alternative e sostenibili\nAbbiamo avuto il tuo interesse?\nAttendiamo con ansia la vostra applicazione.\nChristoph Jeannerat, Risorse Umane, telefono: +41 62 748 82 03.",
-        "en": "Business electricians (a)\nAs a leading transport company, we focus on quality, reliability and innovation in all our services. This is also reflected in our diverse logistics buildings, structures and building technology systems. These are planned, monitored and controlled by a central department at the Altishofen site. To strengthen our team in operational engineering, we are looking for you as a company electrician (a).\nTask area\n\n• Maintenance and maintenance of electrical and mechanical equipment for building envelope, heating, ventilation, air conditioning, refrigeration and conveying equipment\n• Maintenance of the growing e-mobility infrastructure\n• Resolving incidents\n• Operation and maintenance of the modern building control system\n• Performing simple assembly and inspection work\n• Independent implementation of smaller projects\n• Cooperation with third-party service providers\nRequirement profile\n\n• Basic training as an electrical installer EFZ / electrical installer EFZ\n• Knowledge of measurement, control and regulation technology is an advantage\n• Experience in initial examinations after NIN\n• At least 3 years of practical professional experience\n• Experience as a PC user\n• Readiness for alternate care\n• Self-initiative, team-oriented and trustworthy personality\nOffer\n\n• A cool, powerful, motivated, collaborative operational engineering team\n• Serious, comprehensive familiarization with the exciting task area\n• State-of-the-art infrastructure with its own service vehicle\n• Varied, broad application in the world of transport and logistics\n• Innovative construction projects with many new plants in the area of alternative, sustainable energy sources\nDid we get your interest?\nWe look forward to your application.\nChristoph Jeannerat, Human Resources, telephone: +41 62 748 82 03.",
-        "de": "Betriebselektriker (a)\nAls führendes Transportunternehmen setzen wir auf Qualität, Zuverlässigkeit und Innovation in all unseren Dienstleistungen. Dies widerspiegelt sich auch in unseren vielfältigen Logistikbauten, -gewerken und Gebäudetechnikanlagen. Diese werden durch eine zentrale Abteilung am Standort Altishofen geplant, überwacht und gesteuert. Zur Verstärkung unseres Teams in der Betriebstechnik suchen wir dich als Betriebselektriker (a).\nAufgabengebiet\n\n• I nstandhaltung und Wartung von elektrischen und mechanischen Einrichtungen in den Bereichen Gebäudehülle, Heizung, Lüftung, Klima, Kälte und Fördertechnik\n• I nstandhaltung der wachsenden E-Mobility Infrastruktur\n• Beheben von auftretenden Störungen\n• Bedienen und Betreuen des modernen Gebäude leitsystems\n• Durchführen von einfachen Montage- und Revisionsarbeiten\n• Selbständiges Umsetzen von kleineren Projekten\n• Zusammenarbeiten mit Drittdienstleistern\nAnforderungsprofil\n\n• Grundausbildung als Elektromonteur EFZ / Elektroinstallateur EFZ\n• Kenntnisse der Mess-, Steuer- und Regeltechnik sind von Vorteil\n• Erfahrung in Erstprüfungen nach NIN\n• Mindestens 3 Jahre praktische Berufserfahrung\n• Erfahrung als PC-Anwender\n• Bereitschaft für alternierenden Pikettdienst\n• Eigeninitiative, teamorientierte und vertrauenswürdige Persönlichkeit\nAngebot\n\n• Ein cooles, schlagkräftiges, motiviertes, kollegiales Betriebstechnikteam\n• Seriöse, umfangreiche Einarbeitung in das spannende Aufgabengebiet\n• Topmoderne Infrastrukturen mit eigenem Servicefahrzeug\n• Abwechslungsreiches, breites Einsatzgebiet in der Welt von Transport und Logistik\n• Innovative Bauprojekte mit vielen neuen Anlagen im Bereich alternativer, nachhaltiger Energieträger\nHaben wir dein Interesse geweckt?\nDann freuen wir uns auf dein Bewerbungsdossier.\nChristoph Jeannerat, Human Resources, Telefon: +41 62 748 82 03.",
-        "fr": "Électriciens d'affaires a)\nEn tant que société de transport leader, nous nous concentrons sur la qualité, la fiabilité et l'innovation dans tous nos services. Cela se reflète également dans nos divers bâtiments logistiques, structures et systèmes technologiques. Elles sont planifiées, surveillées et contrôlées par un service central du site d'Altishofen. Pour renforcer notre équipe en ingénierie opérationnelle, nous vous recherchons comme électricien d'entreprise (a).\nDomaine d ' activité\n\n• Entretien et entretien des équipements électriques et mécaniques pour enveloppes, chauffage, ventilation, climatisation, réfrigération et transport\n• Maintenance de l'infrastructure croissante de mobilité électronique\n• Résolution des incidents\n• Fonctionnement et entretien du système moderne de contrôle des bâtiments\n• Effectuer des travaux simples de montage et d'inspection\n• Mise en œuvre indépendante de petits projets\n• Coopération avec des fournisseurs de services tiers\nProfil des besoins\n\n• Formation de base comme installateur électrique EFZ / installateur électrique EFZ\n• La connaissance de la technologie de mesure, de contrôle et de régulation est un avantage\n• Expérience des examens initiaux après le NIN\n• Au moins 3 ans d'expérience professionnelle pratique\n• Expérience en tant qu'utilisateur PC\n• Préparation aux soins alternatifs\n• Personnalité auto-initiative, axée sur l'équipe et digne de confiance\nOffre\n\n• Une équipe d'ingénierie opérationnelle cool, puissante, motivée et collaborative\n• Connaissance sérieuse et complète du domaine de travail passionnant\n• Infrastructure de pointe avec son propre véhicule de service\n• Variée, large application dans le monde des transports et de la logistique\n• Projets de construction innovants avec de nombreuses nouvelles installations dans le domaine des sources d'énergie alternatives et durables\nOn a eu votre intérêt ?\nNous attendons avec impatience votre candidature.\nChristoph Jeannerat, Ressources humaines, téléphone: +41 62 748 82 03."
-      },
-      "location": "Altishofen",
-      "canton": "LU",
-      "url": "https://apply.refline.ch/878019/0382/pub/19/index.html",
-      "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:17:23.159Z",
-      "addressLocality": "Altishofen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6246",
-      "streetAddress": "Kantonsstrasse 2",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Logistica / Trasporti",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-01-13T09:45:00.182840+00:00",
-      "postedDate": "2026-01-13T09:45:00.182840+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/878019/0382/pub/19/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0382",
-      "previousSlugs": [
-        "betriebselektriker-a-galliker-altishofen",
-        "elettricisti-commerciali-a-galliker-transport-ag-altishofen-d6afe50992"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebselektriker-a-galliker-altishofen",
-          "elettricisti-commerciali-a-galliker-transport-ag-altishofen-d6afe50992"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:38:03.309Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
