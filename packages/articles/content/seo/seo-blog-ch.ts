@@ -106262,6 +106262,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tre-milioni-lettere-digitali-posta': {
+    title: 'Tre milioni di lettere digitali in sei mesi | Frontaliere Ticino',
+    description: 'La Posta Svizzera presenta il primo bilancio intermedio della lettera digitale: sette milioni di invii e 960\'000 account aperti in sei mesi. Novità',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, lettere, digitali, mesi',
+    ogTitle: 'Posta Svizzera: 7 milioni di invii digitali in 6 mesi',
+    ogDescription: 'La Posta ha comunicato i primi risultati della lettera digitale: sette milioni di invii complessivi e tre milioni di lettere digitali in sei mesi. Con 960\'000 account attivi, il servizio si evolve con l\'introduzione della firma elettronica',
+    canonicalPath: '/articoli-svizzera/tre-milioni-lettere-digitali-posta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre milioni di lettere digitali in sei mesi",
+      "description": "La Posta Svizzera presenta il primo bilancio intermedio della lettera digitale: sette milioni di invii e 960'000 account aperti in sei mesi. Novità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tre-milioni-lettere-digitali-posta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano svizzero con elementi digitali che simboleggiano la comunicazione moderna della Posta"
+      },
+      "datePublished": "2026-10-16T07:08:57+00:00",
+      "dateModified": "2026-10-16T07:08:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tre-milioni-lettere-digitali-posta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

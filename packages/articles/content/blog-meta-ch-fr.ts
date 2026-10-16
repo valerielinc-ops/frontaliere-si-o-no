@@ -8414,6 +8414,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fisco-zurigo-tre-livelli.title': 'Fiscalité à Zurich : les trois niveaux et son fonctionnement',
     'blog.article.fisco-zurigo-tre-livelli.excerpt': 'Le système fiscal suisse s’articule autour de trois niveaux : fédéral, cantonal et communal.',
     'blog.article.fisco-zurigo-tre-livelli.imageAlt': 'Aperçu d\'un paysage suisse symbolisant la complexité du système fiscal à trois niveaux, en référence à Zurich.',
+    'blog.article.tre-milioni-lettere-digitali-posta.title': 'Trois millions de lettres numériques en six mois',
+    'blog.article.tre-milioni-lettere-digitali-posta.excerpt': 'La Posta a présenté le premier bilan intermédiaire de la lettre numérique, enregistrant sept millions d\'envois numériques en six mois, dont trois millions étaient des lettres.',
+    'blog.article.tre-milioni-lettere-digitali-posta.imageAlt': 'Paysage urbain suisse avec des éléments numériques symbolisant la communication postale moderne',
 };
 
 export default blogMetaChFr;

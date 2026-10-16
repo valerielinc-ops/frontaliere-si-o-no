@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5532
+      "6": 5533
     },
-    "publishedCovers": 7113,
+    "publishedCovers": 7114,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5337
+    "inferredRecords": 5338
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190719,6 +190719,33 @@
           "id": "olgiate-presidio-vivo-mercato",
           "category": "novita",
           "date": "2026-10-16T02:57:06.729Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-tre-milioni-lettere-digitali-posta": {
+      "cover": "/images/blog/article-tre-milioni-lettere-digitali-posta.webp",
+      "hash": "d0f09fd7416b9ae17d7a1319bbbc1c531854b3fb358a3437a7e6516c4c5ac47d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tre-milioni-lettere-digitali-posta",
+          "category": "novita",
+          "date": "2026-10-16T07:08:57.024Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

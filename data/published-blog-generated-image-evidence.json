@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "87c83287e66defc2547719fc2fe745ae25f6a926",
+  "commit": "a929fbdf7f2dfb2508b2e3272a07818c21424c0a",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -23585,6 +23585,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic soccer-field illustration with no people, text, logos, signage, or watermark."
+      }
+    },
+    "/images/blog/article-tre-milioni-lettere-digitali-posta.webp": {
+      "schema": 1,
+      "assetId": "article-tre-milioni-lettere-digitali-posta",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "5e2efb310a83e5ec7a5b74ad3b052f4df56fdd34bdbaeea605c0e70274649e4c",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "d0f09fd7416b9ae17d7a1319bbbc1c531854b3fb358a3437a7e6516c4c5ac47d",
+      "bytes": 148536,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T07:08:49.926Z",
+      "verifiedAt": "2026-10-16T07:08:56.586Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tre-milioni-lettere-digitali-posta.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a modern Swiss city setting with digital light trails; no people, text, logos, or specific event."
       }
     },
     "/images/places/lugano-view.webp": {

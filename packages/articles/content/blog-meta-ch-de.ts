@@ -8414,6 +8414,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fisco-zurigo-tre-livelli.title': 'Steuern in Zürich: die drei Ebenen und ihre Funktionsweise',
     'blog.article.fisco-zurigo-tre-livelli.excerpt': 'Das Schweizer Steuersystem gliedert sich in drei Ebenen: Bund, Kanton und Gemeinde.',
     'blog.article.fisco-zurigo-tre-livelli.imageAlt': 'Übersicht einer Schweizer Landschaft, die die Komplexität des dreistufigen Steuersystems mit Bezug auf Zürich symbolisiert.',
+    'blog.article.tre-milioni-lettere-digitali-posta.title': 'Drei Millionen digitale Briefe in sechs Monaten',
+    'blog.article.tre-milioni-lettere-digitali-posta.excerpt': 'La Posta hat die erste Zwischenbilanz zum digitalen Brief vorgelegt und in sechs Monaten sieben Millionen digitale Sendungen verzeichnet, davon waren drei Millionen Briefe.',
+    'blog.article.tre-milioni-lettere-digitali-posta.imageAlt': 'Schweizer Stadtbild mit digitalen Elementen, die moderne Postkommunikation symbolisieren',
 };
 
 export default blogMetaChDe;
