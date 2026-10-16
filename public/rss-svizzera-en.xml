@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Oct 2026 02:17:44 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 04:32:58 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,70 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cyberattack: Zurich pension fund and Swiss Post hit</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/pension-data-breach-zurich-post/</link>
+      <description><![CDATA[The attack on the supplier dates back to the end of September.]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- The attack on the supplier dates back to late September.
+- PKZH is investigating the stolen personal data of insured persons.
+- Funds and pension payments were not affected.
+- For Posta, it is unclear whether the data has been compromised.
+
+## Key facts
+- Vendor → external software company
+- Connection → PKZH data transmitted for a new management system
+- PKZH → criminal complaint filed
+- Posta → attack confirmed, insured persons' data still uncertain
+- Benefits → pension funds and pension benefits not at risk
+
+### The vendor at the center of the attack
+A cyberattack targeting an external software vendor affected the City of Zurich's pension fund and, with the situation still unclear, Posta's pension fund. The attack dates back to late September. PKZH explained that its data had been transmitted to the vendor in preparation for the transition to a new management system.
+
+For insured persons, the key issue is the distinction between personal data and the management of pension assets. According to PKZH, neither pension assets nor pension payments appear to have been involved. The administrative system used to manage the assets and pay pensions would likewise not have been affected by the attack. PKZH filed a criminal complaint and is reconstructing the extent of the data theft, both in terms of the information affected and the number of people involved.
+
+In the worst-case scenario, the data leak from the Zurich pension fund would concern personal contact information, including name, address, email and telephone number. The scenario envisaged could also include the AVS insurance number, marital status and partner information, IBAN details and other pension-related information, such as insured income and assets. This description concerns the worst-case scenario, while the assessment of the actual extent of the leak is still ongoing.
+
+Posta's pension fund also announced that it had fallen victim to the attack on the vendor. However, it is not yet clear whether insured persons' data were compromised. Potentially affected information includes pension data, contact details and email address, as well as name, address, date of birth and AVS number. Posta specifies that pension assets and pension benefits are not at risk.
+
+The case also involves other pension funds. Last week, it emerged that data had been stolen from the Bernese pension fund and the Bernese teachers' insurance fund. The picture therefore remains mixed for now: for PKZH, investigations into the scope are ongoing; for Posta, it has not been clarified whether insured persons' data were compromised, while the communications cited confirm that the attack on the vendor affected multiple pension institutions.
+## What it means for insured persons
+For an insured person, the main practical point is the distinction between the possible theft of information and the security of assets. The statements do not describe the same situation for every fund: PKZH is determining the scope of the data, while Posta has not yet established whether the insured persons' data has been compromised. In both cases, however, the communication distinguishes personal data from pension benefits.
+
+### Two distinct levels
+| Fund or institution | What the statement indicates | Open question |
+|---|---|---|
+| PKZH | Data transmitted to the supplier; funds, payments and administrative system not affected | Information stolen and number of people |
+| Posta pension fund | Attacked; assets and benefits not at risk | Whether the insured persons' data was actually compromised |
+| BPK and Bernese teachers' pension fund | Data theft came to light | Data categories not specified in the text |
+
+This grid avoids two errors. The first is turning PKZH's worst-case scenario into a definitive list: the fund is still determining whether any data was stolen and, if so, which data. The second is treating the compromise of Posta's data as already established: the statement leaves precisely this question open.
+
+The content of the categories makes the differences concrete. In PKZH's case, contact details, AVS, marital status, partner, IBAN, insured income and assets belong to different levels but appear in the same worst-case scenario. For Posta, on the other hand, the notice cites name, address, date of birth, AVS, contact details, email and pension data as potentially affected information. The overlap is not enough to say that the exposure is identical.
+
+The technical point is also clear: the attack hit the external supplier, while PKZH's administrative system, which manages assets and pays out pensions, was apparently not affected. The source therefore does not report any interruption in pension payments. It describes an assessment of the scope of the data linked to the supplier.
+
+For those monitoring their own pension position, the practical consequence is to read each communication by fund and category: confirmed data, possible data, benefits not at risk. Reports about BPK and the Bernese teachers' pension fund broaden the scope of the attack, but the text does not provide a total number of people involved or a common list for all institutions.
+## How to navigate the available information
+The source allows for a reading procedure, not a standard request for all insured persons. The first criterion is to understand which pension institution is mentioned; the second is to distinguish what is confirmed from what remains to be verified.
+
+### Four steps to avoid confusing statuses
+1. **Identify the fund.** The statements concern PKZH and Posta's pension fund; the previous news item concerns BPK and the insurance fund for Bernese teachers. The status of one institution should not automatically be transferred to the others.
+2. Separate what is confirmed from what is possible. For PKZH, investigations are still ongoing into the information stolen and the number of people affected. For Posta, it is not yet clear whether the insured persons' data were compromised.
+3. Keep data and benefits separate. The personal and pension-related categories listed in the statements do not amount to a loss of assets. PKZH states that funds and annuity payments have not been affected; Posta says that assets and pension benefits are not at risk.
+4. Recognize the formal actions already reported. PKZH has filed a criminal complaint and Posta has issued a statement about the attack. These are the official steps cited by the source; they do not by themselves establish which people are involved.
+
+The text does not indicate a deadline for insured persons, a form, a request channel or an individual procedure to follow. Therefore, it is not possible to attribute to the source a date by which to submit an application or a definitive list of the data exposed. The questions still open are precise: PKZH must determine the information stolen and the number of people affected; for Posta, it must be clarified whether the insured persons' data have been compromised.
+
+The most faithful reading, therefore, consists in not turning a list of the worst-case scenario into a complete confirmation and not confusing the attack on the provider with a risk to annuities. To learn more about the general topic of annuities, see rendite pensionistiche.
+
+*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/attacco-informatico-a-casse-pensioni-citt%c3%a0-zurigo-e-posta/92224356)*]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 04:32:58 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/dati-assicurati-casse-zurigo-posta</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-dati-assicurati-casse-zurigo-posta.webp" medium="image"/>
+    </item>
     <item>
       <title>Taxes in Zurich: rates and deductions</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/zurich-tax-rates-deductions/</link>
@@ -3640,78 +3704,6 @@ Those looking for a job can consult the aziende che assumono and use the qualifi
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/assunzioni-svizzera-cautela-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-assunzioni-svizzera-cautela-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>New e-commerce agreement</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/new-agreement-electronic-commerce/</link>
-      <description><![CDATA[The Federal Council launches the consultation on ACE.]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- The Federal Council launches the consultation on the ACE.
-- The agreement brings together 67 WTO members.
-- The consultation ends on 28 January 2027.
-- The ACE prohibits tariffs on electronic transmissions.
-
-## Key facts
-- Start: October 14, 2026
-- Deadline: January 28, 2027
-- Agreement: plurilateral agreement on electronic commerce
-- Participants: 67 WTO members
-- Coverage: approximately 70 percent of world trade
-- Framework: shared international rules
-- Swiss party: Switzerland
-- Ministerial declaration: March 28, 2026
-
-### The federal timetable
-
-On October 14, 2026, in Bern, the Federal Council launched the consultation procedure on the plurilateral agreement on electronic commerce, referred to by the acronym ACE. The consultation will remain open until January 28, 2027. Through the ACE, 67 WTO members establish a common regulatory framework for electronic commerce; according to the press release, the agreement also strengthens legal certainty for businesses.
-
-The 67 members of the World Trade Organization covered by the agreement collectively represent approximately 70 percent of world trade. Participants include the European Union and its Member States, Australia, China, Japan, Canada, Singapore, the United Kingdom and Switzerland. Since the agreement is plurilateral, accession remains open to all WTO members.
-
-### The rules contained in the ACE
-
-The press release presents the ACE as an instrument for facilitating cross-border digital trade in goods and services. The provision identified as central prohibits the application of customs duties to electronic transmissions. The agreement also promotes the recognition of electronic procedures and documents and the conduct of commercial transactions without paper-based support.
-
-Provisions aimed at consolidating trust in digital trade include consumer protection, data protection and cybersecurity. The press release recalls that Switzerland participated in the negotiations from the outset and contributed to drafting the agreement. The country undertakes to promote modern rules for electronic commerce both bilaterally and within the EFTA framework. According to the communication, the ACE is consistent with the high standards pursued by Switzerland in its most recent trade agreements and takes Switzerland's interests into account, especially with regard to data protection.
-
-The negotiations were substantively concluded in 2024. The Ministerial Declaration of March 28, 2026, provided for entry into force through an annex containing provisional provisions, while formal inclusion in the WTO legal framework remains a shared objective.
-## The practical effect for Swiss companies
-
-### Greater predictability in digital operations
-
-For the Swiss economy, the impact of the ACE described here lies in the predictability of cross-border digital operations. The statement refers to trade in goods and services, more reliable framework conditions, and greater legal certainty. These are the elements that matter to a Swiss company when it operates in cross-border digital trade with one of the parties to the agreement.
-
-The provision on tariffs has a precise scope: the source refers to the prohibition on imposing customs duties on electronic transmissions. Alongside this rule, the text indicates recognition of electronic procedures and documents. The third element is the possibility of conducting commercial transactions without paper documentation. Taken together, these points outline an exchange model based on digital procedures recognized among the participants.
-
-In terms of trust, the agreement links e-commerce to consumer protection, data protection, and cybersecurity. They are not presented as aspects separate from trade: the statement identifies them as provisions intended to strengthen trust in the digital sphere. For Switzerland, data protection is also mentioned among the interests taken into account in the agreement.
-
-### The competitive dimension
-
-The statement attributes two specific outcomes for Switzerland to the ACE: preventing the country from being disadvantaged compared with the other contracting parties and improving competitive conditions for Swiss companies. The reference to the 67 members and to approximately 70 percent of world trade shows the international dimension of the regulatory framework.
-
-The plurilateral structure keeps the agreement open to accession by all WTO members. This element broadens the scope envisaged by the text without turning it into an agreement limited to Switzerland or a single group of countries. The consultation now allows the dossier to be examined, while the objective, still shared by the participants, of formally including the ACE in the WTO legal framework remains separate.
-## How to follow the consultation
-
-### Four operational steps
-
-Anyone following the e-commerce dossier can organize their reading of the Federal Council’s communication in four steps, without confusing the consultation timetable with the agreement’s process.
-
-- Mark October 14, 2026 as the start date and January 28, 2027 as the consultation deadline.
-- Identify the scope: cross-border digital trade in goods and services among the 67 WTO members.
-- Examine the operational areas indicated by the ACE: electronic transmissions, electronic documents and procedures, paperless transactions.
-- Keep the provisional regime and the objective of formal inclusion in the WTO legal framework distinct.
-
-The dossier unfolds over three time stages. The negotiations were substantively concluded in 2024. At the WTO’s 14th Ordinary Ministerial Conference, on March 28, 2026, 67 members issued a ministerial declaration in which they agreed to bring the ACE into force through an annex containing provisional provisions. Finally, on October 14, 2026, the Federal Council launched the consultation procedure.
-
-For a Swiss company, the internal review can follow the same order. First, consider whether the activity falls within cross-border digital trade in goods and services. Then isolate operations based on electronic transmissions and examine the recognition of electronic documents and procedures. Finally, assess references to consumer protection, data protection and cybersecurity.
-
-The Swiss position should be read together with the country’s participation in the negotiations and its commitment, also within the EFTA framework, to modern rules on e-commerce. For those who need to set a single deadline, the one indicated by the Federal Council is January 28, 2027.
-
-*Source: [seco.admin.ch](https://www.seco.admin.ch/it/newnsb/cX62ZqR2mreH)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 17:04:53 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/nuovo-accordo-commercio-elettronico</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-nuovo-accordo-commercio-elettronico.webp" medium="image"/>
     </item>
   </channel>
 </rss>

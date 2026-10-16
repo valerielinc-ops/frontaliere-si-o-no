@@ -8408,6 +8408,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-zurigo-aliquote-deduzioni.title': 'Steuern in Zürich: Steuersätze und Abzüge',
     'blog.article.imposte-zurigo-aliquote-deduzioni.excerpt': 'Fahren auf drei Ebenen: Bund, Kanton und Gemeinde.',
     'blog.article.imposte-zurigo-aliquote-deduzioni.imageAlt': 'Panoramablick auf Zürich am See mit Stadtsilhouette unter blauem Himmel',
+    'blog.article.dati-assicurati-casse-zurigo-posta.title': 'Cyberangriff: Pensionskasse Zürich und Posta betroffen',
+    'blog.article.dati-assicurati-casse-zurigo-posta.excerpt': 'Der Angriff auf den Anbieter ereignete sich Ende September.',
+    'blog.article.dati-assicurati-casse-zurigo-posta.imageAlt': 'Schweizer Verwaltungsgebäude im Zusammenhang mit Pensionskassen',
 };
 
 export default blogMetaChDe;
