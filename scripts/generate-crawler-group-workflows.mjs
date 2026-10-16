@@ -1891,6 +1891,9 @@ function buildQuarantineFailureGateShellBody() {
  * appears in more than one source step (`GH_TOKEN` via both
  * `secrets.GITHUB_TOKEN` and `github.token`) are safe to merge: both
  * expressions resolve to the identical runtime token value.
+ *
+ * @param {{ runStep?: { env?: Record<string, string> }, postSteps?: Array<{ env?: Record<string, string> }> }} crawler
+ * @param {string} summaryFile
  */
 function buildCrawlerStepEnv(crawler, summaryFile) {
   const merged = {
@@ -1903,9 +1906,9 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
     // capability crosses the background-process boundary. Most crawlers route
     // callLLM through dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
   };
-  Object.assign(merged, crawler.runStep?.env || {});
-  for (const step of crawler.postSteps) {
-    Object.assign(merged, step.env || {});
+  Object.assign(merged, crawler.runStep?.env ?? {});
+  for (const step of crawler.postSteps ?? []) {
+    Object.assign(merged, step.env ?? {});
   }
   // CODEX_AUTH_JSON is deliberately scoped to the setup action below. The
   // crawler shell is backgrounded and may spawn arbitrary post-steps; putting
