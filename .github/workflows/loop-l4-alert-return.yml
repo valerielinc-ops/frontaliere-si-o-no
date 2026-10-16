@@ -161,6 +161,9 @@ jobs:
             echo 'run_audit=true' >> "$GITHUB_OUTPUT"
             echo "::notice::L4 percorso live prudente: impossibile determinare i path cambiati ($1); eseguo export e audit"
           }
+          run_bounded_git() {
+            timeout --signal=TERM --kill-after=5s 30s git "$@"
+          }
           if [ "$EVENT_NAME" = 'pull_request' ]; then
             echo 'run_export=false' >> "$GITHUB_OUTPUT"
             echo 'run_audit=true' >> "$GITHUB_OUTPUT"
@@ -173,17 +176,17 @@ jobs:
           fi
 
           if [ -z "${BEFORE_SHA:-}" ] || [ "$BEFORE_SHA" = '0000000000000000000000000000000000000000' ]; then
-            if ! changed_paths=$(git diff-tree --root --no-commit-id --name-only -r "$AFTER_SHA"); then
-              safe_live_path 'il diff del commit iniziale ha fallito'
+            if ! changed_paths=$(run_bounded_git diff-tree --root --no-commit-id --name-only -r "$AFTER_SHA"); then
+              safe_live_path 'il diff del commit iniziale ha fallito o ha superato la deadline di 30s'
               exit 0
             fi
           else
-            if ! git fetch --no-tags --depth=1 origin "$BEFORE_SHA"; then
-              safe_live_path 'il fetch del commit precedente ha fallito'
+            if ! run_bounded_git fetch --no-tags --depth=1 origin "$BEFORE_SHA"; then
+              safe_live_path 'il fetch del commit precedente ha fallito o ha superato la deadline di 30s'
               exit 0
             fi
-            if ! changed_paths=$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA"); then
-              safe_live_path 'il diff tra commit non ha potuto essere calcolato'
+            if ! changed_paths=$(run_bounded_git diff --name-only "$BEFORE_SHA" "$AFTER_SHA"); then
+              safe_live_path 'il diff tra commit ha fallito o ha superato la deadline di 30s'
               exit 0
             fi
           fi
