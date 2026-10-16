@@ -1,6 +1,6 @@
 {
   "crawlerKey": "imerys",
-  "assembledAt": "2026-10-15T21:33:04.258Z",
+  "assembledAt": "2026-10-16T09:37:00.534Z",
   "jobs": [
     {
       "id": "imerys-b9f350d1bf61",
@@ -34,7 +34,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-15T21:32:56.547Z",
+      "crawledAt": "2026-10-16T09:36:54.311Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/HR-Director-IGC-H-F_REQ-11508-1",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:32:55.658Z",
+      "crawledAt": "2026-10-16T09:36:53.481Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -159,7 +159,7 @@
       "slug": "responsabile-della-comunicazione-imerys-bironico",
       "slugByLocale": {
         "it": "responsabile-della-comunicazione-imerys-bironico",
-        "en": "communication-manager-imerys-bironico",
+        "en": "communication-manager-imerys-ch",
         "de": "kommunikationsmanager-imerys-bironico",
         "fr": "gestionnaire-de-la-communication-imerys-bironico"
       },
@@ -186,7 +186,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/Communication-Manager_REQ-11963",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:32:54.909Z",
+      "crawledAt": "2026-10-16T09:36:52.700Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -205,10 +205,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "REQ - 11963",
-      "previousSlugs": [
-        "communication-manager-imerys-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "communication-manager-imerys-bironico"
+        ],
         "it": [
           "communication-manager-imerys-ch"
         ],
@@ -217,11 +217,12 @@
         ],
         "fr": [
           "communication-manager-imerys-ch"
-        ],
-        "en": [
-          "communication-manager-imerys-ch"
         ]
       },
+      "previousSlugs": [
+        "communication-manager-imerys-ch",
+        "communication-manager-imerys-bironico"
+      ],
       "firstSeenAt": "2026-10-03T21:22:42.940Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
