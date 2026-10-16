@@ -143,6 +143,27 @@ export function cantonSectionArchivePath(section, locale) {
 }
 
 /**
+ * Validate a localized hub slug before it is interpolated into a route.
+ * Inherited values and blank strings are not publishable slugs.
+ * @param {string} section
+ * @param {string} topic
+ * @param {string} locale
+ * @param {unknown} slugs
+ */
+export function assertCantonHubLocaleSlug(section, topic, locale, slugs) {
+  const checkedLocale = checkLocale(locale);
+  const hasLocale = slugs !== null
+    && typeof slugs === 'object'
+    && !Array.isArray(slugs)
+    && Object.prototype.hasOwnProperty.call(slugs, checkedLocale);
+  const slug = hasLocale ? slugs[checkedLocale] : undefined;
+  if (typeof slug !== 'string' || !slug.trim()) {
+    throw new Error(`${section}: slug hub mancante o vuoto per ${topic}/${checkedLocale}`);
+  }
+  return slug;
+}
+
+/**
  * Root-relative topic-hub path: `/articoli-ticino/carburanti/`,
  * `/de/tessin-artikel/treibstoff/` (D2: direct children of the section).
  * @param {string} section
@@ -151,8 +172,13 @@ export function cantonSectionArchivePath(section, locale) {
  */
 export function cantonTopicHubPath(section, topic, locale) {
   const entry = cantonSectionEntry(section);
-  const slug = entry.topicHubs?.[topic]?.[checkLocale(locale)];
-  if (typeof slug !== 'string') throw new Error(`tema sconosciuto per ${section}: "${topic}"`);
+  const topicHubs = entry.topicHubs;
+  const hasTopic = topicHubs !== null
+    && typeof topicHubs === 'object'
+    && !Array.isArray(topicHubs)
+    && Object.prototype.hasOwnProperty.call(topicHubs, topic);
+  if (!hasTopic) throw new Error(`tema sconosciuto per ${section}: "${topic}"`);
+  const slug = assertCantonHubLocaleSlug(section, topic, locale, topicHubs[topic]);
   return `${cantonSectionLandingPath(section, locale)}${slug}/`;
 }
 
