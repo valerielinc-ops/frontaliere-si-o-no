@@ -66,6 +66,24 @@ function generatedFile(record) {
   };
 }
 
+function licensedPhotoFile(record) {
+  return {
+    source: 'licensed-photo',
+    photo: record.photo,
+    pageUrl: record.photo.pageUrl,
+    author: {
+      text: record.author.text,
+      name: record.author.name,
+      url: record.author.url,
+      type: record.author.type,
+    },
+    attribution: record.attribution,
+    licence: record.licence,
+    restrictions: record.restrictions,
+    fetchedAt: record.fetchedAt,
+  };
+}
+
 function main() {
   const keys = new Set(REGISTRIES.flatMap((file) => [...parseRegistry(file)]));
   const ledger = readJson(LEDGER);
@@ -102,8 +120,14 @@ function main() {
     }
     const fileKey = record.source === 'generated-provider'
       ? `generated:${record.generated.assetId}`
-      : record.commons.title;
-    const compact = record.source === 'generated-provider' ? generatedFile(record) : wikiFile(record);
+      : record.source === 'licensed-photo'
+        ? `licensed-photo:${record.photo.provider}:${record.photo.pageUrl}`
+        : record.commons.title;
+    const compact = record.source === 'generated-provider'
+      ? generatedFile(record)
+      : record.source === 'licensed-photo'
+        ? licensedPhotoFile(record)
+        : wikiFile(record);
     if (files[fileKey] && JSON.stringify(files[fileKey]) !== JSON.stringify(compact)) {
       throw new Error(`${key}: one compact file key maps to conflicting records: ${fileKey}`);
     }
