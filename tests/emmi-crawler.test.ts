@@ -222,3 +222,14 @@ describe('assignEmmiJobIds', () => {
     expect(emmiStableRef({})).toBe('');
   });
 });
+
+describe('assignReferenceJobIds is shared by the Prospective parsers', () => {
+  it('keeps each crawler\'s namespace: the VZ ids are those it always had', async () => {
+    const { assignReferenceJobIds } = await import('../scripts/lib/prospective-reference-ids.mjs');
+    const { createHash } = await import('node:crypto');
+    const legacy = `vz-vermoegenszentrum-${createHash('sha1').update('vz-vermoegenszentrum:REF-9').digest('hex').slice(0, 12)}`;
+    expect(assignReferenceJobIds([{ stableRef: 'REF-9', publicUrl: 'https://x/1' }], 'vz-vermoegenszentrum')).toEqual([legacy]);
+    const legacyEmmi = `emmi-${createHash('sha1').update('emmi:REF-9').digest('hex').slice(0, 12)}`;
+    expect(assignEmmiJobIds([{ stableRef: 'REF-9', publicUrl: 'https://x/1' }])).toEqual([legacyEmmi]);
+  });
+});

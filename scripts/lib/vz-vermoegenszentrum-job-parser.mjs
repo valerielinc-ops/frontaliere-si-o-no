@@ -40,7 +40,7 @@
  *   - slugify() / stripHtml()           — Re-exported from crawler-template.mjs
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { createHash } from 'node:crypto';
+import { assignProspectiveListingIds } from './prospective-reference-ids.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -243,7 +243,11 @@ export async function fetchAllVzVermoegenszentrumJobs() {
   const jobs = [];
   const seen = new Set();
 
-  for (const listing of listings) {
+  // A reference code shared by distinct postings gets one id per posting
+  // (lib/prospective-reference-ids.mjs).
+  const idByListing = assignProspectiveListingIds(listings, 'vz-vermoegenszentrum', CAREER_URL);
+
+  for (const [listingIndex, listing] of listings.entries()) {
     const szas = listing.szas || {};
 
     // Germany/CH-only guard (board mixes CH + a few DE postings).
@@ -282,13 +286,7 @@ export async function fetchAllVzVermoegenszentrumJobs() {
     // ── Canonical job-detail URL (links.directlink) ──
     const publicUrl = listing.links?.directlink || CAREER_URL;
 
-    // Stable reference: prefer prospective viewkey/reference, fallback URL hash.
-    const stableRef =
-      String(szas.sza_reference_code || listing.viewkey || listing.id || '').trim();
-    const urlHash = stableRef
-      ? createHash('sha1').update(`vz-vermoegenszentrum:${stableRef}`).digest('hex').slice(0, 12)
-      : createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const id = `vz-vermoegenszentrum-${urlHash}`;
+    const id = idByListing[listingIndex];
     if (seen.has(id)) continue;
     seen.add(id);
 
