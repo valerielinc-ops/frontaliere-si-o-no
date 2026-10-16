@@ -2834,6 +2834,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stadler-rail-treno-idrogeno-sardegna': { it: 'stadler-rail-treno-idrogeno-sardegna', en: 'stadler-rail-hydrogen-train-sardinia', de: 'stadler-rail-wasserstoffzug-sardinien', fr: 'stadler-rail-train-hydrogene-sardaigne' },
  'crediti-bilaterali-iii-svizzera': { it: 'crediti-bilaterali-iii-svizzera', en: 'switzerland-bilateral-iii-credits', de: 'schweiz-bilaterale-iii-kredite', fr: 'credits-bilateraux-iii-suisse' },
  'il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti': { it: 'il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti', en: 'discount-retailer-freezes-2027-hikes-staff-discount-doubles', de: 'der-discounter-stoppt-lohnerhohungen-2027-und-verdoppelt-den-mitarbeiterrabatt', fr: 'le-discounter-bloque-les-augmentations-de-2027-et-double-la-remise-au-personnel' },
+ 'ia-assistente-shopping-svizzera': { it: 'ia-assistente-shopping-svizzera', en: 'ai-helps-swiss-shoppers-but-stalls-at-checkout', de: 'ki-hilft-den-schweizern-beim-einkaufen-bremst-aber-beim-bezahlen', fr: 'l-ia-aide-les-suisses-a-acheter-mais-freine-au-paiement' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -8435,6 +8435,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.title': 'Discount retailer freezes 2027 hikes, staff discount doubles',
     'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.excerpt': 'Denner does not plan general increases in 2027 The employee discount rises from 10% to 20% Pension fund contributions increase by 1,2 points Minimum wages',
     'blog.article.il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.imageAlt': 'Editorial image related to: Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
+    'blog.article.ia-assistente-shopping-svizzera.title': 'AI helps Swiss shoppers but stalls at checkout',
+    'blog.article.ia-assistente-shopping-svizzera.excerpt': 'Almost 70% of Swiss people use AI for a purchase 49% say that AI influences their choice 67% want to keep payment autonomous Only 17% accept',
+    'blog.article.ia-assistente-shopping-svizzera.imageAlt': 'Swiss customer using an AI assistant on a smartphone while shopping in Lugano',
 };
 
 export default blogMetaChEn;
