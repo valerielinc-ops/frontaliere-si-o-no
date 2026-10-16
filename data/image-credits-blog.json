@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "310d6780521875186dc6c1721b8482d714e150a5",
+  "commit": "00a489835b182f51cfcf432e1c8dcdead898e379",
   "section": "blog",
   "files": {
     "generated:139-frontalieri-ticino-special-olympics": {
@@ -237,36 +237,6 @@
         "attributionRequired": true
       },
       "fetchedAt": "2026-10-04"
-    },
-    "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/": {
-      "source": "licensed-photo",
-      "photo": {
-        "provider": "pixabay",
-        "title": "Arches, Leaning tower of pisa",
-        "pageUrl": "https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
-        "width": 2496,
-        "height": 1664
-      },
-      "pageUrl": "https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
-      "author": {
-        "text": "Pixabay contributor",
-        "name": "Pixabay contributor",
-        "url": null,
-        "type": "Person"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Pixabay Content License",
-        "url": "https://pixabay.com/service/license-summary/",
-        "family": "pixabay",
-        "attributionRequired": false
-      },
-      "restrictions": [
-        "licensed-source",
-        "no-recognizable-foreground-person",
-        "no-logo-brand-or-trademark"
-      ],
-      "fetchedAt": "2026-10-16"
     },
     "Lakefront Lugano 2017-05-29 12.34.29.jpg": {
       "source": "wikimedia-commons",
@@ -2141,66 +2111,6 @@
           "notes": "Original editorial image of a generic autumn storytelling stage with an open book and microphone; no text, logos, recognizable faces or documentary-event cues."
         }
       }
-    },
-    "licensed-photo:pexels:https://www.pexels.com/photo/scenic-mountain-landscape-in-unterschachen-switzerland-37425453/": {
-      "source": "licensed-photo",
-      "photo": {
-        "provider": "pexels",
-        "title": "Breathtaking view of the mountain roads in Unterschächen, Uri, Switzerland, under a clear sky.",
-        "pageUrl": "https://www.pexels.com/photo/scenic-mountain-landscape-in-unterschachen-switzerland-37425453/",
-        "width": 6828,
-        "height": 3882
-      },
-      "pageUrl": "https://www.pexels.com/photo/scenic-mountain-landscape-in-unterschachen-switzerland-37425453/",
-      "author": {
-        "text": "Christopher Politano",
-        "name": "Christopher Politano",
-        "url": "https://www.pexels.com/@christopher-politano-978995",
-        "type": "Person"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Pexels License",
-        "url": "https://www.pexels.com/license/",
-        "family": "pexels",
-        "attributionRequired": false
-      },
-      "restrictions": [
-        "licensed-source",
-        "no-recognizable-foreground-person",
-        "no-logo-brand-or-trademark"
-      ],
-      "fetchedAt": "2026-10-10"
-    },
-    "licensed-photo:pexels:https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/": {
-      "source": "licensed-photo",
-      "photo": {
-        "provider": "pexels",
-        "title": "A captivating view of Bern, Switzerland, featuring iconic medieval architecture and the Bern Cathedral.",
-        "pageUrl": "https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/",
-        "width": 6959,
-        "height": 4639
-      },
-      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/",
-      "author": {
-        "text": "Beat Bieri",
-        "name": "Beat Bieri",
-        "url": "https://www.pexels.com/@beat-bieri-2159265755",
-        "type": "Person"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Pexels License",
-        "url": "https://www.pexels.com/license/",
-        "family": "pexels",
-        "attributionRequired": false
-      },
-      "restrictions": [
-        "licensed-source",
-        "no-recognizable-foreground-person",
-        "no-logo-brand-or-trademark"
-      ],
-      "fetchedAt": "2026-10-15"
     },
     "generated:article-mcdonalds-pulizia-malnate-2026": {
       "source": "generated-provider",
@@ -10714,6 +10624,36 @@
         "attributionRequired": true
       },
       "fetchedAt": "2026-10-04"
+    },
+    "licensed-photo:pixabay:https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/": {
+      "source": "licensed-photo",
+      "photo": {
+        "provider": "pixabay",
+        "title": "Arches, Leaning tower of pisa",
+        "pageUrl": "https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
+        "width": 2496,
+        "height": 1664
+      },
+      "pageUrl": "https://pixabay.com/photos/arches-leaning-tower-of-pisa-1851520/",
+      "author": {
+        "text": "Pixabay contributor",
+        "name": "Pixabay contributor",
+        "url": null,
+        "type": "Person"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Pixabay Content License",
+        "url": "https://pixabay.com/service/license-summary/",
+        "family": "pixabay",
+        "attributionRequired": false
+      },
+      "restrictions": [
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
+      ],
+      "fetchedAt": "2026-10-16"
     }
   },
   "covers": {
@@ -12943,58 +12883,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-100-848-firme-contro-il-controprogetto-sulle-pigioni": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-a8-manutenzione-cavalcavia-ottobre-2026": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-accordo-ue-sovranita-fiscale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-acof-70-anni-premio-confindustria-varese": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-adesione-ocst-servizi-frontalieri": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-adv-varese-trieste-basket": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-agenti-gobbi-rischio-licenziamento": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-agenzia-entrate-luogo-lavoro-frontaliere": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-agevolazioni-doganali-impiego": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
       "status": "no-credit"
     },
     "article-aggressione-van-villa-olmo": {
@@ -13015,58 +12913,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-allarme-bernasconi-artificieri": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-alliance-care-fallimento-procedura": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-amaudruz-candidatura-federale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ambri-piotta-berna-abols": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-amsa-bus-elettrici-mendrisiotto": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-aperitivo-solidale-giubiasco": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-arma-biasca-inchiesta": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-arresti-auto-como-minacce": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-arresti-truffa-chiamate-ticino": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-arresto-cocaina-massagno": {
@@ -13075,82 +12925,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-arresto-lite-domestica-luganese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-arresto-lite-domestica-ticino": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-ascend-evonext-quotazione": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-assistenza-sociale-lucerna-requisiti": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-assistenza-uri-requisiti-domanda": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-assunzioni-svizzera-cautela-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ata-critica-progetto-a2-mendrisio": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-attacco-frigoriferi-svizzera-rischio": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-attacco-publica-dati-rubati": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-attacco-software-pkzh": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-audi-rubata-san-fermo": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-aumento-iva-tredicesima-avs": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-aumento-tassi-ipotecari-q3": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-auto-elettrica-come-risparmiare-fino-al-50": {
@@ -13165,12 +12949,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-axpo-solare-argovia": {
       "evidence": "inferred",
       "provider": null,
@@ -13183,40 +12961,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-bambino-investito-gallarate-cedrate": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-bcg-consiglio-mueller": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-bellinzona-nord-svincolo": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-bellinzona-voto-caserma-pompieri": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-benu-rete-santanna-sanita": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-berna-veicoli-procedura-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-biasca-17enne-arrestato-accoltellamento": {
@@ -13225,34 +12973,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-bissone-torneo-scacchi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-borse-musica-ticino-2026": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-busto-arsizio-agente-condannato": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-caduta-scala-locate-varesino": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-camion-pesanti-uno-su-quattro-e-elettrico-nel-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-cancro-prostata-assistenza-svizzera": {
@@ -13264,18 +12994,6 @@
     "article-cantello-teatro-dialettale-ottobre-2026": {
       "file": "generated:article-cantello-teatro-dialettale-ottobre-2026",
       "modified": "resized"
-    },
-    "article-carabinieri-ternate-marijuana-arresto": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-carburanti-dopo-record-settembre": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
     },
     "article-carburanti-rincari-confine-ticino": {
       "evidence": "inferred",
@@ -13301,22 +13019,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-case-svizzera-rialzo-trimestre": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-caslano-colombera-incidente-moto": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-cdf-procedure-fitosanitari": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-cibersicurezza-svizzera-record-segnalazioni": {
@@ -13337,46 +13043,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-collaudo-veicoli-berna-procedura": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-collaudo-veicoli-canton-zurigo": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-comco-sentenza-fibra-ottica": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-como-bocciato-piano-scuole": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-como-pass-auto-rinnovo-annuale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-como-roma-serie-a-orario": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-como-truffa-30mila-euro": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-concerti-borgo-musicale": {
@@ -13391,24 +13061,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-consiglio-federale-doganal-consultazione": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-consiglio-federale-knifefish-adesione": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-consultazione-omc-commercio-digitale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-contributi-formazione-berna-requisiti": {
       "evidence": "inferred",
       "provider": null,
@@ -13421,28 +13073,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-controlli-polizia-cuvio-cuveglio": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-cormann-visita-berna": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-corsi-contributi-lucerna": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-costi-cambiamento-climatico-svizzera-2060": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-costi-cure-domicilio-ticino-2026": {
@@ -13457,106 +13091,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-cuoco-dietetica-apf-ticino-mercato": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-dati-assicurati-casse-zurigo-posta": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-decisioni-avs-ue-voto": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-della-valle-lesione-varese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-derby-basket-ticinese-massagno": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-diritti-politici-disabilita": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-diritto-lavoro-telelavoro-cet-s": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-disagi-treni-vaud-eclepens": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-disavanzo-cantonale-2027-2030": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-divario-reddito-donne-uomini-scende-al-14": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-divario-reddito-giovani-svizzera": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-divieti-viabilita-stadio-como": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-domodossola-arresto-hashish-stazione": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-don-giusto-teatro-nuovo-gloria": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-dosaggio-rampe-a2-chiasso": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-due-arresti-malpra-varese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-easy-work-chiusura-264": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-economia-svizzera-fiducia-calante": {
@@ -13571,86 +13109,20 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-erreci-busto-marsala-vittoria": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-esercitazione-soccorso-sasso": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-fabio-de-luigi-biol-varese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-fagnano-spettacolo-beneficenza-marmotta": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-faido-gallerie-notte": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-fallimenti-aziendali-svizzera-aumento": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-ferrovia-albate-molteno-elettrificazione": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-festival-biblioterapia-laveno-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-festival-energetica-cabiaglio-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-festival-racconto-varese-ottobre": {
       "file": "generated:article-festival-racconto-varese-ottobre",
       "modified": "resized"
-    },
-    "article-festival-varese-cavolo-castronno": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-festivi-berna-calendario-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
     },
     "article-ffs-sportelli-chiusi-stazioni": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-fibra-ottica-145-comuni-como": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-fibra-ottica-limiti-2028": {
@@ -13665,28 +13137,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-fiera-lavoro-besano-valceresio": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-finanziamenti-start-up-ticino": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-fischiava-treno-gorla": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-formulario-averi-iran-ottobre": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-forniture-cemento-aumento-terzo-trimestre": {
@@ -13701,12 +13155,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-franco-euro-rafforzamento-stucki": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-frankencoin-kraken-zchf": {
       "evidence": "inferred",
       "provider": null,
@@ -13717,12 +13165,6 @@
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-frontalieri-disoccupazione-criterio-lavoro": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-fuga-dati-publica-cassa": {
@@ -13743,64 +13185,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-fusione-palestre-puregym-nonstop": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-gestione-emergenze-ticino-lombardia": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-giorni-festivi-canton-zurigo-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-grandine-svizzera-danni-swiss-re": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-grigioni-preventivo-contributi-terzi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-guerra-medio-oriente-benzina-svizzera": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-guida-voto-cantonale-lucerna": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-hacker-casse-pensioni-svizzera": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-hacker-frigoriferi-connessi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-hotel-ticino-140-licenziati": {
@@ -13815,12 +13209,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-ia-pubblica-amministrazione-ticino": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-imposizione-individuale-ticino-2026": {
       "evidence": "inferred",
       "provider": null,
@@ -13831,34 +13219,6 @@
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-imposta-cani-berna-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-imposta-cani-zurigo-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-imposta-veicoli-uri-calcolo": {
-      "file": "licensed-photo:pexels:https://www.pexels.com/photo/scenic-mountain-landscape-in-unterschachen-switzerland-37425453/",
-      "modified": "resized"
-    },
-    "article-imposte-zurigo-aliquote-deduzioni": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-inaugurazione-sala-comacina-polizia": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-incanto-brusimpiano-regina-acqua": {
@@ -13873,34 +13233,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-inchiesta-medico-locarnese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
     "article-incidente-a9-saronno-turate-code": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-incidente-all-alba-a-brezzo-di-bedero-elisoccorso-in-azione": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-incidente-varesina-venegono": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-incidente-vedeggio-cassarate": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-incidente-via-albisetti": {
@@ -13915,80 +13251,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-incontro-parita-salariale-varese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-indennita-lavoro-ridotto": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-infortuni-lavoro-lombardia-dati-2026-peggiorano-picchi-como": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-iniziativa-keller-sutter-imposizione-coniugi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-iniziativa-limitazione-fuochi-artificio": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-iniziativa-solari-senza-permesso": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-integrazione-lingua-berna-contributi": {
-      "file": "licensed-photo:pexels:https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/",
-      "modified": "resized"
-    },
     "article-intelligenza-artificiale-diritti-umani": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-investimenti-illiquidi-pensione-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ispezione-edile-lurate": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ispezioni-gallerie-lago-como": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-itelyum-peristeri-bcl-masnago": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-jazz-concerti-castellanza": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-karate-uisp-formazione-arcisate-2026": {
@@ -14003,82 +13275,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-kick-cocaine-gazzada-evento": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-kof-nobel-svizzera": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-l-gav-2027-orario-salario": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-lardi-dotlife-chiusura-alberghi-lugano": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-lastminute-nuovo-finanze": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-lavaggio-denaro-avvocatura": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-lavori-autolaghi-ottobre-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-legge-piattaforme-tutela-giovani": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-liberta-fondo-pene-sostitutive": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-licenza-caccia-berna-requisiti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-licenza-caccia-zurigo-requisiti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-licenza-pubblico-berna-requisiti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-licenza-pubblico-zurigo-requisiti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-lifestyle-innovation-hub-chiasso": {
@@ -14093,34 +13299,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-linea-yverdon-losanna-riaperta": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-lista-sanzioni-sesam-svizzera": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-lite-stradale-castronno-traffico": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-lombardia-partenza-ritardo": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-loreto-pavimentazione-notte": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-lucerna-convocazioni-indennita": {
@@ -14135,22 +13317,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-lucerna-festivi-calendario-verifica": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-lucerna-polizza-edifici-regole": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-luci-masnago-terza-puntata": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-luganistan-clan-ceresio": {
@@ -14159,40 +13329,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-lugano-bienne-vittoria-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-lugano-lucerna-partita-traffico": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-lugano-preventivo-2027-moltiplicatori": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-luvinate-progetto-motorio-materna": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-malnate-imprenditrice-azienda-famiglia": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-manutenzione-prato-franco-ossola-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-marcel-salathe-ia-commento": {
@@ -14235,30 +13381,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-migros-ecublens-57-posti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-migros-nuovo-contratto-lavoro-2027": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-minibasket-inclusivo-varese-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-montano-lucino-fuga-arresti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-monte-olimpino-treni-weekend": {
       "evidence": "inferred",
       "provider": null,
@@ -14283,24 +13405,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-naters-francobolli-falsi-aliexpress": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-negozi-berna-orari-festivi-regole": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-niederscherli-posti-letto": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-no-iniziativa-antidumping-ticino": {
       "evidence": "inferred",
       "provider": null,
@@ -14317,30 +13421,6 @@
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-nuovo-accordo-commercio-elettronico": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-openjobmetis-trieste-dopopartita-podcast": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-openjobmetis-trieste-vittoria-kastritis": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-operatori-emergenze-valli": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-operazione-hermes-frodi-iva-450-mln-sequestri-11-mln": {
@@ -14361,42 +13441,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-orari-apertura-lucerna-festivi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-orari-negozi-zurigo-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ordinanza-animali-compagnia-ue": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ordinanza-dispositivi-vitali": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-orologio-lingotto-trump-seco": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-parlamento-svizzero-portale-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-parmelin-avs-ue": {
       "evidence": "inferred",
       "provider": null,
@@ -14415,28 +13459,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-pensione-contributi-anni-lavoro": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-permesso-edilizio-lucerna": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-permesso-edilizio-uri": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-permesso-pesca-canton-berna-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-petizione-recupero-carovita-ticino": {
@@ -14445,88 +13471,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-pfister-risorse-difesa-federale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-physioswiss-tariffe-fisioterapia-ticino": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-piogge-siccita-rischio-incendi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-poker-room-admiral-mendrisio-chiude": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-porlezza-finto-carabiniere-chiede-oro-figlio-ferma-truffa": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-porto-ceresio-dogana-ufficio-turistico": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-pozzecco-galatasaray-risoluzione-contratto": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-premio-economia-stabilizzazione": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-preventivo-lugano-disavanzo-2027": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-previsioni-disoccupazione-ticino-2027": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-prezzi-auto-nuove-usate-calo": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-prezzi-produzione-importazione-settembre": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-pro-patria-varese-5-2-coppa-italia": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-proiezioni-scuola-universita-2035": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-quattro-oggetti-urne-novembre": {
@@ -14559,34 +13513,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-rapporto-riciclaggio-denaro-svizzera": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-referendum-aels-malaysia": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-referendum-armi-sicurezza-svizzera": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
     "article-referendum-iva-2026-aumento-per-la-tredicesima-pensione": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-referendum-mercosur-firme-berna": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-referendum-nucleare-svizzera-2027": {
@@ -14595,28 +13525,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-regole-orari-negozi-lucerna": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-regole-orari-negozi-zurigo": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-revoca-bonus-dirigenti-cs": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
       "status": "no-credit"
     },
     "article-ricardo-account-esposti": {
@@ -14631,52 +13543,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-rientro-ticino-salario-fattori": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-rincaro-whey-galaxus": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-rio-scorta-giro-como": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-riqualificazione-uri-domanda": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-riserve-valutarie-settembre-stabili": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-rotte-greggio-kurdistan-lugano": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ruag-lockheed-accordo-f35a": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ruppen-valuta-candidatura": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-salari-svizzera-talenti-stranieri": {
@@ -14703,18 +13573,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-saronno-piccole-stelle-softball": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-scambio-informazioni-conti-finanziari-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-scambio-portieri-lugano-ginevra": {
       "evidence": "inferred",
       "provider": null,
@@ -14727,64 +13585,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-sconto-dipendenti-migros-ccl": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-scontro-auto-gemonio-verdi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-scontro-corso-europa-verbania": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-scontro-galleria-cernobbio-varese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-seco-cambiamenti-istituzionali-2026": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-segreteria-economia-nazionale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-semafori-autostrade-ustra-ticino": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-semafori-svizzera-ustra-traffico": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-sementina-viabilita-posteggi-ciossetto": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-sfida-bar-quartiere-lugano": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-sgkb-filiali-fisiche": {
@@ -14793,46 +13597,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-sistema-sanitario-zurigo-guida-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
     "article-smottamento-sementina-code": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-soccorsi-coda-autostrada-lombarda": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-spesa-famiglie-inflazione": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-ssr-riduce-organico-risparmi": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-stazione-ffs-coltello-ritrovato": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-suva-fatture-controlli-risparmio": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-svizzera-india-accordi-bilaterali": {
@@ -14847,82 +13621,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-svizzera-mirino-007-stranieri": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-svizzera-partecipa-fmi-bangkok-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-svizzera-soldi-delusione-lavoro": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-svizzera-thailandia-aelss-visita-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-swisscom-fibra-multa-taf": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tai-chi-arte-castiglione": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-talenti-in-movimento-oltreconfinti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-tamedia-41-licenziamenti-13-a-losanna-e-ginevra": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-tassa-salute-ristorni-17-settembre": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tasse-universitarie-berna-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tasse-universitarie-zurigo-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tassi-conti-3a-ottobre-2024": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tasso-disoccupazione-ticino-trimestri": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-teatro-intred-varese-stagione-2026": {
@@ -14937,18 +13645,6 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-terzetto-sospetto-melano-chiasso": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tesserete-canalizzazione-privata": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-tf-nega-sconto-cassa-malati-padre-affidamento-alternato": {
       "evidence": "inferred",
       "provider": null,
@@ -14961,40 +13657,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-tirocinio-uri-guida-pratica": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tox-info-chiamate-intelligenza-artificiale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-tradate-moto-capriolo-ferito": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-trasporti-45-critiche-piano": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-tre-furti-villa-guardia": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-treni-vd-ritorno-normale": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-treno-foliage-locarno-2026": {
@@ -15015,76 +13681,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-tunnel-gran-san-bernardo-fotovoltaico": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ubs-scenari-trasferimento-sede": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-uri-soglia-salariale-controlli": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-ust-formazione-svizzera-2035": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-ust-scenari-formazione-2035": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-uyba-sconfitta-conegliano": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-vaccinazioni-autunnali-2026-influenza-covid-19-e-rsv": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-vaccino-hpv-ticino-2027": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-vademecum-funghi-sicurezza-varese": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-valutazioni-immobiliari-trasparenza-casa": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-vantaggi-servizi-associati-ocst": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-16",
-      "status": "no-credit"
-    },
-    "article-varese-adhd-days-ottobre-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-varese-india-export-2026": {
@@ -15099,40 +13699,16 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-varese-oltrepo-cronaca-sportiva": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-varese-oltrepo-serie-d-2026": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-vbs-pink-cup-ragazze": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-veicolo-fiamme-a2-rivera": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-vendemmia-mendrisiotto-lavoratori-terra": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-verbania-cantieri-allarme-m5s": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "article-viabilita-sacro-monte-varese": {
@@ -15153,40 +13729,10 @@
       "verifiedAt": "2026-10-13",
       "status": "no-credit"
     },
-    "article-voto-matrimonio-tassazione-coppie": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
     "article-voto-svizzera-esportazione-armi-2026": {
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "article-wagner-chiude-waldstatt-69-licenziamenti": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-zaino-sospetto-chiasso": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-zurigo-corsi-lingua-integrazione": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "article-zurigo-targhe-immatricolazione-guida": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "asb-banche-svizzera-crescita-2026": {
@@ -18033,36 +16579,6 @@
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
-      "status": "no-credit"
-    },
-    "bollettino-frontaliere-2026-10-10": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "bollettino-frontaliere-2026-10-11": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "bollettino-frontaliere-2026-10-13": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "bollettino-frontaliere-2026-10-14": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
-      "status": "no-credit"
-    },
-    "bollettino-frontaliere-2026-10-15": {
-      "evidence": "inferred",
-      "provider": null,
-      "verifiedAt": "2026-10-15",
       "status": "no-credit"
     },
     "bollini-rossi-traffico-san-gottardo-2026": {
@@ -49807,6 +48323,1434 @@
       "evidence": "inferred",
       "provider": null,
       "verifiedAt": "2026-10-13",
+      "status": "no-credit"
+    },
+    "article-100-848-firme-contro-il-controprogetto-sulle-pigioni": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-accordo-ue-sovranita-fiscale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-adesione-ocst-servizi-frontalieri": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-adv-varese-trieste-basket": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-agenti-gobbi-rischio-licenziamento": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-agenzia-entrate-luogo-lavoro-frontaliere": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-allarme-bernasconi-artificieri": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-alliance-care-fallimento-procedura": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-amaudruz-candidatura-federale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ambri-piotta-berna-abols": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-amsa-bus-elettrici-mendrisiotto": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-arma-biasca-inchiesta": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-arresti-auto-como-minacce": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-arresti-truffa-chiamate-ticino": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-arresto-lite-domestica-luganese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ascend-evonext-quotazione": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-assistenza-uri-requisiti-domanda": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-assunzioni-svizzera-cautela-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ata-critica-progetto-a2-mendrisio": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-attacco-frigoriferi-svizzera-rischio": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-audi-rubata-san-fermo": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-aumento-iva-tredicesima-avs": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-aumento-tassi-ipotecari-q3": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-bambino-investito-gallarate-cedrate": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-bcg-consiglio-mueller": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-bellinzona-voto-caserma-pompieri": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-benu-rete-santanna-sanita": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-berna-veicoli-procedura-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-bissone-torneo-scacchi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-busto-arsizio-agente-condannato": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-camion-pesanti-uno-su-quattro-e-elettrico-nel-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-carabinieri-ternate-marijuana-arresto": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-carburanti-dopo-record-settembre": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-case-svizzera-rialzo-trimestre": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-cdf-procedure-fitosanitari": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-collaudo-veicoli-berna-procedura": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-collaudo-veicoli-canton-zurigo": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-comco-sentenza-fibra-ottica": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-como-pass-auto-rinnovo-annuale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-como-roma-serie-a-orario": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-como-truffa-30mila-euro": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-consiglio-federale-doganal-consultazione": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-consiglio-federale-knifefish-adesione": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-consultazione-omc-commercio-digitale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-controlli-polizia-cuvio-cuveglio": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-cormann-visita-berna": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-costi-cambiamento-climatico-svizzera-2060": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-cuoco-dietetica-apf-ticino-mercato": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-decisioni-avs-ue-voto": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-della-valle-lesione-varese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-derby-basket-ticinese-massagno": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-diritti-politici-disabilita": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-diritto-lavoro-telelavoro-cet-s": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-disagi-treni-vaud-eclepens": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-disavanzo-cantonale-2027-2030": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-divario-reddito-donne-uomini-scende-al-14": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-divario-reddito-giovani-svizzera": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-divieti-viabilita-stadio-como": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-dosaggio-rampe-a2-chiasso": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-due-arresti-malpra-varese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-easy-work-chiusura-264": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-erreci-busto-marsala-vittoria": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-esercitazione-soccorso-sasso": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-fabio-de-luigi-biol-varese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-fagnano-spettacolo-beneficenza-marmotta": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-faido-gallerie-notte": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-fallimenti-aziendali-svizzera-aumento": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-festival-biblioterapia-laveno-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-festival-energetica-cabiaglio-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-festival-varese-cavolo-castronno": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-festivi-berna-calendario-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-fibra-ottica-145-comuni-como": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-fiera-lavoro-besano-valceresio": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-finanziamenti-start-up-ticino": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-formulario-averi-iran-ottobre": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-franco-euro-rafforzamento-stucki": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-frontalieri-disoccupazione-criterio-lavoro": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-fusione-palestre-puregym-nonstop": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-giorni-festivi-canton-zurigo-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-grandine-svizzera-danni-swiss-re": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-grigioni-preventivo-contributi-terzi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-guerra-medio-oriente-benzina-svizzera": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-hacker-casse-pensioni-svizzera": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-hacker-frigoriferi-connessi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ia-pubblica-amministrazione-ticino": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-imposta-cani-berna-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-imposta-cani-zurigo-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-imposta-veicoli-uri-calcolo": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-inaugurazione-sala-comacina-polizia": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-incidente-all-alba-a-brezzo-di-bedero-elisoccorso-in-azione": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-incidente-varesina-venegono": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-incidente-vedeggio-cassarate": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-incontro-parita-salariale-varese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-indennita-lavoro-ridotto": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-infortuni-lavoro-lombardia-dati-2026-peggiorano-picchi-como": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-iniziativa-keller-sutter-imposizione-coniugi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-iniziativa-limitazione-fuochi-artificio": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-integrazione-lingua-berna-contributi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-investimenti-illiquidi-pensione-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ispezione-edile-lurate": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ispezioni-gallerie-lago-como": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-itelyum-peristeri-bcl-masnago": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-jazz-concerti-castellanza": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-kof-nobel-svizzera": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-l-gav-2027-orario-salario": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-lastminute-nuovo-finanze": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-lavori-autolaghi-ottobre-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-legge-piattaforme-tutela-giovani": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-licenza-caccia-berna-requisiti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-licenza-caccia-zurigo-requisiti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-licenza-pubblico-berna-requisiti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-licenza-pubblico-zurigo-requisiti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-linea-yverdon-losanna-riaperta": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-lite-stradale-castronno-traffico": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-lombardia-partenza-ritardo": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-loreto-pavimentazione-notte": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-lucerna-festivi-calendario-verifica": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-luci-masnago-terza-puntata": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-lugano-bienne-vittoria-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-lugano-preventivo-2027-moltiplicatori": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-malnate-imprenditrice-azienda-famiglia": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-manutenzione-prato-franco-ossola-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-migros-ecublens-57-posti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-migros-nuovo-contratto-lavoro-2027": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-minibasket-inclusivo-varese-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-montano-lucino-fuga-arresti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-naters-francobolli-falsi-aliexpress": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-negozi-berna-orari-festivi-regole": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-niederscherli-posti-letto": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-nuovo-accordo-commercio-elettronico": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-openjobmetis-trieste-dopopartita-podcast": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-openjobmetis-trieste-vittoria-kastritis": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-operatori-emergenze-valli": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-orari-apertura-lucerna-festivi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-orari-negozi-zurigo-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ordinanza-animali-compagnia-ue": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ordinanza-dispositivi-vitali": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-orologio-lingotto-trump-seco": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-parlamento-svizzero-portale-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-pensione-contributi-anni-lavoro": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-permesso-edilizio-uri": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-permesso-pesca-canton-berna-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-pfister-risorse-difesa-federale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-physioswiss-tariffe-fisioterapia-ticino": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-piogge-siccita-rischio-incendi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-poker-room-admiral-mendrisio-chiude": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-porto-ceresio-dogana-ufficio-turistico": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-pozzecco-galatasaray-risoluzione-contratto": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-premio-economia-stabilizzazione": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-preventivo-lugano-disavanzo-2027": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-previsioni-disoccupazione-ticino-2027": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-prezzi-auto-nuove-usate-calo": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-prezzi-produzione-importazione-settembre": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-proiezioni-scuola-universita-2035": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-rapporto-riciclaggio-denaro-svizzera": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-referendum-aels-malaysia": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-referendum-mercosur-firme-berna": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-regole-orari-negozi-lucerna": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-regole-orari-negozi-zurigo": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-rientro-ticino-salario-fattori": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-rincaro-whey-galaxus": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-rio-scorta-giro-como": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-riqualificazione-uri-domanda": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-rotte-greggio-kurdistan-lugano": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ruag-lockheed-accordo-f35a": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ruppen-valuta-candidatura": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-scambio-informazioni-conti-finanziari-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-sconto-dipendenti-migros-ccl": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-scontro-auto-gemonio-verdi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-scontro-corso-europa-verbania": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-scontro-galleria-cernobbio-varese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-segreteria-economia-nazionale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-semafori-autostrade-ustra-ticino": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-semafori-svizzera-ustra-traffico": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-sementina-viabilita-posteggi-ciossetto": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-sfida-bar-quartiere-lugano": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-soccorsi-coda-autostrada-lombarda": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-suva-fatture-controlli-risparmio": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-svizzera-mirino-007-stranieri": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-svizzera-partecipa-fmi-bangkok-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-swisscom-fibra-multa-taf": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tai-chi-arte-castiglione": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-talenti-in-movimento-oltreconfinti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tassa-salute-ristorni-17-settembre": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tasse-universitarie-berna-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tasse-universitarie-zurigo-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tassi-conti-3a-ottobre-2024": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tasso-disoccupazione-ticino-trimestri": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-terzetto-sospetto-melano-chiasso": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tesserete-canalizzazione-privata": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tirocinio-uri-guida-pratica": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tox-info-chiamate-intelligenza-artificiale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tradate-moto-capriolo-ferito": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tre-furti-villa-guardia": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-treni-vd-ritorno-normale": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-tunnel-gran-san-bernardo-fotovoltaico": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ubs-scenari-trasferimento-sede": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ust-formazione-svizzera-2035": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-ust-scenari-formazione-2035": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-uyba-sconfitta-conegliano": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-vaccinazioni-autunnali-2026-influenza-covid-19-e-rsv": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-vaccino-hpv-ticino-2027": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-vademecum-funghi-sicurezza-varese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-valutazioni-immobiliari-trasparenza-casa": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-varese-adhd-days-ottobre-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-varese-oltrepo-cronaca-sportiva": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-varese-oltrepo-serie-d-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-veicolo-fiamme-a2-rivera": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-verbania-cantieri-allarme-m5s": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-voto-matrimonio-tassazione-coppie": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-wagner-chiude-waldstatt-69-licenziamenti": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-zaino-sospetto-chiasso": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-zurigo-corsi-lingua-integrazione": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-zurigo-targhe-immatricolazione-guida": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-10": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-11": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-13": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-14": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-15": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-15",
+      "status": "no-credit"
+    },
+    "article-agevolazioni-doganali-impiego": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-arresto-lite-domestica-ticino": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-attacco-software-pkzh": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-don-giusto-teatro-nuovo-gloria": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-imposte-zurigo-aliquote-deduzioni": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-inchiesta-medico-locarnese": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-kick-cocaine-gazzada-evento": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-liberta-fondo-pene-sostitutive": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-referendum-armi-sicurezza-svizzera": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-revoca-bonus-dirigenti-cs": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-saronno-piccole-stelle-softball": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-sistema-sanitario-zurigo-guida-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-ssr-riduce-organico-risparmi": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-svizzera-thailandia-aelss-visita-2026": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-vantaggi-servizi-associati-ocst": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-stazione-ffs-coltello-ritrovato": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
+      "status": "no-credit"
+    },
+    "article-dati-assicurati-casse-zurigo-posta": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-16",
       "status": "no-credit"
     }
   }
