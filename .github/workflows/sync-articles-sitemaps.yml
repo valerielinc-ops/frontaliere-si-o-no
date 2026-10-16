@@ -61,6 +61,8 @@ on:
 concurrency:
   group: sync-articles-sitemaps
   cancel-in-progress: false
+  # GitHub keeps one pending run per group by default; a newer dispatch
+  # replaces that pending run while the active sync finishes.
 
 permissions:
   contents: write
@@ -81,18 +83,21 @@ jobs:
       # the stable concurrency group can coalesce newer events into its single
       # pending run, which will pull the newest published snapshot.
       - name: Coalesce refreshes while the stable PR is open
-        if: github.event_name != 'push' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: >-
+          github.event_name == 'repository_dispatch' ||
+          github.event_name == 'schedule' ||
+          (github.event_name == 'workflow_dispatch' && inputs.dry_run == false)
+        timeout-minutes: 15
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           should_wait=false
-          if ! pr_number="$(gh pr list \
-            --repo "$GITHUB_REPOSITORY" \
-            --head chore/sync-articles-sitemaps \
-            --state open \
-            --limit 1 \
-            --json number \
+          if ! pr_number="$(gh api -X GET "repos/$GITHUB_REPOSITORY/pulls" \
+            -f state=open \
+            -f "head=$GITHUB_REPOSITORY_OWNER:chore/sync-articles-sitemaps" \
+            -f base=main \
+            -F per_page=1 \
             --jq '.[0].number // empty')"; then
             echo '::warning::Could not check for the stable article refresh PR; delaying conservatively.'
             should_wait=true
