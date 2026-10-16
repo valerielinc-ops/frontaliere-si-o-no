@@ -54,6 +54,7 @@ on:
     paths:
       - 'build-plugins/seoHubsPlugin.ts'
       - 'build-plugins/topicClusterHubsPlugin.ts'
+      - 'build-plugins/lib/adSlotHtml.ts'
       - 'build-plugins/topicClusterHubsData.ts'
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'
@@ -169,6 +170,27 @@ jobs:
           # workflow anyway. The sitemap publisher supplies its own PAT to the
           # shared PR helper, so the checkout token must stay absent.
           persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -212,7 +234,7 @@ jobs:
       # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
       # fallback for a refused deploy key.
       #
-      # Deliberately NO `npm ci`: the driver runs under `npx -y tsx@4.23.15` and its
+      # Deliberately NO `npm ci`: the driver runs through the pinned tsx wrapper and its
       # whole transitive value-import closure (81 files, verified by scanning
       # it — the one `react` edge is reached through an `import type` that tsx
       # erases) touches no npm package at runtime. Same posture as
@@ -231,7 +253,7 @@ jobs:
       # Before the section lock on purpose: a failure here leaves nothing held.
       - name: Ensure the static shell scripts are on the CDN
         if: steps.mode.outputs.dry != 'true'
-        run: npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
       #
@@ -369,7 +391,7 @@ jobs:
           # Pinned to the same tsx major package.json declares ("tsx":
           # "^4.21.0"), like every other un-installed path in this repo, so a
           # future tsx major cannot silently change loader behaviour here.
-          npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+          bash scripts/ci/run-pinned-tsx.sh scripts/rerender-article-hubs.mjs "${ARGS[@]}"
 
       # The driver performs the strict client publication immediately before
       # its shard fan-out. Check the watcher after that composite step as well,

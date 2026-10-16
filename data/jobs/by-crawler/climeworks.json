@@ -219,12 +219,12 @@
     },
     {
       "id": "climeworks-109f6051b84a",
-      "slug": "filtration-module-product-owner-80-100-climeworks-zurich",
+      "slug": "proprietario-del-prodotto-del-modulo-di-filtrazione-80-100-climeworks-zurich",
       "slugByLocale": {
         "en": "filtration-module-product-owner-80-100-climeworks-zurich",
-        "it": "filtration-module-product-owner-80-100-climeworks-zurich",
-        "de": "filtration-module-product-owner-80-100-climeworks-zurich",
-        "fr": "filtration-module-product-owner-80-100-climeworks-zurich"
+        "it": "proprietario-del-prodotto-del-modulo-di-filtrazione-80-100-climeworks-zurich",
+        "de": "produktbesitzer-des-filtrationsmoduls-80-100-climeworks-zurich",
+        "fr": "proprietaire-du-produit-du-module-filtration-80-100-climeworks-zurich"
       },
       "company": "Climeworks",
       "companyKey": "climeworks",
@@ -324,7 +324,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-15T21:17:36.434Z"
+      "firstSeenAt": "2026-10-15T21:17:36.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "filtration-module-product-owner-80-100-climeworks-zurich"
+        ],
+        "de": [
+          "filtration-module-product-owner-80-100-climeworks-zurich"
+        ],
+        "fr": [
+          "filtration-module-product-owner-80-100-climeworks-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "filtration-module-product-owner-80-100-climeworks-zurich"
+      ]
     }
   ]
 }

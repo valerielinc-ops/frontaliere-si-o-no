@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-6560e8f99018",
-      "slug": "key-account-management-innenausbau-w-m-d-100-bms-building-ch",
+      "slug": "gestione-account-chiave-interior-design-m-f-d-100-bms-building-materials-zurich",
       "slugByLocale": {
         "de": "key-account-management-innenausbau-w-m-d-100-bms-building-ch",
-        "it": "key-account-management-innenausbau-w-m-d-100-bms-building-ch",
+        "it": "gestione-account-chiave-interior-design-m-f-d-100-bms-building-materials-zurich",
         "en": "key-account-management-innenausbau-w-m-d-100-bms-building-ch",
-        "fr": "key-account-management-innenausbau-w-m-d-100-bms-building-ch"
+        "fr": "gestion-de-compte-cle-design-d-interieur-h-f-d-100-bms-building-materials-zurich"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -109,7 +109,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-15T21:16:17.679Z"
+      "firstSeenAt": "2026-10-15T21:16:17.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-management-innenausbau-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "key-account-management-innenausbau-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-management-innenausbau-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-7b28fa2f406f",

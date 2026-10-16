@@ -1,7 +1,7 @@
 /**
- * Retry the complete article sync only when the published HTTP release moves
- * between the corpus and artifact pulls. Other skips and failures keep their
- * existing fail-closed behavior.
+ * Retry the complete article sync when the published HTTP release moves between
+ * the corpus and artifact pulls or an artifact contradicts its pinned manifest.
+ * Other skips and failures keep their existing fail-closed behavior.
  */
 
 export const MAX_ARTICLE_SYNC_ATTEMPTS = 3;
@@ -13,7 +13,7 @@ export function isPublishedApiMovement(reason) {
   return typeof reason === 'string' && MOVED_RELEASE_RE.test(reason);
 }
 
-export async function retryArticleSyncOnMovement({
+export async function retryArticleSyncPair({
   runCorpus,
   runApi,
   maxAttempts = MAX_ARTICLE_SYNC_ATTEMPTS,
@@ -53,10 +53,22 @@ export async function retryArticleSyncOnMovement({
 
     const api = await runApi({ attempt, commit: corpus.commit });
     if (!api || api.exitCode !== 0) {
+      if (api?.retryableSnapshot === true && attempt < limit) {
+        const reason = api.reason || 'a manifest-pinned HTTP artifact did not match its snapshot';
+        onRetry({
+          attempt,
+          nextAttempt: attempt + 1,
+          stage: 'api-snapshot',
+          commit: corpus.commit,
+          reason,
+        });
+        continue;
+      }
       return {
         status: 'failed',
         stage: 'api',
         exitCode: api?.exitCode || 1,
+        ...(api?.reason ? { reason: api.reason } : {}),
         attempts: attempt,
       };
     }

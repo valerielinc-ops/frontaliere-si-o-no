@@ -2832,12 +2832,11 @@
       "companyDomain": "vfc.com",
       "crawledAt": "2026-10-15T21:16:23.198Z",
       "firstSeenAt": "2026-10-15T21:16:23.198Z",
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "sales-associate-timberland-foxtown-vf-international-the-north-face-timberland-emea-che-mendrisio-outlet-tbl-s3fkro",
         "en": "sales-associate-timberland-foxtown-vf-international-the-north-face-timberland-emea-che-mendrisio-outlet-tbl-s3fkro",
-        "de": "sales-associate-timberland-foxtown-vf-international-the-north-face-timberland-emea-che-mendrisio-outlet-tbl-s3fkro",
-        "fr": "sales-associate-timberland-foxtown-vf-international-the-north-face-timberland-emea-che-mendrisio-outlet-tbl-s3fkro"
+        "de": "vertriebsmitarbeiter-timberland-foxtown-vf-international-the-north-face-timberland-mendrisio",
+        "fr": "associe-commercial-timberland-foxtown-vf-international-the-north-face-timberland-mendrisio"
       },
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
@@ -5594,7 +5593,8 @@
       "salarySource": "estimated",
       "applyUrl": "https://vfc.wd5.myworkdayjobs.com/vfc_careers/job/EMEA--CHE--Stabio--VF-Campus-VF1/PR-Manager-EMEA_R-20260728-0027",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-he5kz9",
@@ -6150,7 +6150,8 @@
       "applyUrl": "https://vfc.wd5.myworkdayjobs.com/vfc_careers/job/EMEA--CHE--Stabio--VF-Campus-VF1/eCommerce-Merchandiser_R-20260729-0015-1",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-mbi75b",

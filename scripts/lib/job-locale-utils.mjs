@@ -2,23 +2,19 @@ import { detectLanguageWithConfidence } from './detect-language.mjs';
 import { escapeRegExpLiteral } from './escape-regexp.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { detectAiReasoningLeak } from './ai-output-fidelity.mjs';
+import {
+  DEFAULT_JOB_LOCALES,
+  isTitleSourceCopy,
+  normalizeJobLocale,
+  titleContainsLlmReasoning,
+} from './job-locale-core.mjs';
 
-export const DEFAULT_JOB_LOCALES = ['it', 'en', 'de', 'fr'];
-
-/**
- * Normalize a stored locale without inventing a supported one.
- *
- * Crawlers occasionally persist regional spellings (`de-CH`, `it_CH`) while
- * the locale maps use the base ISO-639 code. Callers that need to accept only
- * supported locales still validate the returned value against
- * DEFAULT_JOB_LOCALES; this helper only performs the mechanical normalization.
- *
- * @param {unknown} value
- * @returns {string}
- */
-export function normalizeJobLocale(value = '') {
-  return String(value ?? '').trim().toLowerCase().split(/[-_]/)[0];
-}
+export {
+  DEFAULT_JOB_LOCALES,
+  isTitleSourceCopy,
+  normalizeJobLocale,
+  titleContainsLlmReasoning,
+};
 
 /**
  * Return every available representation of a job's source text, with the
@@ -607,26 +603,6 @@ function tokenOverlap(a, b) {
 }
 
 /**
- * Case- and punctuation-insensitive, but diacritic-SENSITIVE on purpose: the
- * only difference between the German "CSV Requirements Ingenieur" and its
- * correct French slot "CSV Requirements Ingénieur" is the accent, and folding
- * it away turned a real (if minimal) translation into a "source-copy".
- */
-const normalizeForCompare = (value) =>
-  String(value || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-
-/**
- * The one source-copy predicate used by title queueing and title writers.
- * Punctuation/whitespace-only changes are still a copy; diacritics remain
- * significant so a real translation such as `Ingénieur` is not discarded.
- */
-export function isTitleSourceCopy(title, sourceTitle) {
-  const clean = String(title || '').trim();
-  const source = String(sourceTitle || '').trim();
-  return !!clean && !!source && normalizeForCompare(clean) === normalizeForCompare(source);
-}
-
-/**
  * Canonical comparison key for description source-copy checks.
  *
  * Description slots preserve paragraph breaks for rendering, but those breaks
@@ -654,16 +630,6 @@ export function isDescriptionSourceCopy(description, sourceDescription) {
   const candidate = normalizeDescriptionForCompare(description);
   const source = normalizeDescriptionForCompare(sourceDescription);
   return Boolean(candidate && source && candidate === source);
-}
-
-// A failed LLM call can return its instruction/reasoning as the title. This is
-// not a source-copy and therefore used to evade the repair queue entirely.
-// Keep the detector narrow and phrase-based: it targets meta-instructions, not
-// legitimate titles containing ordinary words such as "translation" or "AI".
-const LLM_REASONING_TITLE_RE = /\b(?:i\s+need\s+to\s+translate|translate\s+(?:this|the)\s+(?:job\s+)?title|the\s+translated\s+(?:job\s+)?title|here\s+is\s+the\s+translation|as\s+an\s+ai|target\s+language\s*:\s*|source\s+language\s*:)/iu;
-
-export function titleContainsLlmReasoning(title = '') {
-  return LLM_REASONING_TITLE_RE.test(String(title || '').trim());
 }
 
 function hasGermanGenderCode(body) {

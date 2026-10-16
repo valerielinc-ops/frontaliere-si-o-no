@@ -58,25 +58,33 @@
         "it": [
           "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil",
           "automobil-mechatroniker-in-confederazione-hinwil",
-          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7"
+          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7",
+          "meccatronico-a-di-automobili-confederazione-svizzera-hinwil"
         ],
         "en": [
           "automobil-mechatroniker-in-confederazione-hinwil",
-          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7"
+          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7",
+          "automotive-mechatronics-technician-confederazione-svizzera-hinwil"
         ],
         "de": [
           "automobil-mechatroniker-in-confederazione-hinwil"
         ],
         "fr": [
           "automobil-mechatroniker-in-confederazione-hinwil",
-          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7"
+          "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7",
+          "mecatronicien-ne-automobile-confederazione-svizzera-hinwil"
         ]
       },
       "previousSlugs": [
         "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil",
         "automobil-mechatroniker-in-confederazione-hinwil",
-        "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7"
+        "automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7",
+        "meccatronico-a-di-automobili-confederazione-svizzera-hinwil",
+        "automotive-mechatronics-technician-confederazione-svizzera-hinwil",
+        "mecatronicien-ne-automobile-confederazione-svizzera-hinwil"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -88,9 +96,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-czd57g",

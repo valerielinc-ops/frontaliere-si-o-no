@@ -1023,7 +1023,7 @@
       "slug": "datacenter-commercializzazione-swisscom-zurich",
       "slugByLocale": {
         "it": "datacenter-commercializzazione-swisscom-zurich",
-        "en": "datacenter-specialized-sales-swisscom-zurich",
+        "en": "data-center-specialized-sales-swisscom-zurich",
         "de": "datacenter-specialized-sales-swisscom-zurich-drxcu0",
         "fr": "datacenter-ventes-specialisees-swisscom-zurich"
       },
@@ -1045,7 +1045,7 @@
       "id": "swisscom-sede-ticino-cda4a7278ed3",
       "previousSlugs": [
         "datacenter-specialized-sales-swisscom-zurich-drxcu0",
-        "data-center-specialized-sales-swisscom-zurich"
+        "datacenter-specialized-sales-swisscom-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1053,7 +1053,7 @@
         ],
         "en": [
           "datacenter-specialized-sales-swisscom-zurich-drxcu0",
-          "data-center-specialized-sales-swisscom-zurich"
+          "datacenter-specialized-sales-swisscom-zurich"
         ],
         "fr": [
           "datacenter-specialized-sales-swisscom-zurich-drxcu0"
@@ -1942,7 +1942,7 @@
           "devops-engineer-endpoint-protection-swisscom-bern-drxc7o"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T21:22:17.850Z",
       "salaryMin": 73000,
       "salaryMax": 124500,

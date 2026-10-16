@@ -44,6 +44,7 @@ const ROOT = resolve(import.meta.dirname, '..');
 const read = (path: string) => readFileSync(resolve(ROOT, path), 'utf8');
 
 const ENSURE_SCRIPT = 'scripts/ci/ensure-cdn-shell-assets.mjs';
+const PINNED_TSX_RUNNER = 'scripts/ci/run-pinned-tsx.sh';
 const INCREMENTAL_PUSH = 'scripts/lib/push-article-shard-incremental.sh';
 
 type Outcome = { key: string; outcome: string };
@@ -805,6 +806,35 @@ describe('ensure-cdn-shell-assets.mjs', () => {
   });
 });
 
+describe('pinned tsx bootstrap for fast emitters', () => {
+  const runner = read(PINNED_TSX_RUNNER);
+  const workflows = [
+    '.github/workflows/fast-publish-article.yml',
+    '.github/workflows/rerender-article-corpus.yml',
+    '.github/workflows/rerender-article-hubs.yml',
+  ];
+
+  it('retries only a bounded, timed-out, idempotent entrypoint and preserves the final failure', () => {
+    expect(runner).toContain('set -euo pipefail');
+    expect(runner).toContain("readonly MAX_ATTEMPTS=3");
+    expect(runner).toContain("readonly ATTEMPT_TIMEOUT_SECONDS=120");
+    expect(runner).toContain('timeout --kill-after="${KILL_AFTER_SECONDS}s"');
+    expect(runner).not.toContain('timeout --foreground');
+    expect(runner).toContain('sleep "$retry_delay"');
+    expect(runner).toContain('exit "$exit_code"');
+    expect(runner).not.toContain('|| true');
+  });
+
+  it('routes every fast emitter through the same pinned tsx bootstrap', () => {
+    const invocation = `bash ${PINNED_TSX_RUNNER} ${ENSURE_SCRIPT}`;
+    for (const workflow of workflows) {
+      const source = read(workflow);
+      expect(source, workflow).toContain(invocation);
+      expect(source, workflow).not.toContain(`npx -y tsx@4.23.15 ${ENSURE_SCRIPT}`);
+    }
+  });
+});
+
 /**
  * The emitters, found from the code rather than listed: a top-level script
  * that spawns the merge-only shard push renders shell HTML and publishes it
@@ -818,11 +848,13 @@ describe('fast emitters run the ensure step before they publish', () => {
     .map((name) => `scripts/${name}`);
   const escapeRx = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const invocationOf = (paths: string[]) => new RegExp(
-    String.raw`(?:^|[\s;&|(])(?:node|bash|tsx(?:@[\w.]+)?)\s+(?:${paths.map(escapeRx).join('|')})(?![\w.-])`,
+    String.raw`(?:^|[\s;&|(])(?:node|bash|tsx(?:@[\w.]+)?)\s+(?:${escapeRx(PINNED_TSX_RUNNER)}\s+)?(?:${paths.map(escapeRx).join('|')})(?![\w.-])`,
     'm',
   );
   const publishes = invocationOf([...emitterScripts, INCREMENTAL_PUSH]);
-  const ensures = invocationOf([ENSURE_SCRIPT]);
+  const ensures = new RegExp(
+    `${escapeRx(PINNED_TSX_RUNNER)}\\s+${escapeRx(ENSURE_SCRIPT)}(?![\\w.-])`,
+  );
   /** A step's shell script without its comment lines. */
   const commands = (step: { run?: unknown }) => String(step.run ?? '')
     .split('\n')

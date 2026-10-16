@@ -333,7 +333,7 @@
       "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
-        "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp",
+        "en": "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "fr": "genie-du-travail-pour-6-a-12-mois-m-f-j-lonza-ch"
       },
@@ -379,7 +379,7 @@
       "jobReqId": "R75798",
       "previousSlugs": [
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -387,7 +387,7 @@
         ],
         "en": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-          "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+          "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-06-19T22:15:31.217Z",
@@ -14092,7 +14092,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:12:44.271Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -14195,7 +14194,7 @@
         "de": "mitarbeiter-logistik-coe-pharma-shipments-samples-80-100-m-w-d-lonza-ch",
         "it": "addetto-a-alla-logistica-coe-pharma-shipments-samples-80-100-m-w-d-lonza-visp",
         "en": "mitarbeiter-logistik-coe-pharma-shipments-samples-80-100-m-w-d-lonza-ch",
-        "fr": "mitarbeiter-logistik-coe-pharma-shipments-samples-80-100-m-w-d-lonza-ch"
+        "fr": "logistique-des-employes-expeditions-coe-pharma-echantillons-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14242,6 +14241,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-logistik-coe-pharma-shipments-samples-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "mitarbeiter-logistik-coe-pharma-shipments-samples-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -14266,12 +14268,12 @@
     },
     {
       "id": "lonza-f3e886d4e143",
-      "slug": "operational-waste-logistics-operator-80-100-lonza-ch",
+      "slug": "operational-waste-logistica-operatore-80-100-lonza-visp",
       "slugByLocale": {
         "de": "operational-waste-logistics-operator-80-100-lonza-ch",
-        "it": "operational-waste-logistics-operator-80-100-lonza-ch",
+        "it": "operational-waste-logistica-operatore-80-100-lonza-visp",
         "en": "operational-waste-logistics-operator-80-100-lonza-ch",
-        "fr": "operational-waste-logistics-operator-80-100-lonza-ch"
+        "fr": "operational-waste-logistique-operateur-80-100-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14331,7 +14333,18 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-15T21:16:11.326Z"
+      "firstSeenAt": "2026-10-15T21:16:11.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-waste-logistics-operator-80-100-lonza-ch"
+        ],
+        "fr": [
+          "operational-waste-logistics-operator-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operational-waste-logistics-operator-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-db18c010fc0c",

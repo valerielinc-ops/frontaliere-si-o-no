@@ -3806,6 +3806,24 @@
     "candidatesCount": 1,
     "canton": "AG"
   },
+  "AG::it::gartner-100-anker-swiss-ticino-ag-mellingen-c6d066cc": {
+    "winnerJobIdentifier": "anker-swiss-c6d066cca7d9",
+    "winnerCanonical": "giardini-100-anker-swiss-ticino-ag-mellingen-c6d066cc",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::it::gartner-100-anker-swiss-ticino-ag-wettingen-e64288b4": {
+    "winnerJobIdentifier": "anker-swiss-e64288b481d8",
+    "winnerCanonical": "giardiniere-100-anker-swiss-ag-anker-swiss-ticino-ag-wettingen-e64288b4",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::gartner-in-8211-garten-und-landschaftsbau-fur-gartenpflege-und-neugestaltung-zofingen": {
     "winnerJobIdentifier": "sta-c1159874c250",
     "winnerCanonical": "giardinieri-giardinaggio-e-paesaggistica-per-la-manutenzione-del-giardino-e-riprogettazione-sta-personal-ag-zofingen",
@@ -4091,15 +4109,6 @@
     "decidedAt": "2026-10-09T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 1,
-    "canton": "AG"
-  },
-  "AG::it::lagerist-in-coop-genossenschaft-aarau-aargau-ok0us8": {
-    "winnerJobIdentifier": "company-zacjgo",
-    "winnerCanonical": "magaziner-in-vendita-coop-aarau-aargau-zacjgo",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
-    "score": 0.4,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -10722,7 +10731,7 @@
     "winnerJobIdentifier": "spitex-ch-12e86fbadba7",
     "winnerCanonical": "professionista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
     "decidedAt": "2026-09-04T00:00:00.000Z",
-    "lastSeenAt": "2026-10-06T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 2,
     "canton": "BASILEA"
@@ -11192,6 +11201,15 @@
     "decidedAt": "2026-10-03T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::magaziner-in-migros-sissach-genossenschaft-migros-basel-sissach": {
+    "winnerJobIdentifier": "company-maehda",
+    "winnerCanonical": "collaboratore-trice-in-kasse-migros-sissach-genossenschaft-migros-basel-sissach-maehda",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -12438,12 +12456,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal": {
-    "winnerJobIdentifier": "ksbl-1f87f6de291d",
-    "winnerCanonical": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-95db0c5d0b",
-    "decidedAt": "2026-10-12T00:00:00.000Z",
+    "winnerJobIdentifier": "ksbl-3113381bd505",
+    "winnerCanonical": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::unterassistentin-unterassistent-medizin-a-ksbl-liestal": {
@@ -13242,7 +13260,7 @@
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun-igfw8j",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "BE"
@@ -13932,12 +13950,12 @@
     "canton": "BE"
   },
   "BE::de::verkaufer-in-food-coop-genossenschaft-thun": {
-    "winnerJobIdentifier": "company-20y2y0",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-thun-20y2y0",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "winnerJobIdentifier": "company-vp1hx7",
+    "winnerCanonical": "verkaufer-in-food-coop-thun-vp1hx7",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.7143,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::verkaufer-in-food-coop-grindelwald-bern-s510ie": {
@@ -14349,7 +14367,7 @@
     "winnerJobIdentifier": "company-2nps4e",
     "winnerCanonical": "hr-admin-2-specialist-deputy-team-leader-swiss-armed-forces-vtg-bern",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 2,
     "canton": "BE"
@@ -14601,7 +14619,7 @@
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "logistics-employee-swiss-armed-forces-vtg-thun",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "BE"
@@ -14664,7 +14682,7 @@
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "logistics-employee-swiss-armed-forces-vtg-thun",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 2,
     "canton": "BE"
@@ -14673,7 +14691,7 @@
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "logistics-employee-swiss-armed-forces-vtg-thun",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 2,
     "canton": "BE"
@@ -14867,6 +14885,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::en::polymechaniker-in-ffs-officine-ferrovie-federali-meiringen": {
+    "winnerJobIdentifier": "sbb-083cce8026a2",
+    "winnerCanonical": "polymechanic-ffs-officine-ferrovie-federali-meiringen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::professional-software-ingenieur-in-80-100-fincons-group-full-time": {
     "winnerJobIdentifier": "fincons-group-a99907e24127",
     "winnerCanonical": "professional-software-engineer-80-100-fincons-group-bern",
@@ -14898,7 +14925,7 @@
     "winnerJobIdentifier": "company-2nps4e",
     "winnerCanonical": "hr-admin-2-specialist-deputy-team-leader-swiss-armed-forces-vtg-bern",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
     "canton": "BE"
@@ -15843,7 +15870,7 @@
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "collaborateur-trice-en-logistique-swiss-armed-forces-vtg-thun",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 2,
     "canton": "BE"
@@ -16311,7 +16338,7 @@
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "collaborateur-trice-en-logistique-swiss-armed-forces-vtg-thun",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.0769,
     "candidatesCount": 2,
     "canton": "BE"
@@ -16320,7 +16347,7 @@
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "collaborateur-trice-en-logistique-swiss-armed-forces-vtg-thun",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 2,
     "canton": "BE"
@@ -16395,6 +16422,15 @@
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.1176,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::fr::polymechaniker-in-ffs-officine-ferrovie-federali-meiringen": {
+    "winnerJobIdentifier": "sbb-083cce8026a2",
+    "winnerCanonical": "polymecanicien-ne-ffs-officine-ferrovie-federali-meiringen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::fr::professional-software-ingenieur-in-80-100-fincons-group-full-time": {
@@ -17892,12 +17928,12 @@
     "canton": "BE"
   },
   "BE::it::collaboratore-trice-in-logistik-confederazione-svizzera-thun": {
-    "winnerJobIdentifier": "confederazione-ticino-29ad592bb5a3",
-    "winnerCanonical": "addetto-a-alla-logistica-confederazione-svizzera-thun-c719125f7b",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-igfw8j",
+    "winnerCanonical": "collaboratore-trice-in-logistik-swiss-armed-forces-vtg-thun-igfw8j",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::collaboratore-trice-in-logistik-swiss-armed-forces-vtg-thun-igfw8j": {
@@ -18692,6 +18728,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf": {
+    "winnerJobIdentifier": "spitex-ch-32a0bc4aca1d",
+    "winnerCanonical": "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op": {
     "winnerJobIdentifier": "company-ra6j4v",
     "winnerCanonical": "cucine-e-bagni-sanitari-fust-burgdorf-b23c4a",
@@ -18855,12 +18900,12 @@
     "canton": "BE"
   },
   "BE::it::fachfrau-fachmann-patientenlagerung-80-100-sro-langenthal": {
-    "winnerJobIdentifier": "sro-3ec4e77c860a",
-    "winnerCanonical": "specialista-esperto-di-stoccaggio-del-paziente-80-100-sro-ag-spital-region-oberaargau-langenthal",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
+    "winnerJobIdentifier": "sro-3931e4042826",
+    "winnerCanonical": "specialista-esperto-di-stoccaggio-del-paziente-80-100-sro-ag-spital-region-oberaargau-langenthal-7575fd878d",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.2353,
-    "candidatesCount": 2,
+    "score": 0.2222,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::fachfrau-mann-gesundheit-efz-50-senevita-be-bern": {
@@ -19134,12 +19179,12 @@
     "canton": "BE"
   },
   "BE::it::ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne": {
-    "winnerJobIdentifier": "sbb-1444e8f8d837",
-    "winnerCanonical": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne",
-    "decidedAt": "2026-10-13T00:00:00.000Z",
-    "lastSeenAt": "2026-10-13T00:00:00.000Z",
-    "score": 0.3125,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "sbb-262ba14a754d",
+    "winnerCanonical": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-8def9eb896",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2941,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf": {
@@ -20709,19 +20754,19 @@
     "canton": "BE"
   },
   "BE::it::mitarbeiter-in-logistik-confederazione-thun": {
-    "winnerJobIdentifier": "confederazione-ticino-29ad592bb5a3",
-    "winnerCanonical": "addetto-a-alla-logistica-confederazione-svizzera-thun-c719125f7b",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.1818,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-igfw8j",
+    "winnerCanonical": "collaboratore-trice-in-logistik-swiss-armed-forces-vtg-thun-igfw8j",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::mitarbeiter-in-logistik-swiss-armed-forces-vtg-thun": {
     "winnerJobIdentifier": "company-igfw8j",
     "winnerCanonical": "addetto-a-alla-logistica-swiss-armed-forces-vtg-thun-e61af1be2f",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 2,
     "canton": "BE"
@@ -21266,6 +21311,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::polymechaniker-in-ffs-officine-ferrovie-federali-meiringen": {
+    "winnerJobIdentifier": "sbb-083cce8026a2",
+    "winnerCanonical": "polimeccanica-ffs-officine-ferrovie-federali-meiringen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::polymechaniker-in-hilfsarbeiter-in-mit-praktischer-metallbearbeitung-langenthal-bern": {
     "winnerJobIdentifier": "stellentreff-c0c995e2f07f",
     "winnerCanonical": "polimeccanica-lavoratori-ausiliari-con-pratica-lavorazione-del-metallo-stellentreff-ag-langenthal-bern",
@@ -21447,19 +21501,19 @@
     "canton": "BE"
   },
   "BE::it::sachbearbeiter-in-hr-admin-2-stellvertretende-r-teamleiter-in-confederazione-bern": {
-    "winnerJobIdentifier": "confederazione-ticino-d2d903b4e38e",
-    "winnerCanonical": "impiegato-a-amministrativo-a-hr-2-vice-responsabile-del-team-confederazione-svizzera-bern-4a843d0c0f",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.2105,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-2nps4e",
+    "winnerCanonical": "sachbearbeiter-in-risorse-umane-admin-2-stellvertretende-r-teamleiter-in-swiss-armed-forces-vtg-bern-2nps4e",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4706,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::sachbearbeiter-in-hr-admin-2-stellvertretende-r-teamleiter-in-swiss-armed-forces-vtg-bern": {
     "winnerJobIdentifier": "company-2nps4e",
     "winnerCanonical": "impiegato-a-amministrativo-a-hr-2-vice-responsabile-del-team-swiss-armed-forces-vtg-bern-06680e7dab",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "BE"
@@ -22607,6 +22661,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::venditore-venditore-volg-kandersteg": {
+    "winnerJobIdentifier": "volg-fenaco-4b9544bdb750",
+    "winnerCanonical": "venditore-venditore-volg-kandersteg-54b0c60eb7",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::venditore-venditore-volg-wilderswil": {
     "winnerJobIdentifier": "volg-fenaco-3bfb76ed4fb5",
     "winnerCanonical": "venditore-venditore-volg-wilderswil-ce25706aed",
@@ -23003,6 +23066,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::verkaufer-in-food-coop-interlaken": {
+    "winnerJobIdentifier": "company-ih60wl",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-interlaken",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::verkaufer-in-food-coop-koniz": {
     "winnerJobIdentifier": "company-enjavy",
     "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-koniz",
@@ -23139,11 +23211,11 @@
     "canton": "BE"
   },
   "BE::it::verkaufer-in-frischprodukte-coop-bern": {
-    "winnerJobIdentifier": "company-ac7bz",
-    "winnerCanonical": "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-bern",
-    "decidedAt": "2026-09-18T00:00:00.000Z",
-    "lastSeenAt": "2026-09-29T00:00:00.000Z",
-    "score": 0.1818,
+    "winnerJobIdentifier": "company-xsf6i1",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-bern",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2222,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -23252,6 +23324,15 @@
     "decidedAt": "2026-10-07T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::verkauferin-verkaufer-volg-kandersteg": {
+    "winnerJobIdentifier": "volg-fenaco-4b9544bdb750",
+    "winnerCanonical": "venditore-venditore-volg-kandersteg-54b0c60eb7",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -29934,12 +30015,12 @@
     "canton": "GR"
   },
   "GR::it::sous-chef-weisse-arena-ch": {
-    "winnerJobIdentifier": "weisse-arena-e1d75e1918bc",
-    "winnerCanonical": "capo-di-sous-weisse-arena-gruppe-laax",
-    "decidedAt": "2026-10-10T00:00:00.000Z",
+    "winnerJobIdentifier": "weisse-arena-bf1e2f04c236",
+    "winnerCanonical": "sottocuoco-weisse-arena-gruppe-laax",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::sozialarbeiter-in-kanton-gr-ch": {
@@ -31530,7 +31611,7 @@
     "winnerJobIdentifier": "company-grkcs8",
     "winnerCanonical": "allrounder-in-verkauf-genossenschaft-migros-luzern-luzern",
     "decidedAt": "2026-10-10T00:00:00.000Z",
-    "lastSeenAt": "2026-10-13T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 1,
     "candidatesCount": 2,
     "canton": "LU"
@@ -33444,12 +33525,12 @@
     "canton": "LU"
   },
   "LU::it::biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern": {
-    "winnerJobIdentifier": "luks-28cce903b13a",
-    "winnerCanonical": "analista-biomedico-analista-biomedicale-hf-80-100-luzerner-kantonsspital-luks-luzern",
-    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "winnerJobIdentifier": "luks-a575ac09340a",
+    "winnerCanonical": "analista-biomedico-analista-biomedico-hf-80-100-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::building-technology-employees-galliker-transport-ag-altishofen": {
@@ -34965,12 +35046,12 @@
     "canton": "LU"
   },
   "LU::it::metallbauer-in-fur-montage-und-werkstatt-willisau-luzern-fachkraft-ch": {
-    "winnerJobIdentifier": "fachkraft-274f3db9a216",
-    "winnerCanonical": "metallbauer-in-per-montage-e-werkstatt-fachkraft-ch-gmbh-willisau",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.5385,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "fachkraft-dca8075078c0",
+    "winnerCanonical": "operaio-del-metallo-per-assemblaggio-e-officina-fachkraft-ch-gmbh-willisau",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::metallbauer-in-fur-werkstatt-und-montagearbeiten-kaminbau-luzern-luzern-fachkraft-ch": {
@@ -35649,21 +35730,21 @@
     "canton": "LU"
   },
   "LU::it::sanitarinstallateur-in-mit-fuhrungskompetenz-sursee-luzern-fachkraft-ch": {
-    "winnerJobIdentifier": "fachkraft-8bca6f7c1326",
-    "winnerCanonical": "installatore-trice-di-sanitari-con-competenze-manageriali-fachkraft-ch-gmbh-sursee-luzern",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "fachkraft-488b3ef1b3ba",
+    "winnerCanonical": "installatore-trice-di-sanitari-con-competenze-manageriali-fachkraft-ch-gmbh-sursee",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::sanitarinstallateur-in-mit-fuhrungsverantwortung-sursee-luzern-fachkraft-ch": {
-    "winnerJobIdentifier": "fachkraft-45e94554fc97",
-    "winnerCanonical": "installatore-trice-sanitario-a-con-responsabilita-dirigenziale-fachkraft-ch-gmbh-sursee-luzern",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "fachkraft-f3cc69743323",
+    "winnerCanonical": "installatore-trice-sanitario-a-con-responsabilita-dirigenziale-fachkraft-ch-gmbh-sursee",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::schnupperlehre-fachfrau-mann-gesundheit-efz-assistent-in-gesundheit-und-soziales-eba": {
@@ -35739,12 +35820,12 @@
     "canton": "LU"
   },
   "LU::it::schreiner-in-fur-glas-montage-sursee-luzern-fachkraft-ch": {
-    "winnerJobIdentifier": "fachkraft-adde35661cc2",
-    "winnerCanonical": "schreiner-in-per-glas-montage-fachkraft-ch-gmbh-sursee",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.6364,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "fachkraft-082c85a304c7",
+    "winnerCanonical": "carpentiere-ebanista-per-installazione-vetri-fachkraft-ch-gmbh-sursee",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::schreiner-in-fur-hinterluftete-fassaden-und-holzbaukonstruktionen-willisau-luzern": {
@@ -37224,12 +37305,12 @@
     "canton": "NW"
   },
   "NW::it::sanitarinstallateur-in-mit-bauleitungsaufgaben-stans-nidwalden-fachkraft-ch": {
-    "winnerJobIdentifier": "fachkraft-f9dca1125989",
-    "winnerCanonical": "idraulico-con-compiti-di-gestione-dei-lavori-fachkraft-ch-gmbh-stans-nidwalden",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "fachkraft-27461f2b6da8",
+    "winnerCanonical": "idraulico-con-compiti-di-gestione-dei-lavori-fachkraft-ch-gmbh-stans",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "NW"
   },
   "NW::it::schreiner-in-8211-projektleiter-in-fur-holz-brandschutzturprojekte-stans-nidwalden": {
@@ -37344,7 +37425,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach-hsfik1",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37353,7 +37434,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach-hsfik1",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37371,7 +37452,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "aircraft-mechanic-swiss-armed-forces-vtg-alpnach",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37407,7 +37488,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "aircraft-mechanic-swiss-armed-forces-vtg-alpnach",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37416,7 +37497,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "aircraft-mechanic-swiss-armed-forces-vtg-alpnach",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37497,7 +37578,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "mecanicien-ne-aeronautique-swiss-armed-forces-vtg-alpnach",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.0833,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37506,7 +37587,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "mecanicien-ne-aeronautique-swiss-armed-forces-vtg-alpnach",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37515,7 +37596,7 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "mecanicien-ne-aeronautique-swiss-armed-forces-vtg-alpnach",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37629,28 +37710,28 @@
     "canton": "OW"
   },
   "OW::it::luftfahrzeugmechaniker-in-confederazione-alpnach": {
-    "winnerJobIdentifier": "confederazione-ticino-d51779a5427e",
-    "winnerCanonical": "meccanico-a-di-aeromobili-confederazione-svizzera-alpnach-825a276ef5",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.2,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hsfik1",
+    "winnerCanonical": "meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 1,
     "canton": "OW"
   },
   "OW::it::luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach": {
-    "winnerJobIdentifier": "confederazione-ticino-d51779a5427e",
-    "winnerCanonical": "meccanico-a-di-aeromobili-confederazione-svizzera-alpnach-825a276ef5",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.3,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hsfik1",
+    "winnerCanonical": "meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.0769,
+    "candidatesCount": 1,
     "canton": "OW"
   },
   "OW::it::luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-alpnach": {
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach-3e7c50eb45",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 2,
     "canton": "OW"
@@ -37659,18 +37740,18 @@
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach-3e7c50eb45",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 2,
     "canton": "OW"
   },
   "OW::it::meccanico-a-di-aeromobili-confederazione-svizzera-alpnach": {
-    "winnerJobIdentifier": "confederazione-ticino-d51779a5427e",
-    "winnerCanonical": "meccanico-a-di-aeromobili-confederazione-svizzera-alpnach-825a276ef5",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hsfik1",
+    "winnerCanonical": "meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 1,
     "canton": "OW"
   },
   "OW::it::meccanico-a-di-aeromobili-swiss-armed-forces-vtg-alpnach": {
@@ -41633,6 +41714,15 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::it::dipl-fachfrau-mann-operationstechnik-50-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-8037171217d1",
+    "winnerCanonical": "specialista-in-tecnica-chirurgica-50-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen": {
     "winnerJobIdentifier": "hoch-health-bf08f711b247",
     "winnerCanonical": "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-st-gallen",
@@ -43740,20 +43830,20 @@
     "canton": "SG"
   },
   "SG::it::psico-oncologa-in-40-80-hoch-health-ostschweiz-grabs": {
-    "winnerJobIdentifier": "hoch-health-57bfa6bb9dfb",
-    "winnerCanonical": "psico-oncologa-in-40-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-    "decidedAt": "2026-08-21T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-750b4b571b8d",
+    "winnerCanonical": "assistente-junior-2026-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.2143,
     "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::psychoonkologe-in-40-80-hoch-health-grabs": {
-    "winnerJobIdentifier": "hoch-health-57bfa6bb9dfb",
-    "winnerCanonical": "psico-oncologa-in-40-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-    "decidedAt": "2026-08-21T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-750b4b571b8d",
+    "winnerCanonical": "assistente-junior-2026-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.2857,
+    "score": 0.1538,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -44097,6 +44187,15 @@
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
+    "canton": "SG"
+  },
+  "SG::it::spontanbewerbung-departement-pflege-therapeutische-dienste-40-100-hoch-health-uznach": {
+    "winnerJobIdentifier": "hoch-health-2647b6b6644b",
+    "winnerCanonical": "candidatura-spontanea-dipartimento-cure-e-servizi-terapeutici-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2778,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::stage-commercial-psychiatrie-st-gallen-wil-sg-31a5b0": {
@@ -45864,29 +45963,29 @@
     "canton": "SH"
   },
   "SH::it::fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen": {
-    "winnerJobIdentifier": "spitaeler-schaffhausen-fce4eeded52d",
-    "winnerCanonical": "professionale-salute-efz-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "specialista-sanitario-efz-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.1429,
+    "score": 0.2,
     "candidatesCount": 1,
     "canton": "SH"
   },
   "SH::it::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen": {
-    "winnerJobIdentifier": "spitaeler-schaffhausen-fce4eeded52d",
-    "winnerCanonical": "professionale-salute-efz-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "specialista-sanitario-efz-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 1,
+    "score": 0.2,
+    "candidatesCount": 2,
     "canton": "SH"
   },
   "SH::it::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2": {
-    "winnerJobIdentifier": "spitaeler-schaffhausen-fce4eeded52d",
-    "winnerCanonical": "professionale-salute-efz-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "spitaeler-schaffhausen-56e43712bd4d",
+    "winnerCanonical": "specialista-sanitario-efz-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0.1818,
     "candidatesCount": 1,
     "canton": "SH"
   },
@@ -49719,7 +49818,7 @@
     "winnerJobIdentifier": "sbb-0dbb39775b83",
     "winnerCanonical": "conducente-del-treno-cat-trattore-catenario-b100-ffs-officine-ferrovie-federali-dulliken",
     "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-10-13T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.375,
     "candidatesCount": 2,
     "canton": "SO"
@@ -49806,9 +49905,9 @@
     "canton": "SO"
   },
   "SO::it::mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-topshop-winznau-landi-aarau-west-ag-winznau": {
-    "winnerJobIdentifier": "volg-fenaco-35ed00fc6eb0",
+    "winnerJobIdentifier": "volg-fenaco-6393485dea50",
     "winnerCanonical": "mitarbeiterin-addetto-a-alle-vendite-m-w-d-br-topshop-winznau-landi-aarau-west-ag-winznau",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.6471,
     "candidatesCount": 1,
@@ -50778,12 +50877,12 @@
     "canton": "SZ"
   },
   "SZ::en::employees-m-f-d-roomservice-ameos-schweiz-einsiedeln": {
-    "winnerJobIdentifier": "ameos-ch-e59d0994c9db",
-    "winnerCanonical": "employee-m-f-d-roomservice-ameos-schweiz-einsiedeln",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "ameos-ch-8006baa87e24",
+    "winnerCanonical": "employee-m-f-d-case-management-ameos-schweiz-einsiedeln",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.7778,
-    "candidatesCount": 2,
+    "score": 0.5455,
+    "candidatesCount": 1,
     "canton": "SZ"
   },
   "SZ::en::fachmann-frau-betriebsunterhalt-mit-vielseitigen-gartenbaukenntnissen-kussnacht-am-rigi": {
@@ -50895,12 +50994,12 @@
     "canton": "SZ"
   },
   "SZ::fr::employes-h-f-d-roomservice-ameos-schweiz-einsiedeln": {
-    "winnerJobIdentifier": "ameos-ch-e59d0994c9db",
-    "winnerCanonical": "employe-h-f-d-roomservice-ameos-schweiz-einsiedeln",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "ameos-ch-8006baa87e24",
+    "winnerCanonical": "employe-h-f-d-gestion-des-cas-ameos-schweiz-einsiedeln",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.7778,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "SZ"
   },
   "SZ::fr::fachmann-frau-betriebsunterhalt-mit-vielseitigen-gartenbaukenntnissen-kussnacht-am-rigi": {
@@ -51219,12 +51318,12 @@
     "canton": "SZ"
   },
   "SZ::it::mitarbeiter-m-w-d-roomservice-ameos-einsiedeln": {
-    "winnerJobIdentifier": "ameos-ch-e59d0994c9db",
-    "winnerCanonical": "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "ameos-ch-8006baa87e24",
+    "winnerCanonical": "collaboratore-trice-m-w-d-case-management-ameos-schweiz-einsiedeln",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "SZ"
   },
   "SZ::it::montage-elektriker-in-fur-hochregallager-und-fordersysteme-kussnacht-am-rigi-schwyz": {
@@ -56550,7 +56649,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator-swiss-armed-forces-vtg-riazzino",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.5294,
     "candidatesCount": 2,
     "canton": "TI"
@@ -56559,7 +56658,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator-swiss-armed-forces-vtg-riazzino",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.7647,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57027,7 +57126,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "ict-officer-deputy-technician-pc-7-simulator-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57036,7 +57135,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "ict-officer-deputy-technician-pc-7-simulator-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57045,7 +57144,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "ict-officer-deputy-technician-pc-7-simulator-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.45,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57054,7 +57153,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "ict-officer-deputy-technician-pc-7-simulator-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.35,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57441,7 +57540,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "responsable-tic-technicien-ne-suppleant-e-du-simulateur-pc-7-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57450,7 +57549,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "responsable-tic-technicien-ne-suppleant-e-du-simulateur-pc-7-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57459,7 +57558,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "responsable-tic-technicien-ne-suppleant-e-du-simulateur-pc-7-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "TI"
@@ -57657,7 +57756,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "responsable-tic-technicien-ne-suppleant-e-du-simulateur-pc-7-swiss-armed-forces-vtg-flugplatzkommando-locarno",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 2,
     "canton": "TI"
@@ -58599,19 +58698,19 @@
     "canton": "TI"
   },
   "TI::it::ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator-confederazione-flugplatzkommando-locarno": {
-    "winnerJobIdentifier": "confederazione-ticino-74ba283ecf95",
-    "winnerCanonical": "responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-confederazione-svizzera-locarno-ddcc9d4796",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.1905,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-a0wlr7",
+    "winnerCanonical": "responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-swiss-armed-forces-vtg-flugplatzkommando-locarno",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.1739,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator-swiss-armed-forces-vtg-flugplatzkommando-locarno": {
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-swiss-armed-forces-vtg-riazzino-ede136923e",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 2,
     "canton": "TI"
@@ -58620,7 +58719,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-swiss-armed-forces-vtg-riazzino-ede136923e",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.24,
     "candidatesCount": 2,
     "canton": "TI"
@@ -58629,7 +58728,7 @@
     "winnerJobIdentifier": "company-a0wlr7",
     "winnerCanonical": "responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-swiss-armed-forces-vtg-riazzino-ede136923e",
     "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.3182,
     "candidatesCount": 2,
     "canton": "TI"
@@ -59238,12 +59337,12 @@
     "canton": "TI"
   },
   "TI::it::responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-confederazione-svizzera-flugplatzkommando-locarno": {
-    "winnerJobIdentifier": "confederazione-ticino-74ba283ecf95",
-    "winnerCanonical": "responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-confederazione-svizzera-locarno-ddcc9d4796",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-a0wlr7",
+    "winnerCanonical": "responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-swiss-armed-forces-vtg-flugplatzkommando-locarno",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.6471,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::responsabile-tic-tecnico-a-supplente-del-simulatore-pc-7-swiss-armed-forces-vtg-flugplatzkommando-locarno": {
@@ -59886,12 +59985,12 @@
     "canton": "VD"
   },
   "VD::de::stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland": {
-    "winnerJobIdentifier": "audemars-piguet-d540623c7002",
+    "winnerJobIdentifier": "audemars-piguet-f51123dbdd2a",
     "winnerCanonical": "trainee-industrial-management-control-audemars-piguet-le-brassus",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.2857,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::stagiaire-forward-deployed-engineer-audemars-piguet-le-brassus-vd-switzerland": {
@@ -60201,12 +60300,12 @@
     "canton": "VD"
   },
   "VD::en::stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland": {
-    "winnerJobIdentifier": "audemars-piguet-d540623c7002",
-    "winnerCanonical": "trainee-industrial-management-control-audemars-piguet-le-brassus-vd-switzerland",
+    "winnerJobIdentifier": "audemars-piguet-f51123dbdd2a",
+    "winnerCanonical": "trainee-industrial-management-control-audemars-piguet-le-brassus",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::stockist-m-w-d-rituals-cosmetics-switzerland-chavannes-de-bogis": {
@@ -60794,6 +60893,24 @@
     "candidatesCount": 1,
     "canton": "VD"
   },
+  "VD::it::business-analista-h-f-x-80-100-vaudoise-assurances-lausanne": {
+    "winnerJobIdentifier": "vaudoise-5e55608d84fa",
+    "winnerCanonical": "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne-f423f393bc",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.9091,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::it::business-analyst-h-f-x-80-100-vaudoise-ch": {
+    "winnerJobIdentifier": "vaudoise-5e55608d84fa",
+    "winnerCanonical": "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne-f423f393bc",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::it::caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne": {
     "winnerJobIdentifier": "company-rinwmk",
     "winnerCanonical": "cassiere-polivalente-m-f-d-societe-cooperative-migros-vaud-lausanne",
@@ -60867,11 +60984,11 @@
     "canton": "VD"
   },
   "VD::it::collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne": {
-    "winnerJobIdentifier": "company-o62eya",
-    "winnerCanonical": "direttore-vendite-multiuso-m-f-d-societe-cooperative-migros-vaud-lausanne",
-    "decidedAt": "2026-09-17T00:00:00.000Z",
-    "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-djit6b",
+    "winnerCanonical": "collaborateur-polyvalent-h-f-d-societe-cooperative-migros-vaud-lausanne",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "VD"
   },
@@ -61083,9 +61200,9 @@
     "canton": "VD"
   },
   "VD::it::ergotherapeute-h-f-fondation-soins-lausanne-lausanne": {
-    "winnerJobIdentifier": "fondation-soins-lausanne-e749e7f64be7",
+    "winnerJobIdentifier": "fondation-soins-lausanne-9b0710ce0e18",
     "winnerCanonical": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
-    "decidedAt": "2026-10-07T00:00:00.000Z",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
@@ -61731,21 +61848,21 @@
     "canton": "VD"
   },
   "VD::it::stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland": {
-    "winnerJobIdentifier": "audemars-piguet-d540623c7002",
-    "winnerCanonical": "controllo-di-gestione-industriale-trainee-audemars-piguet-le-brassus-vd-switzerland",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
+    "winnerJobIdentifier": "audemars-piguet-f51123dbdd2a",
+    "winnerCanonical": "controllo-di-gestione-industriale-trainee-audemars-piguet-le-brassus",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::stagiaire-forward-deployed-engineer-audemars-piguet-le-brassus-vd-switzerland": {
-    "winnerJobIdentifier": "audemars-piguet-949431a77714",
-    "winnerCanonical": "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus",
-    "decidedAt": "2026-10-14T00:00:00.000Z",
+    "winnerJobIdentifier": "audemars-piguet-8d782403e8ad",
+    "winnerCanonical": "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus-e728668553",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.6364,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch": {
@@ -61821,12 +61938,12 @@
     "canton": "VD"
   },
   "VD::it::tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus-ae4541da44": {
-    "winnerJobIdentifier": "audemars-piguet-949431a77714",
-    "winnerCanonical": "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus",
+    "winnerJobIdentifier": "audemars-piguet-8d782403e8ad",
+    "winnerCanonical": "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus-e728668553",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.8,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-lausanne": {
@@ -61853,6 +61970,24 @@
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.4706,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::it::un-e-infirmier-ere-a-80-100-ref-11-089-ehnv-yverdon-les-bains": {
+    "winnerJobIdentifier": "ehnv-0fd465309ab3",
+    "winnerCanonical": "un-infermiera-a-80-100-ref-11-089-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-ce60e591dd",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.5238,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::it::un-infermiera-a-80-100-ref-11-089-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains": {
+    "winnerJobIdentifier": "ehnv-0fd465309ab3",
+    "winnerCanonical": "un-infermiera-a-80-100-ref-11-089-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-ce60e591dd",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.9444,
     "candidatesCount": 2,
     "canton": "VD"
   },
@@ -62001,8 +62136,8 @@
     "canton": "VS"
   },
   "VS::de::stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32": {
-    "winnerJobIdentifier": "company-3pj8po",
-    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
+    "winnerJobIdentifier": "company-9q6o7h",
+    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.8333,
@@ -62091,8 +62226,8 @@
     "canton": "VS"
   },
   "VS::en::stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32": {
-    "winnerJobIdentifier": "company-3pj8po",
-    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-visp",
+    "winnerJobIdentifier": "company-9q6o7h",
+    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.8333,
@@ -62163,8 +62298,8 @@
     "canton": "VS"
   },
   "VS::fr::stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32": {
-    "winnerJobIdentifier": "company-3pj8po",
-    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-visp",
+    "winnerJobIdentifier": "company-9q6o7h",
+    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.8333,
@@ -62271,12 +62406,12 @@
     "canton": "VS"
   },
   "VS::it::assistant-e-en-soins-et-sante-communautaire-cfc-assc-h-f-80-100-leukerbad-clinic-leukerbad": {
-    "winnerJobIdentifier": "leukerbad-clinic-e4801fc46d03",
-    "winnerCanonical": "assistant-in-cura-e-cfc-salute-comunitaria-ch-h-f-80-100-leukerbad-clinic-leukerbad",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
+    "winnerJobIdentifier": "leukerbad-clinic-26fe36f4487c",
+    "winnerCanonical": "assistant-ine-in-care-e-cfc-salute-comunitaria-ch-m-f-80-100-leukerbad-clinic-leukerbad",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.45,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "VS"
   },
   "VS::it::assistant-responsable-de-magasin-h-f-rituals-cosmetics-ch": {
@@ -62370,11 +62505,11 @@
     "canton": "VS"
   },
   "VS::it::chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad": {
-    "winnerJobIdentifier": "leukerbad-clinic-121ff121f549",
-    "winnerCanonical": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-    "decidedAt": "2026-10-03T00:00:00.000Z",
+    "winnerJobIdentifier": "leukerbad-clinic-fa2a897552e4",
+    "winnerCanonical": "primaria-primario-con-fmh-in-medicina-interna-generale-leukerbad-clinic-leukerbad",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.1111,
+    "score": 0.1875,
     "candidatesCount": 1,
     "canton": "VS"
   },
@@ -62586,12 +62721,12 @@
     "canton": "VS"
   },
   "VS::it::infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad": {
-    "winnerJobIdentifier": "leukerbad-clinic-3e54b746704c",
-    "winnerCanonical": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
+    "winnerJobIdentifier": "leukerbad-clinic-fb07edfb1166",
+    "winnerCanonical": "infermiere-infermiera-diplomato-a-m-f-80-100-leukerbad-clinic-leukerbad",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.6364,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "VS"
   },
   "VS::it::lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch": {
@@ -62658,12 +62793,12 @@
     "canton": "VS"
   },
   "VS::it::medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad": {
-    "winnerJobIdentifier": "leukerbad-clinic-121ff121f549",
-    "winnerCanonical": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "leukerbad-clinic-926aad53bf25",
+    "winnerCanonical": "assistente-di-studio-medico-m-f-leukerbad-clinic-leukerbad",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.2667,
-    "candidatesCount": 2,
+    "score": 0.2308,
+    "candidatesCount": 1,
     "canton": "VS"
   },
   "VS::it::mitarbeiter-in-support-produktion-m-w-d-lonza-ch": {
@@ -62829,8 +62964,8 @@
     "canton": "VS"
   },
   "VS::it::stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32": {
-    "winnerJobIdentifier": "company-3pj8po",
-    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
+    "winnerJobIdentifier": "company-9q6o7h",
+    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.8462,
@@ -62874,12 +63009,12 @@
     "canton": "VS"
   },
   "VS::it::verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad": {
-    "winnerJobIdentifier": "leukerbad-clinic-121ff121f549",
-    "winnerCanonical": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "leukerbad-clinic-d24d8e235f59",
+    "winnerCanonical": "collaboratore-trice-amministrativo-a-gestione-dei-pazienti-leukerbad-clinic-leukerbad",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "VS"
   },
   "VS::it::waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier": {
@@ -67778,6 +67913,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7": {
+    "winnerJobIdentifier": "company-u5bbu7",
+    "winnerCanonical": "automotive-mechatronics-technician-swiss-armed-forces-vtg-hinwil",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::backer-in-coop-genossenschaft-zurich-m82gh0": {
     "winnerJobIdentifier": "company-46jnxl",
     "winnerCanonical": "seller-in-food-coop-genossenschaft-zurich-2b4632",
@@ -70767,11 +70911,11 @@
     "canton": "ZH"
   },
   "ZH::en::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-16210063e087",
-    "winnerCanonical": "letter-and-parcel-delivery-person-die-schweizerische-post-affoltern-am-albis",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-24fa13472583",
+    "winnerCanonical": "letter-and-parcel-delivery-driver-die-schweizerische-post-wald-zh",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.0625,
+    "score": 0.0667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -71286,6 +71430,15 @@
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::fr::automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7": {
+    "winnerJobIdentifier": "company-u5bbu7",
+    "winnerCanonical": "mecatronicien-ne-automobile-swiss-armed-forces-vtg-hinwil",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::autres-produits-de-la-peche-lidl-svizzera-dubendorf": {
@@ -74151,9 +74304,9 @@
     "canton": "ZH"
   },
   "ZH::fr::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-16210063e087",
-    "winnerCanonical": "lettres-de-livraison-et-colis-die-schweizerische-post-affoltern-am-albis",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-24fa13472583",
+    "winnerCanonical": "livreur-euse-de-lettres-et-de-colis-die-schweizerische-post-wald-zh",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.0625,
     "candidatesCount": 1,
@@ -75509,6 +75662,33 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::automobil-mechatroniker-in-confederazione-hinwil": {
+    "winnerJobIdentifier": "confederazione-ticino-13d0573f4cf6",
+    "winnerCanonical": "meccatronico-a-di-automobili-confederazione-svizzera-hinwil",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil": {
+    "winnerJobIdentifier": "company-u5bbu7",
+    "winnerCanonical": "meccatronico-a-di-automobili-swiss-armed-forces-vtg-hinwil",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::automobil-mechatroniker-in-swiss-armed-forces-vtg-hinwil-u5bbu7": {
+    "winnerJobIdentifier": "company-u5bbu7",
+    "winnerCanonical": "meccatronico-a-di-automobili-swiss-armed-forces-vtg-hinwil",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::autres-produits-de-la-peche-lidl-svizzera-dubendorf": {
     "winnerJobIdentifier": "company-li29v1",
     "winnerCanonical": "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-100-lidl-svizzera-zurich",
@@ -76167,8 +76347,8 @@
     "canton": "ZH"
   },
   "ZH::it::crew-mcdonalds-switzerland-winterthur-p8-319501-1": {
-    "winnerJobIdentifier": "mcdonald-s-switzerland-b49289703ae9",
-    "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
+    "winnerJobIdentifier": "mcdonald-s-switzerland-6b257021fa06",
+    "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319503-1",
     "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.75,
@@ -76179,7 +76359,7 @@
     "winnerJobIdentifier": "mcdonald-s-switzerland-6b257021fa06",
     "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319503-1",
     "decidedAt": "2026-10-06T00:00:00.000Z",
-    "lastSeenAt": "2026-10-14T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -78399,12 +78579,12 @@
     "canton": "ZH"
   },
   "ZH::it::fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital": {
-    "winnerJobIdentifier": "spital-limmattal-cb44f7684aff",
-    "winnerCanonical": "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-limmattal-2270bb035705",
+    "winnerCanonical": "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::fachfrau-mann-gesundheit-efz-medizin-see-spital-ch": {
@@ -79334,6 +79514,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::gebaudeautomatiker-in-80-100-usz-ch": {
+    "winnerJobIdentifier": "usz-45edd66ec240",
+    "winnerCanonical": "automazione-degli-edifici-80-100-universitatsspital-zurich-usz-zurich",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::gerustbauer-in-hilfsarbeiter-in-mit-fuhrerschein-und-transporterfahrung-winterthur-zurich": {
     "winnerJobIdentifier": "stellenpartner-c6540165577a",
     "winnerCanonical": "scaffold-costruttore-lavoratore-ausiliario-con-patente-di-guida-e-esperienza-di-trasporto-stellenpartner-ag-winterthur",
@@ -80087,15 +80276,6 @@
     "decidedAt": "2026-10-13T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.2143,
-    "candidatesCount": 1,
-    "canton": "ZH"
-  },
-  "ZH::it::kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
-    "score": 0.25,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -81177,6 +81357,15 @@
     "lastSeenAt": "2026-10-06T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::magaziner-in-verkauf-coop-zurich": {
+    "winnerJobIdentifier": "company-wu42gw",
+    "winnerCanonical": "magazziniere-a-vendite-coop-genossenschaft-zurich",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::maler-in-baustellenleiter-in-mit-fuhrungserfahrung-meilen-zurich-fachkraft-ch": {
@@ -83898,12 +84087,12 @@
     "canton": "ZH"
   },
   "ZH::it::rayonleiter-in-brot-backwaren-coop-winterthur": {
-    "winnerJobIdentifier": "company-3z9ccj",
-    "winnerCanonical": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-09-25T00:00:00.000Z",
+    "winnerJobIdentifier": "company-c7jgy6",
+    "winnerCanonical": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-winterthur-754b9f",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.1667,
-    "candidatesCount": 2,
+    "score": 0.1538,
+    "candidatesCount": 3,
     "canton": "ZH"
   },
   "ZH::it::rayonleiter-in-fruchte-gemuse-coop-meilen-zurich": {
@@ -84705,24 +84894,6 @@
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 2,
-    "canton": "ZH"
-  },
-  "ZH::it::schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50986": {
-    "winnerJobIdentifier": "stadt-zuerich-a4e3fc7e7ee6",
-    "winnerCanonical": "assistenza-scolastica-stadt-zurich-zurich-e320d3",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
-    "score": 0.0909,
-    "candidatesCount": 1,
-    "canton": "ZH"
-  },
-  "ZH::it::schulassistenz-sekundarstufe-schule-herzogenmuhle-stadt-zuerich-zurigo-51334": {
-    "winnerJobIdentifier": "stadt-zuerich-a4e3fc7e7ee6",
-    "winnerCanonical": "assistenza-scolastica-stadt-zurich-zurich-e320d3",
-    "decidedAt": "2026-09-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
-    "score": 0.0833,
-    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::schulassistenz-stadt-zuerich-zurigo-50949": {
@@ -85739,15 +85910,6 @@
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-07T00:00:00.000Z",
     "score": 0.2,
-    "candidatesCount": 1,
-    "canton": "ZH"
-  },
-  "ZH::it::studentische-hilfskraft-uzh-zurich": {
-    "winnerJobIdentifier": "uzh-bb384f428e38",
-    "winnerCanonical": "assistente-studente-comunicazione-universitat-zurich-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
-    "score": 0.125,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -87425,24 +87587,6 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
-  "ZH::it::verkaufer-in-frischprodukte-coop-genossenschaft-winterthur": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 1,
-    "canton": "ZH"
-  },
-  "ZH::it::verkaufer-in-frischprodukte-coop-genossenschaft-winterthur-qhiftp": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 1,
-    "canton": "ZH"
-  },
   "ZH::it::verkaufer-in-frischprodukte-coop-genossenschaft-zurich-8j3o1g": {
     "winnerJobIdentifier": "company-3ef38h",
     "winnerCanonical": "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich",
@@ -87704,15 +87848,6 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
-  "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-winterthur-98ie0h": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 1,
-    "canton": "ZH"
-  },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
     "winnerJobIdentifier": "company-yzp8qy",
     "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich",
@@ -87738,6 +87873,15 @@
     "lastSeenAt": "2026-09-29T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::verkaufer-in-kassen-services-coop-kusnacht": {
+    "winnerJobIdentifier": "company-hkba6u",
+    "winnerCanonical": "vendita-cassetti-servizi-coop-genossenschaft-kusnacht",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
+    "lastSeenAt": "2026-10-15T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-richterswil-zurich": {
@@ -88290,11 +88434,11 @@
     "canton": "ZH"
   },
   "ZH::it::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-16210063e087",
-    "winnerCanonical": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-affoltern-am-albis",
-    "decidedAt": "2026-10-05T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-24fa13472583",
+    "winnerCanonical": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wald-zh",
+    "decidedAt": "2026-10-15T00:00:00.000Z",
     "lastSeenAt": "2026-10-15T00:00:00.000Z",
-    "score": 0.0625,
+    "score": 0.2308,
     "candidatesCount": 1,
     "canton": "ZH"
   }

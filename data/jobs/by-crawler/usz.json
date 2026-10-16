@@ -16006,7 +16006,7 @@
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
         "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
@@ -16053,7 +16053,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16061,7 +16061,7 @@
         ],
         "en": [
           "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-          "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -16905,7 +16905,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50367",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fage-fur-die-viszeralchirurgie-gastroenterologie-50-100-usz-ch"
@@ -16979,7 +16978,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50425",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-mit-besonderen-aufgaben-in-der-bildung-80-100-usz-ch"
@@ -17080,12 +17078,12 @@
     },
     {
       "id": "usz-c2f00fdee2df",
-      "slug": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
+      "slug": "coordinatore-trice-prestazioni-finanze-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
-        "it": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
-        "en": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
-        "fr": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        "it": "coordinatore-trice-prestazioni-finanze-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "coordinator-services-finance-80-100-universitatsspital-zurich-usz-zurich-3c6ada",
+        "fr": "coordinateur-trice-des-prestations-et-des-finances-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17130,7 +17128,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -17143,16 +17140,30 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        ],
+        "en": [
+          "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        ],
+        "fr": [
+          "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-6a44c21ff9f8",
-      "slug": "fage-mpa-o-dipl-pflegefachperson-klinik-per-pneumologie-50-universitatsspital-zurich-usz-zurich",
+      "slug": "fage-mpa-o-infermiere-a-diplomato-a-clinica-di-pneumologia-50-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch",
-        "it": "fage-mpa-o-dipl-pflegefachperson-klinik-per-pneumologie-50-universitatsspital-zurich-usz-zurich",
-        "en": "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch",
-        "fr": "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch"
+        "it": "fage-mpa-o-infermiere-a-diplomato-a-clinica-di-pneumologia-50-universitatsspital-zurich-usz-zurich",
+        "en": "fage-mpa-or-dipl-nurse-clinic-of-pulmonology-50-universitatsspital-zurich-usz-zurich",
+        "fr": "fage-mpa-ou-dipl-infirmiere-clinique-de-pulmonologie-50-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17197,14 +17208,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch",
+          "fage-mpa-o-dipl-pflegefachperson-klinik-per-pneumologie-50-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch"
+        ],
+        "fr": [
           "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch"
         ]
       },
       "previousSlugs": [
-        "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch"
+        "fage-mpa-oder-dipl-pflegefachperson-klinik-fur-pneumologie-50-usz-ch",
+        "fage-mpa-o-dipl-pflegefachperson-klinik-per-pneumologie-50-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -17307,7 +17325,7 @@
       "slugByLocale": {
         "it": "servizi-coordinatori-finanza-80-100-universitatsspital-zurich-usz-zurich",
         "en": "coordinator-services-finance-80-100-universitatsspital-zurich-usz-zurich",
-        "de": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
+        "de": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch-fp89z6",
         "fr": "coordonnatrice-services-finances-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -17362,6 +17380,9 @@
           "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
         ],
         "fr": [
+          "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        ],
+        "de": [
           "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
         ]
       },
