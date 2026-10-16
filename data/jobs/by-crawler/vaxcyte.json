@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-10-16T09:13:34.712Z",
+  "assembledAt": "2026-10-16T21:13:39.472Z",
   "jobs": [
     {
       "id": "vaxcyte-6b03024d1766",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T09:13:24.189Z",
+      "crawledAt": "2026-10-16T21:13:30.183Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T09:13:24.168Z",
+      "crawledAt": "2026-10-16T21:13:30.157Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T09:13:24.164Z",
+      "crawledAt": "2026-10-16T21:13:30.152Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
           "senior-manager-quality-assurance-vaxcyte-ch"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-22T23:49:52.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -259,8 +259,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "vaxcyte-fb837ce9abee",
@@ -293,7 +292,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T09:13:24.159Z",
+      "crawledAt": "2026-10-16T21:13:30.145Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",

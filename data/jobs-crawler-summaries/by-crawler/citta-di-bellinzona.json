@@ -1,20 +1,21 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-10-16T09:14:11.746Z",
+  "generatedAt": "2026-10-16T21:14:17.590Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6168,
-  "avgDurationMs": 6168,
+  "durationMs": 6758,
+  "avgDurationMs": 6758,
   "durationHistory": [
-    6168
+    6758
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "citta-di-bellinzona-apprendisti-e-operatori-trici-sociosanitari-e-afc-presso-l-ente-autonomo-bellinzona",
       "slug": "apprendisti-e-operatori-trici-sociosanitari-e-afc-presso-l-ente-autonomo-bellinzona",
@@ -42,17 +43,16 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=92523e3b-33f8-479f-bdd2-2483250bc177,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T09:13:58.210Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-16T21:14:03.252Z",
+      "firstSeenAt": "2026-10-16T09:13:58.210Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-16T09:13:58.210Z",
-      "_qualityScore": 78,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -83,22 +83,20 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=5185f2b9-4a36-4d7f-b778-e9fc8f25b387,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T09:13:58.418Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-16T21:14:03.488Z",
+      "firstSeenAt": "2026-10-16T09:13:58.418Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-16T09:13:58.418Z",
-      "_qualityScore": 78,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -128,7 +126,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=5fe35897-3e0a-493b-8324-ef8babce1685,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T09:13:57.352Z",
+      "crawledAt": "2026-10-16T21:14:02.211Z",
       "firstSeenAt": "2026-05-30T10:21:10.149Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -168,7 +166,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=cff3878f-e39c-460e-910b-60cbe704fd30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T09:13:57.765Z",
+      "crawledAt": "2026-10-16T21:14:02.592Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -208,7 +206,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=15c49f5b-66e5-4dd8-896a-766a2f4e06f0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T09:13:57.992Z",
+      "crawledAt": "2026-10-16T21:14:02.801Z",
       "firstSeenAt": "2026-10-13T09:15:25.455Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -222,5 +220,5 @@
       }
     }
   ],
-  "codeCommit": "1c5afc6d3e0ad7d52f60b3665cddc18e10052b9a"
+  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
 }
