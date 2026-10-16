@@ -1109,6 +1109,7 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
       execFileSync('sleep', ['0.3']);
       expect(fs.readFileSync(statusFile, 'utf8')).toBe('124\n');
       expect(fs.readFileSync(workerStatusFile, 'utf8')).toBe('0\n');
+      expect(fs.existsSync(path.join(stateDir, 'timeout-race.watchdog'))).toBe(true);
       expect(body).toContain('resolveCrawlerTerminalStatus() {');
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });

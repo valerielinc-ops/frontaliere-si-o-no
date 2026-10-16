@@ -293,8 +293,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -302,7 +307,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -486,8 +493,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -495,7 +507,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -679,8 +693,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -688,7 +707,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -872,8 +893,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -881,7 +907,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -1065,8 +1093,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -1074,7 +1107,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -1258,8 +1293,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -1267,7 +1307,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -1451,8 +1493,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -1460,7 +1507,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -1644,8 +1693,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -1653,7 +1707,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -1836,8 +1892,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -1845,7 +1906,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -2029,8 +2092,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -2038,7 +2106,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -2222,8 +2292,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -2231,7 +2306,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -2418,8 +2495,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -2427,7 +2509,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -2612,8 +2696,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -2621,7 +2710,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -2805,8 +2896,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -2814,7 +2910,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -2998,8 +3096,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -3007,7 +3110,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -3191,8 +3296,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -3200,7 +3310,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -3384,8 +3496,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -3393,7 +3510,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -3577,8 +3696,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -3586,7 +3710,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -3770,8 +3896,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -3779,7 +3910,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -3963,8 +4096,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -3972,7 +4110,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -4156,8 +4296,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -4165,7 +4310,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -4348,8 +4495,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -4357,7 +4509,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -4541,8 +4695,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -4550,7 +4709,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -4734,8 +4895,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -4743,7 +4909,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -4927,8 +5095,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -4936,7 +5109,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -5123,8 +5298,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -5132,7 +5312,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -5316,8 +5498,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -5325,7 +5512,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -5509,8 +5698,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -5518,7 +5712,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
@@ -5702,8 +5898,13 @@ jobs:
             local wrapper_exit="$1"
             local worker_status=""
             local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
             if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
               terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
             elif [ -s "$worker_status_file" ]; then
               worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
               if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
@@ -5711,7 +5912,9 @@ jobs:
               if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
               if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
             fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
             if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
               echo "::error::could not publish the crawler terminal status" >&2
               return 1
