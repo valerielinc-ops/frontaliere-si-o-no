@@ -616,7 +616,7 @@
         "it": "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee",
         "en": "stv-music-therapist-in-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "fr": "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -667,7 +667,7 @@
         "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
         "stv-music-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
         "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
-        "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
+        "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -690,7 +690,7 @@
         "fr": [
           "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
           "artotherapeute-stv-f-m-d-privatklinik-wyss-munchenbuchsee",
-          "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
+          "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-06-24T22:36:14.843Z",
@@ -794,12 +794,12 @@
     },
     {
       "id": "privatklinik-wyss-c53d24f591fc",
-      "slug": "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch",
+      "slug": "psicologo-senior-psicologo-senior-ambulatorium-m-f-d-privatklinik-wyss-ambulante-dienste-biel",
       "slugByLocale": {
         "de": "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch",
-        "it": "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch",
-        "en": "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch",
-        "fr": "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch"
+        "it": "psicologo-senior-psicologo-senior-ambulatorium-m-f-d-privatklinik-wyss-ambulante-dienste-biel",
+        "en": "senior-psychologist-senior-psychologist-ambulatorium-m-f-d-privatklinik-wyss-ambulante-dienste-biel",
+        "fr": "psychologue-principal-psychologue-principal-ambulatorium-h-f-d-privatklinik-wyss-ambulante-dienste-biel"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -860,7 +860,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-16T09:10:18.353Z"
+      "firstSeenAt": "2026-10-16T09:10:18.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-psychologin-leitender-psychologe-ambulatorium-w-m-d-privatklinik-wyss-ch"
+      ]
     },
     {
       "id": "privatklinik-wyss-c98e4588426c",
@@ -1217,9 +1231,9 @@
       "slug": "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "it": "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee",
-        "en": "education-senior-consultant-m-w-d-privatklinik-wyss-munchenbuchsee",
+        "en": "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
-        "fr": "consultant-principal-en-education-m-s-privatklinik-wyss-munchenbuchsee"
+        "fr": "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -1295,8 +1309,8 @@
         "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
         "consulente-per-l-istruzione-superiore-w-m-d-privatklinik-wyss-munchenbuchsee",
         "education-senior-consultant-w-m-d-privatklinik-wyss-munchenbuchsee",
-        "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee",
-        "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
+        "education-senior-consultant-m-w-d-privatklinik-wyss-munchenbuchsee",
+        "consultant-principal-en-education-m-s-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1305,10 +1319,10 @@
         ],
         "en": [
           "education-senior-consultant-w-m-d-privatklinik-wyss-munchenbuchsee",
-          "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee"
+          "education-senior-consultant-m-w-d-privatklinik-wyss-munchenbuchsee"
         ],
         "fr": [
-          "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
+          "consultant-principal-en-education-m-s-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:10.286Z",
@@ -1553,7 +1567,7 @@
         "it": "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee",
         "en": "nursing-director-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
-        "fr": "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "directeur-des-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -1606,7 +1620,7 @@
         "psychologue-f-m-d-privatklinik-wyss-munchenbuchsee",
         "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee",
         "directeur-de-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee",
-        "directeur-des-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee"
+        "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1627,7 +1641,7 @@
           "psychologue-f-m-d-privatklinik-wyss-munchenbuchsee",
           "directeur-des-soins-infirmiers-m-f-d-privatklinik-wyss-munchenbuchsee",
           "directeur-de-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee",
-          "directeur-des-soins-en-h-f-d-privatklinik-wyss-munchenbuchsee"
+          "pflegedirektor-in-m-w-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-06-22T15:02:55.484Z",

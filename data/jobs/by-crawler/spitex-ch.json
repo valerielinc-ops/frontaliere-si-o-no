@@ -2014,12 +2014,12 @@
     },
     {
       "id": "spitex-ch-68cdc987a979",
-      "slug": "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon",
+      "slug": "membro-del-consiglio-direttivo-capo-dei-servizi-centrali-80-spitex-rontal-plus-ebikon",
       "slugByLocale": {
         "de": "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon",
-        "it": "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon",
-        "en": "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon",
-        "fr": "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon"
+        "it": "membro-del-consiglio-direttivo-capo-dei-servizi-centrali-80-spitex-rontal-plus-ebikon",
+        "en": "member-of-the-executive-board-head-of-central-services-80-spitex-rontal-plus-ebikon",
+        "fr": "membre-du-directoire-chef-des-services-centraux-80-spitex-rontal-plus-ebikon"
       },
       "company": "Spitex Rontal plus",
       "companyKey": "spitex-ch",
@@ -2078,16 +2078,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T09:19:45.522Z"
+      "firstSeenAt": "2026-10-16T09:19:45.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon"
+        ],
+        "en": [
+          "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon"
+        ],
+        "fr": [
+          "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "mitglied-der-geschaftsleitung-leitung-zentrale-dienste-80-spitex-ch-ebikon"
+      ]
     },
     {
       "id": "spitex-ch-6619508b333a",
-      "slug": "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60",
+      "slug": "operatrice-operatore-sociosanitario-infermiere-a-con-attestato-crs-infermiere-a-diplomato-a-dni-60-80-betagtenzentrum",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60",
-        "it": "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60",
-        "en": "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60",
-        "fr": "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60"
+        "it": "operatrice-operatore-sociosanitario-infermiere-a-con-attestato-crs-infermiere-a-diplomato-a-dni-60-80-betagtenzentrum",
+        "en": "healthcare-specialist-nurse-with-swiss-red-cross-certificate-registered-nurse-dni-60-80-betagtenzentrum-spitexdienste",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-infirmier-ere-fa-crs-infirmier-ere-diplome-e-dni-60-80-betagtenzentrum"
       },
       "company": "Betagtenzentrum & Spitexdienste Laupen",
       "companyKey": "spitex-ch",
@@ -2145,7 +2159,21 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-krankenpfleger-in-fa-srk-pflegefachfrau-pflegefachmann-dni-60"
+      ]
     }
   ]
 }

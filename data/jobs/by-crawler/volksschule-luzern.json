@@ -1908,12 +1908,12 @@
     },
     {
       "id": "volksschule-luzern-e6df6fc35b37",
-      "slug": "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule",
+      "slug": "classe-insegnante-di-paternita-congedo-di-rappresentanza-6a-classe-scuola-casa-littau-villaggio-volksschule-stadt-luzern",
       "slugByLocale": {
         "de": "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule",
-        "it": "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule",
-        "en": "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule",
-        "fr": "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule"
+        "it": "classe-insegnante-di-paternita-congedo-di-rappresentanza-6a-classe-scuola-casa-littau-villaggio-volksschule-stadt-luzern",
+        "en": "class-teacher-paternity-leave-representation-6th-class-school-house-littau-village-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-de-classe-conge-de-paternite-representation-6eme-classe-maison-scolaire-littau-village-volksschule-stadt"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1972,7 +1972,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T09:10:50.743Z"
+      "firstSeenAt": "2026-10-16T09:10:50.743Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule"
+        ],
+        "en": [
+          "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule"
+        ],
+        "fr": [
+          "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule"
+        ]
+      },
+      "previousSlugs": [
+        "klassenlehrperson-vaterschaftsurlaubsvertretung-6-klasse-schulhaus-littau-dorf-volksschule"
+      ]
     }
   ]
 }

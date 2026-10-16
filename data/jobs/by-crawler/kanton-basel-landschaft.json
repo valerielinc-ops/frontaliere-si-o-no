@@ -5278,8 +5278,8 @@
       "slugByLocale": {
         "de": "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-liestal",
         "it": "apprendistato-kauffrau-kaufmann-afp-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-liestal",
-        "fr": "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-liestal"
+        "en": "commercial-employee-apprenticeship-eba-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "place-d-apprentissage-d-employee-employe-de-commerce-afp-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5328,6 +5328,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
@@ -5353,8 +5359,8 @@
       "slugByLocale": {
         "de": "lehrstelle-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal",
         "it": "apprendistato-kauffrau-kaufmann-cfc-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "lehrstelle-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal",
-        "fr": "lehrstelle-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
+        "en": "commercial-employee-apprenticeship-efz-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "place-d-apprentissage-d-employee-employe-de-commerce-cfc-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5402,6 +5408,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
           "lehrstelle-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
         ]
       },
@@ -5500,12 +5512,12 @@
     },
     {
       "id": "kanton-basel-landschaft-5843c85e329b",
-      "slug": "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein",
+      "slug": "maestro-2a-classe-kantonale-verwaltung-basel-landschaft-munchenstein-6ba5aa",
       "slugByLocale": {
         "de": "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein",
-        "it": "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein",
+        "it": "maestro-2a-classe-kantonale-verwaltung-basel-landschaft-munchenstein-6ba5aa",
         "en": "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "fr": "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein"
+        "fr": "enseignant-2e-classe-kantonale-verwaltung-basel-landschaft-munchenstein-6ba5aa"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5564,7 +5576,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:37:51.038Z"
+      "firstSeenAt": "2026-09-23T23:37:51.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein"
+        ],
+        "fr": [
+          "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-b98ad0503d90",

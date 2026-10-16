@@ -1764,12 +1764,12 @@
     },
     {
       "id": "google-switzerland-db15c1333934",
-      "slug": "senior-product-manager-shopping-graph-google-switzerland-zurich",
+      "slug": "responsabile-senior-di-prodotto-shopping-graph-google-switzerland-zurich",
       "slugByLocale": {
         "en": "senior-product-manager-shopping-graph-google-switzerland-zurich",
-        "it": "senior-product-manager-shopping-graph-google-switzerland-zurich",
+        "it": "responsabile-senior-di-prodotto-shopping-graph-google-switzerland-zurich",
         "de": "senior-product-manager-shopping-graph-google-switzerland-zurich",
-        "fr": "senior-product-manager-shopping-graph-google-switzerland-zurich"
+        "fr": "gestionnaire-principal-de-produits-graphique-d-achat-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -1837,7 +1837,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T09:11:26.697Z"
+      "firstSeenAt": "2026-10-16T09:11:26.697Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-shopping-graph-google-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-product-manager-shopping-graph-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-manager-shopping-graph-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-bc0071c1c933",
