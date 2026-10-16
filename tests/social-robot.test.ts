@@ -1067,7 +1067,8 @@ describe('Mac host launch agent', () => {
   function createLaunchFixture({
     missingDependency = false,
     runBody,
-  }: { missingDependency?: boolean; runBody?: string } = {}): LaunchFixture {
+    copySourceFiles = [],
+  }: { missingDependency?: boolean; runBody?: string; copySourceFiles?: string[] } = {}): LaunchFixture {
     const root = tempDir();
     const repo = path.join(root, 'repo');
     const scriptsDir = path.join(repo, 'scripts');
@@ -1098,7 +1099,13 @@ describe('Mac host launch agent', () => {
       if (rel === 'scripts/social-robot') continue;
       const file = path.join(repo, rel);
       fs.mkdirSync(path.dirname(file), { recursive: true });
-      if (!fs.existsSync(file)) fs.writeFileSync(file, 'export const fixture = true;\n');
+      if (!fs.existsSync(file)) {
+        if (copySourceFiles.includes(rel)) {
+          fs.copyFileSync(path.join(ROOT, rel), file);
+        } else {
+          fs.writeFileSync(file, 'export const fixture = true;\n');
+        }
+      }
     }
     if (!missingDependency) fs.writeFileSync(path.join(repo, extraPath), 'export const fixture = true;\n');
 
@@ -1209,7 +1216,15 @@ describe('Mac host launch agent', () => {
   });
 
   it('sweeps stale fetch packs before the Mac host fetches main', () => {
-    const fixture = createLaunchFixture();
+    const fixture = createLaunchFixture({
+      // launchd executes this helper from the checkout before materializing
+      // the snapshot, so this fixture needs its real implementation and its
+      // direct-entry dependency rather than placeholder modules.
+      copySourceFiles: [
+        'scripts/lib/is-invoked-directly.mjs',
+        'scripts/lib/stale-fetch-pack-sweep.mjs',
+      ],
+    });
     const packDir = path.resolve(fixture.repo, execFileSync('git', ['-C', fixture.repo, 'rev-parse', '--git-path', 'objects/pack'], { encoding: 'utf8' }).trim());
     const stalePack = path.join(packDir, 'tmp_pack_stale');
     fs.writeFileSync(stalePack, 'stale');
