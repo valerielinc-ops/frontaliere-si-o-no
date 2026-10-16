@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-10-15T21:51:22.162Z",
+  "assembledAt": "2026-10-16T09:46:59.141Z",
   "jobs": [
     {
       "id": "omega-32963",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32963",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:51:16.181Z",
+      "crawledAt": "2026-10-16T09:46:53.417Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -180,7 +180,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "omega-33154",
@@ -278,7 +279,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1
     },
     {
       "id": "omega-33168",
@@ -311,7 +313,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33168",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:50:10.440Z",
+      "crawledAt": "2026-10-16T09:46:31.977Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -409,7 +411,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33234",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:49:47.838Z",
+      "crawledAt": "2026-10-16T09:46:09.814Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -513,7 +515,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33244",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:49:26.387Z",
+      "crawledAt": "2026-10-16T09:45:25.543Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -615,7 +617,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33245",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:49:04.466Z",
+      "crawledAt": "2026-10-16T09:45:48.129Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -717,7 +719,7 @@
       "url": "https://www.swatchgroup.com/en/job/33260",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:48:42.314Z",
+      "crawledAt": "2026-10-16T09:45:04.141Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -817,7 +819,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33298",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:48:20.586Z",
+      "crawledAt": "2026-10-16T09:44:41.934Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -922,7 +924,7 @@
       "url": "https://www.swatchgroup.com/en/job/33305",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:47:58.233Z",
+      "crawledAt": "2026-10-16T09:44:19.435Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1010,7 +1012,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33442",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:47:36.054Z",
+      "crawledAt": "2026-10-16T09:43:36.187Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1101,7 +1103,7 @@
       "url": "https://www.swatchgroup.com/de/job/33345",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:47:24.267Z",
+      "crawledAt": "2026-10-16T09:43:57.757Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1150,116 +1152,98 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
-      "id": "omega-33143",
-      "slug": "progetto-di-mercato-creative-omega-sa-biel-bienne",
+      "id": "omega-33509",
+      "slug": "addetto-a-alle-vendite-m-f-80-boutique-omega-berna-omega-sa-berne",
       "slugByLocale": {
-        "it": "progetto-di-mercato-creative-omega-sa-biel-bienne",
-        "en": "creative-mission-omega-sa-biel-bienne",
-        "de": "kreativer-vermarktungsprojektmanager-omega-sa-biel-bienne",
-        "fr": "creative-marketing-project-manager-omega-biel-bienne"
+        "de": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
+        "it": "addetto-a-alle-vendite-m-f-80-boutique-omega-berna-omega-sa-berne",
+        "en": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
+        "fr": "conseiller-ere-de-vente-h-f-a-80-boutique-omega-berne-omega-sa-berne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
       "companyDomain": "omegawatches.com",
-      "title": "CREATIVE MARKETING PROJECT MANAGER",
+      "title": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
       "titleByLocale": {
-        "fr": "CREATIVE MARKETING PROJECT MANAGER",
-        "en": "Creative MISSION",
-        "it": "Responsabile di progetto per il marketing creativo",
-        "de": "Projektmanager für kreatives Marketing"
+        "it": "ADDETTO/A ALLE VENDITE (M/F) 80% - BOUTIQUE OMEGA BERNA",
+        "en": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
+        "de": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
+        "fr": "CONSEILLER/ÈRE DE VENTE (H/F) À 80 % - BOUTIQUE OMEGA BERNE"
       },
-      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nDédié aux activités créatives au sein de l’équipe Creative Marketing, vous assistez le responsable de l’équipe de création. Votre rôle sera clé, vos challenges seront nombreux, vous serez ainsi animé par l’effervescence des demandes et la cadence rythmée des créations.\n\nVos tâches seront :\n\n• Conception/création et production de supports publicitaires tous formats en suivant une approche holistique\n\n• Coordination avec les différents départements\n\n• Gestion du flux d'information avec les agences externes, freelance et autres\n\n• Identification et développement de relations avec de nouveaux prestataires (photographes, réalisateurs, agences, …)\n\n• Assurer le support nécessaire aux différentes demandes internes\n\n## Profil\n• Diplômé en communication visuelle et/ou design numérique/digital ou Art Graphique\n\n• Minimum 5 ans d’expérience professionnelle dont au moins 1 an dans une agence de communication et/ou entreprise de Luxe\n\n• Parfaite maîtrise des outils Adobe (Photoshop, Indesign, Illustrator, …)\n\n• Parfaite maîtrise de la composition graphique et typographique\n\n• Forte connaissance des principes d’ergonomie (mobile, web, app, …)\n\n• Des compétences en motion design est un plus\n\n• Grand sens du détail et de l'organisation avec une excellente gestion du temps et des priorités\n\n• Forte expérience de la prise en charge, de l'interprétation et de la réalisation de projets créatifs dans des délais courts\n\n• Excellentes compétences en communication orale et écrite\n\n## Compétences requises\nVoir profil\n\n## Langues\n• Bonne maîtrise des langues française et anglaise",
+      "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nFÜR UNSERE BOUTIQUE IN BERN suchen wir einen (M/W):\n\nSALES REPRESENTATIVE 80%\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n## Berufliche Anforderungen\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
       "descriptionByLocale": {
-        "it": "Introduzione dell'azienda\nOMEGA è un prestigioso marchio orologiero conosciuto in tutto il mondo per i suoi elevati standard di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi figurano tra i più belli al mondo e si distinguono per la loro tecnologia all'avanguardia e il loro stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo battuto record di precisione, ridefinito il cronometraggio sportivo e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nIn quanto marchio internazionale, siamo sempre interessati a incontrare futuri colleghi desiderosi di contribuire al lavoro dei nostri team in quasi tutti i continenti grazie ai loro talenti, ambizioni e ispirazioni.\n\nDescrizione della posizione\nDedicato alle attività creative all'interno del team Creative Marketing, assisterete il responsabile del team creativo. Il vostro ruolo sarà fondamentale, le sfide saranno numerose e sarete così animati dall'effervescenza delle richieste e dal ritmo serrato delle creazioni.\n\nLe vostre mansioni saranno:\n\n• Ideazione/creazione e produzione di supporti pubblicitari in tutti i formati seguendo un approccio olistico\n\n• Coordinamento con i diversi reparti\n\n• Gestione del flusso di informazioni con agenzie esterne, freelance e altri\n\n• Individuazione e sviluppo di relazioni con nuovi fornitori (fotografi, registi, agenzie, …)\n\n• Garantire il supporto necessario alle diverse richieste interne\n\nProfilo\n• Diplomato in comunicazione visiva e/o design digitale o arti grafiche\n\n• Minimo 5 anni di esperienza professionale, di cui almeno 1 anno in un'agenzia di comunicazione e/o in un'azienda del Lusso\n\n• Perfetta padronanza degli strumenti Adobe (Photoshop, Indesign, Illustrator, …)\n\n• Perfetta padronanza della composizione grafica e tipografica\n\n• Ottima conoscenza dei principi di ergonomia (mobile, web, app, …)\n\n• Le competenze di motion design sono un plus\n\n• Spiccato senso del dettaglio e dell'organizzazione, con un'eccellente gestione del tempo e delle priorità\n\n• Solida esperienza nella gestione, interpretazione e realizzazione di progetti creativi in tempi brevi\n\n• Eccellenti capacità di comunicazione orale e scritta\n\nCompetenze richieste\nVisualizza il profilo\n\nLingue\n• Buona padronanza delle lingue francese e inglese",
-        "en": "Company introduction\nOMEGA is a prestigious watchmaking brand known worldwide for its high standards of quality, precision and innovation for more than 170 years. Our watches are among the finest in the world and are characterized by their cutting-edge technology and timeless style.\n\nThroughout our long history, we have broken precision records, redefined sports timekeeping and maintained our position at the forefront of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues wishing to contribute to the work of our teams on almost every continent through their talents, ambitions and inspiration.\n\nJob description\nDedicated to creative activities within the Creative Marketing team, you will assist the head of the creative team. Your role will be key, your challenges will be numerous, and you will be energized by the excitement of requests and the rhythmic pace of creation.\n\nYour tasks will be:\n\n• Design/creation and production of advertising materials in all formats, following a holistic approach\n\n• Coordination with the various departments\n\n• Management of the flow of information with external agencies, freelancers and others\n\n• Identification and development of relationships with new service providers (photographers, directors, agencies, …)\n\n• Provide the necessary support for various internal requests\n\nProfile\n• Degree in visual communication and/or digital/online design or Graphic Arts\n\n• Minimum 5 years of professional experience, including at least 1 year in a communications agency and/or luxury company\n\n• Excellent command of Adobe tools (Photoshop, Indesign, Illustrator, …)\n\n• Excellent command of graphic and typographic composition\n\n• Strong knowledge of ergonomic principles (mobile, web, app, …)\n\n• Motion design skills are a plus\n\n• Great attention to detail and organizational skills with excellent time and priority management\n\n• Strong experience in managing, interpreting and executing creative projects within tight deadlines\n\n• Excellent oral and written communication skills\n\nRequired skills\nView profile\n\nLanguages\n• Good command of French and English",
-        "de": "Unternehmensvorstellung\nOMEGA ist eine renommierte Uhrenmarke, die weltweit seit mehr als 170 Jahren für ihre hohen Ansprüche an Qualität, Präzision und Innovation bekannt ist. Unsere Uhren zählen zu den schönsten der Welt und zeichnen sich durch ihre hochmoderne Technologie und ihren zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitmessung neu definiert und unsere Position an der Spitze der Haute Horlogerie behauptet.\n\nAls internationale Marke sind wir stets daran interessiert, künftige Kolleginnen und Kollegen kennenzulernen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf nahezu jedem Kontinent beitragen möchten.\n\nStellenbeschreibung\nSie widmen sich den kreativen Aktivitäten innerhalb des Teams Creative Marketing und unterstützen die Leitung des Kreativteams. Ihre Rolle wird entscheidend sein, Ihre Herausforderungen werden zahlreich sein, und so werden Sie von der Dynamik der Anfragen und dem rhythmischen Takt der Kreationen angetrieben.\n\nIhre Aufgaben umfassen:\n\n• Konzeption/Erstellung und Produktion von Werbemitteln in allen Formaten nach einem ganzheitlichen Ansatz\n\n• Koordination mit den verschiedenen Abteilungen\n\n• Steuerung des Informationsflusses mit externen Agenturen, Freelancern und anderen\n\n• Identifizierung und Aufbau von Beziehungen zu neuen Dienstleistern (Fotografen, Regisseuren, Agenturen, …)\n\n• Sicherstellung der notwendigen Unterstützung für die verschiedenen internen Anfragen\n\nProfil\n• Abschluss in visueller Kommunikation und/oder digitalem Design/Digitaldesign oder Grafikdesign\n\n• Mindestens 5 Jahre Berufserfahrung, davon mindestens 1 Jahr in einer Kommunikationsagentur und/oder einem Luxusunternehmen\n\n• Perfekte Beherrschung der Adobe-Tools (Photoshop, Indesign, Illustrator, …)\n\n• Perfekte Beherrschung der grafischen und typografischen Komposition\n\n• Fundierte Kenntnisse der ergonomischen Prinzipien (Mobile, Web, App, …)\n\n• Kompetenzen im Motion Design sind von Vorteil\n\n• Ausgeprägtes Gespür für Details und Organisation sowie ausgezeichnetes Zeit- und Prioritätenmanagement\n\n• Umfangreiche Erfahrung in der Betreuung, Interpretation und Umsetzung kreativer Projekte innerhalb kurzer Fristen\n\n• Ausgezeichnete mündliche und schriftliche Kommunikationsfähigkeiten\n\nErforderliche Kompetenzen\nProfil ansehen\n\nSprachen\n• Gute Beherrschung der französischen und englischen Sprache",
-        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nDédié aux activités créatives au sein de l’équipe Creative Marketing, vous assistez le responsable de l’équipe de création. Votre rôle sera clé, vos challenges seront nombreux, vous serez ainsi animé par l’effervescence des demandes et la cadence rythmée des créations.\n\nVos tâches seront :\n\n• Conception/création et production de supports publicitaires tous formats en suivant une approche holistique\n\n• Coordination avec les différents départements\n\n• Gestion du flux d'information avec les agences externes, freelance et autres\n\n• Identification et développement de relations avec de nouveaux prestataires (photographes, réalisateurs, agences, …)\n\n• Assurer le support nécessaire aux différentes demandes internes\n\n## Profil\n• Diplômé en communication visuelle et/ou design numérique/digital ou Art Graphique\n\n• Minimum 5 ans d’expérience professionnelle dont au moins 1 an dans une agence de communication et/ou entreprise de Luxe\n\n• Parfaite maîtrise des outils Adobe (Photoshop, Indesign, Illustrator, …)\n\n• Parfaite maîtrise de la composition graphique et typographique\n\n• Forte connaissance des principes d’ergonomie (mobile, web, app, …)\n\n• Des compétences en motion design est un plus\n\n• Grand sens du détail et de l'organisation avec une excellente gestion du temps et des priorités\n\n• Forte expérience de la prise en charge, de l'interprétation et de la réalisation de projets créatifs dans des délais courts\n\n• Excellentes compétences en communication orale et écrite\n\n## Compétences requises\nVoir profil\n\n## Langues\n• Bonne maîtrise des langues française et anglaise"
+        "it": "Descrizione dell'azienda\nOMEGA è un prestigioso marchio globale che da oltre 170 anni persegue la massima qualità, la massima precisione e innovazioni sempre nuove. I nostri orologi sono tra i migliori al mondo, sono il risultato di tecnologie all’avanguardia nel settore orologiero e si distinguono per un design senza tempo.\n\nNel corso della nostra lunga storia abbiamo stabilito record di precisione, influenzato in modo decisivo il cronometraggio sportivo e ancora oggi ricopriamo un ruolo pionieristico nell’alta orologeria.\n\nIn quanto marchio internazionale, siamo sempre interessati a conoscere futuri colleghi pronti a supportare i nostri team praticamente in ogni continente con i loro talenti, le loro ambizioni e la loro ispirazione.\n\nPER LA NOSTRA BOUTIQUE DI BERNA cerchiamo un (M/F):\n\nADDETTO/A ALLE VENDITE 80%\n\nDescrizione della posizione\n• Contribuisce attivamente al successo della boutique e al raggiungimento degli obiettivi di vendita\n\n• Genera e mantiene i contatti con la nostra esigente clientela\n\n• È un ambasciatore del nostro marchio e consiglia i nostri clienti ai massimi livelli, comprese tutte le peculiarità tecniche dei nostri orologi\n\nProfilo\n• Esperienza analoga nel segmento del lusso, idealmente nel settore dell’orologeria e della gioielleria\n\n• Orientamento al servizio di alto livello per la nostra esigente clientela\n\n• Presenza curata, cortese e impeccabile\n\nRequisiti professionali\n• Personalità di vendita comunicativa, con spirito d’iniziativa\n\n• Ottimo spirito di squadra, disponibilità e flessibilità\n\nConoscenze linguistiche\n• Ottima conoscenza del tedesco o del francese e dell’inglese (la conoscenza di altre lingue costituisce un vantaggio)",
+        "en": "Company description\nOMEGA is a prestigious global brand that has been striving for the highest quality, utmost precision and ever-new innovations for more than 170 years. Our watches are among the best in the world; they are the result of industry-leading technologies and are distinguished by a timeless design.\n\nThroughout our long history, we have set precision records, decisively shaped sports timekeeping and continue to play a pioneering role in fine watchmaking.\n\nAs an international brand, we are always interested in getting to know future colleagues who are ready to support our teams on virtually every continent through their talents, ambitions and inspiration.\n\nFOR OUR BOUTIQUE IN BERN we are looking for a (M/F):\n\nSEPRESENT - 80%\n\nJob description\n• You actively contribute to the success of the boutique and to achieving sales targets\n\n• You generate and maintain contact with our discerning clientele\n\n• You are an ambassador for our brand and advise our customers at the highest level, including all the technical details of our watches\n\nProfile\n• Similar experience in the luxury segment, ideally in the watch and jewelry industry\n\n• High-level service orientation for our discerning clientele\n\n• Well-groomed, courteous, and impeccable appearance\n\nProfessional requirements\n• Outgoing salesperson with initiative\n\n• Excellent team spirit, available and flexible\n\nLanguage skills\n• Very good command of German or French and English (additional languages are an advantage)",
+        "de": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nFÜR UNSERE BOUTIQUE IN BERN suchen wir einen (M/W):\n\nSALES REPRESENTATIVE 80%\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n## Berufliche Anforderungen\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
+        "fr": "Description de l'entreprise\nOMEGA est une prestigieuse marque mondiale qui, depuis plus de 170 ans, aspire à la plus haute qualité, à l'extrême précision et à des innovations toujours nouvelles. Nos montres comptent parmi les meilleures au monde ; elles sont le résultat de technologies à la pointe de l'industrie horlogère et se distinguent par un design intemporel.\n\nAu cours de notre longue histoire, nous avons établi des records de précision, marqué de manière décisive le chronométrage sportif et continuons à jouer un rôle de pionnier dans la haute horlogerie.\n\nEn tant que marque internationale, nous sommes toujours désireux de rencontrer de futurs collègues prêts à soutenir nos équipes sur pratiquement tous les continents grâce à leurs talents, leurs ambitions et leur inspiration.\n\nPOUR NOTRE BOUTIQUE À BERNE, nous recherchons un (H/F):\n\nREPRÉSENTANT COMMERCIAL 80%\n\nDescription du poste\n• Vous contribuez activement au succès de la boutique et à l’atteinte des objectifs de vente\n\n• Vous développez et entretenez le contact avec notre clientèle exigeante\n\n• Vous êtes un ambassadeur de notre marque et conseillez nos clients au plus haut niveau, y compris sur toutes les subtilités techniques de nos montres\n\nProfil\n• Expérience similaire dans le secteur du luxe, idéalement dans l’horlogerie et la joaillerie\n\n• Sens du service de haut niveau pour notre clientèle exigeante\n\n• Présentation soignée, avenante et irréprochable\n\nExigences professionnelles\n• Profil de vendeur sociable et faisant preuve d’initiative\n\n• Excellent esprit d’équipe, disponible et flexible\n\nCompétences linguistiques\n• Très bonnes connaissances en allemand ou en français et en anglais (des langues supplémentaires sont un atout)"
       },
-      "location": "Biel/Bienne",
+      "location": "Berne",
       "canton": "BE",
-      "url": "https://www.swatchgroup.com/fr/job/33143",
+      "url": "https://www.swatchgroup.com/de/job/33509",
       "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:49:38.945Z",
-      "addressLocality": "Biel/Bienne",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-16T09:43:14.001Z",
+      "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
-      "category": "Marketing",
+      "postalCode": "3011",
+      "streetAddress": "Marktgasse 7",
+      "category": "Commerciale",
       "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
       "sector": "Orologeria di lusso",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-16T16:08:00+02:00",
-      "postedDate": "2026-09-16T16:08:00+02:00",
+      "datePosted": "2026-10-16T09:36:19+02:00",
+      "postedDate": "2026-10-16T09:36:19+02:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-275850&langCode=fr_FR&source=swatchgroup.com",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-279919&langCode=de_DE&source=swatchgroup.com",
       "requirements": [
-        "Diplômé en communication visuelle et/ou design numérique/digital ou Art Graphique",
-        "Minimum 5 ans d’expérience professionnelle dont au moins 1 an dans une agence de communication et/ou entreprise de Luxe",
-        "Parfaite maîtrise des outils Adobe (Photoshop, Indesign, Illustrator, …)",
-        "Parfaite maîtrise de la composition graphique et typographique",
-        "Forte connaissance des principes d’ergonomie (mobile, web, app, …)",
-        "Des compétences en motion design est un plus",
-        "Grand sens du détail et de l'organisation avec une excellente gestion du temps et des priorités",
-        "Forte expérience de la prise en charge, de l'interprétation et de la réalisation de projets créatifs dans des délais courts",
-        "Excellentes compétences en communication orale et écrite",
-        "Voir profil",
-        "Bonne maîtrise des langues française et anglaise"
+        "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
+        "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
+        "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
+        "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
+        "Ausgezeichneter Teamgeist, verfügbar und flexibel",
+        "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
       ],
       "requirementsByLocale": {
-        "fr": [
-          "Diplômé en communication visuelle et/ou design numérique/digital ou Art Graphique",
-          "Minimum 5 ans d’expérience professionnelle dont au moins 1 an dans une agence de communication et/ou entreprise de Luxe",
-          "Parfaite maîtrise des outils Adobe (Photoshop, Indesign, Illustrator, …)",
-          "Parfaite maîtrise de la composition graphique et typographique",
-          "Forte connaissance des principes d’ergonomie (mobile, web, app, …)",
-          "Des compétences en motion design est un plus",
-          "Grand sens du détail et de l'organisation avec une excellente gestion du temps et des priorités",
-          "Excellentes compétences en communication orale et écrite"
+        "de": [
+          "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
+          "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
+          "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
+          "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
+          "Ausgezeichneter Teamgeist, verfügbar und flexibel",
+          "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
         ]
       },
       "previousSlugs": [
-        "creative-marketing-project-manager-omega-biel-bienne",
-        "creative-marketing-project-manager-omega-sa-biel-bienne",
-        "projektmanager-fur-kreatives-marketing-omega-sa-biel-bienne"
+        "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "creative-marketing-project-manager-omega-biel-bienne"
-        ],
-        "en": [
-          "creative-marketing-project-manager-omega-biel-bienne"
-        ],
-        "de": [
-          "creative-marketing-project-manager-omega-biel-bienne",
-          "creative-marketing-project-manager-omega-sa-biel-bienne",
-          "projektmanager-fur-kreatives-marketing-omega-sa-biel-bienne"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:18:05.824Z",
-      "salaryMin": 106500,
-      "salaryMax": 188500,
+      "salaryMin": 62000,
+      "salaryMax": 94800,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 106500,
-          "maxValue": 188500,
+          "minValue": 62000,
+          "maxValue": 94800,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-09-19T23:17:22.823Z"
     }
   ]
 }

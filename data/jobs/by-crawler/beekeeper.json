@@ -1,6 +1,6 @@
 {
   "crawlerKey": "beekeeper",
-  "assembledAt": "2026-10-15T21:44:18.527Z",
+  "assembledAt": "2026-10-16T09:33:18.956Z",
   "jobs": [
     {
       "id": "beekeeper-d5fd74cf0b20",
@@ -34,7 +34,7 @@
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-15T21:44:13.807Z",
+      "crawledAt": "2026-10-16T09:33:13.475Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -148,7 +148,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
