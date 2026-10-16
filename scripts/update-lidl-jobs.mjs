@@ -144,6 +144,7 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['romont|1680', 'FR'],
   ['luchingen|9450', 'SG'],
   ['chatelaine|1219', 'GE'],
+  ['brunnen|6440', 'SZ'],
 ]);
 
 function isLidlJob(job) {
