@@ -74,6 +74,16 @@ function treeFiles(tree, prefix) {
   return raw ? raw.split('\0').filter(Boolean) : [];
 }
 
+function compatPathsInTree(tree) {
+  const paths = new Set(
+    treeFiles(tree, COMPAT_SHARD_ROOT).filter((file) => (
+      file === COMPAT_MANIFEST_PATH || COMPAT_SHARD_RE.test(file)
+    )),
+  );
+  if (readBlob(tree, CF_HOT_404_PATH, { encoding: null }) !== null) paths.add(CF_HOT_404_PATH);
+  return paths;
+}
+
 function writeIndexBlob(file, content) {
   const oid = git(['hash-object', '-w', '--stdin'], content);
   git(['update-index', '--add', '--cacheinfo', `100644,${oid},${file}`]);
@@ -141,6 +151,7 @@ function mergeCompatManifest(tree, baseRaw, mainRaw, headRaw) {
   // When one branch deletes the manifest and the other is unchanged, the
   // deletion is the only change and must survive the reconciliation instead
   // of being replaced by the unchanged base/current-refresh copy.
+  if (mainRaw === null && headRaw === null) return null;
   const mainChanged = mainRaw !== baseRaw;
   const headChanged = headRaw !== baseRaw;
   if ((mainRaw === null && !headChanged) || (headRaw === null && !mainChanged)) return null;
@@ -339,10 +350,12 @@ for (const file of conflicts) {
 
 const compatOverrides = new Map();
 const compatWorktreePaths = new Set();
+const compatWorktreeDeletions = new Set();
 const applyCompatContent = (file, content) => {
   const treeContent = blob(tree, file);
   if (content === null) {
     if (treeContent !== null) compatOverrides.set(file, null);
+    compatWorktreeDeletions.add(file);
     git(['update-index', '--force-remove', '--', file]);
     return;
   }
@@ -382,9 +395,13 @@ if (options.compat) {
   for (const file of treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate))) {
     compatWorktreePaths.add(file);
   }
+  for (const file of compatPathsInTree(head)) {
+    if (!compatWorktreePaths.has(file)) compatWorktreeDeletions.add(file);
+  }
   if (compatWorktreePaths.size > 0) {
     git(['checkout-index', '--force', '--ignore-skip-worktree-bits', '--', ...[...compatWorktreePaths].sort()]);
   }
+  for (const file of [...compatWorktreeDeletions].sort()) rmSync(file, { force: true });
 }
 
 const derivedConflicts = conflicts.filter((file) => derivedDatasetPaths.has(file));

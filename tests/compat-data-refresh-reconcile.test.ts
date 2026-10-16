@@ -202,6 +202,26 @@ function createManifestDeletionScenario() {
   return { repository, base, refresh, main };
 }
 
+function createCompatDeletionScenario() {
+  const scenario = createScenario();
+  const compatFiles = [
+    'data/cf-hot-404s.json',
+    'data/seo-404-compat/part-00.json',
+    'data/seo-404-compat/manifest.json',
+  ];
+
+  git(scenario.repository, ['checkout', '-q', 'refresh']);
+  for (const file of compatFiles) fs.rmSync(path.join(scenario.repository, file));
+  const refresh = commit(scenario.repository, 'refresh deletes compatibility data');
+
+  git(scenario.repository, ['checkout', '-q', 'main']);
+  for (const file of compatFiles) fs.rmSync(path.join(scenario.repository, file));
+  const main = commit(scenario.repository, 'main deletes compatibility data');
+
+  git(scenario.repository, ['checkout', '-q', 'refresh']);
+  return { ...scenario, refresh, main };
+}
+
 describe('compatibility data refresh reconciliation', () => {
   it('merges Cloudflare data and recomputes the compat manifest after main moves', () => {
     const scenario = createScenario();
@@ -293,5 +313,31 @@ describe('compatibility data refresh reconciliation', () => {
       .toBe('');
     expect(git(scenario.repository, ['ls-tree', '-r', '--name-only', 'HEAD', '--', 'data/seo-404-compat/manifest.json']))
       .toBe('');
+  });
+
+  it('preserves bilateral deletion and removes compatibility files from the worktree', () => {
+    const scenario = createCompatDeletionScenario();
+    const result = spawnSync(process.execPath, [
+      RECONCILE_SCRIPT,
+      '--compat',
+      '--base', scenario.base,
+      '--main', scenario.main,
+      '--message', 'reconcile deleted compatibility store',
+    ], {
+      cwd: scenario.repository,
+      env: { ...TEST_GIT_ENV, GIT_NO_LAZY_FETCH: '1' },
+      encoding: 'utf8',
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    for (const file of [
+      'data/cf-hot-404s.json',
+      'data/seo-404-compat/part-00.json',
+      'data/seo-404-compat/manifest.json',
+    ]) {
+      expect(fs.existsSync(path.join(scenario.repository, file)), file).toBe(false);
+      expect(git(scenario.repository, ['ls-files', '--', file]), file).toBe('');
+    }
+    expect(git(scenario.repository, ['ls-files', '--deleted'])).toBe('');
   });
 });
