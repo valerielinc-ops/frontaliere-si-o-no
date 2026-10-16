@@ -109340,6 +109340,79 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-dimissioni-termine-preavviso': {
+    title: 'Dimissioni frontaliere: termini e procedura | Frontaliere Ticino',
+    description: 'Come dare le dimissioni in Ticino: termini di preavviso, impatto su permesso G e disoccupazione. Guida pratica per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dimissioni, termini, procedura, dare',
+    ogTitle: 'Dimissioni frontaliere: termini e procedura',
+    ogDescription: 'Scopri come dare le dimissioni in Ticino: termini di preavviso, impatto sul permesso G e sulla disoccupazione. Guida pratica con checklist e consigli fiscali per chi lavora al confine.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-dimissioni-termine-preavviso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dimissioni frontaliere: termini e procedura",
+      "description": "Come dare le dimissioni in Ticino: termini di preavviso, impatto su permesso G e disoccupazione. Guida pratica per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che attraversa il valico di Brogeda verso il Ticino al mattino"
+      },
+      "datePublished": "2026-10-16T03:19:05+00:00",
+      "dateModified": "2026-10-16T03:19:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-dimissioni-termine-preavviso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stazione-ffs-coltello-ritrovato': {
+    title: 'Accoltellamento di Biasca, ritrovata l\'arma | Frontaliere Ticino',
+    description: 'Il coltello sarebbe stato ritrovato vicino al luogo dell\'aggressione L\'aggressione è avvenuta il 5 ottobre a Biasca Il 17enne è in carcerazione preventiva',
+    keywords: 'frontalieri, ticino, svizzera, italia, accoltellamento, biasca, ritrovata, arma',
+    ogTitle: 'Biasca, ritrovata l\'arma dell\'accoltellamento',
+    ogDescription: 'Il coltello sarebbe stato ritrovato vicino al luogo dell\'aggressione L\'aggressione è avvenuta il 5 ottobre a Biasca Il 17enne è in carcerazione preventiva',
+    canonicalPath: '/articoli-frontaliere/stazione-ffs-coltello-ritrovato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accoltellamento di Biasca, ritrovata l'arma",
+      "description": "Il coltello sarebbe stato ritrovato vicino al luogo dell'aggressione L'aggressione è avvenuta il 5 ottobre a Biasca Il 17enne è in carcerazione preventiva",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-stazione-ffs-coltello-ritrovato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione Ffs di Biasca, vicino al luogo in cui sarebbe stato ritrovato il coltello"
+      },
+      "datePublished": "2026-10-16T03:33:06+00:00",
+      "dateModified": "2026-10-16T03:33:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stazione-ffs-coltello-ritrovato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

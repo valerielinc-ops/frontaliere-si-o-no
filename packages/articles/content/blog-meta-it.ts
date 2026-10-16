@@ -13286,6 +13286,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.olgiate-presidio-vivo-mercato.title': 'Olgiate: Presidio Vivo e sentinelle nei mercati',
     'blog.article.olgiate-presidio-vivo-mercato.excerpt': 'A Olgiate Olona parte il progetto Presidio Vivo Due piazze ospitano i mercati coinvolti Volontari riconoscibili affiancano la Polizia Locale Appuntamenti',
     'blog.article.olgiate-presidio-vivo-mercato.imageAlt': 'Volontari della Sentinelle del Mercato e agenti di Polizia Locale in piazza a Olgiate Olona.',
+    'blog.article.frontaliere-dimissioni-termine-preavviso.title': 'Dimissioni frontaliere: termini e procedura',
+    'blog.article.frontaliere-dimissioni-termine-preavviso.excerpt': 'Come dare le dimissioni in Ticino: termini di preavviso, impatto su permesso G e disoccupazione.',
+    'blog.article.frontaliere-dimissioni-termine-preavviso.imageAlt': 'Frontaliere che attraversa il valico di Brogeda verso il Ticino al mattino',
+    'blog.article.stazione-ffs-coltello-ritrovato.title': 'Accoltellamento di Biasca, ritrovata l\'arma',
+    'blog.article.stazione-ffs-coltello-ritrovato.excerpt': 'Il coltello sarebbe stato ritrovato vicino al luogo dell\'aggressione L\'aggressione è avvenuta il 5 ottobre a Biasca Il 17enne è in carcerazione preventiva',
+    'blog.article.stazione-ffs-coltello-ritrovato.imageAlt': 'Stazione Ffs di Biasca, vicino al luogo in cui sarebbe stato ritrovato il coltello',
 };
 
 export default blogMetaIt;

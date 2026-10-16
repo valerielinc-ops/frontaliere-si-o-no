@@ -13284,6 +13284,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.olgiate-presidio-vivo-mercato.title': 'Olgiate: Presidio Vivo und Wachen auf den Märkten',
     'blog.article.olgiate-presidio-vivo-mercato.excerpt': 'In Olgiate Olona startet das Projekt Presidio Vivo Auf zwei Plätzen finden die einbezogenen Märkte statt Gut erkennbare Freiwillige unterstützen die örtliche Polizei Termine',
     'blog.article.olgiate-presidio-vivo-mercato.imageAlt': 'Markt-Sentinellen Freiwillige und örtliche Polizeibeamte auf einem Platz in Olgiate Olona.',
+    'blog.article.frontaliere-dimissioni-termine-preavviso.title': 'Grenzüberschreitende Rücktritte: Fristen und Verfahren',
+    'blog.article.frontaliere-dimissioni-termine-preavviso.excerpt': 'Wie man im Tessin zurücktritt: Kündigungsfristen, Auswirkungen auf die G-Bewilligung und Arbeitslosigkeit.',
+    'blog.article.frontaliere-dimissioni-termine-preavviso.imageAlt': 'Grenzgänger kreuzt den Brogedapass Richtung Tessin am Morgen',
+    'blog.article.stazione-ffs-coltello-ritrovato.title': 'Messerstecherei in Biasca, Waffe gefunden',
+    'blog.article.stazione-ffs-coltello-ritrovato.excerpt': 'Das Messer soll in der Nähe des Tatorts gefunden worden sein Der Angriff ereignete sich am 5.',
+    'blog.article.stazione-ffs-coltello-ritrovato.imageAlt': 'Ffs-Bahnhof in Biasca, nahe dem Ort, an dem das Messer gefunden worden sein soll',
 };
 
 export default blogMetaDe;

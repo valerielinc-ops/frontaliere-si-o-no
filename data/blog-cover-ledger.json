@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5525
+      "6": 5526
     },
-    "publishedCovers": 7106,
+    "publishedCovers": 7107,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5330
+    "inferredRecords": 5331
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190530,6 +190530,33 @@
           "id": "vantaggi-servizi-associati-ocst",
           "category": "pratico",
           "date": "2026-10-16T00:24:53.370Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-stazione-ffs-coltello-ritrovato": {
+      "cover": "/images/blog/article-stazione-ffs-coltello-ritrovato.webp",
+      "hash": "0c859a1163d492545b453e9161c8469e6f9f940d7ac703f75c0c257dd8f140a2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "stazione-ffs-coltello-ritrovato",
+          "category": "novita",
+          "date": "2026-10-16T03:33:05.895Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
