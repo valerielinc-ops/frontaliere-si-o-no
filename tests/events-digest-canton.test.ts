@@ -116,6 +116,21 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(article.content.it.body2).not.toContain('**1 gennaio** —');
   });
 
+  it('escapes Markdown delimiters in a cited event title', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'agenda-label',
+        title: 'Mostra [estate] — bambini',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        url: 'https://agenda.example/events/mostra-(serie)',
+        canton: 'TI',
+      }],
+      todayIso: '2027-01-01',
+    });
+    expect(article.content.it.body2).toContain('[Mostra \\[estate\\] — bambini](https://agenda.example/events/mostra-%28serie%29)');
+  });
+
   it('keeps a lone surrogate in an event id from aborting the producer', () => {
     const article = buildWeekendDigestArticle({
       events: [{

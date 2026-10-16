@@ -153,9 +153,11 @@ function eventTitleWithSource(title, ev) {
   const text = String(title || '').trim();
   const url = String(ev?.url || '').trim();
   if (!url || !/^https?:\/\//i.test(url)) return text;
-  // A source URL is data from the verified public dataset. Encode parentheses
-  // so a record URL cannot change the Markdown inline destination's shape.
-  return `[${text}](${url.replaceAll('(', '%28').replaceAll(')', '%29')})`;
+  // A source URL is data from the verified public dataset. Escape label
+  // delimiters and encode parentheses so a record cannot change the Markdown
+  // link's shape while preserving the visible event title.
+  const label = text.replaceAll('\\', '\\\\').replaceAll('[', '\\[').replaceAll(']', '\\]');
+  return `[${label}](${url.replaceAll('(', '%28').replaceAll(')', '%29')})`;
 }
 
 // Title-case a URL slug ("san-gallo" → "San Gallo"). Mirrors
