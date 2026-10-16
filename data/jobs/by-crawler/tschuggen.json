@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-10-15T21:22:18.365Z",
+  "assembledAt": "2026-10-16T09:24:45.929Z",
   "jobs": [
     {
       "id": "tschuggen-a863307370a6",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:22:13.019Z",
+      "crawledAt": "2026-10-16T09:24:36.848Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:22:12.102Z",
+      "crawledAt": "2026-10-16T09:24:35.828Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -226,7 +226,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1394/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:22:10.274Z",
+      "crawledAt": "2026-10-16T09:24:33.921Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -301,7 +301,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1395/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:22:09.351Z",
+      "crawledAt": "2026-10-16T09:24:32.937Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1396/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:22:08.420Z",
+      "crawledAt": "2026-10-16T09:24:32.147Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -431,7 +431,7 @@
       "slug": "prenotazione-e-revenue-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "it": "prenotazione-e-revenue-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-st-moritz",
-        "en": "reservation-and-revenue-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-st-moritz",
+        "en": "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-collection-st-moritz",
         "de": "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
         "fr": "directeur-des-reservations-et-des-revenus-h-f-d-en-emploi-annuel-permanent-tschuggen-collection-st-moritz"
       },
@@ -457,7 +457,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1399/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:22:07.481Z",
+      "crawledAt": "2026-10-16T09:24:31.118Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -478,14 +478,16 @@
       "department": "Rooms Division",
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
-        "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "reservation-and-revenue-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ],
         "en": [
-          "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+          "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "reservation-and-revenue-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-st-moritz"
         ],
         "fr": [
           "reservation-and-revenue-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
@@ -583,7 +585,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

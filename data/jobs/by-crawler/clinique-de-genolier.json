@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-de-genolier",
-  "assembledAt": "2026-10-15T21:23:37.819Z",
+  "assembledAt": "2026-10-16T09:27:38.134Z",
   "jobs": [
     {
       "id": "clinique-de-genolier-44d9c6b77b72",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151035234-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:23:29.739Z",
+      "crawledAt": "2026-10-16T09:27:28.828Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -159,7 +159,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "clinique-de-genolier-4f2d464829d6",
@@ -234,7 +235,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
