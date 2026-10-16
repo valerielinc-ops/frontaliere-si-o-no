@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Fri, 16 Oct 2026 04:32:58 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 05:40:12 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,82 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Steuern in Zürich: die drei Ebenen und ihre Funktionsweise</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/zuerich-steuer-drei-stufen/</link>
+      <description><![CDATA[Das Schweizer Steuersystem gliedert sich in drei Ebenen: Bund, Kanton und Gemeinde.]]></description>
+      <content:encoded><![CDATA[## Auf einen Blick
+- Das Schweizer Steuersystem hat drei Ebenen: Bund, Kanton und Gemeinde
+- Jeder Kanton hat ein eigenes Gesetz und einen eigenen Steuerfuss
+- Die Gemeinde wendet einen Steuerfuss auf die Kantonssteuer an
+- AFC/ESTV verwaltet die direkte Bundessteuer und die Mehrwertsteuer; der Kanton verwaltet den Rest
+
+## Wichtige Fakten
+- Ebenen → direkte Bundessteuer (IFD), Kantonssteuer, Gemeindesteuer
+- Bundesbehörde → AFC/ESTV für IFD und IVA
+- Kantonale Behörde → Kantons- und Gemeindesteuern
+- Gemeinderegel → auf die Kantonssteuer angewandter Steuerfuss
+- Indexierte Zahlen → jährlich aktualisiert
+
+Drei Ebenen bilden das Schweizer Steuersystem: die direkte Bundessteuer, die Kantonssteuer und die Gemeindesteuer. Für den Kanton Zürich sind Steuersätze, Tarifstufen und Abzüge daher innerhalb dieser Struktur zu betrachten, wobei zwischen dem, was dem Bund zuzuordnen ist, und dem, was vom Kanton und von der Gemeinde abhängt, unterschieden werden muss.
+
+Jeder Kanton hat ein eigenes Gesetz und einen eigenen Steuerfuss. Bei der kommunalen Komponente wird der Steuerfuss der Gemeinde auf die Kantonssteuer angewendet. Daher ist die kommunale Angabe zusammen mit der kantonalen Regelung zu betrachten, ohne sie durch einen Bundesparameter zu ersetzen.
+
+Auf Bundesebene ist die AFC/ESTV für die direkte Bundessteuer und die Mehrwertsteuer zuständig. Die kantonalen Verwaltungen hingegen sind für Kantons- und Gemeindesteuern zuständig. Diese Unterscheidung weist auch auf den ersten Anlaufpunkt hin: Für die Regeln des Kantons Zürich und den kommunalen Teil konsultiert man die kantonale Steuerverwaltung, während die AFC/ESTV für IFD und IVA weiterhin als Referenz dient.
+
+### Nicht zu verwechselnde Zuständigkeiten
+
+Der steuerliche Rahmen steht neben der Vorsorge und der Krankenversicherung, ist aber nicht mit ihnen gleichzusetzen. UFAS/BSV kümmert sich um die soziale Sicherheit, einschliesslich AVS/AHV und LPP/BVG, und legt keine Steuern fest. UST/BFS erstellt Statistiken und legt die Steuersätze nicht fest.
+
+Die LAMal/KVG ist die obligatorische Krankenversicherung für die Wohnbevölkerung, mit Pro-Kopf-Prämien und einer auf kantonaler Ebene verwalteten Prämienverbilligung. Sie ist weder eine Steuer noch ein Lohnbeitrag. Diese Unterscheidung dient dazu, keine Posten in die Steuerberechnung aufzunehmen, die zur Vorsorge oder zum Gesundheitswesen gehören.
+
+Für die im Kanton Zürich zulässigen Steuersätze, Tarifstufen und Abzüge bleibt die offizielle Dokumentation der kantonalen Steuerverwaltung die massgebliche praktische Referenz. Der gleiche Kanal nennt die einzuhaltende Einreichungsfrist und das zu verwendende Online-Portal. Die indexierten Zahlen sind dagegen für das Referenzjahr zu überprüfen, da sich einige Grössen jedes Jahr ändern.
+## Steuersätze, Tarifstufen und Abzüge: So vermeiden Sie fehlerhafte Vergleiche
+
+Am konkretesten lässt sich die Steuerbelastung in Zürich erfassen, wenn man die drei Komponenten trennt, bevor Steuersätze oder Abzüge verglichen werden. Ein Wert, der sich auf die direkte Bundessteuer bezieht, beschreibt nicht automatisch den kantonalen Anteil, während der kommunale Steuerfuss auf die Kantonssteuer angewendet wird.
+
+| Komponente | Referenz | Was zu prüfen ist |
+|---|---|---|
+| Direkte Bundessteuer | AFC/ESTV | Bundesebene |
+| Kantonssteuer | kantonale Verwaltung | Gesetz, Steuersätze und Tarifstufen des Kantons |
+| Gemeindesteuer | Steuerfuss der Gemeinde | Anwendung auf die Kantonssteuer |
+
+Im Kanton Zürich beeinflusst diese Unterscheidung, wie nach einem Abzug gesucht wird. Der anzuwendende Abzug muss in den einschlägigen kantonalen Vorschriften überprüft werden und darf nicht aus einer Liste übernommen werden, die sich auf einen anderen Kanton bezieht. Dieselbe Sorgfalt ist bei den Tarifstufen erforderlich: Jeder Kanton hat ein eigenes Gesetz, und das Ergebnis auf Gemeindeebene hängt vom für die Gemeinde vorgesehenen Steuerfuss ab.
+
+Hypothetisches Szenario: Eine Person nimmt einen in einem anderen Kanton gefundenen Steuersatz oder Abzug und überträgt ihn in ihre Zürcher Steuererklärung. Das Problem ist nicht nur die gewählte Zahl, sondern auch die steuerliche Ebene, zu der diese Zahl gehört. Vor ihrer Verwendung muss sie der kantonalen Regel, der kommunalen Komponente und, falls erforderlich, der direkten Bundessteuer zugeordnet werden.
+
+Der Vergleich zwischen verfügbarem Einkommen und Lebenshaltungskosten erfordert anschließend einen zweiten Filter. AVS/AHV und LPP/BVG gehören zur sozialen Vorsorge und dürfen nicht mit den Steuern verwechselt werden. Auch die LAMal/KVG folgt einer anderen Logik: Sie ist für Einwohner obligatorisch, hat Kopfprämien und sieht je nach Kanton oder Region unterschiedliche Prämien sowie eine kantonale Prämienverbilligung vor. Sie ist weder eine Steuer noch ein Lohnbeitrag.
+
+Dadurch wird die Steuerberechnung vom Gesamtbudget der Familie getrennt. Ein Steuerabzug, ein Vorsorgebeitrag und eine Krankenkassenprämie sind nicht derselbe Posten, auch wenn sie alle das verfügbare Geld beeinflussen. Für korrekte Vergleiche müssen die drei Komponenten daher anhand der zuständigen Behörde und der für sie maßgeblichen Regel betrachtet werden.
+## Vorgehen bei der Steuererklärung im Kanton Zürich
+
+Das praktische Vorgehen beginnt mit der korrekten Bestimmung der Zuständigkeiten. Es braucht keine allgemeinen Werte, die für die ganze Schweiz gelten: Erforderlich sind das kantonale Gesetz, der Gemeindesteuerfuss und die offiziellen Angaben für das betreffende Jahr.
+
+### Fünf praktische Schritte
+
+1. Unterscheide die drei Steuerarten: direkte Bundessteuer, Kantonssteuer und Gemeindesteuer. Diese Unterscheidung verhindert, dass ein Bundeswert für eine kantonale oder kommunale Komponente verwendet wird.
+
+2. Bestimme die zuständige Behörde. Für die direkte Bundessteuer und die Mehrwertsteuer ist die ESTV zuständig; für die kantonalen und kommunalen Steuern konsultiert man die kantonale Steuerverwaltung.
+
+3. Prüfe in der offiziellen Quelle des Kantons Zürich die Steuersätze, die Tarifstufen, die zulässigen Abzüge und die Einreichungsfrist. Das Datum darf nicht mithilfe eines allgemeinen Kalenders oder einer Regel eines anderen Kantons rekonstruiert werden.
+
+4. Nutze das Onlineportal der kantonalen Steuerverwaltung, um dem Verfahren zur Einreichung der Steuererklärung zu folgen. Das Portal ist die operative Anlaufstelle für die von der kantonalen Behörde vorgesehenen Informationen und Schritte.
+
+5. Überprüfe vor der Einreichung das Bezugsjahr der verwendeten Zahlen. Zu den jährlich indexierten Grössen gehören der Maximalbetrag der Säule 3a, die Eintrittsschwelle oder der Koordinationsabzug nach BVG, der Höchstbetrag der ALV, die Durchschnittsprämien nach KVG und der Medianlohn.
+
+### Zu überprüfende Zahlen und Fristen
+
+Bei der Steuerplanung ist es nicht ratsam, Beträge, die bereits in einem früheren Jahr verwendet wurden, automatisch zu übernehmen. Bei indexierten Zahlen gilt als praktische Regel, den für das betreffende Jahr gültigen Wert stets anhand der offiziellen Quelle zu überprüfen. Dasselbe gilt für die Einreichungsfrist und die Anweisungen des kantonalen Portals.
+
+Wenn die Berechnung von der Lohnabrechnung ausgeht, müssen AHV, BVG und KVG von den Steuern getrennt gehalten werden. Diese Kennzeichnung macht den Übergang vom Einkommen zum verfügbaren Budget übersichtlicher, ohne Prämien oder Beiträge in Steuersätze umzuwandeln.
+
+Für eine erste Kontrolle des Verhältnisses zwischen Einkommen und Steuern verwende calcolatore stipendio/imposte und konsultiere den Leitfaden zu dichiarazione delle imposte.]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 05:40:12 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/fisco-zurigo-tre-livelli</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fisco-zurigo-tre-livelli.webp" medium="image"/>
+    </item>
     <item>
       <title>Cyberangriff: Pensionskasse Zürich und Posta betroffen</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/datenleck-pensionskassen-zurich-post/</link>
@@ -3623,87 +3699,6 @@ Bei der Ausarbeitung der Bestimmungen zum Jugendschutz wird das UVEK vom Eidgen�
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/legge-piattaforme-tutela-giovani</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-legge-piattaforme-tutela-giovani.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Neueinstellungen in der Schweiz: Unternehmen trotz des BIP vorsichtig</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/schweiz-einstellungen-vorsicht-2026/</link>
-      <description><![CDATA[Schweizer NEO bei +21% für Oktober–Dezember 2026 Globaler NEO +29%; europäischer Durchschnitt +20% Schweizer BIP wächst im zweiten Quartal 2026 um 1,5% Junior: 35% mehr]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Schweizer NEO bei +21% für Oktober–Dezember 2026
-- Globaler NEO +29%; europäischer Durchschnitt +20%
-- Schweizer BIP wächst im zweiten Quartal 2026 um 1,5%
-- Junior: 35% mehr Neueinstellungen, 21% rückläufig
-
-## Wichtige Fakten
-- Zeitraum -> Oktober-Dezember 2026
-- Saisonbereinigter NEO in der Schweiz -> +21%
-- Globaler NEO -> +29%
-- Europäischer Durchschnitt -> +20%
-- Schweizer BIP -> +1,5% im zweiten Quartal 2026
-- Junior-Einstellungen nehmen zu -> 35%
-- Längere Talentsuche -> 32%
-- Von KI generierte Lebensläufe -> 16%
-
-Im vierten Quartal 2026 liegt die saisonbereinigte Netto-Beschäftigungsperspektive (Net Employment Outlook, NEO) in der Schweiz bei +21%. Der Indikator für den Zeitraum Oktober-Dezember verbessert sich gegenüber dem Vorquartal um einen Prozentpunkt, liegt im Jahresvergleich jedoch vier Punkte niedriger. Zum dritten Quartal in Folge bleibt er auf dem niedrigsten Stand seit 2022.
-
-Der internationale Vergleich bestätigt die vorsichtige Positionierung: Der globale NEO liegt bei +29% und damit acht Punkte über dem der Eidgenossenschaft. Der Schweizer Wert liegt weiterhin knapp über dem europäischen Durchschnitt von +20%.
-
-### BIP und Zeitarbeit zeichnen ein anderes Bild
-
-Das geht aus einer von Keystone-ATS aufgegriffenen Umfrage von ManpowerGroup hervor, die den Gegensatz zwischen der Vorsicht der Unternehmen und der allgemeinen wirtschaftlichen Entwicklung aufzeigt. Im zweiten Quartal 2026 ist das Schweizer Bruttoinlandsprodukt gegenüber dem Vorquartal um 1,5% gewachsen: Dies ist das höchste Wachstumstempo seit 2021. Seit Jahresbeginn wächst zudem der Zeitarbeitsmarkt, der als Indikator für die künftige Entwicklung der Konjunkturzyklen gilt.
-
-> «Die wirtschaftlichen Signale sind positiver als die Einstellungsabsichten der Unternehmen», stellt Eric Jeannerod, der für die Schweiz zuständige Verantwortliche des multinationalen Konzerns, in einer Mitteilung fest.
-
-Der Manager erklärt, dass die Unternehmen vorsichtiger prüfen, welche Kompetenzen gefragt sind, wo sich Neueinstellungen langfristig lohnen und wie künstliche Intelligenz nach der anfänglichen Begeisterung eingesetzt werden kann.
-
-Die Lage in den einzelnen Branchen bleibt unterschiedlich. Bauwirtschaft und Industrie weisen weiterhin Personalbedarf auf; in anderen Branchen stehen Stellen mit einem hohen Anteil potenziell automatisierbarer Tätigkeiten unter Druck. Die Suche nach Mitarbeitenden konzentriert sich somit auf bestimmte Qualifikationen und Bereiche und nicht auf eine einheitliche Nachfrage.
-
-Ein positives Signal liefern die Juniorprofile. Im Vergleich zum Vorjahr verbessert sich die Einstellungsdynamik um 14 Prozentpunkte: 35% der befragten Verantwortlichen melden einen leichten oder deutlichen Anstieg, während 21% einen Rückgang angeben. Für Berufseinsteiger bleibt der Einstieg anspruchsvoll, doch die Veränderung könnte auf eine Trendwende hindeuten.
-## Die Arbeitsnachfrage teilt sich nach Kompetenzen auf
-
-Für Menschen, die in der Schweiz leben oder arbeiten, besteht die praktische Schlussfolgerung nicht darin, zwischen Wachstum und Krise zu wählen. Die Daten beschreiben eine Nachfrage, die sich in unterschiedliche Richtungen bewegt: Die Stärke der Wirtschaft führt nicht automatisch in jedem Bereich zu einer gleich intensiven Rekrutierung. Entscheidend wird das Verhältnis zwischen geforderten und erkennbaren Kompetenzen.
-
-### Der Filter der Personalauswahl
-
-32% der befragten Verantwortlichen geben an, dass die Suche nach geeigneten Talenten heute länger dauert als vor einem Jahr, während nur 20% die Rekrutierung als einfacher einschätzen. Die von den Unternehmen genannte größte Schwierigkeit ist der Mangel an Kompetenzen der Bewerber, der von 43% genannt wird. Darauf folgen die Diskrepanz zwischen den Erwartungen der Bewerber und den Anforderungen der Arbeitgeber mit 26% sowie KI-generierte Lebensläufe, die von 16% als Faktor genannt werden, der die Identifizierung geeigneter Profile erschwert.
-
-Für Arbeitssuchende ist die Botschaft konkret: Eine Bewerbung muss die tatsächlichen Kompetenzen und deren Bezug zur geforderten Tätigkeit erkennbar machen. Die Quelle beschreibt KI-optimierte Lebensläufe und Ähnliches; eine undifferenzierte Darstellung birgt das Risiko, den Auswahlverantwortlichen nicht dabei zu helfen, Fähigkeiten, Qualifikationen und Potenzial zu unterscheiden. Das Problem betrifft daher nicht nur, wie viele Stellen offen sind, sondern auch, wie klar Nachfrage und Angebot zueinanderfinden können.
-
-### Zwei Wege für Berufseinsteiger
-
-Die Verbesserung der Junior-Profile eröffnet einen anderen Entwicklungspfad als den der Rollen, die der Automatisierung ausgesetzt sind. Der jährliche Anstieg um 14 Prozentpunkte signalisiert eine Öffnung, doch der Einstieg in die Arbeitswelt bleibt anspruchsvoll. Für einen jungen Menschen beseitigt das positive Signal nicht die Notwendigkeit, relevante Kompetenzen nachzuweisen; vielmehr deutet es darauf hin, dass Unternehmen künstliche Intelligenz differenzierter bewerten können.
-
-Auf Unternehmensseite lässt sich das Problem nicht lösen, indem man zwischen einem Arbeitskräftemangel und einem Arbeitskräfteüberangebot wählt. In einigen Bereichen gehen Nachfrage und Angebot auseinander, während Unternehmen entscheiden müssen, welche Kompetenzen tatsächlich gebraucht werden und welche Einstellungen sich langfristig lohnen. So werden die Entwicklung bestehender Mitarbeitender und das Erkennen von Potenzialen jenseits klassischer Karrierewege neben der Suche nach neuen Mitarbeitenden zu Hebeln für Auswahl und Wachstum.
-## Von der Momentaufnahme zur operativen Entscheidung
-
-Der zu markierende Zeitraum ist Oktober–Dezember 2026, das von der Prognose betrachtete Quartal. Um die nationalen Daten in eine Entscheidung zu überführen, empfiehlt es sich, nach Qualifikationen, Tätigkeitsbereichen und Potenzial vorzugehen, statt sich nur auf die Entwicklung des BIP zu beschränken.
-
-### Fünf Schritte für Arbeitssuchende
-
-1. Markiere den Zeitraum: Oktober–Dezember 2026 ist das Zeitfenster der Prognose. Verwende ihn als zeitliche Referenz, nicht als individuelle Garantie.
-
-2. Gehe von der Tätigkeit aus, nicht von der allgemeinen Berufsbezeichnung. Die Quelle weist auf einen Bedarf im Baugewerbe und in der Industrie sowie auf eine auf bestimmte Qualifikationen und Tätigkeitsbereiche konzentrierte Suche hin. Vergleiche dein Profil mit diesen Anforderungen.
-
-3. Mache die tatsächlichen Kompetenzen erkennbar. Von KI optimierte Lebensläufe können ähnlich wirken; beschreibe daher, was du kannst und welches Potenzial du entfalten kannst.
-
-4. Wenn du Berufseinsteiger bist, betrachte die Verbesserung bei den Einstellungen als eine Chance, nicht als Garantie. Der Einstieg in die Arbeitswelt bleibt anspruchsvoll, auch bei nicht klassischen Werdegängen.
-
-5. Wenn eine Bewerbung keine Resonanz findet, prüfe dein Profil erneut im Hinblick auf die gewählte Qualifikation und den gewählten Bereich. 32% der Verantwortlichen berichten von einer längeren Talentsuche: Es empfiehlt sich, die Passung zu überprüfen, statt jedes Ergebnis als allgemeines Urteil über den Markt zu interpretieren.
-
-### Hinweise für Arbeitgeber
-
-Für Unternehmen besteht der operative Schritt darin, zu bewerten, welche Kompetenzen tatsächlich benötigt werden und ob sich eine Neueinstellung langfristig lohnt. Die von ManpowerGroup festgestellte Zurückhaltung besteht neben dem für Baugewerbe und Industrie genannten Bedarf: Sie macht ihn selektiver. Es empfiehlt sich, die externe Suche durch die Entwicklung bestehender Mitarbeitender und die Bewertung von Potenzialen jenseits klassischer Werdegänge zu ergänzen. Auch bei KI-generierten Lebensläufen sollte zwischen dem Profiltext und den tatsächlich geforderten Kompetenzen unterschieden werden.
-
-Eine nützliche Prüfung trennt die drei von der Untersuchung genannten Schwierigkeiten: fehlende Kompetenzen mit 43%; nicht aufeinander abgestimmte Erwartungen und Anforderungen mit 26%; von KI generierte Lebensläufe mit 16%. Für Kandidaten legt jeder Punkt eine andere Prüfung nahe; für Unternehmen hilft dies, die Schwierigkeit bei der Auswertung der Profile nicht mit fehlender Nachfrage zu verwechseln.
-
-Wer eine Stelle sucht, kann die aziende che assumono konsultieren und den Überblick über die Qualifikationen als Auswahlkriterium verwenden. Um von der Analyse des Marktes zur Suche nach Möglichkeiten überzugehen, konsultiere die annunci di lavoro.
-
-*Quelle: [swissinfo.ch](https://www.swissinfo.ch/ita/aziende-caute-nell%27assumere%2c-malgrado-la-buona-congiuntura/92217267)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 17:31:30 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/assunzioni-svizzera-cautela-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-assunzioni-svizzera-cautela-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

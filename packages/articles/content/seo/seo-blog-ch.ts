@@ -106223,6 +106223,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fisco-zurigo-tre-livelli': {
+    title: 'Fisco a Zurigo: i tre livelli e come funziona | Frontaliere Ticino',
+    description: 'Guida al sistema fiscale del Cantone di Zurigo: scopri i tre livelli (federale, cantonale, comunale), le autorità competenti e come gestire aliquote',
+    keywords: 'frontalieri, ticino, svizzera, italia, fisco, zurigo, livelli, funziona',
+    ogTitle: 'Imposte cantonali Zurigo: aliquote e deduzioni',
+    ogDescription: 'Comprendere il sistema fiscale nel Cantone di Zurigo è essenziale. L\'articolo illustra i tre livelli di imposizione (federale, cantonale e comunale), le autorità di riferimento come AFC/ESTV e le amministrazioni cantonali, e fornisce indicazioni',
+    canonicalPath: '/articoli-svizzera/fisco-zurigo-tre-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fisco a Zurigo: i tre livelli e come funziona",
+      "description": "Guida al sistema fiscale del Cantone di Zurigo: scopri i tre livelli (federale, cantonale, comunale), le autorità competenti e come gestire aliquote",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fisco-zurigo-tre-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di un paesaggio svizzero che simboleggia la complessità del sistema fiscale a tre livelli, con riferimento a Zurigo."
+      },
+      "datePublished": "2026-10-16T05:40:12+00:00",
+      "dateModified": "2026-10-16T05:40:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fisco-zurigo-tre-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

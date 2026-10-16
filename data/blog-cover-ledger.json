@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5530
+      "6": 5531
     },
-    "publishedCovers": 7111,
+    "publishedCovers": 7112,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5335
+    "inferredRecords": 5336
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190613,6 +190613,33 @@
           "date": "2026-10-16T04:55:50.239Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-fisco-zurigo-tre-livelli": {
+      "cover": "/images/blog/article-fisco-zurigo-tre-livelli.webp",
+      "hash": "9e3422970e619c6157fcf5c585ebe757eecaeafa99340e81f7ba76bc22b1b702",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fisco-zurigo-tre-livelli",
+          "category": "fiscale",
+          "date": "2026-10-16T05:40:11.928Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
         }
       ],
       "proofLevel": 6,

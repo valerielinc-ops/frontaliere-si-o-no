@@ -8411,6 +8411,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dati-assicurati-casse-zurigo-posta.title': 'Attacco informatico: cassa pensioni Zurigo e Posta colpite',
     'blog.article.dati-assicurati-casse-zurigo-posta.excerpt': 'L\'attacco al fornitore risale alla fine di settembre.',
     'blog.article.dati-assicurati-casse-zurigo-posta.imageAlt': 'Edificio amministrativo svizzero legato alla gestione delle casse pensioni',
+    'blog.article.fisco-zurigo-tre-livelli.title': 'Fisco a Zurigo: i tre livelli e come funziona',
+    'blog.article.fisco-zurigo-tre-livelli.excerpt': 'Il sistema fiscale svizzero si articola su tre livelli: federale, cantonale e comunale.',
+    'blog.article.fisco-zurigo-tre-livelli.imageAlt': 'Panoramica di un paesaggio svizzero che simboleggia la complessità del sistema fiscale a tre livelli, con riferimento a Zurigo.',
 };
 
 export default blogMetaChIt;

@@ -2826,6 +2826,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-sanitario-zurigo-guida-2026': { it: 'sistema-sanitario-zurigo-guida-2026', en: 'swiss-healthcare-system-zurich-2026-guide', de: 'schweizer-gesundheitssystem-zuerich-2026-leitfaden', fr: 'systeme-sante-suisse-zurich-2026-guide' },
  'imposte-zurigo-aliquote-deduzioni': { it: 'imposte-zurigo-aliquote-deduzioni', en: 'zurich-tax-rates-deductions', de: 'zuerich-steuersaetze-abzugsvo', fr: 'impots-zurich-baremes-deduct' },
  'dati-assicurati-casse-zurigo-posta': { it: 'dati-assicurati-casse-zurigo-posta', en: 'pension-data-breach-zurich-post', de: 'datenleck-pensionskassen-zurich-post', fr: 'fuite-donnees-caisses-zurich-poste' },
+ 'fisco-zurigo-tre-livelli': { it: 'fisco-zurigo-tre-livelli', en: 'zurich-tax-three-levels', de: 'zuerich-steuer-drei-stufen', fr: 'fiscalite-zurich-trois-niveaux' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

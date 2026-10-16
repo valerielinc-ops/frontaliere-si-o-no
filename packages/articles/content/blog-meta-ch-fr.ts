@@ -8411,6 +8411,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dati-assicurati-casse-zurigo-posta.title': 'Cyberattaque : la caisse de pension de Zurich et Posta touchées',
     'blog.article.dati-assicurati-casse-zurigo-posta.excerpt': 'L\'attaque contre le fournisseur remonte à fin septembre.',
     'blog.article.dati-assicurati-casse-zurigo-posta.imageAlt': 'Bâtiment administratif suisse lié à la gestion des caisses de pension',
+    'blog.article.fisco-zurigo-tre-livelli.title': 'Fiscalité à Zurich : les trois niveaux et son fonctionnement',
+    'blog.article.fisco-zurigo-tre-livelli.excerpt': 'Le système fiscal suisse s’articule autour de trois niveaux : fédéral, cantonal et communal.',
+    'blog.article.fisco-zurigo-tre-livelli.imageAlt': 'Aperçu d\'un paysage suisse symbolisant la complexité du système fiscal à trois niveaux, en référence à Zurich.',
 };
 
 export default blogMetaChFr;

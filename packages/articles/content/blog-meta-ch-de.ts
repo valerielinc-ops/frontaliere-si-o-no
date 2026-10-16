@@ -8411,6 +8411,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dati-assicurati-casse-zurigo-posta.title': 'Cyberangriff: Pensionskasse Zürich und Posta betroffen',
     'blog.article.dati-assicurati-casse-zurigo-posta.excerpt': 'Der Angriff auf den Anbieter ereignete sich Ende September.',
     'blog.article.dati-assicurati-casse-zurigo-posta.imageAlt': 'Schweizer Verwaltungsgebäude im Zusammenhang mit Pensionskassen',
+    'blog.article.fisco-zurigo-tre-livelli.title': 'Steuern in Zürich: die drei Ebenen und ihre Funktionsweise',
+    'blog.article.fisco-zurigo-tre-livelli.excerpt': 'Das Schweizer Steuersystem gliedert sich in drei Ebenen: Bund, Kanton und Gemeinde.',
+    'blog.article.fisco-zurigo-tre-livelli.imageAlt': 'Übersicht einer Schweizer Landschaft, die die Komplexität des dreistufigen Steuersystems mit Bezug auf Zürich symbolisiert.',
 };
 
 export default blogMetaChDe;

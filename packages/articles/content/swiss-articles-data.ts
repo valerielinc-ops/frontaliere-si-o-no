@@ -28130,6 +28130,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'fisco-zurigo-tre-livelli',
+    category: 'fiscale',
+    date: '2026-10-16T05:40:11.928Z',
+    image: '/images/blog/article-fisco-zurigo-tre-livelli.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['ZH'],
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
