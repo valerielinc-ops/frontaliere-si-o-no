@@ -106301,6 +106301,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lupo-abbattimenti-facilitati': {
+    title: 'Lupo: abbattimenti più facili, consultazione si chiude oggi',
+    description: 'Il Consiglio federale propone abbattimenti dei lupi più facili. Gli ambientalisti chiedono di sospendere il progetto. L\'USC sostiene la revisione, ma la giudica',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, abbattimenti, facili, consultazione',
+    ogTitle: 'Lupo: abbattimenti facilitati, consultazione si chiude oggi',
+    ogDescription: 'Il Consiglio federale propone abbattimenti dei lupi più facili.',
+    canonicalPath: '/articoli-svizzera/lupo-abbattimenti-facilitati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo: abbattimenti più facili, consultazione si chiude oggi",
+      "description": "Il Consiglio federale propone abbattimenti dei lupi più facili. Gli ambientalisti chiedono di sospendere il progetto. L'USC sostiene la revisione, ma la giudica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lupo-abbattimenti-facilitati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano svizzero con pascolo sereno, sullo sfondo le vette del Monte Generoso."
+      },
+      "datePublished": "2026-10-16T08:01:09+00:00",
+      "dateModified": "2026-10-16T08:01:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lupo-abbattimenti-facilitati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

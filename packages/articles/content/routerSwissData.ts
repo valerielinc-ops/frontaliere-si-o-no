@@ -2828,6 +2828,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dati-assicurati-casse-zurigo-posta': { it: 'dati-assicurati-casse-zurigo-posta', en: 'pension-data-breach-zurich-post', de: 'datenleck-pensionskassen-zurich-post', fr: 'fuite-donnees-caisses-zurich-poste' },
  'fisco-zurigo-tre-livelli': { it: 'fisco-zurigo-tre-livelli', en: 'zurich-tax-three-levels', de: 'zuerich-steuer-drei-stufen', fr: 'fiscalite-zurich-trois-niveaux' },
  'tre-milioni-lettere-digitali-posta': { it: 'tre-milioni-lettere-digitali-posta', en: 'three-million-digital-letters-swiss-post', de: 'drei-millionen-digitale-briefe-post-schweiz', fr: 'trois-millions-lettres-numeriques-poste-suisse' },
+ 'lupo-abbattimenti-facilitati': { it: 'lupo-abbattimenti-facilitati', en: 'wolf-culling-eased', de: 'wolf-abschuss-erleichtert', fr: 'loup-abattages-facilite' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

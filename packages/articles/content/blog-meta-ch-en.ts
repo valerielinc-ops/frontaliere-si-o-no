@@ -8417,6 +8417,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tre-milioni-lettere-digitali-posta.title': 'Three million digital letters in six months',
     'blog.article.tre-milioni-lettere-digitali-posta.excerpt': 'La Posta presented the first interim report on the digital letter, recording seven million digital mailings in six months, three million of which were letters.',
     'blog.article.tre-milioni-lettere-digitali-posta.imageAlt': 'Swiss city skyline with digital elements symbolizing modern Post communication',
+    'blog.article.lupo-abbattimenti-facilitati.title': 'Wolf: easier culls, consultation closes today',
+    'blog.article.lupo-abbattimenti-facilitati.excerpt': 'The Federal Council proposes making wolf culls easier.',
+    'blog.article.lupo-abbattimenti-facilitati.imageAlt': 'Swiss mountain landscape with a serene pasture, with the peaks of Monte Generoso in the background.',
 };
 
 export default blogMetaChEn;

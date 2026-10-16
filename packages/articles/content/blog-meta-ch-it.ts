@@ -8417,6 +8417,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tre-milioni-lettere-digitali-posta.title': 'Tre milioni di lettere digitali in sei mesi',
     'blog.article.tre-milioni-lettere-digitali-posta.excerpt': 'La Posta ha presentato il primo bilancio intermedio della lettera digitale, registrando sette milioni di invii digitali in sei mesi, di cui tre milioni erano lettere.',
     'blog.article.tre-milioni-lettere-digitali-posta.imageAlt': 'Panorama urbano svizzero con elementi digitali che simboleggiano la comunicazione moderna della Posta',
+    'blog.article.lupo-abbattimenti-facilitati.title': 'Lupo: abbattimenti più facili, consultazione si chiude oggi',
+    'blog.article.lupo-abbattimenti-facilitati.excerpt': 'Il Consiglio federale propone abbattimenti dei lupi più facili.',
+    'blog.article.lupo-abbattimenti-facilitati.imageAlt': 'Paesaggio montano svizzero con pascolo sereno, sullo sfondo le vette del Monte Generoso.',
 };
 
 export default blogMetaChIt;

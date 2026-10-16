@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5533
+      "6": 5534
     },
-    "publishedCovers": 7114,
+    "publishedCovers": 7115,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5338
+    "inferredRecords": 5339
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190667,6 +190667,33 @@
           "date": "2026-10-16T05:40:11.928Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lupo-abbattimenti-facilitati": {
+      "cover": "/images/blog/article-lupo-abbattimenti-facilitati.webp",
+      "hash": "b725654ebcd99a65400277514bc03c7143b1c35af2f1c83e47e3ba16ed4286d9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lupo-abbattimenti-facilitati",
+          "category": "novita",
+          "date": "2026-10-16T08:01:09.305Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,

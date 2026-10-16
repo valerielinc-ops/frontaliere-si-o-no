@@ -8417,6 +8417,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tre-milioni-lettere-digitali-posta.title': 'Trois millions de lettres numériques en six mois',
     'blog.article.tre-milioni-lettere-digitali-posta.excerpt': 'La Posta a présenté le premier bilan intermédiaire de la lettre numérique, enregistrant sept millions d\'envois numériques en six mois, dont trois millions étaient des lettres.',
     'blog.article.tre-milioni-lettere-digitali-posta.imageAlt': 'Paysage urbain suisse avec des éléments numériques symbolisant la communication postale moderne',
+    'blog.article.lupo-abbattimenti-facilitati.title': 'Loup : abattages facilités, la consultation se termine aujourd’hui',
+    'blog.article.lupo-abbattimenti-facilitati.excerpt': 'Le Conseil fédéral propose de faciliter l’abattage des loups.',
+    'blog.article.lupo-abbattimenti-facilitati.imageAlt': 'Paysage montagneux suisse avec un pâturage serein, avec les sommets du Monte Generoso en arrière-plan.',
 };
 
 export default blogMetaChFr;
