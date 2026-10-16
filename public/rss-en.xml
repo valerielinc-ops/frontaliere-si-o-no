@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Oct 2026 13:10:19 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 13:43:53 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,75 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cross-border worker taxes Italy Switzerland 2026: practical simulation</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-workers-italy-switzerland-taxes-2026-practical-simulation/</link>
+      <description><![CDATA[The New Cross-Border Commuter Agreement has been in force since January 1, 2024 Old cross-border commuters: exemption of €7'500 and transitional period 2024–2033 New cross-border commuters: allowance]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- The New Frontier Workers Agreement has been in force since January 1, 2024
+- Old frontier workers: €7'500 exemption and 2024–2033 transitional period
+- New frontier workers: €10'000 tax-free allowance
+- IRPEF 2026: 23%, 33% and 43%
+
+## Key facts
+- Signature → December 23, 2020
+- Italian ratification → Law 83 of 13 June 2023
+- Italy-Switzerland Convention → 9 March 1976
+- AD/AC → 1.1% with cap at CHF 148'200
+- LPP → 7–18% by age group, from 25 years
+
+For those looking for cross-border taxes Italy Switzerland 2026 practical simulation, the date to be set is 23 December 2020: on that day the New Cross-border Workers Agreement was signed. The agreement is in force from 1 January 2024 and the Italian ratification is Law 83 of 13 June 2023. If the search uses the expression new tax agreement 2026, the correct date therefore remains 2024.
+
+### The dates that separate the regimes
+The threshold indicated for old cross-border workers is 17 July 2023. Those who were already such before that date are old cross-border workers. An exemption of €7,500 is foreseen for them, together with a transitional regime valid from 2024 to 2033 and exclusive Swiss taxation.
+
+For new cross-border commuters, from 2024, taxation will be concurrent. Switzerland applies the withholding tax provided for in the agreement; Italy taxes income after the €10,000 allowance and recognizes the Swiss tax credit. In the 730 form, the credit for income produced abroad is managed in part G.
+
+### The fiscal and contribution perimeter
+The Italy-Switzerland Double Taxation Agreement was signed on 9 March 1976. Switzerland is not a member of the EU or EEA.
+
+For the Italian IRPEF from 2026, the source indicates 23% up to €28,000, 33% from €28,001 to €50,000 and 43% above €50,000. The rule is reported in Law 199/2025, article 1, paragraph 3. For incomes 2024–2025 the reference indicated is 23%, 35% and 43%.
+
+Tax rates, including withholding tax, are established by federal and cantonal laws. At federal level they are administered by AFC/ESTV and the cantonal tax administrations; UFAS does not determine these rates and BFS collects statistical data, but does not set them. In the Swiss pay slip, AVS/AI/IPG is worth 5.3% for the employee, AD/AC 1.1% with a cap of CHF 148'200, LAINF 0.7–1.5% and LPP 7–18% for the age group from 25 years.
+## Practical simulation: comparing scenarios
+
+A simulation for a frontier worker in the Canton of Ticino must first distinguish the date on which they became subject to the regime. The year 2026 does not erase this distinction: it becomes the reference year for Italian IRPEF rates when the position entails taxation in Italy. The first comparison, therefore, is not between isolated percentages, but between tax status and reference year.
+
+### The first row to fill in
+| Scenario | Rule to enter | Check to perform |
+|---|---|---|
+| Old frontier worker | €7'500 exemption, 2024–2033 transitional period and exclusive taxation in Switzerland | Do not apply the €10'000 tax-free allowance |
+| New frontier worker | Swiss withholding tax, Italian tax on income above €10'000 and a tax credit for Swiss tax | Do not treat it as a position taxed only in Switzerland |
+| Italian IRPEF 2026 | 23% up to €28'000, 33% from €28'001 to €50'000, 43% above €50'000 | Do not use the 35% provided for the second income bracket in 2024–2025 |
+
+In a hypothetical scenario, a frontier worker who already had that status before July 17, 2023 remains in the first row even if the simulation concerns 2026. The new year does not turn the transitional regime into that of new frontier workers. For those who instead fall under the second row, the sequence must keep the Swiss withholding tax, Italian income after the allowance and the tax credit for Swiss tax separate. This is the step used to handle double taxation; in the 730 form, the relevant section is Section G.
+
+### Separating taxes, contributions, and insurance
+The result of the simulation should not be read as a single percentage. The Swiss items are distinct in nature: AVS/AI/IPG is listed at 5.3% for the employee; AD/AC is 1.1% with a cap of CHF 148'200; LAINF ranges from 0.7% to 1.5%; LPP varies from 7% to 18% by age group, starting at age 25. Keeping them separate prevents contributions and IRPEF from being automatically added together as if they were the same withholding.
+
+For a frontier worker with a G permit, LAMal must also be kept on a separate line. LAMal is health insurance, not a tax on health, and G frontier workers have the right to opt. The adult deductibles indicated by the source range from CHF 300 to CHF 2500: they differ from the €10'000 tax allowance and must not be entered in the same step of the calculation.
+## Operational checklist for 2026
+
+To turn the rules into a practical simulation, it is advisable to follow a fixed order. The procedure does not require inventing amounts: it uses only the date of the regime, the tax year and the items indicated in the source.
+
+### Five checks before the result
+1. Classify the situation. Note whether you were already a frontier worker before July 17, 2023. This date separates the regime for old frontier workers from that for new ones. For the first group, consider the €7'500 exemption and the 2024–2033 transitional period; for the second, consider the €10'000 tax-free allowance.
+
+2. Set the tax year. If the simulation concerns 2026, use the IRPEF brackets of 23% up to €28'000, 33% from €28'001 to €50'000 and 43% above €50'000. For 2024–2025 income, note instead the values 23%, 35% and 43%.
+
+3. Separate the two tax stages for new frontier workers. Keep the withholding applied in Switzerland distinct from Italian taxation on income after the €10'000 tax-free allowance. The credit for Swiss tax, in Form 730, must be handled in section G. If the position concerns old frontier workers, retain the exclusive Swiss taxation of the transitional regime.
+
+4. Read the Swiss items without combining them into a single rate. Record AVS/AI/IPG at 5.3% for the employee, AD/AC at 1.1% with a cap of CHF 148'200, LAINF at 0.7–1.5% and LPP at 7–18% by age bracket from age 25.
+
+5. Separate LAMal from taxation. If you have a G permit, consider the right of option for G frontier workers and keep the adult deductible separate, between CHF 300 and CHF 2500. Do not call LAMal a health tax: the source identifies it as health insurance.
+
+The allocation of responsibilities is clear: federal and cantonal laws set withholding-tax rates, while AFC/ESTV administers them at federal level and the cantonal tax administrations operate at cantonal level. UFAS does not set tax rates, and BFS is responsible for collecting statistical data, not determining them. To apply these indications to salary, taxes and contributions, use calcolatore fiscale.]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 13:43:53 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/frontaliere-tasse-italia-svizzera-2026-simulazione-pratica</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.webp" medium="image"/>
+    </item>
     <item>
       <title>Lakes Marathon 2027: 2000 runners expected between Varese and Monate</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/lake-marathon-varese-2027/</link>
@@ -3322,33 +3391,6 @@ The 23% uptake figure does not replace verification of the individual address. L
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/fibra-ottica-145-comuni-como</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fibra-ottica-145-comuni-como.webp" medium="image"/>
-    </item>
-    <item>
-      <title>ASVZ Blackbirds win Champions Bowl: first Swiss European title in flag football</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/asvz-blackbirds-win-champions-bowl-first-swiss-european-title-in-flag-football/</link>
-      <description><![CDATA[The ASVZ Blackbirds triumph at the 2026 Champions Bowl, winning the first historic European flag football title for a Swiss team.]]></description>
-      <content:encoded><![CDATA[The ASVZ Blackbirds of Zurich won the Champions Bowl 2026, the leading European tournament for flag football clubs. It is the first success of a Swiss team in the competition. The final, played on October 11 in Poreč, Croatia, ended 46-14 against Molosses Flag Asnières, a team from the Paris region.
-
-The tournament ran from October 9-11 and the Blackbirds were unbeaten. After finishing in first place in both group stages, the Zurich team beat the Kranjski Jazbeci, from Slovenia, and the Italian Parma Panthers in the quarterfinals.
-
-In the end, the Blackbirds' defense intercepted six passes: two apiece for Claudio Ferrari and for the brothers Justin and Oliver Verhoek. Attacking quarterback Dennis Sieger threw six touchdowns and scored another on the run; Frédéric Eppisser received four of the touchdown passes. The Blackbirds also conceded fewer points than all other teams in the men's competition.
-
-"This title is the reward for years of hard work. When we founded the club, almost ten years ago, we would not have dared to dream of such a result, "said player-coach Fabiano Piccinno. "In the final we played an almost perfect game. I'm incredibly proud of this team. ”
-For the ASVZ Blackbirds it is the eighth participation in the Champions Bowl. In 2024 they finished in second place and in 2025 in third. The club, founded in 2017, also won six national titles and also won the shortened Covid season, played without an official championship.
-
-The result comes on the eve of flag football's Olympic debut in Los Angeles 2028. The non-contact discipline will be part of the Olympic programme for the first time.
-
-Results and schedule: [Champions Bowl 2026](https://tournifyapp.com/live/cb26/schedule)
-Statistics: [BreakAway](https://www.breakawaydata.com/)
-
-Photographic material: [press folder](https://drive.google.com/drive/folders/1nR9HcOlLeFGJ0_KfNVwsFfuARTujcNup?usp=sharing)
-
-Source: Football Flag / Swiss American Football Verband (SAFV) press release, 13 October 2026.]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 13:35:22 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.webp" medium="image"/>
     </item>
   </channel>
 </rss>

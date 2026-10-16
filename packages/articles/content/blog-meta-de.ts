@@ -13326,8 +13326,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavorare-svizzera-conviene-ancora.excerpt': 'Im September 2026 liegt die Arbeitslosenquote in der Schweiz bei 3% Innerhalb eines Jahres steigt die Zahl der Arbeitslosen um 5,4% Im zweiten Quartal nimmt die Beschäftigung um 2% zu Veröffentlichung',
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Panoramablick auf den Monte Generoso im Tessin, Schweiz, mit blauem Himmel und grüner Umgebung.',
     'blog.article.maratona-laghi-varese-2027.title': 'Maratona dei Laghi 2027: 2000 Läufer zwischen Varese und Monate erwartet',
-    'blog.article.maratona-laghi-varese-2027.excerpt': 'Sonntag, 11.',
+    'blog.article.maratona-laghi-varese-2027.excerpt': 'Sonntag, 11. April 2027: Start und Ziel in Angera. Drei Seen und acht Gemeinden sind beteiligt. Für die erste Ausgabe werden rund 2.000 Läufer erwartet.',
     'blog.article.maratona-laghi-varese-2027.imageAlt': 'Luftaufnahme des Lago Maggiore mit Läufern am Ufer, umgeben von malerischen Dörfern und grünen Hügeln.',
+    'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.title': 'Grenzgänger-Steuern Italien Schweiz 2026: praktische Simulation',
+    'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.excerpt': 'Das neue Grenzgängerabkommen ist seit dem 1.',
+    'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.imageAlt': 'Steuerformular und Taschenrechner auf einem Schreibtisch mit Blick auf Mendrisio',
 };
 
 export default blogMetaDe;

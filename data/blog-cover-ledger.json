@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5543
+      "6": 5544
     },
-    "publishedCovers": 7124,
+    "publishedCovers": 7125,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5348
+    "inferredRecords": 5349
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190719,6 +190719,33 @@
           "id": "fisco-zurigo-tre-livelli",
           "category": "fiscale",
           "date": "2026-10-16T05:40:11.928Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-16",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica": {
+      "cover": "/images/blog/article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.webp",
+      "hash": "a866b7816bc2f205f10c1b7eda8242220624c1afce6ad0fc7d9a83c30514332f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontaliere-tasse-italia-svizzera-2026-simulazione-pratica",
+          "category": "fiscale",
+          "date": "2026-10-16T13:43:52.794Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
         }
