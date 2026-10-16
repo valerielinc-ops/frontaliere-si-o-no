@@ -67,7 +67,7 @@ describe('pharmacy enrichment', () => {
     expect(validateDependencyFreeConfig(enrichmentConfig)).toEqual([]);
     expect(validateDependencyFreeSnapshot(enrichmentSnapshot)).toEqual([]);
     expect(enrichmentSnapshot.records['it-msal-3907']).toMatchObject({
-      phone: '+39 0332 227362',
+      phone: '+390332227362',
       contactEmail: 'farmaciadicasciago@enterpoint.it',
       services: ['Consegna a domicilio', 'Accesso senza barriere'],
       vatNumber: '04109170128',
