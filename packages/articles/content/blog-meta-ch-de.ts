@@ -8405,6 +8405,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-zurigo-guida-2026.title': 'Schweizerisches Gesundheitssystem: KVG-Leitfaden 2026 im Kanton Zürich',
     'blog.article.sistema-sanitario-zurigo-guida-2026.excerpt': 'Praktischer Leitfaden zum Gesundheitssystem im Kanton Zürich für das Jahr 2026: KVG-Pflichten, Kassenwahl, Franchisen und Rückerstattungsverfahren für Residenten.',
     'blog.article.sistema-sanitario-zurigo-guida-2026.imageAlt': 'Eingang einer modernen Gesundheitseinrichtung im Kanton Zürich',
+    'blog.article.imposte-zurigo-aliquote-deduzioni.title': 'Steuern in Zürich: Steuersätze und Abzüge',
+    'blog.article.imposte-zurigo-aliquote-deduzioni.excerpt': 'Fahren auf drei Ebenen: Bund, Kanton und Gemeinde.',
+    'blog.article.imposte-zurigo-aliquote-deduzioni.imageAlt': 'Panoramablick auf Zürich am See mit Stadtsilhouette unter blauem Himmel',
 };
 
 export default blogMetaChDe;

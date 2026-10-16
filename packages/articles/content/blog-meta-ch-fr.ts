@@ -8405,6 +8405,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-sanitario-zurigo-guida-2026.title': 'Système de santé suisse : guide LAMal 2026 dans le canton de Zurich',
     'blog.article.sistema-sanitario-zurigo-guida-2026.excerpt': 'Guide pratique du système de santé dans le canton de Zurich pour 2026 : obligations LAMal, choix de la caisse, franchises et procédures de remboursement pour les résidents.',
     'blog.article.sistema-sanitario-zurigo-guida-2026.imageAlt': 'Entrée d\'un établissement de santé moderne dans le canton de Zurich',
+    'blog.article.imposte-zurigo-aliquote-deduzioni.title': 'Impôts à Zurich : taux et déductions',
+    'blog.article.imposte-zurigo-aliquote-deduzioni.excerpt': 'Conduite à trois niveaux : fédéral, cantonal et communal.',
+    'blog.article.imposte-zurigo-aliquote-deduzioni.imageAlt': 'Vue panoramique de Zurich sur le lac avec silhouette urbaine sous un ciel dégagé',
 };
 
 export default blogMetaChFr;

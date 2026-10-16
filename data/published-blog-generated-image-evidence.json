@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "3b9e0df333c7e0dd513cffcbda8cd8ee579a058a",
+  "commit": "4b52f0e5de1c91ed925a4421ed8fa67a6c6fa852",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -23155,6 +23155,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic illustration of a modern Swiss healthcare facility with a Swiss flag; no readable text, logos, or people."
+      }
+    },
+    "/images/blog/article-imposte-zurigo-aliquote-deduzioni.webp": {
+      "schema": 1,
+      "assetId": "article-imposte-zurigo-aliquote-deduzioni",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "182449b55038b12c09a2df0eba55efa42e150cc5a76684be2f1ab1d67d7754e5",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "6e80579d8f8d2c4067925a6bda734818f1ce767254a894789a792f81efcef6d8",
+      "bytes": 130072,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-16T02:17:32.719Z",
+      "verifiedAt": "2026-10-16T02:17:43.591Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-imposte-zurigo-aliquote-deduzioni.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic Zurich cityscape with Lake Zurich; no readable text, logos, watermarks, signatures, or people."
       }
     },
     "/images/places/lugano-view.webp": {

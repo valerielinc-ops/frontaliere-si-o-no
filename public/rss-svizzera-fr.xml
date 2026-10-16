@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 16 Oct 2026 01:51:47 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 02:17:44 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,75 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Impôts à Zurich : taux et déductions</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/impots-zurich-baremes-deduct/</link>
+      <description><![CDATA[Conduite à trois niveaux : fédéral, cantonal et communal.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Trois niveaux : fédéral, cantonal et communal
+- A Zurich, le multiplicateur municipal compte également
+- AFC/ESTV : impôt fédéral direct et TVA
+- Portail en ligne : taux, déductions et délais
+
+## Faits clés
+- Système → IFD fédéral, impôt cantonal et impôt communal
+- AFC/ESTV → IFD et TVA
+- Administrations cantonales → Impôts cantonaux et communaux
+- Multiplicateur communal → appliqué à l'impôt cantonal
+- UST/BFS → statistiques, pas de taux d'imposition
+
+Dans le canton de Zurich, l'analyse des impôts cantonaux et communaux part de la structure à trois niveaux du fisc suisse. Le premier est l'impôt fédéral direct ; les deux autres sont le niveau cantonal et le niveau communal. La distinction est décisive lors de la recherche de taux, de tranches, de déductions admises, de délais de livraison et du portail en ligne de l'administration fiscale cantonale.
+
+Chaque canton a sa propre loi et son propre multiplicateur. Pour les communes, le multiplicateur s'applique à l'impôt cantonal. Une recherche concernant Zurich ne doit donc pas être lue comme s'il n'existait qu'un seul poste fiscal : la composante communale doit être séparée de la composante fédérale et de la composante cantonale.
+
+### Qui est compétent
+
+Le périmètre institutionnel est tout aussi important. L'AFC/ESTV gère l'impôt fédéral direct et la TVA. Les administrations cantonales sont en revanche la référence pour les impôts cantonaux et communaux. L'OFAS/BSV s'occupe de la sécurité sociale, y compris AVS, AI et LPP, mais ne fixe pas d'impôts. L'UST/BFS produit des statistiques et n'établit pas de taux.
+
+Cette séparation évite d'utiliser une source statistique pour rechercher un pourcentage fiscal ou de confondre prévoyance et déclaration d'impôts. Pour ceux qui vivent dans le canton de Zurich, l'itinéraire correct part du niveau fiscal concerné et arrive ensuite à la page officielle relative aux taux, aux tranches et aux déductions.
+
+Le portail en ligne de l'administration fiscale cantonale complète le cadre opérationnel indiqué par la source. Sa fonction, dans la pratique, est de recueillir les informations nécessaires à la remise de la déclaration et à la vérification du délai applicable. Le multiplicateur communal reste un passage distinct : il ne doit pas être remplacé par le taux fédéral et ne doit pas être traité comme un poste de la TVA.
+
+La même logique s'applique à la lecture des déductions admises. On identifie d'abord le niveau fiscal, puis on consulte la règle cantonale ou communale pertinente. De cette façon, la recherche sur les impôts cantonaux du canton de Zurich reste ancrée dans les compétences correctes, sans attribuer à l'AFC/ESTV, à l'OFAS/BSV ou à l'OFS/BFS des fonctions qu'ils n'ont pas.
+Le calcul pratique de la charge mensuelle et de la déclaration nécessite de ne pas confondre trois plans : impôts, cotisations salariales et prime LAMal/KVG. Ce sont des voix différentes, avec des mécanismes et des compétences distincts. La distinction permet également de lire correctement un bulletin de paie avant de rechercher une déduction fiscale dans le canton de Zurich.
+
+### Bulletin de paie et fiscalité
+
+Pour les cotisations sur salaire, la source indique que l'AVS/AI/APG s'élève à 5,3 % à la charge du salarié et à 10,6 % au total avec l'employeur. L'AD/AC est de 1,1 % jusqu'au plafond annuel. Pour la LAA/LAA, la valeur indiquée va de 0,7 % à 1,5 % selon le secteur. La LPP/BVG, calculée sur le salaire coordonné, prévoit 7% entre 25 et 34 ans, 10% entre 35 et 44 ans, 15% entre 45 et 54 ans et 18% entre 55 ans et l'âge de référence.
+
+Ces pourcentages décrivent les cotisations sociales ou d'assurance sur le salaire, et non les taux des impôts cantonaux et communaux. Un numéro vu sur la fiche de paie ne permet donc pas, à lui seul, de reconstituer le calcul de la déclaration. Avant d'évaluer une déduction, il faut identifier la nature de l'élément et le niveau fiscal auquel il se rapporte.
+
+| Voix | Mécanisme indiqué par la source |
+|---|---|
+| AVS/AI/APG | 5,3 % des salariés ; 10,6 % au total |
+| AD/AC | 1,1 % jusqu'au plafond annuel |
+| LAA/LAA | 0,7–1,5% selon le secteur |
+| LPP/BVG | Pourcentages sur le salaire coordonné par tranche d'âge |
+
+La LAMal/KVG doit également être exclue du décompte des impôts. Pour les résidents, elle est obligatoire et doit être stipulée dans les trois mois suivant l'arrivée. Elle est privée, financée par des primes par habitant, et n'est ni une taxe ni une contribution salariale. Les primes dépendent du canton et de la région, tandis que la réduction des primes est une subvention cantonale.
+
+Cette distinction a un effet concret sur le budget familial et le coût de la vie : la prime de la caisse-maladie ne doit pas être présentée comme un taux d'imposition et une retenue sociale ne doit pas être confondue avec le multiplicateur communal. Pour lire le tableau de Zurich, il faut donc séparer le calcul de l'impôt fédéral direct, de l'impôt cantonal et communal, des cotisations sur la masse salariale et des primes LAMal.
+Pour consulter correctement les impôts cantonaux et communaux dans le canton de Zurich, il convient de suivre une séquence fixe. La procédure évite de chercher un pourcentage au mauvais endroit et maintient des taux, des tranches, des déductions et des délais distincts.
+
+### Procédure en cinq étapes
+
+1. **Identifie le niveau fiscal.** Indique si la vérification concerne l'impôt fédéral direct, l'impôt cantonal ou l'impôt communal. Si la TVA apparaît, la référence est l'AFC/ESTV ; pour les impôts cantonaux et communaux, la référence est les administrations cantonales.
+
+2. Ouvrez le portail cantonal. Utilisez le portail en ligne de l'administration fiscale cantonale pour rechercher des informations relatives au canton de Zurich. La consultation doit couvrir les taux, les tranches, les déductions admises et le délai de remise de la déclaration.
+
+3. Contrôlez le multiplicateur municipal. La commune applique le multiplicateur sur l'impôt cantonal. Cette donnée doit donc être lue séparément de la composante fédérale et de la base cantonale, sans la remplacer par un poste de la paie ou par la TVA.
+
+4. Vérifiez l'année de référence. La source signale que certains chiffres sont indexés chaque année. Le contrôle porte, entre autres, sur le plafond du troisième pilier 3a, le seuil ou déduction de coordination LPP, le plafond AD/AC, les primes moyennes LAMal et le salaire médian. Il n'est pas souhaitable de transférer automatiquement un montant d'une année à l'autre.
+
+5. Séparation prévoyance et assurance maladie. AVS/AI/APG, AD/AC, LAA/LAA et LPP/BVG sont des cotisations salariales. La LAMal est une assurance obligatoire pour les résidents, avec des primes par habitant et une réduction des primes cantonales. Si une personne vient d'arriver en Suisse, la stipulation doit être effectuée dans les trois mois suivant son arrivée.
+
+Pour une vérification ordonnée, notez le niveau fiscal, la commune, le multiplicateur, la déduction envisagée et le terme affiché sur le portail. Si la donnée concerne des statistiques, l'OFS/BFS n'est pas la source pour fixer des taux. S'il concerne la prévoyance, l'OFAS/BSV n'est pas le bureau qui détermine les impôts. Pour passer à la compilation, ouvrez dichiarazione delle imposte.]]></content:encoded>
+      <pubDate>Fri, 16 Oct 2026 02:17:44 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/imposte-zurigo-aliquote-deduzioni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-imposte-zurigo-aliquote-deduzioni.webp" medium="image"/>
+    </item>
     <item>
       <title>Système de santé suisse : guide LAMal 2026 dans le canton de Zurich</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/systeme-sante-suisse-zurich-2026-guide/</link>
@@ -3645,78 +3714,6 @@ La position suisse doit être considérée conjointement avec la participation d
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/nuovo-accordo-commercio-elettronico</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-nuovo-accordo-commercio-elettronico.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Blanchiment d’argent en Suisse : il faut davantage de ressources et de sanctions</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/suisse-rapport-blanchiment-argent/</link>
-      <description><![CDATA[Les risques restent élevés en Suisse Le Conseil fédéral prend acte du troisième rapport Le GCRF formule huit recommandations Il faut davantage de ressources et de sanctions]]></description>
-      <content:encoded><![CDATA[## En bref
-- Les risques restent élevés en Suisse
-- Le Conseil fédéral prend acte du troisième rapport
-- Le GCRF formule huit recommandations
-- Il faut davantage de ressources et des sanctions plus sévères
-
-## Faits clés
-- Document → troisième rapport national sur les risques
-- Périmètre → blanchiment d'argent et financement du terrorisme
-- Recommandations → huit
-- Autorités → GCRF
-- Objectif des sanctions → « sanctions efficaces et dissuasives »
-- Registre → transparence des bénéficiaires effectifs, en vigueur début octobre
-
-À Berne, le Conseil fédéral a pris connaissance du rapport de la Confédération sur les menaces que font peser sur la Suisse le blanchiment d'argent et le financement du terrorisme. Le document indique que la place financière suisse reste attractive pour les criminels et que le niveau global de risques reste élevé.
-
-Le texte est le troisième rapport national d’évaluation des risques sur le sujet. Le diagnostic combine deux éléments : le système national répressif est globalement solide, mais doit constamment s'adapter aux nouvelles technologies utilisées par les délinquants.
-
-### Ressources, sanctions et criminalité organisée
-
-Pour renforcer la réponse suisse, le GCRF, le Groupe interministériel de coordination chargé de lutter contre le blanchiment d'argent, le financement du terrorisme et de la prolifération, a formulé huit recommandations. Parmi les priorités figure le renforcement du personnel des autorités impliquées dans la lutte contre la criminalité. La forte augmentation des signalements de cas suspects de blanchiment d’argent risque de pousser le système de contrôle dans ses retranchements.
-
-Le rapport réclame donc du personnel supplémentaire pour les autorités de contrôle et d'application, des systèmes informatiques plus efficaces et des ressources financières suffisantes. Un deuxième chapitre concerne la surveillance financière : les efforts en cours pour élargir l'arsenal de sanctions de la Finma doivent se poursuivre, dans le but de parvenir à des « sanctions efficaces et dissuasives ».
-
-Les auteurs pointent ensuite l’infiltration du crime organisé dans le tissu économique légal. Les réseaux criminels utilisent la Suisse pour transférer des fonds et pénétrer dans l'économie légale ; Le GCRF demande que le projet de loi en cours contre les organisations criminelles soit soumis au Parlement dans les plus brefs délais.
-
-D'autres recommandations incluent l'examen et, si nécessaire, la révision de la loi actuelle sur le contrôle des métaux précieux. Le GCRF propose également de surveiller en permanence le registre de transparence relatif aux déclarations des bénéficiaires effectifs, en vigueur depuis début octobre, pour vérifier s'il atteint les objectifs souhaités.
-## La lecture pratique du rapport
-
-La partie opérationnelle du dossier concerne avant tout la capacité du système à gérer les signalements. Le texte lie l'augmentation massive des cas présumés de blanchiment au risque que le système de contrôle atteigne ses limites. La réponse préconisée n'est pas une mesure unique, mais une combinaison de personnel, d'outils informatiques et de ressources financières pour les autorités de surveillance et d'exécution.
-
-Pour les personnes qui vivent ou travaillent en Suisse, le point à suivre est donc l'équilibre entre la solidité du système et son adaptation aux nouveaux outils utilisés par les criminels. Le rapport ne présente pas la résilience du système comme un résultat définitif : il la considère comme suffisante dans l'ensemble, mais soumise à une mise à jour constante.
-
-### Cinq fronts à distinguer
-
-| Domaine | Signal du rapport | Réponse indiquée |
-| Contrôles | Croissance massive des signalements suspects | Davantage de personnel, des outils informatiques efficaces et des ressources financières |
-| Surveillance | Arsenaux de sanctions de la Finma à élargir | Sanctions efficaces et dissuasives |
-| Criminalité organisée | Utilisation de la Suisse pour les fonds et infiltration dans l'économie légale | Examen parlementaire rapide du projet de loi |
-| Métaux précieux | Nécessité d'examiner la loi en vigueur | Révision le cas échéant |
-| Transparence | Registre en vigueur au début octobre | Évaluation constante des effets |
-
-Le tableau aide à ne pas confondre des niveaux différents. Une augmentation des ressources concerne la capacité administrative ; l'élargissement des sanctions concerne les outils de la Finma ; le projet sur la criminalité organisée concerne en revanche le passage au Parlement. Ces démarches sont liées dans le rapport, mais ne se confondent pas.
-
-Le registre de transparence requiert également une lecture prudente. Le fait qu'il soit entré en vigueur au début octobre n'est pas présenté comme une preuve automatique du résultat : le GCRF recommande de vérifier au fil du temps s'il produit les effets escomptés. Il en va de même pour la loi sur les métaux précieux, que le rapport invite à examiner avant une éventuelle révision.
-
-Le message pour le débat national est clair : la solidité reconnue aujourd'hui n'élimine pas la nécessité d'adapter les contrôles, les sanctions et les instruments réglementaires. Les recommandations indiquent des orientations précises, tandis que leur mise en œuvre reste liée aux autorités compétentes et au Parlement.
-## Comment suivre le dossier sans confondre propositions et décisions
-
-Le rapport propose une séquence de vérification utile à qui veut suivre l'évolution de la lutte contre le blanchiment d'argent en Suisse. La règle de lecture consiste à distinguer ce qui est déjà indiqué dans le document des mesures que le GCRF demande de poursuivre.
-
-### Cinq étapes de vérification
-
-1. Commencer par la situation institutionnelle. Le Conseil fédéral a pris connaissance du rapport : c'est l'étape enregistrée par la source. Les huit recommandations décrivent en revanche les interventions considérées comme nécessaires pour améliorer le système.
-2. Vérifier la capacité opérationnelle. La référence concrète concerne la disponibilité de personnel dans les autorités de surveillance et d'exécution, l'efficacité des systèmes informatiques et la présence de ressources financières suffisantes. Ce sont les trois éléments à rechercher lorsqu'on évalue la réponse à l'augmentation massive des signalements suspects.
-3. Distinguer la surveillance financière de la lutte contre la criminalité organisée. Dans le premier cas, le rapport parle de l'arsenal de sanctions de la Finma et de l'objectif de sanctions efficaces et dissuasives. Dans le second, il demande que le projet de loi soit soumis au Parlement dans les meilleurs délais.
-4. Suivre les deux domaines de vérification normative. D'une part, il y a la loi actuelle sur le contrôle des métaux précieux, qui doit être examinée et, le cas échéant, révisée. D'autre part, il y a le registre de transparence relatif aux ayants droit économiques, entré en vigueur au début du mois d'octobre : la question posée par le rapport est de savoir s'il produit les effets escomptés.
-5. Maintenir distinctes l'évaluation et les résultats. La source décrit un système globalement solide, mais exposé à l'évolution technologique et à la pression des signalements. Par conséquent, le suivi ne s'achève pas avec la prise de connaissance du rapport : il porte sur la mise en œuvre des recommandations et la vérification des effets du registre.
-
-Ce schéma permet de suivre le sujet au niveau fédéral sans attribuer au Parlement des décisions dont la source ne fait pas état, ni considérer comme déjà approuvées des mesures présentées comme des recommandations. Pour approfondir le rapport entre les règles et le fonctionnement bancaire, consultez le guide sur les conti bancari in Svizzera.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1956666/svizzera-contrasto-rapporto-riciclaggio-denaro)*]]></content:encoded>
-      <pubDate>Wed, 14 Oct 2026 16:21:05 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/rapporto-riciclaggio-denaro-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-rapporto-riciclaggio-denaro-svizzera.webp" medium="image"/>
     </item>
   </channel>
 </rss>
