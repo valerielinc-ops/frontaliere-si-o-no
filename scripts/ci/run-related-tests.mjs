@@ -27,7 +27,14 @@
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
  */
-import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import {
+  appendFileSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readlinkSync,
+  writeFileSync,
+} from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
@@ -488,6 +495,36 @@ const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.
 const normalize = (file) => file.replaceAll('\\', '/').replace(/^\.\//, '');
 const NAME_STATUS_RE = /^[ACDMRTUXB](?:\d+)?$/;
 
+/**
+ * Return the asset path represented by a tracked data symlink target.
+ *
+ * `git diff --name-only` reports the real target of a symlink when a corpus
+ * registry changes (`packages/articles/content/*.ts`), while the related
+ * graph indexes the stable `data/*.ts` link as an asset. Keep that aliasing
+ * at the selection boundary so a target change follows the same reverse edges
+ * as a change made through the public data path. Reading the link itself also
+ * works when the target is not materialized in a sparse checkout; the real
+ * verdict still remains fail-closed there via the full-checkout guard below.
+ */
+function linkedAssetAliases(assets) {
+  const aliases = new Map();
+  for (const asset of assets) {
+    if (!asset.startsWith('data/')) continue;
+    try {
+      const target = normalize(path.posix.normalize(
+        path.posix.join(path.posix.dirname(asset), readlinkSync(asset)),
+      ));
+      if (target.startsWith('../') || target === '.') continue;
+      if (!aliases.has(target)) aliases.set(target, asset);
+    } catch {
+      // Non-symlink data assets and sparse links absent from the worktree do
+      // not create an alias. A missing target is handled by the existing
+      // fail-closed full-checkout guard, not silently treated as readable.
+    }
+  }
+  return aliases;
+}
+
 function resolveAssetLiteral(from, rawLiteral) {
   const literal = rawLiteral.replace(/\/+$/, '');
   const isRelative = literal.startsWith('./') || literal.startsWith('../');
@@ -844,11 +881,6 @@ function loadGraph(files, assets) {
   return graph;
 }
 
-const candidates = [...new Set(changed.filter((file) =>
-  file !== 'scripts/ci/run-related-tests.mjs'
-    && (!ignoredRe.test(file) || dataAssetRe.test(file))
-    && (sourceRe.test(file) || isRelatedAsset(file))
-    && !alwaysExcludedTests.has(file)))];
 const runnerChanged = changed.includes(runnerPath);
 const globalVitestConfigChanged = changed.some((file) => globalVitestConfigPaths.has(file));
 const fullSuiteRequired = globalVitestConfigChanged;
@@ -857,6 +889,14 @@ if (changedStatus !== 'complete') {
   stopWithoutFullSuite(`changed-paths status is ${changedStatus}`);
 }
 requireFullCheckoutForVerdict();
+const knownAssets = trackedAssets();
+const assetAliasByTarget = linkedAssetAliases(knownAssets);
+const changedForSelection = changed.map((file) => assetAliasByTarget.get(file) || file);
+const candidates = [...new Set(changedForSelection.filter((file) =>
+  file !== 'scripts/ci/run-related-tests.mjs'
+    && (!ignoredRe.test(file) || dataAssetRe.test(file))
+    && (sourceRe.test(file) || isRelatedAsset(file))
+    && !alwaysExcludedTests.has(file)))];
 const triggeredSourceTreeLints = sourceTreeLintsFor(changed);
 // Un diff senza candidati per il grafo esce qui solo se non rientra nemmeno nel
 // perimetro di un lint dell'albero dei sorgenti: altrimenti l'uscita anticipata
@@ -912,7 +952,7 @@ function changedAssetsFromDiff() {
 
 const tracked = trackedFiles();
 const assets = [...new Set([
-  ...trackedAssets(),
+  ...knownAssets,
   ...candidates.filter(isRelatedAsset),
   ...changedAssetsFromDiff(),
 ])];

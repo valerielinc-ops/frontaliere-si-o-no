@@ -27,7 +27,11 @@ function git(root: string, ...args: string[]) {
   return execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
 }
 
-function fixture(files: Record<string, string>, linked: string[] = []) {
+function fixture(
+  files: Record<string, string>,
+  linked: string[] = [],
+  symlinks: Record<string, string> = {},
+) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'related-selection-contract-'));
   roots.push(root);
   fs.mkdirSync(path.join(root, 'scripts/ci/lib'), { recursive: true });
@@ -48,6 +52,11 @@ function fixture(files: Record<string, string>, linked: string[] = []) {
     const target = path.join(root, relative);
     fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.writeFileSync(target, content);
+  }
+  for (const [relative, target] of Object.entries(symlinks)) {
+    const link = path.join(root, relative);
+    fs.mkdirSync(path.dirname(link), { recursive: true });
+    fs.symlinkSync(target, link);
   }
   git(root, 'init', '-q', '-b', 'main');
   git(root, 'config', 'user.email', 'related-selection@example.invalid');
@@ -276,6 +285,30 @@ describe('run-related-tests selection contract', () => {
     expect(shared.status, shared.stderr || shared.stdout).toBe(0);
     expect(shared.stdout).toContain(images);
     expect(shared.stdout).not.toContain(policy);
+  });
+
+  it('follows canonical targets of symlinked article registries to their data readers', () => {
+    const reader = 'tests/article-registry-reader.test.ts';
+    const root = fixture({
+      'packages/articles/content/blog-articles-data.ts': 'export const ARTICLES = [] as const;\n',
+      'packages/articles/content/swiss-articles-data.ts': 'export const SWISS_ARTICLES = [] as const;\n',
+      [reader]: [
+        "import { readFileSync } from 'node:fs';",
+        "export const registries = readFileSync('data/blog-articles-data.ts', 'utf8') + readFileSync('data/swiss-articles-data.ts', 'utf8');",
+      ].join('\n'),
+    }, [], {
+      'data/blog-articles-data.ts': '../packages/articles/content/blog-articles-data.ts',
+      'data/swiss-articles-data.ts': '../packages/articles/content/swiss-articles-data.ts',
+    });
+    const result = select(root, [
+      'packages/articles/content/blog-articles-data.ts',
+      'packages/articles/content/swiss-articles-data.ts',
+    ]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toMatch(/: 1 test file\(s\)/);
+    expect(result.stdout).toContain(reader);
+    expect(result.output).toContain('required=false');
+    expect(result.output).not.toContain('selection_failed=true');
   });
 
   it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
