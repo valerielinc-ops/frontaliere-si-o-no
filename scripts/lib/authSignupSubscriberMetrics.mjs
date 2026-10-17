@@ -145,6 +145,7 @@ export function aggregate({ subscriberRows = [], accounts = [] } = {}) {
   const accountClasses = { subscribed: 0, stub: 0, missing: 0 };
   const byProvider = {};
   let subscribedWithoutCreatedAt = 0;
+  const rawAccountsTotal = accounts.length;
   const measuredAccounts = accounts.filter((a) => a.isSignupCandidate !== false);
   for (const a of measuredAccounts) {
     const cls = a.docClass in accountClasses ? a.docClass : 'missing';
@@ -160,6 +161,7 @@ export function aggregate({ subscriberRows = [], accounts = [] } = {}) {
     subscribersCreated: subscriberRows.length,
     authSubscribers,
     byChannel,
+    rawAccountsTotal,
     accountsTotal,
     excludedAccounts: accounts.length - measuredAccounts.length,
     accountClasses,
@@ -181,7 +183,7 @@ export function evaluate(agg, opts = {}) {
   const minAccountsForShare = opts.minAccountsForShare ?? MIN_ACCOUNTS_FOR_SHARE;
   const findings = [];
 
-  if (agg.accountsTotal === 0) {
+  if (agg.rawAccountsTotal === 0) {
     // Zero account nuovi in 24h non e' mai successo: o il login e' rotto per
     // tutti, o la lettura di Auth e' cieca. In entrambi i casi un verde
     // sarebbe falso.

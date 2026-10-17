@@ -122,6 +122,15 @@ describe('decisione sui numeri misurati', () => {
     expect(v.findings[0].code).toBe('no_auth_accounts');
   });
 
+  it('non segnala una lettura Auth cieca quando restano solo stub tecnici esclusi', () => {
+    const agg = aggregate({
+      accounts: [{ provider: 'custom', docClass: 'stub', isSignupCandidate: false }],
+    });
+    expect(agg.rawAccountsTotal).toBe(1);
+    expect(agg.accountsTotal).toBe(0);
+    expect(evaluate(agg).findings.some((finding) => finding.alert)).toBe(false);
+  });
+
   it('la soglia e\' stretta: esattamente AUTH_SUBSCRIBER_FLOOR iscritti non allarma', () => {
     const agg = aggregate({
       subscriberRows: rowsOf({ auth_linkedin: AUTH_SUBSCRIBER_FLOOR }),
