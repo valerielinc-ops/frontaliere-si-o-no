@@ -3097,8 +3097,8 @@
       "id": "hoch-health-db42bf4ee31c",
       "slug": "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "ergebnis-controller-in-100-kssg-ch",
-        "en": "ergebnis-controller-in-100-kssg-ch",
+        "it": "controller-dei-risultati-100-hoch-health-ostschweiz-st-gallen",
+        "en": "results-controller-100-hoch-health-ostschweiz-st-gallen",
         "de": "ergebnis-controller-in-100-hoch-health-st-gallen",
         "fr": "ergebnis-controller-in-100-kssg-ch"
       },
@@ -3145,14 +3145,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergebnis-controller-in-100-hoch-health-st-gallen",
-        "results-controller-100-hoch-health-ostschweiz-st-gallen"
+        "ergebnis-controller-in-100-kssg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergebnis-controller-in-100-hoch-health-st-gallen"
+          "ergebnis-controller-in-100-hoch-health-st-gallen",
+          "ergebnis-controller-in-100-kssg-ch"
         ],
         "en": [
-          "results-controller-100-hoch-health-ostschweiz-st-gallen"
+          "ergebnis-controller-in-100-kssg-ch"
         ]
       },
       "firstSeenAt": "2026-08-24T22:09:28.890Z",
@@ -6188,9 +6189,9 @@
       "slug": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "it": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
-        "en": "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
+        "en": "employee-60-80-hoch-health-ostschweiz-grabs",
         "de": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "fr": "responsable-60-80-hoch-health-ostschweiz-grabs"
+        "fr": "employe-60-80-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -6236,18 +6237,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "employee-60-80-hoch-health-ostschweiz-grabs",
-        "employe-60-80-hoch-health-ostschweiz-grabs"
+        "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
+        "responsable-60-80-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
         ],
         "en": [
-          "employee-60-80-hoch-health-ostschweiz-grabs"
+          "person-in-charge-60-80-hoch-health-ostschweiz-grabs"
         ],
         "fr": [
-          "employe-60-80-hoch-health-ostschweiz-grabs"
+          "responsable-60-80-hoch-health-ostschweiz-grabs"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:30.059Z",
@@ -7881,7 +7882,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -7933,7 +7934,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7941,7 +7942,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -10759,7 +10760,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
+        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -10808,7 +10809,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
+        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10816,7 +10817,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
+          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
@@ -14009,6 +14010,7 @@
         "de": "Unterassistent/in 2027\n\nArbeitsort St. Gallen\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Ein Teil unserer Kliniken bietet ausserdem Praktika vor dem Praktischen Jahr in Form von Famulaturen an:\n\nFachbereich\nverfügbarer Zeitraum\n\nDepartement Innere Medizin\n(Bieten keine Famulaturen an)\nBewerbungen für das Departement Innere Medizin St.Gallen werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nSofern bereits bei der Registration explizit im Anschreiben erwähnt und von der Heimuniversität verlangt, ist eine Rotation von 1-2 Wochen in die Klinik für Orthopädische Chirurgie und Traumatologie des Bewegungsapparates möglich. Später eingebrachte Rotationswünsche können aus organisatorischen Gründen nicht mehr berücksichtigt werden.\n\nMitte Januar bis Februar\nOktober bis Mitte November\n\nKlinik für Orthopädie und Traumatologie\n(Bieten keine Famulaturen an)\n\nJanuar bis Juli\n\nKlinik für Thoraxchirurgie\n\nbesetzt\n\nKlinik für Dermatologie, Venerologie und Allergologie\n(Bieten keine Famulaturen an)\nbesetzt\n(Mindesteinsatzdauer: zwei Monate)\n(Start nur am ersten des Monats möglich)\n\nKlinik für Neurologie\n\nJanuar bis März\nSeptember bis Dezember\n(Mindesteinsatzdauer: zwei Monate)\n\nKlinik für Neurochirurgie\nFachgebiet: Kranial\n\nOktober (1 Mt.)\n(Start nur am ersten des Monats möglich)\n\nKlinik für Neurochirurgie\nFachgebiet Spinal\n\nSeptember (1 Mt.)\n(Start nur am ersten des Monats möglich)\n\nKlinik für Radio-Onkologie\n\nJanuar bis Februar\nJuli bis Dezember\n(Bewerbungen werden frühestens Anfang Jahr 2027 entgegengenommen)\n\nKlinik für Radiologie und Nuklearmedizin\n(Bieten keine Famulaturen an)\n\nJuli bis August\n\nKlinik für Plastische Chirurgie und Handchirurgie\n(Bieten keine Famulaturen an)\n\nbesetzt\n(Start nur am ersten des Monats und nur für ganze Monate möglich)\n\nKlinik für Urologie\n(Bieten keine Famulaturen an)\n\nbesetzt\n(Mindesteinsatzdauer: zwei Monate)\n(Die Planung beginnt in diesem Fachbereich 12 Mt. vor Anstellungsbeginn)\n\nKlinik für Anästhesiologie, Rettungs- und Schmerzmedizin\n(Bieten keine Famulaturen an)\n\nbesetzt\n(Anstellungsdauer: zwei Monate)\n(Start nur am ersten des Monats möglich)\n\nHNO-Klinik\n\nFebruar bis April\n\nAugenklinik\n\nKlinik für Gynäkologie und Geburtshilfe\n\nNotfallzentrum\n(Bieten keine Famulaturen an)\nbesetzt\n(Mindesteinsatzdauer: zwei Monate)\n\nInstitut für Pathologie\n\nMärz bis April\nOktober bis November\n\nInstitut für Rechtsmedizin\n(Bieten keine Famulaturen an)\nbesetzt\n\nKlinik für Endokrinologie, Diabetologie, Osteologie und Stoffwechselerkrankung\nNovember (1 Mt.)\n( Die Planung beginnt in diesem Fachbereich 12 Mt. vor Anstellungsbeginn )\n(Anstellungsdauer: ein Monat)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz oder Famulatur bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
         "fr": "Sous-assistant/en 2027\n\nLieu de travail St. Gallen\n\nVos tâches et perspectives\n\nPour la fin de l'année pratique à HOCH Health Eastern Suisse, nous vous proposons des postes sub-assistants et sub-assistants dans les domaines spécialisés ci-dessous. Certaines de nos cliniques offrent également des stages avant l'année pratique sous forme de facultés:\n\nDomaine\nPériode disponible\n\nDépartement de médecine interne\n(N'offrez pas de facultés)\nLes demandes pour le département de médecine interne St.Gallen sont acceptées par le lien suivant.\n\nClinique de chirurgie\nSi déjà mentionné explicitement dans la lettre de motivation lors de l'inscription et exigé par l'université à domicile, une rotation de 1 à 2 semaines dans la clinique de chirurgie orthopédique et de traumatologie du système musculo-squelettique est possible. Les demandes de rotation présentées ultérieurement ne peuvent plus être examinées pour des raisons organisationnelles.\n\n11. Janvier à 07. Mars\n\nOctobre à mi-novembre\n\nClinique d'orthopédie et de traumatologie\n(N'offrez pas de facultés)\n\nJanvier à juillet\n\nClinique de chirurgie thoracique\n\nOccupés\n\nClinique de dermatologie, Vénérologie et Allergologie\n(N'offrez pas de facultés)\nOccupés\n(Durée minimale : deux mois)\n(Démarrer seulement le premier du mois)\n\nClinique de neurologie\nJanvier à mars\n(Durée minimale : deux mois)\n\nClinique de neurochirurgie\nDomaine d'expertise: Kranial\n\nOctobre (1 Mt.)\n(Démarrer seulement le premier du mois)\n\nClinique de neurochirurgie\nDomaine d'expertise\n\nSeptembre (1 Mt.)\n(Démarrer seulement le premier du mois)\n\nClinique de radio-oncologie\n\nJanvier à février\nJuillet à décembre\n(Les demandes seront acceptées au plus tôt au début de 2027)\n\nClinique de radiologie et de médecine nucléaire\n(N'offrez pas de facultés)\n\nJuillet à août\n\nClinique de chirurgie plastique et de chirurgie des mains\n(N'offrez pas de facultés)\n\nOccupés\n(Début seulement le premier du mois et seulement possible pour des mois entiers)\n\nClinique d'urologie\n(N'offrez pas de facultés)\n\nOccupés\n(Durée minimale : deux mois)\n(La planification commence dans ce ministère 12 Mt. avant le début de l'emploi)\n\nClinique d'anesthésiologie, sauvetage et médecine de la douleur\n(N'offrez pas de facultés)\n\nOccupés\n(Durée de l'emploi: deux mois)\n(Démarrer seulement le premier du mois)\n\nClinique ENT\n\nJuin (1 Mt.)\nNovembre à décembre\n\nClinique oculaire\n\nMars (1 Mt.)\n\nSeptembre à décembre\n\nClinique de gynécologie et d'obstétrique\n\nCentre d'urgence\n(N'offrez pas de facultés)\nOccupés\n(Durée minimale : deux mois)\n\nInstitut de pathologie\n\nMars à avril\nOctobre à novembre\n\nInstitut de médecine juridique\n(N'offrez pas de facultés)\nOccupés\n\nClinique d'endocrinologie, de diabétéologie, d'ostéologie et de maladies métaboliques\nNovembre (1 Mt.)\n() La planification commence dans ce ministère 12 Mt. avant le début de l'emploi\n(Durée de l'emploi: un mois)\n\nVotre demande\n\n• Vous pouvez en savoir plus sur ce stage passionnant sur notre site ou auprès d'Elina Boos, spécialiste de l'éducation des RH, téléphone +41 71 494 27 36\n\n• Profitez de votre chance et complètez votre sous-assistance ou faculté à HOCH Health Eastern Suisse\n\nSur nous\n\nLa santé est notre profession et notre vocation. En tant que plus grand employeur en Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Avantages Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
+      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Unterassistentin-2027/1145765901/",
@@ -16042,6 +16044,7 @@
         "de": "Unterassistent/in 2027\n\nArbeitsort Grabs\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Grabs bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Grabs nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nverfügbarer Zeitraum\n\nKlinik für Anästhesiologie, Intensiv- und Rettungsmedizin\nbesetzt\n\nKlinik für Innere Medizin\n\nbesetzt\n(Mindesteinsatzdauer: zwei Monate)\n\nKlinik für Chirurgie\nApril (1 Mt.)\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nBitte wende dich an gertrud.eggenberger-hilty@h-och.ch\n\nKlinik für Orthopädie und Traumatologie\nJanuar bis Juli\nSeptember bis November\n(Mindesteinsatzdauer Unterassistenz: zwei Monate)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
         "fr": "Sous-assistant/en 2027\n\nLieu de travail\n\nListe des emplois\n\nVos tâches et perspectives\n\nPour la fin de l'année pratique à HOCH Health Eastern Suisse à l'emplacement de Grabs, nous vous proposons des postes sub-assistants et sub-assistants dans les domaines spécialisés ci-dessous. Veuillez noter que Grabs offre uniquement des stages dans le cadre de l'année clinique pratique.\n\nDomaine\nPériode disponible\n\nClinique d'anesthésiologie, de soins intensifs et de médecine de secours\n(Facultés offertes)\nVeuillez contacter erika.furger@h-och.ch\n\nClinique de médecine interne\n\nOccupés\n(Durée minimale: deux mois)\n\nClinique de chirurgie\nAvril (1 Mt.)\nMi-juin à juillet\n\nClinique de gynécologie et d'obstétrique\n(Facultés offertes)\nVeuillez contacter gertrud.eggenberger-hilty@h-och.ch\n\nClinique d'orthopédie et de traumatologie\nJanvier à juillet\nSeptembre à novembre\n(Durée minimale de la sous-assistance: deux mois)\n\nVotre demande\n\n• Vous pouvez en savoir plus sur ce stage passionnant sur notre site ou auprès d'Elina Boos, spécialiste de l'éducation des RH, téléphone +41 71 494 27 36\n\n• Profitez de votre chance et complètez votre sous-assistance à HOCH Health Eastern Suisse\n\nSur nous\n\nLa santé est notre profession et notre vocation. En tant que plus grand employeur en Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
+      "needsRetranslation": true,
       "location": "Grabs",
       "canton": "SG",
       "url": "https://jobs.h-och.ch/job/Grabs-Unterassistentin-2027/1198755001/",
@@ -16125,6 +16128,7 @@
         "de": "Unterassistent/in 2028\n\nArbeitsort St. Gallen\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Ein Teil unserer Kliniken bietet ausserdem Praktika vor dem Praktischen Jahr in Form von Famulaturen an:\n\nFachbereich\nverfügbarer Zeitraum\n\nDepartement Innere Medizin\n(Bieten keine Famulaturen an)\nBewerbungen für das Departement Innere Medizin St.Gallen werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nSofern bereits bei der Registration explizit im Anschreiben erwähnt und von der Heimuniversität verlangt, ist eine Rotation von 1-2 Wochen in die Klinik für Orthopädische Chirurgie und Traumatologie des Bewegungsapparates möglich. Später eingebrachte Rotationswünsche können aus organisatorischen Gründen nicht mehr berücksichtigt werden.\n\nApril bis Mai\nOktober (1 Mt.)\n\nKlinik für Orthopädie und Traumatologie\n(Bieten keine Famulaturen an)\n\nbesetzt\n\nKlinik für Thoraxchirurgie\n\nDezember\n\nKlinik für Dermatologie, Venerologie und Allergologie\n(Bieten keine Famulaturen an)\nNovember bis Dezember\n(Mindesteinsatzdauer: zwei Monate)\n(Start nur am ersten des Monats möglich)\n\nKlinik für Neurologie\n\nMitte April bis Dezember\n(Mindesteinsatzdauer: zwei Monate)\n\nKlinik für Neurochirurgie\nFachgebiet: Kranial\n\nbesetzt\n(Start nur am ersten des Monats möglich)\n\nKlinik für Neurochirurgie\nFachgebiet: Spinal\n\nKlinik für Radio-Onkologie\nJanuar bis Dezember\n(Bewerbungen werden frühestens Anfang Jahr 2027 entgegengenommen)\n\nKlinik für Radiologie und Nuklearmedizin\n(Bieten keine Famulaturen an)\n\nNovember bis Dezember\n\nKlinik für Plastische Chirurgie und Handchirurgie\n(Bieten keine Famulaturen an)\n\nbesetzt\n(Start nur am ersten des Monats und nur für ganze Monate möglich)\n\nKlinik für Urologie\n(Bieten keine Famulaturen an)\n\nJanuar bis Dezember\n(Mindesteinsatzdauer: zwei Monate)\n(Die Planung beginnt in diesem Fachbereich 12 Mt. vor Anstellungsbeginn)\n\nKlinik für Anästhesiologie, Rettungs- und Schmerzmedizin\n(Bieten keine Famulaturen an)\n\nbesetzt\n(Anstellungsdauer: zwei Monate)\n(Start nur am ersten des Monats möglich)\n\nHNO-Klinik\nMai bis Juli\nOktober bis Dezember\n\nAugenklinik\n\nMai (1 Mt.)\nAugust (1 Mt. / keine Famulaturen)\nNovember\n\nKlinik für Gynäkologie und Geburtshilfe\n\nMai (1 Mt.)\nDezember\n\nNotfallzentrum\n(Bieten keine Famulaturen an)\nbesetzt\n(Mindesteinsatzdauer: zwei Monate)\n\nInstitut für Pathologie\n\nJanuar bis Dezember\n\nInstitut für Rechtsmedizin\n(Bieten keine Famulaturen an)\nJuli (1 Mt.)\nNovember (1 Mt.)\n\nKlinik für Endokrinologie, Diabetologie, Osteologie und Stoffwechselerkrankung\nZeiträume werden Ende 2026 bekanntgegeben\n( Die Planung beginnt in diesem Fachbereich 12 Mt. vor Anstellungsbeginn )\n(Anstellungsdauer: ein Monat)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz oder Famulatur bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
         "fr": "Sous-assistant 2028 Mansioni Per il completemento del tirocinio pratico presso HOCH Health Ostschweiz, ofriamo the seguenti positions di junior assistants in seguenti reparti: - Reparto di Medicina Interna - *Les candidatures pour le Département de médecine interne de Saint-Gall sont acceptées via le lien suivant.* - Clinique de chirurgie - *Si cela est explicitement indiqué dans la lettre d'accompagnement lors de l'inscription mentionnée et requise par l'université d'origine, une rotation de 1-2 des semaines en clinique de chirurgie orthopédique et de traumatologie du système musculo-squelettique sont possibles. Les demandes de rotation déposées ultérieurement ne pourront plus être prises en compte pour des raisons d'organisation.* - *La planification commence dans ce service à 12 mois. avant le début de l'emploi* - Clinique d'orthopédie et de traumatologie - *février à mai* - *juillet à décembre* - Clinique de chirurgie thoracique - *mi-septembre à décembre* - Clinique de dermatologie, vénéréologie et allergologie - *novembre à décembre* - *Durée minimale : deux mois* - *Début possible uniquement le premier du mois* - Clinique de neurologie - *janvier (1 mois)* - *Mi-avril à décembre* - *Durée minimale : deux mois* - Clinique de neurochirurgie (crânienne) - *personnel* - *Début possible seulement le premier du mois* - Clinique de neurochirurgie (rachidienne) - *Juin (1 mois)* - *Début possible seulement le premier du mois* - Clinique de radio-oncologie - *Janvier à décembre* - *Les candidatures seront acceptées début 2027 à la au plus tôt* - Clinique de radiologie et de médecine nucléaire - *janvier (1 mois)* - *avril (1 mois)* - *juin à décembre* - *Début possible uniquement le premier du mois* - Clinique de chirurgie plastique et de chirurgie de la main - *occupé* - *Début uniquement le premier du mois et possible uniquement pendant des mois entiers* - Clinique d'urologie - *janvier à décembre* - *Durée minimale d'emploi : deux mois* - *La planification dans ce département commence 12 mois avant le début de l'emploi*\n• Requisiti - *Candidati au tirocinio pratico presso HOCH Health Ostschweiz* Contact - *Les candidatures pour le Département de médecine interne de Saint-Gall sont acceptées via le lien suivant.*"
       },
+      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Unterassistentin-2028/1268985101/",
@@ -16765,6 +16769,7 @@
         "de": "Unterassistent/in 2028\n\nArbeitsort Uznach\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Uznach bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Ausserdem bieten einige Kliniken auch Praktika vor dem Praktischen Jahr in Form von Famulaturen an.\n\nFachbereich\nverfügbarer Zeitraum\n\nKlinik für Chirurgie\nJanuar bis April\nOktober bis Dezember\n\nKlinik für Gynäkologie und Geburtshilfe\nJanuar bis Dezember\n\nKlinik für Innere Medizin\n(Bieten keine Famulaturen an)\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Orthopädie und Traumatologie\n\nJanuar bis Dezember\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz oder Famulatur bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
         "fr": "Mansioni - Positions sous-assistantes dans les domaines de la chirurgie, de la gynécologie et de l'obstétrique, ainsi que de l'orthopédie et de la traumatologie\n• Exigences - Achèvement de l'année pratique à HOCH Health Est Suisse à Uznach Cosa de Friamo - Expérience pratique dans les domaines de la chirurgie, la gynécologie et l'obstétrique, ainsi que l'orthopédie et la traumatologie - Un environnement de travail polyvalent - Développement individuel Esprit d'équipe, collaboration interdisciplinaire et solutions innovantes Contatto - Elina Boos, spécialiste de l'éducation des RH, téléphone +41 71 494 27 36 - En savoir plus sur ce stage passionnant sur notre site Les demandes pour la Clinique de médecine interne sont acceptées par le lien suivant. Descrizione Pour la fin de l'année pratique à HOCH Health Eastern Suisse à l'emplacement d'Uznach, nous vous proposons des postes sub-assistants et sub-assistants dans les domaines spécialisés ci-dessous. En outre, certaines cliniques offrent également des stages avant l'année pratique sous forme de facultés."
       },
+      "needsRetranslation": true,
       "location": "Uznach",
       "canton": "SG",
       "url": "https://jobs.h-och.ch/job/Uznach-Unterassistentin-2028/1268986901/",
@@ -17940,7 +17945,7 @@
       "slug": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
-        "en": "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen",
+        "en": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
         "de": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
         "fr": "psychologue-psychologue-60-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -17989,7 +17994,7 @@
       "previousSlugs": [
         "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
         "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
-        "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
+        "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17998,7 +18003,7 @@
         "en": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
           "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
-          "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
+          "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen"
@@ -18383,12 +18388,12 @@
     },
     {
       "id": "hoch-health-13f6ae072591",
-      "slug": "infermiera-diplomata-infermiere-diplomato-40-60-hoch-health-ostschweiz-wil",
+      "slug": "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
       "slugByLocale": {
-        "it": "infermiera-diplomata-infermiere-diplomato-40-60-hoch-health-ostschweiz-wil",
-        "en": "diploma-qualified-nurse-40-60-hoch-health-ostschweiz-wil",
+        "it": "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
+        "en": "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
         "de": "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
-        "fr": "infirmier-ere-diplome-e-40-60-hoch-health-ostschweiz-wil"
+        "fr": "dipl-pflegefachfrau-mann-40-60-hoch-health-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18432,18 +18437,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
-        "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
+        "dipl-pflegefachfrau-mann-40-60-hoch-health-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
-          "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-40-60-hoch-health-wil"
-        ],
-        "fr": [
           "dipl-pflegefachfrau-mann-40-60-hoch-health-wil"
         ]
       },
@@ -18464,12 +18461,12 @@
     },
     {
       "id": "hoch-health-cae9f1599f56",
-      "slug": "operatrice-sociosanitaria-operatore-sociosanitario-40-60-hoch-health-ostschweiz-wil",
+      "slug": "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil",
       "slugByLocale": {
-        "it": "operatrice-sociosanitaria-operatore-sociosanitario-40-60-hoch-health-ostschweiz-wil",
-        "en": "healthcare-specialist-40-60-hoch-health-ostschweiz-wil",
+        "it": "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil",
+        "en": "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
         "de": "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
-        "fr": "assistant-e-en-soins-et-sante-communautaire-40-60-hoch-health-ostschweiz-wil"
+        "fr": "fachfrau-mann-gesundheit-40-60-hoch-health-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18514,18 +18511,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
-        "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil"
+        "fachfrau-mann-gesundheit-40-60-hoch-health-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-40-60-hoch-health-wil",
-          "fachfrau-mann-gesundheit-40-60-hoch-health-ostschweiz-wil"
-        ],
-        "en": [
-          "fachfrau-mann-gesundheit-40-60-hoch-health-wil"
-        ],
-        "fr": [
           "fachfrau-mann-gesundheit-40-60-hoch-health-wil"
         ]
       },

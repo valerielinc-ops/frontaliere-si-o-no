@@ -869,7 +869,7 @@
       "slug": "staff-hotel-service-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "it": "staff-hotel-service-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "staff-hotel-service-schweizer-paraplegiker-gruppe-nottwil",
         "de": "mitarbeiter-in-hotelservice-paraplegie-nottwil",
         "fr": "service-hotelier-du-personnel-schweizer-paraplegiker-gruppe-nottwil"
       },
@@ -929,6 +929,9 @@
           "hotel-service-employee-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "fr": [
+          "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
           "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
@@ -1292,7 +1295,7 @@
         "it": "assistente-esecutivo-schweizer-paraplegiker-gruppe-nottwil",
         "en": "executive-assistant-schweizer-paraplegiker-gruppe-nottwil",
         "de": "direktionsassistent-in-paraplegie-nottwil",
-        "fr": "assistant-e-de-direction-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1338,7 +1341,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "direktionsassistent-in-paraplegie-nottwil",
-        "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
+        "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil",
+        "assistant-e-de-direction-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1349,7 +1353,7 @@
           "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "fr": [
-          "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
+          "assistant-e-de-direction-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "firstSeenAt": "2026-10-05T09:17:07.858Z",

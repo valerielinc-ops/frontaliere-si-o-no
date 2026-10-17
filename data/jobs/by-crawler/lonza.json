@@ -13868,8 +13868,8 @@
       "slugByLocale": {
         "en": "team-lead-operations-m-w-d-lonza-ch",
         "it": "team-lead-operations-m-w-d-lonza-ch",
-        "de": "teamleiter-operations-m-w-d-lonza-visp",
-        "fr": "chef-d-equipe-operations-m-w-d-lonza-visp"
+        "de": "team-lead-operations-m-w-d-lonza-ch",
+        "fr": "team-lead-operations-m-w-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13936,8 +13936,8 @@
       "slugByLocale": {
         "en": "team-lead-operations-lonza-ch",
         "it": "team-lead-operations-lonza-ch",
-        "de": "teamleiter-operations-lonza-visp",
-        "fr": "chef-d-equipe-operations-lonza-visp"
+        "de": "team-lead-operations-lonza-ch",
+        "fr": "team-lead-operations-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14000,12 +14000,12 @@
     },
     {
       "id": "lonza-25e66747ebe9",
-      "slug": "processo-chimico-80-100-m-f-d-lonza-visp",
+      "slug": "process-chemist-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "process-chemist-80-100-m-f-d-lonza-ch",
-        "it": "processo-chimico-80-100-m-f-d-lonza-visp",
-        "de": "prozesschemiker-80-100-m-w-d-lonza-visp",
-        "fr": "chimiste-de-traitement-80-100-h-f-d-lonza-visp"
+        "it": "process-chemist-80-100-m-f-d-lonza-ch",
+        "de": "process-chemist-80-100-m-f-d-lonza-ch",
+        "fr": "process-chemist-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14064,21 +14064,7 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-16T21:18:46.110Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "process-chemist-80-100-m-f-d-lonza-ch"
-        ],
-        "de": [
-          "process-chemist-80-100-m-f-d-lonza-ch"
-        ],
-        "fr": [
-          "process-chemist-80-100-m-f-d-lonza-ch"
-        ]
-      },
-      "previousSlugs": [
-        "process-chemist-80-100-m-f-d-lonza-ch"
-      ]
+      "firstSeenAt": "2026-10-16T21:18:46.110Z"
     },
     {
       "id": "lonza-24c66dcb5332",

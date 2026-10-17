@@ -232,11 +232,11 @@
     },
     {
       "id": "institution-lavigny-704b7d8e4fc6",
-      "slug": "specialista-generale-della-medicina-interna-ghm-institution-de-lavigny-lavigny",
+      "slug": "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny",
       "slugByLocale": {
         "fr": "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny",
-        "it": "specialista-generale-della-medicina-interna-ghm-institution-de-lavigny-lavigny",
-        "en": "general-internal-medicine-specialist-ghm-institution-de-lavigny-lavigny",
+        "it": "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny",
+        "en": "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny",
         "de": "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
@@ -296,18 +296,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:49:25.592Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny"
-        ],
-        "en": [
-          "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-specialiste-en-medecine-interne-generale-fmh-institution-lavigny-lavigny"
-      ]
+      "firstSeenAt": "2026-10-16T21:49:25.592Z"
     },
     {
       "id": "institution-lavigny-49e5f041ace6",
@@ -395,7 +384,7 @@
       "slugByLocale": {
         "it": "infermiera-all-80-institution-de-lavigny-lavigny",
         "en": "nurse-at-80-institution-de-lavigny-lavigny",
-        "de": "krankenschwester-bei-80-institution-de-lavigny-lavigny",
+        "de": "infirmier-ere-a-80-institution-de-lavigny",
         "fr": "infirmier-ere-a-80-institution-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
@@ -442,7 +431,7 @@
       "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
       "previousSlugs": [
         "infirmier-ere-a-80-institution-lavigny-lavigny",
-        "infirmier-ere-a-80-institution-de-lavigny"
+        "krankenschwester-bei-80-institution-de-lavigny-lavigny"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -453,7 +442,7 @@
         ],
         "de": [
           "infirmier-ere-a-80-institution-lavigny-lavigny",
-          "infirmier-ere-a-80-institution-de-lavigny"
+          "krankenschwester-bei-80-institution-de-lavigny-lavigny"
         ]
       },
       "firstSeenAt": "2026-10-12T09:32:37.465Z",

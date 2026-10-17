@@ -571,7 +571,7 @@
         "en": "senior-wealth-planner-eastern-europe-cis-pictet-geneva",
         "it": "senior-wealth-planner-eastern-europe-cis-pictet-geneva",
         "de": "senior-wealth-planner-eastern-europe-cis-pictet-geneva",
-        "fr": "planificateur-senior-en-gestion-de-patrimoine-europe-de-l-est-cei-pictet-group-geneva"
+        "fr": "senior-wealth-planner-eastern-europe-cis-pictet-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -616,6 +616,7 @@
       "requirementsByLocale": {
         "en": []
       },
+      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",

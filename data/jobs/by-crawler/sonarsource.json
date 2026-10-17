@@ -333,7 +333,7 @@
       "slug": "staff-software-ingegnere-java-sonarsource-sonar-geneva",
       "slugByLocale": {
         "it": "staff-software-ingegnere-java-sonarsource-sonar-geneva",
-        "en": "staff-software-engineer-java-sonarsource-ch-ilk90t",
+        "en": "staff-software-engineer-java-sonarsource-ch",
         "de": "staff-software-ingenieur-java-sonarsource-sonar-geneva",
         "fr": "staff-software-ingenieur-java-sonarsource-sonar-geneva"
       },
@@ -412,8 +412,7 @@
         "en": [
           "staff-full-stack-engineer-java-react-sonarsource-ch",
           "graduate-software-engineer-sonarsource-ch",
-          "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-          "staff-software-engineer-java-sonarsource-ch"
+          "senior-software-engineer-java-remediation-agent-sonarsource-ch"
         ],
         "de": [
           "staff-software-engineer-java-sonarsource-ch"
@@ -426,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:16:07.537Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",

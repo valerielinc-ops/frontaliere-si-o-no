@@ -2899,12 +2899,12 @@
     },
     {
       "id": "css-versicherung-6c7b57ccd67a",
-      "slug": "consulente-alla-clientela-per-clienti-privati-frick-100-css-versicherung-frick",
+      "slug": "kundenberater-in-per-privatkunden-frick-100-css-versicherung-frick",
       "slugByLocale": {
         "de": "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick",
-        "it": "consulente-alla-clientela-per-clienti-privati-frick-100-css-versicherung-frick",
-        "en": "customer-advisor-for-private-customers-frick-100-css-versicherung-frick",
-        "fr": "conseiller-ere-a-la-clientele-pour-clients-prives-frick-100-css-versicherung-frick"
+        "it": "kundenberater-in-per-privatkunden-frick-100-css-versicherung-frick",
+        "en": "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick",
+        "fr": "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2950,21 +2950,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick",
-          "kundenberater-in-per-privatkunden-frick-100-css-versicherung-frick"
-        ],
-        "en": [
-          "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick"
-        ],
-        "fr": [
           "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick",
-        "kundenberater-in-per-privatkunden-frick-100-css-versicherung-frick"
+        "kundenberater-in-fur-privatkunden-frick-100-css-versicherung-frick"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

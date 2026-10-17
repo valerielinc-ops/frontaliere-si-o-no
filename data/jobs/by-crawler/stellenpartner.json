@@ -3946,12 +3946,12 @@
     },
     {
       "id": "stellenpartner-41f90b81e77d",
-      "slug": "falegname-per-l-allestimento-degli-interni-e-le-ristrutturazioni-stellenpartner-ag-kreuzlingen-thurgau",
+      "slug": "schreiner-in-per-innenausbau-e-renovationen-stellenpartner-ag-kreuzlingen",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch",
-        "it": "falegname-per-l-allestimento-degli-interni-e-le-ristrutturazioni-stellenpartner-ag-kreuzlingen-thurgau",
-        "en": "carpenter-for-interior-finishing-and-renovations-stellenpartner-ag-kreuzlingen-thurgau",
-        "fr": "menuisier-ere-pour-l-amenagement-interieur-et-les-renovations-stellenpartner-ag-kreuzlingen-thurgau"
+        "it": "schreiner-in-per-innenausbau-e-renovationen-stellenpartner-ag-kreuzlingen",
+        "en": "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch",
+        "fr": "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -3995,21 +3995,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch",
-          "schreiner-in-per-innenausbau-e-renovationen-stellenpartner-ag-kreuzlingen"
-        ],
-        "en": [
-          "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch"
-        ],
-        "fr": [
           "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch",
-        "schreiner-in-per-innenausbau-e-renovationen-stellenpartner-ag-kreuzlingen"
+        "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-stellenpartner-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4026,7 +4019,7 @@
       },
       "postalCode": "8280",
       "firstSeenAt": "2026-10-16T21:38:54.447Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-84c1dc90ae08",
@@ -5831,12 +5824,12 @@
     },
     {
       "id": "stellenpartner-79ea102ee4db",
-      "slug": "installatore-installatrice-di-impianti-sanitari-con-un-ampio-ventaglio-di-attivita-stellenpartner-ag-muri-ag-aargau",
+      "slug": "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner",
-        "it": "installatore-installatrice-di-impianti-sanitari-con-un-ampio-ventaglio-di-attivita-stellenpartner-ag-muri-ag-aargau",
-        "en": "sanitary-installer-with-a-diverse-range-of-duties-stellenpartner-ag-muri-ag-aargau",
-        "fr": "installateur-trice-sanitaire-avec-un-eventail-d-activites-variees-stellenpartner-ag-muri-ag-aargau"
+        "it": "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner",
+        "en": "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner",
+        "fr": "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -5880,6 +5873,7 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5895,21 +5889,7 @@
       },
       "postalCode": "5000",
       "firstSeenAt": "2026-10-16T21:38:54.440Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner"
-        ],
-        "en": [
-          "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner"
-        ],
-        "fr": [
-          "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner"
-        ]
-      },
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-vielseitigem-tatigkeitsspektrum-muri-ag-aargau-stellenpartner"
-      ]
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-b00cc1bfff9c",
@@ -6074,12 +6054,12 @@
     },
     {
       "id": "stellenpartner-9eb7bbde2bee",
-      "slug": "installatore-installatrice-di-impianti-sanitari-con-abilita-manuali-stellenpartner-ag-pfaffikon-zurich",
+      "slug": "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch",
-        "it": "installatore-installatrice-di-impianti-sanitari-con-abilita-manuali-stellenpartner-ag-pfaffikon-zurich",
-        "en": "sanitary-installer-with-manual-dexterity-stellenpartner-ag-pfaffikon-zurich",
-        "fr": "installateur-trice-sanitaire-avec-de-bonnes-aptitudes-manuelles-stellenpartner-ag-pfaffikon-zurich"
+        "it": "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch",
+        "en": "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch",
+        "fr": "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -6123,6 +6103,7 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6138,21 +6119,7 @@
       },
       "postalCode": "8330",
       "firstSeenAt": "2026-10-16T21:38:54.439Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch"
-        ],
-        "en": [
-          "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch"
-        ],
-        "fr": [
-          "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-stellenpartner-ch"
-      ]
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-c55e0404a2f0",
@@ -7053,12 +7020,12 @@
     },
     {
       "id": "stellenpartner-041ccee6bfc7",
-      "slug": "installatore-installatrice-di-impianti-sanitari-efz-per-l-edilizia-residenziale-e-commerciale-stellenpartner-ag-muri-ag",
+      "slug": "sanitarinstallateur-in-cfc-per-wohnungs-e-gewerbebau-stellenpartner-ag-muri-ag",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch",
-        "it": "installatore-installatrice-di-impianti-sanitari-efz-per-l-edilizia-residenziale-e-commerciale-stellenpartner-ag-muri-ag",
-        "en": "sanitary-installer-efz-for-residential-and-commercial-construction-stellenpartner-ag-muri-ag-aargau",
-        "fr": "installateur-trice-sanitaire-cfc-pour-la-construction-de-logements-et-de-batiments-commerciaux-stellenpartner-ag-muri-ag"
+        "it": "sanitarinstallateur-in-cfc-per-wohnungs-e-gewerbebau-stellenpartner-ag-muri-ag",
+        "en": "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch",
+        "fr": "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -7102,21 +7069,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch",
-          "sanitarinstallateur-in-cfc-per-wohnungs-e-gewerbebau-stellenpartner-ag-muri-ag"
-        ],
-        "en": [
-          "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch"
-        ],
-        "fr": [
           "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch",
-        "sanitarinstallateur-in-cfc-per-wohnungs-e-gewerbebau-stellenpartner-ag-muri-ag"
+        "sanitarinstallateur-in-efz-fur-wohnungs-und-gewerbebau-muri-ag-aargau-stellenpartner-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7133,7 +7093,7 @@
       },
       "postalCode": "5000",
       "firstSeenAt": "2026-10-16T21:38:54.435Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-b36fc7378837",
@@ -7759,12 +7719,12 @@
     },
     {
       "id": "stellenpartner-4f3dc2ff5f63",
-      "slug": "polimeccanico-a-con-macchine-per-il-confezionamento-in-buste-tubolari-e-lean-management-stellenpartner-ag-zug-zug",
+      "slug": "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-stellenpartner-ag-zug",
       "slugByLocale": {
         "de": "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner",
-        "it": "polimeccanico-a-con-macchine-per-il-confezionamento-in-buste-tubolari-e-lean-management-stellenpartner-ag-zug-zug",
-        "en": "polymechanic-with-flow-pack-machines-and-lean-management-stellenpartner-ag-zug-zug",
-        "fr": "polymecanicien-ne-avec-des-machines-a-sachets-tubulaires-et-la-gestion-lean-stellenpartner-ag-zug-zug"
+        "it": "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-stellenpartner-ag-zug",
+        "en": "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner",
+        "fr": "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -7808,21 +7768,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner",
-          "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-stellenpartner-ag-zug"
-        ],
-        "en": [
-          "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner"
-        ],
-        "fr": [
           "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner",
-        "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-stellenpartner-ag-zug"
+        "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-stellenpartner"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -7839,7 +7792,7 @@
       },
       "postalCode": "6300",
       "firstSeenAt": "2026-10-16T21:38:54.432Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-59c0ca7ff3ec",
@@ -15965,12 +15918,12 @@
     },
     {
       "id": "stellenpartner-a99f84669574",
-      "slug": "costruttore-trice-metallico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
+      "slug": "metallbauer-in-per-montage-e-reparatur-stellenpartner-ag-wil-sg",
       "slugByLocale": {
         "de": "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
-        "it": "costruttore-trice-metallico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
-        "en": "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg-st-gallen",
-        "fr": "constructeur-trice-metallique-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen"
+        "it": "metallbauer-in-per-montage-e-reparatur-stellenpartner-ag-wil-sg",
+        "en": "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
+        "fr": "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -16014,32 +15967,35 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg",
         "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg",
+        "costruttore-trice-metallico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
+        "constructeur-trice-metallique-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen",
         "metalmeccanico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
         "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen",
         "carpentiere-a-metallico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
+        "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg-st-gallen",
         "constructeur-trice-metallique-pour-montage-et-reparation-stellenpartner-ag-wil-sg-st-gallen",
-        "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
-        "metallbauer-in-per-montage-e-reparatur-stellenpartner-ag-wil-sg"
+        "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "costruttore-trice-metallico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
           "metalmeccanico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
           "carpentiere-a-metallico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
-          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
-          "metallbauer-in-per-montage-e-reparatur-stellenpartner-ag-wil-sg"
+          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
         ],
         "en": [
           "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg",
-          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
+          "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg-st-gallen"
         ],
         "fr": [
           "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg",
+          "constructeur-trice-metallique-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen",
           "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen",
-          "constructeur-trice-metallique-pour-montage-et-reparation-stellenpartner-ag-wil-sg-st-gallen",
-          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
+          "constructeur-trice-metallique-pour-montage-et-reparation-stellenpartner-ag-wil-sg-st-gallen"
         ]
       },
       "salaryMin": 57500,
@@ -17200,12 +17156,12 @@
     },
     {
       "id": "stellenpartner-220fb8d8465e",
-      "slug": "muratore-muratrice-con-gestione-autonoma-dei-progetti-stellenpartner-ag-wil-sg-st-gallen",
+      "slug": "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch",
       "slugByLocale": {
         "de": "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch",
-        "it": "muratore-muratrice-con-gestione-autonoma-dei-progetti-stellenpartner-ag-wil-sg-st-gallen",
-        "en": "mason-with-independent-project-management-stellenpartner-ag-wil-sg-st-gallen",
-        "fr": "macon-ne-avec-gestion-autonome-de-projets-stellenpartner-ag-wil-sg-st-gallen"
+        "it": "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch",
+        "en": "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch",
+        "fr": "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -17249,6 +17205,7 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -17264,21 +17221,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-16T21:38:54.390Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch"
-        ],
-        "en": [
-          "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch"
-        ],
-        "fr": [
-          "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch"
-        ]
-      },
-      "previousSlugs": [
-        "maurer-in-mit-eigenstandiger-projektleitung-wil-sg-st-gallen-stellenpartner-ch"
-      ]
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-a23e2077832e",
@@ -17606,12 +17549,12 @@
     },
     {
       "id": "stellenpartner-e598d8e3907d",
-      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-frauenfeld-thurgau-98eb44",
+      "slug": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-frauenfeld",
       "slugByLocale": {
         "de": "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch",
-        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-frauenfeld-thurgau-98eb44",
-        "en": "mason-for-new-construction-and-renovation-projects-stellenpartner-ag-frauenfeld-thurgau",
-        "fr": "macon-ne-pour-constructions-neuves-et-transformations-stellenpartner-ag-frauenfeld-thurgau"
+        "it": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-frauenfeld",
+        "en": "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch",
+        "fr": "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -17655,21 +17598,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch",
-          "maurer-in-per-neu-e-umbauten-stellenpartner-ag-frauenfeld"
-        ],
-        "en": [
-          "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch"
-        ],
-        "fr": [
           "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch",
-        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-frauenfeld"
+        "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -17863,12 +17799,12 @@
     },
     {
       "id": "stellenpartner-adfbaa8d8574",
-      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
+      "slug": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden",
       "slugByLocale": {
         "de": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
-        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
-        "en": "mason-for-new-construction-and-renovation-projects-stellenpartner-ag-weinfelden-thurgau",
-        "fr": "macon-ne-pour-constructions-neuves-et-transformations-stellenpartner-ag-weinfelden-thurgau"
+        "it": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden",
+        "en": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
+        "fr": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -17912,32 +17848,33 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "bricklayer-for-new-buildings-and-conversions-stellenpartner-ag-weinfelden-thurgau",
         "macon-pour-de-nouveaux-batiments-et-conversions-stellenpartner-ag-weinfelden-thurgau",
         "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau",
         "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau",
+        "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
         "muratore-muratrice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
         "mason-for-new-builds-and-renovations-stellenpartner-ag-weinfelden-thurgau",
-        "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
-        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden"
+        "macon-ne-pour-constructions-neuves-et-transformations-stellenpartner-ag-weinfelden-thurgau",
+        "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
           "muratore-muratrice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
-          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
-          "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden"
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
         ],
         "en": [
           "bricklayer-for-new-buildings-and-conversions-stellenpartner-ag-weinfelden-thurgau",
           "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau",
-          "mason-for-new-builds-and-renovations-stellenpartner-ag-weinfelden-thurgau",
-          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
+          "mason-for-new-builds-and-renovations-stellenpartner-ag-weinfelden-thurgau"
         ],
         "fr": [
           "macon-pour-de-nouveaux-batiments-et-conversions-stellenpartner-ag-weinfelden-thurgau",
           "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau",
-          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
+          "macon-ne-pour-constructions-neuves-et-transformations-stellenpartner-ag-weinfelden-thurgau"
         ]
       },
       "salaryMin": 57500,
@@ -17959,12 +17896,12 @@
     },
     {
       "id": "stellenpartner-6feeeebac490",
-      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-wil-sg-st-gallen",
+      "slug": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-wil-sg",
       "slugByLocale": {
         "de": "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch",
-        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-wil-sg-st-gallen",
-        "en": "mason-for-new-construction-and-renovation-projects-stellenpartner-ag-wil-sg-st-gallen",
-        "fr": "macon-ne-pour-constructions-neuves-et-transformations-stellenpartner-ag-wil-sg-st-gallen"
+        "it": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-wil-sg",
+        "en": "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch",
+        "fr": "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -18008,24 +17945,23 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugs": [
+        "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-wil-sg-st-gallen",
         "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-wil-sg-st-gallen",
         "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-wil-sg-st-gallen",
-        "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch",
-        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-wil-sg"
+        "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch",
-          "maurer-in-per-neu-e-umbauten-stellenpartner-ag-wil-sg"
+          "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-wil-sg-st-gallen",
+          "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch"
         ],
         "en": [
-          "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-wil-sg-st-gallen",
-          "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch"
+          "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-wil-sg-st-gallen"
         ],
         "fr": [
-          "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-wil-sg-st-gallen",
-          "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-stellenpartner-ch"
+          "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-wil-sg-st-gallen"
         ]
       },
       "salaryMin": 57500,
@@ -21538,12 +21474,12 @@
     },
     {
       "id": "stellenpartner-c6774011b3f7",
-      "slug": "operatore-operatrice-di-gru-con-gru-a-rotazione-inferiore-stellenpartner-ag-wil-sg-st-gallen",
+      "slug": "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch",
       "slugByLocale": {
         "de": "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch",
-        "it": "operatore-operatrice-di-gru-con-gru-a-rotazione-inferiore-stellenpartner-ag-wil-sg-st-gallen",
-        "en": "crane-operator-with-bottom-slewing-cranes-stellenpartner-ag-wil-sg-st-gallen",
-        "fr": "conducteur-trice-de-grue-avec-des-grues-a-montage-par-le-bas-stellenpartner-ag-wil-sg-st-gallen"
+        "it": "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch",
+        "en": "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch",
+        "fr": "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -21587,6 +21523,7 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -21602,21 +21539,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-16T21:38:54.370Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch"
-        ],
-        "en": [
-          "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch"
-        ],
-        "fr": [
-          "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch"
-        ]
-      },
-      "previousSlugs": [
-        "kranfuhrer-in-mit-unterdrehermaschinen-wil-sg-st-gallen-stellenpartner-ch"
-      ]
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-81eb182cfcca",
@@ -23081,12 +23004,12 @@
     },
     {
       "id": "stellenpartner-54de3e746e3d",
-      "slug": "installatore-trice-di-impianti-di-riscaldamento-con-specializzazione-nelle-riparazioni-stellenpartner-ag-muri-ag-aargau",
+      "slug": "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch",
       "slugByLocale": {
         "de": "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch",
-        "it": "installatore-trice-di-impianti-di-riscaldamento-con-specializzazione-nelle-riparazioni-stellenpartner-ag-muri-ag-aargau",
-        "en": "heating-installer-focused-on-repairs-stellenpartner-ag-muri-ag-aargau",
-        "fr": "installateur-trice-en-chauffage-specialise-e-dans-les-reparations-stellenpartner-ag-muri-ag-aargau"
+        "it": "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch",
+        "en": "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch",
+        "fr": "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -23130,6 +23053,7 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -23145,21 +23069,7 @@
       },
       "postalCode": "5000",
       "firstSeenAt": "2026-10-16T21:38:54.364Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch"
-        ],
-        "en": [
-          "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch"
-        ],
-        "fr": [
-          "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch"
-        ]
-      },
-      "previousSlugs": [
-        "heizungsinstallateur-in-mit-fokus-auf-reparaturen-muri-ag-aargau-stellenpartner-ch"
-      ]
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-80e9b1612a79",
@@ -23566,12 +23476,12 @@
     },
     {
       "id": "stellenpartner-afcc6a151321",
-      "slug": "installatore-trice-di-impianti-di-riscaldamento-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-muri-ag",
+      "slug": "heizungsinstallateur-in-per-neubau-e-renovationen-stellenpartner-ag-muri-ag",
       "slugByLocale": {
         "de": "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch",
-        "it": "installatore-trice-di-impianti-di-riscaldamento-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-muri-ag",
-        "en": "heating-installer-for-new-construction-and-renovations-stellenpartner-ag-muri-ag-aargau",
-        "fr": "installateur-trice-en-chauffage-pour-constructions-neuves-et-renovations-stellenpartner-ag-muri-ag-aargau"
+        "it": "heizungsinstallateur-in-per-neubau-e-renovationen-stellenpartner-ag-muri-ag",
+        "en": "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch",
+        "fr": "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -23615,21 +23525,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch",
-          "heizungsinstallateur-in-per-neubau-e-renovationen-stellenpartner-ag-muri-ag"
-        ],
-        "en": [
-          "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch"
-        ],
-        "fr": [
           "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch",
-        "heizungsinstallateur-in-per-neubau-e-renovationen-stellenpartner-ag-muri-ag"
+        "heizungsinstallateur-in-fur-neubau-und-renovationen-muri-ag-aargau-stellenpartner-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -23645,7 +23548,7 @@
         }
       },
       "postalCode": "5000",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-4bcabc273e91",
@@ -29964,8 +29867,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-abb-und-kuka-roboter-schwyz-schwyz-stellenpartner-ch",
         "it": "installatore-trice-elettrico-a-in-per-abb-e-kuka-roboter-stellenpartner-ag-schwyz",
-        "en": "electrical-installer-m-f-for-abb-and-kuka-robots-stellenpartner-ag-schwyz-schwyz",
-        "fr": "installateur-trice-electricien-ne-pour-robots-abb-et-kuka-stellenpartner-ag-schwyz-schwyz"
+        "en": "elektroinstallateur-in-fur-abb-und-kuka-roboter-schwyz-schwyz-stellenpartner-ch",
+        "fr": "elektroinstallateur-in-fur-abb-und-kuka-roboter-schwyz-schwyz-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -30009,14 +29912,9 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-fur-abb-und-kuka-roboter-schwyz-schwyz-stellenpartner-ch"
-        ],
-        "en": [
-          "elektroinstallateur-in-fur-abb-und-kuka-roboter-schwyz-schwyz-stellenpartner-ch"
-        ],
-        "fr": [
           "elektroinstallateur-in-fur-abb-und-kuka-roboter-schwyz-schwyz-stellenpartner-ch"
         ]
       },
@@ -33413,12 +33311,12 @@
     },
     {
       "id": "stellenpartner-b0707b42f39d",
-      "slug": "tecnico-a-di-automazione-per-impianti-laser-3d-e-robot-industriali-stellenpartner-ag-schwyz-schwyz",
+      "slug": "automatiker-in-per-3d-laseranlagen-e-industrieroboter-stellenpartner-ag-schwyz",
       "slugByLocale": {
         "de": "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch",
-        "it": "tecnico-a-di-automazione-per-impianti-laser-3d-e-robot-industriali-stellenpartner-ag-schwyz-schwyz",
-        "en": "automation-technician-m-f-for-3d-laser-systems-and-industrial-robots-stellenpartner-ag-schwyz-schwyz",
-        "fr": "automaticien-ne-pour-installations-laser-3d-et-robots-industriels-stellenpartner-ag-schwyz-schwyz"
+        "it": "automatiker-in-per-3d-laseranlagen-e-industrieroboter-stellenpartner-ag-schwyz",
+        "en": "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch",
+        "fr": "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -33462,21 +33360,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch",
-          "automatiker-in-per-3d-laseranlagen-e-industrieroboter-stellenpartner-ag-schwyz"
-        ],
-        "en": [
-          "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch"
-        ],
-        "fr": [
           "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch",
-        "automatiker-in-per-3d-laseranlagen-e-industrieroboter-stellenpartner-ag-schwyz"
+        "automatiker-in-fur-3d-laseranlagen-und-industrieroboter-schwyz-schwyz-stellenpartner-ch"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -33493,7 +33384,7 @@
       },
       "postalCode": "6430",
       "firstSeenAt": "2026-10-16T21:38:54.323Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-09793a285f35",
@@ -33730,12 +33621,12 @@
     },
     {
       "id": "stellenpartner-ee4c21a3c8c4",
-      "slug": "operatore-trice-di-impianti-con-esperienza-tecnica-stellenpartner-ag-zug-zug",
+      "slug": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch",
-        "it": "operatore-trice-di-impianti-con-esperienza-tecnica-stellenpartner-ag-zug-zug",
-        "en": "machine-operator-m-f-with-technical-experience-stellenpartner-ag-zug-zug",
-        "fr": "operateur-trice-de-machines-avec-experience-technique-stellenpartner-ag-zug-zug"
+        "it": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch",
+        "en": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch",
+        "fr": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -33779,6 +33670,7 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -33794,21 +33686,7 @@
       },
       "postalCode": "6300",
       "firstSeenAt": "2026-10-16T21:38:54.322Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch"
-        ],
-        "en": [
-          "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch"
-        ],
-        "fr": [
-          "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch"
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-stellenpartner-ch"
-      ]
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-ec148888ed97",
@@ -33965,12 +33843,12 @@
     },
     {
       "id": "stellenpartner-6c3204376452",
-      "slug": "costruttore-trice-di-impianti-e-apparecchiature-per-lavori-di-saldatura-e-montaggio-stellenpartner-ag-bulach-zurich",
+      "slug": "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-stellenpartner-ag-bulach",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner",
-        "it": "costruttore-trice-di-impianti-e-apparecchiature-per-lavori-di-saldatura-e-montaggio-stellenpartner-ag-bulach-zurich",
-        "en": "plant-and-apparatus-fabricator-m-f-for-welding-and-assembly-work-stellenpartner-ag-bulach-zurich",
-        "fr": "constructeur-trice-d-installations-et-d-appareils-pour-des-travaux-de-soudage-et-de-montage-stellenpartner-ag-bulach"
+        "it": "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-stellenpartner-ag-bulach",
+        "en": "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner",
+        "fr": "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -34014,21 +33892,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner",
-          "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-stellenpartner-ag-bulach"
-        ],
-        "en": [
-          "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner"
-        ],
-        "fr": [
           "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner",
-        "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-stellenpartner-ag-bulach"
+        "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-stellenpartner"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -34045,7 +33916,7 @@
       },
       "postalCode": "8180",
       "firstSeenAt": "2026-10-16T21:38:54.321Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-ae246e8939d2",
@@ -56161,12 +56032,12 @@
     },
     {
       "id": "stellenpartner-fce06b236ce6",
-      "slug": "pittore-trice-per-progetti-di-ristrutturazione-stellenpartner-ag-dielsdorf-zurich",
+      "slug": "maler-in-per-renovationsprojekte-stellenpartner-ag-dielsdorf",
       "slugByLocale": {
         "de": "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
-        "it": "pittore-trice-per-progetti-di-ristrutturazione-stellenpartner-ag-dielsdorf-zurich",
-        "en": "painter-for-renovation-projects-stellenpartner-ag-dielsdorf-zurich",
-        "fr": "peintre-pour-projets-de-renovation-stellenpartner-ag-dielsdorf-zurich"
+        "it": "maler-in-per-renovationsprojekte-stellenpartner-ag-dielsdorf",
+        "en": "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
+        "fr": "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -56210,21 +56081,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
-          "maler-in-per-renovationsprojekte-stellenpartner-ag-dielsdorf"
-        ],
-        "en": [
-          "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
-        ],
-        "fr": [
           "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
-        "maler-in-per-renovationsprojekte-stellenpartner-ag-dielsdorf"
+        "maler-in-fur-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -56241,7 +56105,7 @@
       },
       "postalCode": "8157",
       "firstSeenAt": "2026-10-03T09:34:46.312Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-c7f4cdb56496",
@@ -57568,12 +57432,12 @@
     },
     {
       "id": "stellenpartner-b2aaef1281da",
-      "slug": "pittore-trice-efz-per-clientela-privata-e-lavori-sulle-facciate-stellenpartner-ag-muri-ag-aargau",
+      "slug": "maler-in-cfc-per-privatkundschaft-e-fassadenarbeiten-stellenpartner-ag-muri-ag",
       "slugByLocale": {
         "de": "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch",
-        "it": "pittore-trice-efz-per-clientela-privata-e-lavori-sulle-facciate-stellenpartner-ag-muri-ag-aargau",
-        "en": "painter-m-f-efz-for-private-customers-and-facade-work-stellenpartner-ag-muri-ag-aargau",
-        "fr": "peintre-cfc-pour-une-clientele-privee-et-des-travaux-de-facade-stellenpartner-ag-muri-ag-aargau"
+        "it": "maler-in-cfc-per-privatkundschaft-e-fassadenarbeiten-stellenpartner-ag-muri-ag",
+        "en": "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch",
+        "fr": "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -57617,21 +57481,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch",
-          "maler-in-cfc-per-privatkundschaft-e-fassadenarbeiten-stellenpartner-ag-muri-ag"
-        ],
-        "en": [
-          "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch"
-        ],
-        "fr": [
           "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch",
-        "maler-in-cfc-per-privatkundschaft-e-fassadenarbeiten-stellenpartner-ag-muri-ag"
+        "maler-in-efz-fur-privatkundschaft-und-fassadenarbeiten-muri-ag-aargau-stellenpartner-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -57648,7 +57505,7 @@
       },
       "postalCode": "5000",
       "firstSeenAt": "2026-10-16T21:38:54.231Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-b5e71f337cba",
@@ -58616,12 +58473,12 @@
     },
     {
       "id": "stellenpartner-2318da104767",
-      "slug": "intonacatore-trice-per-isolamento-delle-facciate-e-costruzione-a-secco-stellenpartner-ag-dietikon-zurich",
+      "slug": "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-dietikon",
       "slugByLocale": {
         "de": "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch",
-        "it": "intonacatore-trice-per-isolamento-delle-facciate-e-costruzione-a-secco-stellenpartner-ag-dietikon-zurich",
-        "en": "plasterer-for-facade-insulation-and-drywall-construction-stellenpartner-ag-dietikon-zurich",
-        "fr": "platrier-ere-pour-l-isolation-de-facades-et-la-construction-seche-stellenpartner-ag-dietikon-zurich"
+        "it": "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-dietikon",
+        "en": "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch",
+        "fr": "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -58665,21 +58522,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch",
-          "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-dietikon"
-        ],
-        "en": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch"
-        ],
-        "fr": [
           "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch",
-        "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-dietikon"
+        "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-stellenpartner-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -58696,7 +58546,7 @@
       },
       "postalCode": "8953",
       "firstSeenAt": "2026-10-16T21:38:54.227Z",
-      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
+      "translationHoldSince": "2026-10-16T21:39:25.473Z"
     },
     {
       "id": "stellenpartner-0c728d645deb",
@@ -59600,8 +59450,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch",
         "it": "installatore-trice-elettrico-a-in-con-service-e-unterhaltsaufgaben-stellenpartner-ag-baden",
-        "en": "electrician-with-service-and-maintenance-duties-stellenpartner-ag-baden-aargau",
-        "fr": "installateur-trice-electricien-ne-avec-des-taches-de-service-et-d-entretien-stellenpartner-ag-baden-aargau"
+        "en": "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch",
+        "fr": "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -59645,14 +59495,9 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch"
-        ],
-        "en": [
-          "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch"
-        ],
-        "fr": [
           "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch"
         ]
       },
@@ -59931,12 +59776,12 @@
     },
     {
       "id": "stellenpartner-1473065b2fcc",
-      "slug": "elettricista-per-installazioni-di-corrente-forte-e-debole-stellenpartner-ag-zurzach-aargau",
+      "slug": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-zurzach",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-zurzach",
-        "it": "elettricista-per-installazioni-di-corrente-forte-e-debole-stellenpartner-ag-zurzach-aargau",
-        "en": "electrical-installer-for-high-and-low-voltage-installations-stellenpartner-ag-zurzach-aargau",
-        "fr": "installateur-trice-electricien-ne-pour-des-installations-a-courant-fort-et-a-courant-faible-stellenpartner-ag-zurzach"
+        "it": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-zurzach",
+        "en": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-zurzach",
+        "fr": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-zurzach"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -59980,25 +59825,17 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau",
-          "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-zurzach"
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau"
         ],
         "de": [
           "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau"
-        ],
-        "en": [
-          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-zurzach"
-        ],
-        "fr": [
-          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-zurzach"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau",
-        "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-zurzach",
-        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-zurzach"
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -60103,12 +59940,12 @@
     },
     {
       "id": "stellenpartner-1e3210983475",
-      "slug": "elettricista-per-lavori-di-revisione-stellenpartner-ag-zurzach-aargau",
+      "slug": "installatore-trice-elettrico-a-in-per-revisionsarbeiten-stellenpartner-ag-zurzach",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch",
-        "it": "elettricista-per-lavori-di-revisione-stellenpartner-ag-zurzach-aargau",
-        "en": "electrical-installer-for-maintenance-work-stellenpartner-ag-zurzach-aargau",
-        "fr": "installateur-trice-electricien-ne-pour-des-travaux-de-revision-stellenpartner-ag-zurzach-aargau"
+        "it": "installatore-trice-elettrico-a-in-per-revisionsarbeiten-stellenpartner-ag-zurzach",
+        "en": "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch",
+        "fr": "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -60152,21 +59989,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch",
-          "installatore-trice-elettrico-a-in-per-revisionsarbeiten-stellenpartner-ag-zurzach"
-        ],
-        "en": [
-          "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch"
-        ],
-        "fr": [
           "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch",
-        "installatore-trice-elettrico-a-in-per-revisionsarbeiten-stellenpartner-ag-zurzach"
+        "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-stellenpartner-ch"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,

@@ -7,9 +7,9 @@
       "slug": "specialiste-logistique-automatisation-m-w-d-liebherr-bulle",
       "slugByLocale": {
         "fr": "specialiste-logistique-automatisation-h-f-x-liebherr-bulle",
-        "it": "specialista-di-logistica-e-automazione-m-f-x-liebherr-bulle",
-        "en": "logistics-automation-specialist-m-f-x-liebherr-bulle",
-        "de": "logistik-automation-spezialist-m-w-x-liebherr-bulle"
+        "it": "specialiste-logistique-automatisation-m-w-d-liebherr-bulle",
+        "en": "specialiste-logistique-automatisation-m-w-d-liebherr-bulle",
+        "de": "specialiste-logistique-automatisation-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -58,11 +58,21 @@
       "liebherrSourceJobId": "84779",
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-logistique-automatisation-h-f-x-liebherr-bulle"
+          "specialiste-logistique-automatisation-h-f-x-liebherr-bulle",
+          "specialista-di-logistica-e-automazione-m-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "logistics-automation-specialist-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "logistik-automation-spezialist-m-w-x-liebherr-bulle"
         ]
       },
       "previousSlugs": [
-        "specialiste-logistique-automatisation-h-f-x-liebherr-bulle"
+        "specialiste-logistique-automatisation-h-f-x-liebherr-bulle",
+        "specialista-di-logistica-e-automazione-m-f-x-liebherr-bulle",
+        "logistics-automation-specialist-m-f-x-liebherr-bulle",
+        "logistik-automation-spezialist-m-w-x-liebherr-bulle"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -82,11 +92,11 @@
     },
     {
       "id": "liebherr-da2b9de92ff9",
-      "slug": "meccanico-m-f-x-montaggio-motore-di-combustione-temporaneo-liebherr-bulle",
+      "slug": "mecanicien-m-w-d-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle",
       "slugByLocale": {
-        "it": "meccanico-m-f-x-montaggio-motore-di-combustione-temporaneo-liebherr-bulle",
-        "en": "mechanic-m-f-x-combustion-engine-assembly-temporary-liebherr-bulle",
-        "de": "mechanisches-m-w-x-verbrennungsmotorbaugruppe-vorubergehend-liebherr-bulle",
+        "it": "mecanicien-m-w-d-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle",
+        "en": "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle",
+        "de": "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle",
         "fr": "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -133,18 +143,10 @@
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84933",
       "previousSlugs": [
-        "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle",
-        "mecanicien-m-w-d-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle"
+        "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle",
-          "mecanicien-m-w-d-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle"
-        ],
-        "en": [
-          "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle"
-        ],
-        "de": [
           "mecanicien-h-f-x-assemblage-moteurs-a-combustion-temporaire-liebherr-bulle"
         ]
       },
@@ -416,7 +418,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-13bd0b15a945",
@@ -1790,7 +1793,7 @@
       "slugByLocale": {
         "it": "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
         "en": "tower-crane-technician-h-f-liebherr-daillens",
-        "de": "drehkrantechniker-h-f-liebherr-daillens",
+        "de": "turmkrantechniker-m-w-d-liebherr-daillens",
         "fr": "technicien-grues-a-tour-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -1840,7 +1843,7 @@
         "turmkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-h-f-liebherr-daillens",
         "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-        "turmkrantechniker-m-w-d-liebherr-daillens"
+        "drehkrantechniker-h-f-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1853,7 +1856,7 @@
         "de": [
           "turmkrantechniker-h-f-liebherr-daillens",
           "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "turmkrantechniker-m-w-d-liebherr-daillens"
+          "drehkrantechniker-h-f-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.412Z",
@@ -1960,7 +1963,7 @@
         "it": "responsabile-della-sicurezza-del-prodotto-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-product-security-m-w-d-liebherr-bulle",
         "de": "leiter-produktsicherheit-m-w-d-liebherr-bulle",
-        "fr": "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2008,7 +2011,7 @@
       "previousSlugs": [
         "responsabile-product-security-m-w-d-liebherr-bulle",
         "head-of-product-security-m-w-d-liebherr-bulle",
-        "responsable-product-security-m-w-d-liebherr-bulle"
+        "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2016,7 +2019,7 @@
           "head-of-product-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "responsable-product-security-m-w-d-liebherr-bulle"
+          "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.378Z",
@@ -2041,7 +2044,7 @@
       "slugByLocale": {
         "it": "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
         "en": "earthmoving-construction-machinery-mechanic-liebherr-daillens",
-        "de": "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens",
+        "de": "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens",
         "fr": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -2091,7 +2094,7 @@
         "macchinari-meccanizzati-liebherr-daillens",
         "mechanic-earthworks-machinery-liebherr-daillens",
         "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
+        "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2104,7 +2107,7 @@
         ],
         "de": [
           "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
+          "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-16T15:09:06.399Z",
@@ -2720,7 +2723,7 @@
       "slugByLocale": {
         "it": "ingegnere-dei-sistemi-di-controllo-m-f-x-liebherr-bulle",
         "en": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "de": "regelungssystemingenieur-m-f-x-liebherr-bulle",
+        "de": "control-systems-ingenieur-m-w-d-liebherr-bulle",
         "fr": "ingenieur-systemes-de-controle-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -2770,7 +2773,7 @@
         "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "control-systems-ingenieur-m-f-x-liebherr-bulle",
         "control-systems-engineer-m-f-x-liebherr-bulle",
-        "control-systems-ingenieur-m-w-d-liebherr-bulle"
+        "regelungssystemingenieur-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2778,7 +2781,7 @@
           "control-systems-engineer-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "control-systems-ingenieur-m-w-d-liebherr-bulle"
+          "regelungssystemingenieur-m-f-x-liebherr-bulle"
         ],
         "fr": [
           "control-systems-ingenieur-m-f-x-liebherr-bulle"
@@ -2976,7 +2979,7 @@
         "it": "assistente-alle-vendite-l-f-d-liebherr-nussbaumen",
         "en": "sales-assistant-m-f-d-liebherr-nussbaumen",
         "de": "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "fr": "assistant-commercial-m-f-d-liebherr-nussbaumen"
+        "fr": "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -3023,7 +3026,7 @@
       "liebherrSourceJobId": "82726",
       "previousSlugs": [
         "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
+        "assistant-commercial-m-f-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3034,7 +3037,7 @@
         ],
         "fr": [
           "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-          "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
+          "assistant-commercial-m-f-d-liebherr-nussbaumen"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.388Z",
@@ -3695,7 +3698,7 @@
       "slugByLocale": {
         "it": "attrezzature-di-consulenza-tecnica-earthmoving-m-f-liebherr-daillens",
         "en": "technical-advisor-equipment-earthmoving-m-f-liebherr-daillens",
-        "de": "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens",
+        "de": "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens",
         "fr": "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -3744,7 +3747,7 @@
       "previousSlugs": [
         "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
         "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-        "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
+        "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3756,7 +3759,7 @@
         "de": [
           "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
           "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-          "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
+          "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-08T13:53:09.548Z",
@@ -4369,7 +4372,7 @@
       "slugByLocale": {
         "it": "posto-di-carico-gru-meccaniche-m-f-liebherr-daillens",
         "en": "mechanical-cranes-loading-place-m-f-liebherr-daillens",
-        "de": "maschinenkrane-ladeplatz-m-w-liebherr-daillens",
+        "de": "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens",
         "fr": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -4418,7 +4421,7 @@
       "previousSlugs": [
         "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
         "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens",
-        "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens"
+        "maschinenkrane-ladeplatz-m-w-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4430,7 +4433,7 @@
         "de": [
           "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
           "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens",
-          "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens"
+          "maschinenkrane-ladeplatz-m-w-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-01T10:33:19.207Z",
@@ -5786,7 +5789,7 @@
         "it": "responsabile-della-sicurezza-dei-dati-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-data-security-m-w-d-liebherr-bulle",
         "de": "leiter-der-datensicherheit-m-w-d-liebherr-bulle",
-        "fr": "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+        "fr": "responsable-data-security-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5834,7 +5837,7 @@
       "previousSlugs": [
         "responsabile-data-security-m-w-d-liebherr-bulle",
         "head-of-data-security-m-w-d-liebherr-bulle",
-        "responsable-data-security-m-w-d-liebherr-bulle"
+        "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5842,7 +5845,7 @@
           "head-of-data-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "responsable-data-security-m-w-d-liebherr-bulle"
+          "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.373Z",
@@ -5863,11 +5866,11 @@
     },
     {
       "id": "liebherr-7a456082d34f",
-      "slug": "giovane-controllo-totale-m-f-x-liebherr-bulle",
+      "slug": "young-talent-controlling-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "en": "young-talent-controlling-m-f-x-liebherr-bulle",
-        "it": "giovane-controllo-totale-m-f-x-liebherr-bulle",
-        "de": "junge-talente-controlling-m-w-x-liebherr-bulle",
+        "it": "young-talent-controlling-m-f-x-liebherr-bulle",
+        "de": "young-talent-controlling-m-f-x-liebherr-bulle",
         "fr": "young-talent-controlling-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -5929,18 +5932,7 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-10-16T21:44:06.678Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "young-talent-controlling-m-f-x-liebherr-bulle"
-        ],
-        "de": [
-          "young-talent-controlling-m-f-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "young-talent-controlling-m-f-x-liebherr-bulle"
-      ]
+      "firstSeenAt": "2026-10-16T21:44:06.678Z"
     },
     {
       "id": "liebherr-79ad1460baab",

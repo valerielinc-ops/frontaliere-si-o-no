@@ -7,7 +7,7 @@
       "slug": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
       "slugByLocale": {
         "de": "development-engineer-electronics-with-emv-lead-komax-ch",
-        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
+        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
         "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon",
         "en": "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
       },
@@ -57,12 +57,14 @@
       "previousSlugsByLocale": {
         "it": [
           "development-engineer-electronics-with-emv-lead-komax-ch",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
         ]
       },
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
       ],
       "needsRetranslation": true,
       "salaryMin": 107000,
@@ -78,8 +80,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:22:05.166Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-10T23:22:05.166Z"
     },
     {
       "id": "komax-3a29c65992eb",
@@ -361,7 +362,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
+        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -410,7 +411,7 @@
         "facility-manager-w-m-d-komax-ch-ji9uhd",
         "facility-manager-m-w-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch",
-        "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "gestionnaire-d-installations-h-f-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -420,7 +421,7 @@
         ],
         "fr": [
           "facility-manager-m-w-d-komax-dierikon",
-          "responsable-de-l-installation-m-w-d-komax-dierikon"
+          "gestionnaire-d-installations-h-f-d-komax-dierikon"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -678,7 +679,7 @@
       "id": "komax-d077cefe54e4",
       "slug": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
       "slugByLocale": {
-        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
+        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
         "en": "development-engineer-electronics-with-emv-lead-komax-ch",
         "de": "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm",
         "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon"
@@ -729,13 +730,13 @@
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
         "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "development-engineer-electronics-with-emv-lead-komax-ch",
           "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
         ],
         "de": [
           "development-engineer-electronics-with-emv-lead-komax-ch"
@@ -756,8 +757,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "retranslationAttempts": 1
+      "crawlerMissStreak": 1
     }
   ]
 }

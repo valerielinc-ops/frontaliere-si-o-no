@@ -329,7 +329,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -383,7 +383,7 @@
           "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch-i5007y",
-          "collaborator-customer-data-management-m-w-d-hilti-zurich"
+          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
         "de": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch"
@@ -398,8 +398,7 @@
         "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
         "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch-i5007y",
-        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
-        "collaborator-customer-data-management-m-w-d-hilti-zurich"
+        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
       "salaryMin": 73500,
@@ -1109,12 +1108,12 @@
     },
     {
       "id": "hilti-21654-de",
-      "slug": "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich-zurich",
+      "slug": "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
       "slugByLocale": {
         "de": "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
-        "it": "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich-zurich",
+        "it": "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
         "en": "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
-        "fr": "carriere-debut-marketing-vente-suisse-h-f-d-hilti-zurich-zurich"
+        "fr": "career-start-marketing-sales-schweiz-m-w-d-hilti-ch"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1172,18 +1171,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:17:17.112Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch"
-        ],
-        "fr": [
-          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch"
-        ]
-      },
-      "previousSlugs": [
-        "career-start-marketing-sales-schweiz-m-w-d-hilti-ch"
-      ]
+      "firstSeenAt": "2026-10-16T21:17:17.112Z"
     }
   ]
 }

@@ -2736,9 +2736,9 @@
     },
     {
       "id": "buergenstock-hotels-f69be9beee44",
-      "slug": "gestore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
       "slugByLocale": {
-        "it": "gestore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "en": "floor-fair-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "de": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "floor-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen"
@@ -2797,21 +2797,13 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
-        ]
-      },
-      "previousSlugs": [
-        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
-      ]
+      }
     },
     {
       "id": "buergenstock-hotels-750a978ecdc2",
-      "slug": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
       "slugByLocale": {
-        "it": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "en": "house-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces",
         "de": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "employe-de-menage-100-m-m-i-burgenstock-hotels-ag-obburgen"
@@ -2870,15 +2862,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
-        ]
-      },
-      "previousSlugs": [
-        "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
-      ]
+      }
     },
     {
       "id": "buergenstock-hotels-727e96b82e42",
@@ -2951,9 +2935,9 @@
       "slug": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "it": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "en": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen-vxovox",
+        "en": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "fr": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen-vxovox"
+        "fr": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3007,17 +2991,18 @@
           "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ],
         "en": [
-          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen-vxovox"
         ],
         "fr": [
-          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen-vxovox"
         ]
       },
       "previousSlugs": [
         "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "bodenbetreuer-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen-vxovox"
       ],
       "firstSeenAt": "2026-05-20T06:08:58.059Z",
       "salaryMin": 86500,

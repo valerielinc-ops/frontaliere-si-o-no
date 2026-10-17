@@ -345,6 +345,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -424,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10686,9 +10688,9 @@
     },
     {
       "id": "unispital-basel-07d0562abde3",
-      "slug": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
+      "slug": "study-coordinator-kardiologie-universitatsspital-basel",
       "slugByLocale": {
-        "it": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
+        "it": "study-coordinator-kardiologie-universitatsspital-basel",
         "en": "study-coorindator-cardiology-universitatsspital-basel-basel",
         "de": "study-coordinator-kardiologie-unispital-basel-ch",
         "fr": "coordonateur-de-l-etude-cardiologie-universitatsspital-basel-basel"
@@ -10738,14 +10740,14 @@
         "studio-coorindator-cardiologia-universitatsspital-basel-basel",
         "study-coordinator-kardiologie-unispital-basel-ch",
         "study-coorindator-kardiologie-unispital-basel-ch",
-        "study-coordinator-kardiologie-universitatsspital-basel"
+        "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studio-coorindator-cardiologia-universitatsspital-basel-basel",
           "study-coordinator-kardiologie-unispital-basel-ch",
           "study-coorindator-kardiologie-unispital-basel-ch",
-          "study-coordinator-kardiologie-universitatsspital-basel"
+          "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-10-14T21:24:36.351Z",
@@ -11305,12 +11307,12 @@
     },
     {
       "id": "unispital-basel-a900f196e098",
-      "slug": "segretario-a-di-reparto-imc-universitatsspital-basel-basel",
+      "slug": "stationssekretar-in-imc-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "stationssekretar-in-imc-unispital-basel-ch",
-        "it": "segretario-a-di-reparto-imc-universitatsspital-basel-basel",
-        "en": "ward-secretary-imc-universitatsspital-basel-basel",
-        "fr": "secretaire-d-unite-imc-universitatsspital-basel-basel"
+        "it": "stationssekretar-in-imc-universitatsspital-basel-basel",
+        "en": "stationssekretar-in-imc-universitatsspital-basel-basel",
+        "fr": "stationssekretar-in-imc-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11355,21 +11357,14 @@
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stationssekretar-in-imc-unispital-basel-ch",
-          "stationssekretar-in-imc-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "stationssekretar-in-imc-universitatsspital-basel-basel"
-        ],
-        "fr": [
-          "stationssekretar-in-imc-universitatsspital-basel-basel"
+          "stationssekretar-in-imc-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "stationssekretar-in-imc-unispital-basel-ch",
-        "stationssekretar-in-imc-universitatsspital-basel-basel"
+        "stationssekretar-in-imc-unispital-basel-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11388,12 +11383,12 @@
     },
     {
       "id": "unispital-basel-5ca4b0408abb",
-      "slug": "dipl-specialista-in-allattamento-hf-fh-nfz-universitatsspital-basel-basel",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch",
-        "it": "dipl-specialista-in-allattamento-hf-fh-nfz-universitatsspital-basel-basel",
-        "en": "dipl-nursing-specialist-hf-fh-nfz-universitatsspital-basel-basel",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-nfz-universitatsspital-basel-basel"
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-universitatsspital-basel-basel",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11440,19 +11435,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch"
-        ],
-        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nfz-unispital-basel-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

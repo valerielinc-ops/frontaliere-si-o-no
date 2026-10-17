@@ -166,7 +166,7 @@
       "slug": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
         "fr": "physiotherapeute-physiotherapiste-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
@@ -214,7 +214,7 @@
       "externalId": "4084559",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -222,7 +222,7 @@
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-          "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
@@ -406,12 +406,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-ef8949ed0e31",
-      "slug": "cuoco-cuoca-efz-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "koch-kochin-cfc-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "cuoco-cuoca-efz-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "cook-chef-efz-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "it": "koch-kochin-cfc-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "koch-kochin-efz-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "koch-kochin-efz-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "cuisinier-chef-efz-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "fr": "koch-kochin-efz-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -462,19 +462,16 @@
         "it": [
           "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau",
           "koch-kochin-efz-m-w-d-svar-spitalverbund-ar-herisau",
-          "cuoco-ausiliario-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "koch-kochin-cfc-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "cuoco-ausiliario-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau",
           "hilfskochin-hilfskoch-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "auxiliary-cook-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "koch-kochin-efz-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "auxiliary-cook-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "fr": [
           "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau",
-          "cuisiniere-auxiliaire-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "koch-kochin-efz-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "cuisiniere-auxiliaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ]
       },
       "previousSlugs": [
@@ -483,9 +480,7 @@
         "koch-kochin-efz-m-w-d-svar-spitalverbund-ar-herisau",
         "cuoco-ausiliario-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "auxiliary-cook-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "cuisiniere-auxiliaire-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "koch-kochin-cfc-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "koch-kochin-efz-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "cuisiniere-auxiliaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 64500,
       "salaryMax": 81000,

@@ -3262,7 +3262,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3323,8 +3323,7 @@
       },
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
-        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3332,7 +3331,7 @@
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
@@ -4283,7 +4282,7 @@
         "it": "collaboratore-trice-in-operations-bvg-con-fachverantwortung-vz-vermogenszentrum-zurich",
         "en": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich",
         "de": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "fr": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
+        "fr": "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4338,14 +4337,14 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
+        "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
+          "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-10-12T21:25:51.084Z",
@@ -4708,10 +4707,10 @@
       "id": "vz-vermoegenszentrum-07f4c5f5a69a",
       "slug": "responsabile-operativo-junior-per-il-reporting-fiscale-e-il-recupero-fiscale-vz-vermogenszentrum-zurich",
       "slugByLocale": {
-        "it": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
+        "it": "responsabile-operativo-junior-per-il-reporting-fiscale-e-il-recupero-fiscale-vz-vermogenszentrum-zurich",
         "en": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
         "de": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
-        "fr": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
+        "fr": "gestionnaire-des-operations-juniors-declaration-des-impots-et-remboursement-des-impots-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4769,14 +4768,15 @@
       },
       "previousSlugs": [
         "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
-        "gestionnaire-des-operations-juniors-declaration-des-impots-et-remboursement-des-impots-vz-vermogenszentrum-zurich"
+        "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch"
+          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
+          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
         ],
         "fr": [
-          "gestionnaire-des-operations-juniors-declaration-des-impots-et-remboursement-des-impots-vz-vermogenszentrum-zurich"
+          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -4886,10 +4886,10 @@
       "id": "vz-vermoegenszentrum-96a84700ce7d",
       "slug": "analista-dei-mercati-finanziari-e-redattore-trice-vz-vermogenszentrum-zug",
       "slugByLocale": {
-        "it": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
+        "it": "analista-dei-mercati-finanziari-e-redattore-trice-vz-vermogenszentrum-zug",
         "en": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
         "de": "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
-        "fr": "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
+        "fr": "analyste-des-marches-financiers-redacteur-redactrice-vz-vermogenszentrum-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4952,14 +4952,15 @@
       },
       "previousSlugs": [
         "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
-        "analyste-des-marches-financiers-redacteur-redactrice-vz-vermogenszentrum-zug"
+        "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch"
+          "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
+          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ],
         "fr": [
-          "analyste-des-marches-financiers-redacteur-redactrice-vz-vermogenszentrum-zug"
+          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.050Z",
@@ -5319,10 +5320,10 @@
       "id": "vz-vermoegenszentrum-e3377798ac4e",
       "slug": "pwa-internship-in-relationship-management-banking-marzo-2027-vz-vermogenszentrum-zug",
       "slugByLocale": {
-        "it": "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermogenszentrum-zug",
+        "it": "pwa-internship-in-relationship-management-banking-marzo-2027-vz-vermogenszentrum-zug",
         "en": "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermogenszentrum-zug",
         "de": "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermoegenszentrum-ch",
-        "fr": "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermogenszentrum-zug"
+        "fr": "stage-en-gestion-des-relations-bancaires-mars-2027-vz-vermogenszentrum-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -5376,14 +5377,15 @@
       },
       "previousSlugs": [
         "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermoegenszentrum-ch",
-        "stage-en-gestion-des-relations-bancaires-mars-2027-vz-vermogenszentrum-zug"
+        "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermoegenszentrum-ch"
+          "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermoegenszentrum-ch",
+          "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermogenszentrum-zug"
         ],
         "fr": [
-          "stage-en-gestion-des-relations-bancaires-mars-2027-vz-vermogenszentrum-zug"
+          "pwa-praktikum-im-relationship-management-banking-marz-2027-vz-vermogenszentrum-zug"
         ]
       },
       "firstSeenAt": "2026-10-16T09:26:10.832Z",
@@ -5550,6 +5552,7 @@
           "• Du bist ein Team-Player und bringst eine \"hands-on\" Mentalität mit."
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-hr-administration-vz-vermoegenszentrum-ch"
@@ -5635,6 +5638,7 @@
           "• Freude am Kontakt mit Kundinnen und Kunden"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "berater-in-nachlassberatung-willensvollstreckung-vz-vermoegenszentrum-ch"

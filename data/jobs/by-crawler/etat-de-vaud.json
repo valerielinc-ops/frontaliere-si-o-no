@@ -1360,7 +1360,7 @@
       "slugByLocale": {
         "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
         "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "de": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
         "fr": "greffier-ere-etat-de-vaud-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -1408,7 +1408,7 @@
       "previousSlugs": [
         "greffier-ere-etat-de-vaud-yverdon-les-bains",
         "gerichtsschreiber-in-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
+        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1416,7 +1416,7 @@
         ],
         "de": [
           "gerichtsschreiber-in-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-          "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
+          "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-10-05T21:35:33.220Z",
@@ -3730,10 +3730,10 @@
     },
     {
       "id": "etat-de-vaud-6042",
-      "slug": "case-manager-giustizia-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "case-manager-giustizia-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "case-manager-judicial-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "it": "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
         "de": "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
         "fr": "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne"
       },
@@ -3780,15 +3780,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne",
-          "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-        ],
-        "en": [
           "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne"
         ]
       },
@@ -4084,37 +4079,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
-        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6x8xc",
-        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4",
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
-        "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4",
-        "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4",
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6xacz",
-        "curateur-trice-professionnel-le-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
+        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
-          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-          "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-          "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6x8xc",
-          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4",
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
-          "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4",
-          "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4",
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6xacz",
-          "curateur-trice-professionnel-le-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
-        ],
-        "en": [
-          "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
-        ],
-        "de": [
-          "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",

@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "fr": "system-development-troubleshooter-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,14 +52,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "system-development-troubleshooter-roche-rotkreuz"
+        "developpement-du-systeme-depanneur-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "system-development-troubleshooter-roche-rotkreuz"
+          "developpement-du-systeme-depanneur-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -3722,7 +3722,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3765,7 +3765,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3775,7 +3775,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -4427,7 +4427,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
+        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -4471,16 +4471,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst",
-        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
-        ],
-        "de": [
-          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -7368,7 +7364,7 @@
         "it": "gestione-globale-dei-contratti-e-dei-partner-roche-basel",
         "en": "global-expert-contracting-partner-management-roche-ch",
         "de": "globales-experten-contracting-partner-management-roche-basel",
-        "fr": "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+        "fr": "global-expert-contracting-partner-management-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7411,7 +7407,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-expert-contracting-partner-management-roche-ch",
-        "global-expert-contracting-partner-management-roche-basel"
+        "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7422,7 +7418,7 @@
         ],
         "fr": [
           "global-expert-contracting-partner-management-roche-ch",
-          "global-expert-contracting-partner-management-roche-basel"
+          "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
         ]
       },
       "firstSeenAt": "2026-10-15T21:14:39.547Z",
@@ -7607,7 +7603,7 @@
         "de": "asset-operational-manager-solids-packaging-roche-ch",
         "it": "asset-operational-manager-solids-packaging-roche-ch",
         "en": "asset-operational-manager-solids-packaging-roche-ch",
-        "fr": "gestionnaire-operationnel-d-actifs-emballage-solide-roche-kaiseraugst"
+        "fr": "asset-operational-manager-solids-packaging-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7669,12 +7665,12 @@
     },
     {
       "id": "roche-aab5592bf3ac",
-      "slug": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
+      "slug": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
       "slugByLocale": {
         "de": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-        "it": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
-        "en": "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst",
-        "fr": "expert-en-production-temporaire-a-18-mois-kaiseraugst-roche-kaiseraugst"
+        "it": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
+        "en": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
+        "fr": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7719,19 +7715,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-          "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
-        ],
-        "en": [
-          "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
-        ],
-        "fr": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
         ]
       },
       "previousSlugs": [
-        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
+        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7757,7 +7745,7 @@
         "de": "manufacturing-team-lead-roche-ch",
         "it": "manufacturing-team-lead-roche-ch",
         "en": "manufacturing-team-lead-roche-ch",
-        "fr": "manufacturing-chef-d-equipe-roche-kaiseraugst"
+        "fr": "manufacturing-team-lead-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7823,8 +7811,8 @@
       "slugByLocale": {
         "en": "data-ai-excellence-lead-rdt-data-management-governance-roche-ch",
         "it": "data-ai-excellence-lead-rdt-data-management-governance-roche-ch",
-        "de": "daten-ki-exzellenz-lead-rdt-datenmanagement-governance-roche-kaiseraugst",
-        "fr": "responsable-de-l-excellence-en-matiere-de-donnees-et-d-intelligence-artificielle-rdt-gestion-des-donnees-et-gouvernance"
+        "de": "data-ai-excellence-lead-rdt-data-management-governance-roche-ch",
+        "fr": "data-ai-excellence-lead-rdt-data-management-governance-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
