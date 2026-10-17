@@ -106047,10 +106047,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mercatini-usato-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Bancarella di mercatino dell'usato in Svizzera con venditore che rilascia ricevuta"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T23:56:58+00:00",
       "dateModified": "2026-10-15T23:56:58+00:00",
@@ -106219,6 +106224,391 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dati-assicurati-casse-zurigo-posta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fisco-zurigo-tre-livelli': {
+    title: 'Fisco a Zurigo: i tre livelli e come funziona | Frontaliere Ticino',
+    description: 'Guida al sistema fiscale del Cantone di Zurigo: scopri i tre livelli (federale, cantonale, comunale), le autorità competenti e come gestire aliquote',
+    keywords: 'frontalieri, ticino, svizzera, italia, fisco, zurigo, livelli, funziona',
+    ogTitle: 'Imposte cantonali Zurigo: aliquote e deduzioni',
+    ogDescription: 'Comprendere il sistema fiscale nel Cantone di Zurigo è essenziale. L\'articolo illustra i tre livelli di imposizione (federale, cantonale e comunale), le autorità di riferimento come AFC/ESTV e le amministrazioni cantonali, e fornisce indicazioni',
+    canonicalPath: '/articoli-svizzera/fisco-zurigo-tre-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fisco a Zurigo: i tre livelli e come funziona",
+      "description": "Guida al sistema fiscale del Cantone di Zurigo: scopri i tre livelli (federale, cantonale, comunale), le autorità competenti e come gestire aliquote",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fisco-zurigo-tre-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di un paesaggio svizzero che simboleggia la complessità del sistema fiscale a tre livelli, con riferimento a Zurigo."
+      },
+      "datePublished": "2026-10-16T05:40:12+00:00",
+      "dateModified": "2026-10-16T05:40:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fisco-zurigo-tre-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tre-milioni-lettere-digitali-posta': {
+    title: 'Tre milioni di lettere digitali in sei mesi | Frontaliere Ticino',
+    description: 'La Posta Svizzera presenta il primo bilancio intermedio della lettera digitale: sette milioni di invii e 960\'000 account aperti in sei mesi. Novità',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, lettere, digitali, mesi',
+    ogTitle: 'Posta Svizzera: 7 milioni di invii digitali in 6 mesi',
+    ogDescription: 'La Posta ha comunicato i primi risultati della lettera digitale: sette milioni di invii complessivi e tre milioni di lettere digitali in sei mesi. Con 960\'000 account attivi, il servizio si evolve con l\'introduzione della firma elettronica',
+    canonicalPath: '/articoli-svizzera/tre-milioni-lettere-digitali-posta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre milioni di lettere digitali in sei mesi",
+      "description": "La Posta Svizzera presenta il primo bilancio intermedio della lettera digitale: sette milioni di invii e 960'000 account aperti in sei mesi. Novità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tre-milioni-lettere-digitali-posta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano svizzero con elementi digitali che simboleggiano la comunicazione moderna della Posta"
+      },
+      "datePublished": "2026-10-16T07:08:57+00:00",
+      "dateModified": "2026-10-16T07:08:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tre-milioni-lettere-digitali-posta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lupo-abbattimenti-facilitati': {
+    title: 'Lupo: abbattimenti più facili, consultazione si chiude oggi',
+    description: 'Il Consiglio federale propone abbattimenti dei lupi più facili. Gli ambientalisti chiedono di sospendere il progetto. L\'USC sostiene la revisione, ma la giudica',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, abbattimenti, facili, consultazione',
+    ogTitle: 'Lupo: abbattimenti facilitati, consultazione si chiude oggi',
+    ogDescription: 'Il Consiglio federale propone abbattimenti dei lupi più facili.',
+    canonicalPath: '/articoli-svizzera/lupo-abbattimenti-facilitati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo: abbattimenti più facili, consultazione si chiude oggi",
+      "description": "Il Consiglio federale propone abbattimenti dei lupi più facili. Gli ambientalisti chiedono di sospendere il progetto. L'USC sostiene la revisione, ma la giudica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lupo-abbattimenti-facilitati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano svizzero con pascolo sereno, sullo sfondo le vette del Monte Generoso."
+      },
+      "datePublished": "2026-10-16T08:01:09+00:00",
+      "dateModified": "2026-10-16T08:01:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lupo-abbattimenti-facilitati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carburanti-svizzera-rincaro-settimanale': {
+    title: 'Benzina e diesel in Svizzera: +5 centesimi al litro',
+    description: 'Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, centesimi, litro',
+    ogTitle: 'Carburanti in Svizzera: rincaro di 5 centesimi',
+    ogDescription: 'Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi',
+    canonicalPath: '/articoli-svizzera/carburanti-svizzera-rincaro-settimanale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel in Svizzera: +5 centesimi al litro",
+      "description": "Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-carburanti-svizzera-rincaro-settimanale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante in una stazione di servizio svizzera"
+      },
+      "datePublished": "2026-10-16T10:57:56+00:00",
+      "dateModified": "2026-10-16T10:57:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carburanti-svizzera-rincaro-settimanale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-abbattimenti-lupi-2025': {
+    title: 'Lupo, abbattimenti più facili: ambientalisti contrari, contadini favorevoli',
+    description: 'Il Consiglio federale propone abbattimenti durante tutto l’anno. La consultazione sulla revisione della LCP si chiude oggi. Ambientalisti contrari anche',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, abbattimenti, facili, ambientalisti',
+    ogTitle: 'Lupo in Svizzera: abbattimenti più facili nel 2025?',
+    ogDescription: 'Il Consiglio federale propone abbattimenti durante tutto l’anno.',
+    canonicalPath: '/articoli-svizzera/svizzera-abbattimenti-lupi-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo, abbattimenti più facili: ambientalisti contrari, contadini favorevoli",
+      "description": "Il Consiglio federale propone abbattimenti durante tutto l’anno. La consultazione sulla revisione della LCP si chiude oggi. Ambientalisti contrari anche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-abbattimenti-lupi-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Silhouette di un lupo che ulula alla luna sulle Alpi svizzere al tramonto"
+      },
+      "datePublished": "2026-10-16T14:12:01+00:00",
+      "dateModified": "2026-10-16T14:12:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-abbattimenti-lupi-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stadler-rail-treno-idrogeno-sardegna': {
+    title: 'Stadler Rail testa il primo treno a idrogeno a scartamento ridotto',
+    description: 'Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, stadler, rail, testa, primo',
+    ogTitle: 'Stadler Rail: primo treno a idrogeno a scartamento ridotto',
+    ogDescription: 'Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche',
+    canonicalPath: '/articoli-svizzera/stadler-rail-treno-idrogeno-sardegna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stadler Rail testa il primo treno a idrogeno a scartamento ridotto",
+      "description": "Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-stadler-rail-treno-idrogeno-sardegna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-16T17:07:03+00:00",
+      "dateModified": "2026-10-16T17:07:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stadler-rail-treno-idrogeno-sardegna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-crediti-bilaterali-iii-svizzera': {
+    title: 'Bilaterali III, primo via libera ai crediti da 3,48 miliardi',
+    description: '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, primo, libera, crediti',
+    ogTitle: 'Bilaterali III: approvati crediti da 3,48 miliardi',
+    ogDescription: '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
+    canonicalPath: '/articoli-svizzera/crediti-bilaterali-iii-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III, primo via libera ai crediti da 3,48 miliardi",
+      "description": "3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-crediti-bilaterali-iii-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Parlamento federale svizzero a Berna, con la bandiera svizzera in primo piano."
+      },
+      "datePublished": "2026-10-16T18:35:02+00:00",
+      "dateModified": "2026-10-16T18:35:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/crediti-bilaterali-iii-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti': {
+    title: 'Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
+    description: 'Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi',
+    keywords: 'frontalieri, ticino, svizzera, italia, discount, blocca, aumenti, raddoppia',
+    ogTitle: 'Il discount blocca aumenti 2027 e raddoppia sconto',
+    ogDescription: 'Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi',
+    canonicalPath: '/articoli-svizzera/il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il discount blocca aumenti 2027 e raddoppia sconto dipendenti",
+      "description": "Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Il discount blocca aumenti 2027 e raddoppia sconto dipendenti"
+      },
+      "datePublished": "2026-10-16T20:46:04+00:00",
+      "dateModified": "2026-10-16T20:46:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ia-assistente-shopping-svizzera': {
+    title: 'IA aiuta gli svizzeri nello shopping ma frena al pagamento',
+    description: 'Quasi il 70% degli svizzeri usa l\'IA per un acquisto Il 49% dice che l\'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta',
+    keywords: 'frontalieri, ticino, svizzera, italia, aiuta, svizzeri, nello, shopping',
+    ogTitle: 'IA aiuta gli svizzeri nello shopping ma frena al pagamento',
+    ogDescription: 'Quasi il 70% degli svizzeri usa l\'IA per un acquisto Il 49% dice che l\'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta',
+    canonicalPath: '/articoli-svizzera/ia-assistente-shopping-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA aiuta gli svizzeri nello shopping ma frena al pagamento",
+      "description": "Quasi il 70% degli svizzeri usa l'IA per un acquisto Il 49% dice che l'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontaliere-acquisto-immobile-investimento-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cliente svizzero che utilizza un assistente IA su smartphone mentre fa shopping a Lugano"
+      },
+      "datePublished": "2026-10-16T21:25:25+00:00",
+      "dateModified": "2026-10-16T21:25:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-assistente-shopping-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sistema-sanitario-lamal-ginevra-2026': {
+    title: 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
+    description: 'Scopri come funziona l\'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra nel 2026. Verifica scadenze, franchigie, premi e sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
+    ogDescription: 'Una guida completa sull\'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra per il 2026. Scopri obblighi, franchigie, premi e sussidi cantonali.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-lamal-ginevra-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra",
+      "description": "Scopri come funziona l'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra nel 2026. Verifica scadenze, franchigie, premi e sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sistema-sanitario-lamal-ginevra-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Ginevra con il Jet d'Eau, simbolo della città e del suo sistema sanitario."
+      },
+      "datePublished": "2026-10-16T22:58:51+00:00",
+      "dateModified": "2026-10-16T22:58:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-lamal-ginevra-2026/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

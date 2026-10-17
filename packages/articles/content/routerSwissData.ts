@@ -2826,6 +2826,16 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-sanitario-zurigo-guida-2026': { it: 'sistema-sanitario-zurigo-guida-2026', en: 'swiss-healthcare-system-zurich-2026-guide', de: 'schweizer-gesundheitssystem-zuerich-2026-leitfaden', fr: 'systeme-sante-suisse-zurich-2026-guide' },
  'imposte-zurigo-aliquote-deduzioni': { it: 'imposte-zurigo-aliquote-deduzioni', en: 'zurich-tax-rates-deductions', de: 'zuerich-steuersaetze-abzugsvo', fr: 'impots-zurich-baremes-deduct' },
  'dati-assicurati-casse-zurigo-posta': { it: 'dati-assicurati-casse-zurigo-posta', en: 'pension-data-breach-zurich-post', de: 'datenleck-pensionskassen-zurich-post', fr: 'fuite-donnees-caisses-zurich-poste' },
+ 'fisco-zurigo-tre-livelli': { it: 'fisco-zurigo-tre-livelli', en: 'zurich-tax-three-levels', de: 'zuerich-steuer-drei-stufen', fr: 'fiscalite-zurich-trois-niveaux' },
+ 'tre-milioni-lettere-digitali-posta': { it: 'tre-milioni-lettere-digitali-posta', en: 'three-million-digital-letters-swiss-post', de: 'drei-millionen-digitale-briefe-post-schweiz', fr: 'trois-millions-lettres-numeriques-poste-suisse' },
+ 'lupo-abbattimenti-facilitati': { it: 'lupo-abbattimenti-facilitati', en: 'wolf-culling-eased', de: 'wolf-abschuss-erleichtert', fr: 'loup-abattages-facilite' },
+ 'carburanti-svizzera-rincaro-settimanale': { it: 'carburanti-svizzera-rincaro-settimanale', en: 'swiss-fuel-prices-weekly-rise', de: 'schweizer-treibstoffpreise-wochenanstieg', fr: 'prix-carburants-suisse-hausse-semaine' },
+ 'svizzera-abbattimenti-lupi-2025': { it: 'svizzera-abbattimenti-lupi-2025', en: 'switzerland-wolf-culling-2025', de: 'schweiz-wolfsabschuss-2025', fr: 'suisse-abattage-loups-2025' },
+ 'stadler-rail-treno-idrogeno-sardegna': { it: 'stadler-rail-treno-idrogeno-sardegna', en: 'stadler-rail-hydrogen-train-sardinia', de: 'stadler-rail-wasserstoffzug-sardinien', fr: 'stadler-rail-train-hydrogene-sardaigne' },
+ 'crediti-bilaterali-iii-svizzera': { it: 'crediti-bilaterali-iii-svizzera', en: 'switzerland-bilateral-iii-credits', de: 'schweiz-bilaterale-iii-kredite', fr: 'credits-bilateraux-iii-suisse' },
+ 'il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti': { it: 'il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti', en: 'discount-retailer-freezes-2027-hikes-staff-discount-doubles', de: 'der-discounter-stoppt-lohnerhohungen-2027-und-verdoppelt-den-mitarbeiterrabatt', fr: 'le-discounter-bloque-les-augmentations-de-2027-et-double-la-remise-au-personnel' },
+ 'ia-assistente-shopping-svizzera': { it: 'ia-assistente-shopping-svizzera', en: 'ai-helps-swiss-shoppers-but-stalls-at-checkout', de: 'ki-hilft-den-schweizern-beim-einkaufen-bremst-aber-beim-bezahlen', fr: 'l-ia-aide-les-suisses-a-acheter-mais-freine-au-paiement' },
+ 'sistema-sanitario-lamal-ginevra-2026': { it: 'sistema-sanitario-lamal-ginevra-2026', en: 'swiss-healthcare-system-lamal-geneva-2026', de: 'schweizer-gesundheitssystem-lamal-genf-2026', fr: 'systeme-sante-suisse-lamal-geneve-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
