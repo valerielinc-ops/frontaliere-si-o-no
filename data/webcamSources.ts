@@ -89,7 +89,7 @@ export const WEBCAM_SOURCES: WebcamSource[] = [
   id: 'lunasole-indemini',
   entityName: 'Webcam Indemini (lunasole.ch)',
   officialUrl: 'https://lunasole.ch/webcam/',
-  accessMethod: 'hotlink',
+  accessMethod: 'external-link',
   status: 'active',
  },
  {
