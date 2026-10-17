@@ -45,6 +45,18 @@ describe('La Fonte application handoff', () => {
     expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
   });
 
+  it('does not treat an informational contact as an email application instruction', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>Il personale è invitato a scrivere a info@example.com per informazioni.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBeNull();
+  });
+
+  it('does not combine application and contact signals from separate blocks', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>La candidatura va inviata tramite il portale.</p><p>Per informazioni scrivere a info@example.com.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBeNull();
+  });
+
   it('does not turn a role page into an application handoff without source instructions', () => {
     const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-lugano#:~:text=Stagiaire';
     expect(resolveLaFonteApplicationHandoffUrl('<p>Scopri le nostre attività.</p>', roleUrl)).toBeNull();

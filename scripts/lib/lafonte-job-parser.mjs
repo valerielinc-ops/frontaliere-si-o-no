@@ -67,23 +67,33 @@ export function resolveLaFonteApplicationHandoffUrl(html = '', roleUrl = '') {
 
   const dom = new JSDOM(`<body>${String(html || '')}</body>`);
   try {
-    const text = (dom.window.document.body.textContent || '').replace(/\s+/g, ' ').trim();
     const emailAddressPattern = /[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+/i;
-    const hasEmail =
-      [...dom.window.document.querySelectorAll('a[href]')].some((anchor) =>
-        /^mailto:/i.test(anchor.getAttribute('href') || ''),
-      ) || emailAddressPattern.test(text);
-    const hasApplicationLanguage =
-      /\b(?:candidatur\w*|candidars\w*|domanda\s+di\s+lavoro|invi\w*|bewerb\w*|apply|postuler\w*)\b/i.test(text);
-    const hasEmailChannel = /\b(?:via|per|by|par|a|ad|al(?:la|le)?)\s+(?:e-?mail|mail)\b/i.test(text);
-    const hasEmailDestination = new RegExp(
+    const applicationLanguagePattern =
+      /\b(?:candidatur\w*|candidars\w*|domanda\s+di\s+lavoro|invia\w*|bewerb\w*|apply|postuler\w*)\b/i;
+    const emailChannelPattern = /\b(?:via|per|by|par|a|ad|al(?:la|le)?)\s+(?:e-?mail|mail)\b/i;
+    const emailDestinationPattern = new RegExp(
       `\\b(?:a|ad|al(?:la|le)?)\\s+${emailAddressPattern.source}`,
       'i',
-    ).test(text);
-    const hasEmailApplicationInstruction =
-      hasEmail && hasApplicationLanguage && (hasEmailChannel || hasEmailDestination);
+    );
+    const blockElements = [...dom.window.document.body.querySelectorAll('p, li, div')]
+      .filter((element) => !element.querySelector('p, li, div'));
+    const instructionBlocks = blockElements.length > 0 ? blockElements : [dom.window.document.body];
+    const hasEmailApplicationInstruction = instructionBlocks.some((block) => {
+      const blockText = (block.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!blockText) return false;
 
-    return hasEmail && hasEmailApplicationInstruction ? roleUrl : null;
+      const hasEmail =
+        [...block.querySelectorAll('a[href]')].some((anchor) =>
+          /^mailto:/i.test(anchor.getAttribute('href') || ''),
+        ) || emailAddressPattern.test(blockText);
+      const hasApplicationLanguage = applicationLanguagePattern.test(blockText);
+      const hasEmailChannel = emailChannelPattern.test(blockText);
+      const hasEmailDestination = emailDestinationPattern.test(blockText);
+
+      return hasEmail && hasApplicationLanguage && (hasEmailChannel || hasEmailDestination);
+    });
+
+    return hasEmailApplicationInstruction ? roleUrl : null;
   } finally {
     dom.window.close();
   }
