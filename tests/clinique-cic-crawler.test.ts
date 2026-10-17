@@ -1,108 +1,138 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { fetchAllCicJobs } from '../scripts/lib/clinique-cic-job-parser.mjs';
-import { __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
+import {
+  extractListingLinks,
+  fetchAllCicJobs,
+  isCicJob,
+  isJobCloudListingProvenEmpty,
+  isTrustedDomain,
+  LISTING_URL,
+} from '../scripts/lib/clinique-cic-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
-const MASK_URL = 'https://www.jobup.ch/masks/clinique-cic/list_clinique-cic.asp';
-const DETAIL_URL = 'https://www.jobup.ch/fr/emplois/detail/cic-job-1/';
-const AKAMAI_CHALLENGE = '<html><head><title>Challenge Validation</title></head><body>sec-cpt</body></html>';
-const MASK_HTML = `
-  <div class=job_offer>
-    <a href="${DETAIL_URL}" title="Infirmier diplômé - 1907 Saxon" target="_blank">INFIRMIER DIPLÔMÉ</a>
-  </div>
-  <div class=job_location>Clinique CIC Saxon</div>
-  <div class=job_lvlmin>CDI / 80%</div>
-`;
-const DETAIL_HTML = `<script type="application/ld+json">${JSON.stringify({
-  '@type': 'JobPosting',
-  description: 'Rejoignez notre équipe soignante et accompagnez les patients dans un environnement clinique moderne et collaboratif.',
-})}</script>`;
+const DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/cic-job-1/';
+const PLACEHOLDER_SAXON_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/cic-job-2/';
+const PLACEHOLDER_CLARENS_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/cic-job-3/';
+const BODY = 'Rejoignez notre équipe soignante et accompagnez les patients dans un environnement clinique moderne et collaboratif. '
+  + 'Vous participez aux soins, documentez les dossiers, collaborez avec les médecins et contribuez à la qualité de la prise en charge au quotidien.';
 
-const response = (body: string) => ({
-  ok: true,
-  status: 200,
+const response = (body: string, status = 200) => ({
+  ok: status >= 200 && status < 300,
+  status,
   text: async () => body,
-  arrayBuffer: async () => Uint8Array.from([...body], (char) => char.charCodeAt(0)).buffer,
 });
 
-describe('clinique CIC crawler', () => {
-  const originalFetch = global.fetch;
+const listingHtml = (hrefs: string[]) => `<!doctype html><html><body>${hrefs.map((href) => `<a class="job_list_item-link" href="${href}?from=list">job</a>`).join('')}</body></html>`;
 
+function detailHtml({
+  title = 'Assistant·e en soins et santé communautaire (ASSC) à 80% - 100%',
+  date = '25. September 2026',
+  occupation = '80–100%',
+  contract = 'Durée indéterminée',
+  location = 'Clarens / 1907 Saxon',
+  description = BODY,
+}: Record<string, string> = {}) {
+  return `<!doctype html><html><body>
+    <main><h1>${title}</h1>
+      <div class="text-rich-text w-richtext"><p>${description}</p></div>
+      <div class="job_details_content-right"><div class="job_details_keyinfos">
+        <div><div>Date de publication</div><div class="text-size-small">${date}</div></div>
+        <div><div>Taux d'activité</div><div class="text-size-small">${occupation}</div></div>
+        <div><div>Type de contrat:</div><div class="text-size-small">${contract}</div></div>
+        <div><div>Lieu de travail</div><div class="text-size-small">${location}</div></div>
+      </div><a id="job-ad-apply-btn" href="https://www.jobup.ch/fr/application/create/cic-job-1/?utm_medium=referral&amp;utm_source=company">Postuler</a></div>
+    </main>
+  </body></html>`;
+}
+
+describe('clinique CIC JobCloud parser', () => {
   beforeEach(() => {
+    process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
     process.env.JOBS_JINA_RETRY_BASE_MS = '0';
-    __resetJinaBreaker();
   });
 
   afterEach(() => {
-    global.fetch = originalFetch;
+    delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
     delete process.env.JOBS_JINA_RETRY_BASE_MS;
-    __resetJinaBreaker();
     vi.restoreAllMocks();
   });
 
-  it('rescues a 200 Akamai challenge on the Jobup mask through Jina', async () => {
-    const fetchMock = vi.fn(async (url: string) => {
-      if (url === MASK_URL) {
-        return {
-          ...response(''),
-          arrayBuffer: async () => new TextEncoder().encode(AKAMAI_CHALLENGE).buffer,
-        };
-      }
-      if (url.startsWith('https://r.jina.ai/')) return response(MASK_HTML.padEnd(240, ' '));
-      if (url === DETAIL_URL) return response(DETAIL_HTML);
-      throw new Error(`unexpected fetch: ${url}`);
-    });
-    global.fetch = fetchMock as typeof fetch;
-
-    const jobs = await fetchAllCicJobs();
-
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0].title).toBe('Infirmier diplômé');
-    expect(fetchMock.mock.calls.filter(([url]) => url.startsWith('https://r.jina.ai/'))).toHaveLength(1);
+  it('extracts only CIC JobCloud detail links and canonicalizes their trailing slash', () => {
+    const other = 'https://company.jobcloud.ch/fr/jobs/other-company/00000000-0000-0000-0000-000000000000';
+    expect(extractListingLinks(listingHtml([DETAIL_URL, DETAIL_URL, other]))).toEqual([DETAIL_URL]);
   });
 
-  it('keeps a matching JSON-LD publication when the detail has no body container', async () => {
-    const detailWithoutBody = `<script type="application/ld+json">${JSON.stringify({
-      '@type': 'JobPosting',
-      title: 'Infirmier diplômé',
-      datePosted: '2026-09-01',
-    })}</script>`;
-    const fetchMock = vi.fn(async (url: string) => {
-      if (url === MASK_URL) return response(MASK_HTML);
-      if (url === DETAIL_URL) return response(detailWithoutBody);
-      throw new Error(`unexpected fetch: ${url}`);
-    });
-    global.fetch = fetchMock as typeof fetch;
+  it('matches the migrated source and keeps unrelated JobCloud pages out', () => {
+    expect(isCicJob({ companyKey: 'clinique-cic' })).toBe(true);
+    expect(isCicJob({ company: 'Clinique CIC Suisse', url: DETAIL_URL })).toBe(true);
+    expect(isCicJob({ company: 'Other employer', url: 'https://company.jobcloud.ch/fr/jobs/other-company/00000000-0000-0000-0000-000000000000/' })).toBe(false);
+    expect(isTrustedDomain(DETAIL_URL)).toBe(true);
+    expect(isTrustedDomain('https://other.jobcloud.ch/fr/jobs/clinique-cic-suisse/cic-job-1/')).toBe(false);
+  });
+
+  it('maps the live JobCloud listing, drops spontaneous placeholders, and preserves source evidence', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      const target = String(input);
+      if (target === LISTING_URL) return response(listingHtml([DETAIL_URL, PLACEHOLDER_SAXON_URL, PLACEHOLDER_CLARENS_URL]));
+      if (target === DETAIL_URL) return response(detailHtml());
+      if (target === PLACEHOLDER_SAXON_URL) return response(detailHtml({ title: 'Offres spontanées', date: '2. Juni 2025', location: 'Saxon' }));
+      if (target === PLACEHOLDER_CLARENS_URL) return response(detailHtml({ title: 'Offres spontanées', date: '31. März 2025', location: 'Clarens' }));
+      throw new Error(`unexpected URL ${target}`);
+    }));
 
     const jobs = await fetchAllCicJobs();
 
     expect(jobs).toHaveLength(1);
     expect(jobs[0]).toMatchObject({
-      datePosted: '2026-09-01',
-      postedDate: '2026-09-01',
+      title: 'Assistant·e en soins et santé communautaire (ASSC) à 80% - 100%',
+      location: 'Clarens',
+      canton: 'VD',
+      postalCode: '1815',
+      employmentType: 'FULL_TIME',
+      datePosted: '2026-09-25',
+      postedDate: '2026-09-25',
       postingDateSource: 'reported',
+      source: expect.stringContaining('JobCloud Company Page'),
+      hiringOrganization: { name: 'Clinique CIC (Saxon & Clarens)' },
     });
+    expect(jobs[0].url).toBe(DETAIL_URL);
+    expect(jobs[0].applyUrl).toContain('&utm_source=company');
+    expect(jobs[0].description).toBe(BODY);
+    expect(jobs[0].description.split(/\s+/)).toHaveLength(31);
   });
 
-  it('propagates an exhausted anti-bot fence when the direct mask and every Jina rescue remain challenged', async () => {
-    const challengedMask = `${AKAMAI_CHALLENGE}${MASK_HTML}`;
-    const fetchMock = vi.fn(async (url: string) => {
-      if (url === MASK_URL) {
-        return {
-          ...response(''),
-          arrayBuffer: async () => new TextEncoder().encode(challengedMask).buffer,
-        };
-      }
-      if (url.startsWith('https://r.jina.ai/')) return response(challengedMask.padEnd(240, ' '));
-      if (url === DETAIL_URL) return response(DETAIL_HTML);
-      throw new Error(`unexpected fetch: ${url}`);
-    });
-    global.fetch = fetchMock as typeof fetch;
+  it('stamps a zero only when every discovered detail is an explicit placeholder', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      const target = String(input);
+      if (target === LISTING_URL) return response(listingHtml([PLACEHOLDER_SAXON_URL, PLACEHOLDER_CLARENS_URL]));
+      return response(detailHtml({ title: 'Offres spontanées' }));
+    }));
 
-    await expect(fetchAllCicJobs()).rejects.toMatchObject({
-      message: expect.stringMatching(/Unrecovered anti-bot challenge/),
-      antiBotExhausted: true,
-    });
-    expect(fetchMock.mock.calls.filter(([url]) => url === DETAIL_URL)).toHaveLength(0);
-    expect(fetchMock.mock.calls.filter(([url]) => url.startsWith('https://r.jina.ai/')).length).toBeGreaterThan(0);
+    const jobs = await fetchAllCicJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('does not turn an unreadable listing into a proven empty snapshot', async () => {
+    const html = '<html><body><div id="job-list">markup changed</div></body></html>';
+    expect(isJobCloudListingProvenEmpty(html)).toBe(false);
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      if (String(input) === LISTING_URL) return response(html);
+      throw new Error(`unexpected URL ${input}`);
+    }));
+
+    const jobs = await fetchAllCicJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('throws when every discovered detail fetch fails instead of publishing a zero', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      if (String(input) === LISTING_URL) return response(listingHtml([DETAIL_URL]), 200);
+      return response('', 503);
+    }));
+
+    await expect(fetchAllCicJobs()).rejects.toThrow(/HTTP 503/);
   });
 });
