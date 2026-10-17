@@ -13397,6 +13397,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-orabasta-famiglie.title': 'Como, hundreds at the #OraBasta demonstration',
     'blog.article.como-orabasta-famiglie.excerpt': 'Hundreds took part in the #OraBasta demonstration.',
     'blog.article.como-orabasta-famiglie.imageAlt': 'Parents, grandparents and citizens at the #OraBasta demonstration on Como lakefront',
+    'blog.article.credito-imposta-famiglia-2026.title': '2026 tax credit for border workers with children',
+    'blog.article.credito-imposta-famiglia-2026.excerpt': 'Guide to the calculation and compilation of the EC framework for families of border workers: IRPEF 2026 rates and double taxation management.',
+    'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Panoramic view of Lugano and the lake',
 };
 
 export default blogMetaEn;

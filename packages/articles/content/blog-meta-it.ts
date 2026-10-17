@@ -13398,6 +13398,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-orabasta-famiglie.title': 'Como, centinaia alla manifestazione #OraBasta',
     'blog.article.como-orabasta-famiglie.excerpt': 'Centinaia hanno partecipato alla manifestazione #OraBasta.',
     'blog.article.como-orabasta-famiglie.imageAlt': 'Manifestazione #OraBasta sul lungolago di Como con genitori, nonni e cittadini',
+    'blog.article.credito-imposta-famiglia-2026.title': 'Credito d\'imposta 2026 per frontalieri con figli',
+    'blog.article.credito-imposta-famiglia-2026.excerpt': 'Guida al calcolo e alla compilazione del quadro CE per le famiglie di frontalieri: aliquote IRPEF 2026 e gestione doppia imposizione.',
+    'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Vista panoramica di Lugano e del lago',
 };
 
 export default blogMetaIt;

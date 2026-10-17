@@ -110744,6 +110744,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-imposta-famiglia-2026': {
+    title: 'Credito d\'imposta 2026 per frontalieri con figli',
+    description: 'Guida al credito d\'imposta 2026 per frontalieri con figli: calcolo quadro CE, aliquote IRPEF 23%-43% e differenze tra vecchi e nuovi frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, figli, calcolo',
+    ogTitle: 'Credito d\'imposta 2026 per frontalieri con figli',
+    ogDescription: 'Scopri come calcolare il credito d\'imposta nel 2026 per i frontalieri con figli. Analisi delle nuove aliquote IRPEF e guida alla compilazione del quadro CE.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-famiglia-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta 2026 per frontalieri con figli",
+      "description": "Guida al credito d'imposta 2026 per frontalieri con figli: calcolo quadro CE, aliquote IRPEF 23%-43% e differenze tra vecchi e nuovi frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-credito-imposta-famiglia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del lago"
+      },
+      "datePublished": "2026-10-17T10:49:11+00:00",
+      "dateModified": "2026-10-17T10:49:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-famiglia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

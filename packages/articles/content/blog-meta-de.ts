@@ -13396,6 +13396,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-orabasta-famiglie.title': 'Como, Hunderte bei der Kundgebung #OraBasta',
     'blog.article.como-orabasta-famiglie.excerpt': 'Hunderte nahmen an der Kundgebung #OraBasta teil.',
     'blog.article.como-orabasta-famiglie.imageAlt': 'Demonstration #OraBasta am Comer See mit Eltern, Grosseltern und Bürgern (Como)',
+    'blog.article.credito-imposta-famiglia-2026.title': 'Steuergutschrift 2026 für Grenzgänger mit Kindern',
+    'blog.article.credito-imposta-famiglia-2026.excerpt': 'Leitfaden zur Berechnung und Erstellung des EG-Rahmens für Familien von Grenzgängern: IRPEF-Sätze 2026 und Verwaltung der Doppelbesteuerung.',
+    'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Panoramablick auf Lugano und den See',
 };
 
 export default blogMetaDe;

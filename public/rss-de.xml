@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Sat, 17 Oct 2026 10:17:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 10:49:11 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -17,6 +17,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Steuergutschrift 2026 für Grenzgänger mit Kindern</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/steuerguthaben-familie-2026/</link>
+      <description><![CDATA[Leitfaden zur Berechnung und Erstellung des EG-Rahmens für Familien von Grenzgängern: IRPEF-Sätze 2026 und Verwaltung der Doppelbesteuerung.]]></description>
+      <content:encoded><![CDATA[## In Kürze
+- Quellensteuer nur in der Schweiz einbehalten
+- IRPEF 2026: 23% bis 28.000€, 33% bis 50.000€, 43% darüber
+- Steuergutschrift über das Feld CE des Modells 730 verwaltet
+- Neues Grenzgängerabkommen seit dem 1. Januar 2024 in Kraft
+
+## Kernfakten
+- Grenzgängerabkommen: in Kraft seit 01.01.2024
+- IT-Ratifikation: Gesetz 83 vom 13.06.2023
+- IRPEF 2026 (Stufen): 23% / 33% / 43%
+- Doppelbesteuerungsabkommen: 09.03.1976
+- Freibetrag für neue Grenzgänger: 10.000€
+- Befreiung für alte Grenzgänger: 7.500€
+
+Die Quellensteuer auf das Erwerbseinkommen für Grenzgänger wird ausschließlich in der Schweiz einbehalten. Um zu verhindern, dass dasselbe Einkommen doppelt besteuert wird, wendet Italien den Mechanismus der Steuergutschrift an, der technisch über das Feld CE der Steuererklärung (Modell 730) abgewickelt wird. Dieses System ermöglicht es, die im Ausland gezahlte Steuer mit der in Italien geschuldeten Steuer zu verrechnen.
+
+### Der rechtliche Rahmen und das Grenzgängerabkommen
+Das aktuelle Regime wird durch das Neue Grenzgängerabkommen geregelt, das am 23. Dezember 2020 unterzeichnet wurde und nach der italienischen Ratifikation durch das Gesetz 83 vom 13. Juni 2023 am 1. Januar 2024 in Kraft getreten ist. Parallel dazu bleibt das Abkommen zur Vermeidung der Doppelbesteuerung zwischen Italien und der Schweiz vom 9. März 1976 gültig. Es ist wichtig zu beachten, dass die Schweiz weder Mitglied der Europäischen Union noch des Europäischen Wirtschaftsraums (EWR) ist.
+
+Die Unterscheidung zwischen den Arbeiterkategorien ist klar. Die alten Grenzgänger, also diejenigen, die diesen Status bereits vor dem 17. Juli 2023 erworben hatten, profitieren von einer Befreiung in Höhe von 7.500€ und einer Übergangsregelung, die von 2024 bis 2033 gilt. Im Gegensatz dazu haben neue Grenzgänger Anspruch auf einen Freibetrag von 10.000€. Beide Kategorien müssen die Steuergutschrift korrekt verwalten, um die Gesamtsteuerlast zu optimieren, insbesondere bei Familienlasten, die die Ermittlung des steuerpflichtigen Einkommens in Italien beeinflussen.
+## Analyse der steuerlichen Auswirkungen für Familien
+Die Verwaltung der Steuergutschrift für einen Grenzgänger mit Kindern erfordert eine sorgfältige Analyse der für 2026 vorgesehenen IRPEF-Sätze. Nach dem Gesetz 199/2025 (Art. 1 Abs. 3) wird die IRPEF für das Jahr 2026 mit einem Satz von 23% für Einkommen bis zu 28.000 €, 33% für die Spanne zwischen 28.001 € und 50.000 € und 43% für Einkommen über 50.000 € strukturiert. Dies unterscheidet sich vom Einkommensregime 2024-2025, wo die Sätze auf 23%, 35% und 43% festgelegt wurden.
+
+### Hypothetische Berechnungsszenarien
+Um zu verstehen, wie die Steuergutschrift funktioniert, können zwei hypothetische Szenarien in Betracht gezogen werden. Im ersten Fall könnte ein Grenzgänger mit mittlerem Einkommen und unterhaltsberechtigten Kindern feststellen, dass die in der Schweiz gezahlte Quellensteuer höher oder niedriger ist als die italienische Einkommensteuer, die auf dasselbe Einkommen berechnet wird. Wenn die Schweizer Steuer höher ist, wird die in Italien geschuldete Steuer durch die Steuergutschrift auf Null gesetzt, aber es wird keine Rückerstattung des überschüssigen Betrags durch das Finanzamt generiert.
+
+In einem zweiten Szenario unterliegt ein Grenzgänger mit hohem Einkommen (über 50.000 €) dem IRPEF-Satz von 43%. In diesem Fall ist es wahrscheinlicher, dass die in Italien geschuldete Steuer die Quellensteuer in der Schweiz übersteigt. Die Familie muss daher die Differenz an die italienische Staatskasse zahlen, trotz der im EG-Rahmen angewandten Steuergutschrift.
+
+Die endgültige Berechnung wird auch durch die in der Schweiz gezahlten Beiträge beeinflusst, welche die AHV/IV/EO zu 5.3% zu Lasten des Arbeitnehmers, die Arbeitslosenversicherung (ALV/KV) zu 1.1% (mit einer PLZ von 148.200 CHF) und die berufliche Vorsorge BVG beinhalten, die je nach Altersgruppe ab 25 Jahren zwischen 7% und 18% variiert. Hinzu kommt das UVG zwischen 0.7% und 1.5%.
+## Operatives Verfahren zur Deklaration
+Um die Steuergutschrift korrekt zu erhalten, muss der Grenzgänger beim Ausfüllen der italienischen Steuererklärung ein strenges Verfahren befolgen. Der Hauptvorgang erfolgt im EG-Rahmen des Vordrucks 730, wobei die in der Schweiz erzielten Erträge und die an der Quelle gezahlten Steuern anzugeben sind.
+
+### Checkliste zum Ausfüllen
+- Einholung der Schweizer Lohnausweise für das Bezugsjahr.
+- Berechnung des steuerpflichtigen Einkommens abzüglich der Selbstbehalte (7.500 € für alte Grenzgänger, 10.000 € für neue).
+- Angabe der an die kantonalen Steuerverwaltungen oder die ESTV entrichteten Quellensteuer.
+- Eingabe der Daten in den EG-Rahmen für die Anwendung der Steuergutschrift.
+- Überprüfung der in den italienischen Rechtsvorschriften vorgesehenen Abzüge für unterhaltsberechtigte Kinder.
+
+Es ist von grundlegender Bedeutung, dass die Steuerdaten von den zuständigen Stellen verwaltet werden: der ESTV/ESFC auf Bundesebene und den kantonalen Verwaltungen auf lokaler Ebene. Stellen wie das BAG oder das Bundesamt für Statistik (BfS) sind für die Festlegung der Steuersätze nicht zuständig.
+
+Für diejenigen, die auch die Krankenversicherung verwalten müssen, haben Grenzgänger mit G-Bewilligung das Optionsrecht für das KVG, wobei die Franchisen für Erwachsene zwischen 300 und 2.500 CHF liegen. Der richtige Umgang mit diesen Kosten ist zusammen mit den AHV- und BVG-Beiträgen für eine solide Familienfinanzplanung unerlässlich.
+
+Um die Auswirkungen der neuen IRPEF-Sätze 2026 auf Ihr Nettogehalt zu simulieren, können Sie den calcolatore FISCALE verwenden.]]></content:encoded>
+      <pubDate>Sat, 17 Oct 2026 10:49:11 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/credito-imposta-famiglia-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-credito-imposta-famiglia-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Como, Hunderte bei der Kundgebung #OraBasta</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/como-familien-demo/</link>
@@ -3312,48 +3366,6 @@ Das Programm der sechsten Ausgabe präsentiert sich somit in Form eines Doppelte
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/saronno-piccole-stelle-softball</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-saronno-piccole-stelle-softball.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Verkehrspolizei: das Durchschneiden des Bandes in Sala Comacina</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/polizeiposten-sala-comacina/</link>
-      <description><![CDATA[Zeremonie am Freitag, 16. (Sala Comacina)]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Zeremonie am Freitag, 16. Oktober, um 11 Uhr
-- Außenstelle der Verkehrspolizei in Sala Comacina
-- Erwartet werden Salvini, Piantedosi, Molteni und Pisani
-- Bürgermeister Roberto Greppi ist anwesend
-
-## Wichtige Fakten
-- Was → Einweihung der Dienststelle der Verkehrspolizei
-- Wann → Freitag, 16. Oktober um 11 Uhr
-- Wo → Sala Comacina, am Comer See
-- Behörden → Matteo Salvini, Matteo Piantedosi, Nicola Molteni und Vittorio Pisani
-- Gemeinde → Bürgermeister Roberto Greppi, weitere Bürgermeister und lokale Behörden
-
-Am Freitag, dem 16. Oktober, um 11 Uhr findet in Sala Comacina die Einweihungszeremonie der Dienststelle der Verkehrspolizei am Comer See statt. Im Mittelpunkt der Veranstaltung steht das Durchschneiden des Bandes, an dem Vertreter nationaler und lokaler Institutionen teilnehmen werden.
-
-Unter den angekündigten Teilnehmern ist Matteo Salvini, stellvertretender Ministerpräsident und Minister für Infrastruktur und Verkehr. Mit ihm werden Matteo Piantedosi, Innenminister, Nicola Molteni, Staatssekretär im Innenministerium, und Vittorio Pisani, Polizeichef, anwesend sein.
-
-Für die Gemeinde wird Roberto Greppi, Bürgermeister von Sala Comacina, anwesend sein. An der Zeremonie werden außerdem zahlreiche weitere Bürgermeister und Vertreter der lokalen Behörden teilnehmen. Die Zusammensetzung der Anwesenden ergibt sich aus den jeweiligen Ämtern: Beim Durchschneiden des Bandes werden der Minister für Infrastruktur und Verkehr, der zugleich das Amt des stellvertretenden Ministerpräsidenten bekleidet, der Innenminister, der Staatssekretär im Innenministerium und der Polizeichef zusammen mit dem Bürgermeister, den weiteren Bürgermeistern und den Vertretern der lokalen Behörden anwesend sein. Die Ankündigung legt somit Ort und Uhrzeit der Einweihung fest: Sala Comacina, am Comer See, Freitag, 16. Oktober um 11 Uhr.
-Die Bedeutung, die der Einweihung beigemessen wird, geht auf Nicola Molteni, Unterstaatssekretär im Innenministerium, zurück, der die Veranstaltung mit der Sicherheit des Gebiets am Comer See verknüpft. Seine Erklärung spricht von einer grundlegenden Wende und bezeichnet die Außenstelle als strategischen Stützpunkt. Molteni stellt sie außerdem als ein historisches, seit Jahren erwartetes Vorhaben dar.
-
-Unterstaatssekretär Molteni betrachtet die Veranstaltung als einen entscheidenden Schritt zum Schutz des Gebiets am Comer See und beschreibt die Außenstelle als einen strategischen Stützpunkt, ein seit Jahren erwartetes historisches Vorhaben. Seiner Einschätzung zufolge wird die Einrichtung den Beamten eine stabile und kontinuierliche Präsenz gewährleisten und die Kontrollen noch wirksamer machen.
-
-Der konkreteste Teil der Erklärung betrifft die Beamten. Die Struktur wird laut dem Unterstaatssekretär eine stabile und kontinuierliche Präsenz der Beamten gewährleisten und die Kontrollen noch wirksamer machen. Die Quelle schreibt der neuen Außenstelle daher zwei ausdrücklich genannte Funktionen zu: die Sicherheit des Gebiets zu stärken und eine stabile Präsenz sicherzustellen. Der Hinweis auf die Präsenz der Beamten und die Wirksamkeit der Kontrollen begleitet die Beschreibung des Vorhabens als strategisch und seit Jahren erwartet.
-### Der nächste Termin
-
-Der von der Quelle angegebene nächste Schritt ist die in Sala Comacina angesetzte Zeremonie. Die Veranstaltung findet am Freitag, 16. Oktober, um 11 Uhr statt und wird sich auf das Durchschneiden des Bandes zur Eröffnung der Außenstelle der Verkehrspolizei konzentrieren. Dies ist der nächste öffentliche Schritt, der für die Einrichtung am Comer See angekündigt wurde.
-
-An diesem Tag werden die in der Ankündigung genannten Vertreter zusammenkommen: Matteo Salvini, Matteo Piantedosi, Nicola Molteni und Vittorio Pisani sowie Bürgermeister Roberto Greppi, die anderen Bürgermeister und die lokalen Behörden. Sie nehmen am Eröffnungsakt in folgenden Funktionen teil: Vizepräsident des Ministerrats und Minister für Infrastruktur und Verkehr, Innenminister, Unterstaatssekretär im Innenministerium und Polizeichef.
-
-Bei der neuen Außenstelle bezieht sich die von Molteni genannte Funktion auf die Sicherheit des Gebiets am Comer See. Der Stützpunkt soll eine stabile und kontinuierliche Präsenz der Beamten gewährleisten und die Wirksamkeit der Kontrollen stärken. Der weitere Verlauf der Nachricht bleibt daher mit der Zeremonie und den vom Unterstaatssekretär genannten Zielen verbunden.
-
-*Quelle: [comozero.it](https://comozero.it/attualita/sul-lago-di-como-il-nuovo-distaccamento-della-polizia-stradale-arrivano-due-ministri-e-il-capo-della-polizia/)*]]></content:encoded>
-      <pubDate>Thu, 15 Oct 2026 16:45:03 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/inaugurazione-sala-comacina-polizia</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-inaugurazione-sala-comacina-polizia.webp" medium="image"/>
     </item>
   </channel>
 </rss>
