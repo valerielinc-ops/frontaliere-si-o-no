@@ -2841,6 +2841,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'udc-no-iva-13esima-avs': { it: 'udc-no-iva-13esima-avs', en: 'udc-rejects-vat-hike-to-fund-13th-avs-pension-vote-nov-29', de: 'svp-lehnt-mehrwertsteuer-erhohung-fur-13-ahv-rente-ab', fr: 'l-udc-dit-non-a-la-hausse-de-tva-pour-financer-la-13e-avs' },
  'ps-iniziativa-violenza-genero': { it: 'ps-iniziativa-violenza-genero', en: 'ps-initiative-against-gender-violence', de: 'ps-initiative-gegen-geschlechtsspezifische-gewalt', fr: 'initiative-ps-contre-violence-genre' },
  'big-tech-franchi-bolla-ia': { it: 'big-tech-franchi-bolla-ia', en: 'big-tech-swiss-francs-ai-bubble', de: 'big-tech-schweizer-franken-ki-blase', fr: 'big-tech-francs-suisses-bulle-ia' },
+ 'svizzera-vietnam-relazioni-2026': { it: 'svizzera-vietnam-relazioni-2026', en: 'switzerland-vietnam-relations-2026', de: 'schweiz-vietnam-beziehungen-2026', fr: 'suisse-vietnam-relations-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

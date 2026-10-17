@@ -8456,6 +8456,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.title': 'Big Tech emettono obbligazioni in franchi per data center',
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'I giganti tecnologici Usa emettono obbligazioni in franchi svizzeri per finanziare data center.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Vista urbana svizzera con uffici e infrastrutture tecnologiche legate alla finanza.',
+    'blog.article.svizzera-vietnam-relazioni-2026.title': 'Svizzera e Vietnam intensificano commercio e investimenti',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Vista del lago di Lugano con le Alpi sullo sfondo, simbolo della cooperazione Svizzera-Vietnam sul commercio e gli investimenti.',
 };
 
 export default blogMetaChIt;
