@@ -110505,6 +110505,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-film-festival-diritti-umani-lugano-2026': {
+    title: 'Film festival diritti umani Lugano: il miglior film è promised spaces',
+    description: 'Vincitore Miglior film: Promised Spaces di Ivan Markovic Premio ONG assegnato a Effondrement di Anat Even Premio del Pubblico a Trop c\'est trop di Elisé',
+    keywords: 'frontalieri, ticino, svizzera, italia, film, festival, diritti, umani',
+    ogTitle: 'Film Festival Diritti Umani Lugano: il Miglior film è Promised Spaces',
+    ogDescription: 'Vincitore Miglior film: Promised Spaces di Ivan Markovic Premio ONG assegnato a Effondrement di Anat Even Premio del Pubblico a Trop c\'est trop di Elisé',
+    canonicalPath: '/articoli-frontaliere/film-festival-diritti-umani-lugano-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Film festival diritti umani Lugano: il miglior film è promised spaces",
+      "description": "Vincitore Miglior film: Promised Spaces di Ivan Markovic Premio ONG assegnato a Effondrement di Anat Even Premio del Pubblico a Trop c'est trop di Elisé",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-film-festival-diritti-umani-lugano-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Film Festival Diritti Umani Lugano: premiazione e proiezioni"
+      },
+      "datePublished": "2026-10-17T03:41:57+00:00",
+      "dateModified": "2026-10-17T03:41:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/film-festival-diritti-umani-lugano-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

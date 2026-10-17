@@ -13377,6 +13377,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.viaggi-armonici-ternate-2026.title': 'In Ternate, the 2026 Viaggi Armonici exhibition kicks off',
     'blog.article.viaggi-armonici-ternate-2026.excerpt': '24 October, 9 pm: first concert at Ternate "Between heaven and earth" with the Duo Resonance Free entrance and music by Roberto Carnaghi → "Viaggi Armonici" Festival',
     'blog.article.viaggi-armonici-ternate-2026.imageAlt': 'Ternate Parish Church for the Viaggi Armonici 2026 concert',
+    'blog.article.film-festival-diritti-umani-lugano-2026.title': 'Lugano human rights film festival: the best film is promised spaces',
+    'blog.article.film-festival-diritti-umani-lugano-2026.excerpt': 'Best Film Winner: Ivan Markovic\'s Promised Spaces NGO Award for Effondrement of Anat Even Audience Award for Trop c \'est trop by Elisé',
+    'blog.article.film-festival-diritti-umani-lugano-2026.imageAlt': 'Lugano Human Rights Film Festival: awards and screenings',
 };
 
 export default blogMetaEn;

@@ -45146,6 +45146,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'film-festival-diritti-umani-lugano-2026',
+ category: 'novita',
+ date: '2026-10-17T03:41:57.400Z',
+ image: '/images/blog/article-film-festival-diritti-umani-lugano-2026.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

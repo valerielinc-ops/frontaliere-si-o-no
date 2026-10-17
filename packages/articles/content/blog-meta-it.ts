@@ -13378,6 +13378,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.viaggi-armonici-ternate-2026.title': 'A Ternate al via la rassegna Viaggi Armonici 2026',
     'blog.article.viaggi-armonici-ternate-2026.excerpt': '24 ottobre, ore 21: primo concerto a Ternate «Tra cielo e terra» con il Duo Resonance Ingresso libero e musiche di Roberto Carnaghi Rassegna → «Viaggi Armonici',
     'blog.article.viaggi-armonici-ternate-2026.imageAlt': 'Chiesa Parrocchiale di Ternate per il concerto Viaggi Armonici 2026',
+    'blog.article.film-festival-diritti-umani-lugano-2026.title': 'Film festival diritti umani Lugano: il miglior film è promised spaces',
+    'blog.article.film-festival-diritti-umani-lugano-2026.excerpt': 'Vincitore Miglior film: Promised Spaces di Ivan Markovic Premio ONG assegnato a Effondrement di Anat Even Premio del Pubblico a Trop c\'est trop di Elisé',
+    'blog.article.film-festival-diritti-umani-lugano-2026.imageAlt': 'Film Festival Diritti Umani Lugano: premiazione e proiezioni',
 };
 
 export default blogMetaIt;
