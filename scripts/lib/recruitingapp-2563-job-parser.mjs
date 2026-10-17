@@ -57,7 +57,7 @@ export function extractRecruitingapp2563TitleLocation(title = '') {
   if (!match) return null;
   const location = normalizeSpace(match[1]);
   const candidate = { location, addressLocality: location, addressCountry: 'CH' };
-  return resolveSourceBackedSwissGeography(candidate)
+  return resolveDetailOrListingSwissGeography({}, candidate).geography
     ? candidate
     : null;
 }
