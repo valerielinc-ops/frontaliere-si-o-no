@@ -284,6 +284,9 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
             /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
@@ -346,6 +349,9 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
             /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
@@ -418,6 +424,9 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
             /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
@@ -491,6 +500,9 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
             /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
@@ -559,6 +571,9 @@ jobs:
           # shared article registry; materialize that closure explicitly.
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
             /build-plugins/shared/companyCantonBridgeMarker.mjs
             /scripts/lib/canonicalExemptions.mjs

@@ -1,7 +1,7 @@
 {
   "key": "avaloq",
   "label": "Avaloq",
-  "generatedAt": "2026-10-16T21:27:13.275Z",
+  "generatedAt": "2026-10-17T09:36:26.198Z",
   "total": 28,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 26,
-  "durationMs": 13802,
-  "avgDurationMs": 13802,
+  "durationMs": 14482,
+  "avgDurationMs": 14482,
   "durationHistory": [
-    13802
+    14482
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -542,47 +542,6 @@
       }
     },
     {
-      "title": "Technical Business Analyst - Portfolio Management Team",
-      "slug": "technical-business-analyst-portfolio-management-team-avaloq-bioggio",
-      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000150949470-technical-business-analyst-portfolio-management-team-",
-      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000150949470-technical-business-analyst-portfolio-management-team-?oga=true",
-      "company": "Avaloq",
-      "companyKey": "avaloq",
-      "companyDomain": "avaloq.com",
-      "location": "Bioggio",
-      "addressLocality": "Bioggio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6934",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "avaloq-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-22T07:24:12.136Z",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "avaloq-81954ca6632b",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-09-23T23:46:16.564Z",
-      "sourceIdentity": "url:https://www.avaloq.com/careers/job-openings/744000150949470",
-      "datePosted": "2026-09-22T07:24:12.136Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Internship in Banking Operations - Corporate Actions Pre-Processing (6-month fixed-term contract)",
       "slug": "internship-in-operazioni-bancarie-azioni-aziendali-pre-processsing-6-mesi-contratto-a-tempo-determinato-avaloq-bioggio",
       "url": "https://jobs.smartrecruiters.com/Avaloq1/744000151048879-internship-in-banking-operations-corporate-actions-pre-processing-6-month-fixed-term-contract-",
@@ -619,6 +578,47 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Technical Business Analyst - Portfolio Management Team",
+      "slug": "technical-business-analyst-portfolio-management-team-avaloq-bioggio",
+      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000150949470-technical-business-analyst-portfolio-management-team-",
+      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000150949470-technical-business-analyst-portfolio-management-team-?oga=true",
+      "company": "Avaloq",
+      "companyKey": "avaloq",
+      "companyDomain": "avaloq.com",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6934",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "avaloq-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-22T07:24:12.136Z",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "avaloq-81954ca6632b",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Industria 1",
+      "firstSeenAt": "2026-09-23T23:46:16.564Z",
+      "sourceIdentity": "url:https://www.avaloq.com/careers/job-openings/744000150949470",
+      "datePosted": "2026-09-22T07:24:12.136Z",
+      "postingDateSource": "reported",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1154,5 +1154,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

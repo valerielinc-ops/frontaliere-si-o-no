@@ -64,12 +64,17 @@ osservato. Il contatore token/quota del piano OAuth non è esposto dalla
 CLI/broker: non viene inventato, viene indicato esplicitamente come non
 osservabile.
 
-Il passaggio tra workflow usa un artifact cifrato con la chiave già protetta
-`CODEX_AUTH_JSON`: il JSONL leggibile esiste solo nel filesystem temporaneo del
+Il passaggio tra workflow usa un artifact cifrato con la chiave stabile
+`EVENT_DESCRIPTION_ARTIFACT_KEY`, assicurata in Remote Config con il contratto
+ETag degli altri secret CI. Non usa `CODEX_AUTH_JSON`: quel login ruota per
+ragioni di autenticazione Codex e non può cifrare dati che devono attraversare
+run diverse. Il JSONL leggibile esiste solo nel filesystem temporaneo del
 runner crawler e, dopo la decifrazione, nel filesystem temporaneo del runner
 Luna. L’artifact non contiene testo in chiaro e non viene mai pubblicato sul
-CDN. L’export iniziale e gli eventuali record rimasti senza crawl incrementale
-sono nel solo oggetto Admin-SDK
+CDN. Ogni artifact porta anche un marker non sensibile di formato; gli artifact
+precedenti alla chiave stabile vengono saltati durante la migrazione invece di
+essere decifrati con una passphrase non correlata. L’export iniziale e gli
+eventuali record rimasti senza crawl incrementale sono nel solo oggetto Admin-SDK
 `private-event-description-sources/backlog.jsonl` del bucket Firebase; le
 regole Storage negano ogni accesso client e il workflow lo legge in un file
 temporaneo con permessi 0600.

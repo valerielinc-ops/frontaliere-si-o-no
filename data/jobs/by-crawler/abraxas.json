@@ -961,7 +961,7 @@
       "id": "abraxas-477adaf7fde0",
       "slug": "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen-7407f610c0",
       "slugByLocale": {
-        "it": "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen-7407f610c0",
+        "it": "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen",
         "en": "it-operations-engineer-engineer-cities-municipalities-80-100-abraxas-informatik-ag-st-gallen",
         "de": "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
         "fr": "ingenieur-des-operations-informatiques-ingenieur-villes-et-municipalites-80-100-abraxas-informatik-ag-st-gallen"
@@ -1013,13 +1013,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
-        "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
+        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
-          "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
+          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-24T14:26:18.515Z",
@@ -1523,7 +1521,7 @@
       "slugByLocale": {
         "de": "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
         "it": "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen-78e9a07983",
-        "en": "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
+        "en": "it-operations-engineer-engineer-cities-municipalities-80-100-abraxas-informatik-ag-st-gallen-0faec0",
         "fr": "ingenieur-des-operations-informatiques-ingenieur-villes-et-municipalites-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -1575,12 +1573,19 @@
       "previousSlugsByLocale": {
         "it": [
           "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
-          "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
+          "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen",
+          "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen-7407f610c0"
+        ],
+        "en": [
+          "it-operations-engineer-engineer-cities-municipalities-80-100-abraxas-informatik-ag-st-gallen",
+          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
         ]
       },
       "previousSlugs": [
         "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
-        "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
+        "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen",
+        "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen-7407f610c0",
+        "it-operations-engineer-engineer-cities-municipalities-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -1629,7 +1634,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-10-17T09:23:02.813Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1668,11 +1672,13 @@
       },
       "firstSeenAt": "2026-07-15T11:26:50.976Z",
       "previousSlugs": [
-        "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen"
+        "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen",
+        "consulente-abacus-bpe-rest-abareport-80-100-abraxas-informatik-ag-st-gallen-7dc7203d10"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen"
+          "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen",
+          "consulente-abacus-bpe-rest-abareport-80-100-abraxas-informatik-ag-st-gallen-7dc7203d10"
         ]
       }
     }

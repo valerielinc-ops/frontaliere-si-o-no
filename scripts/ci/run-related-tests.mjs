@@ -466,8 +466,11 @@ const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Se
 // Vitest invocation turn missing artifacts into application regressions.
 function requireFullCheckoutForVerdict() {
   const missing = missingFullCheckoutArtifacts();
-  const localInspection = selectionOnly
-    || (process.env.VITEST_RELATED_DRY_RUN === 'true' && process.env.GITHUB_ACTIONS !== 'true');
+  // --select-only is the CI scheduling probe as well as a useful local
+  // inspection seam. In Actions it is part of the blocking verdict, so it
+  // must not turn an incomplete checkout into a successful selection.
+  const localInspection = process.env.GITHUB_ACTIONS !== 'true'
+    && (selectionOnly || process.env.VITEST_RELATED_DRY_RUN === 'true');
   if (missing.length === 0 || localInspection) return;
   console.error('BLOCKED: related-test verdict requires a full checkout; generated runtime artifacts are missing.');
   console.error(`  Artefacts mancanti: ${missing.join(', ')}`);

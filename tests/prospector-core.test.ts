@@ -2071,6 +2071,12 @@ describe('promotion gate', () => {
     // Ordine deterministico: frequenza decrescente, poi nome.
     expect(Object.keys(d.failedChecks)).toEqual(['score', 'contentful', 'days', 'logo', 'runs']);
     expect(d.unattributed).toEqual([]);
+    expect(d.candidateFailures).toEqual([
+      { key: 'low-a', failedChecks: ['score'] },
+      { key: 'low-b', failedChecks: ['score', 'logo'] },
+      { key: 'mixed', failedChecks: ['runs', 'days', 'contentful'] },
+      { key: 'waiting', failedChecks: ['runs', 'days'] },
+    ]);
     // Coerente con la partizione gia' esistente.
     expect({ stabilityOnly: d.stabilityOnly, other: d.other }).toEqual(summarizePromotionBlocks(blocked));
   });
@@ -2086,6 +2092,12 @@ describe('promotion gate', () => {
     expect(d.other).toBe(3);
     expect(d.unattributed).toEqual(['no-checks', 'no-reason']);
     expect(d.stabilityOnlyKeys).toEqual(['wait']);
+    expect(d.candidateFailures).toEqual([
+      { key: 'no-checks', failedChecks: [] },
+      { key: 'no-reason', failedChecks: ['score'] },
+      { key: 'ok', failedChecks: ['score'] },
+      { key: 'wait', failedChecks: ['runs'] },
+    ]);
   });
 
   it('ships the biggest inventory first', () => {

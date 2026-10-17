@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonarsource",
-  "assembledAt": "2026-10-16T21:23:19.204Z",
+  "assembledAt": "2026-10-17T09:36:58.101Z",
   "jobs": [
     {
       "id": "sonarsource-a72b0b5febdf",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:09.976Z",
+      "crawledAt": "2026-10-17T09:36:42.741Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:09.674Z",
+      "crawledAt": "2026-10-17T09:36:42.439Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +203,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:09.371Z",
+      "crawledAt": "2026-10-17T09:36:42.138Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -276,7 +276,7 @@
       "url": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:09.070Z",
+      "crawledAt": "2026-10-17T09:36:41.837Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -330,10 +330,10 @@
     },
     {
       "id": "sonarsource-f7f48473c6ed",
-      "slug": "staff-software-ingegnere-java-sonarsource-sonar-geneva",
+      "slug": "staff-software-ingegnere-java-sonarsource-sonar-geneva-00cb9c4cd5",
       "slugByLocale": {
-        "it": "staff-software-ingegnere-java-sonarsource-sonar-geneva",
-        "en": "staff-software-engineer-java-sonarsource-ch-ilk90t",
+        "it": "staff-software-ingegnere-java-sonarsource-sonar-geneva-00cb9c4cd5",
+        "en": "staff-software-engineer-java-sonarsource-ch",
         "de": "staff-software-ingenieur-java-sonarsource-sonar-geneva",
         "fr": "staff-software-ingenieur-java-sonarsource-sonar-geneva"
       },
@@ -359,7 +359,7 @@
       "url": "https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:08.767Z",
+      "crawledAt": "2026-10-17T09:36:41.535Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,23 +376,14 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "staff-software-engineer-java-sonarsource-ch",
-        "staff-full-stack-ingegnere-java-react-sonarsource-sonar-geneva",
-        "staff-full-stack-engineer-java-react-sonarsource-ch",
-        "staff-full-stack-ingenieur-java-react-sonarsource-sonar-geneva",
-        "full-stack-ingegnere-sonarsource-sonar-geneva",
-        "full-stack-engineer-sonarsource-ch",
-        "full-stack-ingenieur-sonarsource-sonar-geneva",
-        "graduate-software-ingegnere-sonarsource-sonar-geneva",
-        "graduate-software-engineer-sonarsource-ch",
-        "graduate-software-ingenieur-sonarsource-sonar-geneva",
-        "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
-        "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-        "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
-        "staff-software-engineer-java-identity-sonarsource-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "staff-full-stack-engineer-java-react-sonarsource-ch",
+          "graduate-software-engineer-sonarsource-ch",
+          "senior-software-engineer-java-remediation-agent-sonarsource-ch",
+          "staff-software-engineer-java-sonarsource-ch-ilk90t",
+          "staff-software-engineer-java-identity-sonarsource-ch"
+        ],
         "it": [
           "staff-software-engineer-java-sonarsource-ch",
           "staff-full-stack-ingegnere-java-react-sonarsource-sonar-geneva",
@@ -407,13 +398,8 @@
           "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
           "senior-software-engineer-java-remediation-agent-sonarsource-ch",
           "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
-          "staff-software-engineer-java-identity-sonarsource-ch"
-        ],
-        "en": [
-          "staff-full-stack-engineer-java-react-sonarsource-ch",
-          "graduate-software-engineer-sonarsource-ch",
-          "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-          "staff-software-engineer-java-sonarsource-ch"
+          "staff-software-engineer-java-identity-sonarsource-ch",
+          "staff-software-ingegnere-java-sonarsource-sonar-geneva"
         ],
         "de": [
           "staff-software-engineer-java-sonarsource-ch"
@@ -425,6 +411,24 @@
           "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
         ]
       },
+      "previousSlugs": [
+        "staff-software-engineer-java-sonarsource-ch",
+        "staff-full-stack-ingegnere-java-react-sonarsource-sonar-geneva",
+        "staff-full-stack-engineer-java-react-sonarsource-ch",
+        "staff-full-stack-ingenieur-java-react-sonarsource-sonar-geneva",
+        "full-stack-ingegnere-sonarsource-sonar-geneva",
+        "full-stack-engineer-sonarsource-ch",
+        "full-stack-ingenieur-sonarsource-sonar-geneva",
+        "graduate-software-ingegnere-sonarsource-sonar-geneva",
+        "graduate-software-engineer-sonarsource-ch",
+        "graduate-software-ingenieur-sonarsource-sonar-geneva",
+        "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
+        "senior-software-engineer-java-remediation-agent-sonarsource-ch",
+        "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
+        "staff-software-engineer-java-identity-sonarsource-ch",
+        "staff-software-engineer-java-sonarsource-ch-ilk90t",
+        "staff-software-ingegnere-java-sonarsource-sonar-geneva"
+      ],
       "firstSeenAt": "2026-08-12T22:16:07.537Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -444,36 +448,36 @@
     },
     {
       "id": "sonarsource-d6870a74ad01",
-      "slug": "staff-software-engineer-java-sonarsource-ch",
+      "slug": "staff-software-ingegnere-java-sonarsource-sonar-geneva-b07502fa42",
       "slugByLocale": {
+        "it": "staff-software-ingegnere-java-sonarsource-sonar-geneva-b07502fa42",
         "en": "staff-software-engineer-java-sonarsource-ch",
-        "it": "staff-software-engineer-java-sonarsource-ch",
-        "de": "staff-software-engineer-java-sonarsource-ch",
-        "fr": "staff-software-engineer-java-sonarsource-ch"
+        "de": "staff-software-ingenieur-java-sonarsource-sonar-geneva",
+        "fr": "staff-software-ingenieur-java-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
       "companyDomain": "sonarsource.com",
       "title": "Staff Software Engineer (Java)",
       "titleByLocale": {
-        "en": "Staff Software Engineer (Java)",
         "it": "Staff Software Ingegnere (Java)",
+        "en": "Staff Software Engineer (Java)",
         "de": "Staff Software Ingenieur (Java)",
         "fr": "Staff Software Ingénieur (Java)"
       },
       "description": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code verification and governance, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n• SonarQube: The world’s leading AI code review and verification platform.\n\n• SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n• SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n• Committed to our customers and community.\n\n• Obsessed with quality.\n\n• Deliberate in our decisions.\n\n• Effective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n We are looking for a driven, autonomous and impactful Staff Engineer to join the Billing Squad within our StoreFront department .\n\nThe Billing squad is one of the most cross-functional and fastest growing development teams within Sonar. We enable the release of all the new products that Sonar is currently bringing to the market, both for large and small customers. The AI-native, usage-based nature of our product offering is pushing us to rethink how we develop and implement innovative pricing models. This is pushing us to our limits every day!\n\nYou will partner closely with Product Managers, Engineering Managers, and other Staff/Principal Engineers across the organization to lead the end-to-end delivery of critical billing features. You will take ownership—from initial architecture and design through to implementation and deployment—of major initiatives ensuring a frictionless yet highly secure experience for millions of developers.\n\nWhat you will do\n\n• Collaborate with UX designers, Product Management, and engineering teams to deliver robust security features alongside an optimal user experience.\n\n•\n Work cross functionally with product squads and go-to-market teams to ensure smooth release of new features and products.\n\n•\n Take strong ownership of squad deliverables and effectively drive sprints toward successful completion.\n\n•\n Architect and guide the design of our on-premises and AWS cloud applications.\n\n•\n Oversee feature deployment, production monitoring, and troubleshoot team-specific live issues.\n\n•\n Mentor engineering team members to help them grow in their technical responsibilities and remove blockers to their autonomy.\n\n•\n Contribute to the definition of the team’s short and long-term goals.\n\nExperience and qualifications\n\n•\n Over 6 years of software engineering experience, including working as a Tech Lead, Staff Engineer, or Software Architect.\n\n•\n Proven ability to take initiative and bring a subject involving several stakeholders and engineers to completion with little to no supervision.\n\n•\n Proficiency in working with and steering AI coding tools (Codex, Claude, etc).\n\n•\n Experience supporting and mentoring other team members.\n\n•\n Proficiency with Java coupled with a strong passion for Clean Code and rigorous software quality standards.\n\n•\n Experience architecting cloud-native applications.\n\n•\n Experience with relational RDBMS (such as Postgres) and SQL.\n\n•\n Domain expertise with billing and payment processing systems (we use Stripe) and/or general experience with subscription management is highly desirable.\n\nIn-office culture\n\nWe're intentional about this. We believe the best teams are built in the room together. Three anchor days — Mondays, Tuesdays, and Thursdays — create the collaboration rhythm that makes a hub office worth having.\n\nCandidates need to be genuinely based in the location the role is posted — if that's not where you are today, we're happy to support relocation for the right person.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
       "descriptionByLocale": {
+        "it": "Chi è Sonar?\n\nSonar sta guidando il futuro dello sviluppo software agente-centrico. Come leader nella verifica e nella governance del codice AI, risolviamo un problema critico: garantire che il software generato da sviluppatori assistiti da AI o agenti autonomi sia affidabile, sicuro e manutenbile.\n\nIntegrando senza soluzione di continuità con Claude Code, Codex, Cursor, GitHub Copilot, Gemini e Devin, aiutiamo oltre il 75% del software Fortune 100 costruire affidabile, affidabile, conforme. I clienti che utilizzano Sonar sono il 44% meno probabilità di segnalare un outage a causa del codice generato dall'IA.\n\nCrediamo che la verifica del codice sia il collegamento mancante fondamentale nel Ciclo di Sviluppo Agent-Centric (AC/DC). I giganti del settore come Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca e Ford Motor Company contano su di noi per fornire una revisione indipendente, spiegabile, coerente e la governance del loro codice generato dall'IA attraverso prodotti come:\n\n• SonarQube: la piattaforma leader mondiale per la revisione e la verifica del codice AI.\n\n• SonarQube Foundation Agent: Attualmente il lancio delle classifiche per la riparazione di software agentic.\n\n• SonarSweep & Sonar Context Augmentation: Fornire il contesto di livello enterprise e gli agenti vincoli devono essere veramente efficaci.\n\nIl nostro team opera in tutto il mondo a Austin, Bochum, Dubai, Ginevra, Londra, Singapore, Tokyo e Washington D.C. Ci muoviamo con una mentalità che chiamiamo CODE:\n\n• Impegnati ai nostri clienti e comunità.\n\n• Obsessed con qualità.\n\n• Deliberate nelle nostre decisioni.\n\n• Efficace come una squadra.\n\nCon oltre 400 milioni di dollari di ricavi e crescita redditizia e rapida, stiamo costruendo la spina dorsale della rivoluzione software AI. Se hai fame di avere un impatto, vuoi costruire ad un ritmo veloce, e pronto a lavorare in prima linea di AI, vogliamo sentire da te.\n\nDescrizione della posizione\nStiamo cercando un Staff Engineer guidato, autonomo e d'impatto per aderire alla Billing Squad all'interno del nostro reparto StoreFront .\n\nLa squadra Billing è una delle squadre di sviluppo più multifunzionali e più veloci all'interno di Sonar. Consentiamo il rilascio di tutti i nuovi prodotti che Sonar sta attualmente portando al mercato, sia per i clienti di grandi e piccoli. La natura basata sull'intelligenza artificiale della nostra offerta di prodotti ci sta spingendo a ripensare come sviluppiamo e implementiamo modelli di prezzi innovativi. Questo ci spinge ai nostri limiti ogni giorno!\n\nPotrai collaborare a stretto contatto con Product Manager, Engineering Manager e altri ingegneri/Principal in tutta l'organizzazione per condurre la consegna end-to-end di funzioni di fatturazione critica. Prenderai la proprietà, dall'architettura iniziale e dal design fino all'implementazione e all'implementazione, di iniziative importanti che garantiscono un'esperienza senza attriti ma altamente sicura per milioni di sviluppatori.\n\nCosa farai\n\n• Collabora con progettisti UX, Product Management e team di ingegneria per fornire robuste funzionalità di sicurezza insieme a un'esperienza utente ottimale.\n\n•\nWork cross funzionalmente con team di prodotti e team di go-to-market per garantire un rilascio regolare di nuove funzionalità e prodotti.\n\n•\nAssumere una forte proprietà dei liberabili della squadra e guidare efficacemente sprint verso il completamento di successo.\n\n•\nArchitetto e guida la progettazione delle nostre applicazioni cloud on-premises e AWS.\n\n•\nControllare l'implementazione delle funzionalità, il monitoraggio della produzione e risolvere problemi dal vivo specifici del team.\n\n•\nMembri del team di ingegneria mentore per aiutarli a crescere nelle loro responsabilità tecniche e rimuovere i bloccanti alla loro autonomia.\n\n•\nContribuisci alla definizione degli obiettivi a breve e a lungo termine del team.\n\nEsperienza e qualifiche\n\n•\nOltre 6 anni di esperienza nell'ingegneria del software, tra cui lavorare come Tech Lead, Staff Engineer o Software Architect.\n\n•\nProve capacità di prendere iniziativa e portare un soggetto che coinvolge diversi stakeholder e ingegneri a completamento con poco o nessun supervisione.\n\n•\nCapacità di lavorare con e sterzare gli strumenti di codifica AI (Codex, Claude, ecc).\n\n•\nEsperienza di supporto e mentoring altri membri del team.\n\n•\nProficienza con Java accoppiato con una forte passione per Clean Code e rigorosi standard di qualità software.\n\n•\nEsperienza di progettazione applicazioni cloud-native.\n\n•\nEsperienza con RDBMS relazionali (come Postgres) e SQL.\n\n•\nL'esperienza di dominio con sistemi di fatturazione e di elaborazione dei pagamenti (usiamo Stripe) e/o l'esperienza generale con la gestione degli abbonamenti è altamente auspicabile.\n\nCultura in ufficio\n\nSiamo intenzionali. Crediamo che le migliori squadre siano costruite nella stanza insieme. Tre giorni di ancoraggio — lunedì, martedì e giovedì — creano il ritmo di collaborazione che rende un hub office degno di avere.\n\nI candidati devono essere autenticamente basati nel luogo in cui il ruolo è pubblicato — se non è lì che sei oggi, siamo lieti di sostenere il trasferimento per la persona giusta.\n\nValoriamo la diversità, l'equità e l'inclusione\n\nA Sonar, crediamo che la nostra diversità sia la nostra forza. Siamo una società globale che valorizza e rispetta diversi sfondi, prospettive e culture. Ci impegniamo a promuovere un ambiente di lavoro diversificato e inclusivo in cui tutti si sentono valorizzati e potenziati per contribuire al meglio. Siamo orgogliosi di essere un datore di lavoro pari opportunità e di accogliere tutti i candidati qualificati, indipendentemente da razza, colore, religione, genere, identità di genere o espressione, orientamento sessuale, origine nazionale, genetica, disabilità, età, o stato veterano.\n\nSe avete bisogno di un alloggio, contattateci all'indirizzo hiring@sonarsource.com .\n\nTutte le offerte di lavoro a Sonar sono contingenti sui risultati di un controllo completo di sfondo e verifica di riferimento effettuato prima della data di inizio.\n\nLe domande che vengono presentate tramite agenzie o reclutatori di terze parti non saranno considerate.",
         "en": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code verification and governance, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n• SonarQube: The world’s leading AI code review and verification platform.\n\n• SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n• SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n• Committed to our customers and community.\n\n• Obsessed with quality.\n\n• Deliberate in our decisions.\n\n• Effective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n We are looking for a driven, autonomous and impactful Staff Engineer to join the Billing Squad within our StoreFront department .\n\nThe Billing squad is one of the most cross-functional and fastest growing development teams within Sonar. We enable the release of all the new products that Sonar is currently bringing to the market, both for large and small customers. The AI-native, usage-based nature of our product offering is pushing us to rethink how we develop and implement innovative pricing models. This is pushing us to our limits every day!\n\nYou will partner closely with Product Managers, Engineering Managers, and other Staff/Principal Engineers across the organization to lead the end-to-end delivery of critical billing features. You will take ownership—from initial architecture and design through to implementation and deployment—of major initiatives ensuring a frictionless yet highly secure experience for millions of developers.\n\nWhat you will do\n\n• Collaborate with UX designers, Product Management, and engineering teams to deliver robust security features alongside an optimal user experience.\n\n•\n Work cross functionally with product squads and go-to-market teams to ensure smooth release of new features and products.\n\n•\n Take strong ownership of squad deliverables and effectively drive sprints toward successful completion.\n\n•\n Architect and guide the design of our on-premises and AWS cloud applications.\n\n•\n Oversee feature deployment, production monitoring, and troubleshoot team-specific live issues.\n\n•\n Mentor engineering team members to help them grow in their technical responsibilities and remove blockers to their autonomy.\n\n•\n Contribute to the definition of the team’s short and long-term goals.\n\nExperience and qualifications\n\n•\n Over 6 years of software engineering experience, including working as a Tech Lead, Staff Engineer, or Software Architect.\n\n•\n Proven ability to take initiative and bring a subject involving several stakeholders and engineers to completion with little to no supervision.\n\n•\n Proficiency in working with and steering AI coding tools (Codex, Claude, etc).\n\n•\n Experience supporting and mentoring other team members.\n\n•\n Proficiency with Java coupled with a strong passion for Clean Code and rigorous software quality standards.\n\n•\n Experience architecting cloud-native applications.\n\n•\n Experience with relational RDBMS (such as Postgres) and SQL.\n\n•\n Domain expertise with billing and payment processing systems (we use Stripe) and/or general experience with subscription management is highly desirable.\n\nIn-office culture\n\nWe're intentional about this. We believe the best teams are built in the room together. Three anchor days — Mondays, Tuesdays, and Thursdays — create the collaboration rhythm that makes a hub office worth having.\n\nCandidates need to be genuinely based in the location the role is posted — if that's not where you are today, we're happy to support relocation for the right person.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
-        "it": "Chi è Sonar?\n\nSonar sta guidando il futuro dello sviluppo software agente-centrico. Come leader nella verifica e nella governance del codice AI, risolviamo un problema critico: garantire che il software generato da sviluppatori assistiti da AI o agenti autonomi sia affidabile, sicuro e manutenbile.\n\nIntegrando senza soluzione di continuità con Claude Code, Codex, Cursor, GitHub Copilot, Gemini e Devin, aiutiamo oltre il 75% del software Fortune 100 costruire affidabile, affidabile, conforme. I clienti che utilizzano Sonar sono il 44% meno probabilità di segnalare un outage a causa del codice generato dall'IA.\n\nCrediamo che la verifica del codice sia il collegamento mancante fondamentale nel Ciclo di Sviluppo Agent-Centric (AC/DC). I giganti del settore come Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca e Ford Motor Company contano su di noi per fornire una revisione indipendente, spiegabile, coerente e la governance del loro codice generato dall'IA attraverso prodotti come:\n\n• SonarQube: la piattaforma leader mondiale per la revisione e la verifica del codice AI.\n\n• SonarQube Foundation Agent: Attualmente il lancio delle classifiche per la riparazione di software agentic.\n\n• SonarSweep & Sonar Context Augmentation: Fornire il contesto di livello enterprise e gli agenti vincoli devono essere veramente efficaci.\n\nIl nostro team opera in tutto il mondo a Austin, Bochum, Dubai, Ginevra, Londra, Singapore, Tokyo e Washington D.C. Ci muoviamo con una mentalità che chiamiamo CODE:\n\n• Impegnati ai nostri clienti e comunità.\n\n• Obsessed con qualità.\n\n• Deliberate nelle nostre decisioni.\n\n• Efficace come una squadra.\n\nCon oltre 400 milioni di dollari di ricavi e crescita redditizia e rapida, stiamo costruendo la spina dorsale della rivoluzione software AI. Se hai fame di avere un impatto, vuoi costruire ad un ritmo veloce, e pronto a lavorare in prima linea di AI, vogliamo sentire da te.\n\nDescrizione della posizione\n Stiamo cercando un Staff Engineer guidato, autonomo e d'impatto per aderire alla Billing Squad all'interno del nostro reparto StoreFront .\n\nLa squadra Billing è una delle squadre di sviluppo più multifunzionali e più veloci all'interno di Sonar. Consentiamo il rilascio di tutti i nuovi prodotti che Sonar sta attualmente portando al mercato, sia per i clienti di grandi e piccoli. La natura basata sull'intelligenza artificiale della nostra offerta di prodotti ci sta spingendo a ripensare come sviluppiamo e implementiamo modelli di prezzi innovativi. Questo ci spinge ai nostri limiti ogni giorno!\n\nPotrai collaborare a stretto contatto con Product Manager, Engineering Manager e altri ingegneri/Principal in tutta l'organizzazione per condurre la consegna end-to-end di funzioni di fatturazione critica. Prenderai la proprietà, dall'architettura iniziale e dal design fino all'implementazione e all'implementazione, di iniziative importanti che garantiscono un'esperienza senza attriti ma altamente sicura per milioni di sviluppatori.\n\nCosa farai\n\n• Collabora con progettisti UX, Product Management e team di ingegneria per fornire robuste funzionalità di sicurezza insieme a un'esperienza utente ottimale.\n\n•\n Work cross funzionalmente con team di prodotti e team di go-to-market per garantire un rilascio regolare di nuove funzionalità e prodotti.\n\n•\n Assumere una forte proprietà dei liberabili della squadra e guidare efficacemente sprint verso il completamento di successo.\n\n•\n Architetto e guida la progettazione delle nostre applicazioni cloud on-premises e AWS.\n\n•\n Controllare l'implementazione delle funzionalità, il monitoraggio della produzione e risolvere problemi dal vivo specifici del team.\n\n•\n Membri del team di ingegneria mentore per aiutarli a crescere nelle loro responsabilità tecniche e rimuovere i bloccanti alla loro autonomia.\n\n•\n Contribuisci alla definizione degli obiettivi a breve e a lungo termine del team.\n\nEsperienza e qualifiche\n\n•\n Oltre 6 anni di esperienza nell'ingegneria del software, tra cui lavorare come Tech Lead, Staff Engineer o Software Architect.\n\n•\n Prove capacità di prendere iniziativa e portare un soggetto che coinvolge diversi stakeholder e ingegneri a completamento con poco o nessun supervisione.\n\n•\n Capacità di lavorare con e sterzare gli strumenti di codifica AI (Codex, Claude, ecc).\n\n•\n Esperienza di supporto e mentoring altri membri del team.\n\n•\n Proficienza con Java accoppiato con una forte passione per Clean Code e rigorosi standard di qualità software.\n\n•\n Esperienza di progettazione applicazioni cloud-native.\n\n•\n Esperienza con RDBMS relazionali (come Postgres) e SQL.\n\n•\n L'esperienza di dominio con sistemi di fatturazione e di elaborazione dei pagamenti (usiamo Stripe) e/o l'esperienza generale con la gestione degli abbonamenti è altamente auspicabile.\n\nCultura in ufficio\n\nSiamo intenzionali. Crediamo che le migliori squadre siano costruite nella stanza insieme. Tre giorni di ancoraggio — lunedì, martedì e giovedì — creano il ritmo di collaborazione che rende un hub office degno di avere.\n\nI candidati devono essere autenticamente basati nel luogo in cui il ruolo è pubblicato — se non è lì che sei oggi, siamo lieti di sostenere il trasferimento per la persona giusta.\n\nValoriamo la diversità, l'equità e l'inclusione\n\nA Sonar, crediamo che la nostra diversità sia la nostra forza. Siamo una società globale che valorizza e rispetta diversi sfondi, prospettive e culture. Ci impegniamo a promuovere un ambiente di lavoro diversificato e inclusivo in cui tutti si sentono valorizzati e potenziati per contribuire al meglio. Siamo orgogliosi di essere un datore di lavoro pari opportunità e di accogliere tutti i candidati qualificati, indipendentemente da razza, colore, religione, genere, identità di genere o espressione, orientamento sessuale, origine nazionale, genetica, disabilità, età, o stato veterano.\n\nSe avete bisogno di un alloggio, contattateci all'indirizzo hiring@sonarsource.com .\n\nTutte le offerte di lavoro a Sonar sono contingenti sui risultati di un controllo completo di sfondo e verifica di riferimento effettuato prima della data di inizio.\n\nLe domande che vengono presentate tramite agenzie o reclutatori di terze parti non saranno considerate.",
-        "de": "Wer ist Sonar?\n\nSonar treibt die Zukunft der agentenzentrierten Softwareentwicklung voran. Als führender Anbieter von KI-Code-Verifizierung und -Governance lösen wir ein entscheidendes Problem: sicherzustellen, dass Software, die von KI-unterstützten Entwicklern oder autonomen Agenten erstellt wird, zuverlässig, sicher und wartbar ist.\n\nDurch die nahtlose Integration mit Claude Code, Codex, Cursor, GitHub Copilot, Gemini und Devin helfen wir über 75% der Fortune 100 dabei, vertrauenswürdige, zuverlässige und konforme Software zu erstellen. Kunden, die Sonar verwenden, sind 44% weniger wahrscheinlich, einen Ausfall aufgrund von AI-generiertem Code zu melden.\n\nWir glauben, dass die Codeverifizierung das kritische fehlende Glied im Agent-Centric Development Cycle (AC/DC) ist. Branchenriesen wie Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca und Ford Motor Company zählen darauf, dass wir eine unabhängige, erklärbare, konsistente Überprüfung und Governance ihres KI-generierten Codes über Produkte wie:\n\n• SonarQube: Die weltweit führende Plattform für die Überprüfung und Verifizierung von KI-Codes.\n\n• SonarQube Foundation Agent: Derzeit Spitzenreiter bei der Reparatur von Agentic-Software.\n\n• SonarSweep & Sonar Context Augmentation: Die Bereitstellung von Kontexten und Einschränkungen für Unternehmen muss wirklich effektiv sein.\n\nUnser Team ist in globalen Hubs in Austin, Bochum, Dubai, Genf, London, Singapur, Tokio und Washington D.C. tätig. Wir bewegen uns mit einer Denkweise, die wir CODE nennen:\n\n• Unseren Kunden und der Community verpflichtet.\n\n• Besessen von Qualität.\n\n• Absichtlich in unseren Entscheidungen.\n\n• Effektiv als ein Team.\n\nMit über 400 Millionen US-Dollar Umsatz und profitablem, schnellem Wachstum bauen wir das Rückgrat der KI-Software-Revolution auf. Wenn Sie hungrig sind, etwas zu bewirken, schnell bauen und bereit sind, an der Spitze der KI zu arbeiten, möchten wir von Ihnen hören.\n\nPositionsbeschreibung\n Wir suchen einen engagierten, autonomen und wirkungsvollen Staff Engineer, der dem Billing Squad in unserer StoreFront-Abteilung beitritt.\n\nDas Billing-Team ist eines der funktionsübergreifendsten und am schnellsten wachsenden Entwicklungsteams innerhalb von Sonar. Wir ermöglichen die Veröffentlichung aller neuen Produkte, die Sonar derzeit auf den Markt bringt, sowohl für große als auch für kleine Kunden. Die KI-native, nutzungsbasierte Natur unseres Produktangebots treibt uns dazu, zu überdenken, wie wir innovative Preismodelle entwickeln und implementieren. Das bringt uns jeden Tag an unsere Grenzen!\n\nSie arbeiten eng mit Produktmanagern, Engineering Managern und anderen Mitarbeitern / Hauptingenieuren im gesamten Unternehmen zusammen, um die End-to-End-Bereitstellung kritischer Abrechnungsfunktionen zu leiten. Sie übernehmen die Verantwortung - von der anfänglichen Architektur und dem Design bis hin zur Implementierung und Bereitstellung - für wichtige Initiativen, die eine reibungslose und dennoch hochsichere Erfahrung für Millionen von Entwicklern gewährleisten.\n\nWas du tun wirst\n\n• Arbeiten Sie mit UX-Designern, Produktmanagement und Engineering-Teams zusammen, um robuste Sicherheitsfunktionen und eine optimale Benutzererfahrung zu bieten.\n\n•\n Arbeiten Sie funktional mit Produktteams und Go-to-Market-Teams zusammen, um eine reibungslose Veröffentlichung neuer Funktionen und Produkte zu gewährleisten.\n\n•\n Übernehmen Sie starkes Eigentum an Squad-Deliverables und treiben Sie Sprints effektiv zum erfolgreichen Abschluss.\n\n•\n Architektur und Anleitung für das Design unserer lokalen und AWS-Cloud-Anwendungen.\n\n•\n Überwachen Sie die Funktionsbereitstellung, die Produktionsüberwachung und die Fehlersuche bei teamspezifischen Live-Problemen.\n\n•\n Mentor-Ingenieurteammitglieder, um ihnen zu helfen, in ihren technischen Verantwortlichkeiten zu wachsen und Blocker in ihre Autonomie zu entfernen.\n\n•\n Tragen Sie zur Definition der kurz- und langfristigen Ziele des Teams bei.\n\nErfahrung und Qualifikationen\n\n•\n Über 6 Jahre Software-Engineering-Erfahrung, einschließlich der Arbeit als Tech Lead, Staff Engineer oder Software Architect.\n\n•\n Bewährte Fähigkeit, Initiative zu ergreifen und ein Thema mit mehreren Interessengruppen und Ingenieuren mit wenig bis keiner Aufsicht abzuschließen.\n\n•\n Kenntnisse in der Arbeit mit und Steuerung von KI-Codierungstools (Codex, Claude usw.).\n\n•\n Erfahrung in der Unterstützung und Betreuung anderer Teammitglieder.\n\n•\n Kenntnisse in Java gepaart mit einer starken Leidenschaft für Clean Code und strengen Softwarequalitätsstandards.\n\n•\n Erleben Sie Architektur Cloud-native Anwendungen.\n\n•\n Erfahrung mit relationalen RDBMS (wie Postgres) und SQL.\n\n•\n Domain-Know-how mit Abrechnungs- und Zahlungsverarbeitungssystemen (wir verwenden Stripe) und / oder allgemeine Erfahrung mit dem Abonnementmanagement ist sehr wünschenswert.\n\nIn-Office-Kultur\n\nDas ist unsere Absicht. Wir glauben, dass die besten Teams gemeinsam im Raum gebaut werden. Drei Ankertage - montags, dienstags und donnerstags - schaffen den Kollaborationsrhythmus, der ein Hub-Office wert macht.\n\nDie Kandidaten müssen wirklich an dem Ort ansässig sein, an dem die Rolle veröffentlicht wird - wenn Sie heute nicht dort sind, unterstützen wir gerne den Umzug für die richtige Person.\n\nWir legen Wert auf Vielfalt, Gerechtigkeit und Inklusion\n\nBei Sonar glauben wir, dass unsere Vielfalt unsere Stärke ist. Wir sind ein globales Unternehmen, das unterschiedliche Hintergründe, Perspektiven und Kulturen schätzt und respektiert. Wir setzen uns für ein vielfältiges und integratives Arbeitsumfeld ein, in dem sich jeder geschätzt und befähigt fühlt, sein Bestes zu geben. Wir sind stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein und begrüßen alle qualifizierten Bewerber, unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, Geschlechtsidentität oder -ausdruck, sexueller Orientierung, nationaler Herkunft, Genetik, Behinderung, Alter oder Veteranenstatus.\n\nWenn Sie eine Unterkunft benötigen, kontaktieren Sie uns bitte unter hiring@sonarsource.com.\n\nAlle Beschäftigungsangebote bei Sonar hängen von den Ergebnissen einer umfassenden Hintergrundprüfung und Referenzüberprüfung ab, die vor dem Startdatum durchgeführt wurden.\n\nBewerbungen, die über Agenturen oder Drittanbieter eingereicht werden, werden nicht berücksichtigt.",
-        "fr": "Qui est Sonar ?\n\nSonar dirige l'avenir du développement de logiciels centrés sur les agents. En tant que leader dans la vérification et la gouvernance du code d'IA, nous résolvons un problème critique : veiller à ce que les logiciels générés par des développeurs assistés par AI ou des agents autonomes soient fiables, sécurisés et durables.\n\nEn s'intégrant parfaitement avec Claude Code, Codex, Cursor, GitHub Copilot, Gemini et Devin, nous aidons plus de 75% des logiciels de construction Fortune 100 fiables, conformes. Les clients qui utilisent Sonar sont 44 % moins susceptibles de signaler une panne en raison du code généré par l'IA.\n\nNous croyons que la vérification du code est le lien manquant essentiel dans le cycle de développement Agent-Centric (AC/DC). Les géants de l'industrie comme Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca et Ford Motor Company comptent sur nous pour fournir un examen indépendant, explicable, cohérent et la gouvernance de leur code généré par l'IA via des produits comme:\n\n• SonarQube: Le monde est la principale plateforme de révision et de vérification de code AI.\n\n• SonarQube Foundation Agent: En ce moment, les classements pour la réparation de logiciels mandataires.\n\n• SonarSweep & Sonar Contexte Augmentation : fournir le contexte de qualité entreprise et les agents de contraintes doivent être vraiment efficaces.\n\nNotre équipe opère à travers des centres mondiaux à Austin, Bochum, Dubaï, Genève, Londres, Singapour, Tokyo et Washington D.C. Nous bougeons avec un état d'esprit que nous appelons CODE:\n\n• Engagement envers nos clients et notre communauté.\n\n• Obsédé par la qualité.\n\n• Délibérer dans nos décisions.\n\n• Efficace comme une seule équipe.\n\nAvec plus de 400 M$ de revenus et une croissance rentable et rapide, nous construisons l'épine dorsale de la révolution logicielle de l'IA. Si vous avez faim d'avoir un impact, voulez construire à un rythme rapide, et prêt à travailler à l'avant-garde de l'IA, nous voulons entendre de vous.\n\nDescription de la position\n Nous sommes à la recherche d'un ingénieur du personnel motivé, autonome et impacté pour rejoindre l'équipe de facturation au sein de notre département StoreFront .\n\nL'équipe Billing est l'une des équipes de développement les plus interfonctionnelles et les plus dynamiques de Sonar. Nous permettons la sortie de tous les nouveaux produits que Sonar met actuellement sur le marché, tant pour les grands clients que pour les petits clients. La nature native de l'IA, basée sur l'utilisation, de notre offre de produits nous pousse à repenser notre façon de développer et de mettre en œuvre des modèles de prix innovants. Cela nous pousse à nos limites tous les jours !\n\nVous collaborerez étroitement avec les gestionnaires de produits, les gestionnaires d'ingénierie et d'autres ingénieurs principaux de l'organisation pour diriger la prestation de bout en bout des fonctions de facturation essentielles. Vous prendrez en charge – de l'architecture et de la conception initiales jusqu'à la mise en œuvre et au déploiement – des initiatives majeures assurant une expérience sans friction mais hautement sécurisée pour des millions de développeurs.\n\nCe que vous ferez\n\n• Collaborer avec les concepteurs UX, la gestion des produits et les équipes d'ingénierie pour fournir des fonctionnalités de sécurité robustes tout en offrant une expérience utilisateur optimale.\n\n•\n Travaillez de façon fonctionnelle avec les équipes de produits et les équipes d'entrée sur le marché pour assurer la libération en douceur de nouvelles fonctionnalités et de nouveaux produits.\n\n•\n Prendre en main les produits livrables de l'équipe et conduire efficacement les sprints vers la réussite.\n\n•\n Architecte et guide la conception de nos applications cloud sur site et AWS.\n\n•\n Surveiller le déploiement des fonctions, la surveillance de la production et les problèmes de dépannage propres à l'équipe.\n\n•\n Les membres de l'équipe d'ingénierie Mentor pour les aider à développer leurs responsabilités techniques et de supprimer les bloqueurs à leur autonomie.\n\n•\n Contribuer à la définition des objectifs à court et à long terme de l'équipe.\n\nExpérience et qualifications\n\n•\n Plus de 6 ans d'expérience en génie logiciel, y compris en tant que responsable technique, ingénieur du personnel ou architecte logiciel.\n\n•\n Capacité éprouvée de prendre des initiatives et d'amener un sujet impliquant plusieurs intervenants et ingénieurs à l'achèvement avec peu ou pas de supervision.\n\n•\n Compétence dans le travail et le pilotage des outils de codage AI (Codex, Claude, etc.).\n\n•\n Expérience de soutien et de mentorat d'autres membres de l'équipe.\n\n•\n Compétence avec Java associée à une forte passion pour Clean Code et des normes rigoureuses de qualité des logiciels.\n\n•\n Découvrez l'architecture des applications cloud-native.\n\n•\n Expérience avec RDBMS relationnel (comme Postgres) et SQL.\n\n•\n Une expertise dans le domaine des systèmes de facturation et de traitement des paiements (nous utilisons Stripe) et/ou une expérience générale de la gestion des abonnements est hautement souhaitable.\n\nCulture interne\n\nOn est intentionnels. Nous croyons que les meilleures équipes sont construites dans la pièce ensemble. Trois jours d'ancrage — les lundis, les mardis et les jeudis — créent le rythme de collaboration qui rend un bureau central intéressant.\n\nLes candidats doivent être vraiment basés dans l'endroit où le rôle est affiché — si ce n'est pas là où vous êtes aujourd'hui, nous sommes heureux d'appuyer la réinstallation pour la bonne personne.\n\nNous apprécions la diversité, l'équité et l'inclusion\n\nChez Sonar, nous croyons que notre diversité est notre force. Nous sommes une entreprise mondiale qui valorise et respecte différents horizons, perspectives et cultures. Nous sommes déterminés à favoriser un environnement de travail diversifié et inclusif où chacun se sent valorisé et habilité à contribuer le mieux possible. Nous sommes fiers d'être un employeur sur un pied d'égalité et d'accueillir tous les candidats qualifiés, peu importe la race, la couleur, la religion, le sexe, l'identité ou l'expression de genre, l'orientation sexuelle, l'origine nationale, la génétique, le handicap, l'âge ou le statut de vétéran.\n\nSi vous avez besoin d'un logement, veuillez communiquer avec nous à l'adresse embauche@sonarsource.com .\n\nToutes les offres d'emploi chez Sonar dépendent des résultats d'une vérification complète des antécédents et des références effectuée avant la date de début.\n\nLes demandes présentées par des organismes ou des tiers recruteurs ne seront pas prises en considération."
+        "de": "Wer ist Sonar?\n\nSonar treibt die Zukunft der agentenzentrierten Softwareentwicklung voran. Als führender Anbieter von KI-Code-Verifizierung und -Governance lösen wir ein entscheidendes Problem: sicherzustellen, dass Software, die von KI-unterstützten Entwicklern oder autonomen Agenten erstellt wird, zuverlässig, sicher und wartbar ist.\n\nDurch die nahtlose Integration mit Claude Code, Codex, Cursor, GitHub Copilot, Gemini und Devin helfen wir über 75% der Fortune 100 dabei, vertrauenswürdige, zuverlässige und konforme Software zu erstellen. Kunden, die Sonar verwenden, sind 44% weniger wahrscheinlich, einen Ausfall aufgrund von AI-generiertem Code zu melden.\n\nWir glauben, dass die Codeverifizierung das kritische fehlende Glied im Agent-Centric Development Cycle (AC/DC) ist. Branchenriesen wie Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca und Ford Motor Company zählen darauf, dass wir eine unabhängige, erklärbare, konsistente Überprüfung und Governance ihres KI-generierten Codes über Produkte wie:\n\n• SonarQube: Die weltweit führende Plattform für die Überprüfung und Verifizierung von KI-Codes.\n\n• SonarQube Foundation Agent: Derzeit Spitzenreiter bei der Reparatur von Agentic-Software.\n\n• SonarSweep & Sonar Context Augmentation: Die Bereitstellung von Kontexten und Einschränkungen für Unternehmen muss wirklich effektiv sein.\n\nUnser Team ist in globalen Hubs in Austin, Bochum, Dubai, Genf, London, Singapur, Tokio und Washington D.C. tätig. Wir bewegen uns mit einer Denkweise, die wir CODE nennen:\n\n• Unseren Kunden und der Community verpflichtet.\n\n• Besessen von Qualität.\n\n• Absichtlich in unseren Entscheidungen.\n\n• Effektiv als ein Team.\n\nMit über 400 Millionen US-Dollar Umsatz und profitablem, schnellem Wachstum bauen wir das Rückgrat der KI-Software-Revolution auf. Wenn Sie hungrig sind, etwas zu bewirken, schnell bauen und bereit sind, an der Spitze der KI zu arbeiten, möchten wir von Ihnen hören.\n\nPositionsbeschreibung\nWir suchen einen engagierten, autonomen und wirkungsvollen Staff Engineer, der dem Billing Squad in unserer StoreFront-Abteilung beitritt.\n\nDas Billing-Team ist eines der funktionsübergreifendsten und am schnellsten wachsenden Entwicklungsteams innerhalb von Sonar. Wir ermöglichen die Veröffentlichung aller neuen Produkte, die Sonar derzeit auf den Markt bringt, sowohl für große als auch für kleine Kunden. Die KI-native, nutzungsbasierte Natur unseres Produktangebots treibt uns dazu, zu überdenken, wie wir innovative Preismodelle entwickeln und implementieren. Das bringt uns jeden Tag an unsere Grenzen!\n\nSie arbeiten eng mit Produktmanagern, Engineering Managern und anderen Mitarbeitern / Hauptingenieuren im gesamten Unternehmen zusammen, um die End-to-End-Bereitstellung kritischer Abrechnungsfunktionen zu leiten. Sie übernehmen die Verantwortung - von der anfänglichen Architektur und dem Design bis hin zur Implementierung und Bereitstellung - für wichtige Initiativen, die eine reibungslose und dennoch hochsichere Erfahrung für Millionen von Entwicklern gewährleisten.\n\nWas du tun wirst\n\n• Arbeiten Sie mit UX-Designern, Produktmanagement und Engineering-Teams zusammen, um robuste Sicherheitsfunktionen und eine optimale Benutzererfahrung zu bieten.\n\n•\nArbeiten Sie funktional mit Produktteams und Go-to-Market-Teams zusammen, um eine reibungslose Veröffentlichung neuer Funktionen und Produkte zu gewährleisten.\n\n•\nÜbernehmen Sie starkes Eigentum an Squad-Deliverables und treiben Sie Sprints effektiv zum erfolgreichen Abschluss.\n\n•\nArchitektur und Anleitung für das Design unserer lokalen und AWS-Cloud-Anwendungen.\n\n•\nÜberwachen Sie die Funktionsbereitstellung, die Produktionsüberwachung und die Fehlersuche bei teamspezifischen Live-Problemen.\n\n•\nMentor-Ingenieurteammitglieder, um ihnen zu helfen, in ihren technischen Verantwortlichkeiten zu wachsen und Blocker in ihre Autonomie zu entfernen.\n\n•\nTragen Sie zur Definition der kurz- und langfristigen Ziele des Teams bei.\n\nErfahrung und Qualifikationen\n\n•\nÜber 6 Jahre Software-Engineering-Erfahrung, einschließlich der Arbeit als Tech Lead, Staff Engineer oder Software Architect.\n\n•\nBewährte Fähigkeit, Initiative zu ergreifen und ein Thema mit mehreren Interessengruppen und Ingenieuren mit wenig bis keiner Aufsicht abzuschließen.\n\n•\nKenntnisse in der Arbeit mit und Steuerung von KI-Codierungstools (Codex, Claude usw.).\n\n•\nErfahrung in der Unterstützung und Betreuung anderer Teammitglieder.\n\n•\nKenntnisse in Java gepaart mit einer starken Leidenschaft für Clean Code und strengen Softwarequalitätsstandards.\n\n•\nErleben Sie Architektur Cloud-native Anwendungen.\n\n•\nErfahrung mit relationalen RDBMS (wie Postgres) und SQL.\n\n•\nDomain-Know-how mit Abrechnungs- und Zahlungsverarbeitungssystemen (wir verwenden Stripe) und / oder allgemeine Erfahrung mit dem Abonnementmanagement ist sehr wünschenswert.\n\nIn-Office-Kultur\n\nDas ist unsere Absicht. Wir glauben, dass die besten Teams gemeinsam im Raum gebaut werden. Drei Ankertage - montags, dienstags und donnerstags - schaffen den Kollaborationsrhythmus, der ein Hub-Office wert macht.\n\nDie Kandidaten müssen wirklich an dem Ort ansässig sein, an dem die Rolle veröffentlicht wird - wenn Sie heute nicht dort sind, unterstützen wir gerne den Umzug für die richtige Person.\n\nWir legen Wert auf Vielfalt, Gerechtigkeit und Inklusion\n\nBei Sonar glauben wir, dass unsere Vielfalt unsere Stärke ist. Wir sind ein globales Unternehmen, das unterschiedliche Hintergründe, Perspektiven und Kulturen schätzt und respektiert. Wir setzen uns für ein vielfältiges und integratives Arbeitsumfeld ein, in dem sich jeder geschätzt und befähigt fühlt, sein Bestes zu geben. Wir sind stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein und begrüßen alle qualifizierten Bewerber, unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, Geschlechtsidentität oder -ausdruck, sexueller Orientierung, nationaler Herkunft, Genetik, Behinderung, Alter oder Veteranenstatus.\n\nWenn Sie eine Unterkunft benötigen, kontaktieren Sie uns bitte unter hiring@sonarsource.com.\n\nAlle Beschäftigungsangebote bei Sonar hängen von den Ergebnissen einer umfassenden Hintergrundprüfung und Referenzüberprüfung ab, die vor dem Startdatum durchgeführt wurden.\n\nBewerbungen, die über Agenturen oder Drittanbieter eingereicht werden, werden nicht berücksichtigt.",
+        "fr": "Qui est Sonar ?\n\nSonar dirige l'avenir du développement de logiciels centrés sur les agents. En tant que leader dans la vérification et la gouvernance du code d'IA, nous résolvons un problème critique : veiller à ce que les logiciels générés par des développeurs assistés par AI ou des agents autonomes soient fiables, sécurisés et durables.\n\nEn s'intégrant parfaitement avec Claude Code, Codex, Cursor, GitHub Copilot, Gemini et Devin, nous aidons plus de 75% des logiciels de construction Fortune 100 fiables, conformes. Les clients qui utilisent Sonar sont 44 % moins susceptibles de signaler une panne en raison du code généré par l'IA.\n\nNous croyons que la vérification du code est le lien manquant essentiel dans le cycle de développement Agent-Centric (AC/DC). Les géants de l'industrie comme Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca et Ford Motor Company comptent sur nous pour fournir un examen indépendant, explicable, cohérent et la gouvernance de leur code généré par l'IA via des produits comme:\n\n• SonarQube: Le monde est la principale plateforme de révision et de vérification de code AI.\n\n• SonarQube Foundation Agent: En ce moment, les classements pour la réparation de logiciels mandataires.\n\n• SonarSweep & Sonar Contexte Augmentation : fournir le contexte de qualité entreprise et les agents de contraintes doivent être vraiment efficaces.\n\nNotre équipe opère à travers des centres mondiaux à Austin, Bochum, Dubaï, Genève, Londres, Singapour, Tokyo et Washington D.C. Nous bougeons avec un état d'esprit que nous appelons CODE:\n\n• Engagement envers nos clients et notre communauté.\n\n• Obsédé par la qualité.\n\n• Délibérer dans nos décisions.\n\n• Efficace comme une seule équipe.\n\nAvec plus de 400 M$ de revenus et une croissance rentable et rapide, nous construisons l'épine dorsale de la révolution logicielle de l'IA. Si vous avez faim d'avoir un impact, voulez construire à un rythme rapide, et prêt à travailler à l'avant-garde de l'IA, nous voulons entendre de vous.\n\nDescription de la position\nNous sommes à la recherche d'un ingénieur du personnel motivé, autonome et impacté pour rejoindre l'équipe de facturation au sein de notre département StoreFront .\n\nL'équipe Billing est l'une des équipes de développement les plus interfonctionnelles et les plus dynamiques de Sonar. Nous permettons la sortie de tous les nouveaux produits que Sonar met actuellement sur le marché, tant pour les grands clients que pour les petits clients. La nature native de l'IA, basée sur l'utilisation, de notre offre de produits nous pousse à repenser notre façon de développer et de mettre en œuvre des modèles de prix innovants. Cela nous pousse à nos limites tous les jours !\n\nVous collaborerez étroitement avec les gestionnaires de produits, les gestionnaires d'ingénierie et d'autres ingénieurs principaux de l'organisation pour diriger la prestation de bout en bout des fonctions de facturation essentielles. Vous prendrez en charge – de l'architecture et de la conception initiales jusqu'à la mise en œuvre et au déploiement – des initiatives majeures assurant une expérience sans friction mais hautement sécurisée pour des millions de développeurs.\n\nCe que vous ferez\n\n• Collaborer avec les concepteurs UX, la gestion des produits et les équipes d'ingénierie pour fournir des fonctionnalités de sécurité robustes tout en offrant une expérience utilisateur optimale.\n\n•\nTravaillez de façon fonctionnelle avec les équipes de produits et les équipes d'entrée sur le marché pour assurer la libération en douceur de nouvelles fonctionnalités et de nouveaux produits.\n\n•\nPrendre en main les produits livrables de l'équipe et conduire efficacement les sprints vers la réussite.\n\n•\nArchitecte et guide la conception de nos applications cloud sur site et AWS.\n\n•\nSurveiller le déploiement des fonctions, la surveillance de la production et les problèmes de dépannage propres à l'équipe.\n\n•\nLes membres de l'équipe d'ingénierie Mentor pour les aider à développer leurs responsabilités techniques et de supprimer les bloqueurs à leur autonomie.\n\n•\nContribuer à la définition des objectifs à court et à long terme de l'équipe.\n\nExpérience et qualifications\n\n•\nPlus de 6 ans d'expérience en génie logiciel, y compris en tant que responsable technique, ingénieur du personnel ou architecte logiciel.\n\n•\nCapacité éprouvée de prendre des initiatives et d'amener un sujet impliquant plusieurs intervenants et ingénieurs à l'achèvement avec peu ou pas de supervision.\n\n•\nCompétence dans le travail et le pilotage des outils de codage AI (Codex, Claude, etc.).\n\n•\nExpérience de soutien et de mentorat d'autres membres de l'équipe.\n\n•\nCompétence avec Java associée à une forte passion pour Clean Code et des normes rigoureuses de qualité des logiciels.\n\n•\nDécouvrez l'architecture des applications cloud-native.\n\n•\nExpérience avec RDBMS relationnel (comme Postgres) et SQL.\n\n•\nUne expertise dans le domaine des systèmes de facturation et de traitement des paiements (nous utilisons Stripe) et/ou une expérience générale de la gestion des abonnements est hautement souhaitable.\n\nCulture interne\n\nOn est intentionnels. Nous croyons que les meilleures équipes sont construites dans la pièce ensemble. Trois jours d'ancrage — les lundis, les mardis et les jeudis — créent le rythme de collaboration qui rend un bureau central intéressant.\n\nLes candidats doivent être vraiment basés dans l'endroit où le rôle est affiché — si ce n'est pas là où vous êtes aujourd'hui, nous sommes heureux d'appuyer la réinstallation pour la bonne personne.\n\nNous apprécions la diversité, l'équité et l'inclusion\n\nChez Sonar, nous croyons que notre diversité est notre force. Nous sommes une entreprise mondiale qui valorise et respecte différents horizons, perspectives et cultures. Nous sommes déterminés à favoriser un environnement de travail diversifié et inclusif où chacun se sent valorisé et habilité à contribuer le mieux possible. Nous sommes fiers d'être un employeur sur un pied d'égalité et d'accueillir tous les candidats qualifiés, peu importe la race, la couleur, la religion, le sexe, l'identité ou l'expression de genre, l'orientation sexuelle, l'origine nationale, la génétique, le handicap, l'âge ou le statut de vétéran.\n\nSi vous avez besoin d'un logement, veuillez communiquer avec nous à l'adresse embauche@sonarsource.com .\n\nToutes les offres d'emploi chez Sonar dépendent des résultats d'une vérification complète des antécédents et des références effectuée avant la date de début.\n\nLes demandes présentées par des organismes ou des tiers recruteurs ne seront pas prises en considération."
       },
       "location": "Geneva",
       "canton": "GE",
       "url": "https://jobs.lever.co/sonarsource/86161ae0-2849-435a-a2ff-8c24ba18b49a",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:08.464Z",
+      "crawledAt": "2026-10-17T09:36:41.233Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -489,9 +493,24 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/86161ae0-2849-435a-a2ff-8c24ba18b49a",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-12T22:16:07.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "staff-software-engineer-java-sonarsource-ch",
+          "staff-software-ingegnere-java-sonarsource-sonar-geneva"
+        ],
+        "de": [
+          "staff-software-engineer-java-sonarsource-ch"
+        ],
+        "fr": [
+          "staff-software-engineer-java-sonarsource-ch"
+        ]
       },
+      "previousSlugs": [
+        "staff-software-engineer-java-sonarsource-ch",
+        "staff-software-ingegnere-java-sonarsource-sonar-geneva"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -506,8 +525,7 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE",
-      "firstSeenAt": "2026-08-12T22:16:07.537Z"
+      "addressRegion": "GE"
     },
     {
       "id": "sonarsource-caa46a85384e",
@@ -540,7 +558,7 @@
       "url": "https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:08.162Z",
+      "crawledAt": "2026-10-17T09:36:40.931Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -619,7 +637,7 @@
       "url": "https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:07.857Z",
+      "crawledAt": "2026-10-17T09:36:40.628Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -698,7 +716,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:07.555Z",
+      "crawledAt": "2026-10-17T09:36:40.326Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -790,7 +808,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:07.252Z",
+      "crawledAt": "2026-10-17T09:36:40.024Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -869,7 +887,7 @@
       "url": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:06.943Z",
+      "crawledAt": "2026-10-17T09:36:39.721Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -949,7 +967,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:06.639Z",
+      "crawledAt": "2026-10-17T09:36:39.420Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1028,7 +1046,7 @@
       "url": "https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:06.335Z",
+      "crawledAt": "2026-10-17T09:36:39.118Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1124,7 +1142,7 @@
       "url": "https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:06.030Z",
+      "crawledAt": "2026-10-17T09:36:38.815Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1200,7 +1218,7 @@
       "url": "https://jobs.lever.co/sonarsource/9d7c7928-075e-43d6-822a-24a6070eb452",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:05.723Z",
+      "crawledAt": "2026-10-17T09:36:38.513Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1279,7 +1297,7 @@
       "url": "https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:05.416Z",
+      "crawledAt": "2026-10-17T09:36:38.211Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1358,7 +1376,7 @@
       "url": "https://jobs.lever.co/sonarsource/04501f08-89a9-40fb-95db-778268a839d7",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:05.106Z",
+      "crawledAt": "2026-10-17T09:36:37.909Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1437,7 +1455,7 @@
       "url": "https://jobs.lever.co/sonarsource/8fac173a-36f8-48bb-8df2-be227655d495",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:04.796Z",
+      "crawledAt": "2026-10-17T09:36:37.607Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1516,7 +1534,7 @@
       "url": "https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:04.492Z",
+      "crawledAt": "2026-10-17T09:36:37.305Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1592,7 +1610,7 @@
       "url": "https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:04.188Z",
+      "crawledAt": "2026-10-17T09:36:37.004Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1671,7 +1689,7 @@
       "url": "https://jobs.lever.co/sonarsource/cea00267-a79c-486b-8e6d-e67b89917101",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:03.882Z",
+      "crawledAt": "2026-10-17T09:36:36.702Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1750,7 +1768,7 @@
       "url": "https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:03.579Z",
+      "crawledAt": "2026-10-17T09:36:36.400Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1829,7 +1847,7 @@
       "url": "https://jobs.lever.co/sonarsource/3cae19c4-144b-41b9-89c1-03203547a8d3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:03.273Z",
+      "crawledAt": "2026-10-17T09:36:36.098Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1912,7 +1930,7 @@
       "url": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:02.966Z",
+      "crawledAt": "2026-10-17T09:36:35.795Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1988,7 +2006,7 @@
       "url": "https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:23:02.658Z",
+      "crawledAt": "2026-10-17T09:36:35.490Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",

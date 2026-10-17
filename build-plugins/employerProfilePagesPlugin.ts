@@ -59,6 +59,7 @@ import { WriteCollector } from './batchWrite';
 import { loadJobsJson, releaseJobsJson } from './shared/loadJobsJson';
 import { logBuildMem } from './shared/buildMemLog';
 import { resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
 import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
@@ -386,8 +387,7 @@ function localizedJobSlug(job: CorpusJob, locale: Locale): string {
 function jobDetailPath(job: CorpusJob, locale: Locale): string {
   const slug = localizedJobSlug(job, locale);
   if (!slug) return '';
-  const section = resolveCantonSection(locale, resolveJobCanton(job));
-  return `${localePrefix(locale)}/${section}/${slug}/`.replace(/\/+/g, '/');
+  return buildCanonicalJobDetailPath(locale, job, slug);
 }
 
 /** Per-locale sentence builders for the intro prose — one map, shared assembly

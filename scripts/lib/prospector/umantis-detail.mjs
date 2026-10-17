@@ -8,6 +8,7 @@
  */
 import { readAttr, readMetaContent, scanHtmlTags } from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
+import { isKnownSwissMunicipality } from '../target-swiss-locations.mjs';
 
 const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 const POSTAL_LOCALITY_LINE_RX = /^([1-9]\d{3})\s+([\p{Lu}][\p{L}.'’\-]*(?:\s+[\p{L}.'’\-]+){0,5})\s*$/u;
@@ -156,6 +157,35 @@ function locationCandidate(value = '') {
   };
 }
 
+/**
+ * A small number of Umantis listings put alternative workplaces in the title
+ * itself (for example, "in Zürich oder Lausanne") instead of a location
+ * column. Keep that source wording as separate candidates; the ordinary
+ * source-backed geography gate still decides which candidate is publishable.
+ * Every alternative must name a Swiss municipality so an unknown or foreign
+ * choice cannot be hidden behind a Swiss one.
+ * @param {string} title
+ * @returns {{ locationCandidates: Array<NonNullable<ReturnType<typeof locationCandidate>>> }|null}
+ */
+function titleAlternativeLocationEvidence(title = '') {
+  const text = cleanLocation(title);
+  const marker = text.toLowerCase().lastIndexOf(' in ');
+  if (marker < 0) return null;
+  const alternatives = text.slice(marker + 4)
+    .split(/\s+oder\s+/i)
+    .map((part) => cleanLocation(part).replace(/[.,;:!?]+$/, ''));
+  if (alternatives.length !== 2 || alternatives.some((part) => !part || !isKnownSwissMunicipality(part))) {
+    return null;
+  }
+  const locationCandidates = alternatives.map(locationCandidate).filter(Boolean);
+  if (locationCandidates.length !== alternatives.length) return null;
+  return {
+    ...locationCandidates[0],
+    locationCandidates,
+    sourceTitleAlternatives: true,
+  };
+}
+
 /** @param {unknown} value */
 function normalizedOverrideLocality(value) {
   return cleanLocation(String(value || ''))
@@ -204,7 +234,7 @@ export function umantisVacancyIdentity(url = '') {
  * @param {string} html
  * @param {string} baseUrl
  * @param {{ cantonOverrides?: Array<{ postalCode: string, locality: string, canton: string }> }} [options]
- * @returns {Map<string, ReturnType<typeof locationCandidate>>}
+ * @returns {Map<string, Record<string, any>>}
  */
 export function extractUmantisListingEvidence(html = '', baseUrl = '', { cantonOverrides = [] } = {}) {
   const source = String(html || '');
@@ -266,7 +296,20 @@ export function extractUmantisListingEvidence(html = '', baseUrl = '', { cantonO
     if (candidate && !candidate.addressRegion) {
       candidate.addressRegion = reviewedListingCanton(candidate, cantonOverrides);
     }
-    if (vacancyId && candidate) evidence.set(vacancyId, candidate);
+    if (vacancyId && candidate) {
+      evidence.set(vacancyId, candidate);
+      continue;
+    }
+    if (vacancyId) {
+      const anchorBound = rowIndex.bounds.get(anchor.index);
+      const anchorText = anchorBound ? structuredText(row.slice(anchor.end, anchorBound.contentEnd)) : '';
+      for (const title of [readAttr(anchor.raw, 'aria-label'), anchorText]) {
+        const titleEvidence = titleAlternativeLocationEvidence(title);
+        if (!titleEvidence) continue;
+        evidence.set(vacancyId, titleEvidence);
+        break;
+      }
+    }
   }
   return evidence;
 }

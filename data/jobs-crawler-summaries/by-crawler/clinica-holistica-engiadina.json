@@ -1,7 +1,7 @@
 {
   "key": "clinica-holistica-engiadina",
   "label": "Clinica Holistica Engiadina",
-  "generatedAt": "2026-10-16T21:52:21.709Z",
+  "generatedAt": "2026-10-17T09:35:39.347Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 20472,
-  "avgDurationMs": 20472,
+  "durationMs": 20967,
+  "avgDurationMs": 20967,
   "durationHistory": [
-    20472
+    20967
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:52:03.458Z",
+      "crawledAt": "2026-10-17T09:35:17.510Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:31.365Z",
       "salaryMin": 110500,
@@ -95,7 +95,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:52:01.104Z",
+      "crawledAt": "2026-10-17T09:35:15.046Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:26.552Z",
       "salaryMin": 81500,
@@ -137,7 +137,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:51:59.041Z",
+      "crawledAt": "2026-10-17T09:35:12.802Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:24.218Z",
       "salaryMin": 62000,
@@ -179,7 +179,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:51:56.656Z",
+      "crawledAt": "2026-10-17T09:35:10.454Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T13:10:25.665Z",
       "salaryMin": 110500,
@@ -221,7 +221,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/kunsttherapeutin-fachrichtung-gestaltungs-und-maltherapie-oder-intermediale-therapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:51:54.718Z",
+      "crawledAt": "2026-10-17T09:35:08.649Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-24T14:43:39.529Z",
       "salaryMin": 81500,
@@ -263,7 +263,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/tanz-und-bewegungstherapeutin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:51:52.007Z",
+      "crawledAt": "2026-10-17T09:35:05.821Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-24T14:43:36.062Z",
       "salaryMin": 81500,
@@ -278,5 +278,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

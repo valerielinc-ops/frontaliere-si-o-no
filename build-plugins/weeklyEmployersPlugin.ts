@@ -47,6 +47,7 @@ import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
+import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from './shared/weeklyEmployersArchiveMarker.mjs';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
@@ -3307,8 +3308,10 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     variant === 'archive' && !indexable
       ? `<p class="s-4vckkk">${esc(copy.archiveNoindexNote)}</p>`
       : '';
+  const archiveNoindexMarker =
+    variant === 'archive' && !indexable ? WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER : '';
 
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `${archiveNoindexMarker}<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="breadcrumb">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>

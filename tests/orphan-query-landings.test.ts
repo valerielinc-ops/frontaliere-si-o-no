@@ -29,6 +29,7 @@ import {
   resolveMaxOrphanLandings,
   __renderOrphanLandingPage,
 } from '../build-plugins/orphanQueryLandingPlugin';
+import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 
 import {
   ORPHAN_LANDING_LOCALES,
@@ -48,6 +49,7 @@ import {
   buildNursingLandingPath,
   resolveNursingOrphanQueryTarget,
 } from '../build-plugins/nursingLandingsData';
+import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 import { detectLocale, tokenize } from '../scripts/lib/query-tokenizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -147,6 +149,57 @@ describe('orphanQueryData — path helpers', () => {
     expect(rendered.wordCount).toBeGreaterThanOrEqual(50);
   });
 
+  it('uses the shared canonical job path for cards and ItemList URLs in every locale', () => {
+    const jobs = [
+      activeJob({
+        canton: 'ZH',
+        // The explicit canton must win over a misleading nearby location.
+        location: 'Lugano',
+        addressLocality: 'Lugano',
+        slug: 'zh-canonical-job',
+        slugByLocale: {
+          it: 'offerta-zurigo',
+          en: 'zurich-job',
+          de: 'stelle-zuerich',
+          fr: 'emploi-zurich',
+        },
+      }),
+      activeJob({
+        canton: 'TI',
+        location: 'Zurich',
+        addressLocality: 'Zurich',
+        slug: 'ti-canonical-job',
+        slugByLocale: {
+          it: 'offerta-ticino',
+          en: 'ticino-job',
+          de: 'stelle-tessin',
+          fr: 'emploi-tessin',
+        },
+      }),
+    ];
+
+    for (const locale of ORPHAN_LANDING_LOCALES) {
+      const rendered = __renderOrphanLandingPage({
+        cluster: makeCluster(locale, 'canonical-job-links', 20, ['job'], []),
+        matchingJobs: jobs,
+        strings: {},
+        dateStamp: '2026-10-13',
+        knownSlugsByLocale: new Map(
+          ORPHAN_LANDING_LOCALES.map((candidate) => [candidate, new Set<string>()]),
+        ),
+      });
+
+      for (const job of jobs) {
+        const slug = job.slugByLocale?.[locale] || job.slug || '';
+        const expectedPath = buildCanonicalJobDetailPath(locale, job, slug);
+        const expectedUrl = `https://frontaliereticino.ch${expectedPath}`;
+        expect(rendered.html).toContain(`href="${expectedPath}"`);
+        expect(rendered.html).toContain(`"url":"${expectedUrl}"`);
+        expect(expectedPath).toMatch(/\/$/);
+      }
+    }
+  });
+
   // Regression guard for the per-locale matrix-build hreflang bug (deploy
   // 27923956556): on a non-it shard the hub call site used to derive
   // availability from the emit-gated `indexableByLocale`, so en/de/fr hubs
@@ -211,6 +264,63 @@ describe('nursing orphan-query alignment', () => {
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/en/nursing-jobs-switzerland/">');
     expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/en/nursing-jobs-switzerland/"');
   });
+});
+
+describe('orphan landing canonical job links', () => {
+  it.each(ORPHAN_LANDING_LOCALES)(
+    'links T6 cards and ItemList directly to canonical T5 details in %s without first-match ambiguity',
+    (locale) => {
+      // Same localized slug in two cantons is ambiguous by slug alone. Each
+      // emitted target must retain its own job context when resolving the path.
+      const localizedSlug = ' shared-canonical-job ';
+      const matchingJobs = [
+        activeJob({
+          title: 'Nurse in Ticino',
+          canton: 'TI',
+          location: 'Lugano',
+          slug: 'shared-canonical-job',
+          slugByLocale: { [locale]: localizedSlug },
+        }),
+        activeJob({
+          title: 'Nurse in Zürich',
+          canton: 'ZH',
+          location: 'Zürich',
+          slug: 'shared-canonical-job',
+          slugByLocale: { [locale]: localizedSlug },
+        }),
+      ];
+      const expectedHrefs = matchingJobs.map((job) => {
+        const slug = String(job.slugByLocale?.[locale] || '').trim()
+          || String(job.slug || '').trim();
+        return `https://frontaliereticino.ch${buildCanonicalJobDetailPath(locale, job, slug)}`;
+      });
+      expect(expectedHrefs[0]).not.toBe(expectedHrefs[1]);
+
+      const rendered = __renderOrphanLandingPage({
+        cluster: makeCluster(locale, 'nurse-jobs-switzerland', 30, ['nurs'], ['switzerland']),
+        matchingJobs,
+        strings: {},
+        dateStamp: '2026-10-13',
+        knownSlugsByLocale: new Map(
+          ORPHAN_LANDING_LOCALES.map((itemLocale) => [itemLocale, new Set<string>()]),
+        ),
+      });
+
+      expect(expectedHrefs.every((href) => href.endsWith('/'))).toBe(true);
+      const cardHrefs = Array.from(rendered.html.matchAll(
+        /<a\b[^>]*\bhref=(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>/gi,
+      )).map(([, doubleQuoted, singleQuoted, unquoted]) => doubleQuoted || singleQuoted || unquoted)
+        .filter((href) => href?.includes('shared-canonical-job/'));
+      expect(cardHrefs).toEqual(expectedHrefs.map((href) => new URL(href).pathname));
+
+      const itemLists = Array.from(rendered.html.matchAll(
+        /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+      )).map(([, payload]) => JSON.parse(payload!));
+      const jobItemList = itemLists.find((schema) => schema['@type'] === 'ItemList');
+      expect(jobItemList).toBeDefined();
+      expect(jobItemList!.itemListElement.map((item: { url: string }) => item.url)).toEqual(expectedHrefs);
+    },
+  );
 });
 
 // ─── Job matching ────────────────────────────────────────────
