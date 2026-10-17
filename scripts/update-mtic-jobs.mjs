@@ -57,6 +57,7 @@ import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { MIN_SOURCE_BODY_WORDS } from './lib/source-body-floor.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -197,7 +198,7 @@ async function fetchAllListings(counts = null) {
   return allItems;
 }
 
-async function enrichWithDetails(listings) {
+export async function enrichWithDetails(listings) {
   const enriched = [];
   const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'MTIC');
 
@@ -210,17 +211,17 @@ async function enrichWithDetails(listings) {
       const detail = parseMticDetailPage(html, item.title);
       if (!isMticDetailPublishable(detail)) {
         console.log(`  ⏭️ Detail skipped for ${item.detailUrl}: source body is below the ${MIN_SOURCE_BODY_WORDS}-word floor`);
-        continue;
-      }
-      enriched.push({
-        ...item,
-        title: detail.title || item.title,
-        location: detail.location || item.subsidiaryLocation || '',
-        description: detail.description || '',
-        datePosted: detail.datePosted,
-      });
-      if ((i + 1) % 5 === 0) {
-        console.log(`  ✅ ${i + 1}/${toFetch.length} detail pages fetched`);
+      } else {
+        enriched.push({
+          ...item,
+          title: detail.title || item.title,
+          location: detail.location || item.subsidiaryLocation || '',
+          description: detail.description || '',
+          datePosted: detail.datePosted,
+        });
+        if ((i + 1) % 5 === 0) {
+          console.log(`  ✅ ${i + 1}/${toFetch.length} detail pages fetched`);
+        }
       }
     } catch (err) {
       console.log(`  ⚠️ Detail fetch failed for ${item.detailUrl}: ${err.message}`);
@@ -478,4 +479,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'MTIC Group'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'MTIC Group'));
+}
