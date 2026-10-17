@@ -4,8 +4,8 @@
 //
 // WHAT THIS IS FOR (issue #5432 point 2)
 // ──────────────────────────────────────
-// The hub pages — a section's `/tutti/` archive + pagination and its
-// `/…/argomenti/<topic>/` topic clusters — had exactly one producer on the
+// The hub pages — a section's root landing, `/tutti/` archive + pagination and
+// its `/…/argomenti/<topic>/` topic clusters — had exactly one producer on the
 // serving path: `scripts/publish-article-fast.mjs`, reachable only by
 // publishing an article, and only for THAT article's section. Two consequences,
 // both measured on 2026-08-09:
@@ -30,8 +30,8 @@
 //
 // NOT A SECOND IMPLEMENTATION. The render is `renderHubsAndOffload` from
 // scripts/lib/render-and-push-hubs.mjs — the exact function
-// publish-article-fast.mjs calls, in the exact order (archive → topic hubs →
-// CDN offload, issue #5270). The push is the exact merge-only, never-force
+// publish-article-fast.mjs calls, in the exact order (root landing → archive →
+// topic hubs → CDN offload, issue #5270). The push is the exact merge-only, never-force
 // scripts/lib/push-article-shard-incremental.sh every other article path uses.
 // This file contributes the enumeration, the validation, the client-chunk
 // publication and the push fan-out. The workflow supplies the shared R2 lease
@@ -737,7 +737,7 @@ async function main() {
       fs.mkdirSync(distDir, { recursive: true });
 
       console.log(`${LOG} ── rendering ${section} hubs into ${distDir}`);
-      const { hubResult, topicHubResult } = await renderHubsAndOffload({
+      const { landingResult, hubResult, topicHubResult } = await renderHubsAndOffload({
         rootDir: ROOT_DIR,
         distDir,
         section,
@@ -748,13 +748,14 @@ async function main() {
       for (const locale of LOCALES) {
         archivePathsByLocale[locale] = hubResult.pathsByLocale?.[locale] ?? [];
       }
-      const pathsByLocale = hubPathsByLocale({ hubResult, topicHubResult }, LOCALES);
+      const pathsByLocale = hubPathsByLocale({ landingResult, hubResult, topicHubResult }, LOCALES);
       const totalPaths = Object.values(pathsByLocale).reduce((n, l) => n + l.length, 0);
       console.log(
-        `${LOG} ${section}: ${hubResult.written} archive file(s) + ${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
+        `${LOG} ${section}: ${landingResult.written} root landing(s) + ${hubResult.written} archive file(s) + ` +
+          `${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
       );
 
-      // A topic-hub render that produced nothing is NOT fatal — step 6b is
+      // A topic-hub render that produced nothing is NOT fatal — step 6c is
       // non-blocking by contract, and pushing the archive alone still repairs
       // half the problem. It is loud, though: this driver's whole reason to
       // exist is that nothing else re-renders the topic hubs at all.
@@ -770,6 +771,7 @@ async function main() {
         pathsByLocale,
         archivePathsByLocale,
       });
+      for (const landingError of landingResult.errors ?? []) errors.push(landingError);
       for (const n of notes) console.log(`${LOG} ${n}`);
 
       const freshness = await checkCorpusFreshness(section, itemCount, {
@@ -791,8 +793,11 @@ async function main() {
       summary.sections[section] = {
         shardToken: shardTokenForSection(section),
         distDir,
+        landingWritten: landingResult.written,
         archiveWritten: hubResult.written,
         topicHubWritten: topicHubResult.written,
+        landingPathsByLocale: landingResult.pathsByLocale,
+        landingErrors: landingResult.errors,
         archiveLandingByLocale: Object.fromEntries(
           LOCALES.map((l) => [l, findArchiveLanding(archivePathsByLocale[l])]),
         ),
@@ -855,7 +860,7 @@ async function main() {
   // the shard. So the archive and the topic hubs travel together in a single
   // call, and this loop is deliberately not chunked:
   // push-article-shard-incremental.sh takes an arbitrary relpath list, and a
-  // section+locale is ~30 archive pages + ~100 topic hubs ≈ 8 KB of argv,
+  // section+locale is ~30 archive pages + ~100 topic hubs + 1 root landing ≈ 8 KB of argv,
   // three orders of magnitude under ARG_MAX. Chunking would reintroduce the
   // exact multi-build race this comment is about.
   //

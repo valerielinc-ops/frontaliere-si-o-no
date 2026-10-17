@@ -1,18 +1,19 @@
 {
   "key": "fnz",
   "label": "FNZ",
-  "generatedAt": "2026-10-16T21:17:32.033Z",
+  "generatedAt": "2026-10-17T09:14:39.132Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 13537,
-  "avgDurationMs": 13537,
+  "durationMs": 10948,
+  "avgDurationMs": 10948,
   "durationHistory": [
-    13537
+    10948
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Production-Support-Developer_REQ-17649",
       "applyUrl": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Production-Support-Developer_REQ-17649",
@@ -25,7 +26,7 @@
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "slug": "production-support-developer-fnz",
+      "slug": "production-support-sviluppatore-fnz-switzerland-ag-chiasso",
       "category": "technology",
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
@@ -40,25 +41,23 @@
         "location": "Chiasso"
       },
       "jobReqId": "REQ-17649",
-      "needsRetranslation": true,
-      "crawledAt": "2026-10-16T21:17:20.610Z",
       "id": "fnz-b3397fe08d1c",
+      "firstSeenAt": "2026-10-16T21:17:20.610Z",
+      "crawledAt": "2026-10-17T09:14:27.592Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6830",
-      "firstSeenAt": "2026-10-16T21:17:20.610Z",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -90,7 +89,7 @@
       "jobReqId": "REQ-17625",
       "id": "fnz-4ac7c8eee969",
       "firstSeenAt": "2026-10-08T21:16:03.321Z",
-      "crawledAt": "2026-10-16T21:17:20.610Z",
+      "crawledAt": "2026-10-17T09:14:27.592Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -133,7 +132,7 @@
       "jobReqId": "REQ-16005",
       "id": "fnz-addd1ea2604e",
       "firstSeenAt": "2026-09-04T13:28:24.249Z",
-      "crawledAt": "2026-10-16T21:17:20.610Z",
+      "crawledAt": "2026-10-17T09:14:27.592Z",
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -148,5 +147,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

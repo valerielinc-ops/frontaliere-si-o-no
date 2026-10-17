@@ -1189,7 +1189,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-330cd8604fe7",
@@ -2274,7 +2275,7 @@
         "it": "gestore-trice-immobiliare-ffs-officine-ferrovie-federali-olten",
         "en": "real-estate-manager-ffs-officine-ferrovie-federali-olten",
         "de": "immobilienbewirtschafter-in-ffs-officine-ferrovie-federali-olten",
-        "fr": "gestionnaire-immobilier-ere-ffs-officine-ferrovie-federali-olten"
+        "fr": "gerant-e-d-immeubles-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2336,12 +2337,12 @@
           "immobilienbewirtschafter-in-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
-          "gerant-e-d-immeubles-ffs-officine-ferrovie-federali-olten"
+          "gestionnaire-immobilier-ere-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "previousSlugs": [
         "immobilienbewirtschafter-in-ffs-officine-ferrovie-federali-olten",
-        "gerant-e-d-immeubles-ffs-officine-ferrovie-federali-olten"
+        "gestionnaire-immobilier-ere-ffs-officine-ferrovie-federali-olten"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -2368,7 +2369,7 @@
       "slugByLocale": {
         "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-8def9eb896",
         "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
-        "de": "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
+        "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -2435,7 +2436,7 @@
       "crawledAt": "2026-10-15T21:22:19.185Z",
       "previousSlugs": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2446,7 +2447,7 @@
         ],
         "de": [
           "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-          "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "salaryMin": 73000,
@@ -5269,7 +5270,7 @@
       "slugByLocale": {
         "it": "responsabile-dei-lavori-ffs-officine-ferrovie-federali-renens-vd",
         "en": "works-manager-ffs-officine-ferrovie-federali-renens-vd",
-        "de": "leiter-der-arbeiten-ffs-officine-ferrovie-federali-renens-vd",
+        "de": "werksleiter-ffs-officine-ferrovie-federali-renens-vd",
         "fr": "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -5327,7 +5328,7 @@
       "crawledAt": "2026-10-16T21:26:41.972Z",
       "previousSlugs": [
         "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
-        "werksleiter-ffs-officine-ferrovie-federali-renens-vd"
+        "leiter-der-arbeiten-ffs-officine-ferrovie-federali-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5338,7 +5339,7 @@
         ],
         "de": [
           "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
-          "werksleiter-ffs-officine-ferrovie-federali-renens-vd"
+          "leiter-der-arbeiten-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "salaryMin": 97500,
@@ -6589,7 +6590,7 @@
       "slugByLocale": {
         "it": "ingegnere-della-sicurezza-ferroviaria-ffs-officine-ferrovie-federali-geneve",
         "en": "railway-safety-engineer-ffs-officine-ferrovie-federali-geneve",
-        "de": "eisenbahnsicherheitsausrustung-ffs-officine-ferrovie-federali-geneve",
+        "de": "eisenbahnsicherheitsingenieur-ffs-officine-ferrovie-federali-geneve",
         "fr": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6655,7 +6656,7 @@
       "crawledAt": "2026-10-15T21:22:23.677Z",
       "previousSlugs": [
         "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
-        "eisenbahnsicherheitsingenieur-ffs-officine-ferrovie-federali-geneve"
+        "eisenbahnsicherheitsausrustung-ffs-officine-ferrovie-federali-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6666,7 +6667,7 @@
         ],
         "de": [
           "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
-          "eisenbahnsicherheitsingenieur-ffs-officine-ferrovie-federali-geneve"
+          "eisenbahnsicherheitsausrustung-ffs-officine-ferrovie-federali-geneve"
         ]
       },
       "firstSeenAt": "2026-10-15T09:30:51.798Z",
@@ -7710,7 +7711,7 @@
         "it": "pulizia-del-supervisore-del-turno-ffs-officine-ferrovie-federali-chur",
         "en": "shift-supervisor-cleaning-ffs-officine-ferrovie-federali-chur",
         "de": "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
-        "fr": "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
+        "fr": "nettoyage-du-superviseur-de-quart-ffs-officine-ferrovie-federali-chur"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -7784,7 +7785,7 @@
       "crawledAt": "2026-10-16T21:26:43.474Z",
       "previousSlugs": [
         "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
-        "nettoyage-du-superviseur-de-quart-ffs-officine-ferrovie-federali-chur"
+        "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7795,7 +7796,7 @@
         ],
         "fr": [
           "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
-          "nettoyage-du-superviseur-de-quart-ffs-officine-ferrovie-federali-chur"
+          "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
         ]
       },
       "firstSeenAt": "2026-10-10T09:25:19.932Z",
@@ -9370,9 +9371,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -9441,8 +9442,8 @@
       "crawledAt": "2026-10-16T21:26:48.477Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
-        "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+        "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9450,11 +9451,11 @@
         ],
         "en": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten"
+          "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+          "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-10T09:25:30.948Z",
@@ -9787,8 +9788,8 @@
       "title": "Monteur:in Fahrleitungszugmaschine (FZM)",
       "titleByLocale": {
         "de": "Monteur:in Fahrleitungszugmaschine (FZM)",
-        "it": "Monteur:in Fahrleitungszugmaschine (FZM)",
-        "en": "Monteur:in Fahrleitungszugmaschine (FZM)",
+        "it": "Montatore/trice di macchine di trazione per linee di contatto (FZM)",
+        "en": "Overhead Line Locomotive Technician (FZM)",
         "fr": "Monteur·euse de locomotive de caténaire (FZM)"
       },
       "description": "Monteur:in Fahrleitungszugmaschine (FZM) 60-100% | SBB\n-\n-\n-\n-\n-\n-\nBeweg die Schweiz mit uns.\nMonteur:in Fahrleitungszugmaschine (FZM)\nDulliken, ab sofort oder nach Vereinbarung, 60-100%\nJetzt bewerben\n\n## Darauf kannst du dich freuen.\nBediene die Spezialmaschinen für die Fahrleitungs- und Kabelverlegung, übernehme Sicherheitsaufgaben und unterstütze die Fahrleitungsteams bei den Bauausführungen. Freue dich auf spannende und abwechslungsreiche Tätigkeiten als Handwerker:in und werde Teil eines familiären Teams. In dieser Tätigkeit kombinierst du handwerkliches Geschick mit Sicherheitsbewusstsein und organisatorischem Talent. Bist du ambitioniert? Bei uns hast du die Möglichkeit, dich kontinuierlich weiterzuentwickeln und neue Fähigkeiten zu erwerben wie zum Beispiel Triebfahrzeugführer:in (Lokführer:in) der Kategorie A oder B100.\nUnregelmässige Arbeitszeiten sowie Schichtarbeit siehst du für dich als Vorteil für deine flexible Freizeitgestaltung. Geleistete Nacht- und Wochenendarbeit werden bei uns zusätzlich honoriert. Zudem erhältst du grosszügige Zeitzuschläge. Auf unserer Webseite findest du weitere Informationen zu unseren Benefits .\nDas kannst du bewegen.\n- In dieser spannenden Funktion bedienst du die Fahrleitungszugmaschine (FZM), um Unterhalts- und Erneuerungsarbeiten an Fahrleitungsanlagen durchzuführen.\n- Auch die Vorbereitung der Maschine für die Schicht gehören zu deinen Aufgaben, sowie bei Bedarf die Unterstützung der regionalen Fahrleitungs-Teams.\n- Die Bedienung der Fahrleitungszugmaschine erfordert selbstständiges Arbeiten, erfolgt jedoch immer im Zweierteam – Teamfähigkeit und klare Absprachen sind daher essenziell.\n- Mit deinem Know-how und handwerklichem Geschick kannst du mit verschiedenen Arbeitsgeräten umgehen, wobei die Sicherheit für dich an oberster Stelle steht.\nDas bringst du mit.\n- Du bist ein:e Teamplayer:in mit ausgeprägtem Sicherheitsbewusstsein und hast Freude daran, dich fachlich und personell stets weiterzuentwickeln.\n- Unregelmässige Arbeitszeiten inklusive Nacht- und Wochenendarbeit gehören zu deinem Arbeitsalltag. Du bist körperlich fit und hast Freude an der Arbeit im Freien.\n- Für diese Stelle benötigst du eine abgeschlossene handwerkliche Berufslehre EFZ.\n- Die Motivation, sich zum/zur Triebfahrzeugführer:in (Lokführer:in) der Kategorie A oder B100 weiterentwickeln zu lassen, ist vorhanden. Während der Vollzeitausbildung (4–9 Monate) erfolgt eine Entlöhnung zu 100 %.\n- Deutschkenntnisse (Niveau B2) in Wort und Schrift sind Voraussetzung und du besitzt den Führerausweis Kategorie B.\n\n## Dein Lohn und deine Benefits.\nWir haben ein faires und fortschrittliches Lohnsystem und setzen uns aktiv für Lohngleichheit ein. Deshalb sind weiterführende und detaillierte Informationen zum Lohnsystem bei der SBB transparent einsehbar. Diese Stelle befindet sich im Anforderungsniveau D, Regionalzulage Stufe 0. Mehr zu Lohn und Benefits .\n\n## Damit gelingt der Einstieg.\nDass du mit uns die Schweiz bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.\nGrosses machen ist einfacher per du. Das beginnt bereits bei deiner Bewerbung.\n\n## So geht's weiter.\n×\nSpätestens 10 Arbeitstage nach Bewerbungseingang erhältst du eine erste Rückmeldung von uns.\nFinaler Entscheid\nBewerbung\nFinaler Entscheid\nNoch Fragen?\nZum Bewerbungsprozess\nSBB Recruiting Support\nTelefon + 41 51 220 20 29\nrecruiting@sbb.ch\n#einfachDu\nFAQ zur Bewerbung\nZur Stelle\nJob ID 101325\nAlessandro Balloi, Leiter FZM\nTelefon +41 79 361 08 02\nBewerbungen per E-Mail können leider nicht berücksichtigt werden.\nFür diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen.\n\n## Das bieten wir.\nBenefits\nBenefits\nMehr erfahren\nWo immer möglich setzen wir auf flexible Arbeitszeiten und moderne Arbeitszeitmodelle. Darüber hinaus sind wir als Arbeitgeberin auch flexibel, wenn es darum geht, dein Berufsleben mit deinem Privatleben in Einklang zu bringen.\nMehr erfahren\nMehr erfahren\nUnterschiede willkommen\nUnterschiede willkommen\nMehr erfahren\nMit über 150 verschiedenen Berufen bieten wir eine beeindruckende Vielfalt an Einstiegs- und Entwicklungsmöglichkeiten. Ebenso vielfältig sind unsere Mitarbeitenden. Darum engagieren wir uns dafür dass alle Mitarbeitenden ihre individuellen Stärken und Denkweisen einbringen können.\nMehr erfahren\nMehr erfahren\nKarriere und Entwicklung\nKarriere und Entwicklung\nMehr erfahren\nWir fördern unsere Mitarbeitenden entlang ihren persönlichen Bedürfnissen und Ambitionen. Dafür stellen wir ein breites Angebot an fach- und bereichsübergreifenden Weiterbildungsangeboten zur Verfügung. An ausgewählten externen Weiterbildungen, beteiligen wir uns finanziell und zeitlich.\nMehr erfahren\nMehr erfahren",
@@ -11864,7 +11865,7 @@
           "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -11882,7 +11883,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -12387,9 +12389,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12450,8 +12452,8 @@
       "crawledAt": "2026-10-15T21:22:24.169Z",
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12459,11 +12461,11 @@
         ],
         "en": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf"
+          "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+          "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
       "firstSeenAt": "2026-10-15T09:30:52.798Z",

@@ -1,7 +1,7 @@
 import { matchContentLinks } from './contentLinkVocabulary.mjs';
 
 /** Link prose with a shared article budget; preserve existing anchors, code and headings. */
-export function linkContentKeywords(text, locale = 'it', { matcher = matchContentLinks, enabledIds, isEnabled = () => true, destinations = {}, maxLinks = 3, usedIds = new Set() } = {}) {
+export function linkContentKeywords(text, locale = 'it', { matcher = matchContentLinks, enabledIds, isEnabled = /** @type {(id: string) => boolean} */ (() => true), destinations = {}, maxLinks = 3, usedIds = new Set() } = {}) {
  if (!text) return text;
 
  // 1. Build a stripped copy (no * chars) with a position map back to the original

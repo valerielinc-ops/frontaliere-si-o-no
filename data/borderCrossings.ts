@@ -15,7 +15,7 @@ export interface BorderCrossingSource {
 export interface WebcamRef {
  /** Localised display label, e.g. "A2 Chiasso-Brogeda direzione nord". */
  label: string;
- /** Direct URL to the JPEG/GIF frame, or the public frame opened externally. */
+ /** Direct frame URL, or the public webcam page for an external-only source. */
  imageUrl: string;
  /** Human-readable source name for attribution, e.g. "Dipartimento del territorio – Canton Ticino". */
  sourceName: string;
@@ -84,10 +84,9 @@ export interface BorderCrossing {
  /** Official or authoritative sources used to verify this crossing record. */
  sources?: readonly BorderCrossingSource[];
  /**
-  * Hotlinkable public webcams covering the crossing. Source: Dipartimento del
-  * territorio, Canton Ticino (https://www.ti.ch/webcam) — GIF snapshots
-  * refreshed ~every 60s, Cache-Control: max-age=60. Verified hotlink-friendly
-  * (200 OK with no Referer or cookies).
+  * Public webcams covering the crossing. Embeddable sources are hotlinkable
+  * frames; `embedAllowed: false` keeps an official external page link without
+  * embedding or health-checking a provider's frame URL.
   */
  webcams?: WebcamRef[];
 }
@@ -725,10 +724,14 @@ export const borderCrossings: BorderCrossing[] = [
  webcams: [
  {
  label: 'Indemini – panorama verso Alpe Sciaga / Monte Tamaro',
- imageUrl: 'https://lunasole.ch/webcam/latest.jpg',
+ // The former latest.jpg endpoint now returns an empty body. The official
+ // page remains public, but no stable hotlink frame was verified; keep the
+ // source as an external link until the provider publishes one (issue #13621).
+ imageUrl: 'https://lunasole.ch/webcam/',
  sourceName: 'Webcam Indemini (lunasole.ch)',
  sourceUrl: 'https://lunasole.ch/webcam/',
  refreshIntervalMs: 60000,
+ embedAllowed: false,
  },
  ],
  },

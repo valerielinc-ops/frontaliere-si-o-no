@@ -377,7 +377,12 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       [null, base.slugByLocale.fr],
       [null, 'some-flat-old-slug'],
     ];
-    for (const [locale, slug] of candidates) {
+    // Keep tuple access explicit: TypeScript 5.8's declaration-visibility
+    // checker crashes on this union when the binding is destructured in a
+    // `for...of` declaration, so it never reaches the real diagnostics.
+    for (const candidate of candidates) {
+      const locale = candidate[0];
+      const slug = candidate[1];
       const job = arxadaSlice();
       job.previousSlugs = [slug];
       job.previousSlugsByLocale = locale ? { [locale]: [slug] } : {};

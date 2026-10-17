@@ -1,18 +1,19 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-10-16T21:35:19.844Z",
+  "generatedAt": "2026-10-17T09:36:53.057Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 703674,
-  "avgDurationMs": 703674,
+  "unchangedCount": 8,
+  "durationMs": 704838,
+  "avgDurationMs": 704838,
   "durationHistory": [
-    703674
+    704838
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Controller/in (80-100%)",
       "slug": "controller-in-80-100-stadt-chur-1731",
@@ -38,25 +39,26 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:27:21.748Z",
+      "crawledAt": "2026-10-17T09:28:55.388Z",
       "id": "stadt-chur-968df692c179",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "7000",
       "firstSeenAt": "2026-10-16T21:27:21.748Z",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Sachbearbeiter/in Öffentlicher Grund, Veranstaltungen & Gastwirtschaften",
       "slug": "addetto-a-amministrativo-a-suolo-pubblico-eventi-esercizi-pubblici-stadt-chur-chur",
@@ -82,7 +84,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:25:07.782Z",
+      "crawledAt": "2026-10-17T09:26:41.417Z",
       "id": "stadt-chur-e0e50388d680",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -123,7 +125,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:26:14.770Z",
+      "crawledAt": "2026-10-17T09:27:48.404Z",
       "id": "stadt-chur-5da5e02cdf17",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -138,10 +140,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Mitarbeitende Mittagstisch 20–30 %",
       "slug": "tavolo-da-pranzo-del-dipendente-20-30-stadt-chur-chur",
@@ -167,7 +166,7 @@
       "validThrough": "",
       "employmentType": "part_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:28:28.707Z",
+      "crawledAt": "2026-10-17T09:30:02.345Z",
       "id": "stadt-chur-bbc663c8939f",
       "salaryMin": 17300,
       "salaryMax": 26100,
@@ -208,7 +207,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:29:35.664Z",
+      "crawledAt": "2026-10-17T09:31:09.299Z",
       "id": "stadt-chur-f8021256114d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -249,7 +248,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:30:42.623Z",
+      "crawledAt": "2026-10-17T09:32:16.259Z",
       "id": "stadt-chur-58f46560ca20",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -290,7 +289,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:31:49.581Z",
+      "crawledAt": "2026-10-17T09:33:23.217Z",
       "id": "stadt-chur-d462ac2adea6",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -331,7 +330,7 @@
       "validThrough": "",
       "employmentType": "internship",
       "contractType": "stage",
-      "crawledAt": "2026-10-16T21:32:56.540Z",
+      "crawledAt": "2026-10-17T09:34:30.177Z",
       "id": "stadt-chur-55e847ee4cda",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -372,7 +371,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-16T21:34:03.501Z",
+      "crawledAt": "2026-10-17T09:35:37.135Z",
       "id": "stadt-chur-e99d69b8cac7",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -389,5 +388,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

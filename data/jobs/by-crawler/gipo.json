@@ -64,10 +64,6 @@
       "applyUrl": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f",
-        "projektleiter-elektro-gipo-gisler-power-ag-seedorf"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f",
@@ -80,11 +76,14 @@
           "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-15T21:23:40.684Z",
+      "previousSlugs": [
+        "projektleiter-elektro-seedorf-gipo-ch-d61ceb9f",
+        "projektleiter-elektro-gipo-gisler-power-ag-seedorf"
+      ],
       "salaryMin": 107000,
       "salaryMax": 162500,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-15T21:23:40.684Z"
     }
   ]
 }

@@ -17,10 +17,6 @@ import { describe, expect, it } from 'vitest';
  * Failure title: "Loop export: lettore PostHog non registrato con campionamento a zero".
  */
 const KNOWN_POSTHOG_READERS: Record<string, { scheda: string; motivo: string }> = {
-  'export-l7-experiment-outcomes.mjs': {
-    scheda: 'NX-09',
-    motivo: 'L7 reads PostHog only when data/experiments/active-experiments.json declares an experiment, and today it declares none; the first entry must move the reader to GA4 (rule below)',
-  },
   'export-l8-affiliate-outcomes.mjs': {
     scheda: 'L8 (no open issue)',
     motivo: 'eventi affiliate non esenti, da migrare quando L8 riporta esposizioni',
@@ -92,7 +88,7 @@ function findPostHogReaderViolations({
 function activeExperimentReaderViolations(experiments: Array<{ experimentId?: string }>, known: Record<string, unknown>) {
   if (!experiments.length || !Object.prototype.hasOwnProperty.call(known, L7_EXPORTER)) return [];
   return experiments.map((entry) => `${entry.experimentId ?? 'an experiment'} is declared active while ${L7_EXPORTER}`
-    + ' is still a registered PostHog reader: move the L7 reader to GA4 and drop its KNOWN_POSTHOG_READERS entry');
+    + ' is still a registered PostHog reader: remove the reader before enabling L7 outcomes');
 }
 
 function readExporters() {
@@ -121,12 +117,12 @@ describe('loop exporters read only live sources', () => {
     }
   });
 
-  it('lets the L7 reader stay on PostHog only while no experiment is declared active', () => {
-    // An experiment declared active must be measured on a live source: the
-    // L7 entry above is tolerated only while L7 is idle and never queries.
-    // Failure title: "L7: esperimento attivo senza emettitore o senza sorgente viva".
+  it('does not use PostHog for L7 outcomes even when an experiment is active', () => {
     const { experiments } = JSON.parse(fs.readFileSync(ACTIVE_EXPERIMENTS_PATH, 'utf8'));
     expect(Array.isArray(experiments)).toBe(true);
+    const exporters = readExporters();
+    expect(exporters[L7_EXPORTER]).toBeDefined();
+    expect(queriesPostHog(exporters[L7_EXPORTER])).toBe(false);
     expect(activeExperimentReaderViolations(experiments, KNOWN_POSTHOG_READERS)).toEqual([]);
     expect(activeExperimentReaderViolations([{ experimentId: 'g4' }], { [L7_EXPORTER]: {} }))
       .toEqual([expect.stringContaining('g4 is declared active')]);

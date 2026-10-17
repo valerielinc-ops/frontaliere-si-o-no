@@ -1,6 +1,6 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-10-16T21:25:07.773Z",
+  "assembledAt": "2026-10-17T09:33:16.600Z",
   "jobs": [
     {
       "title": "Stagiaire",
@@ -35,8 +35,8 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "staying-down-fondazione-la-fonte-luganese-malcantone",
-        "de": "bleib-unten-fondazione-la-fonte-luganese-malcantone",
+        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
       "sourceLang": "it",
@@ -44,21 +44,25 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-16T21:25:05.498Z",
+      "crawledAt": "2026-10-17T09:33:13.695Z",
       "id": "fondazione-la-fonte-8ea3b422c946",
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-la-fonte-luganese-malcantone"
         ],
         "en": [
-          "stagiaire-la-fonte-luganese-malcantone"
+          "stagiaire-la-fonte-luganese-malcantone",
+          "staying-down-fondazione-la-fonte-luganese-malcantone"
         ],
         "de": [
-          "stagiaire-la-fonte-luganese-malcantone"
+          "stagiaire-la-fonte-luganese-malcantone",
+          "bleib-unten-fondazione-la-fonte-luganese-malcantone"
         ]
       },
       "previousSlugs": [
-        "stagiaire-la-fonte-luganese-malcantone"
+        "stagiaire-la-fonte-luganese-malcantone",
+        "staying-down-fondazione-la-fonte-luganese-malcantone",
+        "bleib-unten-fondazione-la-fonte-luganese-malcantone"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -121,7 +125,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-16T21:25:05.498Z",
+      "crawledAt": "2026-10-17T09:33:13.695Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,

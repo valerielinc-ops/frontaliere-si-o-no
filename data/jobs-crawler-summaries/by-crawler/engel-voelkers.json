@@ -1,59 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-16T21:26:19.425Z",
+  "generatedAt": "2026-10-17T09:27:22.090Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 20009,
-  "avgDurationMs": 20009,
+  "durationMs": 28593,
+  "avgDurationMs": 28593,
   "durationHistory": [
-    20009
+    28593
   ],
-  "newJobs": [
-    {
-      "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "junior-immobilienmakler-in-50-100-buutiq-immobilien-ag-frauenfeld",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-ebd1a190a812",
-      "needsRetranslation": true,
-      "salaryMin": 54000,
-      "salaryMax": 82500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-10-16T21:26:04.558Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Management & Marketing Assistant (m/w/d) – 100 %",
@@ -93,42 +52,38 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Immobilienberater/in 100 % | Ascona",
-      "slug": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
-      "company": "Ticino Premium Properties SA",
+      "title": "Junior Immobilienmakler/in 50-100%",
+      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-frauenfeld",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
+      "company": "buutiq Immobilien AG",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Ascona",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
       "addressCountry": "CH",
-      "canton": "TI",
+      "canton": "TG",
       "country": "CH",
       "category": "sales",
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
+      "id": "engel-voelkers-ebd1a190a812",
       "salaryMin": 54000,
-      "salaryMax": 73000,
+      "salaryMax": 82500,
       "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6612",
-      "id": "engel-voelkers-066a32c6e88d",
-      "firstSeenAt": "2026-04-13T21:38:03.110Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
-      "datePosted": "",
-      "postingDateSource": "unknown",
+      "salarySource": "estimated",
+      "postalCode": "8500",
+      "firstSeenAt": "2026-10-16T21:26:04.558Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -138,6 +93,7 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
@@ -457,5 +413,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

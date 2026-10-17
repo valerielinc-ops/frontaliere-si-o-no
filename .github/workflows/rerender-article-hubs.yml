@@ -4,8 +4,8 @@ name: Rerender Article Hubs
 #
 # THE GAP THIS FILLS
 # ──────────────────
-# A section's hub pages — the `/tutti/` archive + pagination and the
-# `/…/argomenti/<topic>/` topic clusters — had exactly one producer that
+# A section's hub pages — the root landing, the `/tutti/` archive + pagination
+# and the `/…/argomenti/<topic>/` topic clusters — had exactly one producer that
 # reaches the served bytes: scripts/publish-article-fast.mjs, reachable only by
 # PUBLISHING AN ARTICLE, and only for that article's section. The full build
 # emits none of them (ARTICOLI*_BUILD_EMIT_SKIP=true, and the rehydrate's
@@ -58,6 +58,14 @@ on:
       - 'build-plugins/topicClusterHubsData.ts'
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'
+      - 'packages/articles/engine/articlesHubCards.ts'
+      - 'packages/articles/engine/blogImageCdnFinalize.ts'
+      - 'packages/articles/engine/shared/articleReaders.ts'
+      - 'packages/articles/engine/shared/articleRegistryEntries.ts'
+      - 'packages/articles/engine/shared/articleReaderSource.mjs'
+      - 'packages/articles/engine/shared/sourceDates.ts'
+      - 'build-plugins/shared/articleSectionCore.mjs'
+      - 'services/articleSourceDates.ts'
       # Keep the checked-in content path as a trigger for preserved site-side
       # files; the corpus-main overlay sources are listed explicitly below.
       - 'packages/articles/content/**'
@@ -68,6 +76,7 @@ on:
       - 'scripts/lib/corpus-local-preserve.mjs'
       - 'scripts/rerender-article-hubs.mjs'
       - 'scripts/lib/render-and-push-hubs.mjs'
+      - 'scripts/lib/refresh-article-hub-landings.mjs'
       # Self-test on change. A push touching only this file still runs the
       # whole path (render + validate + push), which is what makes an edit
       # here verifiable rather than hopeful.
@@ -513,7 +522,7 @@ jobs:
       # before the next run.
       #
       # What does get purged is the set a human or a gate actually looks at:
-      # each locale's archive landing and each topic-hub landing, apex AND
+      # each locale's root landing, archive landing and each topic-hub landing, apex AND
       # origin. The origin is the one that matters and the one that is easy to
       # forget: locale-router.js fetches the shard origin with
       # `cacheEverything`, so that entry is keyed on the ORIGIN url and an
@@ -533,8 +542,8 @@ jobs:
             exit 0
           fi
 
-          # Landings only: the archive landing, plus every topic hub's own
-          # landing.
+          # Landings only: the root landing, the archive landing, plus every
+          # topic hub's own landing.
           #
           # Matched POSITIVELY on the directory form (`…/index.html` that is
           # not `…/page-N/index.html`) rather than by excluding what looks like
@@ -586,6 +595,7 @@ jobs:
             if [ -s "$SUMMARY" ]; then
               jq -r --arg s "$INPUT_SECTION" '.sections[$s] |
                 "- archive pages: \(.archiveWritten)",
+                "- root landing pages: \(.landingWritten // 0)",
                 "- topic-hub pages: \(.topicHubWritten)",
                 "- paths pushed per locale: \(.pathsByLocale | to_entries | map("\(.key)=\(.value|length)") | join(" "))",
                 "- topic sitemap: \(.sitemapPath // "none") (\(.announcedUrlCount) URL)",

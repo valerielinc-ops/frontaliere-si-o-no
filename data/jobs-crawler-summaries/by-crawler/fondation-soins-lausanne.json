@@ -1,7 +1,7 @@
 {
   "key": "fondation-soins-lausanne",
   "label": "Fondation Soins Lausanne",
-  "generatedAt": "2026-10-16T21:26:21.395Z",
+  "generatedAt": "2026-10-17T09:27:41.488Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 28150,
-  "avgDurationMs": 28150,
+  "durationMs": 12421,
+  "avgDurationMs": 12421,
   "durationHistory": [
-    28150
+    12421
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e9c74fcd-db47-4910-b409-147747f5ba59/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:26:01.397Z",
+      "crawledAt": "2026-10-17T09:27:21.747Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/40d72cd6-a1ed-473b-a9c7-c1219f6b1854/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:58.933Z",
+      "crawledAt": "2026-10-17T09:27:19.978Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9b6d2ee6-e54d-4e93-abb6-5ae251a1f385/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:57.159Z",
+      "crawledAt": "2026-10-17T09:27:18.271Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/6f1ce29b-d193-45ab-b3ae-b2f8a81006d3/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:26:02.185Z",
+      "crawledAt": "2026-10-17T09:27:22.884Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c1ab16fe-30f2-4d9a-b405-c9ef6c8b9c8b/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:26:00.649Z",
+      "crawledAt": "2026-10-17T09:27:20.740Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/25765642-8932-4959-a044-44aded996b06/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:57.833Z",
+      "crawledAt": "2026-10-17T09:27:19.031Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/de30afb7-b090-406f-a281-1ff34b8a41f9/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:55.608Z",
+      "crawledAt": "2026-10-17T09:27:17.576Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/bb4ca556-78f5-4811-bf70-2f9a8beeb937/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:54.664Z",
+      "crawledAt": "2026-10-17T09:27:16.879Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -380,7 +380,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/94367570-967c-4cd6-b85b-381657e362ab/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:49.495Z",
+      "crawledAt": "2026-10-17T09:27:15.961Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -411,5 +411,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

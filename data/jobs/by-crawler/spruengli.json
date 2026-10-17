@@ -1,14 +1,14 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-10-16T21:23:49.964Z",
+  "assembledAt": "2026-10-17T09:25:24.783Z",
   "jobs": [
     {
       "id": "spruengli-0fee255078dc",
       "slug": "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug-97431a5dde",
       "slugByLocale": {
-        "de": "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
         "it": "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug-97431a5dde",
         "en": "christmas-relief-80-100-train-station-confiserie-sprungli-ag-zug",
+        "de": "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
         "fr": "relief-de-noel-80-100-gare-confiserie-sprungli-ag-zug"
       },
       "company": "Confiserie Sprüngli AG",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1273/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.799Z",
+      "crawledAt": "2026-10-17T09:25:05.952Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -55,17 +55,17 @@
       "jobReqId": "1273",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
+        "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
           "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug"
         ]
       },
-      "previousSlugs": [
-        "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
-        "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug"
-      ],
+      "firstSeenAt": "2026-10-15T21:22:10.110Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -78,8 +78,7 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-15T21:22:10.110Z"
+      }
     },
     {
       "id": "spruengli-5654551ca19b",
@@ -112,7 +111,7 @@
       "url": "https://apply.refline.ch/116352/1272/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.798Z",
+      "crawledAt": "2026-10-17T09:25:05.951Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -196,7 +195,7 @@
       "url": "https://apply.refline.ch/116352/1271/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.798Z",
+      "crawledAt": "2026-10-17T09:25:05.951Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Stadelhoferstrasse 8",
@@ -280,7 +279,7 @@
       "url": "https://apply.refline.ch/116352/1274/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:23:30.797Z",
+      "crawledAt": "2026-10-17T09:25:05.950Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "streetAddress": "Case Postale 202",
@@ -364,7 +363,7 @@
       "url": "https://apply.refline.ch/116352/1270/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.797Z",
+      "crawledAt": "2026-10-17T09:25:05.950Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Centralbahnstrasse 14",
@@ -453,7 +452,7 @@
       "url": "https://apply.refline.ch/116352/1269/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.796Z",
+      "crawledAt": "2026-10-17T09:25:05.949Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -546,7 +545,7 @@
       "url": "https://apply.refline.ch/116352/1267/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.796Z",
+      "crawledAt": "2026-10-17T09:25:05.949Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -622,7 +621,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.795Z",
+      "crawledAt": "2026-10-17T09:25:05.948Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -699,7 +698,7 @@
       "url": "https://apply.refline.ch/116352/1257/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.793Z",
+      "crawledAt": "2026-10-17T09:25:05.946Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -775,7 +774,7 @@
       "url": "https://apply.refline.ch/116352/1064/pub/84/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.791Z",
+      "crawledAt": "2026-10-17T09:25:05.944Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Bahnhofstrasse 9",
@@ -851,7 +850,7 @@
       "url": "https://apply.refline.ch/116352/1262/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.789Z",
+      "crawledAt": "2026-10-17T09:25:05.943Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -927,7 +926,7 @@
       "url": "https://apply.refline.ch/116352/1266/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.787Z",
+      "crawledAt": "2026-10-17T09:25:05.942Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "SG",
       "streetAddress": "Multergasse 21",
@@ -1009,7 +1008,7 @@
       "url": "https://apply.refline.ch/116352/1265/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.786Z",
+      "crawledAt": "2026-10-17T09:25:05.942Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1086,7 +1085,7 @@
       "url": "https://apply.refline.ch/116352/1231/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.783Z",
+      "crawledAt": "2026-10-17T09:25:05.941Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1168,7 +1167,7 @@
       "url": "https://apply.refline.ch/116352/1207/pub/38/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.781Z",
+      "crawledAt": "2026-10-17T09:25:05.940Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1244,7 +1243,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/33/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.778Z",
+      "crawledAt": "2026-10-17T09:25:05.939Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1333,7 +1332,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/16/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.776Z",
+      "crawledAt": "2026-10-17T09:25:05.938Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1417,7 +1416,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.775Z",
+      "crawledAt": "2026-10-17T09:25:05.937Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1501,7 +1500,7 @@
       "url": "https://apply.refline.ch/116352/0032/pub/56/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.772Z",
+      "crawledAt": "2026-10-17T09:25:05.935Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1583,7 +1582,7 @@
       "url": "https://apply.refline.ch/116352/0015/pub/87/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.770Z",
+      "crawledAt": "2026-10-17T09:25:05.934Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1665,7 +1664,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/44/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.768Z",
+      "crawledAt": "2026-10-17T09:25:05.933Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1747,7 +1746,7 @@
       "url": "https://apply.refline.ch/116352/1260/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.764Z",
+      "crawledAt": "2026-10-17T09:25:05.931Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1829,7 +1828,7 @@
       "url": "https://apply.refline.ch/116352/1263/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.761Z",
+      "crawledAt": "2026-10-17T09:25:05.929Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1905,7 +1904,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/60/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.759Z",
+      "crawledAt": "2026-10-17T09:25:05.928Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1986,7 +1985,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.757Z",
+      "crawledAt": "2026-10-17T09:25:05.927Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -2070,7 +2069,7 @@
       "url": "https://apply.refline.ch/116352/1261/pub/3/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.755Z",
+      "crawledAt": "2026-10-17T09:25:05.926Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -2157,7 +2156,7 @@
       "url": "https://apply.refline.ch/116352/1206/pub/30/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.754Z",
+      "crawledAt": "2026-10-17T09:25:05.925Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -2256,7 +2255,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/41/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.753Z",
+      "crawledAt": "2026-10-17T09:25:05.924Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -2347,7 +2346,7 @@
       "url": "https://apply.refline.ch/116352/1039/pub/68/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:23:30.751Z",
+      "crawledAt": "2026-10-17T09:25:05.922Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -2403,95 +2402,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spruengli-c6a8fff34342",
-      "slug": "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug-395ccd754b",
-      "slugByLocale": {
-        "de": "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
-        "it": "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug-395ccd754b",
-        "en": "christmas-relief-80-100-train-station-confiserie-sprungli-ag-zug",
-        "fr": "relief-de-noel-80-100-gare-confiserie-sprungli-ag-zug"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Weihnachtsaushilfe (80-100%) Bahnhof Zug",
-      "titleByLocale": {
-        "de": "Weihnachtsaushilfe (80-100%) Bahnhof Zug",
-        "it": "Rilievo di Natale (80-100%) Stazione ferroviaria",
-        "en": "Christmas relief (80-100%) Train station",
-        "fr": "Relief de Noël (80-100%) Gare"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nWeihnachtsaushilfe (80-100%) Bahnhof Zug\n\n80% - 100%, Zug\n\nArbeiten bei Sprüngli\n\nZur Verstärkung unsere Filiale in Bahnhof Zug suchen wir im Zeitraum vom 1. Dezember 2026 bis 24.Dezember 2026 eine zuverlässige Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Unterstützung des Verkaufsteam\n\n• Auffüllen der Vorwahlwände mit unseren erlesenen Spezialitäten\n\n• Bewirtschaften der Verkaufsvitrinen\n\n• Helfen beim vorbereiten von Kundenbestellungen\n\n• Einhalten der Hygienevorschriften sowie allgemeine Aufräum- und Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Speditive, zuverlässige und exakte Arbeitsweise\n\n• Sehr gute Deutschkenntnisse\n\n• Hohe Dienstleistungsbereitschaft und Freude an internationaler Kundschaft\n\n• Hohe Flexibilität bezüglich Arbeitszeiten (Schicht - und Wochenendbetrieb)\n\nDarauf kannst du dich freuen\n\n• Abwechslungsreiche Tätigkeit\n\n• Attraktive Anstellungsbedingungen\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nWeihnachtsaushilfe (80-100%) Bahnhof Zug\n\n80% - 100%, Zug\n\nArbeiten bei Sprüngli\n\nZur Verstärkung unsere Filiale in Bahnhof Zug suchen wir im Zeitraum vom 1. Dezember 2026 bis 24.Dezember 2026 eine zuverlässige Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Unterstützung des Verkaufsteam\n\n• Auffüllen der Vorwahlwände mit unseren erlesenen Spezialitäten\n\n• Bewirtschaften der Verkaufsvitrinen\n\n• Helfen beim vorbereiten von Kundenbestellungen\n\n• Einhalten der Hygienevorschriften sowie allgemeine Aufräum- und Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Speditive, zuverlässige und exakte Arbeitsweise\n\n• Sehr gute Deutschkenntnisse\n\n• Hohe Dienstleistungsbereitschaft und Freude an internationaler Kundschaft\n\n• Hohe Flexibilität bezüglich Arbeitszeiten (Schicht - und Wochenendbetrieb)\n\nDarauf kannst du dich freuen\n\n• Abwechslungsreiche Tätigkeit\n\n• Attraktive Anstellungsbedingungen\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nRilievo di Natale (80-100%) Stazione ferroviaria\n\n80% - 100%, treno\n\nLavorare a Sprüngli\n\nPer rafforzare il nostro ramo in Bahnhof Zug stiamo cercando nel periodo di 1. Dicembre 2026 a dicembre 24, 2026 una personalità affidabile\n\nCosa fai con noi\n\n• Supporto del team di vendita\n\n• Riempire le pareti preselezione con le nostre squisite specialità\n\n• Gestione dei casi di vendita\n\n• Aiuta a preparare gli ordini dei clienti\n\n• Rispetto delle normative igienico-sanitarie e pulizia generale\n\nCosa vogliamo\n\n• Metodo di lavoro avanzato, affidabile e preciso\n\n• Molto buona conoscenza del tedesco\n\n• Alta disponibilità a fornire servizi e godimento dei clienti internazionali\n\n• Elevata flessibilità per quanto riguarda le ore di lavoro (cambiamenti e weekend)\n\nNon vedo l'ora.\n\n• Attività varie\n\n• Condizioni di lavoro attraenti\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\n• Un team motivato e impegnato che già vi aspetta\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nChristmas relief (80-100%) Train station\n\n80% - 100%, train\n\nWorking at Sprüngli\n\nTo strengthen our branch in Bahnhof Zug we are looking for in the period of 1. December 2026 to December 24, 2026 a reliable personality as\n\nWhat you do with us\n\n• Support of the sales team\n\n• Filling the pre-selection walls with our exquisite specialties\n\n• Managing sales cases\n\n• Help prepare customer orders\n\n• Compliance with hygiene regulations and general clean-up and cleaning work\n\nWhat we want\n\n• Freight forward, reliable and exact working method\n\n• Very good knowledge of German\n\n• High willingness to provide services and enjoyment of international customers\n\n• High flexibility regarding working hours (shift and weekend operations)\n\nYou can look forward to that.\n\n• Varied activities\n\n• Attractive employment conditions\n\n• A lively and modern environment with a collegial du culture\n\n• A motivated and committed team that is already looking forward to you\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nRelief de Noël (80-100%) Gare\n\n80% - 100%, train\n\nTravailler chez Sprüngli\n\nPour renforcer notre branche à Bahnhof Zug que nous recherchons dans la période de 1. décembre 2026 au 24 décembre 2026 une personnalité fiable comme\n\nCe que tu fais de nous\n\n• Soutien de l'équipe de vente\n\n• Remplir les murs de pré-sélection de nos spécialités exquises\n\n• Gestion des cas de vente\n\n• Aide à préparer les commandes des clients\n\n• Respect des règles d'hygiène et nettoyage général\n\nCe que nous voulons\n\n• Fret à l'avance, méthode de travail fiable et exacte\n\n• Très bonne connaissance de l'allemand\n\n• Haute volonté de fournir des services et la jouissance de la clientèle internationale\n\n• Haute flexibilité en matière d'horaires de travail (fonctionnements en équipes et en fin de semaine)\n\nVous pouvez attendre avec impatience.\n\n• Activités variées\n\n• Conditions d'emploi attrayantes\n\n• Un environnement animé et moderne avec une collégiale du culture\n\n• Une équipe motivée et engagée qui vous attend déjà\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://apply.refline.ch/116352/1273/pub/5/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:22:10.110Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Bahnhofplatz",
-      "postalCode": "6300",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T11:07:52.484327+00:00",
-      "postedDate": "2026-10-15T11:07:52.484327+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/116352/1273/pub/5/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1273",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
-          "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-          "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug"
-        ],
-        "en": [
-          "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug"
-        ],
-        "fr": [
-          "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug"
-        ]
-      },
-      "previousSlugs": [
-        "weihnachtsaushilfe-80-100-bahnhof-zug-spruengli-zug",
-        "weihnachtsaushilfe-80-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-        "rilievo-di-natale-80-100-stazione-ferroviaria-confiserie-sprungli-ag-zug"
-      ],
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-15T21:22:10.110Z",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -11,8 +11,9 @@
  *
  * Each item carries a schema.org JobPosting under `_jobposting`, with a
  * `jobLocation` array (one entry per office the role is open to). We keep
- * only postings that list a Swiss (`addressCountry: 'CH'`) location —
- * verified live: 5/42 postings, all tagged Zürich, Herostrasse 12, 8048.
+ * only postings that list a Swiss (`addressCountry: 'CH'`) location. The
+ * Teamtailor CDN has served stale `jobs.json` location arrays despite
+ * `private, no-store`, so each feed request uses a fresh query key.
  *
  * hiringOrganization on the feed is "LumApps" (the current legal entity),
  * but the crawler is filed under the recognizable "Beekeeper" brand since
@@ -24,6 +25,7 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -117,9 +119,11 @@ async function fetchJobFeed() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const requestUrl = new URL(FEED_URL);
+  requestUrl.searchParams.set('_', String(Date.now()));
 
   try {
-    const res = await fetch(FEED_URL, {
+    const res = await fetch(requestUrl, {
       signal: controller.signal,
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereBot/1.0)' },
     });
@@ -131,14 +135,33 @@ async function fetchJobFeed() {
   }
 }
 
+function addressCountryCode(location = {}) {
+  const country = location?.address?.addressCountry;
+  return typeof country === 'string' ? country.trim().toUpperCase() : '';
+}
+
+/** A source-zero proof needs a readable title and country-coded location on every feed row. */
+function isInterpretableFeedItem(item) {
+  if (!item || typeof item !== 'object' || Array.isArray(item)) return false;
+  const jobPosting = item._jobposting;
+  if (!jobPosting || typeof jobPosting !== 'object' || Array.isArray(jobPosting)) return false;
+
+  const rawTitle = item.title || jobPosting.title;
+  if (typeof rawTitle !== 'string' || normalizeSpace(rawTitle).length < 3) return false;
+
+  const locations = jobPosting.jobLocation;
+  if (!Array.isArray(locations) || locations.length === 0) return false;
+  return locations.every((location) => /^[A-Z]{2}$/.test(addressCountryCode(location)));
+}
+
 function isSwissPosting(jobPosting = {}) {
   const locations = Array.isArray(jobPosting.jobLocation) ? jobPosting.jobLocation : [];
-  return locations.some((loc) => loc?.address?.addressCountry === 'CH');
+  return locations.some((loc) => addressCountryCode(loc) === 'CH');
 }
 
 function pickSwissAddress(jobPosting = {}) {
   const locations = Array.isArray(jobPosting.jobLocation) ? jobPosting.jobLocation : [];
-  const chLoc = locations.find((loc) => loc?.address?.addressCountry === 'CH');
+  const chLoc = locations.find((loc) => addressCountryCode(loc) === 'CH');
   const address = chLoc?.address || {};
   const isHqCity = !address.addressLocality || /z[üu]rich/i.test(address.addressLocality);
   return {
@@ -158,7 +181,7 @@ export async function fetchAllBeekeeperJobs() {
     return [];
   }
 
-  const swissItems = items.filter((it) => isSwissPosting(it._jobposting || {}));
+  const swissItems = items.filter((it) => isSwissPosting(it?._jobposting || {}));
   console.log(`  📋 Total items: ${items.length}, Swiss-tagged: ${swissItems.length}`);
 
   const jobs = [];
@@ -229,5 +252,13 @@ export async function fetchAllBeekeeperJobs() {
   }
 
   console.log(`\n📋 Total ${BEEKEEPER_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  if (jobs.length > 0) return jobs;
+  if (!items.every(isInterpretableFeedItem)) {
+    console.warn('⚠️ Feed postings were not all interpretable; leaving the empty snapshot unverified.');
+    return jobs;
+  }
+  return markAuthoritativeEmptySnapshot(
+    jobs,
+    `Teamtailor JSON Feed returned ${items.length} interpretable posting(s), none with a Swiss job location`,
+  );
 }

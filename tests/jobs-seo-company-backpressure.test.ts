@@ -28,9 +28,12 @@ describe('jobsSeoPages company-landing backpressure', () => {
     expect(phaseEnd).toBeGreaterThan(phaseStart);
     expect(threshold).toBe(5_000);
     expect(inFlightLimit).toBe(2);
-    expect(hubFlushThreshold).toBe(1_024);
+    // A single-locale shard can finish the whole company phase below 1,024
+    // writes; 128 forces at least one intermediate drain on that path.
+    expect(hubFlushThreshold).toBe(128);
     expect(hubFlushThreshold).toBeLessThan(threshold);
     expect(companyPhase).toContain('await flushHubPageWritesIfNeeded();');
+    expect(companyPhase).toContain('await collector.flush();');
     // The active map is drained before the generic 5,000-entry auto-flush can
     // create another large batch; this is the memory bound the old
     // awaitDrainSlot-only guard did not provide.

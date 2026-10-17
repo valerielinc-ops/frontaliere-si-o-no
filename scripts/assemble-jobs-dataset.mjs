@@ -68,6 +68,7 @@ import { dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } fro
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
+import { reconcileDuplicateIdJobs } from './reconcile-duplicate-stable-id-jobs.mjs';
 import { repairJobMojibakeInPlace } from './lib/repair-mojibake.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
@@ -3143,6 +3144,31 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       // yields an empty ownership map upstream, which drops nothing by design.
       console.warn(`  ⚠️ Ownership guard skipped for ${crawlerKey}: ${err.message}`);
     }
+  }
+
+  // -- One id per posting within the slice --------------------------------
+  // Several parsers derive the id from data an employer can reuse for distinct
+  // postings (Emmi's reference code, a shared ostendis token on Vista, PwC):
+  // the slice then holds two postings under one id and translate-pending's
+  // scatter parity refuses to publish (`duplicateAssembledKeys`, runs
+  // 38854975768 and 38937686046, 2026-10-16). reconcile-duplicate-stable-id-
+  // jobs.mjs already repairs this, but only when recover-prev-slugs.yml runs
+  // it, after the duplicate has been published. The same function runs here,
+  // on every write: distinct postings keep one id each (the first seen keeps
+  // it, the others get a stable id derived from their own identity), true
+  // duplicates collapse with their slugs carried over. Unlike the guards
+  // above it is fatal: a slice it cannot reconcile is not written, so the last
+  // verified slice stays on disk instead of a duplicate id reaching the
+  // scatter parity (review of PR 13609).
+  try {
+    const reconciled = reconcileDuplicateIdJobs(finalJobs);
+    if (reconciled.groups > 0) {
+      finalJobs = reconciled.jobs;
+      console.log(`  🪪 Duplicate ids in ${crawlerKey}: ${reconciled.groups} group(s), ${reconciled.rekeyed} distinct posting(s) re-keyed, ${reconciled.collapsed} duplicate(s) collapsed`);
+      for (const line of reconciled.report.slice(0, 5)) console.log(`     ${line}`);
+    }
+  } catch (err) {
+    throw new Error(`Duplicate-id reconciliation failed for ${crawlerKey}; slice not written: ${err.message}`);
   }
 
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──

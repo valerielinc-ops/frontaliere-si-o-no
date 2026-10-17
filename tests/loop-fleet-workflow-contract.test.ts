@@ -420,20 +420,32 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
-  it('refreshes L5 and L7 evidence from PostHog without committing source exports', () => {
-    const contracts = [
-      ['loop-l5-decision-moments.yml', 'scripts/ci/export-loop-outcomes.mjs', 'Export fresh L5 outcomes', '$RUNNER_TEMP/decision-moment-outcomes.json'],
-      ['loop-l7-experiment-allocator.yml', 'scripts/ci/export-l7-experiment-outcomes.mjs', 'Export fresh L7 outcomes', '$RUNNER_TEMP/experiment-outcomes.json'],
-    ];
-    for (const [name, exporter, step, outputPath] of contracts) {
-      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      expect(source, name).toContain(exporter);
-      expect(source, name).toContain('scripts/lib/posthog-client.mjs');
-      expect(source, name).toContain(step);
-      expect(source, name).toContain(outputPath);
-      expect(source, name).toContain('outcomes_path=');
-      expect(source, name).toContain("if: github.event_name != 'pull_request'");
-    }
+  it('refreshes L5 evidence from PostHog without committing source exports', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l5-decision-moments.yml'), 'utf8');
+    expect(source).toContain('scripts/ci/export-loop-outcomes.mjs');
+    expect(source).toContain('scripts/lib/posthog-client.mjs');
+    expect(source).toContain('Export fresh L5 outcomes');
+    expect(source).toContain('$RUNNER_TEMP/decision-moment-outcomes.json');
+    expect(source).toContain('outcomes_path=');
+    expect(source).toContain("if: github.event_name != 'pull_request'");
+  });
+
+  it('exports L7 idle or unavailable state without querying telemetry', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l7-experiment-allocator.yml'), 'utf8');
+    expect(source).toContain('scripts/ci/export-l7-experiment-outcomes.mjs');
+    expect(source).toContain('Export fresh L7 outcomes');
+    expect(source).toContain('$RUNNER_TEMP/experiment-outcomes.json');
+    expect(source).toContain('data/experiments/active-experiments.json');
+    expect(source).toContain('outcomes_path=');
+    expect(source).toContain("if: always() && github.event_name != 'pull_request'");
+    expect(source).not.toContain('scripts/lib/posthog-client.mjs');
+    expect(source).not.toContain('FIREBASE_SERVICE_ACCOUNT_JSON');
+  });
+
+  it('does not use Firebase credential outages to turn a valid L7 idle declaration into unavailable', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l7-experiment-allocator.yml'), 'utf8');
+    expect(source).not.toContain('LOOP_FLEET_L7_EXPORT_UNAVAILABLE=1');
+    expect(source).toContain('node scripts/ci/export-l7-experiment-outcomes.mjs --json');
   });
 
   it('creates the L5 exporter log directory before teeing live evidence', () => {
@@ -451,7 +463,6 @@ describe('loop fleet workflow contract', () => {
       ['loop-l3-job-quality.yml', 'LOOP_FLEET_L3_EXPORT_UNAVAILABLE=1', '--loop L3 --unavailable'],
       ['loop-l4-alert-return.yml', 'LOOP_FLEET_L4_EXPORT_UNAVAILABLE=1', '--loop L4 --unavailable'],
       ['loop-l5-decision-moments.yml', 'LOOP_FLEET_L5_EXPORT_UNAVAILABLE=1', '--loop L5 --unavailable'],
-      ['loop-l7-experiment-allocator.yml', 'LOOP_FLEET_L7_EXPORT_UNAVAILABLE=1', 'export-l7-experiment-outcomes.mjs --unavailable'],
     ];
     for (const [name, unavailableFlag, fallbackCommand] of contracts) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
@@ -604,7 +615,7 @@ describe('loop fleet workflow contract', () => {
     const successGitCalls = callsFor(overlay.gitCalls, 'success');
     expect(successGitCalls).toHaveLength(3);
     expect(successGitCalls[0]).toContain('ls-remote --exit-code --heads origin refs/heads/ledger/loop-fleet');
-    expect(successGitCalls[1]).toBe('fetch --depth 1 origin ledger/loop-fleet');
+    expect(successGitCalls[1]).toBe('fetch --depth 1 --filter=blob:limit=1g origin ledger/loop-fleet');
     expect(successGitCalls[2]).toContain('checkout FETCH_HEAD --');
     expect(successGitCalls[2]).toContain('loop-health-history*.jsonl');
     expect(callsFor(overlay.gitCalls, 'branch-absent')).toHaveLength(1);
@@ -614,7 +625,7 @@ describe('loop fleet workflow contract', () => {
 
     const successTimeouts = callsFor(overlay.timeoutCalls, 'success');
     expect(successTimeouts[0]).toContain('15s|git ls-remote');
-    expect(successTimeouts[1]).toContain('30s|git fetch');
+    expect(successTimeouts[1]).toContain('180s|git fetch');
     expect(successTimeouts[2]).toContain('120s|git checkout');
   });
 

@@ -1,7 +1,7 @@
 {
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-10-16T21:34:37.569Z",
+  "generatedAt": "2026-10-17T09:51:40.410Z",
   "total": 1,
   "discovered": null,
   "parsed": 2,
@@ -14,59 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5695,
-  "avgDurationMs": 5695,
+  "durationMs": 6126,
+  "avgDurationMs": 6126,
   "durationHistory": [
-    5695
+    6126
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "brefispersonal-554e7c9c44e1",
-      "slug": "installatore-installatrice-di-impianti-sanitari-afc-brefis-personal-ag-zh",
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Sanitärinstallateur/in EFZ",
-      "location": "ZH",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46131",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:56:59.261Z",
-      "addressLocality": "ZH",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5405",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-16",
-      "postedDate": "2026-07-16",
-      "postingDateSource": "reported",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46131",
-      "firstSeenAt": "2026-09-27T05:22:20.064Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "brefispersonal-c97c198a6dcd",
@@ -80,7 +37,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46132",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:34:26.401Z",
+      "crawledAt": "2026-10-17T09:51:26.070Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

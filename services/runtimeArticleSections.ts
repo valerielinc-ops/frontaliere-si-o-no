@@ -74,6 +74,7 @@ function parseCantonSectionRelease(value: unknown): CantonSectionRelease | null 
     if (!isRecord(metadata)
       || typeof metadata.sha256 !== 'string'
       || !/^[0-9a-f]{64}$/.test(metadata.sha256)
+      || typeof metadata.bytes !== 'number'
       || !Number.isSafeInteger(metadata.bytes)
       || metadata.bytes < 0) return null;
     files[name] = { sha256: metadata.sha256, bytes: metadata.bytes };
