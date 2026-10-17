@@ -2697,6 +2697,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   checkoutId: string;
   orderId: string;
   successUrl: string;
+  eventContext: ReturnType<typeof buildAssistedApplicationJobContext>;
  } | null>(null);
  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -7568,6 +7569,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      checkoutId: result.checkoutId,
      orderId: result.orderId,
      successUrl: currentPath,
+     eventContext: assistedApplicationJobContext(job, assistedApplicationVariant),
     });
     return;
    }
@@ -7617,6 +7619,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    setSumUpPaymentBusy(false);
    setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
    trackAssistedApplicationEvent('checkout_failed', {
+    ...sumUpPayment.eventContext,
     payment_provider: 'sumup',
     reason: type === 'fail' ? 'payment_failed' : 'payment_error',
    });
@@ -7626,12 +7629,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleSumUpWidgetError = useCallback((error: unknown) => {
   setSumUpPaymentBusy(false);
   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
-  trackAssistedApplicationEvent('checkout_failed', {
-   payment_provider: 'sumup',
-   reason: 'widget_load_failed',
-   error_code: getAssistedApplicationCheckoutErrorCode(error),
-  });
- }, [t]);
+  if (sumUpPayment) {
+   trackAssistedApplicationEvent('checkout_failed', {
+    ...sumUpPayment.eventContext,
+    payment_provider: 'sumup',
+    reason: 'widget_load_failed',
+    error_code: getAssistedApplicationCheckoutErrorCode(error),
+   });
+  }
+ }, [sumUpPayment, t]);
 
  // A treatment click can happen on a list card while auth is still resolving.
  // Keep the selected job queued and route it as soon as the detail host is
