@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { buildPath, preloadBlogData, type AppRoute } from '../services/router';
 import { loadAllLocaleChunks, loadBlogMeta, mergeArticleMetaOverlay, setLocale, type Locale } from '../services/i18n';
-import miazzinaFrenchBody from './fixtures/miazzina-french-body';
+import miazzinaFrenchBody from '../packages/articles/content/blog-body/fr/miazzina-pendolare-fisco-ticino';
 import { stashStaticArticleFallback, __resetStaticArticleFallback } from '../services/staticArticleFallback';
 import { t } from '../services/i18n';
 

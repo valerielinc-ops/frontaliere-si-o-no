@@ -92,4 +92,28 @@ describe('article prompt-placeholder robots protection', () => {
       expect(html).toContain(`<link rel="canonical" href="${entry.urls[locale]}">`);
     }
   }, 120_000);
+
+  it('keeps the repaired Miazzina French page indexable and in the article sitemap', async () => {
+    distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'article-miazzina-indexable-robots-'));
+    const result = await renderArticlePages({
+      rootDir,
+      distDir,
+      section: 'frontaliere',
+      onlyArticleId: 'miazzina-pendolare-fisco-ticino',
+    });
+
+    expect(result.entries).toHaveLength(1);
+    const entry = result.entries[0];
+    const frenchHtml = fs.readFileSync(path.join(distDir, entry.paths.fr), 'utf8');
+    expect(frenchHtml).toContain('content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"');
+    expect(frenchHtml).not.toContain('content="noindex,follow"');
+    expect(frenchHtml).toContain('Pour comparer un salaire et un logement');
+    expect(frenchHtml).toContain('Un budget de résidence ne se résume pas');
+    expect(frenchHtml).toContain(`<link rel="canonical" href="${entry.urls.fr}">`);
+
+    const sitemap = fs.readFileSync(path.join(rootDir, 'public/sitemap-blog.xml'), 'utf8');
+    expect(sitemap).toContain(
+      '<xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/miazzina-tessin-frontalier/" />',
+    );
+  }, 120_000);
 });
