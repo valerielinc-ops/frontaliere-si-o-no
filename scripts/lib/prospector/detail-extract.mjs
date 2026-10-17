@@ -105,9 +105,10 @@ export function runtimeDetailFallbackUrl(spec, status, url) {
  */
 export function listingEvidenceFields(row = {}, evidence) {
   if (!evidence) return {};
-  const rowHasLocationEvidence = Boolean(row.location || row.addressLocality || row.addressRegion
-    || row.addressCountry || row.postalCode || row.streetAddress || row.locationCandidates?.length);
-  const projectedEvidence = evidence.sourceTitleAlternatives && rowHasLocationEvidence ? null : evidence;
+  const rowHasConcreteLocationEvidence = Boolean(
+    row.location || row.addressLocality || row.locationCandidates?.length,
+  );
+  const projectedEvidence = evidence.sourceTitleAlternatives && rowHasConcreteLocationEvidence ? null : evidence;
   const evidenceCandidates = projectedEvidence
     ? Array.isArray(projectedEvidence.locationCandidates)
       ? projectedEvidence.locationCandidates

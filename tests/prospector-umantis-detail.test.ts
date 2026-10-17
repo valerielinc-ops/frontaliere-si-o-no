@@ -210,6 +210,27 @@ describe('Prospector Umantis detail boundary', () => {
       .toMatchObject({ geography: null, explicitlyForeign: true });
   });
 
+  it('keeps title alternatives when a listing row has only country-level evidence', () => {
+    const title = 'Engineer in Zürich oder Lausanne';
+    const listing = `<table><tr><td><a href="/Vacancies/563/Description/1" aria-label="${title}">
+      ${title}</a></td></tr></table>`;
+    const evidence = extractUmantisListingEvidence(
+      listing,
+      'https://recruitingapp-2563.umantis.com/Jobs/1',
+    ).get('563');
+    const folded = listingEvidenceFields({ addressCountry: 'CH' }, evidence);
+
+    expect(folded).toMatchObject({
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      addressCountry: 'CH',
+      locationCandidates: [
+        expect.objectContaining({ location: 'Zürich', addressLocality: 'Zürich' }),
+        expect.objectContaining({ location: 'Lausanne', addressLocality: 'Lausanne' }),
+      ],
+    });
+  });
+
   it('resolves only reviewed SGKB postcode/locality pairs and keeps the detail-drop gate', async () => {
     const spec = loadSpec('recruitingapp-1154');
     const seed = spec.seedUrls[0];
