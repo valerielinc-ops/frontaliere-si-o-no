@@ -1341,8 +1341,10 @@ function concurrentOptInSucceeded(repo, prNumber, expectedHead, expectedBodyRevi
  * Classify the read immediately after the native mutation. GitHub can expose
  * the merged state before the source head or the comment-backed lease has
  * reached every read replica; only that incomplete identity is retryable.
- * A changed review epoch, released lease, or different head remains a hard
- * failure because the mutation cannot be undone safely.
+ * An open PR with a visible native auto-merge request is the normal successful
+ * result of `gh pr merge --auto`. A changed review epoch, released lease, or
+ * different head remains a hard failure because the mutation cannot be undone
+ * safely.
  */
 export function postMutationStateDecision({
   observed,
@@ -1358,6 +1360,9 @@ export function postMutationStateDecision({
     || observed.headRefOid.length === 0;
   const sameRevision = observedRevision === expectedBodyRevision;
   const leaseMatches = lease?.allow === true && lease.leaseId === expectedLeaseId;
+  const autoMergeEnabled = observed?.autoMergeRequest !== null
+    && typeof observed?.autoMergeRequest === 'object'
+    && !Array.isArray(observed.autoMergeRequest);
 
   if (observed?.state === 'MERGED'
       && sameHead
@@ -1380,6 +1385,21 @@ export function postMutationStateDecision({
       allow: false,
       retryable: true,
       reason: 'stato MERGED osservato prima della propagazione di HEAD/lease',
+    };
+  }
+
+  if (observed?.state === 'OPEN'
+      && observed.isDraft === false
+      && observed.baseRefName === 'main'
+      && sameHead
+      && sameRevision
+      && autoMergeEnabled
+      && barrier?.allow === true
+      && leaseMatches) {
+    return {
+      allow: true,
+      retryable: false,
+      reason: 'native auto-merge request attivo sulla HEAD corrente',
     };
   }
 
