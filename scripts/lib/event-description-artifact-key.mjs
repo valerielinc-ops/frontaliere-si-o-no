@@ -1,5 +1,7 @@
 import { randomBytes } from 'node:crypto';
 import {
+  fetchRcTemplate,
+  getRemoteConfig,
   stageRcParamValue,
   updateRcTemplateWithEtag,
 } from './remote-config-admin.mjs';
@@ -65,4 +67,14 @@ export async function ensureEventDescriptionArtifactKey({ credentials }) {
     throw new Error(`unable to provision ${EVENT_DESCRIPTION_ARTIFACT_KEY_NAME}: ${result.detail || 'Remote Config update failed'}`);
   }
   return resolvedKey;
+}
+
+/** Read the existing key without creating or changing Remote Config state. */
+export async function readEventDescriptionArtifactKey() {
+  const template = await fetchRcTemplate(await getRemoteConfig());
+  const key = template.parameters?.[EVENT_DESCRIPTION_ARTIFACT_KEY_NAME]?.defaultValue?.value;
+  if (!isValidEventDescriptionArtifactKey(key)) {
+    throw new Error(`${EVENT_DESCRIPTION_ARTIFACT_KEY_NAME} is not provisioned`);
+  }
+  return key;
 }

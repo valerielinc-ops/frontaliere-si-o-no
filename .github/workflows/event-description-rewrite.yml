@@ -243,7 +243,12 @@ jobs:
       - name: Prepare stable private artifact key
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: node scripts/ensure-event-description-artifact-key.mjs --out "$RUNNER_TEMP/event-description-artifact-key"
+        run: |
+          if [ "$REWRITE_DRY_RUN" = 'true' ]; then
+            node scripts/ensure-event-description-artifact-key.mjs --read-only --out "$RUNNER_TEMP/event-description-artifact-key"
+          else
+            node scripts/ensure-event-description-artifact-key.mjs --out "$RUNNER_TEMP/event-description-artifact-key"
+          fi
 
       - name: Fetch private initial event-description backlog
         id: seed
