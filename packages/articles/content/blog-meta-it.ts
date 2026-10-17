@@ -13357,6 +13357,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, si accendono semafori… e proteste',
     'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% contrari al progetto votato il 19 maggio 2019 Primi semafori a Cadenazzo il 29 agosto scorso USTRA stima un risparmio del 30% nel 2028 Voto → 73% di voti',
     'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Semafori e traffico a Cadenazzo, Ticino, con veicoli in attesa al rosso.',
+    'blog.article.assemblea-ccti-rotta-economia.title': 'Assemblea Cc-Ti: l\'economia non è il bancomat dello Stato',
+    'blog.article.assemblea-ccti-rotta-economia.excerpt': 'La Cc-Ti si riunisce oggi a Bellinzona Gehri chiede finanze sane e una visione di Paese Albertoni sostiene lo stop all\'aumento dei dipendenti cantonali',
+    'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzona in Ticino, immagine simbolica per l\'assemblea della Cc-Ti',
 };
 
 export default blogMetaIt;

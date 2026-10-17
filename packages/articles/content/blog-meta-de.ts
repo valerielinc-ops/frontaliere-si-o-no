@@ -13355,6 +13355,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, Ampeln gehen an… und Proteste',
     'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% gegen das am 19.',
     'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Verkehrsampeln und Verkehr in Cadenazzo, Tessin, mit Fahrzeugen, die an der roten Ampel warten.',
+    'blog.article.assemblea-ccti-rotta-economia.title': 'CC-Ti-Versammlung: Die Wirtschaft ist nicht der Geldautomat des Bundesstaates',
+    'blog.article.assemblea-ccti-rotta-economia.excerpt': 'Die Cc-Ti trifft sich heute in Bellinzona.',
+    'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzona im Tessin, symbolisches Bild der Cc-Ti-Versammlung',
 };
 
 export default blogMetaDe;

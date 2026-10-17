@@ -13356,6 +13356,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, traffic lights come on… and protests flare up',
     'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% opposed to the project voted on May 19, 2019 First traffic lights in Cadenazzo on August 29 last year USTRA estimates a 30% saving in 2028 Vote → 73% of votes',
     'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Traffic lights and traffic in Cadenazzo, Ticino, with vehicles waiting at the red light.',
+    'blog.article.assemblea-ccti-rotta-economia.title': 'Cc-Ti Assembly: the economy is not the State\'s ATM',
+    'blog.article.assemblea-ccti-rotta-economia.excerpt': 'The Cc-Ti meets today in Bellinzona Gehri calls for healthy finances and a vision of the country Albertoni supports a stop to the increase in cantonal employees',
+    'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzona in Ticino, symbolic image for the Cc-Ti assembly',
 };
 
 export default blogMetaEn;

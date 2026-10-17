@@ -13358,6 +13358,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.semafori-cadenazzo-proteste-ustra.title': 'PATTI CHIARI Cadenazzo, des feux s’allument… et des protestations',
     'blog.article.semafori-cadenazzo-proteste-ustra.excerpt': '73% opposés au projet voté le 19 mai 2019 Premiers feux à Cadenazzo le 29 août dernier USTRA estime une économie de 30% en 2028 Vote → 73% des voix',
     'blog.article.semafori-cadenazzo-proteste-ustra.imageAlt': 'Feux de circulation et trafic à Cadenazzo, Tessin, avec des véhicules attendant au feu rouge.',
+    'blog.article.assemblea-ccti-rotta-economia.title': 'Assemblée Cc-Ti : l\'économie n\'est pas le distributeur automatique de l\'État',
+    'blog.article.assemblea-ccti-rotta-economia.excerpt': 'Le Cc-Ti se réunit aujourd\'hui à Bellinzona Gehri appelle à une saine santé financière et à une vision du pays.',
+    'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzone au Tessin, image symbolique de l\'assemblée de la Cc-Ti',
 };
 
 export default blogMetaFr;

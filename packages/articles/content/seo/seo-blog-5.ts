@@ -110232,6 +110232,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assemblea-ccti-rotta-economia': {
+    title: 'Assemblea Cc-Ti: l\'economia non è il bancomat dello Stato',
+    description: 'La Cc-Ti si riunisce oggi a Bellinzona Gehri chiede finanze sane e una visione di Paese Albertoni sostiene lo stop all\'aumento dei dipendenti cantonali',
+    keywords: 'frontalieri, ticino, svizzera, italia, assemblea, cc-ti, economia, bancomat',
+    ogTitle: 'Assemblea Cc-Ti: l\'economia non è il bancomat dello Stato',
+    ogDescription: 'La Cc-Ti si riunisce oggi a Bellinzona Gehri chiede finanze sane e una visione di Paese Albertoni sostiene lo stop all\'aumento dei dipendenti cantonali',
+    canonicalPath: '/articoli-frontaliere/assemblea-ccti-rotta-economia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assemblea Cc-Ti: l'economia non è il bancomat dello Stato",
+      "description": "La Cc-Ti si riunisce oggi a Bellinzona Gehri chiede finanze sane e una visione di Paese Albertoni sostiene lo stop all'aumento dei dipendenti cantonali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona in Ticino, immagine simbolica per l'assemblea della Cc-Ti"
+      },
+      "datePublished": "2026-10-16T23:37:31+00:00",
+      "dateModified": "2026-10-16T23:37:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assemblea-ccti-rotta-economia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
