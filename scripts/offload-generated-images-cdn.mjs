@@ -237,6 +237,8 @@ function skipRawTextElement(html, afterOpening, name) {
   return findRawTextClose(html, afterOpening, name)?.end ?? -1;
 }
 
+const RAW_TEXT_ELEMENT_NAMES = ['script', 'style', 'textarea', 'title'];
+
 function skipTemplateElement(html, afterOpening) {
   let depth = 1;
   let searchFrom = afterOpening;
@@ -264,16 +266,14 @@ function skipTemplateElement(html, afterOpening) {
       } else if (!tag.selfClosing) {
         depth++;
       }
-    } else if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'script')) {
-      const afterRawText = skipRawTextElement(html, tag.end + 1, 'script');
-      if (afterRawText < 0) return { end: -1, malformed: true };
-      searchFrom = afterRawText;
-      continue;
-    } else if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'style')) {
-      const afterRawText = skipRawTextElement(html, tag.end + 1, 'style');
-      if (afterRawText < 0) return { end: -1, malformed: true };
-      searchFrom = afterRawText;
-      continue;
+    } else if (!tag.closing && !tag.selfClosing) {
+      const rawTextName = RAW_TEXT_ELEMENT_NAMES.find((name) => isTagNamed(html, tag, name));
+      if (rawTextName) {
+        const afterRawText = skipRawTextElement(html, tag.end + 1, rawTextName);
+        if (afterRawText < 0) return { end: -1, malformed: true };
+        searchFrom = afterRawText;
+        continue;
+      }
     }
     searchFrom = tag.end + 1;
   }
@@ -313,7 +313,7 @@ function findCharsetMetaEnd(headContent) {
     }
     if (!tag.closing && !tag.selfClosing) {
       let skippedRawText = false;
-      for (const rawName of ['script', 'style', 'textarea', 'title']) {
+      for (const rawName of RAW_TEXT_ELEMENT_NAMES) {
         if (isTagNamed(headContent, tag, rawName)) {
           const afterRawText = skipRawTextElement(headContent, tag.end + 1, rawName);
           if (afterRawText < 0) return { end: -1, malformed: true };
@@ -375,7 +375,7 @@ function findActiveCdnBaseScriptRanges(html, headStart, headEnd) {
     }
     if (!tag.closing && !tag.selfClosing) {
       let skippedRawText = false;
-      for (const rawName of ['style', 'textarea', 'title']) {
+      for (const rawName of RAW_TEXT_ELEMENT_NAMES) {
         if (!isTagNamed(html, tag, rawName)) continue;
         const afterRawText = skipRawTextElement(html, tag.end + 1, rawName);
         if (afterRawText < 0 || afterRawText > headEnd) return { ranges, malformed: true };
@@ -423,7 +423,7 @@ function findExistingCdnHintEnd(html, headStart, headEnd, cdnOrigin) {
     }
     if (!tag.closing && !tag.selfClosing) {
       let skippedRawText = false;
-      for (const rawName of ['script', 'style', 'textarea', 'title']) {
+      for (const rawName of RAW_TEXT_ELEMENT_NAMES) {
         if (!isTagNamed(html, tag, rawName)) continue;
         const afterRawText = skipRawTextElement(html, tag.end + 1, rawName);
         if (afterRawText < 0 || afterRawText > headEnd) return { end: lastEnd, malformed: true };
