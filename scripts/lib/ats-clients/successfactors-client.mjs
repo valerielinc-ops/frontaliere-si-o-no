@@ -889,8 +889,11 @@ function extractJobs2WebNextPageUrl(html = '', pageUrl = '') {
 
 function isJobs2WebListingRoute(pathname, searchParams) {
   if (searchParams.has('startrow')) return true;
-  return /\/(?:go|search|viewalljobs)(?:\/|$)/i.test(pathname);
+  const path = pathname.replace(/\/+$/, '');
+  return JOBS2WEB_GO_LISTING_PATH_RE.test(path) || /\/(?:search|viewalljobs)(?:\/|$)/i.test(path);
 }
+
+const JOBS2WEB_GO_LISTING_PATH_RE = /^\/go\/[^/]+\/(?:jobsearch|\d+)(?:\/\d+)?$/i;
 
 function jobs2WebPageOffset(value) {
   const url = value instanceof URL ? value : new URL(value);
@@ -901,10 +904,11 @@ function jobs2WebPageOffset(value) {
   const viewAllMatch = path.match(/\/viewalljobs\/(\d+)$/i);
   if (viewAllMatch) return Number(viewAllMatch[1]);
 
-  // `/go/<category>/<category-id>/<offset>/` is the canonical legacy form.
-  const goOffsetMatch = path.match(/\/go\/[^/]+\/[^/]+\/(\d+)(?:\/[^/]*)?$/i);
-  if (goOffsetMatch) return Number(goOffsetMatch[1]);
-  if (/\/go\/[^/]+\/[^/]+$/i.test(path)) return 0;
+  // Canonical legacy listings use a numeric category id or the explicit
+  // `jobsearch` route. Detail pages use `/go/<...>/job/<offset>/` and must
+  // never be mistaken for pagination targets.
+  const goListingMatch = path.match(/^\/go\/[^/]+\/(?:jobsearch|\d+)(?:\/(\d+))?$/i);
+  if (goListingMatch) return Number(goListingMatch[1] || 0);
   if (/\/(?:go|search|viewalljobs)$/i.test(path)) return 0;
   return null;
 }
