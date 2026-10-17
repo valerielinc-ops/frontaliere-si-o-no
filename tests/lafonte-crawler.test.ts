@@ -45,6 +45,24 @@ describe('La Fonte application handoff', () => {
     expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
   });
 
+  it('accepts the plural imperative application instruction', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>Inviate il CV in formato pdf a info@example.com</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
+  it('groups an adjacent mailto destination with its application instruction', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>Inviare il CV</p><a href="mailto:info@example.com">info@example.com</a>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
+  it('does not combine application instructions across card roots', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<div class="pwr-simple-list-item"><p>Inviare il CV</p></div><div class="pwr-simple-list-item"><a href="mailto:info@example.com">info@example.com</a></div>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBeNull();
+  });
+
   it('does not treat an informational contact as an email application instruction', () => {
     const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
     const card = '<p>Il personale è invitato a scrivere a info@example.com per informazioni.</p>';
