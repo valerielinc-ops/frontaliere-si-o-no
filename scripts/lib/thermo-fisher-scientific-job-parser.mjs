@@ -306,6 +306,7 @@ export async function fetchAllThermoFisherScientificJobs() {
     if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ no vacancy text on the detail page nor in the listing, not published: ${title}`);
       withoutBody += 1;
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 

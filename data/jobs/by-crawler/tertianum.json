@@ -1718,7 +1718,7 @@
         "it": "ristorazione-professionale-tertianum-meilen",
         "en": "restoration-professional-tertianum-meilen",
         "de": "restaurationsfachfrau-mann-tertianum-meilen",
-        "fr": "restaurationsfachfrau-mann-tertianum-meilen"
+        "fr": "professionnel-de-restauration-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -1792,9 +1792,7 @@
       },
       "previousSlugs": [
         "restaurationsfachfrau-mann-tertianum-meilen",
-        "restoration-professional-tertianum-meilen",
-        "restaurant-specialist-tertianum-meilen",
-        "professionnel-de-restauration-tertianum-meilen"
+        "restaurant-specialist-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1804,7 +1802,7 @@
           "restaurant-specialist-tertianum-meilen"
         ],
         "fr": [
-          "professionnel-de-restauration-tertianum-meilen"
+          "restaurationsfachfrau-mann-tertianum-meilen"
         ]
       },
       "firstSeenAt": "2026-08-01T11:18:16.043Z",
@@ -5223,7 +5221,7 @@
       "id": "tertianum-b3a426fa2d95",
       "slug": "pflegefachfrau-mann-tertianum-basel",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-basel",
+        "it": "infermiera-tertianum-basel",
         "en": "nurse-tertianum-basel",
         "de": "pflegefachfrau-mann-tertianum-basel",
         "fr": "infirmiere-tertianum-basel"
@@ -5271,14 +5269,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-06T21:46:04.139Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infermiera-tertianum-basel"
-        ]
-      },
-      "previousSlugs": [
-        "infermiera-tertianum-basel"
-      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7524,7 +7514,7 @@
       "slugByLocale": {
         "it": "80-laurea-in-infermiera-tertianum-delemont",
         "en": "80-graduate-nurse-tertianum-delemont",
-        "de": "infirmier-ere-diplome-e-a-80-tertianum-delemont",
+        "de": "80-diplom-krankenschwester-tertianum-delemont",
         "fr": "infirmier-ere-diplome-e-a-80-tertianum-delemont"
       },
       "company": "Tertianum",
@@ -7595,16 +7585,14 @@
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-        "80-laurea-in-infermiera-tertianum-delemont",
-        "80-diplom-krankenschwester-tertianum-delemont"
+        "infirmier-ere-diplome-e-a-80-tertianum-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ],
         "de": [
-          "80-diplom-krankenschwester-tertianum-delemont"
+          "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ]
       },
       "firstSeenAt": "2026-07-14T11:42:42.857Z",
@@ -8994,7 +8982,7 @@
       "slugByLocale": {
         "it": "infermiera-tertianum-etoy",
         "en": "nurse-head-tertianum-etoy",
-        "de": "infirmier-e-chef-fe-tertianum-etoy",
+        "de": "krankenschwesterkopf-tertianum-etoy",
         "fr": "infirmier-e-chef-fe-tertianum-etoy"
       },
       "company": "Tertianum",
@@ -9039,8 +9027,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-e-chef-fe-tertianum-etoy",
-        "krankenschwesterkopf-tertianum-etoy"
+        "infirmier-e-chef-fe-tertianum-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9050,7 +9037,7 @@
           "infirmier-e-chef-fe-tertianum-etoy"
         ],
         "de": [
-          "krankenschwesterkopf-tertianum-etoy"
+          "infirmier-e-chef-fe-tertianum-etoy"
         ]
       },
       "firstSeenAt": "2026-10-09T09:41:03.078Z",
@@ -13500,7 +13487,7 @@
       "slug": "cuocere-cucinare-tertianum-olten",
       "slugByLocale": {
         "it": "cuocere-cucinare-tertianum-olten",
-        "en": "kochin-koch-tertianum-olten",
+        "en": "cook-cook-tertianum-olten",
         "de": "kochin-koch-tertianum-olten",
         "fr": "cuisiniere-tertianum-olten"
       },
@@ -13546,15 +13533,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-tertianum-olten",
-        "cook-cook-tertianum-olten"
+        "kochin-koch-tertianum-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-tertianum-olten"
         ],
         "en": [
-          "cook-cook-tertianum-olten"
+          "kochin-koch-tertianum-olten"
         ]
       },
       "firstSeenAt": "2026-10-08T21:40:46.780Z",
@@ -13734,7 +13720,7 @@
       "id": "tertianum-0811363bd9ed",
       "slug": "pflegefachfrau-mann-tertianum-zizers",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-zizers",
+        "it": "infermiera-infermiere-tertianum-zizers",
         "en": "registered-nurse-tertianum-zizers",
         "de": "pflegefachfrau-mann-tertianum-zizers",
         "fr": "infirmier-ere-tertianum-zizers"
@@ -13781,14 +13767,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-14T09:29:20.169Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infermiera-infermiere-tertianum-zizers"
-        ]
-      },
-      "previousSlugs": [
-        "infermiera-infermiere-tertianum-zizers"
-      ],
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -17586,7 +17564,7 @@
       "id": "tertianum-41c1bff21d40",
       "slug": "pflegefachfrau-mann-tertianum-egnach",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-egnach",
+        "it": "infermieristica-professionale-tertianum-egnach",
         "en": "nursing-professional-tertianum-egnach",
         "de": "pflegefachfrau-mann-tertianum-egnach",
         "fr": "professionnels-des-soins-infirmiers-tertianum-egnach"
@@ -17634,14 +17612,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-08T21:42:46.685Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infermieristica-professionale-tertianum-egnach"
-        ]
-      },
-      "previousSlugs": [
-        "infermieristica-professionale-tertianum-egnach"
-      ],
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -18257,7 +18227,7 @@
         "it": "apprendista-ristorazione-professionale-uomo-tertianum-pfaffikon",
         "en": "apprentice-restoration-professional-man-tertianum-pfaffikon",
         "de": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "fr": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        "fr": "apprenti-e-specialiste-en-restauration-tertianum-pfaffikon"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18305,8 +18275,7 @@
         "apprentice-restaurationsfachfrau-mann-tertianum-pfaffikon",
         "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon",
         "apprentissage-restauration-professionnelle-tertianum-pfaffikon",
-        "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "apprenti-e-specialiste-en-restauration-tertianum-pfaffikon"
+        "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18319,7 +18288,7 @@
         "fr": [
           "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon",
           "apprentissage-restauration-professionnelle-tertianum-pfaffikon",
-          "apprenti-e-specialiste-en-restauration-tertianum-pfaffikon"
+          "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:48.899Z",

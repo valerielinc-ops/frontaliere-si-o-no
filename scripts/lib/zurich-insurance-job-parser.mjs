@@ -465,6 +465,7 @@ export async function prepareZurichInsuranceCrawler({
         // (aggregate gate below), so one undecodable office cannot zero the
         // entire Zurich slice.
         unresolved.push({ url: listing.url, title: listing.title, location: listing.location || '?' });
+        if (detailDelayMs > 0) await new Promise((resolve) => setTimeout(resolve, detailDelayMs));
         continue;
       }
 

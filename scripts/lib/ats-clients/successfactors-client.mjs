@@ -705,10 +705,11 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
     // is a SPA — we accept a single page and parse what we can.
     const seenJobIds = new Set();
     let declaredTotal = null;
+    let pageUrl = careerUrl;
     for (let page = 0; page < maxPages; page++) {
-      const pageUrl = buildJobs2WebPageUrl(careerUrl, page);
       let rows = [];
       let candidateJobs = [];
+      let nextPageUrl = null;
       let candidateSeen = new Set(seenJobIds);
       let incompleteAttempts = 0;
       while (true) {
@@ -719,6 +720,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
         });
         // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
         const html = await rescueHtmlIfChallenged(await res.text(), pageUrl, { timeoutMs });
+        const effectivePageUrl = res.url || pageUrl;
         const ldJob = extractJsonLdJobPosting(html);
         if (ldJob) {
           const job = extractSuccessFactorsJobIdentity(ldJob, { company });
@@ -736,6 +738,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
         // Stage a page against a copy: an HTTP 200 with a transiently empty,
         // short, or repeated page must not mutate the accepted snapshot before
         // completeness against the source's declared total is established.
+        nextPageUrl = extractJobs2WebNextPageUrl(html, effectivePageUrl);
         candidateSeen = new Set(seenJobIds);
         candidateJobs = [];
         for (const row of rows) {
@@ -778,6 +781,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
       if (page > 0 && candidateJobs.length === 0) return;
       if (declaredTotal && buildJobs2WebNextStartrow(page) >= declaredTotal) return;
       if (page < maxPages - 1 && minDelayMs > 0) await sleep(minDelayMs);
+      pageUrl = nextPageUrl || buildJobs2WebPageUrl(careerUrl, page + 1);
     }
     if (declaredTotal !== null && seenJobIds.size < declaredTotal) {
       throw new Error(
@@ -832,6 +836,83 @@ function buildJobs2WebPageUrl(url, page) {
   } catch {
     return url;
   }
+}
+
+/**
+ * Follow a pagination URL emitted by the source before synthesising a
+ * `startrow` URL. SuccessFactors tenants normally accept `startrow`, but
+ * Nestlé's legacy search surface exposes canonical `/go/.../<offset>/` links;
+ * synthesising the query parameter there can return an empty page even while
+ * the source declares more results. Only same-origin listing routes with a
+ * strictly larger offset are candidates, so job/detail links and page-one
+ * links cannot become pagination targets.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @returns {string|null}
+ */
+function extractJobs2WebNextPageUrl(html = '', pageUrl = '') {
+  if (!html || !pageUrl) return null;
+  let current;
+  try {
+    current = new URL(pageUrl);
+  } catch {
+    return null;
+  }
+
+  const currentOffset = jobs2WebPageOffset(current);
+  if (currentOffset === null) return null;
+
+  const candidates = [];
+  const anchorRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = anchorRe.exec(html)) !== null) {
+    const hrefMatch = match[1].match(/\bhref\s*=\s*["']([^"']+)["']/i);
+    if (!hrefMatch) continue;
+    const href = hrefMatch[1].replace(/&amp;/gi, '&');
+    let candidate;
+    try {
+      candidate = new URL(href, current);
+    } catch {
+      continue;
+    }
+    if (candidate.origin !== current.origin) continue;
+    if (!isJobs2WebListingRoute(candidate.pathname)) continue;
+    const offset = jobs2WebPageOffset(candidate);
+    if (offset === null || offset <= currentOffset) continue;
+    candidates.push({ offset, url: candidate.toString() });
+  }
+
+  candidates.sort((a, b) => a.offset - b.offset);
+  return candidates[0]?.url || null;
+}
+
+function isJobs2WebListingRoute(pathname) {
+  const path = pathname.replace(/\/+$/, '');
+  const isListingPath =
+    JOBS2WEB_GO_LISTING_PATH_RE.test(path) ||
+    /\/(?:search|viewalljobs)(?:\/|$)/i.test(path);
+  return isListingPath;
+}
+
+const JOBS2WEB_GO_LISTING_PATH_RE = /^\/go\/[^/]+\/(?:jobsearch|\d+)(?:\/\d+)?$/i;
+
+function jobs2WebPageOffset(value) {
+  const url = value instanceof URL ? value : new URL(value);
+  const startrow = url.searchParams.get('startrow');
+  if (/^\d+$/.test(startrow || '')) return Number(startrow);
+
+  const path = url.pathname.replace(/\/+$/, '');
+  const viewAllMatch = path.match(/\/viewalljobs\/(\d+)$/i);
+  if (viewAllMatch) return Number(viewAllMatch[1]);
+
+  // Canonical legacy listings use a numeric category id or the explicit
+  // `jobsearch` route. Detail pages use `/go/<...>/job/<offset>/` and must
+  // never be mistaken for pagination targets.
+  const goListingMatch = path.match(/^\/go\/[^/]+\/(?:jobsearch|\d+)(?:\/(\d+))?$/i);
+  if (goListingMatch) return Number(goListingMatch[1] || 0);
+  if (/\/(?:go|search|viewalljobs)$/i.test(path)) return 0;
+  return null;
 }
 
 /**

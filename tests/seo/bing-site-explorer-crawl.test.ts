@@ -33,6 +33,7 @@ import {
 import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-template-inventory.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
+import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 
@@ -218,6 +219,69 @@ describe('Bing-compatible full-tree crawler', () => {
         'noindex-in-sitemap',
         'canonical-drift',
       ]));
+    }
+  });
+
+  it('recognizes declared editorial bridges without exempting nearby category or generic-marker drift', () => {
+    const bridgeHtml = (canonical: string, marker = JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER) => `${marker}<title>Bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge editoriale nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const declaredCases = [
+      {
+        url: `${BASE}/cerca-lavoro-appenzello/case-anziani-appenzello/`,
+        canonical: `${BASE}/cerca-lavoro-appenzello/`,
+      },
+      {
+        url: `${BASE}/en/find-jobs-appenzell/care-homes-appenzell-jobs/`,
+        canonical: `${BASE}/en/find-jobs-appenzell/`,
+      },
+      {
+        url: `${BASE}/de/jobs-in-appenzell/altersheime-appenzell-jobs/`,
+        canonical: `${BASE}/de/jobs-in-appenzell/`,
+      },
+      {
+        url: `${BASE}/fr/trouver-emploi-appenzell/maisons-retraite-appenzell/`,
+        canonical: `${BASE}/fr/trouver-emploi-appenzell/`,
+      },
+    ];
+
+    for (const { url, canonical } of declaredCases) {
+      const frontier = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: bridgeHtml(canonical) });
+      const frontierCodes = frontier.findings.map((item) => item.code);
+      expect(frontierCodes).toEqual(expect.arrayContaining([
+        BING_FRONTIER_NOINDEX_BRIDGE,
+        BING_FRONTIER_CANONICAL_EXPECTED,
+      ]));
+      expect(frontierCodes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+      const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(canonical) });
+      expect(sitemap.findings.map((item) => item.code)).toEqual(expect.arrayContaining([
+        'noindex-in-sitemap',
+        'canonical-drift',
+      ]));
+    }
+
+    const nearbyUndeclared = [
+      {
+        url: `${BASE}/cerca-lavoro-appenzello/case-anziani-appenzello/`,
+        canonical: `${BASE}/cerca-lavoro-appenzello/`,
+        html: bridgeHtml(`${BASE}/cerca-lavoro-appenzello/`, REDIRECT_STUB_MARKER),
+      },
+      {
+        url: `${BASE}/cerca-lavoro-appenzello/categoria-informatica/`,
+        canonical: `${BASE}/cerca-lavoro-ticino/categoria-informatica/`,
+        html: bridgeHtml(`${BASE}/cerca-lavoro-ticino/categoria-informatica/`),
+      },
+    ];
+    for (const item of nearbyUndeclared) {
+      const codes = classifyDocument({
+        url: item.url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: item.html,
+      }).findings.map((finding) => finding.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
     }
   });
 

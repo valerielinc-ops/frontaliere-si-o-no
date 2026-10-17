@@ -185,11 +185,15 @@ async function fetchJobListings() {
       detailHtml = await fetchHtml(url, { headers: { 'User-Agent': UA } });
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch ${url}: ${err.message}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
     const posting = extractJobPosting(detailHtml);
-    if (!posting?.title) continue;
+    if (!posting?.title) {
+      await new Promise((r) => setTimeout(r, 300));
+      continue;
+    }
 
     const address = posting.jobLocation?.address || {};
     const locality = address.addressLocality || '';

@@ -275,6 +275,7 @@ export async function fetchAllFielmannJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -294,6 +295,7 @@ export async function fetchAllFielmannJobs() {
     const city = locInfo.city || cityFromVacancyText;
     if (!city) {
       console.log('  ⏭️  Skipped — unresolved location');
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
     const postalCode = locInfo.postalCode || '';

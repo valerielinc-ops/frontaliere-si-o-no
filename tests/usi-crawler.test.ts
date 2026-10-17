@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildUsiSourceDescription,
+  classifyUsiFetchError,
   dropUsiFabricatedText,
   stripUsiWrapper,
 } from '../scripts/update-usi-jobs.mjs';
@@ -73,5 +74,32 @@ describe('dropUsiFabricatedText', () => {
     expect(dropUsiFabricatedText(job)).toBe(false);
     expect(job.descriptionByLocale.it).toBe('Testo tradotto.');
     expect(job.needsRetranslation).toBeUndefined();
+  });
+});
+
+describe('classifyUsiFetchError', () => {
+  it('keeps transport failures distinct from parser/source failures', () => {
+    expect(classifyUsiFetchError(Object.assign(new Error('request timed out'), { name: 'AbortError' }))).toEqual({
+      lastFetchOutcome: 'connection_error',
+      abortKind: 'connection-level-fetch',
+    });
+    expect(classifyUsiFetchError(Object.assign(new Error('HTTP 503'), { status: 503, retryExhausted: true }))).toEqual({
+      lastFetchOutcome: 'exhausted_retry',
+      abortKind: 'connection-level-fetch',
+    });
+  });
+
+  it('keeps an observed endpoint failure out of the transport bucket', () => {
+    expect(classifyUsiFetchError(Object.assign(new Error('HTTP 404'), { status: 404 }))).toEqual({
+      lastFetchOutcome: 'feed_endpoint_unavailable',
+      abortKind: 'no-jobs-parsed',
+    });
+  });
+
+  it('recognizes an IP-level anti-bot response', () => {
+    expect(classifyUsiFetchError(Object.assign(new Error('HTTP 403'), { status: 403 }))).toEqual({
+      lastFetchOutcome: 'anti_bot_block',
+      abortKind: 'connection-level-fetch',
+    });
   });
 });

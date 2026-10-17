@@ -428,7 +428,10 @@ async function fetchJobListings() {
   const listings = [];
   for (const stub of stubs) {
     const detail = await fetchJobDetail(stub.url);
-    if (!detail) continue;
+    if (!detail) {
+      await new Promise((r) => setTimeout(r, 200));
+      continue;
+    }
     listings.push({ ...stub, detail });
     await new Promise((r) => setTimeout(r, 200));
   }

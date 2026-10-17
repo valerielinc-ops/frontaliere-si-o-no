@@ -227,7 +227,7 @@ export async function fetchAllListings() {
   return listings;
 }
 
-async function enrichWithDetails(listings) {
+export async function enrichWithDetails(listings) {
   const enriched = [];
   const toFetch = assertDetailFetchComplete(listings, MAX_DETAIL_PAGES, 'AMAG');
 
@@ -264,25 +264,24 @@ async function enrichWithDetails(listings) {
       const canton = inferAmagCanton(location, region) || inferAmagCanton(item.location, '');
       if (!canton) {
         console.log(`  ⏭️ [${i + 1}/${toFetch.length}] ${item.jobId}: Skipped (not a resolvable Swiss location: ${location})`);
-        continue;
+      } else {
+        const displayLocation = location || region || canton;
+
+        enriched.push({
+          ...item,
+          title: detail.title || item.title,
+          location: displayLocation,
+          region: region || canton,
+          _canton: canton,
+          postalCode: detail.postalCode || '',
+          streetAddress: detail.streetAddress || '',
+          description: detail.description || '',
+          datePosted: detail.datePosted || '',
+          validThrough: detail.validThrough || '',
+          employmentType: detail.employmentType || '',
+        });
+        console.log(`  ✅ [${i + 1}/${toFetch.length}] ${item.jobId}: ${detail.title || item.title} — ${location}`);
       }
-
-      const displayLocation = location || region || canton;
-
-      enriched.push({
-        ...item,
-        title: detail.title || item.title,
-        location: displayLocation,
-        region: region || canton,
-        _canton: canton,
-        postalCode: detail.postalCode || '',
-        streetAddress: detail.streetAddress || '',
-        description: detail.description || '',
-        datePosted: detail.datePosted || '',
-        validThrough: detail.validThrough || '',
-        employmentType: detail.employmentType || '',
-      });
-      console.log(`  ✅ [${i + 1}/${toFetch.length}] ${item.jobId}: ${detail.title || item.title} — ${location}`);
     } catch (err) {
       const msg = String(err?.message || err);
       // 404/410 mean the job was delisted upstream while still in the listing cache.

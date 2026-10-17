@@ -446,12 +446,14 @@ export async function fetchAllMigrolinoJobs() {
       detailHtml = await fetchHtml(publicUrl, { timeoutMs });
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${publicUrl}: ${err?.message || err}`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
 
     const parsed = parseMigrolinoDetail(detailHtml, publicUrl);
     if (!parsed.title) {
       console.warn(`  ⚠️ Could not parse JobPosting JSON-LD for ${publicUrl} — skipping.`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
     const country = normalize(parsed.country).toUpperCase();
@@ -466,6 +468,7 @@ export async function fetchAllMigrolinoJobs() {
         ? `foreign country: ${parsed.country}`
         : 'unresolved Swiss locality';
       console.warn(`  ⏭️ Skipped ${reason} for ${publicUrl}`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
 

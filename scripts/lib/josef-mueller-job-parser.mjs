@@ -349,12 +349,14 @@ export async function fetchAllJosefMuellerJobs({ fetchPage = fetchHtml } = {}) {
       declaredSourceLang = vacancy.sourceLang;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${publicUrl}: ${err?.message || err}`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 
     const parsed = parseJosefMuellerDetail(detailHtml);
     if (!parsed || !parsed.title) {
       console.warn(`  ⚠️ Could not parse JobPosting JSON-LD for ${publicUrl}`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 
