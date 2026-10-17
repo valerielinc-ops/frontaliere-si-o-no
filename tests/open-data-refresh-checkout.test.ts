@@ -842,6 +842,7 @@ const COMPAT_SHARD = 'data/seo-404-compat/part-00.json';
 function compatHistoryFixture(
   historyLength: number,
   helperSource = fs.readFileSync(path.join(ROOT, 'scripts/lib/open-data-refresh-pr.sh'), 'utf8'),
+  stableReconcilerSource?: string,
 ) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-compat-history-'));
   directories.push(directory);
@@ -874,8 +875,13 @@ function compatHistoryFixture(
   git(seed, ['commit', '-q', '-m', 'main compat data']);
   const stableBase = git(seed, ['rev-parse', `HEAD~${Math.max(3, Math.floor(historyLength / 2))}`]);
   git(seed, ['checkout', '-q', '-b', COMPAT_BRANCH, stableBase]);
+  if (stableReconcilerSource !== undefined) {
+    write(seed, 'scripts/ci/reconcile-data-refresh-main.mjs', stableReconcilerSource);
+  }
   write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/stable'] }, null, 2) + '\n');
-  git(seed, ['add', COMPAT_SHARD]);
+  git(seed, ['add', '--', COMPAT_SHARD, ...(stableReconcilerSource === undefined
+    ? []
+    : ['scripts/ci/reconcile-data-refresh-main.mjs'])]);
   git(seed, ['commit', '-q', '-m', 'stable compat data']);
 
   git(directory, ['init', '--bare', '-q', remote]);
@@ -1085,6 +1091,23 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     // Ten times the history, the same commits on the runner: what it reads
     // does not depend on how old the stable branch is.
     expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
+  }, 120_000);
+
+  it('uses the current reconciler when a stale compat branch rejects --compat', () => {
+    const staleReconciler = [
+      "if (process.argv.includes('--compat')) {",
+      "  throw new Error('Usage: reconcile-data-refresh-main.mjs --base SHA --main SHA --message TEXT');",
+      '}',
+      "throw new Error('stale stable-branch reconciler was invoked');",
+      '',
+    ].join('\n');
+    const setup = compatHistoryFixture(50, undefined, staleReconciler);
+
+    const run = publishCompat(setup);
+
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.output).not.toContain('stale stable-branch reconciler was invoked');
+    expect(run.shard).toEqual({ paths: ['/base', '/main', '/run', '/stable'] });
   }, 120_000);
 
   it('carries a sweep that reached main after the checkout into the pending compat branch', () => {
