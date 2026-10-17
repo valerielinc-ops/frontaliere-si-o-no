@@ -110388,6 +110388,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coppa-svizzera-lugano-taverne': {
+    title: 'Lugano favoritissimo, il Taverne cerca l\'impresa',
+    description: 'Il Lugano sfida il Pully domenica alle 14. Il Taverne ospita lo Young Boys alle 16. Quattro squadre sono già al terzo turno. Lugano e Taverne sono le ticinesi',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, favoritissimo, taverne, cerca',
+    ogTitle: 'Coppa Svizzera: Lugano favorito, Taverne all\'impresa',
+    ogDescription: 'Il Lugano sfida il Pully domenica alle 14.',
+    canonicalPath: '/articoli-frontaliere/coppa-svizzera-lugano-taverne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano favoritissimo, il Taverne cerca l'impresa",
+      "description": "Il Lugano sfida il Pully domenica alle 14. Il Taverne ospita lo Young Boys alle 16. Quattro squadre sono già al terzo turno. Lugano e Taverne sono le ticinesi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sfida-bar-quartiere-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Comunale di Taverne, sede della sfida di Coppa Svizzera contro lo Young Boys"
+      },
+      "datePublished": "2026-10-17T01:54:51+00:00",
+      "dateModified": "2026-10-17T01:54:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coppa-svizzera-lugano-taverne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
