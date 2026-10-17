@@ -2,49 +2,6 @@
   "schemaVersion": 1,
   "pending": [
     {
-      "id": "reel-2026-10-15",
-      "channel": "instagram",
-      "kind": "reel",
-      "day": "2026-10-15",
-      "caption": "Un solo riferimento da tenere a portata di mano quando riapri la ricerca.\n\n📌 Infermieri — LIS – Lugano Istituti Sociali — 31 visualizzazioni ieri.\n\n💾 Salva il Reel per quando riaprirai la ricerca.\n👉 Approfondisci dal link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
-      "imageUrls": [
-        "https://cdn.frontaliereticino.ch/images/social/instagram/reel-job-2026-10-15-reel-save-0.jpg"
-      ],
-      "video": {
-        "url": "https://cdn.frontaliereticino.ch/images/social/instagram/reel-job-2026-10-15-reel-save.mp4",
-        "bytes": 240407,
-        "sha256": "bff343be62eff7ae8b5457126396ba766d74c39dcc0acf1a3d5a5a1e59e25bbf",
-        "durationMs": 11500,
-        "width": 1080,
-        "height": 1920
-      },
-      "ledgerEntries": [
-        {
-          "id": "job:infermieri-lis-lugano-istituti-sociali-pregassona",
-          "kind": "reel",
-          "sourceKind": "job",
-          "sourceId": "infermieri-lis-lugano-istituti-sociali-pregassona",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri-lis-lugano-istituti-sociali-pregassona/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_reel_experiment&utm_content=reel-save-infermieri-lis-lugano-istituti-sociali-pregassona",
-          "day": "2026-10-15",
-          "views": 31,
-          "creativeId": "reel-save",
-          "creativeBaseId": "reel",
-          "creativeVariant": "reel-save",
-          "creativeLabel": "Promemoria pratico",
-          "creativeObjective": "save",
-          "primaryMetric": "saves",
-          "engagementMechanic": "save-reminder",
-          "hookType": "problem-solution",
-          "attentionMechanic": "one-problem-one-reference",
-          "engagementLoop": "save-then-return",
-          "followUpFormat": "carousel-checklist",
-          "creativeFormat": "reel"
-        }
-      ],
-      "createdAt": "2026-10-16T12:43:14.520Z",
-      "expiresAt": "2026-10-18T12:43:14.520Z"
-    },
-    {
       "id": "article-2026-10-15",
       "channel": "instagram",
       "kind": "article",
