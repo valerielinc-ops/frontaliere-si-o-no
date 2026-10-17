@@ -2439,7 +2439,7 @@ commit_isolated_from_worktree() {
   local tmp_index merge_dir
   local f local_blob remote_blob base_blob history_blob history_status blob_to_stage key_hint mode_to_stage local_merge_path candidate_path conflict_scan_path
   local snapshot_operation snapshot_state registry_status
-  local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
+  local ownership_root ownership_base_path ownership_remote_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
   local -a effective_files
   local skipped_identical
@@ -2838,6 +2838,15 @@ commit_isolated_from_worktree() {
             return 1
           fi
         fi
+        ownership_remote_path="-"
+        if [ -n "$remote_blob" ]; then
+          ownership_remote_path="$merge_dir/ownership-remote/$f"
+          mkdir -p "$(dirname "$ownership_remote_path")"
+          if ! git cat-file blob "$remote_blob" > "$ownership_remote_path"; then
+            echo "❌ grouped-isolated: could not read remote slice for ownership guard: $f"
+            return 1
+          fi
+        fi
         ownership_output_path="$merge_dir/ownership-filtered/$f"
         mkdir -p "$(dirname "$ownership_output_path")"
         rm -f "$merge_dir/ownership-verdict"
@@ -2848,7 +2857,8 @@ commit_isolated_from_worktree() {
           "$local_merge_path" \
           "$ownership_root" \
           "$ownership_output_path" \
-          "$merge_dir/ownership-verdict")"; then
+          "$merge_dir/ownership-verdict" \
+          "$ownership_remote_path")"; then
           echo "❌ grouped-isolated: crawler ownership guard failed for $f"
           return 1
         fi
@@ -2863,7 +2873,7 @@ commit_isolated_from_worktree() {
         rm -f -- "$ownership_root/$f"
         cp "$ownership_output_path" "$ownership_root/$f"
         if [ "$ownership_result" != '{"dropped":[]}' ]; then
-          echo "⚠️ grouped-isolated: ownership guard filtered new claims from $f: $ownership_result"
+          echo "⚠️ grouped-isolated: ownership guard filtered claims from $f: $ownership_result"
         fi
       fi
 
