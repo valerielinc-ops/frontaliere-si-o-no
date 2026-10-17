@@ -10,6 +10,7 @@ import {
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 const DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000001/';
+const FAILED_DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000004/';
 const PLACEHOLDER_SAXON_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000002/';
 const PLACEHOLDER_CLARENS_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000003/';
 const BODY = ('Rejoignez notre équipe soignante et accompagnez les patients dans un environnement clinique moderne et collaboratif. '
@@ -131,6 +132,18 @@ describe('clinique CIC JobCloud parser', () => {
     vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
       if (String(input) === LISTING_URL) return response(listingHtml([DETAIL_URL]), 200);
       return response('', 503);
+    }));
+
+    await expect(fetchAllCicJobs()).rejects.toThrow(/HTTP 503/);
+  });
+
+  it('throws when one discovered detail fetch fails instead of publishing a partial subset', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      const target = String(input);
+      if (target === LISTING_URL) return response(listingHtml([DETAIL_URL, FAILED_DETAIL_URL]));
+      if (target === DETAIL_URL) return response(detailHtml());
+      if (target === FAILED_DETAIL_URL) return response('', 503);
+      throw new Error(`unexpected URL ${target}`);
     }));
 
     await expect(fetchAllCicJobs()).rejects.toThrow(/HTTP 503/);

@@ -293,7 +293,7 @@ export async function fetchAllCicJobs() {
     });
   }
 
-  if (detailFailures > 0 && detailFailures === links.length) throw firstDetailError;
+  if (detailFailures > 0) throw firstDetailError;
   if (!jobs.length && detailFailures === 0 && placeholderCount === links.length) {
     return markAuthoritativeEmptySnapshot([], 'JobCloud listing contained only explicit Offres spontanées placeholder pages');
   }
