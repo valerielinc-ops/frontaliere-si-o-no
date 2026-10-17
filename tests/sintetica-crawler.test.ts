@@ -125,6 +125,16 @@ describe('parseListingPage', () => {
     const unique = new Set(ids);
     expect(ids.length).toBe(unique.size);
   });
+
+  it('recovers detail URLs embedded in a filtered-board state payload', () => {
+    const html = '<script type="application/json">{"url":"https:\\/\\/app.ncoreplat.com\\/jobposition\\/813007\\/tecnico-opere-in-sotterraneo-ch\\/csc-costruzioni-sa"}</script>';
+    expect(parseListingPage(html)).toEqual([{
+      id: '813007',
+      title: 'tecnico opere in sotterraneo ch',
+      url: 'https://app.ncoreplat.com/jobposition/813007/tecnico-opere-in-sotterraneo-ch/csc-costruzioni-sa',
+      snippet: '',
+    }]);
+  });
 });
 
 // ─── parseDetailPage tests ──────────────────────────────────────────────────
