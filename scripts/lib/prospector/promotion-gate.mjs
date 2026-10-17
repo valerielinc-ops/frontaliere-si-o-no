@@ -349,6 +349,11 @@ function failedChecksOf(item) {
     .map(([name]) => name);
 }
 
+/** @param {{ candidate?: Record<string, any> }} item */
+function promotionCandidateKey(item) {
+  return String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
+}
+
 /** I soli predicati che una run successiva puo' soddisfare da se'. */
 const STABILITY_CHECKS = new Set(['runs', 'days']);
 
@@ -397,7 +402,7 @@ export function summarizePromotionBlocks(blocked = []) {
  * l'output e' deterministico.
  *
  * @param {{ candidate?: Record<string, any>, reasons?: string[], checks?: Record<string, boolean> }[]} blocked
- * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[] }}
+ * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[], candidateFailures: { key: string, failedChecks: string[] }[] }}
  */
 export function diagnosePromotionBlocks(blocked = []) {
   const { stabilityOnly, other } = summarizePromotionBlocks(blocked);
@@ -405,9 +410,11 @@ export function diagnosePromotionBlocks(blocked = []) {
   const tally = {};
   const stabilityOnlyKeys = [];
   const unattributed = [];
+  const candidateFailures = [];
   for (const item of blocked) {
     const failed = failedChecksOf(item);
-    const key = String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
+    const key = promotionCandidateKey(item);
+    candidateFailures.push({ key, failedChecks: failed });
     if (isStabilityOnly(failed)) {
       stabilityOnlyKeys.push(key);
       continue;
@@ -419,11 +426,14 @@ export function diagnosePromotionBlocks(blocked = []) {
   const failedChecks = Object.fromEntries(
     Object.entries(tally).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
   );
+  candidateFailures.sort((a, b) => a.key.localeCompare(b.key)
+    || a.failedChecks.join(',').localeCompare(b.failedChecks.join(',')));
   return {
     stabilityOnly,
     other,
     failedChecks,
     stabilityOnlyKeys: stabilityOnlyKeys.sort(),
     unattributed: unattributed.sort(),
+    candidateFailures,
   };
 }

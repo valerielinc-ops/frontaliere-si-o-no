@@ -68,6 +68,11 @@ describe('prospect-promote-diagnosis', () => {
     expect(out.stabilityOnlyKeys).toEqual(['waiting']);
     expect(out.failedChecks).toEqual({ sourceBackedLocation: 2, score: 1 });
     expect(out.unattributed).toEqual([]);
+    expect(out.candidateFailures).toEqual([
+      { key: 'low-score', failedChecks: ['score', 'sourceBackedLocation'] },
+      { key: 'no-location', failedChecks: ['sourceBackedLocation'] },
+      { key: 'waiting', failedChecks: ['runs', 'days'] },
+    ]);
   });
 
   it('fallisce con exit 2 se il file dei candidati manca, invece di contare zero', () => {
