@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-10-16T21:25:33.131Z",
+  "generatedAt": "2026-10-17T09:33:49.340Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 11031,
-  "avgDurationMs": 11031,
+  "durationMs": 10947,
+  "avgDurationMs": 10947,
   "durationHistory": [
-    11031
+    10947
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:25:15.163Z",
+      "crawledAt": "2026-10-17T09:33:36.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:25:12.508Z",
+      "crawledAt": "2026-10-17T09:33:33.302Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://jobs.apgsga.ch/publication/conseil-de-vente-service-interne-vernier-lausanne/3l4fhbl7dqvhwcjzo8gr0icrzywk7hp8ra6mpvuqdlca36h0kwhr0x3y1abhm22x",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:12.031Z",
+      "crawledAt": "2026-10-17T09:33:32.781Z",
       "addressLocality": "Vernier",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://jobs.apgsga.ch/publication/partnermanager-service-externe-sion/ro7drhalaoifp78qx52b60twhe2ctbngfz68t0syhkaarf3zdlrpqnsexare5b7t",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:14.683Z",
+      "crawledAt": "2026-10-17T09:33:36.003Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://jobs.apgsga.ch/publication/partnermanagement-service-interne-lausanne/04q0bg7r23jh4udsts24dwpk4bqpzcc0ljihk8wxyct6x2bjtlznlrqj4ildeh63",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:14.152Z",
+      "crawledAt": "2026-10-17T09:33:35.456Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "url": "https://jobs.apgsga.ch/publication/business-controller-zuerich/3lsx02be41yerdi7irbbhu8s3oxeh5u7j18a5e0pcsvv1eyyr6oc2mfwuwlnsdk3",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:25:13.486Z",
+      "crawledAt": "2026-10-17T09:33:34.702Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://jobs.apgsga.ch/publication/ict-system-engineer-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:25:12.992Z",
+      "crawledAt": "2026-10-17T09:33:33.825Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-winterthur/hi5os0s3vixaka2knct0m1ltfa93z2bqfno4nyr51c3rlzddmd83zvngq70jih6j",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:25:11.561Z",
+      "crawledAt": "2026-10-17T09:33:32.285Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -368,7 +368,7 @@
       "url": "https://jobs.apgsga.ch/publication/conseil-de-vente-service-externe-lausanne/n7atrp716yq5pf468ywp8kd7r4h527fvg4ao4ziopzrz2m1nb3xqquxljo8cep06",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:25:11.045Z",
+      "crawledAt": "2026-10-17T09:33:31.729Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -398,5 +398,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }
