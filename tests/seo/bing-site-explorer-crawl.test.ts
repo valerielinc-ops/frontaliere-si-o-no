@@ -10,6 +10,8 @@ import {
   crawlPartition,
   extractInternalLinks,
   folderFor,
+  isDeclaredJobBoardTarget,
+  isJobBoardDetailPath,
   normalizeUrl,
   parseSitemapDocument,
   partitionFor,
@@ -30,6 +32,7 @@ import {
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
 import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-template-inventory.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 
@@ -292,6 +295,43 @@ describe('Bing-compatible full-tree crawler', () => {
       expect(codes).toContain(BING_FRONTIER_NOINDEX);
       expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
     }
+  });
+
+  it('recognizes only declared single-segment job-detail targets', () => {
+    const detailUrl = `${BASE}/en/find-jobs-geneva/job-slug/`;
+    const markerHtml = `${JOB_BOARD_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`;
+
+    expect(isJobBoardDetailPath(detailUrl)).toBe(true);
+    expect(isDeclaredJobBoardTarget({ url: detailUrl, html: markerHtml })).toBe(true);
+    expect(isJobBoardDetailPath(`${BASE}/en/find-jobs-geneva/`)).toBe(false);
+    expect(isJobBoardDetailPath(`${BASE}/en/find-jobs-geneva/job-slug/details/`)).toBe(false);
+    expect(isDeclaredJobBoardTarget({ url: detailUrl, html: '<meta name="robots" content="noindex,follow">' })).toBe(false);
+  });
+
+  it('keeps an undeclared job-detail noindex target actionable', () => {
+    const url = `${BASE}/en/find-jobs-geneva/job-slug/`;
+    const result = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Job</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}">`,
+    });
+    const codes = result.findings.map((item) => item.code);
+    expect(codes).toContain(BING_FRONTIER_NOINDEX);
+    expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+  });
+
+  it('does not let a declared job target hide canonical drift', () => {
+    const url = `${BASE}/en/find-jobs-geneva/job-slug/`;
+    const result = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `${JOB_BOARD_NOINDEX_TARGET_MARKER}<title>Job</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${BASE}/articoli-frontaliere/other/">`,
+    });
+    const codes = result.findings.map((item) => item.code);
+    expect(codes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
   });
 
   it('does not infer a search bridge from a loose slug or canonical shape', () => {
