@@ -7,10 +7,12 @@ import { realpathSync } from 'node:fs';
  * The normal write-time guard reads the checkout's slices. Crawler groups do
  * not share a checkout across repositories, though, so a second group can
  * start from the same base and publish a new claim after the first group has
- * already moved main. This helper compares only claims that were not present
- * in the writer's base snapshot with the current remote ownership snapshot.
- * Existing claims are deliberately preserved: removing an already indexed
- * duplicate is a slug/history migration, not a write-time drop.
+ * already moved main. This helper compares new URL claims and proven
+ * cross-job history transfers with the current remote ownership snapshot.
+ * Existing URL claims are deliberately preserved: removing an already indexed
+ * duplicate is a slug/history migration, not a write-time drop. A historical
+ * route is removed only when the current remote slice dropped it and exactly
+ * one other crawler still owns it.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -42,21 +44,24 @@ function withJobs(payload, jobs) {
 }
 
 function routeValues(job, { historicalOnly = false, activeOnly = false } = {}) {
-  const values = historicalOnly
-    ? [
+  let values;
+  if (historicalOnly) {
+    values = [
       ...(Array.isArray(job?.previousSlugs) ? job.previousSlugs : []),
       ...Object.values(job?.previousSlugsByLocale || {})
         .flatMap((slugs) => Array.isArray(slugs) ? slugs : []),
-    ]
-    : activeOnly
-      ? [job?.slug, ...Object.values(job?.slugByLocale || {})]
-    : [
+    ];
+  } else if (activeOnly) {
+    values = [job?.slug, ...Object.values(job?.slugByLocale || {})];
+  } else {
+    values = [
       job?.slug,
       ...Object.values(job?.slugByLocale || {}),
       ...(Array.isArray(job?.previousSlugs) ? job.previousSlugs : []),
       ...Object.values(job?.previousSlugsByLocale || {})
         .flatMap((slugs) => Array.isArray(slugs) ? slugs : []),
     ];
+  }
   return values.map((value) => String(value ?? '').trim()).filter(Boolean);
 }
 

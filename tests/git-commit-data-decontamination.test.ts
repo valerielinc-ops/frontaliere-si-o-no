@@ -4,6 +4,8 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
+import { filterNewForeignClaims } from '../scripts/lib/crawler-commit-ownership.mjs';
+import { loadSourceHostOwnership } from '../scripts/lib/crawler-source-hosts.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -42,6 +44,47 @@ function writeSlice(repoDir: string, key: string, jobs: unknown[]) {
 }
 
 describe('git-commit-data.sh cross-job decontamination preservation', () => {
+  it('filters only a route absent from the claimant and uniquely owned elsewhere', () => {
+    const root = mkdtempSync(join(tmpdir(), 'gcd-decontam-index-'));
+    try {
+      const sliceDir = join(root, 'data/jobs/by-crawler');
+      mkdirSync(sliceDir, { recursive: true });
+      const transferredRoute = 'legacy-role-owner-hash';
+      writeFileSync(join(sliceDir, 'owner.json'), JSON.stringify({
+        crawlerKey: 'owner',
+        jobs: [{ url: 'https://jobs.example.test/owner', slug: 'owner-route', previousSlugs: [transferredRoute] }],
+      }));
+      writeFileSync(join(sliceDir, 'claimant.json'), JSON.stringify({
+        crawlerKey: 'claimant',
+        jobs: [{ url: 'https://jobs.example.test/claimant', slug: 'claimant-route', previousSlugs: [] }],
+      }));
+
+      const ownership = loadSourceHostOwnership(root, { urls: true, routes: true });
+      const stale = {
+        crawlerKey: 'claimant',
+        jobs: [{
+          url: 'https://jobs.example.test/claimant',
+          slug: 'claimant-route',
+          previousSlugs: [transferredRoute],
+          previousSlugsByLocale: { it: [transferredRoute] },
+        }],
+      };
+      const remote = {
+        crawlerKey: 'claimant',
+        jobs: [{ url: 'https://jobs.example.test/claimant', slug: 'claimant-route', previousSlugs: [] }],
+      };
+      const result = filterNewForeignClaims('claimant', stale, stale, ownership, remote);
+
+      expect(result.droppedHistorical).toEqual([{ slug: transferredRoute, owner: 'owner' }]);
+      expect(result.payload).toEqual({
+        crawlerKey: 'claimant',
+        jobs: [{ url: 'https://jobs.example.test/claimant', slug: 'claimant-route', previousSlugs: [], previousSlugsByLocale: {} }],
+      });
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('keeps a fleet-proven transfer out of a stale claimant merge', () => {
     const { originDir, repoDir } = initClonePair();
     const otherDir = mkdtempSync(join(tmpdir(), 'gcd-decontam-other-'));

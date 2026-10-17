@@ -823,9 +823,10 @@ const path = require('path');
 
 const [basePath, remotePath, localPath, outPath, keyField, label] = process.argv.slice(2);
 
-// The decontamination denylist is keyed by slice basename + slug. A stale
-// merge input must not reintroduce one of those intentionally removed routes
-// merely because the append-only archive branch sees it as a new value.
+// The historical denylist covers intentional removals known before this merge.
+// New cross-job removals are filtered by crawler-commit-ownership.mjs from the
+// complete remote ownership view before this append-only merge runs. A stale
+// merge input must not reintroduce either class of intentionally removed route.
 const restoreDenylistPath = process.env.PREV_SLUG_RESTORE_DENYLIST_PATH
   || path.resolve('data/prev-slug-restore-denylist.json');
 const restoreDenylist = new Set();
@@ -1011,12 +1012,14 @@ function countMap(items) {
 // idempotent and commutative, so no ordering of concurrent writers can
 // fabricate a removal.
 //
-// Deliberate trade-off: a genuine removal (cleanPreviousSlugsPerLocale
-// dropping an entry equal to the active slug, decontaminate-prev-slugs)
-// that races a concurrent writer survives one extra cycle before the next
-// writer drops it again. Resurrect-then-redrop is convergent and free;
-// deleting a live historical slug is permanent SEO loss. Same asymmetry the
-// `merge=union` drivers in .gitattributes are documented to accept.
+// Deliberate trade-off: an unknown genuine removal (cleanPreviousSlugsPerLocale
+// dropping an entry equal to the active slug, or a decontamination whose target
+// is not present in the complete ownership view) that races a concurrent writer
+// survives one extra cycle before the next writer drops it again. Proven
+// cross-job decontaminations are removed before this function by the ownership
+// guard, so the conservative union is retained only when no positive owner
+// proof exists. Resurrect-then-redrop is convergent; deleting an indexed
+// historical slug without proof is permanent SEO loss.
 //
 // Bounds: each writer caps its own output through capSlugArray() before this
 // runs, so the union is bounded by 2x the cap and the next write re-caps it.
