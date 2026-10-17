@@ -136,6 +136,30 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain(trackingPayload);
   });
 
+  it('filters metadata from a noscript wrapper marked as hidden', () => {
+    const html = '<main><noscript hidden><p>Hidden tracking payload that must never enter the extracted article text.</p></noscript>'
+      + '<p>Editorial paragraph one with enough content for extraction.</p>'
+      + '<p>Editorial paragraph two with enough content for extraction.</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).not.toContain('Hidden tracking payload');
+    expect(result.text).toContain('Editorial paragraph one');
+  });
+
+  it('preserves editorial noscript paragraphs with normal analytics attributes', () => {
+    const html = '<article><noscript>'
+      + '<p data-track-id="story-1">Editorial noscript paragraph one with enough content for extraction.</p>'
+      + '<p data-track-id="story-2">Editorial noscript paragraph two with enough content for extraction.</p>'
+      + '</noscript><p>Regular article paragraph one with enough content for extraction.</p>'
+      + '<p>Regular article paragraph two with enough content for extraction.</p></article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toContain('Editorial noscript paragraph one');
+    expect(result.text).toContain('Editorial noscript paragraph two');
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;

@@ -195,19 +195,21 @@ function hasNoscriptNonContentMarker(element) {
  */
 function isNoscriptMetadata(noscript) {
   if (!noscript) return true;
+  if (hasNoscriptNonContentMarker(noscript)) return true;
 
   const root = normalizeNoscriptRoot(noscript);
   const contentNodes = [...root.querySelectorAll(PARAGRAPH_SELECTOR)];
   if (contentNodes.length === 0) return true;
 
   return contentNodes.every((node) => {
-    for (let current = node; current && current !== root; current = current.parentElement) {
+    for (let current = node.parentElement; current; current = current.parentElement) {
       const tag = current.tagName.toLowerCase();
       if (NOSCRIPT_METADATA_TAGS.has(tag)
         || NOSCRIPT_TRACKING_TAGS.has(tag)
         || hasNoscriptNonContentMarker(current)) {
         return true;
       }
+      if (current === root) break;
     }
     return false;
   });
