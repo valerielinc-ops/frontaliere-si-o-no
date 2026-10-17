@@ -68,13 +68,20 @@ export function resolveLaFonteApplicationHandoffUrl(html = '', roleUrl = '') {
   const dom = new JSDOM(`<body>${String(html || '')}</body>`);
   try {
     const text = (dom.window.document.body.textContent || '').replace(/\s+/g, ' ').trim();
+    const emailAddressPattern = /[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+/i;
     const hasEmail =
       [...dom.window.document.querySelectorAll('a[href]')].some((anchor) =>
         /^mailto:/i.test(anchor.getAttribute('href') || ''),
-      ) || /\b[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+\b/i.test(text);
+      ) || emailAddressPattern.test(text);
+    const hasApplicationLanguage =
+      /\b(?:candidatur\w*|candidars\w*|domanda\s+di\s+lavoro|invi\w*|bewerb\w*|apply|postuler\w*)\b/i.test(text);
+    const hasEmailChannel = /\b(?:via|per|by|par|a|ad|al(?:la|le)?)\s+(?:e-?mail|mail)\b/i.test(text);
+    const hasEmailDestination = new RegExp(
+      `\\b(?:a|ad|al(?:la|le)?)\\s+${emailAddressPattern.source}`,
+      'i',
+    ).test(text);
     const hasEmailApplicationInstruction =
-      /\b(?:candidatur\w*|domanda\s+di\s+lavoro|bewerb\w*|apply|postuler\w*)\b/i.test(text) &&
-      /\b(?:via|per|by|par)\s+(?:e-?mail|mail)\b/i.test(text);
+      hasEmail && hasApplicationLanguage && (hasEmailChannel || hasEmailDestination);
 
     return hasEmail && hasEmailApplicationInstruction ? roleUrl : null;
   } finally {

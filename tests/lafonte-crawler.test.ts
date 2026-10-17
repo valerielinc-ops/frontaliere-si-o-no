@@ -39,6 +39,12 @@ describe('La Fonte application handoff', () => {
     expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
   });
 
+  it('accepts a source-backed email destination without the words "via mail"', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente-snack-bar-panetteria-la-fonte-lugano#:~:text=Gerente';
+    const card = '<p>La Direzione attende le candidature corredate da una lettera e un curriculum in formato pdf a recruiting@lafonte.ch.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
   it('does not turn a role page into an application handoff without source instructions', () => {
     const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-lugano#:~:text=Stagiaire';
     expect(resolveLaFonteApplicationHandoffUrl('<p>Scopri le nostre attività.</p>', roleUrl)).toBeNull();
