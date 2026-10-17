@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-17",
+  "generatedAt": "2026-10-18",
   "source": {
     "gitCommit": "00a489835b182f51cfcf432e1c8dcdead898e379",
     "heroFiles": 7067,
@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5583
+      "6": 5585
     },
-    "publishedCovers": 7164,
+    "publishedCovers": 7166,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5388
+    "inferredRecords": 5390
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -192108,6 +192108,60 @@
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1792,
       "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-microdrama-pubblicita-tiktok-instagram": {
+      "cover": "/images/blog/article-microdrama-pubblicita-tiktok-instagram.webp",
+      "hash": "3284c6f451480f8ca3f48917ef19461e9b2c3f1f1d0d284d24531a2ebc2bd65d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "microdrama-pubblicita-tiktok-instagram",
+          "category": "novita",
+          "date": "2026-10-17T21:03:31.477Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-udc-assemblea-bulle-2026": {
+      "cover": "/images/blog/article-udc-assemblea-bulle-2026.webp",
+      "hash": "b481a2c48b1bf716105c9d56b1d2199987ce57512fd7c8d81b77958fe071db9b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "udc-assemblea-bulle-2026",
+          "category": "novita",
+          "date": "2026-10-17T21:48:13.696Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-18",
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
