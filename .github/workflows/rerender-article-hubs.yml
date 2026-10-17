@@ -154,8 +154,10 @@ jobs:
       matrix:
         section: ${{ fromJson(needs.plan.outputs.sections) }}
     runs-on: ubuntu-latest
-    # Minutes, not hours — the render of BOTH sections is ~3 s. This budget is
-    # for checkout, the Node setup and four shard clone/push round trips.
+    # Minutes, not hours — a hub fan-out is normally a couple of minutes per
+    # section, including four serial shard clone/push round trips. Keep enough
+    # room for slow but bounded network retries without turning this into a
+    # corpus-sized job.
     timeout-minutes: 30
     # Serialised per SECTION, never cancelled. Two runs on the same section
     # would push overlapping relpath sets to the same four shard repos, and a
@@ -372,6 +374,12 @@ jobs:
         id: render
         if: steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success')
         env:
+          # The hub fan-out writes ~1400 paths and the four shard pushes can
+          # take nearly two minutes. The shared 120s entrypoint default can
+          # kill a completed publish while Node is still unwinding; keep the
+          # npm probe at 120s and give this side-effecting entrypoint a bounded
+          # ten-minute budget, below the 30-minute job ceiling.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '600'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}

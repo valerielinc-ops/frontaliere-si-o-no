@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-10-17T09:31:37.575Z",
+  "assembledAt": "2026-10-17T21:26:23.138Z",
   "jobs": [
     {
       "title": "Junior Accountant",
@@ -65,9 +65,9 @@
       "firstSeenAt": "2026-10-14T21:24:59.633Z",
       "previousSlugsByLocale": {
         "it": [
-          "junior-accountant-chiasso",
           "junior-buchhalter-lastminute-com-chiasso",
-          "comptable-junior-lastminute-com-chiasso"
+          "comptable-junior-lastminute-com-chiasso",
+          "junior-accountant-chiasso"
         ],
         "de": [
           "junior-accountant-chiasso"
@@ -77,6 +77,8 @@
         ]
       },
       "previousSlugs": [
+        "junior-buchhalter-lastminute-com-chiasso",
+        "comptable-junior-lastminute-com-chiasso",
         "junior-accountant-chiasso",
         "junior-accountant-lastminute-com-chiasso"
       ]
@@ -143,14 +145,15 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-chiasso",
-          "data-ingenieur-lastminute-com-chiasso"
+          "data-ingenieur-lastminute-com-chiasso",
+          "data-engineer-chiasso"
         ],
         "de": [
           "data-engineer-chiasso"
         ]
       },
       "previousSlugs": [
+        "data-ingenieur-lastminute-com-chiasso",
         "data-engineer-chiasso"
       ]
     },

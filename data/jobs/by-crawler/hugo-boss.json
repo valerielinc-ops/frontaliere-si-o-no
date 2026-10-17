@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hugo-boss",
-  "assembledAt": "2026-10-17T09:51:55.797Z",
+  "assembledAt": "2026-10-17T21:47:41.193Z",
   "jobs": [
     {
       "url": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d",
@@ -18,21 +18,19 @@
       "streetAddress": "Bahnhofstrasse 2",
       "description": "Assistant Store Manager BOSS Outlet (w/m/d) position at Hugo Boss in Landquart, Switzerland.",
       "titleByLocale": {
-        "en": "Assistant Store Manager BOSS Outlet (w/m/d)",
         "it": "Vice responsabile del punto vendita BOSS Outlet (m/f/d)",
+        "en": "Assistant Store Manager BOSS Outlet (w/m/d)",
         "de": "Stellvertretende/r Filialleiter/in BOSS Outlet (m/w/d)",
         "fr": "Adjoint au responsable de magasin BOSS Outlet (h/f/d)"
       },
       "slugByLocale": {
-        "en": "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart",
         "it": "vice-responsabile-del-punto-vendita-boss-outlet-m-f-d-hugo-boss-landquart",
+        "en": "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart",
         "de": "stellvertretende-r-filialleiter-in-boss-outlet-m-w-d-hugo-boss-landquart",
         "fr": "adjoint-au-responsable-de-magasin-boss-outlet-h-f-d-hugo-boss-landquart"
       },
-      "descriptionByLocale": {
-        "en": ""
-      },
-      "slug": "vice-responsabile-del-punto-vendita-boss-outlet-m-f-d-hugo-boss-landquart",
+      "descriptionByLocale": {},
+      "slug": "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart",
       "category": "sales",
       "datePosted": "",
       "postedDate": "",
@@ -43,6 +41,7 @@
       "experienceLevel": "SENIOR",
       "sector": "Moda / Lusso",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-17T09:51:52.899Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -56,16 +55,7 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-17T09:51:52.899Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart"
-      ]
+      }
     }
   ]
 }

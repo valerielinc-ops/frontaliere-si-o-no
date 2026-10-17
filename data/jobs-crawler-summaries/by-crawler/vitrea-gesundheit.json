@@ -1,7 +1,7 @@
 {
   "key": "vitrea-gesundheit",
   "label": "Vitrea Gesundheit",
-  "generatedAt": "2026-10-17T09:18:28.713Z",
+  "generatedAt": "2026-10-17T21:13:51.979Z",
   "total": 9,
   "discovered": null,
   "parsed": 10,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 25377,
-  "avgDurationMs": 25377,
+  "durationMs": 20401,
+  "avgDurationMs": 20401,
   "durationHistory": [
-    25377
+    20401
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/g8v0il8oipya608e4bte80w18xfprka",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:18:04.181Z",
+      "crawledAt": "2026-10-17T21:13:27.362Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/mycubn7y0iv658o7pavr48xvje6am2b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:17:55.503Z",
+      "crawledAt": "2026-10-17T21:13:21.903Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fo990g9aq3owmwqjcb72gxuaucsvmld",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:17:53.826Z",
+      "crawledAt": "2026-10-17T21:13:20.348Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -150,51 +150,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "vitrea-gesundheit-d74a65ef58e3",
-      "slug": "personale-di-accompagnamento-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "MitarbeiterIn Begleitdienst (a) 50-100%",
-      "needsRetranslation": false,
-      "location": "Zihlschlacht-Sitterdorf",
-      "canton": "TG",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/tvzj9lwl0uq124hu9ep7n9ti9hz7s0x",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:14:02.564Z",
-      "addressLocality": "Zihlschlacht-Sitterdorf",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8588",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/tvzj9lwl0uq124hu9ep7n9ti9hz7s0x",
-      "firstSeenAt": "2026-10-13T09:12:11.273Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "vitrea-gesundheit-44b4c357a40c",
@@ -209,7 +165,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/e5liern2i2zwwdfnr9m371liakiryij",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:18:11.014Z",
+      "crawledAt": "2026-10-17T21:13:32.338Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -250,7 +206,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ks8i9b3a0udcyofe7etwpuo5iq3fjcu",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:18:08.862Z",
+      "crawledAt": "2026-10-17T21:13:31.054Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -291,7 +247,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/2gfadtqulq33v25vz23ta6othjuh304",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:18:07.589Z",
+      "crawledAt": "2026-10-17T21:13:29.968Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -333,7 +289,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ff4p38yxswahnwtbj0qnskopi7lfgaq",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:18:01.970Z",
+      "crawledAt": "2026-10-17T21:13:26.375Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -374,7 +330,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/uh8032hdkhzw0no7a1qevnvz4ooypse",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:17:59.841Z",
+      "crawledAt": "2026-10-17T21:13:24.845Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -415,7 +371,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/vtd3tvr1wlejzvbzo4pwbnas87ta65o",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:17:57.695Z",
+      "crawledAt": "2026-10-17T21:13:23.244Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -445,5 +401,5 @@
       }
     }
   ],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }

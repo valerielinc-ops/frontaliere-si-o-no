@@ -1,19 +1,19 @@
 {
   "key": "hugo-boss",
   "label": "Hugo Boss",
-  "generatedAt": "2026-10-17T09:52:06.416Z",
+  "generatedAt": "2026-10-17T21:47:45.765Z",
   "total": 1,
   "discovered": 706,
   "parsed": 1,
   "written": 1,
   "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 10032,
-  "avgDurationMs": 10032,
+  "durationMs": 6340,
+  "avgDurationMs": 6340,
   "durationHistory": [
-    10032
+    6340
   ],
   "coverage": "complete",
   "terminationReason": null,
@@ -46,22 +46,61 @@
       "experienceLevel": "SENIOR",
       "sector": "Moda / Lusso",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-17T09:51:52.899Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-17T09:51:52.899Z",
-      "_qualityScore": 47,
+      "_qualityScore": 58,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 2,
+        "translation": 13,
         "completeness": 20
       }
     }
   ],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d",
+      "applyUrl": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d",
+      "title": "Assistant Store Manager BOSS Outlet (w/m/d)",
+      "company": "Hugo Boss",
+      "companyKey": "hugo-boss",
+      "location": "Landquart",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofstrasse 2",
+      "slug": "vice-responsabile-del-punto-vendita-boss-outlet-m-f-d-hugo-boss-landquart",
+      "category": "sales",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "hugo-boss-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Moda / Lusso",
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-17T09:51:52.899Z",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 13,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }

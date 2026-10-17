@@ -24,6 +24,47 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+function decodeNcoreMarkup(value = '') {
+  return String(value || '')
+    .replace(/\\u002f/gi, '/')
+    .replace(/\\\//g, '/')
+    .replace(/\\u0026/gi, '&')
+    .replace(/&amp;/gi, '&');
+}
+
+function canonicalNcoreDetailUrl(value = '') {
+  let url;
+  try {
+    url = new URL(decodeNcoreMarkup(value), NCORE_BASE_URL);
+  } catch {
+    return null;
+  }
+  if (url.protocol !== 'https:' || url.hostname.toLowerCase() !== NCORE_HOST) return null;
+  if (!/^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(url.pathname)) return null;
+  return url.href;
+}
+
+function extractEmbeddedNcoreDetailUrls(html = '') {
+  const source = decodeNcoreMarkup(html);
+  const routePattern = /(?<![A-Za-z0-9._-])(?:https:\/\/app\.ncoreplat\.com)?\/jobposition\/[1-9]\d*\/[^/?#"'<>\\\s,}\]]+(?:\/[^/?#"'<>\\\s,}\]]+)?/gi;
+  const urls = new Set();
+  for (const match of source.matchAll(routePattern)) {
+    const canonical = canonicalNcoreDetailUrl(match[0]);
+    if (canonical) urls.add(canonical);
+  }
+  return [...urls];
+}
+
+function titleFromNcoreDetailUrl(url) {
+  try {
+    const segments = new URL(url).pathname.split('/').filter(Boolean);
+    const slug = decodeURIComponent(segments[2] || '');
+    return normalizeSpace(slug.replace(/[-_]+/g, ' '));
+  } catch {
+    return '';
+  }
+}
+
 function stripTags(html = '') {
   return String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
@@ -120,19 +161,23 @@ export function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
+  const addListing = (href, { title = '', snippet = '' } = {}) => {
+    const absoluteUrl = canonicalNcoreDetailUrl(href);
+    if (!absoluteUrl) return;
+    const match = new URL(absoluteUrl).pathname.match(/\/jobposition\/([1-9]\d*)\//i);
+    if (!match || seen.has(match[1])) return;
+
+    const resolvedTitle = normalizeSpace(title) || titleFromNcoreDetailUrl(absoluteUrl);
+    if (!resolvedTitle || /candidati|apply|postuler/i.test(resolvedTitle)) return;
+
+    seen.add(match[1]);
+    jobs.push({ id: match[1], title: resolvedTitle, url: absoluteUrl, snippet: normalizeSpace(snippet) });
+  };
+
   // Find all links to job positions
   const links = document.querySelectorAll('a[href*="/jobposition/"]');
   for (const link of links) {
     const href = link.getAttribute('href') || '';
-    const match = href.match(/\/jobposition\/(\d+)\//);
-    if (!match) continue;
-    const id = match[1];
-    if (seen.has(id)) continue;
-    seen.add(id);
-
-    const absoluteUrl = href.startsWith('http')
-      ? href
-      : `${NCORE_BASE_URL}${href}`;
 
     // Find the title from the nearest h3 or the preceding heading
     let title = '';
@@ -164,11 +209,14 @@ export function parseListingPage(html = '') {
       }
     }
 
-    // Skip if the title is a generic button text
-    if (!title || /candidati|apply|postuler/i.test(title)) continue;
-
-    jobs.push({ id, title, url: absoluteUrl, snippet });
+    addListing(href, { title, snippet });
   }
+
+  // Filter boards can embed the listing state as JSON or data attributes rather
+  // than materialising each position as an <a href>. Recover only validated
+  // NCore detail routes; tenant-specific adapters still apply their own
+  // allowlists before trusting a URL.
+  for (const url of extractEmbeddedNcoreDetailUrls(html)) addListing(url);
 
   return jobs;
 }

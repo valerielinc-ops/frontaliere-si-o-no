@@ -1,26 +1,27 @@
 {
   "key": "artificialy",
   "label": "Artificialy",
-  "generatedAt": "2026-10-17T09:43:00.326Z",
+  "generatedAt": "2026-10-17T21:40:18.786Z",
   "total": 7,
   "discovered": 8,
   "parsed": 7,
   "written": 7,
   "lastFetchOutcome": "ok",
   "abortKind": null,
-  "newCount": 6,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 21730,
-  "avgDurationMs": 21730,
+  "unchangedCount": 6,
+  "durationMs": 8127,
+  "avgDurationMs": 8127,
   "durationHistory": [
-    21730
+    8127
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "AI Engineer",
-      "slug": "ai-engineer-artificialy-lugano",
+      "slug": "ai-ingegnere-artificialy-switzerland",
       "url": "https://www.linkedin.com/jobs/view/4462149285/",
       "applyUrl": "https://www.linkedin.com/jobs/view/4462149285/",
       "company": "Artificialy",
@@ -43,23 +44,25 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-70f1806e6f9a",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T21:27:04.553Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Business Development & Sales Operations",
-      "slug": "business-development-sales-operations-artificialy-lugano",
+      "slug": "sviluppo-commerciale-e-operazioni-di-vendita-artificialy-lugano",
       "url": "https://www.linkedin.com/jobs/view/4430948731",
       "applyUrl": "https://www.linkedin.com/jobs/view/4430948731",
       "company": "Artificialy",
@@ -82,24 +85,23 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-c9278181e3bd",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-13T21:35:23.510Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "title": "Head of AI Product",
-      "slug": "head-of-ai-product-artificialy-lugano",
+      "slug": "responsabile-ai-product-artificialy-switzerland",
       "url": "https://www.linkedin.com/jobs/view/4430466105",
       "applyUrl": "https://www.linkedin.com/jobs/view/4430466105",
       "company": "Artificialy",
@@ -122,23 +124,22 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-ba0c93bffb31",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T21:27:04.553Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "title": "AI Scientist - Quantitative Forecasting",
-      "slug": "ai-scientist-quantitative-forecasting-artificialy-lugano",
+      "slug": "ai-scientist-previsioni-quantitative-artificialy-switzerland",
       "url": "https://www.linkedin.com/jobs/view/4440004373/",
       "applyUrl": "https://www.linkedin.com/jobs/view/4440004373/",
       "company": "Artificialy",
@@ -161,23 +162,22 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-c0a9dec5080d",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-06T09:43:49.865Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "title": "AI Scientist - LLM Systems",
-      "slug": "ai-scientist-llm-systems-artificialy-lugano",
+      "slug": "ai-scientist-sistemi-llm-artificialy-switzerland",
       "url": "https://www.linkedin.com/jobs/view/4462143814/",
       "applyUrl": "https://www.linkedin.com/jobs/view/4462143814/",
       "company": "Artificialy",
@@ -200,17 +200,16 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-51234b30de5f",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-07-15T12:20:02.222Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -239,25 +238,20 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-cc62dec90064",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-13T21:35:23.510Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Marketing Specialist",
       "slug": "marketing-specialista-artificialy-lugano",
@@ -298,5 +292,5 @@
       }
     }
   ],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }

@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-17T09:27:22.090Z",
+  "generatedAt": "2026-10-17T21:22:49.234Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 28593,
-  "avgDurationMs": 28593,
+  "unchangedCount": 9,
+  "durationMs": 22115,
+  "avgDurationMs": 22115,
   "durationHistory": [
-    28593
+    22115
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,45 +45,6 @@
       "salarySource": "estimated",
       "postalCode": "6300",
       "firstSeenAt": "2026-10-06T21:26:41.670Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-frauenfeld",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-ebd1a190a812",
-      "salaryMin": 54000,
-      "salaryMax": 82500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-10-16T21:26:04.558Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -411,7 +372,46 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "title": "Junior Immobilienmakler/in 50-100%",
+      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-frauenfeld",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/43b06b00-1b67-4956-8d0f-ff022a315a67",
+      "company": "buutiq Immobilien AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-ebd1a190a812",
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8500",
+      "firstSeenAt": "2026-10-16T21:26:04.558Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
     }
   ],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }
