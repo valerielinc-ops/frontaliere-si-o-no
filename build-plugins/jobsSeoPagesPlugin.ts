@@ -305,6 +305,28 @@ import { buildJobMetaDescription } from './shared/jobMetaDescription';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
+/** Render a noindex editorial bridge whose canonical remains on its own route. */
+export function renderJobsSeoEditorialBelowFloorBridge(
+ options: Parameters<typeof buildCanonicalBridgePage>[0],
+): string {
+ return buildCanonicalBridgePage({ ...options, noindex: true });
+}
+
+/** Render links only to category pages that the same renderer emits. */
+export function renderAvailableJobCategoryLinks(options: {
+ categoryKeys: readonly string[];
+ currentCategoryKey: string;
+ minimumJobCount: number;
+ countFor: (categoryKey: string) => number;
+ hrefFor: (categoryKey: string) => string;
+ labelFor: (categoryKey: string) => string;
+}): string[] {
+ return options.categoryKeys
+  .filter((categoryKey) => categoryKey !== options.currentCategoryKey
+   && options.countFor(categoryKey) >= options.minimumJobCount)
+  .map((categoryKey) => `<a class="s-gcEaMI" href="${options.hrefFor(categoryKey)}">${options.labelFor(categoryKey)}</a>`);
+}
+
 // Static HTML cannot read the runtime Remote Config hook. The same kill key is
 // accepted by the build so a rollback can restore the manual slot on the
 // treatment pages without touching Auto Ads or control pages.
@@ -5849,8 +5871,8 @@ ${companyFollowHtml}
  const section = buildCantonAwareSection(locale, canton);
  const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
  const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${slug}`.replace(/\/+/g, '/'));
- const html = buildCanonicalBridgePage({
- canonicalUrl: `${BASE_URL}${targetPath}`,
+ const html = renderJobsSeoEditorialBelowFloorBridge({
+ canonicalUrl: `${BASE_URL}${canonicalPath}`,
  pathLabel: targetPath,
  lang: locale,
  noindex: true,
@@ -8263,9 +8285,16 @@ ${staticAnalyticsHtml}
  let categoryPageCount = 0;
  const categorySitemapEntries: string[] = [];
  const CAT_PER_PAGE = 30;
+ const MIN_JOBS_PER_CATEGORY = 3;
+ const globalCategoryJobCounts = new Map<string, number>();
+ for (const job of sortedForPagination) {
+ const categoryKey = String((job as any).category || '').toLowerCase();
+ if (!catSlugsMap[categoryKey]) continue;
+ globalCategoryJobCounts.set(categoryKey, (globalCategoryJobCounts.get(categoryKey) ?? 0) + 1);
+ }
  for (const catKey of Object.keys(catSlugsMap)) {
  const catJobs = sortedForPagination.filter((j: any) => String(j.category || '').toLowerCase() === catKey);
- if (catJobs.length < 3) continue;
+ if (catJobs.length < MIN_JOBS_PER_CATEGORY) continue;
  const catTotalPages = Math.min(10, Math.ceil(catJobs.length / CAT_PER_PAGE));
  for (let catPage = 1; catPage <= catTotalPages; catPage++) {
  const catStart = (catPage - 1) * CAT_PER_PAGE;
@@ -8311,7 +8340,17 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = renderAvailableJobCategoryLinks({
+ categoryKeys: Object.keys(catSlugsMap),
+ currentCategoryKey: catKey,
+ minimumJobCount: MIN_JOBS_PER_CATEGORY,
+ countFor: (key) => globalCategoryJobCounts.get(key) ?? 0,
+ hrefFor: (key) => {
+ const slug = `${catPrefix[locale]}-${catSlugsMap[key][locale]}`;
+ return withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/'));
+ },
+ labelFor: (key) => catLabels[key][locale],
+ });
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const catBreadcrumbLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -8420,7 +8459,7 @@ ${staticAnalyticsHtml}
  if (!byCat) continue;
  for (const catKey of Object.keys(catSlugsMap)) {
  const catJobs = byCat.get(catKey) ?? [];
- if (catJobs.length < 3) continue;
+ if (catJobs.length < MIN_JOBS_PER_CATEGORY) continue;
  // Sort like the global one to preserve consistent feed ordering.
  catJobs.sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
@@ -8472,7 +8511,17 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = jobCardListBody(catPageJobs, locale);
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionSlug}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = renderAvailableJobCategoryLinks({
+ categoryKeys: Object.keys(catSlugsMap),
+ currentCategoryKey: catKey,
+ minimumJobCount: MIN_JOBS_PER_CATEGORY,
+ countFor: (key) => byCat.get(key)?.length ?? 0,
+ hrefFor: (key) => {
+ const slug = `${catPrefix[locale]}-${catSlugsMap[key][locale]}`;
+ return withSlash(`${localePrefix[locale]}/${sectionSlug}/${slug}`.replace(/\/+/g, '/'));
+ },
+ labelFor: (key) => catLabels[key][locale],
+ });
  const catCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
