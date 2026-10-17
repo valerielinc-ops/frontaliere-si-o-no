@@ -66,7 +66,7 @@ describe('review → autorebase ordering', () => {
     expect(decisionBlock).toContain(`AUTOREBASE: \${{ ${expectedIf} }}`);
     expect(decisionBlock).toMatch(/if: .*always\(\) && !cancelled\(\)/);
     const autorebaseBlock = workflow.slice(autorebase, workflow.indexOf('\n      - name:', autorebase + 1));
-    expect(autorebaseBlock).toContain("if: ${{ needs.vitest.outputs.autorebase == 'true' }}");
+    expect(autorebaseBlock).toContain("if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}");
     expect(workflowJobs['post-review']?.if).toContain("needs.vitest.outputs.autorebase == 'true'");
     expect(workflowJobs['post-review']?.if).toContain('always()');
 
