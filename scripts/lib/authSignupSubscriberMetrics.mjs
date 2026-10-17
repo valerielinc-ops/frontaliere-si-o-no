@@ -101,6 +101,30 @@ export function providerFamily(user) {
 }
 
 /**
+ * A custom-token Auth account is not, by itself, evidence of a foreground
+ * signup: newsletter autologin, subscriber-to-Auth sync and other product
+ * flows use the same Firebase provider family.  Keep the ambiguous/missing
+ * case in the denominator (fail closed); only an existing profile-only row
+ * with no auth-signup evidence is excluded from the signup cohort.
+ *
+ * LinkedIn is the one custom-token provider that is a foreground signup.  Its
+ * callback records `auth_provider: linkedin`; the shared auth writer records
+ * the stronger `source_channel: auth_*` evidence for all auth surfaces.
+ *
+ * @param {{ provider?: string, docClass?: string, data?: Record<string, unknown> | null }} account
+ */
+export function isSignupAccountCandidate({ provider, docClass, data } = {}) {
+  if (provider !== 'custom') return true;
+  if (docClass === 'missing') return true; // no primary record: keep the alert fail-closed
+  if (docClass === 'subscribed') return true; // an existing relationship is relevant evidence
+  if (!data || typeof data !== 'object') return true;
+
+  const sourceChannel = typeof data.source_channel === 'string' ? data.source_channel : '';
+  const authProvider = typeof data.auth_provider === 'string' ? data.auth_provider.trim().toLowerCase() : '';
+  return isAuthChannel(sourceChannel) || authProvider === 'linkedin';
+}
+
+/**
  * @param {object} input
  * @param {Array<{ source_channel?: unknown }>} input.subscriberRows  documenti con created_at nella finestra
  * @param {Array<{ provider: string, docClass: 'missing'|'stub'|'subscribed', hasCreatedAt?: boolean }>} input.accounts
@@ -117,7 +141,8 @@ export function aggregate({ subscriberRows = [], accounts = [] } = {}) {
   const accountClasses = { subscribed: 0, stub: 0, missing: 0 };
   const byProvider = {};
   let subscribedWithoutCreatedAt = 0;
-  for (const a of accounts) {
+  const measuredAccounts = accounts.filter((a) => a.isSignupCandidate !== false);
+  for (const a of measuredAccounts) {
     const cls = a.docClass in accountClasses ? a.docClass : 'missing';
     accountClasses[cls]++;
     const p = a.provider || 'custom';
@@ -125,13 +150,14 @@ export function aggregate({ subscriberRows = [], accounts = [] } = {}) {
     byProvider[p][cls]++;
     if (cls === 'subscribed' && a.hasCreatedAt === false) subscribedWithoutCreatedAt++;
   }
-  const accountsTotal = accounts.length;
+  const accountsTotal = measuredAccounts.length;
   const uncovered = accountClasses.stub + accountClasses.missing;
   return {
     subscribersCreated: subscriberRows.length,
     authSubscribers,
     byChannel,
     accountsTotal,
+    excludedAccounts: accounts.length - measuredAccounts.length,
     accountClasses,
     byProvider,
     uncovered,

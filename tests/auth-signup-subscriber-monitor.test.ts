@@ -16,6 +16,7 @@ import {
   evaluate,
   classifySubscriberDoc,
   providerFamily,
+  isSignupAccountCandidate,
   isAuthChannel,
   AUTH_SUBSCRIBER_FLOOR,
 } from '../scripts/lib/authSignupSubscriberMetrics.mjs';
@@ -57,6 +58,27 @@ describe('classificazione', () => {
     expect(providerFamily({ providerData: [{ providerId: 'password' }] })).toBe('email');
     expect(providerFamily({ providerData: [] })).toBe('custom');
     expect(providerFamily(undefined)).toBe('custom');
+  });
+
+  it('non tratta uno stub custom-token senza evidenza di signup come un login', () => {
+    expect(isSignupAccountCandidate({
+      provider: 'custom',
+      docClass: 'stub',
+      data: { auth_uid: 'u', lastLoginAt: 1 },
+    })).toBe(false);
+    expect(isSignupAccountCandidate({
+      provider: 'custom',
+      docClass: 'stub',
+      data: { source_channel: 'auth_linkedin' },
+    })).toBe(true);
+    expect(isSignupAccountCandidate({
+      provider: 'custom',
+      docClass: 'stub',
+      data: { auth_provider: 'linkedin' },
+    })).toBe(true);
+    // No document is ambiguous: keep it in the measured cohort rather than
+    // silently converting an unknown custom-token account into a green result.
+    expect(isSignupAccountCandidate({ provider: 'custom', docClass: 'missing', data: null })).toBe(true);
   });
 });
 
@@ -225,6 +247,34 @@ describe('runCheck — guscio I/O', () => {
     const { verdict } = await runCheck({ ...fakeDeps({ created, users, docs }), until, outDir });
     expect(verdict.alert).toBe(false);
     expect(fs.existsSync(path.join(outDir, 'alert.json'))).toBe(false);
+  });
+
+  it('esclude dal rapporto gli account custom-token tecnici che hanno solo uno stub', async () => {
+    const outDir = tmp();
+    const users = Array.from({ length: 51 }, (_, i) => ({
+      email: `google${i}@example.com`, creationTime: inWindow, providerId: 'google.com',
+    }));
+    const technical = Array.from({ length: 15 }, (_, i) => ({
+      email: `technical${i}@example.com`, creationTime: inWindow,
+    }));
+    const docs = Object.fromEntries([
+      ...users.map((u) => [u.email, { status: 'confirmed', created_at: 1 }]),
+      ...technical.map((u) => [u.email, { auth_uid: `u-${u.email}`, lastLoginAt: 1 }]),
+    ]);
+    const { agg, verdict } = await runCheck({
+      ...fakeDeps({
+        created: Array.from({ length: 26 }, () => ({ source_channel: 'auth_google' })),
+        users: [...users, ...technical],
+        docs,
+      }),
+      until,
+      outDir,
+    });
+    expect(agg.accountsTotal).toBe(51);
+    expect(agg.excludedAccounts).toBe(15);
+    expect(agg.accountClasses).toEqual({ subscribed: 51, stub: 0, missing: 0 });
+    expect(verdict.alert).toBe(false);
+    expect(verdict.findings).toEqual([]);
   });
 
   it('--dry-run non scrive nulla', async () => {
