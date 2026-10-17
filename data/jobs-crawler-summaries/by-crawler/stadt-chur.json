@@ -1,16 +1,16 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-10-17T09:36:53.057Z",
+  "generatedAt": "2026-10-17T21:32:38.276Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 704838,
-  "avgDurationMs": 704838,
+  "durationMs": 704263,
+  "avgDurationMs": 704263,
   "durationHistory": [
-    704838
+    704263
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:28:55.388Z",
+      "crawledAt": "2026-10-17T21:24:39.593Z",
       "id": "stadt-chur-968df692c179",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -84,7 +84,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:26:41.417Z",
+      "crawledAt": "2026-10-17T21:22:25.578Z",
       "id": "stadt-chur-e0e50388d680",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -125,7 +125,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:27:48.404Z",
+      "crawledAt": "2026-10-17T21:23:32.589Z",
       "id": "stadt-chur-5da5e02cdf17",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -166,7 +166,7 @@
       "validThrough": "",
       "employmentType": "part_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:30:02.345Z",
+      "crawledAt": "2026-10-17T21:25:46.555Z",
       "id": "stadt-chur-bbc663c8939f",
       "salaryMin": 17300,
       "salaryMax": 26100,
@@ -207,7 +207,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:31:09.299Z",
+      "crawledAt": "2026-10-17T21:26:53.516Z",
       "id": "stadt-chur-f8021256114d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -248,7 +248,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:32:16.259Z",
+      "crawledAt": "2026-10-17T21:28:00.477Z",
       "id": "stadt-chur-58f46560ca20",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -289,7 +289,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:33:23.217Z",
+      "crawledAt": "2026-10-17T21:29:07.436Z",
       "id": "stadt-chur-d462ac2adea6",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -330,7 +330,7 @@
       "validThrough": "",
       "employmentType": "internship",
       "contractType": "stage",
-      "crawledAt": "2026-10-17T09:34:30.177Z",
+      "crawledAt": "2026-10-17T21:30:14.396Z",
       "id": "stadt-chur-55e847ee4cda",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -371,7 +371,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-17T09:35:37.135Z",
+      "crawledAt": "2026-10-17T21:31:21.358Z",
       "id": "stadt-chur-e99d69b8cac7",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -388,5 +388,5 @@
       }
     }
   ],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }
