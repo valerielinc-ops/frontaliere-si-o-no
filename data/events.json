@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-17T14:55:24.796Z",
+  "generatedAt": "2026-10-17T15:56:04.131Z",
   "totalEvents": 13998,
   "events": [
     {
@@ -22542,7 +22542,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Animal Flow è un appuntamento ricorrente dedicato al movimento quadrupedale. Le attività si svolgono presso l’Offener Bewegungsraum di Frauenfeld e riguardano forza, mobilità, equilibrio, coordinazione, consapevolezza e controllo del corpo, oltre a concentrazione e presenza.",
+      "descriptionByLocale": {
+        "it": "Animal Flow è un appuntamento ricorrente dedicato al movimento quadrupedale. Le attività si svolgono presso l’Offener Bewegungsraum di Frauenfeld e riguardano forza, mobilità, equilibrio, coordinazione, consapevolezza e controllo del corpo, oltre a concentrazione e presenza.",
+        "en": "Animal Flow is a recurring event focused on quadrupedal movement. It takes place at Offener Bewegungsraum in Frauenfeld and addresses strength, flexibility, balance, coordination, body awareness and control, as well as concentration and presence.",
+        "de": "Animal Flow ist eine wiederkehrende Veranstaltung zur quadrupedalen Bewegung. Im Offenen Bewegungsraum in Frauenfeld werden körperbezogene Fähigkeiten wie Kraft, Beweglichkeit, Gleichgewicht und Koordination sowie Körperwahrnehmung, Körpersteuerung, Konzentration und Präsenz behandelt.",
+        "fr": "Animal Flow est un événement récurrent consacré au mouvement quadrupède. Il se déroule à l’Offener Bewegungsraum, à Frauenfeld, et aborde la force, la souplesse, l’équilibre, la coordination, la conscience et le contrôle du corps, ainsi que la concentration et la présence."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:62898",
@@ -26673,7 +26681,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento musicale ricorrente si svolge a Gambarogno e riunisce rock, blues e jazz. È inserito nel programma degli eventi estivi del 2026.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale ricorrente si svolge a Gambarogno e riunisce rock, blues e jazz. È inserito nel programma degli eventi estivi del 2026.",
+        "en": "This recurring music event is held in Gambarogno and brings together rock, blues and jazz. It forms part of the 2026 summer events programme.",
+        "de": "Die wiederkehrende Musikveranstaltung findet in Gambarogno statt und verbindet Rock, Blues und Jazz. Sie ist Teil der Sommerveranstaltungen 2026.",
+        "fr": "Cet événement musical récurrent se déroule à Gambarogno et associe le rock, le blues et le jazz. Il fait partie des événements estivaux de 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f55155a1aaf248929a94d321d3030069",
@@ -29946,7 +29962,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento ricorrente si svolge presso la fattoria di Melchior e Claudia Koster. La visita illustra le attività dell’azienda agricola e spiega dove si trovano le mucche durante l’inverno e l’estate.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente si svolge presso la fattoria di Melchior e Claudia Koster. La visita illustra le attività dell’azienda agricola e spiega dove si trovano le mucche durante l’inverno e l’estate.",
+        "en": "This recurring event takes place at the farm of Melchior and Claudia Koster. The visit presents the work carried out there and explains where the cows are during winter and summer.",
+        "de": "Die wiederkehrende Veranstaltung findet auf dem Hof von Melchior und Claudia Koster statt. Der Besuch gibt Einblick in die Arbeiten auf dem Bauernhof und erklärt, wo die Kühe im Winter und im Sommer sind.",
+        "fr": "Ce rendez-vous récurrent a lieu à la ferme de Melchior et Claudia Koster. La visite présente le travail agricole et explique où se trouvent les vaches en hiver comme en été."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9c841b2fcb5c4ba899401687f6d9647c",
@@ -32270,7 +32294,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma propone un’escursione accompagnata da Hans nei dintorni di Arosa. Il percorso conduce in direzione dell’Ochsenalp e attraversa un tratto di bosco ombreggiato, con una breve salita verso il Rot Tritt.",
+      "descriptionByLocale": {
+        "it": "Il programma propone un’escursione accompagnata da Hans nei dintorni di Arosa. Il percorso conduce in direzione dell’Ochsenalp e attraversa un tratto di bosco ombreggiato, con una breve salita verso il Rot Tritt.",
+        "en": "Participants hike with Hans in Arosa. The route goes towards Ochsenalp and passes through shaded woodland on a short ascent to Rot Tritt.",
+        "de": "Die Veranstaltung verbindet eine Wanderung mit Hans und einen Weg durch die Landschaft von Arosa. Die Strecke führt zur Ochsenalp, wobei ein schattiger Waldabschnitt den kurzen Anstieg zum Rot Tritt erleichtert.",
+        "fr": "Cette activité propose une randonnée avec Hans à Arosa. L’itinéraire se dirige vers l’Ochsenalp et traverse une zone boisée ombragée avant une courte montée vers le Rot Tritt."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fa2bb7e976924678a0b149752e133073",
@@ -33351,7 +33383,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento riguarda una visita a un impianto idroelettrico dell’Engadina. Il programma può concentrarsi sull’impianto di Pradella oppure sulla struttura e sulla diga di Ova Spin; Engadiner Kraftwerke AG è la sede indicata e Scuol, Pradella e Zernez sono riportati come luoghi.",
+      "descriptionByLocale": {
+        "it": "L’evento riguarda una visita a un impianto idroelettrico dell’Engadina. Il programma può concentrarsi sull’impianto di Pradella oppure sulla struttura e sulla diga di Ova Spin; Engadiner Kraftwerke AG è la sede indicata e Scuol, Pradella e Zernez sono riportati come luoghi.",
+        "en": "The event concerns a visit to a hydropower facility in the Engadine. The programme can focus on the facility at Pradella or on the installation and dam at Ova Spin; Engadiner Kraftwerke AG is the listed venue, and Scuol, Pradella and Zernez are given as locations.",
+        "de": "Die Veranstaltung betrifft den Besuch einer Wasserkraftanlage im Engadin. Im Mittelpunkt stehen entweder die Anlage in Pradella oder das Kraftwerk mit Staumauer in Ova Spin; Engadiner Kraftwerke AG ist als Veranstaltungsort angegeben, und Scuol, Pradella sowie Zernez werden als Orte genannt.",
+        "fr": "Le rendez-vous concerne la visite d’une installation hydroélectrique dans l’Engadine. Le programme peut porter sur le site de Pradella ou sur l’installation et le barrage d’Ova Spin; Engadiner Kraftwerke AG est indiqué comme lieu, tandis que Scuol, Pradella et Zernez sont mentionnés parmi les localités."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:799fc5d5a62c4daaa2fbeb7d291e712a",
@@ -33558,7 +33598,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il programma propone sonate e partite di Bach per violino solo. La violinista Anna Orlik esegue anche la Ciaccona. L’appuntamento si svolge all’Eglise de St-Oyens.",
+      "descriptionByLocale": {
+        "it": "Il programma propone sonate e partite di Bach per violino solo. La violinista Anna Orlik esegue anche la Ciaccona. L’appuntamento si svolge all’Eglise de St-Oyens.",
+        "en": "The recital presents selected sonatas and partitas by Bach for unaccompanied violin. Anna Orlik performs the programme, which includes the Chaconne. The event takes place at Eglise de St-Oyens.",
+        "de": "Das Programm umfasst ausgewählte Sonaten und Partiten von Bach für Violine ohne Begleitung. Anna Orlik übernimmt die Aufführung und spielt auch die Chaconne. Veranstaltungsort ist die Eglise de St-Oyens.",
+        "fr": "Le récital réunit plusieurs sonates et partitas de Bach pour violon seul. Anna Orlik en assure l’interprétation, avec notamment la Chaconne. Le rendez-vous a lieu à l’Eglise de St-Oyens."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a0765c4c2f994ab1a9777bacba52fc56",
@@ -33769,7 +33817,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento a S-Charl conduce in gallerie sotterranee. Un’introduzione presenta la storia dell’attività mineraria medievale.",
+      "descriptionByLocale": {
+        "it": "L’evento a S-Charl conduce in gallerie sotterranee. Un’introduzione presenta la storia dell’attività mineraria medievale.",
+        "en": "The event in S-Charl explores underground tunnels. It provides historical information about medieval mining.",
+        "de": "Die Veranstaltung in S-Charl führt in unterirdische Stollen. Eine Einführung behandelt die Geschichte des mittelalterlichen Bergbaus.",
+        "fr": "L’événement à S-Charl se déroule dans des galeries souterraines. Une introduction présente l’histoire de l’exploitation minière médiévale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e5bbf534a2254ad9843e354a144dce6a",
@@ -34471,7 +34527,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente è dedicato all’archeologia e si tiene nella fascia del pranzo. Il Museum für Archäologie Thurgau di Frauenfeld lo ospita il secondo martedì di ogni mese.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente è dedicato all’archeologia e si tiene nella fascia del pranzo. Il Museum für Archäologie Thurgau di Frauenfeld lo ospita il secondo martedì di ogni mese.",
+        "en": "This recurring event focuses on archaeology and takes place around lunchtime. The Museum für Archäologie Thurgau in Frauenfeld hosts it on the second Tuesday of each month.",
+        "de": "Die wiederkehrende Veranstaltung widmet sich der Archäologie und ist als Termin zur Mittagszeit angelegt. Austragungsort ist das Museum für Archäologie Thurgau in Frauenfeld; vorgesehen ist sie jeweils für den zweiten Dienstag des Monats.",
+        "fr": "Ce rendez-vous récurrent est consacré à l’archéologie et se déroule autour de l’heure du déjeuner. Le Museum für Archäologie Thurgau, à Frauenfeld, l’accueille le deuxième mardi de chaque mois."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:de3a06382f6e453dad6c8523b3d72875",
@@ -35589,7 +35653,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si svolge presso l’Alpenbrauerei GIRUN, nel Cantone dei Grigioni. Il maestro birraio presenta il ruolo del luppolo, del lievito e del malto nella produzione della birra.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si svolge presso l’Alpenbrauerei GIRUN, nel Cantone dei Grigioni. Il maestro birraio presenta il ruolo del luppolo, del lievito e del malto nella produzione della birra.",
+        "en": "The recurring event takes place at Alpenbrauerei GIRUN in the canton of Graubünden. A master brewer explains how hops, yeast and malt are used in brewing.",
+        "de": "Die wiederkehrende Veranstaltung findet in der Alpenbrauerei GIRUN im Kanton Graubünden statt. Ein Braumeister vermittelt Wissen über die Bedeutung von Hopfen, Hefe und Malz beim Bierbrauen.",
+        "fr": "Le rendez-vous récurrent se déroule à l’Alpenbrauerei GIRUN, dans le canton des Grisons. Un maître brasseur présente la fonction du houblon, de la levure et du malt dans la fabrication de la bière."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63434",
@@ -35870,7 +35942,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento ricorrente si tiene presso il Gustarium Breitenmoser di Steinegg AI. Il programma prevede un assaggio pubblico di specialità gastronomiche e uno scambio di conoscenze.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente si tiene presso il Gustarium Breitenmoser di Steinegg AI. Il programma prevede un assaggio pubblico di specialità gastronomiche e uno scambio di conoscenze.",
+        "en": "The recurring event is held at the Breitenmoser Gustarium in Steinegg AI. It presents culinary specialities for public tasting and provides an opportunity to exchange knowledge.",
+        "de": "Die wiederkehrende Veranstaltung findet im Breitenmoser Gustarium in Steinegg AI statt. Sie verbindet eine öffentliche Degustation kulinarischer Spezialitäten mit einem Austausch von Wissen.",
+        "fr": "Le rendez-vous récurrent se déroule au Gustarium Breitenmoser à Steinegg AI. Il associe une dégustation publique de spécialités gastronomiques à un échange de connaissances."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:17b69a40dca44093b061a2b09d32db94",
@@ -37324,7 +37404,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una gara con automobili radiocomandate presso l’Hôtel Des Masques ad Anzère. È un evento ricorrente con un prezzo indicato di 10 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una gara con automobili radiocomandate presso l’Hôtel Des Masques ad Anzère. È un evento ricorrente con un prezzo indicato di 10 CHF.",
+        "en": "The event features a remote-controlled car race at Hôtel Des Masques in Anzère. It is a recurring event with a listed price of CHF 10.",
+        "de": "Bei der Veranstaltung findet im Hôtel Des Masques in Anzère ein Rennen mit ferngesteuerten Autos statt. Sie wird wiederkehrend angeboten und kostet laut Angabe 10 CHF.",
+        "fr": "L’événement propose une course de voitures télécommandées à l’Hôtel Des Masques, à Anzère. Il s’agit d’un rendez-vous récurrent au prix indiqué de 10 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a9ccd11be6ea4f3aba374a28af2b85ef",
@@ -37997,7 +38085,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’esperienza include un viaggio sulla ferrovia dell’Hospiz e l’accesso alla centrale idroelettrica Grimsel 2. Il programma prevede inoltre la visita alla gola di cristallo di Gerstenegg, nell’area di Innertkirchen, presso Kraftwerke Oberhasli AG.",
+      "descriptionByLocale": {
+        "it": "L’esperienza include un viaggio sulla ferrovia dell’Hospiz e l’accesso alla centrale idroelettrica Grimsel 2. Il programma prevede inoltre la visita alla gola di cristallo di Gerstenegg, nell’area di Innertkirchen, presso Kraftwerke Oberhasli AG.",
+        "en": "The programme combines a journey on the Hospiz Railway with a tour of the Grimsel 2 hydroelectric plant. It also includes a visit to the Gerstenegg Crystal Gorge in Innertkirchen, at Kraftwerke Oberhasli AG.",
+        "de": "Die Veranstaltung verbindet eine Fahrt mit der Hospizbahn mit einer Führung im Wasserkraftwerk Grimsel 2. Ausserdem steht die Kristallkluft Gerstenegg in Innertkirchen auf dem Programm; als Veranstaltungsort ist Kraftwerke Oberhasli AG angegeben.",
+        "fr": "Le parcours associe un trajet à bord du chemin de fer de l’hospice et une découverte de la centrale hydroélectrique Grimsel 2. Il comprend aussi une visite de la gorge cristalline de Gerstenegg, à Innertkirchen, sur le site de Kraftwerke Oberhasli AG."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a5106f9fc33745159c8f711e647b275c",
@@ -38436,7 +38532,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento gastronomico di Vico Morcote si apre con un aperitivo. Se le condizioni meteorologiche sono favorevoli, l’aperitivo si tiene nel giardino davanti alla cantina, intorno al Feuerring, un anello di fuoco che richiama il legame con il suolo vulcanico.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento gastronomico di Vico Morcote si apre con un aperitivo. Se le condizioni meteorologiche sono favorevoli, l’aperitivo si tiene nel giardino davanti alla cantina, intorno al Feuerring, un anello di fuoco che richiama il legame con il suolo vulcanico.",
+        "en": "In Vico Morcote, the food event begins with an aperitif. In suitable weather, the opening is held in the garden by the wine cellar, around the Feuerring, a fire ring that represents a connection with volcanic soil.",
+        "de": "Das kulinarische Angebot in Vico Morcote startet mit einem Aperitif. Bei geeigneten Wetterbedingungen findet dieser Auftakt im Garten vor dem Weinkeller statt, rund um den Feuerring, der die Verbindung zum vulkanischen Boden symbolisiert.",
+        "fr": "À Vico Morcote, la rencontre culinaire commence par un apéritif. Par beau temps, cet apéritif se déroule dans le jardin placé devant la cave, autour du Feuerring. Cet anneau de feu évoque le lien avec le sol volcanique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:88dccbaa9e1b4572be58bb7e141c008b",
@@ -38760,7 +38864,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento presenta la fortezza di Fürigen a Stansstad e ne ripercorre la storia dal 1941 a oggi. Descrive le condizioni di vita e la quotidianità dei soldati che rimasero per diverse settimane all’interno della montagna, collocando il luogo nella storia svizzera.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta la fortezza di Fürigen a Stansstad e ne ripercorre la storia dal 1941 a oggi. Descrive le condizioni di vita e la quotidianità dei soldati che rimasero per diverse settimane all’interno della montagna, collocando il luogo nella storia svizzera.",
+        "en": "This event examines Festung Fürigen in Stansstad and traces its history from 1941 to the present. It describes the living conditions and daily duties of soldiers who spent several weeks inside the mountain, placing the site within Swiss history.",
+        "de": "Die Veranstaltung stellt die Festung Fürigen in Stansstad vor und verfolgt ihre Geschichte von 1941 bis in die Gegenwart. Im Mittelpunkt stehen die Lebensbedingungen und der Alltag der Soldaten, die mehrere Wochen im Berg verbrachten; zugleich wird der Ort als Teil der Geschichte der Schweiz eingeordnet.",
+        "fr": "Le rendez-vous présente la forteresse de Fürigen à Stansstad et retrace son évolution de 1941 à nos jours. Il aborde les conditions de vie et le quotidien des soldats qui ont séjourné plusieurs semaines dans la montagne, tout en situant ce lieu dans l’histoire suisse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b659c3f60af94f5ab01e8ef68d789fcf",
@@ -40072,7 +40184,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il recital propone opere di Bach per violino solo, con una selezione di Sonate e Partite. Anna Orlik esegue il programma all’Eglise de St-Oyens; l’ingresso costa 30 CHF.",
+      "descriptionByLocale": {
+        "it": "Il recital propone opere di Bach per violino solo, con una selezione di Sonate e Partite. Anna Orlik esegue il programma all’Eglise de St-Oyens; l’ingresso costa 30 CHF.",
+        "en": "This recital presents works by Bach written for solo violin, including selections from the Sonatas and Partitas. Anna Orlik performs at Eglise de St-Oyens, and admission is CHF 30.",
+        "de": "Das Recital umfasst Werke von Bach für Violine solo, darunter eine Auswahl aus den Sonaten und Partiten. Anna Orlik gestaltet das Programm in der Eglise de St-Oyens; der Eintritt beträgt 30 CHF.",
+        "fr": "Ce récital réunit des œuvres de Bach pour violon seul, notamment des extraits des Sonates et Partitas. Anna Orlik interprète le programme à l’Eglise de St-Oyens ; le tarif indiqué est de 30 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A3jArUr",
@@ -45250,7 +45370,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo evento tratta il tentativo dei monarchici prussiani di rovesciare la giovane Repubblica con un colpo di Stato. La vicenda si colloca nella fase iniziale della Repubblica, istituita rapidamente dopo i cambiamenti politici del 1848, e si svolge a Valangin, nel Val-de-Ruz.",
+      "descriptionByLocale": {
+        "it": "Questo evento tratta il tentativo dei monarchici prussiani di rovesciare la giovane Repubblica con un colpo di Stato. La vicenda si colloca nella fase iniziale della Repubblica, istituita rapidamente dopo i cambiamenti politici del 1848, e si svolge a Valangin, nel Val-de-Ruz.",
+        "en": "This event concerns an attempted coup by Prussian royalists against a young republic. It places the episode in the early period of the Republic, which was established rapidly after the political changes of 1848, and takes place in Valangin in the Val-de-Ruz.",
+        "de": "Die Veranstaltung behandelt den Versuch preußischer Royalisten, gegen die junge Republik einen Staatsstreich zu unternehmen. Sie ordnet diesen Vorfall in die frühe Phase der Republik ein, die nach den politischen Veränderungen von 1848 rasch geschaffen wurde, und findet in Valangin im Val-de-Ruz statt.",
+        "fr": "Cet événement porte sur la tentative de royalistes prussiens de renverser la jeune République par un coup d’État. Il situe cet épisode dans les débuts de la République, établie rapidement après les changements politiques de 1848, et se déroule à Valangin, dans le Val-de-Ruz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:edddc4689c804b6c942e087dcd74c6bf",
@@ -45725,7 +45853,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa mostra ricorrente si svolge al NMB Nouveau Musée de Bienne, nel cantone di Berna. È dedicata a Biel e al Röstigraben e presenta la città come una città svizzera rigorosamente bilingue.",
+      "descriptionByLocale": {
+        "it": "Questa mostra ricorrente si svolge al NMB Nouveau Musée de Bienne, nel cantone di Berna. È dedicata a Biel e al Röstigraben e presenta la città come una città svizzera rigorosamente bilingue.",
+        "en": "This recurring exhibition is presented at NMB Nouveau Musée de Bienne in the canton of Bern. It focuses on Biel and the Röstigraben, presenting the city as a consistently bilingual city in Switzerland.",
+        "de": "Die wiederkehrende Ausstellung findet im NMB Nouveau Musée de Bienne im Kanton Bern statt. Im Mittelpunkt stehen Biel und der Röstigraben, wobei Biel als konsequent zweisprachige Stadt der Schweiz dargestellt wird.",
+        "fr": "Cette exposition récurrente se tient au NMB Nouveau Musée de Bienne, dans le canton de Berne. Elle porte sur Bienne et la barrière de rösti, en présentant la ville comme une cité suisse rigoureusement bilingue."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f6a7f5610cd94fd5bb2e03b3983d4924",
@@ -84369,7 +84505,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Die Impronauten è uno spettacolo di teatro d’improvvisazione al Theater Fauteuil - Tabourettli. Gli interpreti costruiscono le scene senza conoscere in anticipo lo sviluppo di ciò che accadrà sul palco.",
+      "descriptionByLocale": {
+        "it": "Die Impronauten è uno spettacolo di teatro d’improvvisazione al Theater Fauteuil - Tabourettli. Gli interpreti costruiscono le scene senza conoscere in anticipo lo sviluppo di ciò che accadrà sul palco.",
+        "en": "Die Impronauten is an improvisational theatre event at Theater Fauteuil - Tabourettli. The performers develop the scenes without knowing beforehand how the action will unfold.",
+        "de": "Die Impronauten gehört zum Improvisationstheater und findet im Theater Fauteuil - Tabourettli statt. Die Darstellenden entwickeln das Geschehen auf der Bühne, ohne den weiteren Verlauf vorher festzulegen.",
+        "fr": "Die Impronauten est un rendez-vous de théâtre d’improvisation au Theater Fauteuil - Tabourettli. Les interprètes construisent le déroulement sur scène sans en connaître à l’avance la suite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ADh32B6",
@@ -87997,7 +88141,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il Luzerner Theater di Luzern presenta il musical My Fair Lady, opera di Frederick Loewe e Alan Jay Lerner. L’evento è indicato per un pubblico dai dieci anni in su.",
+      "descriptionByLocale": {
+        "it": "Il Luzerner Theater di Luzern presenta il musical My Fair Lady, opera di Frederick Loewe e Alan Jay Lerner. L’evento è indicato per un pubblico dai dieci anni in su.",
+        "en": "Luzerner Theater in Luzern presents the musical My Fair Lady by Frederick Loewe and Alan Jay Lerner. The production is intended for audiences aged ten and above.",
+        "de": "Das Luzerner Theater in Luzern präsentiert My Fair Lady; das Werk stammt von Frederick Loewe sowie Alan Jay Lerner. Die Veranstaltung ist für ein Publikum ab zehn Jahren vorgesehen.",
+        "fr": "Le Luzerner Theater de Luzern accueille la comédie musicale My Fair Lady, signée par Frederick Loewe et Alan Jay Lerner. La représentation est destinée à un public âgé de dix ans ou plus."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:39aab58b01654b67bc460b8dd637cb0d",
@@ -88870,7 +89022,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra di Alex Dorici si svolge negli Ex Magazzini AEM di Massagno. Il progetto combina un intervento artistico con una piattaforma dedicata alla riflessione culturale.",
+      "descriptionByLocale": {
+        "it": "La mostra di Alex Dorici si svolge negli Ex Magazzini AEM di Massagno. Il progetto combina un intervento artistico con una piattaforma dedicata alla riflessione culturale.",
+        "en": "This exhibition by Alex Dorici is presented at Ex Magazzini AEM in Massagno. It combines an artistic intervention with a platform for cultural reflection.",
+        "de": "Die Ausstellung von Alex Dorici findet in den Ex Magazzini AEM in Massagno statt. Sie verbindet eine künstlerische Intervention mit einer Plattform für kulturelle Reflexion.",
+        "fr": "Cette exposition d’Alex Dorici se tient aux Ex Magazzini AEM, à Massagno. Elle associe une intervention artistique à une plateforme de réflexion culturelle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ef0bfe619bbc478b9211e7086348d682",
@@ -91537,7 +91697,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "«Semi vagabondi» è una visita guidata ricorrente. L’evento si svolge alle Isole di Brissago, nel comune di Brissago, in Ticino.",
+      "descriptionByLocale": {
+        "it": "«Semi vagabondi» è una visita guidata ricorrente. L’evento si svolge alle Isole di Brissago, nel comune di Brissago, in Ticino.",
+        "en": "“Wandering seeds” is a recurring guided tour. It takes place at Isole di Brissago, in Brissago, in the canton of Ticino.",
+        "de": "„Wandernde Samen“ ist eine wiederkehrende Führung. Die Veranstaltung findet bei den Isole di Brissago in Brissago im Kanton Tessin statt.",
+        "fr": "« Graines vagabondes » est une visite guidée récurrente. L’événement a lieu aux Isole di Brissago, dans la commune de Brissago, dans le canton du Tessin."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Am8JERZ",
@@ -92374,7 +92542,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Questo evento teatrale ricorrente si svolge al Messezentrum Zürich, a Zurigo. Il programma occupa due giornate consecutive nel periodo previsto.",
+      "descriptionByLocale": {
+        "it": "Questo evento teatrale ricorrente si svolge al Messezentrum Zürich, a Zurigo. Il programma occupa due giornate consecutive nel periodo previsto.",
+        "en": "This recurring theatre event is held at Messezentrum Zürich in Zürich. It spans two consecutive days within the listed event period.",
+        "de": "Diese wiederkehrende Theaterveranstaltung findet im Messezentrum Zürich in Zürich statt. Sie ist auf zwei aufeinanderfolgende Tage des angegebenen Zeitraums angelegt.",
+        "fr": "Cet événement théâtral récurrent se déroule au Messezentrum Zürich, à Zurich. Il est réparti sur deux journées consécutives pendant la période annoncée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4a342f81a4994fda839d500fcc7bdfcf",
@@ -92675,7 +92851,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento di astronomia si svolge al planetario Sternwarte Planetarium SIRIUS di Sigriswil ed è dedicato a una storia ambientata nel contesto dei viaggi spaziali. La vicenda segue un criceto e mette in evidenza quanto sia difficile raggiungere lo spazio.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento di astronomia si svolge al planetario Sternwarte Planetarium SIRIUS di Sigriswil ed è dedicato a una storia ambientata nel contesto dei viaggi spaziali. La vicenda segue un criceto e mette in evidenza quanto sia difficile raggiungere lo spazio.",
+        "en": "This astronomy event at Sternwarte Planetarium SIRIUS in Sigriswil presents a story about space travel. It follows a hamster and focuses on the difficulties of getting into space.",
+        "de": "Die Astronomieveranstaltung im Sternwarte Planetarium SIRIUS in Sigriswil erzählt von einer Reise ins All. Im Mittelpunkt steht ein Hamster; zugleich wird gezeigt, wie anspruchsvoll der Weg dorthin ist.",
+        "fr": "Ce rendez-vous d’astronomie au Sternwarte Planetarium SIRIUS de Sigriswil raconte une aventure liée aux voyages spatiaux. Un hamster en est le personnage central, tandis que le récit montre la difficulté d’atteindre l’espace."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7df0b1dc495e4dd19204a2778db2b8b3",
@@ -94743,7 +94927,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento conclusivo a St. Peterzell comprende un laboratorio e una visita guidata alla mostra. Il laboratorio introduce una semplice tecnica di stampa, mentre la visita presenta il lavoro artistico dell’autore.",
+      "descriptionByLocale": {
+        "it": "L’evento conclusivo a St. Peterzell comprende un laboratorio e una visita guidata alla mostra. Il laboratorio introduce una semplice tecnica di stampa, mentre la visita presenta il lavoro artistico dell’autore.",
+        "en": "The closing event in St. Peterzell combines a workshop with a guided tour of the exhibition. Participants explore a simple printing technique, followed by an introduction to the artist’s work.",
+        "de": "In St. Peterzell verbindet die Veranstaltung einen Workshop mit einer Führung durch die Ausstellung. Dabei lernen die Teilnehmenden ein einfaches Druckverfahren kennen und erhalten anschliessend Einblick in das künstlerische Schaffen.",
+        "fr": "À St. Peterzell, le rendez-vous associe un atelier à une visite guidée de l’exposition. L’atelier permet de découvrir une technique d’impression simple, puis la visite présente le travail de l’artiste."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:fusion-exposition-aldo-locatelli",
@@ -95813,7 +96005,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Presso l'Ortsmuseum Binningen, a Bottmingen, si esibisce un'orchestra di fisarmoniche. Il programma comprende brani di diverso carattere, tra cui melodie moderne e la tradizionale Ländlermusik.",
+      "descriptionByLocale": {
+        "it": "Presso l'Ortsmuseum Binningen, a Bottmingen, si esibisce un'orchestra di fisarmoniche. Il programma comprende brani di diverso carattere, tra cui melodie moderne e la tradizionale Ländlermusik.",
+        "en": "An accordion orchestra performs at the Ortsmuseum Binningen in Bottmingen. Its programme includes varied pieces, among them modern melodies and traditional Ländlermusik.",
+        "de": "Im Ortsmuseum Binningen in Bottmingen spielt ein Akkordeonorchester. Das Repertoire umfasst unterschiedliche Stücke, darunter moderne Melodien und traditionelle Ländlermusik.",
+        "fr": "Un orchestre d'accordéons se produit à l'Ortsmuseum Binningen, à Bottmingen. Son répertoire comprend des morceaux variés, notamment des mélodies modernes et de la musique traditionnelle de type Ländlermusik."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ArxNsVY",
@@ -99088,7 +99288,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il MEG, Museo di etnografia di Ginevra, ospita una visita flash all’interno di una mostra temporanea. L’attività è proposta in più brevi sessioni dedicate all’esposizione.",
+      "descriptionByLocale": {
+        "it": "Il MEG, Museo di etnografia di Ginevra, ospita una visita flash all’interno di una mostra temporanea. L’attività è proposta in più brevi sessioni dedicate all’esposizione.",
+        "en": "The MEG, Musée d’Ethnographie de Genève, hosts a brief visit within a temporary exhibition. The activity is offered in several short sessions devoted to the exhibition.",
+        "de": "Im MEG, dem Musée d’Ethnographie de Genève, findet eine kurze Führung durch eine temporäre Ausstellung statt. Das Format wird in mehreren kurzen Einheiten angeboten.",
+        "fr": "Au MEG, Musée d’ethnographie de Genève, une visite brève se déroule dans une exposition temporaire. L’activité est proposée en plusieurs courtes sessions consacrées à l’exposition."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6ca92b202d6441a6b4e72c13acd87f74",
@@ -99125,7 +99333,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Museo nazionale svizzero ospita una visita guidata dedicata a un’esposizione sul colonialismo e sul coinvolgimento della Svizzera. L’appuntamento si svolge a Prangins.",
+      "descriptionByLocale": {
+        "it": "Il Museo nazionale svizzero ospita una visita guidata dedicata a un’esposizione sul colonialismo e sul coinvolgimento della Svizzera. L’appuntamento si svolge a Prangins.",
+        "en": "The Swiss National Museum offers a guided tour focused on an exhibition about colonialism and Switzerland’s involvement. The event takes place in Prangins.",
+        "de": "Im Schweizerischen Nationalmuseum findet eine Führung durch eine Ausstellung über den Kolonialismus und die Beteiligung der Schweiz statt. Die Veranstaltung wird in Prangins durchgeführt.",
+        "fr": "Le Musée national suisse propose une visite guidée consacrée à une exposition sur le colonialisme et l’implication de la Suisse. L’événement a lieu à Prangins."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:visite-guidee-exposition-telling-death-raconter-mort",
@@ -100941,7 +101157,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone la proiezione del film «Premier arrêt Glion» al Cinéma Hollywood di Montreux. Nicole Meystre, archivista, introduce il film.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone la proiezione del film «Premier arrêt Glion» al Cinéma Hollywood di Montreux. Nicole Meystre, archivista, introduce il film.",
+        "en": "The event features a screening of the film “Premier arrêt Glion” at Cinéma Hollywood in Montreux. Nicole Meystre, an archivist, provides the introduction.",
+        "de": "Die Veranstaltung umfasst eine Filmvorführung im Cinéma Hollywood in Montreux. Nicole Meystre, eine Archivarin, führt in den Film «Premier arrêt Glion» ein.",
+        "fr": "Le rendez-vous propose au Cinéma Hollywood de Montreux la projection du film « Prochain arrêt Glion ». L’introduction est assurée par Nicole Meystre-Schaeren, archiviste."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a93bb79d14d64caeb87e6ccda203ecf2",
@@ -103630,7 +103854,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra è in programma un’animazione incentrata su un pasto. L’evento si svolge all’Espace de quartier Le 99.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è in programma un’animazione incentrata su un pasto. L’evento si svolge all’Espace de quartier Le 99.",
+        "en": "A Geneva activity is centred on a meal. It takes place at Espace de quartier Le 99.",
+        "de": "In Genf findet eine Veranstaltung rund um ein Essen statt. Sie wird im Espace de quartier Le 99 durchgeführt.",
+        "fr": "À Genève, une animation est organisée autour d’un repas. Elle a lieu à l’Espace de quartier Le 99."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ABAKt2t",
@@ -122185,7 +122417,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'appuntamento propone un concerto di musica d'autore con Florian Paul al Zeughaus di Lindau. Il programma prevede un ascolto in anteprima di un nuovo album, incentrato sul tema del cambiamento.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento propone un concerto di musica d'autore con Florian Paul al Zeughaus di Lindau. Il programma prevede un ascolto in anteprima di un nuovo album, incentrato sul tema del cambiamento.",
+        "en": "The event is a singer-songwriter concert with Florian Paul at Zeughaus in Lindau. The programme includes an advance listening session for a new album focused on change.",
+        "de": "Im Zeughaus in Lindau findet ein Konzert mit Florian Paul aus dem Bereich der Liedermacher statt. Das Programm umfasst die Vorabpräsentation eines neuen Albums, das sich mit Veränderung beschäftigt.",
+        "fr": "Le rendez-vous est un concert de chanson d’auteur avec Florian Paul au Zeughaus, à Lindau. Le programme comprend une écoute en avant-première d’un nouvel album consacré au thème du changement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AgqPweP",
@@ -128071,7 +128311,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una visita guidata di due giorni presso la miniera Gonzen Bergwerk di Sargans. La sede è un’ex miniera di ferro e l’evento rientra nella categoria delle scienze della Terra e della geologia.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una visita guidata di due giorni presso la miniera Gonzen Bergwerk di Sargans. La sede è un’ex miniera di ferro e l’evento rientra nella categoria delle scienze della Terra e della geologia.",
+        "en": "The event consists of a guided visit lasting two days at Gonzen Bergwerk in Sargans. The venue is a disused iron mine, and the event is categorized under earth sciences and geology.",
+        "de": "Die Veranstaltung umfasst eine zweitägige Führung im Gonzen-Bergwerk in Sargans. Der Ort ist ein stillgelegtes Eisenbergwerk; thematisch gehört der Anlass zu den Geowissenschaften und zur Geologie.",
+        "fr": "Le rendez-vous consiste en une visite guidée de deux jours au Gonzen Bergwerk, à Sargans. Le site est une ancienne mine de fer et l’événement relève des sciences de la Terre et de la géologie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:31da165acffc4c87a20c4eae98f7b7e9",
