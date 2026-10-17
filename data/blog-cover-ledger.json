@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5564
+      "6": 5566
     },
-    "publishedCovers": 7145,
+    "publishedCovers": 7147,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5369
+    "inferredRecords": 5371
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190762,6 +190762,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-dimissioni-rapporto-ticino": {
+      "cover": "/images/blog/article-dimissioni-rapporto-ticino.webp",
+      "hash": "e6c5aa10262c198c14d0ed97e6eac152d9e4935fcefb3c251629c4adee498eac",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "dimissioni-rapporto-ticino",
+          "category": "pratico",
+          "date": "2026-10-15T11:39:57.038Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-dosso-gaggiolo-disagi-frontalieri": {
       "cover": "/images/blog/article-dosso-gaggiolo-disagi-frontalieri.webp",
       "hash": "125090515d97d12c8e0a6f89d19729ef6694e27611cdbcaf75ff84aac06c7a64",
@@ -191348,6 +191375,33 @@
           "id": "saronno-produzione-cina-protesta",
           "category": "novita",
           "date": "2026-10-16T18:15:02.449Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-semafori-cadenazzo-proteste-ustra": {
+      "cover": "/images/blog/article-semafori-cadenazzo-proteste-ustra.webp",
+      "hash": "584657ee7c34d8e1174f8378f238320059605ece1e7c41deac4f4d0acfcf0206",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "semafori-cadenazzo-proteste-ustra",
+          "category": "pratico",
+          "date": "2026-10-16T21:09:57.242Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -108511,10 +108511,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-frontalieri-disoccupazione-criterio-lavoro.webp`,
+        "url": `${BASE_URL}/images/blog/article-dimissioni-rapporto-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Frontaliere con contratto di lavoro svizzero in un paesaggio del Ticino"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T11:39:57+00:00",
       "dateModified": "2026-10-15T11:39:57+00:00",
@@ -110227,10 +110227,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-semafori-autostrade-ustra-ticino.webp`,
+        "url": `${BASE_URL}/images/blog/article-semafori-cadenazzo-proteste-ustra.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Semafori e traffico a Cadenazzo, Ticino, con veicoli in attesa al rosso."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T21:09:57+00:00",
       "dateModified": "2026-10-16T21:09:57+00:00",
