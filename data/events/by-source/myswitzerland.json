@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-16T10:31:06.530Z",
+  "assembledAt": "2026-10-17T10:04:43.469Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -61668,22 +61668,27 @@
       },
       "startDate": "2027-04-11",
       "endDate": "2027-04-11",
-      "startTime": "19:00",
-      "category": "Music",
-      "venue": "SAL",
+      "startTime": "14:30",
+      "category": "Event",
+      "venue": "Schaan",
       "canton": "",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/heimweh-12/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/heimweh-12/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "postalCode": "9494",
-        "locality": "Schaan"
-      },
       "geo": {
         "lat": 47.1434996,
         "lng": 9.5174895
       },
-      "recurring": false,
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schaan"
+      },
       "sourceDescriptionHash": "01fc303685aa754336ddc1e6714c762055344fd2fafa0e97e3a1a36678903cb7"
     },
     {
@@ -266481,6 +266486,672 @@
         "name": "Herisau"
       },
       "sourceDescriptionHash": "04b644d7d1a764e7e09c1bb8a8147d4c9ace4f419d8c3061b46a8c661ff22637"
+    },
+    {
+      "id": "myswitzerland:4c19387725d8483a9dd93a71c316394c",
+      "title": "Body & Soul: Fermentationskurs",
+      "titleByLocale": {
+        "it": "Body & Soul: Fermentationskurs",
+        "en": "Body & Soul: Fermentationskurs",
+        "de": "Body & Soul: Fermentationskurs",
+        "fr": "Body & Soul: Fermentationskurs"
+      },
+      "startDate": "2027-01-26",
+      "endDate": "2027-01-26",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Uitikon-Waldegg",
+      "comune": "Uitikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/body-soul-fermentationskurs/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.372865,
+        "lng": 8.46104
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Uitikon-Waldegg"
+      },
+      "sourceDescriptionHash": "003af7006367e56f62d3c973307d44a326a749d42f42728071a8526da2dfaa0c"
+    },
+    {
+      "id": "myswitzerland:4bf4ccd1688b4d09b5c727b9a02c4082",
+      "title": "Raclette Hut Evening",
+      "titleByLocale": {
+        "it": "Raclette Hut Evening",
+        "en": "Raclette Hut Evening",
+        "de": "Raclette-Hüttenabend",
+        "fr": "Raclette Hut Evening"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2027-02-12",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Engelberg",
+      "comune": "Engelberg",
+      "canton": "OW",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/raclette-hut-evening-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8017613,
+        "lng": 8.4492935
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Engelberg"
+      },
+      "sourceDescriptionHash": "a9d378854f62a43647edde1e4e756e99f55cd4ca698424f8866a86d737f2c0c4"
+    },
+    {
+      "id": "myswitzerland:4a86c636465541e0a150f9199ef892e8",
+      "title": "Tales of Delicious Treats",
+      "titleByLocale": {
+        "it": "Tales of Delicious Treats",
+        "en": "Tales of Delicious Treats",
+        "de": "Kulinarische Geschichten",
+        "fr": "Contes gourmands"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-06",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Vevey",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tales-of-delicious-treats/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4583939,
+        "lng": 6.8464425
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Vevey"
+      },
+      "sourceDescriptionHash": "93df3928918d8c93dbb056c43c9c51e0f8b145c19f7ac7e2812fac666090d9a3"
+    },
+    {
+      "id": "myswitzerland:4a4d4d7eeaca41f5993cdb5ff1bcce68",
+      "title": "Live at Cantaleum presents \"Songs of travel\"",
+      "titleByLocale": {
+        "it": "Live at Cantaleum presents \"Songs of travel\"",
+        "en": "Live at Cantaleum presents \"Songs of travel\"",
+        "de": "Live at Cantaleum presents \"Songs of travel\"",
+        "fr": "Live at Cantaleum presents \"Songs of travel\""
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/live-at-cantaleum-presents-songs-of-travel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3695092,
+        "lng": 8.5693626
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Joseph von Eichendorff führt in die romantische Welt zwischen Naturerlebnis"
+        },
+        {
+          "name": "Sehnsucht"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "263385ae0cb2eecc2963943dac6b8e453d59661f734623b25969e4bcd026fedc"
+    },
+    {
+      "id": "myswitzerland:49bfb876eab44ef08264d63eb5bddfad",
+      "title": "RUEGO & FRIENDS – PLATTENTAUFE «Y»",
+      "titleByLocale": {
+        "it": "RUEGO & FRIENDS – PLATTENTAUFE «Y»",
+        "en": "RUEGO & FRIENDS – PLATTENTAUFE «Y»",
+        "de": "RUEGO & FRIENDS – PLATTENTAUFE «Y»",
+        "fr": "RUEGO & FRIENDS – PLATTENTAUFE «Y»"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ruego-friends-plattentaufe-y/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.181587,
+        "lng": 8.4838031
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Haltung"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "80659f670046ec2e8ebc3d5b489afd9d0a6f84b81a94dadd2abf40bc19ba9e0d"
+    },
+    {
+      "id": "myswitzerland:48c14fc5ebc74e2d9017cba9b3a2162d",
+      "title": "New Year's Eve at the Tschuggenhütte (fully booked)",
+      "titleByLocale": {
+        "it": "New Year's Eve at the Tschuggenhütte (fully booked)",
+        "en": "New Year's Eve at the Tschuggenhütte (fully booked)",
+        "de": "Silvester in der Tschuggenhütte",
+        "fr": "Réveillon du Nouvel An à la Tschuggenhütte (complet)"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "19:20",
+      "category": "Event",
+      "venue": "Arosa",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/new-years-eve-at-the-tschuggenhuette-fully-booked/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7834757,
+        "lng": 9.6787842
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Arosa"
+      },
+      "sourceDescriptionHash": "829abda4c404cd3e1a7996b3b4ae6d00af6f4ae204b0bb708157401bbcc023d8"
+    },
+    {
+      "id": "myswitzerland:48a7de9339634512945a4f3dcd9d38b0",
+      "title": "Zauberpark mit John Newman",
+      "titleByLocale": {
+        "it": "Zauberpark mit John Newman",
+        "en": "Zauberpark mit John Newman",
+        "de": "Zauberpark mit John Newman",
+        "fr": "Zauberpark mit John Newman"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "startTime": "20:15",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zauberpark-mit-john-newman/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4504471,
+        "lng": 8.5680049
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Zauberpark am Flughafen Zürich"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "17cbb298a336fc4562f7a132c32af00273373240ab4a057abe6c5f0dc2897940"
+    },
+    {
+      "id": "myswitzerland:4825b7f9984344f59cf028905ab3ea7e",
+      "title": "Vortrag: Wetterprognosen",
+      "titleByLocale": {
+        "it": "Vortrag: Wetterprognosen",
+        "en": "Vortrag: Wetterprognosen",
+        "de": "Vortrag: Wetterprognosen",
+        "fr": "Vortrag: Wetterprognosen"
+      },
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-04",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Schinznach-Dorf",
+      "comune": "Schinznach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/vortrag-wetterprognosen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4602684,
+        "lng": 8.1372358
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schinznach-Dorf"
+      },
+      "sourceDescriptionHash": "fb19b3c01204f7ae9b994123b2180c30ced4f453c39ddd389930f80c4b156a0e"
+    },
+    {
+      "id": "myswitzerland:47a4df167cbe47fe838b07c6afe6383e",
+      "title": "20. Solothurner Kleinkunsttag",
+      "titleByLocale": {
+        "it": "20. Solothurner Kleinkunsttag",
+        "en": "20. Solothurner Kleinkunsttag",
+        "de": "20. Solothurner Kleinkunsttag",
+        "fr": "20. Solothurner Kleinkunsttag"
+      },
+      "startDate": "2026-12-27",
+      "endDate": "2026-12-27",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/20-solothurner-kleinkunsttag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2007119,
+        "lng": 7.5282871
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
+      "sourceDescriptionHash": "0ad12caf14e01fe4362122d9823b3fe9bb398b8b004f0dd1112c09a0be39592a"
+    },
+    {
+      "id": "myswitzerland:47a2a83125e343e59b4001a1c5880eb7",
+      "title": "Magic Globe - Das Geheimnis der Jahreszeiten",
+      "titleByLocale": {
+        "it": "Magic Globe - Das Geheimnis der Jahreszeiten",
+        "en": "Magic Globe - Das Geheimnis der Jahreszeiten",
+        "de": "Magic Globe - Das Geheimnis der Jahreszeiten",
+        "fr": "Magic Globe - Das Geheimnis der Jahreszeiten"
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-12-20",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/magic-globe-das-geheimnis-der-jahreszeiten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kreuzlingen"
+      },
+      "sourceDescriptionHash": "3e9b06b0294122554bcb7c6bc0ec82595b562f3ebcfbb7b5eb84ad632dfbb98d"
+    },
+    {
+      "id": "myswitzerland:4795a9eefa8d4fb0bf3c9942c385f578",
+      "title": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+      "titleByLocale": {
+        "it": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+        "en": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+        "de": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+        "fr": "Milliarden Sonnen - Eine Reise durch die Galaxis"
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-12-13",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/milliarden-sonnen-eine-reise-durch-die-galaxis/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kreuzlingen"
+      },
+      "sourceDescriptionHash": "24f57beac9b24c7d4918a66d49eca730b2dd427801d7bcd70e35b1e4717ab6c3"
+    },
+    {
+      "id": "myswitzerland:473d2afe6eac47118692430e04082d1d",
+      "title": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp",
+      "titleByLocale": {
+        "it": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp",
+        "en": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp",
+        "de": "POP-UP KINO: HERBSTFEUER - Brandfall Grandhotel Waldhaus Vulpera-Tarasp",
+        "fr": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp"
+      },
+      "startDate": "2026-10-21",
+      "endDate": "2026-10-21",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Scuol",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pop-up-cinema-herbstfeuer-fire-at-the-grandhotel-waldhaus-vulpera-tarasp/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.799445,
+        "lng": 10.3014586
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Scuol"
+      },
+      "sourceDescriptionHash": "f010be5f7f8aa66851d0029412bd72cb24dcc40d4b4c83bfa75a29363979a506"
+    },
+    {
+      "id": "myswitzerland:464d1bc9cd294c4bb20286086051d642",
+      "title": "Simon Chen",
+      "titleByLocale": {
+        "it": "Simon Chen",
+        "en": "Simon Chen",
+        "de": "Simon Chen",
+        "fr": "Simon Chen"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Nidau",
+      "comune": "Nidau",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/simon-chen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1170486,
+        "lng": 7.2482845
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Migrationshintergrund oder der Lehrer mit seiner Klasse"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "0b56069d3d2df6263448f14c2a3b460a86835622ff38e0409e572978c5aada01"
+    },
+    {
+      "id": "myswitzerland:46222d2f73304c13a1df0fcaeece84b6",
+      "title": "Binary Sunset - Langer Samstag",
+      "titleByLocale": {
+        "it": "Binary Sunset - Langer Samstag",
+        "en": "Binary Sunset - Langer Samstag",
+        "de": "Binary Sunset - Langer Samstag",
+        "fr": "Binary Sunset - Langer Samstag"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-15",
+      "startTime": "21:00",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/binary-sunset-langer-samstag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8486989,
+        "lng": 9.5305403
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chur"
+      },
+      "sourceDescriptionHash": "5873bdee8d9b05d2f92dde50a2aeeaf58a074ea8b08100216cb7276a82e2e038"
+    },
+    {
+      "id": "myswitzerland:45c60bae52a848abbf6c69b3150ab81a",
+      "title": "BIUTIFUL",
+      "titleByLocale": {
+        "it": "BIUTIFUL",
+        "en": "BIUTIFUL",
+        "de": "BIUTIFUL",
+        "fr": "BIUTIFUL"
+      },
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-03",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/biutiful/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8498788,
+        "lng": 9.529387
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chur"
+      },
+      "sourceDescriptionHash": "07b3e540ab618c347d3d2ef5f7992fa9d8fb3f8155a9111a0b5e56013a9f0364"
+    },
+    {
+      "id": "myswitzerland:45798dfef77447a6b95a789de03859cd",
+      "title": "DRAMATIK & WILLE",
+      "titleByLocale": {
+        "it": "DRAMATIK & WILLE",
+        "en": "DRAMATIK & WILLE",
+        "de": "DRAMATIK & WILLE",
+        "fr": "DRAMATIK & WILLE"
+      },
+      "startDate": "2027-03-15",
+      "endDate": "2027-03-15",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/dramatik-wille/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8498788,
+        "lng": 9.529387
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chur"
+      },
+      "sourceDescriptionHash": "08ee42f01c4b9d419c7e5d37748b91a0c76d7ff1b01e8c46736937cdd6427b2e"
+    },
+    {
+      "id": "myswitzerland:4556ac0d47314a0084a0a030bbb04726",
+      "title": "Story window – listen and discover",
+      "titleByLocale": {
+        "it": "Story window – listen and discover",
+        "en": "Story window – listen and discover",
+        "de": "Story window – listen and discover",
+        "fr": "Story window – listen and discover"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-11",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/story-window-listen-and-discover-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3796064,
+        "lng": 8.5393516
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "78d84cc7a666af41ce3ff3f2858e14cd94b8c9072fc837c4e25b6554911d8699"
+    },
+    {
+      "id": "myswitzerland:44a5924a4fdc413c946f7d3227cbe779",
+      "title": "Christmas market in Montet",
+      "titleByLocale": {
+        "it": "Christmas market in Montet",
+        "en": "Christmas market in Montet",
+        "de": "Weihnachtsmarkt in Montet",
+        "fr": "Marché de Noël à Montet"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Montet (Broye)",
+      "comune": "Les Montets",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/christmas-market-in-montet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.816673,
+        "lng": 6.866673
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Montet (Broye)"
+      },
+      "sourceDescriptionHash": "5fd285f584e3877d0483b679e9f3aba9c11a6188d6be5224294e4d40b5806770"
+    },
+    {
+      "id": "myswitzerland:448125376d7047a1b04ae5b1afc6cf05",
+      "title": "Novecento - Die Legende vom Ozeanpianisten",
+      "titleByLocale": {
+        "it": "Novecento - Die Legende vom Ozeanpianisten",
+        "en": "Novecento - Die Legende vom Ozeanpianisten",
+        "de": "Novecento - Die Legende vom Ozeanpianisten",
+        "fr": "Novecento - Die Legende vom Ozeanpianisten"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-20",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Hilterfingen-Hünibach",
+      "comune": "Hilterfingen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/novecento-die-legende-vom-ozeanpianisten-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.744547,
+        "lng": 7.647026
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Hilterfingen-Hünibach"
+      },
+      "sourceDescriptionHash": "902d37dea3830d835a1f96789d00b4ddd10d617932f9bd1e0f8f0e1a65aaefd5"
     }
   ]
 }
