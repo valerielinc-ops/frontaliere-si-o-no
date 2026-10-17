@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-10-17T09:41:59.777Z",
+  "assembledAt": "2026-10-17T21:27:12.175Z",
   "jobs": [
     {
       "id": "company-l4ti3x",
@@ -33,7 +33,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-17T09:41:44.558Z",
+      "crawledAt": "2026-10-17T21:26:59.883Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Assistente Risorse umane",
@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "human-resources-assistant-supsi-dti-manno",
-        "de": "personalassistent-supsi-dti-manno",
-        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "en": "assistente-risorse-umane-supsi-dti-manno",
+        "de": "assistente-risorse-umane-supsi-dti-manno",
+        "fr": "assistente-risorse-umane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -112,12 +112,22 @@
           "assistente-risorse-umane-supsi-manno"
         ],
         "en": [
-          "human-resource-assistant-supsi-dti-manno"
+          "human-resource-assistant-supsi-dti-manno",
+          "human-resources-assistant-supsi-dti-manno"
+        ],
+        "de": [
+          "personalassistent-supsi-dti-manno"
+        ],
+        "fr": [
+          "assistant-aux-ressources-humaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "assistente-risorse-umane-supsi-manno",
-        "human-resource-assistant-supsi-dti-manno"
+        "human-resource-assistant-supsi-dti-manno",
+        "human-resources-assistant-supsi-dti-manno",
+        "personalassistent-supsi-dti-manno",
+        "assistant-aux-ressources-humaines-supsi-dti-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -152,7 +162,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-17T09:41:44.558Z",
+      "crawledAt": "2026-10-17T21:26:59.883Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "fr": "PhD / PhD en informatique (Interaction homme-ordinateur), avec l'accent sur la validité et la facilité d'utilisation des outils d'annotation semi-automatisés pour les contextes cliniques et thérapeutiques",
@@ -285,7 +295,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-17T09:41:44.558Z",
+      "crawledAt": "2026-10-17T21:26:59.883Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Videomaker e Content creator",
@@ -426,7 +436,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-17T09:41:44.558Z",
+      "crawledAt": "2026-10-17T21:26:59.883Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -561,7 +571,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-17T09:41:44.558Z",
+      "crawledAt": "2026-10-17T21:26:59.883Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
@@ -577,9 +587,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagist-52-weeks-supsi-dti-manno",
-        "de": "stagist-52-wochen-supsi-dti-manno",
-        "fr": "stagiaire-52-semaines-supsi-dti-manno"
+        "en": "stagista-52-settimane-supsi-dti-manno",
+        "de": "stagista-52-settimane-supsi-dti-manno",
+        "fr": "stagista-52-settimane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -622,7 +632,23 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "stagist-52-weeks-supsi-dti-manno"
+        ],
+        "de": [
+          "stagist-52-wochen-supsi-dti-manno"
+        ],
+        "fr": [
+          "stagiaire-52-semaines-supsi-dti-manno"
+        ]
+      },
+      "previousSlugs": [
+        "stagist-52-weeks-supsi-dti-manno",
+        "stagist-52-wochen-supsi-dti-manno",
+        "stagiaire-52-semaines-supsi-dti-manno"
+      ]
     },
     {
       "id": "company-l4ti3w",
@@ -660,13 +686,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-17T09:41:44.558Z",
+      "crawledAt": "2026-10-17T21:26:59.883Z",
       "firstSeenAt": "2026-10-06T09:37:44.141Z",
       "slugByLocale": {
         "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
         "en": "preformative-year-for-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
         "de": "vorjahr-fur-die-zulassung-zum-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
-        "fr": "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
+        "fr": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno"
       },
       "titleByLocale": {
         "fr": "Année préformative pour l'admission au baccalauréat en sciences en durabilité et transition systémique",
@@ -734,6 +760,9 @@
         ],
         "en": [
           "internship-position-for-the-professional-practice-year-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi"
+        ],
+        "fr": [
+          "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
