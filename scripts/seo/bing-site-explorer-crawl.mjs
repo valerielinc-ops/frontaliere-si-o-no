@@ -18,11 +18,13 @@ import {
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_COMPANY_HUB_PATH_RX, getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
+import { loadCantonUrlSlugs } from '../lib/canton-url-slugs.mjs';
 import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
+import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import {
@@ -101,6 +103,92 @@ function searchPrefixForJobBoardSection(section) {
   if (locale === 'fr') return 'recherche-';
   if (locale === 'it') return 'ricerca-';
   return null;
+}
+
+const EDITORIAL_BRIDGE_SLUGS_BY_SECTION = (() => {
+  const data = loadCantonUrlSlugs();
+  const routes = new Map();
+  const careBases = {
+    it: ['cliniche', 'case-anziani', 'oss', 'educatori'],
+    en: ['clinics', 'care-homes', 'healthcare-assistants', 'educators'],
+    de: ['kliniken', 'altersheime', 'pflegeassistenz', 'paedagogen'],
+    fr: ['cliniques', 'maisons-retraite', 'oss', 'educateurs'],
+  };
+  const intentSlugs = {
+    it: ['lavoro-tedesco-ticino', 'lavoro-senza-esperienza-ticino'],
+    en: ['german-speaking-jobs-ticino', 'jobs-without-experience-ticino'],
+    de: ['deutschsprachige-jobs-tessin', 'jobs-ohne-erfahrung-tessin'],
+    fr: ['emplois-germanophones-tessin', 'emplois-sans-experience-tessin'],
+  };
+  const locales = ['it', 'en', 'de', 'fr'];
+  const localePrefix = { it: '', en: '/en', de: '/de', fr: '/fr' };
+  const sectionPrefix = { it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi' };
+
+  for (const [canton, slugs] of Object.entries(data.cantons || {})) {
+    for (const locale of locales) {
+      const cantonSlug = slugs?.[locale];
+      if (!cantonSlug) continue;
+      const sectionSegment = canton === 'TI'
+        ? ({ it: 'cerca-lavoro-ticino', en: 'find-jobs-ticino', de: 'jobs-im-tessin', fr: 'trouver-emploi-tessin' })[locale]
+        : locale === 'de' && slugs.dePrefix
+          ? `${slugs.dePrefix}${cantonSlug}`
+          : `${sectionPrefix[locale]}-${cantonSlug}`;
+      const section = `${localePrefix[locale]}/${sectionSegment}/`;
+      const nurseDePreposition = canton === 'TI' || canton === 'VS' ? 'im' : 'in';
+      const nurseFrPreposition = canton === 'TI' ? 'au' : canton === 'GR' ? 'aux' : canton === 'VS' ? 'en' : 'a';
+      const slugsForRoute = new Set({
+        it: [
+          `offerte-di-lavoro-${cantonSlug}-oggi`,
+          `infermieri-in-${cantonSlug}`,
+          `lavoro-part-time-${cantonSlug}`,
+          ...careBases.it.map((base) => `${base}-${cantonSlug}`),
+        ],
+        en: [
+          `${cantonSlug}-jobs-today`,
+          `nurses-in-${cantonSlug}`,
+          `part-time-jobs-${cantonSlug}`,
+          ...careBases.en.map((base) => `${base}-${cantonSlug}-jobs`),
+        ],
+        de: [
+          `jobs-${cantonSlug}-heute`,
+          `pflege-jobs-${nurseDePreposition}-${cantonSlug}`,
+          `teilzeit-jobs-${cantonSlug}`,
+          ...careBases.de.map((base) => `${base}-${cantonSlug}-jobs`),
+        ],
+        fr: [
+          `offres-emploi-${cantonSlug}-aujourdhui`,
+          `infirmiers-${nurseFrPreposition}-${cantonSlug}`,
+          `emploi-temps-partiel-${cantonSlug}`,
+          ...careBases.fr.map((base) => `${base}-${cantonSlug}`),
+        ],
+      }[locale]);
+      if (canton === 'TI') for (const slug of intentSlugs[locale]) slugsForRoute.add(slug);
+      routes.set(section, slugsForRoute);
+    }
+  }
+  return routes;
+})();
+
+/**
+ * Recognise only the editorial below-floor bridges emitted by
+ * emitEditorialBelowFloorBridge.  The explicit marker is necessary but not
+ * sufficient: the route must also be one of the module-load enumerated
+ * editorial slugs for that exact canton section and must canonicalize to the
+ * section root.  This keeps category/cross-canton drift actionable.
+ */
+function isDeclaredEditorialBridge({ url, canonical, html }) {
+  if (!String(html || '').includes(JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER)) return false;
+  const source = pathnameAndOrigin(url);
+  const target = pathnameAndOrigin(canonical);
+  if (!source || !target || source.origin !== target.origin) return false;
+
+  const sourceSection = getJobBoardSectionPrefix(source.pathname);
+  const targetSection = getJobBoardSectionPrefix(target.pathname);
+  if (!sourceSection || sourceSection !== targetSection || target.pathname !== targetSection) return false;
+
+  const suffix = source.pathname.slice(sourceSection.length).replace(/\/+$/, '');
+  if (!suffix || suffix.includes('/')) return false;
+  return EDITORIAL_BRIDGE_SLUGS_BY_SECTION.get(sourceSection)?.has(suffix) ?? false;
 }
 
 /**
@@ -814,10 +902,18 @@ export function classifyDocument({
     && isDeclaredWeeklyEmployersArchive({ url: finalUrl || url, canonical, html })
     ? 'weekly-employers-archive'
     : null;
+  const editorialBridgeExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && canonicalMismatch
+    && isDeclaredEditorialBridge({ url: finalUrl || url, canonical, html })
+    ? 'editorial-bridge'
+    : null;
   const canonicalExemption = exemption
     || searchBridgeExemption
     || companyCantonBridgeExemption
-    || weeklyEmployersArchiveExemption;
+    || weeklyEmployersArchiveExemption
+    || editorialBridgeExemption;
   if (noindex) {
     const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredJobBoardTarget);
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
