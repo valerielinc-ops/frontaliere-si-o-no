@@ -795,9 +795,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "en": "two-themed-birthplace-spital-bulach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "maison-de-naissance-spital-bulach"
+        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -875,11 +875,11 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "two-themed-birthplace-spital-bulach-bulach"
+          "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+          "maison-de-naissance-spital-bulach"
         ]
       },
       "previousSlugs": [
@@ -890,8 +890,8 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
-        "two-themed-birthplace-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "maison-de-naissance-spital-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
@@ -1733,10 +1733,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricisti-commerciali-spital-bulach",
+        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electriciens-d-affaires-spital-bulach"
+        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1782,16 +1782,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
-        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
-          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+          "electriciens-d-affaires-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
@@ -3592,7 +3590,7 @@
       "slug": "case-manager-in-spital-buelach-bulach",
       "slugByLocale": {
         "it": "case-manager-in-spital-buelach-bulach",
-        "en": "case-manager-in-spital-bulach",
+        "en": "casemanager-spital-bulach-bulach",
         "de": "case-manager-in-spital-buelach-bulach",
         "fr": "gestionnaire-decas-spital-bulach-bulach"
       },
@@ -3639,11 +3637,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "casemanager-spital-bulach-bulach"
+        "case-manager-in-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "casemanager-spital-bulach-bulach"
+          "case-manager-in-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:04.532Z",
@@ -4661,9 +4659,9 @@
     },
     {
       "id": "spital-buelach-34aff2ac8094",
-      "slug": "stv-responsabile-finanzbuchhaltung-spital-bulach",
+      "slug": "vice-responsabile-della-contabilita-finanziaria-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "stv-responsabile-finanzbuchhaltung-spital-bulach",
+        "it": "vice-responsabile-della-contabilita-finanziaria-spital-bulach-bulach",
         "en": "deputy-head-of-financial-accounting-spital-bulach-bulach",
         "de": "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach",
         "fr": "responsable-adjoint-e-de-la-comptabilite-financiere-spital-bulach-bulach"
@@ -4712,11 +4710,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach"
+        "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach",
+        "stv-responsabile-finanzbuchhaltung-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach"
+          "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach",
+          "stv-responsabile-finanzbuchhaltung-spital-bulach"
         ],
         "en": [
           "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach"
@@ -4742,12 +4742,12 @@
     },
     {
       "id": "spital-buelach-0d37c945c4a3",
-      "slug": "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach",
+      "slug": "segretario-a-medico-a-di-radiologia-specializzazione-nell-invio-di-immagini-spital-bulach-bulach",
       "slugByLocale": {
         "de": "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach",
-        "it": "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach",
-        "en": "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach",
-        "fr": "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach"
+        "it": "segretario-a-medico-a-di-radiologia-specializzazione-nell-invio-di-immagini-spital-bulach-bulach",
+        "en": "medical-secretary-in-radiology-focus-on-image-dispatch-spital-bulach-bulach",
+        "fr": "secretaire-medical-e-en-radiologie-specialisation-dans-l-envoi-d-images-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4806,7 +4806,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:43:30.100Z"
+      "firstSeenAt": "2026-10-16T21:43:30.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach"
+        ],
+        "en": [
+          "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach"
+        ],
+        "fr": [
+          "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-radiologie-schwerpunkt-bildversand-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-18e41f441292",

@@ -639,8 +639,8 @@
       "slugByLocale": {
         "de": "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen",
         "it": "assistenzarztinnen-assistenzarzte-adullam-stiftung-basel-und-riehen",
-        "en": "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen",
-        "fr": "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen"
+        "en": "resident-physicians-adullam-stiftung-basel-und-riehen",
+        "fr": "medecins-assistantes-medecins-assistants-adullam-stiftung-basel-und-riehen"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -692,6 +692,12 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen"
+        ],
+        "en": [
+          "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen"
+        ],
+        "fr": [
           "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen"
         ]
       },

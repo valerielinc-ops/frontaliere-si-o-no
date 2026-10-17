@@ -952,7 +952,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -1001,7 +1001,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1011,7 +1011,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -4234,12 +4234,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-4a55ce0456db",
-      "slug": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen",
+      "slug": "responsabilita-educativa-nds-cura-intensiva-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen",
-        "en": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen",
+        "it": "responsabilita-educativa-nds-cura-intensiva-spitaler-schaffhausen-schaffhausen",
+        "en": "educational-responsibility-nds-intensive-care-spitaler-schaffhausen-schaffhausen",
         "de": "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen",
-        "fr": "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen"
+        "fr": "responsabilite-educative-snd-soins-intensifs-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4285,11 +4285,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen"
+        "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen",
+        "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen"
+          "bildungsverantwortung-nds-intensivpflege-spitaeler-schaffhausen-schaffhausen",
+          "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "bildungsverantwortung-nds-intensivpflege-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-16T09:33:58.513Z",
@@ -4309,12 +4317,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-4f5c58894ed8",
-      "slug": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen",
+      "slug": "assistente-di-cura-presso-il-reparto-di-terapia-intensiva-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen",
-        "en": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen",
+        "it": "assistente-di-cura-presso-il-reparto-di-terapia-intensiva-spitaler-schaffhausen-schaffhausen",
+        "en": "nursing-assistant-intensive-care-unit-spitaler-schaffhausen-schaffhausen",
         "de": "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen",
-        "fr": "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen"
+        "fr": "assistant-e-en-soins-intensifs-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4359,11 +4367,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen"
+        "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen",
+        "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen"
+          "pflegeassistent-in-intensivstation-spitaeler-schaffhausen-schaffhausen",
+          "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "pflegeassistent-in-intensivstation-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "salaryMin": 81500,

@@ -18249,12 +18249,12 @@
     },
     {
       "id": "jumbo-4015acf3-da8",
-      "slug": "verkaufsberater-in-do-it-jumbo-schafisheim",
+      "slug": "consulente-di-vendita-do-it-jumbo-schafisheim",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-schafisheim",
-        "it": "verkaufsberater-in-do-it-jumbo-schafisheim",
-        "en": "verkaufsberater-in-do-it-jumbo-schafisheim",
-        "fr": "verkaufsberater-in-do-it-jumbo-schafisheim"
+        "it": "consulente-di-vendita-do-it-jumbo-schafisheim",
+        "en": "sales-advisor-do-it-jumbo-schafisheim",
+        "fr": "conseiller-ere-de-vente-do-it-jumbo-schafisheim"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18326,14 +18326,28 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-schafisheim"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-schafisheim"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-schafisheim"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-schafisheim"
+      ]
     },
     {
       "id": "jumbo-e1c4c303-d0e",
       "slug": "amministrazione-di-rayon-jumbo-bern-dc60f77a35",
       "slugByLocale": {
         "de": "rayonleiter-in-administration-jumbo-bern",
-        "it": "amministrazione-di-rayon-jumbo-bern-dc60f77a35",
+        "it": "amministrazione-di-rayon-jumbo-bern",
         "en": "rayon-manager-administration-jumbo-bern",
         "fr": "administration-du-gestionnaire-de-rayon-jumbo-bern"
       },
@@ -18397,13 +18411,11 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "rayonleiter-in-administration-jumbo-bern",
-        "amministrazione-di-rayon-jumbo-bern"
+        "rayonleiter-in-administration-jumbo-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-administration-jumbo-bern",
-          "amministrazione-di-rayon-jumbo-bern"
+          "rayonleiter-in-administration-jumbo-bern"
         ],
         "en": [
           "rayonleiter-in-administration-jumbo-bern"
@@ -18537,7 +18549,7 @@
       "slug": "consulente-commerciale-costruzione-carpenteria-jumbo-glarus-51af420e03",
       "slugByLocale": {
         "de": "verkaufsberater-in-bau-schreinerei-jumbo-glarus",
-        "it": "consulente-commerciale-costruzione-carpenteria-jumbo-glarus-51af420e03",
+        "it": "consulente-commerciale-costruzione-carpenteria-jumbo-glarus",
         "en": "sales-consultant-construction-carpentry-jumbo-glarus",
         "fr": "consultant-en-ventes-construction-menuiserie-jumbo-glarus"
       },
@@ -18599,13 +18611,11 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-bau-schreinerei-jumbo-glarus",
-        "consulente-commerciale-costruzione-carpenteria-jumbo-glarus"
+        "verkaufsberater-in-bau-schreinerei-jumbo-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-bau-schreinerei-jumbo-glarus",
-          "consulente-commerciale-costruzione-carpenteria-jumbo-glarus"
+          "verkaufsberater-in-bau-schreinerei-jumbo-glarus"
         ],
         "en": [
           "verkaufsberater-in-bau-schreinerei-jumbo-glarus"

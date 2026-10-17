@@ -1643,7 +1643,7 @@
         "it": "responsabile-senior-dei-rischi-it-e-della-governance-m-f-d-coopers-group-ag-bern",
         "en": "devops-engineer-security-risk-m-w-d-coopers-group-ag-bern",
         "de": "senior-it-risk-governance-manager-m-w-d-coopers-bern",
-        "fr": "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
+        "fr": "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -1712,13 +1712,13 @@
           "senior-it-risk-governance-manager-m-w-d-coopers-bern"
         ],
         "fr": [
-          "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
+          "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
         ]
       },
       "previousSlugs": [
         "senior-it-risk-governance-manager-m-w-d-coopers-bern",
         "devops-engineer-security-risk-m-w-d-coopers-bern",
-        "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
+        "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-09-19T22:57:56.083Z",
       "salaryMin": 77000,
@@ -3178,12 +3178,12 @@
     },
     {
       "id": "coopers-7cba30c89f47",
-      "slug": "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt",
+      "slug": "ingegnere-ingegnera-dell-automazione-pharma-engineering-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "de": "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt",
-        "it": "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt",
-        "en": "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt",
-        "fr": "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt"
+        "it": "ingegnere-ingegnera-dell-automazione-pharma-engineering-m-f-d-coopers-group-ag-basel-stadt",
+        "en": "automation-engineer-pharma-engineering-m-f-d-coopers-group-ag-basel-stadt",
+        "fr": "ingenieur-e-en-automatisation-pharma-engineering-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3255,14 +3255,28 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-16T21:21:36.314Z"
+      "firstSeenAt": "2026-10-16T21:21:36.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt"
+        ],
+        "en": [
+          "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "automationsingenieur-in-pharma-engineering-m-w-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-ce54d52ecb84",
-      "slug": "system-engineer-m-w-d-coopers-zug",
+      "slug": "system-ingegnere-m-w-d-coopers-group-ag-zug",
       "slugByLocale": {
         "de": "system-engineer-m-w-d-coopers-zug",
-        "it": "system-engineer-m-w-d-coopers-zug",
+        "it": "system-ingegnere-m-w-d-coopers-group-ag-zug",
         "en": "system-engineer-m-w-d-coopers-zug",
         "fr": "system-engineer-m-w-d-coopers-zug"
       },
@@ -3334,7 +3348,15 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-16T21:21:35.403Z"
+      "firstSeenAt": "2026-10-16T21:21:35.403Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-m-w-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-m-w-d-coopers-zug"
+      ]
     }
   ]
 }

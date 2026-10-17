@@ -1144,12 +1144,12 @@
     },
     {
       "id": "swiss-re-a427c3fe17e2",
-      "slug": "financial-accounting-expert-1-year-contract-swiss-re-ch",
+      "slug": "esperto-contabile-finanziario-1-contratto-annuale-swiss-re-zurich-ch",
       "slugByLocale": {
         "en": "financial-accounting-expert-1-year-contract-swiss-re-ch",
-        "it": "financial-accounting-expert-1-year-contract-swiss-re-ch",
-        "de": "financial-accounting-expert-1-year-contract-swiss-re-ch",
-        "fr": "financial-accounting-expert-1-year-contract-swiss-re-ch"
+        "it": "esperto-contabile-finanziario-1-contratto-annuale-swiss-re-zurich-ch",
+        "de": "finanzbuchhaltung-experte-1-jahr-vertrag-swiss-re-zurich-ch",
+        "fr": "expert-en-comptabilite-financiere-contrat-d-un-an-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1207,16 +1207,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-16T21:16:17.869Z"
+      "firstSeenAt": "2026-10-16T21:16:17.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-accounting-expert-1-year-contract-swiss-re-ch"
+        ],
+        "de": [
+          "financial-accounting-expert-1-year-contract-swiss-re-ch"
+        ],
+        "fr": [
+          "financial-accounting-expert-1-year-contract-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "financial-accounting-expert-1-year-contract-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-ac1193664c8e",
-      "slug": "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch",
+      "slug": "responsabile-senior-dei-rischi-digitali-e-tecnologici-ibrido-m-f-x-d-80-100-swiss-re-zurich-ch",
       "slugByLocale": {
         "en": "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "it": "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "de": "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "fr": "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        "it": "responsabile-senior-dei-rischi-digitali-e-tecnologici-ibrido-m-f-x-d-80-100-swiss-re-zurich-ch",
+        "de": "senior-manager-fur-digitale-technologische-risiken-hybrid-m-w-x-d-80-100-swiss-re-zurich-ch",
+        "fr": "gestionnaire-principal-des-risques-numeriques-et-technologiques-hybrid-h-f-x-j-80-100-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1274,7 +1288,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-16T21:16:16.375Z"
+      "firstSeenAt": "2026-10-16T21:16:16.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ],
+        "de": [
+          "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ],
+        "fr": [
+          "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-digital-technology-risk-manager-hybrid-m-f-x-d-80-100-swiss-re-ch"
+      ]
     }
   ]
 }

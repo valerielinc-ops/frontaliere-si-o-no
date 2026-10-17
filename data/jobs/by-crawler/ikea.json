@@ -859,7 +859,7 @@
       "id": "ikea-afa273a9b1cf",
       "slug": "collaborateur-trice-de-vente-30-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-vente-30-ikea-aubonne",
+        "it": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
         "en": "collaborator-sales-manager-30-ikea-aubonne-vaud",
         "de": "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud",
         "fr": "collaborateur-trice-de-vente-30-ikea-ch"
@@ -906,13 +906,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-de-vente-30-ikea-ch",
-        "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+        "collaborateur-trice-de-vente-30-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-vente-30-ikea-ch",
-          "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+          "collaborateur-trice-de-vente-30-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-de-vente-30-ikea-ch"
@@ -3109,7 +3107,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -3156,7 +3154,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3164,7 +3162,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",

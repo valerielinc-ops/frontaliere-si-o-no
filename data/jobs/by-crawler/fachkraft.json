@@ -5598,7 +5598,7 @@
       "id": "fachkraft-bec18867b140",
       "slug": "zimmermann-zimmerin-deckenmontage-fachkraft-ch-gmbh-st-gallen",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-deckenmontage-fachkraft-ch-gmbh-st-gallen",
+        "it": "falegname-montaggio-sul-soffitto-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "en": "carpenter-ceiling-mounting-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "de": "zimmermann-zimmerin-deckenmontage-st-gallen-st-gallen-fachkraft-ch",
         "fr": "charpentier-montage-au-plafond-fachkraft-ch-gmbh-st-gallen-st-gallen"
@@ -5645,13 +5645,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-zimmerin-deckenmontage-st-gallen-st-gallen-fachkraft-ch",
-        "falegname-montaggio-sul-soffitto-fachkraft-ch-gmbh-st-gallen-st-gallen"
+        "zimmermann-zimmerin-deckenmontage-st-gallen-st-gallen-fachkraft-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-deckenmontage-st-gallen-st-gallen-fachkraft-ch",
-          "falegname-montaggio-sul-soffitto-fachkraft-ch-gmbh-st-gallen-st-gallen"
+          "zimmermann-zimmerin-deckenmontage-st-gallen-st-gallen-fachkraft-ch"
         ],
         "en": [
           "zimmermann-zimmerin-deckenmontage-st-gallen-st-gallen-fachkraft-ch"
@@ -7958,12 +7956,12 @@
     },
     {
       "id": "fachkraft-45db3e77230a",
-      "slug": "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf",
+      "slug": "saldatore-trice-con-lavori-di-montaggio-fachkraft-ch-gmbh-hochdorf-luzern",
       "slugByLocale": {
         "de": "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf",
-        "it": "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf",
-        "en": "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf",
-        "fr": "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf"
+        "it": "saldatore-trice-con-lavori-di-montaggio-fachkraft-ch-gmbh-hochdorf-luzern",
+        "en": "welder-with-installation-work-fachkraft-ch-gmbh-hochdorf-luzern",
+        "fr": "soudeur-euse-avec-travaux-de-montage-fachkraft-ch-gmbh-hochdorf-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -8009,14 +8007,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schweisser-in-mit-montagearbeiten-hochdorf-luzern-fachkraft-ch"
+          "schweisser-in-mit-montagearbeiten-hochdorf-luzern-fachkraft-ch",
+          "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf"
         ],
         "de": [
           "schweisser-in-mit-montagearbeiten-hochdorf-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf"
+        ],
+        "fr": [
+          "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf"
         ]
       },
       "previousSlugs": [
-        "schweisser-in-mit-montagearbeiten-hochdorf-luzern-fachkraft-ch"
+        "schweisser-in-mit-montagearbeiten-hochdorf-luzern-fachkraft-ch",
+        "schweisser-in-mit-montagearbeiten-fachkraft-ch-gmbh-hochdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -8033,7 +8039,7 @@
       },
       "postalCode": "6280",
       "firstSeenAt": "2026-10-16T22:08:30.126Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-f1800de77105",
@@ -13046,12 +13052,12 @@
     },
     {
       "id": "fachkraft-c8e6b66240d0",
-      "slug": "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
+      "slug": "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
-        "it": "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
-        "en": "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
-        "fr": "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch"
+        "it": "falegname-per-versatili-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "en": "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "fr": "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -13099,27 +13105,29 @@
         "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
         "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch"
+        "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
+        "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
           "falegname-per-svariati-lavori-di-montaggio-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-          "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch"
+          "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
+          "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
         ],
         "en": [
           "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
           "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
-          "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+          "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+          "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch"
         ],
         "fr": [
-          "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
           "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
-          "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+          "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+          "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch"
         ]
       },
       "salaryMin": 57500,
@@ -14118,12 +14126,12 @@
     },
     {
       "id": "fachkraft-82b747ca937c",
-      "slug": "schreiner-in-per-service-e-werkstattarbeiten-fachkraft-ch-gmbh-zurich",
+      "slug": "falegname-per-lavori-di-assistenza-e-in-officina-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch",
-        "it": "schreiner-in-per-service-e-werkstattarbeiten-fachkraft-ch-gmbh-zurich",
-        "en": "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch",
-        "fr": "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch"
+        "it": "falegname-per-lavori-di-assistenza-e-in-officina-fachkraft-ch-gmbh-zurich-zurich",
+        "en": "carpenter-for-service-and-workshop-work-fachkraft-ch-gmbh-zurich-zurich",
+        "fr": "menuisier-ere-pour-les-travaux-de-service-et-d-atelier-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -14169,11 +14177,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch",
+          "schreiner-in-per-service-e-werkstattarbeiten-fachkraft-ch-gmbh-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch"
+        "schreiner-in-fur-service-und-werkstattarbeiten-zurich-zurich-fachkraft-ch",
+        "schreiner-in-per-service-e-werkstattarbeiten-fachkraft-ch-gmbh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14190,7 +14206,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-16T22:08:30.112Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-673a288d46bc",
@@ -17682,7 +17698,7 @@
         "it": "accessori-per-interni-fachkraft-ch-gmbh-schwyz-schwyz",
         "en": "interior-fittings-fachkraft-ch-gmbh-schwyz-schwyz",
         "de": "schreiner-in-fur-montage-und-innenausbau-schwyz-schwyz-fachkraft-ch",
-        "fr": "charpentier-pour-l-assemblage-et-la-decoration-interieure-fachkraft-ch-gmbh-schwyz"
+        "fr": "amenagement-interieur-fachkraft-ch-gmbh-schwyz-schwyz"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -17728,7 +17744,7 @@
       "previousSlugs": [
         "schreiner-in-fur-montage-und-innenausbau-schwyz-schwyz-fachkraft-ch",
         "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-schwyz",
-        "amenagement-interieur-fachkraft-ch-gmbh-schwyz-schwyz"
+        "charpentier-pour-l-assemblage-et-la-decoration-interieure-fachkraft-ch-gmbh-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17739,7 +17755,7 @@
         ],
         "fr": [
           "schreiner-in-fur-montage-und-innenausbau-fachkraft-ch-gmbh-schwyz",
-          "amenagement-interieur-fachkraft-ch-gmbh-schwyz-schwyz"
+          "charpentier-pour-l-assemblage-et-la-decoration-interieure-fachkraft-ch-gmbh-schwyz"
         ]
       },
       "firstSeenAt": "2026-09-08T23:50:31.866Z",
@@ -20688,9 +20704,9 @@
       "slug": "schreiner-in-per-kuchen-e-innenausbau-fachkraft-ch-gmbh-willisau",
       "slugByLocale": {
         "it": "schreiner-in-per-kuchen-e-innenausbau-fachkraft-ch-gmbh-willisau",
-        "en": "schreiner-in-per-kuchen-e-innenausbau-fachkraft-ch-gmbh-willisau",
+        "en": "carpenter-for-kitchen-and-interior-fitting-fachkraft-ch-gmbh-willisau-luzern",
         "de": "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-fachkraft-ch",
-        "fr": "schreiner-in-per-kuchen-e-innenausbau-fachkraft-ch-gmbh-willisau"
+        "fr": "menuisier-ere-pour-l-agencement-de-cuisines-et-l-amenagement-interieur-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -21254,9 +21270,9 @@
     },
     {
       "id": "fachkraft-ad6af1cff98c",
-      "slug": "schreiner-in-per-innenausbau-e-renovationen-fachkraft-ch-gmbh-kreuzlingen",
+      "slug": "falegname-a-per-allestimenti-interni-e-ristrutturazioni-fachkraft-ch-gmbh-kreuzlingen-thurgau",
       "slugByLocale": {
-        "it": "schreiner-in-per-innenausbau-e-renovationen-fachkraft-ch-gmbh-kreuzlingen",
+        "it": "falegname-a-per-allestimenti-interni-e-ristrutturazioni-fachkraft-ch-gmbh-kreuzlingen-thurgau",
         "en": "carpenter-joiner-for-interior-finishing-and-renovations-fachkraft-ch-gmbh-kreuzlingen",
         "de": "schreiner-in-fur-innenausbau-und-renovationen-fachkraft-ch-gmbh-kreuzlingen",
         "fr": "menuisier-ere-pour-l-amenagement-interieur-et-les-renovations-fachkraft-ch-gmbh-kreuzlingen"
@@ -21307,7 +21323,8 @@
           "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-fachkraft-ch"
         ],
         "it": [
-          "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-fachkraft-ch"
+          "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-fachkraft-ch",
+          "schreiner-in-per-innenausbau-e-renovationen-fachkraft-ch-gmbh-kreuzlingen"
         ],
         "en": [
           "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-fachkraft-ch"
@@ -21317,7 +21334,8 @@
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-fachkraft-ch"
+        "schreiner-in-fur-innenausbau-und-renovationen-kreuzlingen-thurgau-fachkraft-ch",
+        "schreiner-in-per-innenausbau-e-renovationen-fachkraft-ch-gmbh-kreuzlingen"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.870Z",
       "salaryMin": 57500,
@@ -23172,12 +23190,12 @@
     },
     {
       "id": "fachkraft-b9799e9ccc13",
-      "slug": "schreiner-in-per-hochwertigen-innenausbau-fachkraft-ch-gmbh-appenzell",
+      "slug": "falegname-per-finiture-d-interni-di-alta-qualita-fachkraft-ch-gmbh-appenzell-appenzell-innerrhoden",
       "slugByLocale": {
         "de": "schreiner-in-fur-hochwertigen-innenausbau-fachkraft-ch-gmbh-appenzell",
-        "it": "schreiner-in-per-hochwertigen-innenausbau-fachkraft-ch-gmbh-appenzell",
-        "en": "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch",
-        "fr": "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch"
+        "it": "falegname-per-finiture-d-interni-di-alta-qualita-fachkraft-ch-gmbh-appenzell-appenzell-innerrhoden",
+        "en": "carpenter-for-high-quality-interior-construction-fachkraft-ch-gmbh-appenzell-appenzell-innerrhoden",
+        "fr": "menuisier-ere-pour-amenagements-interieurs-haut-de-gamme-fachkraft-ch-gmbh-appenzell-appenzell-innerrhoden"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -23223,14 +23241,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch"
+          "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch",
+          "schreiner-in-per-hochwertigen-innenausbau-fachkraft-ch-gmbh-appenzell"
         ],
         "de": [
+          "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch"
+        "schreiner-in-fur-hochwertigen-innenausbau-appenzell-appenzell-innerrhoden-fachkraft-ch",
+        "schreiner-in-per-hochwertigen-innenausbau-fachkraft-ch-gmbh-appenzell"
       ],
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -23247,7 +23273,7 @@
       },
       "postalCode": "9050",
       "firstSeenAt": "2026-10-16T22:08:30.094Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-78aeaeeafa95",
@@ -35049,12 +35075,12 @@
     },
     {
       "id": "fachkraft-39fdb3fde2b2",
-      "slug": "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon",
+      "slug": "installatore-installatrice-di-impianti-sanitari-con-abilita-manuali-fachkraft-ch-gmbh-pfaffikon-zurich",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon",
-        "it": "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon",
-        "en": "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon",
-        "fr": "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon"
+        "it": "installatore-installatrice-di-impianti-sanitari-con-abilita-manuali-fachkraft-ch-gmbh-pfaffikon-zurich",
+        "en": "sanitary-installer-with-manual-dexterity-fachkraft-ch-gmbh-pfaffikon-zurich",
+        "fr": "installateur-trice-sanitaire-avec-de-bonnes-aptitudes-manuelles-fachkraft-ch-gmbh-pfaffikon-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -35101,14 +35127,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-fachkraft-ch"
+          "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-fachkraft-ch",
+          "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon"
         ],
         "de": [
           "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon"
+        ],
+        "fr": [
+          "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-fachkraft-ch"
+        "sanitarinstallateur-in-mit-handwerklichem-geschick-pfaffikon-zurich-fachkraft-ch",
+        "sanitarinstallateur-in-mit-handwerklichem-geschick-fachkraft-ch-gmbh-pfaffikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -35125,7 +35159,7 @@
       },
       "postalCode": "8330",
       "firstSeenAt": "2026-10-16T22:08:30.070Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-fe7313c61769",
@@ -39074,7 +39108,7 @@
       "slug": "produktionsmechaniker-in-con-service-e-neuentwicklung-fachkraft-ch-gmbh-sursee",
       "slugByLocale": {
         "it": "produktionsmechaniker-in-con-service-e-neuentwicklung-fachkraft-ch-gmbh-sursee",
-        "en": "production-mechanic-with-service-and-new-development-fachkraft-ch-gmbh-sursee",
+        "en": "produktionsmechaniker-in-mit-service-und-neuentwicklung-fachkraft-ch-gmbh-sursee",
         "de": "produktionsmechaniker-in-mit-service-und-neuentwicklung-sursee-luzern-fachkraft-ch",
         "fr": "produktionsmechaniker-in-mit-service-und-neuentwicklung-fachkraft-ch-gmbh-sursee"
       },
@@ -39121,14 +39155,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-service-und-neuentwicklung-sursee-luzern-fachkraft-ch",
-        "produktionsmechaniker-in-mit-service-und-neuentwicklung-fachkraft-ch-gmbh-sursee"
+        "production-mechanic-with-service-and-new-development-fachkraft-ch-gmbh-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmechaniker-in-mit-service-und-neuentwicklung-sursee-luzern-fachkraft-ch"
         ],
         "en": [
-          "produktionsmechaniker-in-mit-service-und-neuentwicklung-fachkraft-ch-gmbh-sursee"
+          "production-mechanic-with-service-and-new-development-fachkraft-ch-gmbh-sursee"
         ]
       },
       "firstSeenAt": "2026-09-29T22:24:18.061Z",
@@ -39224,7 +39258,7 @@
       "slug": "meccanico-di-produzione-con-particolare-attenzione-alla-formatura-della-lamiera-fachkraft-ch-gmbh-zofingen",
       "slugByLocale": {
         "it": "meccanico-di-produzione-con-particolare-attenzione-alla-formatura-della-lamiera-fachkraft-ch-gmbh-zofingen",
-        "en": "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-fachkraft-ch-gmbh-zofingen",
+        "en": "production-mechanic-with-a-focus-on-sheet-metal-forming-fachkraft-ch-gmbh-zofingen-aargau",
         "de": "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-zofingen-aargau-fachkraft-ch",
         "fr": "mecanicien-de-production-avec-un-accent-sur-le-formage-de-la-tole-fachkraft-ch-gmbh-zofingen"
       },
@@ -39271,8 +39305,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-zofingen-aargau-fachkraft-ch",
-        "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-fachkraft-ch-gmbh-zofingen",
-        "production-mechanic-with-a-focus-on-sheet-metal-forming-fachkraft-ch-gmbh-zofingen-aargau"
+        "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-fachkraft-ch-gmbh-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -39280,7 +39313,7 @@
           "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-fachkraft-ch-gmbh-zofingen"
         ],
         "en": [
-          "production-mechanic-with-a-focus-on-sheet-metal-forming-fachkraft-ch-gmbh-zofingen-aargau"
+          "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-fachkraft-ch-gmbh-zofingen"
         ],
         "fr": [
           "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-fachkraft-ch-gmbh-zofingen"
@@ -39799,7 +39832,7 @@
       "slug": "produktionsmechaniker-in-con-hydraulik-e-pneumatik-fachkraft-ch-gmbh-hochdorf",
       "slugByLocale": {
         "it": "produktionsmechaniker-in-con-hydraulik-e-pneumatik-fachkraft-ch-gmbh-hochdorf",
-        "en": "production-mechanic-with-hydraulics-and-pneumatics-fachkraft-ch-gmbh-hochdorf",
+        "en": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-fachkraft-ch-gmbh-hochdorf",
         "de": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-fachkraft-ch",
         "fr": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-fachkraft-ch-gmbh-hochdorf"
       },
@@ -39846,14 +39879,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-fachkraft-ch",
-        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-fachkraft-ch-gmbh-hochdorf"
+        "production-mechanic-with-hydraulics-and-pneumatics-fachkraft-ch-gmbh-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-fachkraft-ch"
         ],
         "en": [
-          "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-fachkraft-ch-gmbh-hochdorf"
+          "production-mechanic-with-hydraulics-and-pneumatics-fachkraft-ch-gmbh-hochdorf"
         ]
       },
       "needsRetranslation": true,
@@ -39879,7 +39912,7 @@
         "it": "produktionsmechaniker-in-con-hydraulik-e-pneumatik-fachkraft-ch-gmbh-luzern",
         "en": "production-mechanic-with-hydraulics-and-pneumatics-fachkraft-ch-gmbh-luzern-luzern",
         "de": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-fachkraft-ch",
-        "fr": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-fachkraft-ch-gmbh-luzern"
+        "fr": "mecanicien-ne-de-production-avec-hydraulique-et-pneumatique-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -39924,7 +39957,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-fachkraft-ch",
-        "mecanicien-ne-de-production-avec-hydraulique-et-pneumatique-fachkraft-ch-gmbh-luzern-luzern"
+        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -39935,7 +39968,7 @@
         ],
         "fr": [
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-fachkraft-ch",
-          "mecanicien-ne-de-production-avec-hydraulique-et-pneumatique-fachkraft-ch-gmbh-luzern-luzern"
+          "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-fachkraft-ch-gmbh-luzern"
         ]
       },
       "firstSeenAt": "2026-09-01T17:40:51.789Z",
@@ -42052,7 +42085,7 @@
       "slug": "meccanico-di-produzione-tuttofare-fachkraft-ch-gmbh-wil-sg",
       "slugByLocale": {
         "it": "meccanico-di-produzione-tuttofare-fachkraft-ch-gmbh-wil-sg",
-        "en": "produktionsmechaniker-in-allrounder-fachkraft-ch-gmbh-wil-sg",
+        "en": "production-mechanic-all-rounder-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "de": "produktionsmechaniker-in-allrounder-wil-sg-st-gallen-fachkraft-ch",
         "fr": "mecanicien-ne-de-production-polyvalent-e-fachkraft-ch-gmbh-wil-sg"
       },
@@ -42099,8 +42132,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-allrounder-wil-sg-st-gallen-fachkraft-ch",
-        "produktionsmechaniker-in-allrounder-fachkraft-ch-gmbh-wil-sg",
-        "production-mechanic-all-rounder-fachkraft-ch-gmbh-wil-sg-st-gallen"
+        "produktionsmechaniker-in-allrounder-fachkraft-ch-gmbh-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -42108,7 +42140,7 @@
           "produktionsmechaniker-in-allrounder-fachkraft-ch-gmbh-wil-sg"
         ],
         "en": [
-          "production-mechanic-all-rounder-fachkraft-ch-gmbh-wil-sg-st-gallen"
+          "produktionsmechaniker-in-allrounder-fachkraft-ch-gmbh-wil-sg"
         ],
         "fr": [
           "produktionsmechaniker-in-allrounder-fachkraft-ch-gmbh-wil-sg"
@@ -42522,7 +42554,7 @@
         "it": "produktionsmechaniker-in-instandhaltung-con-hydraulik-e-pneumatikkenntnissen-fachkraft-ch-gmbh-willisau",
         "en": "production-mechanic-maintenance-with-hydraulic-and-pneumatic-knowledge-fachkraft-ch-gmbh-willisau-luzern",
         "de": "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-willisau",
-        "fr": "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-fachkraft-ch-gmbh-willisau"
+        "fr": "mecanicien-de-production-maintenance-avec-connaissances-en-hydraulique-et-pneumatique-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -42567,7 +42599,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-willisau",
-        "mecanicien-de-production-maintenance-avec-connaissances-en-hydraulique-et-pneumatique-fachkraft-ch-gmbh-willisau-luzern"
+        "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-fachkraft-ch-gmbh-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -42578,7 +42610,7 @@
         ],
         "fr": [
           "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-willisau",
-          "mecanicien-de-production-maintenance-avec-connaissances-en-hydraulique-et-pneumatique-fachkraft-ch-gmbh-willisau-luzern"
+          "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-fachkraft-ch-gmbh-willisau"
         ]
       },
       "firstSeenAt": "2026-09-26T15:25:37.809Z",
@@ -42871,8 +42903,8 @@
       "id": "fachkraft-abdc861ec61e",
       "slug": "meccanico-di-produzione-impiego-permanente-per-la-manutenzione-fachkraft-ch-gmbh-st-gallen",
       "slugByLocale": {
-        "it": "meccanico-di-produzione-impiego-permanente-per-la-manutenzione-fachkraft-ch-gmbh-st-gallen",
-        "en": "production-mechanic-maintenance-permanent-employment-fachkraft-ch-gmbh-st-gallen",
+        "it": "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch",
+        "en": "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch",
         "de": "produktionsmechaniker-in-instandhaltung-festanstellung-fachkraft-ch",
         "fr": "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch"
       },
@@ -42919,15 +42951,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-instandhaltung-festanstellung-fachkraft-ch-q5hm87",
-        "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch"
+        "production-mechanic-maintenance-permanent-employment-fachkraft-ch-gmbh-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmechaniker-in-instandhaltung-festanstellung-fachkraft-ch-q5hm87",
-          "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch"
+          "produktionsmechaniker-in-instandhaltung-festanstellung-fachkraft-ch-q5hm87"
         ],
         "en": [
-          "produktionsmechaniker-in-instandhaltung-festanstellung-st-gallen-st-gallen-fachkraft-ch"
+          "production-mechanic-maintenance-permanent-employment-fachkraft-ch-gmbh-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-27T00:54:43.055Z",
@@ -45093,12 +45124,12 @@
     },
     {
       "id": "fachkraft-98b707415a9b",
-      "slug": "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-fachkraft-ch-gmbh-zug",
+      "slug": "polimeccanico-a-con-macchine-per-il-confezionamento-in-buste-tubolari-e-lean-management-fachkraft-ch-gmbh-zug-zug",
       "slugByLocale": {
         "de": "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch",
-        "it": "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-fachkraft-ch-gmbh-zug",
-        "en": "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch",
-        "fr": "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch"
+        "it": "polimeccanico-a-con-macchine-per-il-confezionamento-in-buste-tubolari-e-lean-management-fachkraft-ch-gmbh-zug-zug",
+        "en": "polymechanic-with-flow-pack-machines-and-lean-management-fachkraft-ch-gmbh-zug-zug",
+        "fr": "polymecanicien-ne-avec-des-machines-a-sachets-tubulaires-et-la-gestion-lean-fachkraft-ch-gmbh-zug-zug"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -45145,11 +45176,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch",
+          "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-fachkraft-ch-gmbh-zug"
+        ],
+        "en": [
+          "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch"
+        ],
+        "fr": [
           "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch"
+        "polymechaniker-in-mit-schlauchbeutelmaschinen-und-lean-management-zug-zug-fachkraft-ch",
+        "polymechaniker-in-con-schlauchbeutelmaschinen-e-lean-management-fachkraft-ch-gmbh-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -45166,7 +45205,7 @@
       },
       "postalCode": "6300",
       "firstSeenAt": "2026-10-16T22:08:30.049Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-f96b96cd50c3",
@@ -45250,7 +45289,7 @@
         "it": "polymechanic-con-attenzione-alla-manutenzione-fachkraft-ch-gmbh-zug-zug",
         "en": "polymechanic-with-focus-on-maintenance-fachkraft-ch-gmbh-zug-zug",
         "de": "polymechaniker-in-mit-schwerpunkt-instandhaltung-zug-zug-fachkraft-ch",
-        "fr": "polymecanicien-ne-specialise-e-dans-la-maintenance-fachkraft-ch-gmbh-zug"
+        "fr": "polymecanique-avec-un-accent-sur-l-entretien-fachkraft-ch-gmbh-zug-zug"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -45296,7 +45335,7 @@
       "previousSlugs": [
         "polymechaniker-in-mit-schwerpunkt-instandhaltung-zug-zug-fachkraft-ch",
         "polymechaniker-in-mit-schwerpunkt-instandhaltung-fachkraft-ch-gmbh-zug",
-        "polymecanique-avec-un-accent-sur-l-entretien-fachkraft-ch-gmbh-zug-zug"
+        "polymecanicien-ne-specialise-e-dans-la-maintenance-fachkraft-ch-gmbh-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -45304,7 +45343,7 @@
         ],
         "fr": [
           "polymechaniker-in-mit-schwerpunkt-instandhaltung-fachkraft-ch-gmbh-zug",
-          "polymecanique-avec-un-accent-sur-l-entretien-fachkraft-ch-gmbh-zug-zug"
+          "polymecanicien-ne-specialise-e-dans-la-maintenance-fachkraft-ch-gmbh-zug"
         ]
       },
       "needsRetranslation": true,
@@ -62421,10 +62460,10 @@
     },
     {
       "id": "fachkraft-01fbbd4f7b9f",
-      "slug": "polymechaniker-in-montage-per-industrielle-maschinenbauprojekte-fachkraft-ch-gmbh-bremgarten",
+      "slug": "polimeccanico-a-montaggio-per-progetti-di-costruzione-di-macchinari-industriali-fachkraft-ch-gmbh-bremgarten-aargau",
       "slugByLocale": {
         "de": "polymechaniker-in-montage-fur-industrielle-maschinenbauprojekte-bremgarten-aargau",
-        "it": "polymechaniker-in-montage-per-industrielle-maschinenbauprojekte-fachkraft-ch-gmbh-bremgarten",
+        "it": "polimeccanico-a-montaggio-per-progetti-di-costruzione-di-macchinari-industriali-fachkraft-ch-gmbh-bremgarten-aargau",
         "en": "polymechaniker-in-montage-fur-industrielle-maschinenbauprojekte-fachkraft-ch-gmbh-bremgarten",
         "fr": "polymechaniker-in-montage-fur-industrielle-maschinenbauprojekte-fachkraft-ch-gmbh-bremgarten"
       },
@@ -62476,16 +62515,16 @@
         "polymecanique-assemblage-pour-des-projets-de-genie-industriel-fachkraft-ch-gmbh-bremgarten-aargau",
         "polimeccanico-a-montaggio-per-progetti-di-ingegneria-meccanica-industriale-fachkraft-ch-gmbh-bremgarten-aargau",
         "polymechanic-assembly-for-industrial-mechanical-engineering-projects-fachkraft-ch-gmbh-bremgarten-aargau",
-        "polimeccanico-a-montaggio-per-progetti-di-costruzione-di-macchinari-industriali-fachkraft-ch-gmbh-bremgarten-aargau",
         "polymechanic-m-f-assembly-for-industrial-mechanical-engineering-projects-fachkraft-ch-gmbh-bremgarten-aargau",
         "polymecanicien-ne-montage-pour-des-projets-de-construction-de-machines-industrielles-fachkraft-ch-gmbh-bremgarten-aargau",
-        "polymechaniker-in-montage-fur-industrielle-maschinenbauprojekte-bremgarten-aargau"
+        "polymechaniker-in-montage-fur-industrielle-maschinenbauprojekte-bremgarten-aargau",
+        "polymechaniker-in-montage-per-industrielle-maschinenbauprojekte-fachkraft-ch-gmbh-bremgarten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polimeccanico-a-montaggio-per-progetti-di-ingegneria-meccanica-industriale-fachkraft-ch-gmbh-bremgarten-aargau",
-          "polimeccanico-a-montaggio-per-progetti-di-costruzione-di-macchinari-industriali-fachkraft-ch-gmbh-bremgarten-aargau",
-          "polymechaniker-in-montage-fur-industrielle-maschinenbauprojekte-bremgarten-aargau"
+          "polymechaniker-in-montage-fur-industrielle-maschinenbauprojekte-bremgarten-aargau",
+          "polymechaniker-in-montage-per-industrielle-maschinenbauprojekte-fachkraft-ch-gmbh-bremgarten"
         ],
         "en": [
           "polymechanic-assembly-for-industrial-engineering-projects-fachkraft-ch-gmbh-bremgarten-aargau",
@@ -93583,9 +93622,9 @@
     },
     {
       "id": "fachkraft-dff0ef8fc5fd",
-      "slug": "metallbauer-in-per-vielseitige-montagen-fachkraft-ch-gmbh-rapperswil-jona",
+      "slug": "carpentiere-metallico-a-per-montaggi-diversificati-fachkraft-ch-gmbh-rapperswil-jona-st-gallen",
       "slugByLocale": {
-        "it": "metallbauer-in-per-vielseitige-montagen-fachkraft-ch-gmbh-rapperswil-jona",
+        "it": "carpentiere-metallico-a-per-montaggi-diversificati-fachkraft-ch-gmbh-rapperswil-jona-st-gallen",
         "en": "metalworker-for-varied-assembly-work-fachkraft-ch-gmbh-rapperswil-jona",
         "de": "metallbauer-in-fur-vielseitige-montagen-fachkraft-ch-gmbh-rapperswil-jona",
         "fr": "metallier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-rapperswil-jona"
@@ -93635,7 +93674,8 @@
           "metallbauer-in-fur-vielseitige-montagen-rapperswil-jona-st-gallen-fachkraft-ch"
         ],
         "it": [
-          "metallbauer-in-fur-vielseitige-montagen-rapperswil-jona-st-gallen-fachkraft-ch"
+          "metallbauer-in-fur-vielseitige-montagen-rapperswil-jona-st-gallen-fachkraft-ch",
+          "metallbauer-in-per-vielseitige-montagen-fachkraft-ch-gmbh-rapperswil-jona"
         ],
         "en": [
           "metallbauer-in-fur-vielseitige-montagen-rapperswil-jona-st-gallen-fachkraft-ch"
@@ -93645,7 +93685,8 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-fur-vielseitige-montagen-rapperswil-jona-st-gallen-fachkraft-ch"
+        "metallbauer-in-fur-vielseitige-montagen-rapperswil-jona-st-gallen-fachkraft-ch",
+        "metallbauer-in-per-vielseitige-montagen-fachkraft-ch-gmbh-rapperswil-jona"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -94043,9 +94084,9 @@
       "slug": "carpentiere-metallico-a-per-un-impiego-a-tempo-indeterminato-e-diversificato-fachkraft-ch-gmbh-zurich",
       "slugByLocale": {
         "it": "carpentiere-metallico-a-per-un-impiego-a-tempo-indeterminato-e-diversificato-fachkraft-ch-gmbh-zurich",
-        "en": "metallbauer-in-fur-vielseitige-festanstellung-zurich-zurich-fachkraft-ch",
+        "en": "metalworker-for-a-varied-permanent-position-fachkraft-ch-gmbh-zurich-zurich",
         "de": "metallbauer-in-fur-vielseitige-festanstellung-zurich-zurich-fachkraft-ch",
-        "fr": "metallbauer-in-fur-vielseitige-festanstellung-zurich-zurich-fachkraft-ch"
+        "fr": "metallier-ere-pour-un-poste-permanent-polyvalent-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -94096,6 +94137,12 @@
         "it": [
           "metallbauer-in-fur-vielseitige-festanstellung-zurich-zurich-fachkraft-ch",
           "metallbauer-in-per-vielseitige-festanstellung-fachkraft-ch-gmbh-zurich"
+        ],
+        "en": [
+          "metallbauer-in-fur-vielseitige-festanstellung-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
+          "metallbauer-in-fur-vielseitige-festanstellung-zurich-zurich-fachkraft-ch"
         ]
       },
       "firstSeenAt": "2026-10-16T10:18:21.719Z",
@@ -98053,9 +98100,9 @@
     },
     {
       "id": "fachkraft-40a906b23cb9",
-      "slug": "metallbauer-in-per-montage-e-reparaturarbeiten-fachkraft-ch-gmbh-zurich",
+      "slug": "costruttore-trice-metallico-a-per-lavori-di-montaggio-e-riparazione-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
-        "it": "metallbauer-in-per-montage-e-reparaturarbeiten-fachkraft-ch-gmbh-zurich",
+        "it": "costruttore-trice-metallico-a-per-lavori-di-montaggio-e-riparazione-fachkraft-ch-gmbh-zurich-zurich",
         "en": "metalworker-for-assembly-and-repair-work-fachkraft-ch-gmbh-zurich",
         "de": "metallbauer-in-fur-montage-und-reparaturarbeiten-zurich-zurich-fachkraft-ch",
         "fr": "constructeur-trice-metallique-pour-travaux-de-montage-et-de-reparation-fachkraft-ch-gmbh-zurich"
@@ -98102,11 +98149,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbauer-in-fur-montage-und-reparaturarbeiten-zurich-zurich-fachkraft-ch"
+        "metallbauer-in-fur-montage-und-reparaturarbeiten-zurich-zurich-fachkraft-ch",
+        "metallbauer-in-per-montage-e-reparaturarbeiten-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-fur-montage-und-reparaturarbeiten-zurich-zurich-fachkraft-ch"
+          "metallbauer-in-fur-montage-und-reparaturarbeiten-zurich-zurich-fachkraft-ch",
+          "metallbauer-in-per-montage-e-reparaturarbeiten-fachkraft-ch-gmbh-zurich"
         ],
         "en": [
           "metallbauer-in-fur-montage-und-reparaturarbeiten-zurich-zurich-fachkraft-ch"
@@ -98520,9 +98569,9 @@
     },
     {
       "id": "fachkraft-aa7d75ff7cab",
-      "slug": "metallbauer-in-per-montage-e-teamfuhrung-fachkraft-ch-gmbh-weinfelden",
+      "slug": "carpentiere-a-metallico-a-per-il-montaggio-e-la-gestione-del-team-fachkraft-ch-gmbh-weinfelden-thurgau",
       "slugByLocale": {
-        "it": "metallbauer-in-per-montage-e-teamfuhrung-fachkraft-ch-gmbh-weinfelden",
+        "it": "carpentiere-a-metallico-a-per-il-montaggio-e-la-gestione-del-team-fachkraft-ch-gmbh-weinfelden-thurgau",
         "en": "metalworker-for-assembly-and-team-leadership-fachkraft-ch-gmbh-weinfelden",
         "de": "metallbauer-in-fur-montage-und-teamfuhrung-fachkraft-ch-gmbh-weinfelden",
         "fr": "metallier-ere-pour-le-montage-et-l-encadrement-d-equipe-fachkraft-ch-gmbh-weinfelden"
@@ -98572,7 +98621,8 @@
           "metallbauer-in-fur-montage-und-teamfuhrung-weinfelden-thurgau-fachkraft-ch"
         ],
         "it": [
-          "metallbauer-in-fur-montage-und-teamfuhrung-weinfelden-thurgau-fachkraft-ch"
+          "metallbauer-in-fur-montage-und-teamfuhrung-weinfelden-thurgau-fachkraft-ch",
+          "metallbauer-in-per-montage-e-teamfuhrung-fachkraft-ch-gmbh-weinfelden"
         ],
         "en": [
           "metallbauer-in-fur-montage-und-teamfuhrung-weinfelden-thurgau-fachkraft-ch"
@@ -98582,7 +98632,8 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-fur-montage-und-teamfuhrung-weinfelden-thurgau-fachkraft-ch"
+        "metallbauer-in-fur-montage-und-teamfuhrung-weinfelden-thurgau-fachkraft-ch",
+        "metallbauer-in-per-montage-e-teamfuhrung-fachkraft-ch-gmbh-weinfelden"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -98603,9 +98654,9 @@
     },
     {
       "id": "fachkraft-6605b27e8d45",
-      "slug": "metallbauer-in-per-montage-e-wartung-von-toranlagen-fachkraft-ch-gmbh-winterthur",
+      "slug": "carpentiere-a-metallico-a-per-il-montaggio-e-la-manutenzione-di-impianti-di-cancelli-fachkraft-ch-gmbh-winterthur-zurich",
       "slugByLocale": {
-        "it": "metallbauer-in-per-montage-e-wartung-von-toranlagen-fachkraft-ch-gmbh-winterthur",
+        "it": "carpentiere-a-metallico-a-per-il-montaggio-e-la-manutenzione-di-impianti-di-cancelli-fachkraft-ch-gmbh-winterthur-zurich",
         "en": "metalworker-for-assembly-and-maintenance-of-gate-systems-fachkraft-ch-gmbh-winterthur",
         "de": "metallbauer-in-fur-montage-und-wartung-von-toranlagen-fachkraft-ch-gmbh-winterthur",
         "fr": "metallier-ere-pour-le-montage-et-la-maintenance-de-portails-fachkraft-ch-gmbh-winterthur"
@@ -98656,7 +98707,8 @@
           "metallbauer-in-fur-montage-und-wartung-von-toranlagen-winterthur-zurich-fachkraft-ch"
         ],
         "it": [
-          "metallbauer-in-fur-montage-und-wartung-von-toranlagen-winterthur-zurich-fachkraft-ch"
+          "metallbauer-in-fur-montage-und-wartung-von-toranlagen-winterthur-zurich-fachkraft-ch",
+          "metallbauer-in-per-montage-e-wartung-von-toranlagen-fachkraft-ch-gmbh-winterthur"
         ],
         "en": [
           "metallbauer-in-fur-montage-und-wartung-von-toranlagen-winterthur-zurich-fachkraft-ch"
@@ -98666,7 +98718,8 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-fur-montage-und-wartung-von-toranlagen-winterthur-zurich-fachkraft-ch"
+        "metallbauer-in-fur-montage-und-wartung-von-toranlagen-winterthur-zurich-fachkraft-ch",
+        "metallbauer-in-per-montage-e-wartung-von-toranlagen-fachkraft-ch-gmbh-winterthur"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.709Z",
       "salaryMin": 73500,
@@ -102464,9 +102517,9 @@
     },
     {
       "id": "fachkraft-c3cbe397289d",
-      "slug": "metallbauer-in-per-glasprojekte-fachkraft-ch-gmbh-baden",
+      "slug": "carpentiere-a-metallico-a-per-progetti-in-vetro-fachkraft-ch-gmbh-baden-aargau",
       "slugByLocale": {
-        "it": "metallbauer-in-per-glasprojekte-fachkraft-ch-gmbh-baden",
+        "it": "carpentiere-a-metallico-a-per-progetti-in-vetro-fachkraft-ch-gmbh-baden-aargau",
         "en": "metalworker-for-glass-projects-fachkraft-ch-gmbh-baden",
         "de": "metallbauer-in-fur-glasprojekte-fachkraft-ch-gmbh-baden",
         "fr": "constructeur-trice-metallique-pour-projets-en-verre-fachkraft-ch-gmbh-baden"
@@ -102517,7 +102570,8 @@
           "metallbauer-in-fur-glasprojekte-baden-aargau-fachkraft-ch"
         ],
         "it": [
-          "metallbauer-in-fur-glasprojekte-baden-aargau-fachkraft-ch"
+          "metallbauer-in-fur-glasprojekte-baden-aargau-fachkraft-ch",
+          "metallbauer-in-per-glasprojekte-fachkraft-ch-gmbh-baden"
         ],
         "en": [
           "metallbauer-in-fur-glasprojekte-baden-aargau-fachkraft-ch"
@@ -102527,7 +102581,8 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-fur-glasprojekte-baden-aargau-fachkraft-ch"
+        "metallbauer-in-fur-glasprojekte-baden-aargau-fachkraft-ch",
+        "metallbauer-in-per-glasprojekte-fachkraft-ch-gmbh-baden"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.702Z",
       "salaryMin": 62000,
@@ -107059,7 +107114,7 @@
       "id": "fachkraft-4edcf5f7da41",
       "slug": "metallbauer-in-monteur-in-fachkraft-ch-gmbh-zurich",
       "slugByLocale": {
-        "it": "metallbauer-in-monteur-in-fachkraft-ch-gmbh-zurich",
+        "it": "metalmeccanico-a-montatrice-montatrice-fachkraft-ch-gmbh-zurich-zurich",
         "en": "metalworker-fachkraft-ch-gmbh-zurich-zurich",
         "de": "metallbauer-in-monteur-in-zurich-zurich-fachkraft-ch",
         "fr": "constructeur-constructrice-de-metaux-monteur-monteur-fachkraft-ch-gmbh-zurich-zurich"
@@ -107106,13 +107161,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbauer-in-monteur-in-zurich-zurich-fachkraft-ch",
-        "metalmeccanico-a-montatrice-montatrice-fachkraft-ch-gmbh-zurich-zurich"
+        "metallbauer-in-monteur-in-zurich-zurich-fachkraft-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-monteur-in-zurich-zurich-fachkraft-ch",
-          "metalmeccanico-a-montatrice-montatrice-fachkraft-ch-gmbh-zurich-zurich"
+          "metallbauer-in-monteur-in-zurich-zurich-fachkraft-ch"
         ],
         "en": [
           "metallbauer-in-monteur-in-zurich-zurich-fachkraft-ch"
@@ -108874,7 +108927,7 @@
         "it": "maurer-in-vorarbeiter-gruppenfuhrer-per-erneuerungsbau-fachkraft-ch-gmbh-willisau",
         "en": "stonemason-foreman-group-leader-for-renovation-construction-fachkraft-ch-gmbh-willisau-luzern",
         "de": "maurer-in-vorarbeiter-gruppenfuhrer-fur-erneuerungsbau-willisau-luzern-fachkraft-ch",
-        "fr": "mason-contremaitre-chef-de-groupe-pour-la-renovation-fachkraft-ch-gmbh-willisau"
+        "fr": "i-need-to-see-the-actual-job-title-that-needs-translating-could-you-provide-the-german-job-title-text-fachkraft-ch-gmbh"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -108920,7 +108973,7 @@
       "previousSlugs": [
         "maurer-in-vorarbeiter-gruppenfuhrer-fur-erneuerungsbau-willisau-luzern-fachkraft-ch",
         "maurer-in-vorarbeiter-gruppenfuhrer-fur-erneuerungsbau-fachkraft-ch-gmbh-willisau",
-        "i-need-to-see-the-actual-job-title-that-needs-translating-could-you-provide-the-german-job-title-text-fachkraft-ch-gmbh"
+        "mason-contremaitre-chef-de-groupe-pour-la-renovation-fachkraft-ch-gmbh-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -108931,7 +108984,7 @@
         ],
         "fr": [
           "maurer-in-vorarbeiter-gruppenfuhrer-fur-erneuerungsbau-fachkraft-ch-gmbh-willisau",
-          "i-need-to-see-the-actual-job-title-that-needs-translating-could-you-provide-the-german-job-title-text-fachkraft-ch-gmbh"
+          "mason-contremaitre-chef-de-groupe-pour-la-renovation-fachkraft-ch-gmbh-willisau"
         ]
       },
       "firstSeenAt": "2026-09-08T23:50:31.664Z",
@@ -108951,9 +109004,9 @@
     },
     {
       "id": "fachkraft-8bf784c7411f",
-      "slug": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-frauenfeld-a54ba70baa",
+      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-frauenfeld-thurgau",
       "slugByLocale": {
-        "it": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-frauenfeld-a54ba70baa",
+        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-frauenfeld-thurgau",
         "en": "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-frauenfeld",
         "de": "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-fachkraft-ch",
         "fr": "macon-ne-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-frauenfeld"
@@ -109002,7 +109055,8 @@
       "previousSlugsByLocale": {
         "it": [
           "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-fachkraft-ch",
-          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-frauenfeld"
+          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-frauenfeld",
+          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-frauenfeld-a54ba70baa"
         ],
         "de": [
           "maurer-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-frauenfeld"
@@ -109017,7 +109071,8 @@
       "previousSlugs": [
         "maurer-in-fur-neu-und-umbauten-frauenfeld-thurgau-fachkraft-ch",
         "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-frauenfeld",
-        "maurer-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-frauenfeld"
+        "maurer-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-frauenfeld",
+        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-frauenfeld-a54ba70baa"
       ],
       "firstSeenAt": "2026-08-23T21:48:15.478Z",
       "salaryMin": 57500,
@@ -109037,9 +109092,9 @@
     },
     {
       "id": "fachkraft-9a2d51a20c41",
-      "slug": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden-07e1b6855a",
+      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
       "slugByLocale": {
-        "it": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden-07e1b6855a",
+        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
         "en": "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden",
         "de": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch",
         "fr": "macon-ne-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-weinfelden"
@@ -109087,7 +109142,8 @@
       "previousSlugsByLocale": {
         "it": [
           "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch",
-          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden"
+          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden",
+          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden-07e1b6855a"
         ],
         "en": [
           "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch"
@@ -109098,7 +109154,8 @@
       },
       "previousSlugs": [
         "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch",
-        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden"
+        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden",
+        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden-07e1b6855a"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -109582,9 +109639,9 @@
     },
     {
       "id": "fachkraft-39a7fff2aa8f",
-      "slug": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-wil-sg",
+      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-wil-sg-st-gallen",
       "slugByLocale": {
-        "it": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-wil-sg",
+        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "en": "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-wil-sg",
         "de": "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-fachkraft-ch",
         "fr": "macon-ne-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-wil-sg"
@@ -109631,15 +109688,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maurer-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-wil-sg",
-        "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "bricklayer-for-new-builds-and-conversions-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-fachkraft-ch-gmbh-wil-sg-st-gallen",
-        "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-fachkraft-ch"
+        "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-fachkraft-ch",
+        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-wil-sg-st-gallen",
-          "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-fachkraft-ch"
+          "maurer-in-fur-neu-und-umbauten-wil-sg-st-gallen-fachkraft-ch",
+          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-wil-sg"
         ],
         "en": [
           "bricklayer-for-new-builds-and-conversions-fachkraft-ch-gmbh-wil-sg-st-gallen",
@@ -110390,7 +110447,7 @@
       "slug": "praticante-pittore-tuttofare-fachkraft-ch-gmbh-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "praticante-pittore-tuttofare-fachkraft-ch-gmbh-st-gallen-st-gallen",
-        "en": "malerpraktiker-in-allrounder-fachkraft-ch-gmbh-st-gallen",
+        "en": "painter-practitioner-all-rounder-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "de": "malerpraktiker-in-allrounder-st-gallen-st-gallen-fachkraft-ch",
         "fr": "peintre-praticien-polyvalent-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
@@ -110437,7 +110494,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "malerpraktiker-in-allrounder-st-gallen-st-gallen-fachkraft-ch",
-        "painter-practitioner-all-rounder-fachkraft-ch-gmbh-st-gallen-st-gallen"
+        "malerpraktiker-in-allrounder-fachkraft-ch-gmbh-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -110445,7 +110502,7 @@
         ],
         "en": [
           "malerpraktiker-in-allrounder-st-gallen-st-gallen-fachkraft-ch",
-          "painter-practitioner-all-rounder-fachkraft-ch-gmbh-st-gallen-st-gallen"
+          "malerpraktiker-in-allrounder-fachkraft-ch-gmbh-st-gallen"
         ],
         "fr": [
           "malerpraktiker-in-allrounder-st-gallen-st-gallen-fachkraft-ch"
@@ -116512,12 +116569,12 @@
     },
     {
       "id": "fachkraft-b69bdc7bbe72",
-      "slug": "maler-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-st-gallen",
+      "slug": "pittore-pittrice-per-lavori-di-tinteggiatura-presso-i-clienti-fachkraft-ch-gmbh-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch",
-        "it": "maler-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-st-gallen",
-        "en": "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch",
-        "fr": "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch"
+        "it": "pittore-pittrice-per-lavori-di-tinteggiatura-presso-i-clienti-fachkraft-ch-gmbh-st-gallen-st-gallen",
+        "en": "painter-for-customer-painting-work-fachkraft-ch-gmbh-st-gallen-st-gallen",
+        "fr": "peintre-pour-travaux-de-peinture-chez-les-clients-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -116563,11 +116620,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch",
+          "maler-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-st-gallen"
+        ],
+        "en": [
+          "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch"
+        "maler-in-fur-kundenmalerarbeiten-st-gallen-st-gallen-fachkraft-ch",
+        "maler-in-per-kundenmalerarbeiten-fachkraft-ch-gmbh-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -116584,7 +116649,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-16T22:08:29.904Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-b530cafa7097",
@@ -118762,12 +118827,12 @@
     },
     {
       "id": "fachkraft-04235fcb56ab",
-      "slug": "maler-in-per-fassaden-e-innenarbeiten-fachkraft-ch-gmbh-bremgarten",
+      "slug": "pittore-pittrice-per-lavori-di-facciata-e-d-interni-fachkraft-ch-gmbh-bremgarten-aargau",
       "slugByLocale": {
         "de": "maler-in-fur-fassaden-und-innenarbeiten-fachkraft-ch-gmbh-bremgarten",
-        "it": "maler-in-per-fassaden-e-innenarbeiten-fachkraft-ch-gmbh-bremgarten",
-        "en": "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch",
-        "fr": "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch"
+        "it": "pittore-pittrice-per-lavori-di-facciata-e-d-interni-fachkraft-ch-gmbh-bremgarten-aargau",
+        "en": "painter-for-facade-and-interior-work-fachkraft-ch-gmbh-bremgarten-aargau",
+        "fr": "peintre-pour-travaux-de-facades-et-d-interieur-fachkraft-ch-gmbh-bremgarten-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -118813,14 +118878,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch"
+          "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch",
+          "maler-in-per-fassaden-e-innenarbeiten-fachkraft-ch-gmbh-bremgarten"
         ],
         "de": [
+          "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch"
+        ],
+        "en": [
+          "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch"
+        "maler-in-fur-fassaden-und-innenarbeiten-bremgarten-aargau-fachkraft-ch",
+        "maler-in-per-fassaden-e-innenarbeiten-fachkraft-ch-gmbh-bremgarten"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -118837,7 +118910,7 @@
       },
       "postalCode": "5620",
       "firstSeenAt": "2026-10-16T22:08:29.900Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-bca7aece9b7b",
@@ -120980,7 +121053,7 @@
       "slug": "pittore-pittrice-tuttofare-fachkraft-ch-gmbh-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "pittore-pittrice-tuttofare-fachkraft-ch-gmbh-st-gallen-st-gallen",
-        "en": "maler-in-allrounder-fachkraft-ch-gmbh-st-gallen",
+        "en": "painter-all-rounder-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "de": "maler-in-allrounder-st-gallen-st-gallen-fachkraft-ch",
         "fr": "peintre-polyvalent-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
@@ -121027,7 +121100,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-allrounder-st-gallen-st-gallen-fachkraft-ch",
-        "painter-all-rounder-fachkraft-ch-gmbh-st-gallen-st-gallen"
+        "maler-in-allrounder-fachkraft-ch-gmbh-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -121035,7 +121108,7 @@
         ],
         "en": [
           "maler-in-allrounder-st-gallen-st-gallen-fachkraft-ch",
-          "painter-all-rounder-fachkraft-ch-gmbh-st-gallen-st-gallen"
+          "maler-in-allrounder-fachkraft-ch-gmbh-st-gallen"
         ],
         "fr": [
           "maler-in-allrounder-st-gallen-st-gallen-fachkraft-ch"
@@ -130348,7 +130421,7 @@
         "it": "progettista-di-stampi-per-stampaggio-a-iniezione-fachkraft-ch-gmbh-st-gallen",
         "en": "injection-molding-tool-designer-fachkraft-ch-gmbh-st-gallen",
         "de": "konstrukteur-in-fur-spritzgusswerkzeuge-st-gallen-st-gallen-fachkraft-ch",
-        "fr": "konstrukteur-in-fur-spritzgusswerkzeuge-fachkraft-ch-gmbh-st-gallen"
+        "fr": "constructeur-trice-d-outils-de-moulage-par-injection-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -130396,7 +130469,7 @@
         "konstrukteur-in-per-spritzgusswerkzeuge-fachkraft-ch-gmbh-st-gallen",
         "progettista-di-stampi-per-stampaggio-a-iniezione-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "injection-molding-tool-designer-fachkraft-ch-gmbh-st-gallen-st-gallen",
-        "constructeur-trice-d-outils-de-moulage-par-injection-fachkraft-ch-gmbh-st-gallen-st-gallen"
+        "konstrukteur-in-fur-spritzgusswerkzeuge-fachkraft-ch-gmbh-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -130410,7 +130483,7 @@
         ],
         "fr": [
           "konstrukteur-in-fur-spritzgusswerkzeuge-st-gallen-st-gallen-fachkraft-ch",
-          "constructeur-trice-d-outils-de-moulage-par-injection-fachkraft-ch-gmbh-st-gallen-st-gallen"
+          "konstrukteur-in-fur-spritzgusswerkzeuge-fachkraft-ch-gmbh-st-gallen"
         ]
       },
       "firstSeenAt": "2026-10-15T22:17:03.010Z",
@@ -132613,9 +132686,9 @@
     },
     {
       "id": "fachkraft-f9e49c777b9a",
-      "slug": "heizungsinstallateur-in-servicemonteur-fachkraft-ch-gmbh-zofingen",
+      "slug": "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-fachkraft-ch-gmbh-zofingen-aargau",
       "slugByLocale": {
-        "it": "heizungsinstallateur-in-servicemonteur-fachkraft-ch-gmbh-zofingen",
+        "it": "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-fachkraft-ch-gmbh-zofingen-aargau",
         "en": "heating-installer-service-technician-fachkraft-ch-gmbh-zofingen",
         "de": "heizungsinstallateur-in-servicemonteur-zofingen-aargau-fachkraft-ch",
         "fr": "installateur-trice-de-chauffage-monteur-trice-de-service-fachkraft-ch-gmbh-zofingen"
@@ -132663,12 +132736,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "heizungsinstallateur-in-servicemonteur-zofingen-aargau-fachkraft-ch",
-        "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-fachkraft-ch-gmbh-zofingen-aargau"
+        "heizungsinstallateur-in-servicemonteur-fachkraft-ch-gmbh-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "heizungsinstallateur-in-servicemonteur-zofingen-aargau-fachkraft-ch",
-          "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-fachkraft-ch-gmbh-zofingen-aargau"
+          "heizungsinstallateur-in-servicemonteur-fachkraft-ch-gmbh-zofingen"
         ]
       },
       "needsRetranslation": true,
@@ -136761,9 +136834,9 @@
     },
     {
       "id": "fachkraft-a870af7b6453",
-      "slug": "glaser-in-per-vielseitige-glasprojekte-im-innen-e-aussenbereich-fachkraft-ch-gmbh-baden",
+      "slug": "vetraio-a-per-progetti-in-vetro-versatili-in-ambienti-interni-ed-esterni-fachkraft-ch-gmbh-baden-aargau",
       "slugByLocale": {
-        "it": "glaser-in-per-vielseitige-glasprojekte-im-innen-e-aussenbereich-fachkraft-ch-gmbh-baden",
+        "it": "vetraio-a-per-progetti-in-vetro-versatili-in-ambienti-interni-ed-esterni-fachkraft-ch-gmbh-baden-aargau",
         "en": "glazier-for-versatile-glass-projects-indoors-and-outdoors-fachkraft-ch-gmbh-baden",
         "de": "glaser-in-fur-vielseitige-glasprojekte-im-innen-und-aussenbereich-fachkraft-ch-gmbh-baden",
         "fr": "vitrier-iere-pour-des-projets-varies-en-verre-en-interieur-et-en-exterieur-fachkraft-ch-gmbh-baden"
@@ -136814,7 +136887,8 @@
           "glaser-in-fur-vielseitige-glasprojekte-im-innen-und-aussenbereich-baden-aargau-fachkraft"
         ],
         "it": [
-          "glaser-in-fur-vielseitige-glasprojekte-im-innen-und-aussenbereich-baden-aargau-fachkraft"
+          "glaser-in-fur-vielseitige-glasprojekte-im-innen-und-aussenbereich-baden-aargau-fachkraft",
+          "glaser-in-per-vielseitige-glasprojekte-im-innen-e-aussenbereich-fachkraft-ch-gmbh-baden"
         ],
         "en": [
           "glaser-in-fur-vielseitige-glasprojekte-im-innen-und-aussenbereich-baden-aargau-fachkraft"
@@ -136824,7 +136898,8 @@
         ]
       },
       "previousSlugs": [
-        "glaser-in-fur-vielseitige-glasprojekte-im-innen-und-aussenbereich-baden-aargau-fachkraft"
+        "glaser-in-fur-vielseitige-glasprojekte-im-innen-und-aussenbereich-baden-aargau-fachkraft",
+        "glaser-in-per-vielseitige-glasprojekte-im-innen-e-aussenbereich-fachkraft-ch-gmbh-baden"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.636Z",
       "salaryMin": 62000,
@@ -141818,12 +141893,12 @@
     },
     {
       "id": "fachkraft-9f7d35c5b9fc",
-      "slug": "gartner-in-afp-per-anspruchsvolle-privatgarten-fachkraft-ch-gmbh-zurich",
+      "slug": "giardiniere-a-cfp-per-giardini-privati-esigenti-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch",
-        "it": "gartner-in-afp-per-anspruchsvolle-privatgarten-fachkraft-ch-gmbh-zurich",
-        "en": "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch",
-        "fr": "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch"
+        "it": "giardiniere-a-cfp-per-giardini-privati-esigenti-fachkraft-ch-gmbh-zurich-zurich",
+        "en": "gardener-eba-for-demanding-private-gardens-fachkraft-ch-gmbh-zurich-zurich",
+        "fr": "jardinier-ere-afp-pour-des-jardins-prives-exigeants-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -141872,21 +141947,25 @@
         "gardener-in-eba-for-demanding-private-gardens-fachkraft-ch-gmbh-zurich-zurich",
         "gartner-in-eba-fur-anspruchsvolle-privatgarten-fachkraft-ch",
         "jardinier-dans-eba-pour-les-jardins-prives-exigeants-fachkraft-ch-gmbh-zurich-zurich",
-        "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch"
+        "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch",
+        "gartner-in-afp-per-anspruchsvolle-privatgarten-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-afp-per-anspruchsvolle-privatgarten-fachkraft-ch-gmbh-lugano",
-          "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch"
+          "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch",
+          "gartner-in-afp-per-anspruchsvolle-privatgarten-fachkraft-ch-gmbh-zurich"
         ],
         "de": [
           "gartner-in-eba-fur-anspruchsvolle-privatgarten-fachkraft-ch"
         ],
         "en": [
-          "gardener-in-eba-for-demanding-private-gardens-fachkraft-ch-gmbh-zurich-zurich"
+          "gardener-in-eba-for-demanding-private-gardens-fachkraft-ch-gmbh-zurich-zurich",
+          "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch"
         ],
         "fr": [
-          "jardinier-dans-eba-pour-les-jardins-prives-exigeants-fachkraft-ch-gmbh-zurich-zurich"
+          "jardinier-dans-eba-pour-les-jardins-prives-exigeants-fachkraft-ch-gmbh-zurich-zurich",
+          "gartner-in-eba-fur-anspruchsvolle-privatgarten-zurich-zurich-fachkraft-ch"
         ]
       },
       "salaryMin": 73500,
@@ -141904,7 +141983,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-08-27T00:46:51.082Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-196bef8249e1",
@@ -154830,9 +154909,9 @@
       "slug": "selvicoltore-selvicoltrice-con-per-try-hire-fachkraft-ch-gmbh-solothurn",
       "slugByLocale": {
         "it": "selvicoltore-selvicoltrice-con-per-try-hire-fachkraft-ch-gmbh-solothurn",
-        "en": "forstwart-in-mit-fur-try-amp-hire-solothurn-solothurn-fachkraft-ch",
+        "en": "forestry-worker-with-for-try-hire-fachkraft-ch-gmbh-solothurn-solothurn",
         "de": "forstwart-in-mit-fur-try-hire-fachkraft-ch-gmbh-solothurn",
-        "fr": "forstwart-in-mit-fur-try-amp-hire-solothurn-solothurn-fachkraft-ch"
+        "fr": "garde-forestier-iere-avec-pour-try-hire-fachkraft-ch-gmbh-solothurn-solothurn"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -154885,6 +154964,12 @@
           "forstwart-in-con-per-try-hire-fachkraft-ch-gmbh-solothurn"
         ],
         "de": [
+          "forstwart-in-mit-fur-try-amp-hire-solothurn-solothurn-fachkraft-ch"
+        ],
+        "en": [
+          "forstwart-in-mit-fur-try-amp-hire-solothurn-solothurn-fachkraft-ch"
+        ],
+        "fr": [
           "forstwart-in-mit-fur-try-amp-hire-solothurn-solothurn-fachkraft-ch"
         ]
       },
@@ -155620,9 +155705,9 @@
     },
     {
       "id": "fachkraft-f99243a68a0d",
-      "slug": "fahrzeugschlosser-in-mit-digitalen-technologien-fachkraft-ch-gmbh-willisau",
+      "slug": "fabbro-a-di-veicoli-con-tecnologie-digitali-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
-        "it": "fahrzeugschlosser-in-mit-digitalen-technologien-fachkraft-ch-gmbh-willisau",
+        "it": "fabbro-a-di-veicoli-con-tecnologie-digitali-fachkraft-ch-gmbh-willisau-luzern",
         "en": "vehicle-mechanic-with-digital-technologies-fachkraft-ch-gmbh-willisau",
         "de": "fahrzeugschlosser-in-mit-digitalen-technologien-willisau-luzern-fachkraft-ch",
         "fr": "mecanicien-automobile-avec-technologies-numeriques-fachkraft-ch-gmbh-willisau"
@@ -155670,12 +155755,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fahrzeugschlosser-in-mit-digitalen-technologien-willisau-luzern-fachkraft-ch",
-        "fabbro-a-di-veicoli-con-tecnologie-digitali-fachkraft-ch-gmbh-willisau-luzern"
+        "fahrzeugschlosser-in-mit-digitalen-technologien-fachkraft-ch-gmbh-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugschlosser-in-mit-digitalen-technologien-willisau-luzern-fachkraft-ch",
-          "fabbro-a-di-veicoli-con-tecnologie-digitali-fachkraft-ch-gmbh-willisau-luzern"
+          "fahrzeugschlosser-in-mit-digitalen-technologien-fachkraft-ch-gmbh-willisau"
         ]
       },
       "firstSeenAt": "2026-09-27T00:50:05.736Z",
@@ -156730,7 +156815,7 @@
       "id": "fachkraft-60299bd91925",
       "slug": "elettronico-a-mansioni-versatili-fachkraft-ch-gmbh-winterthur",
       "slugByLocale": {
-        "it": "elettronico-a-mansioni-versatili-fachkraft-ch-gmbh-winterthur",
+        "it": "elettronica-ingegnere-in-variante-area-di-lavoro-fachkraft-ch-gmbh-winterthur-zurich",
         "en": "electronics-engineer-in-variant-task-area-fachkraft-ch-gmbh-winterthur-zurich",
         "de": "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch",
         "fr": "mecanicien-de-l-electronique-domaine-de-travail-variable-fachkraft-ch-gmbh-winterthur-zurich"
@@ -156779,15 +156864,13 @@
       "previousSlugs": [
         "elektroniker-in-vielseitiger-aufgabenbereich-winterthur-zurich-fachkraft-ch",
         "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch-70fuwq",
-        "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch-gmbh-winterthur",
-        "elettronica-ingegnere-in-variante-area-di-lavoro-fachkraft-ch-gmbh-winterthur-zurich"
+        "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch-gmbh-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroniker-in-vielseitiger-aufgabenbereich-winterthur-zurich-fachkraft-ch",
           "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch-70fuwq",
-          "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch-gmbh-winterthur",
-          "elettronica-ingegnere-in-variante-area-di-lavoro-fachkraft-ch-gmbh-winterthur-zurich"
+          "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch-gmbh-winterthur"
         ],
         "en": [
           "elektroniker-in-vielseitiger-aufgabenbereich-fachkraft-ch-gmbh-winterthur"
@@ -161215,7 +161298,7 @@
         "it": "installatore-elettrico-con-esperienza-industriale-fachkraft-ch-gmbh-luzern-luzern",
         "en": "electrical-installer-with-industrial-experience-fachkraft-ch-gmbh-luzern-luzern",
         "de": "elektroinstallateur-in-mit-industrieerfahrung-luzern-luzern-fachkraft-ch",
-        "fr": "installateur-electricien-experimente-dans-l-industrie-fachkraft-ch-gmbh-luzern"
+        "fr": "installation-electrique-avec-experience-industrielle-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -161261,7 +161344,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-mit-industrieerfahrung-luzern-luzern-fachkraft-ch",
         "installateur-trice-electricien-ne-mit-industrieerfahrung-fachkraft-ch-gmbh-luzern",
-        "installation-electrique-avec-experience-industrielle-fachkraft-ch-gmbh-luzern-luzern"
+        "installateur-electricien-experimente-dans-l-industrie-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -161269,7 +161352,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-mit-industrieerfahrung-fachkraft-ch-gmbh-luzern",
-          "installation-electrique-avec-experience-industrielle-fachkraft-ch-gmbh-luzern-luzern"
+          "installateur-electricien-experimente-dans-l-industrie-fachkraft-ch-gmbh-luzern"
         ]
       },
       "firstSeenAt": "2026-09-28T04:32:46.233Z",
@@ -164077,12 +164160,12 @@
     },
     {
       "id": "fachkraft-01d9a673e732",
-      "slug": "installatore-trice-elettrico-a-in-per-toranlagen-e-serviceeinsatze-fachkraft-ch-gmbh-winterthur",
+      "slug": "installatore-installatrice-elettrico-a-per-sistemi-di-cancelli-e-interventi-di-assistenza-fachkraft-ch-gmbh-winterthur",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-per-toranlagen-e-serviceeinsatze-fachkraft-ch-gmbh-winterthur",
-        "en": "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-fachkraft-ch-gmbh-winterthur",
+        "it": "installatore-installatrice-elettrico-a-per-sistemi-di-cancelli-e-interventi-di-assistenza-fachkraft-ch-gmbh-winterthur",
+        "en": "electrical-installer-for-gate-systems-and-service-calls-fachkraft-ch-gmbh-winterthur-zurich",
         "de": "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-winterthur-zurich-fachkraft-ch",
-        "fr": "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-fachkraft-ch-gmbh-winterthur"
+        "fr": "installateur-trice-electricien-ne-pour-installations-de-portails-et-interventions-de-service-fachkraft-ch-gmbh"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -164130,12 +164213,20 @@
           "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-fachkraft-ch-gmbh-winterthur"
         ],
         "it": [
-          "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-winterthur-zurich-fachkraft-ch"
+          "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-winterthur-zurich-fachkraft-ch",
+          "installatore-trice-elettrico-a-in-per-toranlagen-e-serviceeinsatze-fachkraft-ch-gmbh-winterthur"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-fachkraft-ch-gmbh-winterthur"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-fachkraft-ch-gmbh-winterthur"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-winterthur-zurich-fachkraft-ch",
-        "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-fachkraft-ch-gmbh-winterthur"
+        "elektroinstallateur-in-fur-toranlagen-und-serviceeinsatze-fachkraft-ch-gmbh-winterthur",
+        "installatore-trice-elettrico-a-in-per-toranlagen-e-serviceeinsatze-fachkraft-ch-gmbh-winterthur"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.583Z",
       "salaryMin": 83000,
@@ -164625,12 +164716,12 @@
     },
     {
       "id": "fachkraft-0f725e0d70ec",
-      "slug": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-sursee",
+      "slug": "installatore-trice-elettrico-a-per-installazioni-a-corrente-forte-e-debole-fachkraft-ch-gmbh-sursee-luzern",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-sursee",
-        "en": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-sursee",
+        "it": "installatore-trice-elettrico-a-per-installazioni-a-corrente-forte-e-debole-fachkraft-ch-gmbh-sursee-luzern",
+        "en": "electrical-installer-for-high-and-low-voltage-installations-fachkraft-ch-gmbh-sursee-luzern",
         "de": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-sursee-luzern-fachkraft-ch",
-        "fr": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-sursee"
+        "fr": "installateur-trice-electricien-ne-pour-installations-a-courant-fort-et-a-courant-faible-fachkraft-ch-gmbh-sursee-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -164678,12 +164769,20 @@
           "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-sursee"
         ],
         "it": [
-          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-sursee-luzern-fachkraft-ch"
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-sursee-luzern-fachkraft-ch",
+          "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-sursee"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-sursee"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-sursee"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-sursee-luzern-fachkraft-ch",
-        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-sursee"
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-sursee",
+        "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-sursee"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.582Z",
       "salaryMin": 78500,
@@ -169198,7 +169297,7 @@
         "de": "elektroinstallateur-in-fur-photovoltaik-und-e-mobility-zug-zug-fachkraft-ch",
         "it": "installatore-trice-elettrico-a-in-per-photovoltaik-e-mobility-fachkraft-ch-gmbh-zug",
         "en": "electrical-installer-for-photovoltaics-and-e-mobility-fachkraft-ch-gmbh-zug-zug",
-        "fr": "installateur-trice-electricien-ne-fur-photovoltaik-und-e-mobility-fachkraft-ch-gmbh-zug"
+        "fr": "installation-electrique-pour-photovoltaique-et-e-mobilite-fachkraft-ch-gmbh-zug-zug"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -169245,7 +169344,7 @@
       "previousSlugs": [
         "electrical-installer-fur-photovoltaik-und-e-mobility-fachkraft-ch-gmbh-zug",
         "elektroinstallateur-in-fur-photovoltaik-und-e-mobility-zug-zug-fachkraft-ch",
-        "installation-electrique-pour-photovoltaique-et-e-mobilite-fachkraft-ch-gmbh-zug-zug"
+        "installateur-trice-electricien-ne-fur-photovoltaik-und-e-mobility-fachkraft-ch-gmbh-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -169256,7 +169355,7 @@
           "electrical-installer-fur-photovoltaik-und-e-mobility-fachkraft-ch-gmbh-zug"
         ],
         "fr": [
-          "installation-electrique-pour-photovoltaique-et-e-mobilite-fachkraft-ch-gmbh-zug-zug"
+          "installateur-trice-electricien-ne-fur-photovoltaik-und-e-mobility-fachkraft-ch-gmbh-zug"
         ]
       },
       "salaryMin": 78500,
@@ -170731,7 +170830,7 @@
         "it": "installatore-trice-elettrico-a-in-per-neu-e-umbauten-fachkraft-ch-gmbh-andelfingen",
         "en": "new-and-conversion-electrical-installers-fachkraft-ch-gmbh-andelfingen-zurich",
         "de": "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-fachkraft-ch",
-        "fr": "electricien-pour-les-nouveaux-batiments-et-les-transformations-fachkraft-ch-gmbh-andelfingen"
+        "fr": "installateurs-electriques-neufs-et-de-conversion-fachkraft-ch-gmbh-andelfingen-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -170777,7 +170876,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-fachkraft-ch",
         "installateur-trice-electricien-ne-fur-neu-und-umbauten-fachkraft-ch-gmbh-andelfingen",
-        "installateurs-electriques-neufs-et-de-conversion-fachkraft-ch-gmbh-andelfingen-zurich"
+        "electricien-pour-les-nouveaux-batiments-et-les-transformations-fachkraft-ch-gmbh-andelfingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -170785,7 +170884,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-neu-und-umbauten-fachkraft-ch-gmbh-andelfingen",
-          "installateurs-electriques-neufs-et-de-conversion-fachkraft-ch-gmbh-andelfingen-zurich"
+          "electricien-pour-les-nouveaux-batiments-et-les-transformations-fachkraft-ch-gmbh-andelfingen"
         ]
       },
       "firstSeenAt": "2026-09-08T23:50:31.512Z",
@@ -171045,9 +171144,9 @@
       "slug": "installatori-elettrici-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "it": "installatori-elettrici-fachkraft-ch-gmbh-luzern-luzern",
-        "en": "electrician-for-shopfitting-fachkraft-ch-gmbh-luzern",
+        "en": "electrical-installers-fachkraft-ch-gmbh-luzern-luzern",
         "de": "elektroinstallateur-in-fur-ladenbau-luzern-luzern-fachkraft-ch",
-        "fr": "electricien-pour-l-amenagement-d-atelier-fachkraft-ch-gmbh-luzern"
+        "fr": "installateurs-electriques-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -171093,19 +171192,19 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-ladenbau-luzern-luzern-fachkraft-ch",
         "installateur-trice-electricien-ne-fur-ladenbau-fachkraft-ch-gmbh-luzern",
-        "electrical-installers-fachkraft-ch-gmbh-luzern-luzern",
-        "installateurs-electriques-fachkraft-ch-gmbh-luzern-luzern"
+        "electrician-for-shopfitting-fachkraft-ch-gmbh-luzern",
+        "electricien-pour-l-amenagement-d-atelier-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-ladenbau-luzern-luzern-fachkraft-ch"
         ],
         "en": [
-          "electrical-installers-fachkraft-ch-gmbh-luzern-luzern"
+          "electrician-for-shopfitting-fachkraft-ch-gmbh-luzern"
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-ladenbau-fachkraft-ch-gmbh-luzern",
-          "installateurs-electriques-fachkraft-ch-gmbh-luzern-luzern"
+          "electricien-pour-l-amenagement-d-atelier-fachkraft-ch-gmbh-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -171588,12 +171687,12 @@
     },
     {
       "id": "fachkraft-cdfc787ea1ca",
-      "slug": "installatore-trice-elettrico-a-in-per-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf",
+      "slug": "installatore-installatrice-elettrico-a-per-impianti-industriali-di-processo-fachkraft-ch-gmbh-hochdorf-luzern",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-per-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf",
-        "en": "elektroinstallateur-in-fur-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf",
+        "it": "installatore-installatrice-elettrico-a-per-impianti-industriali-di-processo-fachkraft-ch-gmbh-hochdorf-luzern",
+        "en": "electrical-installer-for-industrial-process-plants-fachkraft-ch-gmbh-hochdorf-luzern",
         "de": "elektroinstallateur-in-fur-industrielle-prozessanlagen-hochdorf-luzern-fachkraft-ch",
-        "fr": "elektroinstallateur-in-fur-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf"
+        "fr": "installateur-trice-electricien-ne-pour-installations-de-processus-industriels-fachkraft-ch-gmbh-hochdorf-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -171641,12 +171740,20 @@
           "elektroinstallateur-in-fur-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf"
         ],
         "it": [
-          "elektroinstallateur-in-fur-industrielle-prozessanlagen-hochdorf-luzern-fachkraft-ch"
+          "elektroinstallateur-in-fur-industrielle-prozessanlagen-hochdorf-luzern-fachkraft-ch",
+          "installatore-trice-elettrico-a-in-per-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-fur-industrielle-prozessanlagen-hochdorf-luzern-fachkraft-ch",
-        "elektroinstallateur-in-fur-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf"
+        "elektroinstallateur-in-fur-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf",
+        "installatore-trice-elettrico-a-in-per-industrielle-prozessanlagen-fachkraft-ch-gmbh-hochdorf"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.568Z",
       "salaryMin": 78500,
@@ -180147,9 +180254,9 @@
     },
     {
       "id": "fachkraft-0c2873352e6f",
-      "slug": "carrosserielackierer-in-mit-digitalisierten-prozessen-fachkraft-ch-gmbh-willisau",
+      "slug": "verniciatore-verniciatrice-di-carrozzerie-con-processi-digitalizzati-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
-        "it": "carrosserielackierer-in-mit-digitalisierten-prozessen-fachkraft-ch-gmbh-willisau",
+        "it": "verniciatore-verniciatrice-di-carrozzerie-con-processi-digitalizzati-fachkraft-ch-gmbh-willisau-luzern",
         "en": "body-painter-with-digitised-processes-fachkraft-ch-gmbh-willisau",
         "de": "carrosserielackierer-in-mit-digitalisierten-prozessen-willisau-luzern-fachkraft-ch",
         "fr": "peintre-de-carrosserie-avec-processus-numerises-fachkraft-ch-gmbh-willisau"
@@ -180197,12 +180304,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "carrosserielackierer-in-mit-digitalisierten-prozessen-willisau-luzern-fachkraft-ch",
-        "verniciatore-verniciatrice-di-carrozzerie-con-processi-digitalizzati-fachkraft-ch-gmbh-willisau-luzern"
+        "carrosserielackierer-in-mit-digitalisierten-prozessen-fachkraft-ch-gmbh-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosserielackierer-in-mit-digitalisierten-prozessen-willisau-luzern-fachkraft-ch",
-          "verniciatore-verniciatrice-di-carrozzerie-con-processi-digitalizzati-fachkraft-ch-gmbh-willisau-luzern"
+          "carrosserielackierer-in-mit-digitalisierten-prozessen-fachkraft-ch-gmbh-willisau"
         ]
       },
       "firstSeenAt": "2026-09-26T15:25:37.575Z",
@@ -183892,7 +183999,7 @@
         "it": "automatikmonteur-in-mit-teamkultur-fachkraft-ch-gmbh-gossau",
         "en": "automatic-fitter-with-team-culture-fachkraft-ch-gmbh-gossau-st-gallen",
         "de": "automatikmonteur-in-mit-teamkultur-gossau-st-gallen-fachkraft-ch",
-        "fr": "automatikmonteur-in-mit-teamkultur-fachkraft-ch-gmbh-gossau"
+        "fr": "ajusteur-automatique-avec-culture-d-equipe-fachkraft-ch-gmbh-gossau-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -183936,15 +184043,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatikmonteur-in-mit-teamkultur-gossau-st-gallen-fachkraft-ch",
-        "ajusteur-automatique-avec-culture-d-equipe-fachkraft-ch-gmbh-gossau-st-gallen"
+        "automatikmonteur-in-mit-teamkultur-gossau-st-gallen-fachkraft-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatikmonteur-in-mit-teamkultur-gossau-st-gallen-fachkraft-ch"
-        ],
-        "fr": [
-          "ajusteur-automatique-avec-culture-d-equipe-fachkraft-ch-gmbh-gossau-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-08T23:50:31.482Z",
@@ -184287,7 +184390,7 @@
       "slug": "automatikmonteur-in-per-tollen-einsatz-im-raum-sursee-fachkraft-ch-gmbh-sursee",
       "slugByLocale": {
         "it": "automatikmonteur-in-per-tollen-einsatz-im-raum-sursee-fachkraft-ch-gmbh-sursee",
-        "en": "automatic-fitter-for-great-work-in-the-sursee-area-fachkraft-ch-gmbh-sursee",
+        "en": "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-fachkraft-ch-gmbh-sursee",
         "de": "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sursee-luzern-fachkraft-ch",
         "fr": "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-fachkraft-ch-gmbh-sursee"
       },
@@ -184334,14 +184437,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sursee-luzern-fachkraft-ch",
-        "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-fachkraft-ch-gmbh-sursee"
+        "automatic-fitter-for-great-work-in-the-sursee-area-fachkraft-ch-gmbh-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-sursee-luzern-fachkraft-ch"
         ],
         "en": [
-          "automatikmonteur-in-fur-tollen-einsatz-im-raum-sursee-fachkraft-ch-gmbh-sursee"
+          "automatic-fitter-for-great-work-in-the-sursee-area-fachkraft-ch-gmbh-sursee"
         ]
       },
       "firstSeenAt": "2026-10-03T10:07:24.413Z",
@@ -187076,7 +187179,7 @@
       "slug": "automatiker-in-con-schwerpunkt-steuerungstechnik-e-prozessautomation-fachkraft-ch-gmbh-lugano",
       "slugByLocale": {
         "it": "automatiker-in-con-schwerpunkt-steuerungstechnik-e-prozessautomation-fachkraft-ch-gmbh-lugano",
-        "en": "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee",
+        "en": "automatician-with-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern",
         "de": "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch",
         "fr": "automatique-avec-accent-sur-la-technologie-de-controle-et-l-automatisation-des-processus-fachkraft-ch-gmbh-sursee-luzern"
       },
@@ -187129,7 +187232,7 @@
           "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-sursee-luzern"
         ],
         "en": [
-          "automatician-with-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern"
+          "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee"
         ],
         "fr": [
           "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee"
@@ -187137,8 +187240,7 @@
       },
       "previousSlugs": [
         "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-sursee-luzern",
-        "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee",
-        "automatician-with-focus-on-control-technology-and-process-automation-fachkraft-ch-gmbh-sursee-luzern"
+        "automatiker-in-mit-schwerpunkt-steuerungstechnik-und-prozessautomation-fachkraft-ch-gmbh-sursee"
       ],
       "firstSeenAt": "2026-08-27T00:43:11.763Z",
       "salaryMin": 69500,
@@ -188111,9 +188213,9 @@
       "slug": "automatista-con-calibrazione-e-assistenza-fachkraft-ch-gmbh-zurich",
       "slugByLocale": {
         "it": "automatista-con-calibrazione-e-assistenza-fachkraft-ch-gmbh-zurich",
-        "en": "automatiker-in-mit-kalibrierung-und-service-zurich-zurich-fachkraft-ch",
+        "en": "automation-technician-with-calibration-and-service-fachkraft-ch-gmbh-zurich-zurich",
         "de": "automatiker-in-mit-kalibrierung-und-service-zurich-zurich-fachkraft-ch",
-        "fr": "automatiker-in-mit-kalibrierung-und-service-zurich-zurich-fachkraft-ch"
+        "fr": "automaticien-ne-avec-etalonnage-et-service-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -188159,6 +188261,12 @@
         "it": [
           "automatiker-in-mit-kalibrierung-und-service-zurich-zurich-fachkraft-ch",
           "automatiker-in-con-kalibrierung-e-service-fachkraft-ch-gmbh-zurich"
+        ],
+        "en": [
+          "automatiker-in-mit-kalibrierung-und-service-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
+          "automatiker-in-mit-kalibrierung-und-service-zurich-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
@@ -189371,7 +189479,7 @@
       "slug": "automatiker-in-con-entwicklungsperspektive-come-servicetechniker-fachkraft-ch-gmbh-zurich",
       "slugByLocale": {
         "it": "automatiker-in-con-entwicklungsperspektive-come-servicetechniker-fachkraft-ch-gmbh-zurich",
-        "en": "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-fachkraft-ch-gmbh-zurich",
+        "en": "automation-technician-with-a-development-perspective-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich",
         "de": "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-fachkraft-ch",
         "fr": "automaticien-ne-avec-une-perspective-de-developpement-en-tant-que-technicien-ne-de-service-fachkraft-ch-gmbh-zurich"
       },
@@ -189418,7 +189526,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-fachkraft-ch",
-        "automation-technician-with-a-development-perspective-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich"
+        "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -189426,7 +189534,7 @@
         ],
         "en": [
           "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-fachkraft-ch",
-          "automation-technician-with-a-development-perspective-as-a-service-technician-fachkraft-ch-gmbh-zurich-zurich"
+          "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-fachkraft-ch-gmbh-zurich"
         ],
         "fr": [
           "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-fachkraft-ch"
@@ -193988,12 +194096,12 @@
     },
     {
       "id": "fachkraft-ad522efc9e6b",
-      "slug": "automatiker-in-per-fahrzeugwaschanlagen-con-technischem-support-fachkraft-ch-gmbh-bremgarten",
+      "slug": "tecnico-a-di-automazione-per-impianti-di-autolavaggio-con-supporto-tecnico-fachkraft-ch-gmbh-bremgarten-aargau",
       "slugByLocale": {
         "de": "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-fachkraft-ch-gmbh-bremgarten",
-        "it": "automatiker-in-per-fahrzeugwaschanlagen-con-technischem-support-fachkraft-ch-gmbh-bremgarten",
-        "en": "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-fachkraft-ch-gmbh-bremgarten",
-        "fr": "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-fachkraft-ch-gmbh-bremgarten"
+        "it": "tecnico-a-di-automazione-per-impianti-di-autolavaggio-con-supporto-tecnico-fachkraft-ch-gmbh-bremgarten-aargau",
+        "en": "automation-technician-for-vehicle-wash-systems-with-technical-support-fachkraft-ch-gmbh-bremgarten-aargau",
+        "fr": "automaticien-ne-pour-installations-de-lavage-de-vehicules-avec-support-technique-fachkraft-ch-gmbh-bremgarten-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -194039,14 +194147,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-bremgarten-aargau"
+          "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-bremgarten-aargau",
+          "automatiker-in-per-fahrzeugwaschanlagen-con-technischem-support-fachkraft-ch-gmbh-bremgarten"
         ],
         "de": [
           "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-bremgarten-aargau"
+        ],
+        "en": [
+          "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-fachkraft-ch-gmbh-bremgarten"
+        ],
+        "fr": [
+          "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-fachkraft-ch-gmbh-bremgarten"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-bremgarten-aargau"
+        "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-bremgarten-aargau",
+        "automatiker-in-per-fahrzeugwaschanlagen-con-technischem-support-fachkraft-ch-gmbh-bremgarten",
+        "automatiker-in-fur-fahrzeugwaschanlagen-mit-technischem-support-fachkraft-ch-gmbh-bremgarten"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -194063,7 +194180,7 @@
       },
       "postalCode": "5620",
       "firstSeenAt": "2026-10-16T22:08:29.748Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-01184a2ee778",
@@ -194153,12 +194270,12 @@
     },
     {
       "id": "fachkraft-6ae5236db714",
-      "slug": "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-fachkraft-ch-gmbh-luzern",
+      "slug": "automatista-per-impianti-emsr-e-sistemi-di-automazione-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch",
-        "it": "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-fachkraft-ch-gmbh-luzern",
-        "en": "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch",
-        "fr": "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch"
+        "it": "automatista-per-impianti-emsr-e-sistemi-di-automazione-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "automation-technician-for-emsr-systems-and-automation-systems-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "automaticien-ne-pour-installations-emsr-et-systemes-d-automatisation-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -194203,25 +194320,23 @@
         "de": []
       },
       "previousSlugs": [
-        "automatista-per-impianti-emsr-e-sistemi-di-automazione-fachkraft-ch-gmbh-luzern-luzern",
         "automaticien-ne-pour-les-installations-emsr-et-les-systemes-d-automatisation-fachkraft-ch-gmbh-luzern-luzern",
         "automaticista-per-impianti-emsr-e-sistemi-di-automazione-fachkraft-ch-gmbh-luzern-luzern",
-        "automation-technician-for-emsr-systems-and-automation-systems-fachkraft-ch-gmbh-luzern-luzern",
-        "automaticien-ne-pour-installations-emsr-et-systemes-d-automatisation-fachkraft-ch-gmbh-luzern-luzern",
-        "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch"
+        "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch",
+        "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatista-per-impianti-emsr-e-sistemi-di-automazione-fachkraft-ch-gmbh-luzern-luzern",
           "automaticista-per-impianti-emsr-e-sistemi-di-automazione-fachkraft-ch-gmbh-luzern-luzern",
-          "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch"
+          "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch",
+          "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-fachkraft-ch-gmbh-luzern"
         ],
         "en": [
-          "automation-technician-for-emsr-systems-and-automation-systems-fachkraft-ch-gmbh-luzern-luzern"
+          "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch"
         ],
         "fr": [
           "automaticien-ne-pour-les-installations-emsr-et-les-systemes-d-automatisation-fachkraft-ch-gmbh-luzern-luzern",
-          "automaticien-ne-pour-installations-emsr-et-systemes-d-automatisation-fachkraft-ch-gmbh-luzern-luzern"
+          "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-fachkraft-ch"
         ]
       },
       "salaryMin": 69500,
@@ -195640,7 +195755,7 @@
       "slug": "automatista-elettricista-d-esercizio-fachkraft-ch-gmbh-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "automatista-elettricista-d-esercizio-fachkraft-ch-gmbh-st-gallen-st-gallen",
-        "en": "automatiker-in-betriebselektriker-fachkraft-ch-gmbh-st-gallen",
+        "en": "automation-technician-industrial-electrician-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "de": "automatiker-in-betriebselektriker-st-gallen-st-gallen-fachkraft-ch",
         "fr": "automaticien-ne-electricien-ne-d-exploitation-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
@@ -195687,7 +195802,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-betriebselektriker-st-gallen-st-gallen-fachkraft-ch",
-        "automation-technician-industrial-electrician-fachkraft-ch-gmbh-st-gallen-st-gallen"
+        "automatiker-in-betriebselektriker-fachkraft-ch-gmbh-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -195695,7 +195810,7 @@
         ],
         "en": [
           "automatiker-in-betriebselektriker-st-gallen-st-gallen-fachkraft-ch",
-          "automation-technician-industrial-electrician-fachkraft-ch-gmbh-st-gallen-st-gallen"
+          "automatiker-in-betriebselektriker-fachkraft-ch-gmbh-st-gallen"
         ],
         "fr": [
           "automatiker-in-betriebselektriker-st-gallen-st-gallen-fachkraft-ch"
@@ -196284,7 +196399,7 @@
         "it": "ingegnere-automatico-come-dispositivo-di-servizio-in-ingegneria-meccanica-fachkraft-ch-gmbh-zurich-zurich",
         "en": "automatic-engineer-as-a-service-fitter-in-mechanical-engineering-fachkraft-ch-gmbh-zurich-zurich",
         "de": "automatiker-in-als-servicemonteur-in-im-maschinenbau-zurich-zurich-fachkraft-ch",
-        "fr": "automatiker-in-als-servicemonteur-in-im-maschinenbau-fachkraft-ch-gmbh-zurich"
+        "fr": "ingenieur-automatique-en-ingenierie-mecanique-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -196329,8 +196444,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-als-servicemonteur-in-im-maschinenbau-zurich-zurich-fachkraft-ch",
-        "automatiker-in-als-servicemonteur-in-im-maschinenbau-fachkraft-ch-gmbh-zurich",
-        "ingenieur-automatique-en-ingenierie-mecanique-fachkraft-ch-gmbh-zurich-zurich"
+        "automatiker-in-als-servicemonteur-in-im-maschinenbau-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -196340,7 +196454,7 @@
           "automatiker-in-als-servicemonteur-in-im-maschinenbau-fachkraft-ch-gmbh-zurich"
         ],
         "fr": [
-          "ingenieur-automatique-en-ingenierie-mecanique-fachkraft-ch-gmbh-zurich-zurich"
+          "automatiker-in-als-servicemonteur-in-im-maschinenbau-fachkraft-ch-gmbh-zurich"
         ]
       },
       "firstSeenAt": "2026-09-07T23:56:28.451Z",
@@ -197159,7 +197273,7 @@
       "slug": "operatore-trice-automatico-a-elettricista-aziendale-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "operatore-trice-automatico-a-elettricista-aziendale-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "en": "automatiker-in-betriebselektriker-in-fachkraft-ch-gmbh-schaffhausen",
+        "en": "automation-technician-company-electrician-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "de": "automatiker-in-betriebselektriker-in-schaffhausen-schaffhausen-fachkraft-ch",
         "fr": "automaticien-ne-electricien-ne-d-exploitation-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
@@ -197206,8 +197320,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-betriebselektriker-in-schaffhausen-schaffhausen-fachkraft-ch",
-        "automatiker-in-betriebselektriker-in-fachkraft-ch-gmbh-schaffhausen",
-        "automation-technician-company-electrician-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+        "automatiker-in-betriebselektriker-in-fachkraft-ch-gmbh-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -197215,7 +197328,7 @@
           "automatiker-in-betriebselektriker-in-fachkraft-ch-gmbh-schaffhausen"
         ],
         "en": [
-          "automation-technician-company-electrician-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+          "automatiker-in-betriebselektriker-in-fachkraft-ch-gmbh-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-26T15:25:37.542Z",
@@ -197387,7 +197500,7 @@
       "slug": "operatore-automatico-macchina-operativa-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
         "it": "operatore-automatico-macchina-operativa-fachkraft-ch-gmbh-zurich-zurich",
-        "en": "automatiker-in-betriebsmechaniker-in-fachkraft-ch-gmbh-zurich",
+        "en": "automatic-operator-operating-mechanic-fachkraft-ch-gmbh-zurich-zurich",
         "de": "automatiker-in-betriebsmechaniker-in-zurich-zurich-fachkraft-ch",
         "fr": "operateur-automatique-mecanicien-en-service-fachkraft-ch-gmbh-zurich-zurich"
       },
@@ -197434,15 +197547,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-betriebsmechaniker-in-zurich-zurich-fachkraft-ch",
-        "automatiker-in-betriebsmechaniker-in-fachkraft-ch-gmbh-zurich",
-        "automatic-operator-operating-mechanic-fachkraft-ch-gmbh-zurich-zurich"
+        "automatiker-in-betriebsmechaniker-in-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-betriebsmechaniker-in-zurich-zurich-fachkraft-ch"
         ],
         "en": [
-          "automatic-operator-operating-mechanic-fachkraft-ch-gmbh-zurich-zurich"
+          "automatiker-in-betriebsmechaniker-in-fachkraft-ch-gmbh-zurich"
         ],
         "fr": [
           "automatiker-in-betriebsmechaniker-in-fachkraft-ch-gmbh-zurich"
@@ -197628,12 +197740,12 @@
     },
     {
       "id": "fachkraft-f07d9e97c019",
-      "slug": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch",
+      "slug": "operatore-trice-di-impianti-con-esperienza-tecnica-fachkraft-ch-gmbh-zug-zug",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch",
-        "it": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch",
-        "en": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch",
-        "fr": "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch"
+        "it": "operatore-trice-di-impianti-con-esperienza-tecnica-fachkraft-ch-gmbh-zug-zug",
+        "en": "machine-operator-m-f-with-technical-experience-fachkraft-ch-gmbh-zug-zug",
+        "fr": "operateur-trice-de-machines-avec-experience-technique-fachkraft-ch-gmbh-zug-zug"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -197692,13 +197804,27 @@
       },
       "postalCode": "6300",
       "firstSeenAt": "2026-10-16T22:08:29.741Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-mit-technischer-erfahrung-zug-zug-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-0777c2879078",
-      "slug": "automatiker-in-per-festanstellung-fachkraft-ch-gmbh-sursee",
+      "slug": "automatista-per-un-assunzione-a-tempo-indeterminato-fachkraft-ch-gmbh-sursee-luzern",
       "slugByLocale": {
-        "it": "automatiker-in-per-festanstellung-fachkraft-ch-gmbh-sursee",
+        "it": "automatista-per-un-assunzione-a-tempo-indeterminato-fachkraft-ch-gmbh-sursee-luzern",
         "en": "automation-technician-for-permanent-employment-fachkraft-ch-gmbh-sursee",
         "de": "automatiker-in-fur-festanstellung-fachkraft-ch-gmbh-sursee",
         "fr": "automaticien-ne-pour-un-emploi-fixe-fachkraft-ch-gmbh-sursee"
@@ -197749,7 +197875,8 @@
           "automatiker-in-fur-festanstellung-sursee-luzern-fachkraft-ch"
         ],
         "it": [
-          "automatiker-in-fur-festanstellung-sursee-luzern-fachkraft-ch"
+          "automatiker-in-fur-festanstellung-sursee-luzern-fachkraft-ch",
+          "automatiker-in-per-festanstellung-fachkraft-ch-gmbh-sursee"
         ],
         "en": [
           "automatiker-in-fur-festanstellung-sursee-luzern-fachkraft-ch"
@@ -197759,7 +197886,8 @@
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-festanstellung-sursee-luzern-fachkraft-ch"
+        "automatiker-in-fur-festanstellung-sursee-luzern-fachkraft-ch",
+        "automatiker-in-per-festanstellung-fachkraft-ch-gmbh-sursee"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.514Z",
       "salaryMin": 69500,
@@ -202143,12 +202271,12 @@
     },
     {
       "id": "fachkraft-229b28800867",
-      "slug": "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-fachkraft-ch-gmbh-bulach",
+      "slug": "costruttore-trice-di-impianti-e-apparecchiature-per-lavori-di-saldatura-e-montaggio-fachkraft-ch-gmbh-bulach-zurich",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-fachkraft-ch-gmbh-bulach",
-        "it": "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-fachkraft-ch-gmbh-bulach",
-        "en": "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-fachkraft-ch-gmbh-bulach",
-        "fr": "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-fachkraft-ch-gmbh-bulach"
+        "it": "costruttore-trice-di-impianti-e-apparecchiature-per-lavori-di-saldatura-e-montaggio-fachkraft-ch-gmbh-bulach-zurich",
+        "en": "plant-and-apparatus-fabricator-m-f-for-welding-and-assembly-work-fachkraft-ch-gmbh-bulach-zurich",
+        "fr": "constructeur-trice-d-installations-et-d-appareils-pour-des-travaux-de-soudage-et-de-montage-fachkraft-ch-gmbh-bulach"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -202195,14 +202323,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-fachkraft-ch"
+          "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-fachkraft-ch",
+          "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-fachkraft-ch-gmbh-bulach"
         ],
         "de": [
           "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-fachkraft-ch-gmbh-bulach"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-fachkraft-ch-gmbh-bulach"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-fachkraft-ch"
+        "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-bulach-zurich-fachkraft-ch",
+        "anlagen-e-apparatebauer-in-per-schweiss-e-montagearbeiten-fachkraft-ch-gmbh-bulach",
+        "anlagen-und-apparatebauer-in-fur-schweiss-und-montagearbeiten-fachkraft-ch-gmbh-bulach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -202219,7 +202356,7 @@
       },
       "postalCode": "8180",
       "firstSeenAt": "2026-10-16T22:08:29.731Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-591610979a31",
@@ -203105,9 +203242,9 @@
     },
     {
       "id": "fachkraft-56746d7fec23",
-      "slug": "anlagen-e-apparatebauer-in-per-industrielle-anlagen-fachkraft-ch-gmbh-wil-sg",
+      "slug": "costruttore-costruttrice-di-impianti-e-apparecchi-per-impianti-industriali-fachkraft-ch-gmbh-wil-sg-st-gallen",
       "slugByLocale": {
-        "it": "anlagen-e-apparatebauer-in-per-industrielle-anlagen-fachkraft-ch-gmbh-wil-sg",
+        "it": "costruttore-costruttrice-di-impianti-e-apparecchi-per-impianti-industriali-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "en": "plant-and-apparatus-builder-for-industrial-systems-fachkraft-ch-gmbh-wil-sg",
         "de": "anlagen-und-apparatebauer-in-fur-industrielle-anlagen-fachkraft-ch-gmbh-wil-sg",
         "fr": "constructeur-trice-d-installations-et-d-appareils-pour-installations-industrielles-fachkraft-ch-gmbh-wil-sg"
@@ -203158,7 +203295,8 @@
           "anlagen-und-apparatebauer-in-fur-industrielle-anlagen-wil-sg-st-gallen-fachkraft-ch"
         ],
         "it": [
-          "anlagen-und-apparatebauer-in-fur-industrielle-anlagen-wil-sg-st-gallen-fachkraft-ch"
+          "anlagen-und-apparatebauer-in-fur-industrielle-anlagen-wil-sg-st-gallen-fachkraft-ch",
+          "anlagen-e-apparatebauer-in-per-industrielle-anlagen-fachkraft-ch-gmbh-wil-sg"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-fur-industrielle-anlagen-wil-sg-st-gallen-fachkraft-ch"
@@ -203168,7 +203306,8 @@
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-industrielle-anlagen-wil-sg-st-gallen-fachkraft-ch"
+        "anlagen-und-apparatebauer-in-fur-industrielle-anlagen-wil-sg-st-gallen-fachkraft-ch",
+        "anlagen-e-apparatebauer-in-per-industrielle-anlagen-fachkraft-ch-gmbh-wil-sg"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.501Z",
       "salaryMin": 57500,
@@ -209534,12 +209673,12 @@
     },
     {
       "id": "fachkraft-d457b09133e6",
-      "slug": "maler-in-per-neu-e-umbauten-fachkraft-ch-gmbh-luzern",
+      "slug": "imbianchino-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
-        "it": "maler-in-per-neu-e-umbauten-fachkraft-ch-gmbh-luzern",
-        "en": "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch",
+        "it": "imbianchino-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "painter-for-new-builds-and-renovations-fachkraft-ch-gmbh-luzern-luzern",
         "de": "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch",
-        "fr": "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch"
+        "fr": "peintre-pour-constructions-neuves-et-renovations-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -209582,25 +209721,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "imbianchino-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-luzern-luzern",
-        "painter-for-new-builds-and-renovations-fachkraft-ch-gmbh-luzern-luzern",
         "peintre-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-luzern-luzern",
         "painter-for-new-buildings-and-conversions-fachkraft-ch-gmbh-luzern-luzern",
         "peintre-pour-de-nouveaux-batiments-et-transformations-fachkraft-ch-gmbh-luzern-luzern",
-        "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch"
+        "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch",
+        "maler-in-per-neu-e-umbauten-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "imbianchino-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-luzern-luzern",
-          "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch"
+          "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch",
+          "maler-in-per-neu-e-umbauten-fachkraft-ch-gmbh-luzern"
         ],
         "en": [
-          "painter-for-new-builds-and-renovations-fachkraft-ch-gmbh-luzern-luzern",
-          "painter-for-new-buildings-and-conversions-fachkraft-ch-gmbh-luzern-luzern"
+          "painter-for-new-buildings-and-conversions-fachkraft-ch-gmbh-luzern-luzern",
+          "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch"
         ],
         "fr": [
           "peintre-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-luzern-luzern",
-          "peintre-pour-de-nouveaux-batiments-et-transformations-fachkraft-ch-gmbh-luzern-luzern"
+          "peintre-pour-de-nouveaux-batiments-et-transformations-fachkraft-ch-gmbh-luzern-luzern",
+          "maler-in-fur-neu-und-umbauten-luzern-luzern-fachkraft-ch"
         ]
       },
       "salaryMin": 69500,
@@ -209777,7 +209916,7 @@
       "slug": "lavoratori-per-il-montaggio-di-recinzioni-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "it": "lavoratori-per-il-montaggio-di-recinzioni-fachkraft-ch-gmbh-luzern-luzern",
-        "en": "metalworker-auxiliary-worker-for-the-installation-of-fence-systems-fachkraft-ch-gmbh-luzern",
+        "en": "metalworkers-for-the-assembly-of-fences-fachkraft-ch-gmbh-luzern-luzern",
         "de": "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-luzern-luzern-fachkraft-ch",
         "fr": "metaux-pour-l-assemblage-de-clotures-fachkraft-ch-gmbh-luzern-luzern"
       },
@@ -209825,7 +209964,7 @@
       "previousSlugs": [
         "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-luzern-luzern-fachkraft-ch",
         "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-fachkraft-ch-gmbh-luzern",
-        "metalworkers-for-the-assembly-of-fences-fachkraft-ch-gmbh-luzern-luzern"
+        "metalworker-auxiliary-worker-for-the-installation-of-fence-systems-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -209833,7 +209972,7 @@
         ],
         "en": [
           "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-fachkraft-ch-gmbh-luzern",
-          "metalworkers-for-the-assembly-of-fences-fachkraft-ch-gmbh-luzern-luzern"
+          "metalworker-auxiliary-worker-for-the-installation-of-fence-systems-fachkraft-ch-gmbh-luzern"
         ],
         "fr": [
           "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-fachkraft-ch-gmbh-luzern"
@@ -210999,9 +211138,9 @@
     },
     {
       "id": "fachkraft-f737908e1a03",
-      "slug": "zimmermann-zimmerin-per-innenausbau-fachkraft-ch-gmbh-willisau",
+      "slug": "carpentiere-carpentiera-per-la-costruzione-d-interni-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-per-innenausbau-fachkraft-ch-gmbh-willisau",
+        "it": "carpentiere-carpentiera-per-la-costruzione-d-interni-fachkraft-ch-gmbh-willisau-luzern",
         "en": "carpenter-for-interior-construction-fachkraft-ch-gmbh-willisau",
         "de": "zimmermann-zimmerin-fur-innenausbau-willisau-luzern-fachkraft-ch",
         "fr": "charpentier-charpentiere-pour-l-amenagement-interieur-fachkraft-ch-gmbh-willisau"
@@ -211050,11 +211189,13 @@
       "previousSlugs": [
         "carpenter-for-interior-design-fachkraft-ch-gmbh-willisau-luzern",
         "charpentier-charpentiere-d-amenagement-interieur-fachkraft-ch-gmbh-willisau-luzern",
-        "zimmermann-zimmerin-fur-innenausbau-willisau-luzern-fachkraft-ch"
+        "zimmermann-zimmerin-fur-innenausbau-willisau-luzern-fachkraft-ch",
+        "zimmermann-zimmerin-per-innenausbau-fachkraft-ch-gmbh-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-innenausbau-willisau-luzern-fachkraft-ch"
+          "zimmermann-zimmerin-fur-innenausbau-willisau-luzern-fachkraft-ch",
+          "zimmermann-zimmerin-per-innenausbau-fachkraft-ch-gmbh-willisau"
         ],
         "en": [
           "carpenter-for-interior-design-fachkraft-ch-gmbh-willisau-luzern",
@@ -215801,9 +215942,9 @@
     },
     {
       "id": "fachkraft-67ba35e7d8fb",
-      "slug": "sanitarinstallateur-in-temporar-fachkraft-ch-gmbh-egerkingen",
+      "slug": "installatore-trice-di-sanitari-temporaneo-a-fachkraft-ch-gmbh-egerkingen-solothurn",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-temporar-fachkraft-ch-gmbh-egerkingen",
+        "it": "installatore-trice-di-sanitari-temporaneo-a-fachkraft-ch-gmbh-egerkingen-solothurn",
         "en": "temporary-plumber-fachkraft-ch-gmbh-egerkingen",
         "de": "sanitarinstallateur-in-temporar-egerkingen-solothurn-fachkraft-ch",
         "fr": "installateur-sanitaire-temporaire-fachkraft-ch-gmbh-egerkingen"
@@ -215851,12 +215992,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarinstallateur-in-temporar-egerkingen-solothurn-fachkraft-ch",
-        "installatore-trice-di-sanitari-temporaneo-a-fachkraft-ch-gmbh-egerkingen-solothurn"
+        "sanitarinstallateur-in-temporar-fachkraft-ch-gmbh-egerkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-temporar-egerkingen-solothurn-fachkraft-ch",
-          "installatore-trice-di-sanitari-temporaneo-a-fachkraft-ch-gmbh-egerkingen-solothurn"
+          "sanitarinstallateur-in-temporar-fachkraft-ch-gmbh-egerkingen"
         ]
       },
       "firstSeenAt": "2026-09-29T10:54:31.937Z",
@@ -222180,7 +222321,7 @@
         "it": "installatore-trice-elettrico-a-in-per-wohn-gewerbe-e-industrieinstallationen-fachkraft-ch-gmbh-lenzburg",
         "en": "residential-commercial-and-industrial-electrical-installers-fachkraft-ch-gmbh-lenzburg-aargau",
         "de": "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau",
-        "fr": "electricien-pour-les-installations-residentielles-commerciales-et-industrielles-fachkraft-ch-gmbh-lenzburg"
+        "fr": "installateurs-electriques-residentiels-commerciaux-et-industriels-fachkraft-ch-gmbh-lenzburg-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -222226,7 +222367,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau",
         "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-fachkraft-ch-gmbh-lenzburg",
-        "installateurs-electriques-residentiels-commerciaux-et-industriels-fachkraft-ch-gmbh-lenzburg-aargau"
+        "electricien-pour-les-installations-residentielles-commerciales-et-industrielles-fachkraft-ch-gmbh-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -222234,7 +222375,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-fachkraft-ch-gmbh-lenzburg",
-          "installateurs-electriques-residentiels-commerciaux-et-industriels-fachkraft-ch-gmbh-lenzburg-aargau"
+          "electricien-pour-les-installations-residentielles-commerciales-et-industrielles-fachkraft-ch-gmbh-lenzburg"
         ]
       },
       "firstSeenAt": "2026-09-08T23:50:31.523Z",
@@ -230004,7 +230145,7 @@
       "slug": "operaio-dei-metalli-vari-lavori-in-officina-allrounder-fachkraft-ch-gmbh-kreuzlingen",
       "slugByLocale": {
         "it": "operaio-dei-metalli-vari-lavori-in-officina-allrounder-fachkraft-ch-gmbh-kreuzlingen",
-        "en": "metallbauer-in-diverse-werkstattarbeiten-allrounder-fachkraft-ch-gmbh-kreuzlingen",
+        "en": "metalworker-various-workshop-work-all-rounder-fachkraft-ch-gmbh-kreuzlingen-thurgau",
         "de": "metallbauer-in-diverse-werkstattarbeiten-allrounder-kreuzlingen-thurgau-fachkraft-ch",
         "fr": "metallurgiste-divers-ateliers-allrounder-fachkraft-ch-gmbh-kreuzlingen"
       },
@@ -230051,8 +230192,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "metallbauer-in-diverse-werkstattarbeiten-allrounder-kreuzlingen-thurgau-fachkraft-ch",
-        "metallbauer-in-diverse-werkstattarbeiten-allrounder-fachkraft-ch-gmbh-kreuzlingen",
-        "metalworker-various-workshop-work-all-rounder-fachkraft-ch-gmbh-kreuzlingen-thurgau"
+        "metallbauer-in-diverse-werkstattarbeiten-allrounder-fachkraft-ch-gmbh-kreuzlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -230060,7 +230200,7 @@
           "metallbauer-in-diverse-werkstattarbeiten-allrounder-fachkraft-ch-gmbh-kreuzlingen"
         ],
         "en": [
-          "metalworker-various-workshop-work-all-rounder-fachkraft-ch-gmbh-kreuzlingen-thurgau"
+          "metallbauer-in-diverse-werkstattarbeiten-allrounder-fachkraft-ch-gmbh-kreuzlingen"
         ],
         "fr": [
           "metallbauer-in-diverse-werkstattarbeiten-allrounder-fachkraft-ch-gmbh-kreuzlingen"
@@ -247581,7 +247721,7 @@
       "slug": "gessatore-gessatrice-tuttofare-in-piccola-azienda-fachkraft-ch-gmbh-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "gessatore-gessatrice-tuttofare-in-piccola-azienda-fachkraft-ch-gmbh-st-gallen-st-gallen",
-        "en": "gipser-in-allrounder-in-kleinbetrieb-fachkraft-ch-gmbh-st-gallen",
+        "en": "plasterer-all-rounder-in-a-small-business-fachkraft-ch-gmbh-st-gallen-st-gallen",
         "de": "gipser-in-allrounder-in-kleinbetrieb-st-gallen-st-gallen-fachkraft-ch",
         "fr": "platrier-platriere-polyvalente-en-petite-entreprise-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
@@ -247628,7 +247768,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-in-allrounder-in-kleinbetrieb-st-gallen-st-gallen-fachkraft-ch",
-        "plasterer-all-rounder-in-a-small-business-fachkraft-ch-gmbh-st-gallen-st-gallen"
+        "gipser-in-allrounder-in-kleinbetrieb-fachkraft-ch-gmbh-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -247636,7 +247776,7 @@
         ],
         "en": [
           "gipser-in-allrounder-in-kleinbetrieb-st-gallen-st-gallen-fachkraft-ch",
-          "plasterer-all-rounder-in-a-small-business-fachkraft-ch-gmbh-st-gallen-st-gallen"
+          "gipser-in-allrounder-in-kleinbetrieb-fachkraft-ch-gmbh-st-gallen"
         ],
         "fr": [
           "gipser-in-allrounder-in-kleinbetrieb-st-gallen-st-gallen-fachkraft-ch"
@@ -269876,7 +270016,7 @@
       "id": "fachkraft-2b31bc63d7b4",
       "slug": "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-fachkraft-ch-gmbh-luzern",
       "slugByLocale": {
-        "it": "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-fachkraft-ch-gmbh-luzern",
+        "it": "elettricista-di-montaggio-con-esperienza-in-installazioni-industriali-fachkraft-ch-gmbh-luzern-luzern",
         "en": "assembly-electrician-with-experience-in-industrial-installations-fachkraft-ch-gmbh-luzern-luzern",
         "de": "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-fachkraft-ch",
         "fr": "electricien-ne-de-montage-ayant-de-l-experience-dans-les-installations-industrielles-fachkraft-ch-gmbh-luzern-luzern"
@@ -269923,13 +270063,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-fachkraft-ch",
-        "elettricista-di-montaggio-con-esperienza-in-installazioni-industriali-fachkraft-ch-gmbh-luzern-luzern"
+        "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-fachkraft-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-fachkraft-ch",
-          "elettricista-di-montaggio-con-esperienza-in-installazioni-industriali-fachkraft-ch-gmbh-luzern-luzern"
+          "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-fachkraft-ch"
         ],
         "en": [
           "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-fachkraft-ch"
@@ -270274,7 +270412,7 @@
       "slug": "elettricista-di-assemblaggio-con-prospettive-di-sviluppo-fachkraft-ch-gmbh-dietikon",
       "slugByLocale": {
         "it": "elettricista-di-assemblaggio-con-prospettive-di-sviluppo-fachkraft-ch-gmbh-dietikon",
-        "en": "montage-elektriker-in-mit-entwicklungsperspektiven-fachkraft-ch-gmbh-dietikon",
+        "en": "assembly-electrician-with-development-prospects-fachkraft-ch-gmbh-dietikon-zurich",
         "de": "montage-elektriker-in-mit-entwicklungsperspektiven-dietikon-zurich-fachkraft-ch",
         "fr": "electricien-ne-de-montage-avec-perspectives-de-developpement-fachkraft-ch-gmbh-dietikon"
       },
@@ -270321,8 +270459,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "montage-elektriker-in-mit-entwicklungsperspektiven-dietikon-zurich-fachkraft-ch",
-        "montage-elektriker-in-mit-entwicklungsperspektiven-fachkraft-ch-gmbh-dietikon",
-        "assembly-electrician-with-development-prospects-fachkraft-ch-gmbh-dietikon-zurich"
+        "montage-elektriker-in-mit-entwicklungsperspektiven-fachkraft-ch-gmbh-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -270330,7 +270467,7 @@
           "montage-elektriker-in-mit-entwicklungsperspektiven-fachkraft-ch-gmbh-dietikon"
         ],
         "en": [
-          "assembly-electrician-with-development-prospects-fachkraft-ch-gmbh-dietikon-zurich"
+          "montage-elektriker-in-mit-entwicklungsperspektiven-fachkraft-ch-gmbh-dietikon"
         ],
         "fr": [
           "montage-elektriker-in-mit-entwicklungsperspektiven-fachkraft-ch-gmbh-dietikon"
@@ -274709,7 +274846,7 @@
         "it": "pittore-con-ambiziosi-progetti-di-ristrutturazione-fachkraft-ch-gmbh-luzern-luzern",
         "en": "painter-with-challenging-renovation-projects-fachkraft-ch-gmbh-luzern-luzern",
         "de": "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-fachkraft-ch",
-        "fr": "maler-in-mit-anspruchsvollen-renovationsprojekten-fachkraft-ch-gmbh-luzern"
+        "fr": "peintre-peintre-avec-des-projets-de-renovation-exigeants-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -274754,7 +274891,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-fachkraft-ch",
-        "peintre-peintre-avec-des-projets-de-renovation-exigeants-fachkraft-ch-gmbh-luzern-luzern"
+        "maler-in-mit-anspruchsvollen-renovationsprojekten-fachkraft-ch-gmbh-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -274765,7 +274902,7 @@
         ],
         "fr": [
           "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-fachkraft-ch",
-          "peintre-peintre-avec-des-projets-de-renovation-exigeants-fachkraft-ch-gmbh-luzern-luzern"
+          "maler-in-mit-anspruchsvollen-renovationsprojekten-fachkraft-ch-gmbh-luzern"
         ]
       },
       "firstSeenAt": "2026-10-06T10:16:48.940Z",
@@ -275030,12 +275167,12 @@
     },
     {
       "id": "fachkraft-64ffad4a2965",
-      "slug": "maler-in-per-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf",
+      "slug": "pittore-trice-per-progetti-di-ristrutturazione-fachkraft-ch-gmbh-dielsdorf-zurich",
       "slugByLocale": {
         "de": "maler-in-fur-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf",
-        "it": "maler-in-per-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf",
-        "en": "maler-in-fur-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf",
-        "fr": "maler-in-fur-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf"
+        "it": "pittore-trice-per-progetti-di-ristrutturazione-fachkraft-ch-gmbh-dielsdorf-zurich",
+        "en": "painter-for-renovation-projects-fachkraft-ch-gmbh-dielsdorf-zurich",
+        "fr": "peintre-pour-projets-de-renovation-fachkraft-ch-gmbh-dielsdorf-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -275081,14 +275218,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-renovationsprojekte-dielsdorf-zurich-fachkraft-ch"
+          "maler-in-fur-renovationsprojekte-dielsdorf-zurich-fachkraft-ch",
+          "maler-in-per-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf"
         ],
         "de": [
           "maler-in-fur-renovationsprojekte-dielsdorf-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "maler-in-fur-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf"
+        ],
+        "fr": [
+          "maler-in-fur-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-renovationsprojekte-dielsdorf-zurich-fachkraft-ch"
+        "maler-in-fur-renovationsprojekte-dielsdorf-zurich-fachkraft-ch",
+        "maler-in-per-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf",
+        "maler-in-fur-renovationsprojekte-fachkraft-ch-gmbh-dielsdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -275105,7 +275251,7 @@
       },
       "postalCode": "8157",
       "firstSeenAt": "2026-10-03T10:07:24.293Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-5f69ad71e9ca",
@@ -277710,12 +277856,12 @@
     },
     {
       "id": "fachkraft-c10b38a978ca",
-      "slug": "maler-in-per-betonfassaden-con-hydrophobierung-fachkraft-ch-gmbh-luzern",
+      "slug": "pittore-trice-per-facciate-in-calcestruzzo-con-idrofobizzazione-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch",
-        "it": "maler-in-per-betonfassaden-con-hydrophobierung-fachkraft-ch-gmbh-luzern",
-        "en": "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch",
-        "fr": "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch"
+        "it": "pittore-trice-per-facciate-in-calcestruzzo-con-idrofobizzazione-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "painter-for-concrete-facades-with-hydrophobic-treatment-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "peintre-pour-des-facades-en-beton-avec-hydrophobisation-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -277762,11 +277908,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch",
+          "maler-in-per-betonfassaden-con-hydrophobierung-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch"
+        "maler-in-fur-betonfassaden-mit-hydrophobierung-luzern-luzern-fachkraft-ch",
+        "maler-in-per-betonfassaden-con-hydrophobierung-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -277783,16 +277937,16 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-16T22:08:29.589Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-8bd0f8a1ef31",
-      "slug": "maler-in-per-betonkosmetik-fachkraft-ch-gmbh-luzern",
+      "slug": "pittore-trice-per-la-cosmetica-del-calcestruzzo-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch",
-        "it": "maler-in-per-betonkosmetik-fachkraft-ch-gmbh-luzern",
-        "en": "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch",
-        "fr": "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch"
+        "it": "pittore-trice-per-la-cosmetica-del-calcestruzzo-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "painter-for-concrete-finishing-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "peintre-pour-la-cosmetique-du-beton-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -277839,11 +277993,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch",
+          "maler-in-per-betonkosmetik-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch"
+        "maler-in-fur-betonkosmetik-luzern-luzern-fachkraft-ch",
+        "maler-in-per-betonkosmetik-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -277860,7 +278022,7 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-16T22:08:29.589Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-b6774c634d1b",
@@ -278372,9 +278534,9 @@
     },
     {
       "id": "fachkraft-6ad399305fd1",
-      "slug": "maler-in-hilfsarbeiter-in-per-vielseitige-malerarbeiten-fachkraft-ch-gmbh-bremgarten",
+      "slug": "imbianchino-a-operaio-a-ausiliario-a-per-svariati-lavori-di-pittura-fachkraft-ch-gmbh-bremgarten-aargau",
       "slugByLocale": {
-        "it": "maler-in-hilfsarbeiter-in-per-vielseitige-malerarbeiten-fachkraft-ch-gmbh-bremgarten",
+        "it": "imbianchino-a-operaio-a-ausiliario-a-per-svariati-lavori-di-pittura-fachkraft-ch-gmbh-bremgarten-aargau",
         "en": "painter-helper-for-a-variety-of-painting-work-fachkraft-ch-gmbh-bremgarten",
         "de": "maler-in-hilfsarbeiter-in-fur-vielseitige-malerarbeiten-fachkraft-ch-gmbh-bremgarten",
         "fr": "peintre-ouvrier-ere-auxiliaire-pour-des-travaux-de-peinture-varies-fachkraft-ch-gmbh-bremgarten"
@@ -278424,7 +278586,8 @@
           "maler-in-hilfsarbeiter-in-fur-vielseitige-malerarbeiten-bremgarten-aargau-fachkraft-ch"
         ],
         "it": [
-          "maler-in-hilfsarbeiter-in-fur-vielseitige-malerarbeiten-bremgarten-aargau-fachkraft-ch"
+          "maler-in-hilfsarbeiter-in-fur-vielseitige-malerarbeiten-bremgarten-aargau-fachkraft-ch",
+          "maler-in-hilfsarbeiter-in-per-vielseitige-malerarbeiten-fachkraft-ch-gmbh-bremgarten"
         ],
         "en": [
           "maler-in-hilfsarbeiter-in-fur-vielseitige-malerarbeiten-bremgarten-aargau-fachkraft-ch"
@@ -278434,7 +278597,8 @@
         ]
       },
       "previousSlugs": [
-        "maler-in-hilfsarbeiter-in-fur-vielseitige-malerarbeiten-bremgarten-aargau-fachkraft-ch"
+        "maler-in-hilfsarbeiter-in-fur-vielseitige-malerarbeiten-bremgarten-aargau-fachkraft-ch",
+        "maler-in-hilfsarbeiter-in-per-vielseitige-malerarbeiten-fachkraft-ch-gmbh-bremgarten"
       ],
       "firstSeenAt": "2026-10-16T10:18:21.358Z",
       "salaryMin": 62000,
@@ -281293,9 +281457,9 @@
       "slug": "plaster-per-isolamento-facciale-e-parete-a-secco-fachkraft-ch-gmbh-frauenfeld-thurgau",
       "slugByLocale": {
         "it": "plaster-per-isolamento-facciale-e-parete-a-secco-fachkraft-ch-gmbh-frauenfeld-thurgau",
-        "en": "plasterer-for-facade-insulation-and-drywall-fachkraft-ch-gmbh-frauenfeld",
+        "en": "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-frauenfeld",
         "de": "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-fachkraft-ch",
-        "fr": "platrier-platriere-pour-l-isolation-des-facades-et-les-cloisons-seches-fachkraft-ch-gmbh-frauenfeld"
+        "fr": "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-frauenfeld"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -281341,7 +281505,8 @@
       "previousSlugs": [
         "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-fachkraft-ch",
         "gipser-in-per-fassadenisolation-e-trockenbau-fachkraft-ch-gmbh-frauenfeld",
-        "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-frauenfeld"
+        "plasterer-for-facade-insulation-and-drywall-fachkraft-ch-gmbh-frauenfeld",
+        "platrier-platriere-pour-l-isolation-des-facades-et-les-cloisons-seches-fachkraft-ch-gmbh-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -281349,10 +281514,10 @@
           "gipser-in-per-fassadenisolation-e-trockenbau-fachkraft-ch-gmbh-frauenfeld"
         ],
         "en": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-frauenfeld"
+          "plasterer-for-facade-insulation-and-drywall-fachkraft-ch-gmbh-frauenfeld"
         ],
         "fr": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-frauenfeld"
+          "platrier-platriere-pour-l-isolation-des-facades-et-les-cloisons-seches-fachkraft-ch-gmbh-frauenfeld"
         ]
       },
       "needsRetranslation": true,
@@ -281624,12 +281789,12 @@
     },
     {
       "id": "fachkraft-a3fabdf2570a",
-      "slug": "gipser-in-per-fassadenisolation-e-trockenbau-fachkraft-ch-gmbh-dietikon",
+      "slug": "intonacatore-trice-per-isolamento-delle-facciate-e-costruzione-a-secco-fachkraft-ch-gmbh-dietikon-zurich",
       "slugByLocale": {
         "de": "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-dietikon",
-        "it": "gipser-in-per-fassadenisolation-e-trockenbau-fachkraft-ch-gmbh-dietikon",
-        "en": "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-dietikon",
-        "fr": "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-dietikon"
+        "it": "intonacatore-trice-per-isolamento-delle-facciate-e-costruzione-a-secco-fachkraft-ch-gmbh-dietikon-zurich",
+        "en": "plasterer-for-facade-insulation-and-drywall-construction-fachkraft-ch-gmbh-dietikon-zurich",
+        "fr": "platrier-ere-pour-l-isolation-de-facades-et-la-construction-seche-fachkraft-ch-gmbh-dietikon-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -281675,14 +281840,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-fachkraft-ch"
+          "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-fachkraft-ch",
+          "gipser-in-per-fassadenisolation-e-trockenbau-fachkraft-ch-gmbh-dietikon"
         ],
         "de": [
           "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-dietikon"
+        ],
+        "fr": [
+          "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-dietikon"
         ]
       },
       "previousSlugs": [
-        "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-fachkraft-ch"
+        "gipser-in-fur-fassadenisolation-und-trockenbau-dietikon-zurich-fachkraft-ch",
+        "gipser-in-per-fassadenisolation-e-trockenbau-fachkraft-ch-gmbh-dietikon",
+        "gipser-in-fur-fassadenisolation-und-trockenbau-fachkraft-ch-gmbh-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -281699,7 +281873,7 @@
       },
       "postalCode": "8953",
       "firstSeenAt": "2026-10-16T22:08:29.582Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-b6d6f7d21428",
@@ -282908,8 +283082,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-fachkraft-ch-gmbh-baden",
         "it": "installatore-trice-elettrico-a-in-con-service-e-unterhaltsaufgaben-fachkraft-ch-gmbh-baden",
-        "en": "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-fachkraft-ch-gmbh-baden",
-        "fr": "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-fachkraft-ch-gmbh-baden"
+        "en": "electrician-with-service-and-maintenance-duties-fachkraft-ch-gmbh-baden-aargau",
+        "fr": "installateur-trice-electricien-ne-avec-des-taches-de-service-et-d-entretien-fachkraft-ch-gmbh-baden-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -282960,10 +283134,17 @@
         ],
         "de": [
           "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-fachkraft-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-fachkraft-ch-gmbh-baden"
+        ],
+        "fr": [
+          "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-fachkraft-ch-gmbh-baden"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-fachkraft-ch"
+        "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-fachkraft-ch",
+        "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-fachkraft-ch-gmbh-baden"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -283549,12 +283730,12 @@
     },
     {
       "id": "fachkraft-4a4a74f8e9e2",
-      "slug": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach",
+      "slug": "elettricista-per-installazioni-di-corrente-forte-e-debole-fachkraft-ch-gmbh-zurzach-aargau",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach",
-        "it": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach",
-        "en": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach",
-        "fr": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach"
+        "it": "elettricista-per-installazioni-di-corrente-forte-e-debole-fachkraft-ch-gmbh-zurzach-aargau",
+        "en": "electrical-installer-for-high-and-low-voltage-installations-fachkraft-ch-gmbh-zurzach-aargau",
+        "fr": "installateur-trice-electricien-ne-pour-des-installations-a-courant-fort-et-a-courant-faible-fachkraft-ch-gmbh-zurzach"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -283600,14 +283781,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau-fachkraft"
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau-fachkraft",
+          "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach"
         ],
         "de": [
           "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau-fachkraft"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau-fachkraft"
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-zurzach-aargau-fachkraft",
+        "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach",
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-zurzach"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -284039,12 +284229,12 @@
     },
     {
       "id": "fachkraft-41ba4ba7dc53",
-      "slug": "installatore-trice-elettrico-a-in-per-revisionsarbeiten-fachkraft-ch-gmbh-zurzach",
+      "slug": "elettricista-per-lavori-di-revisione-fachkraft-ch-gmbh-zurzach-aargau",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-revisionsarbeiten-fachkraft-ch-gmbh-zurzach",
-        "it": "installatore-trice-elettrico-a-in-per-revisionsarbeiten-fachkraft-ch-gmbh-zurzach",
-        "en": "elektroinstallateur-in-fur-revisionsarbeiten-fachkraft-ch-gmbh-zurzach",
-        "fr": "elektroinstallateur-in-fur-revisionsarbeiten-fachkraft-ch-gmbh-zurzach"
+        "it": "elettricista-per-lavori-di-revisione-fachkraft-ch-gmbh-zurzach-aargau",
+        "en": "electrical-installer-for-maintenance-work-fachkraft-ch-gmbh-zurzach-aargau",
+        "fr": "installateur-trice-electricien-ne-pour-des-travaux-de-revision-fachkraft-ch-gmbh-zurzach-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -284090,14 +284280,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-fachkraft-ch"
+          "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-fachkraft-ch",
+          "installatore-trice-elettrico-a-in-per-revisionsarbeiten-fachkraft-ch-gmbh-zurzach"
         ],
         "de": [
           "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-fachkraft-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-revisionsarbeiten-fachkraft-ch-gmbh-zurzach"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-revisionsarbeiten-fachkraft-ch-gmbh-zurzach"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-fachkraft-ch"
+        "elektroinstallateur-in-fur-revisionsarbeiten-zurzach-aargau-fachkraft-ch",
+        "installatore-trice-elettrico-a-in-per-revisionsarbeiten-fachkraft-ch-gmbh-zurzach",
+        "elektroinstallateur-in-fur-revisionsarbeiten-fachkraft-ch-gmbh-zurzach"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -287601,12 +287800,12 @@
     },
     {
       "id": "fachkraft-9dbd6fd202fc",
-      "slug": "montage-elektriker-in-per-service-e-storungsbehebung-fachkraft-ch-gmbh-luzern",
+      "slug": "elettricista-di-montaggio-per-assistenza-e-risoluzione-dei-guasti-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch",
-        "it": "montage-elektriker-in-per-service-e-storungsbehebung-fachkraft-ch-gmbh-luzern",
-        "en": "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch",
-        "fr": "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch"
+        "it": "elettricista-di-montaggio-per-assistenza-e-risoluzione-dei-guasti-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "installation-electrician-for-service-and-troubleshooting-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "electricien-ne-de-montage-pour-le-service-et-le-depannage-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -287652,11 +287851,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch",
+          "montage-elektriker-in-per-service-e-storungsbehebung-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch"
+        "montage-elektriker-in-fur-service-und-storungsbehebung-luzern-luzern-fachkraft-ch",
+        "montage-elektriker-in-per-service-e-storungsbehebung-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -287673,16 +287880,16 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-16T22:08:29.570Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-03bc55d38997",
-      "slug": "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-willisau",
+      "slug": "pittore-trice-per-facciate-e-ristrutturazioni-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-fassaden-und-renovationen-fachkraft-ch-gmbh-willisau",
-        "it": "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-willisau",
-        "en": "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch",
-        "fr": "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch"
+        "it": "pittore-trice-per-facciate-e-ristrutturazioni-fachkraft-ch-gmbh-willisau-luzern",
+        "en": "painter-for-facades-and-renovations-fachkraft-ch-gmbh-willisau-luzern",
+        "fr": "peintre-en-facades-et-renovations-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -287729,14 +287936,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch"
+          "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch",
+          "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-willisau"
         ],
         "de": [
+          "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch"
+        "maler-in-fur-fassaden-und-renovationen-willisau-luzern-fachkraft-ch",
+        "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -287753,16 +287968,16 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-09-29T22:24:17.661Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-776da0c01f22",
-      "slug": "maler-in-per-fassadengestaltung-fachkraft-ch-gmbh-willisau",
+      "slug": "pittore-trice-per-la-decorazione-delle-facciate-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-fassadengestaltung-fachkraft-ch-gmbh-willisau",
-        "it": "maler-in-per-fassadengestaltung-fachkraft-ch-gmbh-willisau",
-        "en": "maler-in-fur-fassadengestaltung-fachkraft-ch-gmbh-willisau",
-        "fr": "maler-in-fur-fassadengestaltung-fachkraft-ch-gmbh-willisau"
+        "it": "pittore-trice-per-la-decorazione-delle-facciate-fachkraft-ch-gmbh-willisau-luzern",
+        "en": "painter-for-facade-design-fachkraft-ch-gmbh-willisau-luzern",
+        "fr": "peintre-pour-la-conception-de-facades-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -287809,14 +288024,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-fassadengestaltung-willisau-luzern-fachkraft-ch"
+          "maler-in-fur-fassadengestaltung-willisau-luzern-fachkraft-ch",
+          "maler-in-per-fassadengestaltung-fachkraft-ch-gmbh-willisau"
         ],
         "de": [
           "maler-in-fur-fassadengestaltung-willisau-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "maler-in-fur-fassadengestaltung-fachkraft-ch-gmbh-willisau"
+        ],
+        "fr": [
+          "maler-in-fur-fassadengestaltung-fachkraft-ch-gmbh-willisau"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-fassadengestaltung-willisau-luzern-fachkraft-ch"
+        "maler-in-fur-fassadengestaltung-willisau-luzern-fachkraft-ch",
+        "maler-in-per-fassadengestaltung-fachkraft-ch-gmbh-willisau",
+        "maler-in-fur-fassadengestaltung-fachkraft-ch-gmbh-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -287833,7 +288057,7 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-09-04T13:54:58.705Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-5c3e45447349",
@@ -287910,12 +288134,12 @@
     },
     {
       "id": "fachkraft-5eaa2d558d65",
-      "slug": "maler-in-per-renovations-e-neubauprojekte-fachkraft-ch-gmbh-willisau",
+      "slug": "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-willisau",
-        "it": "maler-in-per-renovations-e-neubauprojekte-fachkraft-ch-gmbh-willisau",
-        "en": "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch",
-        "fr": "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch"
+        "it": "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-fachkraft-ch-gmbh-willisau-luzern",
+        "en": "painter-for-renovation-and-new-build-projects-fachkraft-ch-gmbh-willisau-luzern",
+        "fr": "peintre-pour-des-projets-de-renovation-et-de-construction-neuve-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -287961,14 +288185,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch"
+          "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch",
+          "maler-in-per-renovations-e-neubauprojekte-fachkraft-ch-gmbh-willisau"
         ],
         "de": [
+          "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch"
+        "maler-in-fur-renovations-und-neubauprojekte-willisau-luzern-fachkraft-ch",
+        "maler-in-per-renovations-e-neubauprojekte-fachkraft-ch-gmbh-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -287985,16 +288217,16 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-10-16T22:08:29.569Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-60b97d683544",
-      "slug": "maler-in-per-renovationsarbeiten-fachkraft-ch-gmbh-willisau",
+      "slug": "pittore-trice-per-lavori-di-ristrutturazione-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-renovationsarbeiten-fachkraft-ch-gmbh-willisau",
-        "it": "maler-in-per-renovationsarbeiten-fachkraft-ch-gmbh-willisau",
-        "en": "maler-in-fur-renovationsarbeiten-fachkraft-ch-gmbh-willisau",
-        "fr": "maler-in-fur-renovationsarbeiten-fachkraft-ch-gmbh-willisau"
+        "it": "pittore-trice-per-lavori-di-ristrutturazione-fachkraft-ch-gmbh-willisau-luzern",
+        "en": "painter-for-renovation-work-fachkraft-ch-gmbh-willisau-luzern",
+        "fr": "peintre-pour-des-travaux-de-renovation-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288041,14 +288273,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-renovationsarbeiten-willisau-luzern-fachkraft-ch"
+          "maler-in-fur-renovationsarbeiten-willisau-luzern-fachkraft-ch",
+          "maler-in-per-renovationsarbeiten-fachkraft-ch-gmbh-willisau"
         ],
         "de": [
           "maler-in-fur-renovationsarbeiten-willisau-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "maler-in-fur-renovationsarbeiten-fachkraft-ch-gmbh-willisau"
+        ],
+        "fr": [
+          "maler-in-fur-renovationsarbeiten-fachkraft-ch-gmbh-willisau"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-renovationsarbeiten-willisau-luzern-fachkraft-ch"
+        "maler-in-fur-renovationsarbeiten-willisau-luzern-fachkraft-ch",
+        "maler-in-per-renovationsarbeiten-fachkraft-ch-gmbh-willisau",
+        "maler-in-fur-renovationsarbeiten-fachkraft-ch-gmbh-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -288065,16 +288306,16 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-10-16T22:08:29.569Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-58530e20aff3",
-      "slug": "malerpraktiker-in-per-kundenmalerei-fachkraft-ch-gmbh-luzern",
+      "slug": "aiuto-pittore-trice-per-lavori-di-pittura-presso-i-clienti-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch",
-        "it": "malerpraktiker-in-per-kundenmalerei-fachkraft-ch-gmbh-luzern",
-        "en": "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch",
-        "fr": "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch"
+        "it": "aiuto-pittore-trice-per-lavori-di-pittura-presso-i-clienti-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "painter-s-assistant-for-customer-painting-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "praticien-ne-en-peinture-pour-travaux-de-peinture-chez-les-clients-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288120,11 +288361,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch",
+          "malerpraktiker-in-per-kundenmalerei-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch"
+        "malerpraktiker-in-fur-kundenmalerei-luzern-luzern-fachkraft-ch",
+        "malerpraktiker-in-per-kundenmalerei-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -288141,16 +288390,16 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-09-29T22:24:17.510Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-74a9f041ac4d",
-      "slug": "anlagen-e-apparatebauer-in-con-schweiss-kenntnissen-fachkraft-ch-gmbh-bulach",
+      "slug": "costruttore-trice-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-bulach-zurich",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-fachkraft-ch-gmbh-bulach",
-        "it": "anlagen-e-apparatebauer-in-con-schweiss-kenntnissen-fachkraft-ch-gmbh-bulach",
-        "en": "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch",
-        "fr": "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch"
+        "it": "costruttore-trice-di-impianti-e-apparecchiature-con-conoscenze-di-saldatura-fachkraft-ch-gmbh-bulach-zurich",
+        "en": "plant-and-apparatus-fabricator-with-welding-skills-fachkraft-ch-gmbh-bulach-zurich",
+        "fr": "constructeur-trice-d-installations-et-d-appareils-avec-connaissances-en-soudage-fachkraft-ch-gmbh-bulach-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288196,14 +288445,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch"
+          "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch",
+          "anlagen-e-apparatebauer-in-con-schweiss-kenntnissen-fachkraft-ch-gmbh-bulach"
         ],
         "de": [
+          "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch"
+        "anlagen-und-apparatebauer-in-mit-schweiss-kenntnissen-bulach-zurich-fachkraft-ch",
+        "anlagen-e-apparatebauer-in-con-schweiss-kenntnissen-fachkraft-ch-gmbh-bulach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -288220,16 +288477,16 @@
       },
       "postalCode": "8180",
       "firstSeenAt": "2026-10-16T22:08:29.568Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-f9527f0abf89",
-      "slug": "gartner-in-afp-per-gartenpflege-fachkraft-ch-gmbh-schaffhausen",
+      "slug": "giardiniere-a-eba-per-la-manutenzione-dei-giardini-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch",
-        "it": "gartner-in-afp-per-gartenpflege-fachkraft-ch-gmbh-schaffhausen",
-        "en": "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch",
-        "fr": "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch"
+        "it": "giardiniere-a-eba-per-la-manutenzione-dei-giardini-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "en": "gardener-eba-for-garden-maintenance-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "fr": "horticulteur-trice-afp-pour-l-entretien-des-jardins-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288275,11 +288532,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch",
+          "gartner-in-afp-per-gartenpflege-fachkraft-ch-gmbh-schaffhausen"
+        ],
+        "en": [
+          "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch"
+        ],
+        "fr": [
           "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch"
+        "gartner-in-eba-fur-gartenpflege-schaffhausen-schaffhausen-fachkraft-ch",
+        "gartner-in-afp-per-gartenpflege-fachkraft-ch-gmbh-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -288296,16 +288561,16 @@
       },
       "postalCode": "8200",
       "firstSeenAt": "2026-10-16T22:08:29.568Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-cead1b3ef336",
-      "slug": "gartner-in-per-gartenbau-fachkraft-ch-gmbh-schaffhausen",
+      "slug": "giardiniere-a-per-la-costruzione-di-giardini-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch",
-        "it": "gartner-in-per-gartenbau-fachkraft-ch-gmbh-schaffhausen",
-        "en": "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch",
-        "fr": "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch"
+        "it": "giardiniere-a-per-la-costruzione-di-giardini-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "en": "gardener-for-landscaping-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "fr": "horticulteur-trice-pour-l-horticulture-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288351,11 +288616,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch",
+          "gartner-in-per-gartenbau-fachkraft-ch-gmbh-schaffhausen"
+        ],
+        "en": [
+          "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch"
+        ],
+        "fr": [
           "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch"
+        "gartner-in-fur-gartenbau-schaffhausen-schaffhausen-fachkraft-ch",
+        "gartner-in-per-gartenbau-fachkraft-ch-gmbh-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -288372,7 +288645,7 @@
       },
       "postalCode": "8200",
       "firstSeenAt": "2026-10-16T22:08:29.568Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-887f2c2d9627",
@@ -288550,12 +288823,12 @@
     },
     {
       "id": "fachkraft-9b548ea371db",
-      "slug": "bauarbeiter-in-spitzarbeiten-e-umbauten-fachkraft-ch-gmbh-winterthur",
+      "slug": "operaio-a-edile-lavori-di-scalpellatura-e-ristrutturazioni-fachkraft-ch-gmbh-winterthur-zurich",
       "slugByLocale": {
         "de": "bauarbeiter-in-spitzarbeiten-und-umbauten-fachkraft-ch-gmbh-winterthur",
-        "it": "bauarbeiter-in-spitzarbeiten-e-umbauten-fachkraft-ch-gmbh-winterthur",
-        "en": "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch",
-        "fr": "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch"
+        "it": "operaio-a-edile-lavori-di-scalpellatura-e-ristrutturazioni-fachkraft-ch-gmbh-winterthur-zurich",
+        "en": "construction-worker-chiseling-work-and-renovations-fachkraft-ch-gmbh-winterthur-zurich",
+        "fr": "ouvrier-ere-de-chantier-travaux-de-piquage-et-transformations-fachkraft-ch-gmbh-winterthur-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288601,14 +288874,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch"
+          "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch",
+          "bauarbeiter-in-spitzarbeiten-e-umbauten-fachkraft-ch-gmbh-winterthur"
         ],
         "de": [
+          "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch"
+        "bauarbeiter-in-spitzarbeiten-und-umbauten-winterthur-zurich-fachkraft-ch",
+        "bauarbeiter-in-spitzarbeiten-e-umbauten-fachkraft-ch-gmbh-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -288625,16 +288906,16 @@
       },
       "postalCode": "8400",
       "firstSeenAt": "2026-10-16T22:08:29.568Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-c5f8bd03ce78",
-      "slug": "maler-in-per-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau",
+      "slug": "pittore-trice-per-lavori-di-facciata-impegnativi-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau",
-        "it": "maler-in-per-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau",
-        "en": "maler-in-fur-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau",
-        "fr": "maler-in-fur-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau"
+        "it": "pittore-trice-per-lavori-di-facciata-impegnativi-fachkraft-ch-gmbh-willisau-luzern",
+        "en": "painter-for-demanding-facade-work-fachkraft-ch-gmbh-willisau-luzern",
+        "fr": "peintre-pour-des-travaux-exigeants-sur-facades-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288680,14 +288961,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-anspruchsvolle-fassadenarbeiten-willisau-luzern-fachkraft-ch"
+          "maler-in-fur-anspruchsvolle-fassadenarbeiten-willisau-luzern-fachkraft-ch",
+          "maler-in-per-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau"
         ],
         "de": [
           "maler-in-fur-anspruchsvolle-fassadenarbeiten-willisau-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "maler-in-fur-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau"
+        ],
+        "fr": [
+          "maler-in-fur-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-anspruchsvolle-fassadenarbeiten-willisau-luzern-fachkraft-ch"
+        "maler-in-fur-anspruchsvolle-fassadenarbeiten-willisau-luzern-fachkraft-ch",
+        "maler-in-per-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau",
+        "maler-in-fur-anspruchsvolle-fassadenarbeiten-fachkraft-ch-gmbh-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -288704,16 +288994,16 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-10-16T22:08:29.568Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-e0724a89eab9",
-      "slug": "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-luzern",
+      "slug": "pittore-trice-per-facciate-e-ristrutturazioni-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch",
-        "it": "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-luzern",
-        "en": "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch",
-        "fr": "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch"
+        "it": "pittore-trice-per-facciate-e-ristrutturazioni-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "painter-for-facades-and-renovations-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "peintre-en-facades-et-renovations-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -288759,11 +289049,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch",
+          "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch"
+        "maler-in-fur-fassaden-und-renovationen-luzern-luzern-fachkraft-ch",
+        "maler-in-per-fassaden-e-renovationen-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -288780,7 +289078,7 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-16T22:08:29.568Z",
-      "translationHoldSince": "2026-10-16T22:09:21.422Z"
+      "translationHoldReleasedAt": "2026-10-17T09:02:17.246Z"
     },
     {
       "id": "fachkraft-0ea0b34959fd",

@@ -1296,7 +1296,7 @@
       "slug": "retail-food-designer-audemars-piguet-le-brassus",
       "slugByLocale": {
         "it": "retail-food-designer-audemars-piguet-le-brassus",
-        "en": "retail-designer-audemars-piguet-le-brassus",
+        "en": "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "de": "einzelhandelsdesigner-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -1344,14 +1344,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "retail-designer-audemars-piguet-le-brassus-vd-switzerland",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+        "retail-designer-audemars-piguet-le-brassus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "en": [
-          "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+          "retail-designer-audemars-piguet-le-brassus"
         ]
       },
       "firstSeenAt": "2026-09-11T13:45:00.551Z",
@@ -3256,10 +3256,10 @@
     },
     {
       "id": "audemars-piguet-990e947f4e58",
-      "slug": "expert-brand-management-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "esperto-di-gestione-del-marchio-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "expert-brand-management-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "expert-brand-management-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "esperto-di-gestione-del-marchio-audemars-piguet-le-brassus-vd-switzerland",
         "en": "expert-brand-management-audemars-piguet-le-brassus-vd-switzerland",
         "de": "expert-brand-management-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -3320,7 +3320,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:25:22.695Z"
+      "firstSeenAt": "2026-10-16T21:25:22.695Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-brand-management-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "expert-brand-management-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     }
   ]
 }

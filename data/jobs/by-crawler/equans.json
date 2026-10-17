@@ -80,7 +80,7 @@
       "id": "equans-9021924e82f7",
       "slug": "responsabile-servizio-idraulica-equans-switzerland-luzern",
       "slugByLocale": {
-        "it": "responsabile-servizio-idraulica-equans-switzerland-luzern",
+        "it": "service-manager-in-sanitario-equans-switzerland-luzern",
         "en": "service-manager-in-sanitary-equans-switzerland-luzern",
         "de": "serviceleiter-in-sanitar-equans-luzern",
         "fr": "gestionnaire-de-services-en-sanitaire-equans-switzerland-luzern"
@@ -129,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "serviceleiter-in-sanitar-equans-luzern",
-        "service-manager-in-sanitario-equans-switzerland-luzern"
+        "serviceleiter-in-sanitar-equans-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "serviceleiter-in-sanitar-equans-luzern",
-          "service-manager-in-sanitario-equans-switzerland-luzern"
+          "serviceleiter-in-sanitar-equans-luzern"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.316Z",
@@ -633,8 +631,8 @@
       "id": "equans-4f51f2c8ce64",
       "slug": "sovrintendente-equans-switzerland-raron",
       "slugByLocale": {
-        "it": "sovrintendente-equans-switzerland-raron",
-        "en": "superintendent-fitter-equans-switzerland-raron",
+        "it": "responsabile-della-costruzione-in-equans-switzerland-raron",
+        "en": "manager-of-construction-in-equans-switzerland-raron",
         "de": "bauleitender-monteur-in-equans-raron",
         "fr": "directeur-de-la-construction-in-equans-switzerland-raron"
       },
@@ -683,16 +681,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleitender-monteur-in-equans-raron",
-        "responsabile-della-costruzione-in-equans-switzerland-raron",
-        "manager-of-construction-in-equans-switzerland-raron"
+        "superintendent-fitter-equans-switzerland-raron"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitender-monteur-in-equans-raron",
-          "responsabile-della-costruzione-in-equans-switzerland-raron"
+          "bauleitender-monteur-in-equans-raron"
         ],
         "en": [
-          "manager-of-construction-in-equans-switzerland-raron"
+          "superintendent-fitter-equans-switzerland-raron"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.267Z",
@@ -5159,7 +5155,7 @@
         "it": "tecnica-r-housekeeper-in-equans-switzerland-chur",
         "en": "technical-r-housekeeper-in-equans-switzerland-chur",
         "de": "technische-r-hauswart-in-equans-chur",
-        "fr": "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
+        "fr": "technique-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -5206,14 +5202,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technische-r-hauswart-in-equans-chur",
-        "technique-equans-switzerland-chur"
+        "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technische-r-hauswart-in-equans-chur"
         ],
         "fr": [
-          "technique-equans-switzerland-chur"
+          "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
         ]
       },
       "firstSeenAt": "2026-09-25T14:43:28.881Z",
@@ -7628,9 +7624,9 @@
     },
     {
       "id": "equans-6d4a1701f6ad",
-      "slug": "sanitarinstallateur-in-equans-switzerland-bern",
+      "slug": "installatore-trice-di-sanitari-equans-switzerland-bern",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-equans-switzerland-bern",
+        "it": "installatore-trice-di-sanitari-equans-switzerland-bern",
         "en": "plumbing-engineer-equans-switzerland-bern",
         "de": "sanitarinstallateur-in-equans-bern",
         "fr": "installateur-trice-sanitaire-cfc-equans-switzerland-bern"
@@ -7679,12 +7675,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarinstallateur-in-equans-bern",
-        "installatore-trice-di-sanitari-equans-switzerland-bern"
+        "sanitarinstallateur-in-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-equans-bern",
-          "installatore-trice-di-sanitari-equans-switzerland-bern"
+          "sanitarinstallateur-in-equans-switzerland-bern"
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:24.028Z",
@@ -9948,9 +9944,9 @@
     },
     {
       "id": "equans-c28be42cd27c",
-      "slug": "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve",
+      "slug": "pulitore-categoria-e3-1-equans-switzerland-geneve",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve",
+        "it": "pulitore-categoria-e3-1-equans-switzerland-geneve",
         "en": "cleaner-category-e3-1-equans-switzerland-geneve",
         "de": "reiniger-kategorie-e3-1-equans-switzerland-geneve",
         "fr": "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve"
@@ -9999,12 +9995,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve",
-        "pulitore-categoria-e3-1-equans-switzerland-geneve"
+        "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve",
-          "pulitore-categoria-e3-1-equans-switzerland-geneve"
+          "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-switzerland-geneve"
         ],
         "en": [
           "collaborateur-trice-de-nettoyage-categorie-e3-1-equans-geneve"
@@ -10719,12 +10715,12 @@
     },
     {
       "id": "equans-040955beae9c",
-      "slug": "techniker-in-brandmeldeanlagen-equans-zurich",
+      "slug": "tecnico-a-di-impianti-di-rilevazione-incendi-equans-switzerland-zurich",
       "slugByLocale": {
         "de": "techniker-in-brandmeldeanlagen-equans-zurich",
-        "it": "techniker-in-brandmeldeanlagen-equans-zurich",
-        "en": "techniker-in-brandmeldeanlagen-equans-zurich",
-        "fr": "techniker-in-brandmeldeanlagen-equans-zurich"
+        "it": "tecnico-a-di-impianti-di-rilevazione-incendi-equans-switzerland-zurich",
+        "en": "fire-alarm-systems-technician-equans-switzerland-zurich",
+        "fr": "technicien-ne-en-systemes-de-detection-incendie-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10784,15 +10780,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:12:51.218Z"
+      "firstSeenAt": "2026-10-16T21:12:51.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-brandmeldeanlagen-equans-zurich"
+        ],
+        "en": [
+          "techniker-in-brandmeldeanlagen-equans-zurich"
+        ],
+        "fr": [
+          "techniker-in-brandmeldeanlagen-equans-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-brandmeldeanlagen-equans-zurich"
+      ]
     },
     {
       "id": "equans-5551622428fe",
-      "slug": "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates",
+      "slug": "ingegnere-gmao-m-f-in-cdm-per-12-mesi-equans-switzerland-plan-les-ouates",
       "slugByLocale": {
         "fr": "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates",
-        "it": "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates",
-        "en": "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates",
+        "it": "ingegnere-gmao-m-f-in-cdm-per-12-mesi-equans-switzerland-plan-les-ouates",
+        "en": "engineer-gmao-m-f-in-cdm-for-12-months-equans-switzerland-plan-les-ouates",
         "de": "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates"
       },
       "company": "Equans Switzerland",
@@ -10852,16 +10862,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:12:51.202Z"
+      "firstSeenAt": "2026-10-16T21:12:51.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates"
+        ],
+        "en": [
+          "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-gmao-h-f-en-cdm-pour-12-mois-equans-plan-les-ouates"
+      ]
     },
     {
       "id": "equans-1acaad8f067d",
-      "slug": "sachbearbeiter-in-subledger-equans-zurich",
+      "slug": "impiegato-a-contabile-subledger-equans-switzerland-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-subledger-equans-zurich",
-        "it": "sachbearbeiter-in-subledger-equans-zurich",
-        "en": "sachbearbeiter-in-subledger-equans-zurich",
-        "fr": "sachbearbeiter-in-subledger-equans-zurich"
+        "it": "impiegato-a-contabile-subledger-equans-switzerland-zurich",
+        "en": "subledger-clerk-equans-switzerland-zurich",
+        "fr": "gestionnaire-subledger-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10921,7 +10942,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-27T19:57:22.235Z"
+      "firstSeenAt": "2026-08-27T19:57:22.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-subledger-equans-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-subledger-equans-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-subledger-equans-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-subledger-equans-zurich"
+      ]
     },
     {
       "id": "equans-dba12f3d0193",

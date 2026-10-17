@@ -5733,12 +5733,12 @@
     },
     {
       "id": "kanton-basel-landschaft-b0d8484dab41",
-      "slug": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
+      "slug": "membro-della-direzione-scolastica-kantonale-verwaltung-basel-landschaft-lausen",
       "slugByLocale": {
         "de": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
-        "it": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
-        "en": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen",
-        "fr": "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        "it": "membro-della-direzione-scolastica-kantonale-verwaltung-basel-landschaft-lausen",
+        "en": "member-of-school-management-kantonale-verwaltung-basel-landschaft-lausen",
+        "fr": "membre-de-la-direction-scolaire-kantonale-verwaltung-basel-landschaft-lausen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5798,7 +5798,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-31T17:02:40.858Z"
+      "firstSeenAt": "2026-08-31T17:02:40.858Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        ],
+        "en": [
+          "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        ],
+        "fr": [
+          "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+        ]
+      },
+      "previousSlugs": [
+        "mitglied-der-schulleitung-kanton-basel-landschaft-lausen"
+      ]
     }
   ]
 }

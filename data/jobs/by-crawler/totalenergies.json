@@ -693,12 +693,12 @@
     },
     {
       "id": "totalenergies-236bbdd0d06e",
-      "slug": "shipping-operator-totalenergies-geneve",
+      "slug": "shipping-operatore-totalenergies-geneve",
       "slugByLocale": {
         "en": "shipping-operator-totalenergies-geneve",
-        "it": "shipping-operator-totalenergies-geneve",
-        "de": "shipping-operator-totalenergies-geneve",
-        "fr": "shipping-operator-totalenergies-geneve"
+        "it": "shipping-operatore-totalenergies-geneve",
+        "de": "schiffsbetreiber-totalenergies-geneve",
+        "fr": "shipping-operateur-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -758,7 +758,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "shipping-operator-totalenergies-geneve"
+        ],
+        "de": [
+          "shipping-operator-totalenergies-geneve"
+        ],
+        "fr": [
+          "shipping-operator-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "shipping-operator-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-2149399d4c0b",

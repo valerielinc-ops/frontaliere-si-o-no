@@ -834,10 +834,10 @@
     },
     {
       "id": "rfsm-fribourg-eaf2bbc81194",
-      "slug": "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
+      "slug": "psicoterapeuta-rfsm-givisiez-cpc-clinica-day-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
       "slugByLocale": {
-        "it": "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
-        "en": "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
+        "it": "psicoterapeuta-rfsm-givisiez-cpc-clinica-day-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
+        "en": "psychotherapist-rfsm-givisiez-cpc-day-clinic-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
         "de": "psychotherapeut-rfsm-givisiez-cpc-tagesklinik-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
         "fr": "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez"
       },
@@ -884,14 +884,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez"
+        "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez",
+        "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez"
+          "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez",
+          "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
         ],
         "de": [
           "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
         ]
       },
       "firstSeenAt": "2026-10-16T09:30:00.999Z",

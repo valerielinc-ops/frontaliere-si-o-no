@@ -2736,9 +2736,9 @@
     },
     {
       "id": "buergenstock-hotels-f69be9beee44",
-      "slug": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "gestore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "gestore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "floor-fair-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "de": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "floor-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen"
@@ -2797,13 +2797,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-750a978ecdc2",
-      "slug": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "assistente-di-pulizia-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "house-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces-surfaces",
         "de": "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "employe-de-menage-100-m-m-i-burgenstock-hotels-ag-obburgen"
@@ -2862,7 +2870,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-727e96b82e42",

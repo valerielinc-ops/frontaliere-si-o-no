@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "teilzeitmitarbeiter-in-fur-degustationen-promotionen-schweizweit-emmi-ch",
         "it": "teilzeitmitarbeiter-in-per-degustationen-promotionen-schweizweit-emmi-luzern",
-        "en": "teilzeitmitarbeiter-in-fur-degustationen-promotionen-schweizweit-emmi-ch",
-        "fr": "teilzeitmitarbeiter-in-fur-degustationen-promotionen-schweizweit-emmi-ch"
+        "en": "part-time-employee-for-tastings-promotions-throughout-switzerland-emmi-luzern-luzern",
+        "fr": "collaborateur-trice-a-temps-partiel-pour-des-degustations-promotions-dans-toute-la-suisse-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -69,6 +69,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "teilzeitmitarbeiter-in-fur-degustationen-promotionen-schweizweit-emmi-ch"
+        ],
+        "en": [
+          "teilzeitmitarbeiter-in-fur-degustationen-promotionen-schweizweit-emmi-ch"
+        ],
+        "fr": [
           "teilzeitmitarbeiter-in-fur-degustationen-promotionen-schweizweit-emmi-ch"
         ]
       },
@@ -290,7 +296,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -351,7 +357,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -359,7 +365,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -7774,7 +7780,7 @@
         "it": "risorse-umane-business-partner-emmi-bischofszell",
         "en": "hr-business-partner-emmi-ch",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-bischofszell"
+        "fr": "partenaire-rh-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7831,14 +7837,14 @@
       },
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
-        "partenaire-rh-emmi-bischofszell-thurgau"
+        "hr-business-partner-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-emmi-ch"
         ],
         "fr": [
-          "partenaire-rh-emmi-bischofszell-thurgau"
+          "hr-business-partner-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -7863,7 +7869,7 @@
         "it": "hr-business-partner-emmi-ch-2",
         "en": "hr-business-partner-emmi-ch-2",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-suhr"
+        "fr": "partenaire-rh-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7921,11 +7927,11 @@
         ]
       },
       "previousSlugs": [
-        "partenaire-rh-emmi-suhr-aargau"
+        "hr-business-partner-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-rh-emmi-suhr-aargau"
+          "hr-business-partner-emmi-suhr"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8317,9 +8323,9 @@
     },
     {
       "id": "emmi-2c911f7030c9",
-      "slug": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+      "slug": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
       "slugByLocale": {
-        "it": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+        "it": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
         "en": "collaborative-cheese-refining-emmi-saignelegier",
         "de": "verbundkaseraffination-emmi-saignelegier",
         "fr": "collaborateur-affinage-de-fromage-emmi-ch"
@@ -8384,12 +8390,12 @@
         "collaborateur-affinage-de-fromage-emmi-ch",
         "collaborative-cheese-refining-emmi-saignelegier-jura",
         "verbundkaseraffination-emmi-saignelegier-jura",
-        "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+        "collaborateur-affinage-de-fromage-emmi-saignelegier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-affinage-de-fromage-emmi-ch",
-          "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+          "collaborateur-affinage-de-fromage-emmi-saignelegier"
         ],
         "en": [
           "collaborateur-affinage-de-fromage-emmi-ch",
@@ -8417,12 +8423,12 @@
     },
     {
       "id": "emmi-8265c39f2aca",
-      "slug": "maschinenfuhrer-in-milchabfullung-emmi-bischofszell",
+      "slug": "operatore-operatrice-di-macchine-per-il-riempimento-del-latte-emmi-bischofszell-thurgau",
       "slugByLocale": {
         "de": "maschinenfuhrer-in-milchabfullung-emmi-ch",
-        "it": "maschinenfuhrer-in-milchabfullung-emmi-bischofszell",
-        "en": "maschinenfuhrer-in-milchabfullung-emmi-bischofszell",
-        "fr": "maschinenfuhrer-in-milchabfullung-emmi-bischofszell"
+        "it": "operatore-operatrice-di-macchine-per-il-riempimento-del-latte-emmi-bischofszell-thurgau",
+        "en": "machine-operator-milk-filling-emmi-bischofszell-thurgau",
+        "fr": "conducteur-trice-de-machines-pour-le-remplissage-du-lait-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8483,11 +8489,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maschinenfuhrer-in-milchabfullung-emmi-ch"
+          "maschinenfuhrer-in-milchabfullung-emmi-ch",
+          "maschinenfuhrer-in-milchabfullung-emmi-bischofszell"
+        ],
+        "en": [
+          "maschinenfuhrer-in-milchabfullung-emmi-bischofszell"
+        ],
+        "fr": [
+          "maschinenfuhrer-in-milchabfullung-emmi-bischofszell"
         ]
       },
       "previousSlugs": [
-        "maschinenfuhrer-in-milchabfullung-emmi-ch"
+        "maschinenfuhrer-in-milchabfullung-emmi-ch",
+        "maschinenfuhrer-in-milchabfullung-emmi-bischofszell"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

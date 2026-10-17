@@ -3923,10 +3923,10 @@
     },
     {
       "id": "vaudoise-8d9685859702",
-      "slug": "responsable-lba-legal-counsel-senior-h-f-x-vaudoise-ch",
+      "slug": "head-lba-legal-senior-consigliere-m-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "responsable-lba-legal-counsel-senior-h-f-x-vaudoise-ch",
-        "it": "responsable-lba-legal-counsel-senior-h-f-x-vaudoise-ch",
+        "it": "head-lba-legal-senior-consigliere-m-f-x-vaudoise-assurances-lausanne",
         "en": "responsable-lba-legal-counsel-senior-h-f-x-vaudoise-ch",
         "de": "responsable-lba-legal-counsel-senior-h-f-x-vaudoise-ch"
       },
@@ -3987,16 +3987,24 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-16T21:19:49.882Z"
+      "firstSeenAt": "2026-10-16T21:19:49.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-lba-legal-counsel-senior-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-lba-legal-counsel-senior-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-a70d2e758d48",
-      "slug": "actuaire-vie-data-transformation-h-f-x-vaudoise-ch",
+      "slug": "vita-attuaria-dati-trasformazione-m-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "actuaire-vie-data-transformation-h-f-x-vaudoise-ch",
-        "it": "actuaire-vie-data-transformation-h-f-x-vaudoise-ch",
-        "en": "actuaire-vie-data-transformation-h-f-x-vaudoise-ch",
-        "de": "actuaire-vie-data-transformation-h-f-x-vaudoise-ch"
+        "it": "vita-attuaria-dati-trasformazione-m-f-x-vaudoise-assurances-lausanne",
+        "en": "actuary-life-data-transformation-m-f-x-vaudoise-assurances-lausanne",
+        "de": "aktuarleben-daten-transformation-m-w-x-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -4055,7 +4063,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-16T21:19:49.545Z"
+      "firstSeenAt": "2026-10-16T21:19:49.545Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "actuaire-vie-data-transformation-h-f-x-vaudoise-ch"
+        ],
+        "en": [
+          "actuaire-vie-data-transformation-h-f-x-vaudoise-ch"
+        ],
+        "de": [
+          "actuaire-vie-data-transformation-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "actuaire-vie-data-transformation-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-98215d0b886e",

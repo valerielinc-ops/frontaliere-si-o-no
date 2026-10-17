@@ -312,12 +312,12 @@
     },
     {
       "id": "kuehne-nagel-305ddb6f1fdc",
-      "slug": "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst",
+      "slug": "impiegato-a-commerciale-per-spedizioni-healthcare-m-f-d-kuehne-nagel-kaiseraugst",
       "slugByLocale": {
         "de": "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst",
-        "it": "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst",
-        "en": "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst",
-        "fr": "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst"
+        "it": "impiegato-a-commerciale-per-spedizioni-healthcare-m-f-d-kuehne-nagel-kaiseraugst",
+        "en": "freight-forwarding-clerk-healthcare-m-f-d-kuehne-nagel-kaiseraugst",
+        "fr": "employe-e-de-commerce-en-transport-healthcare-h-f-d-kuehne-nagel-kaiseraugst"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -378,7 +378,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:25:35.827Z"
+      "firstSeenAt": "2026-10-16T21:25:35.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst"
+        ],
+        "en": [
+          "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst"
+        ],
+        "fr": [
+          "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst"
+        ]
+      },
+      "previousSlugs": [
+        "speditionskaufmann-frau-healthcare-m-w-d-kuehne-nagel-kaiseraugst"
+      ]
     },
     {
       "id": "kuehne-nagel-e682041b5b7f",

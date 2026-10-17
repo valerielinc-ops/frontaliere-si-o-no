@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "faulhaber-e099cf383828",
-      "slug": "production-shift-leader-croglio-faulhaber",
+      "slug": "production-capo-turno-faulhaber-croglio",
       "slugByLocale": {
         "en": "production-shift-leader-croglio-faulhaber",
-        "it": "production-shift-leader-croglio-faulhaber",
-        "de": "production-shift-leader-croglio-faulhaber",
+        "it": "production-capo-turno-faulhaber-croglio",
+        "de": "leiter-produktion-shift-faulhaber-croglio",
         "fr": "production-shift-leader-croglio-faulhaber"
       },
       "company": "Faulhaber",
@@ -63,7 +63,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:17:07.275Z"
+      "firstSeenAt": "2026-10-16T21:17:07.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-shift-leader-croglio-faulhaber"
+        ],
+        "de": [
+          "production-shift-leader-croglio-faulhaber"
+        ]
+      },
+      "previousSlugs": [
+        "production-shift-leader-croglio-faulhaber"
+      ]
     }
   ]
 }

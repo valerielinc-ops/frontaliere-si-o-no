@@ -160,11 +160,11 @@
     },
     {
       "id": "crr-suva-sion-1ef627a9dcec",
-      "slug": "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion",
+      "slug": "qualita-e-assistente-di-processo-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
         "fr": "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion",
-        "it": "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion",
-        "en": "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion",
+        "it": "qualita-e-assistente-di-processo-clinique-romande-de-readaptation-crr-suva-sion",
+        "en": "quality-and-process-assistant-clinique-romande-de-readaptation-crr-suva-sion",
         "de": "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
@@ -223,7 +223,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:23:10.719Z"
+      "firstSeenAt": "2026-10-16T21:23:10.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
+        ],
+        "en": [
+          "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
+      ]
     }
   ]
 }

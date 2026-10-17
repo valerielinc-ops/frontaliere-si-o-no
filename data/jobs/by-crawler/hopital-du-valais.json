@@ -5746,12 +5746,12 @@
     },
     {
       "id": "hopital-du-valais-654bd4616701",
-      "slug": "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre",
+      "slug": "80-tecnico-di-simulazione-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre",
-        "it": "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre",
-        "en": "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre",
-        "de": "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre"
+        "it": "80-tecnico-di-simulazione-hopital-du-valais-sierre",
+        "en": "80-simulation-technician-hopital-du-valais-sierre",
+        "de": "80-simulationstechniker-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5811,7 +5811,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-16T21:17:25.813Z"
+      "firstSeenAt": "2026-10-16T21:17:25.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre"
+        ],
+        "en": [
+          "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre"
+        ],
+        "de": [
+          "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-simulation-a-80-hopital-du-valais-sierre"
+      ]
     },
     {
       "id": "hopital-du-valais-0286e344f168",
