@@ -8462,6 +8462,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Microdrame sexy promeut des applications payantes sur TikTok',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'Les publicités IA montrent du sexe entre le bizarre et la fantasy.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.imageAlt': 'Smartphone affichant une publicité microdrama generata par IA au lac de Lugano',
+    'blog.article.udc-assemblea-bulle-2026.title': 'L’UDC veut arrêter la destruction de la Suisse',
+    'blog.article.udc-assemblea-bulle-2026.excerpt': 'Le 17 octobre 2026 à Bulle, environ 420 délégués de l’UDC ont rejeté la 13e AVS financée par la TVA (290 non, 3 oui) et approuvé le oui aux conjoints (274 favorables) et au matériel de guerre (271 favorables).',
+    'blog.article.udc-assemblea-bulle-2026.imageAlt': 'Délégués de l\'UDC réunis à Bulle pour déterminer les recommandations de vote du 29 novembre 2026',
 };
 
 export default blogMetaChFr;

@@ -8462,6 +8462,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Sexy microdrama promotes a paid app on TikTok',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'AI ads depict sex somewhere between bizarre and fantasy.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.imageAlt': 'Smartphone showing AI microdrama ad over Lake Lugano',
+    'blog.article.udc-assemblea-bulle-2026.title': 'The UDC wants to stop the destruction of Switzerland',
+    'blog.article.udc-assemblea-bulle-2026.excerpt': 'On October 17, 2026, in Bulle, around 420 UDC delegates rejected the 13th AVS financed through VAT (290 no, 3 yes) and voted yes on spouses (274 in favor) and war materiel (271 in favor).',
+    'blog.article.udc-assemblea-bulle-2026.imageAlt': 'UDC delegates gathered in Bulle to decide voting recommendations for the 29 November 2026 referendum',
 };
 
 export default blogMetaChEn;

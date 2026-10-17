@@ -106891,6 +106891,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-udc-assemblea-bulle-2026': {
+    title: 'L’UDC vuole fermare la distruzione della Svizzera',
+    description: 'L\'assemblea UDC di Bulle del 17 ottobre 2026 ha respinto la 13esima AVS finanziata con IVA e dato il sì a coniugi e materiale bellico. Scopri le cifre e la data',
+    keywords: 'frontalieri, ticino, svizzera, italia, vuole, fermare, distruzione, ottobre',
+    ogTitle: 'L’UDC vuole fermare la distruzione della Svizzera',
+    ogDescription: 'Il 17 ottobre 2026 l\'UDC si è riunita a Bulle con circa 420 delegati. Ha bocciato il finanziamento della 13esima AVS tramite aumento dell\'IVA (290 no, 3 sì) e approvato sì a coniugi (274 favorevoli) e materiale bellico (271 favorevoli). Il popolo',
+    canonicalPath: '/articoli-svizzera/udc-assemblea-bulle-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’UDC vuole fermare la distruzione della Svizzera",
+      "description": "L'assemblea UDC di Bulle del 17 ottobre 2026 ha respinto la 13esima AVS finanziata con IVA e dato il sì a coniugi e materiale bellico. Scopri le cifre e la data",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-udc-assemblea-bulle-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Delegati UDC riuniti a Bulle per decidere le raccomandazioni di voto sul 29 novembre 2026"
+      },
+      "datePublished": "2026-10-17T21:48:14+00:00",
+      "dateModified": "2026-10-17T21:48:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/udc-assemblea-bulle-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
