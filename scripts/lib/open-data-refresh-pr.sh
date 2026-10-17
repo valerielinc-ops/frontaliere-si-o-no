@@ -218,7 +218,7 @@ compat_merge_base() {
 
 reconcile_compat_ref() {
   local merge_base="$1" theirs="$2"
-  node scripts/ci/reconcile-data-refresh-main.mjs \
+  node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
     --compat \
     --base "$merge_base" --main "$theirs" --message "$COMMIT_MESSAGE"
 }
@@ -287,24 +287,26 @@ cleanup_refresh_checkout() {
 }
 trap 'cleanup_refresh_checkout || exit 1' EXIT
 
-# The stable branch may have been created by an older workflow revision. Keep
-# the reconciler from the current workflow checkout before creating its isolated
-# publisher checkout, otherwise stale code can reintroduce a fixed merge rule.
+# The stable branch may have been created by an older workflow revision. Pin
+# the merge tools to this run's refresh snapshot before selecting that branch;
+# a stale branch must not supply either the merge policy or its CLI contract.
+MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
+mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
+git show "${REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs" \
+  > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/open-data-refresh-merge.mjs"
+git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
+  > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/read-git-blob.mjs"
+
+if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then
+  git show "${REFRESH_BASE}:scripts/ci/reconcile-data-refresh-main.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
+fi
+
 if [ "$RECONCILE_COMPAT" = false ]; then
-  MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
-  mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
   git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"
-  git show "${REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs" \
-    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/open-data-refresh-merge.mjs"
   git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/resolve-git-add-path.mjs"
-  git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
-    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/read-git-blob.mjs"
-  if [ "$RECONCILE_MAIN" = true ]; then
-    git show "${REFRESH_BASE}:scripts/ci/reconcile-data-refresh-main.mjs" \
-      > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
-  fi
 fi
 
 # Validate the exact PR contract before creating a commit or remote branch.
