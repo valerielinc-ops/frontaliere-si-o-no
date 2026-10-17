@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fnz",
-  "assembledAt": "2026-10-17T09:14:30.411Z",
+  "assembledAt": "2026-10-17T21:17:25.550Z",
   "jobs": [
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Production-Support-Developer_REQ-17649",
@@ -49,8 +49,9 @@
       },
       "jobReqId": "REQ-17649",
       "id": "fnz-b3397fe08d1c",
-      "firstSeenAt": "2026-10-16T21:17:20.610Z",
-      "crawledAt": "2026-10-17T09:14:27.592Z",
+      "previousSlugs": [
+        "production-support-developer-fnz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "production-support-developer-fnz"
@@ -62,9 +63,8 @@
           "production-support-developer-fnz"
         ]
       },
-      "previousSlugs": [
-        "production-support-developer-fnz"
-      ],
+      "firstSeenAt": "2026-10-16T21:17:20.610Z",
+      "crawledAt": "2026-10-17T21:17:22.725Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -143,7 +143,7 @@
         ]
       },
       "firstSeenAt": "2026-10-08T21:16:03.321Z",
-      "crawledAt": "2026-10-17T09:14:27.592Z",
+      "crawledAt": "2026-10-17T21:17:22.725Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -216,7 +216,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:24.249Z",
-      "crawledAt": "2026-10-17T09:14:27.592Z",
+      "crawledAt": "2026-10-17T21:17:22.725Z",
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
