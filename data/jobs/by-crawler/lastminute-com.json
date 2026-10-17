@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-10-16T21:30:05.835Z",
+  "assembledAt": "2026-10-17T09:31:37.575Z",
   "jobs": [
     {
       "title": "Junior Accountant",
@@ -65,7 +65,10 @@
       "firstSeenAt": "2026-10-14T21:24:59.633Z",
       "previousSlugsByLocale": {
         "it": [
-          "junior-accountant-chiasso"
+          "junior-accountant-chiasso",
+          "junior-contabile-lastminute-com-chiasso",
+          "junior-buchhalter-lastminute-com-chiasso",
+          "comptable-junior-lastminute-com-chiasso"
         ],
         "de": [
           "junior-accountant-chiasso"
@@ -141,7 +144,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-chiasso"
+          "data-engineer-chiasso",
+          "data-ingegnere-lastminute-com-chiasso",
+          "data-ingenieur-lastminute-com-chiasso"
         ],
         "de": [
           "data-engineer-chiasso"
@@ -310,9 +315,9 @@
       },
       "titleByLocale": {
         "en": "Global Payroll & HR Systems Manager",
-        "it": "Responsabile globale dei sistemi paghe e risorse umane",
-        "de": "Manager für globale Lohn- und HR-Systeme",
-        "fr": "Responsable mondial des systèmes de paie et des ressources humaines"
+        "it": "Global Payroll & Risorse Umane Systems Manager",
+        "de": "Global Payroll & Personalwesen Systems Manager",
+        "fr": "Global Payroll & Ressources Humaines Systems Manager"
       },
       "slugByLocale": {
         "en": "global-payroll-hr-systems-manager-chiasso",
@@ -334,6 +339,7 @@
       "streetAddress": "Corso San Gottardo 84",
       "contract": "full-time",
       "id": "lastminute-com-11183fd006a7",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "global-payroll-hr-systems-manager-chiasso",
