@@ -102,11 +102,18 @@ describe('prepare-nanako-identical-twin-closure', () => {
       .toThrow('loop-sync entry missing for scripts/ci/harvest-agent-lessons.mjs');
 
     const duplicate = manifestWithTransportedTwins();
-    duplicate.files.push({
-      path: 'generator/scripts/lib/first-name-recognition.mjs',
-      sitePath: 'scripts/lib/first-name-recognition.mjs',
-      mode: 'identical',
-    });
+    duplicate.files.push(
+      {
+        path: 'generator/scripts/lib/first-name-recognition.mjs',
+        sitePath: 'scripts/lib/first-name-recognition.mjs',
+        mode: 'identical',
+      },
+      {
+        path: 'generator/scripts/lib/first-name-recognition.mjs',
+        sitePath: 'scripts/lib/first-name-recognition.mjs',
+        mode: 'identical',
+      },
+    );
     expect(() => reconcileNanakoLoopManifest(duplicate, { hashes, alignedAt: '2026-10-17' }))
       .toThrow('duplicate loop-sync entries for scripts/lib/first-name-recognition.mjs');
   });
