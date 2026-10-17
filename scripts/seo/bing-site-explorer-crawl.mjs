@@ -25,6 +25,10 @@ import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import {
+  WEEKLY_EMPLOYERS_CITIES,
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG,
+} from '../../build-plugins/shared/weeklyEmployersRoutes.mjs';
+import {
   BING_FRONTIER_CANONICAL_DRIFT,
   BING_FRONTIER_CANONICAL_EXPECTED,
   BING_FRONTIER_HTTP_ERROR,
@@ -63,21 +67,8 @@ export const REFERRER_REF_LIMIT = 3;
 export const TITLE_MAX_CHARS = 66;
 export const META_DESCRIPTION_MIN_CHARS = 120;
 const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
-const WEEKLY_EMPLOYERS_CITIES = new Set([
-  'ticino',
-  'lugano',
-  'mendrisio',
-  'chiasso',
-  'stabio',
-  'bellinzona',
-  'locarno',
-]);
-const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = Object.freeze([
-  { localePrefix: '', section: 'aziende-che-assumono', archivePrefix: 'settimana' },
-  { localePrefix: 'en', section: 'companies-hiring', archivePrefix: 'week' },
-  { localePrefix: 'de', section: 'unternehmen-einstellen', archivePrefix: 'woche' },
-  { localePrefix: 'fr', section: 'entreprises-recrutent', archivePrefix: 'semaine' },
-]);
+const WEEKLY_EMPLOYERS_CITY_SET = new Set(WEEKLY_EMPLOYERS_CITIES);
+const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
 const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
 
 function pathnameAndOrigin(value) {
@@ -190,7 +181,7 @@ function isDeclaredWeeklyEmployersArchive({ url, canonical, html }) {
   const sectionIndex = localePrefix ? 1 : 0;
   if (segments.length !== sectionIndex + 3) return false;
   if (segments[sectionIndex] !== route.section) return false;
-  if (!WEEKLY_EMPLOYERS_CITIES.has(segments[sectionIndex + 1])) return false;
+  if (!WEEKLY_EMPLOYERS_CITY_SET.has(segments[sectionIndex + 1])) return false;
 
   const archiveSlug = segments[sectionIndex + 2];
   if (!archiveSlug.startsWith(`${route.archivePrefix}-`)) return false;
