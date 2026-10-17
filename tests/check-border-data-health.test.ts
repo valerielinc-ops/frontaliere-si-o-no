@@ -198,6 +198,34 @@ describe('collectWebcamUrls', () => {
     expect(map.get('https://x/a.gif')!.minBytes).toBeUndefined();
   });
 
+  it('does not health-check link-only sources as embedded image feeds', () => {
+    const map = collectWebcamUrls([
+      {
+        name: 'External source',
+        webcams: [{ imageUrl: 'https://example.test/webcam/', label: 'External', embedAllowed: false }],
+      },
+      {
+        name: 'Embedded source',
+        webcams: [{ imageUrl: 'https://example.test/live.jpg', label: 'Embedded' }],
+      },
+    ]);
+
+    expect(map.has('https://example.test/webcam/')).toBe(false);
+    expect(map.get('https://example.test/live.jpg')?.crossings).toEqual(['Embedded source']);
+  });
+
+  it('keeps Biegno-Indemini as an official external webcam link after its frame endpoint died', () => {
+    const crossing = borderCrossings.find((candidate) => candidate.name === 'Biegno-Indemini');
+    const webcam = crossing?.webcams?.[0];
+
+    expect(webcam).toMatchObject({
+      imageUrl: 'https://lunasole.ch/webcam/',
+      sourceUrl: 'https://lunasole.ch/webcam/',
+      embedAllowed: false,
+    });
+    expect(collectWebcamUrls([crossing!]).size).toBe(0);
+  });
+
   it('keeps the compact SITG camera family below the generic floor', () => {
     const sitg = [...collectWebcamUrls(borderCrossings).values()].filter(({ url }) =>
       url.startsWith('https://app2.ge.ch/tercameras/'),
