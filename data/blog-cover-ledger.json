@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5580
+      "6": 5584
     },
-    "publishedCovers": 7161,
+    "publishedCovers": 7165,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5385
+    "inferredRecords": 5389
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -192017,6 +192017,114 @@
           "date": "2026-10-17T19:10:25.365Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-microdrama-pubblicita-tiktok-instagram": {
+      "cover": "/images/blog/article-microdrama-pubblicita-tiktok-instagram.webp",
+      "hash": "3284c6f451480f8ca3f48917ef19461e9b2c3f1f1d0d284d24531a2ebc2bd65d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "microdrama-pubblicita-tiktok-instagram",
+          "category": "novita",
+          "date": "2026-10-17T21:03:31.477Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-stesso-reddito-imposte-diverse": {
+      "cover": "/images/blog/article-stesso-reddito-imposte-diverse.webp",
+      "hash": "21fd4372a8ce81e2b57a3adccd59dfc5b21269dd4bcef18f86bb47fc0604369a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "stesso-reddito-imposte-diverse",
+          "category": "fiscale",
+          "date": "2026-10-17T10:06:40.711Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-tre-valli-varesine-7-posto-mondiale": {
+      "cover": "/images/blog/article-tre-valli-varesine-7-posto-mondiale.webp",
+      "hash": "cb83c9a3b09a150d1d797f0e8b5b1d245cd12a16e12f0a6a4236ed9d0e31d90f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "tre-valli-varesine-7-posto-mondiale",
+          "category": "novita",
+          "date": "2026-10-17T00:42:42.140Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-udc-no-iva-13esima-avs": {
+      "cover": "/images/blog/article-udc-no-iva-13esima-avs.webp",
+      "hash": "3a49e28aaa174c92838ebaa8194bb16bb134fd24f73f89a2a4c027b506292319",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "udc-no-iva-13esima-avs",
+          "category": "fiscale",
+          "date": "2026-10-17T15:14:14.222Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
         }
       ],
       "proofLevel": 6,

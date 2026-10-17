@@ -13364,7 +13364,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'View of Lugano city center with road infrastructure',
     'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7th in the world: beats Vuelta and Paris-Roubaix',
     'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Three Valli Varesine seventh in the ProCyclingStats ranking The race scored 913 points Liège, Vuelta and Paris-Roubaix are behind The Tour de France',
-    'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Cyclist climbing Tre Valli Varesine, Ticino autumn scenery',
+    'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Illustration generated for this article',
     'blog.article.burraco-solidale-buguggiate.title': 'Charity burraco in Buguggiate: 140 participants for ABAD ETS',
     'blog.article.burraco-solidale-buguggiate.excerpt': '140 participants in the charity evening 35 game tables at Buguggiate Proceeds destined for new job placement projects What → charity tournament',
     'blog.article.burraco-solidale-buguggiate.imageAlt': 'Illustration generated for this article',

@@ -8443,13 +8443,13 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Genfer Skyline mit dem Jet d\'Eau-Brunnen, Symbol der Stadt und ihres Gesundheitssystems.',
     'blog.article.stesso-reddito-imposte-diverse.title': 'Gleiches Einkommen, unterschiedliche Steuern: Einsparung von bis zu 90%',
     'blog.article.stesso-reddito-imposte-diverse.excerpt': 'Bei gleichem Einkommen fällt die Steuerrechnung je nach Gemeinde anders aus.',
-    'blog.article.stesso-reddito-imposte-diverse.imageAlt': 'Schweizer Straße mit Häusern und Steuerdokument',
+    'blog.article.stesso-reddito-imposte-diverse.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.ia-voce-truffatori-svizzera-2026.title': 'KI leiht Betrügern ihre Stimme: So schützen Sie sich vor verdächtigen Anrufen',
     'blog.article.ia-voce-truffatori-svizzera-2026.excerpt': 'Eine italienische Bank soll 95 Millionen Euro verloren haben.',
     'blog.article.ia-voce-truffatori-svizzera-2026.imageAlt': 'Smartphone mit Anrufbenachrichtigung und Schallwelle für Stimmenklonung auf Schweizer Schreibtisch',
     'blog.article.udc-no-iva-13esima-avs.title': 'SVP lehnt Mehrwertsteuer-Erhöhung für 13. AHV-Rente ab',
     'blog.article.udc-no-iva-13esima-avs.excerpt': 'Nein der SVP zur Erhöhung der Mehrwertsteuer für die 13.',
-    'blog.article.udc-no-iva-13esima-avs.imageAlt': 'Schweizer Wähler vor einem Wahlbüro mit MwSt-Symbol',
+    'blog.article.udc-no-iva-13esima-avs.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.ps-iniziativa-violenza-genero.title': 'SP lanciert Initiative gegen geschlechtsspezifische Gewalt',
     'blog.article.ps-iniziativa-violenza-genero.excerpt': 'Die SP lanciert in Thun eine Initiative zur geschlechtsspezifischen Gewalt Die Delegierten genehmigen das Projekt einstimmig Mindestens 500 Millionen Franken zusätzlich gefordert',
     'blog.article.ps-iniziativa-violenza-genero.imageAlt': 'PS-Initiative gegen geschlechtsspezifische Gewalt lanciert in Thun, fordert zusätzliche 500 Millionen Franken pro Jahr.',
@@ -8459,6 +8459,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'Schweiz und Vietnam intensivieren Handel und Investitionen',
     'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin am 17.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Blick auf den Luganer See mit den Alpen im Hintergrund, Symbol für die Schweiz-Vietnam-Zusammenarbeit im Handel und Investment.',
+    'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Sexy-Mikrodrama bewirbt auf TikTok eine kostenpflichtige App',
+    'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'KI-Anzeigen zeigen Sex zwischen dem Bizarren und Fantasy.',
+    'blog.article.microdrama-pubblicita-tiktok-instagram.imageAlt': 'Smartphone mit KI‑Microdrama‑Werbung vor dem Luganersee',
 };
 
 export default blogMetaChDe;

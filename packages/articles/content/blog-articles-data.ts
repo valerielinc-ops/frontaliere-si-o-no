@@ -45099,7 +45099,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'tre-valli-varesine-7-posto-mondiale',
  category: 'novita',
  date: '2026-10-17T00:42:42.140Z',
- image: '/images/blog/guida-tre-valli-varesine-2026.webp',
+ image: '/images/blog/article-tre-valli-varesine-7-posto-mondiale.webp',
  hasCalculator: false,
  articleType: 'news',
  authorSlug: 'redazione',

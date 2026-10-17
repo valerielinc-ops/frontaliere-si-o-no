@@ -13363,7 +13363,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Ansicht des Stadtzentrums von Lugano mit Strasseninfrastruktur',
     'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7. in der Welt: schlägt Vuelta und Paris-Roubaix',
     'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Drei Varesine-Täler Siebter in der ProCyclingStats-Rangliste Das Rennen erzielte 913 Punkte Lüttich, Vuelta und Paris-Roubaix liegen hinter der Tour de France',
-    'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Radfahrer in der Steigung von Tre Valli Varesine, Tessiner Herbst',
+    'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.burraco-solidale-buguggiate.title': 'Wohltätigkeitsburraco in Buguggiate: 140 Teilnehmer für ABAD ETS',
     'blog.article.burraco-solidale-buguggiate.excerpt': '140 Teilnehmer am Wohltätigkeitsabend 35 Spieltische bei Buguggiate Erlöse für neue Jobvermittlungsprojekte Was → Wohltätigkeitsturnier',
     'blog.article.burraco-solidale-buguggiate.imageAlt': 'Für diesen Artikel erstellte Illustration',

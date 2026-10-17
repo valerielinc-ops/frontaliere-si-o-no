@@ -2842,6 +2842,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ps-iniziativa-violenza-genero': { it: 'ps-iniziativa-violenza-genero', en: 'ps-initiative-against-gender-violence', de: 'ps-initiative-gegen-geschlechtsspezifische-gewalt', fr: 'initiative-ps-contre-violence-genre' },
  'big-tech-franchi-bolla-ia': { it: 'big-tech-franchi-bolla-ia', en: 'big-tech-swiss-francs-ai-bubble', de: 'big-tech-schweizer-franken-ki-blase', fr: 'big-tech-francs-suisses-bulle-ia' },
  'svizzera-vietnam-relazioni-2026': { it: 'svizzera-vietnam-relazioni-2026', en: 'switzerland-vietnam-relations-2026', de: 'schweiz-vietnam-beziehungen-2026', fr: 'suisse-vietnam-relations-2026' },
+ 'microdrama-pubblicita-tiktok-instagram': { it: 'microdrama-pubblicita-tiktok-instagram', en: 'microdrama-advertising-tiktok-instagram', de: 'microdrama-werbung-tiktok-instagram', fr: 'microdrama-publicite-tiktok-instagram' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

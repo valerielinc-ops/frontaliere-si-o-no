@@ -110334,10 +110334,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Tre Valli Varesine settima nella classifica ProCyclingStats La corsa ha ottenuto 913 punti Liegi, Vuelta e Parigi-Roubaix sono alle spalle Il Tour de France",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/guida-tre-valli-varesine-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tre-valli-varesine-7-posto-mondiale.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Ciclista in salita sulla Tre Valli Varesine, autunno ticinese"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-17T00:42:42+00:00",
       "dateModified": "2026-10-17T00:42:42+00:00",
