@@ -241,11 +241,12 @@ export function resolveComuneCanton(m) {
 // 382 → 734. Issue #13361 measured that larger runtime pool exhausted anyway;
 // the next measured step below adds 29 distinct topics to restore headroom.
 //
-// This file is `mode: identical` and ships to both repos. The datasets it
-// reads — municipalities.ts, borderCrossings.ts — are NOT manifest-governed,
-// so they can drift without anything noticing, and they had: the site was
-// missing the #211 SO→LC province fix, and the same radius gave 446 comuni
-// there against 437 here.
+// This file is structurally transported to the corpus, but its corpus-side
+// loop-sync entry is `adapted`: the generator reads vendored copies of
+// municipalities.ts and borderCrossings.ts, and the latter receives a
+// generator-side REWIRE. The structural transport and its closure reconciler
+// own those files; pull-side identical-twin sync must not copy this module as
+// if the two dependency graphs were byte-identical.
 //
 // That gap was not cosmetic. The 25 mislabelled rows are Lecco-shore comuni
 // that `PROVINCE_CANTON` sent to Grigioni, an unreachable commute; under the
