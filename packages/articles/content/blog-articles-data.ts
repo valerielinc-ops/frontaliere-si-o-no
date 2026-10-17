@@ -45136,6 +45136,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'viaggi-armonici-ternate-2026',
+ category: 'novita',
+ date: '2026-10-17T02:47:48.637Z',
+ image: '/images/blog/article-viaggi-armonici-ternate-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

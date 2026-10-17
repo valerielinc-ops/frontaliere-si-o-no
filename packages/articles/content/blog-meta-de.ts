@@ -13373,6 +13373,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sharks-derby-coppa-trevano.title': 'Die Haie von Federico Pagani gewinnen das Cup-Derby',
     'blog.article.sharks-derby-coppa-trevano.excerpt': 'Die Sharks gewinnen das Cup-Derby in Trevano Il Bissone kapituliert am 25-14 Veljko Krstic erzielt beim offiziellen Debüt sechs Tore Alfano unterzeichnet fünf Tore Ort',
     'blog.article.sharks-derby-coppa-trevano.imageAlt': 'Lugano, Heimat der Sharks im Schweizer-Cup-Derby',
+    'blog.article.viaggi-armonici-ternate-2026.title': 'In Ternate startet die Ausstellung Viaggi Armonici 2026',
+    'blog.article.viaggi-armonici-ternate-2026.excerpt': '24. Oktober, 21:00 Uhr: Erstes Konzert in Ternate «Tra cielo e terra» mit dem Duo Resonance, freier Eintritt und Musik von Roberto Carnaghi. Konzertreihe → «Viaggi Armonici»',
+    'blog.article.viaggi-armonici-ternate-2026.imageAlt': 'Pfarrkirche von Ternate für das Konzert Viaggi Armonici 2026',
 };
 
 export default blogMetaDe;

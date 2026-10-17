@@ -13375,6 +13375,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sharks-derby-coppa-trevano.title': 'Gli Squali di Federico Pagani vincono il derby di Coppa',
     'blog.article.sharks-derby-coppa-trevano.excerpt': 'Gli Sharks vincono il derby di Coppa a Trevano Il Bissone si arrende sul 25-14 Veljko Krstic segna sei reti all\'esordio ufficiale Alfano firma cinque reti Luogo',
     'blog.article.sharks-derby-coppa-trevano.imageAlt': 'Lugano, città degli Sharks impegnati nel derby di Coppa Svizzera',
+    'blog.article.viaggi-armonici-ternate-2026.title': 'A Ternate al via la rassegna Viaggi Armonici 2026',
+    'blog.article.viaggi-armonici-ternate-2026.excerpt': '24 ottobre, ore 21: primo concerto a Ternate «Tra cielo e terra» con il Duo Resonance Ingresso libero e musiche di Roberto Carnaghi Rassegna → «Viaggi Armonici',
+    'blog.article.viaggi-armonici-ternate-2026.imageAlt': 'Chiesa Parrocchiale di Ternate per il concerto Viaggi Armonici 2026',
 };
 
 export default blogMetaIt;

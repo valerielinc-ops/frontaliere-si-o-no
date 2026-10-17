@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5562
+      "6": 5563
     },
-    "publishedCovers": 7143,
+    "publishedCovers": 7144,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5367
+    "inferredRecords": 5368
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -191502,6 +191502,33 @@
           "id": "varese-piazzale-anastasi-intitolazione",
           "category": "novita",
           "date": "2026-10-16T01:20:06.109Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-viaggi-armonici-ternate-2026": {
+      "cover": "/images/blog/article-viaggi-armonici-ternate-2026.webp",
+      "hash": "0e131d2dd1d49dc6750f9d4e3e15ac95070a7b29bd3492144876b6bc4bdcdf49",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "viaggi-armonici-ternate-2026",
+          "category": "novita",
+          "date": "2026-10-17T02:47:48.637Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
