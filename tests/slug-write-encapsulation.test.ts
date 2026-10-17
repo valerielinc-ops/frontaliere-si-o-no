@@ -48,7 +48,7 @@ const ARRAY_MUTATORS = new Set([
  */
 const AUTHORIZED_MODULES = new Set([
   'lib/dedicated-crawler-common.mjs',   // addPreviousSlugForLocale / captureLostSlugs
-  'lib/slug-history-journal.mjs',       // recordSlugMutation / capSlugArray / restoreExistingSlugIdentity
+  'lib/slug-history-journal.mjs',       // mutation boundary, route removal, capSlugArray, restoreExistingSlugIdentity
   'lib/slug-preservation-guard.mjs',    // the write-boundary guard
 ]);
 
