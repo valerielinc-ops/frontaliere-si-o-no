@@ -110305,6 +110305,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tre-valli-varesine-7-posto-mondiale': {
+    title: 'Tre Valli Varesine 7ª al mondo: batte Vuelta e Paris-Roubaix',
+    description: 'Tre Valli Varesine settima nella classifica ProCyclingStats La corsa ha ottenuto 913 punti Liegi, Vuelta e Parigi-Roubaix sono alle spalle Il Tour de France',
+    keywords: 'frontalieri, ticino, svizzera, italia, valli, varesine, mondo, batte',
+    ogTitle: 'Tre Valli Varesine 7ª al mondo: supera Vuelta e Paris-Roubaix',
+    ogDescription: 'Tre Valli Varesine settima nella classifica ProCyclingStats La corsa ha ottenuto 913 punti Liegi, Vuelta e Parigi-Roubaix sono alle spalle Il Tour de France',
+    canonicalPath: '/articoli-frontaliere/tre-valli-varesine-7-posto-mondiale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre Valli Varesine 7ª al mondo: batte Vuelta e Paris-Roubaix",
+      "description": "Tre Valli Varesine settima nella classifica ProCyclingStats La corsa ha ottenuto 913 punti Liegi, Vuelta e Parigi-Roubaix sono alle spalle Il Tour de France",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guida-tre-valli-varesine-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclista in salita sulla Tre Valli Varesine, autunno ticinese"
+      },
+      "datePublished": "2026-10-17T00:42:42+00:00",
+      "dateModified": "2026-10-17T00:42:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tre-valli-varesine-7-posto-mondiale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -13364,6 +13364,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cantieri-lugano-riduzione-disagi.title': 'Chantiers à Lugano : la mairie vise à réduire les désagréments',
     'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'La municipalité répond à la question de Michele Codella Les travaux à Lugano se poursuivront également au cours des prochaines années Focus entre Pennilina Botta et Corso Pestalozzi',
     'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Vue du centre-ville de Lugano avec les infrastructures routières',
+    'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7ème au monde : bat Vuelta et Paris-Roubaix',
+    'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Trois Vallées Varesines septième au classement ProCyclingStats La course a obtenu 913 points Liège, Vuelta et Paris-Roubaix sont derrière Le Tour de France',
+    'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Cycliste en montée sur la Tre Valli Varesine, automne tessinois',
 };
 
 export default blogMetaFr;
