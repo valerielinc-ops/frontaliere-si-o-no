@@ -41,11 +41,15 @@ function registry(overrides: Record<string, unknown> = {}) {
 
 function outcomes(overrides: Record<string, unknown> = {}) {
   return {
+    status: 'observed',
+    quality: 'observed',
     generatedAt: NOW.toISOString(),
     independent: true,
+    activeExperiments: 1,
     evidence: {
       source: 'experiment-assignment-exposure-ledger',
       sourceRefs: ['experiment-assignment-exposure-outcome'],
+      status: 'verified',
     },
     preRegistration: {
       outcomeId: 'registered-experiment-outcome',
@@ -118,6 +122,66 @@ describe('L7 Experiment Allocator', () => {
     }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict.ok).toBe(false);
     expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
+  });
+
+  it('rejects PostHog and unregistered sources, expired registration, and incomplete persistence claims', () => {
+    const check = (overrides: Record<string, unknown>) => validateExperimentAllocator({
+      registry: registry(),
+      outcomes: outcomes(overrides),
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
+
+    const posthog = check({ evidence: { ...outcomes().evidence, source: 'PostHog HogQL session export' } });
+    expect(posthog.ok).toBe(false);
+    expect(posthog.issues.join(' ')).toContain('PostHog is not an approved');
+
+    const unregistered = check({ evidence: { ...outcomes().evidence, sourceRefs: ['unregistered-ledger'] } });
+    expect(unregistered.ok).toBe(false);
+    expect(unregistered.issues.join(' ')).toContain('must exactly match the L7 registry');
+
+    const unverified = check({ evidence: { ...outcomes().evidence, status: 'unavailable' } });
+    expect(unverified.ok).toBe(false);
+    expect(unverified.issues.join(' ')).toContain('status must be explicitly verified');
+
+    const expired = check({ preRegistration: { ...outcomes().preRegistration, expiresAt: NOW.toISOString() } });
+    expect(expired.ok).toBe(false);
+    expect(expired.issues.join(' ')).toContain('expiresAt is expired');
+
+    const nonPersistent = check({ persistentAssignments: 299 });
+    expect(nonPersistent.ok).toBe(false);
+    expect(nonPersistent.issues.join(' ')).toContain('persistentAssignments must match outcomes.assignments');
+
+    const unregisteredMethod = check({ assignmentLedger: { ...outcomes().assignmentLedger, method: 'sessionStorage' } });
+    expect(unregisteredMethod.ok).toBe(false);
+    expect(unregisteredMethod.issues.join(' ')).toContain('assignmentLedger.method must be stable-sha256');
+
+    const wrongOutcome = check({ preRegistration: { ...outcomes().preRegistration, outcomeId: 'unregistered-outcome' } });
+    expect(wrongOutcome.ok).toBe(false);
+    expect(wrongOutcome.issues.join(' ')).toContain('preRegistration.outcomeId must be registered-experiment-outcome');
+  });
+
+  it('keeps traffic and canary mutation disabled for an unapproved outcome source', async () => {
+    const files = tempFiles(registry(), outcomes({
+      evidence: { ...outcomes().evidence, source: 'PostHog HogQL session export' },
+    }));
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict.ok).toBe(false);
+    expect(result.outcome).toMatchObject({
+      safeToAct: false,
+      appliesToTraffic: false,
+      trafficMutationAllowed: false,
+      priceMutationAllowed: false,
+      allocationPlan: { boundedCanary: { enabled: false, maxExposure: 0 } },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-actions.json'), 'utf8')))
+      .toMatchObject({ appliesToTraffic: false, noAutomaticPriceChange: true });
   });
 
   it('does not expose metadata from an untrustworthy ledger as persistent support', async () => {
@@ -374,6 +438,28 @@ describe('L7 Experiment Allocator', () => {
         ledger: { status: 'missing', persistent: false },
         allocationPlan: { persistent: false, ledgerStatus: 'missing' },
       });
+  });
+
+  it('fails closed on malformed outcome JSON and writes no traffic authority', async () => {
+    const files = tempFiles(registry(), null);
+    fs.writeFileSync(files.outcomePath, '{"activeExperiments":1,');
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
+    expect(result.outcome).toMatchObject({
+      safeToAct: false,
+      appliesToTraffic: false,
+      trafficMutationAllowed: false,
+      priceMutationAllowed: false,
+      allocationPlan: { persistent: false, boundedCanary: { enabled: false, maxExposure: 0 } },
+    });
   });
 
   it('does not claim persistent ledger support without direct outcome provenance', async () => {
