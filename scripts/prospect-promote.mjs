@@ -303,6 +303,40 @@ function openPromotionPr() {
   }
 }
 
+/**
+ * Stampa la diagnosi del gate prima di interrogare GitHub.
+ *
+ * La selezione e' una decisione locale e completa: se il controllo delle PR
+ * aperte fallisce, il run deve comunque lasciare l'audit trail che spiega
+ * perche' ogni candidato e' rimasto fuori. Senza questo ordine un problema di
+ * auth maschera proprio la diagnosi che dovrebbe aiutare a risolverlo.
+ */
+function printPromotionDiagnosis({ promotable, blocked, capped, blockedSummary }) {
+  console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
+  console.log(`passano il gate di produzione: ${promotable.length}${capped ? ` (+${capped} oltre il tetto di ${maxPerRun}, rinviati)` : ''}`);
+  console.log(`fermati dal gate: ${blocked.length} (${blockedSummary.stabilityOnly} solo stabilita'; ${blockedSummary.other} altre condizioni)`);
+
+  // Attribuzione per predicato dei blocchi `other` (#9680): conta per nome del
+  // check, stabile fra le run, invece che per testo della ragione.
+  const blockedDiagnosis = diagnosePromotionBlocks(blocked);
+  console.log(`diagnosi gate: stabilityOnly=${blockedDiagnosis.stabilityOnly} other=${blockedDiagnosis.other} failedChecks=${JSON.stringify(blockedDiagnosis.failedChecks)} unattributed=${blockedDiagnosis.unattributed.length}`);
+  console.log('predicati falliti per candidato:');
+  for (const item of blockedDiagnosis.candidateFailures) {
+    console.log(`  ${item.key}: ${item.failedChecks.join(', ') || '(nessun predicato fallito)'}`);
+  }
+  if (blockedDiagnosis.unattributed.length) {
+    console.log(`::warning::${blockedDiagnosis.unattributed.length} blocchi del gate senza check fallito o senza ragione: ${blockedDiagnosis.unattributed.slice(0, 20).join(', ')}`);
+  }
+  console.log('');
+
+  // Why each one was held back. With nobody watching, this IS the review.
+  const reasonTally = {};
+  for (const b of blocked) for (const r of b.reasons) reasonTally[r] = (reasonTally[r] || 0) + 1;
+  for (const [reason, n] of Object.entries(reasonTally).sort((a, b) => b[1] - a[1]).slice(0, 10)) {
+    console.log(`  ${String(n).padStart(4)} × ${reason}`);
+  }
+}
+
 const reconciled = reconcileOpenPromotions(store);
 if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
@@ -314,9 +348,12 @@ const { promotable, blocked, capped } = selectForPromotion(
   { maxPerRun, minDistinctDays: minDays, minRuns },
 );
 
+const blockedSummary = summarizePromotionBlocks(blocked);
+console.log('═══ Prospector · PROMOTE ═══');
+printPromotionDiagnosis({ promotable, blocked, capped, blockedSummary });
+
 const inFlight = openPromotionPr();
 if (inFlight) {
-  console.log('═══ Prospector · PROMOTE ═══');
   if (inFlight.ghUnavailable) {
     // Guasto separato dal caso "PR trovata": non sappiamo se una promozione e'
     // gia' in volo, quindi saltiamo per sicurezza — ma un problema di
@@ -340,30 +377,6 @@ if (inFlight) {
     console.log(`\n⚠️  Quella PR e' ferma da ${ageH}h: finche' non mergia, il loop non promuove piu' nessuno.`);
   }
   process.exit(0);
-}
-
-console.log('═══ Prospector · PROMOTE ═══');
-console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
-console.log(`passano il gate di produzione: ${promotable.length}${capped ? ` (+${capped} oltre il tetto di ${maxPerRun}, rinviati)` : ''}`);
-const blockedSummary = summarizePromotionBlocks(blocked);
-console.log(`fermati dal gate: ${blocked.length} (${blockedSummary.stabilityOnly} solo stabilita'; ${blockedSummary.other} altre condizioni)`);
-
-// Attribuzione per predicato dei blocchi `other` (#9680): conta per nome del
-// check, stabile fra le run, invece che per testo della ragione.
-const blockedDiagnosis = diagnosePromotionBlocks(blocked);
-const checkTally = Object.entries(blockedDiagnosis.failedChecks).map(([name, n]) => `${name} ${n}`).join(', ');
-if (checkTally) console.log(`predicati falliti nelle altre condizioni: ${checkTally}`);
-console.log(`altre condizioni senza causa concreta: ${blockedDiagnosis.unattributed.length}`);
-if (blockedDiagnosis.unattributed.length) {
-  console.log(`::warning::${blockedDiagnosis.unattributed.length} blocchi del gate senza check fallito o senza ragione: ${blockedDiagnosis.unattributed.slice(0, 20).join(', ')}`);
-}
-console.log('');
-
-// Why each one was held back. With nobody watching, this IS the review.
-const reasonTally = {};
-for (const b of blocked) for (const r of b.reasons) reasonTally[r] = (reasonTally[r] || 0) + 1;
-for (const [reason, n] of Object.entries(reasonTally).sort((a, b) => b[1] - a[1]).slice(0, 10)) {
-  console.log(`  ${String(n).padStart(4)} × ${reason}`);
 }
 
 if (!promotable.length) {

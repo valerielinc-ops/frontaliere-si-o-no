@@ -116,4 +116,11 @@ describe('cablaggio: capacità letta e identità che pusha non possono divergere
     expect(promote).toContain('WORKFLOWS_PUSH_IDENTITY');
     expect(promote).toContain("identity !== 'app'");
   });
+
+  it('stampa la diagnosi locale prima del probe delle PR aperte', () => {
+    const diagnosis = promote.indexOf('printPromotionDiagnosis({');
+    const githubProbe = promote.indexOf('const inFlight = openPromotionPr();');
+    expect(diagnosis).toBeGreaterThanOrEqual(0);
+    expect(githubProbe).toBeGreaterThan(diagnosis);
+  });
 });
