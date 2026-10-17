@@ -139,3 +139,23 @@ describe('collectDescriptionFixTasks groups the slots by language pair', () => {
     ]);
   });
 });
+
+describe('runDescriptionFixPool reports the slots really in flight', () => {
+  it('two tasks at limit 1 peak at 1 (review of PR 13661)', async () => {
+    let peak = 0;
+    await runDescriptionFixPool([1, 2], async () => { await new Promise((resolve) => setTimeout(resolve, 5)); }, {
+      limit: () => descriptionFixConcurrency({ lanePresent: false }),
+      onStart: (inFlight: number) => { peak = Math.max(peak, inFlight); },
+    });
+    expect(peak).toBe(1);
+  });
+
+  it('peaks at the limit when there is work for it', async () => {
+    let peak = 0;
+    await runDescriptionFixPool([1, 2, 3, 4, 5], async () => { await new Promise((resolve) => setTimeout(resolve, 5)); }, {
+      limit: () => 3,
+      onStart: (inFlight: number) => { peak = Math.max(peak, inFlight); },
+    });
+    expect(peak).toBe(3);
+  });
+});
