@@ -83,6 +83,20 @@ describe('extractArticleText', () => {
     expect(r.text).not.toContain('Cookie policy');
   });
 
+  it('preserves active noscript fallback markup when scripting is disabled', () => {
+    const html = `<main><noscript>
+      <h1>Headline from the no-script article page</h1>
+      <p>First substantive fallback paragraph with facts that identify the real article for source validation.</p>
+      <p>Second substantive fallback paragraph with the article context and details needed by the generator.</p>
+    </noscript></main>`;
+    // JSDOM parses with scripting disabled by default. The explicit option is
+    // still needed so cleanup keeps the fallback if a noscript node is present.
+    const noScriptResult = extractArticleText(html, { scriptingDisabled: true });
+    expect(noScriptResult.method).toBe('main-tag');
+    expect(noScriptResult.text).toContain('First substantive fallback paragraph');
+    expect(noScriptResult.text).toContain('Second substantive fallback paragraph');
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;
