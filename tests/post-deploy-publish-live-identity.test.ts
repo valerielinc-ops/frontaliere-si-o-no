@@ -84,14 +84,25 @@ describe('post-deploy-publish.yml — live identity placement', () => {
   });
 
   it('materializes a trusted jobs corpus before post-deploy coverage checks', () => {
+    const download = workflow.indexOf('- name: Download master jobs.json (for indexing API)');
     const staging = workflow.indexOf('- name: Stage downloaded data files');
     const identityGuard = workflow.indexOf('- name: Verify live build identity before post-deploy side effects');
     const indexing = workflow.indexOf('- name: Post-deploy indexing (parallel)');
+    expect(download).toBeGreaterThan(-1);
     expect(staging).toBeGreaterThan(-1);
     expect(identityGuard).toBeGreaterThan(staging);
     expect(indexing).toBeGreaterThan(identityGuard);
 
+    const downloadBlock = workflow.slice(download, staging);
     const stagingBlock = workflow.slice(staging, identityGuard);
+    expect(downloadBlock).toContain('id: jobs_master_download');
+    expect(downloadBlock).toContain('continue-on-error: true');
+    expect(stagingBlock).toContain('steps.jobs_master_download.outcome');
+    expect(stagingBlock).toContain('!= "success"');
+    expect(stagingBlock).toContain('exit 1');
+    expect(stagingBlock.indexOf('exit 1')).toBeLessThan(
+      stagingBlock.indexOf('if [ -s /tmp/jobs-master/jobs.json ]; then'),
+    );
     expect(stagingBlock).toContain('if [ -s /tmp/jobs-master/jobs.json ]; then');
     expect(stagingBlock).toContain('node scripts/assemble-jobs-dataset.mjs --no-summaries');
     expect(stagingBlock).toContain('test -s data/jobs.json');

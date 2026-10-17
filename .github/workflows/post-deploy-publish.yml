@@ -266,6 +266,7 @@ jobs:
       # the committed crawler slices are the trusted assemble fallback used by
       # profile_sequential builds that do not upload jobs-master.
       - name: Download master jobs.json (for indexing API)
+        id: jobs_master_download
         uses: actions/download-artifact@v8
         continue-on-error: true
         with:
@@ -290,6 +291,13 @@ jobs:
           # Both locations are intentional: the indexing submitter reads
           # public/data/jobs.json while the sector monitor's aggregators read
           # data/jobs.json through their scratch root.
+          # continue-on-error above is only here so this step can distinguish a
+          # genuinely absent artifact from a failed download. Never turn an
+          # auth/API/transport failure into the trusted slice fallback.
+          if [ "${{ steps.jobs_master_download.outcome }}" != "success" ]; then
+            echo "::error::[jobs-master] download failed (outcome=${{ steps.jobs_master_download.outcome }}); refusing to assemble a replacement corpus"
+            exit 1
+          fi
           if [ -s /tmp/jobs-master/jobs.json ]; then
             mkdir -p data public/data
             cp -f /tmp/jobs-master/jobs.json data/jobs.json
