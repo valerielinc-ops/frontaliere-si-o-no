@@ -58,8 +58,8 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // runner too. The budget must EQUAL the count: lower it in
     // the same PR that instruments a runner; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if([...s.matchAll(/registerCrawlerSummaryGuard\(([^()]*)\)/g)].some(m=>m[1].split(',').filter(a=>a.trim()).length===2))n++}console.log(n)"
-    // 106 → 105: update-zambon-jobs.mjs now passes its summary counters.
-    const TWO_ARGUMENT_GUARD_BUDGET = 105;
+    // 105 → 104: update-usi-jobs.mjs now passes mutable summary counters.
+    const TWO_ARGUMENT_GUARD_BUDGET = 104;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
@@ -87,8 +87,8 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // The budget must EQUAL the count: lower it in the same PR in which a
     // runner starts naming its bail-out; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
-    // 115 → 114: update-zambon-jobs.mjs now names its zero-path abort kinds.
-    const NO_ABORT_KIND_BUDGET = 114;
+    // 114 → 113: update-usi-jobs.mjs now classifies its zero-path abort kind.
+    const NO_ABORT_KIND_BUDGET = 113;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);
