@@ -178,9 +178,12 @@ function titleAlternativeLocationEvidence(title = '') {
     return null;
   }
   const locationCandidates = alternatives.map(locationCandidate).filter(Boolean);
-  return locationCandidates.length === alternatives.length
-    ? { locationCandidates, sourceTitleAlternatives: true }
-    : null;
+  if (locationCandidates.length !== alternatives.length) return null;
+  return {
+    ...locationCandidates[0],
+    locationCandidates,
+    sourceTitleAlternatives: true,
+  };
 }
 
 /** @param {unknown} value */

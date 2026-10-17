@@ -107,18 +107,19 @@ export function listingEvidenceFields(row = {}, evidence) {
   if (!evidence) return {};
   const rowHasLocationEvidence = Boolean(row.location || row.addressLocality || row.addressRegion
     || row.addressCountry || row.postalCode || row.streetAddress || row.locationCandidates?.length);
-  const evidenceCandidates = evidence.sourceTitleAlternatives && rowHasLocationEvidence
-    ? []
-    : Array.isArray(evidence.locationCandidates)
-      ? evidence.locationCandidates
-      : [evidence];
+  const projectedEvidence = evidence.sourceTitleAlternatives && rowHasLocationEvidence ? null : evidence;
+  const evidenceCandidates = projectedEvidence
+    ? Array.isArray(projectedEvidence.locationCandidates)
+      ? projectedEvidence.locationCandidates
+      : [projectedEvidence]
+    : [];
   return {
-    location: row.location || evidence.location || '',
-    addressLocality: row.addressLocality || evidence.addressLocality || '',
-    addressRegion: row.addressRegion || evidence.addressRegion || '',
-    addressCountry: row.addressCountry || evidence.addressCountry || '',
-    postalCode: row.postalCode || evidence.postalCode || '',
-    streetAddress: row.streetAddress || evidence.streetAddress || '',
+    location: row.location || projectedEvidence?.location || '',
+    addressLocality: row.addressLocality || projectedEvidence?.addressLocality || '',
+    addressRegion: row.addressRegion || projectedEvidence?.addressRegion || '',
+    addressCountry: row.addressCountry || projectedEvidence?.addressCountry || '',
+    postalCode: row.postalCode || projectedEvidence?.postalCode || '',
+    streetAddress: row.streetAddress || projectedEvidence?.streetAddress || '',
     // Folding the same evidence twice must not grow the row: the crawler and
     // the synthesiser both apply this function, and a validator run that
     // re-applies it over an already-folded row would otherwise publish the

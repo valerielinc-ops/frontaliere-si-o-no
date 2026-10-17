@@ -161,6 +161,11 @@ describe('Prospector Umantis detail boundary', () => {
       expect.objectContaining({ location: 'Zürich', addressLocality: 'Zürich' }),
       expect.objectContaining({ location: 'Lausanne', addressLocality: 'Lausanne' }),
     ]);
+    expect(listingEvidenceFields({}, evidence)).toMatchObject({
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      locationCandidates: evidence?.locationCandidates,
+    });
 
     const jobs = await fetchAllRecruitingapp2563Jobs({
       fetchImpl,
