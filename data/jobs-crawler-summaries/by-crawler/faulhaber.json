@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-10-16T21:17:22.520Z",
+  "generatedAt": "2026-10-17T09:15:30.970Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27101,
-  "avgDurationMs": 27101,
+  "durationMs": 29176,
+  "avgDurationMs": 29176,
   "durationHistory": [
-    27101
+    29176
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "faulhaber-e099cf383828",
-      "slug": "production-shift-leader-croglio-faulhaber",
+      "slug": "production-capo-turno-faulhaber-croglio",
       "company": "Faulhaber",
       "companyKey": "faulhaber",
       "companyDomain": "faulhaber.com",
@@ -49,24 +50,22 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:17:07.275Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-17T09:15:11.860Z",
+      "firstSeenAt": "2026-10-16T21:17:07.275Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-16T21:17:07.275Z",
-      "_qualityScore": 86,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }
