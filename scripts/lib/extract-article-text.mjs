@@ -147,6 +147,10 @@ const NOISE_SELECTORS = [
   '[class*="adsbygoogle" i]',
 ];
 
+const NOSCRIPT_METADATA_TAGS = new Set(['base', 'link', 'meta', 'script', 'style', 'title']);
+const NOSCRIPT_TRACKING_TAGS = new Set(['embed', 'iframe', 'img', 'object', 'source', 'track']);
+const NOSCRIPT_NON_CONTENT_MARKER = /\b(?:ad(?:s|vert(?:isement)?s?)?|analytics?|beacon|consent|gtm|metadata|nosnippet|pixel|tag[-_ ]?manager|track(?:ing)?(?:[-_ ]?pixel)?)\b/i;
+
 function removeNoiseNodes(root, { includeNoscript = false } = {}) {
   const selectors = includeNoscript ? [...NOISE_SELECTORS, 'noscript'] : NOISE_SELECTORS;
   for (const sel of selectors) {
@@ -158,6 +162,55 @@ function collectParagraphTexts(root) {
   return [...root.querySelectorAll(PARAGRAPH_SELECTOR)]
     .map(p => cleanText(p.textContent || ''))
     .filter(p => p && !isJunk(p));
+}
+
+function normalizeNoscriptRoot(noscript) {
+  if (noscript.querySelector(PARAGRAPH_SELECTOR)) return noscript;
+
+  const rawMarkup = noscript.textContent || '';
+  if (!/<\/?[a-z][\s\S]*>/i.test(rawMarkup)) return noscript;
+
+  const normalized = noscript.ownerDocument.createElement('div');
+  normalized.innerHTML = rawMarkup;
+  return normalized;
+}
+
+function hasNoscriptNonContentMarker(element) {
+  if (element.hasAttribute('data-nosnippet')
+    || element.hasAttribute('hidden')
+    || element.getAttribute('aria-hidden') === 'true') {
+    return true;
+  }
+  return [...element.attributes]
+    .some(({ name, value }) => NOSCRIPT_NON_CONTENT_MARKER.test(`${name} ${value}`));
+}
+
+/**
+ * Return true when a noscript block contains no unmarked article paragraphs.
+ *
+ * Noscript is also used for pixels, tag-manager fallbacks and head metadata.
+ * Those blocks can contain a paragraph-shaped payload, so checking only the
+ * element tag is not enough. Keep real fallback prose when at least one
+ * paragraph is outside a metadata/tracking wrapper.
+ */
+function isNoscriptMetadata(noscript) {
+  if (!noscript) return true;
+
+  const root = normalizeNoscriptRoot(noscript);
+  const contentNodes = [...root.querySelectorAll(PARAGRAPH_SELECTOR)];
+  if (contentNodes.length === 0) return true;
+
+  return contentNodes.every((node) => {
+    for (let current = node; current && current !== root; current = current.parentElement) {
+      const tag = current.tagName.toLowerCase();
+      if (NOSCRIPT_METADATA_TAGS.has(tag)
+        || NOSCRIPT_TRACKING_TAGS.has(tag)
+        || hasNoscriptNonContentMarker(current)) {
+        return true;
+      }
+    }
+    return false;
+  });
 }
 
 /**
@@ -172,15 +225,9 @@ function collectParagraphTexts(root) {
 function extractNoscriptText(noscript) {
   if (!noscript) return [];
 
-  if (noscript.querySelector(PARAGRAPH_SELECTOR)) {
-    return collectParagraphTexts(noscript);
-  }
+  const normalized = normalizeNoscriptRoot(noscript);
+  if (normalized === noscript) return collectParagraphTexts(noscript);
 
-  const rawMarkup = noscript.textContent || '';
-  if (!/<\/?[a-z][\s\S]*>/i.test(rawMarkup)) return [];
-
-  const normalized = noscript.ownerDocument.createElement('div');
-  normalized.innerHTML = rawMarkup;
   removeNoiseNodes(normalized);
   return collectParagraphTexts(normalized);
 }
@@ -192,6 +239,7 @@ function extractParagraphs(root) {
   for (const candidate of candidates) {
     if (candidate.tagName.toLowerCase() === 'noscript') {
       if (candidate.parentElement?.closest('noscript')) continue;
+      if (isNoscriptMetadata(candidate)) continue;
       paragraphs.push(...extractNoscriptText(candidate));
       continue;
     }

@@ -120,6 +120,22 @@ describe('extractArticleText', () => {
     expect(result.text).toContain('Article paragraph two continues the actual source story with more context.');
   });
 
+  it('keeps metadata and tracking noscript blocks out of the OG fallback', () => {
+    const ogDescription = 'This description identifies the source article and provides enough verified context for the generator to use as a fallback without relying on any no-script tracking payload from the page.';
+    const trackingPayload = 'Tracking payload that is long enough to pass the paragraph floor and must never become article source text for the generator.';
+    const html = `<html><head>
+      <meta property="og:description" content="${ogDescription}">
+    </head><body>
+      <noscript><div class="tracking-pixel"><p>${trackingPayload}</p></div></noscript>
+      <noscript>&lt;meta name="description" content="metadata only"&gt;&lt;div data-nosnippet="true"&gt;&lt;p&gt;${trackingPayload}&lt;/p&gt;&lt;/div&gt;</noscript>
+    </body></html>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('og-fallback');
+    expect(result.text).toContain(ogDescription);
+    expect(result.text).not.toContain(trackingPayload);
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;
