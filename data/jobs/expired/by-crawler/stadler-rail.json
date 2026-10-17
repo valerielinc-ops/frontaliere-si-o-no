@@ -1,5 +1,48 @@
 [
   {
+    "slug": "ai-devops-ingegnere-stadler-rail-bussnang",
+    "title": "AI DevOps Engineer",
+    "titleByLocale": {
+      "it": "AI DevOps Ingegnere",
+      "en": "DevOps Engineer",
+      "de": "AI DevOps Ingenieur",
+      "fr": "AI DevOps Ingénieur"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\n•\nLaurea completa in informatica, ingegneria del software, tecnologia dell'informazione o una qualifica comparabile\n\n•\nEsperienza professionale in DevOps, Platform Engineering, sviluppo software o operazioni IT\n\n•\nConoscenza approfondita di CI/CD, automazione, monitoraggio, piattaforme cloud e operazioni IT sicure\n\n•\nEsperienza pratica con tecnologie AI generative come LLM, architetture RAG, embedded, database vettoriali e sistemi AI agente\n\n•\nEsperienza nell'integrazione e nel funzionamento di piattaforme AI e modelli proprietari e open source in ambienti produttivi\n\n•\nConoscenza dell'utilizzo di piattaforme cloud per distribuire e gestire carichi di lavoro AI, API, container e servizio modello\n\n•\nMolto buone competenze in inglese e tedesco in parola e scrittura\n\nTASKS\n\n•\nCostruire, distribuire e utilizzare applicazioni AI, piattaforme, servizi e componenti tecnici riutilizzabili per l'AI Center of Competence\n\n•\nAttuazione dei requisiti di AI Strategy & Governance e trasferimento delle specifiche di sicurezza, conformità e architettura in soluzioni tecniche stabili\n\n•\nSviluppo e sviluppo ulteriore degli standard AI DevOps, automazione, processi di distribuzione e modelli operativi per soluzioni AI\n\n•\nGarantire un funzionamento affidabile attraverso il monitoraggio, la gestione degli incidenti, la gestione del ciclo di vita e l'ottimizzazione continua\n\n•\nChiudi la collaborazione con sviluppatori, team di piattaforme, operazioni IT, sicurezza informatica, team di architettura e discipline per promuovere l'uso sicuro e scalabile dell'AI\n\n•\nConsulenza tecnica per team di progetto e campioni AI nello sviluppo standardizzato e conforme delle soluzioni AI\n\n•\nCostruire e gestire servizi e componenti della piattaforma AI riutilizzabili per l'utilizzo da parte di team di progetto interni",
+      "en": "PROFILE\n\n•\nCompleted degree in computer science, software engineering, information technology or a comparable qualification\n\n•\nProfessional experience in DevOps, Platform Engineering, Software Development or IT Operations\n\n•\nIn-depth knowledge of CI/CD, automation, monitoring, cloud platforms and secure IT operations\n\n•\nPractical experience with generative AI technologies such as LLMs, RAG architectures, embeddeds, vector databases and agent AI systems\n\n•\nExperience in the integration and operation of AI platforms and proprietary and open source models in productive environments\n\n•\nKnowledge of using cloud platforms to deploy and operate AI workloads, APIs, containers and model serving\n\n•\nVery good English and German skills in word and writing\n\nTASKS\n\n•\nBuild, deploy and operate AI applications, platforms, services and reusable technical components for the AI Center of Competence\n\n•\nImplementation of requirements from AI Strategy & Governance as well as transfer of security, compliance and architecture specifications into stable technical solutions\n\n•\nDevelopment and further development of AI DevOps standards, automation, deployment processes and operational models for AI solutions\n\n•\nEnsuring reliable operation through monitoring, incident management, lifecycle management and continuous optimization\n\n•\nClose collaboration with developers, platform teams, IT operations, cybersecurity, architecture teams and disciplines to promote secure and scalable AI use\n\n•\nTechnical advice for project teams and AI champions in the standardized and compliant development and operation of AI solutions\n\n•\nBuild and operate reusable AI platform services and components for use by internal project teams",
+      "de": "PROFIL\n\n•\nAbgeschlossenes Studium der Informatik, Software Engineering, Informationstechnologie oder eine vergleichbare Qualifikation\n\n•\nBerufserfahrung im Bereich DevOps, Platform Engineering, Softwareentwicklung oder IT Operations\n\n•\nFundierte Kenntnisse in CI/CD, Automatisierung, Monitoring, Cloud-Plattformen und sicherem IT-Betrieb\n\n•\nPraxiserfahrung mit Generative-AI-Technologien wie LLMs, RAG-Architekturen, Embeddings, Vektordatenbanken und agentischen AI-Systemen\n\n•\nErfahrung in der Integration und dem Betrieb von AI-Plattformen sowie proprietären und Open-Source-Modellen in produktiven Umgebungen\n\n•\nKenntnisse im Einsatz von Cloud-Plattformen für die Bereitstellung und den Betrieb von AI-Workloads, APIs, Containern und Model Serving\n\n•\nSehr gute Englisch- und Deutschkenntnisse in Wort und Schrift\n\nAUFGABEN\n\n•\nAufbau, Bereitstellung und Betrieb von AI-Anwendungen, Plattformen, Services und wiederverwendbaren technischen Komponenten für das AI Center of Competence\n\n•\nUmsetzung von Anforderungen aus AI Strategy & Governance sowie Überführung von Sicherheits-, Compliance- und Architekturvorgaben in stabile technische Lösungen\n\n•\nEntwicklung und Weiterentwicklung von AI-DevOps-Standards, Automatisierungen, Deployment-Prozessen und Betriebsmodellen für AI-Lösungen\n\n•\nSicherstellung eines zuverlässigen Betriebs durch Monitoring, Incident Management, Lifecycle Management und kontinuierliche Optimierung\n\n•\nEnge Zusammenarbeit mit Entwicklern, Plattformteams, IT Operations, Cybersecurity, Architekturteams und Fachbereichen zur Förderung einer sicheren und skalierbaren AI-Nutzung\n\n•\nTechnische Beratung von Projektteams und AI Champions bei der standardisierten und compliant-konformen Entwicklung und dem Betrieb von AI-Lösungen\n\n•\nAufbau und Betrieb wiederverwendbarer AI-Plattformservices und Komponenten für die Nutzung durch interne Projektteams",
+      "fr": "PROFIL\n\n•\nDiplômé en informatique, génie logiciel, technologie de l'information ou une qualification comparable\n\n•\nExpérience professionnelle en DevOps, Plateforme Ingénierie, Développement de logiciels ou Opérations IT\n\n•\nConnaissance approfondie de l'IC/CD, de l'automatisation, de la surveillance, des plateformes cloud et des opérations informatiques sécurisées\n\n•\nExpérience pratique avec les technologies génériques d'IA telles que les LLM, les architectures RAG, les embarqués, les bases de données vectorielles et les systèmes d'IA agents\n\n•\nExpérience dans l'intégration et le fonctionnement des plates-formes AI et des modèles propriétaires et open source dans les environnements productifs\n\n•\nConnaissance de l'utilisation des plates-formes cloud pour déployer et exploiter les charges de travail, les API, les conteneurs et les modèles de service\n\n•\nTrès bonnes compétences en anglais et en allemand en paroles et en écriture\n\nTÂCHES\n\n•\nConstruire, déployer et exploiter des applications, plateformes, services et composants techniques réutilisables pour le centre de compétences AI\n\n•\nMise en œuvre des exigences de la stratégie et de la gouvernance d'IA ainsi que transfert des spécifications de sécurité, de conformité et d'architecture vers des solutions techniques stables\n\n•\nDéveloppement et développement de normes AI DevOps, d'automatisation, de processus de déploiement et de modèles opérationnels pour les solutions AI\n\n•\nAssurer un fonctionnement fiable par la surveillance, la gestion des incidents, la gestion du cycle de vie et l'optimisation continue\n\n•\nCollaboration étroite avec les développeurs, les équipes de plateforme, les opérations informatiques, la cybersécurité, les équipes d'architecture et les disciplines pour promouvoir une utilisation sûre et évolutive de l'IA\n\n•\nConseils techniques pour les équipes de projet et les champions de l'IA dans le développement et le fonctionnement normalisés et conformes des solutions d'IA\n\n•\nConstruire et exploiter des services et des composants de plate-forme d'IA réutilisables à l'usage des équipes internes de projet"
+    },
+    "slugByLocale": {
+      "it": "ai-devops-ingegnere-stadler-rail-bussnang",
+      "en": "ai-devops-engineer-stadler-rail-ch",
+      "de": "ai-devops-engineer-stadler-rail-ch",
+      "fr": "ai-devops-engineer-stadler-rail-ch"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-17T10:17:33.633Z",
+    "previousSlugs": [
+      "ai-devops-engineer-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "ai-devops-engineer-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-ai-devops-engineer-tg-t-9565/1361810855",
+    "firstSeenAt": "2026-07-22T12:13:05.293Z"
+  },
+  {
     "slug": "apprendistato-come-konstrukteur-in-cfc-2027-stadler-rail-st-margrethen",
     "title": "Lehrstelle als Konstrukteur:in EFZ 2027",
     "titleByLocale": {
