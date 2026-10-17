@@ -203,4 +203,70 @@ describe('Beekeeper Teamtailor feed freshness', () => {
     expect(jobs).toEqual([]);
     expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
   });
+
+  it.each([
+    ['non-object feed item', null],
+    ['missing _jobposting', { title: 'Account Executive' }],
+    ['missing jobLocation', { _jobposting: { title: 'Account Executive' } }],
+    ['uninterpretable addressCountry', {
+      _jobposting: {
+        title: 'Account Executive',
+        jobLocation: [{ address: { addressLocality: 'Zürich' } }],
+      },
+    }],
+    ['Swiss posting with unusable title', {
+      _jobposting: {
+        title: '',
+        jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+      },
+    }],
+  ])('does not mark a non-empty feed with %s as a verified zero', async (_reason, item) => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items: [item] }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('does not stamp a valid foreign row as zero when another Swiss row is uninterpretable', async () => {
+    const items = [
+      {
+        title: 'Account Executive – Germany',
+        _jobposting: {
+          title: 'Account Executive – Germany',
+          jobLocation: [{ address: { addressLocality: 'Hamburg', addressCountry: 'DE' } }],
+        },
+      },
+      {
+        _jobposting: {
+          title: '',
+          jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+        },
+      },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toEqual([]);
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('recognizes a normalized Swiss country code instead of stamping a false zero', async () => {
+    const item = {
+      title: 'Account Executive',
+      _jobposting: {
+        title: 'Account Executive',
+        jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: ' ch ' } }],
+      },
+    };
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ items: [item] }), { status: 200 })));
+
+    const jobs = await fetchAllBeekeeperJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe('Zürich');
+    expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
 });

@@ -135,14 +135,33 @@ async function fetchJobFeed() {
   }
 }
 
+function addressCountryCode(location = {}) {
+  const country = location?.address?.addressCountry;
+  return typeof country === 'string' ? country.trim().toUpperCase() : '';
+}
+
+/** A source-zero proof needs a readable title and country-coded location on every feed row. */
+function isInterpretableFeedItem(item) {
+  if (!item || typeof item !== 'object' || Array.isArray(item)) return false;
+  const jobPosting = item._jobposting;
+  if (!jobPosting || typeof jobPosting !== 'object' || Array.isArray(jobPosting)) return false;
+
+  const rawTitle = item.title || jobPosting.title;
+  if (typeof rawTitle !== 'string' || normalizeSpace(rawTitle).length < 3) return false;
+
+  const locations = jobPosting.jobLocation;
+  if (!Array.isArray(locations) || locations.length === 0) return false;
+  return locations.every((location) => /^[A-Z]{2}$/.test(addressCountryCode(location)));
+}
+
 function isSwissPosting(jobPosting = {}) {
   const locations = Array.isArray(jobPosting.jobLocation) ? jobPosting.jobLocation : [];
-  return locations.some((loc) => loc?.address?.addressCountry === 'CH');
+  return locations.some((loc) => addressCountryCode(loc) === 'CH');
 }
 
 function pickSwissAddress(jobPosting = {}) {
   const locations = Array.isArray(jobPosting.jobLocation) ? jobPosting.jobLocation : [];
-  const chLoc = locations.find((loc) => loc?.address?.addressCountry === 'CH');
+  const chLoc = locations.find((loc) => addressCountryCode(loc) === 'CH');
   const address = chLoc?.address || {};
   const isHqCity = !address.addressLocality || /z[üu]rich/i.test(address.addressLocality);
   return {
@@ -162,7 +181,7 @@ export async function fetchAllBeekeeperJobs() {
     return [];
   }
 
-  const swissItems = items.filter((it) => isSwissPosting(it._jobposting || {}));
+  const swissItems = items.filter((it) => isSwissPosting(it?._jobposting || {}));
   console.log(`  📋 Total items: ${items.length}, Swiss-tagged: ${swissItems.length}`);
 
   const jobs = [];
@@ -233,10 +252,13 @@ export async function fetchAllBeekeeperJobs() {
   }
 
   console.log(`\n📋 Total ${BEEKEEPER_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs.length > 0
-    ? jobs
-    : markAuthoritativeEmptySnapshot(
-      jobs,
-      `Teamtailor JSON Feed returned ${items.length} posting(s), none with a Swiss job location`,
-    );
+  if (jobs.length > 0) return jobs;
+  if (!items.every(isInterpretableFeedItem)) {
+    console.warn('⚠️ Feed postings were not all interpretable; leaving the empty snapshot unverified.');
+    return jobs;
+  }
+  return markAuthoritativeEmptySnapshot(
+    jobs,
+    `Teamtailor JSON Feed returned ${items.length} interpretable posting(s), none with a Swiss job location`,
+  );
 }
