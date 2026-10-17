@@ -237,11 +237,11 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
   // è esattamente il momento in cui si deve guardare anche i due workflow.
   // NB: stringa singola, non `String.raw`: gli escape `\\x60`, `\\s` e `\\*`
   // diventano rispettivamente `\x60`, `\s` e `\*`, come nella `.source` JS.
-  const BASH_PATTERN_ATTESO = "(*UTF)^(?!(?=(?:[^\\n\\x60]*\\x60[^\\n\\x60]*\\x60)*[^\\n\\x60]*$).*[🟡🟢❓](?:(?![.!?;][ \\t]).)*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-])(?:(?:(?=(?:[^`]*`[^`]*`)*[^`]*`[^`]*$)(?:[^🟡🟢❓]*|(?:[^«]|«[^»]*»)*[🟡🟢❓](?:[^«]|«[^»]*»)*)|(?:[^🟡🟢❓]*|(?:[^`«]|`[^`]*`|«[^»]*»|`(?![^`]*`))*[🟡🟢❓](?:[^`«]|`[^`]*`|«[^»]*»|`(?![^`]*`))*)(?<!\\s`)(?<!^`))🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:(?:[-*+>]|\\d+[.)])[ \\t]*){0,3}(?:`[^`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?)(?:[ \\t]*[,;][ \\t]*(?:`[^`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?))*:[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=[ \\t]+[^ \\t\\r]))";
+  const BASH_PATTERN_ATTESO = "(*UTF)^(?!(?=(?:[^\\x60]*\\x60[^\\x60]*\\x60)*[^\\x60]*$)(?:[^\\x60«🟡🟢❓]|\\x60[^\\x60]*\\x60|«[^»]*»)*[🟡🟢❓](?:(?![.!?;][ \\t])(?:[^\\x60«]|\\x60[^\\x60]*\\x60|«[^»]*»))*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-])(?:(?:(?=(?:[^`]*`[^`]*`)*[^`]*`[^`]*$)(?:[^🟡🟢❓]*|(?:[^«]|«[^»]*»)*[🟡🟢❓](?:[^«]|«[^»]*»)*|(?:[^`«🟡🟢❓]|`[^`]*`|«[^»]*»)*)|(?:[^🟡🟢❓]*|(?:[^`«]|`[^`]*`|«[^»]*»|`(?![^`]*`))*[🟡🟢❓](?:[^`«]|`[^`]*`|«[^»]*»|`(?![^`]*`))*|(?:[^`«🟡🟢❓]|`[^`]*`|«[^»]*»)*)(?<!\\s`)(?<!^`))🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:(?:[-*+>]|\\d+[.)])[ \\t]*){0,3}(?:`[^`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?)(?:[ \\t]*[,;][ \\t]*(?:`[^`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?))*:[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=[ \\t]+[^ \\t\\r]))";
 
   it('il pattern bash è la source JS senza i `\\n` delle classi negate', () => {
     expect(bashPattern).toBe(BASH_PATTERN_ATTESO.replaceAll('\\n', ''));
-    expect(REDFLAG_IMPORTANT_RE.source).toBe("^(?!(?=(?:[^\\n\\x60]*\\x60[^\\n\\x60]*\\x60)*[^\\n\\x60]*$).*[🟡🟢❓](?:(?![.!?;][ \\t]).)*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-])(?:(?:(?=(?:[^\\n`]*`[^\\n`]*`)*[^\\n`]*`[^\\n`]*$)(?:[^\\n🟡🟢❓]*|(?:[^\\n«]|«[^\\n»]*»)*[🟡🟢❓](?:[^\\n«]|«[^\\n»]*»)*)|(?:[^\\n🟡🟢❓]*|(?:[^\\n`«]|`[^\\n`]*`|«[^\\n»]*»|`(?![^\\n`]*`))*[🟡🟢❓](?:[^\\n`«]|`[^\\n`]*`|«[^\\n»]*»|`(?![^\\n`]*`))*)(?<!\\s`)(?<!^`))🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:(?:[-*+>]|\\d+[.)])[ \\t]*){0,3}(?:`[^\\n`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?)(?:[ \\t]*[,;][ \\t]*(?:`[^\\n`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?))*:[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=[ \\t]+[^\\n \\t\\r]))");
+    expect(REDFLAG_IMPORTANT_RE.source).toBe("^(?!(?=(?:[^\\n\\x60]*\\x60[^\\n\\x60]*\\x60)*[^\\n\\x60]*$)(?:[^\\n\\x60«🟡🟢❓]|\\x60[^\\n\\x60]*\\x60|«[^\\n»]*»)*[🟡🟢❓](?:(?![.!?;][ \\t])(?:[^\\n\\x60«]|\\x60[^\\n\\x60]*\\x60|«[^\\n»]*»))*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-])(?:(?:(?=(?:[^\\n`]*`[^\\n`]*`)*[^\\n`]*`[^\\n`]*$)(?:[^\\n🟡🟢❓]*|(?:[^\\n«]|«[^\\n»]*»)*[🟡🟢❓](?:[^\\n«]|«[^\\n»]*»)*|(?:[^\\n`«🟡🟢❓]|`[^\\n`]*`|«[^\\n»]*»)*)|(?:[^\\n🟡🟢❓]*|(?:[^\\n`«]|`[^\\n`]*`|«[^\\n»]*»|`(?![^\\n`]*`))*[🟡🟢❓](?:[^\\n`«]|`[^\\n`]*`|«[^\\n»]*»|`(?![^\\n`]*`))*|(?:[^\\n`«🟡🟢❓]|`[^\\n`]*`|«[^\\n»]*»)*)(?<!\\s`)(?<!^`))🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]|[ \\t]*(?:(?:[-*+>]|\\d+[.)])[ \\t]*){0,3}(?:`[^\\n`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?)(?:[ \\t]*[,;][ \\t]*(?:`[^\\n`]*:L?\\d+(?:[-–]\\d+)?`?|(?:PR[ \\t]+body|[A-Za-z0-9_.@/-]+):L?\\d+(?:[-–]\\d+)?))*:[ \\t]*🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}(?=[ \\t]+[^\\n \\t\\r]))");
   });
 
   for (const wf of ['pr-redflag-fixer.yml', 'stale-pr-rescuer.yml']) {
@@ -275,6 +275,9 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
       ['🔴 Important: manca il canonical', true],
       ['.github/workflows/tests.yml:L2199: 🔴 Important path non trusted', true],
       ['- `scripts/ci/review-gate.mjs:L188`: 🔴 Important parser drift', true],
+      ['«🟢 Nit: quoted» 🔴 Important: real', true],
+      ['`🟡 Nit: cited` 🔴 Important: real', true],
+      ['«🔴 Important: quoted»', false],
       ['🟡 Nit: la review cita 🔴 Important: manca il canonical', false],
       ['Il test usa `🔴 Important: manca il canonical` come fixture', false],
       ['zero 🔴 Important findings (both nits are non-blocking)', false],
@@ -354,7 +357,7 @@ describe('pr-redflag-fixer — preflight esplicito del supporto PCRE (#8015)', (
     const start = workflow.indexOf("          if grep -qP '(*UTF)a' < /dev/null; then");
     // Il marker guard e' l'ALTRO `grep -qP`, quello con la regex `(*UTF)^`:
     // cercarlo dal solo prefisso ritroverebbe la riga del preflight stesso.
-    const end = workflow.indexOf("          if grep -qP '(*UTF)^(?!(?=", start);
+    const end = workflow.indexOf("          if grep -qP '(*UTF)^", start);
     expect(start, 'pr-redflag-fixer PCRE preflight not found').toBeGreaterThanOrEqual(0);
     expect(
       workflow,
