@@ -31,6 +31,7 @@ function detailHtml({
   contract = 'Durée indéterminée',
   location = 'Clarens / 1907 Saxon',
   description = BODY,
+  applyHref = 'https://www.jobup.ch/fr/application/create/cic-job-1/?utm_medium=referral&amp;utm_source=company',
 }: Record<string, string> = {}) {
   return `<!doctype html><html><body>
     <main><h1>${title}</h1>
@@ -40,7 +41,7 @@ function detailHtml({
         <div><div>Taux d'activité</div><div class="text-size-small">${occupation}</div></div>
         <div><div>Type de contrat:</div><div class="text-size-small">${contract}</div></div>
         <div><div>Lieu de travail</div><div class="text-size-small">${location}</div></div>
-      </div><a id="job-ad-apply-btn" href="https://www.jobup.ch/fr/application/create/cic-job-1/?utm_medium=referral&amp;utm_source=company">Postuler</a></div>
+      </div><a id="job-ad-apply-btn" href="${applyHref}">Postuler</a></div>
     </main>
   </body></html>`;
 }
@@ -147,5 +148,42 @@ describe('clinique CIC JobCloud parser', () => {
     }));
 
     await expect(fetchAllCicJobs()).rejects.toThrow(/HTTP 503/);
+  });
+
+  it('rejects a malformed accepted detail instead of publishing the other jobs as a partial snapshot', async () => {
+    const malformedUrl = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000005/';
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      const target = String(input);
+      if (target === LISTING_URL) return response(listingHtml([DETAIL_URL, malformedUrl]));
+      if (target === DETAIL_URL) return response(detailHtml());
+      if (target === malformedUrl) return response('<html><body><div class="text-rich-text w-richtext"><p>Detail content without a heading.</p></div></body></html>');
+      throw new Error(`unexpected URL ${target}`);
+    }));
+
+    await expect(fetchAllCicJobs()).rejects.toThrow(/no usable title/);
+  });
+
+  it('rejects a detail whose source description is below the minimum instead of emitting an empty description', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      const target = String(input);
+      if (target === LISTING_URL) return response(listingHtml([DETAIL_URL]));
+      if (target === DETAIL_URL) return response(detailHtml({ description: 'Soins aux patients.' }));
+      throw new Error(`unexpected URL ${target}`);
+    }));
+
+    await expect(fetchAllCicJobs()).rejects.toThrow(/no source body meeting the minimum/);
+  });
+
+  it('resolves relative JobCloud application links against the detail URL', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      const target = String(input);
+      if (target === LISTING_URL) return response(listingHtml([DETAIL_URL]));
+      if (target === DETAIL_URL) return response(detailHtml({ applyHref: '/fr/apply' }));
+      throw new Error(`unexpected URL ${target}`);
+    }));
+
+    const jobs = await fetchAllCicJobs();
+
+    expect(jobs[0].applyUrl).toBe('https://company.jobcloud.ch/fr/apply');
   });
 });

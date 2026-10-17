@@ -148,12 +148,19 @@ function extractRichTextBlock(html = '') {
   return String(html).slice(contentStart, endIdx === -1 ? undefined : endIdx);
 }
 
-function extractApplyUrl(html = '') {
+function extractApplyUrl(html = '', detailUrl = LISTING_URL) {
   const tags = String(html || '').match(/<a\b[^>]*>/gi) || [];
   for (const tag of tags) {
     if (!/\bid\s*=\s*(["'])job-ad-apply-btn\1/i.test(tag)) continue;
     const href = tag.match(/\bhref\s*=\s*(["'])([^"']+)\1/i);
-    if (href) return decodeNumericEntities(decodeEntities(href[2])).replace(/&amp;/g, '&');
+    if (href) {
+      const value = decodeNumericEntities(decodeEntities(href[2])).replace(/&amp;/g, '&');
+      try {
+        return new URL(value, detailUrl).toString();
+      } catch {
+        return '';
+      }
+    }
   }
   return '';
 }
@@ -199,7 +206,7 @@ async function fetchDetailData(detailUrl) {
   const occupationRange = extractKeyInfoValue(html, "Taux d[’']activité|Taux d[’']occupation|Workload|Pensum");
   const contractTypeRaw = extractKeyInfoValue(html, 'Type de contrat|Contract type|Vertragsart');
   const lieuDeTravail = extractKeyInfoValue(html, 'Lieu de travail|Work location|Arbeitsort');
-  const applyUrl = extractApplyUrl(html);
+  const applyUrl = extractApplyUrl(html, detailUrl);
   return { title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl };
 }
 
@@ -242,10 +249,15 @@ export async function fetchAllCicJobs() {
       placeholderCount += 1;
       continue;
     }
-    if (!detail.title || detail.title.length < 3) continue;
+    if (!detail.title || detail.title.length < 3) {
+      throw new Error(`JobCloud detail has no usable title: ${detailUrl}`);
+    }
 
     const loc = inferLocalityFromSite(detail.lieuDeTravail, detail.title);
-    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
+    if (!meetsSourceBodyFloor(detail.description)) {
+      throw new Error(`JobCloud detail has no source body meeting the minimum: ${detailUrl}`);
+    }
+    const description = detail.description;
     const sourceLang = detectLang(description || detail.title, 'fr');
     const jobSlug = slugify(`${detail.title} ${CIC_KEY} ${loc.city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
