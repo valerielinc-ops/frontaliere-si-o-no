@@ -1,14 +1,14 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-10-17T09:30:38.613Z",
+  "generatedAt": "2026-10-17T21:30:42.155Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
+  "discovered": 0,
+  "parsed": 0,
+  "lastFetchOutcome": "anti_bot_block",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": null,
+  "abortKind": "connection-level-fetch",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }
