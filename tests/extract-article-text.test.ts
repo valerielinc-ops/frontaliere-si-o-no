@@ -121,7 +121,7 @@ describe('extractArticleText', () => {
   });
 
   it('keeps metadata and tracking noscript blocks out of the OG fallback', () => {
-    const ogDescription = 'This description identifies the source article and provides enough verified context for the generator to use as a fallback without relying on any no-script tracking payload from the page.';
+    const ogDescription = 'This description identifies the source article and provides enough verified context for the generator to use as a fallback without relying on any no-script tracking payload from the page. It also contains a second sentence so the existing long-description floor remains the deliberate gate for the OG fallback path.';
     const trackingPayload = 'Tracking payload that is long enough to pass the paragraph floor and must never become article source text for the generator.';
     const html = `<html><head>
       <meta property="og:description" content="${ogDescription}">
