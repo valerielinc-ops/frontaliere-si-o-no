@@ -135,6 +135,10 @@ describe('parseListingPage', () => {
       snippet: '',
     }]);
   });
+
+  it('does not recover a route suffix from an external URL', () => {
+    expect(parseListingPage('<script>https://evil.example/jobposition/42/x/sintetica</script>')).toEqual([]);
+  });
 });
 
 // ─── parseDetailPage tests ──────────────────────────────────────────────────

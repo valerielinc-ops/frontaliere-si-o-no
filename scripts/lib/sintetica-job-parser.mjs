@@ -46,7 +46,7 @@ function canonicalNcoreDetailUrl(value = '') {
 
 function extractEmbeddedNcoreDetailUrls(html = '') {
   const source = decodeNcoreMarkup(html);
-  const routePattern = /(?:https:\/\/app\.ncoreplat\.com)?\/jobposition\/[1-9]\d*\/[^/?#"'<>\\\s,}\]]+(?:\/[^/?#"'<>\\\s,}\]]+)?/gi;
+  const routePattern = /(?<![A-Za-z0-9._-])(?:https:\/\/app\.ncoreplat\.com)?\/jobposition\/[1-9]\d*\/[^/?#"'<>\\\s,}\]]+(?:\/[^/?#"'<>\\\s,}\]]+)?/gi;
   const urls = new Set();
   for (const match of source.matchAll(routePattern)) {
     const canonical = canonicalNcoreDetailUrl(match[0]);
