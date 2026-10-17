@@ -76,7 +76,9 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "swiss-re-151eb7a335b8",

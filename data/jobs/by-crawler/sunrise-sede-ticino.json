@@ -78,7 +78,9 @@
       ],
       "datePosted": "2026-08-31",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-17T21:21:00.767Z"
+      "crawledAt": "2026-10-17T21:21:00.767Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Wil SG",
@@ -1421,7 +1423,6 @@
       "datePosted": "2026-09-19",
       "postingDateSource": "reported",
       "crawledAt": "2026-10-17T21:21:12.897Z",
-      "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
           "audio-technician-studio-mcr-mysports-40-sunrise-zurich"
