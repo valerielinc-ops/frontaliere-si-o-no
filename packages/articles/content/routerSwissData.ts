@@ -2837,6 +2837,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ia-assistente-shopping-svizzera': { it: 'ia-assistente-shopping-svizzera', en: 'ai-helps-swiss-shoppers-but-stalls-at-checkout', de: 'ki-hilft-den-schweizern-beim-einkaufen-bremst-aber-beim-bezahlen', fr: 'l-ia-aide-les-suisses-a-acheter-mais-freine-au-paiement' },
  'sistema-sanitario-lamal-ginevra-2026': { it: 'sistema-sanitario-lamal-ginevra-2026', en: 'swiss-healthcare-system-lamal-geneva-2026', de: 'schweizer-gesundheitssystem-lamal-genf-2026', fr: 'systeme-sante-suisse-lamal-geneve-2026' },
  'stesso-reddito-imposte-diverse': { it: 'stesso-reddito-imposte-diverse', en: 'same-income-different-taxes', de: 'gleiches-einkommen-verschiedene-steuern', fr: 'meme-revenu-impots-differents' },
+ 'ia-voce-truffatori-svizzera-2026': { it: 'ia-voce-truffatori-svizzera-2026', en: 'ai-lends-its-voice-to-scammers-how-to-defend-yourself-against-suspicious-calls', de: 'ki-leiht-betrugern-ihre-stimme-so-schutzen-sie-sich-vor-verdachtigen-anrufen', fr: 'l-ia-prete-la-voix-aux-escrocs-comment-se-defendre-contre-les-appels-suspects' },
+ 'udc-no-iva-13esima-avs': { it: 'udc-no-iva-13esima-avs', en: 'udc-rejects-vat-hike-to-fund-13th-avs-pension-vote-nov-29', de: 'svp-lehnt-mehrwertsteuer-erhohung-fur-13-ahv-rente-ab', fr: 'l-udc-dit-non-a-la-hausse-de-tva-pour-financer-la-13e-avs' },
+ 'ps-iniziativa-violenza-genero': { it: 'ps-iniziativa-violenza-genero', en: 'ps-initiative-against-gender-violence', de: 'ps-initiative-gegen-geschlechtsspezifische-gewalt', fr: 'initiative-ps-contre-violence-genre' },
+ 'big-tech-franchi-bolla-ia': { it: 'big-tech-franchi-bolla-ia', en: 'big-tech-swiss-francs-ai-bubble', de: 'big-tech-schweizer-franken-ki-blase', fr: 'big-tech-francs-suisses-bulle-ia' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

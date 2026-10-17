@@ -13399,6 +13399,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-imposta-famiglia-2026.title': 'Steuergutschrift 2026 für Grenzgänger mit Kindern',
     'blog.article.credito-imposta-famiglia-2026.excerpt': 'Leitfaden zur Berechnung und Erstellung des EG-Rahmens für Familien von Grenzgängern: IRPEF-Sätze 2026 und Verwaltung der Doppelbesteuerung.',
     'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Panoramablick auf Lugano und den See',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.title': 'Arcisate: Bombe aus dem Zweiten Weltkrieg gefunden',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.excerpt': 'Kampfmittel bei Arcisate gefunden Fund am Samstagvormittag, 17.',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.imageAlt': 'Industriegebiet in Arcisate mit Absperrband und Polizei nach der Entdeckung eines Weltkriegsmunitionsstücks.',
 };
 
 export default blogMetaDe;

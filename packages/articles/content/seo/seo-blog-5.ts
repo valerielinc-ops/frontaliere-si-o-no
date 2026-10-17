@@ -110783,6 +110783,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arcisate-bomba-seconda-guerra-mondiale': {
+    title: 'Arcisate: bomba della Seconda Guerra Mondiale ritrovata',
+    description: 'Ordigno bellico trovato ad Arcisate Ritrovamento nella mattinata di sabato 17 ottobre Si tratterebbe di una bomba da mortaio Area delimitata e messa',
+    keywords: 'frontalieri, ticino, svizzera, italia, arcisate, bomba, seconda, guerra',
+    ogTitle: 'Arcisate: bomba seconda guerra mondiale trovata',
+    ogDescription: 'Ordigno bellico trovato ad Arcisate Ritrovamento nella mattinata di sabato 17 ottobre Si tratterebbe di una bomba da mortaio Area delimitata e messa',
+    canonicalPath: '/articoli-frontaliere/arcisate-bomba-seconda-guerra-mondiale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arcisate: bomba della Seconda Guerra Mondiale ritrovata",
+      "description": "Ordigno bellico trovato ad Arcisate Ritrovamento nella mattinata di sabato 17 ottobre Si tratterebbe di una bomba da mortaio Area delimitata e messa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-arcisate-bomba-seconda-guerra-mondiale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area industriale di Arcisate con nastro di sicurezza e forze dell'ordine dopo il ritrovamento di un ordigno bellico della Seconda guerra mondiale."
+      },
+      "datePublished": "2026-10-17T13:59:08+00:00",
+      "dateModified": "2026-10-17T13:59:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arcisate-bomba-seconda-guerra-mondiale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
