@@ -1352,10 +1352,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `awaitDrainSlot()` bounds only completed background batches. It does not
  // bound the collector's active Map, whose 5,000-entry default is too large
  // for the repeated company-hub HTML payloads on the 16 GB build runner. A
- // full flush at a smaller boundary releases both the strings and the batch
- // bookkeeping before the next hub burst; the generic collector threshold
- // remains unchanged for the other emitters.
- const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 1_024;
+ // locale-shard build emits one locale, so the company phase can finish below
+ // 1,024 writes (the current corpus is about 256 writes for that shard) and
+ // otherwise retain the whole phase. Keep the phase-local bound below that
+ // smallest shard-sized burst; the generic collector threshold remains
+ // unchanged for the other emitters.
+ const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 128;
  const flushHubPageWritesIfNeeded = async (): Promise<void> => {
   if (collector.count < HUB_PAGE_WRITE_FLUSH_THRESHOLD) return;
   await collector.flush();
@@ -5410,10 +5412,13 @@ ${companyFollowHtml}
  await flushHubPageWritesIfNeeded();
  }
  }
+ // Drain the tail even when the phase ends below the threshold. Without an
+ // unconditional boundary flush, BUILD_LOCALE can carry the last company-hub
+ // batch into the next SSG family and make the memory checkpoint misleading.
+ await collector.flush();
  if (companyPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyPagesCount} company landing pages for ${companyMap.size} companies`);
  logBuildMem('jobsSeoPages: after company-landing', collector);
- await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const aliasCount = listAllBrandAliases().length * localeList.length;
  if (aliasCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Emitted ${aliasCount} brand-alias bridge pages from BRAND_CANONICAL_MAP`);
@@ -7967,10 +7972,10 @@ ${staticAnalyticsHtml}
  }
  }
  }
+ await collector.flush();
  if (cityHubCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${cityHubCantonPagesCount} per-canton city hub pages`);
  logBuildMem('jobsSeoPages: after city-hubs', collector);
- await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  // Append city hub sitemap entries to editorial entries
  const cityHubEntriesJoined = cityHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
@@ -8828,10 +8833,10 @@ ${staticAnalyticsHtml}
  }
  }
  }
+ await collector.flush();
  if (sectorHubPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${sectorHubPagesCount} canton/national sector hub pages`);
  logBuildMem('jobsSeoPages: after sector-hubs', collector);
- await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const sectorHubEntriesJoined = sectorHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${sectorHubEntriesJoined}`
@@ -9348,13 +9353,13 @@ ${staticAnalyticsHtml}
  }
  }
  }
+ await collector.flush();
  if (companyCantonBelowFloorBridges > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 company-canton below-floor bridges: ${companyCantonBelowFloorBridges} (per-canton company hubs)`);
  }
  if (companyCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCantonPagesCount} per-canton company hub pages`);
  logBuildMem('jobsSeoPages: after company-canton-hubs', collector);
- await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const companyCantonEntriesJoined = companyCantonSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCantonEntriesJoined}`
@@ -9613,13 +9618,13 @@ ${staticAnalyticsHtml}
  }
  }
  }
+ await collector.flush();
  if (companyCityBelowFloorBridges > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 company-city below-floor bridges: ${companyCityBelowFloorBridges} (per-canton company×city hubs)`);
  }
  if (companyCityPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCityPagesCount} per-canton company×city hub pages`);
  logBuildMem('jobsSeoPages: after company-city-hubs', collector);
- await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const companyCityEntriesJoined = companyCitySitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCityEntriesJoined}`
