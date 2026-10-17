@@ -13369,7 +13369,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.burraco-solidale-buguggiate.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.coppa-svizzera-lugano-taverne.title': 'Lugano sehr beliebt, die Taverne sucht das Unternehmen',
     'blog.article.coppa-svizzera-lugano-taverne.excerpt': 'Lugano fordert den Pully am Sonntag um 14 Uhr heraus.',
-    'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Das Comunale in Taverne als Austragungsort des Schweizer-Cup-Spiels gegen Young Boys',
+    'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.sharks-derby-coppa-trevano.title': 'Die Haie von Federico Pagani gewinnen das Cup-Derby',
     'blog.article.sharks-derby-coppa-trevano.excerpt': 'Die Sharks gewinnen das Cup-Derby in Trevano Il Bissone kapituliert am 25-14 Veljko Krstic erzielt beim offiziellen Debüt sechs Tore Alfano unterzeichnet fünf Tore Ort',
     'blog.article.sharks-derby-coppa-trevano.imageAlt': 'Lugano, Heimat der Sharks im Schweizer-Cup-Derby',
@@ -13381,7 +13381,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.film-festival-diritti-umani-lugano-2026.imageAlt': 'Menschenrechts-Filmfestival Lugano: Preisverleihung und Vorführungen',
     'blog.article.netto-single-paga-ticino-2026.title': 'Schweizer Lohnabrechnung 2026: Leitfaden für alleinerziehende Grenzgänger',
     'blog.article.netto-single-paga-ticino-2026.excerpt': 'AHV/IV 5.3%, ALV/KV 1.1% und KVG: Was 2026 in der Lohnabrechnung eines alleinstehenden Grenzgängers zu beachten ist.',
-    'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Grenzgänger prüft eine Schweizer Lohnabrechnung im Tessin',
+    'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Für diesen Artikel erstellte Illustration',
 };
 
 export default blogMetaDe;

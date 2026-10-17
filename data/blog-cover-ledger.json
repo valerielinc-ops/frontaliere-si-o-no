@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5567
+      "6": 5569
     },
-    "publishedCovers": 7148,
+    "publishedCovers": 7150,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5372
+    "inferredRecords": 5374
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190762,6 +190762,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-coppa-svizzera-lugano-taverne": {
+      "cover": "/images/blog/article-coppa-svizzera-lugano-taverne.webp",
+      "hash": "a71bdb7dc8827c0970a518988f2be9843f6ff15844127a97a92ac83bb4cc2cc8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "coppa-svizzera-lugano-taverne",
+          "category": "novita",
+          "date": "2026-10-17T01:54:50.633Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-crediti-bilaterali-iii-svizzera": {
       "cover": "/images/blog/article-crediti-bilaterali-iii-svizzera.webp",
       "hash": "0ea1d195a5a3469facfac13dac79d3a3c887f5ff1015fca9f77c65b35639017d",
@@ -191016,14 +191043,6 @@
           "id": "frontaliere-tasse-italia-svizzera-2026-simulazione-pratica",
           "category": "fiscale",
           "date": "2026-10-16T13:43:52.794Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        },
-        {
-          "section": "frontaliere",
-          "id": "netto-single-paga-ticino-2026",
-          "category": "fiscale",
-          "date": "2026-10-17T04:59:00.490Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
         }
@@ -191296,6 +191315,33 @@
           "date": "2026-10-16T11:58:36.392Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-netto-single-paga-ticino-2026": {
+      "cover": "/images/blog/article-netto-single-paga-ticino-2026.webp",
+      "hash": "d1e675c0ae1ffa0e76cac1dfacc2595ed397e7d43d82c442d0d03e4db5bf77be",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "netto-single-paga-ticino-2026",
+          "category": "fiscale",
+          "date": "2026-10-17T04:59:00.490Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
         }
       ],
       "proofLevel": 6,

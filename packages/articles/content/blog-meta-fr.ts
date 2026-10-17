@@ -13372,7 +13372,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.burraco-solidale-buguggiate.imageAlt': 'Illustration générée pour cet article',
     'blog.article.coppa-svizzera-lugano-taverne.title': 'Lugano très favori, la Taverne cherche l\'entreprise',
     'blog.article.coppa-svizzera-lugano-taverne.excerpt': 'Lugano défie Pully dimanche à 14h.',
-    'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Le Comunale de Taverne, stade du match de Coupe de Suisse contre Young Boys',
+    'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Illustration générée pour cet article',
     'blog.article.sharks-derby-coppa-trevano.title': 'Les requins de Federico Pagani remportent le derby de la Coupe',
     'blog.article.sharks-derby-coppa-trevano.excerpt': 'Les Sharks remportent le derby de Coupe à Trevano Le Bissone se rend sur le 25-14 Veljko Krstic marque six buts au début officiel Alfano signe cinq buts Lieu',
     'blog.article.sharks-derby-coppa-trevano.imageAlt': 'Lugano, ville des Sharks dans le derby de Coupe suisse',
@@ -13384,7 +13384,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.film-festival-diritti-umani-lugano-2026.imageAlt': 'Festival du film des droits de l\'homme de Lugano: remises de prix et projections',
     'blog.article.netto-single-paga-ticino-2026.title': 'Bulletin de paie suisse 2026 : guide pour frontaliers célibataires',
     'blog.article.netto-single-paga-ticino-2026.excerpt': 'AVS/AI 5.3%, AD/AC 1.1% et LAMal : ce qu\'il faut vérifier sur la paie d\'un frontalier célibataire en 2026.',
-    'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Travailleur frontalier consultant une fiche de paie suisse au Tessin',
+    'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Illustration générée pour cet article',
 };
 
 export default blogMetaFr;
