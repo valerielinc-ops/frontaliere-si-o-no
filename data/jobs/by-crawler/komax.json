@@ -78,7 +78,7 @@
         }
       },
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2425,
       "needsRetranslation": true
@@ -743,7 +743,6 @@
           "development-engineer-electronics-with-emv-lead-komax-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -759,9 +758,10 @@
         }
       },
       "crawlerMissStreak": 2,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2425
+      "localeMismatchSuppressedLen": 2425,
+      "needsRetranslation": true
     }
   ]
 }
