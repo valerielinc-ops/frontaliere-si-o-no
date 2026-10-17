@@ -87,6 +87,7 @@ describe('SuccessFactors client', () => {
     const firstPage =
       '<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span>' +
       '<a href="/go/Switzerland/job/10/">detail</a>' +
+      '<a href="/go/Switzerland/job/10/?startrow=20">detail with offset</a>' +
       '<a href="/go/Switzerland/jobsearch/10/">2</a>' +
       fullSearchPage(1201);
     const secondPage = `<span class="paginationLabel">Results <b>11 – 20</b> of <b>20</b></span>${fullSearchPage(1211)}`;

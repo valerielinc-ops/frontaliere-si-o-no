@@ -877,7 +877,7 @@ function extractJobs2WebNextPageUrl(html = '', pageUrl = '') {
       continue;
     }
     if (candidate.origin !== current.origin) continue;
-    if (!isJobs2WebListingRoute(candidate.pathname, candidate.searchParams)) continue;
+    if (!isJobs2WebListingRoute(candidate.pathname)) continue;
     const offset = jobs2WebPageOffset(candidate);
     if (offset === null || offset <= currentOffset) continue;
     candidates.push({ offset, url: candidate.toString() });
@@ -887,10 +887,12 @@ function extractJobs2WebNextPageUrl(html = '', pageUrl = '') {
   return candidates[0]?.url || null;
 }
 
-function isJobs2WebListingRoute(pathname, searchParams) {
-  if (searchParams.has('startrow')) return true;
+function isJobs2WebListingRoute(pathname) {
   const path = pathname.replace(/\/+$/, '');
-  return JOBS2WEB_GO_LISTING_PATH_RE.test(path) || /\/(?:search|viewalljobs)(?:\/|$)/i.test(path);
+  const isListingPath =
+    JOBS2WEB_GO_LISTING_PATH_RE.test(path) ||
+    /\/(?:search|viewalljobs)(?:\/|$)/i.test(path);
+  return isListingPath;
 }
 
 const JOBS2WEB_GO_LISTING_PATH_RE = /^\/go\/[^/]+\/(?:jobsearch|\d+)(?:\/\d+)?$/i;
