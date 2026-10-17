@@ -14341,9 +14341,13 @@ ${staticAnalyticsHtml}
    '</head>',
    ` <script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>\n </head>`,
   );
- jobsSeoReuse?.finish(crossLocaleExpiredReuse, bridgeHtml);
+ // This is a foreign-locale alias, not the canonical expired page. Apply the
+ // alias policy after both fresh rendering and cache reuse so incremental HTML
+ // cannot resurrect an indexable bridge.
+ const noindexCrossLocaleExpiredHtml = noindexJobAliasHtml(bridgeHtml);
+ jobsSeoReuse?.finish(crossLocaleExpiredReuse, noindexCrossLocaleExpiredHtml);
  _md(outDir);
- _qw(indexFile, bridgeHtml);
+ _qw(indexFile, noindexCrossLocaleExpiredHtml);
  _writtenPaths.add(indexFile);
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleExpiredReuseInput);
@@ -15074,9 +15078,13 @@ ${staticAnalyticsHtml}
  const crossLocaleActiveHtml = crossLocaleActiveReuse?.hit && !jobsSeoReuse?.shouldRender(crossLocaleActiveReuse)
   ? jobsSeoReuse.reusedHtml(crossLocaleActiveReuse, STATIC_PAGE_BUILD_ID) || crossLocaleActiveReuse.html
   : getBridgeHtml();
- jobsSeoReuse?.finish(crossLocaleActiveReuse, crossLocaleActiveHtml);
+ // The foreign slug is an alias even when it came from another locale's
+ // current/previous slug. Keep the canonical detail indexable and the bridge
+ // noindex after fresh rendering and cache reuse alike.
+ const noindexCrossLocaleActiveHtml = noindexJobAliasHtml(crossLocaleActiveHtml);
+ jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);
  _md(outDir);
- _qw(indexFile, crossLocaleActiveHtml);
+ _qw(indexFile, noindexCrossLocaleActiveHtml);
  _writtenPaths.add(indexFile);
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleActiveReuseInput);

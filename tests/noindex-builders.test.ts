@@ -162,6 +162,26 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);');
     });
 
+    it('cross-locale reconciliation bridges force noindex after fresh render or cache reuse', () => {
+      const expiredStart = source.indexOf('/* ── Cross-locale reconciliation for expired jobs');
+      const expiredEnd = source.indexOf('if (crossLocaleExpiredCount > 0)', expiredStart);
+      const expiredBlock = source.slice(expiredStart, expiredEnd);
+      expect(expiredStart).toBeGreaterThan(-1);
+      expect(expiredEnd).toBeGreaterThan(expiredStart);
+      expect(expiredBlock).toContain('const noindexCrossLocaleExpiredHtml = noindexJobAliasHtml(bridgeHtml);');
+      expect(expiredBlock).toContain('jobsSeoReuse?.finish(crossLocaleExpiredReuse, noindexCrossLocaleExpiredHtml);');
+      expect(expiredBlock).toContain('_qw(indexFile, noindexCrossLocaleExpiredHtml);');
+
+      const activeStart = source.indexOf('/* ── Cross-locale reconciliation bridge pages');
+      const activeEnd = source.indexOf('if (crossLocaleCount > 0)', activeStart);
+      const activeBlock = source.slice(activeStart, activeEnd);
+      expect(activeStart).toBeGreaterThan(-1);
+      expect(activeEnd).toBeGreaterThan(activeStart);
+      expect(activeBlock).toContain('const noindexCrossLocaleActiveHtml = noindexJobAliasHtml(crossLocaleActiveHtml);');
+      expect(activeBlock).toContain('jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);');
+      expect(activeBlock).toContain('_qw(indexFile, noindexCrossLocaleActiveHtml);');
+    });
+
     it('recovers only complete self-canonical job details from the noindex quality gate', () => {
       const start = source.indexOf('const jobPostingDescriptionHtml =');
       const end = source.indexOf('<!doctype html>', start);
