@@ -74,6 +74,25 @@ describe('preserveStructuredTranslation and inline list entries', () => {
     expect(translated).not.toContain('Www.');
   });
 
+  it('keeps an uncounted marker an entry depends on («des 24. & 31. Dezembers»)', async () => {
+    // Gesundheitsnetz Küsnacht, run 39005358922: « 31. » counts as an entry
+    // only next to « 24. »; a provider writing «del 24» dropped the entry and
+    // the gate refused the description (52 refusals, one entry each).
+    const source = [
+      '• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»',
+      '• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers',
+      '• Weiterbildung im Team und im ganzen Betrieb',
+    ].join('\n');
+    const provider = async (text: string) => text
+      .replace('Arbeitstag Nachmittag des 24.', 'giorno lavorativo pomeriggio del 24')
+      .replace('Dezembers', 'Dicembre');
+    const before = countListItems(source);
+    const translated = await preserveStructuredTranslation(source, provider);
+    expect(countListItems(translated)).toBe(before);
+    expect(translated).toContain(' 24. ');
+    expect(hasStructureParity(source, translated)).toBe(true);
+  });
+
   it('leaves lines with HTML on the whole-line path', async () => {
     const html = '<p>Tätigkeiten - Wartung von Anlagen - Reparatur von Maschinen - Prüfung</p>';
     const seen: string[] = [];
