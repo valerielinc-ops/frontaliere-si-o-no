@@ -38,6 +38,7 @@ const CAREER_URL = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&Conte
 // job shape has one canton slot and must not turn "Zürich oder Lausanne" into a
 // guessed single canton.
 const SWITCH_SINGLE_CITY_TITLE_RX = /\bin\s+(Zürich|Zurich|Lausanne)\s*$/i;
+const SWITCH_SUPPORTED_CITY_OCCURRENCE_RX = /\bin\s+(?:Zürich|Zurich|Lausanne)\b/gi;
 
 /**
  * Recover Switch's explicit single-city title suffix as source-backed detail
@@ -48,7 +49,10 @@ const SWITCH_SINGLE_CITY_TITLE_RX = /\bin\s+(Zürich|Zurich|Lausanne)\s*$/i;
  * @returns {{ location: string, addressLocality: string, addressCountry: string }|null}
  */
 export function extractRecruitingapp2563TitleLocation(title = '') {
-  const match = SWITCH_SINGLE_CITY_TITLE_RX.exec(normalizeSpace(title));
+  const normalizedTitle = normalizeSpace(title);
+  const cityOccurrences = [...normalizedTitle.matchAll(SWITCH_SUPPORTED_CITY_OCCURRENCE_RX)];
+  if (cityOccurrences.length !== 1) return null;
+  const match = SWITCH_SINGLE_CITY_TITLE_RX.exec(normalizedTitle);
   if (!match) return null;
   const location = normalizeSpace(match[1]);
   const candidate = { location, addressLocality: location, addressCountry: 'CH' };
@@ -67,8 +71,12 @@ export function extractRecruitingapp2563TitleLocation(title = '') {
 export function extractRecruitingapp2563DetailFields(html = '', pageUrl = '', opts = {}) {
   const detail = extractDetailFields(html, pageUrl, opts);
   const renderedTitle = stripHtml(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
-  const location = extractRecruitingapp2563TitleLocation(detail.title)
-    || extractRecruitingapp2563TitleLocation(renderedTitle);
+  const detailTitle = normalizeSpace(detail.title);
+  const normalizedRenderedTitle = normalizeSpace(renderedTitle);
+  const titleSourcesAgree = !detailTitle || !normalizedRenderedTitle
+    || normalize(detailTitle) === normalize(normalizedRenderedTitle);
+  const titleForLocation = titleSourcesAgree ? detailTitle || normalizedRenderedTitle : '';
+  const location = extractRecruitingapp2563TitleLocation(titleForLocation);
   if (!location) {
     const genericLocationPresent = Boolean(detail.location)
       || Boolean(detail.addressCountry)
