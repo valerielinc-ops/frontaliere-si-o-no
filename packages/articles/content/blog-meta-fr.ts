@@ -13388,6 +13388,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-rame-cimitero-tradate.title': 'Vols de cuivre, nouveau coup au cimetière de Tradate',
     'blog.article.furti-rame-cimitero-tradate.excerpt': 'Nouveau vol de cuivre dans le cimetière de Tradate Plusieurs plaques volées sur la couverture du toit De l’eau dans le couloir du premier étage Vérifications des carabiniers',
     'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Vol de cuivre au cimetière de Tradate',
+    'blog.article.bollettino-frontaliere-2026-10-17.title': 'Frontaliers : 1\'239 nouvelles offres en Suisse hier — 17 octobre 2026',
+    'blog.article.bollettino-frontaliere-2026-10-17.excerpt': 'Les chiffres du jour, 17 octobre 2026, pour les frontaliers : les dernières attentes relevées à chaque douane, les communes où l\'essence coûte le moins cher, le dernier taux franc-euro relevé et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'Les chiffres du jour pour les frontaliers – 17 octobre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Bulletin du frontalier du 17 octobre 2026 : les files relevées aux douanes, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'Les chiffres du 17 octobre 2026 pour les frontaliers : combien de temps on attend à chaque douane, où l\'essence coûte le moins cher, quel est le dernier taux franc-euro relevé et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

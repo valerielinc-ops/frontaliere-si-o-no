@@ -13386,6 +13386,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-rame-cimitero-tradate.title': 'Copper thefts, another hit at the Tradate cemetery',
     'blog.article.furti-rame-cimitero-tradate.excerpt': 'New copper theft at the Tradate cemetery Several sheets stolen from the roof covering Water in the first-floor corridor Carabinieri investigations',
     'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Copper theft at Tradate cemetery',
+    'blog.article.bollettino-frontaliere-2026-10-17.title': 'Cross-border workers: 1\'239 new Swiss job listings yesterday — October 17, 2026',
+    'blog.article.bollettino-frontaliere-2026-10-17.excerpt': 'Today\'s numbers, October 17, 2026, for cross-border commuters: the latest waits measured at each crossing, the municipalities where fuel is cheapest, the latest reported franc-euro rate and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'The day\'s numbers for cross-border commuters – October 17, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Cross-border brief, October 17, 2026: latest measured border waiting times, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'The numbers for October 17, 2026, for cross-border commuters: how long the queue is at each crossing, which towns have the cheapest fuel, what the latest recorded franc-euro rate is and how many Swiss job listings were posted.',
 };
 
 export default blogMetaEn;

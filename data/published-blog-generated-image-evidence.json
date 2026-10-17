@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "071cd2b272885214991f7983a471141b77640e09",
+  "commit": "3e78693564af2f63eeae4b8b1a310f9e6f167950",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -26074,6 +26074,24 @@
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a cemetery building with missing copper roofing; no people, text, logos, or identifying details."
       }
+    },
+    "/images/blog/bollettino-frontaliere-2026-10-17.webp": {
+      "schema": 1,
+      "assetId": "bollettino-frontaliere-2026-10-17",
+      "source": "deterministic-card",
+      "provider": "site-owned",
+      "note": "Deterministic SVG card rendered by the repository; no external image provider is used.",
+      "credit": "frontaliereticino.ch",
+      "producer": "generator/scripts/lib/daily-brief-image.mjs",
+      "templateVersion": "frontaliereticino.daily-brief-card.v1",
+      "license": "private-grant",
+      "sha256": "88d2de74a034f69579b10af9e155889008eef236b5fe2ffc6ca72b87d83c6660",
+      "bytes": 27282,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/bollettino-frontaliere-2026-10-17.webp"
     },
     "/images/places/lugano-view.webp": {
       "schema": 1,

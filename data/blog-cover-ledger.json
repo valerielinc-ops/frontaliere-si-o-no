@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5570
+      "6": 5571
     },
-    "publishedCovers": 7151,
+    "publishedCovers": 7152,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5375
+    "inferredRecords": 5376
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -191747,6 +191747,33 @@
           "date": "2026-10-16T09:38:34.624Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-17": {
+      "cover": "/images/blog/bollettino-frontaliere-2026-10-17.webp",
+      "hash": "88d2de74a034f69579b10af9e155889008eef236b5fe2ffc6ca72b87d83c6660",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-17",
+          "category": "novita",
+          "date": "2026-10-17T09:07:39.498Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
         }
       ],
       "proofLevel": 6,

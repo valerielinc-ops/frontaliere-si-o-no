@@ -13387,6 +13387,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-rame-cimitero-tradate.title': 'Furti di rame, nuovo colpo al cimitero di Tradate',
     'blog.article.furti-rame-cimitero-tradate.excerpt': 'Nuovo furto di rame nel cimitero di Tradate Rubate diverse lastre dalla copertura del tetto Acqua nel corridoio del primo piano Accertamenti dei carabinieri',
     'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Furti di rame nel cimitero di Tradate',
+    'blog.article.bollettino-frontaliere-2026-10-17.title': 'Frontalieri: 1239 nuovi annunci in Svizzera ieri — 17 ottobre 2026',
+    'blog.article.bollettino-frontaliere-2026-10-17.excerpt': 'I numeri di oggi, 17 ottobre 2026, per chi attraversa il confine: le ultime attese rilevate ai valichi, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'I numeri del giorno per i frontalieri – 17 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Bollettino frontalieri del 17 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'I numeri del 17 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti nuovi annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

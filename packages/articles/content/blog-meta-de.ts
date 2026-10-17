@@ -13385,6 +13385,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-rame-cimitero-tradate.title': 'Kupferdiebstähle, neuer Coup auf dem Friedhof von Tradate',
     'blog.article.furti-rame-cimitero-tradate.excerpt': 'Neuer Kupferdiebstahl auf dem Friedhof von Tradate Mehrere Platten aus der Dacheindeckung gestohlen Wasser im Korridor des ersten Stocks Ermittlungen der Carabinieri',
     'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Kupferdiebstahl auf dem Friedhof von Tradate',
+    'blog.article.bollettino-frontaliere-2026-10-17.title': 'Grenzgänger: 1\'239 neue Stellen in der Schweiz gestern — 17. Oktober 2026',
+    'blog.article.bollettino-frontaliere-2026-10-17.excerpt': 'Die Zahlen von heute, 17. Oktober 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der zuletzt erfasste Franken-Euro-Kurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 17. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Grenzgänger-Bulletin vom 17. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'Die Zahlen vom 17. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, wie der Franken zuletzt zum Euro stand und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
