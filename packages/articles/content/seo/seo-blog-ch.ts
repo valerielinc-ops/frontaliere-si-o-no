@@ -106554,10 +106554,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Quasi il 70% degli svizzeri usa l'IA per un acquisto Il 49% dice che l'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontaliere-acquisto-immobile-investimento-svizzera.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ia-assistente-shopping-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Cliente svizzero che utilizza un assistente IA su smartphone mentre fa shopping a Lugano"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T21:25:25+00:00",
       "dateModified": "2026-10-16T21:25:25+00:00",
@@ -106643,6 +106648,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stesso-reddito-imposte-diverse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ia-voce-truffatori-svizzera-2026': {
+    title: 'L’IA presta la voce ai truffatori: come difendersi dalle chiamate sospette',
+    description: 'Una banca italiana avrebbe perso 95 milioni di euro. Un\'azienda del canton Svitto ha perso diversi milioni di franchi. Il rapporto UFCS riguarda il primo',
+    keywords: 'frontalieri, ticino, svizzera, italia, presta, voce, truffatori, difendersi',
+    ogTitle: 'L’IA presta la voce ai truffatori: come difendersi dalle chiamate sospette',
+    ogDescription: 'Una banca italiana avrebbe perso 95 milioni di euro.',
+    canonicalPath: '/articoli-svizzera/ia-voce-truffatori-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’IA presta la voce ai truffatori: come difendersi dalle chiamate sospette",
+      "description": "Una banca italiana avrebbe perso 95 milioni di euro. Un'azienda del canton Svitto ha perso diversi milioni di franchi. Il rapporto UFCS riguarda il primo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ia-voce-truffatori-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con notifica di chiamata e onda sonora che rappresenta la clonazione vocale su scrivania svizzera"
+      },
+      "datePublished": "2026-10-17T14:18:53+00:00",
+      "dateModified": "2026-10-17T14:18:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-voce-truffatori-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-udc-no-iva-13esima-avs': {
+    title: 'UDC dice no all\'aumento dell\'IVA per finanziare la 13esima AVS, voto il 29 novembre',
+    description: 'No UDC all\'aumento dell\'IVA per la 13esima AVS Il popolo vota sulla proposta il 29 novembre A Bulle il no passa con 290 voti contro 3 L\'Udc dice sì',
+    keywords: 'frontalieri, ticino, svizzera, italia, dice, aumento, dell, finanziare',
+    ogTitle: 'UDC dice no all\'aumento dell\'IVA per la 13esima AVS, voto il 29 novembre',
+    ogDescription: 'No UDC all\'aumento dell\'IVA per la 13esima AVS Il popolo vota sulla proposta il 29 novembre A Bulle il no passa con 290 voti contro 3 L\'Udc dice sì',
+    canonicalPath: '/articoli-svizzera/udc-no-iva-13esima-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UDC dice no all'aumento dell'IVA per finanziare la 13esima AVS, voto il 29 novembre",
+      "description": "No UDC all'aumento dell'IVA per la 13esima AVS Il popolo vota sulla proposta il 29 novembre A Bulle il no passa con 290 voti contro 3 L'Udc dice sì",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elettori svizzeri davanti a un seggio elettorale con simbolo dell'IVA"
+      },
+      "datePublished": "2026-10-17T15:14:14+00:00",
+      "dateModified": "2026-10-17T15:14:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/udc-no-iva-13esima-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ps-iniziativa-violenza-genero': {
+    title: 'PS lancia iniziativa contro la violenza di genere a Thun',
+    description: 'Il PS lancia a Thun un\'iniziativa sulla violenza di genere I delegati approvano il progetto all\'unanimità Chiesti almeno 500 milioni di franchi supplementari',
+    keywords: 'frontalieri, ticino, svizzera, italia, lancia, iniziativa, contro, violenza',
+    ogTitle: 'PS lancia iniziativa contro la violenza di genere a Thun',
+    ogDescription: 'Il PS lancia a Thun un\'iniziativa sulla violenza di genere I delegati approvano il progetto all\'unanimità Chiesti almeno 500 milioni di franchi supplementari',
+    canonicalPath: '/articoli-svizzera/ps-iniziativa-violenza-genero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PS lancia iniziativa contro la violenza di genere a Thun",
+      "description": "Il PS lancia a Thun un'iniziativa sulla violenza di genere I delegati approvano il progetto all'unanimità Chiesti almeno 500 milioni di franchi supplementari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ps-iniziativa-violenza-genero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Iniziativa PS contro la violenza di genere a Thun, richiesta di 500 milioni di franchi supplementari all'anno."
+      },
+      "datePublished": "2026-10-17T15:49:05+00:00",
+      "dateModified": "2026-10-17T15:49:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ps-iniziativa-violenza-genero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-big-tech-franchi-bolla-ia': {
+    title: 'Big Tech emettono obbligazioni in franchi per data center',
+    description: 'Big Tech Usa emettono obbligazioni in franchi per finanziare data center: Sergio Rossi spiega i rischi per la piazza elvetica, con titolo sulla bolla dell\'IA.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tech, emettono, obbligazioni, franchi',
+    ogTitle: 'Big Tech emettono obbligazioni in franchi per data center',
+    ogDescription: 'Le emissioni in franchi dei giganti tecnologici Usa finanziano la costruzione di data center. Sergio Rossi richiama i rischi per la piazza elvetica; il titolo apre il tema della bolla dell\'IA e del finanziamento dei data center.',
+    canonicalPath: '/articoli-svizzera/big-tech-franchi-bolla-ia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Big Tech emettono obbligazioni in franchi per data center",
+      "description": "Big Tech Usa emettono obbligazioni in franchi per finanziare data center: Sergio Rossi spiega i rischi per la piazza elvetica, con titolo sulla bolla dell'IA.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-big-tech-franchi-bolla-ia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista urbana svizzera con uffici e infrastrutture tecnologiche legate alla finanza."
+      },
+      "datePublished": "2026-10-17T16:18:34+00:00",
+      "dateModified": "2026-10-17T16:18:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/big-tech-franchi-bolla-ia/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

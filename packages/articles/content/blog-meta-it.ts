@@ -13401,6 +13401,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credito-imposta-famiglia-2026.title': 'Credito d\'imposta 2026 per frontalieri con figli',
     'blog.article.credito-imposta-famiglia-2026.excerpt': 'Guida al calcolo e alla compilazione del quadro CE per le famiglie di frontalieri: aliquote IRPEF 2026 e gestione doppia imposizione.',
     'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Vista panoramica di Lugano e del lago',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.title': 'Arcisate: bomba della Seconda Guerra Mondiale ritrovata',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.excerpt': 'Ordigno bellico trovato ad Arcisate Ritrovamento nella mattinata di sabato 17 ottobre Si tratterebbe di una bomba da mortaio Area delimitata e messa',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.imageAlt': 'Area industriale di Arcisate con nastro di sicurezza e forze dell\'ordine dopo il ritrovamento di un ordigno bellico della Seconda guerra mondiale.',
 };
 
 export default blogMetaIt;

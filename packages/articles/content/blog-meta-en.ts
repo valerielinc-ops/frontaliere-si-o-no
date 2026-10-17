@@ -13400,6 +13400,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credito-imposta-famiglia-2026.title': '2026 tax credit for border workers with children',
     'blog.article.credito-imposta-famiglia-2026.excerpt': 'Guide to the calculation and compilation of the EC framework for families of border workers: IRPEF 2026 rates and double taxation management.',
     'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Panoramic view of Lugano and the lake',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.title': 'Arcisate: World War II bomb found',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.excerpt': 'Explosive device found in Arcisate Discovery on the morning of Saturday, October 17 It is believed to be a mortar bomb Area cordoned off and put',
+    'blog.article.arcisate-bomba-seconda-guerra-mondiale.imageAlt': 'Industrial area in Arcisate with safety tape and police after the discovery of a WWII ordnance.',
 };
 
 export default blogMetaEn;
