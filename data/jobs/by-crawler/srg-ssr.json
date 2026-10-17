@@ -3232,12 +3232,12 @@
     },
     {
       "id": "srg-ssr-bc189cc4257c",
-      "slug": "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern",
+      "slug": "responsabile-tecnico-fm-north-east-srg-ssr-bern",
       "slugByLocale": {
         "de": "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern",
-        "it": "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern",
-        "en": "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern",
-        "fr": "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern"
+        "it": "responsabile-tecnico-fm-north-east-srg-ssr-bern",
+        "en": "head-of-technical-fm-north-east-srg-ssr-bern",
+        "fr": "chef-du-groupe-technique-fm-nord-est-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3317,7 +3317,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-17T09:10:09.761Z"
+      "firstSeenAt": "2026-10-17T09:10:09.761Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern"
+        ],
+        "en": [
+          "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern"
+        ],
+        "fr": [
+          "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-technisches-fm-nord-amp-ost-srg-ssr-bern"
+      ]
     }
   ]
 }
