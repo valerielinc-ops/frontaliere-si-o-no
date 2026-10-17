@@ -1,7 +1,7 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-10-16T21:49:33.102Z",
+  "generatedAt": "2026-10-17T09:34:59.082Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2988,
-  "avgDurationMs": 2988,
+  "durationMs": 3230,
+  "avgDurationMs": 3230,
   "durationHistory": [
-    2988
+    3230
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:49:13.867Z",
+      "crawledAt": "2026-10-17T09:34:43.139Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -78,7 +78,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:49:13.817Z",
+      "crawledAt": "2026-10-17T09:34:42.969Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

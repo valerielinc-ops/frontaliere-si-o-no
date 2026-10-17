@@ -1143,6 +1143,34 @@ describe('native auto-merge gate (#8512)', () => {
       barrier: { allow: true },
       lease: held,
     })).toMatchObject({ allow: false, retryable: true });
+
+    expect(postMutationStateDecision({
+      observed: {
+        state: 'OPEN',
+        isDraft: false,
+        baseRefName: 'main',
+        headRefOid: HEAD,
+        autoMergeRequest: { enabledAt: '2026-09-13T12:06:00Z' },
+      },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: true, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: {
+        state: 'OPEN', isDraft: false, baseRefName: 'main', headRefOid: HEAD,
+      },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: false, retryable: false });
   });
 
   it('fails closed when the final same-HEAD snapshot gains a check failure', () => {

@@ -74,6 +74,63 @@ describe('preserveStructuredTranslation and inline list entries', () => {
     expect(translated).not.toContain('Www.');
   });
 
+  it('keeps an uncounted marker an entry depends on («des 24. & 31. Dezembers»)', async () => {
+    // Gesundheitsnetz Küsnacht, run 39005358922: « 31. » counts as an entry
+    // only next to « 24. »; a provider writing «del 24» dropped the entry and
+    // the gate refused the description (52 refusals, one entry each).
+    const source = [
+      '• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»',
+      '• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers',
+      '• Weiterbildung im Team und im ganzen Betrieb',
+    ].join('\n');
+    const provider = async (text: string) => text
+      .replace('Arbeitstag Nachmittag des 24.', 'giorno lavorativo pomeriggio del 24')
+      .replace('Dezembers', 'Dicembre');
+    const before = countListItems(source);
+    const translated = await preserveStructuredTranslation(source, provider);
+    expect(countListItems(translated)).toBe(before);
+    expect(translated).toContain(' 24. ');
+    expect(hasStructureParity(source, translated)).toBe(true);
+  });
+
+  it('keeps a range or a URL label next to a counted numeric entry (review of PR 13654)', async () => {
+    const source = [
+      '• Pensum 80% - 100% nach Vereinbarung',
+      '• Start am 1. & 15. März oder später, Infos: www.example.ch',
+    ].join('\n');
+    // A provider that rewrites the words and lowercases them, as Italian does.
+    const provider = async (text: string) => text
+      .replace('Pensum', 'grado')
+      .replace('nach Vereinbarung', 'da concordare')
+      .replace('Start am', 'inizio il')
+      .replace('März oder später', 'marzo o più tardi')
+      .toLowerCase();
+    const translated = await preserveStructuredTranslation(source, provider);
+    expect(countListItems(translated)).toBe(countListItems(source));
+    expect(translated).toContain('www.example.ch');
+    expect(translated).toContain(' 1. & 15. ');
+  });
+
+  it('aligns markers after a tab-indented bullet prefix', async () => {
+    const source = ['\t•  Aufgaben im Team', '\t•  Einsatz am 24. & 31. Dezember im Betrieb'].join('\n');
+    const seen: string[] = [];
+    const translated = await preserveStructuredTranslation(source, async (text) => { seen.push(text); return text.toUpperCase(); });
+    expect(countListItems(translated)).toBe(countListItems(source));
+    expect(translated.split('\n')[1].startsWith('\t•  ')).toBe(true);
+    expect(seen.every((segment) => segment === segment.trim() && segment.length > 0)).toBe(true);
+  });
+
+  it('an empty or multi-line segment keeps the source segment, without doubled spaces, also concurrently', async () => {
+    const source = '• Start am 24. & 31. Dezember im Betrieb';
+    for (const concurrent of [false, true]) {
+      const empty = await preserveStructuredTranslation(source, async () => '', { concurrent });
+      const multi = await preserveStructuredTranslation(source, async (text) => `${text}\nzweite Zeile`, { concurrent });
+      expect(empty).toBe(source);
+      expect(multi).toBe(source);
+      expect(empty).not.toMatch(/ {2}/);
+    }
+  });
+
   it('leaves lines with HTML on the whole-line path', async () => {
     const html = '<p>Tätigkeiten - Wartung von Anlagen - Reparatur von Maschinen - Prüfung</p>';
     const seen: string[] = [];
