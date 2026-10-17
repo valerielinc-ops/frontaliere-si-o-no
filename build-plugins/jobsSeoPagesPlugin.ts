@@ -99,6 +99,7 @@ import { markCantonCompanyHub } from './shared/cantonCompanyHubRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from './shared/companyCantonBridgeMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
+import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from './shared/jobBoardEditorialBridgeMarker.mjs';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
 // primitives (AGENTS.md §6); see build-plugins/shared/jobEventsCrosslink.ts.
@@ -5877,6 +5878,7 @@ ${companyFollowHtml}
  const html = buildCanonicalBridgePage({
  canonicalUrl: `${BASE_URL}${targetPath}`,
  pathLabel: targetPath,
+ body: `${JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER} Questa URL ha una versione aggiornata. Apri la pagina canonica per consultare il contenuto corretto.`,
  lang: locale,
  noindex: true,
  });
