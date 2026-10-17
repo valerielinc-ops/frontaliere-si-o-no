@@ -1,4 +1,4 @@
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
@@ -605,6 +605,32 @@ describe('Bing-compatible full-tree crawler', () => {
       'https://frontaliereticino.ch/cerca-lavoro-ticino/',
       'https://frontaliereticino.ch/contattaci/',
     ]);
+  });
+
+  it('keeps /ricerca job links on canonical detail URLs, not T6→T5 redirects', () => {
+    const orphanPluginSource = readFileSync(
+      join(process.cwd(), 'build-plugins/orphanQueryLandingPlugin.ts'),
+      'utf8',
+    );
+    expect(orphanPluginSource).toContain('buildCanonicalJobDetailPath');
+    expect(orphanPluginSource).toContain('return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;');
+
+    const orphanPage = `${BASE}/ricerca/canonical-job-links/`;
+    const canonicalJob = `${BASE}/cerca-lavoro-zurigo/offerta-zurigo/`;
+    const links = extractInternalLinks(
+      `<a href="${canonicalJob}">Offerta</a>`,
+      orphanPage,
+      BASE,
+    );
+    expect(links).toEqual([canonicalJob]);
+
+    const result = classifyDocument({
+      url: canonicalJob,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Offerta</title><link rel="canonical" href="${canonicalJob}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
+    });
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
   });
 
   it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {
