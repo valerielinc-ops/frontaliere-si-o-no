@@ -251,6 +251,12 @@ describe('reportCaughtError', () => {
       expect(Analytics.trackAppError).not.toHaveBeenCalled();
     });
 
+    it('drops recoverable exchange-rate Cloud Function fetch failures', async () => {
+      reportCaughtError(new TypeError('Failed to fetch'), 'exchangeRate.cfFetch');
+      await settleAnalyticsImport();
+      expect(Analytics.trackAppError).not.toHaveBeenCalled();
+    });
+
     it('still reports messages that do not match noise patterns', async () => {
       reportCaughtError(new Error('genuine bug in calculator'), 'real.bug');
       await waitForAnalyticsCalls(1);

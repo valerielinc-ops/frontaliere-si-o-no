@@ -160,7 +160,7 @@ export const CLIENT_APP_ERROR_DROP_PATTERNS = [
   /Failed to load Google Identity Services/i,
   /Failed to get document because the client is offline/i,
   /Importing a module script failed/i,
-  /\[exchangeRate\.twelveDataFetch\]/i,
+  /\[exchangeRate\.(?:cfFetch|twelveDataFetch)\]/i,
 ];
 
 /**

@@ -161,9 +161,10 @@ export const APP_ERROR_ONLY_PATTERNS: readonly RegExp[] = [
   // for chunk-load dashboards; filtered from GitHub issue creation in
   // scripts/posthog-error-issue-sync.mjs ISSUE_DENY_PATTERNS (#3762).
   /Importing a module script failed/i,
-  // Twelve Data CHF/EUR exchange-rate fetch flake (~140/30d). Caller has a full
-  // Firebase RC fallback, so this is recoverable noise.
-  /\[exchangeRate\.twelveDataFetch\]/i,
+  // CHF/EUR exchange-rate Cloud Function fetch flake. The caller falls back to
+  // Firestore/localStorage/the shared default, so both the current proxy
+  // context and the pre-proxy context are recoverable noise.
+  /\[exchangeRate\.(?:cfFetch|twelveDataFetch)\]/i,
 ];
 
 /**

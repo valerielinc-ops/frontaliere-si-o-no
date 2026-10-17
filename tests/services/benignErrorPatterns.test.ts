@@ -22,6 +22,7 @@ describe('isBenignErrorMessage()', () => {
       'Database deleted by request of the user',
       'TypeError: Load failed',
       '[exchangeRate.twelveDataFetch] Failed to fetch',
+      '[exchangeRate.cfFetch] Failed to fetch',
       // ── New buckets (2026-06-22 triage) ──
       'TypeError: Failed to fetch',
       'Failed to fetch',
@@ -61,9 +62,9 @@ describe('isBenignErrorMessage()', () => {
 
   describe('keeps real, actionable errors', () => {
     it.each([
-      // Bare transport patterns are anchored — contextualized variants from
-      // reportCaughtError (shaped `[context] …`) MUST still report.
-      '[exchangeRate.cfFetch] Failed to fetch',
+      // Bare transport patterns are anchored — unrelated contextualized
+      // variants from reportCaughtError (shaped `[context] …`) MUST still report.
+      '[exchangeRate.otherFetch] Failed to fetch',
       '[jobBoard.loadJobs.shards] Load failed',
       '[firebase.initRemoteConfig] NetworkError when attempting to fetch resource.',
       // Genuine app bugs
