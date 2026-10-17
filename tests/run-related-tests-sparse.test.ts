@@ -92,6 +92,15 @@ describe('run-related-tests — il selettore sopravvive a un worktree sparse', (
     expect(result.stdout).not.toContain('No existing source/test files in the diff');
   });
 
+  it('blocca anche il probe CI --select-only senza checkout completo', () => {
+    const result = runFromMissingCheckout(['--select-only'], { GITHUB_ACTIONS: 'true' });
+
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('BLOCKED: related-test verdict requires a full checkout');
+    expect(result.stderr).toContain('data/blog-articles-data.ts');
+    expect(result.stdout).not.toContain('No existing source/test files in the diff');
+  });
+
   it.each([
     ['--select-only', ['--select-only'], {}],
     ['dry-run locale', [], { VITEST_RELATED_DRY_RUN: 'true' }],
