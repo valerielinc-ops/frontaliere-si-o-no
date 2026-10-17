@@ -62,6 +62,28 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
         });
     });
 
+    it('rejects a generic employer address when the title is multi-site', () => {
+      const title = 'System Engineer (80-100%) in Zürich oder Lausanne';
+      const html = `
+        <script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title,
+          description: 'Design and operate secure network services.'.repeat(30),
+          jobLocation: { address: { addressLocality: 'Lugano', addressCountry: 'CH' } },
+        })}</script>
+        <h1>${title}</h1>
+        <main>${'Aufgaben und Verantwortlichkeiten für diese Stelle. '.repeat(40)}</main>`;
+
+      expect(extractRecruitingapp2563DetailFields(html, 'https://recruitingapp-2563.umantis.com/Vacancies/560/Description/1'))
+        .toMatchObject({
+          title,
+          location: '',
+          addressCountry: '',
+          locationCandidates: [],
+          locationGateRejected: true,
+        });
+    });
+
     it('keeps a single title-backed listing publishable through the spec runtime', async () => {
       const seed = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
       const detail = 'https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1';

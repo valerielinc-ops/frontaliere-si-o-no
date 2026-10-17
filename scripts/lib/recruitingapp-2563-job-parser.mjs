@@ -69,7 +69,24 @@ export function extractRecruitingapp2563DetailFields(html = '', pageUrl = '', op
   const renderedTitle = stripHtml(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
   const location = extractRecruitingapp2563TitleLocation(detail.title)
     || extractRecruitingapp2563TitleLocation(renderedTitle);
-  if (!location) return detail;
+  if (!location) {
+    const genericLocationPresent = Boolean(detail.location)
+      || Boolean(detail.addressCountry)
+      || (Array.isArray(detail.locationCandidates) && detail.locationCandidates.length > 0);
+    if (!genericLocationPresent) return detail;
+
+    // The generic Umantis candidate is not trustworthy for this tenant when
+    // the title does not prove one city. Block it explicitly so the shared
+    // resolver cannot fall back to the employer HQ or a conflicting listing
+    // candidate and publish an invented workplace.
+    return {
+      ...detail,
+      location: '',
+      addressCountry: '',
+      locationCandidates: [],
+      locationGateRejected: true,
+    };
+  }
 
   // A generic Umantis address can be the employer's HQ (historically Lugano),
   // not this vacancy's workplace. The explicit single-city title is stronger
