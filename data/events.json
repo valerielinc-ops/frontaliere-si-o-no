@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T10:44:21.348Z",
+  "generatedAt": "2026-10-17T08:41:25.190Z",
   "totalEvents": 13862,
   "events": [
     {
@@ -93698,7 +93698,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di uno spettacolo teatrale programmato a Ginevra. Il progetto immagina di partire tutti insieme verso il mare invece di assistere a un ulteriore spettacolo.",
+      "descriptionByLocale": {
+        "it": "Si tratta di uno spettacolo teatrale programmato a Ginevra. Il progetto immagina di partire tutti insieme verso il mare invece di assistere a un ulteriore spettacolo.",
+        "en": "This is a theatre performance presented in Geneva. It imagines everyone setting off for the sea together instead of attending another show.",
+        "de": "Es handelt sich um eine Theateraufführung in Genf. Im Zentrum steht die Idee, gemeinsam ans Meer aufzubrechen, statt eine weitere Vorstellung zu besuchen.",
+        "fr": "Ce rendez-vous est un spectacle de théâtre programmé à Genève. Il imagine un départ collectif vers la mer plutôt que d’assister à une représentation supplémentaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:76552aedd2a9424a833e7b6a005498c9",
@@ -95054,7 +95062,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La programmazione cinematografica comprende un incontro con Olmo Cerri al Teatro di Banco, nel territorio di Lugano. Il calendario prevede inoltre una proiezione dedicata al giro del mondo del Facchinetti di Curio.",
+      "descriptionByLocale": {
+        "it": "La programmazione cinematografica comprende un incontro con Olmo Cerri al Teatro di Banco, nel territorio di Lugano. Il calendario prevede inoltre una proiezione dedicata al giro del mondo del Facchinetti di Curio.",
+        "en": "The cinema programme features a meeting with Olmo Cerri at the Teatro venue in Banco, within the municipality of Lugano. It also lists a film about the Facchinetti of Curio travelling around the world.",
+        "de": "Das Kinoprogramm umfasst ein Treffen mit Olmo Cerri im Teatro in Banco, im Gemeindegebiet von Lugano. Zudem ist ein Film über die Weltreise des Facchinetti aus Curio aufgeführt.",
+        "fr": "La programmation cinématographique comprend une rencontre avec Olmo Cerri au Teatro de Banco, dans la commune de Lugano. Elle prévoit aussi un film consacré au tour du monde du Facchinetti de Curio."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:107ecbd35eff422a97f34e694fd313f1",
@@ -99840,7 +99856,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa conferenza affronta il tema della salute cardiovascolare femminile e mette a confronto l’età anagrafica con quella vascolare. L’incontro si svolge nella sala polivalente delle scuole comunali di Roveredo, con gli interventi di una cardiologa e di un internista moderati da una giornalista.",
+      "descriptionByLocale": {
+        "it": "Questa conferenza affronta il tema della salute cardiovascolare femminile e mette a confronto l’età anagrafica con quella vascolare. L’incontro si svolge nella sala polivalente delle scuole comunali di Roveredo, con gli interventi di una cardiologa e di un internista moderati da una giornalista.",
+        "en": "This conference examines cardiovascular health in women and compares chronological age with vascular age. It is hosted at the municipal schools’ multipurpose hall in Roveredo and includes contributions from a cardiologist and an internist, moderated by a journalist.",
+        "de": "Die Konferenz behandelt die Herz-Kreislauf-Gesundheit von Frauen und vergleicht das chronologische mit dem vaskulären Alter. Sie findet in der Mehrzweckhalle der Gemeindeschulen in Roveredo statt und umfasst Beiträge einer Kardiologin und eines Internisten unter der Moderation einer Journalistin.",
+        "fr": "Cette conférence aborde la santé cardiovasculaire des femmes et compare l’âge chronologique à l’âge vasculaire. Elle se déroule dans la salle polyvalente des écoles communales à Roveredo et prévoit les interventions d’une cardiologue et d’un interniste, sous la modération d’une journaliste."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:generation-autre-art",
@@ -100046,7 +100070,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il camp di calcio a Suhr è rivolto a bambine e bambini dai sei ai sedici anni. L’offerta accoglie partecipanti di ogni livello, anche senza appartenenza a una società calcistica.",
+      "descriptionByLocale": {
+        "it": "Il camp di calcio a Suhr è rivolto a bambine e bambini dai sei ai sedici anni. L’offerta accoglie partecipanti di ogni livello, anche senza appartenenza a una società calcistica.",
+        "en": "The football camp in Suhr is intended for girls and boys aged six to sixteen. It is open to all playing levels and does not require membership in a football club.",
+        "de": "Das Fussballcamp in Suhr richtet sich an Mädchen und Jungen im Alter von sechs bis sechzehn Jahren. Es steht verschiedenen Spielniveaus offen und setzt keine Mitgliedschaft in einem Fussballverein voraus.",
+        "fr": "Le camp de football à Suhr s’adresse aux filles et aux garçons de six à seize ans. Il est ouvert à tous les niveaux et ne requiert pas l’appartenance à un club de football."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ANgiDXe",
@@ -101528,7 +101560,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa animazione intergenerazionale combina una festa danzante, una merenda e un pasto. L’appuntamento si svolge a Ginevra, presso gli ex depositi TPG della Jonction, ed è proposto dalla Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "Questa animazione intergenerazionale combina una festa danzante, una merenda e un pasto. L’appuntamento si svolge a Ginevra, presso gli ex depositi TPG della Jonction, ed è proposto dalla Ville de Genève Agenda.",
+        "en": "This intergenerational activity combines a dance party with a snack and a meal. The event takes place in Geneva at the former TPG depots in Jonction, with Ville de Genève Agenda listed as the organiser.",
+        "de": "Diese generationenübergreifende Veranstaltung verbindet eine Tanzparty mit einem Imbiss und einer Mahlzeit. Sie findet in Genf bei den ehemaligen TPG-Depots in der Jonction statt; als Organisator ist Ville de Genève Agenda angegeben.",
+        "fr": "Cette animation intergénérationnelle combine une fête dansante, un goûter et un repas. Elle se déroule à Genève, sur le site des anciens dépôts TPG de la Jonction, avec la Ville de Genève Agenda comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1dcf89099dc84363a2eb1928cd4106ba",
@@ -101893,7 +101933,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Romont, l’appuntamento comprende una conferenza, un incontro con gli autori e una sessione di dediche. Gilles Bellevaut e Pascal Wagner-Egger partecipano in qualità di autori.",
+      "descriptionByLocale": {
+        "it": "A Romont, l’appuntamento comprende una conferenza, un incontro con gli autori e una sessione di dediche. Gilles Bellevaut e Pascal Wagner-Egger partecipano in qualità di autori.",
+        "en": "In Romont, the event includes a conference, a meeting with the authors and a signing session. The authors involved are Gilles Bellevaut and Pascal Wagner-Egger.",
+        "de": "Die Veranstaltung in Romont umfasst eine Konferenz, ein Treffen mit den Autoren und eine Signierstunde. Als beteiligte Autoren werden Gilles Bellevaut und Pascal Wagner-Egger genannt.",
+        "fr": "À Romont, le rendez-vous comprend une conférence, une rencontre avec les auteurs et une séance de dédicaces. Les auteurs concernés sont Gilles Bellevaut et Pascal Wagner-Egger."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:blue-zone-quoi-vieillesse-1",
@@ -103724,7 +103772,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Schiefertafelfabrik Elm, a Glarus Süd, ospita visite guidate aperte al pubblico. L’evento è organizzato da Landesplattenberg Engi e costa 9 CHF.",
+      "descriptionByLocale": {
+        "it": "La Schiefertafelfabrik Elm, a Glarus Süd, ospita visite guidate aperte al pubblico. L’evento è organizzato da Landesplattenberg Engi e costa 9 CHF.",
+        "en": "Public guided tours are held at Schiefertafelfabrik Elm in Glarus Süd. They are organized by Landesplattenberg Engi and cost CHF 9.",
+        "de": "In der Schiefertafelfabrik Elm in Glarus Süd finden öffentliche Führungen statt. Sie werden von Landesplattenberg Engi organisiert und kosten 9 CHF.",
+        "fr": "La Schiefertafelfabrik Elm, à Glarus Süd, accueille des visites guidées publiques. Elles sont organisées par Landesplattenberg Engi et coûtent 9 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ASkNVf5",
@@ -104992,7 +105048,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La passeggiata a Ginevra propone di scoprire la biodiversità urbana nelle Eaux-Vives. L’attività è guidata da un biologo e organizzata da Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "La passeggiata a Ginevra propone di scoprire la biodiversità urbana nelle Eaux-Vives. L’attività è guidata da un biologo e organizzata da Ville de Genève Agenda.",
+        "en": "This walking excursion in Geneva focuses on discovering urban biodiversity in Les Eaux-Vives. A biologist leads the activity, which is organized by Ville de Genève Agenda.",
+        "de": "Die Exkursion in Genf widmet sich der Entdeckung der städtischen Biodiversität in Les Eaux-Vives. Die Aktivität wird von einem Biologen geleitet und von Ville de Genève Agenda organisiert.",
+        "fr": "Cette balade à Genève propose de découvrir la biodiversité urbaine aux Eaux-Vives. Elle est guidée par un biologiste et organisée par Ville de Genève Agenda."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63775",
@@ -105984,7 +106048,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Djavan porta a Zurigo una tappa della sua tournée europea, dedicata a mezzo secolo di carriera. Al Theater 11 presenta il progetto internazionale «Djavanear 50 Anos», con i suoi maggiori successi.",
+      "descriptionByLocale": {
+        "it": "Djavan porta a Zurigo una tappa della sua tournée europea, dedicata a mezzo secolo di carriera. Al Theater 11 presenta il progetto internazionale «Djavanear 50 Anos», con i suoi maggiori successi.",
+        "en": "Djavan brings his European tour to Zurich to mark half a century of his career. At Theater 11, he presents the international project “Djavanear 50 Anos”, featuring his greatest hits.",
+        "de": "Djavan tritt im Rahmen einer Europatournee in Zürich auf, die ein halbes Jahrhundert seiner Karriere würdigt. Im Theater 11 steht das internationale Projekt «Djavanear 50 Anos» mit einer Auswahl seiner größten Erfolge im Mittelpunkt.",
+        "fr": "Djavan se produit à Zurich dans le cadre d’une tournée européenne qui célèbre un demi-siècle de carrière. Au Theater 11, il présente le projet international « Djavanear 50 Anos », consacré à ses plus grands succès."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64105",
@@ -111328,7 +111400,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa esposizione al Naturhistorisches Museum Basel presenta i dinosauri e il loro modo di vivere nel passato. Le tematiche comprendono l’alimentazione, la crescita, lo sviluppo delle dimensioni e il comportamento sociale.",
+      "descriptionByLocale": {
+        "it": "Questa esposizione al Naturhistorisches Museum Basel presenta i dinosauri e il loro modo di vivere nel passato. Le tematiche comprendono l’alimentazione, la crescita, lo sviluppo delle dimensioni e il comportamento sociale.",
+        "en": "This exhibition at Naturhistorisches Museum Basel examines dinosaurs and their way of life in the past. It addresses their diet, growth, size and social behaviour.",
+        "de": "Die Ausstellung im Naturhistorisches Museum Basel befasst sich mit Dinosauriern und ihrer Lebensweise in vergangenen Zeiten. Thematisiert werden Ernährung, Wachstum, Körpergrösse und Sozialverhalten.",
+        "fr": "Cette exposition au Naturhistorisches Museum Basel s’intéresse aux dinosaures et à leur mode de vie dans le passé. Elle aborde leur alimentation, leur croissance, leur taille et leur comportement social."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1a514a8aff4f4b06bf03e9f14ef54a79",
@@ -113573,7 +113653,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il lamarotte Swingtett propone un concerto di swing al Kellertheater LaMarotte. L’appuntamento si svolge ad Affoltern am Albis e l’ingresso costa 19 CHF.",
+      "descriptionByLocale": {
+        "it": "Il lamarotte Swingtett propone un concerto di swing al Kellertheater LaMarotte. L’appuntamento si svolge ad Affoltern am Albis e l’ingresso costa 19 CHF.",
+        "en": "The lamarotte Swingtett presents a swing concert at Kellertheater LaMarotte. The event takes place in Affoltern am Albis, with admission costing CHF 19.",
+        "de": "Das lamarotte Swingtett präsentiert im Kellertheater LaMarotte ein Swing-Konzert. Die Veranstaltung findet in Affoltern am Albis statt; der Eintritt kostet 19 CHF.",
+        "fr": "Le lamarotte Swingtett donne un concert de swing au Kellertheater LaMarotte. Le rendez-vous a lieu à Affoltern am Albis et l’entrée coûte 19 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:lancement-livre-chats-errants-mah-mah-stray-cats-dernier-volet-intervention-espace-public-katharina-hohmann",
@@ -118992,7 +119080,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Engelberg si svolge una serata musicale con esibizioni dal vivo. La formazione familiare Vogel cura il programma musicale e viene auspicata la prenotazione anticipata.",
+      "descriptionByLocale": {
+        "it": "A Engelberg si svolge una serata musicale con esibizioni dal vivo. La formazione familiare Vogel cura il programma musicale e viene auspicata la prenotazione anticipata.",
+        "en": "The music event in Engelberg features live performances in an evening programme. The Vogel family band provides the music, and advance registration is recommended.",
+        "de": "In Engelberg findet ein musikalischer Abend mit Live-Musik statt. Die Familienkapelle Vogel gestaltet das Programm; eine Voranmeldung ist erwünscht.",
+        "fr": "À Engelberg, une soirée musicale propose de la musique en direct. La formation familiale Vogel assure la partie musicale, et une inscription préalable est souhaitée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AnPrTvV",
@@ -126210,7 +126306,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Grangettes, l’evento presenta la preparazione del vin cuit come espressione del patrimonio culinario friburghese. La festa richiama anche il folklore e le tradizioni del cantone.",
+      "descriptionByLocale": {
+        "it": "A Grangettes, l’evento presenta la preparazione del vin cuit come espressione del patrimonio culinario friburghese. La festa richiama anche il folklore e le tradizioni del cantone.",
+        "en": "In Grangettes, the event presents vin cuit as part of Fribourg’s culinary heritage. The accompanying celebration highlights regional folklore and traditions.",
+        "de": "In Grangettes steht die Herstellung von Vin cuit als Teil des Freiburger kulinarischen Erbes im Mittelpunkt. Das Fest verbindet diesen Brauch mit regionaler Folklore und Traditionen.",
+        "fr": "À Grangettes, l’événement présente la préparation du vin cuit comme un élément du patrimoine culinaire fribourgeois. La fête met aussi en avant le folklore et les traditions régionales."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:23fbd0e3dcbd48c7a0c390fa6e2070aa",
@@ -126835,7 +126939,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'evento presenta un quartetto formato da Joshua Broger al dulcimero, Simon Frei alle tastiere, Yannick Affolter al basso e Micha Wachter alla batteria. L'appuntamento si svolge a Binn, nel Canton Vallese.",
+      "descriptionByLocale": {
+        "it": "L'evento presenta un quartetto formato da Joshua Broger al dulcimero, Simon Frei alle tastiere, Yannick Affolter al basso e Micha Wachter alla batteria. L'appuntamento si svolge a Binn, nel Canton Vallese.",
+        "en": "The event brings together a quartet featuring Joshua Broger on dulcimer, Simon Frei on keyboards, Yannick Affolter on bass and Micha Wachter on drums. It takes place in Binn in the canton of Valais.",
+        "de": "Das Quartett umfasst Joshua Broger am Hackbrett, Simon Frei an den Tasten, Yannick Affolter am Bass und Micha Wachter am Schlagzeug. Die Veranstaltung findet in Binn im Kanton Wallis statt.",
+        "fr": "Cet événement réunit un quatuor composé de Joshua Broger au dulcimer, de Simon Frei aux claviers, de Yannick Affolter à la basse et de Micha Wachter à la batterie. Il a lieu à Binn, dans le canton du Valais."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AUkNZGK",
@@ -133220,7 +133332,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento autunnale ricorrente è una manifestazione di tiro con la pistola che si svolge a St. Antönien, nel cantone GR, e il programma comprende le distanze di tiro indicate per questa disciplina. La manifestazione si svolge in giornate consecutive e inizia nel pomeriggio, con un contenuto definito dal luogo, dal carattere stagionale e dalle distanze di tiro previste per l’evento.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento autunnale ricorrente è una manifestazione di tiro con la pistola che si svolge a St. Antönien, nel cantone GR, e il programma comprende le distanze di tiro indicate per questa disciplina. La manifestazione si svolge in giornate consecutive e inizia nel pomeriggio, con un contenuto definito dal luogo, dal carattere stagionale e dalle distanze di tiro previste per l’evento.",
+        "en": "The recurring autumn event is a pistol-shooting meeting held in St. Antönien, in canton GR, with the programme defined by the pistol distances specified for the discipline. It is scheduled across consecutive days and starts in the afternoon, combining a clearly identified venue, a seasonal setting and an event programme centred on pistol shooting.",
+        "de": "Die wiederkehrende Herbstveranstaltung ist ein Pistolenschiessen in St. Antönien im Kanton GR, wobei die für diese Disziplin angegebenen Schiessdistanzen den sportlichen Inhalt bestimmen. Sie ist an aufeinanderfolgenden Tagen angesetzt und beginnt am Nachmittag; der Anlass verbindet damit einen klar benannten Veranstaltungsort, einen saisonalen Rahmen und einen festgelegten Schwerpunkt auf dem Pistolenschiessen.",
+        "fr": "Cette manifestation automnale récurrente est un événement de tir au pistolet qui se tient à St. Antönien, dans le canton GR, avec les distances de tir prévues pour la discipline. Elle se déroule sur des jours consécutifs et commence l’après-midi; l’événement associe ainsi un lieu identifié, un cadre automnal et un programme consacré au tir au pistolet."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4a8ad244d83849268059d26d59fd917c",
@@ -133729,7 +133849,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Jahreskonzert MehrKlang è un concerto annuale classificato nella categoria A cappella e previsto presso la Röm.-kath. Marienkirche Mollis. Il riferimento a Mollis e al cantone GL definisce il contesto geografico dell’appuntamento, mentre il titolo identifica un evento musicale annuale e la categoria ne precisa il tipo di evento musicale indicato.",
+      "descriptionByLocale": {
+        "it": "Jahreskonzert MehrKlang è un concerto annuale classificato nella categoria A cappella e previsto presso la Röm.-kath. Marienkirche Mollis. Il riferimento a Mollis e al cantone GL definisce il contesto geografico dell’appuntamento, mentre il titolo identifica un evento musicale annuale e la categoria ne precisa il tipo di evento musicale indicato.",
+        "en": "Jahreskonzert MehrKlang is an annual concert classified in the a cappella category and scheduled at the Röm.-kath. Marienkirche Mollis. The reference to Mollis and canton GL identifies the event’s location, while its title indicates an annual musical occasion and its category specifies the event’s stated format for this specific appointment.",
+        "de": "Jahreskonzert MehrKlang ist ein jährliches Konzert der Kategorie A cappella, als Veranstaltungsort ist die Röm.-kath. Marienkirche Mollis angegeben. Mollis im Kanton GL bezeichnet den geografischen Rahmen der Veranstaltung, während der Titel auf ein jährlich stattfindendes musikalisches Ereignis verweist und die Kategorie dabei die angegebene A-cappella-Ausführungsform des musikalischen Konzerts näher bestimmt.",
+        "fr": "Jahreskonzert MehrKlang est un concert annuel classé dans la catégorie a cappella et prévu à la Röm.-kath. Marienkirche Mollis. La mention de Mollis et du canton GL situe la manifestation, tandis que son titre indique un rendez-vous musical annuel et que sa catégorie précise le format retenu pour cet événement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AMMVr6w",
@@ -134617,7 +134745,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Collegio Papio di Ascona è in programma un’esibizione di chitarristi legati al Conservatorio della Svizzera italiana. L’appuntamento è gratuito e si svolge soltanto in caso di bel tempo.",
+      "descriptionByLocale": {
+        "it": "Al Collegio Papio di Ascona è in programma un’esibizione di chitarristi legati al Conservatorio della Svizzera italiana. L’appuntamento è gratuito e si svolge soltanto in caso di bel tempo.",
+        "en": "At Collegio Papio in Ascona, the programme features guitarists associated with the Conservatorio della Svizzera italiana. The event is free and takes place only in fine weather.",
+        "de": "Im Collegio Papio in Ascona ist ein Auftritt von Gitarristen des Conservatorio della Svizzera italiana vorgesehen. Der Eintritt ist frei; die Veranstaltung findet nur bei gutem Wetter statt.",
+        "fr": "Au Collegio Papio d’Ascona, le programme prévoit des guitaristes liés au Conservatorio della Svizzera italiana. L’événement est gratuit et n’a lieu que si les conditions météorologiques sont favorables."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ba20cfd879044c69a16635b4ce90d340",
@@ -135618,7 +135754,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento con Martin Kälberer è un concerto di world music in programma allo Zeughaus di Lindau. L’organico sonoro affianca pianoforte, Fender Rhodes e handpan a percussioni, voce, vibrandoneon, loop dal vivo ed elettronica.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento con Martin Kälberer è un concerto di world music in programma allo Zeughaus di Lindau. L’organico sonoro affianca pianoforte, Fender Rhodes e handpan a percussioni, voce, vibrandoneon, loop dal vivo ed elettronica.",
+        "en": "The event with Martin Kälberer is a world-music concert at Zeughaus in Lindau. Its musical arrangement brings together piano, Fender Rhodes, handpan, percussion, voice, vibrandoneon, live looping and electronic elements.",
+        "de": "Bei der Veranstaltung von Martin Kälberer im Zeughaus in Lindau steht Weltmusik im Mittelpunkt. Zum musikalischen Aufbau gehören Flügel, Fender Rhodes, Handpan, Perkussion, Stimme, Vibrandoneon sowie Live-Looping und elektronische Klänge.",
+        "fr": "Le rendez-vous de Martin Kälberer est un concert de world music au Zeughaus, à Lindau. La musique s’appuie sur un piano, un Fender Rhodes et un handpan, auxquels s’ajoutent la percussion, la voix, le vibrandéon, le bouclage en direct et des éléments électroniques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:mary-anning-institut-florimont",
@@ -137894,7 +138038,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La manifestazione si svolge presso l’azienda agricola della famiglia Gemmet a Ried-Brig. Sono previsti piatti a base di zucca, vendita di zucche, attività per bambini, giri in pony, un punto ristoro e intrattenimento.",
+      "descriptionByLocale": {
+        "it": "La manifestazione si svolge presso l’azienda agricola della famiglia Gemmet a Ried-Brig. Sono previsti piatti a base di zucca, vendita di zucche, attività per bambini, giri in pony, un punto ristoro e intrattenimento.",
+        "en": "The festival takes place on a farm in Ried-Brig run by the Gemmet family. Its programme includes pumpkin dishes, a pumpkin sale, activities for children, pony rides, a canteen and entertainment.",
+        "de": "Die Veranstaltung findet auf dem Hof der Familie Gemmet in Ried-Brig statt. Auf dem Programm stehen Kürbisgerichte, der Verkauf von Kürbissen, Angebote für Kinder, Ponyreiten, eine Festwirtschaft und Unterhaltung.",
+        "fr": "Le lieu de la manifestation est une exploitation agricole de la famille Gemmet à Ried-Brig. Le programme comprend des plats à base de courge, la vente de courges, des activités pour les enfants, des promenades à poney, une cantine et de l’animation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:62100",
@@ -141605,7 +141757,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento celebra i 125 anni di attività di una società alpina a Engelberg. Si svolge presso il monastero benedettino di Engelberg ed è organizzato da Oertigen 8.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento celebra i 125 anni di attività di una società alpina a Engelberg. Si svolge presso il monastero benedettino di Engelberg ed è organizzato da Oertigen 8.",
+        "en": "This event marks 125 years of an alpine society in Engelberg. It takes place at the Benedictine monastery in Engelberg and is organised by Oertigen 8.",
+        "de": "Die Veranstaltung würdigt das 125-jährige Bestehen einer Älplergesellschaft in Engelberg. Sie findet im Benediktinerkloster Engelberg statt und wird von Oertigen 8 organisiert.",
+        "fr": "Cet événement marque les 125 ans d’une société alpine à Engelberg. Il se déroule au monastère bénédictin d’Engelberg et est organisé par Oertigen 8."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVdbAiA",
@@ -142840,7 +143000,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Concerto sinfonico di gala è un appuntamento musicale ospitato dalle Scuole medie di Riva San Vitale, nel Mendrisiotto. Il programma riunisce un’orchestra sinfonica ticinese, i solisti Milo Ferrazzini al violoncello e Mattia Fogato alla chitarra classica, sotto la direzione di Andreas Laake e Daniele Giovannini.",
+      "descriptionByLocale": {
+        "it": "Il Concerto sinfonico di gala è un appuntamento musicale ospitato dalle Scuole medie di Riva San Vitale, nel Mendrisiotto. Il programma riunisce un’orchestra sinfonica ticinese, i solisti Milo Ferrazzini al violoncello e Mattia Fogato alla chitarra classica, sotto la direzione di Andreas Laake e Daniele Giovannini.",
+        "en": "The Gala Symphony Concert is a music event held at the secondary schools in Riva San Vitale, in the Mendrisiotto region. Its programme features a symphony orchestra from Ticino, with Milo Ferrazzini on cello and Mattia Fogato on classical guitar, conducted by Andreas Laake and Daniele Giovannini.",
+        "de": "Das Symphonische Galakonzert ist eine Musikveranstaltung an den Scuole medie in Riva San Vitale im Mendrisiotto. Auf dem Programm steht ein sinfonisches Orchester aus dem Tessin; als Solisten treten Milo Ferrazzini am Violoncello und Mattia Fogato an der klassischen Gitarre auf, geleitet von Andreas Laake und Daniele Giovannini.",
+        "fr": "Le Concert symphonique de gala est un rendez-vous musical qui se déroule aux Scuole medie de Riva San Vitale, dans le Mendrisiotto. Il réunit un orchestre symphonique tessinois, les solistes Milo Ferrazzini au violoncelle et Mattia Fogato à la guitare classique, sous la direction d’Andreas Laake et de Daniele Giovannini."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:courts-metrages-documentaires-competition-blue-cinema",
@@ -142966,7 +143134,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, la Ville de Genève Agenda propone un'attività gratuita dedicata ai dinosauri e alla storia della Terra. L'animazione mostra come la paleontologia aiuti a ricostruire il passato della vita e del pianeta, oltre ad affrontare l'estinzione dei dinosauri.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, la Ville de Genève Agenda propone un'attività gratuita dedicata ai dinosauri e alla storia della Terra. L'animazione mostra come la paleontologia aiuti a ricostruire il passato della vita e del pianeta, oltre ad affrontare l'estinzione dei dinosauri.",
+        "en": "In Geneva, Ville de Genève Agenda offers a free activity about dinosaurs and the history of Earth. It shows how palaeontology helps reconstruct the past of life and our planet, and addresses the extinction of the dinosaurs.",
+        "de": "Die Ville de Genève Agenda bietet in Genf eine kostenlose Veranstaltung über Dinosaurier und die Geschichte der Erde an. Sie zeigt, wie die Paläontologie die Vergangenheit des Lebens und unseres Planeten erschliesst, und behandelt das Aussterben der Dinosaurier.",
+        "fr": "La Ville de Genève Agenda propose à Genève une activité gratuite consacrée aux dinosaures et à l'histoire de la Terre. Elle montre comment la paléontologie permet d'étudier le passé de la vie et de notre planète, ainsi que l'extinction des dinosaures."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8833a109be694fef8d920ba8953e76c8",
@@ -143494,7 +143670,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Ville de Genève Agenda propone a Ginevra uno spazio di lettura gratuito all'interno di un museo. L'attività si svolge nel foyer e combina racconti, gioco e l'immaginazione condivisa di futuri desiderabili.",
+      "descriptionByLocale": {
+        "it": "La Ville de Genève Agenda propone a Ginevra uno spazio di lettura gratuito all'interno di un museo. L'attività si svolge nel foyer e combina racconti, gioco e l'immaginazione condivisa di futuri desiderabili.",
+        "en": "Ville de Genève Agenda offers a free reading space in a museum in Geneva. The activity takes place in the foyer and combines storytelling, play and collective imagining of desirable futures.",
+        "de": "Die Ville de Genève Agenda bietet in Genf einen kostenlosen Leseraum in einem Museum an. Die Aktivität findet im Foyer statt und verbindet Geschichten, Spiel und das gemeinsame Erfinden wünschenswerter Zukünfte.",
+        "fr": "La Ville de Genève Agenda propose à Genève un espace de lecture gratuit au sein d'un musée. L'activité se déroule dans le foyer et associe des récits, le jeu et l'imagination collective de futurs souhaitables."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:402d57f7e7bc42888afe860e1fc8c318",
@@ -143585,7 +143769,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’escursione è dedicata agli stambecchi, alle aquile, ai camosci e ad altri animali. Il punto di ritrovo è il parcheggio di Senggiweid, nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "L’escursione è dedicata agli stambecchi, alle aquile, ai camosci e ad altri animali. Il punto di ritrovo è il parcheggio di Senggiweid, nel cantone di Berna.",
+        "en": "This excursion focuses on ibex, eagles, chamois and other animals. It starts at the Senggiweid parking area in the canton of Bern.",
+        "de": "Die Exkursion befasst sich mit Steinböcken, Adlern, Gämsen und weiteren Tieren. Treffpunkt ist der Parkplatz Senggiweid im Kanton Bern.",
+        "fr": "Cette excursion porte sur les bouquetins, les aigles, les chamois et d’autres animaux. Le rendez-vous est fixé au parking de Senggiweid, dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:94acc0d93c604c91ba339f9b41b4d5ae",
@@ -146833,7 +147025,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone una visita commentata dedicata alla botanica a Lancy, nel cantone di Ginevra. L’appuntamento è curato da Ville de Genève Agenda e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’evento propone una visita commentata dedicata alla botanica a Lancy, nel cantone di Ginevra. L’appuntamento è curato da Ville de Genève Agenda e l’ingresso è gratuito.",
+        "en": "This event is a guided botanical visit in Lancy, in the canton of Geneva. It is presented by Ville de Genève Agenda and admission is free.",
+        "de": "In Lancy im Kanton Genf findet eine kommentierte Führung zur Botanik statt. Die Veranstaltung wird von Ville de Genève Agenda betreut und ist kostenlos.",
+        "fr": "Cette activité propose une visite commentée consacrée à la botanique à Lancy, dans le canton de Genève. Elle est proposée par Ville de Genève Agenda et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:rallye-rose-piste-cycliste-solidaire-octobre-rose",
@@ -212543,11 +212743,6 @@
         {
           "canton": "TI",
           "comune": "Mendrisio",
-          "slug": "bertille-bak-voci-dalla-terra-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
         },
         {
@@ -212559,6 +212754,11 @@
           "canton": "TI",
           "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-08-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-10-15"
         },
         {
           "canton": "TI",
@@ -213256,17 +213456,17 @@
         {
           "canton": "TI",
           "comune": "Locarno",
-          "slug": "carlo-agostino-meletta-pittore-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Locarno",
           "slug": "carlo-agostino-meletta-pittore-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "locarno",
           "slug": "carlo-agostino-meletta-pittore-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "carlo-agostino-meletta-pittore-2026-10-15"
         },
         {
           "canton": "TI",
@@ -213433,17 +213633,17 @@
         {
           "canton": "TI",
           "comune": "Riva San Vitale",
-          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "riva-san-vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Riva San Vitale",
+          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-15"
         },
         {
           "canton": "TI",
@@ -214258,11 +214458,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "corpi-in-prestito-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-16"
         },
         {
@@ -214274,6 +214469,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-10-15"
         },
         {
           "canton": "TI",
@@ -215486,11 +215686,6 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-10-15"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-09-03"
         },
         {
@@ -215512,6 +215707,11 @@
           "canton": "GE",
           "comune": "geneve",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-bastions-2026-08-25"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-10-15"
         },
         {
           "canton": "GE",
@@ -215613,17 +215813,17 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-15"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-11"
         },
         {
           "canton": "GE",
           "comune": "geneve",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-08-31"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-15"
         },
         {
           "canton": "GE",
@@ -215717,7 +215917,7 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-15-2"
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-16-2"
         },
         {
           "canton": "GE",
@@ -215738,6 +215938,11 @@
           "canton": "GE",
           "comune": "geneve",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-13-2"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-15-2"
         },
         {
           "canton": "GE",
@@ -216477,17 +216682,17 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "fra-roberto-tra-le-mura-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-07-07"
         },
         {
           "canton": "TI",
           "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "fra-roberto-tra-le-mura-2026-10-15"
         },
         {
           "canton": "TI",
@@ -217788,11 +217993,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "isa-hesse-rabinovitch-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "isa-hesse-rabinovitch-2026-09-16"
         },
         {
@@ -217809,6 +218009,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "isa-hesse-rabinovitch-2026-07-05"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "isa-hesse-rabinovitch-2026-10-15"
         },
         {
           "canton": "TI",
@@ -217949,11 +218154,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "ivo-soldini-progetto-castel-grande-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-09-15"
         },
         {
@@ -217965,6 +218165,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "ivo-soldini-progetto-castel-grande-2026-10-15"
         },
         {
           "canton": "TI",
@@ -218160,11 +218365,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20"
         },
         {
@@ -218181,6 +218381,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-25-2"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-15"
         },
         {
           "canton": "TI",
@@ -220755,12 +220960,12 @@
         {
           "canton": "TI",
           "comune": "Centovalli",
-          "slug": "mona-caron-la-resilienza-della-vita-2026-10-15"
+          "slug": "mona-caron-la-resilienza-della-vita-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "Centovalli",
-          "slug": "mona-caron-la-resilienza-della-vita-2026-09-25"
+          "slug": "mona-caron-la-resilienza-della-vita-2026-10-15"
         },
         {
           "canton": "TI",
@@ -221649,11 +221854,6 @@
       "previousRoutes": [
         {
           "canton": "TI",
-          "comune": "Savosa",
-          "slug": "popoetic-2026-10-15"
-        },
-        {
-          "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-10"
         },
@@ -221661,6 +221861,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-04"
+        },
+        {
+          "canton": "TI",
+          "comune": "Savosa",
+          "slug": "popoetic-2026-10-15"
         },
         {
           "canton": "TI",
@@ -221941,17 +222146,17 @@
         {
           "canton": "TI",
           "comune": "__other-events__",
-          "slug": "radici-mostra-temporanea-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "radici-mostra-temporanea-2026-10-15"
         },
         {
           "canton": "TI",
@@ -222487,6 +222692,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "rire-pour-en-finir-avec-soi-meme-2026-10-16-2"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "rire-pour-en-finir-avec-soi-meme-2026-10-15-2"
         },
         {
@@ -222910,11 +223120,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "sentimento-e-osservazione-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-16"
         },
         {
@@ -222926,6 +223131,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-08-29"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-10-15"
         },
         {
           "canton": "TI",
@@ -223868,17 +224078,17 @@
         {
           "canton": "TI",
           "comune": "Centovalli",
-          "slug": "stratigrafie-felicita-bianchi-duyne-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Centovalli",
           "slug": "stratigrafie-felicita-bianchi-duyne-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "Centovalli",
           "slug": "stratigrafie-felicita-bianchi-duyne-2026-08-29"
+        },
+        {
+          "canton": "TI",
+          "comune": "Centovalli",
+          "slug": "stratigrafie-felicita-bianchi-duyne-2026-10-15"
         },
         {
           "canton": "TI",
@@ -224870,17 +225080,17 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-15"
         },
         {
           "canton": "TI",
@@ -224993,11 +225203,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "umberto-boccioni-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "umberto-boccioni-2026-09-15"
         },
         {
@@ -225009,6 +225214,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "umberto-boccioni-2026-08-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-10-15"
         },
         {
           "canton": "TI",
@@ -225247,11 +225457,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "uomo-e-ambiente-il-distruttore-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-25"
         },
         {
@@ -225263,6 +225468,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-10-15"
         },
         {
           "canton": "TI",
@@ -225592,17 +225802,17 @@
         {
           "canton": "TI",
           "comune": "Locarno",
-          "slug": "videokunst-ch-palacinema-2026-10-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Locarno",
           "slug": "videokunst-ch-palacinema-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "locarno",
           "slug": "videokunst-ch-palacinema-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "videokunst-ch-palacinema-2026-10-15"
         },
         {
           "canton": "TI",
@@ -243737,11 +243947,6 @@
       "previousRoutes": [
         {
           "canton": "TI",
-          "comune": "Caslano",
-          "slug": "gyotaku-tracce-di-pesci-2026-10-15"
-        },
-        {
-          "canton": "TI",
           "comune": "Lugano",
           "slug": "gyotaku-tracce-di-pesci-2026-09-06"
         },
@@ -243764,6 +243969,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "gyotaku-tracce-di-pesci-2026-07-05"
+        },
+        {
+          "canton": "TI",
+          "comune": "Caslano",
+          "slug": "gyotaku-tracce-di-pesci-2026-10-15"
         },
         {
           "canton": "TI",
@@ -251092,6 +251302,13 @@
         "name": "Ville de Genève Agenda"
       },
       "sourceDescriptionHash": "58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "atelier-creez-votre-chocolat-halloween-2026-10-20-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-famiglia-bambini-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-famiglia-bambini-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -274834,6 +275051,13 @@
         "name": "Ville de Genève Agenda"
       },
       "sourceDescriptionHash": "58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "atelier-creez-votre-chocolat-halloween-2026-10-24-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-famiglia-bambini-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-famiglia-bambini-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
