@@ -15,12 +15,13 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
+import { extractUmantisDetailFields } from './prospector/umantis-detail.mjs';
 import {
   runUmantisSpecWithEmptyProof,
   umantisAuthoritativeEmptyOrNull,
 } from './umantis-empty-listing.mjs';
 import {
-  resolveSourceBackedSwissGeography,
+  resolveDetailOrListingSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
 
@@ -69,7 +70,12 @@ export function extractRecruitingapp2563TitleLocation(title = '') {
  * @param {{ recordUrl?: string }} [opts]
  */
 export function extractRecruitingapp2563DetailFields(html = '', pageUrl = '', opts = {}) {
-  const detail = extractDetailFields(html, pageUrl, opts);
+  const genericDetail = extractDetailFields(html, pageUrl, opts);
+  const umantisDetail = extractUmantisDetailFields(html);
+  const detail = {
+    ...genericDetail,
+    description: genericDetail.description || umantisDetail.description,
+  };
   const renderedTitle = stripHtml(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
   const detailTitle = normalizeSpace(detail.title);
   const normalizedRenderedTitle = normalizeSpace(renderedTitle);
@@ -234,8 +240,12 @@ export async function fetchAllRecruitingapp2563Jobs(runtime = {}) {
     // mean what autoFilteredEmpty claims it means (see note below).
     geoEligible += 1;
 
-    const resolvedGeography = resolveSourceBackedSwissGeography(listing.location);
-    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
+    // Umantis may expose alternative workplaces as separate source-backed
+    // candidates. Resolve the full listing record so this parser keeps the
+    // shared fail-closed multi-location decision instead of reducing it to
+    // the single display `listing.location` field.
+    const geographyDecision = resolveDetailOrListingSwissGeography({}, listing);
+    const geography = sourceBackedSwissGeographyFields(listing, geographyDecision.geography);
     if (!geography) continue;
     const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     const publicUrl = listing.url || CAREER_URL;
