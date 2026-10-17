@@ -29,6 +29,7 @@ import {
   resolveMaxOrphanLandings,
   __renderOrphanLandingPage,
 } from '../build-plugins/orphanQueryLandingPlugin';
+import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 
 import {
   ORPHAN_LANDING_LOCALES,
@@ -263,6 +264,63 @@ describe('nursing orphan-query alignment', () => {
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/en/nursing-jobs-switzerland/">');
     expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/en/nursing-jobs-switzerland/"');
   });
+});
+
+describe('orphan landing canonical job links', () => {
+  it.each(ORPHAN_LANDING_LOCALES)(
+    'links T6 cards and ItemList directly to canonical T5 details in %s without first-match ambiguity',
+    (locale) => {
+      // Same localized slug in two cantons is ambiguous by slug alone. Each
+      // emitted target must retain its own job context when resolving the path.
+      const localizedSlug = ' shared-canonical-job ';
+      const matchingJobs = [
+        activeJob({
+          title: 'Nurse in Ticino',
+          canton: 'TI',
+          location: 'Lugano',
+          slug: 'shared-canonical-job',
+          slugByLocale: { [locale]: localizedSlug },
+        }),
+        activeJob({
+          title: 'Nurse in Zürich',
+          canton: 'ZH',
+          location: 'Zürich',
+          slug: 'shared-canonical-job',
+          slugByLocale: { [locale]: localizedSlug },
+        }),
+      ];
+      const expectedHrefs = matchingJobs.map((job) => {
+        const slug = String(job.slugByLocale?.[locale] || '').trim()
+          || String(job.slug || '').trim();
+        return `https://frontaliereticino.ch${buildCanonicalJobDetailPath(locale, job, slug)}`;
+      });
+      expect(expectedHrefs[0]).not.toBe(expectedHrefs[1]);
+
+      const rendered = __renderOrphanLandingPage({
+        cluster: makeCluster(locale, 'nurse-jobs-switzerland', 30, ['nurs'], ['switzerland']),
+        matchingJobs,
+        strings: {},
+        dateStamp: '2026-10-13',
+        knownSlugsByLocale: new Map(
+          ORPHAN_LANDING_LOCALES.map((itemLocale) => [itemLocale, new Set<string>()]),
+        ),
+      });
+
+      expect(expectedHrefs.every((href) => href.endsWith('/'))).toBe(true);
+      const cardHrefs = Array.from(rendered.html.matchAll(
+        /<a\b[^>]*\bhref=(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>/gi,
+      )).map(([, doubleQuoted, singleQuoted, unquoted]) => doubleQuoted || singleQuoted || unquoted)
+        .filter((href) => href?.includes('shared-canonical-job/'));
+      expect(cardHrefs).toEqual(expectedHrefs.map((href) => new URL(href).pathname));
+
+      const itemLists = Array.from(rendered.html.matchAll(
+        /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+      )).map(([, payload]) => JSON.parse(payload!));
+      const jobItemList = itemLists.find((schema) => schema['@type'] === 'ItemList');
+      expect(jobItemList).toBeDefined();
+      expect(jobItemList!.itemListElement.map((item: { url: string }) => item.url)).toEqual(expectedHrefs);
+    },
+  );
 });
 
 // ─── Job matching ────────────────────────────────────────────

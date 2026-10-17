@@ -526,7 +526,8 @@ async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): 
 }
 
 function jobLocalizedUrl(job: OrphanCountableJob, locale: OrphanLandingLocale): string {
-  const slug = job.slugByLocale?.[locale] || job.slug || '';
+  const localizedSlug = String(job.slugByLocale?.[locale] || '').trim();
+  const slug = localizedSlug || String(job.slug || '').trim();
   return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
 }
 
