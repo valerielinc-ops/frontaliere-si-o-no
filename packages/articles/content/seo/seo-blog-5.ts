@@ -110544,6 +110544,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-netto-single-paga-ticino-2026': {
+    title: 'Busta paga svizzera 2026: guida per frontalieri single',
+    description: 'Busta paga svizzera 2026 per single: imposta alla fonte, AVS, LPP, LAMal e differenze tra vecchi e nuovi frontalieri, contributi e netto reale nel 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, single, lamal',
+    ogTitle: 'Frontalieri single: busta paga svizzera 2026',
+    ogDescription: 'Dal Nuovo Accordo Frontalieri alle trattenute AVS/AI/IPG, AD/AC, LAINF e LPP: la guida per leggere il netto di un frontaliere single, distinguere il regime dei vecchi e nuovi frontalieri e capire il ruolo di LAMal e credito d\'imposta.',
+    canonicalPath: '/articoli-frontaliere/netto-single-paga-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busta paga svizzera 2026: guida per frontalieri single",
+      "description": "Busta paga svizzera 2026 per single: imposta alla fonte, AVS, LPP, LAMal e differenze tra vecchi e nuovi frontalieri, contributi e netto reale nel 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolare frontaliero davanti a una busta paga svizzera in Ticino"
+      },
+      "datePublished": "2026-10-17T04:59:00+00:00",
+      "dateModified": "2026-10-17T04:59:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/netto-single-paga-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

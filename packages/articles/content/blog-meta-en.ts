@@ -13380,6 +13380,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.film-festival-diritti-umani-lugano-2026.title': 'Lugano human rights film festival: the best film is promised spaces',
     'blog.article.film-festival-diritti-umani-lugano-2026.excerpt': 'Best Film Winner: Ivan Markovic\'s Promised Spaces NGO Award for Effondrement of Anat Even Audience Award for Trop c \'est trop by Elisé',
     'blog.article.film-festival-diritti-umani-lugano-2026.imageAlt': 'Lugano Human Rights Film Festival: awards and screenings',
+    'blog.article.netto-single-paga-ticino-2026.title': 'Swiss paycheck 2026: guide for single border workers',
+    'blog.article.netto-single-paga-ticino-2026.excerpt': 'AVS/AI 5.3%, AD/AC 1.1% and LAMal: what to check in the paycheck of a single border crossing in 2026.',
+    'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Cross-border commuter reviewing a Swiss payslip in Ticino',
 };
 
 export default blogMetaEn;

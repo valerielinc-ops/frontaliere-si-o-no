@@ -13381,6 +13381,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.film-festival-diritti-umani-lugano-2026.title': 'Film festival diritti umani Lugano: il miglior film è promised spaces',
     'blog.article.film-festival-diritti-umani-lugano-2026.excerpt': 'Vincitore Miglior film: Promised Spaces di Ivan Markovic Premio ONG assegnato a Effondrement di Anat Even Premio del Pubblico a Trop c\'est trop di Elisé',
     'blog.article.film-festival-diritti-umani-lugano-2026.imageAlt': 'Film Festival Diritti Umani Lugano: premiazione e proiezioni',
+    'blog.article.netto-single-paga-ticino-2026.title': 'Busta paga svizzera 2026: guida per frontalieri single',
+    'blog.article.netto-single-paga-ticino-2026.excerpt': 'AVS/AI 5.3%, AD/AC 1.1% e LAMal: cosa controllare nella busta paga di un frontaliere single nel 2026.',
+    'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Pendolare frontaliero davanti a una busta paga svizzera in Ticino',
 };
 
 export default blogMetaIt;

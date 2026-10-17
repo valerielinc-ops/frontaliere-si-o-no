@@ -13379,6 +13379,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.film-festival-diritti-umani-lugano-2026.title': 'Filmfestival Menschenrechte Lugano: Der beste Film ist promised spaces',
     'blog.article.film-festival-diritti-umani-lugano-2026.excerpt': 'Bester Film: Promised Spaces von Ivan Markovic NGO Award für Effondrement von Anat Even Publikumspreis für Trop c \'est trop von Elisé',
     'blog.article.film-festival-diritti-umani-lugano-2026.imageAlt': 'Menschenrechts-Filmfestival Lugano: Preisverleihung und Vorführungen',
+    'blog.article.netto-single-paga-ticino-2026.title': 'Schweizer Lohnabrechnung 2026: Leitfaden für alleinerziehende Grenzgänger',
+    'blog.article.netto-single-paga-ticino-2026.excerpt': 'AHV/IV 5.3%, ALV/KV 1.1% und KVG: Was 2026 in der Lohnabrechnung eines alleinstehenden Grenzgängers zu beachten ist.',
+    'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Grenzgänger prüft eine Schweizer Lohnabrechnung im Tessin',
 };
 
 export default blogMetaDe;
