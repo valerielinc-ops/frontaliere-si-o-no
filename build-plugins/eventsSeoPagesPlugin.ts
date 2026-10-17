@@ -4779,7 +4779,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       let skippedLocaleRenders = 0;
       const canonicalDetailPaths = new Set<string>();
       for (const entry of detailSlugs.values()) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, entry.comune, entry.slug, entry.canton));
-      const eventById = new Map(dataset.events.map((event) => [event.id, event]));
+      const eventById = new Map<string, SiteEvent>(
+        (dataset.events as SiteEvent[]).map((event): [string, SiteEvent] => [event.id, event]),
+      );
       const emittedSlugRedirects = new Set<string>();
       const expectedSlugRedirectPaths = new Set<string>();
 
