@@ -138,11 +138,52 @@ function extractFromMeta(document, selector) {
   return el ? (el.getAttribute('content') || '').trim() : '';
 }
 
-function extractParagraphs(root) {
-  if (!root) return [];
-  const paragraphs = [...root.querySelectorAll('p, h2, h3, h4, li, blockquote')]
+const PARAGRAPH_SELECTOR = 'p, h2, h3, h4, li, blockquote';
+
+function collectParagraphTexts(root) {
+  return [...root.querySelectorAll(PARAGRAPH_SELECTOR)]
     .map(p => cleanText(p.textContent || ''))
     .filter(p => p && !isJunk(p));
+}
+
+/**
+ * Normalize a noscript fallback whose nested markup was preserved as text.
+ *
+ * Depending on the HTML parser's scripting mode, a noscript body can be either
+ * a normal element tree or one text node containing the serialized markup.
+ * Parse the latter in a detached container so paragraph extraction has the
+ * same shape in both cases. Setting innerHTML on a detached element does not
+ * execute scripts or load the source page's resources.
+ */
+function extractNoscriptText(noscript) {
+  if (!noscript) return [];
+
+  if (noscript.querySelector(PARAGRAPH_SELECTOR)) {
+    return collectParagraphTexts(noscript);
+  }
+
+  const rawMarkup = noscript.textContent || '';
+  if (!/<\/?[a-z][\s\S]*>/i.test(rawMarkup)) return [];
+
+  const normalized = noscript.ownerDocument.createElement('div');
+  normalized.innerHTML = rawMarkup;
+  return collectParagraphTexts(normalized);
+}
+
+function extractParagraphs(root) {
+  if (!root) return [];
+  const paragraphs = [];
+  const candidates = [...root.querySelectorAll(`${PARAGRAPH_SELECTOR}, noscript`)];
+  for (const candidate of candidates) {
+    if (candidate.tagName.toLowerCase() === 'noscript') {
+      if (candidate.parentElement?.closest('noscript')) continue;
+      paragraphs.push(...extractNoscriptText(candidate));
+      continue;
+    }
+    if (candidate.closest('noscript')) continue;
+    const text = cleanText(candidate.textContent || '');
+    if (text && !isJunk(text)) paragraphs.push(text);
+  }
   // Dedup adjacent identical paragraphs (some sites repeat the lead)
   const out = [];
   for (const p of paragraphs) {

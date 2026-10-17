@@ -97,6 +97,19 @@ describe('extractArticleText', () => {
     expect(noScriptResult.text).toContain('Second substantive fallback paragraph');
   });
 
+  it('normalizes nested noscript markup preserved as a text node', () => {
+    const html = `<main><noscript>&lt;div&gt;
+      &lt;p&gt;First substantive fallback paragraph with facts that identify the real article for source validation.&lt;/p&gt;
+      &lt;p&gt;Second substantive fallback paragraph with the article context and details needed by the generator.&lt;/p&gt;
+    &lt;/div&gt;</noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).toContain('First substantive fallback paragraph');
+    expect(result.text).toContain('Second substantive fallback paragraph');
+    expect(result.text).not.toContain('&lt;p&gt;');
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;
