@@ -326,6 +326,7 @@ export async function fetchAllHuntsmanJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -345,6 +346,7 @@ export async function fetchAllHuntsmanJobs() {
     const canton = recovered ? recovered.canton : publishCanton;
     if (!city || !canton) {
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${title}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
     const descriptionHtml = info.jobDescription || '';

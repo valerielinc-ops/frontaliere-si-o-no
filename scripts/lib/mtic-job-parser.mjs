@@ -17,6 +17,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { JSDOM } from 'jsdom';
 import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const BASE_URL = 'https://www.mtic-group.org';
 const MTIC_DOMAIN = 'mtic-group.org';
@@ -185,6 +186,16 @@ export function parseMticDetailPage(html = '', fallbackTitle = '') {
   const datePosted = '';
 
   return { title, location, description, datePosted };
+}
+
+/**
+ * A trusted MTIC detail URL is not enough to publish a posting: a stale or
+ * empty TYPO3 page can still return HTTP 200. Keep the shared source-body
+ * floor at the parser boundary so the runner cannot turn that response into
+ * a parsed job that the locale validator later removes.
+ */
+export function isMticDetailPublishable(detail = {}) {
+  return meetsSourceBodyFloor(String(detail.description || ''));
 }
 
 /**
