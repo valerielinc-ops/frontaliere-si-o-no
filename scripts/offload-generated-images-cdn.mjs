@@ -237,15 +237,20 @@ function skipRawTextElement(html, afterOpening, name) {
   return findRawTextClose(html, afterOpening, name)?.end ?? -1;
 }
 
+const RAW_TEXT_ELEMENT_NAMES = ['script', 'style', 'textarea', 'title'];
+
 function skipTemplateElement(html, afterOpening) {
   let depth = 1;
   let searchFrom = afterOpening;
   while (searchFrom < html.length) {
     const start = html.indexOf('<', searchFrom);
-    if (start < 0) return -1;
+    // `html.length` is a valid end offset only when the closing template tag
+    // was actually found at EOF. A missing closing tag is malformed input and
+    // must not be allowed to masquerade as a complete scan.
+    if (start < 0) return { end: -1, malformed: true };
     if (html.startsWith('<!--', start)) {
       const afterComment = skipComment(html, start);
-      if (afterComment < 0) return -1;
+      if (afterComment < 0) return { end: -1, malformed: true };
       searchFrom = afterComment;
       continue;
     }
@@ -257,24 +262,22 @@ function skipTemplateElement(html, afterOpening) {
     if (isTagNamed(html, tag, 'template')) {
       if (tag.closing) {
         depth--;
-        if (depth === 0) return tag.end + 1;
+        if (depth === 0) return { end: tag.end + 1, malformed: false };
       } else if (!tag.selfClosing) {
         depth++;
       }
-    } else if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'script')) {
-      const afterRawText = skipRawTextElement(html, tag.end + 1, 'script');
-      if (afterRawText < 0) return -1;
-      searchFrom = afterRawText;
-      continue;
-    } else if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'style')) {
-      const afterRawText = skipRawTextElement(html, tag.end + 1, 'style');
-      if (afterRawText < 0) return -1;
-      searchFrom = afterRawText;
-      continue;
+    } else if (!tag.closing && !tag.selfClosing) {
+      const rawTextName = RAW_TEXT_ELEMENT_NAMES.find((name) => isTagNamed(html, tag, name));
+      if (rawTextName) {
+        const afterRawText = skipRawTextElement(html, tag.end + 1, rawTextName);
+        if (afterRawText < 0) return { end: -1, malformed: true };
+        searchFrom = afterRawText;
+        continue;
+      }
     }
     searchFrom = tag.end + 1;
   }
-  return -1;
+  return { end: -1, malformed: true };
 }
 
 /**
@@ -287,10 +290,10 @@ function findCharsetMetaEnd(headContent) {
   let searchFrom = 0;
   while (searchFrom < headContent.length) {
     const start = headContent.indexOf('<', searchFrom);
-    if (start < 0) return -1;
+    if (start < 0) return { end: -1, malformed: false };
     if (headContent.startsWith('<!--', start)) {
       const afterComment = skipComment(headContent, start);
-      if (afterComment < 0) return -1;
+      if (afterComment < 0) return { end: -1, malformed: true };
       searchFrom = afterComment;
       continue;
     }
@@ -300,20 +303,20 @@ function findCharsetMetaEnd(headContent) {
       continue;
     }
     if (!tag.closing && isTagNamed(headContent, tag, 'meta') && hasCharsetAttribute(headContent, tag)) {
-      return tag.end + 1;
+      return { end: tag.end + 1, malformed: false };
     }
     if (!tag.closing && !tag.selfClosing && isTagNamed(headContent, tag, 'template')) {
-      const afterTemplate = skipTemplateElement(headContent, tag.end + 1);
-      if (afterTemplate < 0) return -1;
-      searchFrom = afterTemplate;
+      const templateScan = skipTemplateElement(headContent, tag.end + 1);
+      if (templateScan.malformed) return { end: -1, malformed: true };
+      searchFrom = templateScan.end;
       continue;
     }
     if (!tag.closing && !tag.selfClosing) {
       let skippedRawText = false;
-      for (const rawName of ['script', 'style', 'textarea', 'title']) {
+      for (const rawName of RAW_TEXT_ELEMENT_NAMES) {
         if (isTagNamed(headContent, tag, rawName)) {
           const afterRawText = skipRawTextElement(headContent, tag.end + 1, rawName);
-          if (afterRawText < 0) return -1;
+          if (afterRawText < 0) return { end: -1, malformed: true };
           searchFrom = afterRawText;
           skippedRawText = true;
           break;
@@ -323,7 +326,7 @@ function findCharsetMetaEnd(headContent) {
     }
     searchFrom = tag.end + 1;
   }
-  return -1;
+  return { end: -1, malformed: false };
 }
 
 /**
@@ -344,7 +347,7 @@ function findActiveCdnBaseScriptRanges(html, headStart, headEnd) {
     if (start < 0 || start >= headEnd) break;
     if (html.startsWith('<!--', start)) {
       const afterComment = skipComment(html, start);
-      if (afterComment < 0 || afterComment > headEnd) break;
+      if (afterComment < 0 || afterComment > headEnd) return { ranges, malformed: true };
       searchFrom = afterComment;
       continue;
     }
@@ -354,14 +357,16 @@ function findActiveCdnBaseScriptRanges(html, headStart, headEnd) {
       continue;
     }
     if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'template')) {
-      const afterTemplate = skipTemplateElement(html, tag.end + 1);
-      if (afterTemplate < 0 || afterTemplate > headEnd) break;
-      searchFrom = afterTemplate;
+      const templateScan = skipTemplateElement(html, tag.end + 1);
+      if (templateScan.malformed || templateScan.end > headEnd) {
+        return { ranges, malformed: true };
+      }
+      searchFrom = templateScan.end;
       continue;
     }
     if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'script')) {
       const close = findRawTextClose(html, tag.end + 1, 'script');
-      if (!close || close.end > headEnd) break;
+      if (!close || close.end > headEnd) return { ranges, malformed: true };
       if (isGeneratedAssignment(html.slice(tag.end + 1, close.start))) {
         ranges.push({ start, end: close.end });
       }
@@ -370,10 +375,10 @@ function findActiveCdnBaseScriptRanges(html, headStart, headEnd) {
     }
     if (!tag.closing && !tag.selfClosing) {
       let skippedRawText = false;
-      for (const rawName of ['style', 'textarea', 'title']) {
+      for (const rawName of RAW_TEXT_ELEMENT_NAMES) {
         if (!isTagNamed(html, tag, rawName)) continue;
         const afterRawText = skipRawTextElement(html, tag.end + 1, rawName);
-        if (afterRawText < 0 || afterRawText > headEnd) return ranges;
+        if (afterRawText < 0 || afterRawText > headEnd) return { ranges, malformed: true };
         searchFrom = afterRawText;
         skippedRawText = true;
         break;
@@ -382,12 +387,12 @@ function findActiveCdnBaseScriptRanges(html, headStart, headEnd) {
     }
     searchFrom = tag.end + 1;
   }
-  return ranges;
+  return { ranges, malformed: false };
 }
 
 /** Return the end of same-origin CDN hint tags already present in a head. */
 function findExistingCdnHintEnd(html, headStart, headEnd, cdnOrigin) {
-  if (!cdnOrigin) return -1;
+  if (!cdnOrigin) return { end: -1, malformed: false };
   const needles = [
     `<link rel="preconnect" href="${cdnOrigin}"`,
     `<link rel="dns-prefetch" href="${cdnOrigin}"`,
@@ -399,7 +404,7 @@ function findExistingCdnHintEnd(html, headStart, headEnd, cdnOrigin) {
     if (start < 0 || start >= headEnd) break;
     if (html.startsWith('<!--', start)) {
       const afterComment = skipComment(html, start);
-      if (afterComment < 0 || afterComment > headEnd) break;
+      if (afterComment < 0 || afterComment > headEnd) return { end: lastEnd, malformed: true };
       searchFrom = afterComment;
       continue;
     }
@@ -409,17 +414,19 @@ function findExistingCdnHintEnd(html, headStart, headEnd, cdnOrigin) {
       continue;
     }
     if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'template')) {
-      const afterTemplate = skipTemplateElement(html, tag.end + 1);
-      if (afterTemplate < 0 || afterTemplate > headEnd) break;
-      searchFrom = afterTemplate;
+      const templateScan = skipTemplateElement(html, tag.end + 1);
+      if (templateScan.malformed || templateScan.end > headEnd) {
+        return { end: lastEnd, malformed: true };
+      }
+      searchFrom = templateScan.end;
       continue;
     }
     if (!tag.closing && !tag.selfClosing) {
       let skippedRawText = false;
-      for (const rawName of ['script', 'style', 'textarea', 'title']) {
+      for (const rawName of RAW_TEXT_ELEMENT_NAMES) {
         if (!isTagNamed(html, tag, rawName)) continue;
         const afterRawText = skipRawTextElement(html, tag.end + 1, rawName);
-        if (afterRawText < 0 || afterRawText > headEnd) return lastEnd;
+        if (afterRawText < 0 || afterRawText > headEnd) return { end: lastEnd, malformed: true };
         searchFrom = afterRawText;
         skippedRawText = true;
         break;
@@ -432,7 +439,7 @@ function findExistingCdnHintEnd(html, headStart, headEnd, cdnOrigin) {
     }
     searchFrom = tag.end + 1;
   }
-  return lastEnd;
+  return { end: lastEnd, malformed: false };
 }
 
 function log(msg) {
@@ -653,6 +660,7 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
   let htmlSeen = 0;
   const ogLeaks = [];
   const assetsLeaks = [];
+  const templateScanMalformedFiles = [];
 
   const visit = (fp) => {
     scanned++;
@@ -723,42 +731,60 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
         let headRemainder = out.slice(headStart);
         let headCloseAt = headRemainder.search(/<\/head\s*>/i);
         let headEnd = headCloseAt >= 0 ? headStart + headCloseAt : out.length;
-        const staleRanges = findActiveCdnBaseScriptRanges(out, headStart, headEnd);
-        for (let i = staleRanges.length - 1; i >= 0; i--) {
-          const { start, end } = staleRanges[i];
-          out = out.slice(0, start) + out.slice(end);
-        }
-        if (staleRanges.length > 0) {
-          const refreshed = out.match(/<head[^>]*>/i);
-          headStart = refreshed.index + refreshed[0].length;
-          headRemainder = out.slice(headStart);
-          headCloseAt = headRemainder.search(/<\/head\s*>/i);
-          headEnd = headCloseAt >= 0 ? headStart + headCloseAt : out.length;
+        let templateScanMalformed = false;
+        const staleScan = findActiveCdnBaseScriptRanges(out, headStart, headEnd);
+        if (staleScan.malformed) {
+          templateScanMalformed = true;
+        } else {
+          for (let i = staleScan.ranges.length - 1; i >= 0; i--) {
+            const { start, end } = staleScan.ranges[i];
+            out = out.slice(0, start) + out.slice(end);
+          }
+          if (staleScan.ranges.length > 0) {
+            const refreshed = out.match(/<head[^>]*>/i);
+            headStart = refreshed.index + refreshed[0].length;
+            headRemainder = out.slice(headStart);
+            headCloseAt = headRemainder.search(/<\/head\s*>/i);
+            headEnd = headCloseAt >= 0 ? headStart + headCloseAt : out.length;
+          }
         }
 
-        const headContent = out.slice(headStart, headEnd);
-        const charsetEnd = findCharsetMetaEnd(headContent);
-        // HTML requires the encoding declaration near the start of <head>.
-        // Keep the deploy-time hints after it; fall back to the old insertion
-        // point for unusual documents that do not declare a charset.
-        let at = charsetEnd >= 0
-          ? headStart + charsetEnd
-          : headStart;
-        // The hint comment above assumes the data CDN is a DISTINCT host
-        // from the asset CDN; when config points both at the same origin the
-        // build already ships this exact preconnect (asyncCssPlugin /
-        // template heads) and re-adding it duplicates the hint on every page
-        // (#3530). An existing preconnect also supersedes dns-prefetch, so
-        // only the data-base script tag is still required. If that existing
-        // hint was emitted later in the head (as in the stale live artifact),
-        // place the base marker after it so the connection starts first.
-        const existingHintEnd = findExistingCdnHintEnd(out, headStart, headEnd, cdnOrigin);
-        if (existingHintEnd >= at) at = existingHintEnd;
-        const tag = existingHintEnd >= 0
-          ? injectTag.replace(hintTags, '')
-          : injectTag;
-        out = out.slice(0, at) + tag + out.slice(at);
-        injected++;
+        if (!templateScanMalformed) {
+          const headContent = out.slice(headStart, headEnd);
+          const charsetScan = findCharsetMetaEnd(headContent);
+          if (charsetScan.malformed) {
+            templateScanMalformed = true;
+          } else {
+            // HTML requires the encoding declaration near the start of <head>.
+            // Keep the deploy-time hints after it; fall back to the old insertion
+            // point for unusual documents that do not declare a charset.
+            let at = charsetScan.end >= 0
+              ? headStart + charsetScan.end
+              : headStart;
+            // The hint comment above assumes the data CDN is a DISTINCT host
+            // from the asset CDN; when config points both at the same origin the
+            // build already ships this exact preconnect (asyncCssPlugin /
+            // template heads) and re-adding it duplicates the hint on every page
+            // (#3530). An existing preconnect also supersedes dns-prefetch, so
+            // only the data-base script tag is still required. If that existing
+            // hint was emitted later in the head (as in the stale live artifact),
+            // place the base marker after it so the connection starts first.
+            const existingHintScan = findExistingCdnHintEnd(out, headStart, headEnd, cdnOrigin);
+            if (existingHintScan.malformed) {
+              templateScanMalformed = true;
+            } else {
+              if (existingHintScan.end >= at) at = existingHintScan.end;
+              const tag = existingHintScan.end >= 0
+                ? injectTag.replace(hintTags, '')
+                : injectTag;
+              out = out.slice(0, at) + tag + out.slice(at);
+              injected++;
+            }
+          }
+        }
+        if (templateScanMalformed) {
+          templateScanMalformedFiles.push(path.relative(distDir, fp));
+        }
       }
       // no <head>: leave it (its SPA fetch degrades gracefully)
     }
@@ -836,6 +862,10 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
         kept.push(`${t.url} (${leaked.length} ref(s): ${leaked.slice(0, 3).join('; ')})`);
         continue;
       }
+      if (templateScanMalformedFiles.length > 0) {
+        kept.push(`${t.url} (templateScan.malformed in ${templateScanMalformedFiles.slice(0, 3).join(', ')})`);
+        continue;
+      }
       // #1709 safety net: the /images/* dirs are also resolved at RUNTIME via
       // cdnImageUrl (window.__CDN_DATA_BASE__). If the base reached no HTML page,
       // deleting them would 404 the SPA logos — keep them (mirrors the data-delete
@@ -869,6 +899,8 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
     log('no dist/data — skipping data delete');
   } else if (injected === 0) {
     log(`GUARD: data base injected into 0/${htmlSeen} HTML pages — keeping dist/data`);
+  } else if (templateScanMalformedFiles.length > 0) {
+    log(`GUARD: templateScan.malformed in ${templateScanMalformedFiles.length} HTML file(s) — keeping dist/data`);
   } else {
     let freed = 0;
     let removed = 0;
