@@ -69,7 +69,7 @@ export function resolveLaFonteApplicationHandoffUrl(html = '', roleUrl = '') {
   try {
     const emailAddressPattern = /[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+/i;
     const applicationLanguagePattern =
-      /\b(?:candidatur\w*|candidars\w*|domanda\s+di\s+lavoro|invia\w*|bewerb\w*|apply|postuler\w*)\b/i;
+      /\b(?:candidatur\w*|candidars\w*|domanda\s+di\s+lavoro|invia(?:re)?|bewerb\w*|apply|postuler\w*)\b/i;
     const emailChannelPattern = /\b(?:via|per|by|par|a|ad|al(?:la|le)?)\s+(?:e-?mail|mail)\b/i;
     const emailDestinationPattern = new RegExp(
       `\\b(?:a|ad|al(?:la|le)?)\\s+${emailAddressPattern.source}`,
