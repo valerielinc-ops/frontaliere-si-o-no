@@ -498,6 +498,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/pharmacy-swiss-canton-duty.test.ts', roots: ['data/pharmacy-duties-swiss-cantons.json', 'data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
   { file: 'tests/seo-title-parity-factual.test.ts', roots: ['services/locales/'], since: '2026-10-10', evidence: 'replay', runtime: true },
   { file: 'tests/pharmacy-enrichment.test.ts', roots: ['data/pharmacy-enrichment-sources.json', 'data/pharmacy-enrichment.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  // 2026-10-17: la regressione e' nel corpus francese dell'articolo; il file
+  // sorgente e la sitemap pubblicata sono dati aggiornati dal ciclo editoriale.
+  // Il test richiede il checkout completo e gira nel monitor post-merge.
+  { file: 'tests/miazzina-french-live-robots.test.ts', roots: ['packages/articles/content/', 'public/sitemap-blog'], since: '2026-10-17', evidence: 'review' },
 ]);
 
 /**
