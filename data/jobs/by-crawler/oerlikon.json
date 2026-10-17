@@ -1,13 +1,13 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-10-17T09:34:30.051Z",
+  "assembledAt": "2026-10-17T21:40:54.750Z",
   "jobs": [
     {
       "id": "oerlikon-3e7f80f0bc32",
       "slug": "global-ops-gestione-del-miglioramento-continuo-gn-oerlikon-barchfeld-deu",
       "slugByLocale": {
-        "en": "global-ops-continuous-improvement-manager-gn-oerlikon-ch",
         "it": "global-ops-gestione-del-miglioramento-continuo-gn-oerlikon-barchfeld-deu",
+        "en": "global-ops-continuous-improvement-manager-gn-oerlikon-ch",
         "de": "globaler-ops-continuous-improvement-manager-gn-oerlikon-barchfeld-deu",
         "fr": "gestionnaire-de-l-amelioration-continue-gn-oerlikon-barchfeld-deu"
       },
@@ -16,8 +16,8 @@
       "companyDomain": "oerlikon.com",
       "title": "Global OPS Continuous Improvement Manager (gn)",
       "titleByLocale": {
-        "en": "Global OPS Continuous Improvement Manager (gn)",
         "it": "Global OPS Gestione del miglioramento continuo (gn)",
+        "en": "Global OPS Continuous Improvement Manager (gn)",
         "de": "Globaler OPS Continuous Improvement Manager (gn)",
         "fr": "Gestionnaire de l'amélioration continue (gn)"
       },
@@ -33,7 +33,7 @@
       "url": "https://careers.oerlikon.com/job/Global-OPS-Continuous-Improvement-Manager-%28gn%29/104472-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-17T09:34:22.958Z",
+      "crawledAt": "2026-10-17T21:40:48.310Z",
       "addressLocality": "Barchfeld, DEU",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -52,6 +52,21 @@
       "applyUrl": "https://careers.oerlikon.com/job/Global-OPS-Continuous-Improvement-Manager-%28gn%29/104472-en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
+        ],
+        "de": [
+          "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
+        ],
+        "fr": [
+          "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-16T21:50:59.178Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -64,22 +79,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-16T21:50:59.178Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
-        ],
-        "fr": [
-          "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
-        ],
-        "de": [
-          "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
-        ]
-      },
-      "previousSlugs": [
-        "global-ops-continuous-improvement-manager-gn-oerlikon-ch"
-      ]
+      }
     },
     {
       "id": "oerlikon-4777cad32119",
@@ -112,7 +112,7 @@
       "url": "https://careers.oerlikon.com/job/Receptionist/104921-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-17T09:34:22.354Z",
+      "crawledAt": "2026-10-17T21:40:47.641Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -177,7 +177,7 @@
       "url": "https://careers.oerlikon.com/job/Sr_-Manager-Strategic-HR-&-Digital-Projects/105071-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-17T09:34:21.769Z",
+      "crawledAt": "2026-10-17T21:40:47.020Z",
       "addressLocality": "Pfäffikon, SZ",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       "url": "https://careers.oerlikon.com/job/Quality-Engineer-Equipment-%28gn%29/104951-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:21.147Z",
+      "crawledAt": "2026-10-17T21:40:46.379Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -332,7 +332,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:20.545Z",
+      "crawledAt": "2026-10-17T21:40:45.755Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -408,7 +408,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:19.934Z",
+      "crawledAt": "2026-10-17T21:40:45.144Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -486,7 +486,7 @@
       "url": "https://careers.oerlikon.com/job/Techniker-%28gn%29-Pr%C3%BCffeld/104517-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:19.345Z",
+      "crawledAt": "2026-10-17T21:40:44.502Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -565,7 +565,7 @@
       "url": "https://careers.oerlikon.com/job/MonteurMechaniker-%28gn%29-f%C3%BCr-den-Anlagenbau/104513-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:18.719Z",
+      "crawledAt": "2026-10-17T21:40:43.867Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -647,7 +647,7 @@
       "url": "https://careers.oerlikon.com/job/Sales-Engineer-f%C3%BCr-Upgrades-%28gn%29/104242-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:18.113Z",
+      "crawledAt": "2026-10-17T21:40:43.224Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -720,7 +720,7 @@
       "url": "https://careers.oerlikon.com/job/Elektrotechniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:17.518Z",
+      "crawledAt": "2026-10-17T21:40:42.583Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -804,7 +804,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:16.920Z",
+      "crawledAt": "2026-10-17T21:40:41.971Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -884,7 +884,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:16.343Z",
+      "crawledAt": "2026-10-17T21:40:41.352Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -960,7 +960,7 @@
       "url": "https://careers.oerlikon.com/job/Teamleiter-Elektrofertigung-%28gn%29/104960-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:34:15.685Z",
+      "crawledAt": "2026-10-17T21:40:40.686Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1005,83 +1005,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "oerlikon-8bea31130adc",
-      "slug": "operatore-100-gn-oerlikon-brugg",
-      "slugByLocale": {
-        "it": "operatore-100-gn-oerlikon-brugg",
-        "en": "operator-100-gn-oerlikon-brugg",
-        "de": "operateur-100-gn-oerlikon-ch",
-        "fr": "operateur-100-gn-oerlikon-ch"
-      },
-      "company": "Oerlikon",
-      "companyKey": "oerlikon",
-      "companyDomain": "oerlikon.com",
-      "title": "Operateur 100% (gn)",
-      "titleByLocale": {
-        "it": "Operatore 100% (gn)",
-        "en": "Operator 100% (gn)",
-        "de": "Operateur 100% (gn)",
-        "fr": "Opérateur 100% (gn)"
-      },
-      "description": "Operateur 100% (gn)\n\nIhre Aufgaben\n\n• Selbstständiges Bedienen und Überwachen unserer Vakuumbeschichtungsanlagen\n\n• Fachgerechtes Chargieren sowie Aufbauen und Bestücken der Karusselle für die jeweiligen Anlagen\n\n• Durchführen von Wartungs- und Instandhaltungsarbeiten an Anlagenkomponenten wie Halterungen, Maschinenteilen und Öfen\n\n• Sorgfältige und lückenlose Dokumentation der Produktions- und Prozessdaten sowie laufende Pflege der relevanten Daten\n\nIhr Profil\n\n• Technische / mechanische Berufsausbildung oder mehrjährige Berufserfahrung erwünscht\n\n• Fundierte MS-Office-Kenntnisse\n\n• Deutsch in Wort und Schrift\n\n• Flexibel (2-Schichtbetrieb)\n\n• Zuverlässige und selbstständige Persönlichkeit mit gutem Auffassungsvermögen\n\nKontakt\n\nDenise Heini-Gätzi\n\nTelefon: +423 388 6366\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and advanced materials. With a unique portfolio spanning surface engineering, high-performance materials, coating equipment and components, we make products better by enhancing performance, efficiency and sustainability. Oerlikon serves a wide range of industries, including aerospace, automotive, energy, medical, luxury, semiconductors and tooling. Head-quartered in Pfäffikon, Switzerland, Oerlikon operates in 38 countries with around 10,000 employees, achieving sales of CHF 1.6 billion in 2025.\n\nWe offer a wide variety of job profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential — guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
-      "descriptionByLocale": {
-        "it": "Operatore 100% (gn)\n\nI loro compiti\n\n• Funzionamento indipendente e monitoraggio dei nostri impianti di verniciatura a vuoto\n\n• Ricarica e montaggio professionale dei carousels per i rispettivi sistemi\n\n• Eseguire lavori di manutenzione e manutenzione su componenti di impianti come staffe, parti di macchine e forni\n\n• Documentazione attenta e senza soluzione di continuità dei dati di produzione e di processo e manutenzione continua dei dati pertinenti\n\nIl tuo profilo\n\n• Formazione professionale tecnica / meccanica o diversi anni di esperienza professionale desiderata\n\n• Conoscenza di MS-Office\n\n• Tedesco in Parola e scrittura\n\n• Flessibile (2-shift)\n\n• Personalità affidabile e indipendente con buona comprensione\n\nInformazioni di contatto\n\nDenise Heini-Gätzi\n\nTelefono: +423 388 6366\n\nInformazioni su Oerlikon\n\nOerlikon è leader globale nelle tecnologie di superficie e nei materiali avanzati. Con un portafoglio unico che spazia dall'ingegneria delle superfici, materiali ad alte prestazioni, attrezzature di rivestimento e componenti, rendiamo i prodotti migliori migliorando le prestazioni, l'efficienza e la sostenibilità. Oerlikon serve una vasta gamma di settori, tra cui aerospaziale, automobilistico, energia, medico, lusso, semiconduttori e utensili. Con sede a Pfäffikon, Svizzera, Oerlikon opera in 38 paesi con circa 10.000 dipendenti, con un fatturato di 1,6 miliardi di franchi nel 2025.\n\nOffriamo una vasta gamma di profili di lavoro in un ambiente dinamico e di supporto in cui le persone sono in grado di crescere e raggiungere il loro pieno potenziale - guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "en": "Operator 100% (gn)\n\nTheir tasks\n\n• Independent operation and monitoring of our vacuum coating plants\n\n• Professional charging and assembly and fitting of the carousels for the respective systems\n\n• Performing maintenance and maintenance work on plant components such as brackets, machine parts and furnaces\n\n• Careful and seamless documentation of production and process data as well as ongoing maintenance of relevant data\n\nYour profile\n\n• Technical / mechanical vocational training or several years of professional experience desired\n\n• Sound MS-Office knowledge\n\n• German in Word and Writing\n\n• Flexible (2-shift operation)\n\n• Reliable and independent personality with good comprehension\n\nContact details\n\nDenise Heini-Gätzi\n\nTelephone: +423 388 6366\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and advanced materials. With a unique portfolio spanning surface engineering, high-performance materials, coating equipment and components, we make products better by enhancing performance, efficiency and sustainability. Oerlikon serves a wide range of industries, including aerospace, automotive, energy, medical, luxury, semiconductors and tooling. Headquartered in Pfäffikon, Switzerland, Oerlikon operates in 38 countries with around 10,000 employees, achieving sales of CHF 1.6 billion in 2025.\n\nWe offer a wide variety of job profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential — guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "de": "Operateur 100% (gn)\n\nIhre Aufgaben\n\n• Selbstständiges Bedienen und Überwachen unserer Vakuumbeschichtungsanlagen\n\n• Fachgerechtes Chargieren sowie Aufbauen und Bestücken der Karusselle für die jeweiligen Anlagen\n\n• Durchführen von Wartungs- und Instandhaltungsarbeiten an Anlagenkomponenten wie Halterungen, Maschinenteilen und Öfen\n\n• Sorgfältige und lückenlose Dokumentation der Produktions- und Prozessdaten sowie laufende Pflege der relevanten Daten\n\nIhr Profil\n\n• Technische / mechanische Berufsausbildung oder mehrjährige Berufserfahrung erwünscht\n\n• Fundierte MS-Office-Kenntnisse\n\n• Deutsch in Wort und Schrift\n\n• Flexibel (2-Schichtbetrieb)\n\n• Zuverlässige und selbstständige Persönlichkeit mit gutem Auffassungsvermögen\n\nKontakt\n\nDenise Heini-Gätzi\n\nTelefon: +423 388 6366\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and advanced materials. With a unique portfolio spanning surface engineering, high-performance materials, coating equipment and components, we make products better by enhancing performance, efficiency and sustainability. Oerlikon serves a wide range of industries, including aerospace, automotive, energy, medical, luxury, semiconductors and tooling. Head-quartered in Pfäffikon, Switzerland, Oerlikon operates in 38 countries with around 10,000 employees, achieving sales of CHF 1.6 billion in 2025.\n\nWe offer a wide variety of job profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential — guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Opérateur 100% (gn)\n\nLeurs tâches\n\n• Fonctionnement et surveillance indépendants de nos installations de revêtement sous vide\n\n• Charge professionnelle, montage et montage des carrousel pour les systèmes respectifs\n\n• Effectuer des travaux d'entretien et d'entretien sur des composants d'usine tels que des supports, des pièces de machines et des fours\n\n• Documentation minutieuse et transparente des données sur la production et les procédés ainsi que mise à jour continue des données pertinentes\n\nVotre profil\n\n• Formation professionnelle technique / mécanique ou plusieurs années d'expérience professionnelle souhaitées\n\n• Connaissances du MS-Office\n\n• Allemand en paroles et en écriture\n\n• Fonctionnement flexible (2 postes)\n\n• Personnalité fiable et indépendante avec bonne compréhension\n\nCoordonnées\n\nDenise Heini-Gätzi\n\nTéléphone : +423 388 6366\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial dans les technologies de surface et les matériaux avancés. Avec un portefeuille unique couvrant l'ingénierie de surface, des matériaux de haute performance, des équipements de revêtement et des composants, nous rendons les produits meilleurs en améliorant les performances, l'efficacité et la durabilité. Oerlikon dessert un large éventail d'industries, notamment l'aérospatiale, l'automobile, l'énergie, la médecine, le luxe, les semi-conducteurs et l'outillage. Basée à Pfäffikon, en Suisse, Oerlikon opère dans 38 pays avec environ 10 000 employés, avec un chiffre d'affaires de 1,6 milliard de francs suisses en 2025.\n\nNous offrons une grande variété de profils d'emploi dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nLe site www.oerlikon.com"
-      },
-      "location": "Brügg",
-      "canton": "AG",
-      "url": "https://careers.oerlikon.com/job/Operateur-100-%28gn%29/104924-en_US",
-      "source": "Oerlikon Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-16T09:37:10.720Z",
-      "addressLocality": "Brügg",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5200",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Ingegneria di superficie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.oerlikon.com/job/Operateur-100-%28gn%29/104924-en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "operateur-100-gn-oerlikon-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "operateur-100-gn-oerlikon-ch"
-        ],
-        "en": [
-          "operateur-100-gn-oerlikon-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:25:18.479Z",
-      "salaryMin": 69500,
-      "salaryMax": 93500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 93500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
