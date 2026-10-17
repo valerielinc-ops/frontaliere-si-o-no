@@ -110704,6 +110704,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-como-orabasta-famiglie': {
+    title: 'Como, centinaia alla manifestazione #OraBasta | Frontaliere Ticino',
+    description: 'Centinaia hanno partecipato alla manifestazione #OraBasta. Genitori, nonni e cittadini hanno attraversato il lungolago. La partenza è stata da piazzale Somaini',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, centinaia, alla, manifestazione',
+    ogTitle: 'Como, centinaia alla manifestazione #OraBasta',
+    ogDescription: 'Centinaia hanno partecipato alla manifestazione #OraBasta.',
+    canonicalPath: '/articoli-frontaliere/como-orabasta-famiglie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, centinaia alla manifestazione #OraBasta",
+      "description": "Centinaia hanno partecipato alla manifestazione #OraBasta. Genitori, nonni e cittadini hanno attraversato il lungolago. La partenza è stata da piazzale Somaini",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-como-orabasta-famiglie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione #OraBasta sul lungolago di Como con genitori, nonni e cittadini"
+      },
+      "datePublished": "2026-10-17T10:17:58+00:00",
+      "dateModified": "2026-10-17T10:17:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-orabasta-famiglie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

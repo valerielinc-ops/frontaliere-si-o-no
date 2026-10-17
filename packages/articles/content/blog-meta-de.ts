@@ -13393,6 +13393,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, das Sportzentrum erinnert an Kevin Palmieri',
     'blog.article.targa-kevin-palmieri.excerpt': 'Eine Gedenktafel erinnert im Oratorio San Vito an Kevin Das Kind war 8 Jahre alt und ist im Januar 2024 verstorben Kevin liebte es, im Sportzentrum Fußball zu spielen',
     'blog.article.targa-kevin-palmieri.imageAlt': 'Eingang eines Sportzentrums mit Tafel für Kevin Palmieri',
+    'blog.article.como-orabasta-famiglie.title': 'Como, Hunderte bei der Kundgebung #OraBasta',
+    'blog.article.como-orabasta-famiglie.excerpt': 'Hunderte nahmen an der Kundgebung #OraBasta teil.',
+    'blog.article.como-orabasta-famiglie.imageAlt': 'Demonstration #OraBasta am Comer See mit Eltern, Grosseltern und Bürgern (Como)',
 };
 
 export default blogMetaDe;

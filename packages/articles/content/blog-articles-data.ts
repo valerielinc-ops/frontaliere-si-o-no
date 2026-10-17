@@ -45197,6 +45197,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-orabasta-famiglie',
+ category: 'novita',
+ date: '2026-10-17T10:17:58.483Z',
+ image: '/images/blog/article-como-orabasta-famiglie.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

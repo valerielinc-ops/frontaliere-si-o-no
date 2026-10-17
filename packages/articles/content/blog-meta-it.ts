@@ -13395,6 +13395,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, il centro sportivo ricorda Kevin Palmieri',
     'blog.article.targa-kevin-palmieri.excerpt': 'Una targa ricorda Kevin all\'Oratorio San Vito Il bambino aveva 8 anni ed è scomparso nel gennaio 2024 Kevin amava giocare a calcio nel centro sportivo',
     'blog.article.targa-kevin-palmieri.imageAlt': 'Ingresso di un centro sportivo con targa dedicata a Kevin Palmieri',
+    'blog.article.como-orabasta-famiglie.title': 'Como, centinaia alla manifestazione #OraBasta',
+    'blog.article.como-orabasta-famiglie.excerpt': 'Centinaia hanno partecipato alla manifestazione #OraBasta.',
+    'blog.article.como-orabasta-famiglie.imageAlt': 'Manifestazione #OraBasta sul lungolago di Como con genitori, nonni e cittadini',
 };
 
 export default blogMetaIt;
