@@ -29,7 +29,7 @@ function manifestWithTransportedTwins() {
         baseline: { site: 'aaaa', corpus: 'bbbb', alignedAt: '2026-10-16' },
       },
       {
-        path: 'generator/scripts/ci/harvest-agent-lessons.mjs',
+        path: 'scripts/ci/harvest-agent-lessons.mjs',
         sitePath: 'scripts/ci/harvest-agent-lessons.mjs',
         mode: 'identical',
         baseline: { site: 'cccc', corpus: 'dddd', alignedAt: '2026-10-16' },

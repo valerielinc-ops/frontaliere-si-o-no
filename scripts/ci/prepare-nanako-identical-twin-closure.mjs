@@ -56,7 +56,7 @@ export const ADAPTED_TWIN_DISPOSITIONS = Object.freeze([
   },
   {
     sitePath: 'scripts/ci/harvest-agent-lessons.mjs',
-    corpusPath: 'generator/scripts/ci/harvest-agent-lessons.mjs',
+    corpusPath: 'scripts/ci/harvest-agent-lessons.mjs',
     reason:
       'adapted: the corpus harvester imports repository-specific close, follow-up, and CI constant contracts; pull-side copying the site file would mix incompatible graphs.',
   },
