@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-17T09:15:11.561Z",
+  "updatedAt": "2026-10-17T09:15:39.561Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -680448,13 +680448,13 @@
     },
     "physioswiss.ch": {
       "key": "physioswiss.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.307Z",
-      "updatedAt": "2026-10-17T09:13:06.991Z",
+      "updatedAt": "2026-10-17T09:15:39.535Z",
       "name": "Physio swiss",
       "domain": "physioswiss.ch",
       "city": "Minusio",
@@ -680603,7 +680603,9 @@
           "logoFound": true
         }
       ],
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "promotionPr": "13650",
+      "promotionBranch": "prospector/promote-2026-10-17"
     },
     "physioswiss@bern": {
       "key": "physioswiss@bern",
