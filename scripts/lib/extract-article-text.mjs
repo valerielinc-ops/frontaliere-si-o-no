@@ -157,6 +157,7 @@ function extractParagraphs(root) {
  * @param {string} html — raw HTML page source
  * @param {object} [opts]
  * @param {number} [opts.maxChars=8000] — hard cap on output length
+ * @param {boolean} [opts.scriptingDisabled=false] — treat `<noscript>` markup as active fallback content
  * @returns {{ text: string, method: string, paragraphCount: number }}
  *          `method` is one of 'jsonld', 'article-tag', 'main-tag',
  *          'og-fallback', 'naive-fallback', 'empty'.
@@ -183,11 +184,13 @@ export function extractArticleText(html, opts = {}) {
   // Strip noise nodes up-front. NOTE: JSON-LD `<script type="application/ld+json">`
   // MUST survive this pass — the JSON-LD extractor reads it next. We only purge
   // executable/styling script tags.
-  for (const sel of ['script:not([type="application/ld+json"])', 'style', 'noscript', 'iframe', 'nav', 'footer',
+  const noiseSelectors = ['script:not([type="application/ld+json"])', 'style', 'iframe', 'nav', 'footer',
                      'aside', 'form', '[class*="cookie" i]', '[id*="cookie" i]',
                      '[class*="banner" i]', '[class*="related" i]',
                      '[class*="newsletter" i]', '[class*="advert" i]',
-                     '[class*="adsbygoogle" i]']) {
+                     '[class*="adsbygoogle" i]'];
+  if (opts.scriptingDisabled !== true) noiseSelectors.push('noscript');
+  for (const sel of noiseSelectors) {
     for (const el of document.querySelectorAll(sel)) el.remove();
   }
 
