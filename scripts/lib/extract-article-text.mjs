@@ -158,8 +158,9 @@ function removeNoiseNodes(root, { includeNoscript = false } = {}) {
   }
 }
 
-function collectParagraphTexts(root) {
+function collectParagraphTexts(root, include = () => true) {
   return [...root.querySelectorAll(PARAGRAPH_SELECTOR)]
+    .filter(p => include(p))
     .map(p => cleanText(p.textContent || ''))
     .filter(p => p && !isJunk(p));
 }
@@ -185,6 +186,19 @@ function hasNoscriptNonContentMarker(element) {
     .some(({ name, value }) => NOSCRIPT_NON_CONTENT_MARKER.test(`${name} ${value}`));
 }
 
+function hasNoscriptNonContentAncestor(node, root) {
+  for (let current = node.parentElement; current; current = current.parentElement) {
+    const tag = current.tagName.toLowerCase();
+    if (NOSCRIPT_METADATA_TAGS.has(tag)
+      || NOSCRIPT_TRACKING_TAGS.has(tag)
+      || hasNoscriptNonContentMarker(current)) {
+      return true;
+    }
+    if (current === root) break;
+  }
+  return false;
+}
+
 /**
  * Return true when a noscript block contains no unmarked article paragraphs.
  *
@@ -201,18 +215,7 @@ function isNoscriptMetadata(noscript) {
   const contentNodes = [...root.querySelectorAll(PARAGRAPH_SELECTOR)];
   if (contentNodes.length === 0) return true;
 
-  return contentNodes.every((node) => {
-    for (let current = node.parentElement; current; current = current.parentElement) {
-      const tag = current.tagName.toLowerCase();
-      if (NOSCRIPT_METADATA_TAGS.has(tag)
-        || NOSCRIPT_TRACKING_TAGS.has(tag)
-        || hasNoscriptNonContentMarker(current)) {
-        return true;
-      }
-      if (current === root) break;
-    }
-    return false;
-  });
+  return contentNodes.every(node => hasNoscriptNonContentAncestor(node, root));
 }
 
 /**
@@ -228,10 +231,11 @@ function extractNoscriptText(noscript) {
   if (!noscript) return [];
 
   const normalized = normalizeNoscriptRoot(noscript);
-  if (normalized === noscript) return collectParagraphTexts(noscript);
+  const isEditorialParagraph = node => !hasNoscriptNonContentAncestor(node, normalized);
+  if (normalized === noscript) return collectParagraphTexts(noscript, isEditorialParagraph);
 
   removeNoiseNodes(normalized);
-  return collectParagraphTexts(normalized);
+  return collectParagraphTexts(normalized, isEditorialParagraph);
 }
 
 function extractParagraphs(root) {

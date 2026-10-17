@@ -160,6 +160,20 @@ describe('extractArticleText', () => {
     expect(result.text).toContain('Editorial noscript paragraph two');
   });
 
+  it('filters tracked wrappers inside a mixed editorial noscript fallback', () => {
+    const html = '<article><noscript>'
+      + '<p>Editorial fallback paragraph one with enough words to survive extraction.</p>'
+      + '<p>Editorial fallback paragraph two with enough words to survive extraction.</p>'
+      + '<div data-track-id="pixel"><p>Tracking payload paragraph with enough words to survive extraction.</p></div>'
+      + '</noscript></article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toContain('Editorial fallback paragraph one');
+    expect(result.text).toContain('Editorial fallback paragraph two');
+    expect(result.text).not.toContain('Tracking payload paragraph');
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;
