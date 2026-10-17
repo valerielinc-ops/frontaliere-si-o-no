@@ -384,8 +384,10 @@ describe('relocalize company invocation batching', () => {
     crawler.runSharedCrawlerPipeline.mockImplementation(async () => {
       const keys = (process.env.JOBS_CRAWLER_COMPANY_KEYS || '').split(',').filter(Boolean);
       crawlerCalls.push(keys.join(','));
-      if (crawlerCalls.length === 1) completeJobs('success-company', 1);
-      if (crawlerCalls.length === 2) completeJobs('large-company', 4);
+      // The main pass deliberately clears no flags. The remaining budget is
+      // available only because the sterile company was skipped; the retry
+      // must still run instead of treating totalFixed === 0 as a dead end.
+      if (crawlerCalls.length === 3) completeJobs('success-company', 1);
       return { localizationCoveredCompanyKeys: keys };
     });
 
@@ -407,7 +409,7 @@ describe('relocalize company invocation batching', () => {
     expect(crawlerCalls).toEqual([
       'success-company,short-company',
       'large-company',
-      'large-company',
+      'success-company',
     ]);
     expect(crawlerCalls.join('|')).not.toContain('skipped-company');
     expect(ledger.companies['skipped-company']).toEqual({ sterile: 0, skipUntilRun: 5 });

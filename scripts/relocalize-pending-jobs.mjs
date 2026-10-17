@@ -2286,9 +2286,14 @@ export async function runRelocalization(phase) {
     }
   }
 
-  // ── Retry pass: re-attempt companies that had partial success ──────────
-  // Rate limits often clear partway through a run. Companies processed early
-  // may have had failures that would succeed now. Only retry if we have time.
+  // ── Retry pass: re-attempt pending companies with the remaining budget ───
+  // Rate limits often clear partway through a run. A company can also have
+  // been served without producing a flag-clearing result yet: the crawler may
+  // have changed locale content that still needs another quality-gated pass.
+  // `totalFixed` is therefore not an eligibility signal. If the main pass
+  // spent less than the cap because companies were skipped or the deadline
+  // stopped it early, suppressing this pass on `totalFixed === 0` strands the
+  // remaining companies indefinitely (issue #6109/#6615).
   const retryStartReason = cascadeStopReason({
     nowMs: cascadeNow(),
     runStartMs: RUN_START_MS,
@@ -2298,15 +2303,16 @@ export async function runRelocalization(phase) {
     timeBudgetFraction: 0.85,
   });
   const retryBudget = Math.max(0, effectiveMax - budgetConsumed);
-  if (totalFixed > 0 && !retryStartReason && retryBudget > 0) {
+  if (!retryStartReason && retryBudget > 0) {
     const retryJobs = readJson(DATA_JOBS_PATH);
     const retryPending = Array.isArray(retryJobs)
       ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
       : [];
 
-    // Only retry companies that had at least one success (partial failure).
-    // Failed companies are deliberately rotated to the back of this queue so
-    // they cannot starve healthy pending work in the same run.
+    // Retry only companies that were eligible for the main pass. Companies
+    // skipped by the sterile ledger stay excluded until their normal re-entry
+    // point. Failed companies are deliberately rotated to the back of this
+    // queue so they cannot starve healthy pending work in the same run.
     const retryCompanies = new Map();
     for (const j of retryPending) {
       const k = canonicalCompanyKeyForJob(j);
@@ -2468,9 +2474,9 @@ export async function runRelocalization(phase) {
         }
       }
     }
-  } else if (totalFixed > 0 && retryStartReason) {
+  } else if (retryStartReason) {
     console.log(`\n⏰ Retry pass skipped: ${retryStartReason} reached — deferring retries to the next run`);
-  } else if (totalFixed > 0 && retryBudget <= 0) {
+  } else if (retryBudget <= 0) {
     console.log(`\n⏭️  Retry pass skipped: aggregate 2b budget exhausted (${budgetConsumed}/${effectiveMax} jobs attempted)`);
   }
 
