@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-10-16T21:57:16.784Z",
+  "assembledAt": "2026-10-17T09:41:43.692Z",
   "jobs": [
     {
       "id": "omega-32963",
@@ -96,7 +96,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "omega-33168",
@@ -129,7 +130,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33168",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:56:49.749Z",
+      "crawledAt": "2026-10-17T09:41:39.254Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -227,7 +228,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33234",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:56:28.232Z",
+      "crawledAt": "2026-10-17T09:41:17.761Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -331,7 +332,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33244",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:56:06.739Z",
+      "crawledAt": "2026-10-17T09:40:34.662Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -433,7 +434,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33245",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:55:44.247Z",
+      "crawledAt": "2026-10-17T09:40:56.240Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -535,7 +536,7 @@
       "url": "https://www.swatchgroup.com/en/job/33260",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:55:22.617Z",
+      "crawledAt": "2026-10-17T09:40:13.169Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -635,7 +636,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33298",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:55:00.143Z",
+      "crawledAt": "2026-10-17T09:39:51.453Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -740,7 +741,7 @@
       "url": "https://www.swatchgroup.com/en/job/33305",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-16T21:54:38.383Z",
+      "crawledAt": "2026-10-17T09:39:29.956Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -828,7 +829,7 @@
       "url": "https://www.swatchgroup.com/de/job/33345",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:54:17.119Z",
+      "crawledAt": "2026-10-17T09:39:07.576Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -910,7 +911,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33442",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:53:55.674Z",
+      "crawledAt": "2026-10-17T09:38:45.846Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1001,7 +1002,7 @@
       "url": "https://www.swatchgroup.com/de/job/33509",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:53:34.173Z",
+      "crawledAt": "2026-10-17T09:38:24.194Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1060,190 +1061,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "omega-33153",
-      "slug": "architetto-di-soluzioni-anaplan-sviluppatore-di-modelli-anaplan-omega-sa-biel-bienne",
-      "slugByLocale": {
-        "it": "architetto-di-soluzioni-anaplan-sviluppatore-di-modelli-anaplan-omega-sa-biel-bienne",
-        "en": "solution-architect-anaplan-model-builder-anaplan-omega-biel-bienne",
-        "de": "anaplan-architektenlosung-modellbauer-anaplan-omega-sa-biel-bienne",
-        "fr": "solution-architect-anaplan-model-builder-anaplan-omega-biel-bienne"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "Solution Architect ANAPLAN / Model Builder ANAPLAN",
-      "titleByLocale": {
-        "it": "Architetto di soluzioni ANAPLAN / Sviluppatore di modelli ANAPLAN",
-        "en": "ANAPLAN Architect Solution / Model Builder ANAPLAN",
-        "de": "ANAPLAN Architektenlösung / Modellbauer ANAPLAN",
-        "fr": "Solution Architecte ANAPLAN / Model Builder ANAPLAN"
-      },
-      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nAssurer la conception, le développement, la maintenance et l’évolution des modèles Anaplan supportant les processus de planification Supply Chain.\n\nVous garantirez et participerez activement à la définition, conception, au développement, test et déploiement des modèles d’application Anaplan pour soutenir les processus d’entreprise et les besoins métiers.\n\nTout en garantissant aux utilisateurs un accès (gestion des autorisations & rôles), un support (formation & documentation) et un fonctionnement optimal de l’application (maintenance & support des fonctionnalités et data), vous serez moteur pour proposer des recommandations et évolutions de la solution et garant de leur mise en œuvre dans le respect de la Roadmap de l’application définie.\n\nEn tant qu’acteur central, vous veillez à la cohérence et à la performance des solutions. Vous contribuez également à l’amélioration continue des modèles Anaplan, en intégrant les meilleures pratiques et en optimisant durablement leurs performances au service des besoins métiers.\n\n## Profil\nNiveau supérieur, ingénieur ou jugé équivalent (3 ans d’expérience).\n\nVous disposez d’une certification Solution Architect Anaplan ou Model Builder niveau 3 minimum, complétée par une expérience significative en conception et architecture de modèles. Vous bénéficiez de très bonnes expériences dans les processus de planification de la Supply Chain.\n\nUne évolution vers l’accompagnement de projets d’amélioration de nos processus d’exécution Supply est possible.\n\nTrès orienté sur la collaboration, agile, structuré, vous êtes capable d’évoluer dans un environnement pluridisciplinaire et exigeant un fort engagement sur le long terme. Vous êtes également doté d’une forte aptitude à la réflexion critique, à la résolution de problème, et vous vous distinguez par vos aptitudes analytiques et conceptuelles.",
-      "descriptionByLocale": {
-        "it": "## Introduzione della società\nOMEGA è un marchio di orologi di livello mondiale noto per le sue esigenze di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono tra i più belli del mondo e sono caratterizzati dalla loro tecnologia all'avanguardia e dallo stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo rotto i record di precisione, ridefinito i tempi sportivi e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare i futuri colleghi che desiderano contribuire al lavoro dei nostri team in quasi tutti i continenti con i loro talenti, ambizioni e ispirazioni.\n\n## Descrizione del post\nAssicurare progettazione, sviluppo, manutenzione ed evoluzione dei modelli Anaplan che supportano i processi di pianificazione Supply Chain.\n\nGarantirai e parteciperai attivamente alla definizione, progettazione, sviluppo, test e distribuzione dei modelli applicativi Anaplan per supportare i processi aziendali e le esigenze aziendali.\n\nPur garantendo agli utenti l'accesso (gestione e ruoli di autorizzazione), il supporto (formazione e documentazione) e il funzionamento ottimale dell'applicazione (manutenzione e supporto delle caratteristiche e dei dati), sarete la forza trainante per proporre raccomandazioni e sviluppi della soluzione e garantire la loro attuazione in conformità con la Roadmap dell'applicazione definita.\n\nCome giocatore centrale, assicura la coerenza e le prestazioni delle soluzioni. Contribuisci anche al miglioramento continuo dei modelli Anaplan, integrando le migliori pratiche e ottimizzando continuamente le loro prestazioni per soddisfare le esigenze aziendali.\n\n## Profilo\nLivello superiore, ingegnere o considerato equivalente (3 anni di esperienza).\n\nHai una certificazione Minimo Livello 3 Solution Architect Anaplan o Model Builder, completata da una significativa esperienza nella progettazione e nell'architettura del modello. Si beneficia di una buona esperienza nei processi di pianificazione di Supply Chain.\n\nÈ possibile uno spostamento verso i progetti di accompagnamento per migliorare i nostri processi di fornitura.\n\nMolto collaborativo, agile, strutturato, si è in grado di evolvere in un ambiente multidisciplinare che richiede un forte impegno a lungo termine. Hai anche una forte capacità di pensiero critico, problem solving, e ti distingue per le tue abilità analitiche e concettuali.",
-        "en": "## Introduction of society\nOMEGA is a prestigious watch brand worldwide known for its quality, precision and innovation requirements for over 170 years. Our watches are among the most beautiful in the world and are characterized by their state-of-the-art technology and timeless style.\n\nOver the course of our long history, we have broken records of precision, redefined sporting timing and maintained our position at the cutting edge of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues wishing to contribute to the work of our teams on almost every continent with their talents, ambitions and inspirations.\n\n## Description of post\nEnsure design, development, maintenance and evolution of Anaplan models supporting Supply Chain planning processes.\n\nYou will guarantee and actively participate in the definition, design, development, testing and deployment of Anaplan application models to support business processes and business needs.\n\nWhile guaranteeing users access (authorization management & roles), support (training & documentation) and optimal application operation (maintenance & support of features and data), you will be the driving force for proposing recommendations and developments of the solution and guaranteeing their implementation in accordance with the Roadmap of the defined application.\n\nAs a central player, you ensure the consistency and performance of solutions. You also contribute to the continuous improvement of Anaplan models, integrating best practices and continuously optimizing their performance to meet business needs.\n\n##\n• Profile\nHigher level, engineer or deemed equivalent (3 years experience).\n\nYou have a Minimum Level 3 Solution Architect Anaplan or Model Builder certification, complemented by significant experience in model design and architecture. You benefit from very good experience in the planning processes of Supply Chain.\n\nA shift towards accompanying projects to improve our Delivery Supply processes is possible.\n\nVery collaborative, agile, structured, you are able to evolve in a multidisciplinary environment requiring a strong long-term commitment. You also have a strong capacity for critical thinking, problem solving, and you stand out for your analytical and conceptual skills.",
-        "de": "## Einführung der Gesellschaft\nOMEGA ist eine renommierte Uhrenmarke weltweit, die seit über 170 Jahren für ihre Qualitäts-, Präzisions- und Innovationsanforderungen bekannt ist. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch modernste Technik und zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Rekorde an Präzision gebrochen, sportliches Timing neu definiert und unsere Position an der Spitze der Haute Horlogerie beibehalten.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen zu treffen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf fast jedem Kontinent beitragen möchten.\n\n## Beschreibung der Post\nGewährleistung von Design, Entwicklung, Wartung und Weiterentwicklung von Anaplan-Modellen zur Unterstützung von Supply Chain-Planungsprozessen.\n\nSie garantieren und beteiligen sich aktiv an der Definition, dem Design, der Entwicklung, dem Test und der Bereitstellung von Anaplan-Anwendungsmodellen zur Unterstützung von Geschäftsprozessen und Geschäftsanforderungen.\n\nWährend Sie den Benutzerzugriff (Autorisierungsmanagement & Rollen), Support (Training & Dokumentation) und optimalen Anwendungsbetrieb (Wartung & Support von Features und Daten) garantieren, sind Sie die treibende Kraft, um Empfehlungen und Entwicklungen der Lösung vorzuschlagen und deren Umsetzung gemäß der Roadmap der definierten Anwendung zu gewährleisten.\n\nAls zentraler Player sorgen Sie für die Konsistenz und Performance von Lösungen. Sie tragen auch zur kontinuierlichen Verbesserung der Anaplan-Modelle bei, integrieren Best Practices und optimieren deren Leistung kontinuierlich, um die Geschäftsanforderungen zu erfüllen.\n\n## Profil\nHöheres Niveau, Ingenieur oder als gleichwertig angesehen (3 Jahre Erfahrung).\n\nSie haben eine Minimum Level 3 Solution Architect Anaplan oder Model Builder Zertifizierung, ergänzt durch umfangreiche Erfahrung in Modelldesign und Architektur. Sie profitieren von sehr guten Erfahrungen in den Planungsprozessen von Supply Chain.\n\nEine Verlagerung hin zu begleitenden Projekten zur Verbesserung unserer Lieferlieferprozesse ist möglich.\n\nSehr kooperativ, agil, strukturiert, können Sie sich in einem multidisziplinären Umfeld entwickeln, das ein starkes langfristiges Engagement erfordert. Sie haben auch eine starke Fähigkeit zu kritischem Denken, Problemlösung und zeichnen sich durch Ihre analytischen und konzeptionellen Fähigkeiten aus.",
-        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\nAssurer la conception, le développement, la maintenance et l’évolution des modèles Anaplan supportant les processus de planification Supply Chain.\n\nVous garantirez et participerez activement à la définition, conception, au développement, test et déploiement des modèles d’application Anaplan pour soutenir les processus d’entreprise et les besoins métiers.\n\nTout en garantissant aux utilisateurs un accès (gestion des autorisations & rôles), un support (formation & documentation) et un fonctionnement optimal de l’application (maintenance & support des fonctionnalités et data), vous serez moteur pour proposer des recommandations et évolutions de la solution et garant de leur mise en œuvre dans le respect de la Roadmap de l’application définie.\n\nEn tant qu’acteur central, vous veillez à la cohérence et à la performance des solutions. Vous contribuez également à l’amélioration continue des modèles Anaplan, en intégrant les meilleures pratiques et en optimisant durablement leurs performances au service des besoins métiers.\n\n## Profil\nNiveau supérieur, ingénieur ou jugé équivalent (3 ans d’expérience).\n\nVous disposez d’une certification Solution Architect Anaplan ou Model Builder niveau 3 minimum, complétée par une expérience significative en conception et architecture de modèles. Vous bénéficiez de très bonnes expériences dans les processus de planification de la Supply Chain.\n\nUne évolution vers l’accompagnement de projets d’amélioration de nos processus d’exécution Supply est possible.\n\nTrès orienté sur la collaboration, agile, structuré, vous êtes capable d’évoluer dans un environnement pluridisciplinaire et exigeant un fort engagement sur le long terme. Vous êtes également doté d’une forte aptitude à la réflexion critique, à la résolution de problème, et vous vous distinguez par vos aptitudes analytiques et conceptuelles."
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://www.swatchgroup.com/fr/job/33153",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:50:54.570Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
-      "category": "IT",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-17T10:52:26+02:00",
-      "postedDate": "2026-09-17T10:52:26+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-275991&langCode=fr_FR&source=swatchgroup.com",
-      "requirements": [
-        "Niveau supérieur, ingénieur ou jugé équivalent (3 ans d’expérience).",
-        "Vous disposez d’une certification Solution Architect Anaplan ou Model Builder niveau 3 minimum, complétée par une expérience significative en conception et architecture de modèles. Vous bénéficiez de très bonnes expériences dans les processus de planification de la Supply Chain.",
-        "Une évolution vers l’accompagnement de projets d’amélioration de nos processus d’exécution Supply est possible.",
-        "Très orienté sur la collaboration, agile, structuré, vous êtes capable d’évoluer dans un environnement pluridisciplinaire et exigeant un fort engagement sur le long terme. Vous êtes également doté d’une forte aptitude à la réflexion critique, à la résolution de problème, et vous vous distinguez par vos aptitudes analytiques et conceptuelles."
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Niveau supérieur, ingénieur ou jugé équivalent (3 ans d’expérience).",
-          "Une évolution vers l’accompagnement de projets d’amélioration de nos processus d’exécution Supply est possible."
-        ]
-      },
-      "previousSlugs": [
-        "solution-architect-anaplan-model-builder-anaplan-omega-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-anaplan-model-builder-anaplan-omega-biel-bienne"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:17:44.352Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "omega-33154",
-      "slug": "rappresentante-di-vendita-m-f-80-omega-boutique-berna-omega-sa-berne",
-      "slugByLocale": {
-        "it": "rappresentante-di-vendita-m-f-80-omega-boutique-berna-omega-sa-berne",
-        "en": "sales-representative-m-w-d-80-omega-boutique-bern-omega-sa-berne",
-        "de": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
-        "fr": "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
-      "titleByLocale": {
-        "it": "ADDETTO/A ALLE VENDITE (M/F) 80% - BOUTIQUE OMEGA BERNA",
-        "en": "SALES REPRESENTATIVE (M/F) 80% - OMEGA BOUTIQUE BERN",
-        "de": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
-        "fr": "CONSEILLER/ÈRE DE VENTE (H/F) À 80 % - BOUTIQUE OMEGA BERNE"
-      },
-      "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nFÜR UNSERE BOUTIQUE IN BERN suchen wir einen (M/W):\n\nSALES REPRESENTATIVE 80%\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n## Berufliche Anforderungen\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
-      "descriptionByLocale": {
-        "it": "Descrizione dell'azienda\nOMEGA è un prestigioso marchio globale che da oltre 170 anni persegue la massima qualità, la massima precisione e innovazioni sempre nuove. I nostri orologi sono tra i migliori al mondo, sono il risultato di tecnologie all’avanguardia nel settore orologiero e si distinguono per un design senza tempo.\n\nNel corso della nostra lunga storia abbiamo stabilito record di precisione, influenzato in modo decisivo il cronometraggio sportivo e ancora oggi ricopriamo un ruolo pionieristico nell’alta orologeria.\n\nIn quanto marchio internazionale, siamo sempre interessati a conoscere futuri colleghi pronti a supportare i nostri team praticamente in ogni continente con i loro talenti, le loro ambizioni e la loro ispirazione.\n\nPER LA NOSTRA BOUTIQUE DI BERNA cerchiamo un (M/F):\n\nADDETTO/A ALLE VENDITE 80%\n\nDescrizione della posizione\n• Contribuisce attivamente al successo della boutique e al raggiungimento degli obiettivi di vendita\n\n• Genera e mantiene i contatti con la nostra esigente clientela\n\n• È un ambasciatore del nostro marchio e consiglia i nostri clienti ai massimi livelli, comprese tutte le peculiarità tecniche dei nostri orologi\n\nProfilo\n• Esperienza analoga nel segmento del lusso, idealmente nel settore dell’orologeria e della gioielleria\n\n• Orientamento al servizio di alto livello per la nostra esigente clientela\n\n• Presenza curata, cortese e impeccabile\n\nRequisiti professionali\n• Personalità di vendita comunicativa, con spirito d’iniziativa\n\n• Ottimo spirito di squadra, disponibilità e flessibilità\n\nConoscenze linguistiche\n• Ottima conoscenza del tedesco o del francese e dell’inglese (la conoscenza di altre lingue costituisce un vantaggio)",
-        "en": "Company description\nOMEGA is a prestigious global brand that has been striving for the highest quality, utmost precision and ever-new innovations for more than 170 years. Our watches are among the best in the world; they are the result of industry-leading technologies and are distinguished by a timeless design.\n\nThroughout our long history, we have set precision records, decisively shaped sports timekeeping and continue to play a pioneering role in fine watchmaking.\n\nAs an international brand, we are always interested in getting to know future colleagues who are ready to support our teams on virtually every continent through their talents, ambitions and inspiration.\n\nFOR OUR BOUTIQUE IN BERN we are looking for a (M/F):\n\nSEPRESENT - 80%\n\nJob description\n• You actively contribute to the success of the boutique and to achieving sales targets\n\n• You generate and maintain contact with our discerning clientele\n\n• You are an ambassador for our brand and advise our customers at the highest level, including all the technical details of our watches\n\nProfile\n• Similar experience in the luxury segment, ideally in the watch and jewelry industry\n\n• High-level service orientation for our discerning clientele\n\n• Well-groomed, courteous, and impeccable appearance\n\nProfessional requirements\n• Outgoing salesperson with initiative\n\n• Excellent team spirit, available and flexible\n\nLanguage skills\n• Very good command of German or French and English (additional languages are an advantage)",
-        "de": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nFÜR UNSERE BOUTIQUE IN BERN suchen wir einen (M/W):\n\nSALES REPRESENTATIVE 80%\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n## Berufliche Anforderungen\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
-        "fr": "Description de l'entreprise\nOMEGA est une prestigieuse marque mondiale qui, depuis plus de 170 ans, aspire à la plus haute qualité, à l'extrême précision et à des innovations toujours nouvelles. Nos montres comptent parmi les meilleures au monde ; elles sont le résultat de technologies à la pointe de l'industrie horlogère et se distinguent par un design intemporel.\n\nAu cours de notre longue histoire, nous avons établi des records de précision, marqué de manière décisive le chronométrage sportif et continuons à jouer un rôle de pionnier dans la haute horlogerie.\n\nEn tant que marque internationale, nous sommes toujours désireux de rencontrer de futurs collègues prêts à soutenir nos équipes sur pratiquement tous les continents grâce à leurs talents, leurs ambitions et leur inspiration.\n\nPOUR NOTRE BOUTIQUE À BERNE, nous recherchons un (H/F):\n\nREPRÉSENTANT COMMERCIAL 80%\n\nDescription du poste\n• Vous contribuez activement au succès de la boutique et à l’atteinte des objectifs de vente\n\n• Vous développez et entretenez le contact avec notre clientèle exigeante\n\n• Vous êtes un ambassadeur de notre marque et conseillez nos clients au plus haut niveau, y compris sur toutes les subtilités techniques de nos montres\n\nProfil\n• Expérience similaire dans le secteur du luxe, idéalement dans l’horlogerie et la joaillerie\n\n• Sens du service de haut niveau pour notre clientèle exigeante\n\n• Présentation soignée, avenante et irréprochable\n\nExigences professionnelles\n• Profil de vendeur sociable et faisant preuve d’initiative\n\n• Excellent esprit d’équipe, disponible et flexible\n\nCompétences linguistiques\n• Très bonnes connaissances en allemand ou en français et en anglais (des langues supplémentaires sont un atout)"
-      },
-      "location": "Berne",
-      "canton": "BE",
-      "url": "https://www.swatchgroup.com/de/job/33154",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:50:32.825Z",
-      "addressLocality": "Berne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Marktgasse 7",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-17T14:06:20+02:00",
-      "postedDate": "2026-09-17T14:06:20+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-276010&langCode=de_DE&source=swatchgroup.com",
-      "requirements": [
-        "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
-        "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
-        "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
-        "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
-        "Ausgezeichneter Teamgeist, verfügbar und flexibel",
-        "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
-          "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
-          "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
-          "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
-          "Ausgezeichneter Teamgeist, verfügbar und flexibel",
-          "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
-        ]
-      },
-      "previousSlugs": [
-        "supporting-representatives-m-f-omega-sa-berne",
-        "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne",
-        "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "supporting-representatives-m-f-omega-sa-berne",
-          "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne",
-          "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
-        ],
-        "en": [
-          "supporting-representatives-m-f-omega-sa-berne"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:17:22.823Z",
-      "salaryMin": 62000,
-      "salaryMax": 94800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94800,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true,
-      "crawlerMissStreak": 2
     }
   ]
 }
