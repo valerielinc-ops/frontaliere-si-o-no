@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5571
+      "6": 5572
     },
-    "publishedCovers": 7152,
+    "publishedCovers": 7153,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5376
+    "inferredRecords": 5377
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -191610,6 +191610,33 @@
           "id": "svizzera-abbattimenti-lupi-2025",
           "category": "novita",
           "date": "2026-10-16T14:12:01.609Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-targa-kevin-palmieri": {
+      "cover": "/images/blog/article-targa-kevin-palmieri.webp",
+      "hash": "42b7a5b90b5008cebb24dfb038bcc615420f1161757ba6c77fd7bce19d811f65",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "targa-kevin-palmieri",
+          "category": "novita",
+          "date": "2026-10-17T09:46:17.351Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

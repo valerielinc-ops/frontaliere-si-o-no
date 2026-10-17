@@ -45187,6 +45187,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'targa-kevin-palmieri',
+ category: 'novita',
+ date: '2026-10-17T09:46:17.351Z',
+ image: '/images/blog/article-targa-kevin-palmieri.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

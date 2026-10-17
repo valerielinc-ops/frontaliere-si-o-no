@@ -13392,6 +13392,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'I numeri del giorno per i frontalieri – 17 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Bollettino frontalieri del 17 ottobre 2026: ultime code ai valichi, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'I numeri del 17 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti nuovi annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, il centro sportivo ricorda Kevin Palmieri',
+    'blog.article.targa-kevin-palmieri.excerpt': 'Una targa ricorda Kevin all\'Oratorio San Vito Il bambino aveva 8 anni ed è scomparso nel gennaio 2024 Kevin amava giocare a calcio nel centro sportivo',
+    'blog.article.targa-kevin-palmieri.imageAlt': 'Ingresso di un centro sportivo con targa dedicata a Kevin Palmieri',
 };
 
 export default blogMetaIt;

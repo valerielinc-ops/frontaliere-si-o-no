@@ -13393,6 +13393,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'Les chiffres du jour pour les frontaliers – 17 octobre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Bulletin du frontalier du 17 octobre 2026 : les files relevées aux douanes, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'Les chiffres du 17 octobre 2026 pour les frontaliers : combien de temps on attend à chaque douane, où l\'essence coûte le moins cher, quel est le dernier taux franc-euro relevé et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, le centre sportif se souvient de Kevin Palmieri',
+    'blog.article.targa-kevin-palmieri.excerpt': 'Une plaque commémore Kevin à l\'Oratorio San Vito L\'enfant avait 8 ans et a disparu en janvier 2024 Kevin aimait jouer au football dans le centre sportif',
+    'blog.article.targa-kevin-palmieri.imageAlt': 'Entrée d\'un centre sportif avec une plaque dédiée à Kevin Palmieri',
 };
 
 export default blogMetaFr;

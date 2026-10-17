@@ -13391,6 +13391,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'The day\'s numbers for cross-border commuters – October 17, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Cross-border brief, October 17, 2026: latest measured border waiting times, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'The numbers for October 17, 2026, for cross-border commuters: how long the queue is at each crossing, which towns have the cheapest fuel, what the latest recorded franc-euro rate is and how many Swiss job listings were posted.',
+    'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, the sports center remembers Kevin Palmieri',
+    'blog.article.targa-kevin-palmieri.excerpt': 'A plaque commemorates Kevin at Oratorio San Vito The child was 8 years old and disappeared in January 2024 Kevin loved playing soccer at the sports center',
+    'blog.article.targa-kevin-palmieri.imageAlt': 'Sports centre entrance with a plaque dedicated to Kevin Palmieri',
 };
 
 export default blogMetaEn;

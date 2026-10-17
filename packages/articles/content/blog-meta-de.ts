@@ -13390,6 +13390,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-17.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 17. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-10-17.seoDescription': 'Grenzgänger-Bulletin vom 17. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-10-17.ogDescription': 'Die Zahlen vom 17. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, wie der Franken zuletzt zum Euro stand und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, das Sportzentrum erinnert an Kevin Palmieri',
+    'blog.article.targa-kevin-palmieri.excerpt': 'Eine Gedenktafel erinnert im Oratorio San Vito an Kevin Das Kind war 8 Jahre alt und ist im Januar 2024 verstorben Kevin liebte es, im Sportzentrum Fußball zu spielen',
+    'blog.article.targa-kevin-palmieri.imageAlt': 'Eingang eines Sportzentrums mit Tafel für Kevin Palmieri',
 };
 
 export default blogMetaDe;
