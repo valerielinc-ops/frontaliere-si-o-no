@@ -8456,6 +8456,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.title': 'Big Tech geben Anleihen in Franken für Rechenzentren aus',
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'Die US-Technologiegiganten geben Anleihen in Schweizer Franken aus, um Rechenzentren zu finanzieren.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Schweizer Stadtansicht mit Büros und Technologieinfrastruktur im Finanzbereich.',
+    'blog.article.svizzera-vietnam-relazioni-2026.title': 'Schweiz und Vietnam intensivieren Handel und Investitionen',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin am 17.',
+    'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Blick auf den Luganer See mit den Alpen im Hintergrund, Symbol für die Schweiz-Vietnam-Zusammenarbeit im Handel und Investment.',
 };
 
 export default blogMetaChDe;

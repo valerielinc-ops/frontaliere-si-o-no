@@ -8456,6 +8456,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.title': 'Big Tech issue franc-denominated bonds for data centers',
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'U.S. tech giants issue Swiss franc bonds to finance data centers.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Swiss urban skyline with offices and technology infrastructure linked to finance.',
+    'blog.article.svizzera-vietnam-relazioni-2026.title': 'Switzerland and Vietnam intensify trade and investment',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin received in Hanoi on October 17, 2026 EFTA-Vietnam agreement expected for October 18 Projects on trade and sustainable urban development Statements',
+    'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'View of Lake Lugano with the Alps in the background, representing Switzerland-Vietnam cooperation on trade and investment.',
 };
 
 export default blogMetaChEn;
