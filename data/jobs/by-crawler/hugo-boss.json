@@ -1,5 +1,57 @@
 {
   "crawlerKey": "hugo-boss",
-  "assembledAt": "2026-10-14T09:45:09.396Z",
-  "jobs": []
+  "assembledAt": "2026-10-17T09:51:55.797Z",
+  "jobs": [
+    {
+      "url": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d",
+      "applyUrl": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d",
+      "title": "Assistant Store Manager BOSS Outlet (w/m/d)",
+      "company": "Hugo Boss",
+      "companyKey": "hugo-boss",
+      "location": "Landquart",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofstrasse 2",
+      "description": "Assistant Store Manager BOSS Outlet (w/m/d) position at Hugo Boss in Landquart, Switzerland.",
+      "titleByLocale": {
+        "en": "Assistant Store Manager BOSS Outlet (w/m/d)"
+      },
+      "slugByLocale": {
+        "en": "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart"
+      },
+      "descriptionByLocale": {
+        "en": ""
+      },
+      "slug": "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart",
+      "category": "sales",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "hugo-boss-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Moda / Lusso",
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 147500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-17T09:51:52.899Z"
+    }
+  ]
 }
