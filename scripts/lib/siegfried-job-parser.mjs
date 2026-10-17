@@ -291,6 +291,7 @@ export async function fetchAllSiegfriedJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -307,6 +308,7 @@ export async function fetchAllSiegfriedJobs() {
     if (!resolvedLocation) {
       const primaryText = normalizeWorkdayLocationCandidate(info?.location);
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${primaryText || '(empty)'} — ${title}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 

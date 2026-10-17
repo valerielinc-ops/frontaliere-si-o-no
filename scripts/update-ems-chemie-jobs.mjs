@@ -240,6 +240,7 @@ export async function fetchJobs() {
       : null;
     if (detail && isForeignPortalDetail(detail)) {
       console.log(`  ⏭️  Skipped non-Swiss vacancy: ${listing.title} (${detail.locality}, ${detail.country})`);
+      await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
       continue;
     }
     const detailDescription = detail?.description && meetsSourceBodyFloor(detail.description)

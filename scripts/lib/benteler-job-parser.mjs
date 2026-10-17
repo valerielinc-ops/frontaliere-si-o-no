@@ -480,11 +480,15 @@ export async function fetchAllBentelerJobs() {
     }
     if (!visiblySwiss && !detailSwiss) {
       console.log(`     ↳ skipped (no Swiss site among ${detail.addresses?.length || 0} locations)`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
     const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
+    if (!title || title.length < 3) {
+      await new Promise((r) => setTimeout(r, 300));
+      continue;
+    }
 
     // Listing locationText is "City, Region, CC" — keep only the city part
     // as fallback when the microdata has no locality.

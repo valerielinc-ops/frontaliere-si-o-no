@@ -396,6 +396,7 @@ export async function fetchAllSwissLifeJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log('  ⏭️  Skipped — empty title');
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -410,11 +411,13 @@ export async function fetchAllSwissLifeJobs() {
     const city = resolvedCity || recovered?.location || '';
     if (!city) {
       console.log(`  ⏭️  Skipped — not a resolvable Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
     const canton = recovered ? recovered.canton : inferAnyCanton(city);
     if (!canton) {
       console.log(`  ⏭️  Skipped — no Swiss canton could be inferred from ${city}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
     // La località della vacancy, non il capoluogo di ripiego: `Buchs SG`

@@ -353,6 +353,7 @@ export async function fetchZegnaJobs() {
 
     if (!detailHtml) {
       console.warn(`  ⚠️ Failed to fetch detail for JobID ${link.jobId}`);
+      await delay(500);
       continue;
     }
 
@@ -363,6 +364,7 @@ export async function fetchZegnaJobs() {
     const canton = detectCanton(city, detail.region, detail.location);
     if (!city || !canton || !isZegnaSwissLocation(detail)) {
       console.log(`     ↳ Skipping (missing or non-Swiss source location): ${title} — ${detail.location || city || 'unknown location'}`);
+      await delay(500);
       continue;
     }
     const slug = slugify(title, 'zegna');
