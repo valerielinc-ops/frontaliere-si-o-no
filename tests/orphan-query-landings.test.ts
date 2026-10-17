@@ -190,10 +190,11 @@ describe('orphanQueryData — path helpers', () => {
 
       for (const job of jobs) {
         const slug = job.slugByLocale?.[locale] || job.slug || '';
-        const expectedUrl = `https://frontaliereticino.ch${buildCanonicalJobDetailPath(locale, job, slug)}`;
-        expect(rendered.html).toContain(`href="${expectedUrl}"`);
+        const expectedPath = buildCanonicalJobDetailPath(locale, job, slug);
+        const expectedUrl = `https://frontaliereticino.ch${expectedPath}`;
+        expect(rendered.html).toContain(`href="${expectedPath}"`);
         expect(rendered.html).toContain(`"url":"${expectedUrl}"`);
-        expect(expectedUrl).toMatch(/\/$/);
+        expect(expectedPath).toMatch(/\/$/);
       }
     }
   });
