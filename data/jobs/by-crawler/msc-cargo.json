@@ -103,12 +103,12 @@
     },
     {
       "id": "msc-cargo-366420ad6a7c",
-      "slug": "hr-director-msc-geneva",
+      "slug": "risorse-umane-direttore-msc-group-geneva",
       "slugByLocale": {
         "en": "hr-director-msc-geneva",
-        "it": "hr-director-msc-geneva",
-        "de": "hr-director-msc-geneva",
-        "fr": "hr-director-msc-group-geneva"
+        "it": "risorse-umane-direttore-msc-group-geneva",
+        "de": "personalwesen-direktor-msc-group-geneva",
+        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -170,22 +170,21 @@
       "firstSeenAt": "2026-10-03T09:25:31.059Z",
       "previousSlugsByLocale": {
         "it": [
-          "risorse-umane-direttore-msc-group-geneva",
-          "directeur-rh-msc-group-geneva"
+          "directeur-rh-msc-group-geneva",
+          "hr-director-msc-geneva"
         ],
         "de": [
-          "personalwesen-direktor-msc-group-geneva"
+          "hr-director-msc-geneva"
         ],
         "fr": [
-          "directeur-des-ressources-humaines-msc-group-geneva",
-          "directeur-rh-msc-group-geneva"
+          "directeur-rh-msc-group-geneva",
+          "hr-director-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "risorse-umane-direttore-msc-group-geneva",
-        "personalwesen-direktor-msc-group-geneva",
-        "directeur-des-ressources-humaines-msc-group-geneva",
-        "directeur-rh-msc-group-geneva"
+        "directeur-rh-msc-group-geneva",
+        "hr-director-msc-geneva",
+        "hr-director-msc-group-geneva"
       ]
     },
     {
@@ -449,7 +448,7 @@
       "slugByLocale": {
         "en": "retail-marketing-manager-msc-geneva",
         "it": "retail-marketing-manager-msc-geneva",
-        "de": "retail-marketing-manager-msc-geneva",
+        "de": "einzelhandelsmarketing-manager-msc-group-geneva",
         "fr": "retail-marketing-manager-msc-geneva"
       },
       "company": "MSC Group",
@@ -511,9 +510,6 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-10-02T09:22:11.341Z",
       "previousSlugsByLocale": {
-        "de": [
-          "einzelhandelsmarketing-manager-msc-group-geneva"
-        ],
         "fr": [
           "responsable-retail-marketing-msc-group-geneva"
         ],
@@ -523,7 +519,6 @@
         ]
       },
       "previousSlugs": [
-        "einzelhandelsmarketing-manager-msc-group-geneva",
         "responsable-retail-marketing-msc-group-geneva",
         "responsabile-marketing-al-dettaglio-msc-group-geneva",
         "directeur-du-marketing-de-detail-msc-group-geneva"
@@ -617,12 +612,12 @@
     },
     {
       "id": "msc-cargo-1271772d19b8",
-      "slug": "retail-business-analytics-manager-msc-geneva",
+      "slug": "responsabile-analisi-aziendale-retail-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-business-analytics-manager-msc-geneva",
-        "it": "retail-business-analytics-manager-msc-geneva",
+        "it": "responsabile-analisi-aziendale-retail-msc-group-geneva",
         "de": "retail-business-analytics-manager-msc-geneva",
-        "fr": "retail-business-analytics-manager-msc-geneva"
+        "fr": "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -684,26 +679,25 @@
       "firstSeenAt": "2026-10-04T21:27:32.138Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-analisi-aziendale-retail-msc-group-geneva",
           "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
           "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
-          "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva"
+          "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
+          "retail-business-analytics-manager-msc-geneva"
         ],
         "de": [
           "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
           "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
-          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+          "retail-business-analytics-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-analisi-aziendale-retail-msc-group-geneva",
         "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
-        "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
         "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
-        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+        "retail-business-analytics-manager-msc-geneva"
       ]
     },
     {
