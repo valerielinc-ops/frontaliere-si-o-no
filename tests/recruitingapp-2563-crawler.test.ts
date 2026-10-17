@@ -1,7 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
+  fetchAllRecruitingapp2563Jobs,
   RECRUITINGAPP_2563_KEY,
   RECRUITINGAPP_2563_COMPANY_NAME,
+  extractRecruitingapp2563DetailFields,
+  extractRecruitingapp2563TitleLocation,
   isRecruitingapp2563Job,
   isTrustedDomain,
 } from '../scripts/lib/recruitingapp-2563-job-parser.mjs';
@@ -12,6 +15,85 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(RECRUITINGAPP_2563_KEY).toBe('recruitingapp-2563');
     expect(RECRUITINGAPP_2563_COMPANY_NAME).toBe('Switch Bewerbermanagement Stellen');
+  });
+
+  describe('title-backed workplace evidence', () => {
+    it('accepts a single Swiss city explicitly published in the title', () => {
+      expect(extractRecruitingapp2563TitleLocation(
+        'Chief Information Officer (80-100%) in Zürich',
+      )).toEqual({
+        location: 'Zürich',
+        addressLocality: 'Zürich',
+        addressCountry: 'CH',
+      });
+    });
+
+    it('keeps multi-site and unrecognised title locations unknown', () => {
+      expect(extractRecruitingapp2563TitleLocation(
+        'System Engineer (80-100%) in Zürich oder Lausanne',
+      )).toBeNull();
+      expect(extractRecruitingapp2563TitleLocation(
+        'Network & Security Engineer (80-100%)',
+      )).toBeNull();
+    });
+
+    it('prefers explicit title location over a generic employer address', () => {
+      const title = 'Chief Information Officer (80-100%) in Zürich';
+      const html = `
+        <script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title,
+          description: 'Lead internal IT services and governance.'.repeat(30),
+          jobLocation: { address: { addressLocality: 'Lugano', addressCountry: 'CH' } },
+        })}</script>
+        <h1>${title}</h1>
+        <main>${'Aufgaben und Verantwortlichkeiten für diese Stelle. '.repeat(40)}</main>`;
+
+      expect(extractRecruitingapp2563DetailFields(html, 'https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1'))
+        .toMatchObject({
+          title,
+          location: 'Zürich',
+          addressCountry: 'CH',
+          locationCandidates: [{
+            location: 'Zürich',
+            addressLocality: 'Zürich',
+            addressCountry: 'CH',
+          }],
+        });
+    });
+
+    it('keeps a single title-backed listing publishable through the spec runtime', async () => {
+      const seed = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+      const detail = 'https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1';
+      const title = 'Chief Information Officer (80-100%) in Zürich';
+      const listing = `<html><body><a href="/Vacancies/559/Description/1">${title}</a></body></html>`;
+      const detailHtml = `<html><body><h1>${title}</h1><main>${
+        'Aufgaben und Verantwortlichkeiten für diese Stelle. '.repeat(40)
+      }</main></body></html>`;
+      const fetchImpl = async (input: string | URL) => {
+        const url = String(input);
+        if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /', { status: 200 });
+        if (url === seed) return new Response(listing, { status: 200 });
+        if (url === detail) return new Response(detailHtml, { status: 200 });
+        throw new Error(`unexpected URL ${url}`);
+      };
+
+      await expect(fetchAllRecruitingapp2563Jobs({
+        fetchImpl,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        hostDelayMs: 0,
+        retries: 0,
+        disableWafProxy: true,
+      })).resolves.toEqual([expect.objectContaining({
+        title,
+        location: 'Zürich',
+        canton: 'ZH',
+        addressLocality: 'Zürich',
+        addressRegion: 'ZH',
+        addressCountry: 'CH',
+      })]);
+    });
   });
 
   // ── isCompanyJob ──
