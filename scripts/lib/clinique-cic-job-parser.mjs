@@ -36,6 +36,7 @@ export const CIC_COMPANY_DOMAIN = 'cliniquecic-saxon.ch';
 
 const ATS_HOST = 'company.jobcloud.ch';
 const LISTING_SLUG = 'clinique-cic-suisse';
+// locale-segment-ok: fixed external JobCloud Company Page seed; /fr/ is the portal's source route, not this site's locale path. extractListingLinks() follows the detail links returned by that seed.
 const LISTING_URL = `https://${ATS_HOST}/fr/job-list/${LISTING_SLUG}`;
 const PUBLIC_CAREER_URL = 'https://www.cliniquecic-saxon.ch/fr/emplois';
 const DETAIL_DELAY_MS = 250;
@@ -65,7 +66,7 @@ export function isCicJob(job) {
   if (key === CIC_KEY) return true;
   if (/clinique\s+cic/.test(company)) return true;
   if (url.includes('cliniquecic-saxon.ch') || url.includes('cliniquecic.ch')) return true;
-  if (url.includes(`${ATS_HOST}/fr/jobs/${LISTING_SLUG}/`)) return true;
+  if (url.includes(ATS_HOST) && url.includes(`/jobs/${LISTING_SLUG}/`)) return true;
   if (url.includes('jobup.ch') && /clinique[\s-]?cic/i.test(company)) return true;
   return false;
 }
