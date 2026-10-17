@@ -2441,25 +2441,36 @@ export async function runRelocalization(phase) {
               writeJsonAtomic(DATA_JOBS_PATH, afterRetry, { compact: true });
               totalFixed += cleared;
               console.log(`   ✅ ${retryLabel} retry: ${cleared} more jobs translated`);
-              for (const companyKey of retryKeys) {
-                const companyCleared = retryClearedByCompany.get(companyKey) || 0;
-                if (companyCleared > 0) {
-                  // Il passaggio principale ha appena registrato questa azienda
-                  // come sterile; il retry lo smentisce. Senza questa riga
-                  // un'azienda che produce solo al secondo tentativo verrebbe
-                  // contata verso il salto.
-                  delete companySkipState.companies[companyKey];
-                  syncTranslationsToCrawlerFile(
-                    companyKey,
-                    afterRetry,
-                    retryAttemptedByCompany.get(companyKey),
-                  );
-                }
-                if (retryArm) {
-                  // La riga e' gia' in coda: qui si aggiorna solo l'esito.
-                  retryRowsByCompany.get(companyKey).cleared = companyCleared;
-                }
+            }
+            for (const companyKey of retryKeys) {
+              const companyCleared = retryClearedByCompany.get(companyKey) || 0;
+              if (companyCleared > 0) {
+                // Il passaggio principale ha appena registrato questa azienda
+                // come sterile; il retry lo smentisce. Senza questa riga
+                // un'azienda che produce solo al secondo tentativo verrebbe
+                // contata verso il salto.
+                delete companySkipState.companies[companyKey];
               }
+
+              // A retry can improve locale text without clearing its flag yet.
+              // Persist those attempted slugs to the per-crawler source even
+              // when `cleared === 0`, otherwise the next assembly loses the
+              // improvement and queues the same work again.
+              const syncResult = syncTranslationsToCrawlerFile(
+                companyKey,
+                afterRetry,
+                retryAttemptedByCompany.get(companyKey),
+              );
+              if (syncResult.updated > 0) {
+                console.log(`   📁 ${companyKey}: ${syncResult.updated} retry job(s) synced to per-crawler file`);
+              }
+
+              if (retryArm) {
+                // La riga e' gia' in coda: qui si aggiorna solo l'esito.
+                retryRowsByCompany.get(companyKey).cleared = companyCleared;
+              }
+            }
+            if (cleared > 0) {
               writeCompanySkipState(companySkipState);
             }
           }
