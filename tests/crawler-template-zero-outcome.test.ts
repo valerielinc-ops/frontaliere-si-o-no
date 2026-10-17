@@ -386,6 +386,22 @@ describe('every exit without publication names its cause', () => {
     expectSliceUntouched();
   });
 
+  it('(e) keeps the prior slice when a spec listing cannot prove completeness', async () => {
+    const error = Object.assign(new Error('declared listing total missing'), {
+      specListingFailure: true,
+      specDiscoveredCount: 18,
+    });
+    const counts = await runPipeline(async () => { throw error; });
+
+    expect(counts).toMatchObject({
+      abortKind: 'source-extraction-failed',
+      lastFetchOutcome: 'selector_miss',
+      discovered: 18,
+      parsed: 0,
+    });
+    expectSliceUntouched();
+  });
+
   it('(f) names missing-detail-url and leaves the slice untouched', async () => {
     const counts = await runPipeline(async () => ({
       jobs: [{ ...storedJob(1), id: 'fresh-1' }],

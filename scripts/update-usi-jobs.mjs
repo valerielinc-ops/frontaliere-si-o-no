@@ -651,6 +651,7 @@ export async function fetchUsiJobs(counts = null) {
   try {
     htmlIt = await fetchPage(LISTING_URL_IT, 20000);
   } catch (error) {
+    // fetch-failure-empty-ok: recordUsiFetchFailure classifies the error before main keeps the stored slice and exits.
     const { lastFetchOutcome } = recordUsiFetchFailure(counts, error);
     console.error(`❌ Failed to fetch USI Italian listing page (${lastFetchOutcome}): ${error?.message || error}`);
     return [];
