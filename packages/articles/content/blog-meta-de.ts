@@ -13366,7 +13366,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Radfahrer in der Steigung von Tre Valli Varesine, Tessiner Herbst',
     'blog.article.burraco-solidale-buguggiate.title': 'Wohltätigkeitsburraco in Buguggiate: 140 Teilnehmer für ABAD ETS',
     'blog.article.burraco-solidale-buguggiate.excerpt': '140 Teilnehmer am Wohltätigkeitsabend 35 Spieltische bei Buguggiate Erlöse für neue Jobvermittlungsprojekte Was → Wohltätigkeitsturnier',
-    'blog.article.burraco-solidale-buguggiate.imageAlt': 'Benefiz-Burraco in Buguggiate mit 140 Teilnehmenden an 35 Tischen',
+    'blog.article.burraco-solidale-buguggiate.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.coppa-svizzera-lugano-taverne.title': 'Lugano sehr beliebt, die Taverne sucht das Unternehmen',
     'blog.article.coppa-svizzera-lugano-taverne.excerpt': 'Lugano fordert den Pully am Sonntag um 14 Uhr heraus.',
     'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Das Comunale in Taverne als Austragungsort des Schweizer-Cup-Spiels gegen Young Boys',

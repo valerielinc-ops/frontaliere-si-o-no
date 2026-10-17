@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5566
+      "6": 5567
     },
-    "publishedCovers": 7147,
+    "publishedCovers": 7148,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5371
+    "inferredRecords": 5372
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190665,6 +190665,33 @@
           "id": "azalee-calcio-campo-pradisera",
           "category": "pratico",
           "date": "2026-10-16T06:28:46.998Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-burraco-solidale-buguggiate": {
+      "cover": "/images/blog/article-burraco-solidale-buguggiate.webp",
+      "hash": "a98d6d42e3c6c00b2ab0b5e04eae476023acd8ddc166de2bc25923746cd3c38d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "burraco-solidale-buguggiate",
+          "category": "novita",
+          "date": "2026-10-17T01:16:18.876Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

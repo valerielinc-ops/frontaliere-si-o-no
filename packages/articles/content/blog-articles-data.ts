@@ -45109,7 +45109,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'burraco-solidale-buguggiate',
  category: 'novita',
  date: '2026-10-17T01:16:18.876Z',
- image: '/images/blog/nuovi-progetti-chiave-digitali.webp',
+ image: '/images/blog/article-burraco-solidale-buguggiate.webp',
  hasCalculator: false,
  articleType: 'news',
  authorSlug: 'redazione',

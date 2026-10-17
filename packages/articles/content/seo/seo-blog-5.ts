@@ -110368,10 +110368,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "140 partecipanti alla serata benefica 35 tavoli da gioco a Buguggiate Ricavato destinato a nuovi progetti di inserimento lavorativo Cosa → torneo benefico",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nuovi-progetti-chiave-digitali.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-burraco-solidale-buguggiate.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Serata di burraco benefico a Buguggiate con 140 partecipanti su 35 tavoli"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-17T01:16:19+00:00",
       "dateModified": "2026-10-17T01:16:19+00:00",
