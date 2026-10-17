@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-17T17:01:03.100Z",
+  "generatedAt": "2026-10-17T18:58:50.930Z",
   "totalEvents": 13998,
   "events": [
     {
@@ -1383,7 +1383,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Oey-Diemtigen si svolge una serata dedicata al tè in una casa di legno. L’appuntamento presenta il giardino delle erbe di Oey e le possibilità offerte dalle erbe che si trovano vicino a casa.",
+      "descriptionByLocale": {
+        "it": "A Oey-Diemtigen si svolge una serata dedicata al tè in una casa di legno. L’appuntamento presenta il giardino delle erbe di Oey e le possibilità offerte dalle erbe che si trovano vicino a casa.",
+        "en": "At Oey-Diemtigen, the recurring event is a tea evening held in a log cabin. It provides information about the herb garden in Oey and about possibilities associated with herbs available nearby.",
+        "de": "In Oey-Diemtigen findet regelmässig ein Teeabend im Blockhaus statt. Thematisiert werden der Kräutergarten in Oey und die Möglichkeiten, die Kräuter aus der näheren Umgebung bieten.",
+        "fr": "À Oey-Diemtigen, une soirée autour du thé a lieu régulièrement dans un chalet en bois. Elle aborde le jardin d’herbes d’Oey ainsi que les possibilités liées aux plantes disponibles dans les environs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:05aa35295b1f44b79494e10aa019be6a",
@@ -1953,7 +1961,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo gruppo di discussione ricorrente si svolge presso il Kursraum Pro Senectute Thurgau ad Arbon. Offre alle persone di riferimento di persone con demenza un contesto guidato da professionisti per condividere esperienze e vissuti.",
+      "descriptionByLocale": {
+        "it": "Questo gruppo di discussione ricorrente si svolge presso il Kursraum Pro Senectute Thurgau ad Arbon. Offre alle persone di riferimento di persone con demenza un contesto guidato da professionisti per condividere esperienze e vissuti.",
+        "en": "This recurring discussion group takes place at the Kursraum Pro Senectute Thurgau in Arbon. It provides people who support someone with dementia with a professionally facilitated setting for sharing experiences and discussing what they have encountered.",
+        "de": "Die wiederkehrenden Treffen finden im Kursraum Pro Senectute Thurgau in Arbon statt. Sie bieten Bezugspersonen von Menschen mit Demenz einen professionell geleiteten Rahmen, um Erlebtes und Erfahrungen miteinander zu besprechen.",
+        "fr": "Ce groupe de discussion récurrent se réunit au Kursraum Pro Senectute Thurgau, à Arbon. Il offre aux proches de personnes atteintes de démence un cadre animé par des professionnels pour échanger sur leurs expériences et ce qu’ils vivent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:88382",
@@ -35860,7 +35876,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra al Museum Burghalde di Lenzburg presenta l’opera di Clara Alwina Müller. Fa parte di un focus tematico dedicato al ruolo delle donne nel corso del tempo.",
+      "descriptionByLocale": {
+        "it": "La mostra al Museum Burghalde di Lenzburg presenta l’opera di Clara Alwina Müller. Fa parte di un focus tematico dedicato al ruolo delle donne nel corso del tempo.",
+        "en": "The exhibition at Museum Burghalde in Lenzburg presents works by Clara Alwina Müller. It forms part of a thematic focus on women’s role over time.",
+        "de": "Die Ausstellung im Museum Burghalde in Lenzburg zeigt Arbeiten von Clara Alwina Müller. Sie gehört zu einem thematischen Schwerpunkt über die Bedeutung von Frauen im Lauf der Zeit.",
+        "fr": "L’exposition au Museum Burghalde de Lenzburg présente des œuvres de Clara Alwina Müller. Elle fait partie d’un axe thématique consacré à la place des femmes au fil du temps."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:5f011e35de0f4737817770fb7f9de725",
@@ -38923,7 +38947,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un appuntamento ricorrente presso l’Evang. Lutherkirche. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un appuntamento ricorrente presso l’Evang. Lutherkirche. L’ingresso è gratuito.",
+        "en": "This is a recurring event held at Evang. Lutherkirche. Admission is free.",
+        "de": "Die Veranstaltung ist ein wiederkehrender Termin in der Evang. Lutherkirche. Der Eintritt ist kostenlos.",
+        "fr": "Il s’agit d’un rendez-vous récurrent à l’Evang. Lutherkirche. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:166647a653d34516910172162f2d85c1",
@@ -44343,7 +44375,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa visita guidata per famiglie è dedicata a Ita, una domestica. Il percorso presenta il mondo medievale al Museum Burg Zug, a Zugo.",
+      "descriptionByLocale": {
+        "it": "Questa visita guidata per famiglie è dedicata a Ita, una domestica. Il percorso presenta il mondo medievale al Museum Burg Zug, a Zugo.",
+        "en": "This family guided tour focuses on Ita, a maid. It takes visitors into the medieval world at Museum Burg Zug in Zug.",
+        "de": "Die Familienführung widmet sich Ita, einer Magd. Im Museum Burg Zug in Zug führt sie in die Welt des Mittelalters.",
+        "fr": "Cette visite guidée pour les familles est consacrée à Ita, une servante. Elle emmène le public dans le monde médiéval au Museum Burg Zug, à Zoug."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1c4ab79047ed4cb9975f4a900015e806",
@@ -46443,7 +46483,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra è dedicata a Enrico Besomi e propone una prospettiva che supera i confini dell’architettura. Per la prima volta viene presentato al pubblico un fondo fotografico di rilievo, entrato di recente nelle raccolte di un archivio audiovisivo.",
+      "descriptionByLocale": {
+        "it": "La mostra è dedicata a Enrico Besomi e propone una prospettiva che supera i confini dell’architettura. Per la prima volta viene presentato al pubblico un fondo fotografico di rilievo, entrato di recente nelle raccolte di un archivio audiovisivo.",
+        "en": "The exhibition is devoted to Enrico Besomi and presents a perspective that goes beyond architecture. It gives the public its first opportunity to see a significant photographic collection that has recently become part of an audiovisual archive.",
+        "de": "Die Ausstellung ist Enrico Besomi gewidmet und richtet den Blick über die Architektur hinaus. Erstmals wird der Öffentlichkeit ein bedeutender Fotobestand gezeigt, der kürzlich Teil eines audiovisuellen Archivs geworden ist.",
+        "fr": "L’exposition est consacrée à Enrico Besomi et adopte une perspective qui dépasse le cadre de l’architecture. Le public découvre pour la première fois un ensemble photographique important qui a récemment rejoint des archives audiovisuelles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bc10347f9773430bb5536c93c7cb1441",
@@ -50193,7 +50241,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra Sauvages a Neuchâtel presenta il lavoro che sta dietro al film di Claude Barras. L’allestimento si rivolge a bambini e adulti e illustra la realizzazione dell’opera.",
+      "descriptionByLocale": {
+        "it": "La mostra Sauvages a Neuchâtel presenta il lavoro che sta dietro al film di Claude Barras. L’allestimento si rivolge a bambini e adulti e illustra la realizzazione dell’opera.",
+        "en": "The Sauvages exhibition in Neuchâtel presents the work behind Claude Barras’ film. It is intended for children and adults and examines how the film was made.",
+        "de": "Die Ausstellung Sauvages in Neuchâtel zeigt die Arbeit hinter dem Film von Claude Barras. Sie richtet sich an Kinder und Erwachsene und beleuchtet die Entstehung des Films.",
+        "fr": "L’exposition Sauvages à Neuchâtel présente le travail réalisé autour du film de Claude Barras. Elle s’adresse aux enfants comme aux adultes et montre comment le film a été conçu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6ea9803f204244d39fd9eca599d24c5e",
@@ -57003,7 +57059,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa mostra fotografica di Daniel Pittet esplora la mutazione come origine di forme diverse e insolite. Le immagini richiamano la capacità della vita di adattarsi e di cercare nuovi equilibri.",
+      "descriptionByLocale": {
+        "it": "Questa mostra fotografica di Daniel Pittet esplora la mutazione come origine di forme diverse e insolite. Le immagini richiamano la capacità della vita di adattarsi e di cercare nuovi equilibri.",
+        "en": "This photography exhibition by Daniel Pittet focuses on mutation and the variety of forms it can produce. It also considers how life adapts and seeks new forms of balance.",
+        "de": "Die Fotoausstellung von Daniel Pittet widmet sich der Mutation und der Vielfalt, die daraus entstehen kann. Sie thematisiert zudem, wie sich das Leben anpasst und neue Gleichgewichte sucht.",
+        "fr": "Cette exposition photographique de Daniel Pittet aborde la mutation et la diversité des formes qu’elle peut engendrer. Elle évoque aussi la capacité de la vie à s’adapter et à rechercher de nouveaux équilibres."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e20883be4f2744daacd9b19acae5f771",
@@ -60811,7 +60875,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento ricorrente si tiene alla Gare CFF Neuchâtel, a Neuchâtel, nel cantone di Neuchâtel. Il viaggio percorre la linea Franco-Suisse, attraversa le gole dell’Areuse e la regione del Creux du Van, poi raggiunge il Val-de-Travers, dove si possono scoprire diversi punti d’interesse.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente si tiene alla Gare CFF Neuchâtel, a Neuchâtel, nel cantone di Neuchâtel. Il viaggio percorre la linea Franco-Suisse, attraversa le gole dell’Areuse e la regione del Creux du Van, poi raggiunge il Val-de-Travers, dove si possono scoprire diversi punti d’interesse.",
+        "en": "This recurring event is held at Gare CFF Neuchâtel in Neuchâtel, in the canton of Neuchâtel. After passing through the Areuse Gorge and the Creux du Van area on the Franco-Suisse line, the journey continues to Val-de-Travers and its local points of interest.",
+        "de": "Die wiederkehrende Veranstaltung findet an der Gare CFF Neuchâtel in Neuchâtel im Kanton Neuenburg statt. Auf der Linie des Franco-Suisse führt die Reise durch die Areuse-Schlucht und die Region des Creux du Van, anschliessend ins Val-de-Travers, wo mehrere Sehenswürdigkeiten entdeckt werden.",
+        "fr": "Ce rendez-vous récurrent se tient à la Gare CFF Neuchâtel, à Neuchâtel, dans le canton de Neuchâtel. Sur la ligne du Franco-Suisse, le trajet passe par les gorges de l’Areuse et la région du Creux du Van, puis rejoint le Val-de-Travers pour en faire découvrir les points d’intérêt."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:56019fb07d524fd8a03f15df2fa40efa",
@@ -70088,7 +70160,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "tiltanic Theatersport è un evento di teatro d’improvvisazione nel cantone SG. È un appuntamento ricorrente ospitato dal FigurenTheater.",
+      "descriptionByLocale": {
+        "it": "tiltanic Theatersport è un evento di teatro d’improvvisazione nel cantone SG. È un appuntamento ricorrente ospitato dal FigurenTheater.",
+        "en": "tiltanic Theatersport is an improvisational theatre event in the canton of SG. It is a recurring event held at the FigurenTheater venue.",
+        "de": "tiltanic Theatersport ist eine Veranstaltung des Improvisationstheaters im Kanton SG. Die wiederkehrende Veranstaltung findet im FigurenTheater statt.",
+        "fr": "tiltanic Theatersport est un événement de théâtre d’improvisation dans le canton de SG. Cette manifestation récurrente se tient au FigurenTheater."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:19ee2c5a0205401e8ad4ad2bd53a62f9",
@@ -70827,7 +70907,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra è dedicata alle pioniere e comprende un approfondimento sulle macchine da scrivere prodotte per l’esercito. L’esposizione si svolge al Musée de la machine à écrire di Alle, nel canton Giura, e ricorda che la produzione in serie delle macchine da scrivere ebbe inizio negli Stati Uniti.",
+      "descriptionByLocale": {
+        "it": "La mostra è dedicata alle pioniere e comprende un approfondimento sulle macchine da scrivere prodotte per l’esercito. L’esposizione si svolge al Musée de la machine à écrire di Alle, nel canton Giura, e ricorda che la produzione in serie delle macchine da scrivere ebbe inizio negli Stati Uniti.",
+        "en": "The exhibition is dedicated to female pioneers and includes a focus on typewriters made for the military. It takes place at the Musée de la machine à écrire in Alle, in the canton of Jura, and covers the beginnings of mass-produced typewriters in the United States.",
+        "de": "Die Ausstellung ist den Pionierinnen gewidmet und behandelt zusätzlich Schreibmaschinen, die für das Militär hergestellt wurden. Sie findet im Musée de la machine à écrire in Alle im Kanton Jura statt und verweist auf den Beginn der Serienproduktion von Schreibmaschinen in den USA.",
+        "fr": "L’exposition est consacrée aux pionnières et aborde aussi les machines à écrire fabriquées pour l’armée. Elle se tient au Musée de la machine à écrire à Alle, dans le canton du Jura, et situe les débuts de la production en série aux États-Unis."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AqAYL3S",
@@ -88093,7 +88181,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente propone partite di Jass ad Arosa presso Gesundheit Arosa AG – Ambulanzstützpunkt. La partecipazione è aperta a chi apprezza questo gioco e non richiede iscrizione.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente propone partite di Jass ad Arosa presso Gesundheit Arosa AG – Ambulanzstützpunkt. La partecipazione è aperta a chi apprezza questo gioco e non richiede iscrizione.",
+        "en": "A recurring Jass gathering takes place in Arosa at Gesundheit Arosa AG – Ambulanzstützpunkt. It is open to anyone who enjoys the game, and no registration is required.",
+        "de": "In Arosa findet bei Gesundheit Arosa AG – Ambulanzstützpunkt ein wiederkehrender Jass-Treff statt. Eingeladen sind alle, die gerne Jass spielen; eine Anmeldung ist nicht erforderlich.",
+        "fr": "À Arosa, Gesundheit Arosa AG – Ambulanzstützpunkt accueille un rendez-vous récurrent autour du Jass. L’activité est ouverte aux personnes qui aiment ce jeu et aucune inscription n’est nécessaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0d8af014c51a4884ba12783ea87bf50b",
@@ -104384,7 +104480,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "HEdS-Genève propone a Ginevra un incontro della propria serie sulla sostenibilità. La prima edizione è dedicata alla sensibilizzazione sull’uso responsabile e sostenibile del digitale.",
+      "descriptionByLocale": {
+        "it": "HEdS-Genève propone a Ginevra un incontro della propria serie sulla sostenibilità. La prima edizione è dedicata alla sensibilizzazione sull’uso responsabile e sostenibile del digitale.",
+        "en": "HEdS-Genève presents a Geneva meeting in its sustainability series. The inaugural session raises awareness of responsible and sustainable digital use.",
+        "de": "HEdS-Genève organisiert in Genf einen Termin seiner Reihe zur Nachhaltigkeit. Bei dieser ersten Ausgabe geht es um die Sensibilisierung für eine verantwortungsvolle und nachhaltige Nutzung digitaler Technologien.",
+        "fr": "La HEdS-Genève organise à Genève une rencontre de sa série consacrée à la durabilité. Cette première édition porte sur la sensibilisation à un usage numérique responsable et soutenable."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Arc6UMJ",
@@ -227283,7 +227387,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fermata bus Motta; comune: Verzasca; cantone: TI; categoria: altro; organizzatore: Verzasca Etnografica, guida Christian Besimo; data: 2026-10-17; ora: 09:50; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fermata bus Motta; comune: Verzasca; cantone: TI; categoria: altro; organizzatore: Verzasca Etnografica, guida Christian Besimo; data: 2026-10-17; ora: 09:50; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Fermata bus Motta; municipality: Verzasca; canton: TI; category: altro; organiser: Verzasca Etnografica, guida Christian Besimo; date: 2026-10-17; time: 09:50; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Fermata bus Motta; gemeinde: Verzasca; kanton: TI; kategorie: altro; veranstalter: Verzasca Etnografica, guida Christian Besimo; datum: 2026-10-17; uhrzeit: 09:50; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Fermata bus Motta; commune: Verzasca; canton: TI; catégorie: altro; organisateur: Verzasca Etnografica, guida Christian Besimo; date: 2026-10-17; heure: 09:50; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d1dcb6170abf4201bbd0f4536c2aaa12",
@@ -230150,7 +230262,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Museo Hermann Hesse; comune: Lugano; cantone: TI; categoria: arte; organizzatore: Tio.ch Agenda; data: 2026-10-17; ora: 10:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Museo Hermann Hesse; comune: Lugano; cantone: TI; categoria: arte; organizzatore: Tio.ch Agenda; data: 2026-10-17; ora: 10:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Museo Hermann Hesse; municipality: Lugano; canton: TI; category: arte; organiser: Tio.ch Agenda; date: 2026-10-17; time: 10:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Museo Hermann Hesse; gemeinde: Lugano; kanton: TI; kategorie: arte; veranstalter: Tio.ch Agenda; datum: 2026-10-17; uhrzeit: 10:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Museo Hermann Hesse; commune: Lugano; canton: TI; catégorie: arte; organisateur: Tio.ch Agenda; date: 2026-10-17; heure: 10:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:62822",
@@ -236179,7 +236299,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: L'ideatorio; comune: Lugano; cantone: TI; categoria: altro; organizzatore: Tio.ch Agenda; data: 2026-10-17; ora: 14:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: L'ideatorio; comune: Lugano; cantone: TI; categoria: altro; organizzatore: Tio.ch Agenda; data: 2026-10-17; ora: 14:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: L'ideatorio; municipality: Lugano; canton: TI; category: altro; organiser: Tio.ch Agenda; date: 2026-10-17; time: 14:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: L'ideatorio; gemeinde: Lugano; kanton: TI; kategorie: altro; veranstalter: Tio.ch Agenda; datum: 2026-10-17; uhrzeit: 14:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: L'ideatorio; commune: Lugano; canton: TI; catégorie: altro; organisateur: Tio.ch Agenda; date: 2026-10-17; heure: 14:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64541",
