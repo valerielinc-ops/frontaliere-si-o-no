@@ -82,7 +82,8 @@ import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { hasSalaryIntent } from '../services/jobSearchIntent';
 import { buildSalaryAnswer, searchSalaryMedian } from './shared/searchSalaryAnswer';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
+import { AGGREGATE_KEY, resolveCantonSection } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
@@ -525,11 +526,8 @@ async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): 
 }
 
 function jobLocalizedUrl(job: OrphanCountableJob, locale: OrphanLandingLocale): string {
-  const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
-  const section = resolveCantonSection(locale, resolveJobCanton(job));
   const slug = job.slugByLocale?.[locale] || job.slug || '';
-  const rel = `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
-  return `${BASE_URL}${rel}`;
+  return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
 }
 
 function jobLocalizedTitle(job: OrphanCountableJob, locale: OrphanLandingLocale): string {

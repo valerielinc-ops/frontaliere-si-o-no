@@ -48,6 +48,7 @@ import {
   buildNursingLandingPath,
   resolveNursingOrphanQueryTarget,
 } from '../build-plugins/nursingLandingsData';
+import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 import { detectLocale, tokenize } from '../scripts/lib/query-tokenizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -145,6 +146,57 @@ describe('orphanQueryData — path helpers', () => {
     expect(rendered.html).toContain('FAQ');
     expect(rendered.html).toContain('assistente mensa lugano');
     expect(rendered.wordCount).toBeGreaterThanOrEqual(50);
+  });
+
+  it('uses the shared canonical job path for cards and ItemList URLs in every locale', () => {
+    const jobs = [
+      activeJob({
+        canton: 'ZH',
+        // The explicit canton must win over a misleading nearby location.
+        location: 'Lugano',
+        addressLocality: 'Lugano',
+        slug: 'zh-canonical-job',
+        slugByLocale: {
+          it: 'offerta-zurigo',
+          en: 'zurich-job',
+          de: 'stelle-zuerich',
+          fr: 'emploi-zurich',
+        },
+      }),
+      activeJob({
+        canton: 'TI',
+        location: 'Zurich',
+        addressLocality: 'Zurich',
+        slug: 'ti-canonical-job',
+        slugByLocale: {
+          it: 'offerta-ticino',
+          en: 'ticino-job',
+          de: 'stelle-tessin',
+          fr: 'emploi-tessin',
+        },
+      }),
+    ];
+
+    for (const locale of ORPHAN_LANDING_LOCALES) {
+      const rendered = __renderOrphanLandingPage({
+        cluster: makeCluster(locale, 'canonical-job-links', 20, ['job'], []),
+        matchingJobs: jobs,
+        strings: {},
+        dateStamp: '2026-10-13',
+        knownSlugsByLocale: new Map(
+          ORPHAN_LANDING_LOCALES.map((candidate) => [candidate, new Set<string>()]),
+        ),
+      });
+
+      for (const job of jobs) {
+        const slug = job.slugByLocale?.[locale] || job.slug || '';
+        const expectedPath = buildCanonicalJobDetailPath(locale, job, slug);
+        const expectedUrl = `https://frontaliereticino.ch${expectedPath}`;
+        expect(rendered.html).toContain(`href="${expectedPath}"`);
+        expect(rendered.html).toContain(`"url":"${expectedUrl}"`);
+        expect(expectedPath).toMatch(/\/$/);
+      }
+    }
   });
 
   // Regression guard for the per-locale matrix-build hreflang bug (deploy
