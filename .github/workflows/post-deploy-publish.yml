@@ -259,13 +259,12 @@ jobs:
 
       # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and
       # stripped from the Pages artifact (jobsJsonDistCleanupPlugin, PR #712),
-      # so it is NOT present in this checkout. The Google Indexing API job
-      # submitter (submit-google-indexing-jobs.js) reads public/data/jobs.json
-      # to build per-job board URLs — without this it logs "Unable to read
-      # jobs.json" and silently skips submission on every deploy. Restore it
-      # from the same dedicated artifact post-deploy-validate-dist uses.
-      # continue-on-error: profile_sequential builds don't upload it, and the
-      # submitter already exits 0 gracefully when jobs.json is absent.
+      # so it is NOT present in this checkout. The coverage monitor and the
+      # Google Indexing API submitter both need a real corpus: letting either
+      # one continue with no artifact silently turns an evidence check into a
+      # no-op. The deploy build's master artifact is the canonical snapshot;
+      # the committed crawler slices are the trusted assemble fallback used by
+      # profile_sequential builds that do not upload jobs-master.
       - name: Download master jobs.json (for indexing API)
         uses: actions/download-artifact@v8
         continue-on-error: true
@@ -285,15 +284,28 @@ jobs:
           if [ -f /tmp/winners/previous-slug-winners.json ]; then
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
-          # Expose master jobs.json to the indexing API submitter, which
-          # reads public/data/jobs.json (same staging as post-deploy-validate-dist).
-          if [ -f /tmp/jobs-master/jobs.json ]; then
-            mkdir -p public/data
-            cp -f /tmp/jobs-master/jobs.json public/data/jobs.json
-            echo "[jobs-master] staged public/data/jobs.json ($(wc -c < public/data/jobs.json) bytes)"
+          # Materialize one trusted snapshot for every consumer. Prefer the
+          # exact build artifact; profile_sequential has no jobs-master, so
+          # assemble the checked-in per-crawler slices at this build SHA.
+          # Both locations are intentional: the indexing submitter reads
+          # public/data/jobs.json while the sector monitor's aggregators read
+          # data/jobs.json through their scratch root.
+          if [ -s /tmp/jobs-master/jobs.json ]; then
+            mkdir -p data public/data
+            cp -f /tmp/jobs-master/jobs.json data/jobs.json
+            cp -f data/jobs.json public/data/jobs.json
+            echo "[jobs-master] staged trusted data/jobs.json + public/data/jobs.json ($(wc -c < data/jobs.json) bytes)"
           else
-            echo "[jobs-master] artifact not present — indexing API job submit will skip"
+            echo "[jobs-master] artifact not present — assembling trusted corpus from committed slices"
+            node scripts/assemble-jobs-dataset.mjs --no-summaries
+            test -s data/jobs.json
+            mkdir -p public/data
+            cp -f data/jobs.json public/data/jobs.json
+            echo "[jobs-master] assembled trusted data/jobs.json + public/data/jobs.json ($(wc -c < data/jobs.json) bytes)"
           fi
+          test -s data/jobs.json
+          test -s public/data/jobs.json
+          cmp -s data/jobs.json public/data/jobs.json
 
       # validate-live may have passed for this source before a newer Pages
       # deploy acquired the upload lock and became live. Re-read the marker

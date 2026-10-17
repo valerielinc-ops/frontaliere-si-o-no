@@ -82,4 +82,23 @@ describe('post-deploy-publish.yml — live identity placement', () => {
       expect(stepBlock, stepName).toContain("steps.live_identity.outputs.status == 'match'");
     }
   });
+
+  it('materializes a trusted jobs corpus before post-deploy coverage checks', () => {
+    const staging = workflow.indexOf('- name: Stage downloaded data files');
+    const identityGuard = workflow.indexOf('- name: Verify live build identity before post-deploy side effects');
+    const indexing = workflow.indexOf('- name: Post-deploy indexing (parallel)');
+    expect(staging).toBeGreaterThan(-1);
+    expect(identityGuard).toBeGreaterThan(staging);
+    expect(indexing).toBeGreaterThan(identityGuard);
+
+    const stagingBlock = workflow.slice(staging, identityGuard);
+    expect(stagingBlock).toContain('if [ -s /tmp/jobs-master/jobs.json ]; then');
+    expect(stagingBlock).toContain('node scripts/assemble-jobs-dataset.mjs --no-summaries');
+    expect(stagingBlock).toContain('test -s data/jobs.json');
+    expect(stagingBlock).toContain('test -s public/data/jobs.json');
+    expect(stagingBlock).toContain('cmp -s data/jobs.json public/data/jobs.json');
+
+    const indexingBlock = workflow.slice(indexing, workflow.indexOf('\n      - name:', indexing + 1));
+    expect(indexingBlock).toContain('monitor-sector-coverage.mjs');
+  });
 });
