@@ -223,3 +223,17 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     }
   });
 });
+
+describe('rerender-article-hubs entrypoint budget', () => {
+  it('gives the side-effecting hub fan-out a bounded timeout without extending bootstrap', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, HUB_WORKFLOW), 'utf8'));
+    const steps = workflow?.jobs?.rerender?.steps;
+    const renderStep = steps?.find((step: { name?: string }) => /^Rerender .* hubs$/.test(step.name ?? ''));
+    const shellAssetsStep = steps?.find((step: { name?: string }) =>
+      step.name === 'Ensure the static shell scripts are on the CDN',
+    );
+
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('600');
+    expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
+  });
+});
