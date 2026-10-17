@@ -28,12 +28,16 @@
  *        `created_at`. Misurato sugli account creati il 12-15/09: 202 su 432
  *        sono oggi iscritti senza `created_at`, invisibili a questa misura.
  *      - un giorno senza traffico da' zero iscritti senza che nulla sia rotto.
- * 2. `accounts`: account Firebase Auth creati nella finestra, ciascuno
- *    confrontato col proprio documento `newsletter_subscribers/{email}`:
+ * 2. `accounts`: account Firebase Auth candidati al signup nella finestra,
+ *    ciascuno confrontato col proprio documento `newsletter_subscribers/{email}`:
  *    `subscribed` (ha uno `status`), `stub` (esiste ma senza `status`: solo
- *    profilo, nessuna relazione di comunicazione) o `missing`. Questa e' la
- *    domanda vera — chi si e' registrato e' diventato iscritto? — ed e' anche
- *    il segnale di traffico: senza account nuovi la soglia 1 non si valuta.
+ *    profilo, nessuna relazione di comunicazione) o `missing`. Gli account
+ *    custom-token con il solo stub e senza evidenza `auth_*`/LinkedIn sono
+ *    tecnici (autologin, sync o altro flusso non registrativo), non una persona
+ *    che si e' iscritta: si escludono solo quelli. Documenti assenti restano
+ *    nel denominatore come unknown, in modo fail-closed. Questa e' la domanda
+ *    vera — chi si e' registrato e' diventato iscritto? — ed e' anche il segnale
+ *    di traffico: senza account candidati la soglia 1 non si valuta.
  *
  * Baseline misurata in sola lettura il 2026-09-24 (account creati, quota
  * stub+missing sul totale):

@@ -22,8 +22,10 @@ import { realpathSync } from 'node:fs';
  * Nella finestra (default 24h che terminano ora, o a `--until`):
  *   - documenti `newsletter_subscribers` con `created_at` nella finestra, per
  *     `source_channel`; la soglia guarda quelli `auth_*`;
- *   - account Firebase Auth creati nella finestra, ciascuno classificato sul
- *     proprio documento (`subscribed` / `stub` / `missing`).
+ *   - account Firebase Auth candidati al signup nella finestra, ciascuno
+ *     classificato sul proprio documento (`subscribed` / `stub` / `missing`);
+ *     gli stub custom-token senza evidenza di signup vengono esclusi, mentre
+ *     i documenti assenti restano unknown e quindi nel denominatore.
  * Nessuna email esce da questo processo: i documenti si leggono per id, e
  * report, storia e alert contengono solo conteggi.
  *
