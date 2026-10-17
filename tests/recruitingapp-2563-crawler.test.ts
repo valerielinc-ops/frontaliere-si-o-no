@@ -30,10 +30,10 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
 
     it('keeps multi-site and unrecognised title locations unknown', () => {
       expect(extractRecruitingapp2563TitleLocation(
-        'System Engineer (80-100%) in Zürich oder Lausanne',
+        'Role in Zürich und in Lausanne',
       )).toBeNull();
       expect(extractRecruitingapp2563TitleLocation(
-        'Role in Zürich und in Lausanne',
+        'System Engineer (80-100%) in Zürich oder Lausanne',
       )).toBeNull();
       expect(extractRecruitingapp2563TitleLocation(
         'Network & Security Engineer (80-100%)',
@@ -87,19 +87,22 @@ describe('Switch Bewerbermanagement Stellen crawler parser', () => {
         });
     });
 
-    it('rejects a single-city structured title that disagrees with the rendered title', () => {
+    it('rejects a title-backed location when structured and rendered titles disagree', () => {
+      const structuredTitle = 'Role in Zürich';
+      const renderedTitle = 'Role in Zürich und in Lausanne';
       const html = `
         <script type="application/ld+json">${JSON.stringify({
           '@type': 'JobPosting',
-          title: 'Role in Zürich',
+          title: structuredTitle,
           description: 'Design and operate secure network services.'.repeat(30),
           jobLocation: { address: { addressLocality: 'Lugano', addressCountry: 'CH' } },
         })}</script>
-        <h1>Role in Zürich und in Lausanne</h1>
+        <h1>${renderedTitle}</h1>
         <main>${'Aufgaben und Verantwortlichkeiten für diese Stelle. '.repeat(40)}</main>`;
 
       expect(extractRecruitingapp2563DetailFields(html, 'https://recruitingapp-2563.umantis.com/Vacancies/561/Description/1'))
         .toMatchObject({
+          title: structuredTitle,
           location: '',
           addressCountry: '',
           locationCandidates: [],

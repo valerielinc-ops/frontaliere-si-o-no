@@ -38,7 +38,7 @@ const CAREER_URL = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&Conte
 // job shape has one canton slot and must not turn "Zürich oder Lausanne" into a
 // guessed single canton.
 const SWITCH_SINGLE_CITY_TITLE_RX = /\bin\s+(Zürich|Zurich|Lausanne)\s*$/i;
-const SWITCH_SUPPORTED_CITY_OCCURRENCE_RX = /\bin\s+(?:Zürich|Zurich|Lausanne)\b/gi;
+const SWITCH_SUPPORTED_CITY_RX = /\b(Zürich|Zurich|Lausanne)\b/gi;
 
 /**
  * Recover Switch's explicit single-city title suffix as source-backed detail
@@ -50,7 +50,7 @@ const SWITCH_SUPPORTED_CITY_OCCURRENCE_RX = /\bin\s+(?:Zürich|Zurich|Lausanne)\
  */
 export function extractRecruitingapp2563TitleLocation(title = '') {
   const normalizedTitle = normalizeSpace(title);
-  const cityOccurrences = [...normalizedTitle.matchAll(SWITCH_SUPPORTED_CITY_OCCURRENCE_RX)];
+  const cityOccurrences = normalizedTitle.match(SWITCH_SUPPORTED_CITY_RX) || [];
   if (cityOccurrences.length !== 1) return null;
   const match = SWITCH_SINGLE_CITY_TITLE_RX.exec(normalizedTitle);
   if (!match) return null;
