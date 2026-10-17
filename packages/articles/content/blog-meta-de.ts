@@ -13382,6 +13382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.netto-single-paga-ticino-2026.title': 'Schweizer Lohnabrechnung 2026: Leitfaden für alleinerziehende Grenzgänger',
     'blog.article.netto-single-paga-ticino-2026.excerpt': 'AHV/IV 5.3%, ALV/KV 1.1% und KVG: Was 2026 in der Lohnabrechnung eines alleinstehenden Grenzgängers zu beachten ist.',
     'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.furti-rame-cimitero-tradate.title': 'Kupferdiebstähle, neuer Coup auf dem Friedhof von Tradate',
+    'blog.article.furti-rame-cimitero-tradate.excerpt': 'Neuer Kupferdiebstahl auf dem Friedhof von Tradate Mehrere Platten aus der Dacheindeckung gestohlen Wasser im Korridor des ersten Stocks Ermittlungen der Carabinieri',
+    'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Kupferdiebstahl auf dem Friedhof von Tradate',
 };
 
 export default blogMetaDe;

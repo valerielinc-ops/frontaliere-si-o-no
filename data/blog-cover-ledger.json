@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5569
+      "6": 5570
     },
-    "publishedCovers": 7150,
+    "publishedCovers": 7151,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5374
+    "inferredRecords": 5375
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -191045,6 +191045,33 @@
           "date": "2026-10-16T13:43:52.794Z",
           "updatedAt": null,
           "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-furti-rame-cimitero-tradate": {
+      "cover": "/images/blog/article-furti-rame-cimitero-tradate.webp",
+      "hash": "6f14e0ad20b7f52b6ece9e24c10084b45eaad8c127506f96004a6ac080c5ecfb",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "furti-rame-cimitero-tradate",
+          "category": "novita",
+          "date": "2026-10-17T08:46:42.106Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,

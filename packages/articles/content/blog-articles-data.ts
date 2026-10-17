@@ -45167,6 +45167,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'furti-rame-cimitero-tradate',
+ category: 'novita',
+ date: '2026-10-17T08:46:42.106Z',
+ image: '/images/blog/article-furti-rame-cimitero-tradate.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

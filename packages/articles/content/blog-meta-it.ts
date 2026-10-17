@@ -13384,6 +13384,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.netto-single-paga-ticino-2026.title': 'Busta paga svizzera 2026: guida per frontalieri single',
     'blog.article.netto-single-paga-ticino-2026.excerpt': 'AVS/AI 5.3%, AD/AC 1.1% e LAMal: cosa controllare nella busta paga di un frontaliere single nel 2026.',
     'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.furti-rame-cimitero-tradate.title': 'Furti di rame, nuovo colpo al cimitero di Tradate',
+    'blog.article.furti-rame-cimitero-tradate.excerpt': 'Nuovo furto di rame nel cimitero di Tradate Rubate diverse lastre dalla copertura del tetto Acqua nel corridoio del primo piano Accertamenti dei carabinieri',
+    'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Furti di rame nel cimitero di Tradate',
 };
 
 export default blogMetaIt;

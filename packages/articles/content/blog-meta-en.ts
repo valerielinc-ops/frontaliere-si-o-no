@@ -13383,6 +13383,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.netto-single-paga-ticino-2026.title': 'Swiss paycheck 2026: guide for single border workers',
     'blog.article.netto-single-paga-ticino-2026.excerpt': 'AVS/AI 5.3%, AD/AC 1.1% and LAMal: what to check in the paycheck of a single border crossing in 2026.',
     'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Illustration generated for this article',
+    'blog.article.furti-rame-cimitero-tradate.title': 'Copper thefts, another hit at the Tradate cemetery',
+    'blog.article.furti-rame-cimitero-tradate.excerpt': 'New copper theft at the Tradate cemetery Several sheets stolen from the roof covering Water in the first-floor corridor Carabinieri investigations',
+    'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Copper theft at Tradate cemetery',
 };
 
 export default blogMetaEn;

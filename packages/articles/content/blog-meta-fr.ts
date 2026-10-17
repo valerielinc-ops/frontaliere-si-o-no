@@ -13385,6 +13385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.netto-single-paga-ticino-2026.title': 'Bulletin de paie suisse 2026 : guide pour frontaliers célibataires',
     'blog.article.netto-single-paga-ticino-2026.excerpt': 'AVS/AI 5.3%, AD/AC 1.1% et LAMal : ce qu\'il faut vérifier sur la paie d\'un frontalier célibataire en 2026.',
     'blog.article.netto-single-paga-ticino-2026.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.furti-rame-cimitero-tradate.title': 'Vols de cuivre, nouveau coup au cimetière de Tradate',
+    'blog.article.furti-rame-cimitero-tradate.excerpt': 'Nouveau vol de cuivre dans le cimetière de Tradate Plusieurs plaques volées sur la couverture du toit De l’eau dans le couloir du premier étage Vérifications des carabiniers',
+    'blog.article.furti-rame-cimitero-tradate.imageAlt': 'Vol de cuivre au cimetière de Tradate',
 };
 
 export default blogMetaFr;
