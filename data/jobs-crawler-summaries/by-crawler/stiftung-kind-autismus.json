@@ -1,7 +1,7 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-10-17T09:43:17.990Z",
+  "generatedAt": "2026-10-17T21:38:42.145Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6331,
-  "avgDurationMs": 6331,
+  "durationMs": 6786,
+  "avgDurationMs": 6786,
   "durationHistory": [
-    6331
+    6786
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:43:04.559Z",
+      "crawledAt": "2026-10-17T21:38:28.612Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:43:03.833Z",
+      "crawledAt": "2026-10-17T21:38:28.038Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -112,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }
