@@ -214,6 +214,17 @@ jobs:
             echo "::error::No authenticated refresh token is available to carry forward the recovery PR"
             exit 1
           }
+          open_pr_number="$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --base main \
+            --head "$branch" \
+            --json number \
+            --jq '.[0].number // empty')"
+          if [ -z "$open_pr_number" ]; then
+            echo "No open recovery PR; ignoring the orphaned stable branch."
+            exit 0
+          fi
           remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           probe="$RUNNER_TEMP/recover-prev-slugs-remote-head"
           if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
