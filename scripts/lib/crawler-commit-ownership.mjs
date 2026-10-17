@@ -16,6 +16,7 @@ import { realpathSync } from 'node:fs';
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { removePreviousSlugRoutes } from './slug-history-journal.mjs';
 
 import {
   dropForeignOwnedVacancies,
@@ -115,18 +116,9 @@ export function dropForeignOwnedHistoricalSlugs(crawlerKey, payload, remotePaylo
     if (foreign.size === 0) return job;
 
     const next = { ...job };
-    if (Array.isArray(job.previousSlugs)) {
-      next.previousSlugs = job.previousSlugs.filter((route) => !foreign.has(String(route ?? '').trim()));
-    }
-    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
-      next.previousSlugsByLocale = { ...job.previousSlugsByLocale };
-      for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale)) {
-        if (!Array.isArray(slugs)) continue;
-        const kept = slugs.filter((route) => !foreign.has(String(route ?? '').trim()));
-        if (kept.length > 0) next.previousSlugsByLocale[locale] = kept;
-        else delete next.previousSlugsByLocale[locale];
-      }
-    }
+    removePreviousSlugRoutes(next, foreign, {
+      source: 'crawler-commit-ownership.dropForeignOwnedHistoricalSlugs',
+    });
     for (const [slug, owner] of foreign) dropped.push({ slug, owner });
     return next;
   });

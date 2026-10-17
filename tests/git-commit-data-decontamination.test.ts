@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { join, relative, resolve } from 'node:path';
 import { filterNewForeignClaims } from '../scripts/lib/crawler-commit-ownership.mjs';
 import { loadSourceHostOwnership } from '../scripts/lib/crawler-source-hosts.mjs';
 
@@ -140,12 +140,14 @@ describe('git-commit-data.sh cross-job decontamination preservation', () => {
       runScript(repoDir, 'data/jobs/by-crawler/claimant.json');
 
       execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const ownerGitPath = relative(repoDir, join(repoDir, 'data/jobs/by-crawler/owner.json'));
+      const claimantGitPath = relative(repoDir, join(repoDir, 'data/jobs/by-crawler/claimant.json'));
       const publishedOwner = JSON.parse(execFileSync(
-        'git', ['show', 'origin/main:data/jobs/by-crawler/owner.json'],
+        'git', ['show', `origin/main:${ownerGitPath}`],
         { cwd: repoDir, encoding: 'utf8' },
       ));
       const publishedClaimant = JSON.parse(execFileSync(
-        'git', ['show', 'origin/main:data/jobs/by-crawler/claimant.json'],
+        'git', ['show', `origin/main:${claimantGitPath}`],
         { cwd: repoDir, encoding: 'utf8' },
       ));
 
