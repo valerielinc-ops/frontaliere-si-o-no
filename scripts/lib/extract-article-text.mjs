@@ -138,11 +138,67 @@ function extractFromMeta(document, selector) {
   return el ? (el.getAttribute('content') || '').trim() : '';
 }
 
-function extractParagraphs(root) {
-  if (!root) return [];
-  const paragraphs = [...root.querySelectorAll('p, h2, h3, h4, li, blockquote')]
+const PARAGRAPH_SELECTOR = 'p, h2, h3, h4, li, blockquote';
+const NOISE_SELECTORS = [
+  'script:not([type="application/ld+json"])', 'style', 'iframe', 'nav', 'footer',
+  'aside', 'form', '[class*="cookie" i]', '[id*="cookie" i]',
+  '[class*="banner" i]', '[class*="related" i]',
+  '[class*="newsletter" i]', '[class*="advert" i]',
+  '[class*="adsbygoogle" i]',
+];
+
+function removeNoiseNodes(root, { includeNoscript = false } = {}) {
+  const selectors = includeNoscript ? [...NOISE_SELECTORS, 'noscript'] : NOISE_SELECTORS;
+  for (const sel of selectors) {
+    for (const el of root.querySelectorAll(sel)) el.remove();
+  }
+}
+
+function collectParagraphTexts(root) {
+  return [...root.querySelectorAll(PARAGRAPH_SELECTOR)]
     .map(p => cleanText(p.textContent || ''))
     .filter(p => p && !isJunk(p));
+}
+
+/**
+ * Normalize a noscript fallback whose nested markup was preserved as text.
+ *
+ * Depending on the HTML parser's scripting mode, a noscript body can be either
+ * a normal element tree or one text node containing the serialized markup.
+ * Parse the latter in a detached container so paragraph extraction has the
+ * same shape in both cases. Setting innerHTML on a detached element does not
+ * execute scripts or load the source page's resources.
+ */
+function extractNoscriptText(noscript) {
+  if (!noscript) return [];
+
+  if (noscript.querySelector(PARAGRAPH_SELECTOR)) {
+    return collectParagraphTexts(noscript);
+  }
+
+  const rawMarkup = noscript.textContent || '';
+  if (!/<\/?[a-z][\s\S]*>/i.test(rawMarkup)) return [];
+
+  const normalized = noscript.ownerDocument.createElement('div');
+  normalized.innerHTML = rawMarkup;
+  removeNoiseNodes(normalized);
+  return collectParagraphTexts(normalized);
+}
+
+function extractParagraphs(root) {
+  if (!root) return [];
+  const paragraphs = [];
+  const candidates = [...root.querySelectorAll(`${PARAGRAPH_SELECTOR}, noscript`)];
+  for (const candidate of candidates) {
+    if (candidate.tagName.toLowerCase() === 'noscript') {
+      if (candidate.parentElement?.closest('noscript')) continue;
+      paragraphs.push(...extractNoscriptText(candidate));
+      continue;
+    }
+    if (candidate.closest('noscript')) continue;
+    const text = cleanText(candidate.textContent || '');
+    if (text && !isJunk(text)) paragraphs.push(text);
+  }
   // Dedup adjacent identical paragraphs (some sites repeat the lead)
   const out = [];
   for (const p of paragraphs) {
@@ -184,15 +240,7 @@ export function extractArticleText(html, opts = {}) {
   // Strip noise nodes up-front. NOTE: JSON-LD `<script type="application/ld+json">`
   // MUST survive this pass — the JSON-LD extractor reads it next. We only purge
   // executable/styling script tags.
-  const noiseSelectors = ['script:not([type="application/ld+json"])', 'style', 'iframe', 'nav', 'footer',
-                     'aside', 'form', '[class*="cookie" i]', '[id*="cookie" i]',
-                     '[class*="banner" i]', '[class*="related" i]',
-                     '[class*="newsletter" i]', '[class*="advert" i]',
-                     '[class*="adsbygoogle" i]'];
-  if (opts.scriptingDisabled !== true) noiseSelectors.push('noscript');
-  for (const sel of noiseSelectors) {
-    for (const el of document.querySelectorAll(sel)) el.remove();
-  }
+  removeNoiseNodes(document, { includeNoscript: opts.scriptingDisabled !== true });
 
   // 1. JSON-LD articleBody (most reliable)
   const jsonLdBody = extractFromJsonLd(document);

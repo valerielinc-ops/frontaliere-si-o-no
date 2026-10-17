@@ -97,6 +97,29 @@ describe('extractArticleText', () => {
     expect(noScriptResult.text).toContain('Second substantive fallback paragraph');
   });
 
+  it('normalizes nested noscript markup preserved as a text node', () => {
+    const html = `<main><noscript>&lt;div&gt;
+      &lt;p&gt;First substantive fallback paragraph with facts that identify the real article for source validation.&lt;/p&gt;
+      &lt;p&gt;Second substantive fallback paragraph with the article context and details needed by the generator.&lt;/p&gt;
+    &lt;/div&gt;</noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).toContain('First substantive fallback paragraph');
+    expect(result.text).toContain('Second substantive fallback paragraph');
+    expect(result.text).not.toContain('&lt;p&gt;');
+  });
+
+  it('filters document noise wrappers from normalized noscript markup', () => {
+    const html = '<main><noscript>&lt;div class="advert"&gt;&lt;p&gt;Sponsored offer text for the partner placement with details and pricing.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Article paragraph one contains the actual source story and enough prose.&lt;/p&gt;&lt;p&gt;Article paragraph two continues the actual source story with more context.&lt;/p&gt;</noscript></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).not.toContain('Sponsored offer text for the partner placement with details and pricing.');
+    expect(result.text).toContain('Article paragraph one contains the actual source story and enough prose.');
+    expect(result.text).toContain('Article paragraph two continues the actual source story with more context.');
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;
