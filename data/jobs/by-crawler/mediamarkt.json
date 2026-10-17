@@ -3560,12 +3560,12 @@
     },
     {
       "id": "mediamarkt-99655",
-      "slug": "collaboratore-trice-in-vendita-60-m-w-d-mediamarkt-zurich",
+      "slug": "addetto-a-alle-vendite-60-m-f-d-mediamarkt-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-60-m-w-d-mediamarkt-zurich-ch",
-        "it": "collaboratore-trice-in-vendita-60-m-w-d-mediamarkt-zurich",
-        "en": "mitarbeiter-in-verkauf-60-m-w-d-mediamarkt-zurich-ch",
-        "fr": "mitarbeiter-in-verkauf-60-m-w-d-mediamarkt-zurich-ch"
+        "it": "addetto-a-alle-vendite-60-m-f-d-mediamarkt-zurich",
+        "en": "sales-associate-60-m-f-d-mediamarkt-zurich",
+        "fr": "collaborateur-trice-de-vente-60-h-f-d-mediamarkt-zurich"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3620,13 +3620,16 @@
           "sales-associate-60-m-f-d-mediamarkt-zurich",
           "collaborateur-rice-vente-60-h-f-d-mediamarkt-zurich",
           "mitarbeiter-in-sales-60-m-w-d-mediamarkt-zurich",
-          "mitarbeiter-in-vente-60-m-w-d-mediamarkt-zurich"
+          "mitarbeiter-in-vente-60-m-w-d-mediamarkt-zurich",
+          "collaboratore-trice-in-vendita-60-m-w-d-mediamarkt-zurich"
         ],
         "en": [
-          "sales-associate-60-m-f-d-mediamarkt-zurich"
+          "sales-associate-60-m-f-d-mediamarkt-zurich",
+          "mitarbeiter-in-verkauf-60-m-w-d-mediamarkt-zurich-ch"
         ],
         "fr": [
-          "collaborateur-rice-vente-60-h-f-d-mediamarkt-zurich"
+          "collaborateur-rice-vente-60-h-f-d-mediamarkt-zurich",
+          "mitarbeiter-in-verkauf-60-m-w-d-mediamarkt-zurich-ch"
         ]
       },
       "previousSlugs": [
@@ -3635,7 +3638,8 @@
         "sales-associate-60-m-f-d-mediamarkt-zurich",
         "collaborateur-rice-vente-60-h-f-d-mediamarkt-zurich",
         "mitarbeiter-in-sales-60-m-w-d-mediamarkt-zurich",
-        "mitarbeiter-in-vente-60-m-w-d-mediamarkt-zurich"
+        "mitarbeiter-in-vente-60-m-w-d-mediamarkt-zurich",
+        "collaboratore-trice-in-vendita-60-m-w-d-mediamarkt-zurich"
       ],
       "salaryMin": 49800,
       "salaryMax": 76500,
@@ -3736,12 +3740,12 @@
     },
     {
       "id": "mediamarkt-100610",
-      "slug": "logistikkoordinator-in-100-mediamarkt-zurich-ch",
+      "slug": "coordinatore-trice-della-logistica-100-mediamarkt-zurich",
       "slugByLocale": {
         "de": "logistikkoordinator-in-100-mediamarkt-zurich-ch",
-        "it": "logistikkoordinator-in-100-mediamarkt-zurich-ch",
-        "en": "logistikkoordinator-in-100-mediamarkt-zurich-ch",
-        "fr": "logistikkoordinator-in-100-mediamarkt-zurich-ch"
+        "it": "coordinatore-trice-della-logistica-100-mediamarkt-zurich",
+        "en": "logistics-coordinator-100-mediamarkt-zurich",
+        "fr": "coordinateur-rice-logistique-a-100-mediamarkt-zurich"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3802,7 +3806,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:40:21.778Z"
+      "firstSeenAt": "2026-10-16T21:40:21.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistikkoordinator-in-100-mediamarkt-zurich-ch"
+        ],
+        "en": [
+          "logistikkoordinator-in-100-mediamarkt-zurich-ch"
+        ],
+        "fr": [
+          "logistikkoordinator-in-100-mediamarkt-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistikkoordinator-in-100-mediamarkt-zurich-ch"
+      ]
     },
     {
       "id": "mediamarkt-99656",

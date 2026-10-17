@@ -1,18 +1,18 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-16T21:21:22.347Z",
+  "generatedAt": "2026-10-17T09:13:19.533Z",
   "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 8274,
-  "avgDurationMs": 8274,
+  "durationMs": 10789,
+  "avgDurationMs": 10789,
   "durationHistory": [
-    8274
+    10789
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -142,49 +142,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Ecommerce Merchandising Specialist",
-      "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1353588155/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-f5ab2d7c6cb7",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-05-27T22:45:37.761Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-ecommerce-merchandising-specialist/1353588155",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Customer Service Specialist - German Speaking",
@@ -432,5 +390,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

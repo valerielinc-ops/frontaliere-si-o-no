@@ -1,16 +1,16 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-10-16T21:19:03.783Z",
+  "generatedAt": "2026-10-17T09:13:23.607Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11026,
-  "avgDurationMs": 11026,
+  "durationMs": 5703,
+  "avgDurationMs": 5703,
   "durationHistory": [
-    11026
+    5703
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T21:18:51.965Z",
+      "crawledAt": "2026-10-17T09:13:08.862Z",
       "source": "dxt-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -60,5 +60,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

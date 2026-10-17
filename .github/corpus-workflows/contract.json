@@ -4,20 +4,20 @@
   "generatorSha256": "82eb44275b0862f4179ef1c1075f90a03e35138601897148f7485a7147cfbfb4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "94a953eb71fd40875604125f2f81b3f60946064e",
+  "sourceCommit": "1466856bc45aea1bf419add400c316cd2202148e",
   "artifactObservation": {
     "generatorSha256": "82eb44275b0862f4179ef1c1075f90a03e35138601897148f7485a7147cfbfb4",
     "sourceRef": "main",
-    "sourceCommit": "94a953eb71fd40875604125f2f81b3f60946064e"
+    "sourceCommit": "1466856bc45aea1bf419add400c316cd2202148e"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 643,
+  "crawlerCount": 644,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:9c0f1f7db235d3b7f6d8f90a6608a9348f9c646e8ed65d05c132165ac0910eb6",
+    "rosterDigest": "sha256:ae039a070180a0d08219d14e2a5e4737f4a6287d4c933363348e6fd8c0f70b0f",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -416,6 +416,7 @@
     "scripts/update-pdag-jobs.mjs",
     "scripts/update-pdgr-jobs.mjs",
     "scripts/update-pfister-jobs.mjs",
+    "scripts/update-physioswiss-jobs.mjs",
     "scripts/update-pianorm-jobs.mjs",
     "scripts/update-pictet-jobs.mjs",
     "scripts/update-pigna-jobs.mjs",
@@ -1479,8 +1480,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "298f5c6e6a011426c0ac3c5a3ebbe26195d4fe386c6a296136eeca92b5228f82",
-      "artifactSha256": "87d36addac5358621493791911a2474ee51211421a865b075fee9b5e59ee6486",
+      "sourceSha256": "d2903b48c11a54d3c69a383731617c910d782897994a27ff617d8df3b904b12d",
+      "artifactSha256": "053b20b3d7a5b8b4a8e9ada9b4b7dd26b9cc2d7fa27e1e52c9555b71d460fda1",
       "generatorSha256": "82eb44275b0862f4179ef1c1075f90a03e35138601897148f7485a7147cfbfb4",
       "members": [
         "albergo-gardenia",
@@ -1510,7 +1511,8 @@
         "pianorm",
         "rehaklinik-seewis",
         "my",
-        "zaugg"
+        "zaugg",
+        "physioswiss"
       ]
     },
     {

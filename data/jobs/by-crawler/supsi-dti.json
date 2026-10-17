@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-10-16T21:51:04.157Z",
+  "assembledAt": "2026-10-17T09:41:59.777Z",
   "jobs": [
     {
       "id": "company-l4ti3x",
@@ -33,7 +33,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-16T21:50:48.141Z",
+      "crawledAt": "2026-10-17T09:41:44.558Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Assistente Risorse umane",
@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "assistente-risorse-umane-supsi-dti-manno",
-        "de": "assistente-risorse-umane-supsi-dti-manno",
-        "fr": "assistente-risorse-umane-supsi-dti-manno"
+        "en": "human-resources-assistant-supsi-dti-manno",
+        "de": "personalassistent-supsi-dti-manno",
+        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -112,22 +112,12 @@
           "assistente-risorse-umane-supsi-manno"
         ],
         "en": [
-          "human-resource-assistant-supsi-dti-manno",
-          "human-resources-assistant-supsi-dti-manno"
-        ],
-        "de": [
-          "personalassistent-supsi-dti-manno"
-        ],
-        "fr": [
-          "assistant-aux-ressources-humaines-supsi-dti-manno"
+          "human-resource-assistant-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "assistente-risorse-umane-supsi-manno",
-        "human-resource-assistant-supsi-dti-manno",
-        "human-resources-assistant-supsi-dti-manno",
-        "personalassistent-supsi-dti-manno",
-        "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "human-resource-assistant-supsi-dti-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -162,7 +152,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-16T21:50:48.141Z",
+      "crawledAt": "2026-10-17T09:41:44.558Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "fr": "PhD / PhD en informatique (Interaction homme-ordinateur), avec l'accent sur la validité et la facilité d'utilisation des outils d'annotation semi-automatisés pour les contextes cliniques et thérapeutiques",
@@ -295,7 +285,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-16T21:50:48.141Z",
+      "crawledAt": "2026-10-17T09:41:44.558Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Videomaker e Content creator",
@@ -436,7 +426,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-16T21:50:48.141Z",
+      "crawledAt": "2026-10-17T09:41:44.558Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -571,7 +561,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-16T21:50:48.141Z",
+      "crawledAt": "2026-10-17T09:41:44.558Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
@@ -587,9 +577,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagista-52-settimane-supsi-dti-manno",
-        "de": "stagista-52-settimane-supsi-dti-manno",
-        "fr": "stagista-52-settimane-supsi-dti-manno"
+        "en": "stagist-52-weeks-supsi-dti-manno",
+        "de": "stagist-52-wochen-supsi-dti-manno",
+        "fr": "stagiaire-52-semaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -632,23 +622,7 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "en": [
-          "stagist-52-weeks-supsi-dti-manno"
-        ],
-        "de": [
-          "stagist-52-wochen-supsi-dti-manno"
-        ],
-        "fr": [
-          "stagiaire-52-semaines-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "stagist-52-weeks-supsi-dti-manno",
-        "stagist-52-wochen-supsi-dti-manno",
-        "stagiaire-52-semaines-supsi-dti-manno"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l4ti3w",
@@ -686,13 +660,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-16T21:50:48.141Z",
+      "crawledAt": "2026-10-17T09:41:44.558Z",
       "firstSeenAt": "2026-10-06T09:37:44.141Z",
       "slugByLocale": {
         "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
         "en": "preformative-year-for-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
         "de": "vorjahr-fur-die-zulassung-zum-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
-        "fr": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno"
+        "fr": "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
       },
       "titleByLocale": {
         "fr": "Année préformative pour l'admission au baccalauréat en sciences en durabilité et transition systémique",
@@ -760,9 +734,6 @@
         ],
         "en": [
           "internship-position-for-the-professional-practice-year-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi"
-        ],
-        "fr": [
-          "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
@@ -787,297 +758,6 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "company-l4ti3y",
-      "slug": "generalista-risorse-umane-supsi-dti-lugano",
-      "company": "SUPSI / DTI",
-      "title": "Generalista Risorse umane",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "# Generalista Risorse umane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso la posizione di\npresso il\n\n## Dipartimento tecnologie innovative (DTI) / Ufficio Risorse umane\ncon sede a Lugano. Grado di occupazione 100%, a tempo indeterminato. Entrata in funzione: da subito o data da convenire.\n\n## Contesto professionale\nIl Servizio Risorse umane della SUPSI opera in un'organizzazione a matrice: il Servizio Risorse umane di Dipartimento è il punto di riferimento di prossimità in ambito Risorse umane per il personale e i responsabili, ai quali fornisce consulenza e supporto amministrativo, e collabora con i Servizi centrali per assicurare coerenza, qualità e conformità lungo il ciclo di vita del personale.\nAll'interno dell'Ufficio Risorse umane del DTI, la persona selezionata gestisce in autonomia le pratiche amministrative del personale del Dipartimento, risponde alle richieste del personale e dei responsabili e assicura la corretta raccolta, verifica e trasmissione dei dati ai Servizi centrali, nel rispetto dei valori di professionalità, trasparenza e collaborazione che caratterizzano la SUPSI.\n\n## Mansioni principali\n- Gestione delle pratiche amministrative legate al ciclo di vita del personale del Dipartimento: assunzioni, variazioni contrattuali, cessazioni, certificati e aggiornamento dati.\n- Gestione delle pratiche amministrative relative ai mandati esterni.\n- Gestione di presenze, assenze e ferie tramite i sistemi dedicati, assicurando la correttezza dei dati e la loro corretta trasmissione ai Servizi centrali.\n- Predisposizione e aggiornamento della documentazione contrattuale e amministrativa, in conformità con le direttive SUPSI e la normativa vigente.\n- Consulenza e supporto amministrativo al personale e ai responsabili del Dipartimento su contratti, orari di lavoro, permessi, indennità e procedure interne, quale punto di riferimento di prossimità in ambito Risorse umane.\n- Supporto ai processi di reclutamento e selezione in collaborazione con i responsabili di linea e il Servizio Risorse umane centrale: pubblicazione annunci, gestione candidature, convocazioni e comunicazioni.\n- Collaborazione ai progetti del Servizio nell'ambito della digitalizzazione, del miglioramento continuo dei processi e del sistema di garanzia della qualità.\n\n## Requisiti\n- AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).\n- Attestato Professionale Federale (APF) di Specialista in risorse umane.\n- Minimo 4 anni di esperienza nella funzione.\n- Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.\n- Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.\n- Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).\n- Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione.\n\n## Cosa offriamo\nUn ruolo qualificato e autonomo all'interno di un team dedicato, in un contesto istituzionale attento alla qualità e al miglioramento continuo dei processi. La posizione si colloca in Fascia 3 del Contratto Collettivo SUPSI (CCLSUPSI).\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate.\nAl momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nChiara Venzo\n, Responsabile Area amministrazione del personale.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
-      "requirements": [
-        "AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).",
-        "Attestato Professionale Federale (APF) di Specialista in risorse umane.",
-        "Minimo 4 anni di esperienza nella funzione.",
-        "Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.",
-        "Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.",
-        "Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).",
-        "Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione."
-      ],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://www.supsi.ch/bando26_4015",
-      "applyUrl": "https://www.supsi.ch/bando26_4015",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Manno",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-15T21:46:09.688Z",
-      "firstSeenAt": "2026-10-03T09:31:58.588Z",
-      "titleByLocale": {
-        "it": "Generalista Risorse umane",
-        "en": "Generalist Human resources",
-        "de": "Generalist Human Resources",
-        "fr": "Généraliste Ressources humaines"
-      },
-      "descriptionByLocale": {
-        "it": "# Generalista Risorse umane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso la posizione di\npresso il\n\n## Dipartimento tecnologie innovative (DTI) / Ufficio Risorse umane\ncon sede a Lugano. Grado di occupazione 100%, a tempo indeterminato. Entrata in funzione: da subito o data da convenire.\n\n## Contesto professionale\nIl Servizio Risorse umane della SUPSI opera in un'organizzazione a matrice: il Servizio Risorse umane di Dipartimento è il punto di riferimento di prossimità in ambito Risorse umane per il personale e i responsabili, ai quali fornisce consulenza e supporto amministrativo, e collabora con i Servizi centrali per assicurare coerenza, qualità e conformità lungo il ciclo di vita del personale.\nAll'interno dell'Ufficio Risorse umane del DTI, la persona selezionata gestisce in autonomia le pratiche amministrative del personale del Dipartimento, risponde alle richieste del personale e dei responsabili e assicura la corretta raccolta, verifica e trasmissione dei dati ai Servizi centrali, nel rispetto dei valori di professionalità, trasparenza e collaborazione che caratterizzano la SUPSI.\n\n## Mansioni principali\n- Gestione delle pratiche amministrative legate al ciclo di vita del personale del Dipartimento: assunzioni, variazioni contrattuali, cessazioni, certificati e aggiornamento dati.\n- Gestione delle pratiche amministrative relative ai mandati esterni.\n- Gestione di presenze, assenze e ferie tramite i sistemi dedicati, assicurando la correttezza dei dati e la loro corretta trasmissione ai Servizi centrali.\n- Predisposizione e aggiornamento della documentazione contrattuale e amministrativa, in conformità con le direttive SUPSI e la normativa vigente.\n- Consulenza e supporto amministrativo al personale e ai responsabili del Dipartimento su contratti, orari di lavoro, permessi, indennità e procedure interne, quale punto di riferimento di prossimità in ambito Risorse umane.\n- Supporto ai processi di reclutamento e selezione in collaborazione con i responsabili di linea e il Servizio Risorse umane centrale: pubblicazione annunci, gestione candidature, convocazioni e comunicazioni.\n- Collaborazione ai progetti del Servizio nell'ambito della digitalizzazione, del miglioramento continuo dei processi e del sistema di garanzia della qualità.\n\n## Requisiti\n- AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).\n- Attestato Professionale Federale (APF) di Specialista in risorse umane.\n- Minimo 4 anni di esperienza nella funzione.\n- Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.\n- Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.\n- Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).\n- Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione.\n\n## Cosa offriamo\nUn ruolo qualificato e autonomo all'interno di un team dedicato, in un contesto istituzionale attento alla qualità e al miglioramento continuo dei processi. La posizione si colloca in Fascia 3 del Contratto Collettivo SUPSI (CCLSUPSI).\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate.\nAl momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nChiara Venzo\n, Responsabile Area amministrazione del personale.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
-        "en": "# Generalist Human resources\n\nThe Professional University School of Italian Switzerland (SUPSI) puts in competition the position of\nat the\n\n## Department of Innovative Technologies (DTI) / Human Resources Office\nbased in Lugano. Degree of employment 100%, indefinitely. Entry into operation: from immediately or date to be agreed.\n\n## Professional background\nThe SUPSI Human Resources Service operates in a matrix organization: the Department Human Resources Service is the point of reference in Human Resources for staff and managers, to which it provides advice and administrative support, and collaborates with the Central Services to ensure consistency, quality and compliance along the staff life cycle.\nWithin the DTI Human Resources Office, the selected person independently manages the administrative practices of the staff of the Department, responds to the demands of the staff and managers and ensures the correct collection, verification and transmission of data to the Central Services, in compliance with the values of professionalism, transparency and collaboration that characterize the SUPSI.\n\n## Main handling\n- Management of administrative practices related to the lifecycle of the staff of the Department: recruitments, contractual variations, terminations, certificates and data update.\n- Management of administrative practices relating to external mandates.\n- Management of presences, absences and holidays through dedicated systems, ensuring the correctness of data and their correct transmission to the Central Services.\n- Preparation and updating of contractual and administrative documentation, in accordance with the SUPSI directives and current legislation.\n- Advice and administrative support to staff and department managers on contracts, working hours, permits, allowances and internal procedures, as a reference point for proximity to Human Resources.\n- Support for recruitment and selection processes in collaboration with line managers and the Central Human Resource Service: announcements publication, application management, summons and communications.\n- Collaboration with the projects of the Service in the context of digitization, continuous improvement of processes and quality assurance system.\n\n## Requirements\n- AFC with professional maturity or academic qualification SUP (minimum Bachelor).\n- Federal Professional Certificate of Human Resource Specialist.\n- Minimum 4 years experience in function.\n- Applied and operational knowledge of Swiss labour law and social insurance.\n- Italian native language or level C1; English B1; ideally another national language.\n- Good IT skills (Office package) and management programs in Human Resources (Abacus, Microsoft Dynamics).\n- Accuracy, sense of responsibility, organizational and planning skills, excellent relational skills, attitude to group work and absolute discretion.\n\n## What we offer\nA qualified and autonomous role within a dedicated team, in an institutional context attentive to the quality and continuous improvement of processes. The position is in Fascia 3 of the SUPSI Collective Contract (CCLSUPSI).\n\n## Application\nOnly applications submitted within the\n\n## 15 October 2026\nthrough the application form. Incomplete applications, sent to other addresses or beyond the agreed deadline, will not be considered.\nAt the time of the online application is required to send a letter of presentation/motivation, Curriculum Vitae, diplomas, certificates and certificates of employment. Additional documentation (judicial casebook, copy of an identity document) may be requested later.\nAdditional job information may be required\nChiara Venzo\n, Head of Staff Administration.\n\n## Our commitment\nSUPSI believes that the future stems from the valorisation of different perspectives, unique experiences and from a fair, inclusive and respectful culture of diversity.",
-        "de": "# Generalist Human Resources\n\nDie Professional University School of Italian Switzerland (SUPSI) stellt im Wettbewerb die Position von\nam\n\n## Abteilung für Innovative Technologien (DTI) / Personalbüro\nmit Sitz in Lugano. Beschäftigungsgrad 100%, auf unbestimmte Zeit. Inbetriebnahme: ab sofort oder noch zu vereinbarendes Datum.\n\n## Beruflicher Hintergrund\nDer SUPSI Human Resources Service arbeitet in einer Matrixorganisation: Der Department Human Resources Service ist der Bezugspunkt in Human Resources für Mitarbeiter und Manager, denen er Beratung und administrative Unterstützung bietet, und arbeitet mit den Zentraldiensten zusammen, um Konsistenz, Qualität und Compliance entlang des Lebenszyklus der Mitarbeiter zu gewährleisten.\nInnerhalb des DTI Personalbüros verwaltet die ausgewählte Person unabhängig die Verwaltungspraktiken der Mitarbeiter der Abteilung, reagiert auf die Anforderungen der Mitarbeiter und Führungskräfte und stellt die korrekte Erfassung, Überprüfung und Übermittlung von Daten an die Zentraldienste unter Einhaltung der Werte Professionalität, Transparenz und Zusammenarbeit sicher, die den SUPSI auszeichnen.\n\n## Hauptabfertigung\n- Management von Verwaltungspraktiken im Zusammenhang mit dem Lebenszyklus des Personals der Abteilung: Einstellungen, Vertragsänderungen, Kündigungen, Zertifikate und Datenaktualisierung.\n- Verwaltung der Verwaltungspraxis im Zusammenhang mit externen Mandaten.\n- Verwaltung von Anwesenheiten, Abwesenheiten und Feiertagen durch dedizierte Systeme, um die Richtigkeit der Daten und ihre korrekte Übermittlung an die Zentraldienste zu gewährleisten.\n- Erstellung und Aktualisierung von Vertrags- und Verwaltungsunterlagen gemäß den SUPSI-Richtlinien und den geltenden Rechtsvorschriften.\n- Beratung und administrative Unterstützung von Mitarbeitern und Führungskräften der Abteilung zu Verträgen, Arbeitszeiten, Genehmigungen, Zulagen und internen Verfahren als Bezugspunkt für die Nähe zum Personal.\n- Unterstützung bei Rekrutierungs- und Auswahlprozessen in Zusammenarbeit mit Vorgesetzten und dem Central Human Resource Service: Veröffentlichung von Ankündigungen, Anwendungsmanagement, Vorladungen und Kommunikation.\n- Zusammenarbeit mit Serviceprojekten im Bereich Digitalisierung, kontinuierliche Verbesserung von Prozessen und Qualitätssicherungssystemen.\n\n## Anforderungen\n- AFC mit beruflicher Reife oder akademischer Qualifikation SUP (mindestens Bachelor).\n- Federal Professional Certificate of Human Resources Specialist.\n- Mindestens 4 Jahre Erfahrung in der Funktion.\n- Angewandte und operative Kenntnisse des Schweizer Arbeitsrechts und der Sozialversicherung.\n- Italienische Muttersprache oder Niveau C1; Englisch B1; idealerweise eine andere Landessprache.\n- Gute IT-Kenntnisse (Office-Paket) und Management-Programme in Human Resources (Abacus, Microsoft Dynamics).\n- Genauigkeit, Verantwortungsbewusstsein, Organisations- und Planungsfähigkeiten, ausgezeichnete Beziehungsfähigkeiten, Einstellung zur Gruppenarbeit und absolute Diskretion.\n\n## Was wir anbieten\nEine qualifizierte und autonome Rolle innerhalb eines engagierten Teams, in einem institutionellen Kontext, der auf die Qualität und kontinuierliche Verbesserung von Prozessen achtet. Die Position ist in Fascia 3 des SUPSI Collective Contract (CCLSUPSI).\n\n## Antragstellung\nNur Anträge, die innerhalb des\n\n## 15. Oktober 2026\ndurch das Antragsformular. Unvollständige Anträge, die an andere Adressen oder über die vereinbarte Frist hinaus gesendet werden, werden nicht berücksichtigt.\nZum Zeitpunkt der Online-Bewerbung ist die Zusendung von Präsentationsschreiben / Motivation, Lebenslauf, Diplome, Zertifikate und Arbeitsbescheinigungen erforderlich. Zusätzliche Unterlagen (gerichtliches Fallbuch, Kopie eines Ausweisdokuments) können später angefordert werden.\nZusätzliche Jobinformationen können erforderlich sein\nChiara Venzo\n, Leiter des Bereichs Personalverwaltung.\n\n## Unser Engagement\nSUPSI glaubt, dass die Zukunft aus der Aufwertung verschiedener Perspektiven, einzigartiger Erfahrungen und einer fairen, integrativen und respektvollen Kultur der Vielfalt resultiert.",
-        "fr": "# Généraliste Ressources humaines\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI) met en concurrence la position de\nau\n\n## Département des technologies innovatrices (DTI) / Bureau des ressources humaines\nbasé à Lugano. Degré d'emploi 100 %, indéfiniment. Entrée en vigueur: à partir de l'instant ou de la date à convenir.\n\n## Expérience professionnelle\nLe Service des ressources humaines du SUPSI fonctionne dans une organisation matricielle : le Service des ressources humaines du Ministère est le point de référence en matière de ressources humaines pour le personnel et les gestionnaires, auxquels il fournit des conseils et un soutien administratif, et collabore avec les Services centraux pour assurer la cohérence, la qualité et la conformité tout au long de la vie du personnel.\nAu sein du Bureau des ressources humaines du Département de l ' information, la personne choisie gère de manière indépendante les pratiques administratives du personnel du Département, répond aux demandes du personnel et des responsables et veille à la collecte, à la vérification et à la transmission correctes des données aux services centraux, conformément aux valeurs de professionnalisme, de transparence et de collaboration qui caractérisent le SUPSI.\n\n## Manipulation principale\n- Gestion des pratiques administratives liées au cycle de vie du personnel du Département : recrutements, variations contractuelles, licenciements, certificats et mise à jour des données.\n- Gestion des pratiques administratives relatives aux mandats externes.\n- Gestion des présences, des absences et des vacances par le biais de systèmes dédiés, assurant l'exactitude des données et leur transmission correcte aux Services centraux.\n- Préparation et mise à jour de la documentation contractuelle et administrative, conformément aux directives SUPSI et à la législation en vigueur.\n- Conseiller et appui administratif au personnel et aux directeurs du Département en matière de contrats, d ' heures de travail, de permis, d ' indemnités et de procédures internes, comme point de référence de la proximité avec les ressources humaines.\n- Appui aux processus de recrutement et de sélection en collaboration avec les gestionnaires hiérarchiques et le Service central des ressources humaines : publication des annonces, gestion des demandes, convocations et communications.\n- Collaboration avec les projets du Service dans le domaine de la numérisation, de l'amélioration continue des processus et des systèmes d'assurance de la qualité.\n\n## Exigences\n- AFC avec maturité professionnelle ou qualification universitaire SUP (bachelier minimum).\n- Certificat professionnel fédéral de spécialiste des ressources humaines.\n- Au moins 4 ans d'expérience en fonction.\n- Connaissance appliquée et opérationnelle du droit du travail et de l'assurance sociale suisse.\n- Langue ou niveau d'origine italienne C1; anglais B1; idéalement une autre langue nationale.\n- Bonnes compétences en TI (paquet bureau) et programmes de gestion en ressources humaines (Abacus, Microsoft Dynamics).\n- Exactitude, sens des responsabilités, aptitudes organisationnelles et de planification, excellentes compétences relationnelles, attitude envers le travail de groupe et discrétion absolue.\n\n## Ce que nous offrons\nUn rôle qualifié et autonome au sein d'une équipe dédiée, dans un contexte institutionnel attentif à la qualité et à l'amélioration continue des processus. Le poste est à Fascia 3 du contrat collectif SUPSI (CCLSUPSI).\n\n## Demande\nSeules les demandes présentées dans le cadre de\n\n## 15 octobre 2026\npar le formulaire de demande. Les demandes incomplètes, envoyées à d'autres adresses ou au-delà de la date limite convenue, ne seront pas prises en considération.\nAu moment de la demande en ligne, il faut envoyer une lettre de présentation/motivation, un curriculum vitae, des diplômes, des certificats et des certificats d'emploi. Des documents supplémentaires (dossier judiciaire, copie d'un document d'identité) peuvent être demandés ultérieurement.\nDes informations supplémentaires sur l'emploi peuvent être requises\nChiara Venzo\n, Chef du Secteur de la gestion du personnel.\n\n## Notre engagement\nSUPSI estime que l'avenir découle de la valorisation de différentes perspectives, d'expériences uniques et d'une culture de diversité équitable, inclusive et respectueuse."
-      },
-      "slugByLocale": {
-        "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalista-risorse-umane-supsi-dti-lugano",
-        "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generalista-risorse-umane-supsi-dti-lugano"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).",
-          "Attestato Professionale Federale (APF) di Specialista in risorse umane.",
-          "Minimo 4 anni di esperienza nella funzione.",
-          "Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.",
-          "Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.",
-          "Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).",
-          "Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione."
-        ],
-        "en": [
-          "AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).",
-          "Attestato Professionale Federale (APF) di Specialista in risorse umane.",
-          "Minimo 4 anni di esperienza nella funzione.",
-          "Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.",
-          "Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.",
-          "Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).",
-          "Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione."
-        ],
-        "de": [
-          "AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).",
-          "Attestato Professionale Federale (APF) di Specialista in risorse umane.",
-          "Minimo 4 anni di esperienza nella funzione.",
-          "Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.",
-          "Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.",
-          "Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).",
-          "Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione."
-        ],
-        "fr": [
-          "AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).",
-          "Attestato Professionale Federale (APF) di Specialista in risorse umane.",
-          "Minimo 4 anni di esperienza nella funzione.",
-          "Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.",
-          "Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.",
-          "Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).",
-          "Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione."
-        ]
-      },
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "generalista-risorse-umane-supsi-lugano"
-        ],
-        "en": [
-          "generalist-human-resources-supsi-dti-lugano"
-        ],
-        "fr": [
-          "generaliste-ressources-humaines-supsi-dti-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "generalista-risorse-umane-supsi-lugano",
-        "generalist-human-resources-supsi-dti-lugano",
-        "generaliste-ressources-humaines-supsi-dti-lugano"
-      ],
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "6900",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "company-l4u55z",
-      "slug": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
-      "company": "SUPSI / DTI",
-      "title": "Ricercatore Senior in Intelligenza Artificiale Affidabile",
-      "location": "Manno",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "# Ricercatore Senior in Intelligenza Artificiale Affidabile\n\nLa Scuola universitaria professionale della Svizzera Italiana (SUPSI) mette a concorso una posizione come\n\n## Ricercatrice / Ricercatore Senior in Intelligenza Artificiale Affidabile\n, presso l\n\n## ’Istituto Dalle Molle di studi sull’intelligenza artificiale (IDSIA USI-SUPSI)\ndel Dipartimento tecnologie innovative (DTI) con sede Lugano. Grado d’occupazione del 50%. Entrata in servizio 1° gennaio 2027 o data da convenire.\n\n## Mansioni\n- Sviluppare una linea di ricerca indipendente, teorica e applicata, negli ambiti delle probabilità imprecise, dei circuiti probabilistici, dei modelli grafici e della complessità computazionale dei modelli di IA.\n- Collaborare in team di ricerca e sviluppo per l’esecuzione di progetti industriali.\n- Supervisionare o co-supervisionare personale scientifico.\n- Partecipare e/o co-dirigere progetti di ricerca.\n- Contribuire allo sviluppo di proposte per l’acquisizione di finanziamenti.\n- Redigere o co-redigere articoli scientifici e rapporti interni.\n- Presentare il proprio lavoro a conferenze e partner di progetto.\n\n## Requisiti\n- PhD in Informatica, Ingegneria o discipline quantitative.\n- Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.\n- Solide competenze di programmazione in C/C++, Python e R.\n- Eccellente curriculum di pubblicazioni scientifiche.\n- Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.\n- Esperienza nella supervisione di studenti Bachelor, Master e PhD.\n- Ottima conoscenza dell’inglese scritto e parlato.\n\nRequisiti preferenziali\n- Buona conoscenza dell’italiano scritto e parlato.\n- Buone capacità organizzative e autonomia.\n- Capacità di lavorare in team e nel dialogo scientifico.\n- Forte motivazione per il raggiungimento di obiettivi e scadenze.\n- Elevata motivazione alla ricerca e alla pubblicazione.\n- Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio.\n\n## Cosa offriamo\n- Un contratto determinato di due anni, con possibilità di rinnovo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza della/del candidata/o.\n- Ambiente lavorativo internazionale.\n- Partecipazione a conferenze e workshop di alto profilo.\n- Opportunità di sviluppare competenze professionali e scientifiche.\n- Co-supervisione di dottorandi e studenti.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15.10.2026\ntramite il formulario di candidatura dedicato, corredate da:\n- Curriculum vitae con lista delle pubblicazioni e link alla tesi di Dottorato.\n- Lettera di motivazione che includa anche una breve descrizione dell’esperienza (1 pagina).\n- Copia di almeno tre articoli scientifici pubblicati su riviste internazionali o su atti di convegni internazionali inerenti al bando.\n- Lista di tre referenze (con indirizzi e-mail).\n\nPer ulteriori informazioni è possibile rivolgersi a\nProf. Dr. Marco Zaffalon\n. Non saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
-      "requirements": [
-        "PhD in Informatica, Ingegneria o discipline quantitative.",
-        "Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.",
-        "Solide competenze di programmazione in C/C++, Python e R.",
-        "Eccellente curriculum di pubblicazioni scientifiche.",
-        "Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.",
-        "Esperienza nella supervisione di studenti Bachelor, Master e PhD.",
-        "Ottima conoscenza dell’inglese scritto e parlato.",
-        "Requisiti preferenziali",
-        "Buona conoscenza dell’italiano scritto e parlato.",
-        "Buone capacità organizzative e autonomia.",
-        "Capacità di lavorare in team e nel dialogo scientifico.",
-        "Forte motivazione per il raggiungimento di obiettivi e scadenze.",
-        "Elevata motivazione alla ricerca e alla pubblicazione.",
-        "Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio."
-      ],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://www.supsi.ch/bando26_5042",
-      "applyUrl": "https://www.supsi.ch/bando26_5042",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-15T21:46:09.688Z",
-      "firstSeenAt": "2026-09-30T21:26:44.470Z",
-      "titleByLocale": {
-        "it": "Ricercatore Senior in Intelligenza Artificiale Affidabile",
-        "en": "Senior Researcher in Trustworthy Artificial Intelligence",
-        "de": "Senior Researcher für zuverlässige künstliche Intelligenz",
-        "fr": "Chercheur principal en intelligence artificielle fiable"
-      },
-      "descriptionByLocale": {
-        "it": "# Ricercatore Senior in Intelligenza Artificiale Affidabile\n\nLa Scuola universitaria professionale della Svizzera Italiana (SUPSI) mette a concorso una posizione come\n\n## Ricercatrice / Ricercatore Senior in Intelligenza Artificiale Affidabile\n, presso l\n\n## ’Istituto Dalle Molle di studi sull’intelligenza artificiale (IDSIA USI-SUPSI)\ndel Dipartimento tecnologie innovative (DTI) con sede Lugano. Grado d’occupazione del 50%. Entrata in servizio 1° gennaio 2027 o data da convenire.\n\n## Mansioni\n- Sviluppare una linea di ricerca indipendente, teorica e applicata, negli ambiti delle probabilità imprecise, dei circuiti probabilistici, dei modelli grafici e della complessità computazionale dei modelli di IA.\n- Collaborare in team di ricerca e sviluppo per l’esecuzione di progetti industriali.\n- Supervisionare o co-supervisionare personale scientifico.\n- Partecipare e/o co-dirigere progetti di ricerca.\n- Contribuire allo sviluppo di proposte per l’acquisizione di finanziamenti.\n- Redigere o co-redigere articoli scientifici e rapporti interni.\n- Presentare il proprio lavoro a conferenze e partner di progetto.\n\n## Requisiti\n- PhD in Informatica, Ingegneria o discipline quantitative.\n- Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.\n- Solide competenze di programmazione in C/C++, Python e R.\n- Eccellente curriculum di pubblicazioni scientifiche.\n- Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.\n- Esperienza nella supervisione di studenti Bachelor, Master e PhD.\n- Ottima conoscenza dell’inglese scritto e parlato.\n\nRequisiti preferenziali\n- Buona conoscenza dell’italiano scritto e parlato.\n- Buone capacità organizzative e autonomia.\n- Capacità di lavorare in team e nel dialogo scientifico.\n- Forte motivazione per il raggiungimento di obiettivi e scadenze.\n- Elevata motivazione alla ricerca e alla pubblicazione.\n- Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio.\n\n## Cosa offriamo\n- Un contratto determinato di due anni, con possibilità di rinnovo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza della/del candidata/o.\n- Ambiente lavorativo internazionale.\n- Partecipazione a conferenze e workshop di alto profilo.\n- Opportunità di sviluppare competenze professionali e scientifiche.\n- Co-supervisione di dottorandi e studenti.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15.10.2026\ntramite il formulario di candidatura dedicato, corredate da:\n- Curriculum vitae con lista delle pubblicazioni e link alla tesi di Dottorato.\n- Lettera di motivazione che includa anche una breve descrizione dell’esperienza (1 pagina).\n- Copia di almeno tre articoli scientifici pubblicati su riviste internazionali o su atti di convegni internazionali inerenti al bando.\n- Lista di tre referenze (con indirizzi e-mail).\n\nPer ulteriori informazioni è possibile rivolgersi a\nProf. Dr. Marco Zaffalon\n. Non saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
-        "en": "# Senior Researcher in Reliable Artificial Intelligence\n\nThe Professional University School of Italian Switzerland (SUPSI) puts in competition a position as\n\n## Researcher / Senior Researcher in Reliable Artificial Intelligence\n, at l\n\n## ’ Istituto Dalle Molle di studi su AI (IDSIA USI-SUPSI)\nof the Department of Innovative Technologies (DTI) with headquarters Lugano. Employment rate of 50%. Entry into service 1 January 2027 or date to be agreed.\n\n## Shipments\n- Develop an independent, theoretical and applied research line in the fields of imprecise probability, probability circuits, graphic models and computational complexity of IA models.\n- Collaboration in research and development teams for the execution of industrial projects.\n- Supervision or co-supervision scientific personnel.\n- Participate and/or co-direct research projects.\n- To contribute to the development of proposals for the acquisition of funding.\n- Draft or co-redesign scientific articles and internal relations.\n- Present your work at conferences and project partners.\n\n## Requirements\n- PhD in Computer Science, Engineering or Quantitative disciplines.\n- Excellent theoretical preparation in computer science, probability machine learning and IA.\n- Solid programming skills in C/C++, Python and R.\n- Excellent curriculum of scientific publications.\n- Experience acquired funds and participation in projects.\n- Experience in the supervision of Bachelor, Master and PhD students.\n- Excellent knowledge of written and spoken English.\n\nPreferential requirements\n- Good knowledge of Italian written and spoken.\n- Good organizational capacity and autonomy.\n- Ability to work in teams and in scientific dialogue.\n- Strong motivation for achieving goals and deadlines.\n- High motivation for research and publication.\n- Experience in the direction of research groups is an advantage.\n\n## What we offer\n- A contract of two years, with possibility of renewal.\n- Competitive room, in line with Swiss standards and the experience of the candidate/or.\n- International working environment.\n- Participation in high-profile conferences and workshops.\n- Opportunities to develop professional and scientific skills.\n- Co-supervision of PhDs and Students.\n\n## We value diversity\nIn all its activities, SUPSI guarantees an inclusive study and work environment, accessible and respectful of every diversity, with the aim of offering everyone a high quality university education.\n\n## Application\nOnly applications submitted within the\n\n## 15.10.2026\nthrough the application form, accompanied by:\n- Curriculum vitae with list of publications and links to the thesis of PhD.\n- Letter of motivation that also includes a brief description of the experience (1 page).\n- Copy of at least three scientific articles published in international journals or international conventions related to the call.\n- List of three references (with e-mail addresses).\n\nFor further information, please contact:\nProf. Dr. Marco Zaffalon\n. Incomplete applications will not be accepted, sent to different addresses or beyond the agreed deadline. In addition to the documents required for the online application, integration may be necessary with additional documentation, such as the judicial box or a copy of an identity document.",
-        "de": "# Senior Researcher für zuverlässige künstliche Intelligenz\n\nDie Professional University School of Italian Switzerland (SUPSI) stellt im Wettbewerb eine Position als\n\n## Forscher / Senior Researcher in zuverlässiger künstlicher Intelligenz\n, bei l\n\n## ’ Istituto Dalle Molle di studi su AI (IDSIA USI-SUPSI)\nder Abteilung für Innovative Technologien (DTI) mit Sitz in Lugano. Beschäftigungsquote von 50 %. Inbetriebnahme 1. Januar 2027 oder noch zu vereinbarendes Datum.\n\n## Sendungen\n- Entwicklung einer unabhängigen, theoretischen und angewandten Forschungslinie in den Bereichen ungenaue Wahrscheinlichkeit, Wahrscheinlichkeitsschaltungen, grafische Modelle und rechnerische Komplexität von IA-Modellen.\n- Zusammenarbeit in Forschungs- und Entwicklungsteams zur Durchführung von Industrieprojekten.\n- Beaufsichtigung oder Mitaufsicht des wissenschaftlichen Personals.\n- Beteiligen Sie sich an und / oder Co-Direkt-Forschungsprojekten.\n- Beitrag zur Entwicklung von Vorschlägen für den Erwerb von Finanzmitteln.\n- Entwurf oder Mitgestaltung wissenschaftlicher Artikel und interner Beziehungen.\n- Präsentieren Sie Ihre Arbeit auf Konferenzen und Projektpartnern.\n\n## Anforderungen\n- PhD in Informatik, Engineering oder Quantitative Disziplinen.\n- Hervorragende theoretische Vorbereitung in der Informatik, Wahrscheinlichkeit Machine Learning und IA.\n- Solide Programmierkenntnisse in C/C++, Python und R.\n- Ausgezeichneter Lehrplan für wissenschaftliche Publikationen.\n- Erfahrung erworbene Mittel und Teilnahme an Projekten.\n- Erfahrung in der Betreuung von Bachelor-, Master- und Doktoranden.\n- Ausgezeichnete Kenntnisse des geschriebenen und gesprochenen Englisch.\n\nBevorzugte Anforderungen\n- Gute Kenntnisse des Italienischen geschrieben und gesprochen.\n- Gute Organisationsfähigkeit und Autonomie.\n- Fähigkeit, in Teams und im wissenschaftlichen Dialog zu arbeiten.\n- Starke Motivation, Ziele und Fristen zu erreichen.\n- Hohe Motivation für Forschung und Publikation.\n- Erfahrung in Richtung Forschungsgruppen ist von Vorteil.\n\n## Was wir anbieten\n- Ein Vertrag von zwei Jahren, mit der Möglichkeit der Verlängerung.\n- Wettbewerbsraum, im Einklang mit Schweizer Standards und der Erfahrung des Kandidaten / oder.\n- Internationales Arbeitsumfeld.\n- Teilnahme an hochkarätigen Konferenzen und Workshops.\n- Möglichkeiten, berufliche und wissenschaftliche Fähigkeiten zu entwickeln.\n- Co-Supervision von PhDs und Studenten.\n\n## Wir legen Wert auf Vielfalt\nIn all seinen Aktivitäten garantiert SUPSI ein inklusives Studien- und Arbeitsumfeld, zugänglich und respektvoll gegenüber jeder Vielfalt, mit dem Ziel, jedem eine qualitativ hochwertige Hochschulausbildung zu bieten.\n\n## Antragstellung\nNur Anträge, die innerhalb des\n\n## 15.10.2026\ndurch das Antragsformular zusammen mit:\n- Lebenslauf mit Publikationsliste und Links zur Doktorarbeit.\n- Motivationsschreiben, das auch eine kurze Beschreibung der Erfahrung (1 Seite) enthält.\n- Kopie von mindestens drei wissenschaftlichen Artikeln, die in internationalen Fachzeitschriften oder internationalen Übereinkommen im Zusammenhang mit dem Aufruf veröffentlicht wurden.\n- Liste von drei Referenzen (mit E-Mail-Adressen).\n\nFür weitere Informationen kontaktieren Sie bitte:\nProf. Dr. Marco Zaffalon\nUnvollständige Anträge werden nicht angenommen, an verschiedene Adressen oder über die vereinbarte Frist hinaus gesendet. Zusätzlich zu den für die Online-Bewerbung erforderlichen Dokumenten kann eine Integration mit zusätzlichen Unterlagen wie der Gerichtsbox oder einer Kopie eines Ausweises erforderlich sein.",
-        "fr": "# Chercheur principal en intelligence artificielle fiable\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI) met en compétition un poste comme\n\n## Chercheur / Chercheur principal en intelligence artificielle fiable\n, à l\n\n## Istituto Dalle Molle di studi su AI (IDSIA USI-SUPSI)\ndu Département des technologies innovantes (DTI) avec siège de Lugano. Taux d'emploi de 50 %. Entrée en vigueur 1er janvier 2027 ou date à convenir.\n\n## Expéditions\n- Développer une ligne de recherche indépendante, théorique et appliquée dans les domaines de la probabilité imprécise, des circuits de probabilité, des modèles graphiques et de la complexité informatique des modèles IA.\n- Collaboration en équipes de recherche et développement pour la réalisation de projets industriels.\n- Supervision ou co-surveillance du personnel scientifique.\n- Participer ou codiriger des projets de recherche.\n- Contribuer à l'élaboration de propositions d'acquisition de financement.\n- Projet ou co-conception d'articles scientifiques et de relations internes.\n- Présentez votre travail lors de conférences et de projets partenaires.\n\n## Exigences\n- Doctorat en informatique, génie ou disciplines quantitatives.\n- Excellente préparation théorique en informatique, apprentissage par machine de probabilité et IA.\n- Compétences de programmation solides en C/C++, Python et R.\n- Excellent programme de publications scientifiques.\n- Expérience acquise et participation à des projets.\n- Expérience dans la supervision des étudiants de baccalauréat, de maîtrise et de doctorat.\n- Excellente connaissance de l'anglais écrit et parlé.\n\nExigences préférentielles\n- Bonne connaissance de l'italien écrite et parlée.\n- Bonne capacité organisationnelle et autonomie.\n- Capacité de travailler en équipe et dans le dialogue scientifique.\n- Une forte motivation pour atteindre les objectifs et les échéances.\n- Une forte motivation pour la recherche et la publication.\n- L'expérience dans la direction des groupes de recherche est un avantage.\n\n## Ce que nous offrons\n- Un contrat de deux ans, avec possibilité de renouvellement.\n- Salle compétitive, conforme aux normes suisses et à l'expérience du candidat/ou candidat.\n- Environnement de travail international.\n- Participation à des conférences et ateliers de haut niveau.\n- Possibilités de développer des compétences professionnelles et scientifiques.\n- Co-supervision des doctorats et des étudiants.\n\n## Nous apprécions la diversité\nDans toutes ses activités, SUPSI garantit un environnement d'étude et de travail inclusif, accessible et respectueux de toute diversité, dans le but d'offrir à chacun une éducation universitaire de haute qualité.\n\n## Demande\nSeules les demandes présentées dans le cadre de\n\n## 15.10.2026\nau moyen du formulaire de demande, accompagné:\n- Curriculum vitae avec liste de publications et liens vers la thèse de doctorat.\n- Lettre de motivation qui comprend également une brève description de l'expérience (1 page).\n- Copie d'au moins trois articles scientifiques publiés dans des revues internationales ou des conventions internationales liées à l'appel.\n- Liste de trois références (avec adresses électroniques).\n\nPour de plus amples informations, veuillez contacter:\nProfesseur Dr Marco Zaffalon\n. Les demandes incomplètes ne seront pas acceptées, envoyées à différentes adresses ou au-delà de la date limite convenue. En plus des documents requis pour la demande en ligne, l'intégration peut être nécessaire avec des documents supplémentaires, tels que la boîte judiciaire ou une copie d'un document d'identité."
-      },
-      "slugByLocale": {
-        "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
-        "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
-        "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "PhD in Informatica, Ingegneria o discipline quantitative.",
-          "Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.",
-          "Solide competenze di programmazione in C/C++, Python e R.",
-          "Eccellente curriculum di pubblicazioni scientifiche.",
-          "Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.",
-          "Esperienza nella supervisione di studenti Bachelor, Master e PhD.",
-          "Ottima conoscenza dell’inglese scritto e parlato.",
-          "Requisiti preferenziali",
-          "Buona conoscenza dell’italiano scritto e parlato.",
-          "Buone capacità organizzative e autonomia.",
-          "Capacità di lavorare in team e nel dialogo scientifico.",
-          "Forte motivazione per il raggiungimento di obiettivi e scadenze.",
-          "Elevata motivazione alla ricerca e alla pubblicazione.",
-          "Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio."
-        ],
-        "en": [
-          "Essential",
-          "PhD in Computer Science, Engineering, Informatics, or other quantitative fields.",
-          "Excellent theoretical background in computer science and probabilistic machine learning and AI, including probabilistic graphical models and imprecise probability.",
-          "Strong programming skills in C/C++, python, R.",
-          "Strong publication record of scientific papers in highly respectable venues in machine learning and AI.",
-          "Substantial track-record of grant acquisition and project participation.",
-          "Prior supervision of bachelor, master, and PhD candidates until successful completion.",
-          "Proficiency in written and spoken English.",
-          "Desirable",
-          "Good working knowledge of written and spoken Italian.",
-          "Good organizational skills, ability to work independently and to plan and direct own work.",
-          "Ability to work in a team and with colleagues and other members of the Institute, engage in scientific dialogue.",
-          "Strong motivation and commitment to fulfill research activities, milestones, and deadlines.",
-          "High motivation and commitment with a strong desire for research and publishing at top conferences and journals.",
-          "Past leadership of a research group is a plus."
-        ],
-        "de": [
-          "PhD in Informatica, Ingegneria o discipline quantitative.",
-          "Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.",
-          "Solide competenze di programmazione in C/C++, Python e R.",
-          "Eccellente curriculum di pubblicazioni scientifiche.",
-          "Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.",
-          "Esperienza nella supervisione di studenti Bachelor, Master e PhD.",
-          "Ottima conoscenza dell’inglese scritto e parlato.",
-          "Requisiti preferenziali",
-          "Buona conoscenza dell’italiano scritto e parlato.",
-          "Buone capacità organizzative e autonomia.",
-          "Capacità di lavorare in team e nel dialogo scientifico.",
-          "Forte motivazione per il raggiungimento di obiettivi e scadenze.",
-          "Elevata motivazione alla ricerca e alla pubblicazione.",
-          "Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio."
-        ],
-        "fr": [
-          "PhD in Informatica, Ingegneria o discipline quantitative.",
-          "Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.",
-          "Solide competenze di programmazione in C/C++, Python e R.",
-          "Eccellente curriculum di pubblicazioni scientifiche.",
-          "Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.",
-          "Esperienza nella supervisione di studenti Bachelor, Master e PhD.",
-          "Ottima conoscenza dell’inglese scritto e parlato.",
-          "Requisiti preferenziali",
-          "Buona conoscenza dell’italiano scritto e parlato.",
-          "Buone capacità organizzative e autonomia.",
-          "Capacità di lavorare in team e nel dialogo scientifico.",
-          "Forte motivazione per il raggiungimento di obiettivi e scadenze.",
-          "Elevata motivazione alla ricerca e alla pubblicazione.",
-          "Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio."
-        ]
-      },
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
-        ],
-        "fr": [
-          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
-        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
-      ],
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawlerMissStreak": 2
     }
   ]
 }

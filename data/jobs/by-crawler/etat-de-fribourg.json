@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-fribourg",
-  "assembledAt": "2026-10-16T21:37:43.213Z",
+  "assembledAt": "2026-10-17T09:29:08.630Z",
   "jobs": [
     {
       "id": "etat-de-fribourg-31b340ef05b5",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Nachtwache-Hundef%C3%BChrerin-See/1367386657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:30.406Z",
+      "crawledAt": "2026-10-17T09:27:56.164Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-Garde-de-nuit-Conducteur-trice-de-chiens-Lac/1367386557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:29.551Z",
+      "crawledAt": "2026-10-17T09:27:56.820Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Sari/1362499557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:28.550Z",
+      "crawledAt": "2026-10-17T09:27:55.505Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Saan/1362499657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:27.708Z",
+      "crawledAt": "2026-10-17T09:27:54.843Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -375,7 +375,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Employ%C3%A9-e-technique-qualifi%C3%A9-e-Sari/1372853357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:26.729Z",
+      "crawledAt": "2026-10-17T09:28:57.996Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -459,7 +459,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Qualifizierter-technischer-Angestellter-Saan/1372853457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:25.886Z",
+      "crawledAt": "2026-10-17T09:28:57.334Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -595,7 +595,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-8822ad3f1279",
@@ -678,7 +679,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-5110c2ce77ab",
@@ -711,7 +713,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wirtschaftswissenschaftlerin-Saan/1372971257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:23.304Z",
+      "crawledAt": "2026-10-17T09:28:56.686Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -766,9 +768,9 @@
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economiste-etat-de-fribourg",
+      "slug": "economista-etat-de-fribourg-fribourg-78c340",
       "slugByLocale": {
-        "it": "economiste-etat-de-fribourg",
+        "it": "economista-etat-de-fribourg-fribourg-78c340",
         "en": "economist-etat-de-fribourg-fribourg",
         "de": "okonom-etat-de-fribourg-fribourg",
         "fr": "economiste-etat-de-fribourg-ch"
@@ -795,7 +797,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Economiste-Sari/1372971157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:22.431Z",
+      "crawledAt": "2026-10-17T09:28:56.028Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -821,14 +823,14 @@
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
         "economista-etat-de-fribourg-fribourg",
-        "economista-etat-de-fribourg-fribourg-78c340"
+        "economiste-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
           "economista-etat-de-fribourg-fribourg",
-          "economista-etat-de-fribourg-fribourg-78c340"
+          "economiste-etat-de-fribourg"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"
@@ -936,7 +938,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-b91b44420257",
@@ -1020,7 +1023,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-1a4dae371c6f",
@@ -1053,7 +1057,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vice-pr%C3%A9sident-e-de-la-Commission-de-recours-en-mati%C3%A8re-de-premier-relev%C3%A9-et-de-renouvellement-Sari/1372957757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:19.920Z",
+      "crawledAt": "2026-10-17T09:28:55.380Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1134,7 +1138,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vizepr%C3%A4sidentin-der-Rekurskommission-f%C3%BCr-die-Ersterhebung-und-Erneuerung-Saan/1372957657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:19.065Z",
+      "crawledAt": "2026-10-17T09:28:54.728Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1217,7 +1221,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Apprenti-e-informaticien-ne-CFC-Exploitation-et-infrastructure-Sari/1370312057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:18.233Z",
+      "crawledAt": "2026-10-17T09:28:54.074Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -1333,7 +1337,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-employ%C3%A9-e-de-commerce-AFP-CFC-Sari/1370294757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:17.400Z",
+      "crawledAt": "2026-10-17T09:28:53.421Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1445,7 +1449,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lernende-KauffrauKaufmann-EBA-EFZ-Saan/1370294857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:16.560Z",
+      "crawledAt": "2026-10-17T09:28:52.776Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1535,7 +1539,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungsassistentin%2C-zweisprachig-Studiensekretariat-Saan/1370531757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:15.577Z",
+      "crawledAt": "2026-10-17T09:28:52.133Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1643,7 +1647,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistant-e-administratif-ve-bilingue-Service-acad%C3%A9mique-Sari/1370531657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:14.684Z",
+      "crawledAt": "2026-10-17T09:28:51.469Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1759,7 +1763,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-informaticien-ne-CFC-Sari/1370550257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:13.833Z",
+      "crawledAt": "2026-10-17T09:28:50.820Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1927,7 +1931,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-4055dc4f93fe",
@@ -2015,7 +2020,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-706d320b5c8a",
@@ -2048,7 +2054,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-Sari/1373433557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:11.317Z",
+      "crawledAt": "2026-10-17T09:28:50.170Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2134,7 +2140,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1373433657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:10.472Z",
+      "crawledAt": "2026-10-17T09:28:49.516Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2224,7 +2230,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Architecte-de-domaine-Justice-et-S%C3%A9curit%C3%A9-%28ICT-Architect%29-Sari/1373483057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:09.633Z",
+      "crawledAt": "2026-10-17T09:28:48.869Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2302,7 +2308,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Abteilungsleiterin-Werkst%C3%A4tten-und-Bauten-See/1373421357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:08.797Z",
+      "crawledAt": "2026-10-17T09:28:48.222Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -2387,7 +2393,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Chef-fe-de-la-Division-Ateliers-et-construction-Lac/1373421257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:07.948Z",
+      "crawledAt": "2026-10-17T09:28:47.562Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -2470,7 +2476,7 @@
       "url": "https://jobs.fr.ch/job/B%C3%B6singen%2C-CH-Schulsozialarbeiterin-PS-B%C3%B6singen-Saan/1373407757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:07.109Z",
+      "crawledAt": "2026-10-17T09:28:46.894Z",
       "addressLocality": "Bösingen",
       "postalCode": "3178",
       "addressCountry": "CH",
@@ -2553,7 +2559,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspektorin-der-Arbeitsmarkt%C3%BCberwachung-Saan/1373601057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:06.264Z",
+      "crawledAt": "2026-10-17T09:28:46.233Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2637,7 +2643,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspecteur-trice-de-la-surveillance-du-march%C3%A9-du-travail-Sari/1373600957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:05.424Z",
+      "crawledAt": "2026-10-17T09:28:45.583Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2721,7 +2727,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Employ%C3%A9-e-d'administration-Sari/1373595957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:04.581Z",
+      "crawledAt": "2026-10-17T09:28:44.933Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2845,7 +2851,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Chauffeur-e-cantonnier-%C3%A8re-SIERA-Granges-Paccot-Sari/1373604157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:03.729Z",
+      "crawledAt": "2026-10-17T09:28:44.275Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -2925,7 +2931,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lecteur-trice-domaine-sciences-de-l'%C3%A9ducation-Sari/1373596957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:02.854Z",
+      "crawledAt": "2026-10-17T09:28:43.617Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2985,7 +2991,7 @@
         "it": "tecnico-di-laboratorio-etat-de-fribourg-givisiez",
         "en": "specialist-laboratory-technician-etat-de-fribourg-givisiez",
         "de": "fachlaborant-in-etat-de-fribourg-ch",
-        "fr": "fachlaborant-in-etat-de-fribourg-givisiez"
+        "fr": "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -3009,7 +3015,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Fachlaborantin-Saan/1373605757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:02.016Z",
+      "crawledAt": "2026-10-17T09:28:42.957Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -3033,7 +3039,7 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "fachlaborant-in-etat-de-fribourg-ch",
-        "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
+        "fachlaborant-in-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3043,7 +3049,7 @@
           "fachlaborant-in-etat-de-fribourg-ch"
         ],
         "fr": [
-          "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
+          "fachlaborant-in-etat-de-fribourg-givisiez"
         ]
       },
       "firstSeenAt": "2026-10-03T09:26:31.698Z",
@@ -3093,7 +3099,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Laborantin-e-sp%C3%A9cialis%C3%A9-e-Sari/1373605657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:37:01.018Z",
+      "crawledAt": "2026-10-17T09:28:42.307Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -3176,7 +3182,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1373581257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:37:00.167Z",
+      "crawledAt": "2026-10-17T09:28:41.653Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3201,13 +3207,15 @@
       "previousSlugs": [
         "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
         "wissenschaftl-collaboratore-trice-etat-de-fribourg",
-        "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246"
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246",
+        "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
           "wissenschaftl-collaboratore-trice-etat-de-fribourg",
-          "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246"
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246",
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
         ],
         "en": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
@@ -3264,7 +3272,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-Sari/1373581157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:59.326Z",
+      "crawledAt": "2026-10-17T09:28:40.991Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3287,11 +3295,13 @@
       "pensumMax": 60,
       "pensum": "50-60%",
       "previousSlugs": [
-        "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
         ],
         "en": [
           "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
@@ -3348,7 +3358,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Kommunikationsverantwortlicher-Saan/1373583157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:58.480Z",
+      "crawledAt": "2026-10-17T09:28:40.337Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1730",
       "addressCountry": "CH",
@@ -3425,7 +3435,7 @@
       "description": "Qui sommes-nous?\n\nGrangeneuve, centre de compétences pluridisciplinaire, s’engage avec passion dans la formation professionnelle, l’expertise, le conseil et les services pour les métiers de la terre, de la nature, du lait, de l’agroalimentaire et de l’hôtellerie-intendance. Ses activités sont conduites par plus de 280 collaborateur-trice-s évoluant dans un environnement bilingue, où l’excellence, le respect, la collaboration et l’innovation sont encouragés, dans un esprit de valorisation et de transmission du patrimoine.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Soutenir et conseiller la Direction sur les différents dossiers en matière de stratégie de communication et marketing\n\n• Rédiger et coordonner le rapport annuel, le rapport d’activités du Conseil d’Etat et les rapports pour la commission consultative\n\n• Assurer la gestion du site Internet et des réseaux sociaux pour la Direction\n\n• Assister et conseiller les responsables et collaborateurs-trices dans le domaine de la communication interne et externe spécialisée\n\n• Assurer les relations avec la presse et les médias en général\n\nProfil souhaité\n\n• Master en lien avec le domaine d’activité (lettres, sciences politiques, communication, …) ou formation jugée équivalente\n\n• Formation postgrade utile à la fonction (rédacteur RP,…)\n\n• Plusieurs années d'expérience professionnelle\n\n• Connaissance des domaines d’activités de Grangeneuve, un atout\n\n• Maîtrise des nouveaux médias et des médias sociaux\n\n• Parfaite maîtrise de la langue française avec de très bonnes connaissances de la langue allemande (B2-C1)\n\nCoordonnées des personnes de contact\n\nPascal Toffel, Directeur, T +41 26 305 55 05",
       "descriptionByLocale": {
         "it": "Chi siamo?\n\nGrangeneuve, centro di competenza multidisciplinare, si dedica con passione alla formazione professionale, alle competenze, ai consigli e ai servizi per le professioni di terra, natura, latte, agroalimentare e ospitalità. Le sue attività sono guidate da più di 280 collaboratori che lavorano in un ambiente bilingue, dove l'eccellenza, il rispetto, la collaborazione e l'innovazione sono incoraggiati, in uno spirito di valorizzazione e trasmissione del patrimonio.\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarietà delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\n• Sostegno e consulenza alla Direzione per le questioni di strategia di comunicazione e di marketing\n\n• Progetto e coordinamento della relazione annuale, della relazione sulle attività del Consiglio di Stato e delle relazioni della Commissione consultiva\n\n• Gestione del sito e dei social network per la Direzione\n\n• Assistere e consigliare manager e collaboratori nel campo della comunicazione interna ed esterna specializzata\n\n• Assicurare le relazioni con la stampa e i media in generale\n\nProfilo desiderato\n\n• Laurea magistrale nel campo dell'attività (lettere, scienze politiche, comunicazione, ecc.) o formazione considerata equivalente\n\n• Allenamento post-grado utile alla funzione (editor R,...)\n\n• Diversi anni di esperienza professionale\n\n• Conoscenza delle aree di business di Grangeneuve, un bene\n\n• Masterizzazione di nuovi media e social media\n\n• Comando perfetto della lingua francese con una buona conoscenza della lingua tedesca (B2-C1)\n\nInformazioni di contatto\n\nPascal Tofel, Direttore, T +41 26 305 55 05",
-        "en": "Who are we?\n\nGrangeneuve, a multidisciplinary competence centre, is passionately committed to vocational training, expertise, advice and services for the professions of land, nature, milk, agri-food and hotel and stewardship. Its activities are led by more than 280 collaborators working in a bilingual environment, where excellence, respect, collaboration and innovation are encouraged, in a spirit of valuing and transmitting heritage.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• Support and advise the Directorate on communications and marketing strategy issues\n\n• Draft and coordinate the annual report, the report on the activities of the Council of State and the reports for the Consultative Commission\n\n• Managing the website and social networks for the Directorate\n\n• Assist and advise managers and collaborators in the field of specialized internal and external communication\n\n• Ensuring relations with the press and the media in general\n\nProfile desired\n\n• Master in relation to the field of activity (letters, political sciences, communication, etc.) or training deemed equivalent\n\n• Post-grade training useful to the function (RP editor,...)\n\n• Several years of professional experience\n\n• Knowledge of Grangeneuve's business areas, an asset\n\n• Mastery of new media and social media\n\n• Perfect command of the French language with very good knowledge of the German language (B2-C1)\n\nContact details\n\nPascal Toffel, Director, T +41 26 305 55 05",
+        "en": "Who are we?\n\nGrangeneuve, a multidisciplinary competence centre, is passionately committed to vocational training, expertise, advice and services for the professions of land, nature, milk, agri-food and hotel and stewardship. Its activities are led by more than 280 collaborators working in a bilingual environment, where excellence, respect, collaboration and innovation are encouraged, in a spirit of valuing and transmitting heritage.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• Support and advise the Directorate on communications and marketing strategy issues\n\n• Draft and coordinate the annual report, the report on the activities of the Council of State and the reports for the Consultative Commission\n\n• Managing the website and social networks for the Directorate\n\n• Assist and advise managers and collaborators in the field of specialized internal and external communication\n\n• Ensuring relations with the press and the media in general\n\nProfile desired\n\n• Master in relation to the field of activity (letters, political sciences, communication, etc.) or training deemed equivalent\n\n• Post-grade training useful to the",
         "de": "Wer sind wir?\n\nGrangeneuve, ein multidisziplinäres Kompetenzzentrum, engagiert sich leidenschaftlich für berufliche Bildung, Expertise, Beratung und Dienstleistungen für die Berufe Land, Natur, Milch, Agrarlebensmittel und Gastfreundschaft. Die Aktivitäten werden von mehr als 280 Mitarbeitern geleitet, die in einem zweisprachigen Umfeld arbeiten, in dem Exzellenz, Respekt, Zusammenarbeit und Innovation im Geiste der Wertschätzung und Weitergabe von Erbe gefördert werden.\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Staat Freiburg zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Unterstützung und Beratung der Direktion in Fragen der Kommunikation und Marketingstrategie\n\n• Ausarbeitung und Koordinierung des Jahresberichts, des Berichts über die Tätigkeit des Staatsrates und der Berichte für die Beratende Kommission\n\n• Verwaltung der Website und der sozialen Netzwerke für die Direktion\n\n• Unterstützung und Beratung von Führungskräften und Mitarbeitern im Bereich der spezialisierten internen und externen Kommunikation\n\n• Gewährleistung der Beziehungen zu Presse und Medien im Allgemeinen\n\nProfil gewünscht\n\n• Master-Abschluss im Tätigkeitsbereich (Briefe, Politikwissenschaften, Kommunikation usw.) oder gleichwertige Ausbildung\n\n• Postgrad-Training nützlich für die Funktion (RP-Editor, ...)\n\n• Mehrjährige Berufserfahrung\n\n• Kenntnis der Geschäftsbereiche von Grangeneuve, ein Asset\n\n• Beherrschung neuer Medien und sozialer Medien\n\n• Perfekte Beherrschung der französischen Sprache mit sehr guten Kenntnissen der deutschen Sprache (B2-C1)\n\nKontaktangaben\n\nPascal Tofel, Direktor, T +41 26 305 55 05",
         "fr": "Qui sommes-nous?\n\nGrangeneuve, centre de compétences pluridisciplinaire, s’engage avec passion dans la formation professionnelle, l’expertise, le conseil et les services pour les métiers de la terre, de la nature, du lait, de l’agroalimentaire et de l’hôtellerie-intendance. Ses activités sont conduites par plus de 280 collaborateur-trice-s évoluant dans un environnement bilingue, où l’excellence, le respect, la collaboration et l’innovation sont encouragés, dans un esprit de valorisation et de transmission du patrimoine.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Soutenir et conseiller la Direction sur les différents dossiers en matière de stratégie de communication et marketing\n\n• Rédiger et coordonner le rapport annuel, le rapport d’activités du Conseil d’Etat et les rapports pour la commission consultative\n\n• Assurer la gestion du site Internet et des réseaux sociaux pour la Direction\n\n• Assister et conseiller les responsables et collaborateurs-trices dans le domaine de la communication interne et externe spécialisée\n\n• Assurer les relations avec la presse et les médias en général\n\nProfil souhaité\n\n• Master en lien avec le domaine d’activité (lettres, sciences politiques, communication, …) ou formation jugée équivalente\n\n• Formation postgrade utile à la fonction (rédacteur RP,…)\n\n• Plusieurs années d'expérience professionnelle\n\n• Connaissance des domaines d’activités de Grangeneuve, un atout\n\n• Maîtrise des nouveaux médias et des médias sociaux\n\n• Parfaite maîtrise de la langue française avec de très bonnes connaissances de la langue allemande (B2-C1)\n\nCoordonnées des personnes de contact\n\nPascal Toffel, Directeur, T +41 26 305 55 05"
       },
@@ -3434,7 +3444,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Charg%C3%A9-e-de-communication-Sari/1373583057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:57.506Z",
+      "crawledAt": "2026-10-17T09:28:39.689Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1730",
       "addressCountry": "CH",
@@ -3517,7 +3527,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Academic-Associate-UAS-Mechanochemical-Process-Development-Sari/1373598257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:56.670Z",
+      "crawledAt": "2026-10-17T09:28:39.035Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3598,7 +3608,7 @@
       "url": "https://jobs.fr.ch/job/Kerzers%2C-CH-Schulsozialarbeiterin-PS-und-OS-Kerzers-See/1373602357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:55.828Z",
+      "crawledAt": "2026-10-17T09:28:38.384Z",
       "addressLocality": "Kerzers",
       "postalCode": "3210",
       "addressCountry": "CH",
@@ -3683,7 +3693,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-H%C3%B6herer-Verwaltungssachbearbeiterin-Saan/1373591557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:54.983Z",
+      "crawledAt": "2026-10-17T09:28:37.614Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3767,7 +3777,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-sup%C3%A9rieur-e-Sari/1373591657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:54.151Z",
+      "crawledAt": "2026-10-17T09:28:36.232Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3853,7 +3863,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Aspirant%C2%B7e-de-police-Sari/1370891057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:53.302Z",
+      "crawledAt": "2026-10-17T09:28:35.571Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -3909,7 +3919,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
+        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -3933,7 +3943,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Polizeiaspirant%C2%B7in-Saan/1370891157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:52.468Z",
+      "crawledAt": "2026-10-17T09:28:34.903Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -3956,15 +3966,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch",
-        "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "polizeiaspirant-in-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:20.010Z",
@@ -4014,7 +4020,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspektorin-der-regionalen-Sozialdienste-Saan/1373679257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:51.626Z",
+      "crawledAt": "2026-10-17T09:28:34.251Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4098,7 +4104,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspecteur-trice-des-services-sociaux-r%C3%A9gionaux-Sari/1373679157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:50.765Z",
+      "crawledAt": "2026-10-17T09:28:33.583Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4201,7 +4207,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juristische-r-Post-Master-Praktikant-in-Saan/1373685657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:49.927Z",
+      "crawledAt": "2026-10-17T09:28:32.933Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4285,7 +4291,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-post-master-juriste-Sari/1373685557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:49.087Z",
+      "crawledAt": "2026-10-17T09:28:32.282Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4423,7 +4429,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-9066cf1a7882",
@@ -4511,7 +4518,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-1478f25f9fac",
@@ -4544,7 +4552,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-du-Lac-Lac/1373676657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:46.568Z",
+      "crawledAt": "2026-10-17T09:28:31.629Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -4627,7 +4635,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Friedensrichterin-des-Seebezirks-See/1373676757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:45.274Z",
+      "crawledAt": "2026-10-17T09:28:30.956Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -4710,7 +4718,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-employ%C3%A9-e-de-commerce-Sari/1371037857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:44.535Z",
+      "crawledAt": "2026-10-17T09:28:30.301Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4794,7 +4802,7 @@
       "url": "https://jobs.fr.ch/job/Tafers%2C-CH-Gerichtsschreiberpraktikantin-Sens/1374080057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:43.824Z",
+      "crawledAt": "2026-10-17T09:28:29.651Z",
       "addressLocality": "Tafers",
       "postalCode": "1712",
       "addressCountry": "CH",
@@ -4879,7 +4887,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sozialarbeiterin-Familienexterne-Betreuung-Saan/1374094657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:43.124Z",
+      "crawledAt": "2026-10-17T09:28:28.997Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4965,7 +4973,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-juriste-post-master-Sari/1374088457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:42.424Z",
+      "crawledAt": "2026-10-17T09:28:28.352Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5049,7 +5057,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sozialarbeiterin-familienexterne-Betreuung-Saan/1374086857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:41.727Z",
+      "crawledAt": "2026-10-17T09:28:27.701Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5135,7 +5143,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Diplomassistentin-Saan/1374089257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:41.025Z",
+      "crawledAt": "2026-10-17T09:28:27.043Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5219,7 +5227,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Technischer-Mitarbeiterin-Saan/1374217757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:40.287Z",
+      "crawledAt": "2026-10-17T09:28:26.389Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5303,7 +5311,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-open-rank-Chair-of-Women's-Health-and-Exposome-Sari/1374210557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:39.582Z",
+      "crawledAt": "2026-10-17T09:28:25.733Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5391,7 +5399,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-assistant-e-en-sciences-de-la-communication-&-des-m%C3%A9dias-et-communication-strat%C3%A9gique-Sari/1374206657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:38.884Z",
+      "crawledAt": "2026-10-17T09:28:25.086Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5475,7 +5483,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-technique-Sari/1374217657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:38.181Z",
+      "crawledAt": "2026-10-17T09:28:24.427Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5559,7 +5567,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-open-rank-Chair-of-Women's-Health-and-Exposome-Saan/1374210657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:37.472Z",
+      "crawledAt": "2026-10-17T09:28:23.765Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5641,7 +5649,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-vor-der-HSW-Saan/1374215957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:36.761Z",
+      "crawledAt": "2026-10-17T09:28:23.105Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5725,7 +5733,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1374215857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:36.070Z",
+      "crawledAt": "2026-10-17T09:28:22.429Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5809,7 +5817,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Stellvertretende-r-Kantonschemiker-in-Saan/1374281057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:35.368Z",
+      "crawledAt": "2026-10-17T09:28:21.776Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -5892,7 +5900,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Chimiste-cantonal-e-adjoint-e-Sari/1374281157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:34.670Z",
+      "crawledAt": "2026-10-17T09:28:21.123Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -5977,7 +5985,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Geschlossenes-Regime-See/1374281857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:33.898Z",
+      "crawledAt": "2026-10-17T09:28:20.454Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -6062,7 +6070,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9gime-ferm%C3%A9-SI-Lac/1374281757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:33.205Z",
+      "crawledAt": "2026-10-17T09:28:19.808Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1786",
       "addressCountry": "CH",
@@ -6116,9 +6124,9 @@
     },
     {
       "id": "etat-de-fribourg-058404fa70a6",
-      "slug": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
+      "slug": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
       "slugByLocale": {
-        "it": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
+        "it": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
         "en": "hr-specialist-etat-de-fribourg-hauterive-fr-82b187",
         "de": "hr-spezialist-in-etat-de-fribourg-ch",
         "fr": "specialiste-rh-etat-de-fribourg-hauterive-fr"
@@ -6145,7 +6153,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-HR-Spezialistin-Saan/1374295857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:32.490Z",
+      "crawledAt": "2026-10-17T09:28:19.151Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1730",
       "addressCountry": "CH",
@@ -6169,12 +6177,12 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "hr-spezialist-in-etat-de-fribourg-ch",
-        "specialista-hr-etat-de-fribourg-hauterive-fr-82b187"
+        "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-spezialist-in-etat-de-fribourg-ch",
-          "specialista-hr-etat-de-fribourg-hauterive-fr-82b187"
+          "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "hr-spezialist-in-etat-de-fribourg-ch"
@@ -6230,7 +6238,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Sp%C3%A9cialiste-RH-Sari/1374295757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:31.792Z",
+      "crawledAt": "2026-10-17T09:28:18.489Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1730",
       "addressCountry": "CH",
@@ -6313,7 +6321,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Richterin-beim-Zwangsmassnahmengericht-Saan/1374304357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:31.084Z",
+      "crawledAt": "2026-10-17T09:28:17.838Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6397,7 +6405,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juge-au-Tribunal-des-mesures-de-contrainte-Sari/1374304257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:30.399Z",
+      "crawledAt": "2026-10-17T09:28:17.180Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6481,7 +6489,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-5-apprenti-e-s-laborantin-e-s-CFC-Orientation-Chimie-Sari/1374306457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:29.693Z",
+      "crawledAt": "2026-10-17T09:28:16.515Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6565,7 +6573,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-Front-Office-Saan/1374424157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:28.989Z",
+      "crawledAt": "2026-10-17T09:28:15.867Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6620,9 +6628,9 @@
     },
     {
       "id": "etat-de-fribourg-ebabd01b2f7a",
-      "slug": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg",
+        "it": "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg",
         "en": "administrative-collaborator-ve-front-office-etat-de-fribourg-fribourg",
         "de": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
         "fr": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch"
@@ -6649,7 +6657,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Front-Office-Sari/1374424057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:28.293Z",
+      "crawledAt": "2026-10-17T09:28:15.221Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6673,12 +6681,12 @@
       "pensum": "80-90%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
-        "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg"
+        "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
-          "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg"
+          "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch"
@@ -6732,7 +6740,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Employ%C3%A9-e-d'administration-Sari/1374412757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:27.601Z",
+      "crawledAt": "2026-10-17T09:28:14.562Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6857,7 +6865,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Zellengeb%C3%A4ude-im-Zentralgef%C3%A4ngnis-See/1374403957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:26.892Z",
+      "crawledAt": "2026-10-17T09:28:13.893Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6943,7 +6951,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Agent-e-de-d%C3%A9tention-Cellulaire-Lac/1374403857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:26.186Z",
+      "crawledAt": "2026-10-17T09:28:13.247Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7027,7 +7035,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-post-universitaire-pour-le-domaine-promotion-enfance-jeunesse%2C-projet-FriTime-Sari/1374404957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:25.489Z",
+      "crawledAt": "2026-10-17T09:28:12.590Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7111,7 +7119,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungsassistentin-Finanzen%2C-Qualit%C3%A4t-und-Infrastruktur-Saan/1371855257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:24.799Z",
+      "crawledAt": "2026-10-17T09:28:11.937Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7197,7 +7205,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistant-e-administratif-ve-Finances%2C-Qualit%C3%A9-et-Infrastructures-Sari/1371855157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:24.102Z",
+      "crawledAt": "2026-10-17T09:28:11.272Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7252,12 +7260,12 @@
     },
     {
       "id": "etat-de-fribourg-c5c29e429f81",
-      "slug": "leiter-in-der-abteilung-erwerbung-etat-de-fribourg",
+      "slug": "capo-del-dipartimento-acquisizione-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "leiter-in-der-abteilung-erwerbung-etat-de-fribourg",
-        "en": "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch",
+        "it": "capo-del-dipartimento-acquisizione-etat-de-fribourg-fribourg",
+        "en": "head-of-department-acquisition-etat-de-fribourg-fribourg",
         "de": "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch",
-        "fr": "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch"
+        "fr": "chef-de-departement-acquisition-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7281,7 +7289,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Leiter-in-der-Abteilung-Erwerbung-Saan/1374669757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:23.395Z",
+      "crawledAt": "2026-10-17T09:28:10.610Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7304,10 +7312,18 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch"
+        "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch",
+        "leiter-in-der-abteilung-erwerbung-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch",
+          "leiter-in-der-abteilung-erwerbung-etat-de-fribourg"
+        ],
+        "en": [
+          "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "leiter-in-der-abteilung-erwerbung-etat-de-fribourg-ch"
         ]
       },
@@ -7359,7 +7375,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-du-secteur-Acquisitions-Sari/1374669657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:22.696Z",
+      "crawledAt": "2026-10-17T09:28:09.946Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7381,7 +7397,9 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "firstSeenAt": "2026-10-16T09:37:01.845Z",
+      "previousSlugs": [
+        "chef-fe-du-secteur-acquisitions-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-du-secteur-acquisitions-etat-de-fribourg-ch"
@@ -7393,9 +7411,7 @@
           "chef-fe-du-secteur-acquisitions-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "chef-fe-du-secteur-acquisitions-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:37:01.845Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -7443,7 +7459,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Kulturvermittler-in-Saan/1374670057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:21.999Z",
+      "crawledAt": "2026-10-17T09:28:09.295Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7465,7 +7481,9 @@
       "pensumMin": 40,
       "pensumMax": 50,
       "pensum": "40-50%",
-      "firstSeenAt": "2026-10-16T09:37:01.189Z",
+      "previousSlugs": [
+        "kulturvermittler-in-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kulturvermittler-in-etat-de-fribourg-ch"
@@ -7477,9 +7495,7 @@
           "kulturvermittler-in-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "kulturvermittler-in-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:37:01.189Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7527,7 +7543,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Forestier-%C3%A8re-en-Gruy%C3%A8re-Gruy/1374734457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:21.310Z",
+      "crawledAt": "2026-10-17T09:28:08.644Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -7549,7 +7565,9 @@
       "pensumMin": 75,
       "pensumMax": 80,
       "pensum": "75-80%",
-      "firstSeenAt": "2026-10-16T09:37:00.553Z",
+      "previousSlugs": [
+        "forestier-ere-en-gruyere-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "forestier-ere-en-gruyere-etat-de-fribourg-ch"
@@ -7561,9 +7579,7 @@
           "forestier-ere-en-gruyere-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "forestier-ere-en-gruyere-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:37:00.553Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7610,7 +7626,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-M%C3%A9diateur-trice-culturel-le-Sari/1374669957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:20.610Z",
+      "crawledAt": "2026-10-17T09:28:07.989Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7632,7 +7648,9 @@
       "pensumMin": 40,
       "pensumMax": 50,
       "pensum": "40-50%",
-      "firstSeenAt": "2026-10-16T09:36:59.909Z",
+      "previousSlugs": [
+        "mediateur-trice-culturel-le-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mediateur-trice-culturel-le-etat-de-fribourg-ch"
@@ -7644,9 +7662,7 @@
           "mediateur-trice-culturel-le-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "mediateur-trice-culturel-le-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:36:59.909Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7694,7 +7710,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Greffier-i%C3%A8re-Stagiaire-Sari/1374701157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:19.919Z",
+      "crawledAt": "2026-10-17T09:28:07.343Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7778,7 +7794,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dozentin-FH-ICT-P%C3%A4dagogin-P%C3%A4dagoge-Saan/1374858457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:19.232Z",
+      "crawledAt": "2026-10-17T09:28:06.687Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7800,7 +7816,9 @@
       "pensumMin": 70,
       "pensumMax": 80,
       "pensum": "70-80%",
-      "firstSeenAt": "2026-10-16T09:36:58.614Z",
+      "previousSlugs": [
+        "dozent-in-fh-ict-padagogin-padagoge-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dozent-in-fh-ict-padagogin-padagoge-etat-de-fribourg-ch"
@@ -7812,9 +7830,7 @@
           "dozent-in-fh-ict-padagogin-padagoge-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "dozent-in-fh-ict-padagogin-padagoge-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:36:58.614Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -7862,7 +7878,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-d'enseignement-HES-Technop%C3%A9dagogue-Sari/1374858357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:18.540Z",
+      "crawledAt": "2026-10-17T09:28:06.024Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7884,7 +7900,9 @@
       "pensumMin": 70,
       "pensumMax": 80,
       "pensum": "70-80%",
-      "firstSeenAt": "2026-10-16T09:36:57.945Z",
+      "previousSlugs": [
+        "maitre-d-enseignement-hes-technopedagogue-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "maitre-d-enseignement-hes-technopedagogue-etat-de-fribourg-ch"
@@ -7896,9 +7914,7 @@
           "maitre-d-enseignement-hes-technopedagogue-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "maitre-d-enseignement-hes-technopedagogue-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:36:57.945Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -7917,9 +7933,9 @@
     },
     {
       "id": "etat-de-fribourg-a4072b5e11ce",
-      "slug": "geschaftsfuhrende-r-direktor-in-e-lektorat-sek-2-etat-de-fribourg",
+      "slug": "direttore-direttrice-esecutivo-a-e-revisione-editoriale-per-il-livello-secondario-ii-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "geschaftsfuhrende-r-direktor-in-e-lektorat-sek-2-etat-de-fribourg",
+        "it": "direttore-direttrice-esecutivo-a-e-revisione-editoriale-per-il-livello-secondario-ii-etat-de-fribourg-fribourg",
         "en": "managing-director-and-editor-for-upper-secondary-level-2-etat-de-fribourg-fribourg",
         "de": "geschaftsfuhrende-r-direktor-in-und-lektorat-sek-2-etat-de-fribourg-ch",
         "fr": "directeur-trice-executif-ve-et-lectorat-secondaire-ii-etat-de-fribourg-fribourg"
@@ -7946,7 +7962,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gesch%C3%A4ftsf%C3%BChrender-Direktorin-und-Lektorat-Sek-2-Saan/1374789157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:17.838Z",
+      "crawledAt": "2026-10-17T09:28:05.373Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7969,11 +7985,13 @@
       "pensumMax": 75,
       "pensum": "70-75%",
       "previousSlugs": [
-        "geschaftsfuhrende-r-direktor-in-und-lektorat-sek-2-etat-de-fribourg-ch"
+        "geschaftsfuhrende-r-direktor-in-und-lektorat-sek-2-etat-de-fribourg-ch",
+        "geschaftsfuhrende-r-direktor-in-e-lektorat-sek-2-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrende-r-direktor-in-und-lektorat-sek-2-etat-de-fribourg-ch"
+          "geschaftsfuhrende-r-direktor-in-und-lektorat-sek-2-etat-de-fribourg-ch",
+          "geschaftsfuhrende-r-direktor-in-e-lektorat-sek-2-etat-de-fribourg"
         ],
         "en": [
           "geschaftsfuhrende-r-direktor-in-und-lektorat-sek-2-etat-de-fribourg-ch"
@@ -8030,7 +8048,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Directeur-trice-de-l'Ecole-professionnelle-artisanale-et-commerciale-Bulle-Gruy/1372155457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:17.121Z",
+      "crawledAt": "2026-10-17T09:28:04.724Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -8113,7 +8131,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Direktorin-an-der-Ecole-professionnelle-artisanale-et-commerciale-EPAC-Bulle-Grey/1372155557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:16.415Z",
+      "crawledAt": "2026-10-17T09:28:04.060Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -8196,7 +8214,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-KSVA-Sachbearbeiterin-Saan/1374974857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:15.706Z",
+      "crawledAt": "2026-10-17T09:28:03.411Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -8218,7 +8236,9 @@
       "pensumMin": 95,
       "pensumMax": 100,
       "pensum": "95-100%",
-      "firstSeenAt": "2026-07-04T10:41:39.214Z",
+      "previousSlugs": [
+        "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
@@ -8230,9 +8250,7 @@
           "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "ksva-sachbearbeiter-in-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-07-04T10:41:39.214Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -8279,7 +8297,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Sekret%C3%A4rin-Saan/1374947157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:15.015Z",
+      "crawledAt": "2026-10-17T09:28:02.750Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -8301,7 +8319,9 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "firstSeenAt": "2026-09-03T23:26:06.832Z",
+      "previousSlugs": [
+        "sekretar-in-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sekretar-in-etat-de-fribourg-ch"
@@ -8313,9 +8333,7 @@
           "sekretar-in-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "sekretar-in-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-09-03T23:26:06.832Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -8362,7 +8380,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Collaborateur-trice-sp%C3%A9cialis%C3%A9-e-ECAS-Sari/1374974957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:14.330Z",
+      "crawledAt": "2026-10-17T09:28:02.099Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -8384,7 +8402,9 @@
       "pensumMin": 95,
       "pensumMax": 100,
       "pensum": "95-100%",
-      "firstSeenAt": "2026-10-16T09:36:53.994Z",
+      "previousSlugs": [
+        "collaborateur-trice-specialise-e-ecas-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-specialise-e-ecas-etat-de-fribourg-ch"
@@ -8396,9 +8416,7 @@
           "collaborateur-trice-specialise-e-ecas-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "collaborateur-trice-specialise-e-ecas-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:36:53.994Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -8445,7 +8463,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Secr%C3%A9taire-Sari/1374947257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:13.583Z",
+      "crawledAt": "2026-10-17T09:28:01.448Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -8467,7 +8485,9 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "firstSeenAt": "2026-07-17T22:52:33.025Z",
+      "previousSlugs": [
+        "secretaire-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-etat-de-fribourg-ch"
@@ -8479,9 +8499,7 @@
           "secretaire-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "secretaire-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-07-17T22:52:33.025Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -8528,7 +8546,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Taxateur-trice-fiscal-e-aupr%C3%A8s-du-secteur-Gruy%C3%A8reBroye-Sari/1374943657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:12.876Z",
+      "crawledAt": "2026-10-17T09:28:00.787Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8550,7 +8568,9 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "firstSeenAt": "2026-10-16T09:36:52.671Z",
+      "previousSlugs": [
+        "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
@@ -8562,9 +8582,7 @@
           "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
         ]
       },
-      "previousSlugs": [
-        "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
-      ],
+      "firstSeenAt": "2026-10-16T09:36:52.671Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -8612,7 +8630,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-Juristin-Saan/1374990657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:12.149Z",
+      "crawledAt": "2026-10-17T09:28:00.123Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8696,7 +8714,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-juriste-Sari/1374990557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:11.451Z",
+      "crawledAt": "2026-10-17T09:27:59.470Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8780,7 +8798,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-%C3%A9lectronicien-ne-CFC-Sari/1372326157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:10.762Z",
+      "crawledAt": "2026-10-17T09:27:58.798Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8864,7 +8882,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-de-l'accr%C3%A9ditation-AACSB-Sari/1372446657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:36:10.057Z",
+      "crawledAt": "2026-10-17T09:27:58.137Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8945,7 +8963,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-AACSB-Akkreditierungsverantwortlicher-Saan/1372446757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:36:09.346Z",
+      "crawledAt": "2026-10-17T09:27:57.474Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8997,761 +9015,6 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR"
-    },
-    {
-      "id": "etat-de-fribourg-22c8c8074c9b",
-      "slug": "avvocato-in-carica-presso-il-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis",
-      "slugByLocale": {
-        "it": "avvocato-in-carica-presso-il-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis",
-        "en": "acting-advocate-workers-at-the-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis",
-        "de": "stellvertretender-anwalt-arbeiter-beim-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis",
-        "fr": "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Assesseur-e suppléant-e (travailleurs) au Tribunal des prud'hommes de la Veveyse",
-      "titleByLocale": {
-        "it": "Avvocato in carica presso il Tribunal des Prud'hommes de la Veveyse",
-        "en": "Acting Advocate (Workers) at the Tribunal des Prud'hommes de la Veveyse",
-        "de": "Stellvertretender Anwalt (Arbeiter) beim Tribunal des Prud'hommes de la Veveyse",
-        "fr": "Assesseur-e suppléant-e (travailleurs) au Tribunal des prud'hommes de la Veveyse"
-      },
-      "description": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant :  CLIQUEZ SUR CE LIEN POUR POSTULER .  N ’utilisez  pas   les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne serait pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse: CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année) ainsi que d'une l ettre de soutien ou de recommandation d'une organisation de travailleurs (art. 55 LJ).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nDescription du poste\n\nLes assesseur-e-s sont des juges non professionnels-les qui disposent d'une compétence décisionnelle en matière judiciaire ( art. 4 LJ ). Un-e assesseur-e est convoqué-e en fonction des besoins de l'autorité concernée. Il/elle perçoit des indemnités de séances conformément à l' art. 79a RJ . Les assesseur-e-s sont élu-e-s par le Grand Conseil, sur préavis du Conseil de la magistrature qui met au concours pour le Grand Conseil les fonctions judiciaires ( art. 12 LJ ).  Les assesseur-e-s des tribunaux des prud'hommes sont choisis paritairement au sein des organisations patronales et au sein des organisations de travailleurs ( art. 55 LJ ).\n\nProfil souhaité\n\n• Etre membre d'une organisation de travailleurs (Art. 55 al. 2 LJ) . Lettre de soutien ou de recommandation de l'organisation à produire\n\n• Domicile dans la circonscription judiciaire concernée (Veveyse)\n\n• Les candidat-e-s doivent jouir de suffisamment de disponibilité pour la fonction (des séances peuvent avoir lieu en journée)\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue française avec des connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch",
-      "descriptionByLocale": {
-        "it": "Come candidarsi\n\nNota: per candidarsi a questa posizione, utilizzare solo il seguente collegamento: CLICCA SU QUESTO LINK PER CANDIDARSI. Non utilizzare i pulsanti “applica” nella parte superiore e inferiore di questa pagina: la tua richiesta non verrà elaborata. Candidatevi direttamente inviando i vostri documenti via e-mail all'indirizzo: CMcandidatures@fr.ch.\n\nFascicolo della domanda\n\nLe candidature devono essere accompagnate da una lettera di accompagnamento, un breve curriculum vitae, estratti del casellario giudiziale e della procura (di data inferiore a un anno) nonché una lettera di sostegno o raccomandazione di un'organizzazione dei lavoratori (art. 55 LJ).\n\nNon dimenticare di compilare il modulo ad hoc menzionato sul sito del Consiglio giudiziario.\n\nDescrizione del lavoro\n\nGli assessori sono giudici non professionisti che hanno autorità decisionale in materia giudiziaria (art. 4 LJ). Un valutatore viene convocato in base alle esigenze dell'autorità interessata. Riceve l'indennità di sessione ai sensi dell'art. 79a RJ. Gli assessori sono eletti dal Gran Consiglio, previa comunicazione del Consiglio della Magistratura che bandisce un concorso per funzioni giudiziarie per il Gran Consiglio (art. 12 LJ). I valutatori dei tribunali del lavoro sono scelti equamente tra le organizzazioni dei datori di lavoro e tra le organizzazioni dei lavoratori (art. 55 LJ).\n\nProfilo desiderato\n\n• Essere membro di un'organizzazione dei lavoratori (art. 55 cpv. 2 LJ). Lettera di supporto o raccomandazione da parte dell'organizzazione da produrre\n\n• Domicilio nel distretto giudiziario interessato (Veveyse)\n\n• I candidati devono avere sufficiente disponibilità per il ruolo (le sessioni possono svolgersi in giornata)\n\n• Cittadinanza attiva a livello cantonale. Le persone di nazionalità straniera devono essere titolari di un permesso di domicilio e avere il domicilio nel Cantone da almeno cinque anni. I candidati non devono essere oggetto di un atto di mancanza di patrimonio, e non devono essere stati condannati penalmente per fatti incompatibili con la funzione\n\n• Padronanza della lingua francese con conoscenza del tedesco\n\nDettagli di contatto\n\nCMcandidatures@fr.ch",
-        "en": "How to apply\n\nPlease note: To apply for this position, only use the following link: CLICK THIS LINK TO APPLY. Do not use the “apply” buttons at the top and bottom of this page: your application will not be processed. Apply directly by sending your documents by email to the address: CMcandidatures@fr.ch.\n\nApplication file\n\nApplications must be accompanied by a cover letter, a brief curriculum vitae, extracts from the recent criminal record and prosecution office (dated less than one year) as well as a letter of support or recommendation from a workers' organization (art. 55 LJ).\n\nDo not forget to complete the ad hoc form mentioned on the Judicial Council website.\n\nJob Description\n\nThe assessors are non-professional judges who have decision-making authority in judicial matters (art. 4 LJ). An assessor is convened according to the needs of the authority concerned. He/she receives session allowances in accordance with art. 79a RJ. The assessors are elected by the Grand Council, upon notice from the Judicial Council which puts out a competition for judicial functions for the Grand Council (art. 12 LJ). The assessors of the industrial tribunals are chosen equally from within employers' organizations and within workers' organizations (art. 55 LJ).\n\nDesired profile\n\n• Be a member of a workers' organization (Art. 55 al. 2 LJ). Letter of support or recommendation from the organization to produce\n\n• Domicile in the judicial district concerned (Veveyse)\n\n• Candidates must have sufficient availability for the role (sessions can take place during the day)\n\n• Active citizenship at the cantonal level. Persons of foreign nationality must hold a settlement permit and have been domiciled in the canton for at least five years. Candidates must not be the subject of an act of lack of assets, and must not have been criminally convicted for facts incompatible with the function\n\n• Mastery of the French language with knowledge of German\n\nContact details\n\nCMcandidatures@fr.ch",
-        "de": "So bewerben Sie sich\n\nBitte beachten Sie: Um sich für diese Stelle zu bewerben, verwenden Sie ausschließlich den folgenden Link: KLICKEN SIE AUF DIESEN LINK, UM SICH ZU BEWERBEN. Benutzen Sie nicht die Schaltflächen „Bewerben“ oben und unten auf dieser Seite: Ihre Bewerbung wird nicht bearbeitet. Bewerben Sie sich direkt, indem Sie Ihre Unterlagen per E-Mail an die Adresse CMcandidatures@fr.ch senden.\n\nBewerbungsunterlagen\n\nDen Bewerbungen müssen ein Anschreiben, ein kurzer Lebenslauf, Auszüge aus dem aktuellen Strafregister und der Staatsanwaltschaft (nicht älter als ein Jahr) sowie ein Unterstützungs- oder Empfehlungsschreiben einer Arbeitnehmerorganisation (Art. 55 LJ) beiliegen.\n\nVergessen Sie nicht, das auf der Website des Justizrates erwähnte Ad-hoc-Formular auszufüllen.\n\nStellenbeschreibung\n\nBei den Beisitzern handelt es sich um Laienrichter mit Entscheidungsbefugnis in gerichtlichen Angelegenheiten (Art. 4 LJ). Ein Beisitzer wird je nach Bedarf der betreffenden Behörde einberufen. Er/sie erhält Sitzungsentschädigungen gemäß Art. 79a RJ. Die Beisitzer werden vom Grossen Rat nach Bekanntgabe des Richterrats gewählt, der für den Grossen Rat ein Auswahlverfahren für richterliche Funktionen ausschreibt (Art. 12 LJ). Die Beisitzer der Arbeitsgerichte werden zu gleichen Teilen aus Arbeitgeberverbänden und Arbeitnehmerverbänden ausgewählt (Art. 55 LJ).\n\nGewünschtes Profil\n\n• Mitglied einer Arbeitnehmerorganisation sein (Art. 55 Abs. 2 LJ). Unterstützungsschreiben oder Empfehlung der zu erstellenden Organisation\n\n• Wohnsitz im betreffenden Gerichtsbezirk (Veveyse)\n\n• Kandidaten müssen für die Rolle ausreichend verfügbar sein (Sitzungen können tagsüber stattfinden)\n\n• Aktives Bürgertum auf kantonaler Ebene. Personen mit ausländischer Staatsangehörigkeit müssen über eine Niederlassungsbewilligung verfügen und seit mindestens fünf Jahren im Kanton wohnhaft sein. Kandidaten dürfen nicht Gegenstand einer Vermögenslosigkeit sein und dürfen nicht wegen Tatsachen verurteilt worden sein, die mit der Funktion unvereinbar sind\n\n• Beherrschung der französischen Sprache mit Deutschkenntnissen\n\nKontaktdaten\n\nCMcandidatures@fr.ch",
-        "fr": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant : CLIQUEZ SUR CE LIEN POUR POSTULER . N ’utilisez pas les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne serait pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse: CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année) ainsi que d'une l ettre de soutien ou de recommandation d'une organisation de travailleurs (art. 55 LJ).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nDescription du poste\n\nLes assesseur-e-s sont des juges non professionnels-les qui disposent d'une compétence décisionnelle en matière judiciaire ( art. 4 LJ ). Un-e assesseur-e est convoqué-e en fonction des besoins de l'autorité concernée. Il/elle perçoit des indemnités de séances conformément à l' art. 79a RJ . Les assesseur-e-s sont élu-e-s par le Grand Conseil, sur préavis du Conseil de la magistrature qui met au concours pour le Grand Conseil les fonctions judiciaires ( art. 12 LJ ). Les assesseur-e-s des tribunaux des prud'hommes sont choisis paritairement au sein des organisations patronales et au sein des organisations de travailleurs ( art. 55 LJ ).\n\nProfil souhaité\n\n• Etre membre d'une organisation de travailleurs (Art. 55 al. 2 LJ) . Lettre de soutien ou de recommandation de l'organisation à produire\n\n• Domicile dans la circonscription judiciaire concernée (Veveyse)\n\n• Les candidat-e-s doivent jouir de suffisamment de disponibilité pour la fonction (des séances peuvent avoir lieu en journée)\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue française avec des connaissances de l'allemand\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch"
-      },
-      "location": "Châtel-St-Denis",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Ch%C3%A2tel-St-Denis%2C-CH-Assesseur-e-suppl%C3%A9ant-e-%28travailleurs%29-au-Tribunal-des-prud'hommes-de-la-Veveyse-Veve/1372830057/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:30:34.676Z",
-      "addressLocality": "Châtel-St-Denis",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-22T00:00:00Z",
-      "postedDate": "2026-09-22T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1372830057/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Conseil de la magistrature",
-      "previousSlugs": [
-        "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
-        ],
-        "en": [
-          "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
-        ],
-        "de": [
-          "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:42:32.083Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-b0c90cd7a3c5",
-      "slug": "collaboratore-amministrativo-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "collaboratore-amministrativo-etat-de-fribourg-fribourg",
-        "en": "administrative-collaborator-etat-de-fribourg-fribourg",
-        "de": "verwaltungsmitarbeiter-etat-de-fribourg-fribourg",
-        "fr": "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Collaborateur-trice administratif-ve supérieur-e",
-      "titleByLocale": {
-        "it": "Collaboratore amministrativo",
-        "en": "Administrative Collaborator",
-        "de": "Verwaltungsmitarbeiter",
-        "fr": "Collaborateur-trice administratif-ve supérieur-e"
-      },
-      "description": "Taux d'activité\n\n35-40%\n\nLieu\n\nFribourg, CH, Sarine\n\nDélai de postulation\n\n15.10.2026\n\nDate d'entrée en fonction\n\n01.02.2027 ou à convenir\n\nType de contrat\n\nCDD  jusqu’au 31 octobre 2027 (remplacement congé maternité)\n\nPourquoi nous rejoindre ?\n\nLe Bureau de l’égalité hommes-femmes et de la famille (BEF) est composé de 8 personnes qui travaillent en équipe et de façon transversale pour promouvoir la mission du Bureau, soit l’égalité entre femmes et hommes et la politique familiale dans le canton de Fribourg. La lutte contre la violence au sein du couple, l’égalité dans le monde professionnel (public, privé), ainsi que l’égalité dans l’éducation font aussi partie des axes stratégiques du BEF.\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateurs et collaboratrices. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• En job-sharing, vous gérez et organisez l'administration du Bureau de l'égalité hommes-femmes et de la famille (BEF).\n\n• Vous assistez la responsable du BEF et vous soutenez les membres de l'équipe dans leurs tâches respectives, notamment dans l'organisation de projets, l’organisation d’événements ou de formations, ainsi que dans la production de matériel de communication.\n\n• Vous gérez administrativement l’exposition « Plus fort que la violence / Stärker als Gewalt », notamment sa tournée en Suisse et son accueil dans le canton de Fribourg.\n\nProfil souhaité\n\n• Formation commerciale complétée par un brevet fédéral ou formation jugée équivalente, suivie d’au moins 5 ans d’expérience\n\n• Personnalité dynamique et polyvalente, travaillant de manière précise et ayant le sens de l’organisation et de la coordination\n\n• Aisance dans la communication, bonnes aptitudes à travailler en équipe\n\n• Intérêt marqué pour les thématiques de l'égalité et disposition à approfondir ses connaissances en la matière\n\n• Bonne connaissance des outils informatiques et réseaux sociaux usuels\n\n• Maîtrise du français ou de l’allemand et bonnes connaissances dans l’autre langue ; capacité à interagir et à effectuer de petites traductions dans les deux langues\n\nCoordonnées des personnes de contact\n\nLudivine Reynaud, Collaboratrice administrative supérieure, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-      "descriptionByLocale": {
-        "it": "Tasso di attività\n\n35-40%\n\nPosizione\n\nFriburgo, CH, Sarine\n\nScadenza per la domanda\n\n15.10.2026\n\nData di entrata in carica\n\n01.02.2027 o da concordare\n\nTipo di contratto\n\nContratto a tempo determinato fino al 31 ottobre 2027 (sostituzione maternità)\n\nPerché unirsi a noi?\n\nL’Ufficio per l’uguaglianza di genere e la famiglia (BEF) è composto da 8 persone che lavorano in squadra e in modo trasversale per promuovere la missione dell’Ufficio, ovvero la parità tra donne e uomini e la politica familiare nel cantone di Friburgo. Fanno parte degli assi strategici del BEF anche la lotta contro la violenza di coppia, l’uguaglianza nel mondo professionale (pubblico, privato) e l’uguaglianza nell’istruzione.\n\nIl datore di lavoro statale incoraggia l’equilibrio tra lavoro e vita privata e offre ai suoi dipendenti un ambiente e condizioni di lavoro attraenti. Per saperne di più, segui questo link.\n\nLe tue missioni\n\n• Nel job sharing, gestisci e organizzi l'amministrazione dell'Ufficio per l'uguaglianza di genere e la famiglia (BEF).\n\n• Assisti il ​​responsabile BEF e supporti i membri del team nei rispettivi compiti, in particolare nell'organizzazione di progetti, nell'organizzazione di eventi o corsi di formazione, nonché nella produzione di materiali di comunicazione.\n\n• Gestisci amministrativamente la mostra “Stronger than violenza / Stärker als Gewalt”, in particolare la sua tournée in Svizzera e il suo ricevimento nel cantone di Friburgo.\n\nProfilo desiderato\n\n• Formazione commerciale completata da attestato federale o formazione ritenuta equivalente, seguita da almeno 5 anni di esperienza\n\n• Personalità dinamica e versatile, lavoro preciso e dotato di senso di organizzazione e coordinamento\n\n• Facilità di comunicazione, buone capacità di lavoro di squadra\n\n• Forte interesse per le questioni relative all'uguaglianza e volontà di approfondire le proprie conoscenze in questo settore\n\n• Buona conoscenza dei comuni strumenti informatici e dei social network\n\n• Ottima conoscenza della lingua francese o tedesca e buona conoscenza dell'altra lingua; capacità di interagire ed eseguire piccole traduzioni in entrambe le lingue\n\nDettagli di contatto\n\nLudivine Reynaud, Socio amministrativo senior, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-        "en": "Activity rate\n\n35-40%\n\nLocation\n\nFribourg, CH, Sarine\n\nApplication deadline\n\n15.10.2026\n\nDate of entry into office\n\n01.02.2027 or to be agreed\n\nType of contract\n\nFixed-term contract until October 31, 2027 (maternity leave replacement)\n\nWhy join us?\n\nThe Office for Gender Equality and the Family (BEF) is made up of 8 people who work as a team and transversally to promote the mission of the Office, namely equality between women and men and family policy in the canton of Fribourg. The fight against violence within couples, equality in the professional world (public, private), as well as equality in education are also part of the strategic axes of the BEF.\n\nThe State-employer encourages work-life balance and offers an attractive working environment and conditions to its employees. To find out more, follow this link.\n\nYour missions\n\n• In job sharing, you manage and organize the administration of the Office for Gender Equality and Family (BEF).\n\n• You assist the BEF manager and support team members in their respective tasks, particularly in the organization of projects, the organization of events or training, as well as in the production of communication materials.\n\n• You administratively manage the exhibition “Stronger than violence / Stärker als Gewalt”, in particular its tour in Switzerland and its reception in the canton of Fribourg.\n\nDesired profile\n\n• Commercial training completed by a federal certificate or training deemed equivalent, followed by at least 5 years of experience\n\n• Dynamic and versatile personality, working precisely and having a sense of organization and coordination\n\n• Ease of communication, good team working skills\n\n• Strong interest in equality issues and willingness to deepen your knowledge in this area\n\n• Good knowledge of common IT tools and social networks\n\n• Fluency in French or German and good knowledge of the other language; ability to interact and perform small translations in both languages\n\nContact details\n\nLudivine Reynaud, Senior administrative associate, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-        "de": "Aktivitätsrate\n\n35-40 %\n\nStandort\n\nFreiburg, CH, Sarine\n\nBewerbungsschluss\n\n15.10.2026\n\nDatum des Amtsantritts\n\n01.02.2027 oder nach Vereinbarung\n\nArt des Vertrags\n\nBefristeter Vertrag bis 31.10.2027 (Mutterschutzvertretung)\n\nWarum bei uns mitmachen?\n\nDas Büro für Geschlechtergleichstellung und Familie (BEF) besteht aus 8 Personen, die als Team und bereichsübergreifend arbeiten, um die Mission des Büros, nämlich die Gleichstellung von Frauen und Männern und die Familienpolitik im Kanton Freiburg, zu fördern. Der Kampf gegen Gewalt innerhalb von Paaren, die Gleichstellung in der Berufswelt (öffentlich, privat) sowie die Gleichstellung in der Bildung gehören ebenfalls zu den strategischen Achsen des BEF.\n\nDer staatliche Arbeitgeber fördert die Work-Life-Balance und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und -bedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Im Jobsharing leiten und organisieren Sie die Verwaltung des Büros für Geschlechtergleichstellung und Familie (BEF).\n\n• Sie unterstützen den BEF-Manager und die Support-Teammitglieder bei ihren jeweiligen Aufgaben, insbesondere bei der Organisation von Projekten, der Organisation von Veranstaltungen oder Schulungen sowie bei der Erstellung von Kommunikationsmaterialien.\n\n• Sie leiten die Ausstellung „Stärker als Gewalt“ administrativ, insbesondere ihre Tournee in der Schweiz und ihre Rezeption im Kanton Freiburg.\n\nGewünschtes Profil\n\n• Kaufmännische Ausbildung mit abgeschlossenem eidgenössischem Fachausweis oder einer gleichwertigen Ausbildung mit anschließender mindestens 5-jähriger Berufserfahrung\n\n• Dynamische und vielseitige Persönlichkeit, die präzise arbeitet und über ein Gespür für Organisation und Koordination verfügt\n\n• Einfache Kommunikation, gute Teamfähigkeit\n\n• Starkes Interesse an Gleichstellungsthemen und Bereitschaft, Ihr Wissen in diesem Bereich zu vertiefen\n\n• Gute Kenntnisse gängiger IT-Tools und sozialer Netzwerke\n\n• Fließende Französisch- oder Deutschkenntnisse und gute Kenntnisse der anderen Sprache; Fähigkeit zur Interaktion und zur Durchführung kleiner Übersetzungen in beiden Sprachen\n\nKontaktdaten\n\nLudivine Reynaud, Leitende Verwaltungsmitarbeiterin, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-        "fr": "Taux d'activité\n\n35-40%\n\nLieu\n\nFribourg, CH, Sarine\n\nDélai de postulation\n\n15.10.2026\n\nDate d'entrée en fonction\n\n01.02.2027 ou à convenir\n\nType de contrat\n\nCDD jusqu’au 31 octobre 2027 (remplacement congé maternité)\n\nPourquoi nous rejoindre ?\n\nLe Bureau de l’égalité hommes-femmes et de la famille (BEF) est composé de 8 personnes qui travaillent en équipe et de façon transversale pour promouvoir la mission du Bureau, soit l’égalité entre femmes et hommes et la politique familiale dans le canton de Fribourg. La lutte contre la violence au sein du couple, l’égalité dans le monde professionnel (public, privé), ainsi que l’égalité dans l’éducation font aussi partie des axes stratégiques du BEF.\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateurs et collaboratrices. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• En job-sharing, vous gérez et organisez l'administration du Bureau de l'égalité hommes-femmes et de la famille (BEF).\n\n• Vous assistez la responsable du BEF et vous soutenez les membres de l'équipe dans leurs tâches respectives, notamment dans l'organisation de projets, l’organisation d’événements ou de formations, ainsi que dans la production de matériel de communication.\n\n• Vous gérez administrativement l’exposition « Plus fort que la violence / Stärker als Gewalt », notamment sa tournée en Suisse et son accueil dans le canton de Fribourg.\n\nProfil souhaité\n\n• Formation commerciale complétée par un brevet fédéral ou formation jugée équivalente, suivie d’au moins 5 ans d’expérience\n\n• Personnalité dynamique et polyvalente, travaillant de manière précise et ayant le sens de l’organisation et de la coordination\n\n• Aisance dans la communication, bonnes aptitudes à travailler en équipe\n\n• Intérêt marqué pour les thématiques de l'égalité et disposition à approfondir ses connaissances en la matière\n\n• Bonne connaissance des outils informatiques et réseaux sociaux usuels\n\n• Maîtrise du français ou de l’allemand et bonnes connaissances dans l’autre langue ; capacité à interagir et à effectuer de petites traductions dans les deux langues\n\nCoordonnées des personnes de contact\n\nLudivine Reynaud, Collaboratrice administrative supérieure, +41 26 305 23 74, ludivine.reynaud@fr.ch"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-sup%C3%A9rieur-e-Sari/1372958657/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:30:30.489Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23T00:00:00Z",
-      "postedDate": "2026-09-23T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1372958657/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Bureau de l'égalité hommes-femmes et de la famille",
-      "pensumMin": 35,
-      "pensumMax": 40,
-      "pensum": "35-40%",
-      "previousSlugs": [
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-17T11:09:01.479Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-39d3d4f5e7f9",
-      "slug": "responsabile-amministrativo-senior-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "responsabile-amministrativo-senior-etat-de-fribourg-fribourg",
-        "en": "senior-administrative-officer-etat-de-fribourg-fribourg",
-        "de": "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch",
-        "fr": "administrateur-principal-etat-de-fribourg-fribourg"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Höhere Verwaltungssachbearbeiterin/Höherer Verwaltungssachbearbeiter",
-      "titleByLocale": {
-        "it": "Responsabile amministrativo senior",
-        "en": "Senior administrative officer",
-        "de": "Höhere Verwaltungssachbearbeiterin/Höherer Verwaltungssachbearbeiter",
-        "fr": "Administrateur principal"
-      },
-      "description": "Beschäftigungsgrad\n\n35-40%\n\nOrt\n\nFribourg, CH ,  Saane\n\nBewerbungsfrist\n\n15.10.2026\n\nDatum des Stellenantritts\n\n01.02.2027 oder nach Vereinbarung\n\nVertragsart\n\nBefristeter Vertrag bis zum 31. Oktober 2027 (Mutterschaftsvertretung)\n\nWerden Sie Teil unseres Teams!\n\nIm Büro für die Gleichstellung von Frau und Mann und für Familienfragen (GFB) arbeiten 8 Personen im Team und bereichsübergreifend an der Gleichstellung von Frau und Mann und der Familienpolitik im Kanton Freiburg. Die Bekämpfung von Gewalt in Paarbeziehungen, die Gleichstellung im Erwerbsleben (öffentlich, privat) sowie die Gleichstellung in der Bildung gehören ebenfalls zu den strategischen Schwerpunkten des GFB.\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeiterinnen und Mitarbeitern ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Weitere Informationen finden Sie auf dieser Seite .\n\nIhre Aufgaben\n\n• Im Job-Sharing verwalten und organisieren Sie das Büro für die Gleichstellung von Frau und Mann und für Familienfragen.\n\n• Sie unterstützen die Leiterin des GFB sowie die Teammitglieder bei ihren jeweiligen Aufgaben, namentlich bei der Organisation von Projekten, der Durchführung von Veranstaltungen oder Schulungen sowie der Erstellung von Kommunikationsmaterial.\n\n• Sie sind für die administrative Organisation der Ausstellung «Plus fort que la violence / Stärker als Gewalt» zuständig, insbesondere für deren Tournee durch die Schweiz und im Kanton Freiburg.\n\nGewünschtes Profil\n\n• Kaufmännische Ausbildung, die mit einem eidgenössischen Fachausweis abgeschlossen wurde, oder eine als gleichwertig erachtete Ausbildung, gefolgt von mindestens fünf Jahren Berufserfahrung\n\n• Dynamische und vielseitige Persönlichkeit mit exakter Arbeitsweise, Sinn für Organisation, Prioritäten und Koordination\n\n• Kommunikationsstark und hohes Mass an Teamfähigkeit\n\n• Ausgeprägtes Interesse an Gleichstellungsthemen und Bereitschaft, die Kenntnisse in diesem Bereich zu vertiefen\n\n• Gute Kenntnisse der gängigen IT-Tools und sozialen Netzwerke\n\n• Beherrschung der deutschen oder französischen Sprache und gute Kenntnisse in der anderen Sprache; Fähigkeit, in beiden Sprachen zu kommunizieren und kleinere Übersetzungen anzufertigen\n\nAngaben der Kontaktpersonen\n\nLudivine Reynaud, Höhere Verwaltungssachbearbeiterin, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-      "descriptionByLocale": {
-        "it": "Livello occupazionale\n\n35-40%\n\nLocation\n\nFribourg, CH , Saane\n\nTermine per la presentazione\n\n15.10.2026\n\nData della nomina\n\n01.02.2027 o d'accordo\n\nTipo di contratto\n\nContratto temporaneo fino al 31 ottobre 2027 (rappresentazione maternità)\n\nDiventa parte della nostra squadra!\n\nNell'Ufficio per l'uguaglianza di genere e gli affari familiari (GFB), 8 persone lavorano in un team e in tutti i dipartimenti per l'uguaglianza di genere e la politica familiare nel cantone di Friburgo. La lotta contro la violenza nelle coppie, l'uguaglianza nella vita lavorativa (pubblica, privata) e l'uguaglianza nell'istruzione sono anche tra le priorità strategiche del GFB.\n\nIl datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Ulteriori informazioni sono disponibili su questa pagina.\n\nI loro compiti\n\n• Nella condivisione del lavoro, gestisci e organizza l'Ufficio per l'uguaglianza di genere e gli affari familiari.\n\n• Sostengono il capo del GFB e i membri del team nei loro rispettivi compiti, in particolare nell'organizzazione di progetti, nell'organizzazione di eventi o corsi di formazione e nella creazione di materiali di comunicazione.\n\n• Essi sono responsabili dell'organizzazione amministrativa della mostra «Plus fort que la violenza / più forte della violenza», in particolare per il loro tour in Svizzera e il cantone di Friburgo.\n\nProfilo desiderato\n\n• Formazione commerciale completata con un certificato professionale federale svizzero o formazione considerata equivalente, seguita da almeno cinque anni di esperienza professionale\n\n• Personalità dinamica e versatile con metodi di lavoro precisi, senso di organizzazione, priorità e coordinamento\n\n• Comunicazione forte e un alto grado di lavoro di squadra\n\n• Forte interesse per le questioni di uguaglianza e la volontà di approfondire la conoscenza in questo settore\n\n• Buona conoscenza degli strumenti IT comuni e dei social network\n\n• comando della lingua tedesca o francese e buona conoscenza dell'altra lingua; Capacità di comunicare in entrambe le lingue e fare traduzioni minori\n\nInformazioni di contatto\n\nLudivine Reynaud, Senior Administration Officer, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-        "en": "Employment level\n\n35-40%\n\nLocation\n\nFribourg, CH , Saane\n\nApplication deadline\n\n15.10.2026\n\nDate of appointment\n\n01.02.2027 or by agreement\n\nContract type\n\nTemporary contract until 31 October 2027 (maternity representation)\n\nBecome part of our team!\n\nIn the Office for Gender Equality and Family Affairs (GFB), 8 people work in a team and across departments on gender equality and family policy in the canton of Freiburg. Combating violence in couples, equality in working life (public, private) and equality in education are also among the strategic priorities of the GFB.\n\nThe employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. More information can be found on this page.\n\nTheir tasks\n\n• In job sharing, you manage and organize the Office for Gender Equality and Family Affairs.\n\n• They support the head of the GFB and the team members in their respective tasks, in particular in the organisation of projects, the organisation of events or training courses and the creation of communication materials.\n\n• They are responsible for the administrative organisation of the exhibition «Plus fort que la violence / Stronger than violence», in particular for their tour of Switzerland and the canton of Freiburg.\n\nDesired profile\n\n• Commercial training completed with a Swiss Federal Professional Certificate or training considered equivalent, followed by at least five years of professional experience\n\n• Dynamic and versatile personality with exact working methods, sense of organization, priorities and coordination\n\n• Strong communication and a high degree of teamwork\n\n• Strong interest in equality issues and willingness to deepen knowledge in this area\n\n• Good knowledge of common IT tools and social networks\n\n• command of the German or French language and good knowledge of the other language; Ability to communicate in both languages and make minor translations\n\nContact details\n\nLudivine Reynaud, Senior Administrative Officer, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-        "de": "Beschäftigungsgrad\n\n35-40%\n\nOrt\n\nFribourg, CH , Saane\n\nBewerbungsfrist\n\n15.10.2026\n\nDatum des Stellenantritts\n\n01.02.2027 oder nach Vereinbarung\n\nVertragsart\n\nBefristeter Vertrag bis zum 31. Oktober 2027 (Mutterschaftsvertretung)\n\nWerden Sie Teil unseres Teams!\n\nIm Büro für die Gleichstellung von Frau und Mann und für Familienfragen (GFB) arbeiten 8 Personen im Team und bereichsübergreifend an der Gleichstellung von Frau und Mann und der Familienpolitik im Kanton Freiburg. Die Bekämpfung von Gewalt in Paarbeziehungen, die Gleichstellung im Erwerbsleben (öffentlich, privat) sowie die Gleichstellung in der Bildung gehören ebenfalls zu den strategischen Schwerpunkten des GFB.\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeiterinnen und Mitarbeitern ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Weitere Informationen finden Sie auf dieser Seite .\n\nIhre Aufgaben\n\n• Im Job-Sharing verwalten und organisieren Sie das Büro für die Gleichstellung von Frau und Mann und für Familienfragen.\n\n• Sie unterstützen die Leiterin des GFB sowie die Teammitglieder bei ihren jeweiligen Aufgaben, namentlich bei der Organisation von Projekten, der Durchführung von Veranstaltungen oder Schulungen sowie der Erstellung von Kommunikationsmaterial.\n\n• Sie sind für die administrative Organisation der Ausstellung «Plus fort que la violence / Stärker als Gewalt» zuständig, insbesondere für deren Tournee durch die Schweiz und im Kanton Freiburg.\n\nGewünschtes Profil\n\n• Kaufmännische Ausbildung, die mit einem eidgenössischen Fachausweis abgeschlossen wurde, oder eine als gleichwertig erachtete Ausbildung, gefolgt von mindestens fünf Jahren Berufserfahrung\n\n• Dynamische und vielseitige Persönlichkeit mit exakter Arbeitsweise, Sinn für Organisation, Prioritäten und Koordination\n\n• Kommunikationsstark und hohes Mass an Teamfähigkeit\n\n• Ausgeprägtes Interesse an Gleichstellungsthemen und Bereitschaft, die Kenntnisse in diesem Bereich zu vertiefen\n\n• Gute Kenntnisse der gängigen IT-Tools und sozialen Netzwerke\n\n• Beherrschung der deutschen oder französischen Sprache und gute Kenntnisse in der anderen Sprache; Fähigkeit, in beiden Sprachen zu kommunizieren und kleinere Übersetzungen anzufertigen\n\nAngaben der Kontaktpersonen\n\nLudivine Reynaud, Höhere Verwaltungssachbearbeiterin, +41 26 305 23 74, ludivine.reynaud@fr.ch",
-        "fr": "Niveau d'emploi\n\n35-40%\n\nLieu\n\nFribourg, CH , Saane\n\nDate limite de présentation des demandes\n\n15.10.2026\n\nDate de la nomination\n\n01.02.2027 ou par accord\n\nType de contrat\n\nContrat temporaire jusqu'au 31 octobre 2027 (représentation maternelle)\n\nFaites partie de notre équipe !\n\nAu sein du Bureau pour l ' égalité entre les sexes et les affaires familiales, huit personnes travaillent en équipe et dans les différents départements sur l ' égalité entre les sexes et la politique familiale dans le canton de Fribourg. La lutte contre la violence dans les couples, l'égalité dans la vie active (publique, privée) et l'égalité dans l'éducation figurent également parmi les priorités stratégiques du GFB.\n\nL'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous trouverez plus d'informations sur cette page.\n\nLeurs tâches\n\n• Dans le partage de l'emploi, vous dirigez et organisez le Bureau de l'égalité des sexes et des affaires familiales.\n\n• Ils soutiennent le chef du GFB et les membres de l'équipe dans leurs tâches respectives, notamment dans l'organisation de projets, l'organisation d'événements ou de cours de formation et la création de matériel de communication.\n\n• Ils sont responsables de l'organisation administrative de l'exposition «Plus fort que la violence», notamment pour leur tournée en Suisse et dans le canton de Fribourg.\n\nProfil désiré\n\n• Formation commerciale complétée par un certificat professionnel fédéral ou une formation considérée comme équivalente, suivie d'au moins cinq années d'expérience professionnelle\n\n• Personnalité dynamique et polyvalente avec des méthodes de travail précises, sens de l'organisation, priorités et coordination\n\n• Une communication forte et un haut niveau de travail d'équipe\n\n• Intérêt marqué pour les questions d'égalité et volonté d'approfondir les connaissances dans ce domaine\n\n• Bonne connaissance des outils informatiques communs et des réseaux sociaux\n\n• maîtrise de la langue allemande ou française et bonne connaissance de l'autre langue; Capacité de communiquer dans les deux langues et de faire des traductions mineures\n\nCoordonnées\n\nLudivine Reynaud, Administratrice principale, +41 26 305 23 74, ludivine.reynaud@fr.ch"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-H%C3%B6here-VerwaltungssachbearbeiterinH%C3%B6herer-Verwaltungssachbearbeiter-Saan/1372958757/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:30:29.119Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23T00:00:00Z",
-      "postedDate": "2026-09-23T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1372958757/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Büro für die Gleichstellung von Frau und Mann und",
-      "pensumMin": 35,
-      "pensumMax": 40,
-      "pensum": "35-40%",
-      "previousSlugs": [
-        "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "hohere-verwaltungssachbearbeiterin-hoherer-verwaltungssachbearbeiter-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T14:13:03.777Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-a9563678bcf0",
-      "slug": "reader-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "reader-etat-de-fribourg-fribourg",
-        "en": "reader-etat-de-fribourg-fribourg",
-        "de": "lesegerat-etat-de-fribourg-fribourg",
-        "fr": "lecteur-trice-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Lecteur-trice",
-      "titleByLocale": {
-        "it": "Reader",
-        "en": "Reader",
-        "de": "Lesegerät",
-        "fr": "Lecteur-trice"
-      },
-      "description": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce  lien .\n\nVos missions\n\n• Encadrement d’étudiant-e-s se formant à l’enseignement\n\n• Enseignements transversaux dans le domaine de la formation à l’enseignement\n\n• Collaborations au sein de la formation à l’enseignement\n\n• Supervision de mémoires de Master\n\nProfil souhaité\n\n• Doctorat en sciences de l’éducation ou dans un domaine proche\n\n• Excellentes connaissances du terrain de l’enseignement au secondaire I\n\n• Diplôme d’enseignement souhaité\n\n• Compétences avérées dans les approches quantitatives et qualitatives de la recherche en sciences de l’éducation\n\n• Si possible expérience d’encadrement de travaux de diplomation\n\n• Maîtrise de la langue française avec si possible des connaissances passives de l’allemand\n\nCoordonnées des personnes de contact\n\nPhilippe Genoud, philippe.genoud@unifr.ch, T +41 26 300 76 24",
-      "descriptionByLocale": {
-        "it": "Chi siamo?\n\nInsegnamento, ricerca, lavoro, eventi: L'Università di Fribourg è uno spazio per l'innovazione e un importante autista per la vita economica e culturale nella regione. Attrae studenti e ricercatori provenienti da tutta la Svizzera e il mondo, segna la vita quotidiana della città bilingue di Friburgo, fin dalla sua fondazione nel 1889.\n\nPerché unirsi a noi?\n\nIl datore di lavoro di Stato incoraggia la riconciliazione del lavoro e della vita privata e offre un ambiente di lavoro attraente e condizioni di lavoro ai suoi dipendenti. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\n• Supervisione didattica degli studenti\n\n• L'insegnamento trasversale nella formazione educativa\n\n• Collaborazioni nella formazione educativa\n\n• Supervisione della memoria master\n\nProfilo desiderato\n\n• Dottorato in Scienze dell'Educazione o in un campo chiuso\n\n• Ottima conoscenza del campo dell'istruzione secondaria I\n\n• Grado di insegnamento desiderato\n\n• Competenza dimostrata negli approcci quantitativi e qualitativi alla ricerca scientifica dell'istruzione\n\n• Se possibile esperienza nella supervisione del lavoro di diploma\n\n• La padronanza della lingua francese con la conoscenza passiva del tedesco se possibile\n\nInformazioni di contatto\n\nPhilippe Genoud, philippe.genoud@unifr.ch, T +41 26 300 76 24",
-        "en": "Who are we?\n\nTeaching, research, jobs, events: The University of Fribourg is a space for innovation and an important driver for economic and cultural life in the region. It attracts students and researchers from all over Switzerland and the world, it marks the daily life of the bilingual city of Fribourg, since its foundation in 1889.\n\nWhy join us?\n\nThe State-employer encourages the reconciliation of work and private life and offers an attractive working environment and working conditions to its employees. To learn more, follow this link .\n\nYour missions\n\n• Teaching supervision of students\n\n• Cross-cutting teaching in education training\n\n• Collaborations in education training\n\n• Master Memory Supervision\n\nProfile desired\n\n• Doctorate in Education Sciences or in a Close Field\n\n• Excellent knowledge of the field of secondary education I\n\n• Teaching degree desired\n\n• Demonstrated competence in quantitative and qualitative approaches to education science research\n\n• If possible experience in supervising diploma work\n\n• Mastery of the French language with passive knowledge of German if possible\n\nContact details\n\nPhilippe Genoud, philippe.genoud@unifr.ch, T +41 26 300 76 24",
-        "de": "Wer sind wir?\n\nLehre, Forschung, Jobs, Veranstaltungen: Die Universität Freiburg ist ein Innovationsraum und ein wichtiger Motor für das wirtschaftliche und kulturelle Leben in der Region. Es zieht Studenten und Forscher aus der ganzen Schweiz und der Welt an und markiert den Alltag der zweisprachigen Stadt Freiburg seit ihrer Gründung im Jahr 1889.\n\nWarum mitmachen?\n\nDer staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Unterrichtsaufsicht von Studierenden\n\n• Querschnittsunterricht in der allgemeinen Bildung\n\n• Zusammenarbeit in der allgemeinen Bildung\n\n• Master Memory Supervision\n\nProfil gewünscht\n\n• Promotion in Bildungswissenschaften oder in einem Close Field\n\n• Ausgezeichnete Kenntnisse im Bereich der Sekundarstufe I\n\n• Erwünschter Lehrgrad\n\n• Nachgewiesene Kompetenz in quantitativen und qualitativen Ansätzen der bildungswissenschaftlichen Forschung\n\n• Wenn möglich Erfahrung in der Überwachung der Diplomarbeit\n\n• Beherrschung der französischen Sprache mit passiven Deutschkenntnissen, wenn möglich\n\nKontaktdaten\n\nPhilippe Genoud, philippe.genoud@unifr.ch, T +41 26 300 76 24",
-        "fr": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Encadrement d’étudiant-e-s se formant à l’enseignement\n\n• Enseignements transversaux dans le domaine de la formation à l’enseignement\n\n• Collaborations au sein de la formation à l’enseignement\n\n• Supervision de mémoires de Master\n\nProfil souhaité\n\n• Doctorat en sciences de l’éducation ou dans un domaine proche\n\n• Excellentes connaissances du terrain de l’enseignement au secondaire I\n\n• Diplôme d’enseignement souhaité\n\n• Compétences avérées dans les approches quantitatives et qualitatives de la recherche en sciences de l’éducation\n\n• Si possible expérience d’encadrement de travaux de diplomation\n\n• Maîtrise de la langue française avec si possible des connaissances passives de l’allemand\n\nCoordonnées des personnes de contact\n\nPhilippe Genoud, philippe.genoud@unifr.ch, T +41 26 300 76 24"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lecteur-trice-Sari/1371036057/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:30:00.887Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-01T02:00:00Z",
-      "postedDate": "2026-10-01T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1371036057/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Unifr-8610 Département de formation à l'enseigneme",
-      "pensumMin": 40,
-      "pensumMax": 50,
-      "pensum": "40-50%",
-      "previousSlugs": [
-        "lecteur-trice-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lecteur-trice-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "lecteur-trice-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "lecteur-trice-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-03T23:26:04.086Z",
-      "salaryMin": 59000,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-90636f99bbeb",
-      "slug": "due-professori-informatica-legale-40-50-e-ricerca-di-fatti-legali-40-50-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "due-professori-informatica-legale-40-50-e-ricerca-di-fatti-legali-40-50-etat-de-fribourg-fribourg",
-        "en": "two-professorships-legal-informatics-40-50-and-legal-fact-research-40-50-etat-de-fribourg-fribourg",
-        "de": "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de",
-        "fr": "deux-chaires-informatique-juridique-40-50-et-recherche-sur-les-faits-juridiques-40-50-etat-de-fribourg-fribourg"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Zwei Professuren : Rechtsinformatik (40-50%) und Rechtstatsachenforschung (40-50%)",
-      "titleByLocale": {
-        "it": "Due professori: informatica legale (40-50%) e ricerca di fatti legali (40-50%)",
-        "en": "Two professorships: legal informatics (40-50%) and legal fact research (40-50%)",
-        "de": "Zwei Professuren : Rechtsinformatik (40-50%) und Rechtstatsachenforschung (40-50%)",
-        "fr": "Deux chaires : informatique juridique (40-50%) et recherche sur les faits juridiques (40-50%)"
-      },
-      "description": "WICHTIG\n\nACHTUNG  : Klicken Sie  nicht  auf den Bewerbungsbutton oben auf dieser Seite. Ansonsten kann Ihre Bewerbung nicht berücksichtigt werden. Bewerben Sie sich bitte direkt unter folgender Adresse : ius-doyen@unifr.ch an Prof. Jacques Dubey, Dekan der Rechtswissenschaftlichen Fakultät der Universität Freiburg.\n\n40-50% für jede der beiden Professuren.\n\nSehr gerne nehmen wir Ihre Bewerbung für eine der beiden Professuren entgegen, wobei aber auch die Möglichkeit besteht, sich zugleich auf beide Professuren zu bewerben .\n\nAnstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nIhre Aufgaben\n\nDie Stellen sind vorderhand auf fünf Jahre befristet.\n\n• Sie lehren und forschen im Bereich der Rechtsinformatik (unter Einschluss von Legal Tech) bzw. der Rechtstatsachenforschung.\n\n• Sie betreuen Studierende und unterstützen Doktorierende beim Verfassen ihrer Dissertation.\n\n• Zudem engagieren Sie sich in der Weiterbildung und in der fakultären Selbstverwaltung.\n\nGewünschtes Profil\n\n• Sie haben hervorragende wissenschaftliche Fähigkeiten und begeistern sich für die Lehre.\n\n• Sie verfügen über ein Doktorat in einem Gebiet, das Sie befähigt, im Bereich der Rechtsinformatik bzw. der Rechtstatsachenforschung wesentliche Beiträge zu leisten.\n\n• Dazu bringen Sie vertiefte Rechtskenntnisse mit, über die Sie sich mit einem universitären BLaw, einem MALS oder einem ähnlich gelagerten Abschluss ausweisen können.\n\n• Sie haben bereits im Bereich der Rechtsinformatik bzw. der Rechtstatsachenforschung publiziert.\n\n• Idealerweise sind Sie schon in der Lehre tätig gewesen. Zudem verfügen Sie über die Fähigkeit, Drittmittel einzuwerben, und sind bereit, sich an der akademischen Selbstverwaltung zu beteiligen.\n\n• Sie beherrschen entweder die deutsche oder die französische Sprache perfekt und die jeweils andere Sprache auf hohem Niveau, was es Ihnen erlaubt, auch in dieser Sprache zu unterrichten. Von Vorteil ist es, wenn Sie überdies in der Lage sind, in englischer Sprache zu lehren.\n\nAngaben der Kontaktpersonen\n\nProf. Hubert Stöckli, Vorsitzender der fakultären Strukturkommission, hubert.stoeckli@unifr.ch",
-      "descriptionByLocale": {
-        "it": "IMPORTANTE\n\nATTENZIONE: Non fare clic sul pulsante dell'applicazione nella parte superiore di questa pagina. Altrimenti, la tua domanda non può essere considerata. Si prega di rivolgersi direttamente al seguente indirizzo: ius-doyen@unifr.ch al Prof. Jacques Dubey, Decano della Facoltà di Giurisprudenza dell'Università di Friburgo.\n\n40-50% per ciascuna delle due cattedrali.\n\nSiamo felici di accettare la vostra domanda per una delle due cattedrali, ma è anche possibile richiedere per entrambe le cattedrali allo stesso tempo.\n\nNomina autorità / unità amministrativa / istituzione\n\nL'Università di Friburgo è un istituto educativo, centro di ricerca, datore di lavoro e organizzatore di eventi tutto in uno. Il suo potere innovativo lo rende un motore importante per la vita economica e culturale della regione. Come attrazione per studenti e ricercatori di tutta la Svizzera e da tutte le parti del mondo, l'università ha plasmato la vita della città bilingue di Friburgo fin dalla sua fondazione nel 1889.\n\nI loro compiti\n\nI post sono per il momento limitato a cinque anni.\n\n• Essi insegnano e ricerca nel campo dell'informatica legale (inclusa la tecnologia legale) o la ricerca di fatti legali.\n\n• Essi supervisionano gli studenti e sostengono gli studenti di dottorato per iscritto la loro tesi.\n\n• Inoltre, si è coinvolti in ulteriore formazione e facoltà di autogestione.\n\nProfilo desiderato\n\n• Hanno eccellenti competenze scientifiche e sono entusiasti dell'insegnamento.\n\n• Hai un dottorato in un campo che ti permette di dare contributi significativi nel campo dell'informatica legale o della ricerca di fatti legali.\n\n• Avrete anche una profonda conoscenza legale su cui si può dimostrare con un'università BLaw, un MALS o un grado simile.\n\n• Hai già pubblicato nel campo dell'informatica legale e della ricerca sul fatto legale.\n\n• Idealmente, hai già lavorato nell'insegnamento. Hai anche la capacità di raccogliere fondi di terze parti e sono pronti a partecipare all'autogestione accademica.\n\n• Si padroneggia perfettamente la lingua tedesca o francese e l'altra lingua ad alto livello, che consente di insegnare anche in questa lingua. E 'anche utile se si è in grado di insegnare in inglese.\n\nInformazioni di contatto\n\nProf. Hubert Stöckli, Presidente della Commissione Strutturale della Facoltà, hubert.stoeckli@unifr.ch",
-        "en": "IMPORTANT\n\nATTENTION: Do not click on the application button at the top of this page. Otherwise, your application cannot be considered. Please apply directly at the following address: ius-doyen@unifr.ch to Prof. Jacques Dubey, Dean of the Faculty of Law of the University of Freiburg.\n\n40-50% for each of the two professorships.\n\nWe are happy to accept your application for one of the two professorships, but it is also possible to apply for both professorships at the same time.\n\nAppointing authority / administrative unit / institution\n\nThe University of Freiburg is an educational institution, research centre, employer and event organiser all in one. Its innovative power makes it an important engine for the economic and cultural life of the region. As an attraction for students and researchers from all over Switzerland and from all parts of the world, the university has shaped the life of the bilingual city of Freiburg since its foundation in 1889.\n\nTheir tasks\n\nThe posts are for the time being limited to five years.\n\n• They teach and research in the field of legal informatics (including legal tech) or legal fact research.\n\n• They supervise students and support doctoral students in writing their dissertation.\n\n• In addition, you are involved in further education and faculty self-management.\n\nDesired profile\n\n• They have excellent scientific skills and are enthusiastic about teaching.\n\n• You have a doctorate in a field that enables you to make significant contributions in the field of legal informatics or legal fact research.\n\n• You will also have in-depth legal knowledge about which you can prove yourself with a university BLaw, a MALS or a similar degree.\n\n• You have already published in the field of legal informatics and legal fact research.\n\n• Ideally, you have already worked in teaching. You also have the ability to raise third-party funds and are ready to participate in academic self-management.\n\n• You master either the German or the French language perfectly and the other language at a high level, which allows you to teach in this language as well. It is also beneficial if you are able to teach in English.\n\nContact details\n\nProf. Hubert Stöckli, Chairman of the Faculty Structural Commission, hubert.stoeckli@unifr.ch",
-        "de": "WICHTIG\n\nACHTUNG : Klicken Sie nicht auf den Bewerbungsbutton oben auf dieser Seite. Ansonsten kann Ihre Bewerbung nicht berücksichtigt werden. Bewerben Sie sich bitte direkt unter folgender Adresse : ius-doyen@unifr.ch an Prof. Jacques Dubey, Dekan der Rechtswissenschaftlichen Fakultät der Universität Freiburg.\n\n40-50% für jede der beiden Professuren.\n\nSehr gerne nehmen wir Ihre Bewerbung für eine der beiden Professuren entgegen, wobei aber auch die Möglichkeit besteht, sich zugleich auf beide Professuren zu bewerben .\n\nAnstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nIhre Aufgaben\n\nDie Stellen sind vorderhand auf fünf Jahre befristet.\n\n• Sie lehren und forschen im Bereich der Rechtsinformatik (unter Einschluss von Legal Tech) bzw. der Rechtstatsachenforschung.\n\n• Sie betreuen Studierende und unterstützen Doktorierende beim Verfassen ihrer Dissertation.\n\n• Zudem engagieren Sie sich in der Weiterbildung und in der fakultären Selbstverwaltung.\n\nGewünschtes Profil\n\n• Sie haben hervorragende wissenschaftliche Fähigkeiten und begeistern sich für die Lehre.\n\n• Sie verfügen über ein Doktorat in einem Gebiet, das Sie befähigt, im Bereich der Rechtsinformatik bzw. der Rechtstatsachenforschung wesentliche Beiträge zu leisten.\n\n• Dazu bringen Sie vertiefte Rechtskenntnisse mit, über die Sie sich mit einem universitären BLaw, einem MALS oder einem ähnlich gelagerten Abschluss ausweisen können.\n\n• Sie haben bereits im Bereich der Rechtsinformatik bzw. der Rechtstatsachenforschung publiziert.\n\n• Idealerweise sind Sie schon in der Lehre tätig gewesen. Zudem verfügen Sie über die Fähigkeit, Drittmittel einzuwerben, und sind bereit, sich an der akademischen Selbstverwaltung zu beteiligen.\n\n• Sie beherrschen entweder die deutsche oder die französische Sprache perfekt und die jeweils andere Sprache auf hohem Niveau, was es Ihnen erlaubt, auch in dieser Sprache zu unterrichten. Von Vorteil ist es, wenn Sie überdies in der Lage sind, in englischer Sprache zu lehren.\n\nAngaben der Kontaktpersonen\n\nProf. Hubert Stöckli, Vorsitzender der fakultären Strukturkommission, hubert.stoeckli@unifr.ch",
-        "fr": "IMPORTANT\n\nATTENTION : Ne cliquez pas sur le bouton d'application en haut de cette page. Sinon, votre demande ne peut être prise en considération. Veuillez présenter votre demande directement à l'adresse suivante : ius-doyen@unifr.ch au Prof. Jacques Dubey, doyen de la Faculté de droit de l'Université de Fribourg.\n\n40-50% pour chacune des deux chaires.\n\nNous sommes heureux d'accepter votre candidature pour l'un des deux postes de professeur, mais il est également possible de postuler pour les deux postes de professeur en même temps.\n\nPouvoir de nomination / unité administrative / institution\n\nL'Université de Freiburg est un établissement d'enseignement, un centre de recherche, un employeur et un organisateur d'événements. Sa puissance innovante en fait un moteur important pour la vie économique et culturelle de la région. En tant qu'attraction pour les étudiants et les chercheurs de toute la Suisse et de toutes les parties du monde, l'université a façonné la vie de la ville bilingue de Fribourg depuis sa fondation en 1889.\n\nLeurs tâches\n\nCes postes sont pour le moment limités à cinq ans.\n\n• Ils enseignent et étudient dans le domaine de l'informatique juridique (y compris la technologie juridique) ou de la recherche sur les faits juridiques.\n\n• Ils supervisent les étudiants et les doctorants en rédigeant leur mémoire.\n\n• De plus, vous participez à la formation continue et à l'autogestion des professeurs.\n\nProfil désiré\n\n• Ils possèdent d'excellentes compétences scientifiques et sont enthousiastes à l'égard de l'enseignement.\n\n• Vous avez un doctorat dans un domaine qui vous permet d'apporter une contribution significative dans le domaine de l'informatique juridique ou de la recherche sur les faits juridiques.\n\n• Vous aurez également des connaissances juridiques approfondies sur lesquelles vous pouvez vous prouver avec un BLaw universitaire, un MALS ou un diplôme similaire.\n\n• Vous avez déjà publié dans le domaine de l'informatique juridique et de la recherche sur les faits juridiques.\n\n• Idéalement, vous avez déjà travaillé dans l'enseignement. Vous avez également la capacité de recueillir des fonds de tiers et êtes prêt à participer à l'autogestion académique.\n\n• Vous maîtrisez parfaitement l'allemand ou le français et l'autre langue à un niveau élevé, ce qui vous permet également d'enseigner dans cette langue. Il est également bénéfique si vous êtes en mesure d'enseigner en anglais.\n\nCoordonnées\n\nProfesseur Hubert Stöckli, Président de la Commission structurelle de la Faculté, hubert.stoeckli@unifr.ch"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Zwei-Professuren-Rechtsinformatik-%2840-50%29-und-Rechtstatsachenforschung-%2840-50%29-Saan/1371713257/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:29:44.822Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Giuridico",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09T00:00:00Z",
-      "postedDate": "2026-09-09T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1371713257/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Unifr-5650 Departement für öffentliches Recht",
-      "pensumMin": 40,
-      "pensumMax": 50,
-      "pensum": "40-50%",
-      "previousSlugs": [
-        "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de",
-        "zwei-professuren-rechtsinformatik-40-50-e-rechtstatsachenforschung-40-50-etat-de-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de",
-          "zwei-professuren-rechtsinformatik-40-50-e-rechtstatsachenforschung-40-50-etat-de-fribourg"
-        ],
-        "en": [
-          "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de"
-        ],
-        "fr": [
-          "zwei-professuren-rechtsinformatik-40-50-und-rechtstatsachenforschung-40-50-etat-de"
-        ]
-      },
-      "firstSeenAt": "2026-09-10T23:21:46.986Z",
-      "salaryMin": 39300,
-      "salaryMax": 67300,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 39300,
-          "maxValue": 67300,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-bab9e618af9c",
-      "slug": "due-professori-computer-legale-40-50-e-ricerca-legale-empirical-40-50-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "due-professori-computer-legale-40-50-e-ricerca-legale-empirical-40-50-etat-de-fribourg-fribourg",
-        "en": "two-professors-legal-computer-40-50-and-empirical-legal-research-40-50-etat-de-fribourg-fribourg",
-        "de": "zwei-professoren-legal-computer-40-50-und-empirical-legal-research-40-50-etat-de-fribourg-fribourg",
-        "fr": "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Deux professeur-e-s : Informatique juridique (40-50%) et Recherche juridique empirique (40-50%)",
-      "titleByLocale": {
-        "it": "Due professori: Computer Legale (40-50%) e Ricerca Legale Empirical (40-50%)",
-        "en": "Two Professors: Legal Computer (40-50%) and Empirical Legal Research (40-50%)",
-        "de": "Zwei Professoren: Legal Computer (40-50%) und Empirical Legal Research (40-50%)",
-        "fr": "Deux professeur-e-s : Informatique juridique (40-50%) et Recherche juridique empirique (40-50%)"
-      },
-      "description": "IMPORTANT\n\nATTENTION  : N'utilisez  pas  le bouton \"postuler\" en haut de cette page : votre dossier ne serait pas traité. Postulez directement à l'adresse suivante : ius-doyen@unifr.ch au Prof. Jacques Dubey, Doyen de la Faculté de droit de l’Université de Fribourg.\n\n40 à 50% pour chacun des deux postes.\n\nNous acceptons volontiers votre candidature pour l’un ou l’autre de ces postes de professeur-e, mais vous avez également la possibilité de postuler simultanément aux deux postes.\n\nQui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nVos missions\n\nLes postes sont initialement limités à cinq ans.\n\n• Vous enseignez et menez des recherches dans le domaine de l’informatique juridique (y compris la Legal Tech) respectivement de la recherche juridique empirique.\n\n• Vous encadrez des étudiant-e-s et soutenez des doctorant-e-s dans la rédaction de leur thèse.\n\n• Vous vous engagez également dans la formation continue et les tâches de gestion de la Faculté.\n\nProfil souhaité\n\n• Vous disposez d’excellentes compétences scientifiques et êtes passionné-e par l’enseignement.\n\n• Vous êtes titulaire d’un doctorat dans un domaine qui vous permet de contribuer significativement dans le domaine de l’informatique juridique respectivement de la recherche juridique empirique.\n\n• Vous disposez en outre de solides connaissances juridiques, attestées par un diplôme universitaire de droit (BLaw), un MALS ou un diplôme équivalent.\n\n• Vous avez déjà publié des articles dans le domaine de l’informatique juridique respectivement de la recherche juridique empirique.\n\n• Idéalement, vous disposez également d’expériences dans l’enseignement. Vous êtes capable de lever des fonds tiers et êtes disposé à participer à l’autogestion universitaire.\n\n• Vous maîtrisez parfaitement le français ou l’allemand et l’autre langue à un niveau élevé permettant d’enseigner dans cette langue. La capacité d’enseigner en langue anglaise constitue par ailleurs un atout.\n\nCoordonnées des personnes de contact\n\nProf. Hubert Stöckli, Président de la commission de structure de la Faculté, hubert.stoeckli@unifr.ch",
-      "descriptionByLocale": {
-        "it": "IMPORTANTE\n\nATTENZIONE: Non utilizzare il pulsante \"post\" nella parte superiore di questa pagina: la cartella non verrà elaborata. Applicare direttamente a ius-doyen@unifr.ch al Prof. Jacques Dubey, Dean, Facoltà di Giurisprudenza, Università di Friburgo.\n\ndal 40 al 50% per ciascuna delle due posizioni.\n\nSiamo lieti di accettare la vostra domanda per una o l'altra di queste posizioni di facoltà, ma avete anche la possibilità di applicare simultaneamente per entrambe le posizioni.\n\nChi siamo?\n\nInsegnamento, ricerca, lavoro, eventi: L'Università di Fribourg è uno spazio per l'innovazione e un importante autista per la vita economica e culturale nella regione. Attrae studenti e ricercatori provenienti da tutta la Svizzera e il mondo, segna la vita quotidiana della città bilingue di Friburgo, fin dalla sua fondazione nel 1889.\n\nLe vostre missioni\n\nI messaggi sono inizialmente limitati a cinque anni.\n\n• Lei insegna e conduce la ricerca nel campo dell'informatica legale (inclusa la tecnologia legale) della ricerca giuridica empirica, rispettivamente.\n\n• Lei supervisiona gli studenti e sostiene gli studenti di dottorato nella scrittura della loro tesi.\n\n• Sei anche coinvolto nelle attività di formazione e gestione in corso della Facoltà.\n\nProfilo desiderato\n\n• Avete eccellenti competenze scientifiche e siete appassionati di insegnamento.\n\n• Hai un dottorato in un'area che ti permette di dare un contributo significativo nel campo dell'informatica legale, rispettivamente, della ricerca giuridica empirica.\n\n• Hai anche una forte conoscenza legale, attestata da una laurea in diritto (BLaw), un MALS o una laurea equivalente.\n\n• Hai già pubblicato articoli nel campo dell'informatica legale nella ricerca giuridica empirica, rispettivamente.\n\n• Idealmente, hai anche esperienza nell'insegnamento. Siete in grado di raccogliere fondi di terze parti e sono disposti a partecipare all'autogestione universitaria.\n\n• Hai il comando perfetto di francese o tedesco e l'altra lingua ad alto livello per insegnare in questa lingua. La capacità di insegnare in inglese è anche un bene.\n\nInformazioni di contatto\n\nProf. Hubert Stöckli, presidente della Commissione Struttura della Facoltà, Hubert.stoeckli@unifr.ch",
-        "en": "IMPORTANT\n\nCAUTION: Do not use the \"post\" button at the top of this page: your folder would not be processed. Apply directly to ius-doyen@unifr.ch at Prof. Jacques Dubey, Dean, Faculty of Law, University of Fribourg.\n\n40 to 50% for each of the two positions.\n\nWe are happy to accept your application for one or the other of these faculty positions, but you also have the opportunity to apply simultaneously for both positions.\n\nWho are we?\n\nTeaching, research, jobs, events: The University of Fribourg is a space for innovation and an important driver for economic and cultural life in the region. It attracts students and researchers from all over Switzerland and the world, it marks the daily life of the bilingual city of Fribourg, since its foundation in 1889.\n\nYour missions\n\nPosts are initially limited to five years.\n\n• You teach and conduct research in the field of legal computing (including Legal Tech) of empirical legal research, respectively.\n\n• You supervise students and support doctoral students in the writing of their thesis.\n\n• You are also involved in the Faculty's ongoing training and management tasks.\n\nProfile desired\n\n• You have excellent scientific skills and are passionate about teaching.\n\n• You have a PhD in an area that allows you to make a significant contribution in the field of legal computing, respectively, of empirical legal research.\n\n• You also have strong legal knowledge, attested by a university degree in law (BLaw), a MALS or an equivalent degree.\n\n• You have already published articles in the field of legal computing in empirical legal research, respectively.\n\n• Ideally, you also have experience in teaching. You are able to raise third-party funds and are willing to participate in university self-management.\n\n• You have perfect command of French or German and the other language at a high level to teach in this language. The ability to teach in English is also an asset.\n\nContact details\n\nProf. Hubert Stöckli, Chair of the Faculty's Structure Commission, Hubert.stoeckli@unifr.ch",
-        "de": "WICHTIG\n\nACHTUNG: Verwenden Sie nicht die Schaltfläche \"Post\" oben auf dieser Seite: Ihr Ordner wird nicht verarbeitet. Bewerben Sie sich direkt bei ius-doyen@unifr.ch bei Prof. Jacques Dubey, Dekan, Fakultät für Recht, Universität Freiburg.\n\n40 bis 50% für jede der beiden Positionen.\n\nGerne nehmen wir Ihre Bewerbung für die eine oder andere dieser Fakultätsstellen an, haben aber auch die Möglichkeit, sich gleichzeitig für beide Stellen zu bewerben.\n\nWer sind wir?\n\nLehre, Forschung, Jobs, Veranstaltungen: Die Universität Freiburg ist ein Innovationsraum und ein wichtiger Motor für das wirtschaftliche und kulturelle Leben in der Region. Es zieht Studenten und Forscher aus der ganzen Schweiz und der Welt an und markiert den Alltag der zweisprachigen Stadt Freiburg seit ihrer Gründung im Jahr 1889.\n\nIhre Missionen\n\nStellen sind zunächst auf fünf Jahre begrenzt.\n\n• Sie lehren und forschen im Bereich Legal Computing (einschließlich Legal Tech) der empirischen Rechtsforschung.\n\n• Sie betreuen Studierende und unterstützen Doktoranden beim Verfassen ihrer Abschlussarbeit.\n\n• Sie sind auch in die laufenden Schulungs- und Managementaufgaben der Fakultät eingebunden.\n\nProfil gewünscht\n\n• Sie haben ausgezeichnete wissenschaftliche Fähigkeiten und sind leidenschaftlich über den Unterricht.\n\n• Sie haben einen PhD in einem Bereich, der es Ihnen ermöglicht, einen wesentlichen Beitrag im Bereich Legal Computing bzw. der empirischen Rechtsforschung zu leisten.\n\n• Sie verfügen auch über fundierte juristische Kenntnisse, die durch einen Hochschulabschluss in Rechtswissenschaften (BLaw), einen MALS oder einen gleichwertigen Abschluss belegt sind.\n\n• Sie haben bereits Artikel im Bereich Legal Computing in der empirischen Rechtsforschung veröffentlicht.\n\n• Idealerweise haben Sie auch Erfahrung im Unterrichten. Sie können Drittmittel beschaffen und sind bereit, sich am universitären Selbstmanagement zu beteiligen.\n\n• Sie beherrschen Französisch oder Deutsch und die andere Sprache auf hohem Niveau, um in dieser Sprache zu unterrichten. Die Fähigkeit, auf Englisch zu unterrichten, ist ebenfalls ein Vorteil.\n\nKontaktdaten\n\nProf. Hubert Stöckli, Vorsitzender der Strukturkommission der Fakultät, Hubert.stoeckli@unifr.ch",
-        "fr": "IMPORTANT\n\nATTENTION : N'utilisez pas le bouton \"postuler\" en haut de cette page : votre dossier ne serait pas traité. Postulez directement à l'adresse suivante : ius-doyen@unifr.ch au Prof. Jacques Dubey, Doyen de la Faculté de droit de l’Université de Fribourg.\n\n40 à 50% pour chacun des deux postes.\n\nNous acceptons volontiers votre candidature pour l’un ou l’autre de ces postes de professeur-e, mais vous avez également la possibilité de postuler simultanément aux deux postes.\n\nQui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nVos missions\n\nLes postes sont initialement limités à cinq ans.\n\n• Vous enseignez et menez des recherches dans le domaine de l’informatique juridique (y compris la Legal Tech) respectivement de la recherche juridique empirique.\n\n• Vous encadrez des étudiant-e-s et soutenez des doctorant-e-s dans la rédaction de leur thèse.\n\n• Vous vous engagez également dans la formation continue et les tâches de gestion de la Faculté.\n\nProfil souhaité\n\n• Vous disposez d’excellentes compétences scientifiques et êtes passionné-e par l’enseignement.\n\n• Vous êtes titulaire d’un doctorat dans un domaine qui vous permet de contribuer significativement dans le domaine de l’informatique juridique respectivement de la recherche juridique empirique.\n\n• Vous disposez en outre de solides connaissances juridiques, attestées par un diplôme universitaire de droit (BLaw), un MALS ou un diplôme équivalent.\n\n• Vous avez déjà publié des articles dans le domaine de l’informatique juridique respectivement de la recherche juridique empirique.\n\n• Idéalement, vous disposez également d’expériences dans l’enseignement. Vous êtes capable de lever des fonds tiers et êtes disposé à participer à l’autogestion universitaire.\n\n• Vous maîtrisez parfaitement le français ou l’allemand et l’autre langue à un niveau élevé permettant d’enseigner dans cette langue. La capacité d’enseigner en langue anglaise constitue par ailleurs un atout.\n\nCoordonnées des personnes de contact\n\nProf. Hubert Stöckli, Président de la commission de structure de la Faculté, hubert.stoeckli@unifr.ch"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Deux-professeur-e-s-Informatique-juridique-%2840-50%29-et-Recherche-juridique-empirique-%2840-50%29-Sari/1371713157/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:29:44.147Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09T00:00:00Z",
-      "postedDate": "2026-09-09T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1371713157/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Unifr-5650 Département de droit public",
-      "pensumMin": 40,
-      "pensumMax": 50,
-      "pensum": "40-50%",
-      "previousSlugs": [
-        "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
-        ],
-        "en": [
-          "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
-        ],
-        "de": [
-          "deux-professeur-e-s-informatique-juridique-40-50-et-recherche-juridique-empirique-40-50"
-        ]
-      },
-      "firstSeenAt": "2026-09-10T23:21:47.633Z",
-      "salaryMin": 29500,
-      "salaryMax": 54300,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 29500,
-          "maxValue": 54300,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-004f9698c67e",
-      "slug": "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg-019eb0",
-      "slugByLocale": {
-        "it": "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg-019eb0",
-        "en": "vice-president-of-the-expropriation-commission-etat-de-fribourg-fribourg",
-        "de": "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch",
-        "fr": "vice-president-de-la-commission-d-expropriation-etat-de-fribourg-fribourg"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Vizepräsident/in der Enteignungskommission",
-      "titleByLocale": {
-        "it": "Vicepresidente della Commissione per gli stanziamenti",
-        "en": "Vice-President of the Expropriation Commission",
-        "de": "Vizepräsident/in der Enteignungskommission",
-        "fr": "Vice-président de la Commission d'expropriation"
-      },
-      "description": "Wie bewerbe ich mich\n\nACHTUNG: Um Ihre Bewerbung einzureichen, verwenden Sie bitte ausschliesslich den folgenden Link :   KLICKEN SIE AUF DIESEN LINK, UM SICH ZU BEWERBEN .  Klicken Sie  nicht  auf die Schaltflächen « Jetzt bewerben » oben und unten auf dieser Seite. Bewerben Sie sich bitte direkt über folgende E-Mailadresse: CMcandidatures@fr.ch . Ansonsten wird Ihre Bewerbung nicht bearbeitet.\n\nBewerbungsdossier\n\nDie Bewerbungen müssen schriftlich mit einem Bewerbungsschreiben, einem kurzen Lebenslauf und einem kürzlich ausgestellten (nicht älter als ein Jahr) Straf- und Betreibungsregisterauszug eingereicht werden.\n\nFür eine vollständige Bewerbung müssen Sie das  offizielle Bewerbungsformular auf der Webseite des Justizrats ausfüllen und absenden.\n\nBeschreibung des Amtes\n\nDie Enteignungskommission entscheidet über alle Schätzungsfragen, die durch das Gesetz über die Enteignung nicht einer anderen Behörde übertragen werden, sowie über Entschädigungsbegehren wegen materieller Enteignung. Sie übt ferner die Kompetenzen aus, die andere Bestimmungen des kantonalen Rechts ausdrücklich oder sinngemäss – zum Beispiel die Entschädigungsbegehren einer Eigentümerin oder eines Eigentümers gegenüber seiner Nachbarin oder seinem Nachbarn, in Anwendung des Raumplanungs- und Baugesetzes – der Enteignungsrichterin oder dem Enteignungsrichter zuweisen.\n\nGewünschtes Profil\n\n• Der Justizrat sucht eine Vizepräsidentin bzw. einen Vizepräsidenten mit Anwaltspatent, Lizentiat oder Master der Rechte oder Erfahrung in der Gerichtsbarkeit mit Kenntnissen des Freiburger Verwaltungsrechts, insbesondere im Bereich Bauwesen und Raumplanung (Planung). Eine gewisse Verfügbarkeit für Sitzungen und das Verfassen von Texten ist erforderlich. Es handelt sich um eine nebenamtliche Tätigkeit (ca. 10 %), die in unregelmässigen Abständen ausgeübt wird.\n\n• Stimmberechtigung in kantonalen Angelegenheiten. Ausländische Staatsangehörige müssen im Besitz einer Niederlassungsbewilligung sein und zudem seit mindestens fünf Jahren Wohnsitz im Kanton haben. Es dürfen keine Verlustscheine gegen die Person vorliegen. Sie darfnicht wegen Handlungen strafrechtlich verurteilt worden sein, die nicht mit dem richterlichen Amt vereinbar sind\n\n• Beherrschen der deutschen Sprache mit sehr guten Kenntnissen der französischen Sprache\n\nAngaben der Kontaktpersonen\n\nCMcandidatures@fr.ch",
-      "descriptionByLocale": {
-        "it": "Come applicare\n\nATTENZIONE: Per presentare la domanda, si prega di utilizzare il seguente link solo: CLICCA SU QUESTO LINK ALLA APPLICAZIONE. Non fare clic sui pulsanti \"Applica ora\" in alto e in basso di questa pagina. Si prega di rivolgersi direttamente al seguente indirizzo e-mail: CMcandidatures@fr.ch . Altrimenti, la tua domanda non verrà elaborata.\n\nFascicolo di applicazione\n\nLe domande devono essere presentate per iscritto con una lettera di domanda, un breve curriculum vitae e una dichiarazione recentemente rilasciata (non più di un anno) di documenti penali e di applicazione.\n\nPer una domanda completa, è necessario compilare e presentare il modulo di domanda ufficiale sul sito del Consiglio giudiziario.\n\nDescrizione dell'Ufficio\n\nLa commissione di espropriazione decide su tutte le domande di valutazione che non sono trasferite dalla legge sull'espropriazione ad un'altra autorità, nonché sulle richieste di compensazione per l'espropriazione materiale. Esercita inoltre i poteri che altre disposizioni del diritto cantonale attribuiscono espressamente o mutatis mutandis al giudice di espropriazione – ad esempio la richiesta di risarcimento di un proprietario nei confronti del suo prossimo, in applicazione della pianificazione territoriale e del diritto di costruzione.\n\nProfilo desiderato\n\n• Il Consiglio Giudiziario sta cercando un Vicepresidente o un vice-presidente con brevetto, licenza o master in diritti o esperienza in giurisdizione con la conoscenza del diritto amministrativo di Friburgo, in particolare nel campo della costruzione e della pianificazione territoriale (pianificazione). È richiesta una certa disponibilità per le sessioni e la scrittura di testo. Si tratta di un lavoro part-time (circa il 10%), che viene svolto a intervalli irregolari.\n\n• Diritti di voto in materia cantonale. I cittadini stranieri devono possedere un permesso di soggiorno e sono residenti nel cantone per almeno cinque anni. Non ci devono essere certificati di perdita contro la persona. Non deve essere stato condannato per atti incompatibili con l'ufficio giudiziario\n\n• Padroneggiare la lingua tedesca con una buona conoscenza della lingua francese\n\nInformazioni di contatto\n\nCMcandidatures@fr.ch",
-        "en": "How do I apply\n\nATTENTION: To submit your application, please use the following link only: CLICK ON THIS LINK TO APPLICATE. Do not click on the \"Apply Now\" buttons at the top and bottom of this page. Please apply directly via the following e-mail address: CMcandidatures@fr.ch . Otherwise, your application will not be processed.\n\nApplication dossier\n\nApplications must be submitted in writing with a letter of application, a short curriculum vitae and a recently issued (not older than one year) statement of penal and enforcement records.\n\nFor a complete application, you must complete and submit the official application form on the website of the Judicial Council.\n\nDescription of the Office\n\nThe expropriation commission decides on all valuation questions which are not transferred by the law on expropriation to another authority, as well as on compensation requests for material expropriation. It also exercises the powers which other provisions of cantonal law expressly or mutatis mutandis assign to the expropriation judge – for example the request for compensation of an owner vis-à-vis his neighbour, in application of the spatial planning and building law.\n\nDesired profile\n\n• The Judiciary Council is seeking a Vice-President or a vice-president with attorney’s patent, license or master’s degree in rights or experience in jurisdiction with knowledge of Freiburg administrative law, in particular in the field of construction and spatial planning (planning). Some availability for sessions and text writing is required. It is a part-time job (about 10%), which is carried out at irregular intervals.\n\n• Voting rights in cantonal matters. Foreign nationals must hold a residence permit and have been resident in the canton for at least five years. There must be no loss certificates against the person. You must not have been convicted for acts incompatible with the judicial office\n\n• Mastering the German language with very good knowledge of the French language\n\nContact details\n\nCMcandidatures@fr.ch",
-        "de": "Wie bewerbe ich mich\n\nACHTUNG: Um Ihre Bewerbung einzureichen, verwenden Sie bitte ausschliesslich den folgenden Link : KLICKEN SIE AUF DIESEN LINK, UM SICH ZU BEWERBEN . Klicken Sie nicht auf die Schaltflächen « Jetzt bewerben » oben und unten auf dieser Seite. Bewerben Sie sich bitte direkt über folgende E-Mailadresse: CMcandidatures@fr.ch . Ansonsten wird Ihre Bewerbung nicht bearbeitet.\n\nBewerbungsdossier\n\nDie Bewerbungen müssen schriftlich mit einem Bewerbungsschreiben, einem kurzen Lebenslauf und einem kürzlich ausgestellten (nicht älter als ein Jahr) Straf- und Betreibungsregisterauszug eingereicht werden.\n\nFür eine vollständige Bewerbung müssen Sie das offizielle Bewerbungsformular auf der Webseite des Justizrats ausfüllen und absenden.\n\nBeschreibung des Amtes\n\nDie Enteignungskommission entscheidet über alle Schätzungsfragen, die durch das Gesetz über die Enteignung nicht einer anderen Behörde übertragen werden, sowie über Entschädigungsbegehren wegen materieller Enteignung. Sie übt ferner die Kompetenzen aus, die andere Bestimmungen des kantonalen Rechts ausdrücklich oder sinngemäss – zum Beispiel die Entschädigungsbegehren einer Eigentümerin oder eines Eigentümers gegenüber seiner Nachbarin oder seinem Nachbarn, in Anwendung des Raumplanungs- und Baugesetzes – der Enteignungsrichterin oder dem Enteignungsrichter zuweisen.\n\nGewünschtes Profil\n\n• Der Justizrat sucht eine Vizepräsidentin bzw. einen Vizepräsidenten mit Anwaltspatent, Lizentiat oder Master der Rechte oder Erfahrung in der Gerichtsbarkeit mit Kenntnissen des Freiburger Verwaltungsrechts, insbesondere im Bereich Bauwesen und Raumplanung (Planung). Eine gewisse Verfügbarkeit für Sitzungen und das Verfassen von Texten ist erforderlich. Es handelt sich um eine nebenamtliche Tätigkeit (ca. 10 %), die in unregelmässigen Abständen ausgeübt wird.\n\n• Stimmberechtigung in kantonalen Angelegenheiten. Ausländische Staatsangehörige müssen im Besitz einer Niederlassungsbewilligung sein und zudem seit mindestens fünf Jahren Wohnsitz im Kanton haben. Es dürfen keine Verlustscheine gegen die Person vorliegen. Sie darfnicht wegen Handlungen strafrechtlich verurteilt worden sein, die nicht mit dem richterlichen Amt vereinbar sind\n\n• Beherrschen der deutschen Sprache mit sehr guten Kenntnissen der französischen Sprache\n\nAngaben der Kontaktpersonen\n\nCMcandidatures@fr.ch",
-        "fr": "Comment puis-je postuler\n\nATTENTION : Pour soumettre votre demande, veuillez utiliser le lien suivant seulement : CLIQUEZ SUR CE LIEN DE DEMANDE. Ne cliquez pas sur les boutons \"Appliquer maintenant\" en haut et en bas de cette page. Veuillez soumettre votre demande directement par l'intermédiaire de l'adresse électronique suivante : CMcandidatures@fr.ch . Sinon, votre demande ne sera pas traitée.\n\nDossier de candidature\n\nLes demandes doivent être présentées par écrit, accompagnées d'une lettre de demande, d'un bref curriculum vitae et d'une déclaration récente (d'au plus un an) des dossiers pénaux et d'exécution.\n\nPour une demande complète, vous devez remplir et soumettre le formulaire de demande officiel sur le site web du Conseil judiciaire.\n\nDescription de l'Office\n\nLa commission d'expropriation statue sur toutes les questions d'évaluation qui ne sont pas transférées par la loi sur l'expropriation à une autre autorité, ainsi que sur les demandes d'indemnisation pour expropriation matérielle. Elle exerce également les pouvoirs que d'autres dispositions du droit cantonal attribuent expressément ou mutatis mutandis au juge de l'expropriation, par exemple la demande d'indemnisation d'un propriétaire vis-à-vis de son voisin, en application du droit de l'aménagement du territoire et de la construction.\n\nProfil désiré\n\n• Le Conseil judiciaire demande un vice-président ou un vice-président avec un avocat brevet, licence ou maîtrise en droits ou expérience dans la juridiction avec connaissance du droit administratif de Fribourg, en particulier dans le domaine de la construction et de l'aménagement du territoire (planification). Une certaine disponibilité pour les sessions et la rédaction de textes est requise. Il s'agit d'un emploi à temps partiel (environ 10%), qui est effectué à intervalles irréguliers.\n\n• Droit de vote en matière cantonale. Les étrangers doivent détenir un permis de séjour et résider dans le canton depuis au moins cinq ans. Il ne doit pas y avoir de certificat de perte contre la personne. Vous ne devez pas avoir été condamné pour des actes incompatibles avec la fonction judiciaire\n\n• Maîtriser l'allemand avec une très bonne connaissance de la langue française\n\nCoordonnées\n\nCMcandidatures@fr.ch"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vizepr%C3%A4sidentin-der-Enteignungskommission-Saan/1372157757/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T21:29:35.852Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-15T00:00:00Z",
-      "postedDate": "2026-09-15T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1372157757/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Justizrat",
-      "previousSlugs": [
-        "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:06:14.647Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-38239d0ef026",
-      "slug": "assesseur-es-s-audit-dei-conti-con-la-giustizia-de-paix-de-la-glane-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "assesseur-es-s-audit-dei-conti-con-la-giustizia-de-paix-de-la-glane-etat-de-fribourg-fribourg",
-        "en": "assesseur-es-s-audit-of-accounts-with-the-justice-de-paix-de-la-glane-etat-de-fribourg-fribourg",
-        "de": "assesseur-es-s-prufung-der-rechnungen-bei-der-justiz-de-paix-de-la-glane-etat-de-fribourg-fribourg",
-        "fr": "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Assesseur-e-s (contrôle des comptes) auprès de la Justice de paix de la Glâne",
-      "titleByLocale": {
-        "it": "Assesseur-es-s (audit dei conti) con la Giustizia de Paix de la Glâne",
-        "en": "Assesseur-es-s (audit of accounts) with the Justice de Paix de la Glâne",
-        "de": "Assesseur-es-s (Prüfung der Rechnungen) bei der Justiz de Paix de la Glâne",
-        "fr": "Assesseur-e-s (contrôle des comptes) auprès de la Justice de paix de la Glâne"
-      },
-      "description": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant :  CLIQUEZ SUR CE LIEN POUR POSTULER .  N ’utilisez  pas   les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne serait pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse: CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nDescription du poste\n\nLes assesseur-e-s sont des juges non professionnels-les qui disposent d'une compétence décisionnelle en matière judiciaire ( art. 4 LJ ). Un-e assesseur-e est convoqué-e en fonction des besoins de l'autorité concernée. Il/elle perçoit des indemnités de séances conformément à l' art. 79a RJ . Les assesseur-e-s sont élu-e-s par le Grand Conseil, sur préavis du Conseil de la magistrature qui met au concours pour le Grand Conseil les fonctions judiciaires ( art. 12 LJ ).\n\nProfils souhaités\n\n• Le Conseil de la magistrature recherche deux personnes ayant de l'expérience et des compétences dans le domaine du contrôle des comptes\n\n• Les candidat-e-s doivent être très disponibles en journée et flexibles dans la mesure où les séances sont agendées à brève échéances en raison des affaires traitées par les Justices de paix\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue française avec des connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch",
-      "descriptionByLocale": {
-        "it": "Come Applicare\n\nPer richiedere questa posizione, utilizzare il seguente link solo: CLICCA SU QUESTO LINK A POSIZIONE . Non utilizzare i pulsanti \"Applica\" nella parte superiore e inferiore di questa pagina: la cartella non verrà elaborata. Applicare direttamente inviando i documenti via e-mail a CMcandidatures@en.ch .\n\nFile di applicazione\n\nLe domande devono essere accompagnate da una lettera di presentazione, un breve curriculum vitae, estratti dal verbale penale e dal recente ufficio per l'accusa (datato meno di un anno).\n\nNon dimenticate di completare il modulo ad hoc citato sul sito del Consiglio giudiziario.\n\nDescrizione del post\n\nI valutatori sono giudici non professionali che hanno competenza decisionale in materia giudiziaria (art. 4 LJ). Il valutatore è convocato secondo le esigenze dell'autorità interessata. Riceverà indennità di riunione conformemente a s. 79a RJ . I valutatori sono eletti dal Gran Consiglio, su avviso del Consiglio giudiziario, che contesta il Gran Consiglio con funzioni giurisdizionali (art. 12 LJ).\n\nProfili\n\n• Il Consiglio giudiziario sta cercando due persone con esperienza e competenza nell'audit\n\n• I candidati devono essere molto disponibili di giorno in giorno e flessibili in quanto le sessioni sono generate a breve termine a causa dei casi gestiti dalla Giustizia della Pace\n\n• Cittadinanza attiva a livello cantonale. Le persone di nazionalità straniera devono possedere un permesso di stabilimento e sono state domiciliate nel cantone per almeno cinque anni. I candidati non devono essere oggetto di un atto di mancanza di proprietà, non sono stati condannati per atti incompatibili con la funzione\n\n• Masterizzazione della lingua francese con conoscenza della lingua tedesca\n\nInformazioni di contatto\n\nCMcandidatures@en.ch",
-        "en": "How to Apply\n\nPlease note: To apply for this position, use the following link only: CLICK ON THIS LINK TO POSITION . Do not use the \"Apply\" buttons at the top and bottom of this page: your folder would not be processed. Apply directly by sending your documents by e-mail to CMcandidatures@en.ch .\n\nApplication file\n\nApplications must be accompanied by a cover letter, a brief curriculum vitae, extracts from the criminal record and from the recent prosecution office (dated less than one year).\n\nDo not forget to complete the ad hoc form mentioned on the website of the Judicial Council.\n\nDescription of post\n\nThe assessors are non-professional judges who have decision-making competence in judicial matters (art. 4 LJ). An assessor shall be summoned according to the needs of the authority concerned. He/she shall receive meeting allowances in accordance with s. 79a RJ . The assessors shall be elected by the Grand Council, on notice of the Judicial Council, which shall contest the Grand Council with judicial functions (Art. 12 LJ).\n\nProfiles\n\n• The Judicial Council is looking for two people with experience and expertise in auditing\n\n• Candidates must be very available on a day-to-day basis and flexible as the sessions are generated in the short term due to cases handled by the Justices of the Peace\n\n• Citizenship active on the cantonal level. Persons of foreign nationality must hold an establishment permit and have been domiciled in the canton for at least five years. Candidates must not be the subject of an act of lack of property, not have been criminally convicted for acts incompatible with the function\n\n• Mastery of the French language with knowledge of the German language\n\nContact details\n\nCMcandidatures@en.ch",
-        "de": "Wie man anwendet\n\nBitte beachten Sie: Um sich für diese Position zu bewerben, verwenden Sie nur den folgenden Link: KLICKEN AUF DIESEM LINK ZU POSITION . Verwenden Sie die Schaltflächen \"Anwenden\" oben und unten auf dieser Seite nicht: Ihr Ordner wird nicht verarbeitet. Bewerben Sie sich direkt, indem Sie Ihre Dokumente per E-Mail an CMcandidatures@en.ch senden.\n\nAntragsunterlagen\n\nAnträgen müssen ein Anschreiben, ein kurzer Lebenslauf, Auszüge aus dem Strafregister und von der jüngsten Staatsanwaltschaft (weniger als ein Jahr) beigefügt sein.\n\nVergessen Sie nicht, das auf der Website des Justizrates erwähnte Ad-hoc-Formular auszufüllen.\n\nBeschreibung der Post\n\nDie Assessoren sind nichtberufliche Richter, die Entscheidungskompetenz in gerichtlichen Angelegenheiten haben (Art. 4 LJ). Ein Bewerter wird entsprechend den Bedürfnissen der betreffenden Behörde vorgeladen. Er erhält Sitzungszulagen gemäß § 79a RJ. Die Bewerter werden vom Großen Rat auf Veranlassung des Gerichtsrates gewählt, der den Großen Rat mit gerichtlichen Aufgaben anfechtet (Art. 12 LJ).\n\nProfile\n\n• Der Justizrat sucht zwei Personen mit Erfahrung und Expertise in der Wirtschaftsprüfung\n\n• Die Kandidaten müssen täglich sehr verfügbar und flexibel sein, da die Sitzungen aufgrund von Fällen, die von den Friedensrichtern bearbeitet werden, kurzfristig generiert werden.\n\n• Staatsbürgerschaft aktiv auf kantonaler Ebene. Personen mit ausländischer Staatsangehörigkeit müssen eine Niederlassungserlaubnis besitzen und seit mindestens fünf Jahren im Kanton ansässig sein. Kandidaten dürfen nicht Gegenstand einer Handlung des Eigentumsmangels sein, nicht wegen Handlungen verurteilt worden sein, die mit der Funktion unvereinbar sind\n\n• Beherrschung der französischen Sprache mit Kenntnissen der deutschen Sprache\n\nKontaktdaten\n\nCMcandidatures@de.ch",
-        "fr": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant : CLIQUEZ SUR CE LIEN POUR POSTULER . N ’utilisez pas les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne serait pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse: CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nDescription du poste\n\nLes assesseur-e-s sont des juges non professionnels-les qui disposent d'une compétence décisionnelle en matière judiciaire ( art. 4 LJ ). Un-e assesseur-e est convoqué-e en fonction des besoins de l'autorité concernée. Il/elle perçoit des indemnités de séances conformément à l' art. 79a RJ . Les assesseur-e-s sont élu-e-s par le Grand Conseil, sur préavis du Conseil de la magistrature qui met au concours pour le Grand Conseil les fonctions judiciaires ( art. 12 LJ ).\n\nProfils souhaités\n\n• Le Conseil de la magistrature recherche deux personnes ayant de l'expérience et des compétences dans le domaine du contrôle des comptes\n\n• Les candidat-e-s doivent être très disponibles en journée et flexibles dans la mesure où les séances sont agendées à brève échéances en raison des affaires traitées par les Justices de paix\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue française avec des connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assesseur-e-s-%28contr%C3%B4le-des-comptes%29-aupr%C3%A8s-de-la-Justice-de-paix-de-la-Gl%C3%A2ne-Sari/1372157257/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:29:35.163Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Giuridico",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-15T00:00:00Z",
-      "postedDate": "2026-09-15T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1372157257/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Conseil de la magistrature",
-      "previousSlugs": [
-        "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
-        ],
-        "en": [
-          "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
-        ],
-        "de": [
-          "assesseur-e-s-controle-des-comptes-aupres-de-la-justice-de-paix-de-la-glane-etat-de"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:06:09.539Z",
-      "salaryMin": 78500,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-1ad3b6a125f8",
-      "slug": "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg",
-        "en": "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch",
-        "de": "vizeprasident-der-enteignungskommission-etat-de-fribourg-fribourg",
-        "fr": "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Vice-président-e auprès de la Commission d'expropriation",
-      "titleByLocale": {
-        "it": "Vicepresidente presso la Commissione per l'espropriazione",
-        "en": "Vice President with the Expropriation Commission",
-        "de": "Vizepräsident der Enteignungskommission",
-        "fr": "Vice-président-e auprès de la Commission d'expropriation"
-      },
-      "description": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant :   CLIQUEZ SUR CE LIEN POUR POSTULER .  N’utilisez  pas   les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne sera pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse:  CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année).\n\nNe pas oublier de compléter le  formulaire ad hoc  mentionné sur le site du Conseil de la magistrature.\n\nDescription de poste\n\nLa Commission d'expropriation connaît de toutes les questions d’estimation que la loi sur l'expropriation ne place pas dans la compétence d’une autre autorité, ainsi que des demandes d’indemnisation pour cause d’expropriation matérielle. Elle exerce en outre les attributions que d’autres dispositions du droit cantonal confèrent au ou à la juge de l’expropriation, formellement ou par des expressions équivalentes (art. 3), par exemple des demandes d'indemnité d'un-e propriétaire à son voisin ou sa voisine, en application de la loi sur l'aménagement du territoire et les constructions.\n\nProfil souhaité\n\n• Le Conseil de la magistrature recherche une vice-présidente ou un vice-président titulaire d’un brevet d’avocat, d’une licence ou d’un master en droit, ou disposant d’une expérience dans le domaine judiciaire, avec des connaissances du droit administratif fribourgeois, en particulier dans les domaines de la construction et de l’aménagement du territoire (planification). Une certaine disponibilité pour la participation aux séances ainsi que pour la rédaction de textes est requise. Il s’agit d’une activité accessoire (env. 10%) exercée de manière irrégulière\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue allemande avec des très bonnes connaissances de la langue française\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch",
-      "descriptionByLocale": {
-        "it": "Come candidarsi\n\nAttenzione: Per candidarsi a questa posizione, utilizzare solo il seguente link: FARE CLIC SU QUESTO LINK PER CANDIDARSI . Non utilizzare i pulsanti \"applica\" nella parte superiore e inferiore di questa pagina: la tua pratica non verrà elaborata. Candidati direttamente inviando i tuoi documenti via e-mail all'indirizzo: CMcandidatures@fr.ch .\n\nFascicolo di candidatura\n\nLe candidature devono essere accompagnate da una lettera di motivazione, da un breve curriculum vitae, da estratti del casellario giudiziale e dall'ufficio delle azioni penali recenti (datati a meno di un anno).\n\nNon dimenticare di compilare l'apposito modulo riportato sul sito del Consiglio della Magistratura.\n\nDescrizione del lavoro\n\nLa Commissione per l'espropriazione è a conoscenza di tutte le questioni di stima che la legge sull'espropriazione non pone nella competenza di un'altra autorità, nonché delle richieste di risarcimento per espropriazione materiale. Esercita inoltre le attribuzioni che altre disposizioni del diritto cantonale conferiscono al o al giudice dell'espropriazione, formalmente o con espressioni equivalenti (articolo 3), ad esempio richieste di indennizzo di un proprietario al suo vicino o alla sua vicina, in applicazione della legge sulla pianificazione del territorio e sulle costruzioni.\n\nProfilo desiderato\n\n• Il Consiglio della magistratura ricerca una vicepresidente o un vicepresidente titolare di un brevetto di avvocato, di una licenza o di un",
-        "en": "How to apply\n\nPlease note: To apply for this position, use the following link only: CLICK ON THIS LINK TO POSITION. N, use the \"postulate\" buttons at the top and bottom of this page: your folder will not be processed. Apply directly by sending your documents by email to: CMcanDoatures@fr.ch.\n\nApplication file\n\nApplications must be accompanied by a cover letter, a brief curriculum vitae, extracts from the criminal record and the Office of the recently filed prosecution (date less than one year).\n\nPlease remember to complete the ad hoc form mentioned on the website of the Judicial Council.\n\nDescription of post\n\nThe Expropriation Commission is aware of all the questions of assessment that the Expropriation Act does not fall within the jurisdiction of another authority, as well as claims for compensation for material expropriation, and also exercises the powers conferred by other provisions of cantonal law on the judge or judges of expropriation, formally or by equivalent expressions (art. 3), such as claims for compensation from a neighbour or neighbour under the Planning and Construction Act.\n\nProfile\n\n• The Judicial Council is seeking a Vice-President, a lawyer, a licence or a Master's degree in law, or with experience in the judicial field, with knowledge of the administrative law of the canton, particularly in the fields of construction and planning (planning).\n\n• Cantonal active citizenship: persons of foreign nationality must be holders of a residence permit and have been domiciled in the canton for at least five years. Candidates must not be the subject of a deed of lack of property, not have been convicted of offences incompatible with the office\n\n• Mastery of the German language with very good knowledge of the French language\n\nContact details of contact persons\n\nCMcanDoctors@en.ch",
-        "de": "Wie kann man sich bewerben?\n\nBitte beachten Sie: Um sich für diese Position zu bewerben, verwenden Sie nur den folgenden Link: KLICKEN SIE AUF DIESER LINK ZUM POSITION. N, verwenden Sie die \"Postulate\"-Schaltflächen am oberen und unteren Rand dieser Seite: Ihr Ordner wird nicht verarbeitet.\n\nAnwendungsdatei\n\nDie Anträge müssen mit einem Anschreiben, einem kurzen Lebenslauf, Auszügen aus dem Strafregister und dem Amt der vor kurzem eingereichten Anklage (Datum weniger als ein Jahr) versehen sein.\n\nBitte beachten Sie, dass das auf der Website des Justizrates erwähnte Ad-hoc-Formular auszufüllen ist.\n\nBeschreibung des Postens\n\nDie Enteignungskommission ist sich aller Beurteilungsfragen bewusst, dass das Enteignungsgesetz nicht in die Zuständigkeit einer anderen Behörde fällt, sowie der Ansprüche auf Entschädigung für materielle Enteignung, und übt auch die Befugnisse aus, die durch andere Bestimmungen des Kantonalgesetzes dem Richter oder Richter der Enteignung, formal oder durch gleichwertige Ausdrücke (Art. 3), wie Ansprüche auf Entschädigung von einem Nachbarn oder Nachbarn nach dem Planen- und Baugesetz.\n\nProfil\n\n• Der Justizrat sucht einen Vizepräsidenten, einen Anwalt, eine Lizenz oder einen Master in Rechtswissenschaften oder mit Erfahrung im Rechtsbereich, mit Kenntnissen des Verwaltungsrechts des Kantons, insbesondere in den Bereichen Bau und Planung (Planung).\n\n• Kantonsaktive Staatsbürgerschaft: Ausländer müssen Inhaber einer Aufenthaltserlaubnis sein und seit mindestens fünf Jahren im Kanton ansässig sein. Bewerber dürfen nicht Gegenstand einer Vermögenssache sein, sie sind nicht wegen mit dem Amt unvereinbarer Straftaten verurteilt worden.\n\n• Beherrschung der deutschen Sprache mit sehr guten Kenntnissen der französischen Sprache\n\nKontaktangaben der Ansprechpartner\n\nCMcanDoctors@de.ch",
-        "fr": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant : CLIQUEZ SUR CE LIEN POUR POSTULER . N’utilisez pas les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne sera pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse: CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nDescription de poste\n\nLa Commission d'expropriation connaît de toutes les questions d’estimation que la loi sur l'expropriation ne place pas dans la compétence d’une autre autorité, ainsi que des demandes d’indemnisation pour cause d’expropriation matérielle. Elle exerce en outre les attributions que d’autres dispositions du droit cantonal confèrent au ou à la juge de l’expropriation, formellement ou par des expressions équivalentes (art. 3), par exemple des demandes d'indemnité d'un-e propriétaire à son voisin ou sa voisine, en application de la loi sur l'aménagement du territoire et les constructions.\n\nProfil souhaité\n\n• Le Conseil de la magistrature recherche une vice-présidente ou un vice-président titulaire d’un brevet d’avocat, d’une licence ou d’un master en droit, ou disposant d’une expérience dans le domaine judiciaire, avec des connaissances du droit administratif fribourgeois, en particulier dans les domaines de la construction et de l’aménagement du territoire (planification). Une certaine disponibilité pour la participation aux séances ainsi que pour la rédaction de textes est requise. Il s’agit d’une activité accessoire (env. 10%) exercée de manière irrégulière\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue allemande avec des très bonnes connaissances de la langue française\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vice-pr%C3%A9sident-e-aupr%C3%A8s-de-la-Commission-d'expropriation-Sari/1372157857/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-15T21:29:34.468Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-15T00:00:00Z",
-      "postedDate": "2026-09-15T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1372157857/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Conseil de la magistrature",
-      "previousSlugs": [
-        "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2400,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-19T23:06:12.099Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
     }
   ]
 }
