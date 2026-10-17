@@ -165,6 +165,28 @@ describe('run-related-tests selection contract', () => {
     }
   });
 
+  it('selects the AIL test from the CI full-checkout profile', () => {
+    const root = fixture({
+      // These are the same checkout sentinels required by the real selector.
+      'data/blog-articles-data.ts': 'export const articles = [];\n',
+      'data/swiss-articles-data.ts': 'export const articles = [];\n',
+      'public/.nojekyll': '',
+    }, [
+      'scripts/update-ail-jobs.mjs',
+      'tests/ail-crawler.test.ts',
+    ]);
+    const result = select(
+      root,
+      ['scripts/update-ail-jobs.mjs'],
+      'complete',
+      { GITHUB_ACTIONS: 'true', VITEST_RELATED_DRY_RUN: '' },
+    );
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/ail-crawler.test.ts');
+    expect(result.output).toContain('required=false');
+    expect(result.output).not.toContain('selection_failed=true');
+  });
+
   it('does not turn a documented asset path into a directory-wide dependency', () => {
     const root = fixture({
       '.github/workflows/full-suite-dispatch.yml': 'name: full-suite\n',
