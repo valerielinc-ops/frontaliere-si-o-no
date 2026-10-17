@@ -42,6 +42,7 @@ import {
 import {
   parseMticListingPage,
   parseMticDetailPage,
+  isMticDetailPublishable,
   buildMticLocalizedContent,
   isMticSwissSubsidiaryJob,
   isMticTrustedUrl,
@@ -55,6 +56,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { MIN_SOURCE_BODY_WORDS } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -206,6 +208,10 @@ async function enrichWithDetails(listings) {
     try {
       const html = await fetchText(item.detailUrl);
       const detail = parseMticDetailPage(html, item.title);
+      if (!isMticDetailPublishable(detail)) {
+        console.log(`  ⏭️ Detail skipped for ${item.detailUrl}: source body is below the ${MIN_SOURCE_BODY_WORDS}-word floor`);
+        continue;
+      }
       enriched.push({
         ...item,
         title: detail.title || item.title,
@@ -218,12 +224,6 @@ async function enrichWithDetails(listings) {
       }
     } catch (err) {
       console.log(`  ⚠️ Detail fetch failed for ${item.detailUrl}: ${err.message}`);
-      enriched.push({
-        ...item,
-        location: item.subsidiaryLocation || '',
-        description: '',
-        datePosted: '',
-      });
     }
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
