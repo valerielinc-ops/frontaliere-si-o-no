@@ -510,6 +510,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
  */
 export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
   {
+    file: 'tests/git-commit-data-decontamination.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'il test crea le slice data/jobs/by-crawler solo sotto mkdtemp e passa quella root sintetica al loader; non legge le slice vive del checkout',
+  },
+  {
     file: 'tests/sync-published-blog-covers.test.ts',
     roots: ['packages/articles/content/'],
     since: '2026-10-08',

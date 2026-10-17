@@ -78,7 +78,7 @@ describe('git-commit-data.sh cross-job decontamination preservation', () => {
       expect(result.droppedHistorical).toEqual([{ slug: transferredRoute, owner: 'owner' }]);
       expect(result.payload).toEqual({
         crawlerKey: 'claimant',
-        jobs: [{ url: 'https://jobs.example.test/claimant', slug: 'claimant-route', previousSlugs: [], previousSlugsByLocale: {} }],
+        jobs: [{ url: 'https://jobs.example.test/claimant', slug: 'claimant-route' }],
       });
     } finally {
       rmSync(root, { recursive: true, force: true });
