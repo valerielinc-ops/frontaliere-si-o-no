@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "ebba3d96490a3be150d2577a4b3f958b373530da",
+  "commit": "9c8f1b835eb47c7ab370ea6d4c8323b3d76d41c1",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -25205,6 +25205,100 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic Alpine road-closure illustration with no readable text, logos, people, or identifiable event."
+      }
+    },
+    "/images/blog/article-zugo-revisione-legge-edilizia-2026.webp": {
+      "schema": 1,
+      "assetId": "article-zugo-revisione-legge-edilizia-2026",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "674e29e266874ce9fb6027bea38088a197fdfd050a9be89f32016843d9e0a0ac",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "3cb200a8f8adc1197b45d505df6f7595e8bf495ba08bc60ba28844e46d716793",
+      "bytes": 206146,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-17T01:12:16.140Z",
+      "verifiedAt": "2026-10-17T01:12:22.609Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-zugo-revisione-legge-edilizia-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic architectural illustration relevant to urban planning in Zug; no people, text, signage, logos, or event-specific cues."
+      }
+    },
+    "/images/blog/article-valais-salario-minimo-2026.webp": {
+      "schema": 1,
+      "assetId": "article-valais-salario-minimo-2026",
+      "kind": "photo",
+      "provider": "pexels",
+      "model": "Pexels photo search",
+      "executorModel": "Pexels photo search",
+      "license": "Pexels License",
+      "licenseFamily": "pexels",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "credit": "Louis · Pexels",
+      "author": {
+        "name": "Louis",
+        "url": "https://www.pexels.com/@suissounet"
+      },
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-rural-landscape-in-gruyeres-switzerland-34017511/",
+      "sourceImageUrl": "https://images.pexels.com/photos/34017511/pexels-photo-34017511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourceWidth": 6000,
+      "sourceHeight": 4000,
+      "photoTitle": "Picturesque view of lush green pastures and rolling hills in Gruyères, Switzerland.",
+      "copyrightNotice": "© Louis",
+      "acquireLicensePage": "https://www.pexels.com/photo/scenic-rural-landscape-in-gruyeres-switzerland-34017511/",
+      "sha256": "f6e354c10442cc6364face097ec413989eac93ced770f1f366cadf10ff520c36",
+      "bytes": 106104,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-17T01:13:40.016Z",
+      "verifiedAt": "2026-10-17T01:13:51.024Z",
+      "restrictions": [
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-valais-salario-minimo-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": true,
+        "is_topic_relevant": true,
+        "notes": "Landscape photograph of a Swiss rural Alpine region with fields, roads, homes, and no identifiable people, text, logos, or brands."
       }
     },
     "/images/places/lugano-view.webp": {

@@ -110354,6 +110354,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-burraco-solidale-buguggiate': {
+    title: 'Burraco benefico a Buguggiate: 140 partecipanti per ABAD ETS',
+    description: '140 partecipanti alla serata benefica 35 tavoli da gioco a Buguggiate Ricavato destinato a nuovi progetti di inserimento lavorativo Cosa → torneo benefico',
+    keywords: 'frontalieri, ticino, svizzera, italia, burraco, benefico, buguggiate, partecipanti',
+    ogTitle: 'Burraco benefico a Buguggiate: 140 partecipanti per ABAD ETS',
+    ogDescription: '140 partecipanti alla serata benefica 35 tavoli da gioco a Buguggiate Ricavato destinato a nuovi progetti di inserimento lavorativo Cosa → torneo benefico',
+    canonicalPath: '/articoli-frontaliere/burraco-solidale-buguggiate/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Burraco benefico a Buguggiate: 140 partecipanti per ABAD ETS",
+      "description": "140 partecipanti alla serata benefica 35 tavoli da gioco a Buguggiate Ricavato destinato a nuovi progetti di inserimento lavorativo Cosa → torneo benefico",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovi-progetti-chiave-digitali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Serata di burraco benefico a Buguggiate con 140 partecipanti su 35 tavoli"
+      },
+      "datePublished": "2026-10-17T01:16:19+00:00",
+      "dateModified": "2026-10-17T01:16:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/burraco-solidale-buguggiate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

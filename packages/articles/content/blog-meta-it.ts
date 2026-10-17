@@ -13366,6 +13366,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tre-valli-varesine-7-posto-mondiale.title': 'Tre Valli Varesine 7ª al mondo: batte Vuelta e Paris-Roubaix',
     'blog.article.tre-valli-varesine-7-posto-mondiale.excerpt': 'Tre Valli Varesine settima nella classifica ProCyclingStats La corsa ha ottenuto 913 punti Liegi, Vuelta e Parigi-Roubaix sono alle spalle Il Tour de France',
     'blog.article.tre-valli-varesine-7-posto-mondiale.imageAlt': 'Ciclista in salita sulla Tre Valli Varesine, autunno ticinese',
+    'blog.article.burraco-solidale-buguggiate.title': 'Burraco benefico a Buguggiate: 140 partecipanti per ABAD ETS',
+    'blog.article.burraco-solidale-buguggiate.excerpt': '140 partecipanti alla serata benefica 35 tavoli da gioco a Buguggiate Ricavato destinato a nuovi progetti di inserimento lavorativo Cosa → torneo benefico',
+    'blog.article.burraco-solidale-buguggiate.imageAlt': 'Serata di burraco benefico a Buguggiate con 140 partecipanti su 35 tavoli',
 };
 
 export default blogMetaIt;
