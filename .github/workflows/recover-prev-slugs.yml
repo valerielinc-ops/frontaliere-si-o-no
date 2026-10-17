@@ -214,6 +214,17 @@ jobs:
             echo "::error::No authenticated refresh token is available to carry forward the recovery PR"
             exit 1
           }
+          open_pr_number="$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --base main \
+            --head "$branch" \
+            --json number \
+            --jq '.[0].number // empty')"
+          if [ -z "$open_pr_number" ]; then
+            echo "No open recovery PR; ignoring the orphaned stable branch."
+            exit 0
+          fi
           remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           probe="$RUNNER_TEMP/recover-prev-slugs-remote-head"
           if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
@@ -399,10 +410,10 @@ jobs:
               "$GITHUB_RUN_ID" "$run_url"
             cat <<'EOF'
           ## Implementato
-          - La recovery ripristina gli slice `previousSlugs` e li propone tramite il branch stabile `chore/recover-prev-slugs`, così il required check `vitest (unit + integration)` valida i dati prima dell'ingresso su `main`.
+          - Propone tramite PR gli aggiornamenti delle slice crawler prodotti dalla scansione delle perdite di `previousSlugs` e dai controlli di ownership/duplicati; il required check `vitest (unit + integration)` valida i dati prima dell'ingresso su `main`.
 
           ## Non implementato (ancora)
-          Nessuno — recovery automatizzata senza residui.
+          - in questa PR la pipeline modifica solo gli snapshot indicati dai report di recovery e riconciliazione; il required check valida gli artefatti prima dell'integrazione.
           EOF
           } > "$body"
           COMMIT_MSG="🛟 Recover ${{ steps.scan.outputs.recoverable_slugs }} previousSlugs across ${{ steps.scan.outputs.recoverable_jobs }} jobs"

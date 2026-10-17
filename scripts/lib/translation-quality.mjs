@@ -144,7 +144,13 @@ function scanListLines(lines) {
 
     previousListLine = startsList || counted.length > 0;
     continuationAfterBlank = false;
-    result.push({ count, inlineMarkers: counted });
+    result.push({
+      count,
+      inlineMarkers: counted,
+      // Every inline marker of the line, counted or not: whether one counts
+      // can depend on the others (`repeatedListRun` needs two).
+      allInlineMarkers: inlineMarkers.map((marker) => ({ index: contentOffset + marker.index, length: marker[0].length })),
+    });
   }
 
   return result;
@@ -235,7 +241,14 @@ export async function preserveStructuredTranslation(text, translateLine, { concu
     }
     const markers = hasMarkup(line)
       ? []
-      : (scanned[lineIndex]?.inlineMarkers || []).filter((marker) => marker.index >= prefix.length);
+      // A line with counted entries is split at ALL its inline markers, kept
+      // verbatim: a counted entry can depend on an uncounted marker beside it
+      // («des 24. & 31. Dezembers»: « 31. » counts only next to « 24. »), and
+      // a provider that writes «del 24» drops the entry (run 39005358922: 52
+      // `lost-list-items` refusals, one entry each, in phase 2e).
+      : (scanned[lineIndex]?.inlineMarkers?.length
+        ? scanned[lineIndex].allInlineMarkers
+        : []).filter((marker) => marker.index >= prefix.length);
     if (markers.length === 0) {
       return `${prefix}${await translateSegment(content)}`;
     }
