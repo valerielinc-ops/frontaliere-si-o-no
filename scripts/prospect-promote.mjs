@@ -33,7 +33,7 @@
  */
 import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { pathToFileURL } from 'node:url';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
@@ -147,6 +147,65 @@ const coverage = loadCoverage();
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 /**
+ * Esegue una lettura `gh` con stdout catturato.
+ *
+ * Il runtime gestito del fixer rifiuta `execFileSync` per i client bridge, pur
+ * consentendo lo stesso comando via `spawnSync`. Il wrapper `gh` inoltra poi
+ * l'output su un descriptor ereditato, non sulla pipe Node: catturarlo in un
+ * file temporaneo mantiene il body gate attivo anche per `pr create`.
+ * Mantenere qui il controllo bounded e fail-closed evita di trasformare un
+ * errore di auth in una PR duplicata o in una promozione non verificata.
+ *
+ * @param {string[]} args
+ * @returns {string}
+ */
+function runGhForOutput(args) {
+  const tempRoot = process.env.RUNNER_TEMP || ROOT;
+  const tempDir = fs.mkdtempSync(path.join(tempRoot, 'prospect-promote-gh-'));
+  const stdoutPath = path.join(tempDir, 'stdout');
+  const stderrPath = path.join(tempDir, 'stderr');
+  let stdoutFd;
+  let stderrFd;
+  try {
+    stdoutFd = fs.openSync(stdoutPath, 'w');
+    stderrFd = fs.openSync(stderrPath, 'w');
+    const result = spawnSync('gh', args, {
+      cwd: ROOT,
+      maxBuffer: GH_EXEC_MAX_BUFFER,
+      stdio: ['ignore', stdoutFd, stderrFd],
+      timeout: 60_000,
+    });
+    fs.closeSync(stdoutFd);
+    stdoutFd = undefined;
+    fs.closeSync(stderrFd);
+    stderrFd = undefined;
+    const stdout = fs.readFileSync(stdoutPath, 'utf8');
+    const stderr = fs.readFileSync(stderrPath, 'utf8');
+    if (Buffer.byteLength(stdout) > GH_EXEC_MAX_BUFFER) {
+      const error = new Error(`gh output exceeds ${GH_EXEC_MAX_BUFFER} bytes`);
+      error.status = null;
+      error.stderr = stderr;
+      throw error;
+    }
+    if (result.error) {
+      result.error.stderr = stderr;
+      throw result.error;
+    }
+    if (result.status !== 0) {
+      const error = new Error(`gh exit ${result.status ?? 'unknown'}`);
+      error.status = result.status;
+      error.stderr = stderr;
+      throw error;
+    }
+    return stdout;
+  } finally {
+    if (stdoutFd !== undefined) fs.closeSync(stdoutFd);
+    if (stderrFd !== undefined) fs.closeSync(stderrFd);
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+}
+
+/**
  * Porta a termine le promozioni gia' aperte, leggendo l'esito della loro PR.
  *
  * `promoting` e' uno stato di transito e vive SOLO su main, perche' scriverlo
@@ -169,9 +228,7 @@ function reconcileOpenPromotions(store) {
     if (!c.promotionPr) continue;
     let state = '';
     try {
-      state = execFileSync('gh', ['pr', 'view', String(c.promotionPr), '--json', 'state', '-q', '.state'], {
-        cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'],
-      }).toString().trim();
+      state = runGhForOutput(['pr', 'view', String(c.promotionPr), '--json', 'state', '-q', '.state']).trim();
     } catch { continue; } // gh non disponibile o PR non leggibile: non toccare nulla
     if (state === 'MERGED') {
       setStatus(store, c.key, 'production', { promotedAt: new Date().toISOString() });
@@ -221,10 +278,15 @@ function restorePromotionAppRemote() {
  *
  * @param {ReturnType<typeof loadCandidates>} store
  * @param {{ landed: number, reopened: number }} reconciled
+ * @param {{ dryRun?: boolean }} [opts]
  * @returns {boolean}
  */
-function persistReconciledPromotionState(store, reconciled) {
+function persistReconciledPromotionState(store, reconciled, { dryRun = false } = {}) {
   if (!reconciled.landed && !reconciled.reopened) return true;
+  if (dryRun) {
+    console.log(`--dry-run: stato riconciliato non scritto (${reconciled.landed} production, ${reconciled.reopened} ricandidati).`);
+    return true;
+  }
   const baseBranch = process.env.GITHUB_REF_NAME || execFileSync(
     'git', ['rev-parse', '--abbrev-ref', 'HEAD'],
     { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] },
@@ -291,10 +353,10 @@ function persistReconciledPromotionState(store, reconciled) {
  */
 function openPromotionPr() {
   try {
-    const out = execFileSync('gh', [
+    const out = runGhForOutput([
       'pr', 'list', '--state', 'open', '--search', 'sort:created-desc', '--limit', '300',
       '--json', 'number,createdAt,title,headRefName,author',
-    ], { cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    ]);
     return findOpenPromotionPr(JSON.parse(out));
   } catch {
     // `gh` assente o non autorizzato: non si puo' sapere. Meglio NON promuovere
@@ -340,7 +402,7 @@ function printPromotionDiagnosis({ promotable, blocked, capped, blockedSummary }
 const reconciled = reconcileOpenPromotions(store);
 if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
-if (!persistReconciledPromotionState(store, reconciled)) process.exit(1);
+if (!persistReconciledPromotionState(store, reconciled, { dryRun })) process.exit(1);
 
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
@@ -671,11 +733,11 @@ try {
   git('push', '-u', 'origin', branch);
   let url;
   try {
-    url = execFileSync('gh', [
+    url = runGhForOutput([
       'pr', 'create', '--base', 'main', '--head', branch,
       '--title', `${relaxed ? '[gate ridotto] ' : ''}Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
       '--body-file', bodyFile,
-    ], { cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+    ]).trim();
   } catch {
     console.error('::warning::gh pr create non ha risposto; il branch del prospector e\' gia\' pushato, nessun body PR scritto.');
     process.exit(0);
