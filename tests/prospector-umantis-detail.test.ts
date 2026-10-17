@@ -8,6 +8,9 @@ import {
   extractUmantisListingEvidence,
   umantisDetailFallbackUrl,
 } from '../scripts/lib/prospector/umantis-detail.mjs';
+import { listingEvidenceFields } from '../scripts/lib/prospector/detail-extract.mjs';
+import { resolveDetailOrListingSwissGeography } from '../scripts/lib/prospector/location-evidence.mjs';
+import { fetchAllRecruitingapp2563Jobs } from '../scripts/lib/recruitingapp-2563-job-parser.mjs';
 
 const FIXTURES = path.join(process.cwd(), 'tests', 'fixtures');
 const fixture = (name: string) => fs.readFileSync(path.join(FIXTURES, name), 'utf8');
@@ -129,6 +132,77 @@ describe('Prospector Umantis detail boundary', () => {
 
     expect(extractUmantisListingEvidence(listing, 'https://recruitingapp-1154.umantis.com/Jobs/1').get('3801'))
       .toMatchObject({ location: 'Buchs', addressLocality: 'Buchs', postalCode: '9471' });
+  });
+
+  it('keeps both source-listed alternatives and projects a source-backed Swiss candidate', async () => {
+    const title = 'Cloud Engineer Compute (80-100% - all identities and backgrounds*) in Zürich oder Lausanne';
+    const seed = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+    const listing = `<table><tbody><tr><td><ul class="table-cell-content">
+      <li><h3><a href="/Vacancies/560/Description/1" aria-label="${title}">${title}</a></h3></li>
+      <li class="form_content_paragraph"><span class="column-value">Switch</span></li>
+    </ul></td></tr></tbody></table>`;
+    const detail = `<html><body><h1>${title}</h1><div class="customdatablock"><p>
+      Du entwickelst und betreibst die Compute-Plattform der Schweizer Hochschulen. Dazu gehören
+      Planung, Umsetzung und Betrieb skalierbarer Cloud-Services, Zusammenarbeit im Engineering-Team,
+      Automatisierung mit Python sowie die Analyse und Behebung komplexer technischer Störungen.
+      Du dokumentierst deine Lösungen und verbesserst gemeinsam mit dem Team die Zuverlässigkeit.
+    </p></div></body></html>`;
+    const fetchImpl = vi.fn(async (input: unknown) => {
+      const url = String((input as { url?: string })?.url ?? input);
+      const pathname = new URL(url).pathname;
+      if (pathname === '/robots.txt') return new Response('User-agent: *\nAllow: /', { status: 200 });
+      if (pathname === '/Jobs/1') return new Response(listing, { status: 200 });
+      if (pathname === '/Vacancies/560/Description/1') return new Response(detail, { status: 200 });
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const evidence = extractUmantisListingEvidence(listing, seed).get('560');
+    expect(evidence?.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Zürich', addressLocality: 'Zürich' }),
+      expect.objectContaining({ location: 'Lausanne', addressLocality: 'Lausanne' }),
+    ]);
+
+    const jobs = await fetchAllRecruitingapp2563Jobs({
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+    });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title,
+      location: 'Zürich',
+      canton: 'ZH',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      addressCountry: 'CH',
+    });
+  });
+
+  it('does not let a Swiss choice hide an unverified title alternative', () => {
+    const mixed = `<table><tr><td><a href="/Vacancies/561/Description/1" aria-label="Engineer in Lausanne oder Berlin">
+      Engineer in Lausanne oder Berlin</a></td></tr></table>`;
+    expect(extractUmantisListingEvidence(mixed, 'https://recruitingapp-2563.umantis.com/Jobs/1').has('561'))
+      .toBe(false);
+  });
+
+  it('does not let title alternatives override explicit foreign listing evidence', () => {
+    const swissTitle = `<table><tr><td><a href="/Vacancies/562/Description/1" aria-label="Engineer in Lausanne oder Zürich">
+      Engineer in Lausanne oder Zürich</a></td></tr></table>`;
+    const titleEvidence = extractUmantisListingEvidence(
+      swissTitle,
+      'https://recruitingapp-2563.umantis.com/Jobs/1',
+    ).get('562');
+    const foreignListing = {
+      location: 'Berlin',
+      addressCountry: 'DE',
+      locationCandidates: [{ location: 'Berlin', addressCountry: 'DE' }],
+    };
+    const folded = listingEvidenceFields(foreignListing, titleEvidence);
+
+    expect(folded.locationCandidates).toEqual(foreignListing.locationCandidates);
+    expect(resolveDetailOrListingSwissGeography({}, { ...foreignListing, ...folded }))
+      .toMatchObject({ geography: null, explicitlyForeign: true });
   });
 
   it('resolves only reviewed SGKB postcode/locality pairs and keeps the detail-drop gate', async () => {

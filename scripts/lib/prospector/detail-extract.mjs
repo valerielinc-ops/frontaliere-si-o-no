@@ -105,6 +105,13 @@ export function runtimeDetailFallbackUrl(spec, status, url) {
  */
 export function listingEvidenceFields(row = {}, evidence) {
   if (!evidence) return {};
+  const rowHasLocationEvidence = Boolean(row.location || row.addressLocality || row.addressRegion
+    || row.addressCountry || row.postalCode || row.streetAddress || row.locationCandidates?.length);
+  const evidenceCandidates = evidence.sourceTitleAlternatives && rowHasLocationEvidence
+    ? []
+    : Array.isArray(evidence.locationCandidates)
+      ? evidence.locationCandidates
+      : [evidence];
   return {
     location: row.location || evidence.location || '',
     addressLocality: row.addressLocality || evidence.addressLocality || '',
@@ -117,6 +124,6 @@ export function listingEvidenceFields(row = {}, evidence) {
     // re-applies it over an already-folded row would otherwise publish the
     // same place twice as separate evidence. Identity is the address, so
     // `f(f(row, e), e)` equals `f(row, e)`.
-    locationCandidates: dedupeLocationCandidates([...(row.locationCandidates || []), evidence]),
+    locationCandidates: dedupeLocationCandidates([...(row.locationCandidates || []), ...evidenceCandidates]),
   };
 }

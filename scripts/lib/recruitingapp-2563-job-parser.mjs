@@ -19,7 +19,7 @@ import {
   umantisAuthoritativeEmptyOrNull,
 } from './umantis-empty-listing.mjs';
 import {
-  resolveSourceBackedSwissGeography,
+  resolveDetailOrListingSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
 
@@ -155,8 +155,12 @@ export async function fetchAllRecruitingapp2563Jobs(runtime = {}) {
     // mean what autoFilteredEmpty claims it means (see note below).
     geoEligible += 1;
 
-    const resolvedGeography = resolveSourceBackedSwissGeography(listing.location);
-    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
+    // Umantis may expose alternative workplaces as separate source-backed
+    // candidates. Resolve the full listing record so this parser keeps the
+    // shared fail-closed multi-location decision instead of reducing it to
+    // the single display `listing.location` field.
+    const geographyDecision = resolveDetailOrListingSwissGeography({}, listing);
+    const geography = sourceBackedSwissGeographyFields(listing, geographyDecision.geography);
     if (!geography) continue;
     const { location, canton, addressLocality, addressRegion, addressCountry } = geography;
     const publicUrl = listing.url || CAREER_URL;
