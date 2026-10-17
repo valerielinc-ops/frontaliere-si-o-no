@@ -244,6 +244,27 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Reconcile identical-twin closure
+        id: reconcile
+        env:
+          WORK: ${{ steps.stage.outputs.work }}
+        run: |
+          set -euo pipefail
+          # Structural transport and loop-sync classification are one closure:
+          # the former stages the moved files, while this reconciler registers
+          # their exact identical dependencies and keeps adapted files out of
+          # the pull-side identical-twin path. Recompute the change flag after
+          # staging the manifest, so a manifest-only repair is never skipped.
+          node "$GITHUB_WORKSPACE/scripts/ci/prepare-nanako-identical-twin-closure.mjs" "$WORK"
+          cd "$WORK"
+          git add -- scripts/ci/loop-sync-manifest.json
+          if git diff --cached --quiet; then
+            echo "nothing to stage — nanako's generator/ and loop-sync manifest already match"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Guard - refuse any deletion
         env:
           TARGET_BRANCH: ${{ steps.guard-branch.outputs.target_branch }}
@@ -285,7 +306,7 @@ jobs:
           set -euo pipefail
           cd "${{ steps.stage.outputs.work }}"
 
-          if [ "${{ steps.stage.outputs.has_changes }}" != "true" ]; then
+          if [ "${{ steps.reconcile.outputs.has_changes }}" != "true" ]; then
             echo "nothing changed — skipping commit/push"
             exit 0
           fi

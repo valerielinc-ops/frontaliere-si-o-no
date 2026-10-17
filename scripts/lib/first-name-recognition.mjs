@@ -2,10 +2,11 @@
  * Dataset-backed first-name recognition for Node-side pipelines.
  *
  * This stays independent from `services/newsletter-template.mjs`: the article
- * factuality gate is an `identical` transport twin, while the newsletter
- * template has a much larger browser-facing dependency graph. Keeping the
- * recognizer here lets both Node consumers use the same high-precision rule
- * without transporting that unrelated graph into nanako.
+ * factuality gate is an `identical` transport twin whose closure is registered
+ * by the generator transport, while the newsletter template has a much larger
+ * browser-facing dependency graph. Keeping the recognizer here lets both Node
+ * consumers use the same high-precision rule without transporting that
+ * unrelated graph into nanako.
  */
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
