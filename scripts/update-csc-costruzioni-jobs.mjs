@@ -3,7 +3,7 @@
  * Dedicated CSC Costruzioni crawler runner.
  *
  * CSC Costruzioni SA is a construction company headquartered in Lugano (TI).
- * Their careers page is at https://csc-sa.ch/lavoro-carriera-edilizia (Drupal CMS).
+ * Their careers page is at https://csc-sa.ch/lavoro-carriera-edilizia/ (Drupal CMS).
  *
  * This script:
  *   1. Scrapes the careers page to discover all job detail URLs.
@@ -77,7 +77,7 @@ const DATA_JOBS = crawlerScratchPathFor(CSC_KEY);
 const CSC_LIVE_STRUCTURE_SNAPSHOT = crawlerScratchPathFor(`${CSC_KEY}-live-structure`);
 const CSC_COMPANY_NAME = 'CSC Costruzioni SA';
 const CSC_HOST = 'csc-sa.ch';
-const CSC_CAREERS_URL = 'https://csc-sa.ch/lavoro-carriera-edilizia';
+const CSC_CAREERS_URL = 'https://csc-sa.ch/lavoro-carriera-edilizia/';
 const CSC_NCORE_HOST = 'app.ncoreplat.com';
 // NCore's canonical CSC routes are intentionally slashless. Unlike the site's
 // own routes, the platform returns 404 for the trailing-slash board URL.

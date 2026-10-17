@@ -26,7 +26,7 @@ type CscFixture = {
 const fixture = JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'csc-careers-pages.json'), 'utf8'),
 ) as CscFixture;
-const careersUrl = 'https://csc-sa.ch/lavoro-carriera-edilizia';
+const careersUrl = 'https://csc-sa.ch/lavoro-carriera-edilizia/';
 const ncoreBoardUrl = 'https://app.ncoreplat.com/jobboard/filters/4321/csc-costruzioni-sa';
 const ncoreDetailUrl = 'https://app.ncoreplat.com/jobposition/811972/business-developer-ch/csc-costruzioni-sa';
 const ncoreMigratedCareersPage = `<!doctype html><html><body><h1>Le nostre offerte di lavoro</h1><a href="${ncoreBoardUrl}">HERE</a></body></html>`;
