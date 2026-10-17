@@ -997,9 +997,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-        "it": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
-        "en": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
-        "fr": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal"
+        "it": "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
+        "en": "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
+        "fr": "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
       },
       "company": "Spitex Regio Liestal",
       "companyKey": "spitex-ch",
@@ -1048,21 +1048,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-          "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal"
-        ],
-        "en": [
-          "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal"
-        ],
-        "fr": [
-          "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
+          "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-        "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
-        "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
-        "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
+        "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1077,7 +1067,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:48:29.337Z"
+      "firstSeenAt": "2026-09-25T14:48:29.337Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spitex-ch-1abb9f13bd0e",
