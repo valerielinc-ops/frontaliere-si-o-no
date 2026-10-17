@@ -113,6 +113,12 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      - name: Prepare stable private artifact key
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/ensure-event-description-artifact-key.mjs --out "$RUNNER_TEMP/event-description-artifact-key"
+
       - name: Load push credentials from Remote Config
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
@@ -443,22 +449,25 @@ jobs:
 
       - name: Encrypt private event-description rewrite input
         if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
-        env:
-          EVENT_DESCRIPTION_ARTIFACT_KEY: ${{ secrets.CODEX_AUTH_JSON }}
         run: |
           set -euo pipefail
           source_file="$RUNNER_TEMP/event-description-sources.jsonl"
           encrypted_file="$RUNNER_TEMP/event-description-sources.jsonl.enc"
+          key_file="$RUNNER_TEMP/event-description-artifact-key"
+          format_file="$RUNNER_TEMP/event-description-sources.jsonl.key-version"
+          trap 'rm -f -- "$key_file"' EXIT
           if [ ! -s "$source_file" ]; then
             exit 0
           fi
-          if [ -z "$EVENT_DESCRIPTION_ARTIFACT_KEY" ]; then
-            echo '::error::CODEX_AUTH_JSON is required to encrypt the private event-description input'
+          if [ ! -s "$key_file" ]; then
+            echo '::error::Stable event-description artifact key is unavailable'
             exit 1
           fi
           openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt \
             -in "$source_file" -out "$encrypted_file" \
-            -pass env:EVENT_DESCRIPTION_ARTIFACT_KEY
+            -pass file:"$key_file"
+          printf '%s\n' 'event-description-artifact-v2' > "$format_file"
+          chmod 600 "$format_file"
           chmod 600 "$encrypted_file"
           rm -f "$source_file"
 
@@ -467,7 +476,9 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: event-description-sources-${{ github.run_id }}
-          path: ${{ runner.temp }}/event-description-sources.jsonl.enc
+          path: |
+            ${{ runner.temp }}/event-description-sources.jsonl.enc
+            ${{ runner.temp }}/event-description-sources.jsonl.key-version
           if-no-files-found: ignore
           retention-days: 7
 

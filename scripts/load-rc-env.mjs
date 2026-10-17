@@ -127,6 +127,10 @@ export const RC_TO_ENV = {
   // AES-256-GCM key (base64, 32 bytes) of the assisted-application agent's
   // encrypted evidence (scripts/assisted-application/lib/secure-run.mjs).
   ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
+  // Stable key for the short-lived encrypted event-description artifact. It
+  // must not be CODEX_AUTH_JSON: that login is rotated independently of the
+  // crawl/rewrite hand-off.
+  EVENT_DESCRIPTION_ARTIFACT_KEY:  ['EVENT_DESCRIPTION_ARTIFACT_KEY'],
   // "legacy" switches the assisted application's PDFs back to the standard-font writer (default: typst).
   ASSISTED_APPLICATION_PDF_RENDERER: ['ASSISTED_APPLICATION_PDF_RENDERER'],
   // Off on purpose: the verified sources do not support one PDF as the default (docs/assisted-application/decisioni.md §5); the posting's own instruction wins either way (lib/dossier.mjs).
