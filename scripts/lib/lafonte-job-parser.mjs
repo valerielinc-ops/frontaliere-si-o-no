@@ -67,16 +67,73 @@ export function resolveLaFonteApplicationHandoffUrl(html = '', roleUrl = '') {
 
   const dom = new JSDOM(`<body>${String(html || '')}</body>`);
   try {
-    const text = (dom.window.document.body.textContent || '').replace(/\s+/g, ' ').trim();
-    const hasEmail =
-      [...dom.window.document.querySelectorAll('a[href]')].some((anchor) =>
-        /^mailto:/i.test(anchor.getAttribute('href') || ''),
-      ) || /\b[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+\b/i.test(text);
-    const hasEmailApplicationInstruction =
-      /\b(?:candidatur\w*|domanda\s+di\s+lavoro|bewerb\w*|apply|postuler\w*)\b/i.test(text) &&
-      /\b(?:via|per|by|par)\s+(?:e-?mail|mail)\b/i.test(text);
+    const emailAddressPattern = /[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+/i;
+    const applicationLanguagePattern =
+      /\b(?:candidatur\w*|candidars\w*|domanda\s+di\s+lavoro|invia(?:re)?|bewerb\w*|apply|postuler\w*)\b/i;
+    // `inviate` is both a plural imperative and a participle. Only accept it
+    // when it introduces an application document, so phrases such as
+    // "candidature inviate a ..." remain informational/ambiguous.
+    const imperativeApplicationPattern =
+      /\binviate\s+(?:(?:il|lo|la|i|gli|le|un|uno|una|l['’])\s+)?(?:(?:vostro|vostra|vostri|vostre|tuo|tua|tuoi|tue|proprio|propria|propri|proprie)\s+)?(?:cv|curriculum(?:\s+vitae)?|candidatur\w*|dossier|domand\w*|letter\w*|document\w*)\b/i;
+    const emailChannelPattern = /\b(?:via|per|by|par|a|ad|al(?:la|le)?)\s+(?:e-?mail|mail)\b/i;
+    const emailDestinationPattern = new RegExp(
+      `\\b(?:a|ad|al(?:la|le)?)\\s+${emailAddressPattern.source}`,
+      'i',
+    );
 
-    return hasEmail && hasEmailApplicationInstruction ? roleUrl : null;
+    const isMailtoDestinationNode = (node) => {
+      if (!node || node.nodeType !== 1) return false;
+      if (node.matches('a[href]')) return /^mailto:/i.test(node.getAttribute('href') || '');
+
+      const anchors = [...node.querySelectorAll('a[href]')];
+      return (
+        anchors.length === 1 &&
+        /^mailto:/i.test(anchors[0].getAttribute('href') || '') &&
+        (node.textContent || '').trim() === (anchors[0].textContent || '').trim()
+      );
+    };
+
+    const adjacentEmailDestinationNodes = (block) =>
+      [block.previousElementSibling, block.nextElementSibling]
+        .filter((sibling) => isMailtoDestinationNode(sibling));
+
+    // The crawler passes one card fragment at a time, but retaining explicit
+    // card roots prevents a caller that supplies several cards from combining
+    // application text from one card with a mailto link from another.
+    const cardRoots = [...dom.window.document.body.querySelectorAll('.pwr-simple-list-item')];
+    const roots = cardRoots.length > 0 ? cardRoots : [dom.window.document.body];
+    const instructionBlocks = roots.flatMap((root) => {
+      const blockElements = [...root.querySelectorAll('p, li, div')]
+        .filter((element) => !element.querySelector('p, li, div'));
+      return (blockElements.length > 0 ? blockElements : [root]).map((block) => ({
+        block,
+        adjacentDestinations: adjacentEmailDestinationNodes(block),
+      }));
+    });
+    const hasEmailApplicationInstruction = instructionBlocks.some(({ block, adjacentDestinations }) => {
+      const blockText = [
+        block.textContent || '',
+        ...adjacentDestinations.map((node) => node.textContent || ''),
+      ].join(' ').replace(/\s+/g, ' ').trim();
+      if (!blockText) return false;
+
+      const hasEmail =
+        [...block.querySelectorAll('a[href]')].some((anchor) =>
+          /^mailto:/i.test(anchor.getAttribute('href') || ''),
+        ) ||
+        adjacentDestinations.length > 0 ||
+        emailAddressPattern.test(blockText);
+      const hasApplicationLanguage =
+        applicationLanguagePattern.test(blockText) || imperativeApplicationPattern.test(blockText);
+      const hasEmailChannel = emailChannelPattern.test(blockText);
+      const hasEmailDestination = emailDestinationPattern.test(blockText);
+      const hasAdjacentEmailDestination = adjacentDestinations.length > 0;
+
+      return hasEmail && hasApplicationLanguage &&
+        (hasEmailChannel || hasEmailDestination || hasAdjacentEmailDestination);
+    });
+
+    return hasEmailApplicationInstruction ? roleUrl : null;
   } finally {
     dom.window.close();
   }

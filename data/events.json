@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-17T10:16:03.964Z",
+  "generatedAt": "2026-10-17T11:55:54.059Z",
   "totalEvents": 13998,
   "events": [
     {
@@ -93035,7 +93035,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La caccia al tesoro percorre il centro di Lugano, nel Luganese, attraverso un itinerario urbano con indizi ed enigmi da affrontare tramite un’applicazione. L’attività dura circa un’ora, è pensata per squadre di due-cinque persone, si svolge in italiano e costa 10 CHF per squadra; i posti sono limitati.",
+      "descriptionByLocale": {
+        "it": "La caccia al tesoro percorre il centro di Lugano, nel Luganese, attraverso un itinerario urbano con indizi ed enigmi da affrontare tramite un’applicazione. L’attività dura circa un’ora, è pensata per squadre di due-cinque persone, si svolge in italiano e costa 10 CHF per squadra; i posti sono limitati.",
+        "en": "This treasure hunt runs through central Lugano in the Luganese region as an urban route involving clues and puzzles solved through an app. The activity lasts about an hour, is intended for teams of two to five people, takes place in Italian and costs CHF 10 per team; places are limited.",
+        "de": "Die Schatzsuche führt durch das Zentrum von Lugano im Luganese und verbindet einen städtischen Parcours mit Hinweisen und Rätseln, die über eine App gelöst werden. Das Spiel dauert ungefähr eine Stunde, ist für Teams von zwei bis fünf Personen vorgesehen, findet auf Italienisch statt und kostet 10 CHF pro Team; die Plätze sind begrenzt.",
+        "fr": "Cette chasse au trésor traverse le centre de Lugano, dans la région du Luganese, sous la forme d’un parcours urbain avec des indices et des énigmes à résoudre au moyen d’une application. L’activité dure environ une heure, s’adresse à des équipes de deux à cinq personnes, se déroule en italien et coûte 10 CHF par équipe; le nombre de places est limité."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1793459dc54f45e0947a4197d6c5eb23",
@@ -100717,7 +100725,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’animazione a Ginevra consente di accedere alle torri della cattedrale nelle serate di luna piena. Dalle torri è possibile osservare il panorama.",
+      "descriptionByLocale": {
+        "it": "L’animazione a Ginevra consente di accedere alle torri della cattedrale nelle serate di luna piena. Dalle torri è possibile osservare il panorama.",
+        "en": "This event in Geneva provides access to the cathedral towers on full-moon evenings. The panorama can be viewed from the towers.",
+        "de": "Bei dieser Veranstaltung in Genf sind die Türme der Kathedrale an Vollmondabenden zugänglich. Von dort lässt sich das Panorama betrachten.",
+        "fr": "Cette animation à Genève permet d’accéder aux tours de la cathédrale les soirs de pleine lune. Le panorama peut être observé depuis les hauteurs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A5iW4cp",
@@ -105987,7 +106003,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Djavan è il protagonista di un concerto di musica pop al Theater 11. L’appuntamento presenta un progetto internazionale legato alla celebrazione di una lunga carriera e propone una selezione dei suoi successi.",
+      "descriptionByLocale": {
+        "it": "Djavan è il protagonista di un concerto di musica pop al Theater 11. L’appuntamento presenta un progetto internazionale legato alla celebrazione di una lunga carriera e propone una selezione dei suoi successi.",
+        "en": "Djavan performs a pop concert at Theater 11. The event presents an international project connected with a career anniversary and features a selection of his best-known songs.",
+        "de": "Djavan ist bei einem Popkonzert im Theater 11 zu erleben. Die Veranstaltung stellt ein internationales Projekt im Zusammenhang mit dem Karrierejubiläum vor und umfasst eine Auswahl seiner bekannten Lieder.",
+        "fr": "Djavan se produit lors d’un concert de musique pop au Theater 11. Le rendez-vous présente un projet international associé à un anniversaire de carrière et réunit une sélection de ses chansons connues."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9b1558f4b5f64782bf944787d8dc10da",
@@ -106334,7 +106358,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
       "imageCopyrightNotice": "© Makalu",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
+      "description": "Al Goldener Dachs di Weinfelden, il Forum «Streicher» propone un programma musicale vario curato dalle allieve e dagli allievi della Musikschule Weinfelden. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Al Goldener Dachs di Weinfelden, il Forum «Streicher» propone un programma musicale vario curato dalle allieve e dagli allievi della Musikschule Weinfelden. L’ingresso è gratuito.",
+        "en": "At Goldener Dachs in Weinfelden, students from Musikschule Weinfelden present a varied musical programme. Admission is free.",
+        "de": "Im Goldenen Dachs in Weinfelden gestalten Schülerinnen und Schüler der Musikschule Weinfelden ein vielfältiges Musikprogramm. Der Eintritt ist frei.",
+        "fr": "Au Goldener Dachs de Weinfelden, les élèves de la Musikschule Weinfelden présentent un programme musical varié. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bba33c3c46bf40d0ba9d6d5606710ca8",
@@ -106582,7 +106614,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Häslitreff è un appuntamento teatrale che si svolge presso l’Evang.-ref. Kirchgemeindehaus. La manifestazione si tiene a Weinfelden, nel cantone TG.",
+      "descriptionByLocale": {
+        "it": "Häslitreff è un appuntamento teatrale che si svolge presso l’Evang.-ref. Kirchgemeindehaus. La manifestazione si tiene a Weinfelden, nel cantone TG.",
+        "en": "Häslitreff is a theatre event held at the Evang.-ref. Kirchgemeindehaus. It takes place in Weinfelden, in the canton of TG.",
+        "de": "Häslitreff ist eine Theaterveranstaltung im Evang.-ref. Kirchgemeindehaus. Sie findet in Weinfelden im Kanton TG statt.",
+        "fr": "Häslitreff est une manifestation de théâtre qui a lieu à l’Evang.-ref. Kirchgemeindehaus. Le rendez-vous se tient à Weinfelden, dans le canton de TG."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bb583a6b52ae4d92a273650fae59a5a6",
@@ -114555,7 +114595,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il concerto al Collegio Papio di Ascona propone un programma cameristico legato alla presenza di Vilde Frang, artista in residenza, con Anna Prohaska, Ilya Gringolts e Nils Mönkemeyer. Il percorso musicale comprende opere di Gérard Grisey e Toshio Hosokawa, oltre ad arrangiamenti di Mendelssohn e Shostakovich per voce, archi, pianoforte, marimba e percussioni.",
+      "descriptionByLocale": {
+        "it": "Il concerto al Collegio Papio di Ascona propone un programma cameristico legato alla presenza di Vilde Frang, artista in residenza, con Anna Prohaska, Ilya Gringolts e Nils Mönkemeyer. Il percorso musicale comprende opere di Gérard Grisey e Toshio Hosokawa, oltre ad arrangiamenti di Mendelssohn e Shostakovich per voce, archi, pianoforte, marimba e percussioni.",
+        "en": "The concert at Collegio Papio in Ascona is centred on Vilde Frang as artist in residence and includes Anna Prohaska, Ilya Gringolts and Nils Mönkemeyer. The chamber programme features music by Gérard Grisey and Toshio Hosokawa, together with arrangements of Mendelssohn and Shostakovich for voice, strings, piano, marimba and percussion.",
+        "de": "Das Konzert im Collegio Papio in Ascona steht im Zeichen von Vilde Frang als Artist in Residence und vereint Anna Prohaska, Ilya Gringolts sowie Nils Mönkemeyer. Das Kammermusikprogramm umfasst Werke von Gérard Grisey und Toshio Hosokawa sowie Bearbeitungen von Mendelssohn und Schostakowitsch für Gesang, Streicher, Klavier, Marimba und Schlagzeug.",
+        "fr": "Le concert au Collegio Papio d’Ascona est consacré à Vilde Frang, artiste en résidence, avec notamment Anna Prohaska, Ilya Gringolts et Nils Mönkemeyer. Le programme de musique de chambre réunit des œuvres de Gérard Grisey et Toshio Hosokawa ainsi que des arrangements de Mendelssohn et Shostakovich pour voix, cordes, piano, marimba et percussions."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:33f460783bc24a2c99dcc83e92dbe95a",
@@ -116861,7 +116909,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra al Forum Würth Rorschach esamina come sport e tempo libero siano rappresentati nelle opere della collezione Würth. Affronta inoltre il gioco come esperienza creativa, dal divertimento dell’infanzia ai giochi di società, e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "La mostra al Forum Würth Rorschach esamina come sport e tempo libero siano rappresentati nelle opere della collezione Würth. Affronta inoltre il gioco come esperienza creativa, dal divertimento dell’infanzia ai giochi di società, e l’ingresso è gratuito.",
+        "en": "The exhibition at Forum Würth Rorschach examines how sport and leisure appear in works from the Würth collection. It also considers play as a creative experience, from childhood enjoyment to social games, and admission is free.",
+        "de": "Die Ausstellung im Forum Würth Rorschach untersucht, wie Sport und Freizeit in Werken der Würth-Sammlung erscheinen. Außerdem betrachtet sie das Spiel als kreative Erfahrung – von kindlicher Freude bis zu Gesellschaftsspielen – und der Eintritt ist frei.",
+        "fr": "L’exposition au Forum Würth Rorschach étudie la présence du sport et des loisirs dans des œuvres de la collection Würth. Elle considère également le jeu comme une expérience créative, du plaisir de l’enfance aux jeux de société, et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2579c7cf675242538a2114de5fbfacf0",
@@ -119738,7 +119794,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata musicale al Teatro Cambusa presenta Matt Pascale & The Stomps, tra blues rock e southern rock, e Zoe Staubli, con un repertorio folk e cantautorale. L’appuntamento si tiene a Locarno e l’ingresso costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "La serata musicale al Teatro Cambusa presenta Matt Pascale & The Stomps, tra blues rock e southern rock, e Zoe Staubli, con un repertorio folk e cantautorale. L’appuntamento si tiene a Locarno e l’ingresso costa 10 CHF.",
+        "en": "The concert at Teatro Cambusa brings together Matt Pascale & The Stomps, with blues-rock and southern-rock elements, and Zoe Staubli, whose music includes folk and singer-songwriter material. It takes place in Locarno, and admission is CHF 10.",
+        "de": "Das Konzert im Teatro Cambusa umfasst Matt Pascale & The Stomps mit Blues- und Southern-Rock-Elementen sowie Zoe Staubli mit Folk- und Singer-Songwriter-Musik. Es findet in Locarno statt; der Eintritt beträgt 10 CHF.",
+        "fr": "Le concert du Teatro Cambusa réunit Matt Pascale & The Stomps, avec des éléments de blues rock et de southern rock, et Zoe Staubli, associée au folk et à la chanson d’auteur. Il a lieu à Locarno et l’entrée coûte 10 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:carte-blanche-danies-bangers-courts-metrages-alhambra",
@@ -122285,7 +122349,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Kattenburg è un concorso di canto legato alla musica corale. L’evento si svolge presso HEMU - Haute Ecole de Musique - Utopia 1.",
+      "descriptionByLocale": {
+        "it": "Kattenburg è un concorso di canto legato alla musica corale. L’evento si svolge presso HEMU - Haute Ecole de Musique - Utopia 1.",
+        "en": "Kattenburg is a singing competition in the choral music category. The event takes place at HEMU - Haute Ecole de Musique - Utopia 1.",
+        "de": "Kattenburg ist ein Gesangswettbewerb aus dem Bereich der Chormusik. Die Veranstaltung findet bei der HEMU - Haute Ecole de Musique - Utopia 1 statt.",
+        "fr": "Kattenburg est un concours de chant lié à la musique chorale. L’événement a lieu à la HEMU - Haute Ecole de Musique - Utopia 1."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVXRxTR",
@@ -122382,7 +122454,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Oberägeri, uno spettacolo teatrale poliziesco racconta un pasto in un albergo termale interrotto dalla morte improvvisa di un ospite. Un’infermiera che ha seguito un corso online per detective avvia quindi le indagini.",
+      "descriptionByLocale": {
+        "it": "A Oberägeri, uno spettacolo teatrale poliziesco racconta un pasto in un albergo termale interrotto dalla morte improvvisa di un ospite. Un’infermiera che ha seguito un corso online per detective avvia quindi le indagini.",
+        "en": "In Oberägeri, this crime theatre presents a meal at a spa hotel interrupted by the sudden death of a guest. A nurse who has completed an online detective course then begins investigating.",
+        "de": "In Oberägeri zeigt das Krimi-Theater ein Geschehen in einem Kurhotel, dessen gemeinsames Essen durch den Tod eines Gastes unterbrochen wird. Eine Pflegerin mit absolviertem Onlinekurs für Detektivarbeit beginnt daraufhin mit den Ermittlungen.",
+        "fr": "À Oberägeri, ce théâtre policier met en scène un repas dans un établissement thermal interrompu par la mort soudaine d’un convive. Une infirmière ayant suivi une formation de détective en ligne commence alors l’enquête."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:An77Y4G",
@@ -123434,7 +123514,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio gratuito a Ginevra propone una colazione conviviale per persone anziane. Il programma comprende un’introduzione al tango argentino con la partecipazione di Milonga Brava.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio gratuito a Ginevra propone una colazione conviviale per persone anziane. Il programma comprende un’introduzione al tango argentino con la partecipazione di Milonga Brava.",
+        "en": "This free workshop in Geneva combines a convivial breakfast with an introduction to Argentine tango. The programme is intended for older adults and is presented by Milonga Brava.",
+        "de": "Dieser kostenlose Workshop in Genf verbindet ein geselliges Frühstück mit einer Einführung in den argentinischen Tango. Das Angebot richtet sich an ältere Menschen und wird von Milonga Brava gestaltet.",
+        "fr": "Cet atelier gratuit à Genève associe un petit-déjeuner convivial à une découverte du tango argentin. Destiné aux seniors, il est proposé par Milonga Brava."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AK3g82s",
@@ -124271,7 +124359,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza, proposta in lingua tedesca alla Sala Boccadoro, esamina le poesie di Else Lasker-Schüler, Hilde Domin e Marie Luise Kaschnitz. Il programma mette a confronto le loro riflessioni su esilio, perdita, identità e memoria, collegandole alla mostra su Isa Hesse-Rabinovitch; la serata si conclude con un aperitivo e l’ingresso prevede un contributo libero.",
+      "descriptionByLocale": {
+        "it": "La conferenza, proposta in lingua tedesca alla Sala Boccadoro, esamina le poesie di Else Lasker-Schüler, Hilde Domin e Marie Luise Kaschnitz. Il programma mette a confronto le loro riflessioni su esilio, perdita, identità e memoria, collegandole alla mostra su Isa Hesse-Rabinovitch; la serata si conclude con un aperitivo e l’ingresso prevede un contributo libero.",
+        "en": "Held in German at Sala Boccadoro, the conference examines poems by Else Lasker-Schüler, Hilde Domin and Marie Luise Kaschnitz. It considers how their work addresses exile, loss, identity and memory, and relates these themes to the exhibition on Isa Hesse-Rabinovitch; the programme ends with an aperitif and admission is based on a voluntary contribution.",
+        "de": "Die Veranstaltung in deutscher Sprache findet in der Sala Boccadoro statt und widmet sich Gedichten von Else Lasker-Schüler, Hilde Domin und Marie Luise Kaschnitz. Im Mittelpunkt stehen unterschiedliche Bezüge zu Exil, Verlust, Identität und Erinnerung sowie die Verbindung zur Ausstellung über Isa Hesse-Rabinovitch; zum Abschluss ist ein Aperitif vorgesehen, der Eintritt erfolgt gegen einen freiwilligen Beitrag.",
+        "fr": "Cette conférence en allemand se tient à la Sala Boccadoro et porte sur des poèmes d’Else Lasker-Schüler, de Hilde Domin et de Marie Luise Kaschnitz. Elle met en regard leurs approches de l’exil, de la perte, de l’identité et de la mémoire avec les thèmes de l’exposition consacrée à Isa Hesse-Rabinovitch; un apéritif est prévu pour clôturer la rencontre et l’entrée repose sur une contribution libre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63653",
@@ -124585,7 +124681,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’iniziativa poetica si svolge a Curzutt, nel territorio di Bellinzona. Il programma affianca un’attività didattica aperta al pubblico a una parte pubblica.",
+      "descriptionByLocale": {
+        "it": "L’iniziativa poetica si svolge a Curzutt, nel territorio di Bellinzona. Il programma affianca un’attività didattica aperta al pubblico a una parte pubblica.",
+        "en": "This poetry event takes place at Curzutt, in the Bellinzona area. Its programme combines an educational component open to the public with a public segment.",
+        "de": "Die poetische Veranstaltung findet in Curzutt im Gebiet von Bellinzona statt. Das Programm verbindet einen pädagogischen Teil, der dem Publikum offensteht, mit einem öffentlichen Abschnitt.",
+        "fr": "Cet événement poétique se déroule à Curzutt, dans la région de Bellinzone. Le programme associe une composante pédagogique ouverte au public à un volet public."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:13e01d300a504394bd6cc42e1c1d36e5",
@@ -130528,7 +130632,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La proiezione presenta cortometraggi realizzati da studenti di scuole svizzere d’arte e design. L’appuntamento dedicato all’animazione è gratuito e si svolge a Ginevra per un pubblico dai 16 anni in su.",
+      "descriptionByLocale": {
+        "it": "La proiezione presenta cortometraggi realizzati da studenti di scuole svizzere d’arte e design. L’appuntamento dedicato all’animazione è gratuito e si svolge a Ginevra per un pubblico dai 16 anni in su.",
+        "en": "This screening presents short films created by students from Swiss art and design schools. The animation-focused event is free and takes place in Geneva for audiences aged 16 and over.",
+        "de": "Gezeigt werden Kurzfilme von Studierenden schweizerischer Kunst- und Designschulen. Die kostenlose, der Animation gewidmete Vorführung findet in Genf statt und richtet sich an Personen ab 16 Jahren.",
+        "fr": "Cette projection réunit des courts métrages réalisés par des étudiants d’écoles suisses d’art et de design. Consacrée à l’animation, elle est gratuite et se déroule à Genève pour un public dès 16 ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64277",
@@ -130968,7 +131080,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro esamina il rapporto tra democrazia e Stato di diritto attraverso l’opera di Giorgio Agamben. La Maison Rousseau et Littérature lo organizza a Ginevra nell’ambito di una settimana dedicata alla democrazia, con ingresso gratuito.",
+      "descriptionByLocale": {
+        "it": "L’incontro esamina il rapporto tra democrazia e Stato di diritto attraverso l’opera di Giorgio Agamben. La Maison Rousseau et Littérature lo organizza a Ginevra nell’ambito di una settimana dedicata alla democrazia, con ingresso gratuito.",
+        "en": "This meeting examines democracy and the rule of law through the work of Giorgio Agamben. Maison Rousseau et Littérature organizes it in Geneva as part of a week devoted to democracy, and admission is free.",
+        "de": "Die Veranstaltung befasst sich mit dem Verhältnis von Demokratie und Rechtsstaat anhand des Werks von Giorgio Agamben. Maison Rousseau et Littérature organisiert sie in Genf im Rahmen einer der Demokratie gewidmeten Woche; der Eintritt ist kostenlos.",
+        "fr": "Cette rencontre examine les liens entre démocratie et État de droit à partir de l’œuvre de Giorgio Agamben. La Maison Rousseau et Littérature l’organise à Genève dans le cadre d’une semaine consacrée à la démocratie, avec un accès gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b1e7211a242a4ed9a55c82b0ef2ec1b5",
@@ -133544,7 +133664,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza esamina le incisioni rupestri presenti nel Malcantone e le domande ancora aperte sulla loro origine e funzione. Al Museo del Malcantone vengono messe a confronto diverse forme di incisione e alcune ipotesi sul loro significato e sul modo in cui furono utilizzate.",
+      "descriptionByLocale": {
+        "it": "La conferenza esamina le incisioni rupestri presenti nel Malcantone e le domande ancora aperte sulla loro origine e funzione. Al Museo del Malcantone vengono messe a confronto diverse forme di incisione e alcune ipotesi sul loro significato e sul modo in cui furono utilizzate.",
+        "en": "The conference examines rock carvings found in Malcantone and the unanswered questions about their origin and purpose. At the Museo del Malcantone, it distinguishes several types of carving and considers possible interpretations of their meaning and use.",
+        "de": "Die Konferenz untersucht Felsgravuren im Malcantone sowie die weiterhin offenen Fragen nach ihrer Herkunft und Funktion. Im Museo del Malcantone werden unterschiedliche Formen der Einritzungen und mögliche Erklärungen für ihre Bedeutung und Verwendung behandelt.",
+        "fr": "La conférence étudie les gravures rupestres du Malcantone ainsi que les questions toujours ouvertes sur leur origine et leur fonction. Au Museo del Malcantone, elle distingue plusieurs formes de gravures et aborde des interprétations possibles de leur sens et de leur utilisation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3fb0e03c7f024b938c06326ce1b29368",
@@ -135850,7 +135978,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo Studio Foce di Lugano ospita Melanin, un appuntamento dedicato alle culture musicali afroamericana e afrodiscendente. La proposta attraversa i linguaggi Afro, Hip Hop, R&B e Urban e mette in relazione musica, intrattenimento e condivisione.",
+      "descriptionByLocale": {
+        "it": "Lo Studio Foce di Lugano ospita Melanin, un appuntamento dedicato alle culture musicali afroamericana e afrodiscendente. La proposta attraversa i linguaggi Afro, Hip Hop, R&B e Urban e mette in relazione musica, intrattenimento e condivisione.",
+        "en": "Melanin is a music event at Studio Foce in Lugano devoted to African-American and Afro-descendant musical cultures. It combines music, entertainment and social exchange through Afro, hip-hop, R&B and urban sounds.",
+        "de": "Melanin ist eine Musikveranstaltung im Studio Foce in Lugano, die sich afroamerikanischen und afro-diasporischen Musikkulturen widmet. Sie verbindet Musik, Unterhaltung und Austausch mit Klängen aus Afro, Hip-Hop, R&B und Urban.",
+        "fr": "Melanin est une manifestation musicale au Studio Foce de Lugano consacrée aux cultures musicales afro-américaine et afrodescendante. Elle réunit musique, divertissement et partage autour de sonorités afro, hip-hop, R&B et urbaines."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64279",
@@ -145454,7 +145590,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo evento musicale di Le Fleuron si svolge ad Auvernier. Il programma è dedicato al tema dei sogni e presenta il coro diretto da Evan Métral.",
+      "descriptionByLocale": {
+        "it": "Questo evento musicale di Le Fleuron si svolge ad Auvernier. Il programma è dedicato al tema dei sogni e presenta il coro diretto da Evan Métral.",
+        "en": "This musical event by Le Fleuron takes place in Auvernier. The programme focuses on dreams and features the choir conducted by Evan Métral.",
+        "de": "Diese musikalische Veranstaltung von Le Fleuron findet in Auvernier statt. Im Mittelpunkt stehen Träume, und der Chor wird von Evan Métral geleitet.",
+        "fr": "Ce rendez-vous musical de Le Fleuron se déroule à Auvernier. Le programme est consacré au thème des rêves et présente le chœur dirigé par Evan Métral."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:verre-dela-matiere-collections-cirva-3",
@@ -146989,7 +147133,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il MEG ospita a Ginevra una proiezione di ARCO. L’ingresso è gratuito e la visione è seguita da una merenda; è richiesta l’iscrizione.",
+      "descriptionByLocale": {
+        "it": "Il MEG ospita a Ginevra una proiezione di ARCO. L’ingresso è gratuito e la visione è seguita da una merenda; è richiesta l’iscrizione.",
+        "en": "The MEG hosts a screening of ARCO in Geneva. The free event is followed by a snack, and registration is required.",
+        "de": "Im MEG in Genf wird ARCO gezeigt. Die kostenlose Veranstaltung wird von einem Imbiss gefolgt; eine Anmeldung ist erforderlich.",
+        "fr": "Le MEG accueille à Genève une projection d’ARCO. La séance est gratuite et se poursuit par un goûter ; une inscription est nécessaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:promenade-botanique-lancy",
@@ -168633,7 +168785,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La tavola rotonda considera la manipolazione dell’opinione pubblica nell’epoca dell’intelligenza artificiale e dei contenuti falsi da prospettive diverse. La Semaine de la démocratie include questo appuntamento, organizzato dal Laboratoire ISI 4 C della HEG Genève.",
+      "descriptionByLocale": {
+        "it": "La tavola rotonda considera la manipolazione dell’opinione pubblica nell’epoca dell’intelligenza artificiale e dei contenuti falsi da prospettive diverse. La Semaine de la démocratie include questo appuntamento, organizzato dal Laboratoire ISI 4 C della HEG Genève.",
+        "en": "This round-table discussion examines the manipulation of public opinion in an era shaped by artificial intelligence and fake content, bringing together several viewpoints. It is part of the Semaine de la démocratie and is organized by Laboratoire ISI 4 C, HEG Genève.",
+        "de": "Die Gesprächsrunde beleuchtet die Beeinflussung der öffentlichen Meinung im Zeitalter künstlicher Intelligenz und gefälschter Inhalte aus mehreren Blickwinkeln. Sie gehört zum Programm der Semaine de la démocratie und wird vom Laboratoire ISI 4 C der HEG Genève organisiert.",
+        "fr": "Cette rencontre met en regard plusieurs approches de la manipulation de l’opinion à l’époque de l’intelligence artificielle et des fakes. Le rendez-vous figure au programme de la Semaine de la démocratie, et le Laboratoire ISI 4 C de la HEG Genève en assure l’organisation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:festival-chopin-2026-recital-piano-adam-kaldunski",
@@ -212086,7 +212246,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’esposizione permanente offre una panoramica dell’archeologia svizzera. A Zurigo sono presentati reperti legati a regioni montane, ghiacciai, laghi, città e villaggi.",
+      "descriptionByLocale": {
+        "it": "L’esposizione permanente offre una panoramica dell’archeologia svizzera. A Zurigo sono presentati reperti legati a regioni montane, ghiacciai, laghi, città e villaggi.",
+        "en": "This permanent exhibition explores archaeology in Switzerland. Held in Zurich, it brings together finds associated with mountain regions, glaciers, lakes, cities and villages.",
+        "de": "Die Dauerausstellung vermittelt einen Überblick über die Archäologie in der Schweiz. Sie findet in Zürich statt und behandelt Zeugnisse aus Bergregionen, Gletschergebieten, Seen, Städten und Dörfern.",
+        "fr": "L’exposition permanente présente l’archéologie de la Suisse. À Zurich, elle rassemble des découvertes liées aux régions montagneuses, aux glaciers, aux lacs, aux villes et aux villages."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:armures-paillettes-1",
@@ -222518,11 +222686,6 @@
         {
           "canton": "TI",
           "comune": "Mendrisio",
-          "slug": "bertille-bak-voci-dalla-terra-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
         },
         {
@@ -222534,6 +222697,11 @@
           "canton": "TI",
           "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-08-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-10-16"
         },
         {
           "canton": "TI",
@@ -223229,17 +223397,17 @@
         {
           "canton": "TI",
           "comune": "Locarno",
-          "slug": "carlo-agostino-meletta-pittore-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Locarno",
           "slug": "carlo-agostino-meletta-pittore-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "locarno",
           "slug": "carlo-agostino-meletta-pittore-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "carlo-agostino-meletta-pittore-2026-10-16"
         },
         {
           "canton": "TI",
@@ -223583,17 +223751,17 @@
         {
           "canton": "TI",
           "comune": "Riva San Vitale",
-          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "riva-san-vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Riva San Vitale",
+          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-16"
         },
         {
           "canton": "TI",
@@ -225474,11 +225642,6 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-10-16"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-09-03"
         },
         {
@@ -225500,6 +225663,11 @@
           "canton": "GE",
           "comune": "geneve",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-bastions-2026-08-25"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-10-16"
         },
         {
           "canton": "GE",
@@ -225606,17 +225774,17 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-16"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-11"
         },
         {
           "canton": "GE",
           "comune": "geneve",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-08-31"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-16"
         },
         {
           "canton": "GE",
@@ -225715,7 +225883,7 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-16-2"
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-17-2"
         },
         {
           "canton": "GE",
@@ -225736,6 +225904,11 @@
           "canton": "GE",
           "comune": "geneve",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-13-2"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-16-2"
         },
         {
           "canton": "GE",
@@ -226939,17 +227112,17 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "fra-roberto-tra-le-mura-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-07-07"
         },
         {
           "canton": "TI",
           "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "fra-roberto-tra-le-mura-2026-10-16"
         },
         {
           "canton": "TI",
@@ -228582,11 +228755,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "isa-hesse-rabinovitch-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "isa-hesse-rabinovitch-2026-09-16"
         },
         {
@@ -228603,6 +228771,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "isa-hesse-rabinovitch-2026-07-05"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "isa-hesse-rabinovitch-2026-10-16"
         },
         {
           "canton": "TI",
@@ -228748,11 +228921,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "ivo-soldini-progetto-castel-grande-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-09-15"
         },
         {
@@ -228764,6 +228932,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "ivo-soldini-progetto-castel-grande-2026-10-16"
         },
         {
           "canton": "TI",
@@ -228906,11 +229079,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20"
         },
         {
@@ -228927,6 +229095,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-25-2"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-16"
         },
         {
           "canton": "TI",
@@ -232421,12 +232594,12 @@
         {
           "canton": "TI",
           "comune": "Centovalli",
-          "slug": "mona-caron-la-resilienza-della-vita-2026-10-16"
+          "slug": "mona-caron-la-resilienza-della-vita-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "Centovalli",
-          "slug": "mona-caron-la-resilienza-della-vita-2026-09-25"
+          "slug": "mona-caron-la-resilienza-della-vita-2026-10-16"
         },
         {
           "canton": "TI",
@@ -235017,17 +235190,17 @@
         {
           "canton": "TI",
           "comune": "__other-events__",
-          "slug": "radici-mostra-temporanea-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "radici-mostra-temporanea-2026-10-16"
         },
         {
           "canton": "TI",
@@ -236542,11 +236715,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "sentimento-e-osservazione-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-16"
         },
         {
@@ -236558,6 +236726,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-08-29"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-10-16"
         },
         {
           "canton": "TI",
@@ -237592,17 +237765,17 @@
         {
           "canton": "TI",
           "comune": "Centovalli",
-          "slug": "stratigrafie-felicita-bianchi-duyne-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Centovalli",
           "slug": "stratigrafie-felicita-bianchi-duyne-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "Centovalli",
           "slug": "stratigrafie-felicita-bianchi-duyne-2026-08-29"
+        },
+        {
+          "canton": "TI",
+          "comune": "Centovalli",
+          "slug": "stratigrafie-felicita-bianchi-duyne-2026-10-16"
         },
         {
           "canton": "TI",
@@ -238286,11 +238459,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "umberto-boccioni-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "umberto-boccioni-2026-09-15"
         },
         {
@@ -238302,6 +238470,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "umberto-boccioni-2026-08-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-10-16"
         },
         {
           "canton": "TI",
@@ -238606,11 +238779,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "uomo-e-ambiente-il-distruttore-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-25"
         },
         {
@@ -238622,6 +238790,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-10-16"
         },
         {
           "canton": "TI",
@@ -238938,17 +239111,17 @@
         {
           "canton": "TI",
           "comune": "Locarno",
-          "slug": "videokunst-ch-palacinema-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Locarno",
           "slug": "videokunst-ch-palacinema-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "locarno",
           "slug": "videokunst-ch-palacinema-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "videokunst-ch-palacinema-2026-10-16"
         },
         {
           "canton": "TI",
@@ -248984,11 +249157,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "corpi-in-prestito-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-16"
         },
         {
@@ -249000,6 +249168,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-10-16"
         },
         {
           "canton": "TI",
@@ -250328,11 +250501,6 @@
       "previousRoutes": [
         {
           "canton": "TI",
-          "comune": "Savosa",
-          "slug": "popoetic-2026-10-16"
-        },
-        {
-          "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-10"
         },
@@ -250340,6 +250508,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-04"
+        },
+        {
+          "canton": "TI",
+          "comune": "Savosa",
+          "slug": "popoetic-2026-10-16"
         },
         {
           "canton": "TI",
@@ -250912,17 +251085,17 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-16"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-16"
         },
         {
           "canton": "TI",
@@ -270811,12 +270984,12 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "mirabiblia-2026-10-16"
+          "slug": "mirabiblia-2026-09-18"
         },
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "mirabiblia-2026-09-18"
+          "slug": "mirabiblia-2026-10-16"
         },
         {
           "canton": "TI",
@@ -555314,6 +555487,13 @@
         "name": "Salle Métropole"
       },
       "sourceDescriptionHash": "fd66138768a307bfad69e764b2c01cd7b2215d3686bd80a4b9b1b0d60ab2f265",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "__other-events__",
+          "slug": "pink-floyds-the-dark-side-of-the-moon-2027-01-17-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-musica-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-musica-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",

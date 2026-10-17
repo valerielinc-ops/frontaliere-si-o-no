@@ -98,6 +98,7 @@ import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan
 import { markCantonCompanyHub } from './shared/cantonCompanyHubRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from './shared/companyCantonBridgeMarker.mjs';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
 // primitives (AGENTS.md §6); see build-plugins/shared/jobEventsCrosslink.ts.
@@ -333,8 +334,31 @@ export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 function noindexJobAliasHtml(html: string): string {
   const noindexTag = ROBOTS_NOINDEX_FOLLOW.trim();
   const robotsMeta = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots["']?)[^>]*>/i;
-  if (robotsMeta.test(html)) return html.replace(robotsMeta, noindexTag);
-  return html.replace('</head>', ` ${noindexTag}\n </head>`);
+  const noindexHtml = robotsMeta.test(html)
+    ? html.replace(robotsMeta, noindexTag)
+    : html.replace('</head>', ` ${noindexTag}\n </head>`);
+  return markJobBoardNoindexTargetHtml(noindexHtml);
+}
+
+function hasNoindexRobotsMeta(html: string): boolean {
+  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
+    const attributes = match[1] || '';
+    const nameMatch = attributes.match(/(?:^|\s)name\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+    if (String(nameMatch?.[1] ?? nameMatch?.[2] ?? nameMatch?.[3] ?? '').toLowerCase() !== 'robots') continue;
+    const contentMatch = attributes.match(/(?:^|\s)content\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+    if (/\bnoindex\b/i.test(String(contentMatch?.[1] ?? contentMatch?.[2] ?? contentMatch?.[3] ?? ''))) return true;
+  }
+  return false;
+}
+
+/**
+ * Mark only an emitted job-board document whose robots directive is noindex.
+ * This is deliberately post-rendered so incremental HTML reuse receives the
+ * same declaration as a fresh render without changing the robots policy.
+ */
+function markJobBoardNoindexTargetHtml(html: string): string {
+  if (!hasNoindexRobotsMeta(html) || html.includes(JOB_BOARD_NOINDEX_TARGET_MARKER)) return html;
+  return html.replace('</head>', ` ${JOB_BOARD_NOINDEX_TARGET_MARKER}\n </head>`);
 }
 
 /**
@@ -4331,6 +4355,7 @@ ${staticAnalyticsHtml}
  } else {
   html = jobsSeoReuse.reusedHtml(activeReuse, STATIC_PAGE_BUILD_ID) || activeReuse.html;
  }
+ html = markJobBoardNoindexTargetHtml(html);
  jobsSeoReuse?.finish(activeReuse, html);
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -13184,7 +13209,7 @@ ${staticAnalyticsHtml}
  const __tShellMinify = phaseTimer();
  const out = html.replace(/\n[ \t]+/g, '\n');
  recordPhase('ejp:shell:minify', __tShellMinify);
- return out;
+ return markJobBoardNoindexTargetHtml(out);
  };
  const writeSoftLandingPage = (outRelPath: string, html: string) => {
  // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
