@@ -135,7 +135,7 @@ export function descriptionFixConcurrency(codexStats) {
  * limit is read before every start, so it drops to 1 as soon as Codex stops.
  * Returns 'deadline' when the run deadline stopped it, else 'done'.
  */
-export async function runDescriptionFixPool(tasks, worker, { budgetOk = () => true, roomFor = () => true, limit = () => 1 } = {}) {
+export async function runDescriptionFixPool(tasks, worker, { budgetOk = () => true, roomFor = () => true, limit = () => 1, onStart = () => {} } = {}) {
   const running = new Set();
   let next = 0;
   let outcome = 'done';
@@ -152,6 +152,8 @@ export async function runDescriptionFixPool(tasks, worker, { budgetOk = () => tr
       .then(() => worker(task))
       .finally(() => running.delete(pending));
     running.add(pending);
+    // Called once a slot has really started, with the slots now in flight.
+    onStart(running.size);
   }
   await Promise.all(running);
   return outcome;
@@ -190,6 +192,12 @@ async function main() {
   }
 
   console.log(`🔧 Fixing untranslated descriptions across ${files.length} slices...`);
+  {
+    // The starting limit, printed even when no slice has work.
+    const stats = getCodexTierStats();
+    poolLimit = descriptionFixConcurrency(stats);
+    console.log(`   descriptions in flight: up to ${poolLimit} (Codex lane ${stats?.lanePresent ? 'present' : 'absent'}${stats?.stopReason ? `, stopped: ${stats.stopReason}` : ''})`);
+  }
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)');
   if (MAX < Infinity) console.log(`   (MAX: ${MAX} descriptions)`);
   console.log('');
@@ -257,10 +265,8 @@ async function main() {
     const outcome = await runDescriptionFixPool(tasks, translateTask, {
       budgetOk,
       // Never start more slots than --max still allows, counting those in flight.
-      roomFor: (inFlight) => {
-        poolPeak = Math.max(poolPeak, inFlight + 1);
-        return totalFixed + totalFailed + inFlight < MAX;
-      },
+      roomFor: (inFlight) => totalFixed + totalFailed + inFlight < MAX,
+      onStart: (inFlight) => { poolPeak = Math.max(poolPeak, inFlight); },
       limit: () => {
         const stats = getCodexTierStats();
         const current = descriptionFixConcurrency(stats);
