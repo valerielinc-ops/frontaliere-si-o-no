@@ -284,6 +284,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
@@ -351,6 +352,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
@@ -428,6 +430,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
@@ -506,6 +509,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
@@ -579,6 +583,7 @@ jobs:
           # shared article registry; materialize that closure explicitly.
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
