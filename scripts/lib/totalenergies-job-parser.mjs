@@ -458,6 +458,7 @@ async function fetchJobListings() {
     // (a Madrid VIE role that only text-matched the keyword search).
     if (detail && detail.country && !isSwissLocation(detail.country)) {
       console.log(`   ⏭️  skipping non-Swiss job (Country="${detail.country}"): ${stub.title}`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
 

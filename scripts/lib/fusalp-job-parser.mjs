@@ -285,6 +285,7 @@ export async function fetchAllFusalpJobs() {
       // Skip non-Swiss jobs — this is a Swiss frontaliere board
       if (country !== 'CH') {
         console.log(`  ⏭️  Skipped non-Swiss: ${listing.title} in ${city}, ${country || '?'}`);
+        await new Promise((r) => setTimeout(r, 500));
         continue;
       }
 
@@ -296,7 +297,10 @@ export async function fetchAllFusalpJobs() {
       );
 
       const title = normalizeSpace(jsonLd?.title || listing.title || '');
-      if (!title || title.length < 3) continue;
+      if (!title || title.length < 3) {
+        await new Promise((r) => setTimeout(r, 500));
+        continue;
+      }
 
       const empType = jsonLd?.employmentType || listing.contract || '';
       const publication = publicationFields(jsonLd, detailUrl);

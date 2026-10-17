@@ -660,6 +660,7 @@ export async function fetchAllHirslandenJobs() {
       }) || null;
       if (!inferredCanton) {
         console.warn(`  ⚠️ Hirslanden: skipping unresolvable location "${realLocationText}" (${title})`);
+        await new Promise((r) => setTimeout(r, 300));
         continue;
       }
       const canton = inferredCanton;
@@ -675,6 +676,7 @@ export async function fetchAllHirslandenJobs() {
       if (!meetsSourceBodyFloor(description)) {
         console.warn(`  ⏭️ Hirslanden: no vacancy text on the detail page, not published (${title})`);
         withoutBody += 1;
+        await new Promise((r) => setTimeout(r, 300));
         continue;
       }
 

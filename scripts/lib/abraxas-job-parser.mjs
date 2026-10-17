@@ -309,7 +309,10 @@ export async function fetchAllAbraxasJobs() {
     }
 
     const title = detail.title || listing.title;
-    if (!title || title.length < 3) continue;
+    if (!title || title.length < 3) {
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+      continue;
+    }
 
     const locationText = detail.location || listing.location || '';
     const addr = resolveAddress(locationText);

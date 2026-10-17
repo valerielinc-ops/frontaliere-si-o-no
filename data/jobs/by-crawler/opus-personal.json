@@ -16214,7 +16214,6 @@
         ]
       },
       "firstSeenAt": "2026-10-14T09:35:35.395Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -20845,12 +20844,12 @@
     },
     {
       "id": "opus-personal-ec90e14cfd1c",
-      "slug": "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch",
+      "slug": "montaggio-di-riscaldamento-cfc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
       "slugByLocale": {
         "fr": "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch",
-        "it": "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch",
-        "en": "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch",
-        "de": "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch"
+        "it": "montaggio-di-riscaldamento-cfc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+        "en": "heating-mount-cfc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
+        "de": "heizvorrichtung-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -20897,19 +20896,17 @@
         "fr": []
       },
       "previousSlugs": [
-        "montaggio-di-riscaldamento-cfc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-        "heating-mount-cfc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-        "heizvorrichtung-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
+        "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montaggio-di-riscaldamento-cfc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
+          "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch"
         ],
         "en": [
-          "heating-mount-cfc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
+          "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch"
         ],
         "de": [
-          "heizvorrichtung-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
+          "monteur-en-chauffage-cfc-h-f-region-vs-valais-opus-personal-ch"
         ]
       },
       "salaryMin": 60500,
@@ -20929,12 +20926,12 @@
     },
     {
       "id": "opus-personal-60be1c8dfe0b",
-      "slug": "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch",
+      "slug": "montatore-di-sistemi-di-protezione-solare-tecnico-di-assistenza-m-f-opus-personal-ag-zweigniederlassung-altdorf-region",
       "slugByLocale": {
         "de": "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch",
-        "it": "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch",
-        "en": "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch",
-        "fr": "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch"
+        "it": "montatore-di-sistemi-di-protezione-solare-tecnico-di-assistenza-m-f-opus-personal-ag-zweigniederlassung-altdorf-region",
+        "en": "blind-installer-service-technician-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "fr": "monteur-de-stores-monteur-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -20980,31 +20977,32 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "montatore-di-avvolgibili-tecnico-di-assistenza-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "monteur-de-stores-technicien-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "montatore-di-tende-montatore-di-servizio-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "blinds-installer-service-technician-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "monteur-de-stores-monteur-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "montatore-di-tende-da-sole-tecnico-di-servizio-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "shutter-installer-service-technician-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "monteur-euse-de-stores-monteur-euse-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+        "monteur-euse-de-stores-monteur-euse-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montatore-di-avvolgibili-tecnico-di-assistenza-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
           "montatore-di-tende-montatore-di-servizio-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "montatore-di-tende-da-sole-tecnico-di-servizio-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "montatore-di-tende-da-sole-tecnico-di-servizio-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch"
         ],
         "en": [
           "blinds-installer-service-technician-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "shutter-installer-service-technician-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "shutter-installer-service-technician-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
           "monteur-de-stores-technicien-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "monteur-de-stores-monteur-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "monteur-euse-de-stores-monteur-euse-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "monteur-euse-de-stores-monteur-euse-de-service-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "storenmonteur-servicemonteur-m-w-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21024,12 +21022,12 @@
     },
     {
       "id": "opus-personal-635688b63675",
-      "slug": "strassenbauarbeiter-region-lu-luzern-opus-personal-ch",
+      "slug": "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
         "de": "strassenbauarbeiter-region-lu-luzern-opus-personal-ch",
-        "it": "strassenbauarbeiter-region-lu-luzern-opus-personal-ch",
-        "en": "strassenbauarbeiter-region-lu-luzern-opus-personal-ch",
-        "fr": "strassenbauarbeiter-region-lu-luzern-opus-personal-ch"
+        "it": "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "en": "road-workers-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "fr": "travailleurs-routiers-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21076,19 +21074,17 @@
         "de": []
       },
       "previousSlugs": [
-        "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "road-workers-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "travailleurs-routiers-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+        "strassenbauarbeiter-region-lu-luzern-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "strassenbauarbeiter-region-lu-luzern-opus-personal-ch"
         ],
         "en": [
-          "road-workers-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "strassenbauarbeiter-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
-          "travailleurs-routiers-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "strassenbauarbeiter-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21108,12 +21104,12 @@
     },
     {
       "id": "opus-personal-df0535e8ce02",
-      "slug": "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch",
+      "slug": "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
       "slugByLocale": {
         "de": "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch",
-        "it": "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch",
-        "en": "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch",
-        "fr": "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch"
+        "it": "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "en": "road-workers-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "fr": "travailleurs-routiers-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21160,19 +21156,17 @@
         "de": []
       },
       "previousSlugs": [
-        "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "road-workers-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "travailleurs-routiers-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+        "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lavoratori-di-strada-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch"
         ],
         "en": [
-          "road-workers-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch"
         ],
         "fr": [
-          "travailleurs-routiers-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "strassenbauarbeiter-region-ow-obwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21192,12 +21186,12 @@
     },
     {
       "id": "opus-personal-1e8d39092df7",
-      "slug": "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch",
+      "slug": "montatore-trice-di-automazione-afc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
       "slugByLocale": {
         "de": "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch",
-        "it": "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch",
-        "en": "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch",
-        "fr": "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch"
+        "it": "montatore-trice-di-automazione-afc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "en": "automation-technician-efz-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden-c85bdc",
+        "fr": "monteur-euse-automaticien-ne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21243,29 +21237,28 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "montatore-trice-di-automazione-afc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "monteur-euse-automaticien-ne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "automation-mechanic-efz-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "monteur-automaticien-ne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "montatore-trice-in-automazione-afc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "automation-assembler-efz-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "monteur-automaticien-monteuse-automaticienne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+        "monteur-automaticien-monteuse-automaticienne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montatore-trice-di-automazione-afc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-          "montatore-trice-in-automazione-afc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "montatore-trice-in-automazione-afc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+          "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch"
         ],
         "en": [
           "automation-mechanic-efz-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-          "automation-assembler-efz-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "automation-assembler-efz-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+          "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch"
         ],
         "fr": [
-          "monteur-euse-automaticien-ne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
           "monteur-automaticien-ne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-          "monteur-automaticien-monteuse-automaticienne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "monteur-automaticien-monteuse-automaticienne-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+          "automatikmonteur-in-efz-region-ow-obwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21285,12 +21278,12 @@
     },
     {
       "id": "opus-personal-287522abea44",
-      "slug": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "slug": "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
         "de": "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch",
-        "it": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "en": "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch",
-        "fr": "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch"
+        "it": "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "en": "design-engineer-technical-drafter-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "fr": "constructeur-trice-industriel-le-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-lu"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21336,23 +21329,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "design-engineer-technical-drafter-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "constructeur-trice-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch"
+        "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch",
+        "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch"
+          "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch",
+          "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
         ],
         "en": [
-          "design-engineer-technical-drafter-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
-          "constructeur-trice-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "constructeur-trice-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 78500,
@@ -21372,12 +21364,12 @@
     },
     {
       "id": "opus-personal-5f89448f8fd5",
-      "slug": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
+      "slug": "giardiniere-a-paesaggista-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
       "slugByLocale": {
         "de": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
-        "it": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
-        "en": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch",
-        "fr": "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
+        "it": "giardiniere-a-paesaggista-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "en": "landscape-gardener-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "fr": "horticulteur-trice-paysagiste-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21423,21 +21415,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "giardiniere-a-paesaggista-afc-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "landscape-gardener-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "horticulteur-trice-paysagiste-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+        "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "giardiniere-a-paesaggista-afc-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "giardiniere-a-paesaggista-afc-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+          "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
         ],
         "en": [
-          "landscape-gardener-efz-eba-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
         ],
         "fr": [
-          "horticulteur-trice-paysagiste-cfc-afp-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "landschaftsgartner-in-efz-eba-region-nw-nidwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21457,12 +21448,12 @@
     },
     {
       "id": "opus-personal-705bc5e51409",
-      "slug": "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch",
+      "slug": "specialista-di-manutenzione-meccanico-di-manutenzione-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw",
       "slugByLocale": {
         "de": "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch",
-        "it": "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch",
-        "en": "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch",
-        "fr": "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch"
+        "it": "specialista-di-manutenzione-meccanico-di-manutenzione-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw",
+        "en": "maintenance-specialist-maintenance-mechanic-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "fr": "specialiste-de-l-entretien-mecanicien-d-entretien-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21509,19 +21500,17 @@
         "de": []
       },
       "previousSlugs": [
-        "specialista-di-manutenzione-meccanico-di-manutenzione-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw",
-        "maintenance-specialist-maintenance-mechanic-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "specialiste-de-l-entretien-mecanicien-d-entretien-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+        "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-manutenzione-meccanico-di-manutenzione-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw"
+          "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch"
         ],
         "en": [
-          "maintenance-specialist-maintenance-mechanic-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch"
         ],
         "fr": [
-          "specialiste-de-l-entretien-mecanicien-d-entretien-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21541,12 +21530,12 @@
     },
     {
       "id": "opus-personal-f3b76a27338a",
-      "slug": "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch",
+      "slug": "lavoratori-saldatori-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
       "slugByLocale": {
         "de": "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch",
-        "it": "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch",
-        "en": "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch",
-        "fr": "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch"
+        "it": "lavoratori-saldatori-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "en": "metalworkers-welders-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "fr": "metaux-soudeurs-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21593,19 +21582,17 @@
         "de": []
       },
       "previousSlugs": [
-        "lavoratori-saldatori-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "metalworkers-welders-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "metaux-soudeurs-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+        "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lavoratori-saldatori-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch"
         ],
         "en": [
-          "metalworkers-welders-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch"
         ],
         "fr": [
-          "metaux-soudeurs-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21625,12 +21612,12 @@
     },
     {
       "id": "opus-personal-482a527d58a4",
-      "slug": "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch",
+      "slug": "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
       "slugByLocale": {
         "de": "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch",
-        "it": "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch",
-        "en": "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch",
-        "fr": "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch"
+        "it": "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "en": "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "fr": "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21676,27 +21663,24 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "disegnatore-edile-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "drawer-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "tiroir-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+        "tiroir-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "disegnatore-edile-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "disegnatore-edile-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch"
         ],
         "en": [
-          "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "drawer-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "drawer-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch"
         ],
         "fr": [
-          "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "tiroir-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "tiroir-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "hochbauzeichner-efz-m-w-region-sz-schwyz-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21716,12 +21700,12 @@
     },
     {
       "id": "opus-personal-16d25e0af708",
-      "slug": "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch",
+      "slug": "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
       "slugByLocale": {
         "de": "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch",
-        "it": "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch",
-        "en": "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch",
-        "fr": "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch"
+        "it": "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "en": "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "fr": "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21770,18 +21754,18 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+        "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+          "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch"
         ],
         "en": [
-          "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch"
         ],
         "fr": [
-          "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "hochbauzeichner-efz-m-w-region-nw-nidwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21801,12 +21785,12 @@
     },
     {
       "id": "opus-personal-6f293376884f",
-      "slug": "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch",
+      "slug": "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
       "slugByLocale": {
         "de": "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch",
-        "it": "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch",
-        "en": "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch",
-        "fr": "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch"
+        "it": "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "en": "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "fr": "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21855,18 +21839,18 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+        "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+          "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch"
         ],
         "en": [
-          "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch"
         ],
         "fr": [
-          "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21886,12 +21870,12 @@
     },
     {
       "id": "opus-personal-57f31ff8cf0f",
-      "slug": "polier-vorarbeiter-genio-civile-m-w-d-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+      "slug": "capo-cantiere-caposquadra-nel-genio-civile-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
         "de": "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch",
-        "it": "polier-vorarbeiter-genio-civile-m-w-d-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "en": "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch",
-        "fr": "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch"
+        "it": "capo-cantiere-caposquadra-nel-genio-civile-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "en": "polish-foremen-civil-engineering-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "fr": "genie-civil-polonais-foremen-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -21937,23 +21921,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "capo-cantiere-caposquadra-genio-civile-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "polish-foremen-civil-engineering-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "genie-civil-polonais-foremen-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch"
+        "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch",
+        "polier-vorarbeiter-genio-civile-m-w-d-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "capo-cantiere-caposquadra-genio-civile-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch"
+          "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch",
+          "polier-vorarbeiter-genio-civile-m-w-d-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
         ],
         "en": [
-          "polish-foremen-civil-engineering-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
-          "genie-civil-polonais-foremen-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "polier-vorarbeiter-tiefbau-m-w-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -21973,12 +21956,12 @@
     },
     {
       "id": "opus-personal-e41ec25fe840",
-      "slug": "polybauer-in-region-lu-luzern-opus-personal-ch",
+      "slug": "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
         "de": "polybauer-in-region-lu-luzern-opus-personal-ch",
-        "it": "polybauer-in-region-lu-luzern-opus-personal-ch",
-        "en": "polybauer-in-region-lu-luzern-opus-personal-ch",
-        "fr": "polybauer-in-region-lu-luzern-opus-personal-ch"
+        "it": "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "en": "polybuilder-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "fr": "polybatisseur-euse-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22024,23 +22007,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "costruttore-trice-di-involucri-edilizi-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "polybuilder-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+        "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "polybauer-in-region-lu-luzern-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-          "costruttore-trice-di-involucri-edilizi-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "costruttore-trice-di-involucri-edilizi-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "polybauer-in-region-lu-luzern-opus-personal-ch"
         ],
         "en": [
-          "polybuilder-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "polybauer-in-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
-          "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "polybauer-in-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -22060,12 +22042,12 @@
     },
     {
       "id": "opus-personal-4328dd5cebb1",
-      "slug": "polybauer-in-region-nw-nidwalden-opus-personal-ch",
+      "slug": "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
       "slugByLocale": {
         "de": "polybauer-in-region-nw-nidwalden-opus-personal-ch",
-        "it": "polybauer-in-region-nw-nidwalden-opus-personal-ch",
-        "en": "polybauer-in-region-nw-nidwalden-opus-personal-ch",
-        "fr": "polybauer-in-region-nw-nidwalden-opus-personal-ch"
+        "it": "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "en": "polybuilder-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "fr": "polybatisseur-euse-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22111,21 +22093,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "polybuilder-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+        "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+        "polybauer-in-region-nw-nidwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "policostruttore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "polybauer-in-region-nw-nidwalden-opus-personal-ch"
         ],
         "en": [
-          "polybuilder-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "polybauer-in-region-nw-nidwalden-opus-personal-ch"
         ],
         "fr": [
-          "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
+          "polyconstructeur-trice-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
+          "polybauer-in-region-nw-nidwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -22145,12 +22126,12 @@
     },
     {
       "id": "opus-personal-ca1301a038c6",
-      "slug": "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+      "slug": "elektromonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
       "slugByLocale": {
         "de": "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "it": "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "en": "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "fr": "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+        "it": "elektromonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "en": "electrical-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "fr": "installation-electrique-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22197,19 +22178,17 @@
         "de": []
       },
       "previousSlugs": [
-        "elektromonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "electrical-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "installation-electrique-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+        "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektromonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ],
         "en": [
-          "electrical-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ],
         "fr": [
-          "installation-electrique-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "elektromonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ]
       },
       "salaryMin": 78500,
@@ -22229,12 +22208,12 @@
     },
     {
       "id": "opus-personal-819f9add9840",
-      "slug": "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+      "slug": "installatore-trice-sanitario-a-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
       "slugByLocale": {
         "de": "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "it": "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "en": "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "fr": "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+        "it": "installatore-trice-sanitario-a-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "en": "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "fr": "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22280,21 +22259,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "installatore-sanitario-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+        "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installatore-sanitario-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "installatore-sanitario-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ],
         "en": [
-          "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ],
         "fr": [
-          "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -22314,12 +22292,12 @@
     },
     {
       "id": "opus-personal-ee357b8c813d",
-      "slug": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
+      "slug": "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
         "de": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
-        "it": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
+        "it": "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "en": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch",
-        "fr": "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
+        "fr": "menuisier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22365,21 +22343,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+        "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
         ],
         "en": [
           "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
         ],
         "fr": [
-          "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "schreiner-efz-eba-m-w-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -22399,12 +22377,12 @@
     },
     {
       "id": "opus-personal-e0a5c46851be",
-      "slug": "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch",
+      "slug": "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
       "slugByLocale": {
         "de": "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch",
-        "it": "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch",
+        "it": "falegname-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "en": "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch",
-        "fr": "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch"
+        "fr": "menuisier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22450,21 +22428,23 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+        "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "falegname-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+          "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch"
         ],
         "en": [
           "carpenter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
         ],
         "fr": [
-          "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
+          "menuisier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+          "schreiner-efz-eba-m-w-region-ow-obwalden-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -22484,12 +22464,12 @@
     },
     {
       "id": "opus-personal-06bfcf6a8686",
-      "slug": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+      "slug": "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
       "slugByLocale": {
         "de": "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch",
-        "it": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "en": "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch",
-        "fr": "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch"
+        "it": "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+        "en": "design-engineer-technical-drafter-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+        "fr": "constructeur-trice-industriel-le-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22535,23 +22515,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "design-engineer-technical-drafter-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
         "constructeur-trice-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch"
+        "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch",
+        "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "progettista-disegnatore-trice-tecnico-a-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-          "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch"
+          "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch",
+          "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
         ],
         "en": [
-          "design-engineer-technical-drafter-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+          "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch"
         ],
         "fr": [
-          "constructeur-trice-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+          "constructeur-trice-dessinateur-trice-technique-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+          "konstrukteur-in-technische-r-zeichner-in-region-ur-uri-opus-personal-ch"
         ]
       },
       "salaryMin": 78500,
@@ -22575,8 +22554,8 @@
       "slugByLocale": {
         "de": "polier-vorarbeiter-tiefbau-m-w-region-ur-uri-opus-personal-ch",
         "it": "polier-vorarbeiter-genio-civile-m-w-d-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "en": "polier-vorarbeiter-tiefbau-m-w-region-ur-uri-opus-personal-ch",
-        "fr": "polier-vorarbeiter-tiefbau-m-w-region-ur-uri-opus-personal-ch"
+        "en": "polish-foremen-civil-engineering-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+        "fr": "genie-civil-polonais-foremen-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22625,8 +22604,6 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "capo-cantiere-caposquadra-genio-civile-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "polish-foremen-civil-engineering-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "genie-civil-polonais-foremen-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
         "polier-vorarbeiter-tiefbau-m-w-region-ur-uri-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
@@ -22635,10 +22612,10 @@
           "polier-vorarbeiter-tiefbau-m-w-region-ur-uri-opus-personal-ch"
         ],
         "en": [
-          "polish-foremen-civil-engineering-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+          "polier-vorarbeiter-tiefbau-m-w-region-ur-uri-opus-personal-ch"
         ],
         "fr": [
-          "genie-civil-polonais-foremen-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+          "polier-vorarbeiter-tiefbau-m-w-region-ur-uri-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -22658,12 +22635,12 @@
     },
     {
       "id": "opus-personal-d891edf10935",
-      "slug": "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch",
+      "slug": "montatore-trice-di-impianti-di-riscaldamento-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
       "slugByLocale": {
         "de": "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch",
-        "it": "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch",
-        "en": "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch",
-        "fr": "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch"
+        "it": "montatore-trice-di-impianti-di-riscaldamento-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+        "en": "heating-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+        "fr": "installateur-de-chauffage-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22709,21 +22686,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "installatore-di-impianti-di-riscaldamento-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "heating-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "installateur-de-chauffage-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+        "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installatore-di-impianti-di-riscaldamento-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+          "installatore-di-impianti-di-riscaldamento-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
+          "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch"
         ],
         "en": [
-          "heating-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+          "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch"
         ],
         "fr": [
-          "installateur-de-chauffage-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
+          "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -22828,12 +22804,12 @@
     },
     {
       "id": "opus-personal-414ce6a5eb41",
-      "slug": "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch",
+      "slug": "addetto-a-alla-costruzione-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
       "slugByLocale": {
         "de": "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch",
-        "it": "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch",
-        "en": "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch",
-        "fr": "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch"
+        "it": "addetto-a-alla-costruzione-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "en": "construction-practitioner-eba-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "fr": "praticien-ne-en-construction-afp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -22879,21 +22855,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
-        "addetto-a-alla-costruzione-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "construction-worker-eba-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "praticien-ne-en-construction-afp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+        "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "addetto-a-alla-costruzione-cfp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch"
         ],
         "en": [
-          "construction-worker-eba-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "construction-worker-eba-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch"
         ],
         "fr": [
-          "praticien-ne-en-construction-afp-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "baupraktiker-in-eba-region-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,

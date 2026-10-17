@@ -400,12 +400,14 @@ export async function fetchAllMatterhornGotthardBahnJobs() {
 
       if (!jsonLd) {
         console.warn(`  ⚠️ No JSON-LD found for j${rexxId}: ${detailUrl}`);
+        await new Promise((r) => setTimeout(r, 500));
         continue;
       }
 
       const job = buildJobFromJsonLd(jsonLd, detailUrl, rexxId);
       if (!job) {
         console.warn(`  ⚠️ Could not build job from j${rexxId}: ${detailUrl}`);
+        await new Promise((r) => setTimeout(r, 500));
         continue;
       }
 

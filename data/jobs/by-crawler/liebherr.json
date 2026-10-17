@@ -422,8 +422,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630",
-      "needsRetranslation": true
+      "postalCode": "1630"
     },
     {
       "id": "liebherr-13bd0b15a945",
@@ -5639,7 +5638,7 @@
         "en": "key-account-manager-f-m-x-liebherr-bulle",
         "it": "key-account-manager-f-m-x-liebherr-bulle",
         "de": "key-account-manager-f-m-x-liebherr-bulle",
-        "fr": "key-account-manager-f-m-x-liebherr-bulle"
+        "fr": "gestionnaire-de-comptes-cles-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5708,7 +5707,7 @@
       "slugByLocale": {
         "it": "auditore-interno-senior-di-gruppo-m-f-d-liebherr-nussbaumen-7dfb69",
         "en": "group-senior-internal-auditor-m-f-d-liebherr-nussbaumen",
-        "de": "group-senior-internal-auditor-m-w-d-liebherr-nussbaumen",
+        "de": "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen",
         "fr": "auditeur-interne-principal-du-groupe-m-f-d-liebherr-nussbaumen-7dfb69"
       },
       "company": "Liebherr",
@@ -5767,7 +5766,7 @@
         "de": [
           "senior-konzernrevisor-m-w-d-liebherr-nussbaumen",
           "senior-auditor-konzernrevision-m-w-d-liebherr-nussbaumen",
-          "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen"
+          "group-senior-internal-auditor-m-w-d-liebherr-nussbaumen"
         ],
         "it": [
           "group-senior-internal-auditor-m-f-d-liebherr-nussbaumen",
@@ -5783,11 +5782,9 @@
         "group-senior-internal-auditor-m-w-d-liebherr-nussbaumen",
         "senior-konzernrevisor-m-w-d-liebherr-nussbaumen",
         "senior-auditor-konzernrevision-m-w-d-liebherr-nussbaumen",
-        "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen",
         "auditore-interno-senior-di-gruppo-m-f-d-liebherr-nussbaumen",
         "auditeur-interne-principal-du-groupe-m-f-d-liebherr-nussbaumen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:21:04.109Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -5882,7 +5879,6 @@
         "young-talent-marketing-communication-m-f-x-liebherr-bulle",
         "jeunes-talents-marketing-et-communication-h-f-x-liebherr-bulle"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-08T21:38:17.152Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5903,9 +5899,9 @@
       "id": "liebherr-a2ee910fd683",
       "slug": "domanda-non-richiesta-liebherr-bulle",
       "slugByLocale": {
-        "it": "domanda-non-richiesta-liebherr-bulle",
+        "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "initativbewerbung-liebherr-bulle",
+        "de": "spekulative-anwendung-liebherr-bulle",
         "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -5973,7 +5969,7 @@
         "de": [
           "spontane-anwendung-liebherr-bulle",
           "unerbetene-anwendung-liebherr-bulle",
-          "spekulative-anwendung-liebherr-bulle"
+          "initativbewerbung-liebherr-bulle"
         ],
         "en": [
           "initiativbewerbung-liebherr-bulle",
@@ -5988,7 +5984,6 @@
           "applicazione-spontanea-liebherr-bulle",
           "applicazione-non-richiesta-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
-          "applicazione-speculativa-liebherr-bulle",
           "speculative-application-liebherr-bulle"
         ]
       },
@@ -6003,13 +5998,11 @@
         "spontaneous-application-liebherr-bulle",
         "unerbetene-anwendung-liebherr-bulle",
         "applicazione-speculativa-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle",
         "unsolicited-application-liebherr-bulle",
         "candidature-non-sollicitee-liebherr-bulle",
         "speculative-application-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",

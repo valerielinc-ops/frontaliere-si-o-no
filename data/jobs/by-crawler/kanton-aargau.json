@@ -5722,8 +5722,8 @@
       "slugByLocale": {
         "de": "lehrperson-fur-allgemeinbildenden-unterricht-abu-65-kanton-aargau-ch",
         "it": "lehrperson-per-allgemeinbildenden-unterricht-abu-65-kanton-aargau-aarburg",
-        "en": "lehrperson-fur-allgemeinbildenden-unterricht-abu-65-kanton-aargau-ch",
-        "fr": "lehrperson-fur-allgemeinbildenden-unterricht-abu-65-kanton-aargau-ch"
+        "en": "general-education-teacher-abu-65-kanton-aargau-aarburg",
+        "fr": "enseignant-en-enseignement-general-abu-65-kanton-aargau-aarburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5772,6 +5772,12 @@
       "department": "Amt für Justizvollzug / Jugendheim Aarburg",
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-allgemeinbildenden-unterricht-abu-65-kanton-aargau-ch"
+        ],
+        "en": [
+          "lehrperson-fur-allgemeinbildenden-unterricht-abu-65-kanton-aargau-ch"
+        ],
+        "fr": [
           "lehrperson-fur-allgemeinbildenden-unterricht-abu-65-kanton-aargau-ch"
         ]
       },

@@ -22,8 +22,10 @@ import { realpathSync } from 'node:fs';
  * Nella finestra (default 24h che terminano ora, o a `--until`):
  *   - documenti `newsletter_subscribers` con `created_at` nella finestra, per
  *     `source_channel`; la soglia guarda quelli `auth_*`;
- *   - account Firebase Auth creati nella finestra, ciascuno classificato sul
- *     proprio documento (`subscribed` / `stub` / `missing`).
+ *   - account Firebase Auth candidati al signup nella finestra, ciascuno
+ *     classificato sul proprio documento (`subscribed` / `stub` / `missing`);
+ *     gli stub custom-token senza evidenza di signup vengono esclusi, mentre
+ *     i documenti assenti restano unknown e quindi nel denominatore.
  * Nessuna email esce da questo processo: i documenti si leggono per id, e
  * report, storia e alert contengono solo conteggi.
  *
@@ -55,6 +57,7 @@ import {
   pct,
   classifySubscriberDoc,
   providerFamily,
+  isSignupAccountCandidate,
   AUTH_SUBSCRIBER_FLOOR,
   MIN_ACCOUNTS_FOR_FLOOR,
   UNCOVERED_SHARE_WARN,
@@ -169,10 +172,13 @@ async function classifyAccounts(db, accounts) {
     const snaps = await db.getAll(...chunk.map((a) => db.collection('newsletter_subscribers').doc(a.email)));
     snaps.forEach((snap, j) => {
       const data = snap.exists ? snap.data() : null;
+      const provider = chunk[j].provider;
+      const docClass = classifySubscriberDoc(data);
       classified.push({
-        provider: chunk[j].provider,
-        docClass: classifySubscriberDoc(data),
+        provider,
+        docClass,
         hasCreatedAt: Boolean(data && data.created_at),
+        isSignupCandidate: isSignupAccountCandidate({ provider, docClass, data }),
       });
     });
   }
@@ -201,7 +207,8 @@ export function buildIssueBody(agg, verdict, meta) {
   lines.push('|---|---:|');
   lines.push(`| iscritti creati (\`created_at\` nella finestra) | ${agg.subscribersCreated} |`);
   lines.push(`| di cui \`source_channel\` \`auth_*\` | **${agg.authSubscribers}** (soglia ${AUTH_SUBSCRIBER_FLOOR}) |`);
-  lines.push(`| account Firebase Auth creati | ${agg.accountsTotal} (traffico minimo ${MIN_ACCOUNTS_FOR_FLOOR}) |`);
+  lines.push(`| account Firebase Auth candidati al signup | ${agg.accountsTotal} (traffico minimo ${MIN_ACCOUNTS_FOR_FLOOR}) |`);
+  lines.push(`| account custom-token senza evidenza di signup (esclusi) | ${agg.excludedAccounts} |`);
   lines.push(`| account con iscrizione (\`status\` presente) | ${agg.accountClasses.subscribed} |`);
   lines.push(`| account con solo stub di profilo | ${agg.accountClasses.stub} |`);
   lines.push(`| account senza documento | ${agg.accountClasses.missing} |`);
@@ -295,6 +302,7 @@ export async function runCheck({ db, auth, hours = DEFAULT_HOURS, until = new Da
         subscribersCreated: agg.subscribersCreated,
         authSubscribers: agg.authSubscribers,
         accountsTotal: agg.accountsTotal,
+        accountsExcluded: agg.excludedAccounts,
         accountClasses: agg.accountClasses,
         subscribedWithoutCreatedAt: agg.subscribedWithoutCreatedAt,
         findings: verdict.findings.map((f) => f.code),
