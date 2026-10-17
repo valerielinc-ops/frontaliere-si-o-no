@@ -997,6 +997,24 @@ export async function runStandardCrawlerPipeline(config) {
       );
       return finishWithoutPublish({ kind: 'source-extraction-failed' });
     }
+    // A prospector listing can fail closed before detail enrichment proves a
+    // complete snapshot (missing declared total, pagination hole, or a source
+    // response while walking the listing). The runtime marks that stage so the
+    // worker records the same receipt as any other source-extraction failure;
+    // otherwise the runner exits non-zero and the group commit withholds the
+    // crawler summary, making a live previous slice look like a missing run.
+    if (err?.specListingFailure === true) {
+      if (Number.isInteger(err?.specDiscoveredCount)) {
+        counts.discovered = err.specDiscoveredCount;
+      }
+      counts.parsed = 0;
+      counts.lastFetchOutcome = 'selector_miss';
+      console.warn(
+        `\n⚠️ ${companyLabel}: spec listing snapshot incomplete; keeping existing jobs `
+        + `(${err?.message || 'listing extraction failed'}).`,
+      );
+      return finishWithoutPublish({ kind: 'source-extraction-failed' });
+    }
     throw err;
   }
 

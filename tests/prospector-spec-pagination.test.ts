@@ -179,7 +179,10 @@ describe('spec.pagination', () => {
       [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa2'], page: 2, total: 3, next: `${ORIGIN}/?sf_paged=3` }),
     };
     await expect(collect(specWith({ pagination: { ...PAGINATION, maxPages: 2 } }), pages))
-      .rejects.toThrow(/listing troncata: 2 pagine lette, maxPages=2/);
+      .rejects.toMatchObject({
+        specListingFailure: true,
+        message: expect.stringMatching(/listing troncata: 2 pagine lette, maxPages=2/),
+      });
   });
 
   it('fallisce chiuso quando il contatore dichiarato non si trova piu nella pagina', async () => {
@@ -187,7 +190,10 @@ describe('spec.pagination', () => {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1 }),
     };
     await expect(collect(specWith({ pagination: PAGINATION }), pages))
-      .rejects.toThrow(/totale dichiarato dalla fonte non trovato/);
+      .rejects.toMatchObject({
+        specListingFailure: true,
+        message: expect.stringMatching(/totale dichiarato dalla fonte non trovato/),
+      });
   });
 
   it('una pagina successiva che risponde con errore non produce una listing parziale', async () => {
@@ -195,7 +201,10 @@ describe('spec.pagination', () => {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 40, next: `${ORIGIN}/?sf_paged=2` })
         + `<a href="${ORIGIN}/?sf_paged=3">3</a>`,
     };
-    await expect(collect(specWith({ pagination: PAGINATION }), pages)).rejects.toThrow(/HTTP 404/);
+    await expect(collect(specWith({ pagination: PAGINATION }), pages)).rejects.toMatchObject({
+      specListingFailure: true,
+      message: expect.stringMatching(/HTTP 404/),
+    });
   });
 
   it('accetta un 404 successivo quando la copertura dichiarata e sufficiente', async () => {

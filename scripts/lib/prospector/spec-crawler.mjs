@@ -162,6 +162,26 @@ export function copySpecFetchMetadata(target, source) {
 }
 
 /**
+ * Mark a listing-stage failure so the shared crawler can write an explicit
+ * fail-closed receipt instead of letting the runner exit before the summary
+ * guard sees the crawler. The original error object is retained so transport
+ * classifiers (connection-level, retry budget, anti-bot) still run first in
+ * the standard template.
+ *
+ * @param {unknown} error
+ * @param {number} [discoveredCount]
+ * @returns {Error & { specListingFailure: true, specDiscoveredCount?: number }}
+ */
+function markSpecListingFailure(error, discoveredCount) {
+  const failure = error instanceof Error ? error : new Error(String(error));
+  Object.assign(failure, { specListingFailure: true });
+  if (Number.isInteger(discoveredCount)) {
+    Object.assign(failure, { specDiscoveredCount: discoveredCount });
+  }
+  return failure;
+}
+
+/**
  * A spec may opt into an explicit outcome for a zero that remains after its
  * own rescue path. Unknown values are deliberately ignored: the shared
  * crawler vocabulary is fail-closed and must not gain a producer-only typo.
@@ -753,10 +773,10 @@ export function readDeclaredListingTotal(html, pagination, spec) {
   const match = pagination.declaredTotalRx.exec(String(html || ''));
   const total = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
   if (!Number.isInteger(total) || total < 0 || !match?.[1]) {
-    throw new Error(
+    throw markSpecListingFailure(new Error(
       `[prospector:${spec.companyKey}] totale dichiarato dalla fonte non trovato `
       + `(declaredTotalPattern ${pagination.declaredTotalRx.source}): impossibile provare la listing completa`,
-    );
+    ));
   }
   return total;
 }
@@ -1118,7 +1138,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     } catch (err) {
       // Let the standard pipeline classify it: a connection-level failure is
       // infra and must soft-exit, an HTTP status is a real break.
-      throw err;
+      throw markSpecListingFailure(err);
     }
     let html = page.body;
     if (!html) continue;
@@ -1239,16 +1259,16 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           // A next link back to a page already read is a loop or an alias,
           // not the end of the listing: stopping here would publish a partial
           // set as if it were complete.
-          throw new Error(
+          throw markSpecListingFailure(new Error(
             `[prospector:${spec.companyKey}] listing troncata: il link rel=next dopo ${pages} pagine `
             + `torna a una pagina gia letta (${nextUrl})`,
-          );
+          ), bySlug.size);
         }
         if (pages >= pagination.maxPages) {
-          throw new Error(
+          throw markSpecListingFailure(new Error(
             `[prospector:${spec.companyKey}] listing troncata: ${pages} pagine lette, `
             + `maxPages=${pagination.maxPages} e un link rel=next ancora presente (${nextUrl})`,
-          );
+          ), bySlug.size);
         }
         visited.add(nextUrl);
         let next;
@@ -1295,10 +1315,10 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
                 probeError = caught;
               }
               if (!probeError) {
-                throw new Error(
+                throw markSpecListingFailure(new Error(
                   `[prospector:${spec.companyKey}] listing troncata: ${nextUrl} risponde HTTP 404 `
                   + `ma la pagina annunciata ${probeUrl} esiste (pagina mancante a meta listing)`,
-                );
+                ), bySlug.size);
               }
             }
             if (!probeUrl || isTerminalNotFound(probeError)) {
@@ -1311,7 +1331,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
               break;
             }
           }
-          throw error;
+          throw markSpecListingFailure(error, bySlug.size);
         }
         pages += 1;
         pageUrl = next.url || nextUrl;
@@ -1339,10 +1359,10 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         + (declaredTotal == null ? '' : ` (totale dichiarato dalla fonte: ${declaredTotal})`),
       );
       if (declaredTotal != null && seedRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
-        throw new Error(
+        throw markSpecListingFailure(new Error(
           `[prospector:${spec.companyKey}] listing incompleta: ${seedRows}/${declaredTotal} annunci `
           + `dichiarati dalla fonte su ${pages} pagine (copertura minima ${pagination.minCoverage})`,
-        );
+        ), bySlug.size);
       }
     } else if (candidates.length) {
       // Sibling observer: a seed that advertises a next page to a spec without
