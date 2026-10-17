@@ -1,7 +1,7 @@
 {
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-10-17T09:51:40.410Z",
+  "generatedAt": "2026-10-17T21:43:29.529Z",
   "total": 1,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6126,
-  "avgDurationMs": 6126,
+  "durationMs": 5673,
+  "avgDurationMs": 5673,
   "durationHistory": [
-    6126
+    5673
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46132",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T09:51:26.070Z",
+      "crawledAt": "2026-10-17T21:43:21.423Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }
