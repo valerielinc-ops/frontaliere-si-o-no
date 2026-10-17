@@ -1,6 +1,6 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-10-16T21:23:18.517Z",
+  "assembledAt": "2026-10-17T09:24:14.046Z",
   "jobs": [
     {
       "id": "crr-suva-sion-a1375f10b321",
@@ -34,7 +34,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:23:11.710Z",
+      "crawledAt": "2026-10-17T09:24:09.018Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/senior-security-engineer-2434.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:23:11.221Z",
+      "crawledAt": "2026-10-17T09:24:08.543Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
         "fr": "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion",
         "it": "qualita-e-assistente-di-processo-clinique-romande-de-readaptation-crr-suva-sion",
         "en": "quality-and-process-assistant-clinique-romande-de-readaptation-crr-suva-sion",
-        "de": "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
+        "de": "assistent-e-de-qualite-et-de-processus-clinique-romande-de-readaptation-crr-suva-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
       "companyKey": "crr-suva-sion",
@@ -189,7 +189,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-16T21:23:10.719Z",
+      "crawledAt": "2026-10-17T09:24:08.083Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -207,9 +207,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -230,11 +228,15 @@
         ],
         "en": [
           "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
+        ],
+        "de": [
+          "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
         ]
       },
       "previousSlugs": [
         "assistant-e-de-qualite-et-de-processus-crr-suva-sion-sion"
-      ]
+      ],
+      "needsRetranslation": false
     }
   ]
 }
