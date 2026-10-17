@@ -13360,6 +13360,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.title': 'Assemblea Cc-Ti: l\'economia non è il bancomat dello Stato',
     'blog.article.assemblea-ccti-rotta-economia.excerpt': 'La Cc-Ti si riunisce oggi a Bellinzona Gehri chiede finanze sane e una visione di Paese Albertoni sostiene lo stop all\'aumento dei dipendenti cantonali',
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzona in Ticino, immagine simbolica per l\'assemblea della Cc-Ti',
+    'blog.article.cantieri-lugano-riduzione-disagi.title': 'Cantieri a Lugano: il Municipio punta a ridurre i disagi',
+    'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'Il Municipio risponde all’interrogazione di Michele Codella I lavori a Lugano proseguiranno anche nei prossimi anni Focus tra Pensilina Botta e Corso Pestalozzi',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Vista del centro città di Lugano con infrastrutture stradali',
 };
 
 export default blogMetaIt;

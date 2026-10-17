@@ -110271,6 +110271,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantieri-lugano-riduzione-disagi': {
+    title: 'Cantieri a Lugano: il Municipio punta a ridurre i disagi',
+    description: 'Il Municipio risponde all’interrogazione di Michele Codella I lavori a Lugano proseguiranno anche nei prossimi anni Focus tra Pensilina Botta e Corso Pestalozzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantieri, lugano, municipio, punta',
+    ogTitle: 'Cantieri a Lugano: l\'obiettivo è ridurre i disagi',
+    ogDescription: 'Il Municipio risponde all’interrogazione di Michele Codella I lavori a Lugano proseguiranno anche nei prossimi anni Focus tra Pensilina Botta e Corso Pestalozzi',
+    canonicalPath: '/articoli-frontaliere/cantieri-lugano-riduzione-disagi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantieri a Lugano: il Municipio punta a ridurre i disagi",
+      "description": "Il Municipio risponde all’interrogazione di Michele Codella I lavori a Lugano proseguiranno anche nei prossimi anni Focus tra Pensilina Botta e Corso Pestalozzi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-assunzioni-lugano-interrogazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del centro città di Lugano con infrastrutture stradali"
+      },
+      "datePublished": "2026-10-17T00:14:09+00:00",
+      "dateModified": "2026-10-17T00:14:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantieri-lugano-riduzione-disagi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

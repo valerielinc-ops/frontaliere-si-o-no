@@ -13358,6 +13358,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.title': 'CC-Ti-Versammlung: Die Wirtschaft ist nicht der Geldautomat des Bundesstaates',
     'blog.article.assemblea-ccti-rotta-economia.excerpt': 'Die Cc-Ti trifft sich heute in Bellinzona.',
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzona im Tessin, symbolisches Bild der Cc-Ti-Versammlung',
+    'blog.article.cantieri-lugano-riduzione-disagi.title': 'Baustellen in Lugano: Gemeinde will Unannehmlichkeiten reduzieren',
+    'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'Das Rathaus beantwortet die Frage von Michele Codella Die Arbeiten in Lugano werden auch in den nächsten Jahren fortgesetzt Fokus zwischen Vordach Botta und Corso Pestalozzi',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Ansicht des Stadtzentrums von Lugano mit Strasseninfrastruktur',
 };
 
 export default blogMetaDe;

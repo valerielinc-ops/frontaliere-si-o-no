@@ -13361,6 +13361,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.title': 'Assemblée Cc-Ti : l\'économie n\'est pas le distributeur automatique de l\'État',
     'blog.article.assemblea-ccti-rotta-economia.excerpt': 'Le Cc-Ti se réunit aujourd\'hui à Bellinzona Gehri appelle à une saine santé financière et à une vision du pays.',
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzone au Tessin, image symbolique de l\'assemblée de la Cc-Ti',
+    'blog.article.cantieri-lugano-riduzione-disagi.title': 'Chantiers à Lugano : la mairie vise à réduire les désagréments',
+    'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'La municipalité répond à la question de Michele Codella Les travaux à Lugano se poursuivront également au cours des prochaines années Focus entre Pennilina Botta et Corso Pestalozzi',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'Vue du centre-ville de Lugano avec les infrastructures routières',
 };
 
 export default blogMetaFr;

@@ -13359,6 +13359,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assemblea-ccti-rotta-economia.title': 'Cc-Ti Assembly: the economy is not the State\'s ATM',
     'blog.article.assemblea-ccti-rotta-economia.excerpt': 'The Cc-Ti meets today in Bellinzona Gehri calls for healthy finances and a vision of the country Albertoni supports a stop to the increase in cantonal employees',
     'blog.article.assemblea-ccti-rotta-economia.imageAlt': 'Bellinzona in Ticino, symbolic image for the Cc-Ti assembly',
+    'blog.article.cantieri-lugano-riduzione-disagi.title': 'Construction sites in Lugano: the City Council aims to reduce inconvenience',
+    'blog.article.cantieri-lugano-riduzione-disagi.excerpt': 'The Municipality answers Michele Codella\'s question Work in Lugano will also continue in the coming years Focus between Pensilina Botta and Corso Pestalozzi',
+    'blog.article.cantieri-lugano-riduzione-disagi.imageAlt': 'View of Lugano city center with road infrastructure',
 };
 
 export default blogMetaEn;

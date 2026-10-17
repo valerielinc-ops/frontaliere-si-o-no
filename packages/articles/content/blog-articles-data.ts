@@ -45084,6 +45084,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cantieri-lugano-riduzione-disagi',
+ category: 'pratico',
+ date: '2026-10-17T00:14:09.203Z',
+ image: '/images/blog/frontalieri-assunzioni-lugano-interrogazione.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
