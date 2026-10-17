@@ -1232,7 +1232,7 @@
       "id": "unibe-fc9c6f4f8abb",
       "slug": "assistente-di-ricerca-universitat-bern-bern-e822409363",
       "slugByLocale": {
-        "it": "assistente-di-ricerca-universitat-bern-bern-e822409363",
+        "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
         "en": "scientific-staff-member-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "personnel-scientifique-personnel-scientifique-universitat-bern-bern"
@@ -1282,13 +1282,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-universitat-bern",
-        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern"
+        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern"
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-universitat-bern"
@@ -3914,8 +3912,8 @@
       "slugByLocale": {
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-        "fr": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
+        "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3966,6 +3964,12 @@
         "it": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern"
+        ],
+        "en": [
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
+        ],
+        "fr": [
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
         ]
       },
       "previousSlugs": [

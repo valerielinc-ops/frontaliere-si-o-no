@@ -3811,12 +3811,12 @@
     },
     {
       "id": "etat-de-vaud-6040",
-      "slug": "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne",
+      "slug": "amministratore-presso-la-scuola-di-casa-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne",
-        "it": "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne",
-        "en": "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne",
-        "de": "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne"
+        "it": "amministratore-presso-la-scuola-di-casa-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "administrator-at-the-school-of-home-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "verwalter-an-der-school-of-home-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3875,7 +3875,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:25:13.830Z"
+      "firstSeenAt": "2026-10-17T09:25:13.830Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "administrateur-trice-a-l-ecole-de-l-accueil-etat-de-vaud-lausanne"
+      ]
     }
   ]
 }

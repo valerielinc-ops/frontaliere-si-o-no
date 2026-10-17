@@ -3540,12 +3540,12 @@
     },
     {
       "id": "concara-3b6012c67f2c",
-      "slug": "pflegeexpertin-apn-o-fachverantwortliche-person-60-100-deine-expertise-im-zentrum-concara-domicil-spitex-bern",
+      "slug": "esperta-in-cure-infermieristiche-apn-o-persona-responsabile-per-gli-aspetti-specialistici-60-100-la-tua-competenza-al",
       "slugByLocale": {
         "de": "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum",
-        "it": "pflegeexpertin-apn-o-fachverantwortliche-person-60-100-deine-expertise-im-zentrum-concara-domicil-spitex-bern",
-        "en": "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum",
-        "fr": "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum"
+        "it": "esperta-in-cure-infermieristiche-apn-o-persona-responsabile-per-gli-aspetti-specialistici-60-100-la-tua-competenza-al",
+        "en": "care-expert-apn-or-responsible-person-60-100-your-expertise-in-the-center-concara-domicil-spitex-bern-bern",
+        "fr": "expert-en-soins-apn-ou-personne-responsable-60-100-votre-expertise-dans-le-centre-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3593,11 +3593,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum",
+          "pflegeexpertin-apn-o-fachverantwortliche-person-60-100-deine-expertise-im-zentrum-concara-domicil-spitex-bern"
+        ],
+        "en": [
+          "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum"
+        ],
+        "fr": [
           "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum"
         ]
       },
       "previousSlugs": [
-        "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum"
+        "pflegeexpertin-apn-oder-fachverantwortliche-person-60-100-deine-expertise-im-zentrum",
+        "pflegeexpertin-apn-o-fachverantwortliche-person-60-100-deine-expertise-im-zentrum-concara-domicil-spitex-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

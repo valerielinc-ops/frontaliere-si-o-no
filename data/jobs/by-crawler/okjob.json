@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "okjob-8c09dc733f1d",
-      "slug": "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73",
+      "slug": "regolatore-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73",
       "slugByLocale": {
         "fr": "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73",
-        "it": "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73",
-        "en": "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73",
-        "de": "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73"
+        "it": "regolatore-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73",
+        "en": "cn-regulator-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73",
+        "de": "cn-regler-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73"
       },
       "slugDisambiguator": "8c09dc73",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -68,16 +68,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.463Z"
+      "firstSeenAt": "2026-10-17T09:45:27.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73"
+        ],
+        "en": [
+          "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73"
+        ],
+        "de": [
+          "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-regleur-cn-ok-job-sa-succursale-di-mendrisio-1201-geneve-8c09dc73"
+      ]
     },
     {
       "id": "okjob-b49b2246c543",
-      "slug": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246",
+      "slug": "ferro-asse-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246",
       "slugByLocale": {
         "fr": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246",
-        "it": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246",
-        "en": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246",
-        "de": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246"
+        "it": "ferro-asse-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246",
+        "en": "iron-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246",
+        "de": "eisen-er-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246"
       },
       "slugDisambiguator": "b49b2246",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -137,7 +151,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.462Z"
+      "firstSeenAt": "2026-10-17T09:45:27.462Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246"
+        ],
+        "en": [
+          "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246"
+        ],
+        "de": [
+          "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246"
+        ]
+      },
+      "previousSlugs": [
+        "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b49b2246"
+      ]
     },
     {
       "id": "okjob-dbbcbb2ca6ff",
@@ -145,8 +173,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-dbbcbb2c",
         "it": "dipl-pflegefachperson-hf-fh-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-dbbcbb2c",
-        "en": "dipl-pflegefachperson-hf-fh-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-dbbcbb2c",
-        "fr": "dipl-pflegefachperson-hf-fh-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-dbbcbb2c"
+        "en": "dipl-care-professional-hf-fh-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-dbbcbb2c",
+        "fr": "dipl-professionnel-de-soins-hf-fh-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-dbbcbb2c"
       },
       "slugDisambiguator": "dbbcbb2c",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -209,12 +237,12 @@
     },
     {
       "id": "okjob-c6278b5e580d",
-      "slug": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e",
+      "slug": "ferro-asse-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e",
       "slugByLocale": {
         "fr": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e",
-        "it": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e",
-        "en": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e",
-        "de": "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e"
+        "it": "ferro-asse-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e",
+        "en": "iron-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e",
+        "de": "eisen-er-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e"
       },
       "slugDisambiguator": "c6278b5e",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -274,16 +302,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.460Z"
+      "firstSeenAt": "2026-10-17T09:45:27.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e"
+        ],
+        "en": [
+          "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e"
+        ],
+        "de": [
+          "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e"
+        ]
+      },
+      "previousSlugs": [
+        "ferblantier-ere-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-c6278b5e"
+      ]
     },
     {
       "id": "okjob-294cfbda1853",
-      "slug": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda",
+      "slug": "attrezzatura-per-lo-sci-di-riparazione-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda",
       "slugByLocale": {
         "fr": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda",
-        "it": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda",
-        "en": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda",
-        "de": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda"
+        "it": "attrezzatura-per-lo-sci-di-riparazione-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda",
+        "en": "repairer-ski-equipment-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda",
+        "de": "reparatur-skiausrustung-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda"
       },
       "slugDisambiguator": "294cfbda",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -342,16 +384,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.458Z"
+      "firstSeenAt": "2026-10-17T09:45:27.458Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda"
+        ],
+        "en": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda"
+        ],
+        "de": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda"
+        ]
+      },
+      "previousSlugs": [
+        "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-294cfbda"
+      ]
     },
     {
       "id": "okjob-25f481cfb69f",
-      "slug": "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf",
+      "slug": "automatico-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf",
       "slugByLocale": {
         "fr": "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf",
-        "it": "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf",
-        "en": "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf",
-        "de": "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf"
+        "it": "automatico-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf",
+        "en": "automatician-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf",
+        "de": "automatiker-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf"
       },
       "slugDisambiguator": "25f481cf",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -410,16 +466,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.454Z"
+      "firstSeenAt": "2026-10-17T09:45:27.454Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf"
+        ],
+        "en": [
+          "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf"
+        ],
+        "de": [
+          "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf"
+        ]
+      },
+      "previousSlugs": [
+        "automaticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-25f481cf"
+      ]
     },
     {
       "id": "okjob-602ba1aff4e6",
-      "slug": "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af",
+      "slug": "rettificatrice-cnc-m-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af",
       "slugByLocale": {
         "fr": "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af",
-        "it": "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af",
-        "en": "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af",
-        "de": "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af"
+        "it": "rettificatrice-cnc-m-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af",
+        "en": "cnc-grinding-machine-m-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af",
+        "de": "cnc-schleifmaschine-m-w-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af"
       },
       "slugDisambiguator": "602ba1af",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -478,16 +548,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.450Z"
+      "firstSeenAt": "2026-10-17T09:45:27.450Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af"
+        ],
+        "en": [
+          "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af"
+        ],
+        "de": [
+          "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-rectifieur-cnc-h-f-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-602ba1af"
+      ]
     },
     {
       "id": "okjob-ea8c26361f2b",
-      "slug": "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636",
+      "slug": "montaggio-pneumatici-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636",
       "slugByLocale": {
         "fr": "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636",
-        "it": "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636",
-        "en": "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636",
-        "de": "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636"
+        "it": "montaggio-pneumatici-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636",
+        "en": "tyre-mounting-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636",
+        "de": "reifenbefestigung-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636"
       },
       "slugDisambiguator": "ea8c2636",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -546,16 +630,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.448Z"
+      "firstSeenAt": "2026-10-17T09:45:27.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636"
+        ],
+        "en": [
+          "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636"
+        ],
+        "de": [
+          "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-en-pneumatiques-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-ea8c2636"
+      ]
     },
     {
       "id": "okjob-8cc8fd754f7f",
-      "slug": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75",
+      "slug": "attrezzatura-per-lo-sci-di-riparazione-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75",
       "slugByLocale": {
         "fr": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75",
-        "it": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75",
-        "en": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75",
-        "de": "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75"
+        "it": "attrezzatura-per-lo-sci-di-riparazione-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75",
+        "en": "repairer-ski-equipment-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75",
+        "de": "reparatur-skiausrustung-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75"
       },
       "slugDisambiguator": "8cc8fd75",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -614,7 +712,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:45:27.445Z"
+      "firstSeenAt": "2026-10-17T09:45:27.445Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75"
+        ],
+        "en": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75"
+        ],
+        "de": [
+          "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75"
+        ]
+      },
+      "previousSlugs": [
+        "reparateur-materiel-de-ski-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-8cc8fd75"
+      ]
     },
     {
       "id": "okjob-89a09f19ab13",
@@ -622,8 +734,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-dn-ii-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-89a09f19",
         "it": "dipl-pflegefachperson-hf-fh-dn-ii-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-89a09f19",
-        "en": "dipl-pflegefachperson-hf-fh-dn-ii-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-89a09f19",
-        "fr": "dipl-pflegefachperson-hf-fh-dn-ii-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-89a09f19"
+        "en": "dipl-care-professional-hf-fh-dn-ii-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-89a09f19",
+        "fr": "dipl-professionnel-de-soins-hf-fh-dn-ii-80-100-ok-job-sa-succursale-di-mendrisio-8001-zurich-89a09f19"
       },
       "slugDisambiguator": "89a09f19",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -686,12 +798,12 @@
     },
     {
       "id": "okjob-d85fb6e69810",
-      "slug": "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6",
+      "slug": "tecnico-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6",
       "slugByLocale": {
         "fr": "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6",
-        "it": "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6",
-        "en": "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6",
-        "de": "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6"
+        "it": "tecnico-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6",
+        "en": "technician-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6",
+        "de": "techniker-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6"
       },
       "slugDisambiguator": "d85fb6e6",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -750,16 +862,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T09:30:34.365Z"
+      "firstSeenAt": "2026-10-16T09:30:34.365Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6"
+        ],
+        "en": [
+          "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6"
+        ],
+        "de": [
+          "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ok-job-sa-succursale-di-mendrisio-1201-geneve-d85fb6e6"
+      ]
     },
     {
       "id": "okjob-d0989156d514",
-      "slug": "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156",
+      "slug": "designer-di-costruzione-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156",
       "slugByLocale": {
         "fr": "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156",
-        "it": "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156",
-        "en": "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156",
-        "de": "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156"
+        "it": "designer-di-costruzione-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156",
+        "en": "building-designer-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156",
+        "de": "gebaudedesigner-cfc-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156"
       },
       "slugDisambiguator": "d0989156",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -818,16 +944,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:40:43.008Z"
+      "firstSeenAt": "2026-10-16T21:40:43.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156"
+        ],
+        "en": [
+          "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156"
+        ],
+        "de": [
+          "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156"
+        ]
+      },
+      "previousSlugs": [
+        "dessinateur-en-batiment-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-d0989156"
+      ]
     },
     {
       "id": "okjob-64631d349c67",
-      "slug": "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34",
+      "slug": "calcolatore-technician-civil-engineering-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34",
       "slugByLocale": {
         "fr": "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34",
-        "it": "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34",
-        "en": "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34",
-        "de": "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34"
+        "it": "calcolatore-technician-civil-engineering-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34",
+        "en": "calculator-technician-civil-engineering-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34",
+        "de": "rechner-techniker-bauingenieur-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34"
       },
       "slugDisambiguator": "64631d34",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -886,16 +1026,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T21:38:14.310Z"
+      "firstSeenAt": "2026-10-13T21:38:14.310Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34"
+        ],
+        "en": [
+          "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34"
+        ],
+        "de": [
+          "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34"
+        ]
+      },
+      "previousSlugs": [
+        "calculateur-technicien-genie-civil-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-64631d34"
+      ]
     },
     {
       "id": "okjob-81ed80b40136",
-      "slug": "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4",
+      "slug": "carpenter-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4",
       "slugByLocale": {
         "fr": "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4",
-        "it": "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4",
+        "it": "carpenter-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4",
         "en": "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4",
-        "de": "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4"
+        "de": "carpenter-cfc-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4"
       },
       "slugDisambiguator": "81ed80b4",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -954,16 +1108,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-16T21:40:42.958Z"
+      "firstSeenAt": "2026-10-16T21:40:42.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4"
+        ],
+        "de": [
+          "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4"
+        ]
+      },
+      "previousSlugs": [
+        "menuisier-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-81ed80b4"
+      ]
     },
     {
       "id": "okjob-9d772a69f93f",
-      "slug": "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69",
+      "slug": "esperienza-cfc-automatico-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69",
       "slugByLocale": {
         "fr": "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69",
-        "it": "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69",
-        "en": "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69",
-        "de": "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69"
+        "it": "esperienza-cfc-automatico-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69",
+        "en": "experienced-cfc-automatician-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69",
+        "de": "erfahrener-cfc-automatiker-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69"
       },
       "slugDisambiguator": "9d772a69",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1022,16 +1187,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:36:47.719Z"
+      "firstSeenAt": "2026-10-13T09:36:47.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69"
+        ],
+        "en": [
+          "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69"
+        ],
+        "de": [
+          "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69"
+        ]
+      },
+      "previousSlugs": [
+        "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9d772a69"
+      ]
     },
     {
       "id": "okjob-b75841458331",
-      "slug": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145",
+      "slug": "specialista-di-carne-specialista-di-carne-pianta-di-taglio-m-f-d-100-ok-job-sa-succursale-di-mendrisio-4051-b7584145",
       "slugByLocale": {
         "de": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145",
-        "it": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145",
-        "en": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145",
-        "fr": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145"
+        "it": "specialista-di-carne-specialista-di-carne-pianta-di-taglio-m-f-d-100-ok-job-sa-succursale-di-mendrisio-4051-b7584145",
+        "en": "meat-specialist-meat-specialist-cutting-plant-m-f-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145",
+        "fr": "specialiste-de-la-viande-specialiste-de-la-viande-usine-de-coupe-h-f-d-100-ok-job-sa-succursale-di-mendrisio-b7584145"
       },
       "slugDisambiguator": "b7584145",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1090,16 +1269,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:51:15.713Z"
+      "firstSeenAt": "2026-10-12T09:51:15.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145"
+        ],
+        "en": [
+          "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145"
+        ],
+        "fr": [
+          "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145"
+        ]
+      },
+      "previousSlugs": [
+        "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-b7584145"
+      ]
     },
     {
       "id": "okjob-0ab20755edad",
-      "slug": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel",
+      "slug": "ergoterapista-diplomato-a-in-terapia-della-mano-80-100-m-f-d-a-tempo-determinato-per-1-ok-job-sa-succursale-di-0ab20755",
       "slugByLocale": {
         "de": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755",
-        "it": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel",
-        "en": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755",
-        "fr": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755"
+        "it": "ergoterapista-diplomato-a-in-terapia-della-mano-80-100-m-f-d-a-tempo-determinato-per-1-ok-job-sa-succursale-di-0ab20755",
+        "en": "qualified-occupational-therapist-hand-therapy-80-100-m-f-d-fixed-term-for-1-ok-job-sa-succursale-di-mendrisio-0ab20755",
+        "fr": "ergotherapeute-diplome-e-therapie-de-la-main-80-100-h-f-d-a-duree-determinee-pour-1-ok-job-sa-succursale-di-0ab20755"
       },
       "slugDisambiguator": "0ab20755",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1147,11 +1340,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755",
+          "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755"
+        ],
+        "fr": [
           "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755"
         ]
       },
       "previousSlugs": [
-        "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755"
+        "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-0ab20755",
+        "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1170,12 +1371,12 @@
     },
     {
       "id": "okjob-24ec2a6242e2",
-      "slug": "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62",
+      "slug": "automatico-automatico-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62",
       "slugByLocale": {
         "de": "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62",
-        "it": "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62",
-        "en": "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62",
-        "fr": "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62"
+        "it": "automatico-automatico-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62",
+        "en": "automatician-automatician-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62",
+        "fr": "automatique-automatique-100-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62"
       },
       "slugDisambiguator": "24ec2a62",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1234,16 +1435,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:36:47.747Z"
+      "firstSeenAt": "2026-10-13T09:36:47.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62"
+        ],
+        "en": [
+          "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62"
+        ],
+        "fr": [
+          "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-automatikerin-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-24ec2a62"
+      ]
     },
     {
       "id": "okjob-e84fb9c33169",
-      "slug": "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3",
+      "slug": "mason-a-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3",
       "slugByLocale": {
         "fr": "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3",
-        "it": "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3",
+        "it": "mason-a-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3",
         "en": "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3",
-        "de": "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3"
+        "de": "mason-a-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3"
       },
       "slugDisambiguator": "e84fb9c3",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1302,7 +1517,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:36:47.746Z"
+      "firstSeenAt": "2026-10-13T09:36:47.746Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3"
+        ],
+        "de": [
+          "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3"
+        ]
+      },
+      "previousSlugs": [
+        "macon-a-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-e84fb9c3"
+      ]
     }
   ]
 }

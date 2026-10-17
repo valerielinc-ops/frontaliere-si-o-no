@@ -3913,11 +3913,11 @@
       },
       "slugByLocale": {
         "fr": "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network",
-        "it": "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network",
-        "en": "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network",
+        "it": "ascc-assistente-per-la-salute-e-la-cura-della-comunita-swiss-medical-network-montreux",
+        "en": "ascc-community-health-and-care-assistant-swiss-medical-network-montreux",
         "de": "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network"
       },
-      "slug": "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network",
+      "slug": "ascc-assistente-per-la-salute-e-la-cura-della-comunita-swiss-medical-network-montreux",
       "category": "admin",
       "datePosted": "2026-10-16T15:11:55.349Z",
       "postedDate": "2026-10-16T15:11:55.349Z",
@@ -3946,7 +3946,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:19:14.721Z"
+      "firstSeenAt": "2026-10-17T09:19:14.721Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network"
+        ],
+        "en": [
+          "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "ascc-assistant-e-en-soins-et-sante-communautaire-swiss-medical-network"
+      ]
     }
   ]
 }

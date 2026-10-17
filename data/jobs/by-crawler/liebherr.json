@@ -5638,7 +5638,7 @@
         "en": "key-account-manager-f-m-x-liebherr-bulle",
         "it": "key-account-manager-f-m-x-liebherr-bulle",
         "de": "key-account-manager-f-m-x-liebherr-bulle",
-        "fr": "key-account-manager-f-m-x-liebherr-bulle"
+        "fr": "gestionnaire-de-comptes-cles-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5707,7 +5707,7 @@
       "slugByLocale": {
         "it": "auditore-interno-senior-di-gruppo-m-f-d-liebherr-nussbaumen-7dfb69",
         "en": "group-senior-internal-auditor-m-f-d-liebherr-nussbaumen",
-        "de": "group-senior-internal-auditor-m-w-d-liebherr-nussbaumen",
+        "de": "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen",
         "fr": "auditeur-interne-principal-du-groupe-m-f-d-liebherr-nussbaumen-7dfb69"
       },
       "company": "Liebherr",
@@ -5766,7 +5766,7 @@
         "de": [
           "senior-konzernrevisor-m-w-d-liebherr-nussbaumen",
           "senior-auditor-konzernrevision-m-w-d-liebherr-nussbaumen",
-          "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen"
+          "group-senior-internal-auditor-m-w-d-liebherr-nussbaumen"
         ],
         "it": [
           "group-senior-internal-auditor-m-f-d-liebherr-nussbaumen",
@@ -5782,7 +5782,6 @@
         "group-senior-internal-auditor-m-w-d-liebherr-nussbaumen",
         "senior-konzernrevisor-m-w-d-liebherr-nussbaumen",
         "senior-auditor-konzernrevision-m-w-d-liebherr-nussbaumen",
-        "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen",
         "auditore-interno-senior-di-gruppo-m-f-d-liebherr-nussbaumen",
         "auditeur-interne-principal-du-groupe-m-f-d-liebherr-nussbaumen"
       ],
@@ -5900,9 +5899,9 @@
       "id": "liebherr-a2ee910fd683",
       "slug": "domanda-non-richiesta-liebherr-bulle",
       "slugByLocale": {
-        "it": "domanda-non-richiesta-liebherr-bulle",
+        "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "initativbewerbung-liebherr-bulle",
+        "de": "spekulative-anwendung-liebherr-bulle",
         "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -5970,7 +5969,7 @@
         "de": [
           "spontane-anwendung-liebherr-bulle",
           "unerbetene-anwendung-liebherr-bulle",
-          "spekulative-anwendung-liebherr-bulle"
+          "initativbewerbung-liebherr-bulle"
         ],
         "en": [
           "initiativbewerbung-liebherr-bulle",
@@ -5985,7 +5984,6 @@
           "applicazione-spontanea-liebherr-bulle",
           "applicazione-non-richiesta-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
-          "applicazione-speculativa-liebherr-bulle",
           "speculative-application-liebherr-bulle"
         ]
       },
@@ -6000,7 +5998,6 @@
         "spontaneous-application-liebherr-bulle",
         "unerbetene-anwendung-liebherr-bulle",
         "applicazione-speculativa-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle",
         "unsolicited-application-liebherr-bulle",
         "candidature-non-sollicitee-liebherr-bulle",
         "speculative-application-liebherr-bulle"

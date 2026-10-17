@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ete-89a84707d8c5",
-      "slug": "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen",
+      "slug": "spedizioni-di-trasporto-in-carico-generale-100-emil-egger-ag-st-gallen-89a84707",
       "slugByLocale": {
         "de": "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707",
-        "it": "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen",
-        "en": "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707",
-        "fr": "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707"
+        "it": "spedizioni-di-trasporto-in-carico-generale-100-emil-egger-ag-st-gallen-89a84707",
+        "en": "transport-dispatch-in-general-cargo-100-emil-egger-ag-st-gallen-89a84707",
+        "fr": "transport-expedition-en-fret-general-100-emil-egger-ag-st-gallen-89a84707"
       },
       "slugDisambiguator": "89a84707",
       "company": "Emil Egger AG",
@@ -56,11 +56,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707",
+          "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen"
+        ],
+        "en": [
+          "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707"
+        ],
+        "fr": [
           "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707"
         ]
       },
       "previousSlugs": [
-        "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707"
+        "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen-89a84707",
+        "transport-disponentin-stuckgut-100-emil-egger-ag-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
