@@ -13371,6 +13371,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coppa-svizzera-lugano-taverne.title': 'Favourite Lugano, Taverne is looking for business',
     'blog.article.coppa-svizzera-lugano-taverne.excerpt': 'Lugano challenges Pully on Sunday at 2pm.',
     'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Taverne\'s Comunale stadium, venue for the Swiss Cup match against Young Boys',
+    'blog.article.sharks-derby-coppa-trevano.title': 'Federico Pagani\'s Sharks win the Cup derby',
+    'blog.article.sharks-derby-coppa-trevano.excerpt': 'The Sharks win the Cup derby in Trevano Bissone goes down 25-14 Veljko Krstic scores six goals on his official debut Alfano scores five goals Location',
+    'blog.article.sharks-derby-coppa-trevano.imageAlt': 'Lugano, home of the Sharks in the Swiss Cup derby',
 };
 
 export default blogMetaEn;

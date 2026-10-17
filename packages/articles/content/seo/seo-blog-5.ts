@@ -110427,6 +110427,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sharks-derby-coppa-trevano': {
+    title: 'Gli Squali di Federico Pagani vincono il derby di Coppa',
+    description: 'Gli Sharks vincono il derby di Coppa a Trevano Il Bissone si arrende sul 25-14 Veljko Krstic segna sei reti all\'esordio ufficiale Alfano firma cinque reti Luogo',
+    keywords: 'frontalieri, ticino, svizzera, italia, squali, federico, pagani, vincono',
+    ogTitle: 'Sharks di Pagani, derby di Coppa vinto a Trevano',
+    ogDescription: 'Gli Sharks vincono il derby di Coppa a Trevano Il Bissone si arrende sul 25-14 Veljko Krstic segna sei reti all\'esordio ufficiale Alfano firma cinque reti Luogo',
+    canonicalPath: '/articoli-frontaliere/sharks-derby-coppa-trevano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gli Squali di Federico Pagani vincono il derby di Coppa",
+      "description": "Gli Sharks vincono il derby di Coppa a Trevano Il Bissone si arrende sul 25-14 Veljko Krstic segna sei reti all'esordio ufficiale Alfano firma cinque reti Luogo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sharks-derby-coppa-trevano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano, città degli Sharks impegnati nel derby di Coppa Svizzera"
+      },
+      "datePublished": "2026-10-17T02:18:18+00:00",
+      "dateModified": "2026-10-17T02:18:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sharks-derby-coppa-trevano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

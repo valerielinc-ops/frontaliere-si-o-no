@@ -45126,6 +45126,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sharks-derby-coppa-trevano',
+ category: 'novita',
+ date: '2026-10-17T02:18:18.122Z',
+ image: '/images/blog/article-sharks-derby-coppa-trevano.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

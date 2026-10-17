@@ -13372,6 +13372,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coppa-svizzera-lugano-taverne.title': 'Lugano favoritissimo, il Taverne cerca l\'impresa',
     'blog.article.coppa-svizzera-lugano-taverne.excerpt': 'Il Lugano sfida il Pully domenica alle 14.',
     'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Il Comunale di Taverne, sede della sfida di Coppa Svizzera contro lo Young Boys',
+    'blog.article.sharks-derby-coppa-trevano.title': 'Gli Squali di Federico Pagani vincono il derby di Coppa',
+    'blog.article.sharks-derby-coppa-trevano.excerpt': 'Gli Sharks vincono il derby di Coppa a Trevano Il Bissone si arrende sul 25-14 Veljko Krstic segna sei reti all\'esordio ufficiale Alfano firma cinque reti Luogo',
+    'blog.article.sharks-derby-coppa-trevano.imageAlt': 'Lugano, città degli Sharks impegnati nel derby di Coppa Svizzera',
 };
 
 export default blogMetaIt;

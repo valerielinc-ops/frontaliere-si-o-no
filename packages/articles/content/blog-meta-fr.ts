@@ -13373,6 +13373,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coppa-svizzera-lugano-taverne.title': 'Lugano très favori, la Taverne cherche l\'entreprise',
     'blog.article.coppa-svizzera-lugano-taverne.excerpt': 'Lugano défie Pully dimanche à 14h.',
     'blog.article.coppa-svizzera-lugano-taverne.imageAlt': 'Le Comunale de Taverne, stade du match de Coupe de Suisse contre Young Boys',
+    'blog.article.sharks-derby-coppa-trevano.title': 'Les requins de Federico Pagani remportent le derby de la Coupe',
+    'blog.article.sharks-derby-coppa-trevano.excerpt': 'Les Sharks remportent le derby de Coupe à Trevano Le Bissone se rend sur le 25-14 Veljko Krstic marque six buts au début officiel Alfano signe cinq buts Lieu',
+    'blog.article.sharks-derby-coppa-trevano.imageAlt': 'Lugano, ville des Sharks dans le derby de Coupe suisse',
 };
 
 export default blogMetaFr;
