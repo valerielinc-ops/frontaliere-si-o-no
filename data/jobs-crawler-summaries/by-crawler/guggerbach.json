@@ -1,7 +1,7 @@
 {
   "key": "guggerbach",
   "label": "Bistro Guggerzyt",
-  "generatedAt": "2026-10-16T21:17:25.748Z",
+  "generatedAt": "2026-10-17T09:15:47.295Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8606,
-  "avgDurationMs": 8606,
+  "durationMs": 9105,
+  "avgDurationMs": 9105,
   "durationHistory": [
-    8606
+    9105
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:17:11.908Z",
+      "crawledAt": "2026-10-17T09:15:31.890Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:17:11.908Z",
+      "crawledAt": "2026-10-17T09:15:31.890Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:17:11.907Z",
+      "crawledAt": "2026-10-17T09:15:31.889Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:17:11.905Z",
+      "crawledAt": "2026-10-17T09:15:31.886Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -196,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "0aee907951caa9bc84e310585601bda7cd705cde"
+  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
 }

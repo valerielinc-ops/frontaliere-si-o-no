@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anker-swiss",
-  "assembledAt": "2026-10-16T21:29:49.438Z",
+  "assembledAt": "2026-10-17T09:24:46.270Z",
   "jobs": [
     {
       "id": "anker-swiss-23877fef52a2",
@@ -80,7 +80,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "anker-swiss-053a17e1bbae",
@@ -114,7 +115,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1370702/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.151Z",
+      "crawledAt": "2026-10-17T09:24:35.660Z",
       "addressLocality": "Hochwald",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -264,7 +265,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "anker-swiss-2f3fdcb9df8c",
@@ -331,7 +333,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "anker-swiss-1c19b6c3ac2f",
@@ -398,7 +401,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "anker-swiss-8f6be808a25e",
@@ -432,7 +436,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1372557/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.150Z",
+      "crawledAt": "2026-10-17T09:24:35.659Z",
       "addressLocality": "Schwarzenburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -526,7 +530,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1371763/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.150Z",
+      "crawledAt": "2026-10-17T09:24:35.659Z",
       "addressLocality": "Veltheim AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -609,7 +613,7 @@
       "url": "https://anker-swiss.ch/stellen/spengler-1371099/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.150Z",
+      "crawledAt": "2026-10-17T09:24:35.660Z",
       "addressLocality": "Elgg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -697,7 +701,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1370997/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.150Z",
+      "crawledAt": "2026-10-17T09:24:35.660Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -777,7 +781,7 @@
       "url": "https://anker-swiss.ch/stellen/flachdachbauer-1374527/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.149Z",
+      "crawledAt": "2026-10-17T09:24:35.657Z",
       "addressLocality": "Mattstetten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -860,7 +864,7 @@
       "url": "https://anker-swiss.ch/stellen/abdichter-1374492/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.149Z",
+      "crawledAt": "2026-10-17T09:24:35.658Z",
       "addressLocality": "Mattstetten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -940,7 +944,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1374338/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.149Z",
+      "crawledAt": "2026-10-17T09:24:35.658Z",
       "addressLocality": "Mattstetten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1023,7 +1027,7 @@
       "url": "https://anker-swiss.ch/stellen/avor-projektleiter-1374326/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.149Z",
+      "crawledAt": "2026-10-17T09:24:35.658Z",
       "addressLocality": "Mattstetten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1104,7 +1108,7 @@
       "url": "https://anker-swiss.ch/stellen/projektleiter-schreinerei-1375079/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.148Z",
+      "crawledAt": "2026-10-17T09:24:35.656Z",
       "addressLocality": "Mirchel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1154,115 +1158,6 @@
       }
     },
     {
-      "id": "anker-swiss-2f3a5cca49a3",
-      "slug": "asciugamani-100-anker-swiss-ticino-ag-baar-2f3a5cca",
-      "slugByLocale": {
-        "de": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca",
-        "it": "asciugamani-100-anker-swiss-ticino-ag-baar-2f3a5cca",
-        "en": "plaster-dryers-100-anker-swiss-ticino-ag-baar-2f3a5cca",
-        "fr": "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-2f3a5cca"
-      },
-      "slugDisambiguator": "2f3a5cca",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Gipser-Trockenbauer 100%",
-      "titleByLocale": {
-        "de": "Gipser-Trockenbauer 100%",
-        "it": "Asciugamani 100%",
-        "en": "Plaster dryers 100%",
-        "fr": "Séchoirs à plaques 100%"
-      },
-      "description": "Gipser-Trockenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\nDeine Herausforderung:\n- Netz aufziehen\n- Weissputz\n- Glattputz\n- Kunststoffverputz\n- Kalkverputz\n- Mineralischer Verputz\n- Grundputz von Hand\n- Grundputz mit Maschine\n- allgemeine Trockenbauarbeiten\n- Gipsdecken montieren\n- Lochdecken\n- Kantenschutz montieren\n- Profile montieren\n- Spachteln Q4\n- Fassadenisolation\n- Abrieb\n- Kassettendecken\n- Metalldecken\n- Trockenbauwände\n- Leichtbauwände\n- Styroporplatten kleben\n- Brandschutz Hartschott\n- Brandschutz Weichschott\n- Brandschutz Promat\n- Spachteln Q1\n- Spachteln Q2\n- Spachteln Q3\n- Spachteln\n- Isolationen Innenausbau\n- Plan lesen\nDas bringst Du mit:\n- 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nSergio Randazzo\nTelefon: +41445723230\nE-Mail: s.randazzo@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nGipser-Trockenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr",
-      "descriptionByLocale": {
-        "de": "Gipser-Trockenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\nDeine Herausforderung:\n- Netz aufziehen\n- Weissputz\n- Glattputz\n- Kunststoffverputz\n- Kalkverputz\n- Mineralischer Verputz\n- Grundputz von Hand\n- Grundputz mit Maschine\n- allgemeine Trockenbauarbeiten\n- Gipsdecken montieren\n- Lochdecken\n- Kantenschutz montieren\n- Profile montieren\n- Spachteln Q4\n- Fassadenisolation\n- Abrieb\n- Kassettendecken\n- Metalldecken\n- Trockenbauwände\n- Leichtbauwände\n- Styroporplatten kleben\n- Brandschutz Hartschott\n- Brandschutz Weichschott\n- Brandschutz Promat\n- Spachteln Q1\n- Spachteln Q2\n- Spachteln Q3\n- Spachteln\n- Isolationen Innenausbau\n- Plan lesen\nDas bringst Du mit:\n- 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nSergio Randazzo\nTelefon: +41445723230\nE-Mail: s.randazzo@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nGipser-Trockenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr",
-        "it": "Asciugamani 100%\nRiuniamo ciò che appartiene insieme!\nIl Gruppo Anker ha iniziato nell'aprile del 2021 con due persone, ora siamo già cresciuti in 5 sedi. Vuoi anche far parte di una società orientata al futuro?\nD'ora in poi o d'accordo stiamo cercando un lavoro temporaneo un'esperienza di 1 – 3 anni come asciugatrice di gesso\nLa tua sfida:\n- Reti di disegno\n- gesso bianco\n- intonaco liscio\n- gesso di plastica\n- Tiglio placcato\n- intonaco minerale\n- Pulizia di base a mano\n- gesso di base con macchina\n- Parete a secco generale\n- soffitto in gesso di montaggio\n- Soffitti forati\n- Protezione del bordo\n- Profili di montaggio\n- Misurazione Q4\n- Isolamento facciale\n- Abrasione\n- Cassette soffitti\n- Soffitti metallici\n- Pareti a muro\n- Muri leggeri\n- Sticking Styrofoam piastre\n- Protezione antincendio hardwall\n- Protezione antincendio soft bulkhead\n- Protezione antincendio Promat\n- Misurazione Q1\n- Squirts Q2\n- Squirts Q3\n- Squirts\n- Isolamento degli accessori interni\n- Piano di lettura\nQuesto è ciò che portate con voi:\n- 1 – 3 anni di esperienza come asciugatrice in gesso\n- Elevate prestazioni e flessibilità\n- puntualità e affidabilità\n- Metodo di lavoro indipendente, affidabile e preciso\nCosa ti offriamo:\n- Grande ambiente di lavoro\n- Pagamenti variabili per operazioni temporanee (scelta mensile o settimanale)\n- Clienti noti\n- Società in rapida crescita\n- Distribuzioni a lungo termine\n- Condizioni di lavoro attraenti con una buona retribuzione\n- Una squadra che è lì per voi e le vostre esigenze\nInformazioni di contatto\nSergio Randazzo\nTelefono: +41445723230\nEmail: s.randazzo@anker-swiss.ch\n- Facebook\n- Iodio\n- Xing\n- Settore\nAsciugamani\n- Inizio del lavoro\nAccordo\n- Esperienza professionale\nMeno di 1 anno",
-        "en": "Plaster dryers 100%\nWe bring together what belongs together!\nThe Anker Group started in April 2021 with two people – now we have already grown to 5 locations. Do you also want to be part of a future-oriented company?\nFrom now on or by agreement we are looking for a temporary employment a 1 – 3 years experience as a plaster dryer\nYour challenge:\n- Drawing nets\n- White plaster\n- Smooth plaster\n- Plastic plaster\n- Plastered lime\n- Mineral plaster\n- Basic cleaning by hand\n- Basic plaster with machine\n- General drywall\n- Mount plaster ceilings\n- Perforated ceilings\n- Mount edge protection\n- Mount profiles\n- Squatting Q4\n- Facade insulation\n- Abrasion\n- Cassette ceilings\n- Metal ceilings\n- Drywall walls\n- Lightweight walls\n- Sticking Styrofoam plates\n- Fire protection hardwall\n- Fire protection soft bulkhead\n- Promat fire protection\n- Squatting Q1\n- Squirts Q2\n- Squirts Q3\n- Squirts\n- Insulation of interior fittings\n- Reading plan\nThis is what you bring with you:\n- 1 – 3 years of experience as a plaster dryer\n- High performance and flexibility\n- Punctuality and reliability\n- Independent, reliable and exact working method\nWhat we offer you:\n- Great working environment\n- Variable payments for temporary operations (monthly or weekly selectable)\n- Known customers\n- Fast-growing company\n- Long-term deployments\n- Attractive employment conditions with good pay\n- A team that is there for you and your needs\nContact details\nSergio Randazzo\nTelephone: +41445723230\nEmail: s.randazzo@anker-swiss.ch\n- Facebook\n- lindine\n- Xing\n- Sector\nPlaster dryers\n- Start of work\nBy agreement\n- Professional experience\nLess than 1 year",
-        "fr": "Séchoirs à plaques 100%\nNous réunissons ce qui nous appartient !\nLe groupe Anker a commencé en avril 2021 avec deux personnes – maintenant nous avons déjà augmenté à 5 emplacements. Voulez-vous aussi faire partie d'une entreprise tournée vers l'avenir?\nA partir de maintenant ou par accord nous sommes à la recherche d'un emploi temporaire une 1-3 ans d'expérience comme un sécheur de plâtre\nVotre défi :\n- Filets de dessin\n- Plastique blanc\n- Plastique lisse\n- Plastique\n- Lime plaquée\n- Plastique minéral\n- Nettoyage à la main\n- Plastique de base avec machine\n- Mur sec général\n- Plafond en plâtre\n- Plafonds perforés\n- Protection des bords de montage\n- Profils de montage\n- Squattage Q4\n- Isolation des façades\n- Abrasion\n- Plafonds pour cassettes\n- Plafonds métalliques\n- Murs à parois sèches\n- Murs légers\n- Plaques de styromousse collées\n- Pare-feu\n- Cloques souples de protection contre l'incendie\n- Protection incendie Promat\n- Squattage Q1\n- Squirts Q2\n- Squirts Q3\n- Équipés\n- Isolation des équipements intérieurs\n- Plan de lecture\nC'est ce que vous apportez avec vous :\n- 1 – 3 ans d'expérience en tant que sécheur à plâtre\n- Haute performance et flexibilité\n- Ponctualité et fiabilité\n- Méthode de travail indépendante, fiable et exacte\nCe que nous vous offrons:\n- Grand environnement de travail\n- Paiements variables pour les opérations temporaires (mensuelles ou hebdomadaires)\n- Clients connus\n- Société à croissance rapide\n- Déploiements à long terme\n- Conditions d'emploi attrayantes et bien rémunérées\n- Une équipe qui est là pour vous et vos besoins\nCoordonnées\nSergio Randazzo\nTéléphone: +41445723230\nCourriel: s.randazzo@anker-swiss.ch\n- Facebook\n- lindine\n- Les\n- Secteur\nSéchoirs à plaques\n- Début des travaux\nPar accord\n- Expérience professionnelle\nMoins d'un an"
-      },
-      "location": "Baar",
-      "canton": "ZG",
-      "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325354/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.148Z",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6340",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-18T00:05:05+02:00",
-      "postedDate": "2026-09-18T00:05:05+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325354/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946",
-        "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "plaster-dryers-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-        "asciugamani-100-anker-swiss-ticino-ag-baar-5edaf946",
-        "plaster-dryers-100-anker-swiss-ticino-ag-baar-5edaf946",
-        "sechoirs-a-plat-100-anker-swiss-ticino-ag-baar-5edaf946",
-        "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-          "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "asciugamani-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
-        ],
-        "en": [
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-          "plaster-dryers-100-anker-swiss-ticino-ag-baar-c9fde25b",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "plaster-dryers-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
-        ],
-        "de": [
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946"
-        ],
-        "fr": [
-          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-c9fde25b",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "sechoirs-a-plat-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
-        ]
-      },
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-19T23:05:17.457Z"
-    },
-    {
       "id": "anker-swiss-ab7b5d197011",
       "slug": "riscaldamento-installatore-100-anker-swiss-ag-anker-swiss-ticino-ag-elsau-ab7b5d19",
       "slugByLocale": {
@@ -1294,7 +1189,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1377579/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.147Z",
+      "crawledAt": "2026-10-17T09:24:35.654Z",
       "addressLocality": "Elsau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1377,7 +1272,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1377458/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.147Z",
+      "crawledAt": "2026-10-17T09:24:35.654Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1460,7 +1355,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1376099/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.147Z",
+      "crawledAt": "2026-10-17T09:24:35.655Z",
       "addressLocality": "Oberbalm",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1537,7 +1432,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1375208/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.147Z",
+      "crawledAt": "2026-10-17T09:24:35.656Z",
       "addressLocality": "Arbon",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1620,7 +1515,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1339858/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.146Z",
+      "crawledAt": "2026-10-17T09:24:35.653Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1703,7 +1598,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1337028/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.146Z",
+      "crawledAt": "2026-10-17T09:24:35.653Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1797,7 +1692,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1377718/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.146Z",
+      "crawledAt": "2026-10-17T09:24:35.654Z",
       "addressLocality": "Wetzikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1880,7 +1775,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1380104/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.145Z",
+      "crawledAt": "2026-10-17T09:24:35.652Z",
       "addressLocality": "Bremgarten AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1961,7 +1856,7 @@
       "url": "https://anker-swiss.ch/stellen/plattenleger-1379455/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.145Z",
+      "crawledAt": "2026-10-17T09:24:35.652Z",
       "addressLocality": "Bachenbülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2028,7 +1923,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1381297/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.144Z",
+      "crawledAt": "2026-10-17T09:24:35.650Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2109,7 +2004,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1381127/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.144Z",
+      "crawledAt": "2026-10-17T09:24:35.650Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -2198,7 +2093,7 @@
       "url": "https://anker-swiss.ch/stellen/plattenleger-1380720/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.144Z",
+      "crawledAt": "2026-10-17T09:24:35.651Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2265,7 +2160,7 @@
       "url": "https://anker-swiss.ch/stellen/boden-parkettleger-1380603/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.144Z",
+      "crawledAt": "2026-10-17T09:24:35.651Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2346,7 +2241,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1382191/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.143Z",
+      "crawledAt": "2026-10-17T09:24:35.649Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -2432,7 +2327,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1382006/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.143Z",
+      "crawledAt": "2026-10-17T09:24:35.649Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -2513,7 +2408,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1381856/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.143Z",
+      "crawledAt": "2026-10-17T09:24:35.649Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2594,7 +2489,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1383592/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.142Z",
+      "crawledAt": "2026-10-17T09:24:35.647Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2680,7 +2575,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1383460/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.142Z",
+      "crawledAt": "2026-10-17T09:24:35.647Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2755,7 +2650,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1383326/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.142Z",
+      "crawledAt": "2026-10-17T09:24:35.648Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2830,7 +2725,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1382932/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.142Z",
+      "crawledAt": "2026-10-17T09:24:35.648Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2905,7 +2800,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1384485/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.141Z",
+      "crawledAt": "2026-10-17T09:24:35.646Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2980,7 +2875,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1384298/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.141Z",
+      "crawledAt": "2026-10-17T09:24:35.646Z",
       "addressLocality": "Stäfa",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3061,7 +2956,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1384120/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.141Z",
+      "crawledAt": "2026-10-17T09:24:35.646Z",
       "addressLocality": "Weiningen ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3142,7 +3037,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1383981/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.141Z",
+      "crawledAt": "2026-10-17T09:24:35.647Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3223,7 +3118,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1385584/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.140Z",
+      "crawledAt": "2026-10-17T09:24:35.644Z",
       "addressLocality": "Elsau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3304,7 +3199,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1385342/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.140Z",
+      "crawledAt": "2026-10-17T09:24:35.645Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3404,7 +3299,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1384918/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.140Z",
+      "crawledAt": "2026-10-17T09:24:35.645Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3454,110 +3349,6 @@
       }
     },
     {
-      "id": "anker-swiss-abad10d2df2f",
-      "slug": "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-abad10d2",
-      "slugByLocale": {
-        "de": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2",
-        "it": "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-abad10d2",
-        "en": "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-abad10d2",
-        "fr": "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-abad10d2"
-      },
-      "slugDisambiguator": "abad10d2",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Lüftungsanlagenbauer 100%",
-      "titleByLocale": {
-        "de": "Lüftungsanlagenbauer 100%",
-        "it": "Generatore di sistema di ventilazione 100%",
-        "en": "Ventilation system builder 100%",
-        "fr": "Constructeur de système de ventilation 100%"
-      },
-      "description": "Lüftungsanlagenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Lüftungsanlagenbauer EFZ\nDeine Herausforderung:\n- Einlegen\n- Kanalmontage\nDas bringst Du mit:\n- Lüftungsanlagenbauer EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nÜmit Tok\nTelefon: +41445723238\nE-Mail: u.tok@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nLüftungsanlagenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
-      "descriptionByLocale": {
-        "de": "Lüftungsanlagenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Lüftungsanlagenbauer EFZ\nDeine Herausforderung:\n- Einlegen\n- Kanalmontage\nDas bringst Du mit:\n- Lüftungsanlagenbauer EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nÜmit Tok\nTelefon: +41445723238\nE-Mail: u.tok@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nLüftungsanlagenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
-        "it": "Generatore di sistema di ventilazione 100%\nRiuniamo ciò che appartiene insieme!\nIl Gruppo Anker ha iniziato nell'aprile del 2021 con due persone, ora siamo già cresciuti in 5 sedi. Vuoi anche far parte di una società orientata al futuro?\nD'ora in poi o d'accordo stiamo cercando un produttore di sistemi di ventilazione EFZ per un lavoro permanente\nLa tua sfida:\n- Deposito\n- Montaggio del canale\nQuesto è ciò che portate con voi:\n- sistema di ventilazione costruttore EFZ\n- Elevate prestazioni e flessibilità\n- puntualità e affidabilità\n- Metodo di lavoro indipendente, affidabile e preciso\nCosa ti offriamo:\n- Grande ambiente di lavoro\n- Pagamenti variabili per operazioni temporanee (scelta mensile o settimanale)\n- Clienti noti\n- Società in rapida crescita\n- Distribuzioni a lungo termine\n- Condizioni di lavoro attraenti con una buona retribuzione\n- Una squadra che è lì per voi e le vostre esigenze\nInformazioni di contatto\nCon Tok\nTelefono: +41445723238\nEmail: u.tok@anker-swiss.ch\n- Facebook\n- Iodio\n- Xing\n- Settore\nSistemi di ventilazione costruttori\n- Inizio del lavoro\nAccordo\n- Esperienza professionale\nPiù di 3 anni",
-        "en": "Ventilation system builder 100%\nWe bring together what belongs together!\nThe Anker Group started in April 2021 with two people – now we have already grown to 5 locations. Do you also want to be part of a future-oriented company?\nFrom now on or by agreement we are looking for a ventilation system manufacturer EFZ for a permanent job\nYour challenge:\n- Depository\n- Channel assembly\nThis is what you bring with you:\n- ventilation system builder EFZ\n- High performance and flexibility\n- Punctuality and reliability\n- Independent, reliable and exact working method\nWhat we offer you:\n- Great working environment\n- Variable payments for temporary operations (monthly or weekly selectable)\n- Known customers\n- Fast-growing company\n- Long-term deployments\n- Attractive employment conditions with good pay\n- A team that is there for you and your needs\nContact details\nWith Tok\nTelephone: +41445723238\nEmail: u.tok@anker-swiss.ch\n- Facebook\n- lindine\n- Xing\n- Sector\nVentilation system builders\n- Start of work\nBy agreement\n- Professional experience\nMore than 3 years",
-        "fr": "Constructeur de système de ventilation 100%\nNous réunissons ce qui nous appartient !\nLe groupe Anker a commencé en avril 2021 avec deux personnes – maintenant nous avons déjà augmenté à 5 emplacements. Voulez-vous aussi faire partie d'une entreprise tournée vers l'avenir?\nDésormais ou d'un commun accord nous recherchons un fabricant de système de ventilation EFZ pour un travail permanent\nVotre défi :\n- Dépositaire\n- Montage des canaux\nC'est ce que vous apportez avec vous :\n- constructeur de système de ventilation EFZ\n- Haute performance et flexibilité\n- Ponctualité et fiabilité\n- Méthode de travail indépendante, fiable et exacte\nCe que nous vous offrons:\n- Grand environnement de travail\n- Paiements variables pour les opérations temporaires (mensuelles ou hebdomadaires)\n- Clients connus\n- Société à croissance rapide\n- Déploiements à long terme\n- Conditions d'emploi attrayantes et bien rémunérées\n- Une équipe qui est là pour vous et vos besoins\nCoordonnées\nAvec tok\nTéléphone: +41445723238\nCourriel: u.tok@anker-swiss.ch\n- Facebook\n- lindine\n- Les\n- Secteur\nConstructeurs de systèmes de ventilation\n- Début des travaux\nPar accord\n- Expérience professionnelle\nPlus de 3 ans"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1387541/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.139Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-22T15:05:47+02:00",
-      "postedDate": "2026-09-22T15:05:47+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1387541/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "produttore-del-sistema-di-ventilazione-al-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "fabricant-du-systeme-de-ventilation-a-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "costruttore-di-impianti-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "ventilation-system-manufacturer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "constructeur-de-systemes-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "produttore-del-sistema-di-ventilazione-al-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "costruttore-di-impianti-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2"
-        ],
-        "en": [
-          "ventilation-system-manufacturer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-7274b7a3"
-        ],
-        "de": [
-          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3"
-        ],
-        "fr": [
-          "fabricant-du-systeme-de-ventilation-a-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "constructeur-de-systemes-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3"
-        ]
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:53:10.876Z"
-    },
-    {
       "id": "anker-swiss-f888005d83ba",
       "slug": "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-wadenswil-f888005d",
       "slugByLocale": {
@@ -3589,7 +3380,7 @@
       "url": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1386821/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.139Z",
+      "crawledAt": "2026-10-17T09:24:35.643Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3670,7 +3461,7 @@
       "url": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1386731/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.139Z",
+      "crawledAt": "2026-10-17T09:24:35.643Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3751,7 +3542,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1386385/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.139Z",
+      "crawledAt": "2026-10-17T09:24:35.644Z",
       "addressLocality": "Dietlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3832,7 +3623,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1392269/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.138Z",
+      "crawledAt": "2026-10-17T09:24:35.642Z",
       "addressLocality": "Tägerig",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3851,9 +3642,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1392269/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "copritetto-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
         "roofers-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
@@ -3932,7 +3721,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1388222/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.138Z",
+      "crawledAt": "2026-10-17T09:24:35.642Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4013,7 +3802,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1387939/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.138Z",
+      "crawledAt": "2026-10-17T09:24:35.642Z",
       "addressLocality": "Hedingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4094,7 +3883,7 @@
       "url": "https://anker-swiss.ch/stellen/maurer-1393436/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.137Z",
+      "crawledAt": "2026-10-17T09:24:35.640Z",
       "addressLocality": "Unteriberg",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -4172,7 +3961,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1392963/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.137Z",
+      "crawledAt": "2026-10-17T09:24:35.640Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4258,7 +4047,7 @@
       "url": "https://anker-swiss.ch/stellen/spengler-1392927/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.137Z",
+      "crawledAt": "2026-10-17T09:24:35.641Z",
       "addressLocality": "Bremgarten AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4336,7 +4125,7 @@
       "url": "https://anker-swiss.ch/stellen/kranfuehrer-1393746/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.136Z",
+      "crawledAt": "2026-10-17T09:24:35.640Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4422,7 +4211,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1396895/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.135Z",
+      "crawledAt": "2026-10-17T09:24:35.638Z",
       "addressLocality": "Duggingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4503,7 +4292,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1396421/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.135Z",
+      "crawledAt": "2026-10-17T09:24:35.638Z",
       "addressLocality": "Otelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4584,7 +4373,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1395952/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.135Z",
+      "crawledAt": "2026-10-17T09:24:35.639Z",
       "addressLocality": "Hünenberg",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -4670,7 +4459,7 @@
       "url": "https://anker-swiss.ch/stellen/maurer-1395877/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.135Z",
+      "crawledAt": "2026-10-17T09:24:35.639Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4745,7 +4534,7 @@
       "url": "https://anker-swiss.ch/stellen/projektleiter-schreinerei-1395072/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.135Z",
+      "crawledAt": "2026-10-17T09:24:35.639Z",
       "addressLocality": "Bettenhausen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4828,7 +4617,7 @@
       "url": "https://anker-swiss.ch/stellen/betonwerker-1398593/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.134Z",
+      "crawledAt": "2026-10-17T09:24:35.637Z",
       "addressLocality": "Veltheim AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4909,7 +4698,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1398172/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.134Z",
+      "crawledAt": "2026-10-17T09:24:35.637Z",
       "addressLocality": "Schüpfheim",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4990,7 +4779,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1397814/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.134Z",
+      "crawledAt": "2026-10-17T09:24:35.637Z",
       "addressLocality": "Herzogenbuchsee",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5071,7 +4860,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1397415/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.134Z",
+      "crawledAt": "2026-10-17T09:24:35.638Z",
       "addressLocality": "Ersigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5152,7 +4941,7 @@
       "url": "https://anker-swiss.ch/stellen/betonwerker-1399254/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.133Z",
+      "crawledAt": "2026-10-17T09:24:35.635Z",
       "addressLocality": "Büron",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5233,7 +5022,7 @@
       "url": "https://anker-swiss.ch/stellen/anlagenfuehrer-1399085/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.133Z",
+      "crawledAt": "2026-10-17T09:24:35.636Z",
       "addressLocality": "Wikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5314,7 +5103,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1403686/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.132Z",
+      "crawledAt": "2026-10-17T09:24:35.634Z",
       "addressLocality": "Bremgarten AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5395,7 +5184,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1402279/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.132Z",
+      "crawledAt": "2026-10-17T09:24:35.635Z",
       "addressLocality": "Krauchthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5476,7 +5265,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1399378/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.132Z",
+      "crawledAt": "2026-10-17T09:24:35.635Z",
       "addressLocality": "Krauchthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5557,7 +5346,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1362016/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.131Z",
+      "crawledAt": "2026-10-17T09:24:35.633Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -5649,7 +5438,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1404402/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.131Z",
+      "crawledAt": "2026-10-17T09:24:35.633Z",
       "addressLocality": "Malters",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5730,7 +5519,7 @@
       "url": "https://anker-swiss.ch/stellen/flachdachbauer-1404220/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.131Z",
+      "crawledAt": "2026-10-17T09:24:35.634Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5816,7 +5605,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1415467/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.130Z",
+      "crawledAt": "2026-10-17T09:24:35.631Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "addressCountry": "CH",
@@ -5897,7 +5686,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1414846/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.130Z",
+      "crawledAt": "2026-10-17T09:24:35.631Z",
       "addressLocality": "Staffelbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5978,7 +5767,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1405838/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.130Z",
+      "crawledAt": "2026-10-17T09:24:35.633Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6070,7 +5859,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1419033/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.129Z",
+      "crawledAt": "2026-10-17T09:24:35.630Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -6153,7 +5942,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1418930/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.129Z",
+      "crawledAt": "2026-10-17T09:24:35.630Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6234,7 +6023,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1365769/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.129Z",
+      "crawledAt": "2026-10-17T09:24:35.630Z",
       "addressLocality": "Gstaad",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6309,7 +6098,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1417700/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.129Z",
+      "crawledAt": "2026-10-17T09:24:35.631Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -6364,96 +6153,6 @@
       }
     },
     {
-      "id": "anker-swiss-2b31489c4641",
-      "slug": "copritetto-100-anker-swiss-ticino-ag-urdorf-2b31489c",
-      "slugByLocale": {
-        "it": "copritetto-100-anker-swiss-ticino-ag-urdorf-2b31489c",
-        "en": "roofers-100-anker-swiss-ticino-ag-urdorf-2b31489c",
-        "de": "dachdecker-100-anker-swiss-ticino-ag-urdorf-2b31489c",
-        "fr": "couvreur-100-anker-swiss-ticino-ag-urdorf-2b31489c"
-      },
-      "slugDisambiguator": "2b31489c",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Dachdecker 100%",
-      "titleByLocale": {
-        "it": "Copertura 100%",
-        "en": "Roofing 100%",
-        "de": "Dachdecker 100%",
-        "fr": "Toiture 100%"
-      },
-      "description": "Dachdecker 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Dachdecker gelernt\nDeine Herausforderung:\n- Abdeckungen\n- Arbeiten nach Plan\n- Dampfsperren montieren\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Flüssigkunststoffarbeiten\n- Kunststoffabdichtungen (PVC, TPO, FPO)\n- Schweissbahnen verlegen\n- Steildach\n- Umgang mit Schweissgeräten\nDas bringst Du mit:\n- Dachdecker gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nMarcus Vinicius Viana De Carvalho\nTelefon: +41417286665\nE-Mail: m.viana@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nDachdecker\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch",
-      "descriptionByLocale": {
-        "it": "Copertura 100%\nRiuniamo ciò che appartiene insieme!\nIl Gruppo Anker ha iniziato nell'aprile del 2021 con due persone, ora siamo già cresciuti in 5 sedi. Vuoi anche far parte di una società orientata al futuro?\nD'ora in poi o d'accordo stiamo cercando un lavoro permanente che un tetto ha imparato\nLa tua sfida:\n- Coperte\n- Lavorare secondo il piano\n- Barriere di vapore\n- Piatto tetto bitumen\n- Lavoro del tetto piatto\n- Lavori di plastica liquida\n- Sigilli di plastica (PVC, TPO, FPO)\n- Tracce di saldatura posate\n- Tetto di scarico\n- Gestione delle apparecchiature di saldatura\nQuesto è ciò che portate con voi:\n- Radici imparati\n- Elevate prestazioni e flessibilità\n- puntualità e affidabilità\n- Metodo di lavoro indipendente, affidabile e preciso\nCosa ti offriamo:\n- Grande ambiente di lavoro\n- Pagamenti variabili per operazioni temporanee (scelta mensile o settimanale)\n- Clienti noti\n- Società in rapida crescita\n- Distribuzioni a lungo termine\n- Condizioni di lavoro attraenti con una buona retribuzione\n- Una squadra che è lì per voi e le vostre esigenze\nInformazioni di contatto\nMarco Vinicius Viana De Carvalho\nTelefono: +41417286665\nEmail: m.viana@anker-swiss.ch\n#AS-Indeed Premium-26\n- Facebook\n- Iodio\n- Xing\n- Settore\nRoofing\n- Inizio del lavoro\nAccordo\n- Esperienza professionale\nPiù di 3 anni\n- Lingua\nGermania",
-        "en": "Roofing 100%\nWe bring together what belongs together!\nThe Anker Group started in April 2021 with two people – now we have already grown to 5 locations. Do you also want to be part of a future-oriented company?\nFrom now on or by agreement we are looking for a permanent job a roofer learned\nYour challenge:\n- Covers\n- Work according to plan\n- Mount vapour barriers\n- Flat roof bitumen\n- Flat roof work\n- Liquid plastics work\n- Plastic seals (PVC, TPO, FPO)\n- Welding tracks laid\n- Steep roof\n- Handling of welding equipment\nThis is what you bring with you:\n- Roofers learned\n- High performance and flexibility\n- Punctuality and reliability\n- Independent, reliable and exact working method\nWhat we offer you:\n- Great working environment\n- Variable payments for temporary operations (monthly or weekly selectable)\n- Known customers\n- Fast-growing company\n- Long-term deployments\n- Attractive employment conditions with good pay\n- A team that is there for you and your needs\nContact details\nMarcus Vinicius Viana De Carvalho\nTelephone: +41417286665\nEmail: m.viana@anker-swiss.ch\n#AS-Indeed Premium-26\n- Facebook\n- lindine\n- Xing\n- Sector\nRoofing\n- Start of work\nBy agreement\n- Professional experience\nMore than 3 years\n- Language\nGerman",
-        "de": "Dachdecker 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Dachdecker gelernt\nDeine Herausforderung:\n- Abdeckungen\n- Arbeiten nach Plan\n- Dampfsperren montieren\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Flüssigkunststoffarbeiten\n- Kunststoffabdichtungen (PVC, TPO, FPO)\n- Schweissbahnen verlegen\n- Steildach\n- Umgang mit Schweissgeräten\nDas bringst Du mit:\n- Dachdecker gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nMarcus Vinicius Viana De Carvalho\nTelefon: +41417286665\nE-Mail: m.viana@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nDachdecker\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch",
-        "fr": "Toiture 100%\nNous réunissons ce qui nous appartient !\nLe groupe Anker a commencé en avril 2021 avec deux personnes – maintenant nous avons déjà augmenté à 5 emplacements. Voulez-vous aussi faire partie d'une entreprise tournée vers l'avenir?\nÀ partir de maintenant ou d'un commun accord, nous cherchons un emploi permanent qu'un propriétaire a appris\nVotre défi :\n- Couvertures\n- Travail selon le plan\n- Monter les barrières à vapeur\n- Bitume plat du toit\n- Travaux sur toit plat\n- Travail des plastiques liquides\n- Joints en plastique (PVC, TPO, FPO)\n- Voies de soudage posées\n- Toit profond\n- Manipulation des équipements de soudage\nC'est ce que vous apportez avec vous :\n- Les toits appris\n- Haute performance et flexibilité\n- Ponctualité et fiabilité\n- Méthode de travail indépendante, fiable et exacte\nCe que nous vous offrons:\n- Grand environnement de travail\n- Paiements variables pour les opérations temporaires (mensuelles ou hebdomadaires)\n- Clients connus\n- Société à croissance rapide\n- Déploiements à long terme\n- Conditions d'emploi attrayantes et bien rémunérées\n- Une équipe qui est là pour vous et vos besoins\nCoordonnées\nMarcus Vinicius Viana De Carvalho\nTéléphone: +41417286665\nCourriel: m.viana@anker-swiss.ch\n#AS-En effet Premium-26\n- Facebook\n- lindine\n- Les\n- Secteur\nToiture\n- Début des travaux\nPar accord\n- Expérience professionnelle\nPlus de 3 ans\n- Langue\nAllemand"
-      },
-      "location": "Urdorf",
-      "canton": "ZH",
-      "url": "https://anker-swiss.ch/stellen/dachdecker-1422647/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.128Z",
-      "addressLocality": "Urdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8902",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-28T12:05:09+02:00",
-      "postedDate": "2026-09-28T12:05:09+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1422647/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dachdecker-100-anker-swiss-ticino-ag-urdorf-b8f59129",
-        "copertura-100-anker-swiss-ticino-ag-urdorf-b8f59129",
-        "roofing-100-anker-swiss-ticino-ag-urdorf-b8f59129",
-        "toiture-100-anker-swiss-ticino-ag-urdorf-b8f59129",
-        "dachdecker-100-anker-swiss-ticino-ag-urdorf-2b31489c"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dachdecker-100-anker-swiss-ticino-ag-urdorf-b8f59129",
-          "copertura-100-anker-swiss-ticino-ag-urdorf-b8f59129",
-          "dachdecker-100-anker-swiss-ticino-ag-urdorf-2b31489c"
-        ],
-        "en": [
-          "roofing-100-anker-swiss-ticino-ag-urdorf-b8f59129"
-        ],
-        "de": [
-          "dachdecker-100-anker-swiss-ticino-ag-urdorf-b8f59129"
-        ],
-        "fr": [
-          "toiture-100-anker-swiss-ticino-ag-urdorf-b8f59129"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:25:09.091Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "anker-swiss-d83ea93f2638",
       "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-steinhausen",
       "slugByLocale": {
@@ -6485,7 +6184,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1419278/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.128Z",
+      "crawledAt": "2026-10-17T09:24:35.629Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -6566,7 +6265,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1424629/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.127Z",
+      "crawledAt": "2026-10-17T09:24:35.626Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "St. Gallen",
       "addressCountry": "CH",
@@ -6647,7 +6346,7 @@
       "url": "https://anker-swiss.ch/stellen/boden-parkettleger-1424317/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.127Z",
+      "crawledAt": "2026-10-17T09:24:35.627Z",
       "addressLocality": "Hitzkirch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6728,7 +6427,7 @@
       "url": "https://anker-swiss.ch/stellen/boden-parkettleger-1424223/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.127Z",
+      "crawledAt": "2026-10-17T09:24:35.627Z",
       "addressLocality": "Wiedlisbach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6809,7 +6508,7 @@
       "url": "https://anker-swiss.ch/stellen/technischer-zeichner-1424151/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.127Z",
+      "crawledAt": "2026-10-17T09:24:35.628Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -6876,7 +6575,7 @@
       "url": "https://anker-swiss.ch/stellen/storenmonteur-1425627/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.126Z",
+      "crawledAt": "2026-10-17T09:24:35.625Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -6951,7 +6650,7 @@
       "url": "https://anker-swiss.ch/stellen/projektleiter-innenausbau-1425397/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.126Z",
+      "crawledAt": "2026-10-17T09:24:35.626Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -7034,7 +6733,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1428614/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.125Z",
+      "crawledAt": "2026-10-17T09:24:35.624Z",
       "addressLocality": "Seon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7115,7 +6814,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1428411/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.125Z",
+      "crawledAt": "2026-10-17T09:24:35.624Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7201,7 +6900,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1428034/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.125Z",
+      "crawledAt": "2026-10-17T09:24:35.624Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -7282,7 +6981,7 @@
       "url": "https://anker-swiss.ch/stellen/storenmonteur-1425711/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.125Z",
+      "crawledAt": "2026-10-17T09:24:35.625Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7380,7 +7079,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1452904/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.124Z",
+      "crawledAt": "2026-10-17T09:24:35.622Z",
       "addressLocality": "Schwarzenburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7458,7 +7157,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1452212/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.124Z",
+      "crawledAt": "2026-10-17T09:24:35.623Z",
       "addressLocality": "Zug",
       "addressRegion": "Zug",
       "addressCountry": "CH",
@@ -7539,7 +7238,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1421045/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.124Z",
+      "crawledAt": "2026-10-17T09:24:35.623Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7620,7 +7319,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1428914/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.124Z",
+      "crawledAt": "2026-10-17T09:24:35.623Z",
       "addressLocality": "Flüelen",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -7701,7 +7400,7 @@
       "url": "https://anker-swiss.ch/stellen/abdichter-1454493/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.123Z",
+      "crawledAt": "2026-10-17T09:24:35.621Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7782,7 +7481,7 @@
       "url": "https://anker-swiss.ch/stellen/spengler-1454464/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.123Z",
+      "crawledAt": "2026-10-17T09:24:35.621Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7868,7 +7567,7 @@
       "url": "https://anker-swiss.ch/stellen/storenmonteur-1454249/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.123Z",
+      "crawledAt": "2026-10-17T09:24:35.622Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7943,7 +7642,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1453914/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.123Z",
+      "crawledAt": "2026-10-17T09:24:35.622Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8024,7 +7723,7 @@
       "url": "https://anker-swiss.ch/stellen/maurer-1455936/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.122Z",
+      "crawledAt": "2026-10-17T09:24:35.620Z",
       "addressLocality": "Andermatt",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -8099,7 +7798,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1454529/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.122Z",
+      "crawledAt": "2026-10-17T09:24:35.621Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8180,7 +7879,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1458649/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.121Z",
+      "crawledAt": "2026-10-17T09:24:35.619Z",
       "addressLocality": "Arch",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8258,7 +7957,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1458215/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.121Z",
+      "crawledAt": "2026-10-17T09:24:35.619Z",
       "addressLocality": "Büren an der Aare",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8339,7 +8038,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1457059/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.121Z",
+      "crawledAt": "2026-10-17T09:24:35.619Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8420,7 +8119,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1460739/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.120Z",
+      "crawledAt": "2026-10-17T09:24:35.617Z",
       "addressLocality": "Zug",
       "addressRegion": "Zug",
       "addressCountry": "CH",
@@ -8501,7 +8200,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1460344/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.120Z",
+      "crawledAt": "2026-10-17T09:24:35.617Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -8582,7 +8281,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1460105/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.120Z",
+      "crawledAt": "2026-10-17T09:24:35.618Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -8663,7 +8362,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1459056/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.120Z",
+      "crawledAt": "2026-10-17T09:24:35.618Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8738,7 +8437,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1461926/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.119Z",
+      "crawledAt": "2026-10-17T09:24:35.616Z",
       "addressLocality": "Utzenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8819,7 +8518,7 @@
       "url": "https://anker-swiss.ch/stellen/spengler-1461897/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.119Z",
+      "crawledAt": "2026-10-17T09:24:35.616Z",
       "addressLocality": "Utzenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8900,7 +8599,7 @@
       "url": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1460820/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.119Z",
+      "crawledAt": "2026-10-17T09:24:35.616Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -8981,7 +8680,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1462131/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.118Z",
+      "crawledAt": "2026-10-17T09:24:35.615Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9062,7 +8761,7 @@
       "url": "https://anker-swiss.ch/stellen/flachdachbauer-1462083/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.118Z",
+      "crawledAt": "2026-10-17T09:24:35.615Z",
       "addressLocality": "Utzenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9143,7 +8842,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1462669/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.117Z",
+      "crawledAt": "2026-10-17T09:24:35.614Z",
       "addressLocality": "Buchs AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9224,7 +8923,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1462430/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.117Z",
+      "crawledAt": "2026-10-17T09:24:35.614Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -9305,7 +9004,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1462238/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.117Z",
+      "crawledAt": "2026-10-17T09:24:35.615Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -9386,7 +9085,7 @@
       "url": "https://anker-swiss.ch/stellen/uhrmacher-produktion-1464180/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.116Z",
+      "crawledAt": "2026-10-17T09:24:35.612Z",
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -9453,7 +9152,7 @@
       "url": "https://anker-swiss.ch/stellen/polymechaniker-1463555/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.116Z",
+      "crawledAt": "2026-10-17T09:24:35.613Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9539,7 +9238,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1463540/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.116Z",
+      "crawledAt": "2026-10-17T09:24:35.613Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9620,7 +9319,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1463104/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.116Z",
+      "crawledAt": "2026-10-17T09:24:35.613Z",
       "addressLocality": "Laufenburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9701,7 +9400,7 @@
       "url": "https://anker-swiss.ch/stellen/techniker-holztechnik-1465447/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.115Z",
+      "crawledAt": "2026-10-17T09:24:35.611Z",
       "addressLocality": "Schwarzenburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9782,7 +9481,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1465271/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.115Z",
+      "crawledAt": "2026-10-17T09:24:35.612Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9863,7 +9562,7 @@
       "url": "https://anker-swiss.ch/stellen/projektleiter-gebaeudetechnik-1465801/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.114Z",
+      "crawledAt": "2026-10-17T09:24:35.610Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -9946,7 +9645,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1465449/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.114Z",
+      "crawledAt": "2026-10-17T09:24:35.611Z",
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10027,7 +9726,7 @@
       "url": "https://anker-swiss.ch/stellen/logistiker-1468368/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.113Z",
+      "crawledAt": "2026-10-17T09:24:35.608Z",
       "addressLocality": "Wikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10102,7 +9801,7 @@
       "url": "https://anker-swiss.ch/stellen/chauffeur-1468114/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.113Z",
+      "crawledAt": "2026-10-17T09:24:35.609Z",
       "addressLocality": "Wikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10180,7 +9879,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1467830/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.113Z",
+      "crawledAt": "2026-10-17T09:24:35.609Z",
       "addressLocality": "Gurmels",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -10261,7 +9960,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1467518/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.113Z",
+      "crawledAt": "2026-10-17T09:24:35.609Z",
       "addressLocality": "Birmensdorf ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10342,7 +10041,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1470036/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.112Z",
+      "crawledAt": "2026-10-17T09:24:35.603Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -10423,7 +10122,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1469522/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.112Z",
+      "crawledAt": "2026-10-17T09:24:35.604Z",
       "addressLocality": "Frauenkappelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10517,7 +10216,7 @@
       "url": "https://anker-swiss.ch/stellen/fahrzeugschlosser-1468399/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.112Z",
+      "crawledAt": "2026-10-17T09:24:35.607Z",
       "addressLocality": "Rubigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10598,7 +10297,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1471075/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.111Z",
+      "crawledAt": "2026-10-17T09:24:35.602Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -10687,7 +10386,7 @@
       "url": "https://anker-swiss.ch/stellen/spengler-1470343/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.111Z",
+      "crawledAt": "2026-10-17T09:24:35.602Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -10768,7 +10467,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1470145/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.111Z",
+      "crawledAt": "2026-10-17T09:24:35.603Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10849,7 +10548,7 @@
       "url": "https://anker-swiss.ch/stellen/kranfuehrer-1472903/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.110Z",
+      "crawledAt": "2026-10-17T09:24:35.600Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10935,7 +10634,7 @@
       "url": "https://anker-swiss.ch/stellen/maurer-1472627/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.110Z",
+      "crawledAt": "2026-10-17T09:24:35.600Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11010,7 +10709,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1472514/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.110Z",
+      "crawledAt": "2026-10-17T09:24:35.601Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11091,7 +10790,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1471172/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.110Z",
+      "crawledAt": "2026-10-17T09:24:35.601Z",
       "addressLocality": "Kerzers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11177,7 +10876,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1477602/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.109Z",
+      "crawledAt": "2026-10-17T09:24:35.598Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -11258,7 +10957,7 @@
       "url": "https://anker-swiss.ch/stellen/kranfuehrer-1473642/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.109Z",
+      "crawledAt": "2026-10-17T09:24:35.599Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -11339,7 +11038,7 @@
       "url": "https://anker-swiss.ch/stellen/betonwerker-1478898/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.108Z",
+      "crawledAt": "2026-10-17T09:24:35.597Z",
       "addressLocality": "Giswil",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -11420,7 +11119,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1478666/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.108Z",
+      "crawledAt": "2026-10-17T09:24:35.597Z",
       "addressLocality": "Muntelier",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11501,7 +11200,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1478663/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.108Z",
+      "crawledAt": "2026-10-17T09:24:35.598Z",
       "addressLocality": "Spiringen",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -11582,7 +11281,7 @@
       "url": "https://anker-swiss.ch/stellen/montage-elektriker-1479663/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.107Z",
+      "crawledAt": "2026-10-17T09:24:35.595Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11657,7 +11356,7 @@
       "url": "https://anker-swiss.ch/stellen/montage-elektriker-1479661/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.107Z",
+      "crawledAt": "2026-10-17T09:24:35.595Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -11732,7 +11431,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1479654/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.107Z",
+      "crawledAt": "2026-10-17T09:24:35.596Z",
       "addressLocality": "Steffisburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11807,7 +11506,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1479645/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.107Z",
+      "crawledAt": "2026-10-17T09:24:35.596Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -11887,7 +11586,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1478943/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.107Z",
+      "crawledAt": "2026-10-17T09:24:35.596Z",
       "addressLocality": "Aefligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11968,7 +11667,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1479951/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.106Z",
+      "crawledAt": "2026-10-17T09:24:35.593Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -12049,7 +11748,7 @@
       "url": "https://anker-swiss.ch/stellen/solarmonteur-1479873/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.106Z",
+      "crawledAt": "2026-10-17T09:24:35.594Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12130,7 +11829,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1432026/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.106Z",
+      "crawledAt": "2026-10-17T09:24:35.594Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -12205,7 +11904,7 @@
       "url": "https://anker-swiss.ch/stellen/allrounder-tiefbau-1481914/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.105Z",
+      "crawledAt": "2026-10-17T09:24:35.591Z",
       "addressLocality": "Kirchleerau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -12288,7 +11987,7 @@
       "url": "https://anker-swiss.ch/stellen/bohrarbeiter-1481888/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.105Z",
+      "crawledAt": "2026-10-17T09:24:35.592Z",
       "addressLocality": "Hünenberg",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -12338,102 +12037,6 @@
       }
     },
     {
-      "id": "anker-swiss-5197b2c6ed13",
-      "slug": "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-      "slugByLocale": {
-        "de": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-        "it": "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-        "en": "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-        "fr": "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
-      },
-      "slugDisambiguator": "5197b2c6",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Bohrarbeiter 100%",
-      "titleByLocale": {
-        "de": "Bohrarbeiter 100%",
-        "it": "Lavoratori di trapano 100%",
-        "en": "Drill workers 100%",
-        "fr": "Travailleurs du forage 100%"
-      },
-      "description": "Bohrarbeiter 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Mehr als 3 Jahre Erfahrung als Bohrarbeiter\nDeine Herausforderung:\n- Geotechnische Bohrungen\n- Selbstständige Arbeitsweise\n- Bohrarbeiten im Tief- und Spezialtiefbau\n- Sondierbohrungen\n- Wartung und Unterhalt von Bohranlagen\n- Technisches Verständnis\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Bohrarbeiter\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nAndrin Reimann\nTelefon: +41412442405\nE-Mail: a.reimann@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBohrarbeiter\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
-      "descriptionByLocale": {
-        "de": "Bohrarbeiter 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Mehr als 3 Jahre Erfahrung als Bohrarbeiter\nDeine Herausforderung:\n- Geotechnische Bohrungen\n- Selbstständige Arbeitsweise\n- Bohrarbeiten im Tief- und Spezialtiefbau\n- Sondierbohrungen\n- Wartung und Unterhalt von Bohranlagen\n- Technisches Verständnis\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Bohrarbeiter\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nAndrin Reimann\nTelefon: +41412442405\nE-Mail: a.reimann@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBohrarbeiter\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
-        "it": "Lavoratori di trapano 100%\nRiuniamo ciò che appartiene insieme!\nIl Gruppo Anker ha iniziato nell'aprile del 2021 con due persone, ora siamo già cresciuti in 5 sedi. Vuoi anche far parte di una società orientata al futuro?\nD'ora in poi o d'accordo stiamo cercando un'occupazione temporanea più di 3 anni di esperienza come lavoratore di perforazione\nLa tua sfida:\n- Foratura geotecnica\n- Lavoro autonomo\n- Lavori di perforazione per ingegneria civile e ingegneria civile speciale\n- Foratura di prova\n- Manutenzione e manutenzione di attrezzature di perforazione\n- Competenze tecniche\nQuesto è ciò che portate con voi:\n- Più di 3 anni di esperienza come esercitatore\n- Elevate prestazioni e flessibilità\n- puntualità e affidabilità\n- Metodo di lavoro indipendente, affidabile e preciso\nCosa ti offriamo:\n- Grande ambiente di lavoro\n- Pagamenti variabili per operazioni temporanee (scelta mensile o settimanale)\n- Clienti noti\n- Società in rapida crescita\n- Distribuzioni a lungo termine\n- Condizioni di lavoro attraenti con una buona retribuzione\n- Una squadra che è lì per voi e le vostre esigenze\nInformazioni di contatto\nAndrin Reimann\nTelefono: +41412442405\nEmail: a.reimann@anker-swiss.ch\n#AS-Indeed Premium-26\n- Facebook\n- Iodio\n- Xing\n- Settore\nLavoratori di perforazione\n- Inizio del lavoro\nAccordo\n- Esperienza professionale\nPiù di 3 anni",
-        "en": "Drill workers 100%\nWe bring together what belongs together!\nThe Anker Group started in April 2021 with two people – now we have already grown to 5 locations. Do you also want to be part of a future-oriented company?\nFrom now on or by agreement we are looking for a temporary employment more than 3 years of experience as a drill worker\nYour challenge:\n- Geotechnical drilling\n- Self-employed work\n- Drilling work for civil engineering and special civil engineering\n- Probing drilling\n- Maintenance and maintenance of drilling equipment\n- Technical understanding\nThis is what you bring with you:\n- More than 3 years of experience as a drill worker\n- High performance and flexibility\n- Punctuality and reliability\n- Independent, reliable and exact working method\nWhat we offer you:\n- Great working environment\n- Variable payments for temporary operations (monthly or weekly selectable)\n- Known customers\n- Fast-growing company\n- Long-term deployments\n- Attractive employment conditions with good pay\n- A team that is there for you and your needs\nContact details\nAndrin Reimann\nTelephone: +41412442405\nEmail: a.reimann@anker-swiss.ch\n#AS-Indeed Premium-26\n- Facebook\n- lindine\n- Xing\n- Sector\nDrilling workers\n- Start of work\nBy agreement\n- Professional experience\nMore than 3 years",
-        "fr": "Travailleurs du forage 100%\nNous réunissons ce qui nous appartient !\nLe groupe Anker a commencé en avril 2021 avec deux personnes – maintenant nous avons déjà augmenté à 5 emplacements. Voulez-vous aussi faire partie d'une entreprise tournée vers l'avenir?\nA partir de maintenant ou d'un commun accord, nous recherchons un emploi temporaire de plus de 3 ans d'expérience en tant que perceuse\nVotre défi :\n- Forage géotechnique\n- Travail indépendant\n- Travaux de forage pour le génie civil et le génie civil spécial\n- Forage probatoire\n- Entretien et entretien du matériel de forage\n- Compréhension technique\nC'est ce que vous apportez avec vous :\n- Plus de 3 ans d'expérience en tant que perceuse\n- Haute performance et flexibilité\n- Ponctualité et fiabilité\n- Méthode de travail indépendante, fiable et exacte\nCe que nous vous offrons:\n- Grand environnement de travail\n- Paiements variables pour les opérations temporaires (mensuelles ou hebdomadaires)\n- Clients connus\n- Société à croissance rapide\n- Déploiements à long terme\n- Conditions d'emploi attrayantes et bien rémunérées\n- Une équipe qui est là pour vous et vos besoins\nCoordonnées\nAndrin Reimann\nTéléphone: +41412442405\nCourriel: a.reimann@anker-swiss.ch\n#AS-En effet Premium-26\n- Facebook\n- lindine\n- Les\n- Secteur\nTravailleurs du forage\n- Début des travaux\nPar accord\n- Expérience professionnelle\nPlus de 3 ans"
-      },
-      "location": "Kirchleerau",
-      "canton": "AG",
-      "url": "https://anker-swiss.ch/stellen/bohrarbeiter-1481860/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.105Z",
-      "addressLocality": "Kirchleerau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5054",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-12T15:05:12+02:00",
-      "postedDate": "2026-10-12T15:05:12+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://anker-swiss.ch/stellen/bohrarbeiter-1481860/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugs": [
-        "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
-        ],
-        "en": [
-          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
-        ],
-        "de": [
-          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
-        ],
-        "fr": [
-          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
-        ]
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-12T21:22:19.418Z"
-    },
-    {
       "id": "anker-swiss-f9bf66ecafc7",
       "slug": "copertura-100-anker-swiss-ticino-ag-zurich-f9bf66ec",
       "slugByLocale": {
@@ -12465,7 +12068,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1481532/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.105Z",
+      "crawledAt": "2026-10-17T09:24:35.593Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -12546,7 +12149,7 @@
       "url": "https://anker-swiss.ch/stellen/fachmann-systemdecken-1482583/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.104Z",
+      "crawledAt": "2026-10-17T09:24:35.590Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -12627,7 +12230,7 @@
       "url": "https://anker-swiss.ch/stellen/fachmann-systemdecken-1482342/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.104Z",
+      "crawledAt": "2026-10-17T09:24:35.591Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "St. Gallen",
       "addressCountry": "CH",
@@ -12708,7 +12311,7 @@
       "url": "https://anker-swiss.ch/stellen/allrounder-tiefbau-1482112/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.104Z",
+      "crawledAt": "2026-10-17T09:24:35.591Z",
       "addressLocality": "Hünenberg",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -12791,7 +12394,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1486607/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.103Z",
+      "crawledAt": "2026-10-17T09:24:35.588Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -12872,7 +12475,7 @@
       "url": "https://anker-swiss.ch/stellen/spengler-1486526/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.103Z",
+      "crawledAt": "2026-10-17T09:24:35.588Z",
       "addressLocality": "Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12925,9 +12528,9 @@
       "id": "anker-swiss-b119ab25468a",
       "slug": "scaffold-builder-100-anker-swiss-ag-anker-swiss-ticino-ag-freimettigen-b119ab25",
       "slugByLocale": {
-        "de": "gerustbauer-100-anker-swiss-ticino-ag-freimettigen-b119ab25",
         "it": "scaffold-builder-100-anker-swiss-ag-anker-swiss-ticino-ag-freimettigen-b119ab25",
         "en": "scaffold-builder-100-anker-swiss-ag-anker-swiss-ticino-ag-freimettigen-b119ab25",
+        "de": "gerustbauer-100-anker-swiss-ticino-ag-freimettigen-b119ab25",
         "fr": "constructeur-d-echafaudages-100-anker-swiss-ag-anker-swiss-ticino-ag-freimettigen-b119ab25"
       },
       "slugDisambiguator": "b119ab25",
@@ -12953,7 +12556,7 @@
       "url": "https://anker-swiss.ch/stellen/geruestbauer-1486181/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.103Z",
+      "crawledAt": "2026-10-17T09:24:35.589Z",
       "addressLocality": "Freimettigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12973,14 +12576,15 @@
       "applyUrl": "https://anker-swiss.ch/stellen/geruestbauer-1486181/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "gerustbauer-100-anker-swiss-ticino-ag-freimettigen-b119ab25"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "gerustbauer-100-anker-swiss-ticino-ag-freimettigen-b119ab25"
         ]
       },
-      "previousSlugs": [
-        "gerustbauer-100-anker-swiss-ticino-ag-freimettigen-b119ab25"
-      ],
+      "firstSeenAt": "2026-09-19T23:05:17.433Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -12993,8 +12597,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:05:17.433Z"
+      }
     },
     {
       "id": "anker-swiss-70fcd3a36dbc",
@@ -13028,7 +12631,7 @@
       "url": "https://anker-swiss.ch/stellen/flachdachbauer-1484840/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.103Z",
+      "crawledAt": "2026-10-17T09:24:35.589Z",
       "addressLocality": "Lausen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -13109,7 +12712,7 @@
       "url": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1482644/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.103Z",
+      "crawledAt": "2026-10-17T09:24:35.590Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -13176,7 +12779,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1489637/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.102Z",
+      "crawledAt": "2026-10-17T09:24:35.586Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -13243,7 +12846,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1487332/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.102Z",
+      "crawledAt": "2026-10-17T09:24:35.587Z",
       "addressLocality": "Leutwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -13324,7 +12927,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1486959/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.102Z",
+      "crawledAt": "2026-10-17T09:24:35.588Z",
       "addressLocality": "Fehraltorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13405,7 +13008,7 @@
       "url": "https://anker-swiss.ch/stellen/montage-elektriker-1490401/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.100Z",
+      "crawledAt": "2026-10-17T09:24:35.583Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -13472,7 +13075,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbau-produktions-und-montageleiter-1490396/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.100Z",
+      "crawledAt": "2026-10-17T09:24:35.584Z",
       "addressLocality": "Belp",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -13555,7 +13158,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1490170/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.100Z",
+      "crawledAt": "2026-10-17T09:24:35.584Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -13622,7 +13225,7 @@
       "url": "https://anker-swiss.ch/stellen/bauschreiner-1494135/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.099Z",
+      "crawledAt": "2026-10-17T09:24:35.581Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -13703,7 +13306,7 @@
       "url": "https://anker-swiss.ch/stellen/bestuecker-elektrobranche-1490510/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.099Z",
+      "crawledAt": "2026-10-17T09:24:35.583Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -13770,7 +13373,7 @@
       "url": "https://anker-swiss.ch/stellen/anlagenfuehrer-1498222/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.098Z",
+      "crawledAt": "2026-10-17T09:24:35.580Z",
       "addressLocality": "Ruswil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -13851,7 +13454,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbauer-1497929/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.098Z",
+      "crawledAt": "2026-10-17T09:24:35.580Z",
       "addressLocality": "Erschwil",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -13932,7 +13535,7 @@
       "url": "https://anker-swiss.ch/stellen/konstrukteur-1497364/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.098Z",
+      "crawledAt": "2026-10-17T09:24:35.581Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -14013,7 +13616,7 @@
       "url": "https://anker-swiss.ch/stellen/chauffeur-1499242/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.097Z",
+      "crawledAt": "2026-10-17T09:24:35.579Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -14092,7 +13695,7 @@
       "url": "https://anker-swiss.ch/stellen/flachdachbauer-1498840/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.097Z",
+      "crawledAt": "2026-10-17T09:24:35.579Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -14173,7 +13776,7 @@
       "url": "https://anker-swiss.ch/stellen/isolierspengler-1499816/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.096Z",
+      "crawledAt": "2026-10-17T09:24:35.576Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -14240,7 +13843,7 @@
       "url": "https://anker-swiss.ch/stellen/spengler-1499681/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.096Z",
+      "crawledAt": "2026-10-17T09:24:35.577Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -14307,7 +13910,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1499529/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.096Z",
+      "crawledAt": "2026-10-17T09:24:35.578Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -14374,7 +13977,7 @@
       "url": "https://anker-swiss.ch/stellen/logistiker-1499911/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.095Z",
+      "crawledAt": "2026-10-17T09:24:35.576Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -14441,7 +14044,7 @@
       "url": "https://anker-swiss.ch/stellen/industrie-und-unterlagsbodenbauer-1500190/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.094Z",
+      "crawledAt": "2026-10-17T09:24:35.575Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -14508,7 +14111,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroplaner-1500306/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.093Z",
+      "crawledAt": "2026-10-17T09:24:35.573Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -14575,7 +14178,7 @@
       "url": "https://anker-swiss.ch/stellen/plattenleger-1500198/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-16T21:29:40.093Z",
+      "crawledAt": "2026-10-17T09:24:35.573Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -14642,7 +14245,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1500563/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.092Z",
+      "crawledAt": "2026-10-17T09:24:35.571Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -14695,9 +14298,9 @@
       "id": "anker-swiss-701873e9b500",
       "slug": "praticanti-pneumatici-100-anker-swiss-ticino-ag-bern-701873e9",
       "slugByLocale": {
-        "de": "reifenpraktiker-100-anker-swiss-ticino-ag-bern-701873e9",
         "it": "praticanti-pneumatici-100-anker-swiss-ticino-ag-bern-701873e9",
         "en": "tyre-practitioners-100-anker-swiss-ticino-ag-bern-701873e9",
+        "de": "reifenpraktiker-100-anker-swiss-ticino-ag-bern-701873e9",
         "fr": "pratiques-des-pneumatiques-100-anker-swiss-ticino-ag-bern-701873e9"
       },
       "slugDisambiguator": "701873e9",
@@ -14723,7 +14326,7 @@
       "url": "https://anker-swiss.ch/stellen/reifenpraktiker-1502709/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.091Z",
+      "crawledAt": "2026-10-17T09:24:35.569Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -14742,9 +14345,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/reifenpraktiker-1502709/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -14806,7 +14407,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1502501/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.091Z",
+      "crawledAt": "2026-10-17T09:24:35.570Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -14825,9 +14426,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1502501/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -14861,9 +14460,9 @@
       "id": "anker-swiss-a150585008ac",
       "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-utzenstorf",
       "slugByLocale": {
-        "de": "elektroinstallateur-100-anker-swiss-ticino-ag-utzenstorf-a1505850",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-utzenstorf",
         "en": "electrical-installer-100-anker-swiss-ticino-ag-utzenstorf-a1505850",
+        "de": "elektroinstallateur-100-anker-swiss-ticino-ag-utzenstorf-a1505850",
         "fr": "installateur-electrique-100-anker-swiss-ticino-ag-utzenstorf-a1505850"
       },
       "slugDisambiguator": "a1505850",
@@ -14889,7 +14488,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1502718/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.090Z",
+      "crawledAt": "2026-10-17T09:24:35.567Z",
       "addressLocality": "Utzenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -14908,9 +14507,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1502718/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-utzenstorf-a1505850"
@@ -14944,9 +14541,9 @@
       "id": "anker-swiss-d1d2aa8fdb9a",
       "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp",
       "slugByLocale": {
-        "de": "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp",
         "en": "electrical-installer-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
+        "de": "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
         "fr": "installateur-electrique-100-anker-swiss-ticino-ag-belp-d1d2aa8f"
       },
       "slugDisambiguator": "d1d2aa8f",
@@ -14972,7 +14569,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1502717/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.090Z",
+      "crawledAt": "2026-10-17T09:24:35.568Z",
       "addressLocality": "Belp",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -14991,9 +14588,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1502717/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f"
@@ -15027,9 +14622,9 @@
       "id": "anker-swiss-add84c149aae",
       "slug": "montaggio-elettrico-100-anker-swiss-ticino-ag-burgdorf-add84c14",
       "slugByLocale": {
-        "de": "montage-elektriker-100-anker-swiss-ticino-ag-burgdorf-add84c14",
         "it": "montaggio-elettrico-100-anker-swiss-ticino-ag-burgdorf-add84c14",
         "en": "assembly-electrician-100-anker-swiss-ticino-ag-burgdorf-add84c14",
+        "de": "montage-elektriker-100-anker-swiss-ticino-ag-burgdorf-add84c14",
         "fr": "electricien-d-assemblage-100-anker-swiss-ticino-ag-burgdorf-add84c14"
       },
       "slugDisambiguator": "add84c14",
@@ -15055,7 +14650,7 @@
       "url": "https://anker-swiss.ch/stellen/montage-elektriker-1502728/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.089Z",
+      "crawledAt": "2026-10-17T09:24:35.566Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -15074,9 +14669,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/montage-elektriker-1502728/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -15110,9 +14703,9 @@
       "id": "anker-swiss-eb0183ba6700",
       "slug": "montaggio-elettrico-100-anker-swiss-ticino-ag-riggisberg-eb0183ba",
       "slugByLocale": {
-        "de": "montage-elektriker-100-anker-swiss-ticino-ag-riggisberg-eb0183ba",
         "it": "montaggio-elettrico-100-anker-swiss-ticino-ag-riggisberg-eb0183ba",
         "en": "assembly-electrician-100-anker-swiss-ticino-ag-riggisberg-eb0183ba",
+        "de": "montage-elektriker-100-anker-swiss-ticino-ag-riggisberg-eb0183ba",
         "fr": "electricien-d-assemblage-100-anker-swiss-ticino-ag-riggisberg-eb0183ba"
       },
       "slugDisambiguator": "eb0183ba",
@@ -15138,7 +14731,7 @@
       "url": "https://anker-swiss.ch/stellen/montage-elektriker-1502721/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.089Z",
+      "crawledAt": "2026-10-17T09:24:35.566Z",
       "addressLocality": "Riggisberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -15157,9 +14750,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/montage-elektriker-1502721/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -15193,9 +14784,9 @@
       "id": "anker-swiss-f7282b544d05",
       "slug": "installatore-trice-elettrico-a-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54",
       "slugByLocale": {
-        "de": "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-f7282b54",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54",
         "en": "electrical-installer-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54",
+        "de": "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-f7282b54",
         "fr": "installation-electrique-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54"
       },
       "slugDisambiguator": "f7282b54",
@@ -15221,7 +14812,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1502719/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.089Z",
+      "crawledAt": "2026-10-17T09:24:35.567Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "addressCountry": "CH",
@@ -15241,14 +14832,15 @@
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1502719/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-f7282b54"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-f7282b54"
         ]
       },
-      "previousSlugs": [
-        "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-f7282b54"
-      ],
+      "firstSeenAt": "2026-10-16T21:29:40.089Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -15261,8 +14853,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-16T21:29:40.089Z"
+      }
     },
     {
       "id": "anker-swiss-f9cb4b88cf8c",
@@ -15279,9 +14870,9 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Sanitärinstallateur 100%",
       "titleByLocale": {
-        "de": "Sanitärinstallateur 100%",
         "it": "Installatore sanitario 100%",
         "en": "Sanitary installer 100%",
+        "de": "Sanitärinstallateur 100%",
         "fr": "Installation sanitaire 100%"
       },
       "description": "Sanitärinstallateur 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Sanitärinstallateur EFZ\nDeine Herausforderung:\n- Abwasser Geberit (PE)\n- Hartlöten\n- Wasserinstallationen\n- Fertigmontage\n- Gasinstallationen\n- Schema lesen\n- Pressen\nDas bringst Du mit:\n- Sanitärinstallateur EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nMilan Jovanovic\nTelefon: +41445723240\nE-Mail: m.jovanovic@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nSanitärinstallateur\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
@@ -15296,7 +14887,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1506105/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.088Z",
+      "crawledAt": "2026-10-17T09:24:35.564Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -15315,9 +14906,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1506105/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -15362,9 +14951,9 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "de": "Zimmermann 100%",
         "it": "Carpenter 100%",
         "en": "Carpenter 100%",
+        "de": "Zimmermann 100%",
         "fr": "Charpentier 100%"
       },
       "description": "Zimmermann 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Zimmermann EFZ\nDeine Herausforderung:\n- Abbund\n- Montage im Innenausbau\n- Aufrichten\n- Montage im Rohbau\n- Bodenbeläge Laminat\n- Holzdecken\n- Fenster\n- Elementbau\nDas bringst Du mit:\n- Zimmermann EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nMilan Jovanovic\nTelefon: +41445723240\nE-Mail: m.jovanovic@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nZimmermann\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
@@ -15379,7 +14968,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1506037/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.088Z",
+      "crawledAt": "2026-10-17T09:24:35.565Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -15398,9 +14987,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1506037/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -15459,7 +15046,7 @@
       "url": "https://anker-swiss.ch/stellen/maurer-1506334/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-16T21:29:40.086Z",
+      "crawledAt": "2026-10-17T09:24:35.562Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -15478,9 +15065,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://anker-swiss.ch/stellen/maurer-1506334/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -15586,7 +15171,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-ab36a57f6b3a",
@@ -15672,7 +15257,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-c32708e03d4c",
@@ -15756,7 +15341,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-936d7c4dd7ee",
@@ -15840,7 +15425,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-fb8912d8c913",
@@ -15924,7 +15509,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-4f4940b23c14",
@@ -16008,7 +15593,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-5d9bffa62ada",
@@ -16092,7 +15677,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-d1f46416702d",
@@ -16176,7 +15761,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-b29bcf549dbf",
@@ -16260,7 +15845,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "anker-swiss-77ad68b9bab1",
@@ -16344,7 +15929,493 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
+    },
+    {
+      "id": "anker-swiss-5edaf9468672",
+      "slug": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
+      "slugByLocale": {
+        "de": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "it": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "en": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "fr": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946"
+      },
+      "slugDisambiguator": "5edaf946",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Gipser-Trockenbauer 100%",
+      "titleByLocale": {
+        "de": "Gipser-Trockenbauer 100%",
+        "it": "Gipser-Trockenbauer 100%",
+        "en": "Gipser-Trockenbauer 100%",
+        "fr": "Gipser-Trockenbauer 100%"
+      },
+      "description": "Gipser-Trockenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\nDeine Herausforderung:\n- Netz aufziehen\n- Weissputz\n- Glattputz\n- Kunststoffverputz\n- Kalkverputz\n- Mineralischer Verputz\n- Grundputz von Hand\n- Grundputz mit Maschine\n- allgemeine Trockenbauarbeiten\n- Gipsdecken montieren\n- Lochdecken\n- Kantenschutz montieren\n- Profile montieren\n- Spachteln Q4\n- Fassadenisolation\n- Abrieb\n- Kassettendecken\n- Metalldecken\n- Trockenbauwände\n- Leichtbauwände\n- Styroporplatten kleben\n- Brandschutz Hartschott\n- Brandschutz Weichschott\n- Brandschutz Promat\n- Spachteln Q1\n- Spachteln Q2\n- Spachteln Q3\n- Spachteln\n- Isolationen Innenausbau\n- Plan lesen\nDas bringst Du mit:\n- 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nSergio Randazzo\nTelefon: +41445723230\nE-Mail: s.randazzo@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nGipser-Trockenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr",
+      "descriptionByLocale": {
+        "de": "Gipser-Trockenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\nDeine Herausforderung:\n- Netz aufziehen\n- Weissputz\n- Glattputz\n- Kunststoffverputz\n- Kalkverputz\n- Mineralischer Verputz\n- Grundputz von Hand\n- Grundputz mit Maschine\n- allgemeine Trockenbauarbeiten\n- Gipsdecken montieren\n- Lochdecken\n- Kantenschutz montieren\n- Profile montieren\n- Spachteln Q4\n- Fassadenisolation\n- Abrieb\n- Kassettendecken\n- Metalldecken\n- Trockenbauwände\n- Leichtbauwände\n- Styroporplatten kleben\n- Brandschutz Hartschott\n- Brandschutz Weichschott\n- Brandschutz Promat\n- Spachteln Q1\n- Spachteln Q2\n- Spachteln Q3\n- Spachteln\n- Isolationen Innenausbau\n- Plan lesen\nDas bringst Du mit:\n- 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nSergio Randazzo\nTelefon: +41445723230\nE-Mail: s.randazzo@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nGipser-Trockenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr",
+        "it": "Gipser-Trockenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\nDeine Herausforderung:\n- Netz aufziehen\n- Weissputz\n- Glattputz\n- Kunststoffverputz\n- Kalkverputz\n- Mineralischer Verputz\n- Grundputz von Hand\n- Grundputz mit Maschine\n- allgemeine Trockenbauarbeiten\n- Gipsdecken montieren\n- Lochdecken\n- Kantenschutz montieren\n- Profile montieren\n- Spachteln Q4\n- Fassadenisolation\n- Abrieb\n- Kassettendecken\n- Metalldecken\n- Trockenbauwände\n- Leichtbauwände\n- Styroporplatten kleben\n- Brandschutz Hartschott\n- Brandschutz Weichschott\n- Brandschutz Promat\n- Spachteln Q1\n- Spachteln Q2\n- Spachteln Q3\n- Spachteln\n- Isolationen Innenausbau\n- Plan lesen\nDas bringst Du mit:\n- 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nSergio Randazzo\nTelefon: +41445723230\nE-Mail: s.randazzo@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nGipser-Trockenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr",
+        "en": "Gipser-Trockenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\nDeine Herausforderung:\n- Netz aufziehen\n- Weissputz\n- Glattputz\n- Kunststoffverputz\n- Kalkverputz\n- Mineralischer Verputz\n- Grundputz von Hand\n- Grundputz mit Maschine\n- allgemeine Trockenbauarbeiten\n- Gipsdecken montieren\n- Lochdecken\n- Kantenschutz montieren\n- Profile montieren\n- Spachteln Q4\n- Fassadenisolation\n- Abrieb\n- Kassettendecken\n- Metalldecken\n- Trockenbauwände\n- Leichtbauwände\n- Styroporplatten kleben\n- Brandschutz Hartschott\n- Brandschutz Weichschott\n- Brandschutz Promat\n- Spachteln Q1\n- Spachteln Q2\n- Spachteln Q3\n- Spachteln\n- Isolationen Innenausbau\n- Plan lesen\nDas bringst Du mit:\n- 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nSergio Randazzo\nTelefon: +41445723230\nE-Mail: s.randazzo@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nGipser-Trockenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr",
+        "fr": "Gipser-Trockenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\nDeine Herausforderung:\n- Netz aufziehen\n- Weissputz\n- Glattputz\n- Kunststoffverputz\n- Kalkverputz\n- Mineralischer Verputz\n- Grundputz von Hand\n- Grundputz mit Maschine\n- allgemeine Trockenbauarbeiten\n- Gipsdecken montieren\n- Lochdecken\n- Kantenschutz montieren\n- Profile montieren\n- Spachteln Q4\n- Fassadenisolation\n- Abrieb\n- Kassettendecken\n- Metalldecken\n- Trockenbauwände\n- Leichtbauwände\n- Styroporplatten kleben\n- Brandschutz Hartschott\n- Brandschutz Weichschott\n- Brandschutz Promat\n- Spachteln Q1\n- Spachteln Q2\n- Spachteln Q3\n- Spachteln\n- Isolationen Innenausbau\n- Plan lesen\nDas bringst Du mit:\n- 1 – 3 Jahre Erfahrung als Gipser-Trockenbauer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nSergio Randazzo\nTelefon: +41445723230\nE-Mail: s.randazzo@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nGipser-Trockenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr"
+      },
+      "location": "Baar",
+      "canton": "ZG",
+      "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325153/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T09:24:35.657Z",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6340",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-18T00:05:05+02:00",
+      "postedDate": "2026-09-18T00:05:05+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325153/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
+          "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
+          "asciugamani-100-anker-swiss-ticino-ag-baar-2f3a5cca",
+          "asciugamani-100-anker-swiss-ticino-ag-baar-5edaf946",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
+        ],
+        "en": [
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
+          "plaster-dryers-100-anker-swiss-ticino-ag-baar-c9fde25b",
+          "plaster-dryers-100-anker-swiss-ticino-ag-baar-2f3a5cca",
+          "plaster-dryers-100-anker-swiss-ticino-ag-baar-5edaf946",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
+        ],
+        "de": [
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
+        ],
+        "fr": [
+          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
+          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-c9fde25b",
+          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-2f3a5cca",
+          "sechoirs-a-plat-100-anker-swiss-ticino-ag-baar-5edaf946",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
+        ]
+      },
+      "previousSlugs": [
+        "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
+        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
+        "plaster-dryers-100-anker-swiss-ticino-ag-baar-c9fde25b",
+        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-c9fde25b",
+        "asciugamani-100-anker-swiss-ticino-ag-baar-2f3a5cca",
+        "plaster-dryers-100-anker-swiss-ticino-ag-baar-2f3a5cca",
+        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-2f3a5cca",
+        "asciugamani-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "plaster-dryers-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "sechoirs-a-plat-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca"
+      ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T23:05:17.457Z"
+    },
+    {
+      "id": "anker-swiss-7274b7a321d3",
+      "slug": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+      "slugByLocale": {
+        "de": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "it": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "en": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "fr": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3"
+      },
+      "slugDisambiguator": "7274b7a3",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Lüftungsanlagenbauer 100%",
+      "titleByLocale": {
+        "de": "Lüftungsanlagenbauer 100%",
+        "it": "Lüftungsanlagenbauer 100%",
+        "en": "Lüftungsanlagenbauer 100%",
+        "fr": "Lüftungsanlagenbauer 100%"
+      },
+      "description": "Lüftungsanlagenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Lüftungsanlagenbauer EFZ\nDeine Herausforderung:\n- Einlegen\n- Kanalmontage\nDas bringst Du mit:\n- Lüftungsanlagenbauer EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nÜmit Tok\nTelefon: +41445723238\nE-Mail: u.tok@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nLüftungsanlagenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+      "descriptionByLocale": {
+        "de": "Lüftungsanlagenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Lüftungsanlagenbauer EFZ\nDeine Herausforderung:\n- Einlegen\n- Kanalmontage\nDas bringst Du mit:\n- Lüftungsanlagenbauer EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nÜmit Tok\nTelefon: +41445723238\nE-Mail: u.tok@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nLüftungsanlagenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+        "it": "Lüftungsanlagenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Lüftungsanlagenbauer EFZ\nDeine Herausforderung:\n- Einlegen\n- Kanalmontage\nDas bringst Du mit:\n- Lüftungsanlagenbauer EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nÜmit Tok\nTelefon: +41445723238\nE-Mail: u.tok@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nLüftungsanlagenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+        "en": "Lüftungsanlagenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Lüftungsanlagenbauer EFZ\nDeine Herausforderung:\n- Einlegen\n- Kanalmontage\nDas bringst Du mit:\n- Lüftungsanlagenbauer EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nÜmit Tok\nTelefon: +41445723238\nE-Mail: u.tok@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nLüftungsanlagenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+        "fr": "Lüftungsanlagenbauer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Lüftungsanlagenbauer EFZ\nDeine Herausforderung:\n- Einlegen\n- Kanalmontage\nDas bringst Du mit:\n- Lüftungsanlagenbauer EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nÜmit Tok\nTelefon: +41445723238\nE-Mail: u.tok@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nLüftungsanlagenbauer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1387738/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T09:24:35.643Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-22T15:05:47+02:00",
+      "postedDate": "2026-09-22T15:05:47+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1387738/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "produttore-del-sistema-di-ventilazione-al-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "fabricant-du-systeme-de-ventilation-a-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "costruttore-di-impianti-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "ventilation-system-manufacturer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "constructeur-de-systemes-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2",
+        "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-abad10d2",
+        "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-abad10d2",
+        "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-abad10d2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "produttore-del-sistema-di-ventilazione-al-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "costruttore-di-impianti-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2",
+          "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-abad10d2"
+        ],
+        "en": [
+          "ventilation-system-manufacturer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-abad10d2"
+        ],
+        "de": [
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2"
+        ],
+        "fr": [
+          "fabricant-du-systeme-de-ventilation-a-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "constructeur-de-systemes-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+          "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-abad10d2"
+        ]
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:53:10.876Z"
+    },
+    {
+      "id": "anker-swiss-b8f591294cce",
+      "slug": "copertura-100-anker-swiss-ticino-ag-urdorf-b8f59129",
+      "slugByLocale": {
+        "de": "dachdecker-100-anker-swiss-ticino-ag-urdorf-b8f59129",
+        "it": "copertura-100-anker-swiss-ticino-ag-urdorf-b8f59129",
+        "en": "roofing-100-anker-swiss-ticino-ag-urdorf-b8f59129",
+        "fr": "toiture-100-anker-swiss-ticino-ag-urdorf-b8f59129"
+      },
+      "slugDisambiguator": "b8f59129",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Dachdecker 100%",
+      "titleByLocale": {
+        "de": "Dachdecker 100%",
+        "it": "Dachdecker 100%",
+        "en": "Dachdecker 100%",
+        "fr": "Dachdecker 100%"
+      },
+      "description": "Dachdecker 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Dachdecker gelernt\nDeine Herausforderung:\n- Abdeckungen\n- Arbeiten nach Plan\n- Dampfsperren montieren\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Flüssigkunststoffarbeiten\n- Kunststoffabdichtungen (PVC, TPO, FPO)\n- Schweissbahnen verlegen\n- Umgang mit Schweissgeräten\nDas bringst Du mit:\n- Dachdecker gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nVincenzo Morreone\nTelefon: +41417286664\nE-Mail: v.morreone@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nDachdecker\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch",
+      "descriptionByLocale": {
+        "de": "Dachdecker 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Dachdecker gelernt\nDeine Herausforderung:\n- Abdeckungen\n- Arbeiten nach Plan\n- Dampfsperren montieren\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Flüssigkunststoffarbeiten\n- Kunststoffabdichtungen (PVC, TPO, FPO)\n- Schweissbahnen verlegen\n- Umgang mit Schweissgeräten\nDas bringst Du mit:\n- Dachdecker gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nVincenzo Morreone\nTelefon: +41417286664\nE-Mail: v.morreone@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nDachdecker\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch",
+        "it": "Dachdecker 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Dachdecker gelernt\nDeine Herausforderung:\n- Abdeckungen\n- Arbeiten nach Plan\n- Dampfsperren montieren\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Flüssigkunststoffarbeiten\n- Kunststoffabdichtungen (PVC, TPO, FPO)\n- Schweissbahnen verlegen\n- Umgang mit Schweissgeräten\nDas bringst Du mit:\n- Dachdecker gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nVincenzo Morreone\nTelefon: +41417286664\nE-Mail: v.morreone@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nDachdecker\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch",
+        "en": "Dachdecker 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Dachdecker gelernt\nDeine Herausforderung:\n- Abdeckungen\n- Arbeiten nach Plan\n- Dampfsperren montieren\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Flüssigkunststoffarbeiten\n- Kunststoffabdichtungen (PVC, TPO, FPO)\n- Schweissbahnen verlegen\n- Umgang mit Schweissgeräten\nDas bringst Du mit:\n- Dachdecker gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nVincenzo Morreone\nTelefon: +41417286664\nE-Mail: v.morreone@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nDachdecker\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch",
+        "fr": "Dachdecker 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Festanstellung eine/n Dachdecker gelernt\nDeine Herausforderung:\n- Abdeckungen\n- Arbeiten nach Plan\n- Dampfsperren montieren\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Flüssigkunststoffarbeiten\n- Kunststoffabdichtungen (PVC, TPO, FPO)\n- Schweissbahnen verlegen\n- Umgang mit Schweissgeräten\nDas bringst Du mit:\n- Dachdecker gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nVincenzo Morreone\nTelefon: +41417286664\nE-Mail: v.morreone@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nDachdecker\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch"
+      },
+      "location": "Urdorf",
+      "canton": "ZH",
+      "url": "https://anker-swiss.ch/stellen/dachdecker-1422413/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T09:24:35.629Z",
+      "addressLocality": "Urdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8902",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-28T12:05:09+02:00",
+      "postedDate": "2026-09-28T12:05:09+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1422413/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-urdorf-2b31489c",
+        "copritetto-100-anker-swiss-ticino-ag-urdorf-2b31489c",
+        "roofers-100-anker-swiss-ticino-ag-urdorf-2b31489c",
+        "couvreur-100-anker-swiss-ticino-ag-urdorf-2b31489c",
+        "dachdecker-100-anker-swiss-ticino-ag-urdorf-b8f59129"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-urdorf-2b31489c",
+          "copritetto-100-anker-swiss-ticino-ag-urdorf-2b31489c",
+          "dachdecker-100-anker-swiss-ticino-ag-urdorf-b8f59129"
+        ],
+        "en": [
+          "roofers-100-anker-swiss-ticino-ag-urdorf-2b31489c"
+        ],
+        "de": [
+          "dachdecker-100-anker-swiss-ticino-ag-urdorf-2b31489c"
+        ],
+        "fr": [
+          "couvreur-100-anker-swiss-ticino-ag-urdorf-2b31489c"
+        ]
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:25:09.091Z"
+    },
+    {
+      "id": "anker-swiss-c76ea0e85277",
+      "slug": "operatore-di-gru-100-anker-swiss-ag-anker-swiss-ticino-ag-unterkulm-c76ea0e8",
+      "slugByLocale": {
+        "de": "kranfuhrer-100-anker-swiss-ticino-ag-unterkulm-c76ea0e8",
+        "it": "operatore-di-gru-100-anker-swiss-ag-anker-swiss-ticino-ag-unterkulm-c76ea0e8",
+        "en": "crane-operator-100-anker-swiss-ag-anker-swiss-ticino-ag-unterkulm-c76ea0e8",
+        "fr": "operateur-de-grue-100-anker-swiss-ag-anker-swiss-ticino-ag-unterkulm-c76ea0e8"
+      },
+      "slugDisambiguator": "c76ea0e8",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Kranführer 100%",
+      "titleByLocale": {
+        "it": "Operatore di gru 100% - Anker Swiss AG",
+        "en": "Crane operator 100% - Anker Swiss AG",
+        "de": "Kranführer 100%",
+        "fr": "Opérateur de grue 100% - Anker Swiss AG"
+      },
+      "description": "Kranführer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Mehr als 3 Jahre Erfahrung als Kranführer\nDeine Herausforderung:\n- Oberdreher\n- Potain\n- Kranen mit Funk/Fernsteuerung\n- Kranführer B\n- Unterdreher\n- Liebherr\n- Wolf\n- Mitarbeit auf der Baustelle\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Kranführer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nMilan Jovanovic\nTelefon: +41445723240\nE-Mail: m.jovanovic@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nKranführer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+      "descriptionByLocale": {
+        "it": "Operatore di gru 100%\nRiuniamo ciò che appartiene insieme!\nIl Gruppo Anker ha iniziato nell'aprile del 2021 con due persone, ora siamo già cresciuti in 5 sedi. Vuoi anche far parte di una società orientata al futuro?\nD'ora in poi o d'accordo stiamo cercando un'occupazione temporanea o permanente più di 3 anni di esperienza come operatore di gru\nLa tua sfida:\n- Leno superiore\n- Potaine\n- Gru con comando radio/remoto\n- Operatore gru B\n- Lupo\n- Cooperazione sul cantiere\n- Sottorotazione\n- Liebher\nQuesto è ciò che portate con voi:\n- Più di 3 anni di esperienza come operatore di gru\n- Elevate prestazioni e flessibilità\n- puntualità e affidabilità\n- Metodo di lavoro indipendente, affidabile e preciso\nCosa ti offriamo:\n- Grande ambiente di lavoro\n- Pagamenti variabili per le scommesse temporanee (scelta mensile o settimanale)\n- Clienti noti\n- Società in rapida crescita\n- Distribuzioni a lungo termine\n- Condizioni di lavoro attraenti con una buona retribuzione\n- Una squadra che è lì per te e le tue esigenze\nInformazioni di contatto\nMilano Jovanovic\nTelefono: +41445723240\nEmail: m.jovanovic@anker-swiss.ch\n#AS-Indeed Premium-26\n- Facebook\n- Iodio\n- Xing\n- Settore\nOperatore di gru\n- Inizio del lavoro\nAccordo\n- Esperienza professionale\nPiù di 3 anni\nApplicazione per la posizione dell'operatore gru 100%\nInserisci i tuoi dati personali qui.\nNome:\nCognome:\nE-mail:\nTelefono No:\nData di nascita:\nprofessione:\nDisponibile da:\nCV:\nUlteriori documenti, ad esempio certificati, diplomi:\nDomanda presentata",
+        "en": "Crane operator 100%\nWe bring together what belongs together!\nThe Anker Group started in April 2021 with two people – now we have already grown to 5 locations. Do you also want to be part of a future-oriented company?\nFrom now on or by agreement we are looking for a temporary or permanent employment more than 3 years of experience as a crane operator\nYour challenge:\n- Upper leno\n- Potaine\n- Cranes with radio/remote control\n- Crane operator B\n- Wolf\n- Cooperation on the construction site\n- Under-rotation\n- Liebherr\nThis is what you bring with you:\n- More than 3 years of experience as a crane operator\n- High performance and flexibility\n- Punctuality and reliability\n- Independent, reliable and exact working method\nWhat we offer you:\n- Great working environment\n- Variable payments for temporary bets (monthly or weekly selectable)\n- Known customers\n- Fast-growing company\n- Long-term deployments\n- Attractive employment conditions with good pay\n- A team that is there for you and your needs\nContact details\nMilan Jovanovic\nTelephone: +41445723240\nEmail: m.jovanovic@anker-swiss.ch\n#AS-Indeed Premium-26\n- Facebook\n- lindine\n- Xing\n- Sector\nCrane operator\n- Start of work\nBy agreement\n- Professional experience\nMore than 3 years\nApplication for the position of crane operator 100%\nPlease enter your personal details here.\nFirst name:\nSurname:\nE-mail:\nTelephone No:\nDate of birth:\nprofession:\nAvailable from:\nCV:\nFurther documents e.g. certificates, diplomas:\nApplication submitted",
+        "de": "Kranführer 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Mehr als 3 Jahre Erfahrung als Kranführer\nDeine Herausforderung:\n- Oberdreher\n- Potain\n- Kranen mit Funk/Fernsteuerung\n- Kranführer B\n- Unterdreher\n- Liebherr\n- Wolf\n- Mitarbeit auf der Baustelle\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Kranführer\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nMilan Jovanovic\nTelefon: +41445723240\nE-Mail: m.jovanovic@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nKranführer\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+        "fr": "Opérateur de grue 100%\nNous réunissons ce qui nous appartient !\nLe groupe Anker a commencé en avril 2021 avec deux personnes – maintenant nous avons déjà augmenté à 5 emplacements. Voulez-vous aussi faire partie d'une entreprise tournée vers l'avenir?\nDésormais ou par accord, nous recherchons un emploi temporaire ou permanent de plus de 3 ans d'expérience en tant qu'opérateur de grue\nVotre défi :\n- Leno supérieur\n- Potaïne\n- Grues avec radio/commande à distance\n- Opérateur de grue B\n- Loup\n- Coopération sur le chantier\n- Sous-rotation\n- Liebherr\nVoici ce que vous apportez avec vous :\n- Plus de 3 ans d'expérience en tant qu'opérateur de grue\n- Haute performance et flexibilité\n- Ponctualité et fiabilité\n- Méthode de travail indépendante, fiable et exacte\nCe que nous vous offrons:\n- Grand environnement de travail\n- Paiements variables pour les paris temporaires (mensuels ou hebdomadaires sélectionnables)\n- Clients connus\n- Société à croissance rapide\n- Déploiements à long terme\n- Conditions d'emploi attrayantes et bien rémunérées\n- Une équipe qui est là pour vous et vos besoins\nCoordonnées\nMilan Jovanovic\nTéléphone: +41445723240\nCourriel: m.jovanovic@anker-swiss.ch\n#AS-En fait Premium-26\n- Facebook\n- lindine\n- Xing\n- Secteur\nOpérateur de grue\n- Début des travaux\nPar accord\n- Expérience professionnelle\nPlus de 3 ans\nApplication pour la position de l'opérateur de grue 100%\nVeuillez saisir vos coordonnées ici.\nPrénom:\nNom:\nCourriel:\nNuméro de téléphone:\nDate de naissance:\nprofession:\nDisponible auprès de:\nCV:\nAutres documents, par exemple certificats, diplômes:\nDemande présentée"
+      },
+      "location": "Unterkulm",
+      "canton": "AG",
+      "url": "https://anker-swiss.ch/stellen/kranfuehrer-1473755/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T09:24:35.599Z",
+      "addressLocality": "Unterkulm",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5726",
+      "streetAddress": "",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-09T14:05:33+02:00",
+      "postedDate": "2026-10-09T14:05:33+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://anker-swiss.ch/stellen/kranfuehrer-1473755/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-100-anker-swiss-ticino-ag-unterkulm-c76ea0e8"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-100-anker-swiss-ticino-ag-unterkulm-c76ea0e8"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T16:09:43.431Z"
+    },
+    {
+      "id": "anker-swiss-b2b32af9f835",
+      "slug": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+      "slugByLocale": {
+        "de": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "it": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "en": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "fr": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
+      },
+      "slugDisambiguator": "b2b32af9",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Bohrarbeiter 100%",
+      "titleByLocale": {
+        "de": "Bohrarbeiter 100%",
+        "it": "Bohrarbeiter 100%",
+        "en": "Bohrarbeiter 100%",
+        "fr": "Bohrarbeiter 100%"
+      },
+      "description": "Bohrarbeiter 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Mehr als 3 Jahre Erfahrung als Bohrarbeiter\nDeine Herausforderung:\n- Geotechnische Bohrungen\n- Baustellenorganisation\n- Wartung und Unterhalt von Bohranlagen\n- Sondierbohrungen\n- Horizontalbohrungen\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Bohrarbeiter\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nAndrin Reimann\nTelefon: +41412442405\nE-Mail: a.reimann@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBohrarbeiter\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+      "descriptionByLocale": {
+        "de": "Bohrarbeiter 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Mehr als 3 Jahre Erfahrung als Bohrarbeiter\nDeine Herausforderung:\n- Geotechnische Bohrungen\n- Baustellenorganisation\n- Wartung und Unterhalt von Bohranlagen\n- Sondierbohrungen\n- Horizontalbohrungen\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Bohrarbeiter\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nAndrin Reimann\nTelefon: +41412442405\nE-Mail: a.reimann@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBohrarbeiter\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+        "it": "Bohrarbeiter 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Mehr als 3 Jahre Erfahrung als Bohrarbeiter\nDeine Herausforderung:\n- Geotechnische Bohrungen\n- Baustellenorganisation\n- Wartung und Unterhalt von Bohranlagen\n- Sondierbohrungen\n- Horizontalbohrungen\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Bohrarbeiter\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nAndrin Reimann\nTelefon: +41412442405\nE-Mail: a.reimann@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBohrarbeiter\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+        "en": "Bohrarbeiter 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Mehr als 3 Jahre Erfahrung als Bohrarbeiter\nDeine Herausforderung:\n- Geotechnische Bohrungen\n- Baustellenorganisation\n- Wartung und Unterhalt von Bohranlagen\n- Sondierbohrungen\n- Horizontalbohrungen\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Bohrarbeiter\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nAndrin Reimann\nTelefon: +41412442405\nE-Mail: a.reimann@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBohrarbeiter\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre",
+        "fr": "Bohrarbeiter 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporäranstellung eine/n Mehr als 3 Jahre Erfahrung als Bohrarbeiter\nDeine Herausforderung:\n- Geotechnische Bohrungen\n- Baustellenorganisation\n- Wartung und Unterhalt von Bohranlagen\n- Sondierbohrungen\n- Horizontalbohrungen\nDas bringst Du mit:\n- Mehr als 3 Jahre Erfahrung als Bohrarbeiter\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nAndrin Reimann\nTelefon: +41412442405\nE-Mail: a.reimann@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBohrarbeiter\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre"
+      },
+      "location": "Kirchleerau",
+      "canton": "AG",
+      "url": "https://anker-swiss.ch/stellen/bohrarbeiter-1481841/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T09:24:35.593Z",
+      "addressLocality": "Kirchleerau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5054",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-12T15:05:12+02:00",
+      "postedDate": "2026-10-12T15:05:12+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://anker-swiss.ch/stellen/bohrarbeiter-1481841/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+        "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+        "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+        ],
+        "en": [
+          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+        ],
+        "de": [
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+        ],
+        "fr": [
+          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+        ]
+      },
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-12T21:22:19.418Z"
     }
   ]
 }
