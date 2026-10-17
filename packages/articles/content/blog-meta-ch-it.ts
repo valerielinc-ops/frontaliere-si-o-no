@@ -8465,6 +8465,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.udc-assemblea-bulle-2026.title': 'L’UDC vuole fermare la distruzione della Svizzera',
     'blog.article.udc-assemblea-bulle-2026.excerpt': 'Il 17 ottobre 2026 a Bulle, circa 420 delegati UDC hanno respinto la 13esima AVS finanziata con IVA (290 no, 3 sì) e approvato sì a coniugi (274 favorevoli) e materiale bellico (271 favorevoli).',
     'blog.article.udc-assemblea-bulle-2026.imageAlt': 'Delegati UDC riuniti a Bulle per decidere le raccomandazioni di voto sul 29 novembre 2026',
+    'blog.article.scorte-cherosene-zurigo.title': 'Aeroporto di Zurigo: prelievi dalle scorte di cherosene',
+    'blog.article.scorte-cherosene-zurigo.excerpt': '30\'000 m³ di scorte possono essere utilizzati Prelievi autorizzati dal 15 ottobre al 1° novembre La quota autorizzata è il 6,5% del disponibile La fornitura',
+    'blog.article.scorte-cherosene-zurigo.imageAlt': 'Aeroporto di Zurigo con rifornimento di cherosene trasportato via ferrovia',
 };
 
 export default blogMetaChIt;
