@@ -109091,10 +109091,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Arrestato a Como un uomo di 40 anni. Identificato in via Canturina dalla Polizia di Stato. Il Pakistan aveva chiesto l’estradizione. L’omicidio contestato è",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/estradizione-arresto-como.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-estradizione-pakistan-como.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Polizia di Stato durante un controllo in via Canturina a Como"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T23:12:57+00:00",
       "dateModified": "2026-10-15T23:12:57+00:00",
@@ -109944,10 +109949,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Un nuovo dosso è stato installato sul lato svizzero Code e rallentamenti al valico Stabio-Gaggiolo Disagi soprattutto nelle prime ore del mattino Segnalati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-dosso-gaggiolo-disagi-frontalieri.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Code e rallentamenti al valico di Stabio-Gaggiolo dopo l'installazione del nuovo dosso sul lato svizzero"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T14:28:42+00:00",
       "dateModified": "2026-10-16T14:28:42+00:00",
@@ -110017,10 +110027,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "La CIP-S boccia l'iniziativa UDC con 8 voti contro 2. Il testo chiede controlli sistematici alle frontiere. La Svizzera non concederebbe asilo a oltre 5.000",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/consiglio-federale-boccia-frontiere.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-iniziativa-udc-asilo-limite.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Controllo doganale al confine italo-svizzero vicino a Lugano con ufficiali e veicoli in attesa"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T16:42:43+00:00",
       "dateModified": "2026-10-16T16:42:43+00:00",
@@ -110251,10 +110266,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-assemblea-ccti-rotta-economia.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Bellinzona in Ticino, immagine simbolica per l'assemblea della Cc-Ti"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-16T23:37:31+00:00",
       "dateModified": "2026-10-16T23:37:31+00:00",

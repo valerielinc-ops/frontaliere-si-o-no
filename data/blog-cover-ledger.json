@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5557
+      "6": 5561
     },
-    "publishedCovers": 7138,
+    "publishedCovers": 7142,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5362
+    "inferredRecords": 5366
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -190627,6 +190627,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-assemblea-ccti-rotta-economia": {
+      "cover": "/images/blog/article-assemblea-ccti-rotta-economia.webp",
+      "hash": "607e0918b8d8c5d3d8b063f4269cb38e3d45abc6a930a3fa7aea1444656f0f3e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "assemblea-ccti-rotta-economia",
+          "category": "novita",
+          "date": "2026-10-16T23:37:30.751Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-azalee-calcio-campo-pradisera": {
       "cover": "/images/blog/article-azalee-calcio-campo-pradisera.webp",
       "hash": "8c91fd4ee9883c22f2816bf92b5f80d52bc4f9ee98b29e7c3e5d43456cb277e4",
@@ -190735,6 +190762,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-dosso-gaggiolo-disagi-frontalieri": {
+      "cover": "/images/blog/article-dosso-gaggiolo-disagi-frontalieri.webp",
+      "hash": "125090515d97d12c8e0a6f89d19729ef6694e27611cdbcaf75ff84aac06c7a64",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "dosso-gaggiolo-disagi-frontalieri",
+          "category": "pratico",
+          "date": "2026-10-16T14:28:41.661Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-dosso-gaggiolo-sicurezza-lavoratori": {
       "cover": "/images/blog/article-dosso-gaggiolo-sicurezza-lavoratori.webp",
       "hash": "25ac1159a3d5cd6adc187fa8f5b810cd5fcb971006eaf2e2569671b9d584f939",
@@ -190746,6 +190800,33 @@
           "id": "dosso-gaggiolo-sicurezza-lavoratori",
           "category": "novita",
           "date": "2026-10-16T15:40:56.045Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-estradizione-pakistan-como": {
+      "cover": "/images/blog/article-estradizione-pakistan-como.webp",
+      "hash": "39f343096c9e91ebcac2bf936c50f9dcfd78432e52d89ee242ca718c56aa4437",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "estradizione-pakistan-como",
+          "category": "novita",
+          "date": "2026-10-15T23:12:57.045Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -190962,6 +191043,33 @@
           "id": "industria-ticino-futuro-lavoro",
           "category": "pratico",
           "date": "2026-10-16T20:29:56.949Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-17",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-iniziativa-udc-asilo-limite": {
+      "cover": "/images/blog/article-iniziativa-udc-asilo-limite.webp",
+      "hash": "0ad2b352ae5c75b4e6198acf0ba20e2b1a30d9e4b6c2b83460331f1ca7a6f077",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "iniziativa-udc-asilo-limite",
+          "category": "novita",
+          "date": "2026-10-16T16:42:42.879Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
