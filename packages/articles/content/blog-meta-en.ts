@@ -13394,6 +13394,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, the sports center remembers Kevin Palmieri',
     'blog.article.targa-kevin-palmieri.excerpt': 'A plaque commemorates Kevin at Oratorio San Vito The child was 8 years old and disappeared in January 2024 Kevin loved playing soccer at the sports center',
     'blog.article.targa-kevin-palmieri.imageAlt': 'Sports centre entrance with a plaque dedicated to Kevin Palmieri',
+    'blog.article.como-orabasta-famiglie.title': 'Como, hundreds at the #OraBasta demonstration',
+    'blog.article.como-orabasta-famiglie.excerpt': 'Hundreds took part in the #OraBasta demonstration.',
+    'blog.article.como-orabasta-famiglie.imageAlt': 'Parents, grandparents and citizens at the #OraBasta demonstration on Como lakefront',
+    'blog.article.credito-imposta-famiglia-2026.title': '2026 tax credit for border workers with children',
+    'blog.article.credito-imposta-famiglia-2026.excerpt': 'Guide to the calculation and compilation of the EC framework for families of border workers: IRPEF 2026 rates and double taxation management.',
+    'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Panoramic view of Lugano and the lake',
 };
 
 export default blogMetaEn;

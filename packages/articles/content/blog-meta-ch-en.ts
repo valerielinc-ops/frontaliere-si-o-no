@@ -8441,6 +8441,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-ginevra-2026.title': 'Swiss healthcare system: LAMal 2026 guide for the Canton of Geneva',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.excerpt': 'Mandatory insurance, deductibles and premiums: how LAMal works in Geneva in 2026.',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Geneva skyline featuring the Jet d\'Eau fountain, symbolizing the city and its healthcare system.',
+    'blog.article.stesso-reddito-imposte-diverse.title': 'Same income, different taxes: savings of up to 90%',
+    'blog.article.stesso-reddito-imposte-diverse.excerpt': 'For the same income, the municipality changes the tax bill.',
+    'blog.article.stesso-reddito-imposte-diverse.imageAlt': 'Swiss street with houses and tax document',
 };
 
 export default blogMetaChEn;

@@ -8441,6 +8441,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-ginevra-2026.title': 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.excerpt': 'Obbligo assicurativo, franchigie e premi: come funziona la LAMal a Ginevra nel 2026.',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Panorama di Ginevra con il Jet d\'Eau, simbolo della città e del suo sistema sanitario.',
+    'blog.article.stesso-reddito-imposte-diverse.title': 'Stesso reddito, imposte diverse: risparmio fino al 90%',
+    'blog.article.stesso-reddito-imposte-diverse.excerpt': 'A parità di reddito, il Comune cambia la fattura fiscale.',
+    'blog.article.stesso-reddito-imposte-diverse.imageAlt': 'Strada svizzera con case e documento fiscale',
 };
 
 export default blogMetaChIt;

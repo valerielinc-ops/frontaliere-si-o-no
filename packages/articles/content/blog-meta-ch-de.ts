@@ -8441,6 +8441,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-ginevra-2026.title': 'Schweizer Gesundheitssystem: LAMal-Leitfaden 2026 für den Kanton Genf',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.excerpt': 'Versicherungspflicht, Franchisen und Prämien: So funktioniert die LAMal in Genf im Jahr 2026.',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Genfer Skyline mit dem Jet d\'Eau-Brunnen, Symbol der Stadt und ihres Gesundheitssystems.',
+    'blog.article.stesso-reddito-imposte-diverse.title': 'Gleiches Einkommen, unterschiedliche Steuern: Einsparung von bis zu 90%',
+    'blog.article.stesso-reddito-imposte-diverse.excerpt': 'Bei gleichem Einkommen fällt die Steuerrechnung je nach Gemeinde anders aus.',
+    'blog.article.stesso-reddito-imposte-diverse.imageAlt': 'Schweizer Straße mit Häusern und Steuerdokument',
 };
 
 export default blogMetaChDe;

@@ -28232,6 +28232,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'stesso-reddito-imposte-diverse',
+    category: 'fiscale',
+    date: '2026-10-17T10:06:40.711Z',
+    image: '/images/blog/emigrazione-cassa-pensione-risparmio-imposte-2.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

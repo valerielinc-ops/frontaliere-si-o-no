@@ -45197,6 +45197,26 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-orabasta-famiglie',
+ category: 'novita',
+ date: '2026-10-17T10:17:58.483Z',
+ image: '/images/blog/article-como-orabasta-famiglie.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'credito-imposta-famiglia-2026',
+ category: 'fiscale',
+ date: '2026-10-17T10:49:11.000Z',
+ image: '/images/blog/article-credito-imposta-famiglia-2026.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

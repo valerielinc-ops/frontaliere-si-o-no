@@ -106613,6 +106613,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stesso-reddito-imposte-diverse': {
+    title: 'Stesso reddito, imposte diverse: risparmio fino al 90%',
+    description: 'A parità di reddito, il Comune cambia la fattura fiscale. Un caso arriva a oltre il 90% di risparmio. Il Comune più conveniente dipende da reddito e famiglia',
+    keywords: 'frontalieri, ticino, svizzera, italia, stesso, reddito, imposte, diverse',
+    ogTitle: 'Stesso reddito, imposte diverse: risparmio fino al 90%',
+    ogDescription: 'A parità di reddito, il Comune cambia la fattura fiscale.',
+    canonicalPath: '/articoli-svizzera/stesso-reddito-imposte-diverse/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stesso reddito, imposte diverse: risparmio fino al 90%",
+      "description": "A parità di reddito, il Comune cambia la fattura fiscale. Un caso arriva a oltre il 90% di risparmio. Il Comune più conveniente dipende da reddito e famiglia",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/emigrazione-cassa-pensione-risparmio-imposte-2.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada svizzera con case e documento fiscale"
+      },
+      "datePublished": "2026-10-17T10:06:40+00:00",
+      "dateModified": "2026-10-17T10:06:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stesso-reddito-imposte-diverse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

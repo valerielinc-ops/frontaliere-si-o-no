@@ -8441,6 +8441,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-ginevra-2026.title': 'Système de santé suisse : guide LAMal 2026 pour le canton de Genève',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.excerpt': 'Obligation d\'assurance, franchises et primes : comment fonctionne la LAMal à Genève en 2026.',
     'blog.article.sistema-sanitario-lamal-ginevra-2026.imageAlt': 'Panorama de Genève avec le Jet d\'Eau, symbole de la ville et de son système de santé.',
+    'blog.article.stesso-reddito-imposte-diverse.title': 'Même revenu, impôts différents : économies jusqu\'à 90 %',
+    'blog.article.stesso-reddito-imposte-diverse.excerpt': 'À revenu égal, la commune change la facture fiscale.',
+    'blog.article.stesso-reddito-imposte-diverse.imageAlt': 'Rue suisse avec maisons et document fiscal',
 };
 
 export default blogMetaChFr;

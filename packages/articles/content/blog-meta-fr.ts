@@ -13396,6 +13396,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.targa-kevin-palmieri.title': 'Gornate Olona, le centre sportif se souvient de Kevin Palmieri',
     'blog.article.targa-kevin-palmieri.excerpt': 'Une plaque commémore Kevin à l\'Oratorio San Vito L\'enfant avait 8 ans et a disparu en janvier 2024 Kevin aimait jouer au football dans le centre sportif',
     'blog.article.targa-kevin-palmieri.imageAlt': 'Entrée d\'un centre sportif avec une plaque dédiée à Kevin Palmieri',
+    'blog.article.como-orabasta-famiglie.title': 'Côme, des centaines à la manifestation #OraBasta',
+    'blog.article.como-orabasta-famiglie.excerpt': 'Des centaines ont participé à la manifestation #OraBasta.',
+    'blog.article.como-orabasta-famiglie.imageAlt': 'Manifestation #OraBasta sur le lac de Côme avec parents, grands-parents et citoyens (Como)',
+    'blog.article.credito-imposta-famiglia-2026.title': 'Crédit d\'impôt 2026 pour frontaliers avec enfants',
+    'blog.article.credito-imposta-famiglia-2026.excerpt': 'Guide pour le calcul et la compilation du cadre CE pour les familles de frontaliers : taux IRPEF 2026 et gestion de la double imposition.',
+    'blog.article.credito-imposta-famiglia-2026.imageAlt': 'Vue panoramique de Lugano et du lac',
 };
 
 export default blogMetaFr;
