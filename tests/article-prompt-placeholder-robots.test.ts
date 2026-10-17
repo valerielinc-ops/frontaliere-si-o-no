@@ -4,10 +4,54 @@ import os from 'node:os';
 import path from 'node:path';
 
 import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
+import miazzinaFrenchBody from './fixtures/miazzina-french-body';
 
 const rootDir = process.cwd();
 let distDir: string | undefined;
 let fixtureRoot: string | undefined;
+
+function writeMiazzinaFixtureRoot(): string {
+  fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-miazzina-fixture-'));
+  const write = (relativePath: string, contents: string) => {
+    const target = path.join(fixtureRoot!, relativePath);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, contents);
+  };
+  const bodySource = Object.entries(miazzinaFrenchBody)
+    .map(([key, value]) => "    '" + key + "': `" + value + "`,")
+    .join('\n');
+
+  write('data/blog-articles-data.ts', [
+    "const RAW_ARTICLES = [",
+    "  { id: 'miazzina-pendolare-fisco-ticino', category: 'pratico', date: '2026-09-30' },",
+    "];",
+  ].join('\n'));
+  write('services/seo/seo-blog.ts', [
+    'export const entries = {',
+    "  'blog-miazzina-pendolare-fisco-ticino': {",
+    "    title: 'Vivre à Miazzina et travailler au Tessin en tant que frontalier',",
+    "    description: 'Guide du frontalier qui évalue une résidence à Miazzina et un emploi au Tessin.',",
+    "    canonicalPath: '/articoli-frontaliere/miazzina-tessin-frontalier/',",
+    '    structuredData: {"@context":"https://schema.org","@type":"Article","headline":"Miazzina et le Tessin"},',
+    '  },',
+    '};',
+  ].join('\n'));
+  write('services/routerBlogData.ts', [
+    'export const BLOG_SLUGS = ' + JSON.stringify({
+      'miazzina-pendolare-fisco-ticino': {
+        it: 'miazzina-tessin-frontalier',
+        en: 'miazzina-tessin-frontalier',
+        de: 'miazzina-tessin-frontalier',
+        fr: 'miazzina-tessin-frontalier',
+      },
+    }) + ';',
+  ].join('\n'));
+  write(
+    'services/locales/blog-body/fr/miazzina-pendolare-fisco-ticino.ts',
+    'export const body = {\n' + bodySource + '\n};\n',
+  );
+  return fixtureRoot;
+}
 
 afterEach(() => {
   if (distDir) fs.rmSync(distDir, { recursive: true, force: true });
@@ -94,9 +138,10 @@ describe('article prompt-placeholder robots protection', () => {
   }, 120_000);
 
   it('keeps the repaired Miazzina French page indexable and in the article sitemap', async () => {
+    const fixtureRootDir = writeMiazzinaFixtureRoot();
     distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'article-miazzina-indexable-robots-'));
     const result = await renderArticlePages({
-      rootDir,
+      rootDir: fixtureRootDir,
       distDir,
       section: 'frontaliere',
       onlyArticleId: 'miazzina-pendolare-fisco-ticino',

@@ -4,7 +4,7 @@ import {
   hasArticleBodyPromptPlaceholder,
   isArticleBodyPromptPlaceholder,
 } from '../packages/articles/engine/shared/articleBodyQuality';
-import miazzinaFrenchBody from '../packages/articles/content/blog-body/fr/miazzina-pendolare-fisco-ticino';
+import miazzinaFrenchBody from './fixtures/miazzina-french-body';
 
 describe('article body prompt-placeholder guard', () => {
   it('recognizes the exact and generator-suffixed corpus markers', () => {
