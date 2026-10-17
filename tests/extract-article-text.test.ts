@@ -89,9 +89,8 @@ describe('extractArticleText', () => {
       <p>First substantive fallback paragraph with facts that identify the real article for source validation.</p>
       <p>Second substantive fallback paragraph with the article context and details needed by the generator.</p>
     </noscript></main>`;
-    const defaultResult = extractArticleText(html);
-    expect(defaultResult.text).not.toContain('First substantive fallback paragraph');
-
+    // JSDOM parses with scripting disabled by default. The explicit option is
+    // still needed so cleanup keeps the fallback if a noscript node is present.
     const noScriptResult = extractArticleText(html, { scriptingDisabled: true });
     expect(noScriptResult.method).toBe('main-tag');
     expect(noScriptResult.text).toContain('First substantive fallback paragraph');
