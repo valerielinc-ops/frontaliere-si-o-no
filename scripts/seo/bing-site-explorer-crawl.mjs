@@ -23,6 +23,7 @@ import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import {
   BING_FRONTIER_CANONICAL_DRIFT,
   BING_FRONTIER_CANONICAL_EXPECTED,
@@ -62,6 +63,22 @@ export const REFERRER_REF_LIMIT = 3;
 export const TITLE_MAX_CHARS = 66;
 export const META_DESCRIPTION_MIN_CHARS = 120;
 const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
+const WEEKLY_EMPLOYERS_CITIES = new Set([
+  'ticino',
+  'lugano',
+  'mendrisio',
+  'chiasso',
+  'stabio',
+  'bellinzona',
+  'locarno',
+]);
+const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = Object.freeze([
+  { localePrefix: '', section: 'aziende-che-assumono', archivePrefix: 'settimana' },
+  { localePrefix: 'en', section: 'companies-hiring', archivePrefix: 'week' },
+  { localePrefix: 'de', section: 'unternehmen-einstellen', archivePrefix: 'woche' },
+  { localePrefix: 'fr', section: 'entreprises-recrutent', archivePrefix: 'semaine' },
+]);
+const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
 
 function pathnameAndOrigin(value) {
   try {
@@ -150,6 +167,34 @@ function isDeclaredCompanyCantonBridge({ url, canonical, html }) {
   const segments = pathname.split('/').filter(Boolean);
   const localeOffset = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
   return segments.length === localeOffset + 2;
+}
+
+/**
+ * Recognise the intentional noindex window for historical weekly-employers
+ * city hubs. The marker alone is insufficient: the crawler also proves the
+ * exact localized route, valid ISO-week slug and self-canonical response so a
+ * copied marker or a nearby company/archive route remains actionable.
+ */
+function isDeclaredWeeklyEmployersArchive({ url, canonical, html }) {
+  if (!String(html || '').includes(WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER)) return false;
+  if (!canonical || normalizeUrl(canonical) !== normalizeUrl(url)) return false;
+
+  const source = pathnameAndOrigin(url);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+
+  const segments = source.pathname.split('/').filter(Boolean);
+  const localePrefix = ['en', 'de', 'fr'].includes(segments[0]) ? segments[0] : '';
+  const route = WEEKLY_EMPLOYERS_ARCHIVE_ROUTES.find((candidate) => candidate.localePrefix === localePrefix);
+  if (!route) return false;
+
+  const sectionIndex = localePrefix ? 1 : 0;
+  if (segments.length !== sectionIndex + 3) return false;
+  if (segments[sectionIndex] !== route.section) return false;
+  if (!WEEKLY_EMPLOYERS_CITIES.has(segments[sectionIndex + 1])) return false;
+
+  const archiveSlug = segments[sectionIndex + 2];
+  if (!archiveSlug.startsWith(`${route.archivePrefix}-`)) return false;
+  return WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE.test(archiveSlug.slice(route.archivePrefix.length + 1));
 }
 
 export function scopeForManifest(manifest) {
@@ -739,7 +784,16 @@ export function classifyDocument({
     && isDeclaredCompanyCantonBridge({ url: finalUrl || url, canonical, html })
     ? 'company-canton-bridge'
     : null;
-  const canonicalExemption = exemption || searchBridgeExemption || companyCantonBridgeExemption;
+  const weeklyEmployersArchiveExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredWeeklyEmployersArchive({ url: finalUrl || url, canonical, html })
+    ? 'weekly-employers-archive'
+    : null;
+  const canonicalExemption = exemption
+    || searchBridgeExemption
+    || companyCantonBridgeExemption
+    || weeklyEmployersArchiveExemption;
   if (noindex) {
     const isDeclaredBridge = isFrontier && followableNoindex && canonicalExemption;
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
