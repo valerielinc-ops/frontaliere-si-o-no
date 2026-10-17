@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-10-17T09:26:09.392Z",
+  "generatedAt": "2026-10-17T21:27:06.089Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7293,
-  "avgDurationMs": 7293,
+  "durationMs": 7609,
+  "avgDurationMs": 7609,
   "durationHistory": [
-    7293
+    7609
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-17T09:25:44.888Z",
+      "crawledAt": "2026-10-17T21:26:45.954Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-17T09:25:44.886Z",
+      "crawledAt": "2026-10-17T21:26:45.959Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-17T09:25:44.884Z",
+      "crawledAt": "2026-10-17T21:26:45.958Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -153,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "dcfab2b93e82086a3f8ea7481ce0d1a80f2fba69"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }
