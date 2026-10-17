@@ -22,6 +22,7 @@ import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import {
@@ -70,6 +71,7 @@ const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
 const WEEKLY_EMPLOYERS_CITY_SET = new Set(WEEKLY_EMPLOYERS_CITIES);
 const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
 const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
+const JOB_BOARD_DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 
 function pathnameAndOrigin(value) {
   try {
@@ -186,6 +188,31 @@ function isDeclaredWeeklyEmployersArchive({ url, canonical, html }) {
   const archiveSlug = segments[sectionIndex + 2];
   if (!archiveSlug.startsWith(`${route.archivePrefix}-`)) return false;
   return WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE.test(archiveSlug.slice(route.archivePrefix.length + 1));
+}
+
+/**
+ * Match only a single job-detail/bridge segment below a job-board section.
+ * Section roots, search landings and nested routes are intentionally outside
+ * this contract; the emitter marker is required separately below.
+ */
+export function isJobBoardDetailPath(value) {
+  const source = pathnameAndOrigin(value);
+  if (!source || source.origin !== new URL(DEFAULT_BASE_URL).origin) return false;
+  const section = getJobBoardSectionPrefix(source.pathname);
+  if (!section) return false;
+  const suffix = source.pathname.slice(section.length).split('/').filter(Boolean);
+  return suffix.length === 1 && JOB_BOARD_DETAIL_SLUG_RE.test(suffix[0]);
+}
+
+/**
+ * Recognise the explicit noindex contract emitted by jobsSeoPagesPlugin for
+ * an active job detail, an expired job detail, or one of their bridges.
+ * Route shape and marker are both required: a generic noindex page or a
+ * nearby job-board route remains an actionable frontier finding.
+ */
+export function isDeclaredJobBoardTarget({ url, html }) {
+  return String(html || '').includes(JOB_BOARD_NOINDEX_TARGET_MARKER)
+    && isJobBoardDetailPath(url);
 }
 
 export function scopeForManifest(manifest) {
@@ -775,6 +802,12 @@ export function classifyDocument({
     && isDeclaredCompanyCantonBridge({ url: finalUrl || url, canonical, html })
     ? 'company-canton-bridge'
     : null;
+  const declaredJobBoardTarget = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredJobBoardTarget({ url: finalUrl || url, html })
+    ? 'job-board-target'
+    : null;
   const weeklyEmployersArchiveExemption = isFrontier
     && noindex
     && followableNoindex
@@ -786,10 +819,12 @@ export function classifyDocument({
     || companyCantonBridgeExemption
     || weeklyEmployersArchiveExemption;
   if (noindex) {
-    const isDeclaredBridge = isFrontier && followableNoindex && canonicalExemption;
+    const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredJobBoardTarget);
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
-      ? `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
+      ? declaredJobBoardTarget && !canonicalExemption
+        ? `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
+        : `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
       : isFrontier
         ? 'La pagina raggiunta da un link interno dichiara noindex senza un bridge canonical riconosciuto.'
         : 'La pagina pubblicata in sitemap dichiara noindex.';
