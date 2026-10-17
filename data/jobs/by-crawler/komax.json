@@ -6,7 +6,7 @@
       "id": "komax-dba70561829b",
       "slug": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
       "slugByLocale": {
-        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
+        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
         "en": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
         "de": "development-engineer-electronics-with-emv-lead-komax-ch",
         "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon"
@@ -57,18 +57,13 @@
       "previousSlugsByLocale": {
         "it": [
           "development-engineer-electronics-with-emv-lead-komax-ch",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
         ]
       },
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -83,7 +78,10 @@
         }
       },
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2425,
+      "needsRetranslation": true
     },
     {
       "id": "komax-3a29c65992eb",
@@ -682,7 +680,7 @@
       "id": "komax-d077cefe54e4",
       "slug": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
       "slugByLocale": {
-        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
+        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
         "en": "development-engineer-electronics-with-emv-lead-komax-ch",
         "de": "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm",
         "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon"
@@ -731,25 +729,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
         "development-engineer-electronics-with-emv-lead-komax-ch",
         "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51",
           "development-engineer-electronics-with-emv-lead-komax-ch",
           "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i11j51"
         ],
         "de": [
           "development-engineer-electronics-with-emv-lead-komax-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -765,7 +758,10 @@
         }
       },
       "crawlerMissStreak": 2,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2425,
+      "needsRetranslation": true
     }
   ]
 }
