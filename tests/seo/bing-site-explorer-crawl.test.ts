@@ -31,6 +31,7 @@ import {
 import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-template-inventory.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -240,6 +241,35 @@ describe('Bing-compatible full-tree crawler', () => {
 
       const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(url) });
       expect(sitemap.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+    }
+  });
+
+  it('recognizes only exact marked historical weekly-employers archives', () => {
+    const url = `${BASE}/en/companies-hiring/lugano/week-16-2025/`;
+    const archiveHtml = `${WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER}<title>Companies hiring in Lugano</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l’archivio weekly-employers nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const frontier = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: archiveHtml });
+    const frontierCodes = frontier.findings.map((item) => item.code);
+    expect(frontierCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(frontierCodes).not.toContain(BING_FRONTIER_NOINDEX);
+
+    const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: archiveHtml });
+    expect(sitemap.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+
+    const invalidCases = [
+      { url: `${BASE}/en/companies-hiring/lugano/current-week/`, canonical: `${BASE}/en/companies-hiring/lugano/current-week/` },
+      { url: `${BASE}/en/companies-hiring/lugano/week-16-2025/details/`, canonical: `${BASE}/en/companies-hiring/lugano/week-16-2025/details/` },
+      { url: `${BASE}/en/companies-hiring/lugano/settimana-16-2025/`, canonical: `${BASE}/en/companies-hiring/lugano/settimana-16-2025/` },
+      { url, canonical: `${BASE}/en/companies-hiring/` },
+    ];
+    for (const item of invalidCases) {
+      const codes = classifyDocument({
+        url: item.url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: `${WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER}<title>Archive</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${item.canonical}">`,
+      }).findings.map((finding) => finding.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
     }
   });
 

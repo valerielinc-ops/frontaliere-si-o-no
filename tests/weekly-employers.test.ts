@@ -638,6 +638,7 @@ describe('renderWeeklyEmployersPage', () => {
       indexable: false,
     });
     expect(html).toContain('noindex,follow');
+    expect(html).toContain('WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX');
   });
 
   it('does NOT contain any dark: tailwind prefixes', () => {
