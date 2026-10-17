@@ -142,7 +142,8 @@ function extractRichTextBlock(html = '') {
   const startMatch = String(html || '').match(/class\s*=\s*(["'])[^"']*\b(?:text-rich-text[^"']*\bw-richtext|w-richtext[^"']*\btext-rich-text)[^"']*\1[^>]*>/i);
   if (!startMatch) return '';
   const contentStart = startMatch.index + startMatch[0].length;
-  const endIdx = String(html).indexOf('job_details_content-right', contentStart);
+  const endMatch = String(html).slice(contentStart).match(/<[^>]*\bjob_details_content-right\b[^>]*>/i);
+  const endIdx = endMatch ? contentStart + endMatch.index : -1;
   return String(html).slice(contentStart, endIdx === -1 ? undefined : endIdx);
 }
 

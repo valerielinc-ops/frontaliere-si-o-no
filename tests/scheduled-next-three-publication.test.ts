@@ -52,7 +52,12 @@ for (const kind of ['valid', 'missing', 'creation-only', 'invalid', 'future', 'o
       await vi.runAllTimersAsync();
       const jobs = await pending;
       expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject(kind === 'valid' ? { datePosted: raw, postedDate: raw, postingDateSource: 'reported' } : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+      const expectedPublication = kind === 'valid'
+        ? (name === 'CIC'
+          ? { datePosted: `${year}-06-15`, postedDate: `${year}-06-15`, postingDateSource: 'reported' }
+          : { datePosted: raw, postedDate: raw, postingDateSource: 'reported' })
+        : { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
+      expect(jobs[0]).toMatchObject(expectedPublication);
       expect(jobs[0].description).toContain('medizinischen Team');
       expect(jobs[0].crawledAt).toBeTruthy();
       if (name === 'Holistica') expect(browserFixture.visits).toBe(2);

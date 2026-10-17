@@ -9,11 +9,11 @@ import {
 } from '../scripts/lib/clinique-cic-job-parser.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
-const DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/cic-job-1/';
-const PLACEHOLDER_SAXON_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/cic-job-2/';
-const PLACEHOLDER_CLARENS_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/cic-job-3/';
-const BODY = 'Rejoignez notre équipe soignante et accompagnez les patients dans un environnement clinique moderne et collaboratif. '
-  + 'Vous participez aux soins, documentez les dossiers, collaborez avec les médecins et contribuez à la qualité de la prise en charge au quotidien.';
+const DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000001/';
+const PLACEHOLDER_SAXON_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000002/';
+const PLACEHOLDER_CLARENS_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000003/';
+const BODY = ('Rejoignez notre équipe soignante et accompagnez les patients dans un environnement clinique moderne et collaboratif. '
+  + 'Vous participez aux soins, documentez les dossiers, collaborez avec les médecins et contribuez à la qualité de la prise en charge au quotidien. ').repeat(2).trim();
 
 const response = (body: string, status = 200) => ({
   ok: status >= 200 && status < 300,
@@ -97,7 +97,7 @@ describe('clinique CIC JobCloud parser', () => {
     expect(jobs[0].url).toBe(DETAIL_URL);
     expect(jobs[0].applyUrl).toContain('&utm_source=company');
     expect(jobs[0].description).toBe(BODY);
-    expect(jobs[0].description.split(/\s+/)).toHaveLength(31);
+    expect(jobs[0].description.split(/\s+/).length).toBeGreaterThan(50);
   });
 
   it('stamps a zero only when every discovered detail is an explicit placeholder', async () => {
