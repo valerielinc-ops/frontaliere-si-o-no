@@ -27,6 +27,7 @@ import {
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './source-locale-slots.mjs';
 import { fetchHtml } from './crawler-template.mjs';
 import { extractDetailFields, renderedVacancySourceLength } from './prospector/extract.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
 
@@ -209,35 +210,29 @@ export function parsePemsaDetailHtml(html, url = '') {
   try {
     const rendered = extractDetailFields(html, url, { recordUrl: url });
 
-    const ldBlocks = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
-    for (const block of ldBlocks) {
-      const jsonStr = block.replace(/<script[^>]*>/, '').replace(/<\/script>/, '');
-      try {
-        const data = JSON.parse(jsonStr);
-        if (data?.['@type'] === 'JobPosting') {
-          const loc = data.jobLocation?.address || {};
-          const rawDesc = data.description || '';
-          const parsed = parseDescriptionToMarkdown(rawDesc);
-          const description = String(rendered.description || parsed.text || '').trim();
-          return {
-            title: normalizeSpace(data.title || ''),
-            description,
-            descriptionSectionCount: Math.max(
-              parsed.sectionCount,
-              countRenderedDescriptionSections(description),
-            ),
-            descriptionSourceLength: renderedVacancySourceLength(html, data.title || ''),
-            datePosted: normalizeSpace(data.datePosted || ''),
-            validThrough: normalizeSpace(data.validThrough || ''),
-            employmentType: normalizeSpace(data.employmentType || ''),
-            city: normalizeSpace(loc.addressLocality || ''),
-            region: normalizeSpace(loc.addressRegion || ''),
-            postalCode: normalizeSpace(loc.postalCode || ''),
-            country: normalizeSpace(loc.addressCountry || ''),
-            company: normalizeSpace(data.hiringOrganization?.name || 'PEMSA'),
-          };
-        }
-      } catch { /* skip invalid JSON-LD */ }
+    const data = extractJobPostingNodes(html)[0] || null;
+    if (data) {
+      const loc = data.jobLocation?.address || {};
+      const rawDesc = data.description || '';
+      const parsed = parseDescriptionToMarkdown(rawDesc);
+      const description = String(rendered.description || parsed.text || '').trim();
+      return {
+        title: normalizeSpace(data.title || ''),
+        description,
+        descriptionSectionCount: Math.max(
+          parsed.sectionCount,
+          countRenderedDescriptionSections(description),
+        ),
+        descriptionSourceLength: renderedVacancySourceLength(html, data.title || ''),
+        datePosted: normalizeSpace(data.datePosted || ''),
+        validThrough: normalizeSpace(data.validThrough || ''),
+        employmentType: normalizeSpace(data.employmentType || ''),
+        city: normalizeSpace(loc.addressLocality || ''),
+        region: normalizeSpace(loc.addressRegion || ''),
+        postalCode: normalizeSpace(loc.postalCode || ''),
+        country: normalizeSpace(loc.addressCountry || ''),
+        company: normalizeSpace(data.hiringOrganization?.name || 'PEMSA'),
+      };
     }
     return null;
   } catch {

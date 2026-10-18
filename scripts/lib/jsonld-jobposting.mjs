@@ -21,10 +21,20 @@ export function extractJobPostingsLd(html) {
     } catch {
       continue;
     }
-    const items = Array.isArray(data) ? data : (Array.isArray(data?.['@graph']) ? data['@graph'] : [data]);
-    for (const it of items) {
-      const t = it?.['@type'];
-      if (t === 'JobPosting' || (Array.isArray(t) && t.includes('JobPosting'))) postings.push(it);
+    const queue = Array.isArray(data) ? [...data] : [data];
+    while (queue.length) {
+      const it = queue.shift();
+      if (Array.isArray(it)) {
+        queue.push(...it);
+        continue;
+      }
+      if (!it || typeof it !== 'object') continue;
+      if (Array.isArray(it['@graph'])) queue.push(...it['@graph']);
+      const t = it['@type'];
+      const isJobPosting = Array.isArray(t)
+        ? t.some((item) => String(item).includes('JobPosting'))
+        : String(t || '').includes('JobPosting');
+      if (isJobPosting) postings.push(it);
     }
   }
   return postings;

@@ -31,6 +31,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
@@ -216,16 +217,11 @@ export function createOstendisPublicationParser(config) {
       let postedAt = null;
       for (const raw of jsonLdRaw) {
         try {
-          const parsed = JSON.parse(raw);
-          const arr = Array.isArray(parsed) ? parsed : [parsed];
-          for (const node of arr) {
-            if (!node || typeof node !== 'object') continue;
-            const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
-            if (types.includes('JobPosting')) {
-              title = title || String(node.title || '').trim();
-              descriptionHtml = descriptionHtml || String(node.description || '');
-              postedAt = postedAt || node.datePosted || null;
-            }
+          const postings = extractJobPostingNodesFromJson(JSON.parse(raw));
+          for (const node of postings) {
+            title = title || String(node.title || '').trim();
+            descriptionHtml = descriptionHtml || String(node.description || '');
+            postedAt = postedAt || node.datePosted || null;
           }
         } catch {
           /* malformed JSON-LD — ignore */

@@ -23,6 +23,7 @@ import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { crawledAtFromObservation } from './source-crawl-observation.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Text helpers ──────────────────────────────────────────── */
 
@@ -308,17 +309,7 @@ function portalBlockText(blockHtml = '') {
 }
 
 function portalJsonLdPosting(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    try {
-      const parsed = JSON.parse(m[1]);
-      const nodes = Array.isArray(parsed) ? parsed : [parsed];
-      const posting = nodes.find((node) => node && node['@type'] === 'JobPosting');
-      if (posting) return posting;
-    } catch { /* malformed block: ignore */ }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
