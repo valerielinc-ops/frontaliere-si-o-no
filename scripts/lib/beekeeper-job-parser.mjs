@@ -28,7 +28,9 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
+import { extractJobPostingAddress } from './jobposting-jsonld.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -171,6 +173,47 @@ function pickSwissAddress(jobPosting = {}) {
   };
 }
 
+/**
+ * Prefer the canonical detail-page address when it is present. Teamtailor's
+ * feed has emitted stale multi-location arrays, so a Swiss feed tag is not
+ * sufficient evidence that the public detail page is a Swiss vacancy.
+ *
+ * A missing detail address is treated as a transient/unsupported extraction
+ * and keeps the feed evidence; an explicit, unresolvable detail address is
+ * authoritative negative evidence and must not be replaced by the Zürich HQ.
+ */
+export function resolveBeekeeperSourceAddress(jobPosting = {}, detailAddress = null) {
+  const feedAddress = pickSwissAddress(jobPosting);
+  if (!detailAddress) return { ...feedAddress, canton: HQ.canton };
+
+  const geography = resolveSourceBackedSwissGeography({
+    location: detailAddress.locality,
+    addressLocality: detailAddress.locality,
+    addressCountry: detailAddress.addressCountry,
+    postalCode: detailAddress.postalCode,
+    streetAddress: detailAddress.streetAddress,
+  });
+  if (!geography) return null;
+
+  return {
+    city: geography.location,
+    canton: geography.canton,
+    postalCode: geography.postalCode || detailAddress.postalCode || '',
+    streetAddress: geography.streetAddress || detailAddress.streetAddress || '',
+  };
+}
+
+async function fetchBeekeeperDetailAddress(url) {
+  if (!url || !/^https?:\/\//.test(url)) return null;
+  try {
+    const html = await fetchHtml(url, { timeoutMs: 15000 });
+    return extractJobPostingAddress(html || '');
+  } catch (error) {
+    console.warn(`  ⚠️ Beekeeper: detail fetch failed for ${url}: ${error.message}`);
+    return null;
+  }
+}
+
 export async function fetchAllBeekeeperJobs() {
   console.log(`🔍 Fetching ${BEEKEEPER_COMPANY_NAME} jobs`);
   console.log(`   Source: ${FEED_URL}\n`);
@@ -195,9 +238,14 @@ export async function fetchAllBeekeeperJobs() {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
-    const { city, postalCode, streetAddress } = pickSwissAddress(jobPosting);
+    const detailAddress = await fetchBeekeeperDetailAddress(publicUrl);
+    const sourceAddress = resolveBeekeeperSourceAddress(jobPosting, detailAddress);
+    if (!sourceAddress) {
+      console.warn(`  ⚠️ Beekeeper: detail page is not Swiss; skipping "${title}" (${publicUrl})`);
+      continue;
+    }
+    const { city, canton, postalCode, streetAddress } = sourceAddress;
     const location = city || HQ.city;
-    const canton = HQ.canton;
 
     const descriptionHtml = item.content_html || jobPosting.description || '';
     const descriptionText = stripHtml(descriptionHtml);

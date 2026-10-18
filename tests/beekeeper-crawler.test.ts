@@ -3,6 +3,7 @@ import {
   BEEKEEPER_KEY,
   BEEKEEPER_COMPANY_NAME,
   fetchAllBeekeeperJobs,
+  resolveBeekeeperSourceAddress,
   isBeekeeperJob,
   isTrustedDomain,
 } from '../scripts/lib/beekeeper-job-parser.mjs';
@@ -268,5 +269,32 @@ describe('Beekeeper Teamtailor feed freshness', () => {
     expect(jobs).toHaveLength(1);
     expect(jobs[0].location).toBe('Zürich');
     expect(evaluateAuthoritativeSnapshot(jobs).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('rejects a Swiss feed tag when the canonical detail is foreign', () => {
+    expect(resolveBeekeeperSourceAddress({
+      jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+    }, {
+      locality: 'Hamburg',
+      postalCode: '20095',
+      streetAddress: '',
+      addressCountry: 'DE',
+    })).toBeNull();
+  });
+
+  it('uses a Swiss canonical detail address when the feed is stale', () => {
+    expect(resolveBeekeeperSourceAddress({
+      jobLocation: [{ address: { addressLocality: 'Zürich', addressCountry: 'CH' } }],
+    }, {
+      locality: 'Zürich',
+      postalCode: '8048',
+      streetAddress: 'Herostrasse 12',
+      addressCountry: 'CH',
+    })).toMatchObject({
+      city: 'Zürich',
+      canton: 'ZH',
+      postalCode: '8048',
+      streetAddress: 'Herostrasse 12',
+    });
   });
 });
