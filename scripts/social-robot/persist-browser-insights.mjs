@@ -19,15 +19,13 @@ import {
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { pushMainWithGuard } from '../lib/main-push-guard.mjs';
 import { withSingleFlightLock } from '../lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from '../lib/stale-fetch-pack-sweep.mjs';
 
 const DATA_PATH = 'data/instagram-insights.json';
 const GIT_TIMEOUT_MS = 120_000;
-const MAIN_PUSH_GUARD_SCRIPT = fileURLToPath(new URL('../lib/main-push-guard.mjs', import.meta.url));
-
 function nextValue(argv, index, option) {
   const value = argv[index + 1];
   if (!value || value.startsWith('--')) throw new Error(`${option} needs a value`);
@@ -128,28 +126,35 @@ function mainPushGuardError(error) {
   return wrapped;
 }
 
-function assertMainPushSafe(repo, baseSha, worktree, gitFn) {
+function pushMainCandidate(baseSha, worktree, gitFn) {
   // Tests inject a Git seam that has no real repository. Production always
-  // uses the concrete Git function and therefore always runs the shared CLI.
-  if (gitFn !== git) return;
-  try {
-    execFileSync(process.execPath, [
-      MAIN_PUSH_GUARD_SCRIPT,
-      '--repo', worktree,
-      '--base', baseSha,
-      '--candidate', 'HEAD',
-      '--branch', 'main',
-      '--check-only',
+  // uses the concrete Git function and therefore always runs the shared guard.
+  if (gitFn !== git) {
+    gitFn(worktree, [
+      'push',
+      `--force-with-lease=refs/heads/main:${baseSha}`,
+      'origin',
+      'HEAD:main',
     ], {
-      cwd: worktree,
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
-      timeout: GIT_TIMEOUT_MS,
-      killSignal: 'SIGTERM',
-      env: { ...process.env, GIT_TERMINAL_PROMPT: '0', GIT_NO_LAZY_FETCH: '1' },
+      env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
+    });
+    return;
+  }
+  try {
+    pushMainWithGuard({
+      repo: worktree,
+      base: baseSha,
+      candidate: 'HEAD',
+      branch: 'main',
+      timeoutSeconds: GIT_TIMEOUT_MS / 1000,
+      env: { ...process.env, FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
     });
   } catch (error) {
-    throw mainPushGuardError(error);
+    const detail = safeError(error);
+    if (/candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry/iu.test(detail)) {
+      throw mainPushGuardError(error);
+    }
+    throw error;
   }
 }
 
@@ -239,9 +244,7 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
       if (gitFn === git) {
         try {
           baseSha = gitOutput(repo, ['rev-parse', '--verify', 'refs/remotes/origin/main^{commit}']);
-          assertMainPushSafe(repo, baseSha, result.worktree, gitFn);
         } catch (error) {
-          if (error?.code === 'MAIN_PUSH_GUARD') throw error;
           throw mainPushGuardError(error);
         }
       } else {
@@ -250,14 +253,7 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
         baseSha = String(gitFn(repo, ['rev-parse', '--verify', 'refs/remotes/origin/main^{commit}']) || '').trim();
       }
       try {
-        gitFn(result.worktree, [
-          'push',
-          `--force-with-lease=refs/heads/main:${baseSha}`,
-          'origin',
-          'HEAD:main',
-        ], {
-          env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
-        });
+        pushMainCandidate(baseSha, result.worktree, gitFn);
         cleanupWorktree(repo, result.worktree, gitFn);
         return { status: 'pushed', attempt };
       } catch (error) {

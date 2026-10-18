@@ -11,6 +11,7 @@
  * by a stale local ref.
  */
 import { execFileSync, spawnSync } from 'node:child_process';
+import { performance } from 'node:perf_hooks';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
 
 export const DEFAULT_MIN_TREE_RATIO = 0.5;
@@ -72,45 +73,84 @@ export function parseArgs(argv = []) {
   return options;
 }
 
-function git(repo, args, { timeout = 120_000, stdio = ['ignore', 'pipe', 'pipe'] } = {}) {
-  return execFileSync('git', ['-C', repo, ...args], {
-    encoding: 'utf8',
-    // A production checkout contains tens of thousands of paths. Keep the
-    // complete tree enumeration bounded without letting Node's 1 MiB default
-    // turn a valid candidate into an infrastructure failure.
-    maxBuffer: 64 * 1024 * 1024,
-    timeout,
-    killSignal: 'SIGTERM',
-    stdio,
-    env: { ...process.env, GIT_TERMINAL_PROMPT: '0', GIT_NO_LAZY_FETCH: '1' },
-  });
+class MainPushDeadlineError extends Error {}
+
+function operationDeadline(timeoutSeconds) {
+  return performance.now() + (timeoutSeconds * 1000);
 }
 
-function gitRef(repo, ref) {
+function remainingTimeout(deadline, operation) {
+  const remaining = Math.floor(deadline - performance.now());
+  if (remaining <= 0) throw new MainPushDeadlineError(`main push deadline exceeded before ${operation}`);
+  return remaining;
+}
+
+function git(repo, args, {
+  deadline,
+  operation = `git ${args[0]}`,
+  stdio = ['ignore', 'pipe', 'pipe'],
+  env = process.env,
+} = {}) {
   try {
-    return git(repo, ['rev-parse', '--verify', `${ref}^{commit}`]).trim();
-  } catch {
+    return execFileSync('git', ['-C', repo, ...args], {
+      encoding: 'utf8',
+      // A production checkout contains tens of thousands of paths. Keep the
+      // complete tree enumeration bounded without letting Node's 1 MiB default
+      // turn a valid candidate into an infrastructure failure.
+      maxBuffer: 64 * 1024 * 1024,
+      timeout: remainingTimeout(deadline, operation),
+      killSignal: 'SIGTERM',
+      stdio,
+      env: { ...env, GIT_TERMINAL_PROMPT: '0', GIT_NO_LAZY_FETCH: '1' },
+    });
+  } catch (error) {
+    if (error instanceof MainPushDeadlineError
+      || error?.code === 'ETIMEDOUT'
+      || error?.signal === 'SIGTERM') {
+      throw new MainPushDeadlineError(`main push deadline exceeded during ${operation}`);
+    }
+    throw error;
+  }
+}
+
+function gitRef(repo, ref, deadline) {
+  try {
+    return git(repo, ['rev-parse', '--verify', `${ref}^{commit}`], {
+      deadline,
+      operation: `resolving ${ref}`,
+    }).trim();
+  } catch (error) {
+    if (error instanceof MainPushDeadlineError) throw error;
     throw new Error(`cannot resolve commit ref '${ref}' in ${repo}`);
   }
 }
 
-function treeEntryCount(repo, ref) {
+function treeEntryCount(repo, ref, deadline) {
   let output;
   try {
-    output = git(repo, ['ls-tree', '-r', '-z', '--full-tree', '--name-only', ref]);
-  } catch {
+    output = git(repo, ['ls-tree', '-r', '-z', '--full-tree', '--name-only', ref], {
+      deadline,
+      operation: `inspecting tree ${ref}`,
+    });
+  } catch (error) {
+    if (error instanceof MainPushDeadlineError) throw error;
     throw new Error(`cannot inspect tree '${ref}' in ${repo}`);
   }
   if (!output.trim()) return 0;
   return output.split('\0').filter(Boolean).length;
 }
 
-function isAncestor(repo, baseSha, candidateSha) {
+function isAncestor(repo, baseSha, candidateSha, deadline) {
   const result = spawnSync('git', ['-C', repo, 'merge-base', '--is-ancestor', baseSha, candidateSha], {
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: remainingTimeout(deadline, 'proving ancestry'),
+    killSignal: 'SIGTERM',
     env: { ...process.env, GIT_TERMINAL_PROMPT: '0', GIT_NO_LAZY_FETCH: '1' },
   });
+  if (result.error?.code === 'ETIMEDOUT' || result.signal === 'SIGTERM') {
+    throw new MainPushDeadlineError('main push deadline exceeded during ancestry proof');
+  }
   if (result.status === 0) return true;
   if (result.status === 1) return false;
   throw new Error(`cannot prove ancestry ${baseSha} -> ${candidateSha}: ${(result.stderr || '').trim() || 'git error'}`);
@@ -126,20 +166,26 @@ export function inspectMainPushCandidate({
   base,
   candidate = 'HEAD',
   minTreeRatio = DEFAULT_MIN_TREE_RATIO,
+  timeoutSeconds = DEFAULT_PUSH_TIMEOUT_SECONDS,
+  deadline,
 } = {}) {
   if (!repo || !base || !candidate) throw new Error('repo, base and candidate are required');
   if (!Number.isFinite(minTreeRatio) || minTreeRatio <= 0 || minTreeRatio > 1) {
     throw new Error(`minTreeRatio must be > 0 and <= 1, got ${minTreeRatio}`);
   }
+  if (!Number.isSafeInteger(timeoutSeconds) || timeoutSeconds <= 0) {
+    throw new Error(`timeoutSeconds must be a positive integer, got ${timeoutSeconds}`);
+  }
+  const sharedDeadline = deadline ?? operationDeadline(timeoutSeconds);
 
-  const baseSha = gitRef(repo, base);
-  const candidateSha = gitRef(repo, candidate);
-  if (!isAncestor(repo, baseSha, candidateSha)) {
+  const baseSha = gitRef(repo, base, sharedDeadline);
+  const candidateSha = gitRef(repo, candidate, sharedDeadline);
+  if (!isAncestor(repo, baseSha, candidateSha, sharedDeadline)) {
     throw new Error(`candidate ${candidateSha} is not a descendant of base ${baseSha}; refusing a non-fast-forward main write`);
   }
 
-  const baseEntries = treeEntryCount(repo, baseSha);
-  const candidateEntries = treeEntryCount(repo, candidateSha);
+  const baseEntries = treeEntryCount(repo, baseSha, sharedDeadline);
+  const candidateEntries = treeEntryCount(repo, candidateSha, sharedDeadline);
   const minimumEntries = Math.max(1, Math.ceil(baseEntries * minTreeRatio));
   if (candidateEntries < minimumEntries) {
     throw new Error(
@@ -164,13 +210,22 @@ export function pushMainWithGuard({
   branch = 'main',
   minTreeRatio = DEFAULT_MIN_TREE_RATIO,
   timeoutSeconds = DEFAULT_PUSH_TIMEOUT_SECONDS,
+  env = process.env,
 } = {}) {
   if (branch !== 'main') throw new Error(`main-push-guard only accepts branch main, got ${branch}`);
   if (!Number.isSafeInteger(timeoutSeconds) || timeoutSeconds <= 0) {
     throw new Error(`timeoutSeconds must be a positive integer, got ${timeoutSeconds}`);
   }
 
-  const inspection = inspectMainPushCandidate({ repo, base, candidate, minTreeRatio });
+  const deadline = operationDeadline(timeoutSeconds);
+  const inspection = inspectMainPushCandidate({
+    repo,
+    base,
+    candidate,
+    minTreeRatio,
+    timeoutSeconds,
+    deadline,
+  });
   const lease = `refs/heads/${branch}:${inspection.baseSha}`;
   const refspec = `${candidate}:refs/heads/${branch}`;
   try {
@@ -180,7 +235,7 @@ export function pushMainWithGuard({
       'push', '--no-thin', '--no-verify',
       `--force-with-lease=${lease}`,
       remote, refspec,
-    ], { timeout: timeoutSeconds * 1000 });
+    ], { deadline, operation: 'git push', env });
     return { ...inspection, output: output.trim() };
   } catch (error) {
     const detail = [error?.stdout, error?.stderr, error?.message]

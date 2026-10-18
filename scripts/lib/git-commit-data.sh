@@ -91,13 +91,28 @@ run_bounded() {
 }
 
 main_push_guard_check() {
-  local base_sha="$1" candidate_sha="$2"
+  local base_sha="$1" candidate_sha="$2" timeout_seconds="$3"
   node "$MAIN_PUSH_GUARD_SCRIPT" \
     --repo "$PWD" \
     --base "$base_sha" \
     --candidate "$candidate_sha" \
     --branch main \
+    --timeout-seconds "$timeout_seconds" \
     --check-only
+}
+
+guarded_push_deadline() {
+  printf '%s\n' "$(( $(date +%s) + GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS ))"
+}
+
+guarded_push_remaining_seconds() {
+  local deadline="$1"
+  local remaining=$(( deadline - $(date +%s) ))
+  if [ "$remaining" -le 0 ]; then
+    echo "❌ main push guard: end-to-end deadline expired before the guarded push" >&2
+    return 1
+  fi
+  printf '%s\n' "$remaining"
 }
 
 # Register the seo-404 compat-shard merge driver (.gitattributes
@@ -2458,6 +2473,7 @@ commit_isolated_from_worktree() {
   local -a effective_files
   local skipped_identical
   local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
+  local guarded_deadline guard_timeout push_timeout
   local phase_started file_phase_started ownership_changed_count
 
   base_sha="$(git rev-parse HEAD)"
@@ -3058,21 +3074,25 @@ commit_isolated_from_worktree() {
       return 1
     fi
 
-    if ! main_push_guard_check "$remote_sha" "$new_commit"; then
+    guarded_deadline="$(guarded_push_deadline)"
+    guard_timeout="$(guarded_push_remaining_seconds "$guarded_deadline")" || return 1
+    if ! main_push_guard_check "$remote_sha" "$new_commit" "$guard_timeout"; then
       emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
       echo "❌ Main push guard rejected grouped-isolated commit ${new_commit}; refusing to publish a collapsed tree"
       return 1
     fi
-    ensure_git_auth
     # `push` is the network round trip alone: building the commit object and
-    # refreshing the credentials are charged to their own phase.
+    # refreshing the credentials are charged to their own phase. The timeout
+    # still uses the budget left by the ancestry/tree checks above.
     isolated_phase_add commit "$phase_started"
     isolated_mark phase_started
     # Capture the push output (echoed below either way, so the step log stays
     # complete) so exhaustion can be classified on the LAST attempt: only a
     # genuine rejection/race may become exit 42.
     push_out=""
-    if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
+    ensure_git_auth
+    push_timeout="$(guarded_push_remaining_seconds "$guarded_deadline")" || return 1
+    if push_out="$(run_bounded "$push_timeout" \
       "git push --no-thin origin <commit>:refs/heads/main" \
       git -c pack.window=0 -c pack.threads=1 push --no-thin \
         "--force-with-lease=refs/heads/main:${remote_sha}" \
@@ -3375,21 +3395,24 @@ fi
 
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))
+GUARDED_PUSH_DEADLINE="$(guarded_push_deadline)"
 PUSH_BASE_SHA=""
 if ! PUSH_BASE_SHA="$(git rev-parse --verify refs/remotes/origin/main^{commit})"; then
   echo "❌ main push guard: cannot resolve refs/remotes/origin/main for the push lease"
   exit 1
 fi
-if ! main_push_guard_check "$PUSH_BASE_SHA" HEAD; then
+GUARD_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
+if ! main_push_guard_check "$PUSH_BASE_SHA" HEAD "$GUARD_TIMEOUT"; then
   echo "❌ Main push guard rejected the candidate; refusing to publish a collapsed tree"
   exit 1
 fi
-ensure_git_auth
 # Capture the push output (echoed below either way, so the step log stays
 # complete) so exhaustion can be classified on the LAST attempt: only a
 # genuine rejection/race may become exit 42.
 push_out=""
-if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
+ensure_git_auth
+PUSH_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
+if push_out="$(run_bounded "$PUSH_TIMEOUT" \
   "git push --no-thin origin main" \
   git -c pack.window=0 -c pack.threads=1 push --no-thin \
     "--force-with-lease=refs/heads/main:${PUSH_BASE_SHA}" \

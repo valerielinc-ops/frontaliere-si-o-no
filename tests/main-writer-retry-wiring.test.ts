@@ -40,13 +40,37 @@ describe('main data writers use the shared retry contract', () => {
     const corpusMirror = read('.github/workflows/mirror-articles-corpus.yml');
 
     expect(retryWriter).toContain('main-push-guard.mjs');
-    expect(retryWriter).toContain('--force-with-lease=refs/heads/${BRANCH}:');
+    expect(retryWriter).toContain('--timeout-seconds "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS"');
+    expect(retryWriter).toContain('--push');
+    expect(retryWriter).not.toContain('--check-only');
     expect(dataWriter).toContain('main_push_guard_check');
+    expect(dataWriter).toContain('guarded_push_remaining_seconds');
+    expect(dataWriter).toContain('run_bounded "$push_timeout"');
+    expect(dataWriter).toContain('run_bounded "$PUSH_TIMEOUT"');
     expect(dataWriter).toContain('--force-with-lease=refs/heads/main:');
-    expect(browserWriter).toContain('main-push-guard.mjs');
-    expect(browserWriter).toContain('--force-with-lease=refs/heads/main:');
+    expect(browserWriter).toContain("import { pushMainWithGuard } from '../lib/main-push-guard.mjs'");
+    expect(browserWriter).not.toContain("'--check-only'");
     expect(corpusMirror).toContain('main-push-guard.mjs');
     expect(corpusMirror).toContain('--push');
+  });
+
+  it('bounds the mirror job, publication step, clone, fetch and retry loop', () => {
+    const document = YAML.parse(read('.github/workflows/mirror-articles-corpus.yml')) as {
+      jobs?: {
+        mirror?: {
+          'timeout-minutes'?: number;
+          steps?: Array<{ name?: string; run?: string; 'timeout-minutes'?: number }>;
+        };
+      };
+    };
+    const mirror = document.jobs?.mirror;
+    const pushStep = mirror?.steps?.find((step) => step.name === 'Push packages/articles to the articles repo');
+
+    expect(mirror?.['timeout-minutes']).toBe(15);
+    expect(pushStep?.['timeout-minutes']).toBe(12);
+    expect(pushStep?.run).toContain('run_bounded "clone articles mirror target"');
+    expect(pushStep?.run).toContain('run_bounded "fetch articles mirror base (attempt ${attempt}/3)"');
+    expect(pushStep?.run).toContain('for attempt in 1 2 3; do');
   });
 
   it('does not leave a bespoke main push in the audited writer workflows', () => {

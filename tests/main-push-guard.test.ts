@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -13,10 +13,11 @@ function git(cwd: string, args: string[]): string {
   return execFileSync('git', args, { cwd, encoding: 'utf8' });
 }
 
-function runGuard(repo: string, args: string[]) {
+function runGuard(repo: string, args: string[], env = process.env) {
   const result = spawnSync(process.execPath, [SCRIPT, '--repo', repo, ...args], {
     cwd: ROOT,
     encoding: 'utf8',
+    env,
   });
   return { ...result, output: `${result.stdout ?? ''}${result.stderr ?? ''}` };
 }
@@ -109,5 +110,39 @@ describe('main-push-guard.mjs', () => {
 
     expect(result.status).toBe(0);
     expect(git(scenario.origin, ['show', 'main:valid.txt'])).toBe('valid\n');
+  });
+
+  it('shares one deadline across inspection and the network push', () => {
+    const scenario = setupRepository();
+    writeFileSync(join(scenario.writer, 'deadline.txt'), 'deadline\n');
+    git(scenario.writer, ['add', 'deadline.txt']);
+    git(scenario.writer, ['commit', '-q', '-m', 'deadline candidate']);
+
+    const bin = mkdtempSync(join(tmpdir(), 'main-push-guard-bin-'));
+    roots.push(bin);
+    const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+    const wrapper = join(bin, 'git');
+    writeFileSync(wrapper, `#!/bin/sh
+for arg in "$@"; do
+  if [ "$arg" = "push" ]; then
+    sleep 2
+    exec "${realGit}" "$@"
+  fi
+done
+sleep 0.3
+exec "${realGit}" "$@"
+`);
+    chmodSync(wrapper, 0o755);
+
+    const result = runGuard(scenario.writer, [
+      '--base', scenario.base,
+      '--candidate', 'HEAD',
+      '--push',
+      '--timeout-seconds', '3',
+    ], { ...process.env, PATH: `${bin}:${process.env.PATH || ''}` });
+
+    expect(result.status).toBe(1);
+    expect(result.output).toContain('main push deadline exceeded during git push');
+    expect(git(scenario.writer, ['rev-parse', 'origin/main']).trim()).toBe(scenario.base);
   });
 });

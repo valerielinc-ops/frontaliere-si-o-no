@@ -382,9 +382,7 @@ PUSH_GUARD_FAILED=0
 push_head() {
   local status=0
   local lease_base_sha=""
-  local -a push_extra_args
   PUSH_GUARD_FAILED=0
-  push_extra_args=()
 
   if [ "$BRANCH" = "main" ]; then
     if ! lease_base_sha="$(git rev-parse --verify "refs/remotes/origin/${BRANCH}^{commit}")"; then
@@ -393,22 +391,27 @@ push_head() {
       cat -- "$PUSH_STDERR_FILE" >&2
       return 1
     fi
-    if ! node "$MAIN_PUSH_GUARD_SCRIPT" \
+    run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      "guarded git push --no-thin origin HEAD:${BRANCH}" \
+      node "$MAIN_PUSH_GUARD_SCRIPT" \
       --repo "$PWD" \
       --base "$lease_base_sha" \
       --candidate HEAD \
       --branch "$BRANCH" \
-      --check-only \
-      >/dev/null 2>"$PUSH_STDERR_FILE"; then
+      --timeout-seconds "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" \
+      --push \
+      2>"$PUSH_STDERR_FILE" || status=$?
+    if [ "$status" -ne 0 ] && grep -qiE \
+      'candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry' \
+      "$PUSH_STDERR_FILE"; then
       PUSH_GUARD_FAILED=1
-      cat -- "$PUSH_STDERR_FILE" >&2
-      return 1
     fi
-    push_extra_args=("--force-with-lease=refs/heads/${BRANCH}:${lease_base_sha}")
+    cat -- "$PUSH_STDERR_FILE" >&2
+    return "$status"
   fi
   run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
     git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify \
-    "${push_extra_args[@]}" origin "HEAD:${BRANCH}" 2>"$PUSH_STDERR_FILE" || status=$?
+    origin "HEAD:${BRANCH}" 2>"$PUSH_STDERR_FILE" || status=$?
   cat -- "$PUSH_STDERR_FILE" >&2
   return "$status"
 }

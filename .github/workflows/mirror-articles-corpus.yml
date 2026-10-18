@@ -83,8 +83,10 @@ permissions:
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
+        timeout-minutes: 5
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -113,8 +115,10 @@ jobs:
 
       - name: Push packages/articles to the articles repo
         if: inputs.dry_run != true && inputs.dry_run != 'true'
+        timeout-minutes: 12
         env:
           PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+          MIRROR_GIT_TIMEOUT_SECONDS: '120'
         run: |
           set -euo pipefail
           if [ -z "${PAT:-}" ]; then
@@ -123,8 +127,16 @@ jobs:
           fi
 
           site_root="${GITHUB_WORKSPACE:-$PWD}"
+          run_bounded() {
+            local label="$1"
+            shift
+            node "$site_root/scripts/lib/run-bounded-command.mjs" \
+              --timeout-seconds "$MIRROR_GIT_TIMEOUT_SECONDS" \
+              --label "$label" \
+              -- "$@"
+          }
           work=$(mktemp -d)
-          git clone --depth 1 \
+          run_bounded "clone articles mirror target" git clone --depth 1 \
             "https://x-access-token:${PAT}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
             "$work"
 
@@ -151,7 +163,8 @@ jobs:
           # then force-with-lease rejects a concurrent advancement instead of
           # letting a stale mirror replace the articles repo's main ref.
           for attempt in 1 2 3; do
-            git fetch --no-tags origin main
+            run_bounded "fetch articles mirror base (attempt ${attempt}/3)" \
+              git fetch --no-tags origin main
             git reset --hard -q origin/main
             for d in content engine; do
               rm -rf "${work:?}/$d"
