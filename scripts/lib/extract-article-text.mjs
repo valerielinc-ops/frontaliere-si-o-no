@@ -178,27 +178,11 @@ function removeNoiseNodes(root, { includeNoscript = false } = {}) {
 }
 
 function collectParagraphTexts(root, include = () => true, maxChars = Number.POSITIVE_INFINITY) {
-  const cap = normalizeTextCap(maxChars);
-  const paragraphs = [];
-  let usedChars = 0;
-
-  for (const node of root.querySelectorAll(PARAGRAPH_SELECTOR)) {
-    if (!include(node)) continue;
-    const text = cleanText(node.textContent || '');
-    if (!text || isJunk(text)) continue;
-
-    const separatorLength = paragraphs.length > 0 ? 2 : 0;
-    const remaining = cap - usedChars - separatorLength;
-    if (remaining <= 0) break;
-
-    const capped = capExtractedText(text, remaining);
-    if (!capped) break;
-    paragraphs.push(capped);
-    usedChars += separatorLength + capped.length;
-    if (capped.length < text.length) break;
-  }
-
-  return paragraphs;
+  return [...root.querySelectorAll(PARAGRAPH_SELECTOR)]
+    .filter(node => include(node))
+    .map(node => cleanText(node.textContent || ''))
+    .filter(text => text && !isJunk(text))
+    .map(text => capExtractedText(text, maxChars));
 }
 
 function normalizeNoscriptRoot(noscript) {
@@ -285,40 +269,26 @@ function extractNoscriptText(noscript, maxChars = Number.POSITIVE_INFINITY) {
 function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY) {
   if (!root) return [];
   const paragraphs = [];
-  const cap = normalizeTextCap(maxChars);
-  let usedChars = 0;
   const candidates = [...root.querySelectorAll(`${PARAGRAPH_SELECTOR}, noscript`)];
-
-  const appendParagraph = (text) => {
-    if (!text || paragraphs.at(-1) === text) return true;
-    const separatorLength = paragraphs.length > 0 ? 2 : 0;
-    const remaining = cap - usedChars - separatorLength;
-    if (remaining <= 0) return false;
-
-    const capped = capExtractedText(text, remaining);
-    if (!capped) return false;
-    if (paragraphs.at(-1) === capped) return true;
-
-    paragraphs.push(capped);
-    usedChars += separatorLength + capped.length;
-    return capped.length === text.length;
-  };
 
   for (const candidate of candidates) {
     if (candidate.tagName.toLowerCase() === 'noscript') {
       if (candidate.parentElement?.closest('noscript')) continue;
       if (isNoscriptMetadata(candidate)) continue;
-      const remaining = cap - usedChars;
-      for (const paragraph of extractNoscriptText(candidate, remaining)) {
-        if (!appendParagraph(paragraph)) return paragraphs;
-      }
+      paragraphs.push(...extractNoscriptText(candidate, maxChars));
       continue;
     }
     if (candidate.closest('noscript')) continue;
     const text = cleanText(candidate.textContent || '');
-    if (text && !isJunk(text) && !appendParagraph(text)) return paragraphs;
+    if (text && !isJunk(text)) paragraphs.push(text);
   }
-  return paragraphs;
+
+  // Dedup adjacent identical paragraphs (some sites repeat the lead)
+  const out = [];
+  for (const paragraph of paragraphs) {
+    if (out.length === 0 || out[out.length - 1] !== paragraph) out.push(paragraph);
+  }
+  return out;
 }
 
 /**
