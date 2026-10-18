@@ -10,6 +10,8 @@ import {
 import { EXPANDED_ECARI_SOURCES, fetchExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { fetchTiPlateAuctions, TI_AUCTION_URL } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { SZ_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sz.mjs';
+import { fetchUrFixedPrice } from '../scripts/plate-auctions/connectors/fixed-price.mjs';
+import { FIXED_PRICE_SOURCE_CONFIGS } from '../functions/src/plateAuctionsCore.js';
 
 /**
  * Relay condiviso da SZ, FR e TI (2026-09-25). FR e TI sono geo-fenced su IP
@@ -233,5 +235,46 @@ describe('FR and TI connectors read the relay when the direct fetch is geo-block
     const rows = await fetchTiPlateAuctions({ fetchPage: async () => page, now: NOW });
     expect(rows).toEqual([expect.objectContaining({ id: 'ti-1532', normalizedPlate: 'TI13457', currentBidChf: 650 })]);
     expect(relayCalls).toEqual([]);
+  });
+});
+
+describe('fixed-price connectors read the relay after a direct source failure', () => {
+  it('UR uses a fresh healthy relay snapshot instead of publishing degraded output', async () => {
+    const urSource = FIXED_PRICE_SOURCE_CONFIGS.ur;
+    const urRow = {
+      id: 'ur-2374',
+      sourceKey: 'UR',
+      normalizedPlate: 'UR2374',
+      listingType: 'fixed-price',
+      vehicleType: 'car',
+      startingPriceChf: 1000,
+      officialAuctionUrl: urSource.officialUrl,
+      sourceFetchedAt: FRESH,
+      lastVerifiedAt: FRESH,
+    };
+    const relay = relayPayload({
+      ur: { status: 'active', rowCount: 1, lastSuccessAt: FRESH },
+    }, [urRow]);
+    const calls: string[] = [];
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn(async (url: string | URL) => {
+      calls.push(String(url));
+      if (String(url) === PLATE_AUCTION_PUBLIC_API_RELAY_URL) {
+        return new Response(JSON.stringify(relay), { status: 200 });
+      }
+      throw new TypeError('fetch failed');
+    }) as typeof fetch;
+
+    try {
+      const rows = await fetchUrFixedPrice({ now: NOW });
+      expect(rows).toEqual([expect.objectContaining({
+        id: 'ur-2374',
+        sourceKey: 'UR',
+        officialAuctionUrl: urSource.officialUrl,
+      })]);
+      expect(calls.at(-1)).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
   });
 });
