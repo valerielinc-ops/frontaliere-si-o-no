@@ -1,6 +1,6 @@
 /** HTTP contract for site-level aliases reported by the Bing audit. */
 import { describe, expect, it } from 'vitest';
-import { mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { readHardcodedRedirects } from '../build-plugins/shared/articleRedirects.mjs';
@@ -8,6 +8,7 @@ import { buildOggiPath } from '../build-plugins/borderWaitData';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 import { legacyRedirectsPlugin } from '../build-plugins/legacyRedirectsPlugin';
 import { readAttr, readTagByAttr } from '../scripts/lib/html-attr.mjs';
+import { loadJobsJson } from '../build-plugins/shared/loadJobsJson';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
@@ -21,6 +22,11 @@ describe('locale-router apex legacy routes', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'legacy-nav-bridges-'));
     try {
       mkdirSync(path.join(root, 'dist'), { recursive: true });
+      // Without an explicit fixture the native loader falls back to cwd's real
+      // job corpus in full CI, emitting unrelated cathedral pages in this test.
+      mkdirSync(path.join(root, 'data'), { recursive: true });
+      writeFileSync(path.join(root, 'data/jobs.json'), '[]');
+      expect(loadJobsJson(root)).toEqual([]);
       const hook = legacyRedirectsPlugin(root).closeBundle;
       if (!hook || typeof hook !== 'object' || typeof hook.handler !== 'function') throw new Error('Expected the ordered native producer hook');
       await hook.handler.call({} as never);
