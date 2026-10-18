@@ -2803,7 +2803,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
 
   // Article identity and destination verification use GET subrequests for
   // both methods, so a HEAD must advertise the same permanent redirect.
-  if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
+  if ((request.method === 'GET' || request.method === 'HEAD') && (resp.status === 404 || resp.status === 410)) {
     const articleRedirect = await recoverArticleAlias(url, origin);
     if (articleRedirect) return articleRedirect;
   }

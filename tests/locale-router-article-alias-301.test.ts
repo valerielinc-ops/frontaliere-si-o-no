@@ -55,11 +55,26 @@ describe('article aliases from the public corpus registry', () => {
     }
   });
 
-  it('returns a real 301 only after the origin 404 and a verified destination', async () => {
-    mockOrigin();
-    const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/?utm_source=gsc`), {}, ctx);
+  it.each([[404, 'GET'], [404, 'HEAD'], [410, 'GET'], [410, 'HEAD']] as const)
+  ('returns a real 301 only after origin %s and a verified destination: %s', async (current, method) => {
+    mockOrigin({ current });
+    const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/?utm_source=gsc`, { method }), {}, ctx);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe('/de/grenzgaenger-artikel/artikel/?utm_source=gsc');
+  });
+
+  it.each(['GET', 'HEAD'])('preserves an unknown national 410: %s', async (method) => {
+    mockOrigin({ current: 410 });
+    const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/unknown/`, { method }), {}, ctx);
+    expect(response.status).toBe(410);
+    expect(response.headers.get('Location')).toBeNull();
+  });
+
+  it.each([404, 410])('preserves the original 410 when an alias destination is missing: %s', async (target) => {
+    mockOrigin({ current: 410, target });
+    const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx);
+    expect(response.status).toBe(410);
+    expect(response.headers.get('Location')).toBeNull();
   });
 
   it.each([404, 410])('keeps 404 when the registered destination is actually missing: %s', async (target) => {
@@ -323,8 +338,9 @@ describe('canton articles moved out of the legacy national namespace', () => {
     })).toBe('/de/grenzgaenger-artikel/national-article/');
   });
 
-  it.each(['GET', 'HEAD'])('verifies the live canton and R2 destination after a national origin miss: %s', async (method) => {
-    const fetchMock = mockCanton();
+  it.each([[404, 'GET'], [404, 'HEAD'], [410, 'GET'], [410, 'HEAD']] as const)
+  ('verifies the live canton and R2 destination after a national origin %s: %s', async (current, method) => {
+    const fetchMock = mockCanton({ current });
     const response = await worker.fetch(new Request(`${APEX}${legacyFrom}?utm_source=gsc`, { method }), {}, ctx);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe(`${cantonTarget}?utm_source=gsc`);
