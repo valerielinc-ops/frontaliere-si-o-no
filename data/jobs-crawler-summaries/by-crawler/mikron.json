@@ -1,18 +1,21 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-17T21:34:53.278Z",
+  "generatedAt": "2026-10-18T09:36:20.716Z",
   "total": 6,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 2,
-  "unchangedCount": 5,
-  "durationMs": 15870,
-  "avgDurationMs": 15870,
+  "removedCount": 0,
+  "unchangedCount": 6,
+  "durationMs": 17114,
+  "avgDurationMs": 17114,
   "durationHistory": [
-    15870
+    17114
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
       "applyUrl": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
@@ -30,7 +33,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-17T21:34:24.878Z",
+      "crawledAt": "2026-10-18T09:35:51.335Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -46,50 +49,6 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
-      "applyUrl": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
-      "title": "Production Planning Analyst (Ordonnanceur) – F/M/D",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "analista-di-pianificazione-della-produzione-ordonnanceur-m-f-d-mikron-group-boudry",
-      "sourceLang": "en",
-      "category": "production",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-17T09:41:08.257Z",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "addressLocality": "Boudry",
-      "addressRegion": "NE",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-16T21:37:43.804Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -98,51 +57,6 @@
         "completeness": 20
       }
     },
-    {
-      "url": "https://www.mikron.com/en/product-care-leader-mfd",
-      "applyUrl": "https://www.mikron.com/en/product-care-leader-mfd",
-      "title": "Software Product Care Leader",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "software-product-care-leader-mikron",
-      "sourceLang": "fr",
-      "category": "technology",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-16T09:29:08.309Z",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:20.306Z",
-      "addressLocality": "Boudry",
-      "addressRegion": "NE",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
       "applyUrl": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
@@ -160,7 +74,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-17T21:34:25.976Z",
+      "crawledAt": "2026-10-18T09:35:52.564Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -201,7 +115,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-17T21:34:27.129Z",
+      "crawledAt": "2026-10-18T09:35:53.890Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -242,7 +156,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-17T21:34:30.546Z",
+      "crawledAt": "2026-10-18T09:35:57.588Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -283,7 +197,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-17T21:34:31.629Z",
+      "crawledAt": "2026-10-18T09:35:58.751Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -324,7 +238,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-17T21:34:35.015Z",
+      "crawledAt": "2026-10-18T09:36:02.463Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -349,5 +263,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }
