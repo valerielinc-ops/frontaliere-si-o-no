@@ -32,6 +32,7 @@ const ncoreDetailUrl = 'https://app.ncoreplat.com/jobposition/811972/business-de
 const ncoreEmbeddedDetailUrl = 'https://app.ncoreplat.com/jobposition/813007/tecnico-opere-in-sotterraneo-ch/csc-costruzioni-sa';
 const ncoreMigratedCareersPage = `<!doctype html><html><body><h1>Le nostre offerte di lavoro</h1><a href="${ncoreBoardUrl}">HERE</a></body></html>`;
 const ncoreListingPage = `<!doctype html><html><body><div class="singlePosition"><h3>Business Developer - CH</h3><h4>Canton Ticino</h4><p>Posizione commerciale presso CSC Costruzioni SA.</p><a href="${ncoreDetailUrl}" class="btn">Candidati Ora</a></div></body></html>`;
+const ncoreBoardShellPage = '<!doctype html><html><body><div id="job-board">Filtri di ricerca</div></body></html>';
 const ncoreFilterBoardStatePage = `<!doctype html><html><body><div id="job-board"><script type="application/json">{"positions":[{"detail":"https:\\/\\/app.ncoreplat.com\\/jobposition\\/813007\\/tecnico-opere-in-sotterraneo-ch\\/csc-costruzioni-sa"}]}</script></div></body></html>`;
 const ncoreDetailPage = `<!doctype html><html><head><title>Business Developer - CH | CSC Costruzioni SA</title></head><body><div class="singlePosition"><h1>Business Developer - CH</h1><h4>Sede di lavoro: Lugano (CH)</h4><div class="pTesto"><p>CSC Costruzioni SA, parte del gruppo internazionale WeBuild, è un’impresa con sede a Lugano attiva da oltre 60 anni nella realizzazione di opere complesse e sostenibili.</p><p>Il ruolo sostiene lo sviluppo commerciale nel Canton Ticino, le relazioni con clienti e partner, il monitoraggio del mercato e il supporto alle gare.</p><p>Si richiedono esperienza nel settore costruzioni, italiano fluente e conoscenza delle leggi svizzere sugli appalti pubblici.</p></div></div></body></html>`;
 const ncoreShortDetailUrl = 'https://app.ncoreplat.com/jobposition/811973/muratore-ch/csc-costruzioni-sa';
@@ -114,6 +115,30 @@ describe('CSC authoritative Drupal discovery', () => {
       urls: [ncoreEmbeddedDetailUrl],
       authoritativeEmpty: false,
     });
+  });
+
+  it('renders the NCore filter board when the initial response is only the SPA shell', async () => {
+    const responses = new Map([
+      [careersUrl, htmlResponse(careersUrl, ncoreMigratedCareersPage)],
+      [ncoreBoardUrl, htmlResponse(ncoreBoardUrl, ncoreBoardShellPage)],
+      [ncoreDetailUrl, htmlResponse(ncoreDetailUrl, ncoreDetailPage)],
+    ]);
+    const fetchImpl = vi.fn(async (url: string | URL) => {
+      const response = responses.get(String(url));
+      if (!response) throw new Error(`Unexpected URL ${url}`);
+      return response;
+    });
+    const renderBoardPage = vi.fn(async () => ({
+      html: ncoreListingPage,
+      responseUrl: ncoreBoardUrl,
+    }));
+
+    await expect(fetchCscJobUrls({ fetchImpl, renderBoardPage, timeoutMs: 1000 })).resolves.toEqual({
+      urls: [ncoreDetailUrl],
+      authoritativeEmpty: false,
+    });
+    expect(renderBoardPage).toHaveBeenCalledWith(ncoreBoardUrl, { timeoutMs: 1000 });
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
   });
 
   it('rejects a canonical NCore detail whose body is below the rich-description floor', async () => {
