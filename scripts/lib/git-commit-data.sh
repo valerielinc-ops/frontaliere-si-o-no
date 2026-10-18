@@ -102,12 +102,16 @@ main_push_guard_check() {
 }
 
 guarded_push_deadline() {
-  printf '%s\n' "$(( $(date +%s) + GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS ))"
+  local now
+  now="$(node -e 'process.stdout.write(String(process.hrtime.bigint() / 1000000000n))')" || return 1
+  printf '%s\n' "$(( now + GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS ))"
 }
 
 guarded_push_remaining_seconds() {
   local deadline="$1"
-  local remaining=$(( deadline - $(date +%s) ))
+  local now remaining
+  now="$(node -e 'process.stdout.write(String(process.hrtime.bigint() / 1000000000n))')" || return 1
+  remaining=$(( deadline - now ))
   if [ "$remaining" -le 0 ]; then
     echo "❌ main push guard: end-to-end deadline expired before the guarded push" >&2
     return 1
@@ -2384,7 +2388,7 @@ isolated_mark() {
     micros="${EPOCHREALTIME/[.,]/}"
     printf -v "$1" '%s' "$(( micros / 1000 ))"
   else
-    printf -v "$1" '%s' "$(( $(date +%s) * 1000 ))"
+    printf -v "$1" '%s' "$(node -e 'process.stdout.write(String(process.hrtime.bigint() / 1000000n))')"
   fi
 }
 
@@ -3401,8 +3405,13 @@ if ! PUSH_BASE_SHA="$(git rev-parse --verify refs/remotes/origin/main^{commit})"
   echo "❌ main push guard: cannot resolve refs/remotes/origin/main for the push lease"
   exit 1
 fi
+PUSH_CANDIDATE_SHA=""
+if ! PUSH_CANDIDATE_SHA="$(git rev-parse --verify HEAD^{commit})"; then
+  echo "❌ main push guard: cannot resolve HEAD to an immutable candidate commit"
+  exit 1
+fi
 GUARD_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
-if ! main_push_guard_check "$PUSH_BASE_SHA" HEAD "$GUARD_TIMEOUT"; then
+if ! main_push_guard_check "$PUSH_BASE_SHA" "$PUSH_CANDIDATE_SHA" "$GUARD_TIMEOUT"; then
   echo "❌ Main push guard rejected the candidate; refusing to publish a collapsed tree"
   exit 1
 fi
@@ -3416,7 +3425,7 @@ if push_out="$(run_bounded "$PUSH_TIMEOUT" \
   "git push --no-thin origin main" \
   git -c pack.window=0 -c pack.threads=1 push --no-thin \
     "--force-with-lease=refs/heads/main:${PUSH_BASE_SHA}" \
-    origin HEAD:main 2>&1)"; then
+    origin "${PUSH_CANDIDATE_SHA}:refs/heads/main" 2>&1)"; then
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 

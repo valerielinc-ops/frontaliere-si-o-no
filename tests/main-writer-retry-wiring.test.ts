@@ -36,6 +36,7 @@ describe('main data writers use the shared retry contract', () => {
   it('routes the direct main writers through the anti-collapse guard', () => {
     const retryWriter = read('scripts/lib/git-push-with-retry.sh');
     const dataWriter = read('scripts/lib/git-commit-data.sh');
+    const mainPushGuard = read('scripts/lib/main-push-guard.mjs');
     const browserWriter = read('scripts/social-robot/persist-browser-insights.mjs');
     const corpusMirror = read('.github/workflows/mirror-articles-corpus.yml');
 
@@ -48,6 +49,12 @@ describe('main data writers use the shared retry contract', () => {
     expect(dataWriter).toContain('run_bounded "$push_timeout"');
     expect(dataWriter).toContain('run_bounded "$PUSH_TIMEOUT"');
     expect(dataWriter).toContain('--force-with-lease=refs/heads/main:');
+    expect(dataWriter).toContain('origin "${PUSH_CANDIDATE_SHA}:refs/heads/main"');
+    expect(dataWriter).not.toContain('origin HEAD:main');
+    expect(dataWriter).toContain('process.hrtime.bigint()');
+    expect(dataWriter).not.toContain('date +%s');
+    expect(mainPushGuard).toContain('`${inspection.candidateSha}:refs/heads/${branch}`');
+    expect(mainPushGuard).not.toContain('`${candidate}:refs/heads/${branch}`');
     expect(browserWriter).toContain("import { pushMainWithGuard } from '../lib/main-push-guard.mjs'");
     expect(browserWriter).not.toContain("'--check-only'");
     expect(corpusMirror).toContain('main-push-guard.mjs');
@@ -59,7 +66,12 @@ describe('main data writers use the shared retry contract', () => {
       jobs?: {
         mirror?: {
           'timeout-minutes'?: number;
-          steps?: Array<{ name?: string; run?: string; 'timeout-minutes'?: number }>;
+          steps?: Array<{
+            name?: string;
+            run?: string;
+            env?: Record<string, string | number>;
+            'timeout-minutes'?: number;
+          }>;
         };
       };
     };
@@ -68,8 +80,13 @@ describe('main data writers use the shared retry contract', () => {
 
     expect(mirror?.['timeout-minutes']).toBe(15);
     expect(pushStep?.['timeout-minutes']).toBe(12);
-    expect(pushStep?.run).toContain('run_bounded "clone articles mirror target"');
-    expect(pushStep?.run).toContain('run_bounded "fetch articles mirror base (attempt ${attempt}/3)"');
+    expect(pushStep?.env?.MIRROR_DEADLINE_SECONDS).toBe('540');
+    expect(Number(pushStep?.env?.MIRROR_DEADLINE_SECONDS)).toBeLessThanOrEqual((15 - 5) * 60);
+    expect(Number(pushStep?.env?.MIRROR_DEADLINE_SECONDS)).toBeLessThanOrEqual(12 * 60);
+    expect(pushStep?.run).toContain('mirror_deadline=');
+    expect(pushStep?.run).toContain('guard_timeout="$(bounded_seconds 180)"');
+    expect(pushStep?.run).toContain('run_bounded "$MIRROR_GIT_TIMEOUT_SECONDS" "clone articles mirror target"');
+    expect(pushStep?.run).toContain('run_bounded "$MIRROR_GIT_TIMEOUT_SECONDS" "fetch articles mirror base (attempt ${attempt}/3)"');
     expect(pushStep?.run).toContain('for attempt in 1 2 3; do');
   });
 

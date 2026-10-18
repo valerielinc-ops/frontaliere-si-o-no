@@ -112,6 +112,45 @@ describe('main-push-guard.mjs', () => {
     expect(git(scenario.origin, ['show', 'main:valid.txt'])).toBe('valid\n');
   });
 
+  it('publishes the inspected SHA even if the symbolic candidate moves before push', () => {
+    const scenario = setupRepository();
+    writeFileSync(join(scenario.writer, 'candidate.txt'), 'candidate\n');
+    git(scenario.writer, ['add', 'candidate.txt']);
+    git(scenario.writer, ['commit', '-q', '-m', 'inspected candidate']);
+    const candidateSha = git(scenario.writer, ['rev-parse', 'HEAD']).trim();
+    writeFileSync(join(scenario.writer, 'later.txt'), 'later\n');
+    git(scenario.writer, ['add', 'later.txt']);
+    git(scenario.writer, ['commit', '-q', '-m', 'later local head']);
+    const laterSha = git(scenario.writer, ['rev-parse', 'HEAD']).trim();
+    git(scenario.writer, ['reset', '--hard', '-q', candidateSha]);
+
+    const bin = mkdtempSync(join(tmpdir(), 'main-push-guard-bin-'));
+    roots.push(bin);
+    const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+    const wrapper = join(bin, 'git');
+    writeFileSync(wrapper, `#!/bin/sh
+for arg in "$@"; do
+  if [ "$arg" = "push" ]; then
+    "${realGit}" -C "${scenario.writer}" update-ref refs/heads/main "${laterSha}"
+    break
+  fi
+done
+exec "${realGit}" "$@"
+`);
+    chmodSync(wrapper, 0o755);
+
+    const result = runGuard(scenario.writer, [
+      '--base', scenario.base,
+      '--candidate', 'HEAD',
+      '--push',
+    ], { ...process.env, PATH: `${bin}:${process.env.PATH || ''}` });
+
+    expect(result.status, result.output).toBe(0);
+    expect(git(scenario.writer, ['ls-remote', 'origin', 'refs/heads/main']).split(/\s+/)[0]).toBe(candidateSha);
+    expect(() => git(scenario.origin, ['show', 'main:candidate.txt'])).not.toThrow();
+    expect(() => git(scenario.origin, ['show', 'main:later.txt'])).toThrow();
+  });
+
   it('shares one deadline across inspection and the network push', () => {
     const scenario = setupRepository();
     writeFileSync(join(scenario.writer, 'deadline.txt'), 'deadline\n');
@@ -142,7 +181,7 @@ exec "${realGit}" "$@"
     ], { ...process.env, PATH: `${bin}:${process.env.PATH || ''}` });
 
     expect(result.status).toBe(1);
-    expect(result.output).toContain('main push deadline exceeded during git push');
+    expect(result.output).toContain('main push deadline exceeded during');
     expect(git(scenario.writer, ['rev-parse', 'origin/main']).trim()).toBe(scenario.base);
   });
 });

@@ -227,7 +227,9 @@ export function pushMainWithGuard({
     deadline,
   });
   const lease = `refs/heads/${branch}:${inspection.baseSha}`;
-  const refspec = `${candidate}:refs/heads/${branch}`;
+  // Publish the exact object inspected above. A symbolic candidate such as
+  // HEAD can move between validation and push in long-running callers.
+  const refspec = `${inspection.candidateSha}:refs/heads/${branch}`;
   try {
     const output = git(repo, [
       '-c', 'pack.window=0',

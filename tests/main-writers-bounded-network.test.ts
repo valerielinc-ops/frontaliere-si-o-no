@@ -23,6 +23,7 @@ const BOUNDED_COMMAND_WRAPPER = 'scripts/lib/run-bounded-command.mjs';
 const PIPELINE_TIMING_HELPER = 'scripts/lib/pipeline-phase-timing.mjs';
 const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
+const BASH_SUPPORTS_ASSOCIATIVE_ARRAYS = spawnSync(BASH_BIN, ['-c', 'declare -A probe=()']).status === 0;
 const NETWORK_TEST_TIMEOUT_SECONDS = '1';
 // The shim below stalls a push for 30 seconds. The script under test must
 // finish well inside that: a run that waited for the stall is cut here and
@@ -555,7 +556,7 @@ describe('main writer network bounds', () => {
     expect(source).not.toContain('git fetch --unshallow');
   });
 
-  it('retries a timed-out git-commit-data push and fails after the final timeout', () => {
+  it.skipIf(!BASH_SUPPORTS_ASSOCIATIVE_ARRAYS)('retries a timed-out git-commit-data push and fails after the final timeout', () => {
     const scenario = setupScenario('main-writer-commit-data-timeout-');
     try {
       prepareUncommittedChange(scenario);
@@ -573,7 +574,7 @@ describe('main writer network bounds', () => {
     }
   });
 
-  it('publishes after the first git-commit-data push timeout', () => {
+  it.skipIf(!BASH_SUPPORTS_ASSOCIATIVE_ARRAYS)('publishes after the first git-commit-data push timeout', () => {
     const scenario = setupScenario('main-writer-commit-data-retry-');
     try {
       prepareUncommittedChange(scenario);
