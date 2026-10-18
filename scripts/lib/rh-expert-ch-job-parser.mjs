@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
@@ -100,7 +101,9 @@ export function extractRhExpertChDetailFields(html = '', pageUrl = '') {
   const workplaceText = contentNodes
     .map((node) => normalizeSpace(node.textContent))
     .find((text) => /lieu de travail\s*:/i.test(text)) || '';
-  const workplace = /lieu de travail\s*:\s*([^•;|.\n]+)/i.exec(workplaceText)?.[1]?.trim() || '';
+  const workplace = normalizeSpace(
+    /lieu de travail\s*:\s*([^•;|\n]+)/i.exec(workplaceText)?.[1] || '',
+  ).replace(/[.!?]+$/u, '').trim();
   const geography = workplace ? resolveSourceBackedSwissGeography(workplace) : null;
   const description = content.join('\n');
 
@@ -139,7 +142,8 @@ export async function fetchAllRhExpertChJobs(runtime = {}) {
     const geography = resolveSourceBackedSwissGeography(listing.locationCandidates?.[0]
       || listing.location
       || '');
-    if (!title || CTA_TITLE.test(title) || !description || !url || !geography || !isTrustedDomain(url)) continue;
+    if (!title || CTA_TITLE.test(title) || !description || !meetsSourceBodyFloor(description)
+      || !url || !geography || !isTrustedDomain(url)) continue;
 
     const sourceLang = detectLang(`${title} ${description}`, 'fr');
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);

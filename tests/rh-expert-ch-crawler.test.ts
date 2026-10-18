@@ -46,6 +46,42 @@ describe('RH-Expert source-backed detail extraction', () => {
     expect(detail.canton).toBe('GE');
   });
 
+  it('withholds list-only bodies below the source floor and retains St. Gallen at the floor', async () => {
+    const listingUrl = 'https://rh-expert.ch/fr/offres-demploi';
+    const detailUrl = 'https://rh-expert.ch/fr/offres-demploi/assistant';
+    const listingHtml = `<a href="${detailUrl}">En savoir plus</a>`;
+    const bodyForWords = (count: number) => Array.from(
+      { length: count },
+      (_, index) => `mission${index}`,
+    ).join(' ');
+    let body = bodyForWords(30);
+    const detailHtml = () => `<div class="page_emploi"><div class="col col-9"><h1>Assistant</h1>
+      <ul><li>${body}</li></ul><ul><li>Lieu de travail : St. Gallen.</li></ul>
+    </div></div>`;
+    const fetchImpl = async (url: string) => {
+      const requestedUrl = String(url);
+      if (requestedUrl.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /', { status: 200 });
+      if (requestedUrl === listingUrl) return new Response(listingHtml, { status: 200 });
+      if (requestedUrl === detailUrl) return new Response(detailHtml(), { status: 200 });
+      throw new Error(`unexpected URL ${requestedUrl}`);
+    };
+    const fetchJobs = () => fetchAllRhExpertChJobs({
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      disableWafProxy: true,
+    });
+
+    expect(await fetchJobs()).toHaveLength(0);
+
+    body = bodyForWords(50);
+    const jobs = await fetchJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe('St. Gallen');
+    expect(jobs[0].canton).toBe('SG');
+  });
+
   it('drops a detail whose only heading is the source CTA and does not rescue its location from the office sidebar', () => {
     const detail = extractRhExpertChDetailFields(
       '<div class="page_emploi"><div class="col col-9"><h1>En savoir plus</h1><p>Lieu de travail : Genève.</p></div><div class="col col-3"><p>1201 Genève</p></div></div>',
@@ -83,7 +119,9 @@ describe('RH-Expert source-backed detail extraction', () => {
     const detailHtml = (title: string) => `<div class="page_emploi"><div class="col col-9"><h1>${title}</h1>
       <ul><li>Prépare et organise le service avec rigueur dans un environnement professionnel.</li>
         <li>Collabore avec l'équipe, respecte les consignes et assure une qualité constante.</li>
-        <li>Reste autonome, ponctuel, flexible et attentif aux besoins de la clientèle.</li></ul>
+        <li>Reste autonome, ponctuel, flexible et attentif aux besoins de la clientèle.</li>
+        <li>Participe à la préparation des commandes et au suivi quotidien des priorités de l'équipe.</li>
+        <li>Contribue à l'accueil des clients et communique avec les différents interlocuteurs du restaurant.</li></ul>
         <ul><li>Lieu de travail : Genève.</li></ul>
       </div></div>`;
     const fetchImpl = async (url: string) => {
