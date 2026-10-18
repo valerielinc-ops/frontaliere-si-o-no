@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-17T10:04:43.469Z",
+  "assembledAt": "2026-10-18T10:17:26.799Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -14903,10 +14903,11 @@
       "startDate": "2026-11-05",
       "endDate": "2026-11-05",
       "startTime": "19:30",
-      "category": "Music",
-      "venue": "Evang.-ref. Kirche Effretikon",
-      "canton": "",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/violinkunststuecke-im-doppel/",
+      "category": "Event",
+      "venue": "Effretikon",
+      "comune": "Illnau-Effretikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/violinkunststuecke-im-doppel/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -14914,7 +14915,22 @@
         "lng": 8.6894758
       },
       "recurring": false,
-      "sourceDescriptionHash": "130ba8affce3ec70995eb52be956a8c968b4a09e347d294ac03f23cc87e00a1e"
+      "performer": {
+        "name": "Paganinis teuflischer Akrobatik auf 4 Saiten oder spielt auch gerne mal Volksmusik mit Hackbrettvirtuose Nicolas Senn"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "d00f119df8aaebf595bba3e0cb88ae1625211373c704a688c41958a0524b092e",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "violinkunststucke-im-doppel-2026-11-05"
+        }
+      ]
     },
     {
       "id": "myswitzerland:7c2801f0160445599143f6f03b3197ea",
@@ -184799,19 +184815,28 @@
       },
       "startDate": "2027-05-02",
       "endDate": "2027-05-02",
-      "startTime": "19:00",
+      "startTime": "14:30",
       "category": "Event",
       "venue": "Basel",
       "comune": "Basel",
       "canton": "BS",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/heimweh-14/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/heimweh-14/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
         "lat": 47.5624806,
         "lng": 7.5992528
       },
-      "recurring": false,
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Basel"
+      },
       "sourceDescriptionHash": "01fc303685aa754336ddc1e6714c762055344fd2fafa0e97e3a1a36678903cb7"
     },
     {
@@ -267152,6 +267177,462 @@
         "name": "Hilterfingen-Hünibach"
       },
       "sourceDescriptionHash": "902d37dea3830d835a1f96789d00b4ddd10d617932f9bd1e0f8f0e1a65aaefd5"
+    },
+    {
+      "id": "myswitzerland:7edf6ea608bf4528b4a411329a967a9d",
+      "title": "Brunch alla fattoria del 1° agosto",
+      "titleByLocale": {
+        "it": "Brunch alla fattoria del 1° agosto",
+        "en": "1st of August Farm Brunch",
+        "de": "1. August-Brunch auf dem Bauernhof",
+        "fr": "1er août Brunch à la ferme"
+      },
+      "startDate": "2027-08-01",
+      "endDate": "2027-08-01",
+      "startTime": "00:00",
+      "category": "Event",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/brunch-alla-fattoria-del-1-agosto/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "MySwitzerland"
+      },
+      "sourceDescriptionHash": "c3bb83c558f3ff457d3e537e886016e6caf9a6ad9f4cdab1b11c17e0bed91106"
+    },
+    {
+      "id": "myswitzerland:7ec88e92ab0f477eb9073bea370f9253",
+      "title": "Konstellationen",
+      "titleByLocale": {
+        "it": "Konstellationen",
+        "en": "Konstellationen",
+        "de": "Konstellationen",
+        "fr": "Konstellationen"
+      },
+      "startDate": "2027-01-20",
+      "endDate": "2027-01-20",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/konstellationen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4802454,
+        "lng": 8.3102615
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "639d753682290550e9fd116ef70a5e5265fe8c146773438755ba6c3c7c94899e"
+    },
+    {
+      "id": "myswitzerland:7ec87d047b694ad496e31de9244b29b7",
+      "title": "POP ! – Concert de Noël de l’Orchestre de Chambre de Genève",
+      "titleByLocale": {
+        "it": "POP ! – Concert de Noël de l’Orchestre de Chambre de Genève",
+        "en": "POP ! – Concert de Noël de l’Orchestre de Chambre de Genève",
+        "de": "POP ! – Concert de Noël de l’Orchestre de Chambre de Genève",
+        "fr": "POP ! – Concert de Noël de l’Orchestre de Chambre de Genève"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-03",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/pop-concert-de-noel-de-lorchestre-de-chambre-de-geneve-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2014024,
+        "lng": 6.1410618
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Geneva"
+      },
+      "sourceDescriptionHash": "e0d87dd98150d94b66312010f5a8fa1df35800e0407e6ac3bbf0a9e79762b37a"
+    },
+    {
+      "id": "myswitzerland:7ea74c1d1d1c472bab87d14edb9c5074",
+      "title": "Breitner KuhBar",
+      "titleByLocale": {
+        "it": "Breitner KuhBar",
+        "en": "Breitner KuhBar",
+        "de": "Breitner KuhBar",
+        "fr": "Breitner KuhBar"
+      },
+      "startDate": "2026-12-30",
+      "endDate": "2026-12-30",
+      "startTime": "15:30",
+      "category": "Event",
+      "venue": "Arosa",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/breitner-kuhbar/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7808594,
+        "lng": 9.6631263
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Arosa"
+      },
+      "sourceDescriptionHash": "b882b96b65e9c30983e061692b29a6109c539c1a55e4f70f3698807c260f0980"
+    },
+    {
+      "id": "myswitzerland:7e6f78520b634b17aabf475d48cc8baf",
+      "title": "Limit - Expedition zum Rande der Welt",
+      "titleByLocale": {
+        "it": "Limit - Expedition zum Rande der Welt",
+        "en": "Limit - Expedition zum Rande der Welt",
+        "de": "Limit - Expedition zum Rande der Welt",
+        "fr": "Limit - Expedition zum Rande der Welt"
+      },
+      "startDate": "2026-10-18",
+      "endDate": "2026-12-27",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/limit-expedition-zum-rande-der-welt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kreuzlingen"
+      },
+      "sourceDescriptionHash": "4f0196cd46f7c3f75765d289f9070712917f3e270a728235b76b83f5ed7d1d1b"
+    },
+    {
+      "id": "myswitzerland:7e612765615f40779ad3e07e647b718f",
+      "title": "Theater Sgaramusch - Käfer",
+      "titleByLocale": {
+        "it": "Theater Sgaramusch - Käfer",
+        "en": "Theater Sgaramusch - Käfer",
+        "de": "Theater Sgaramusch - Käfer",
+        "fr": "Theater Sgaramusch - Käfer"
+      },
+      "startDate": "2027-05-02",
+      "endDate": "2027-05-02",
+      "startTime": "10:15",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/theater-sgaramusch-kaefer/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5676677,
+        "lng": 9.1032841
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Terminen, Themen"
+        },
+        {
+          "name": "Menschen, die zu reden geben"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "fa8ae87da89390905ba952f88e1a5637fb89fb1489221470db63f5e95a001c9c"
+    },
+    {
+      "id": "myswitzerland:7e002923356c4909a2ad2c7ac5e18846",
+      "title": "Archery",
+      "titleByLocale": {
+        "it": "Archery",
+        "en": "Archery",
+        "de": "Bogenschiessen",
+        "fr": "Tir à l'arc"
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-22",
+      "startTime": "13:00",
+      "category": "Event",
+      "venue": "Nendaz",
+      "comune": "Nendaz",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/archery/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1815675,
+        "lng": 7.2908419
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Nendaz"
+      },
+      "sourceDescriptionHash": "5aa605d4938a8932dd4838c05ce939b8f106cd61204fcbe47adf2d550e0ea765"
+    },
+    {
+      "id": "myswitzerland:7d9767a28d3e49ce828d4316c09f1b3b",
+      "title": "Christina Zurbrügg: Buchpräsentation mit Musik & Apéro",
+      "titleByLocale": {
+        "it": "Christina Zurbrügg: Buchpräsentation mit Musik & Apéro",
+        "en": "Christina Zurbrügg: Buchpräsentation mit Musik & Apéro",
+        "de": "Christina Zurbrügg: Buchpräsentation mit Musik & Apéro",
+        "fr": "Christina Zurbrügg: Buchpräsentation mit Musik & Apéro"
+      },
+      "startDate": "2027-01-22",
+      "endDate": "2027-01-22",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Schwanden",
+      "comune": "Glarus Süd",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/christina-zurbruegg-buchpraesentation-mit-musik-apero/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.99527,
+        "lng": 9.081331
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Wundersames Kiental"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "b448fe98bfb37da9a4fa9816f5ece00a80014caff2704dcfec3e466e88b1af1c"
+    },
+    {
+      "id": "myswitzerland:7d8a0ce9dc49495ab3e517bffe670819",
+      "title": "The Witcher – Instrumental Concert",
+      "titleByLocale": {
+        "it": "The Witcher – Instrumental Concert",
+        "en": "The Witcher – Instrumental Concert",
+        "de": "The Witcher – Instrumental Concert",
+        "fr": "The Witcher – Instrumental Concert"
+      },
+      "startDate": "2027-01-14",
+      "endDate": "2027-01-14",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/the-witcher-instrumental-concert/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3714646,
+        "lng": 8.5404068
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "a4aeb17208894c6301d4ebd65b578b6be334c76de89c800a013345b9ddc94fa2"
+    },
+    {
+      "id": "myswitzerland:7d36bf9c3e4643d5906d68ee34e9aded",
+      "title": "Altstadtmarkt Laufenburg – 100% handgemacht",
+      "titleByLocale": {
+        "it": "Altstadtmarkt Laufenburg – 100% handgemacht",
+        "en": "Altstadtmarkt Laufenburg – 100% handgemacht",
+        "de": "Altstadtmarkt Laufenburg – 100% handgemacht",
+        "fr": "Altstadtmarkt Laufenburg – 100% handgemacht"
+      },
+      "startDate": "2027-09-11",
+      "endDate": "2027-09-11",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Laufenburg",
+      "comune": "Laufenburg",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/altstadtmarkt-laufenburg-100-handgemacht/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5641702,
+        "lng": 8.0622128
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Laufenburg"
+      },
+      "sourceDescriptionHash": "e83df2aaff2a58c489e2fd89106e1c7b1f7668576a90cc8a57cfd416c26fff49"
+    },
+    {
+      "id": "myswitzerland:7d2372aacf364c328c8c78f862ce6eb4",
+      "title": "Né pour lire",
+      "titleByLocale": {
+        "it": "Né pour lire",
+        "en": "Né pour lire",
+        "de": "Buchstart",
+        "fr": "Né pour lire"
+      },
+      "startDate": "2026-11-24",
+      "endDate": "2027-03-23",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/ne-pour-lire-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8055338,
+        "lng": 7.1543774
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      },
+      "sourceDescriptionHash": "b093d6ae77263e1b895cedc8649348338bbca79c317b44c92c37b96f591fb716"
+    },
+    {
+      "id": "myswitzerland:7c983702213d49f2b24ddf2aa30251c9",
+      "title": "Ice skating by full moon - Madulain - Zuoz ice trail in February",
+      "titleByLocale": {
+        "it": "Ice skating by full moon - Madulain - Zuoz ice trail in February",
+        "en": "Ice skating by full moon - Madulain - Zuoz ice trail in February",
+        "de": "Schlittschuhlaufen bei Vollmond - Eisweg Madulain - Zuoz",
+        "fr": "Ice skating by full moon - Madulain - Zuoz ice trail in February"
+      },
+      "startDate": "2027-01-21",
+      "endDate": "2027-02-22",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Zuoz",
+      "comune": "Madulain",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/ice-skating-by-full-moon-madulain-zuoz-ice-trail-in-february/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5848214,
+        "lng": 9.9380086
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zuoz"
+      },
+      "sourceDescriptionHash": "ea367808cf4c9ad6b34715d5399665b15f5c4b5fd0cac2b3ae20f3c4ed3ce7c1"
+    },
+    {
+      "id": "myswitzerland:7c6c50491ce64508a4865760f15150d2",
+      "title": "A Life, a Story: How Can We Share Our Story?",
+      "titleByLocale": {
+        "it": "A Life, a Story: How Can We Share Our Story?",
+        "en": "A Life, a Story: How Can We Share Our Story?",
+        "de": "Ein Leben – eine Geschichte: Wie kann man seine Geschichte weitergeben?",
+        "fr": "Une vie-une histoire: Comment transmettre son histoire?"
+      },
+      "startDate": "2026-10-21",
+      "endDate": "2026-10-21",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Montreux",
+      "comune": "Montreux",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/a-life-a-story-how-can-we-share-our-story/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4319761,
+        "lng": 6.9112397
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Nadja Hofmann, Journalistin"
+        },
+        {
+          "name": "Gründerin von „Une vie – une histoire“Zeitpläne : 15:30–17:00 Uhr"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "fd67da438f1eac9c74a06acb3a73fe803af4a847a86f1dec4f8cae6bad64b833"
     }
   ]
 }
