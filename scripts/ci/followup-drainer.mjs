@@ -81,16 +81,11 @@ import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import {
   bucketState,
-  dailyKeyFromBucketBody,
   dailyBucketInfo,
-  hasDailyBucketRepositoryConsistency,
-  hasStableItemIds,
-  hasStableItemIdsForDailyKey,
-  hasUnterminatedMarkdownFence,
+  dailyBucketScopeDecision,
   countAggregateHeadingItems,
   followupItemMarkers,
   isDailyBucketTitle,
-  parseFollowupItems,
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
 import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
@@ -125,30 +120,12 @@ export function isDailyBucketCollecting(issue) {
  * while the fixer receives exactly one stable item at a time through the workflow.
  */
 export function dailyBucketQueueDecision(issue) {
-  const info = dailyBucketInfo(issue?.title || '');
-  if (!info) return { eligible: true, reason: null, item: null };
-  if (hasUnterminatedMarkdownFence(issue?.body || '')) {
-    return { eligible: false, reason: 'unterminated-markdown-fence', item: null };
-  }
-  if (bucketState(issue?.body || '') !== 'sealed') return { eligible: false, reason: 'bucket-collecting', item: null };
-  if (dailyKeyFromBucketBody(issue?.body || '') !== info.dailyKey) {
-    return { eligible: false, reason: 'mismatched-daily-key', item: null };
-  }
-  if (!hasDailyBucketRepositoryConsistency(issue?.body || '', info.targetRepository)) {
-    return { eligible: false, reason: 'mismatched-target-repository', item: null };
-  }
-  const items = parseFollowupItems(issue?.body || '');
-  if (info.itemCount !== items.length) {
-    return { eligible: false, reason: 'mismatched-item-count', item: null };
-  }
-  if (!hasStableItemIds(issue?.body || '')) return { eligible: false, reason: 'missing-stable-item-id', item: null };
-  if (!hasStableItemIdsForDailyKey(issue?.body || '', info.dailyKey)) {
-    return { eligible: false, reason: 'mismatched-stable-item-id', item: null };
-  }
-  const item = selectFirstOpenItem(issue?.body || '');
-  return item
-    ? { eligible: true, reason: null, item }
-    : { eligible: false, reason: 'no-open-item', item: null };
+  const scope = dailyBucketScopeDecision(issue?.title || '', issue?.body || '');
+  if (!scope.isDaily) return { eligible: true, reason: null, item: null };
+  if (!scope.valid) return { eligible: false, reason: scope.reason, item: null };
+  return scope.item
+    ? { eligible: true, reason: null, item: scope.item }
+    : { eligible: false, reason: scope.reason || 'no-open-item', item: null };
 }
 
 /**
