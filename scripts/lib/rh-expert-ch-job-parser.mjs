@@ -102,7 +102,7 @@ export function extractRhExpertChDetailFields(html = '', pageUrl = '') {
     .find((text) => /lieu de travail\s*:/i.test(text)) || '';
   const workplace = /lieu de travail\s*:\s*([^•;|.\n]+)/i.exec(workplaceText)?.[1]?.trim() || '';
   const geography = workplace ? resolveSourceBackedSwissGeography(workplace) : null;
-  const description = paragraphs.join('\n');
+  const description = content.join('\n');
 
   return {
     ...base,
