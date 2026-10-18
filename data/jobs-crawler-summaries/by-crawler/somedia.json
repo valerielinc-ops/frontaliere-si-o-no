@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-17T21:21:40.750Z",
+  "generatedAt": "2026-10-18T09:33:25.064Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7641,
-  "avgDurationMs": 7641,
+  "durationMs": 8592,
+  "avgDurationMs": 8592,
   "durationHistory": [
-    7641
+    8592
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:21:21.001Z",
+      "crawledAt": "2026-10-18T09:33:03.889Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:21:19.921Z",
+      "crawledAt": "2026-10-18T09:33:02.744Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -136,7 +136,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:21:21.987Z",
+      "crawledAt": "2026-10-18T09:33:04.909Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -173,5 +173,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }
