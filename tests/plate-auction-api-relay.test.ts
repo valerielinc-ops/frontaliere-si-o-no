@@ -8,14 +8,16 @@ import {
   rowsFromPublicApiRelay,
 } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 import { EXPANDED_ECARI_SOURCES, fetchExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { fetchSgPlateAuctions, SG_AUCTION_URL, SG_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { fetchTiPlateAuctions, TI_AUCTION_URL } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { SZ_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sz.mjs';
 
 /**
- * Relay condiviso da SZ, FR e TI (2026-09-25). FR e TI sono geo-fenced su IP
- * svizzeri: dal runner GitHub FR va in timeout su 443 e TI risponde 200 con la
- * pagina F5 «Pagina non disponibile», quindi le loro righe arrivano solo dal
- * relay della Cloud Function di Zurigo. Nessuna rete: `fetch` è finto.
+ * Relay condiviso da SZ, FR, SG e TI (2026-09-25). FR e TI sono geo-fenced su
+ * IP svizzeri: dal runner GitHub FR va in timeout su 443 e TI risponde 200 con
+ * la pagina F5 «Pagina non disponibile»; SG può rifiutare l'egress CI. Le righe
+ * arrivano dal relay della Cloud Function di Zurigo quando la fetch ufficiale
+ * fallisce. Nessuna rete: `fetch` è finto.
  */
 const NOW = new Date('2026-09-25T12:00:00.000Z');
 const FRESH = new Date(NOW.getTime() - 60 * 60 * 1000).toISOString();
@@ -143,6 +145,7 @@ describe('fetchWithPublicApiRelay', () => {
 
   it('shares one relay URL with the SZ connector', () => {
     expect(SZ_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
+    expect(SG_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
   });
 
   it('never calls the relay when the direct fetch succeeds', async () => {
@@ -204,7 +207,7 @@ describe('fetchWithPublicApiRelay', () => {
   });
 });
 
-describe('FR and TI connectors read the relay when the direct fetch is geo-blocked', () => {
+describe('FR, SG and TI connectors read the relay when the direct fetch is unavailable', () => {
   it('FR: a TCP timeout on appls.ocn.ch falls back to the relay rows', async () => {
     serveRelay(relayPayload({ fr: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('FR', 'fr-1768')]));
     const fetchPage = vi.fn(async () => { throw new Error(`Timeout fetching ${FR_URL}`); });
@@ -222,6 +225,18 @@ describe('FR and TI connectors read the relay when the direct fetch is geo-block
     vi.stubEnv('PLATE_AUCTION_ENABLE_API_RELAY', '');
     await expect(fetchTiPlateAuctions({ fetchPage: async () => TI_GEO_BLOCK_PAGE, now: NOW }))
       .rejects.toThrow('did not serve an eCari catalogue (no tabContent1)');
+  });
+
+  it('SG: a direct eCari fetch failure uses a fresh relay snapshot', async () => {
+    serveRelay(relayPayload({ sg: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('SG', 'sg-1532')]));
+    const fetcher = vi.fn(async () => { throw new Error(`fetch failed ${SG_AUCTION_URL}`); });
+    const rows = await fetchSgPlateAuctions({ fetcher, now: NOW });
+    expect(rows).toEqual([expect.objectContaining({ id: 'sg-1532', sourceKey: 'SG', officialAuctionUrl: SG_AUCTION_URL })]);
+    expect(fetcher).toHaveBeenCalledWith({
+      canton: 'San Gallo',
+      plateCode: 'SG',
+      officialAuctionUrl: SG_AUCTION_URL,
+    });
   });
 
   it('TI: a served eCari catalogue is parsed directly and the relay is never read', async () => {

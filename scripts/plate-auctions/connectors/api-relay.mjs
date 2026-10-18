@@ -15,8 +15,9 @@
  * 2026-09-25 per FR e TI, che sono geo-fenced su IP svizzeri: da ogni sonda
  * non svizzera FR dà timeout TCP su 443 e TI la pagina F5 «Pagina non
  * disponibile» (6'967 byte), mentre da Zurigo e Ginevra servono il catalogo
- * eCari. Una sola implementazione, così una correzione alla finestra o ai
- * controlli di salute vale per tutte e tre le fonti.
+ * eCari. SG usa lo stesso percorso quando il suo endpoint non è raggiungibile
+ * dall'egress CI. Una sola implementazione, così una correzione alla finestra
+ * o ai controlli di salute vale per tutte le fonti che ne hanno bisogno.
  */
 import {
   explicitlyEmptyCatalogue,
