@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eta-sa-swatch-group",
-  "assembledAt": "2026-10-17T21:21:13.835Z",
+  "assembledAt": "2026-10-18T09:17:36.722Z",
   "jobs": [
     {
       "id": "company-eszdw",
@@ -77,7 +77,8 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "2540"
+      "postalCode": "2540",
+      "needsRetranslation": true
     },
     {
       "id": "company-eszdx",
@@ -231,7 +232,8 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "2540"
+      "postalCode": "2540",
+      "needsRetranslation": true
     },
     {
       "id": "company-eszdz",
@@ -541,7 +543,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2540",
       "addressLocality": "2540 Grenchen",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "company-eszd7",
