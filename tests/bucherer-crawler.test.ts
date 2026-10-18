@@ -478,6 +478,36 @@ describe('Bucherer crawler parser', () => {
       expect(coverage.incompleteCultures).toEqual(['de-DE']);
     });
 
+    it('rejects a response that starts after offset zero even when its end reaches maxCount', () => {
+      const coverage = assessCultureCoverage([
+        {
+          cultureCode: 'de-DE',
+          body: {
+            maxCount: 100,
+            offset: 10,
+            jobPostings: Array.from({ length: 90 }, (_, i) => ({ jobPostingId: `j${i}` })),
+          },
+        },
+      ], ['de-DE']);
+      expect(coverage.complete).toBe(false);
+      expect(coverage.incompleteCultures).toEqual(['de-DE']);
+    });
+
+    it('rejects page intervals with a gap even when the final offset reaches maxCount', () => {
+      const coverage = assessCultureCoverage([
+        {
+          cultureCode: 'de-DE',
+          body: { maxCount: 100, offset: 20, jobPostings: Array.from({ length: 80 }, (_, i) => ({ jobPostingId: `later-${i}` })) },
+        },
+        {
+          cultureCode: 'de-DE',
+          body: { maxCount: 100, offset: 0, jobPostings: Array.from({ length: 10 }, (_, i) => ({ jobPostingId: `first-${i}` })) },
+        },
+      ], ['de-DE']);
+      expect(coverage.complete).toBe(false);
+      expect(coverage.incompleteCultures).toEqual(['de-DE']);
+    });
+
     it('accepts a complete all-empty source snapshot only when every culture declares zero', () => {
       const coverage = assessCultureCoverage(
         BUCHERER_CULTURES.map((cultureCode) => ({ cultureCode, body: empty })),

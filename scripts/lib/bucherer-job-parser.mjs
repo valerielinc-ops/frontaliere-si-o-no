@@ -292,6 +292,19 @@ function postingIdentity(posting) {
   return identity || null;
 }
 
+function hasContiguousCoverage(intervals, declaredTotal) {
+  if (declaredTotal === 0) return true;
+
+  let coveredThrough = 0;
+  const orderedIntervals = [...intervals].sort(([a], [b]) => a - b);
+  for (const [start, end] of orderedIntervals) {
+    if (start > coveredThrough) return false;
+    coveredThrough = Math.max(coveredThrough, end);
+    if (coveredThrough >= declaredTotal) return true;
+  }
+  return false;
+}
+
 /**
  * Check that the organic Dayforce search responses cover every requested
  * culture and every source-declared result. A valid response for one culture
@@ -309,7 +322,7 @@ export function assessCultureCoverage(captured = [], cultures = BUCHERER_CULTURE
       responses: 0,
       invalid: false,
       declaredTotals: [],
-      fetchedThrough: 0,
+      intervals: [],
       postingIds: new Set(),
       postingCount: 0,
     }]),
@@ -337,10 +350,16 @@ export function assessCultureCoverage(captured = [], cultures = BUCHERER_CULTURE
       if (identity) state.postingIds.add(identity);
     }
 
-    const responseEnd = offset === null
-      ? state.postingIds.size
-      : offset + postings.length;
-    state.fetchedThrough = Math.max(state.fetchedThrough, responseEnd);
+    const responseEnd = offset === null ? null : offset + postings.length;
+    if (
+      offset === null
+      || !Number.isSafeInteger(responseEnd)
+      || responseEnd > declaredTotal
+    ) {
+      state.invalid = true;
+    } else {
+      state.intervals.push([offset, responseEnd]);
+    }
   }
 
   const missingCultures = [];
@@ -367,7 +386,7 @@ export function assessCultureCoverage(captured = [], cultures = BUCHERER_CULTURE
     if (
       state.invalid
       || declaredTotal === null
-      || state.fetchedThrough < declaredTotal
+      || !hasContiguousCoverage(state.intervals, declaredTotal)
     ) {
       incompleteCultures.push(culture);
     }
