@@ -408,6 +408,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', { status: 'confirmed' })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -458,6 +459,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: false,
@@ -498,6 +500,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -538,6 +541,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -798,6 +802,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -837,6 +842,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:10:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -872,6 +878,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: false,
         consent_allowed: false,
@@ -898,6 +905,7 @@ describe('read-only loop outcome exporters', () => {
   it('keeps duplicate recipient-alert sends out of the deduplication check', () => {
     const delivery = (id: string) => row(`job_alert_subscribers/user@example.test/campaign_deliveries/${id}`, {
       campaign_id: 'a1',
+      ranking_delivery_id: `jer_job_alert_${(id === 'd2' ? 'b' : 'a').repeat(24)}`,
       sent_at: '2026-09-12T09:00:00.000Z',
       consent_checked: true,
       consent_allowed: true,
@@ -999,6 +1007,26 @@ describe('read-only loop outcome exporters', () => {
       });
     });
 
+    it.each([
+      ['missing', ''],
+      ['malformed', 'foreign-delivery-id'],
+    ])('keeps a known alert with %s sender provenance unattributed', (_label, proofId) => {
+      const output = ledger({ deliveryRows: [senderDelivery({ proofId })] });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: false,
+          deduplicationChecked: true,
+          unattributedDeliveries: 1,
+          unattributedDeliveryReasons: { missingSenderEvidence: 1 },
+          noConsentedAlertCauses: { missingSenderEvidence: 1 },
+          senderProvenDeliveries: 0,
+          senderProofMissing: 1,
+        },
+      });
+    });
+
     it('keeps duplicate sender-proven deliveries fail-closed', () => {
       const output = ledger({
         deliveryRows: [
@@ -1031,7 +1059,8 @@ describe('read-only loop outcome exporters', () => {
           consentChecked: false,
           deduplicationChecked: true,
           unattributedDeliveries: 1,
-          unattributedDeliveryReasons: { noConsentedAlert: 1 },
+          unattributedDeliveryReasons: { missingSenderEvidence: 1 },
+          noConsentedAlertCauses: { missingSenderEvidence: 1 },
           senderProvenDeliveries: 0,
           senderProofMissing: 1,
         },
@@ -1114,6 +1143,7 @@ describe('read-only loop outcome exporters', () => {
       newsletters: [row('newsletter_subscribers/user@example.test', { status: 'confirmed' })],
       deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -1220,6 +1250,7 @@ describe('read-only loop outcome exporters', () => {
       newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -1261,6 +1292,7 @@ describe('read-only loop outcome exporters', () => {
       const checkedAt = new Date(Date.parse(sentAt) - 60_000).toISOString();
       return row(`${USER}/campaign_deliveries/${id}`, {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${(id === 'd2' ? 'b' : 'a').repeat(24)}`,
         consent_checked: true,
         consent_allowed: true,
         consent_basis: 'explicit-alert',
@@ -1357,7 +1389,13 @@ describe('read-only loop outcome exporters', () => {
     it('keeps events id-joined to operator or unattributed rows out of the window join', () => {
       for (const owner of [
         delivery('op', { is_operator_verification: true, message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
-        delivery('ux', { campaign_id: 'gone', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+        delivery('ux', {
+          campaign_id: 'gone',
+          ranking_delivery_id: 'foreign-delivery-id',
+          message_id: 'msg-9',
+          provider: 'maileroo',
+          sent_at: '2026-09-12T08:59:00.000Z',
+        }),
       ]) {
         const output = ledger(
           [owner, delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
@@ -1396,10 +1434,16 @@ describe('read-only loop outcome exporters', () => {
       expect(ledger([], []).export.deliveryEvidenceJoin).toBe('no-deliveries');
     });
 
-    it('keeps an unknown campaign id unattributed and the consent gates closed', () => {
+    it('keeps an unknown campaign without valid sender provenance unattributed and the consent gates closed', () => {
       const foreignId = 'x'.repeat(42);
       const output = ledger(
-        [delivery('d1', { campaign_id: foreignId, message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [delivery('d1', {
+          campaign_id: foreignId,
+          ranking_delivery_id: 'foreign-delivery-id',
+          message_id: 'ref-1',
+          provider: 'maileroo',
+          sent_at: '2026-09-12T09:00:00.000Z',
+        })],
         [event('e1', { event_type: 'delivered', message_id: 'ref-1', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
       );
       expect(output.deliveredAlerts).toBe(0);
@@ -1407,7 +1451,7 @@ describe('read-only loop outcome exporters', () => {
         consentChecked: false,
         deduplicationChecked: true,
         unattributedDeliveries: 1,
-        unattributedDeliveryReasons: { noConsentedAlert: 1 },
+        unattributedDeliveryReasons: { missingSenderEvidence: 1 },
         unattributedDeliveryShapes: { [String(foreignId.length)]: 1 },
       });
       expect(JSON.stringify(output.export)).not.toContain(foreignId);
@@ -1422,6 +1466,7 @@ describe('read-only loop outcome exporters', () => {
         deliveryRows: [
           row(`${USER}/campaign_deliveries/d1`, {
             campaign_id: 'refused',
+            ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
             sent_at: '2026-09-12T09:00:00.000Z',
             consent_checked: true,
             consent_allowed: false,
@@ -1429,7 +1474,11 @@ describe('read-only loop outcome exporters', () => {
             consent_checked_at: '2026-09-12T08:59:00.000Z',
             outcome_contract_version: 1,
           }),
-          row(`${USER}/campaign_deliveries/d2`, { campaign_id: 'deleted', sent_at: '2026-09-12T09:00:00.000Z' }),
+          row(`${USER}/campaign_deliveries/d2`, {
+            campaign_id: 'deleted',
+            ranking_delivery_id: `jer_job_alert_${'b'.repeat(24)}`,
+            sent_at: '2026-09-12T09:00:00.000Z',
+          }),
         ],
         predicates: { evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-consent' }) },
       });
@@ -1577,6 +1626,7 @@ describe('read-only loop outcome exporters', () => {
       })],
       deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-12T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,

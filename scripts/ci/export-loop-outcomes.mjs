@@ -1330,6 +1330,7 @@ export function buildL4OutcomeLedger({
       state: consentState,
       reason: consent?.reason || null,
       newsletter,
+      mutableSnapshotMayDrift: Boolean(first(alert, ['backfilled_from', 'backfilledFrom'])),
     });
     if (alert.active !== true) continue;
     if (!consent || consent.allowed !== true) suppressedWithoutConsent += 1;
@@ -1352,6 +1353,7 @@ export function buildL4OutcomeLedger({
   const unattributedDeliveryReasons = {
     missingAlertId: 0,
     missingSentAt: 0,
+    missingSenderEvidence: 0,
     consentNotAllowed: 0,
     missingConsentEvidence: 0,
     noConsentedAlert: 0,
@@ -1360,6 +1362,7 @@ export function buildL4OutcomeLedger({
   // consent/delivery ledger. It never attributes a row.
   const noConsentedAlertCauses = {
     alertRowMissing: 0,
+    missingSenderEvidence: 0,
     consentNotAllowed: 0,
     missingConsentEvidence: 0,
   };
@@ -1476,11 +1479,13 @@ export function buildL4OutcomeLedger({
         && currentStopAfterDelivery;
       // A non-stop denial is a mutable present-day snapshot (for example a
       // backfilled newsletter relationship whose fields were later removed),
-      // not evidence about send time. Only the sender's own opaque provenance
-      // may supersede it; cross-channel stops still require the append-only
-      // post-send event proof above and never pass on provenance alone.
+      // not evidence about send time. Only an alert explicitly marked as a
+      // backfill plus the sender's opaque provenance may supersede it;
+      // cross-channel stops still require the append-only post-send event
+      // proof above and never pass on provenance alone.
       const senderProvesHistoricalConsent = currentConsent.reason !== 'cross-channel-stop'
-        && senderEvidence.status === 'valid';
+        && senderEvidence.status === 'valid'
+        && currentConsent.mutableSnapshotMayDrift;
       if (historicalDeliveryStillValid || senderProvesHistoricalConsent) {
         if (senderProvesHistoricalConsent) mutableConsentSnapshotsSuperseded += 1;
       } else {
@@ -1507,7 +1512,11 @@ export function buildL4OutcomeLedger({
       dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
     }
 
-    const alertAttributable = knownAlert || senderEvidence.status === 'valid';
+    // A mutable/current alert row is not independent evidence that this
+    // delivery came from the job-alert sender. Every attributed delivery,
+    // including one whose alert still exists, must carry the sender-written
+    // opaque provenance id.
+    const alertAttributable = senderEvidence.status === 'valid';
     if (!alertId || sentAt == null || !alertAttributable || consentEvidence.status !== 'valid') {
       unattributedDeliveries += 1;
       // Shape only (id length), never the id itself: enough to tell an alert
@@ -1515,6 +1524,10 @@ export function buildL4OutcomeLedger({
       incrementCount(unattributedDeliveryShapes, String(alertId.length));
       if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
       else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
+      else if (senderEvidence.status !== 'valid') {
+        unattributedDeliveryReasons.missingSenderEvidence += 1;
+        noConsentedAlertCauses.missingSenderEvidence += 1;
+      }
       else if (!knownAlert) {
         unattributedDeliveryReasons.noConsentedAlert += 1;
         noConsentedAlertCauses.alertRowMissing += 1;

@@ -33,6 +33,7 @@ function fixture() {
     campaign_deliveries: [
       row('job_alert_subscribers/user@example.com/campaign_deliveries/inactive', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -46,6 +47,7 @@ function fixture() {
       // La finestra REST deve escludere questo documento.
       row('job_alert_subscribers/user@example.com/campaign_deliveries/old', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'b'.repeat(24)}`,
         sent_at: '2026-09-01T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
