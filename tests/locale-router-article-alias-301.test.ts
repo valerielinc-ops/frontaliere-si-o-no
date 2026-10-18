@@ -157,13 +157,24 @@ const cantonRegistry = {
         de: 'schweizer-pensionskassen-verbessern-q3-2026', fr: 'les-caisses-de-pension-suisses-ameliorent-q3-2026',
       },
     },
+    'canton-zh': {
+      'disoccupazione-zurigo-rav-2026': { de: 'arbeitslosigkeit-zurich-rav-2026' },
+      'mappa-affitti-zurigo-trasloco': { de: 'zuerich-mieten-umzug-karte' },
+      'winterthur-governo-apprendisti': { de: 'winterthur-regierungsrat-lehrabschluesse' },
+    },
+    'canton-ge': {
+      'economia-ginevrina-ripresa-globale': { de: 'genfer-wirtschaft-globale-erholung' },
+      'accordo-cure-oncologiche-ginevra': { de: 'grenzueberschreitende-kinderkrebsversorgung-genf' },
+      'ginevra-stop-autostrada-a412': { de: 'genf-stopp-autobahn-a412' },
+    },
+    'canton-vd': { 'cdhr-frontalieri-vaud-2026': { it: 'cdhr-frontalieri-vaud-2026' } },
   },
 };
 const cantonFrom = '/de/basel-artikel/basilea-larvicida-quattro-settimane/';
 const cantonTarget = '/de/basel-artikel/basel-tigermuecke-vier-wochen/';
 
 function mockCanton({ current = 404, target = 200 as number | 'network' | 'timeout',
-  api = 200, payload = JSON.stringify(cantonRegistry), status = 'live',
+  api = 200, payload = JSON.stringify({ ...registry, ...cantonRegistry }), status = 'live',
   redirects = {} as Record<string, string>, gone = [] as string[] } = {}) {
   return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
     const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
@@ -273,5 +284,68 @@ describe('canton article aliases after a definitive R2 miss', () => {
   it('keeps a healthy registry miss as 404', async () => {
     mockCanton();
     expect((await worker.fetch(new Request(`${APEX}/de/basel-artikel/unknown/`), {}, ctx)).status).toBe(404);
+  });
+});
+
+describe('canton articles moved out of the legacy national namespace', () => {
+  const legacyFrom = '/de/grenzgaenger-artikel/basilea-larvicida-quattro-settimane/';
+  const combined = { ...registry, ...cantonRegistry };
+
+  it.each([
+    ['arbeitslosigkeit-zurich-rav-2026', 'zurich-artikel'],
+    ['zuerich-mieten-umzug-karte', 'zurich-artikel'],
+    ['winterthur-regierungsrat-lehrabschluesse', 'zurich-artikel'],
+    ['genfer-wirtschaft-globale-erholung', 'genf-artikel'],
+    ['grenzueberschreitende-kinderkrebsversorgung-genf', 'genf-artikel'],
+    ['genf-stopp-autobahn-a412', 'genf-artikel'],
+  ])('resolves the exact reported German slug %s to its actual canton', (slug, section) => {
+    expect(articleAliasTarget(`/de/grenzgaenger-artikel/${slug}/`, combined)).toBe(`/de/${section}/${slug}/`);
+  });
+
+  it('resolves the exact reported Italian id to Vaud, not the national hub', () => {
+    expect(articleAliasTarget('/articoli-frontaliere/cdhr-frontalieri-vaud-2026/', combined))
+      .toBe('/articoli-vaud/cdhr-frontalieri-vaud-2026/');
+  });
+
+  it('rejects identities shared with another canton or the other national registry', () => {
+    const baselRows = cantonRegistry.cantons['canton-basilea'];
+    expect(articleAliasTarget(legacyFrom, { ...combined,
+      cantons: { ...cantonRegistry.cantons, 'canton-ge': baselRows },
+    })).toBeNull();
+    expect(articleAliasTarget(legacyFrom, { ...combined,
+      swiss: { 'basilea-larvicida-quattro-settimane': { de: 'different-national-article' } },
+    })).toBeNull();
+  });
+
+  it('keeps a matching national identity ahead of canton relocation', () => {
+    expect(articleAliasTarget(legacyFrom, { ...combined,
+      blog: { 'basilea-larvicida-quattro-settimane': { de: 'national-article' } },
+    })).toBe('/de/grenzgaenger-artikel/national-article/');
+  });
+
+  it.each(['GET', 'HEAD'])('verifies the live canton and R2 destination after a national origin miss: %s', async (method) => {
+    const fetchMock = mockCanton();
+    const response = await worker.fetch(new Request(`${APEX}${legacyFrom}?utm_source=gsc`, { method }), {}, ctx);
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe(`${cantonTarget}?utm_source=gsc`);
+    expect(fetchMock.mock.calls.map(([input]) => String(input)))
+      .toContain(`${CDN_BASE}${corpusSectionCdnKey(cantonTarget)}`);
+  });
+
+  it.each([{ status: 'draft' }, { status: 'retired' }, { gone: [cantonTarget] },
+    { redirects: { [cantonTarget]: '/de/basel-artikel/' } }, { target: 404 }, { target: 410 }])
+  ('does not revive unavailable or withdrawn canton content: %j', async (options) => {
+    mockCanton(options);
+    expect((await worker.fetch(new Request(`${APEX}${legacyFrom}`), {}, ctx)).status).toBe(404);
+  });
+
+  it('does not treat an unavailable destination section registry as permanent absence', async () => {
+    const fetchMock = mockCanton();
+    const implementation = fetchMock.getMockImplementation()!;
+    fetchMock.mockImplementation(async (input, init) => String(input).endsWith('/edge/sections/registry.json')
+      ? new Response('unavailable', { status: 503 }) : implementation(input, init));
+    const response = await worker.fetch(new Request(`${APEX}${legacyFrom}`), {}, ctx);
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
   });
 });

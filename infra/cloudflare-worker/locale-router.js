@@ -837,15 +837,7 @@ function articleAliasRows(route, registry) {
   return isPlainObject(rows) ? rows : null;
 }
 
-export function articleAliasTarget(pathname, registry) {
-  const route = matchSection(pathname) || matchCorpusSection(pathname);
-  const rows = articleAliasRows(route, registry);
-  if (!rows) return null;
-  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
-  if (!leaf) return null;
-  const slug = lowerSegment(leaf[1]);
-  const group = route.section === 'articolifrontaliere' ? 'blog'
-    : route.section === 'articolisvizzera' ? 'swiss' : null;
+function articleAliasIds(slug, rows, group, registry) {
   const own = (obj, key) => obj && Object.prototype.hasOwnProperty.call(obj, key);
   const ids = new Set();
   if (own(rows, slug)) ids.add(slug);
@@ -861,9 +853,40 @@ export function articleAliasTarget(pathname, registry) {
       if (['it', 'en', 'de', 'fr'].some((locale) => slugs?.[locale] === slug)) ids.add(id);
     }
   }
+  return ids;
+}
+
+export function articleAliasTarget(pathname, registry) {
+  let route = matchSection(pathname) || matchCorpusSection(pathname);
+  let rows = articleAliasRows(route, registry);
+  if (!rows) return null;
+  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
+  if (!leaf) return null;
+  const slug = lowerSegment(leaf[1]);
+  let group = route.section === 'articolifrontaliere' ? 'blog'
+    : route.section === 'articolisvizzera' ? 'swiss' : null;
+  let ids = articleAliasIds(slug, rows, group, registry);
+  if (group && ids.size === 0) {
+    // The old national namespace also linked articles now owned by a canton.
+    // Relocate only when neither national registry owns this exact identity
+    // and exactly one known canton does. Never guess another canton from one.
+    const other = group === 'blog' ? 'swiss' : 'blog';
+    if (!isPlainObject(registry?.[other]) || articleAliasIds(slug, registry[other], other, registry).size) return null;
+    const matches = [];
+    for (const candidate of CORPUS_SECTION_ROUTES) {
+      if (candidate.locale !== route.locale) continue;
+      const candidateRows = articleAliasRows(candidate, registry);
+      if (!candidateRows) continue;
+      const candidateIds = articleAliasIds(slug, candidateRows, null, registry);
+      if (candidateIds.size) matches.push({ route: candidate, rows: candidateRows, ids: candidateIds });
+    }
+    if (matches.length !== 1) return null;
+    ({ route, rows, ids } = matches[0]);
+    group = null;
+  }
   if (ids.size !== 1) return null;
   const id = [...ids][0];
-  const canonicalSlug = own(rows, id) && rows[id]?.[route.locale];
+  const canonicalSlug = Object.prototype.hasOwnProperty.call(rows, id) && rows[id]?.[route.locale];
   if (typeof canonicalSlug !== 'string' || !canonicalSlug || /[\s/\\?#%]/u.test(canonicalSlug)) return null;
   const target = `${route.prefix}/${canonicalSlug}/`;
   if (!group && corpusSectionCanonicalDir(target, route) !== target) return null;
@@ -898,8 +921,17 @@ async function recoverArticleAlias(url, origin, corpusEntry = null) {
     clearTimeout(timer);
   }
   if (!target) return null;
-  if (corpusEntry && (corpusEntry.gone.has(target) || corpusEntry.redirects.has(target))) return null;
-  const availability = await redirectTargetAvailability(corpusEntry ? corpusSectionCdnKey(target) : target, origin);
+  const targetRoute = matchCorpusSection(target);
+  let targetEntry = corpusEntry;
+  if (targetRoute && !targetEntry) {
+    const sections = await loadCorpusSectionRegistry();
+    if (!sections) return aliasVerificationUnavailable();
+    targetEntry = sections.sections[targetRoute.section];
+    if (!targetEntry || targetEntry.status !== 'live') return null;
+  }
+  if (targetEntry && (targetEntry.gone.has(target) || targetEntry.redirects.has(target))) return null;
+  const availability = await redirectTargetAvailability(targetRoute ? corpusSectionCdnKey(target) : target,
+    targetRoute ? new URL(CDN_BASE).hostname : origin);
   if (availability === 'unavailable') return aliasVerificationUnavailable();
   if (availability !== 'live') return null;
   return new Response(null, {
@@ -2769,6 +2801,13 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     }
   }
 
+  // Article identity and destination verification use GET subrequests for
+  // both methods, so a HEAD must advertise the same permanent redirect.
+  if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
+    const articleRedirect = await recoverArticleAlias(url, origin);
+    if (articleRedirect) return articleRedirect;
+  }
+
   // Canton-drift recovery: upgrade a job-detail orphan 404 with a known slug to a
   // real HTTP 301 (full link-equity transfer) instead of the soft-404+JS path.
   // Unknown slugs fall through to the soft 404 below.
@@ -2777,8 +2816,6 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (queryRedirect) return queryRedirect;
     const employerRedirect = await recoverEmployerProfileAlias(url, origin);
     if (employerRedirect) return employerRedirect;
-    const articleRedirect = await recoverArticleAlias(url, origin);
-    if (articleRedirect) return articleRedirect;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
     if (redirect) return redirect;
     const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
