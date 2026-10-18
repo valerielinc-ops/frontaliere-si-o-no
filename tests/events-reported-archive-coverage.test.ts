@@ -35,23 +35,36 @@ for (const event of archived) {
 
 describe('reported GSC event archive coverage', () => {
   it('keeps the additional export routes attributable to exact pinned source observations', () => {
-    expect(fixture.freshExport.routes).toHaveLength(291);
+    expect(fixture.freshExport.routes).toHaveLength(302);
     const snapshots = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8')).sourceSnapshots as { commit: string }[];
     const commits = new Set(snapshots.map(snapshot => snapshot.commit));
     for (const row of fixture.freshExport.routes) {
       expect(commits.has(row.commit), row.path).toBe(true);
-      expect(['assigned-canonical', 'recorded-previous-route', 'native-legacy-slug']).toContain(row.evidenceKind);
+      expect(['assigned-canonical', 'recorded-previous-route', 'native-legacy-slug', 'unique-source-slug-and-observed-legacy-ti-route']).toContain(row.evidenceKind);
       expect(fixture.routes, row.path).toContainEqual([row.path, row.id]);
     }
   });
 
   it('keeps every attested reported route attached to its exact public identity', () => {
-    expect(fixture.routes).toHaveLength(665);
+    expect(fixture.routes).toHaveLength(676);
     expect(new Set(fixture.routes.map(([path]) => path)).size).toBe(fixture.routes.length);
     for (const [path, id] of fixture.routes) {
       const canonical = canonicalOwners.get(path);
       const owners = canonical ? new Set([canonical]) : historyOwners.get(path);
       expect([...(owners || [])], path).toEqual([id]);
+    }
+  });
+
+  it('retains observed legacy TI aliases without relabelling non-TI or unknown source locations', () => {
+    const legacy = fixture.freshExport.routes.filter(row => row.evidenceKind === 'unique-source-slug-and-observed-legacy-ti-route');
+    expect(legacy).toHaveLength(11);
+    for (const row of legacy) {
+      const event = seed.events.find(event => event.id === row.id)!;
+      expect(event, row.path).toBeDefined();
+      expect(event.canton, row.path).not.toBe('TI');
+      expect(event.previousRoutes, row.path).toContainEqual({
+        canton: 'TI', comune: '__other-events__', slug: row.path.split('/').at(-2),
+      });
     }
   });
 

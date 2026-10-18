@@ -301,6 +301,11 @@
       "commit": "057dd70621d07fb377bf2925f7ed45985bab9ec3",
       "generatedAt": "2026-06-29T05:11:17.601Z",
       "matchedRecords": 2
+    },
+    {
+      "commit": "255cbc74f4d556f15b3c87d1399ad7cda1df7f66",
+      "generatedAt": "2026-10-18T03:20:43.206Z",
+      "matchedRecords": 8
     }
   ],
   "events": [
@@ -13915,6 +13920,32 @@
       ]
     },
     {
+      "id": "myswitzerland:9dc99fdd8d7b4b2192736c2cf6cd71cd",
+      "title": "LANGNAU MÄRIT im Chüechlihus",
+      "titleByLocale": {
+        "it": "LANGNAU MÄRIT im Chüechlihus",
+        "en": "LANGNAU MÄRIT im Chüechlihus",
+        "de": "LANGNAU MÄRIT im Chüechlihus",
+        "fr": "LANGNAU MÄRIT im Chüechlihus"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-16",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Langnau i.E.",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/langnau-maerit-im-chueechlihus-4/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "langnau-marit-im-chuechlihus-2026-09-16"
+        }
+      ]
+    },
+    {
       "id": "myswitzerland:53d4a0f368424f9c879fddc1b02c7d18",
       "title": "Alpabfahrt und Dorffest Innertkirchen",
       "titleByLocale": {
@@ -14192,6 +14223,37 @@
           "canton": "GE",
           "comune": "Bernex",
           "slug": "le-grand-pyjama-avec-anne-herbauts-pour-enfants-et-adultes-2026-07-07"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:c7cbd263a01645f58f03e0945831f462",
+      "title": "Brunch im Barrique",
+      "titleByLocale": {
+        "it": "Brunch im Barrique",
+        "en": "Brunch im Barrique",
+        "de": "Brunch im Barrique",
+        "fr": "Brunch au Barrique"
+      },
+      "startDate": "2026-07-05",
+      "endDate": "2026-12-27",
+      "startTime": "02:00",
+      "category": "Food",
+      "venue": "Restaurant Barrique",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/brunch-im-barrique/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "brunch-im-barrique-2026-07-05"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "brunch-im-barrique-2026-07-05"
         }
       ]
     },
@@ -16067,6 +16129,37 @@
       ]
     },
     {
+      "id": "myswitzerland:c73f31c492994c4fa28e0a8bc656a24a",
+      "title": "Merci pour le couteau à poisson, les conversations et les délices au jambon",
+      "titleByLocale": {
+        "it": "Merci pour le couteau à poisson, les conversations et les délices au jambon",
+        "en": "Merci pour le couteau à poisson, les conversations et les délices au jambon",
+        "de": "Merci pour le couteau à poisson, les conversations et les délices au jambon",
+        "fr": "Merci pour le couteau à poisson, les conversations et les délices au jambon"
+      },
+      "startDate": "2027-01-10",
+      "endDate": "2027-01-10",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Corpataux-Magnedens",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/merci-pour-le-couteau-a-poisson-les-conversations-et-les-delices-au-jambon-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "merci-pour-le-couteau-a-poisson-les-conversations-2027-01-10"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "merci-pour-le-couteau-a-poisson-les-conversations-et-les-2027-01-10"
+        }
+      ]
+    },
+    {
       "id": "ge-agenda:seances-speciales-partenariat-batie",
       "title": "Séances spéciales en partenariat avec La Bâtie",
       "startDate": "2026-08-27",
@@ -16305,6 +16398,37 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "nemanja-radulovic-et-lorchestre-de-chambre-de-2026-09-22-2"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:f9a9a98923b242eca966da4f26ab4b3e",
+      "title": "Jazz-Dance für Kinder",
+      "titleByLocale": {
+        "it": "Jazz-Dance für Kinder",
+        "en": "Jazz-Dance für Kinder",
+        "de": "Jazz-Dance für Kinder",
+        "fr": "Jazz-Dance für Kinder"
+      },
+      "startDate": "2026-07-03",
+      "endDate": "2027-11-12",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Ballett Studio Scheitlin",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/jazz-dance-fuer-kinder/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "jazz-dance-fur-kinder-2026-07-03"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "jazz-dance-fur-kinder-2026-07-03"
         }
       ]
     },
@@ -17278,6 +17402,37 @@
       ]
     },
     {
+      "id": "myswitzerland:84782b832d1f47fabe56579f778a026a",
+      "title": "No fear sweat before welding",
+      "titleByLocale": {
+        "it": "No fear sweat before welding",
+        "en": "No fear sweat before welding",
+        "de": "Kein Angstschweiss vor dem Schweissen",
+        "fr": "Pas de sueur de peur avant de souder"
+      },
+      "startDate": "2026-07-04",
+      "endDate": "2026-12-31",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Chasa Crusch 117",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/kein-angstschweiss-vor-dem-schweissen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "no-fear-sweat-before-welding-2026-07-04"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "no-fear-sweat-before-welding-2026-07-04"
+        }
+      ]
+    },
+    {
       "id": "myswitzerland:96a5f46366c6478dae4d22a069f2e073",
       "title": "lesefieber - mit Manuela Hofstätter",
       "titleByLocale": {
@@ -17685,6 +17840,37 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "exposition-photographique-portraits-cubains-de-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:482ace862b434fd58e89367f46bceafb",
+      "title": "Parole en l’air",
+      "titleByLocale": {
+        "it": "Parole en l’air",
+        "en": "Parole en l’air",
+        "de": "Parole en l’air",
+        "fr": "Parole en l’air"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Vicques",
+      "canton": "JU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/parole-en-lair/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "parole-en-lair-2026-12-06"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "parole-en-lair-2026-12-06"
         }
       ]
     },
@@ -18375,6 +18561,32 @@
       ]
     },
     {
+      "id": "myswitzerland:1aeb8ee78e514f298e1ba51bb7dfad12",
+      "title": "Degustationstag",
+      "titleByLocale": {
+        "it": "Degustationstag",
+        "en": "Degustationstag",
+        "de": "Degustationstag",
+        "fr": "Degustationstag"
+      },
+      "startDate": "2026-07-05",
+      "endDate": "2026-07-05",
+      "startTime": "10:00",
+      "category": "Music",
+      "venue": "Türmliwy",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/degustationstag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "degustationstag-2026-07-05"
+        }
+      ]
+    },
+    {
       "id": "myswitzerland:834931974b7a40ddb086ba8aa21f5b1f",
       "title": "Aline Valangin",
       "titleByLocale": {
@@ -18791,6 +19003,37 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "petits-et-minis-rendez-vous-2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:c61c48f9cb8e4e4fb967e4dbbd3cb36d",
+      "title": "Schauchäsi Stobete",
+      "titleByLocale": {
+        "it": "Schauchäsi Stobete",
+        "en": "Schauchäsi Stobete",
+        "de": "Schauchäsi Stobete",
+        "fr": "Stobete de Schauchäsi"
+      },
+      "startDate": "2026-01-04",
+      "endDate": "2026-12-06",
+      "startTime": "11:00",
+      "category": "Music",
+      "venue": "Appenzeller Schaukäserei AG",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/schauchaesi-stobete/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "schauchasi-stobete-2026-01-04"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "schauchasi-stobete-2026-01-04"
         }
       ]
     },
@@ -19349,6 +19592,94 @@
           "canton": "GR",
           "comune": "Safiental",
           "slug": "konzert-ensemble-z-in-valendas-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:741dc20022b94c55a4e5a3085f92ac9c",
+      "title": "Kindertanz",
+      "titleByLocale": {
+        "it": "Kindertanz",
+        "en": "Kindertanz",
+        "de": "Kindertanz",
+        "fr": "Kindertanz"
+      },
+      "startDate": "2026-07-07",
+      "endDate": "2027-11-09",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kindertanz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "kindertanz-2026-07-07"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "kindertanz-2026-07-07"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:e5dcede3eac14165a6227a7e969d6fb0",
+      "title": "Kino Tschlin, «Lunch Box»",
+      "titleByLocale": {
+        "it": "Kino Tschlin, «Lunch Box»",
+        "en": "Kino Tschlin, «Lunch Box»",
+        "de": "Kino Tschlin, «Lunch Box»",
+        "fr": "Kino Tschlin, «Lunch Box»"
+      },
+      "startDate": "2026-07-08",
+      "endDate": "2026-07-08",
+      "startTime": "20:15",
+      "category": "Event",
+      "venue": "Tschlin",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kino-tschlin-lunch-box/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "kino-tschlin-lunch-box-2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:ab3fbd34057740f5b1dfa46f9a554c7f",
+      "title": "Grande mercato delle pulci e delle rarità 2025",
+      "titleByLocale": {
+        "it": "Grande mercato delle pulci e delle rarità 2025",
+        "en": "Big flea and rarities market 2025",
+        "de": "Grösster Flohmarkt in Bern Europaplatz 2026",
+        "fr": "Grand marché aux puces et aux objets rares 2025"
+      },
+      "startDate": "2026-04-25",
+      "endDate": "2026-10-24",
+      "startTime": "08:00",
+      "category": "Event",
+      "venue": "Europaplatz",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/grande-mercato-delle-pulci-e-delle-rarita-2025/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "grande-mercato-delle-pulci-e-delle-rarita-2025-2026-04-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "grande-mercato-delle-pulci-e-delle-rarita-2025-2026-04-25"
         }
       ]
     },
