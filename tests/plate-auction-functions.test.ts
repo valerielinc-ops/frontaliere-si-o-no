@@ -62,6 +62,22 @@ function fakeFirestore(previousRows: Record<string, unknown>[]) {
   };
 }
 
+describe('Glarus Cloud Function collector', () => {
+  it('collects the same verified public JSON source as the static builder', async () => {
+    const store = fakeFirestore([]);
+    const now = new Date();
+    const payload = { status: true, data: [{ id: 1585, number: 3100, price: 150, typeid: 3, platetype: 'motorcycle_plate', available: 1, deleted: 0, registered: 0, reservationid: null }] };
+    const request = {
+      db: store.db as never, now,
+      fetcher: async (url: string) => url === 'https://eschild.gl.ch/api/v1/plate' ? payload : '',
+    };
+    const result = await refreshPlateAuctions(request);
+    expect(result.summaries.gl).toMatchObject({ status: 'active' });
+    expect(store.writes.some(write => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'gl-1585' && write.value.normalizedPlate === 'GL3100' && write.value.vehicleType === 'motorcycle' && write.value.startingPriceChf === 150)).toBe(true);
+    expect(store.sourceSets.find(source => source.id === 'gl')?.value).toMatchObject({ status: 'active', rowCount: 1 });
+  });
+});
+
 describe('plate-auction Cloud Function schedule', () => {
   // From 2026-09-15 every run was cut off at BS (60 s / 256 MiB defaults) and
   // GR, SG, SH, SZ, TG, VS, ZH kept their 09-15 snapshot in the API relay.

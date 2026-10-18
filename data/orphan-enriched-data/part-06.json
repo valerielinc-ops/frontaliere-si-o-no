@@ -9408,7 +9408,12 @@
         {
           "query": "autista moritz",
           "clicks": 0,
-          "impressions": 40
+          "impressions": 45
+        },
+        {
+          "query": "offerte di lavoro per autisti in svizzera",
+          "clicks": 1,
+          "impressions": 7
         },
         {
           "query": "short list avvocati",
@@ -9441,11 +9446,6 @@
           "impressions": 5
         },
         {
-          "query": "offerte di lavoro per autisti in svizzera",
-          "clicks": 1,
-          "impressions": 5
-        },
-        {
           "query": "ditte di trasporti che cercano autisti in svizzera patente b",
           "clicks": 1,
           "impressions": 4
@@ -9461,6 +9461,26 @@
           "impressions": 4
         },
         {
+          "query": "autista ticino",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "ditte di trasporti in svizzera che cercano autisti",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "si",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "autista",
+          "clicks": 1,
+          "impressions": 3
+        },
+        {
           "query": "short list avvocati 2026",
           "clicks": 0,
           "impressions": 3
@@ -9471,29 +9491,9 @@
           "impressions": 3
         },
         {
-          "query": "autista ticino",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "ditte di trasporti in svizzera che cercano autisti",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
           "query": "lavoro autista ticino",
           "clicks": 0,
           "impressions": 3
-        },
-        {
-          "query": "si",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "autista",
-          "clicks": 1,
-          "impressions": 2
         },
         {
           "query": "offerte di lavoro: autista bus svizzera canton ticino",
@@ -9506,8 +9506,8 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 225,
-      "totalClicks": 14,
+      "totalImpressions": 243,
+      "totalClicks": 15,
       "topQuery": "autista moritz",
       "title": "Autisti",
       "titleByLocale": {
@@ -21211,9 +21211,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "costruttore-stradale-pemsa-bellinzona",
-        "en": "costruttore-stradale-pemsa-bellinzona",
-        "de": "costruttore-stradale-pemsa-bellinzona",
-        "fr": "constructrice-de-routes-pemsa-bellinzona"
+        "en": "road-construction-pemsa-bellinzona",
+        "de": "stra-enbau-pemsa-bellinzona",
+        "fr": "construction-de-routes-pemsa-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/costruttore-stradale-pemsa-bellinzona",
@@ -21221,7 +21221,7 @@
         "de": "/de/jobs-im-tessin/costruttore-stradale-pemsa-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/constructrice-de-routes-pemsa-bellinzona"
       },
-      "sourceUrl": "https://www.pemsa.ch/it/job/costruttore-stradale-2668147",
+      "sourceUrl": "https://www.pemsa.ch/it/job/costruttore-stradale-2700480",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -26733,12 +26733,12 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 264
+          "impressions": 267
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 194
+          "impressions": 201
         },
         {
           "query": "politica sanitaria canton ticino anziani",
@@ -26747,6 +26747,11 @@
         },
         {
           "query": "elderly care jobs in switzerland",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "unemployment simulator 2018",
           "clicks": 0,
           "impressions": 4
         },
@@ -26764,6 +26769,16 @@
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
           "impressions": 3
+        },
+        {
+          "query": "ticino",
+          "clicks": 1,
+          "impressions": 2
+        },
+        {
+          "query": "altenpflege",
+          "clicks": 0,
+          "impressions": 2
         },
         {
           "query": "elderly care jobs near me",
@@ -26806,11 +26821,6 @@
           "impressions": 1
         },
         {
-          "query": "ticino",
-          "clicks": 1,
-          "impressions": 1
-        },
-        {
           "query": "نعم ابحث",
           "clicks": 1,
           "impressions": 1
@@ -26819,19 +26829,9 @@
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "aged care vacancy",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "aged care worker jobs",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 536,
+      "totalImpressions": 553,
       "totalClicks": 7,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
@@ -27024,10 +27024,10 @@
         "fr": "elektroinstallateur-in-alle-bkw-utzenstorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/elektroinstallateur-in-alle-bkw-utzenstorf",
-        "en": "/en/find-jobs-bern/elektroinstallateur-in-alle-bkw-utzenstorf",
+        "it": "/cerca-lavoro-zurigo/elektroinstallateur-in-alle-bkw-utzenstorf",
+        "en": "/en/find-jobs-zurich/elektroinstallateur-in-alle-bkw-utzenstorf",
         "de": "/de/jobs-im-bern/elektroinstallateur-in-alle-bkw-utzenstorf",
-        "fr": "/fr/trouver-emploi-berne/elektroinstallateur-in-alle-bkw-utzenstorf"
+        "fr": "/fr/trouver-emploi-zurich/elektroinstallateur-in-alle-bkw-utzenstorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41038,14 +41038,19 @@
       },
       "queries": [
         {
-          "query": "frontaliere ticino offerte di lavoro",
-          "clicks": 0,
-          "impressions": 43
-        },
-        {
           "query": "offerte lavoro logistica ticino",
           "clicks": 4,
-          "impressions": 40
+          "impressions": 44
+        },
+        {
+          "query": "frontaliere ticino offerte di lavoro",
+          "clicks": 0,
+          "impressions": 44
+        },
+        {
+          "query": "offerte di lavoro impiegato in logistica ticino",
+          "clicks": 3,
+          "impressions": 24
         },
         {
           "query": "impiegato in logistica offerte di lavoro ticino",
@@ -41053,14 +41058,9 @@
           "impressions": 23
         },
         {
-          "query": "offerte di lavoro impiegato in logistica ticino",
-          "clicks": 3,
-          "impressions": 21
-        },
-        {
           "query": "logistica ticino lavoro",
           "clicks": 1,
-          "impressions": 17
+          "impressions": 20
         },
         {
           "query": "site:frontaliereticino.ch",
@@ -41083,28 +41083,33 @@
           "impressions": 13
         },
         {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
+          "query": "logistica ticino",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
           "query": "lavoro frontaliere svizzera",
           "clicks": 0,
           "impressions": 11
         },
         {
-          "query": "logistica ticino",
+          "query": "lavoro logistica ticino",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 10
         },
         {
-          "query": "frontalieri",
+          "query": "lavoro ticino logistica",
           "clicks": 0,
           "impressions": 8
         },
         {
           "query": "impiegato in logistica ticino",
           "clicks": 1,
-          "impressions": 7
-        },
-        {
-          "query": "lavoro logistica ticino",
-          "clicks": 0,
           "impressions": 7
         },
         {
@@ -41118,7 +41123,7 @@
           "impressions": 5
         },
         {
-          "query": "lavoro ticino logistica",
+          "query": "logistica svizzera",
           "clicks": 0,
           "impressions": 5
         },
@@ -41128,19 +41133,14 @@
           "impressions": 5
         },
         {
-          "query": "logistica svizzera",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
           "query": "lavorare in svizzera frontaliere",
           "clicks": 0,
           "impressions": 3
         }
       ],
-      "totalImpressions": 367,
-      "totalClicks": 12,
-      "topQuery": "frontaliere ticino offerte di lavoro",
+      "totalImpressions": 400,
+      "totalClicks": 14,
+      "topQuery": "offerte lavoro logistica ticino",
       "title": "Logistica",
       "titleByLocale": {
         "it": "",
@@ -62098,6 +62098,74 @@
       ]
     },
     {
+      "slug": "seller-food-coop-genossenschaft-scuol",
+      "locale": "en",
+      "path": "/en/find-jobs-graubunden/seller-food-coop-genossenschaft-scuol/",
+      "observedPaths": {
+        "en": "/en/find-jobs-graubunden/seller-food-coop-genossenschaft-scuol/"
+      },
+      "queries": [
+        {
+          "query": "job scuol",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "scuol jobs",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offene stellen scuol",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "job scuol",
+      "title": "Seller food coop genossenschaft",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Scuol",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "seller-food-coop-genossenschaft-scuol",
+        "en": "seller-food-coop-genossenschaft-scuol",
+        "de": "seller-food-coop-genossenschaft-scuol",
+        "fr": "seller-food-coop-genossenschaft-scuol"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/seller-food-coop-genossenschaft-scuol",
+        "en": "/en/find-jobs-graubunden/seller-food-coop-genossenschaft-scuol",
+        "de": "/de/jobs-im-graubunden/seller-food-coop-genossenschaft-scuol",
+        "fr": "/fr/trouver-emploi-grisons/seller-food-coop-genossenschaft-scuol"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "seller-fresh-products-coop-genossenschaft-zurich-0g5cf0",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/seller-fresh-products-coop-genossenschaft-zurich-0g5cf0",
@@ -64081,10 +64149,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "fr": "serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf",
-        "it": "serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf",
-        "de": "serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf",
-        "en": "serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf"
+        "de": "fahrzeugschlosser-80-100-m-w-regensdorf-zh-yellowshark-ch",
+        "it": "veicolo-fabbro-80-100-m-f-yellowshark-ag-regensdorf",
+        "en": "vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf",
+        "fr": "serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf"
       },
       "localePaths": {
         "fr": "/fr/trouver-emploi-zurich/serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf",
@@ -64092,12 +64160,13 @@
         "de": "/de/jobs-im-zurich/serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf",
         "en": "/en/find-jobs-zurich/serrurier-de-vehicule-80-100-h-f-yellowshark-ag-regensdorf"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.yellowshark.com/job/sa065191",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
