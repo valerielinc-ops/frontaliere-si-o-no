@@ -63,8 +63,8 @@ export function isTrustedDomain(rawUrl = '') {
 
 /**
  * The RH-Expert index labels every detail link “En savoir plus”. On the
- * official detail page the H1 is the vacancy title, the .col-9 paragraphs are
- * the vacancy body, and “Lieu de travail” is the authoritative workplace.
+ * official detail page the H1 is the vacancy title, the .col-9 paragraphs or
+ * list items are the vacancy body, and “Lieu de travail” is the authoritative workplace.
  * The adjacent .col-3/office address is intentionally not used as a fallback.
  */
 export function extractRhExpertChDetailFields(html = '', pageUrl = '') {
@@ -81,19 +81,24 @@ export function extractRhExpertChDetailFields(html = '', pageUrl = '') {
     };
   }
 
-  const paragraphs = [...(container?.querySelectorAll('p') || [])]
-    .map((paragraph) => ({
-      text: normalizeSpace(paragraph.textContent),
-      small: paragraph.classList.contains('small'),
+  // RH-Expert has rendered the vacancy body as both paragraphs and list items
+  // over time. Keep the selector inside the vacancy column so the office
+  // sidebar cannot become source-backed job content or workplace evidence.
+  const contentNodes = [...(container?.querySelectorAll('p, li') || [])]
+    .filter((node) => node.tagName.toLowerCase() !== 'li' || !node.querySelector('li'));
+  const content = contentNodes
+    .map((node) => ({
+      text: normalizeSpace(node.textContent),
+      small: node.classList.contains('small'),
     }))
     .filter(({ text, small }) => text && !small
       && !/^(?:t[eé]l[eé]phone|mobile|e-?mail|contact)\s*:/i.test(text)
       && !/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i.test(text)
       && !/lieu de travail\s*:/i.test(text))
     .map(({ text }) => text)
-    .filter((text) => text.length >= 20);
-  const workplaceText = [...(container?.querySelectorAll('p') || [])]
-    .map((paragraph) => normalizeSpace(paragraph.textContent))
+    .filter((text, index, all) => text.length >= 20 && all.indexOf(text) === index);
+  const workplaceText = contentNodes
+    .map((node) => normalizeSpace(node.textContent))
     .find((text) => /lieu de travail\s*:/i.test(text)) || '';
   const workplace = /lieu de travail\s*:\s*([^•;|.\n]+)/i.exec(workplaceText)?.[1]?.trim() || '';
   const geography = workplace ? resolveSourceBackedSwissGeography(workplace) : null;
