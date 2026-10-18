@@ -150,6 +150,14 @@ describe('extractArticleText', () => {
     expect(result.text).toContain(outerParagraph);
   });
 
+  it('does not expose outer prose after a plaintext raw-text noscript end tag', () => {
+    const html = '<main><noscript><plaintext>RAW</noscript><p>OUTER</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('OUTER');
+    expect(result.text).toBe('');
+  });
+
   it('preserves an unambiguously paired source tail after an unclosed raw-text tag', () => {
     const rejected = 'Paragraph before the unclosed raw-text element belongs to the rejected fallback.';
     const recovered = 'Paragraph after the malformed raw-text prefix remains recoverable source prose.';

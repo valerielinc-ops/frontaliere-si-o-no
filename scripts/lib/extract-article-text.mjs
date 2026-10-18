@@ -521,10 +521,12 @@ function prepareNoscriptSource(html) {
             // noscript stay open. A literal end tag is usable only when a
             // source scanner reaches it outside every JavaScript lexical
             // state; otherwise the whole suffix remains poisoned.
-            const noscriptEnd = findNoscriptEndTagOutsideLexicalState(
-              unterminatedMarkup,
-              rawText.contentStart,
-            );
+            const noscriptEnd = rawText.tag === 'script'
+              ? findNoscriptEndTagOutsideLexicalState(
+                unterminatedMarkup,
+                rawText.contentStart,
+              )
+              : -1;
             if (noscriptEnd >= 0) {
               rejectedEnd = location.startTag.endOffset + noscriptEnd;
             } else {
