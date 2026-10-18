@@ -167,7 +167,7 @@ function locationCandidate(value = '') {
  * @param {string} title
  * @returns {{ locationCandidates: Array<NonNullable<ReturnType<typeof locationCandidate>>> }|null}
  */
-function titleAlternativeLocationEvidence(title = '') {
+export function extractUmantisTitleAlternativeLocationEvidence(title = '') {
   const text = cleanLocation(title);
   const marker = text.toLowerCase().lastIndexOf(' in ');
   if (marker < 0) return null;
@@ -177,7 +177,10 @@ function titleAlternativeLocationEvidence(title = '') {
   if (alternatives.length !== 2 || alternatives.some((part) => !part || !isKnownSwissMunicipality(part))) {
     return null;
   }
-  const locationCandidates = alternatives.map(locationCandidate).filter(Boolean);
+  const locationCandidates = alternatives
+    .map(locationCandidate)
+    .filter(Boolean)
+    .map((candidate) => ({ ...candidate, addressCountry: 'CH' }));
   if (locationCandidates.length !== alternatives.length) return null;
   return {
     ...locationCandidates[0],
@@ -304,7 +307,7 @@ export function extractUmantisListingEvidence(html = '', baseUrl = '', { cantonO
       const anchorBound = rowIndex.bounds.get(anchor.index);
       const anchorText = anchorBound ? structuredText(row.slice(anchor.end, anchorBound.contentEnd)) : '';
       for (const title of [readAttr(anchor.raw, 'aria-label'), anchorText]) {
-        const titleEvidence = titleAlternativeLocationEvidence(title);
+        const titleEvidence = extractUmantisTitleAlternativeLocationEvidence(title);
         if (!titleEvidence) continue;
         evidence.set(vacancyId, titleEvidence);
         break;

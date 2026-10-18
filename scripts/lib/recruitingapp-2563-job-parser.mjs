@@ -15,7 +15,10 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
-import { extractUmantisDetailFields } from './prospector/umantis-detail.mjs';
+import {
+  extractUmantisDetailFields,
+  extractUmantisTitleAlternativeLocationEvidence,
+} from './prospector/umantis-detail.mjs';
 import {
   runUmantisSpecWithEmptyProof,
   umantisAuthoritativeEmptyOrNull,
@@ -33,11 +36,10 @@ export const RECRUITINGAPP_2563_COMPANY_DOMAIN = 'recruitingapp-2563.umantis.com
 
 const CAREER_URL = 'https://recruitingapp-2563.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
 
-// Switch publishes the workplace in the vacancy title for single-site roles;
-// the Umantis detail page has no reliable location field for those postings.
-// Keep this source-specific and fail closed for multi-site titles: the current
-// job shape has one canton slot and must not turn "Zürich oder Lausanne" into a
-// guessed single canton.
+// Switch publishes the workplace in the vacancy title; the Umantis detail page
+// may also carry only the employer's generic address. Single-site titles and
+// explicitly Swiss alternatives are source-backed evidence, while any title
+// that cannot prove a Swiss site remains fail-closed.
 const SWITCH_SINGLE_CITY_TITLE_RX = /\bin\s+(Zürich|Zurich|Lausanne)\s*$/i;
 const SWITCH_SUPPORTED_CITY_RX = /\b(Zürich|Zurich|Lausanne)\b/gi;
 
@@ -83,6 +85,31 @@ export function extractRecruitingapp2563DetailFields(html = '', pageUrl = '', op
     || normalize(detailTitle) === normalize(normalizedRenderedTitle);
   const titleForLocation = titleSourcesAgree ? detailTitle || normalizedRenderedTitle : '';
   const location = extractRecruitingapp2563TitleLocation(titleForLocation);
+  const alternativeLocation = location
+    ? null
+    : extractUmantisTitleAlternativeLocationEvidence(titleForLocation);
+
+  // The shared Umantis extractor keeps every explicit alternative and projects
+  // the first one for the site's singular job schema. Reuse that same evidence
+  // on the detail page so a generic employer HQ cannot veto a vacancy title
+  // that names two verified Swiss workplaces. A foreign or otherwise
+  // conflicting structured detail candidate still wins as a fail-closed veto.
+  if (alternativeLocation) {
+    const genericLocationDecision = resolveDetailOrListingSwissGeography(detail, {});
+    if (!genericLocationDecision.explicitlyForeign) {
+      return {
+        ...detail,
+        location: alternativeLocation.location,
+        addressLocality: alternativeLocation.addressLocality,
+        addressRegion: alternativeLocation.addressRegion,
+        addressCountry: alternativeLocation.addressCountry,
+        postalCode: alternativeLocation.postalCode,
+        streetAddress: alternativeLocation.streetAddress,
+        locationCandidates: alternativeLocation.locationCandidates,
+      };
+    }
+  }
+
   if (!location) {
     const genericLocationPresent = Boolean(detail.location)
       || Boolean(detail.addressCountry)
