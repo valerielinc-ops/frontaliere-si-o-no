@@ -20,6 +20,8 @@ import {
   pharmaciesForProvince,
 } from '../services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
+import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
+import { PHARMACY_DUTY_CITY_REDIRECTS } from '../scripts/lib/pharmacySections.mjs';
 import { publicDutiesForRegion } from '../services/pharmacies/duties';
 import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, formatDutyDateTime, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
 import { buildDutyCoverageMatrix, formatDutyCoverageDate, getDutyCoverageMatrixCopy, type DutyCoverageMatrixModel } from '../services/pharmacies/dutyCoverageMatrix';
@@ -368,7 +370,18 @@ const ALIAS_COPY: Record<Locale, { title: string; description: string; body: str
   fr: { title: 'Page pharmacie mise à jour | Frontaliere Ticino', description: 'Cette page pharmacie possède une URL canonique mise à jour.', body: 'Cette page pharmacie a été mise à jour. Nous vous dirigeons vers la page canonique.', cta: 'Ouvrir la page mise à jour' },
 };
 
-export function buildPharmacyAliasBridge(descriptor: PharmacyUrlAliasDescriptor): string {
+type PharmacyAliasBridgeDescriptor = PharmacyUrlAliasDescriptor | Pick<PharmacyUrlAliasDescriptor, 'locale' | 'from' | 'to'>;
+
+/** Retained regional-duty URLs, not aliases for a different pharmacy identity. */
+export function pharmacyDutyCityAliasDescriptors(): PharmacyAliasBridgeDescriptor[] {
+  return Object.entries(PHARMACY_DUTY_CITY_REDIRECTS).map(([from, to]) => {
+    const route = parsePharmacyRoute(from);
+    if (route?.kind !== 'duty-city') throw new Error(`Invalid pharmacy duty city alias: ${from}`);
+    return { locale: route.locale, from, to };
+  });
+}
+
+export function buildPharmacyAliasBridge(descriptor: PharmacyAliasBridgeDescriptor): string {
   const copy = ALIAS_COPY[descriptor.locale];
   const targetUrl = `${BASE_URL}${descriptor.to}`;
   return buildCanonicalBridgePage({
@@ -390,7 +403,7 @@ export function buildPharmacyAliasBridge(descriptor: PharmacyUrlAliasDescriptor)
  * dist when the importer turns it into an alias; existence is not evidence
  * that the file should be preserved.
  */
-export function emitPharmacyAliasBridge(distDir: string, descriptor: PharmacyUrlAliasDescriptor): void {
+export function emitPharmacyAliasBridge(distDir: string, descriptor: PharmacyAliasBridgeDescriptor): void {
   const relativePath = descriptor.from.replace(/^\/+/, '').replace(/\/+$/, '');
   const outDir = path.join(distDir, relativePath);
   const html = buildPharmacyAliasBridge(descriptor);
@@ -1175,7 +1188,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${BASE_URL}${url}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`).join('')}</urlset>\n`;
       const written = await collector.flush();
       let aliasRedirects = 0;
-      for (const alias of pharmacyUrlAliasDescriptors()) {
+      for (const alias of [...pharmacyUrlAliasDescriptors(), ...pharmacyDutyCityAliasDescriptors()]) {
         emitPharmacyAliasBridge(distDir, alias);
         aliasRedirects += 1;
       }

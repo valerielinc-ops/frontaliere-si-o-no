@@ -47,6 +47,7 @@ export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/publish-edge-files.mjs',
   'scripts/lib/upload-cdn-file.sh',
   'infra/cloudflare-worker/locale-router.js',
+  'scripts/lib/pharmacySections.mjs',
   'infra/cloudflare-worker/ticino-tree-bucket.js',
   // Not a writer: the CDN origin of the URLs the chunk publisher evicts after
   // an upload. A checkout from before a change to it would upload the new

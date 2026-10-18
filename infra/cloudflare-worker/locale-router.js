@@ -62,6 +62,7 @@
  *   their versioned release key comes from edge/sections/registry.json.
  */
 
+import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
 import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
@@ -1811,7 +1812,9 @@ function lookupLegacyTable(pathname, table) {
  * makes the HTTP contract testable without relying on a live Cloudflare zone.
  */
 export function apexLegacyResponse(url) {
-  const redirect = lookupLegacyTable(url.pathname, EDGE_LEGACY_REDIRECTS);
+  // Domain-owned regional-duty aliases retain their own exact inventory.
+  const redirect = lookupLegacyTable(url.pathname, PHARMACY_DUTY_CITY_REDIRECTS)
+    ?? lookupLegacyTable(url.pathname, EDGE_LEGACY_REDIRECTS);
   if (redirect !== undefined) {
     return new Response(null, {
       status: 301,
