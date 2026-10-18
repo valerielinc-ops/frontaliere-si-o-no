@@ -1,8 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildUsiSourceDescription,
   classifyUsiFetchError,
   dropUsiFabricatedText,
+  fetchPage,
+  looksLikeUsiListingHtml,
   stripUsiWrapper,
 } from '../scripts/update-usi-jobs.mjs';
 
@@ -101,5 +103,65 @@ describe('classifyUsiFetchError', () => {
       lastFetchOutcome: 'anti_bot_block',
       abortKind: 'connection-level-fetch',
     });
+  });
+});
+
+describe('USI listing transport rescue', () => {
+  const listingUrl = 'https://www.usi.ch/it/universita/collabora-con-noi/concorsi-e-offerte-di-lavoro';
+  const listingHtml = '<html><body><h1>Concorsi e le offerte di lavoro</h1></body></html>';
+
+  it('uses a browser-like source UA and escalates a WAF response to Chromium', async () => {
+    const fetchHtmlImpl = vi.fn(async () => {
+      const error: any = new Error('HTTP 403');
+      error.status = 403;
+      throw error;
+    });
+    const browserFetchImpl = vi.fn(async () => listingHtml);
+
+    await expect(fetchPage(listingUrl, 1000, { fetchHtmlImpl, browserFetchImpl })).resolves.toBe(listingHtml);
+
+    expect(fetchHtmlImpl).toHaveBeenCalledWith(listingUrl, expect.objectContaining({
+      headers: expect.objectContaining({
+        'User-Agent': expect.stringMatching(/^Mozilla\/5\.0.*Chrome\/130\.0\.0\.0/),
+        'Sec-Fetch-Mode': 'navigate',
+      }),
+    }));
+    expect(browserFetchImpl).toHaveBeenCalledWith(listingUrl, 1000);
+  });
+
+  it('rescues a known 200 challenge but does not browser-fallback a real endpoint error', async () => {
+    const browserFetchImpl = vi.fn(async () => listingHtml);
+    const challenge = '<html><body>Just a moment... enable JavaScript and cookies to continue</body></html>';
+
+    await expect(fetchPage(listingUrl, 1000, {
+      fetchHtmlImpl: async () => challenge,
+      browserFetchImpl,
+    })).resolves.toBe(listingHtml);
+    expect(browserFetchImpl).toHaveBeenCalledTimes(1);
+
+    browserFetchImpl.mockClear();
+    const notFound: any = new Error('HTTP 404');
+    notFound.status = 404;
+    await expect(fetchPage(listingUrl, 1000, {
+      fetchHtmlImpl: async () => { throw notFound; },
+      browserFetchImpl,
+    })).rejects.toBe(notFound);
+    expect(browserFetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('rescues an unverified 200 listing response and fails closed when rescue is unverified', async () => {
+    const browserFetchImpl = vi.fn(async () => null);
+    const unverified = '<html><title>not found</title></html>';
+
+    await expect(fetchPage(listingUrl, 1000, {
+      fetchHtmlImpl: async () => unverified,
+      browserFetchImpl,
+    })).rejects.toMatchObject({ status: 403, antiBotChallenge: true });
+    expect(browserFetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('recognizes a legitimate empty listing document without requiring a PDF', () => {
+    expect(looksLikeUsiListingHtml(listingHtml)).toBe(true);
+    expect(looksLikeUsiListingHtml('<html><body>Just a moment...</body></html>')).toBe(false);
   });
 });
