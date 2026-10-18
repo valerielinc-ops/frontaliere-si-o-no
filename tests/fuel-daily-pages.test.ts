@@ -627,8 +627,8 @@ describe('fuel-daily page generation — dated EUR equivalent', () => {
       ['fr', '/fr/prix-essence-suisse/aujourd-hui/', '0,9500'],
     ]) {
       const html = pages[path];
-      expect(html, locale).toContain('id="fuelEuroEquivalent"');
-      expect(html, locale).toContain('id="fuelEuroContext"');
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroContext'));
       expect(html, locale).toContain('17.04.2026');
       expect(html, locale).toContain(ecbSourceUrl);
       expect(html, locale).toContain(rate);
@@ -648,8 +648,8 @@ describe('fuel-daily page generation — dated EUR equivalent', () => {
     const invalidPages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-eur-invalid-date-test', dataset: invalidDataset, history: [], today });
     const html = invalidPages['/prezzi-benzina/oggi/'];
 
-    expect(html).not.toContain('id="fuelEuroEquivalent"');
-    expect(html).not.toContain('id="fuelEuroContext"');
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
   });
 
   it('keeps the existing CHF-only output when exchange-rate metadata is absent', () => {
@@ -661,8 +661,8 @@ describe('fuel-daily page generation — dated EUR equivalent', () => {
     });
     const html = withoutRatePages['/prezzi-diesel/oggi/'];
 
-    expect(html).not.toContain('id="fuelEuroEquivalent"');
-    expect(html).not.toContain('id="fuelEuroContext"');
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
   });
 });
 
