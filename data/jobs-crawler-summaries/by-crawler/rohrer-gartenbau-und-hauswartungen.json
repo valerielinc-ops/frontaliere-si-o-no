@@ -1,7 +1,7 @@
 {
   "key": "rohrer-gartenbau-und-hauswartungen",
   "label": "Rohrer Gartenbau und Hauswartungen GmbH",
-  "generatedAt": "2026-10-17T21:30:07.901Z",
+  "generatedAt": "2026-10-18T09:30:31.057Z",
   "total": 1,
   "discovered": 3,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3048,
-  "avgDurationMs": 3048,
+  "durationMs": 5031,
+  "avgDurationMs": 5031,
   "durationHistory": [
-    3048
+    5031
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://rohrer-gartenbau.ch/unternehmen/jobs/#mitarbeiter-in-treppenhausreinigung-40",
       "source": "Rohrer Gartenbau und Hauswartungen GmbH Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-17T21:29:52.836Z",
+      "crawledAt": "2026-10-18T09:30:12.767Z",
       "category": "Pulizie",
       "contract": "part-time",
       "employmentType": "PART_TIME",
@@ -65,5 +65,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }
