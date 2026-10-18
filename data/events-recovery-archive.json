@@ -3803,6 +3803,11 @@
           "canton": "GE",
           "comune": "geneve",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-08-31"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-08-15"
         }
       ]
     },
@@ -13533,6 +13538,25 @@
       ]
     },
     {
+      "id": "ge-agenda:concerts-ete-germain-2026",
+      "title": "Concerts d'été à St-Germain 2026",
+      "startDate": "2026-08-10",
+      "endDate": "2026-08-31",
+      "category": "Concert",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/concerts-ete-germain-2026",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "comune": "Genève",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "concerts-dete-a-st-germain-2026-2026-08-10"
+        }
+      ]
+    },
+    {
       "id": "myswitzerland:0505b6d6abbd4e4bad89e1c923f59fbe",
       "title": "Porte aperte al Teatro Sociale di Bellinzona",
       "titleByLocale": {
@@ -14000,6 +14024,46 @@
       ]
     },
     {
+      "id": "guidle:AxJ2Y1d",
+      "title": "Summer-Festival: Portrait Mark Andre 1",
+      "titleByLocale": {
+        "it": "Summer-Festival: Portrait Mark Andre 1",
+        "en": "Summer-Festival: Portrait Mark Andre 1",
+        "de": "Summer-Festival: Portrait Mark Andre 1",
+        "fr": "Summer-Festival: Portrait Mark Andre 1"
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "11:00",
+      "category": "Musica moderna / seria",
+      "venue": "Hochschule Luzern - Musik",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/events/classical/kriens/summer-festival-portrait-mark-andre-1_AxJ2Y1d",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "comune": "Kriens",
+      "previousRoutes": [
+        {
+          "canton": "LU",
+          "comune": "Kriens",
+          "slug": "summer-festival-portrait-mark-andre-1-2026-08-30"
+        }
+      ],
+      "recoveryEvidence": {
+        "primaryUrl": "https://www.lucernefestival.ch/de/programm/jorg-widmann-frank-reinecke-experimentalstudio-des-swr-freiburg/2384",
+        "checkedAt": "2026-10-18",
+        "matchingFields": [
+          "title",
+          "startDate",
+          "startTime",
+          "venue"
+        ],
+        "otherIds": [
+          "myswitzerland:f39881dc7f2849e39da0a5effee2af01"
+        ]
+      }
+    },
+    {
       "id": "tio-agenda:63190",
       "title": "Svizzera agli ottavi di finale!",
       "titleByLocale": {
@@ -14337,6 +14401,46 @@
           "slug": "klang-am-fels-mit-shem-thomas-2026-08-21"
         }
       ]
+    },
+    {
+      "id": "guidle:Aj2gf4s",
+      "title": "Schubertiade Sion",
+      "titleByLocale": {
+        "it": "Schubertiade Sion",
+        "en": "Schubertiade Sion",
+        "de": "Schubertiade Sion",
+        "fr": "Schubertiade Sion"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Résidence médicalisée Le Glarier",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/classique/sion/schubertiade-sion_Aj2gf4s",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "comune": "Sion",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Sion",
+          "slug": "schubertiade-sion-2026-09-12"
+        }
+      ],
+      "recoveryEvidence": {
+        "primaryUrl": "https://www.terpsycordes.com/fr/agenda",
+        "checkedAt": "2026-10-18",
+        "matchingFields": [
+          "title",
+          "startDate",
+          "startTime",
+          "venue"
+        ],
+        "otherIds": [
+          "myswitzerland:bbbf681277584a969da6f3dc8f47987c"
+        ]
+      }
     },
     {
       "id": "ge-agenda:concert-jardin-nations",
@@ -15104,6 +15208,35 @@
           "slug": "landhaus-zwischen-wasser-und-feuer-2026-09-12"
         }
       ]
+    },
+    {
+      "id": "ge-agenda:retsina-cola",
+      "title": "RETSINA COLA",
+      "startDate": "2026-09-20",
+      "category": "Concert",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/retsina-cola",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "comune": "Genève",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "retsina-cola-2026-09-20"
+        }
+      ],
+      "recoveryEvidence": {
+        "primaryUrl": "https://fetedelolivier.ch/retsina-cola-rebetiko/",
+        "checkedAt": "2026-10-18",
+        "matchingFields": [
+          "title",
+          "startDate"
+        ],
+        "otherIds": [
+          "myswitzerland:401b21e3213b4d3d8882aa3cfab263af"
+        ]
+      }
     },
     {
       "id": "myswitzerland:702d0076d6ce4da3969e156b42974f04",
@@ -17511,6 +17644,45 @@
           "slug": "mit-zwischenstopp-nach-china-2026-08-22"
         }
       ]
+    },
+    {
+      "id": "guidle:AkdAR6x",
+      "title": "Jérémie Kisling",
+      "titleByLocale": {
+        "it": "Jérémie Kisling",
+        "en": "Jérémie Kisling",
+        "de": "Jérémie Kisling",
+        "fr": "Jérémie Kisling"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "00:00",
+      "category": "cantautore",
+      "venue": "Théâtre de l'Odéon",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/musique/villeneuve-vd/jeremie-kisling_AkdAR6x",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "jeremie-kisling-2026-10-30"
+        }
+      ],
+      "recoveryEvidence": {
+        "previousId": "myswitzerland:c21ab62f74dd4a2fbd60a8b7bb23c428",
+        "sourceSnapshot": "44238ba45f15c445d3cbdcb087e1c819e3f6787c",
+        "primaryUrl": "https://www.guidle.com/it/evenements/musique/villeneuve-vd/jeremie-kisling_AkdAR6x",
+        "checkedAt": "2026-10-18",
+        "matchingFields": [
+          "title",
+          "startDate",
+          "endDate",
+          "venue/locality"
+        ],
+        "reason": "Live HTTP200 Guidle JSON-LD confirms 30 October at Théâtre de l’Odéon, Grand-Rue43,1844VilleneuveVD; reuse this current source ID rather than revive the absent MySwitzerland record."
+      }
     },
     {
       "id": "myswitzerland:22bf1c1afa324b3b98925fc5d75e7385",

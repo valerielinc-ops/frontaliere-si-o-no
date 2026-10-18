@@ -35,18 +35,18 @@ for (const event of archived) {
 
 describe('reported GSC event archive coverage', () => {
   it('keeps the additional export routes attributable to exact pinned source observations', () => {
-    expect(fixture.freshExport.routes).toHaveLength(302);
+    expect(fixture.freshExport.routes).toHaveLength(308);
     const snapshots = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8')).sourceSnapshots as { commit: string }[];
     const commits = new Set(snapshots.map(snapshot => snapshot.commit));
     for (const row of fixture.freshExport.routes) {
       expect(commits.has(row.commit), row.path).toBe(true);
-      expect(['assigned-canonical', 'recorded-previous-route', 'native-legacy-slug', 'unique-source-slug-and-observed-legacy-ti-route']).toContain(row.evidenceKind);
+      expect(['assigned-canonical', 'recorded-previous-route', 'native-legacy-slug', 'unique-source-slug-and-observed-legacy-ti-route', 'unique-assigned-canonical-owner', 'primary-occurrence-attestation']).toContain(row.evidenceKind);
       expect(fixture.routes, row.path).toContainEqual([row.path, row.id]);
     }
   });
 
   it('keeps every attested reported route attached to its exact public identity', () => {
-    expect(fixture.routes).toHaveLength(676);
+    expect(fixture.routes).toHaveLength(682);
     expect(new Set(fixture.routes.map(([path]) => path)).size).toBe(fixture.routes.length);
     for (const [path, id] of fixture.routes) {
       const canonical = canonicalOwners.get(path);
@@ -65,6 +65,21 @@ describe('reported GSC event archive coverage', () => {
       expect(event.previousRoutes, row.path).toContainEqual({
         canton: 'TI', comune: '__other-events__', slug: row.path.split('/').at(-2),
       });
+    }
+  });
+
+  it('keeps one attested occurrence owner and does not revive superseded MySwitzerland identities', () => {
+    const raw = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
+    for (const [id, oldId, primaryUrl] of [
+      ['guidle:AxJ2Y1d', 'myswitzerland:f39881dc7f2849e39da0a5effee2af01', 'https://www.lucernefestival.ch/de/programm/jorg-widmann-frank-reinecke-experimentalstudio-des-swr-freiburg/2384'],
+      ['guidle:Aj2gf4s', 'myswitzerland:bbbf681277584a969da6f3dc8f47987c', 'https://www.terpsycordes.com/fr/agenda'],
+      ['ge-agenda:retsina-cola', 'myswitzerland:401b21e3213b4d3d8882aa3cfab263af', 'https://fetedelolivier.ch/retsina-cola-rebetiko/'],
+      ['guidle:AkdAR6x', 'myswitzerland:c21ab62f74dd4a2fbd60a8b7bb23c428', 'https://www.guidle.com/it/evenements/musique/villeneuve-vd/jeremie-kisling_AkdAR6x'],
+    ]) {
+      const record = raw.events.find((event: { id: string }) => event.id === id);
+      expect(record, id).toBeDefined();
+      expect(record.recoveryEvidence.primaryUrl, id).toBe(primaryUrl);
+      expect(raw.events.some((event: { id: string }) => event.id === oldId), oldId).toBe(false);
     }
   });
 
