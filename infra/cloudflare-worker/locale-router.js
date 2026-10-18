@@ -2728,11 +2728,13 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (stale) return stale;
   }
 
-  // HEAD must resolve the same catalog-declared query identity as GET, without
-  // reading or caching a response body. Other recovery families stay unchanged.
+  // HEAD must resolve the same catalog-declared query and employer identities
+  // as GET, without reading or caching a response body. Other families stay unchanged.
   if (request.method === 'HEAD' && (resp.status === 200 || resp.status === 404)) {
     const queryRedirect = await recoverOrphanQueryAlias(url, origin, resp.status === 200);
     if (queryRedirect) return queryRedirect;
+    const employerRedirect = await recoverEmployerProfileAlias(url, origin);
+    if (employerRedirect) return employerRedirect;
   }
 
   // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in the
@@ -3058,8 +3060,6 @@ const router = {
         if ((request.method === 'GET' || request.method === 'HEAD') && (response.status === 404 || response.status === 200)) {
           const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);
           if (redirect) return redirect;
-        }
-        if (request.method === 'GET' && (response.status === 404 || response.status === 200)) {
           const employerRedirect = await recoverEmployerProfileAlias(url, url.hostname);
           if (employerRedirect) return employerRedirect;
         }
