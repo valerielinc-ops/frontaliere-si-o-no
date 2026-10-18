@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-18T21:19:50.765Z",
+  "generatedAt": "2026-10-18T22:20:18.234Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -91342,6 +91342,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T18:18:25.583Z"
     },
+    "myswitzerland:7d2e255821a74a3580a554a250e8d4c9::b9806ea1b84a5b8f92c7758b2b8451579d62b61108a6b18c37368c269aa6b340": {
+      "id": "myswitzerland:7d2e255821a74a3580a554a250e8d4c9",
+      "sourceDescriptionHash": "b9806ea1b84a5b8f92c7758b2b8451579d62b61108a6b18c37368c269aa6b340",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kurtheater Baden; comune: Baden; cantone: AG; categoria: Music; partecipante: Brahms’ Klavierkonzert Nr; data: 2027-03-12; ora: 19:30; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kurtheater Baden; comune: Baden; cantone: AG; categoria: Music; partecipante: Brahms’ Klavierkonzert Nr; data: 2027-03-12; ora: 19:30; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kurtheater Baden; municipality: Baden; canton: AG; category: Music; participant: Brahms’ Klavierkonzert Nr; date: 2027-03-12; time: 19:30; price: http://schema.org/InStock. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kurtheater Baden; gemeinde: Baden; kanton: AG; kategorie: Music; mitwirkender: Brahms’ Klavierkonzert Nr; datum: 2027-03-12; uhrzeit: 19:30; preis: http://schema.org/InStock. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kurtheater Baden; commune: Baden; canton: AG; catégorie: Music; participant: Brahms’ Klavierkonzert Nr; date: 2027-03-12; heure: 19:30; prix: http://schema.org/InStock. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-18T22:16:21.127Z"
+    },
     "myswitzerland:7d3356ac1f254b54a072216b1218a059::be6d88ff55020f3cb1a07ef50ce5d87c4d7561214b75d82ba79853bf2a629239": {
       "id": "myswitzerland:7d3356ac1f254b54a072216b1218a059",
       "sourceDescriptionHash": "be6d88ff55020f3cb1a07ef50ce5d87c4d7561214b75d82ba79853bf2a629239",
@@ -126692,6 +126706,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T18:14:14.459Z"
     },
+    "myswitzerland:cc5d9f42c4e74328b6bae912a5cfd745::4c74229168c1683cc70d75e4b26da8ded2fd93c91519c60ad0ecc58073919d8e": {
+      "id": "myswitzerland:cc5d9f42c4e74328b6bae912a5cfd745",
+      "sourceDescriptionHash": "4c74229168c1683cc70d75e4b26da8ded2fd93c91519c60ad0ecc58073919d8e",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Volkshochschule Solothurn; comune: Solothurn; cantone: SO; categoria: Event; data: 2027-03-11; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Volkshochschule Solothurn; comune: Solothurn; cantone: SO; categoria: Event; data: 2027-03-11; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Volkshochschule Solothurn; municipality: Solothurn; canton: SO; category: Event; date: 2027-03-11; time: 18:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Volkshochschule Solothurn; gemeinde: Solothurn; kanton: SO; kategorie: Event; datum: 2027-03-11; uhrzeit: 18:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Volkshochschule Solothurn; commune: Solothurn; canton: SO; catégorie: Event; date: 2027-03-11; heure: 18:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-18T22:16:21.109Z"
+    },
     "myswitzerland:cc7d18cd06a942169fa49968a70ba1c1::d0e5d12bdf1eae499128867624cf3673a616f442bcd37edb653e7e7dd275b219": {
       "id": "myswitzerland:cc7d18cd06a942169fa49968a70ba1c1",
       "sourceDescriptionHash": "d0e5d12bdf1eae499128867624cf3673a616f442bcd37edb653e7e7dd275b219",
@@ -160841,15 +160869,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:7d2e255821a74a3580a554a250e8d4c9::b9806ea1b84a5b8f92c7758b2b8451579d62b61108a6b18c37368c269aa6b340": {
-      "id": "myswitzerland:7d2e255821a74a3580a554a250e8d4c9",
-      "sourceDescriptionHash": "b9806ea1b84a5b8f92c7758b2b8451579d62b61108a6b18c37368c269aa6b340",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:22:05.213Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:7d8f07bd18864203aa3cded554be4137::70a65abd6c2c7e70e05dc16051baa4eba0ef12401464343f592b06178e91d5ec": {
       "id": "myswitzerland:7d8f07bd18864203aa3cded554be4137",
       "sourceDescriptionHash": "70a65abd6c2c7e70e05dc16051baa4eba0ef12401464343f592b06178e91d5ec",
@@ -162629,15 +162648,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T20:30:54.323Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:cc5d9f42c4e74328b6bae912a5cfd745::4c74229168c1683cc70d75e4b26da8ded2fd93c91519c60ad0ecc58073919d8e": {
-      "id": "myswitzerland:cc5d9f42c4e74328b6bae912a5cfd745",
-      "sourceDescriptionHash": "4c74229168c1683cc70d75e4b26da8ded2fd93c91519c60ad0ecc58073919d8e",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:22:37.870Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
