@@ -225,7 +225,19 @@
       },
       "postalCode": "1350",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-08T09:50:02.931Z"
+      "firstSeenAt": "2026-10-08T09:50:02.931Z",
+      "previousSlugs": [
+        "technology-development-tirocinante-nestle-orbe",
+        "technology-development-praktikant-nestle-orbe",
+        "technology-development-stagiaire-nestle-orbe"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technology-development-tirocinante-nestle-orbe",
+          "technology-development-praktikant-nestle-orbe",
+          "technology-development-stagiaire-nestle-orbe"
+        ]
+      }
     },
     {
       "id": "nestle-1445236233",
@@ -587,7 +599,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "digital-food-safety-early-warning-associate-specialist-nestle-ch"
@@ -906,7 +917,15 @@
       },
       "postalCode": "1350",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-23T11:57:14.104Z"
+      "firstSeenAt": "2026-09-23T11:57:14.104Z",
+      "previousSlugs": [
+        "trainee-quality-engineer-nestle-orbe"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "trainee-quality-engineer-nestle-orbe"
+        ]
+      }
     },
     {
       "id": "nestle-1423268533",
@@ -1120,7 +1139,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1349,7 +1367,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "vet-advisor-tierarztberater-in-purina-nestle-ch"
