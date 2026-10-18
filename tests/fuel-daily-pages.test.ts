@@ -632,7 +632,11 @@ describe('fuel-daily page generation — dated EUR equivalent', () => {
       expect(html, locale).toContain('17.04.2026');
       expect(html, locale).toContain(ecbSourceUrl);
       expect(html, locale).toContain(rate);
-      expect(html, locale).toMatch(/<meta name="description" content="[^"]*EUR\/l/i);
+      const descriptionTag = (html.match(/<meta\b[^>]*>/gi) ?? [])
+        .find(tag => /\sname=(?:"description"|'description'|description)(?=[\s>])/i.test(tag));
+      expect(descriptionTag, locale).toBeDefined();
+      const descriptionContent = descriptionTag?.match(/\scontent=(?:"([^"]*)"|'([^']*)'|([^\s>]+))(?=[\s>])/i);
+      expect(descriptionContent?.slice(1).find(value => value !== undefined), locale).toMatch(/EUR\/l/i);
     }
 
     // The regional SP95 fixture averages CHF 1.835/l; at 1 EUR = CHF 0.95,
