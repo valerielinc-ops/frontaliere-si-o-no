@@ -110,6 +110,67 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('&lt;p&gt;');
   });
 
+  it('fails closed when raw-text markup inside noscript is malformed', () => {
+    const malformedPayload = 'Malformed raw-text payload that must not truncate or contaminate the remaining source text.';
+    const outerParagraph = 'Stable article paragraph outside the malformed fallback remains available to the extractor.';
+    const html = '<main><noscript>'
+      + '&lt;script type="application/ld+json"&gt;{"articleBody":"unterminated"}'
+      + `&lt;p&gt;${malformedPayload}&lt;/p&gt;`
+      + '</noscript>'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+    expect(result.text).not.toContain(malformedPayload);
+    expect(result.text).not.toContain('unterminated');
+  });
+
+  it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
+    const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
+    const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';
+    const html = '<article>'
+      + `<noscript><p>${editorial}</p></noscript>`
+      + `<noscript><div class="tracking-pixel"><p>${tracking}</p></div></noscript>`
+      + '</article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(editorial);
+    expect(result.text).not.toContain(tracking);
+  });
+
+  it('preserves editorial order across adjacent noscript blocks', () => {
+    const first = 'First adjacent editorial fallback paragraph retains its original document position.';
+    const tracking = 'Adjacent tracking payload remains excluded even when surrounded by editorial blocks.';
+    const second = 'Second adjacent editorial fallback paragraph follows the first without reordering.';
+    const html = '<article>'
+      + `<noscript><p>${first}</p></noscript>`
+      + `<noscript><div data-track-pixel="1"><p>${tracking}</p></div></noscript>`
+      + `<noscript><p>${second}</p></noscript>`
+      + '</article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toBe(`${first}\n\n${second}`);
+    expect(result.text).not.toContain(tracking);
+  });
+
+  it('preserves JSON-LD precedence inside normalized noscript markup', () => {
+    const articleBody = 'Structured JSON-LD body wins over fallback prose and remains the authoritative source. '.repeat(4);
+    const fallbackOne = 'Fallback prose paragraph one is long enough to survive extraction but must not outrank JSON-LD.';
+    const fallbackTwo = 'Fallback prose paragraph two is also long enough to survive extraction but must not outrank JSON-LD.';
+    const html = '<main><noscript>'
+      + `&lt;script type="application/ld+json"&gt;${JSON.stringify({ '@type': 'NewsArticle', articleBody })}&lt;/script&gt;`
+      + `&lt;p&gt;${fallbackOne}&lt;/p&gt;`
+      + `&lt;p&gt;${fallbackTwo}&lt;/p&gt;`
+      + '</noscript></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('jsonld');
+    expect(result.text).toContain('Structured JSON-LD body wins');
+    expect(result.text).not.toContain(fallbackOne);
+    expect(result.text).not.toContain(fallbackTwo);
+  });
+
   it('filters document noise wrappers from normalized noscript markup', () => {
     const html = '<main><noscript>&lt;div class="advert"&gt;&lt;p&gt;Sponsored offer text for the partner placement with details and pricing.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Article paragraph one contains the actual source story and enough prose.&lt;/p&gt;&lt;p&gt;Article paragraph two continues the actual source story with more context.&lt;/p&gt;</noscript></main>';
     const result = extractArticleText(html, { scriptingDisabled: true });

@@ -79,10 +79,11 @@ export function capExtractedText(text, maxChars = MAX_DEFAULT_LEN) {
  * Try to pull articleBody / description / headline from any JSON-LD blocks.
  * Returns the longest articleBody-shaped string found, or null.
  */
-function extractFromJsonLd(document) {
-  const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+function extractFromJsonLd(root, include = () => true) {
+  const scripts = root.querySelectorAll('script[type="application/ld+json"]');
   let best = null;
   for (const script of scripts) {
+    if (!include(script)) continue;
     let parsed;
     try {
       parsed = JSON.parse(script.textContent);
@@ -186,11 +187,38 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
     .filter(Boolean);
 }
 
-function normalizeNoscriptRoot(noscript) {
-  if (noscript.querySelector(PARAGRAPH_SELECTOR)) return noscript;
+const NOSCRIPT_RAW_TEXT_OPEN_RE = /<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
+
+function hasClosedNoscriptRawTextElements(markup) {
+  const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_OPEN_RE.source, 'gi');
+  let opening;
+  while ((opening = rawTextOpening.exec(markup))) {
+    const tag = opening[1].toLowerCase();
+    if (tag === 'plaintext') return false;
+
+    const closing = new RegExp(`</${tag}\\s*>`, 'gi');
+    closing.lastIndex = rawTextOpening.lastIndex;
+    const match = closing.exec(markup);
+    if (!match) return false;
+    rawTextOpening.lastIndex = closing.lastIndex;
+  }
+  return true;
+}
+
+/**
+ * Normalize a noscript fallback whose nested markup was preserved as text.
+ * Raw-text elements consume everything after an unmatched opening tag, so an
+ * unclosed one rejects the whole block instead of returning a parser-dependent
+ * fragment. Detached innerHTML parsing does not execute scripts or load assets.
+ */
+function parseNoscriptFallback(noscript) {
+  if (noscript.querySelector(`${PARAGRAPH_SELECTOR}, script[type="application/ld+json"]`)) {
+    return noscript;
+  }
 
   const rawMarkup = noscript.textContent || '';
   if (!/<\/?[a-z][\s\S]*>/i.test(rawMarkup)) return noscript;
+  if (!hasClosedNoscriptRawTextElements(rawMarkup)) return null;
 
   const normalized = noscript.ownerDocument.createElement('div');
   normalized.innerHTML = rawMarkup;
@@ -226,48 +254,108 @@ function hasNoscriptNonContentAncestor(node, root) {
   return false;
 }
 
-/**
- * Return true when a noscript block contains no unmarked article paragraphs.
- *
- * Noscript is also used for pixels, tag-manager fallbacks and head metadata.
- * Those blocks can contain a paragraph-shaped payload, so checking only the
- * element tag is not enough. Keep real fallback prose when at least one
- * paragraph is outside a metadata/tracking wrapper.
- */
-function isNoscriptMetadata(noscript) {
-  if (!noscript) return true;
-  if (hasNoscriptNonContentMarker(noscript)) return true;
-
-  const root = normalizeNoscriptRoot(noscript);
-  const contentNodes = [...root.querySelectorAll(PARAGRAPH_SELECTOR)];
-  if (contentNodes.length === 0) return true;
-
-  return contentNodes.every(node => hasNoscriptNonContentAncestor(node, root));
+function noscriptJsonLdIsEditorial(script, root) {
+  const parent = script.parentElement;
+  return !parent || !hasNoscriptNonContentAncestor(parent, root);
 }
 
-/**
- * Normalize a noscript fallback whose nested markup was preserved as text.
- *
- * Depending on the HTML parser's scripting mode, a noscript body can be either
- * a normal element tree or one text node containing the serialized markup.
- * Parse the latter in a detached container so paragraph extraction has the
- * same shape in both cases. Setting innerHTML on a detached element does not
- * execute scripts or load the source page's resources.
- */
-function extractNoscriptText(noscript, maxChars = Number.POSITIVE_INFINITY) {
-  if (!noscript) return [];
-
-  const normalized = normalizeNoscriptRoot(noscript);
-  const isEditorialParagraph = node => !hasNoscriptNonContentAncestor(node, normalized);
-  if (normalized === noscript) {
-    return collectParagraphTexts(noscript, isEditorialParagraph, maxChars);
+function inspectNoscriptFallback(noscript, maxChars) {
+  if (!noscript || hasNoscriptNonContentMarker(noscript)) {
+    return { paragraphs: [], jsonLdBody: null };
   }
 
-  removeNoiseNodes(normalized);
-  return collectParagraphTexts(normalized, isEditorialParagraph, maxChars);
+  const root = parseNoscriptFallback(noscript);
+  if (!root) return { paragraphs: [], jsonLdBody: null };
+  if (root !== noscript) removeNoiseNodes(root);
+
+  return {
+    paragraphs: collectParagraphTexts(
+      root,
+      node => !hasNoscriptNonContentAncestor(node, root),
+      maxChars,
+    ),
+    jsonLdBody: extractFromJsonLd(root, script => noscriptJsonLdIsEditorial(script, root)),
+  };
 }
 
-function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY) {
+function topLevelNoscripts(root) {
+  return [...root.querySelectorAll('noscript')]
+    .filter(node => !node.parentElement?.closest('noscript'));
+}
+
+function areAdjacentNoscripts(previous, current) {
+  if (!previous || previous.parentNode !== current.parentNode) return false;
+  let sibling = previous.nextSibling;
+  while (sibling && sibling !== current) {
+    const isWhitespace = sibling.nodeType === 3 && !sibling.textContent.trim();
+    const isComment = sibling.nodeType === 8;
+    if (!isWhitespace && !isComment) return false;
+    sibling = sibling.nextSibling;
+  }
+  return sibling === current;
+}
+
+function mergeNoscriptFallbackBlocks(root, maxChars) {
+  const states = new Map();
+  const paragraphsByNode = new Map();
+  const jsonLdBodies = [];
+  let group = [];
+
+  const flush = () => {
+    if (group.length === 0) return;
+    // An adjacent run is one ordered fallback. Tracking-only members add no
+    // paragraphs, while editorial members retain their original DOM order.
+    const [first, ...rest] = group;
+    paragraphsByNode.set(first, group.flatMap(node => states.get(node).paragraphs));
+    for (const node of rest) paragraphsByNode.set(node, []);
+    group = [];
+  };
+
+  let previous = null;
+  for (const noscript of topLevelNoscripts(root)) {
+    const state = inspectNoscriptFallback(noscript, maxChars);
+    states.set(noscript, state);
+    if (state.jsonLdBody) jsonLdBodies.push(state.jsonLdBody);
+
+    if (!areAdjacentNoscripts(previous, noscript)) flush();
+    group.push(noscript);
+    previous = noscript;
+  }
+  flush();
+
+  return { states, paragraphsByNode, jsonLdBodies };
+}
+
+function selectNoscriptJsonLdPrecedence(document, fallbacks) {
+  const bodies = [
+    extractFromJsonLd(document, script => !script.closest('noscript')),
+    ...fallbacks.jsonLdBodies,
+  ].filter(Boolean);
+
+  return bodies.reduce((best, body) => (!best || body.length > best.length ? body : best), null);
+}
+
+function safeNoscriptNaiveFallback(document, fallbacks, maxChars) {
+  const sourceNoscripts = topLevelNoscripts(document.body);
+  const clone = document.body.cloneNode(true);
+  const clonedNoscripts = topLevelNoscripts(clone);
+
+  for (let index = 0; index < clonedNoscripts.length; index += 1) {
+    const state = fallbacks.states.get(sourceNoscripts[index]);
+    const text = state?.paragraphs.join(' ') || '';
+    if (text) {
+      clonedNoscripts[index].replaceWith(clone.ownerDocument.createTextNode(` ${text} `));
+    } else {
+      clonedNoscripts[index].remove();
+    }
+  }
+
+  for (const node of clone.querySelectorAll('script, style')) node.remove();
+  const text = capExtractedText(cleanText(clone.textContent || ''), maxChars);
+  return { text, method: 'naive-fallback', paragraphCount: 0 };
+}
+
+function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY, fallbacks = null) {
   if (!root) return [];
   const paragraphs = [];
   const candidates = [...root.querySelectorAll(`${PARAGRAPH_SELECTOR}, noscript`)];
@@ -275,8 +363,7 @@ function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY) {
   for (const candidate of candidates) {
     if (candidate.tagName.toLowerCase() === 'noscript') {
       if (candidate.parentElement?.closest('noscript')) continue;
-      if (isNoscriptMetadata(candidate)) continue;
-      paragraphs.push(...extractNoscriptText(candidate, maxChars));
+      paragraphs.push(...(fallbacks?.paragraphsByNode.get(candidate) || []));
       continue;
     }
     if (candidate.closest('noscript')) continue;
@@ -326,23 +413,28 @@ export function extractArticleText(html, opts = {}) {
   // MUST survive this pass — the JSON-LD extractor reads it next. We only purge
   // executable/styling script tags.
   removeNoiseNodes(document, { includeNoscript: opts.scriptingDisabled !== true });
+  const noscriptFallbacks = opts.scriptingDisabled === true
+    ? mergeNoscriptFallbackBlocks(document, maxChars)
+    : null;
 
   // 1. JSON-LD articleBody (most reliable)
-  const jsonLdBody = extractFromJsonLd(document);
+  const jsonLdBody = noscriptFallbacks
+    ? selectNoscriptJsonLdPrecedence(document, noscriptFallbacks)
+    : extractFromJsonLd(document);
   if (jsonLdBody && jsonLdBody.length > 200) {
     const text = capExtractedText(cleanText(jsonLdBody), maxChars);
     return { text, method: 'jsonld', paragraphCount: text.split(/[.!?]\s+/).length, publishedAt };
   }
 
   // 2/3. Article-tag with paragraph extraction
-  const articleParagraphs = extractParagraphs(document.querySelector('article'), maxChars);
+  const articleParagraphs = extractParagraphs(document.querySelector('article'), maxChars, noscriptFallbacks);
   if (articleParagraphs.length >= 2) {
     const text = capExtractedText(articleParagraphs.join('\n\n'), maxChars);
     return { text, method: 'article-tag', paragraphCount: articleParagraphs.length, publishedAt };
   }
 
   // 4. Main-tag with paragraph extraction
-  const mainParagraphs = extractParagraphs(document.querySelector('main'), maxChars);
+  const mainParagraphs = extractParagraphs(document.querySelector('main'), maxChars, noscriptFallbacks);
   if (mainParagraphs.length >= 2) {
     const text = capExtractedText(mainParagraphs.join('\n\n'), maxChars);
     return { text, method: 'main-tag', paragraphCount: mainParagraphs.length, publishedAt };
@@ -353,7 +445,7 @@ export function extractArticleText(html, opts = {}) {
     || extractFromMeta(document, 'meta[name="title"]');
   const ogDesc = extractFromMeta(document, 'meta[property="og:description"]')
     || extractFromMeta(document, 'meta[name="description"]');
-  const bodyParagraphs = extractParagraphs(document.body, maxChars);
+  const bodyParagraphs = extractParagraphs(document.body, maxChars, noscriptFallbacks);
   if (ogDesc || bodyParagraphs.length >= 1) {
     const parts = [];
     if (ogTitle) parts.push(ogTitle);
@@ -366,6 +458,7 @@ export function extractArticleText(html, opts = {}) {
   }
 
   // 6. Last resort: legacy naive strip — preserves prior behaviour.
+  if (noscriptFallbacks) return safeNoscriptNaiveFallback(document, noscriptFallbacks, maxChars);
   return naiveFallback(html, maxChars);
 }
 
