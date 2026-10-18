@@ -46,6 +46,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
   createBrowser,
@@ -269,14 +270,136 @@ export function mergeCulturePostings(captured = []) {
   return postings;
 }
 
-function cultureOfSearchRequest(request, fallback) {
+function cultureOfSearchRequest(request) {
   try {
     const body = request.postDataJSON();
     if (body && typeof body.cultureCode === 'string' && body.cultureCode) return body.cultureCode;
   } catch {
     /* no / non-JSON post body */
   }
-  return fallback;
+  return null;
+}
+
+function nonNegativeInteger(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  return Number.isSafeInteger(number) && number >= 0 ? number : null;
+}
+
+function postingIdentity(posting) {
+  const value = posting?.jobPostingId ?? posting?.jobReqId;
+  const identity = String(value ?? '').trim();
+  return identity || null;
+}
+
+function hasContiguousCoverage(intervals, declaredTotal) {
+  if (declaredTotal === 0) return true;
+
+  let coveredThrough = 0;
+  const orderedIntervals = [...intervals].sort(([a], [b]) => a - b);
+  for (const [start, end] of orderedIntervals) {
+    if (start > coveredThrough) return false;
+    coveredThrough = Math.max(coveredThrough, end);
+    if (coveredThrough >= declaredTotal) return true;
+  }
+  return false;
+}
+
+/**
+ * Check that the organic Dayforce search responses cover every requested
+ * culture and every source-declared result. A valid response for one culture
+ * is not evidence that another culture was observed: Dayforce scopes the
+ * listing by culture, so publishing the union of an incomplete set can retire
+ * live jobs from the missing culture.
+ *
+ * @param {Array<{cultureCode?: string, body?: object}>} captured
+ * @param {string[]} cultures
+ * @returns {{complete: boolean, allEmpty: boolean, missingCultures: string[], incompleteCultures: string[], observedPostings: number}}
+ */
+export function assessCultureCoverage(captured = [], cultures = BUCHERER_CULTURES) {
+  const stats = new Map(
+    cultures.map((culture) => [culture, {
+      responses: 0,
+      invalid: false,
+      declaredTotals: [],
+      intervals: [],
+      postingIds: new Set(),
+      postingCount: 0,
+    }]),
+  );
+
+  for (const entry of Array.isArray(captured) ? captured : []) {
+    const culture = entry?.cultureCode;
+    const state = stats.get(culture);
+    if (!state) continue;
+
+    state.responses += 1;
+    const body = entry?.body;
+    const postings = body?.jobPostings;
+    const declaredTotal = nonNegativeInteger(body?.maxCount);
+    const offset = nonNegativeInteger(body?.offset);
+    if (!Array.isArray(postings) || declaredTotal === null) {
+      state.invalid = true;
+      continue;
+    }
+
+    state.declaredTotals.push(declaredTotal);
+    state.postingCount += postings.length;
+    for (const posting of postings) {
+      const identity = postingIdentity(posting);
+      if (identity) state.postingIds.add(identity);
+    }
+
+    const responseEnd = offset === null ? null : offset + postings.length;
+    if (
+      offset === null
+      || !Number.isSafeInteger(responseEnd)
+      || responseEnd > declaredTotal
+    ) {
+      state.invalid = true;
+    } else {
+      state.intervals.push([offset, responseEnd]);
+    }
+  }
+
+  const missingCultures = [];
+  const incompleteCultures = [];
+  let allEmpty = true;
+  let observedPostings = 0;
+
+  for (const culture of cultures) {
+    const state = stats.get(culture);
+    if (!state || state.responses === 0) {
+      missingCultures.push(culture);
+      allEmpty = false;
+      continue;
+    }
+
+    const declaredTotal = state.declaredTotals.length > 0
+      ? Math.max(...state.declaredTotals)
+      : null;
+    observedPostings += state.postingIds.size;
+    if (declaredTotal !== 0 || state.postingIds.size !== 0 || state.postingCount !== 0) {
+      allEmpty = false;
+    }
+
+    if (
+      state.invalid
+      || declaredTotal === null
+      || !hasContiguousCoverage(state.intervals, declaredTotal)
+      || state.postingIds.size !== declaredTotal
+    ) {
+      incompleteCultures.push(culture);
+    }
+  }
+
+  return {
+    complete: missingCultures.length === 0 && incompleteCultures.length === 0,
+    allEmpty: missingCultures.length === 0 && incompleteCultures.length === 0 && allEmpty,
+    missingCultures,
+    incompleteCultures,
+    observedPostings,
+  };
 }
 
 /**
@@ -289,28 +412,35 @@ function cultureOfSearchRequest(request, fallback) {
 async function discoverAllJobPostings() {
   let browser;
   const captured = [];
+  const pendingResponses = new Set();
 
   try {
     browser = await createBrowser({ userAgent: BROWSER_UA });
     const context = await createPoliteContext(browser, { userAgent: BROWSER_UA });
 
-    let currentCulture = DEFAULT_CULTURE;
     context.on('response', (resp) => {
       const url = resp.url();
-      if (resp.status() !== 200 || !url.includes(SEARCH_API_PATH)) return;
-      const cultureCode = cultureOfSearchRequest(resp.request(), currentCulture);
-      resp
+      if (!url.includes(SEARCH_API_PATH)) return;
+      if (resp.status() !== 200) return;
+      const cultureCode = cultureOfSearchRequest(resp.request());
+      if (!BUCHERER_CULTURES.includes(cultureCode)) return;
+      const pending = resp
         .json()
         .then((body) => {
           if (body) captured.push({ cultureCode, body });
         })
         .catch(() => {
           /* not JSON / unrelated response — ignore */
-        });
+        })
+        .finally(() => pendingResponses.delete(pending));
+      pendingResponses.add(pending);
     });
 
+    const settleResponses = async () => {
+      if (pendingResponses.size > 0) await Promise.all([...pendingResponses]);
+    };
+
     for (const culture of BUCHERER_CULTURES) {
-      currentCulture = culture;
       const page = await fetchWithRateLimit(context, buchererListingUrl(culture), { minDelayMs: 3000 });
 
       // Dismiss cookie-consent banner if present — it intercepts pointer
@@ -327,17 +457,20 @@ async function discoverAllJobPostings() {
       // The listing page auto-fires the search XHR on load; wait for the
       // organic response rather than constructing the API call ourselves.
       await page.waitForTimeout(8000);
+      await settleResponses();
 
       for (let pageNum = 1; pageNum < MAX_PAGES; pageNum += 1) {
         const nextBtn = page.locator('.ant-pagination-next:not(.ant-pagination-disabled)').first();
         const hasNext = await nextBtn.count().catch(() => 0);
         if (!hasNext) break;
 
-        const beforeCount = captured.length;
+        const beforeCount = captured.filter((entry) => entry.cultureCode === culture).length;
         await nextBtn.click({ timeout: 5000, force: true }).catch(() => {});
         await page.waitForTimeout(4000);
-        if (captured.length === beforeCount) break; // no new response fired
-        const last = captured[captured.length - 1];
+        await settleResponses();
+        const cultureResponses = captured.filter((entry) => entry.cultureCode === culture);
+        if (cultureResponses.length === beforeCount) break; // no new response fired
+        const last = cultureResponses.at(-1);
         if (!last?.body?.jobPostings?.length) break;
       }
 
@@ -352,7 +485,23 @@ async function discoverAllJobPostings() {
     await closeAll(browser);
   }
 
-  return mergeCulturePostings(captured);
+  await Promise.all([...pendingResponses]);
+  const coverage = assessCultureCoverage(captured);
+  return {
+    postings: mergeCulturePostings(captured),
+    coverage,
+  };
+}
+
+function attachFetchMetadata(jobs, metadata) {
+  for (const [key, value] of Object.entries(metadata)) {
+    Object.defineProperty(jobs, key, {
+      value,
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  return jobs;
 }
 
 /**
@@ -463,17 +612,40 @@ export async function fetchAllBuchererJobs() {
   console.log(`🔍 Fetching ${BUCHERER_COMPANY_NAME} jobs`);
   console.log(`   Source: ${buchererListingUrl()} (cultures: ${BUCHERER_CULTURES.join(', ')})\n`);
 
-  let postings;
+  let snapshot;
   try {
-    postings = await discoverAllJobPostings();
+    snapshot = await discoverAllJobPostings();
   } catch (err) {
     console.warn(`⚠️ Bucherer Dayforce fetch failed: ${err?.message || err}`);
     throw err;
   }
 
+  const { postings, coverage } = snapshot;
+  if (!coverage.complete) {
+    const missing = coverage.missingCultures.length > 0
+      ? `missing response: ${coverage.missingCultures.join(', ')}`
+      : 'all cultures responded incompletely';
+    console.warn(
+      `⚠️ Bucherer Dayforce snapshot incomplete (${missing}); keeping the previous slice.`,
+    );
+    return attachFetchMetadata([], {
+      discoveredCount: coverage.observedPostings,
+      fetchOutcome: 'selector_miss',
+    });
+  }
+
   if (!postings || postings.length === 0) {
+    if (coverage.allEmpty) {
+      return markAuthoritativeEmptySnapshot(
+        [],
+        `Dayforce search returned maxCount=0 for every culture (${BUCHERER_CULTURES.join(', ')})`,
+      );
+    }
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return attachFetchMetadata([], {
+      discoveredCount: 0,
+      fetchOutcome: 'filtered_empty',
+    });
   }
 
   console.log(`  📋 Listings found: ${postings.length}`);
@@ -481,5 +653,5 @@ export async function fetchAllBuchererJobs() {
   const jobs = parsePostings(postings);
 
   console.log(`\n📋 Total ${BUCHERER_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  return attachFetchMetadata(jobs, { discoveredCount: postings.length });
 }
