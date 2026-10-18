@@ -84,6 +84,9 @@ describe('git-push-with-retry.sh main-push auth', () => {
       writeFileSync(join(repoDir, 'seed.txt'), 'seed\n');
       execFileSync('git', ['add', 'seed.txt'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      // The anti-collapse guard consumes the checkout's captured remote tip;
+      // model that ref without contacting the dummy GitHub URL below.
+      execFileSync('git', ['update-ref', 'refs/remotes/origin/main', 'HEAD'], { cwd: repoDir });
       execFileSync(
         'git',
         ['remote', 'add', 'origin', `https://github.com/${REPO}.git`],

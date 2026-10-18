@@ -61,6 +61,7 @@
 set -euo pipefail
 
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+MAIN_PUSH_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/main-push-guard.mjs"
 
 # The fetch ceiling is supported by issue 12175's 61.6, 62.6, 83.0 and
 # 95.1-second commit-graph measurements. The pull ceiling has no direct
@@ -87,6 +88,16 @@ run_bounded() {
   local seconds="$1" label="$2"
   shift 2
   node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
+main_push_guard_check() {
+  local base_sha="$1" candidate_sha="$2"
+  node "$MAIN_PUSH_GUARD_SCRIPT" \
+    --repo "$PWD" \
+    --base "$base_sha" \
+    --candidate "$candidate_sha" \
+    --branch main \
+    --check-only
 }
 
 # Register the seo-404 compat-shard merge driver (.gitattributes
@@ -3048,6 +3059,11 @@ commit_isolated_from_worktree() {
     fi
 
     ensure_git_auth
+    if ! main_push_guard_check "$remote_sha" "$new_commit"; then
+      emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
+      echo "❌ Main push guard rejected grouped-isolated commit ${new_commit}; refusing to publish a collapsed tree"
+      return 1
+    fi
     # `push` is the network round trip alone: building the commit object and
     # refreshing the credentials are charged to their own phase.
     isolated_phase_add commit "$phase_started"
@@ -3058,7 +3074,9 @@ commit_isolated_from_worktree() {
     push_out=""
     if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
       "git push --no-thin origin <commit>:refs/heads/main" \
-      git -c pack.window=0 -c pack.threads=1 push --no-thin origin "${new_commit}:refs/heads/main" 2>&1)"; then
+      git -c pack.window=0 -c pack.threads=1 push --no-thin \
+        "--force-with-lease=refs/heads/main:${remote_sha}" \
+        origin "${new_commit}:refs/heads/main" 2>&1)"; then
       isolated_phase_add push "$phase_started"
       printf '%s\n' "$push_out"
       isolated_phase_report "$push_attempt"
@@ -3358,13 +3376,24 @@ fi
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))
 ensure_git_auth
+PUSH_BASE_SHA=""
+if ! PUSH_BASE_SHA="$(git rev-parse --verify refs/remotes/origin/main^{commit})"; then
+  echo "❌ main push guard: cannot resolve refs/remotes/origin/main for the push lease"
+  exit 1
+fi
+if ! main_push_guard_check "$PUSH_BASE_SHA" HEAD; then
+  echo "❌ Main push guard rejected the candidate; refusing to publish a collapsed tree"
+  exit 1
+fi
 # Capture the push output (echoed below either way, so the step log stays
 # complete) so exhaustion can be classified on the LAST attempt: only a
 # genuine rejection/race may become exit 42.
 push_out=""
 if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
   "git push --no-thin origin main" \
-  git -c pack.window=0 -c pack.threads=1 push --no-thin origin main 2>&1)"; then
+  git -c pack.window=0 -c pack.threads=1 push --no-thin \
+    "--force-with-lease=refs/heads/main:${PUSH_BASE_SHA}" \
+    origin HEAD:main 2>&1)"; then
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 

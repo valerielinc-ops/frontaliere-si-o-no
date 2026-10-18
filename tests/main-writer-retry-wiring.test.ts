@@ -33,6 +33,22 @@ function read(relativePath: string): string {
 }
 
 describe('main data writers use the shared retry contract', () => {
+  it('routes the direct main writers through the anti-collapse guard', () => {
+    const retryWriter = read('scripts/lib/git-push-with-retry.sh');
+    const dataWriter = read('scripts/lib/git-commit-data.sh');
+    const browserWriter = read('scripts/social-robot/persist-browser-insights.mjs');
+    const corpusMirror = read('.github/workflows/mirror-articles-corpus.yml');
+
+    expect(retryWriter).toContain('main-push-guard.mjs');
+    expect(retryWriter).toContain('--force-with-lease=refs/heads/${BRANCH}:');
+    expect(dataWriter).toContain('main_push_guard_check');
+    expect(dataWriter).toContain('--force-with-lease=refs/heads/main:');
+    expect(browserWriter).toContain('main-push-guard.mjs');
+    expect(browserWriter).toContain('--force-with-lease=refs/heads/main:');
+    expect(corpusMirror).toContain('main-push-guard.mjs');
+    expect(corpusMirror).toContain('--push');
+  });
+
   it('does not leave a bespoke main push in the audited writer workflows', () => {
     for (const relativePath of WORKFLOW_HELPER_WRITERS) {
       const source = read(relativePath);

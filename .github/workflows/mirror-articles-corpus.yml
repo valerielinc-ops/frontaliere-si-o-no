@@ -122,6 +122,7 @@ jobs:
             exit 1
           fi
 
+          site_root="${GITHUB_WORKSPACE:-$PWD}"
           work=$(mktemp -d)
           git clone --depth 1 \
             "https://x-access-token:${PAT}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
@@ -141,42 +142,73 @@ jobs:
           for f in swiss-article-canonical-overrides.json; do
             [ -f "$work/content/$f" ] && cp "$work/content/$f" "$keep/$f"
           done
-          for d in content engine; do
-            rm -rf "${work:?}/$d"
-          done
-          cp -R packages/articles/content "$work/content"
-          cp -R packages/articles/engine "$work/engine"
-          for f in index.ts articleSections.ts package.json; do
-            [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
-          done
-          for f in swiss-article-canonical-overrides.json; do
-            [ -f "$keep/$f" ] && cp "$keep/$f" "$work/content/$f"
-          done
-
           cd "$work"
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
-          git add -A
 
-          if git diff --cached --quiet; then
-            echo "corpus already in sync — nothing to mirror"
-            exit 0
-          fi
+          # Rebuild from the current remote tip on every bounded retry. The
+          # shared guard checks the complete candidate tree before publishing,
+          # then force-with-lease rejects a concurrent advancement instead of
+          # letting a stale mirror replace the articles repo's main ref.
+          for attempt in 1 2 3; do
+            git fetch --no-tags origin main
+            git reset --hard -q origin/main
+            for d in content engine; do
+              rm -rf "${work:?}/$d"
+            done
+            cp -R "$site_root/packages/articles/content" "$work/content"
+            cp -R "$site_root/packages/articles/engine" "$work/engine"
+            for f in index.ts articleSections.ts package.json; do
+              [ -f "$site_root/packages/articles/$f" ] && cp "$site_root/packages/articles/$f" "$work/$f"
+            done
+            for f in swiss-article-canonical-overrides.json; do
+              [ -f "$keep/$f" ] && cp "$keep/$f" "$work/content/$f"
+            done
 
-          # Guard: the corpus only ever grows in normal operation. A mirror that
-          # would delete a large share of it means something upstream is wrong
-          # (a bad checkout, a partial clone), and a force-push would destroy the
-          # published surface.
-          deleted=$(git diff --cached --diff-filter=D --name-only | wc -l)
-          total=$(git ls-files | wc -l)
-          echo "mirroring: $total files tracked, $deleted deletion(s)"
-          if [ "$deleted" -gt 200 ]; then
-            echo "::error::mirror would delete $deleted files — refusing, investigate upstream"
-            exit 1
-          fi
+            git add -A
+            if git diff --cached --quiet; then
+              echo "corpus already in sync — nothing to mirror"
+              exit 0
+            fi
 
-          git commit -q \
-            -m "Mirror packages/articles from frontaliere-si-o-no@${GITHUB_SHA:0:8}" \
-            -m "Automated one-way mirror while the generator still runs in the site repo (issue 4959). Publishing of the JSON + sitemap surface is triggered by this push."
-          git push origin HEAD:main
-          echo "mirrored ${GITHUB_SHA:0:8} — the articles repo will republish its data surface"
+            # Guard: the corpus only ever grows in normal operation. A mirror
+            # that would delete a large share of it means something upstream is
+            # wrong (a bad checkout, a partial clone), and a push would destroy
+            # the published surface.
+            deleted=$(git diff --cached --diff-filter=D --name-only | wc -l)
+            total=$(git ls-files | wc -l)
+            echo "mirroring attempt ${attempt}/3: $total files tracked, $deleted deletion(s)"
+            if [ "$deleted" -gt 200 ]; then
+              echo "::error::mirror would delete $deleted files — refusing, investigate upstream"
+              exit 1
+            fi
+
+            git commit -q \
+              -m "Mirror packages/articles from frontaliere-si-o-no@${GITHUB_SHA:0:8}" \
+              -m "Automated one-way mirror while the generator still runs in the site repo (issue 4959). Publishing of the JSON + sitemap surface is triggered by this push."
+            base_sha="$(git rev-parse --verify origin/main^{commit})"
+            push_output=""
+            push_status=0
+            push_output="$(node "$site_root/scripts/lib/main-push-guard.mjs" \
+              --repo "$work" \
+              --base "$base_sha" \
+              --candidate HEAD \
+              --branch main \
+              --push \
+              --timeout-seconds 180 2>&1)" || push_status=$?
+            printf '%s\n' "$push_output"
+            if [ "$push_status" -eq 0 ]; then
+              echo "mirrored ${GITHUB_SHA:0:8} — the articles repo will republish its data surface"
+              exit 0
+            fi
+            if printf '%s' "$push_output" | grep -qiE 'candidate tree collapse|not a descendant|cannot resolve commit|cannot inspect tree|cannot prove ancestry'; then
+              echo "::error::main push guard rejected the mirror candidate; refusing to retry a destructive tree"
+              exit 1
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "::error::mirror push failed after 3 attempts"
+              exit 1
+            fi
+            echo "mirror push lost a concurrent update; retrying from origin/main"
+            sleep $((attempt * 5))
+          done
