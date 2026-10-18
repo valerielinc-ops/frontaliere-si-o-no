@@ -36,6 +36,25 @@ const ACQUIRED_ASSET_KEYS = [
   'schweizerhof-flims', 'yellowshark',
 ];
 
+const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
+  'opus-personal': ['opus-personal.ch'],
+  agat: ['agat-job.com'],
+  'elite-interim': ['eliteinterim.ch'],
+  physioswiss: ['physioswiss.ch'],
+  'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
+  'swiss-timing-swatch-group': ['swisstiming.com'],
+  'deillon-delley-architectes': ['deillondelley.ch'],
+  'project-interim': ['projectinterim.ch'],
+  'technic-emplois': ['technic-emplois.ch'],
+  'fondation-domus': ['fondation-domus.ch'],
+  gipo: ['gipo.ch'],
+  'hugo-boss': ['hugoboss.com'],
+  my: ['teojakob.ch'],
+  pianorm: ['pianorm.ch'],
+  wokin: ['wokin.ch'],
+  'zaugg-ag': ['zaugg.swiss'],
+};
+
 describe('missing company-logo acquisition', () => {
   it('does not probe a guessed domain for a future audit key', async () => {
     const auditInput = { companyKey: 'acme', status: 'missing' };
@@ -67,6 +86,16 @@ describe('missing company-logo acquisition', () => {
       urlHosts: new Set(['yellowshark.example']),
     }, { fromAudit: true })).toEqual(['yellowshark.com']);
     expect(domainCandidates('acme')).toEqual(['acme.ch', 'acme.com']);
+  });
+
+  it('declares an official domain for every company in the current #6504 residual', () => {
+    for (const [key, domains] of Object.entries(CURRENT_RESIDUAL_DOMAIN_OVERRIDES)) {
+      expect(DOMAIN_OVERRIDES[key]).toEqual(domains);
+      expect(domainCandidates(key, {
+        companyDomains: new Set(['jobs.ch']),
+        urlHosts: new Set(['jobalino.ch']),
+      }, { fromAudit: true })).toEqual(domains);
+    }
   });
 
   it('selects missing and quality-deficient audit entries, preserving official-source candidates', () => {
