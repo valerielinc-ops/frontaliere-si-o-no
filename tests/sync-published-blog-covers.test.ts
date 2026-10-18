@@ -219,16 +219,41 @@ function generatedCreditRecord(generated: ReturnType<typeof generatedRecord>) {
   };
 }
 
-function addGeneratedEvidence(root: string, sha?: string, options = {}) {
-  const generated = generatedRecord(sha, options);
+function addGeneratedEvidence(
+  root: string,
+  sha?: string,
+  options: { assetId?: string; imageUrl?: string; bytes?: number; writeCredit?: boolean } = {},
+) {
+  const { writeCredit = true, assetId, imageUrl, bytes } = options;
+  const generated = generatedRecord(sha, { assetId, imageUrl, bytes });
   fs.writeFileSync(path.join(root, 'data/published-blog-generated-image-evidence.json'), `${JSON.stringify({
     schema: 1,
     commit: SOURCE_COMMIT,
     generated: { [generated.imageUrl]: generated },
   }, null, 2)}\n`);
+  if (!writeCredit) return;
   const recordPath = path.join(root, `packages/articles/content/image-credits/blog/${generated.assetId}.json`);
   fs.mkdirSync(path.dirname(recordPath), { recursive: true });
   fs.writeFileSync(recordPath, `${JSON.stringify(generatedCreditRecord(generated), null, 2)}\n`);
+}
+
+function addRetiredLedgerCover(root: string, key: string, image: string, hash: string) {
+  const ledgerPath = path.join(root, 'data/blog-cover-ledger.json');
+  const ledger = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+  ledger.covers[key] = {
+    cover: image,
+    hash,
+    published: false,
+    historicalPublished: false,
+    references: [],
+    proofLevel: 6,
+    evidence: 'inferred',
+    recordFile: null,
+    action: 'retire-unpublished',
+    reason: 'Blob non più referenziato da un registro pubblicato.',
+    priority: 0,
+  };
+  fs.writeFileSync(ledgerPath, `${JSON.stringify(ledger, null, 2)}\n`);
 }
 
 function fixture({ withImage = true, key = 'new-cover', image = IMAGE, imageBytes = IMAGE_BYTES } = {}) {
@@ -248,6 +273,7 @@ function fixture({ withImage = true, key = 'new-cover', image = IMAGE, imageByte
   },
 ];\n`);
   fs.writeFileSync(path.join(root, 'packages/articles/content/swiss-articles-data.ts'), 'export const ARTICLES = [];\n');
+  fs.writeFileSync(path.join(root, 'public/canton-articles.json'), '[]\n');
   fs.writeFileSync(path.join(root, 'data/blog-cover-ledger.json'), `${JSON.stringify({
     schema: 1,
     generatedAt: '2026-10-06',
@@ -309,6 +335,31 @@ afterEach(() => {
 });
 
 describe('sync-published-blog-covers', () => {
+  it('fails closed in sync and verification when the published canton registry is absent', () => {
+    const root = fixture();
+    const cantonArticlesPath = path.join(root, 'public/canton-articles.json');
+    fs.rmSync(cantonArticlesPath);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
+      schema: 1,
+      cdnPrefix: '/images/blog/',
+      assetCount: 0,
+      assets: [],
+    })}\n`);
+
+    const sync = spawnSync(process.execPath, [SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+    });
+    const verify = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(sync.status).toBe(1);
+    expect(`${sync.stdout}\n${sync.stderr}`).toContain(cantonArticlesPath);
+    expect(verify.status).toBe(1);
+    expect(`${verify.stdout}\n${verify.stderr}`).toContain(cantonArticlesPath);
+  });
+
   it.each([
     ['private-grant', validPrivateGrantEvidence],
     ['licensed Pexels photo', validPexelsEvidence],
@@ -403,6 +454,80 @@ describe('sync-published-blog-covers', () => {
     expect(JSON.parse(fs.readFileSync(indexPath, 'utf8')).covers['new-cover']).toMatchObject({
       evidence: 'inferred',
       status: 'no-credit',
+    });
+  });
+
+  it('ingests a newly published canton article generated cover from the HTTP registry', () => {
+    const root = fixture({
+      key: 'article-disoccupazione-berna-settembre-2026-stabile',
+      image: '/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp',
+    });
+    const key = 'article-disoccupazione-berna-settembre-2026-stabile';
+    const image = `/images/blog/${key}.webp`;
+    clearPublishedArticleCovers(root);
+    addRetiredLedgerCover(root, key, image, sha256(IMAGE_BYTES));
+    fs.writeFileSync(path.join(root, 'public/canton-articles.json'), `${JSON.stringify([{
+      id: 'disoccupazione-berna-settembre-2026-stabile',
+      category: 'pratico',
+      date: '2026-10-07T19:58:52.255Z',
+      image,
+      authorSlug: 'redazione',
+      commit: SOURCE_COMMIT,
+      section: 'canton-be',
+    }])}\n`);
+    addGeneratedEvidence(root, sha256(IMAGE_BYTES), {
+      assetId: key,
+      imageUrl: image,
+      bytes: IMAGE_BYTES.length,
+      writeCredit: false,
+    });
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({
+      schema: 1,
+      items: {},
+    })}\n`);
+    fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
+      schema: 1,
+      cdnPrefix: '/images/blog/',
+      assetCount: 0,
+      assets: [],
+    })}\n`);
+
+    const beforeSync = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+    expect(beforeSync.status).toBe(1);
+    expect(`${beforeSync.stdout}\n${beforeSync.stderr}`).toContain(
+      `${key}: published cover has no image-credit record`,
+    );
+
+    const result = JSON.parse(execFileSync(process.execPath, [SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+    }));
+    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-ledger.json'), 'utf8'));
+    const index = JSON.parse(fs.readFileSync(path.join(root, 'data/image-credits-blog.json'), 'utf8'));
+
+    expect(result).toMatchObject({ generatedAddedKeys: [key], generatedEvidenceMismatches: [] });
+    const credit = JSON.parse(fs.readFileSync(
+      path.join(root, `packages/articles/content/image-credits/blog/${key}.json`),
+      'utf8',
+    ));
+    expect(ledger.covers[key]).toMatchObject({
+      cover: image,
+      published: true,
+      references: [{ section: 'canton-be', id: 'disoccupazione-berna-settembre-2026-stabile' }],
+      proofLevel: 5,
+      evidence: 'generated-engine-record',
+      status: 'generated',
+    });
+    expect(index.covers[key]).toEqual({ file: `generated:${key}`, modified: 'resized' });
+    expect(credit).toMatchObject({
+      source: 'generated-provider',
+      generated: { assetId: key, imageUrl: image, sha256: sha256(IMAGE_BYTES), bytes: IMAGE_BYTES.length },
+    });
+    expect(JSON.parse(execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root }))).toMatchObject({
+      currentUnique: 1,
+      generated: 1,
+      errors: 0,
     });
   });
 
@@ -606,7 +731,7 @@ describe('sync-published-blog-covers', () => {
     });
     commitFixture(root);
     git(root, ['sparse-checkout', 'init', '--no-cone']);
-    git(root, ['sparse-checkout', 'set', '--no-cone', '/data/', '/packages/']);
+    git(root, ['sparse-checkout', 'set', '--no-cone', '/data/', '/packages/', '/public/canton-articles.json']);
 
     expect(fs.existsSync(path.join(root, `public${IMAGE}`))).toBe(false);
     const output = JSON.parse(execFileSync(process.execPath, [VERIFY_SCRIPT], {

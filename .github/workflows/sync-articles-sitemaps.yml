@@ -608,6 +608,7 @@ jobs:
             public/news-ticker-live.json
             public/sitemap-news.xml
             public/sitemap.xml
+            public/canton-articles.json
             public/images/blog
             public/images/generated
             data/blog-cover-ledger.json
@@ -669,6 +670,7 @@ jobs:
             --path public/news-ticker-live.json \
             --path public/sitemap-news.xml \
             --path public/sitemap.xml \
+            --path public/canton-articles.json \
             --path public/images/blog \
             --optional-path public/images/generated \
             --path data/blog-cover-ledger.json \

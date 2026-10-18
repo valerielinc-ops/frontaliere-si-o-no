@@ -17,6 +17,7 @@ import {
   isPublishedDeterministicCardRecord,
   validatePublishedBlogImageEvidence,
 } from '../lib/published-blog-image-evidence.mjs';
+import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const REGISTRIES = [
@@ -70,6 +71,12 @@ function main() {
   const currentCoverImages = new Map();
   for (const file of REGISTRIES) {
     for (const [key, image] of parseCoverImages(file)) currentCoverImages.set(key, image);
+  }
+  for (const article of readPublishedCantonArticles(ROOT, {
+    expectedCommit: corpusBaseline?.sourceCommit || generatedEvidence?.commit || null,
+  })) {
+    const key = coverKey(article.image);
+    if (key) currentCoverImages.set(key, article.image);
   }
   if (generatedEvidenceExists) {
     if (!generatedEvidence || generatedEvidence.schema !== 1

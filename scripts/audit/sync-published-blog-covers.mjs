@@ -23,6 +23,7 @@ import {
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isPublishedDeterministicCardRecord } from '../lib/published-blog-image-evidence.mjs';
 import { readPublishedBlogCoverBytes } from '../lib/published-blog-cover-bytes.mjs';
+import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const LEDGER_PATH = path.join(ROOT, 'data/blog-cover-ledger.json');
@@ -307,7 +308,7 @@ function applyDeterministicCardEvidence(index, key, item, image, evidence, repla
   };
 }
 
-function inspectGeneratedEvidence(key, image, recordsByImage, existingGeneratedByImage, knownBytes = null) {
+function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null) {
   const records = recordsByImage.get(image) || [];
   if (records.length === 0) return { state: 'missing' };
   if (records.length !== 1) {
@@ -343,7 +344,6 @@ function inspectGeneratedEvidence(key, image, recordsByImage, existingGeneratedB
     };
   }
 
-  const existingRegistryRecord = existingGeneratedByImage.get(image);
   const recordFile = generatedCreditRecordPath(key);
   let existingCreditRecord = null;
   if (fs.existsSync(path.join(ROOT, recordFile))) {
@@ -357,15 +357,10 @@ function inspectGeneratedEvidence(key, image, recordsByImage, existingGeneratedB
         existingCreditRecord = candidate;
       }
     } catch {
-      // A stale or unreadable local record is not permission to promote a new
-      // registry entry. The verifier will keep the cover red until the record
-      // is repaired by a declared, byte-verified evidence record.
+      // A stale or unreadable local record is ignored; the fresh record below
+      // is rebuilt only from the declared, byte-verified evidence.
     }
   }
-  if (!existingRegistryRecord && !existingCreditRecord) {
-    return { state: 'unclaimed', generated, actualSha256 };
-  }
-
   if (isPublishedDeterministicCardRecord(generated)) {
     return { state: 'verified', kind: 'deterministic-card', generated, actualSha256 };
   }
@@ -463,7 +458,11 @@ function main() {
 
   const byKey = new Map();
   const registryArticles = new Map(REGISTRIES.map((registry) => [registry.file, parseRegistry(registry)]));
-  for (const article of [...registryArticles.values()].flat()) {
+  const publishedArticles = [
+    ...registryArticles.values(),
+    readPublishedCantonArticles(ROOT, { expectedCommit: sourceCommit || publishedEvidence.commit }),
+  ].flat();
+  for (const article of publishedArticles) {
     const key = coverKey(article.image);
     if (!key) continue;
     const entries = byKey.get(key) || [];
@@ -478,13 +477,11 @@ function main() {
     records.push(record);
     recordsByImage.set(record.imageUrl, records);
   }
-  const existingGeneratedByImage = new Map(generatedRegistry.assets.map((record) => [record.imageUrl, record]));
-
   // Resolve every blob before writing either file: one unavailable cover keeps
   // the paired ledger/index update fail-closed, with no partial data rewrite.
   const additions = [];
   for (const [key, articles] of [...byKey].sort(([a], [b]) => a.localeCompare(b))) {
-    if (ledger.covers[key]) continue;
+    if (ledger.covers[key]?.published) continue;
     const sorted = articles.slice().sort((a, b) => priority(b) - priority(a));
     const bytes = coverBytes(sorted[0].image);
     additions.push({ key, articles: sorted, bytes, hash: crypto.createHash('sha256').update(bytes).digest('hex') });
@@ -520,7 +517,7 @@ function main() {
       currentlyPublished: true,
       status: 'no-credit',
     };
-    const evidence = inspectGeneratedEvidence(key, articles[0].image, recordsByImage, existingGeneratedByImage, bytes);
+    const evidence = inspectGeneratedEvidence(key, articles[0].image, recordsByImage, bytes);
     if (evidence.state === 'verified') {
       if (evidence.kind === 'deterministic-card') {
         applyDeterministicCardEvidence(index, key, item, articles[0].image, evidence, replacements);
@@ -560,7 +557,7 @@ function main() {
 
     const beforeItem = JSON.stringify(item);
     const beforeCoverIndex = JSON.stringify(index.covers[key]);
-    const evidence = inspectGeneratedEvidence(key, image, recordsByImage, existingGeneratedByImage);
+    const evidence = inspectGeneratedEvidence(key, image, recordsByImage);
     if (evidence.state === 'verified') {
       const wasInferred = item.evidence === 'inferred';
       if (evidence.kind === 'deterministic-card') {
