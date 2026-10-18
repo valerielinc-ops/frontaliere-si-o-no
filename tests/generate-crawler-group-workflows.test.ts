@@ -2849,7 +2849,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(translate).toMatch(/retries the atomic ref push after contention/);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
-  it('non applica il lease globale ai crawler e conserva il guard lease per gruppo', () => {
+  it('abilita il lease globale al confine di pubblicazione e conserva il guard lease per gruppo', () => {
     const groupResults = generate({
       outDir: workflowsDir,
       assignmentsPath,
@@ -2861,6 +2861,10 @@ describe('cross-repo crawler execution artifacts', () => {
       const workflow = YAML.parse(result.content);
       const job = Object.values(workflow.jobs)[0] as any;
       expect(job.env?.DATA_PIPELINE_LEASE).toBeUndefined();
+      const firebaseStep = job.steps.find(
+        (step: any) => step.name === 'Prepare Firebase credentials (optional)',
+      );
+      expect(firebaseStep?.run).toContain('echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"');
     }
     expect(groupResults[0].content).toContain('node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml');
   }, CROSS_REPO_GENERATION_TIMEOUT);

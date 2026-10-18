@@ -102,6 +102,7 @@ jobs:
             exit 0
           fi
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"
       - name: Load secrets from Remote Config
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
