@@ -164,7 +164,7 @@ function main() {
         );
       }
     }
-  } else if (!originMainDeclaration.declared && !cantonArtifact) {
+  } else if (!comparisonDeclaration.declared && !cantonArtifact) {
     console.log(
       `${PUBLISHED_CANTON_ARTICLES_ARTIFACT}: not yet declared by the baseline (pre-bootstrap)`,
     );
