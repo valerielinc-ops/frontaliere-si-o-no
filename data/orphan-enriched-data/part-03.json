@@ -22963,9 +22963,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
-        "en": "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
-        "de": "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
+        "it": "dipl-infermiera-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
+        "en": "dipl-nurse-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
+        "de": "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
         "fr": "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh"
       },
       "localePaths": {
@@ -22980,6 +22980,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -27821,7 +27822,7 @@
         {
           "query": "softwareentwickler jobs lugano",
           "clicks": 0,
-          "impressions": 42
+          "impressions": 43
         },
         {
           "query": "softwareentwicklung jobs lugano",
@@ -27879,7 +27880,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 142,
+      "totalImpressions": 143,
       "totalClicks": 0,
       "topQuery": "softwareentwickler jobs lugano",
       "title": "Entwickler",
@@ -35308,10 +35309,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "fr": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
-        "it": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
-        "en": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
-        "de": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be"
+        "it": "automazione-engineer-technician-automation-fh-hf-80-100-m-f-yellowshark-ag-studen-be",
+        "en": "automation-engineer-technician-automation-fh-hf-80-100-m-f-yellowshark-ag-studen-be",
+        "de": "automationsingenieur-techniker-automation-fh-hf-80-100-w-m-studen-be-be-yellowshark-ch",
+        "fr": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be"
       },
       "localePaths": {
         "fr": "/fr/trouver-emploi-berne/ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
@@ -35319,12 +35320,13 @@
         "en": "/en/find-jobs-bern/ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
         "de": "/de/jobs-im-bern/ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.yellowshark.com/job/sa067676",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -49504,10 +49506,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "plasterer-pemsa-bellinzona",
+        "it": "gessatore-pemsa-bellinzona",
         "en": "plasterer-pemsa-bellinzona",
-        "de": "plasterer-pemsa-bellinzona",
-        "fr": "plasterer-pemsa-bellinzona"
+        "de": "gipser-pemsa-bellinzona",
+        "fr": "platrier-pemsa-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/plasterer-pemsa-bellinzona",
@@ -49515,12 +49517,13 @@
         "de": "/de/jobs-im-tessin/plasterer-pemsa-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/plasterer-pemsa-bellinzona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/gessatore-2698480",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -51069,6 +51072,74 @@
         "en": "/en/find-jobs-bern/prevoyeur-de-commandes-coop-genossenschaft-bern-c165bc",
         "de": "/de/jobs-im-bern/prevoyeur-de-commandes-coop-genossenschaft-bern-c165bc",
         "fr": "/fr/trouver-emploi-berne/prevoyeur-de-commandes-coop-genossenschaft-bern-c165bc"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "principal-regulatory-program-direttore-devices-and-combination-products-roche-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/principal-regulatory-program-direttore-devices-and-combination-products-roche-basel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/principal-regulatory-program-direttore-devices-and-combination-products-roche-basel/"
+      },
+      "queries": [
+        {
+          "query": "roche basel jobs",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "roche svizzera lavora con noi",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "roche basilea lavora con noi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "topQuery": "roche basel jobs",
+      "title": "Principal regulatory program direttore devices and combination products roche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "principal-regulatory-program-direttore-devices-and-combination-products-roche-basel",
+        "en": "principal-regulatory-program-direttore-devices-and-combination-products-roche-basel",
+        "de": "principal-regulatory-program-direttore-devices-and-combination-products-roche-basel",
+        "fr": "principal-regulatory-program-direttore-devices-and-combination-products-roche-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/principal-regulatory-program-direttore-devices-and-combination-products-roche-basel",
+        "en": "/en/find-jobs-basel/principal-regulatory-program-direttore-devices-and-combination-products-roche-basel",
+        "de": "/de/jobs-im-basel/principal-regulatory-program-direttore-devices-and-combination-products-roche-basel",
+        "fr": "/fr/trouver-emploi-bale/principal-regulatory-program-direttore-devices-and-combination-products-roche-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69683,7 +69754,7 @@
         {
           "query": "software house ticino",
           "clicks": 0,
-          "impressions": 58
+          "impressions": 63
         },
         {
           "query": "software ticino",
@@ -69698,7 +69769,7 @@
         {
           "query": "web developer ticino",
           "clicks": 0,
-          "impressions": 27
+          "impressions": 29
         },
         {
           "query": "consulente software ticino",
@@ -69713,7 +69784,7 @@
         {
           "query": "software developer ticino",
           "clicks": 1,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "trova un consulente software in ticino",
@@ -69781,7 +69852,7 @@
           "impressions": 3
         }
       ],
-      "totalImpressions": 348,
+      "totalImpressions": 359,
       "totalClicks": 2,
       "topQuery": "software house ticino",
       "title": "Sviluppatori",
