@@ -25,6 +25,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 export const LOOP_SYNC_MANIFEST_PATH = 'scripts/ci/loop-sync-manifest.json';
+const ADAPTATION_ISSUE = 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/issues/2880';
 
 /**
  * Dependencies that are delivered byte-for-byte under `generator/` and must
@@ -51,12 +52,14 @@ export const ADAPTED_TWIN_DISPOSITIONS = Object.freeze([
   {
     sitePath: 'scripts/lib/evergreen-topic-generator.mjs',
     corpusPath: 'generator/scripts/lib/evergreen-topic-generator.mjs',
+    adaptationIssue: ADAPTATION_ISSUE,
     reason:
       'adapted: the nanako generator consumes vendored site data and the generator-side border-data REWIRE; structural transport owns the copy, not loop-sync.',
   },
   {
     sitePath: 'scripts/ci/harvest-agent-lessons.mjs',
     corpusPath: 'scripts/ci/harvest-agent-lessons.mjs',
+    adaptationIssue: ADAPTATION_ISSUE,
     reason:
       'adapted: the corpus harvester imports repository-specific close, follow-up, and CI constant contracts; pull-side copying the site file would mix incompatible graphs.',
   },
@@ -147,6 +150,7 @@ function setAdaptedDisposition(files, disposition) {
   }
   const before = JSON.stringify(entry);
   entry.mode = 'adapted';
+  entry.adaptationIssue = disposition.adaptationIssue;
   entry.reason = disposition.reason;
   return before === JSON.stringify(entry) ? 'unchanged' : 'updated';
 }
