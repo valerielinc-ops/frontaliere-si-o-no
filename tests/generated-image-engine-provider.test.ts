@@ -1,10 +1,11 @@
 // @vitest-environment node
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
+import sharp from 'sharp';
 
 import {
   extractGeminiImageData,
@@ -14,6 +15,8 @@ import {
   extractTogetherImageData,
   articleHeroPhotoSearchQueries,
   formatProviderHttpError,
+  generateImageFromSpec,
+  imageVisionRejectionError,
   imageProviderSequence,
   imageVisionRejected,
   isCompleteArticleHeroVisionVerdict,
@@ -152,6 +155,133 @@ describe('generated image provider contracts', () => {
       else process.env.CODEX_AUTH_BROKER_SOCKET = originalSocket;
       await new Promise<void>((resolve) => server.close(() => resolve()));
       rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+  it('records whether the full selected provider chain was actually attempted', async () => {
+    const outputDir = mkdtempSync(path.join(os.tmpdir(), 'generated-image-provider-ledger-'));
+    const previousGeminiKey = process.env.GEMINI_API_KEY;
+    const previousFalKey = process.env.FAL_KEY;
+    delete process.env.GEMINI_API_KEY;
+    delete process.env.FAL_KEY;
+
+    const request = (maxAttempts?: number) => generateImageFromSpec({
+      scope: 'article-hero',
+      subject: 'a contemporary workplace',
+      assetId: 'provider-ledger-test',
+    }, {
+      outputDir,
+      chain: ['gemini', 'fal'],
+      maxAttempts,
+    }).then(() => null, (error: unknown) => error as Error & {
+      imageProviderLedger?: {
+        complete: boolean;
+        expectedProviders: string[];
+        attemptedProviders: string[];
+      };
+    });
+
+    try {
+      const exhausted = await request();
+      expect(exhausted?.imageProviderLedger).toEqual({
+        schema: 1,
+        complete: true,
+        expectedProviders: ['gemini', 'fal'],
+        attemptedProviders: ['gemini', 'fal'],
+      });
+
+      const capped = await request(1);
+      expect(capped?.imageProviderLedger).toEqual({
+        schema: 1,
+        complete: false,
+        expectedProviders: ['gemini', 'fal'],
+        attemptedProviders: ['gemini'],
+      });
+    } finally {
+      if (previousGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
+      else process.env.GEMINI_API_KEY = previousGeminiKey;
+      if (previousFalKey === undefined) delete process.env.FAL_KEY;
+      else process.env.FAL_KEY = previousFalKey;
+      rmSync(outputDir, { recursive: true, force: true });
+    }
+  });
+  it('keeps structured vision evidence in a failed provider ledger entry', async () => {
+    const outputDir = mkdtempSync(path.join(os.tmpdir(), 'generated-image-vision-ledger-'));
+    const imageBytes = await sharp({
+      create: { width: 8, height: 8, channels: 3, background: { r: 25, g: 80, b: 120 } },
+    }).jpeg().toBuffer();
+    const previousGeminiKey = process.env.GEMINI_API_KEY;
+    const previousFalKey = process.env.FAL_KEY;
+    const previousFetch = globalThis.fetch;
+    process.env.GEMINI_API_KEY = 'fixture-provider-key';
+    delete process.env.FAL_KEY;
+    vi.stubGlobal('fetch', async () => ({
+      ok: true,
+      json: async () => ({
+        output_image: {
+          type: 'image',
+          mime_type: 'image/jpeg',
+          data: imageBytes.toString('base64'),
+        },
+      }),
+      text: async () => '',
+    }));
+    const vision = {
+      ok: true,
+      contains_text: false,
+      contains_logo: true,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      is_topic_relevant: true,
+      notes: 'The image contains a logo.',
+    };
+
+    try {
+      const error = await generateImageFromSpec({
+        scope: 'article-hero',
+        subject: 'a contemporary workplace',
+        assetId: 'vision-provider-ledger-test',
+      }, {
+        outputDir,
+        chain: ['gemini', 'fal'],
+        verifyImage: async () => { throw imageVisionRejectionError(vision); },
+      }).then(() => null, (caught: unknown) => caught as Error & {
+        failures?: Array<{ provider: string; vision?: Record<string, unknown> }>;
+        imageProviderLedger?: { complete: boolean; attemptedProviders: string[] };
+      });
+
+      expect(error?.imageProviderLedger).toEqual({
+        schema: 1,
+        complete: true,
+        expectedProviders: ['gemini', 'fal'],
+        attemptedProviders: ['gemini', 'fal'],
+      });
+      expect(error?.failures?.[0]).toMatchObject({
+        provider: 'gemini',
+        vision: {
+          contains_text: false,
+          contains_logo: true,
+          contains_recognizable_face: false,
+          contains_recognizable_foreground_person: false,
+          looks_like_specific_real_event: false,
+          is_photograph: false,
+          is_topic_relevant: true,
+        },
+      });
+      expect(error?.failures?.[0]?.vision).not.toHaveProperty('notes');
+      expect(error?.failures?.[1]).toMatchObject({
+        provider: 'fal',
+        reason: 'missing-key:FAL_KEY',
+      });
+    } finally {
+      if (previousGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
+      else process.env.GEMINI_API_KEY = previousGeminiKey;
+      if (previousFalKey === undefined) delete process.env.FAL_KEY;
+      else process.env.FAL_KEY = previousFalKey;
+      vi.unstubAllGlobals();
+      globalThis.fetch = previousFetch;
+      rmSync(outputDir, { recursive: true, force: true });
     }
   });
   it('reads the image block from a completed Gemini Interactions response', () => {
