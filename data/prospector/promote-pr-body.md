@@ -1,9 +1,10 @@
 ## Implementato
 
-- **in questa PR** — 1 crawler promossi dal prospector, per **9 annunci** di datori che non coprivamo. Ognuno ha superato il gate di `scripts/lib/prospector/promotion-gate.mjs`: qualita' >= 0.9 contro la pagina ufficiale del datore, su almeno 3 pagine di dettaglio, con **2 validazioni buone su 2 giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare — e con almeno il 75% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
-- **in questa PR** — `physioswiss` · Physio swiss · 9 annunci · qualita' 0.95 su 8 giorni distinti · estrazione `template` · physioswiss.ch
+- **in questa PR** — 2 crawler promossi dal prospector, per **20 annunci** di datori che non coprivamo. Ognuno ha superato il gate di `scripts/lib/prospector/promotion-gate.mjs`: qualita' >= 0.9 contro la pagina ufficiale del datore, su almeno 3 pagine di dettaglio, con **2 validazioni buone su 2 giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare — e con almeno il 75% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
+- **in questa PR** — `medimeo` · Medimeo AG · 10 annunci · qualita' 1.00 su 8 giorni distinti · estrazione `template` · medimeo.ch
+- **in questa PR** — `medimeo-ch` · Medimeo AG · 10 annunci · qualita' 1.00 su 7 giorni distinti · estrazione `template` · medimeo.ch
 - **in questa PR** — voci nel manifest e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente.
-- **in questa PR** — file workflow rigenerati: `.github/corpus-workflows/contract.json`, `.github/corpus-workflows/crawler-group-23.yml`, `.github/workflows/crawler-group-23-logic.yml`, `.github/workflows/crawler-group-23.yml`.
+- **in questa PR** — file workflow rigenerati: `.github/corpus-workflows/contract.json`, `.github/corpus-workflows/crawler-group-04.yml`, `.github/corpus-workflows/crawler-group-21.yml`, `.github/workflows/crawler-group-04-logic.yml`, `.github/workflows/crawler-group-04.yml`, `.github/workflows/crawler-group-21-logic.yml`, `.github/workflows/crawler-group-21.yml`.
 - **in questa PR** — `data/crawler-companies-auto.json` rigenerato nello stesso commit dei runner: la directory aziende del sito resta allineata all'insieme dei crawler realmente in produzione, invece di dipendere da un `npm run companies:generate` lanciato a mano (era fermo a 213 voci su 614 runner, issue #6481).
 
 ## Non implementato (ancora)

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-18T09:47:40.331Z",
+  "updatedAt": "2026-10-18T09:48:06.432Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -586634,12 +586634,12 @@
     },
     "medimeo@luzern": {
       "key": "medimeo@luzern",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:28:12.701Z",
-      "updatedAt": "2026-10-18T09:42:36.808Z",
+      "updatedAt": "2026-10-18T09:48:06.408Z",
       "name": "Medimeo AG",
       "city": "Luzern",
       "zip": "6000",
@@ -586799,7 +586799,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "13792",
+      "promotionBranch": "prospector/promote-2026-10-18"
     },
     "medimeo@region-zurich": {
       "key": "medimeo@region-zurich",
@@ -586897,12 +586899,12 @@
     },
     "medimeo@st-gallen": {
       "key": "medimeo@st-gallen",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T18:31:01.514Z",
-      "updatedAt": "2026-10-18T09:42:20.934Z",
+      "updatedAt": "2026-10-18T09:48:06.408Z",
       "name": "Medimeo AG",
       "city": "St. Gallen",
       "zip": "9000",
@@ -587048,7 +587050,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "13792",
+      "promotionBranch": "prospector/promote-2026-10-18"
     },
     "medimeo@thun": {
       "key": "medimeo@thun",
