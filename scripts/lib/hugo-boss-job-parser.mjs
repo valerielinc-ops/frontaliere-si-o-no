@@ -193,12 +193,17 @@ export function parseDetailPage(html = '') {
     rawJob?.title || jsonLd?.title || document.querySelector('h1')?.textContent || ''
   );
 
-  // Description: prefer DDO job description, then JSON-LD
-  let body = '';
-  const rawDesc = rawJob?.description || jsonLd?.description || '';
-  if (rawDesc) {
-    body = stripTags(rawDesc);
-  }
+  // The DDO can contain a short teaser while JSON-LD carries the complete
+  // posting. Compare both structured candidates instead of letting the DDO
+  // shadow the detail-page body merely because it appears first.
+  const structuredBodies = [rawJob?.description, jsonLd?.description]
+    .filter(Boolean)
+    .map((description) => stripTags(description))
+    .filter(Boolean);
+  let body = structuredBodies.reduce(
+    (longest, candidate) => candidate.length > longest.length ? candidate : longest,
+    '',
+  );
 
   // Fallback: try main content area
   if (body.length < MIN_DESC_LENGTH) {
