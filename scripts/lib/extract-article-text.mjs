@@ -68,8 +68,8 @@ function normalizeTextCap(maxChars) {
  *
  * Keeping this separate from the route-specific joins is important for
  * `<noscript>`: a fallback paragraph can be much larger than the caller's
- * final source budget, so the collector must be able to cap it before it
- * accumulates more sibling paragraphs.
+ * final source budget, so the collector must be able to cap it before it is
+ * joined with sibling paragraphs.
  */
 export function capExtractedText(text, maxChars = MAX_DEFAULT_LEN) {
   return String(text ?? '').slice(0, normalizeTextCap(maxChars));
@@ -182,7 +182,8 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
     .filter(node => include(node))
     .map(node => cleanText(node.textContent || ''))
     .filter(text => text && !isJunk(text))
-    .map(text => capExtractedText(text, maxChars));
+    .map(text => capExtractedText(text, maxChars))
+    .filter(Boolean);
 }
 
 function normalizeNoscriptRoot(noscript) {
