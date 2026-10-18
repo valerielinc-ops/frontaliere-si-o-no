@@ -57,16 +57,60 @@ function recordForKey(key) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return null; }
 }
 
-function readBaselineAtRef(ref) {
+function readBaselineAtRef(ref, { required = false } = {}) {
   try {
-    const raw = execFileSync(
+    execFileSync(
+      'git',
+      ['rev-parse', '--verify', '--quiet', `${ref}^{commit}`],
+      { cwd: ROOT, stdio: 'ignore' },
+    );
+  } catch {
+    return {
+      baseline: null,
+      refResolved: false,
+      error: required ? `${BASELINE_RELATIVE_PATH}: comparison baseline ref ${JSON.stringify(ref)} is not resolvable` : null,
+    };
+  }
+
+  try {
+    execFileSync(
+      'git',
+      ['cat-file', '-e', `${ref}:${BASELINE_RELATIVE_PATH}`],
+      { cwd: ROOT, stdio: 'ignore' },
+    );
+  } catch (error) {
+    if (error?.status === 128) {
+      return { baseline: null, refResolved: true, error: null };
+    }
+    return {
+      baseline: null,
+      refResolved: true,
+      error: `${BASELINE_RELATIVE_PATH}: could not inspect baseline at ${JSON.stringify(ref)}`,
+    };
+  }
+
+  let raw;
+  try {
+    raw = execFileSync(
       'git',
       ['show', `${ref}:${BASELINE_RELATIVE_PATH}`],
       { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
     );
-    return JSON.parse(raw);
   } catch {
-    return null;
+    return {
+      baseline: null,
+      refResolved: true,
+      error: `${BASELINE_RELATIVE_PATH}: could not read baseline at ${JSON.stringify(ref)}`,
+    };
+  }
+  try {
+    return { baseline: JSON.parse(raw), refResolved: true, error: null };
+  } catch {
+    return {
+      baseline: null,
+      refResolved: true,
+      error: `${BASELINE_RELATIVE_PATH}: baseline at ${JSON.stringify(ref)} is not valid JSON`,
+    };
   }
 }
 
@@ -120,8 +164,11 @@ function main() {
 
   const errors = [];
   const cantonDeclaration = readCantonArtifactDeclaration(corpusBaseline);
-  const comparisonRef = comparisonBaselineRef();
-  const comparisonDeclaration = readCantonArtifactDeclaration(readBaselineAtRef(comparisonRef));
+  const configuredComparisonRef = String(process.env[BASELINE_REF_ENV] || '').trim();
+  const comparisonRef = configuredComparisonRef || comparisonBaselineRef();
+  const comparisonResult = readBaselineAtRef(comparisonRef, { required: Boolean(configuredComparisonRef) });
+  const comparisonDeclaration = readCantonArtifactDeclaration(comparisonResult.baseline);
+  if (comparisonResult.error) errors.push(comparisonResult.error);
   if (cantonDeclaration.error) errors.push(cantonDeclaration.error);
   if (comparisonDeclaration.declared && !cantonDeclaration.declared) {
     errors.push(
@@ -164,7 +211,7 @@ function main() {
         );
       }
     }
-  } else if (!comparisonDeclaration.declared && !cantonArtifact) {
+  } else if (!comparisonResult.error && !comparisonDeclaration.declared && !cantonArtifact) {
     console.log(
       `${PUBLISHED_CANTON_ARTICLES_ARTIFACT}: not yet declared by the baseline (pre-bootstrap)`,
     );
