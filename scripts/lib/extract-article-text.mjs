@@ -219,12 +219,17 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     const char = markup[index];
     const next = markup[index + 1];
 
-    if (state === 'single-quote' || state === 'double-quote' || state === 'template') {
+    if (state === 'template') {
+      // Nested template/interpolation parsing is intentionally unsupported:
+      // never recover an outer boundary after entering this lexical state.
+      return -1;
+    }
+
+    if (state === 'single-quote' || state === 'double-quote') {
       if (char === '\\') {
         index += 1;
       } else if ((state === 'single-quote' && char === "'")
-        || (state === 'double-quote' && char === '"')
-        || (state === 'template' && char === '`')) {
+        || (state === 'double-quote' && char === '"')) {
         state = 'code';
       }
       continue;
@@ -274,7 +279,9 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     } else if (char === '"') {
       state = 'double-quote';
     } else if (char === '`') {
-      state = 'template';
+      // A template literal may contain nested interpolation/templates; fail
+      // closed instead of trying to tokenize only part of JavaScript.
+      return -1;
     } else if (char === '/' && next === '/') {
       state = 'line-comment';
       index += 1;

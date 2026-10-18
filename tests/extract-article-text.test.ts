@@ -243,6 +243,16 @@ describe('extractArticleText', () => {
     expect(result.text).toBe('');
   });
 
+  it('does not expose outer prose after a nested template fake noscript end tag', () => {
+    const outerParagraph = 'FALSE_OUTER_FROM_NESTED_TEMPLATE';
+    const html = '<main><noscript><script>const value = `outer ${`</noscript>`}`;'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain(outerParagraph);
+    expect(result.text).toBe('');
+  });
+
   it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
     const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
     const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';
