@@ -13,6 +13,7 @@
   ],
   "detailTemplate": "/job/*/*/*",
   "detailEnrichment": true,
+  "rescueOnEmptyListing": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 6,
   "sampleTitles": [
