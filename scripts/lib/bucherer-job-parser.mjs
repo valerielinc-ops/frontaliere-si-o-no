@@ -387,6 +387,7 @@ export function assessCultureCoverage(captured = [], cultures = BUCHERER_CULTURE
       state.invalid
       || declaredTotal === null
       || !hasContiguousCoverage(state.intervals, declaredTotal)
+      || state.postingIds.size !== declaredTotal
     ) {
       incompleteCultures.push(culture);
     }

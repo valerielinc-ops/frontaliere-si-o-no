@@ -508,6 +508,17 @@ describe('Bucherer crawler parser', () => {
       expect(coverage.incompleteCultures).toEqual(['de-DE']);
     });
 
+    it('rejects contiguous pages that repeat postings while missing part of the declared snapshot', () => {
+      const repeatedPage = Array.from({ length: 50 }, (_, i) => ({ jobPostingId: `j${i}` }));
+      const coverage = assessCultureCoverage([
+        { cultureCode: 'de-DE', body: { maxCount: 100, offset: 0, jobPostings: repeatedPage } },
+        { cultureCode: 'de-DE', body: { maxCount: 100, offset: 50, jobPostings: repeatedPage } },
+      ], ['de-DE']);
+
+      expect(coverage.complete).toBe(false);
+      expect(coverage.incompleteCultures).toEqual(['de-DE']);
+    });
+
     it('accepts a complete all-empty source snapshot only when every culture declares zero', () => {
       const coverage = assessCultureCoverage(
         BUCHERER_CULTURES.map((cultureCode) => ({ cultureCode, body: empty })),
