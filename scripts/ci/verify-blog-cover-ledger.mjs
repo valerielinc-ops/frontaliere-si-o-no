@@ -33,6 +33,7 @@ const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog
 const IMAGE_CREDITS_INDEX = path.join(ROOT, 'data/image-credits-blog.json');
 const GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 const BASELINE_RELATIVE_PATH = 'data/blog-cover-corpus-baseline.json';
+const BASELINE_REF_ENV = 'BLOG_COVER_LEDGER_BASE_REF';
 
 function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; }
@@ -56,17 +57,70 @@ function recordForKey(key) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return null; }
 }
 
-function readOriginMainBaseline() {
+function readBaselineAtRef(ref, { required = false } = {}) {
   try {
-    const raw = execFileSync(
+    execFileSync(
       'git',
-      ['show', `origin/main:${BASELINE_RELATIVE_PATH}`],
+      ['rev-parse', '--verify', '--quiet', `${ref}^{commit}`],
+      { cwd: ROOT, stdio: 'ignore' },
+    );
+  } catch {
+    return {
+      baseline: null,
+      refResolved: false,
+      error: required ? `${BASELINE_RELATIVE_PATH}: comparison baseline ref ${JSON.stringify(ref)} is not resolvable` : null,
+    };
+  }
+
+  try {
+    execFileSync(
+      'git',
+      ['cat-file', '-e', `${ref}:${BASELINE_RELATIVE_PATH}`],
+      { cwd: ROOT, stdio: 'ignore' },
+    );
+  } catch (error) {
+    if (error?.status === 128) {
+      return { baseline: null, refResolved: true, error: null };
+    }
+    return {
+      baseline: null,
+      refResolved: true,
+      error: `${BASELINE_RELATIVE_PATH}: could not inspect baseline at ${JSON.stringify(ref)}`,
+    };
+  }
+
+  let raw;
+  try {
+    raw = execFileSync(
+      'git',
+      ['show', `${ref}:${BASELINE_RELATIVE_PATH}`],
       { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
     );
-    return JSON.parse(raw);
   } catch {
-    return null;
+    return {
+      baseline: null,
+      refResolved: true,
+      error: `${BASELINE_RELATIVE_PATH}: could not read baseline at ${JSON.stringify(ref)}`,
+    };
   }
+  try {
+    return { baseline: JSON.parse(raw), refResolved: true, error: null };
+  } catch {
+    return {
+      baseline: null,
+      refResolved: true,
+      error: `${BASELINE_RELATIVE_PATH}: baseline at ${JSON.stringify(ref)} is not valid JSON`,
+    };
+  }
+}
+
+function comparisonBaselineRef() {
+  // `origin/main` is a moving ref. On a push to main, a concurrent commit can
+  // advance it while this run is still checking the older event SHA, turning a
+  // valid pre-bootstrap baseline into a false "removal". Callers that know
+  // their immutable event/base ref provide it explicitly; local invocations
+  // retain the historical origin/main fallback.
+  return String(process.env[BASELINE_REF_ENV] || '').trim() || 'origin/main';
 }
 
 function readCantonArtifactDeclaration(baseline) {
@@ -110,12 +164,16 @@ function main() {
 
   const errors = [];
   const cantonDeclaration = readCantonArtifactDeclaration(corpusBaseline);
-  const originMainDeclaration = readCantonArtifactDeclaration(readOriginMainBaseline());
+  const configuredComparisonRef = String(process.env[BASELINE_REF_ENV] || '').trim();
+  const comparisonRef = configuredComparisonRef || comparisonBaselineRef();
+  const comparisonResult = readBaselineAtRef(comparisonRef, { required: Boolean(configuredComparisonRef) });
+  const comparisonDeclaration = readCantonArtifactDeclaration(comparisonResult.baseline);
+  if (comparisonResult.error) errors.push(comparisonResult.error);
   if (cantonDeclaration.error) errors.push(cantonDeclaration.error);
-  if (originMainDeclaration.declared && !cantonDeclaration.declared) {
+  if (comparisonDeclaration.declared && !cantonDeclaration.declared) {
     errors.push(
       `${BASELINE_RELATIVE_PATH}: declaration for ${PUBLISHED_CANTON_ARTICLES_PATH} cannot be removed; `
-      + 'origin/main already declares the artifact',
+      + `comparison baseline ${comparisonRef} already declares the artifact`,
     );
   }
 
@@ -153,7 +211,7 @@ function main() {
         );
       }
     }
-  } else if (!originMainDeclaration.declared && !cantonArtifact) {
+  } else if (!comparisonResult.error && !comparisonDeclaration.declared && !cantonArtifact) {
     console.log(
       `${PUBLISHED_CANTON_ARTICLES_ARTIFACT}: not yet declared by the baseline (pre-bootstrap)`,
     );

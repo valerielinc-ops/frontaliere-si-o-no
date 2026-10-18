@@ -20,6 +20,7 @@ import {
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
   parseFollowupItems,
+  dailyBucketScopeDecision,
   selectFirstOpenItem,
   updateFollowupItemState,
 } from '../scripts/ci/followup-resolution-match.mjs';
@@ -345,6 +346,29 @@ describe('daily follow-up identity and dedup', () => {
 });
 
 describe('daily item parsing and lifecycle', () => {
+  it('separa bucket valido, item in-progress e stato non riconosciuto', () => {
+    const title = dailyBucketTitle(DAY, 'owner/repo', 1);
+    const sealed = (state: string) => body(item(`FU-${DAY}-001`, state)).replace('- State: collecting', '- State: sealed');
+    expect(dailyBucketScopeDecision(title, sealed('open'))).toMatchObject({
+      isDaily: true,
+      valid: true,
+      terminal: false,
+      item: { id: `FU-${DAY}-001` },
+    });
+    expect(dailyBucketScopeDecision(title, sealed('in-progress'))).toMatchObject({
+      isDaily: true,
+      valid: true,
+      terminal: false,
+      reason: 'item-in-progress',
+      item: null,
+    });
+    expect(dailyBucketScopeDecision(title, sealed('mystery'))).toMatchObject({
+      isDaily: true,
+      valid: false,
+      reason: 'invalid-item-state',
+    });
+  });
+
   it('recupera il formato shorthand del triage e apre gli item senza State', () => {
     const shorthand = [
       'State: collecting',
@@ -554,7 +578,7 @@ describe('daily mint gate and reconciliation', () => {
       title: dailyBucketTitle(DAY, 'owner/repo', 2),
       body: source,
     });
-    expect(queueBefore).toEqual({ eligible: false, reason: 'bucket-collecting', item: null });
+    expect(queueBefore).toEqual({ eligible: false, reason: 'bucket-not-sealed', item: null });
 
     const decision = decideDailyMintGate({
       title: dailyBucketTitle(DAY, 'owner/repo', 2),

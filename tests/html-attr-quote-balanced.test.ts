@@ -107,6 +107,13 @@ describe('readAttr — quote balanced', () => {
 });
 
 describe('remaining attribute consumers — quote balanced (#6574)', () => {
+  it('scarta un anchor malformato senza prendere il suo href per quello valido successivo', () => {
+    const goodUrl = 'https://example.ch/notizie/giusta/';
+    const html = `<a href="/sbagliata/" title="attributo rotto > <a href="${goodUrl}">Notizia importante per i frontalieri</a>`;
+    const [headline] = extractHeadlines(html, 'https://example.ch/');
+    expect(headline.url).toBe(goodUrl);
+  });
+
   it('keeps apostrophes in article HTML and Atom hrefs', () => {
     const articleUrl = "https://example.ch/notizie/d'oggi";
     const [headline] = extractHeadlines(

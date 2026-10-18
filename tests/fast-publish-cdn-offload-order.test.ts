@@ -84,6 +84,15 @@ describe('hub render / CDN offload order', () => {
     ).toBeLessThan(offloadAt);
   });
 
+  it('renders section landing pages before running the CDN offload', () => {
+    const landingAt = LIB.indexOf('await refreshArticleHubLandings(');
+    const offloadAt = LIB.indexOf("'offload-generated-images-cdn.mjs'");
+
+    expect(landingAt, 'refreshArticleHubLandings call site not found').toBeGreaterThan(-1);
+    expect(offloadAt, 'offload-generated-images-cdn.mjs spawn not found').toBeGreaterThan(-1);
+    expect(landingAt).toBeLessThan(offloadAt);
+  });
+
   it('emits both hub families into the same scratch dist the offload walks', () => {
     // The offload rewrites whatever is under `dist`; the hub renders must
     // target that same directory or the ordering above buys nothing.
