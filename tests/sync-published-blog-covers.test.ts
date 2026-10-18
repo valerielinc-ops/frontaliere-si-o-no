@@ -431,6 +431,49 @@ describe('sync-published-blog-covers', () => {
     );
   });
 
+  it('uses the immutable comparison ref when origin/main advances during a run', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    commitFixture(root);
+    const preBootstrapSha = git(root, ['rev-parse', 'HEAD']).trim();
+
+    declareCantonArtifact(root);
+    git(root, ['add', '--', 'data/blog-cover-corpus-baseline.json']);
+    git(root, ['commit', '--quiet', '-m', 'future artifact declaration']);
+    const advancedMainSha = git(root, ['rev-parse', 'HEAD']).trim();
+    git(root, ['update-ref', 'refs/remotes/origin/main', advancedMainSha]);
+    git(root, ['reset', '--hard', '--quiet', preBootstrapSha]);
+
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, BLOG_COVER_LEDGER_BASE_REF: preBootstrapSha },
+    });
+
+    expect(result.status).toBe(0);
+    expect(JSON.parse(result.stdout)).toMatchObject({ errors: 0 });
+    expect(result.stderr).not.toContain('declaration for public/canton-articles.json cannot be removed');
+  });
+
+  it('fails closed when the immutable comparison ref cannot be resolved', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    commitFixture(root);
+
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, BLOG_COVER_LEDGER_BASE_REF: 'refs/heads/missing-baseline-ref' },
+    });
+    const output = `${result.stdout}\n${result.stderr}`;
+
+    expect(result.status).not.toBe(0);
+    expect(output).toContain('comparison baseline ref "refs/heads/missing-baseline-ref" is not resolvable');
+    expect(output).not.toContain('not yet declared by the baseline (pre-bootstrap)');
+  });
+
   it.each([
     ['private-grant', validPrivateGrantEvidence],
     ['licensed Pexels photo', validPexelsEvidence],

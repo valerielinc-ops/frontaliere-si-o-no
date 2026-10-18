@@ -511,6 +511,10 @@ jobs:
       # fail-closed licence gate reject every subsequent corpus refresh.
       - name: Synchronize newly published covers into the ledger
         if: steps.gate.outputs.skipped != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          # The verifier runs before this working-tree change is committed;
+          # HEAD is the immutable pre-sync baseline for the writer.
+          BLOG_COVER_LEDGER_BASE_REF: HEAD
         run: |
           node scripts/audit/sync-published-blog-covers.mjs
           node scripts/ci/verify-blog-cover-ledger.mjs
