@@ -1,5 +1,6 @@
 import './index.css';
 import { waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
+import type { StaticFallbackKind } from './services/staticFallbackHandoff';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -146,6 +147,7 @@ const bootstrapApp = async () => {
 
  const homeCritical = isHomeCriticalPath(window.location.pathname);
  let staticPage = hasStaticContent();
+ let keepStaticRootVisible = false;
  // Let the browser present the static HTML once before anything below can
  // hide it (adoption into #root + opacity crossfade). Started now so the wait
  // overlaps the App chunk download; awaited right before the first hide.
@@ -191,9 +193,10 @@ const bootstrapApp = async () => {
  await staticFirstPaint;
 
  try {
+   const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
+   keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(rootElement, fallback);
    const { parsePath } = await import('./services/router');
    const parsedRoute = parsePath(window.location.pathname).route;
-   const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
    const fallbackKind: StaticFallbackKind = fallback?.querySelector('article.ft-blog-article')
      ? 'article'
      : parsedRoute.activeTab === 'blog' && parsedRoute.cantonTopic
@@ -256,14 +259,20 @@ const bootstrapApp = async () => {
  // the layout SHIFT. Reserve #root's prerendered height as a min-height floor so
  // its transient collapse can't move the blocks below; released after the React
  // content paints (heights match — same page — so the release is shift-free).
- staticHandoff.hideRootForCrossfade(rootElement);
+ if (keepStaticRootVisible) {
+   // The job-board static main is already inside #root and is the useful LCP
+   // candidate. Keep it visible while React takes over the same root.
+   staticHandoff.preserveRootForPaint(rootElement);
+ } else {
+   staticHandoff.hideRootForCrossfade(rootElement);
 
- // Wait for the fade-out to complete before React replaces content
- await new Promise<void>((resolve) => {
- rootElement.addEventListener('transitionend', () => resolve(), { once: true });
- // Safety timeout in case transitionend doesn't fire
- setTimeout(resolve, 100);
- });
+   // Wait for the fade-out to complete before React replaces content
+   await new Promise<void>((resolve) => {
+   rootElement.addEventListener('transitionend', () => resolve(), { once: true });
+   // Safety timeout in case transitionend doesn't fire
+   setTimeout(resolve, 100);
+   });
+ }
  }
 
  // On non-home pages with empty #root (collection/faq/hub lite-shell), wait
@@ -288,9 +297,11 @@ const bootstrapApp = async () => {
  await waitForFirstPaint();
 
  if (staticPage) {
- // Fade the React content back in
- rootElement.style.transition = 'opacity 120ms ease-in';
- rootElement.style.opacity = '1';
+ if (!keepStaticRootVisible) {
+   // Fade the React content back in
+   rootElement.style.transition = 'opacity 120ms ease-in';
+   rootElement.style.opacity = '1';
+ }
  // Release the reserved min-height only once #root's height has settled
  // (see waitForHeightStable) instead of on a flat timer, so a still-
  // pending lazy Suspense chunk can finish growing #root before the floor
@@ -299,8 +310,10 @@ const bootstrapApp = async () => {
  // floor for the whole SPA session (prefers-reduced-motion, DOM removal,
  // or a chunk that never resolves).
  await waitForHeightStable(rootElement);
- rootElement.style.transition = '';
- rootElement.style.opacity = '';
+ if (!keepStaticRootVisible) {
+   rootElement.style.transition = '';
+   rootElement.style.opacity = '';
+ }
  rootElement.style.minHeight = '';
  }
 

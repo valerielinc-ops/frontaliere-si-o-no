@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   htmlToMarkdown,
   extractLaFonteApplyUrlFromCardHtml,
+  resolveLaFonteApplicationHandoffUrl,
   validateLaFonteDescription,
   buildLaFonteDescription,
   isLaFonteLegacyFrame,
@@ -29,6 +30,63 @@ describe('La Fonte application handoff', () => {
     )).toBeNull();
     expect(extractLaFonteApplyUrlFromCardHtml(
       '<a href="https://www.lafonte.ch/inizia-con-noi">Scopri di più</a>',
+    )).toBeNull();
+  });
+
+  it('uses the unique official role URL when the card explicitly gives email instructions', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-lugano#:~:text=Stagiaire';
+    const card = '<p>Invia la tua candidatura via mail a <a href="mailto:recruiting@lafonte.ch">recruiting@lafonte.ch</a>.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
+  it('accepts a source-backed email destination without the words "via mail"', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente-snack-bar-panetteria-la-fonte-lugano#:~:text=Gerente';
+    const card = '<p>La Direzione attende le candidature corredate da una lettera e un curriculum in formato pdf a recruiting@lafonte.ch.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
+  it('accepts the plural imperative application instruction', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>Inviate il CV in formato pdf a info@example.com</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
+  it('groups an adjacent mailto destination with its application instruction', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>Inviare il CV</p><a href="mailto:info@example.com">info@example.com</a>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBe(roleUrl);
+  });
+
+  it('does not combine application instructions across card roots', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<div class="pwr-simple-list-item"><p>Inviare il CV</p></div><div class="pwr-simple-list-item"><a href="mailto:info@example.com">info@example.com</a></div>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBeNull();
+  });
+
+  it('does not treat an informational contact as an email application instruction', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>Il personale è invitato a scrivere a info@example.com per informazioni.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBeNull();
+  });
+
+  it('does not treat a completed application send as an email application instruction', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>Il CV è stato inviato a info@example.com per informazioni.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBeNull();
+  });
+
+  it('does not combine application and contact signals from separate blocks', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=gerente';
+    const card = '<p>La candidatura va inviata tramite il portale.</p><p>Per informazioni scrivere a info@example.com.</p>';
+    expect(resolveLaFonteApplicationHandoffUrl(card, roleUrl)).toBeNull();
+  });
+
+  it('does not turn a role page into an application handoff without source instructions', () => {
+    const roleUrl = 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-lugano#:~:text=Stagiaire';
+    expect(resolveLaFonteApplicationHandoffUrl('<p>Scopri le nostre attività.</p>', roleUrl)).toBeNull();
+    expect(resolveLaFonteApplicationHandoffUrl(
+      '<p>Invia la candidatura via mail a recruiting@lafonte.ch.</p>',
+      'https://www.lafonte.ch/inizia-con-noi',
     )).toBeNull();
   });
 });

@@ -134,19 +134,53 @@ function makeCorpusRemote(
   git('config', 'uploadpack.allowAnySHA1InWant', 'true');
   git('config', 'uploadpack.allowFilter', 'true');
 
-  fs.mkdirSync(path.join(dir, 'content'));
-  fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'older\n');
-  for (let i = 0; i < extraFiles; i++) {
-    fs.writeFileSync(path.join(dir, 'content', `pad-${i}.txt`), 'x');
-  }
-  git('add', '-A');
-  git('commit', '--quiet', '-m', 'older');
-  const older = git('rev-parse', 'HEAD');
+  let older: string;
+  let head: string;
+  if (extraFiles > 0) {
+    // The large-floor case needs real Git tree entries, but not 5,000
+    // writeFileSync/add operations just to construct them. Reuse the same blob
+    // (as Git's object store already does for identical contents) and build the
+    // two trees directly; the tested pull still performs the real checkout of
+    // every file.
+    const writeBlob = (contents: string) => execFileSync(
+      'git', ['-C', dir, 'hash-object', '-w', '--stdin'],
+      { encoding: 'utf-8', input: contents },
+    ).trim();
+    const writeTree = (entries: string) => execFileSync(
+      'git', ['-C', dir, 'mktree'],
+      { encoding: 'utf-8', input: entries },
+    ).trim();
+    const createCommit = (tree: string, parent: string | null, message: string) => git(
+      'commit-tree', tree, ...(parent ? ['-p', parent] : []), '-m', message,
+    );
+    const paddingBlob = writeBlob('x');
+    const treeForMarker = (marker: string) => {
+      const markerBlob = writeBlob(marker);
+      const contentEntries = [
+        `100644 blob ${markerBlob}\tmarker.txt`,
+        ...Array.from(
+          { length: extraFiles },
+          (_, i) => `100644 blob ${paddingBlob}\tpad-${i}.txt`,
+        ),
+      ].sort().join('\n') + '\n';
+      const contentTree = writeTree(contentEntries);
+      return writeTree(`040000 tree ${contentTree}\tcontent\n`);
+    };
+    older = createCommit(treeForMarker('older\n'), null, 'older');
+    head = createCommit(treeForMarker('newer\n'), older, 'newer');
+    git('update-ref', 'refs/heads/main', head);
+  } else {
+    fs.mkdirSync(path.join(dir, 'content'));
+    fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'older\n');
+    git('add', '-A');
+    git('commit', '--quiet', '-m', 'older');
+    older = git('rev-parse', 'HEAD');
 
-  fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'newer\n');
-  git('add', '-A');
-  git('commit', '--quiet', '-m', 'newer');
-  const head = git('rev-parse', 'HEAD');
+    fs.writeFileSync(path.join(dir, 'content', 'marker.txt'), 'newer\n');
+    git('add', '-A');
+    git('commit', '--quiet', '-m', 'newer');
+    head = git('rev-parse', 'HEAD');
+  }
 
   return { url: `file://${dir}`, dir, head, older };
 }
@@ -437,7 +471,9 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
     const wrapper = fs.readFileSync(path.join(ROOT, 'scripts', 'ci', 'pull-articles-surface.mjs'), 'utf-8');
     expect(wrapper).toContain("runPull('pull-articles-corpus.mjs'");
     expect(wrapper).toContain("runPull('pull-articles-api.mjs'");
-    expect(wrapper).toContain('retryArticleSyncOnMovement');
+    expect(wrapper).toContain("retryableSnapshot: outputs['retryable-snapshot'] === 'true'");
+    expect(wrapper).toContain("reason: outputs['retry-reason'] || outputs['skip-reason']");
+    expect(wrapper).toContain('retryArticleSyncPair');
     expect(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'articles-sync-retry.mjs'), 'utf-8'))
       .toContain('MAX_ARTICLE_SYNC_ATTEMPTS = 3');
   });

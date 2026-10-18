@@ -69,4 +69,31 @@ describe('pipeline phase timing', () => {
       rmSync(directory, { recursive: true, force: true });
     }
   });
+
+  it('absorbs asynchronous logger rejections at phase start and finish', async () => {
+    const lines: string[] = [];
+    const unhandled: unknown[] = [];
+    const onUnhandled = (reason: unknown) => unhandled.push(reason);
+    let elapsed = 400;
+
+    process.on('unhandledRejection', onUnhandled);
+    try {
+      const finish = startPipelinePhase('dataset', 'async logger', {
+        now: () => elapsed,
+        log: async (line) => {
+          lines.push(line);
+          throw new Error('logger unavailable');
+        },
+      });
+
+      elapsed += 35;
+      expect(finish('success')).toBe(35);
+      await new Promise((resolve) => setImmediate(resolve));
+
+      expect(lines).toHaveLength(2);
+      expect(unhandled).toEqual([]);
+    } finally {
+      process.off('unhandledRejection', onUnhandled);
+    }
+  });
 });

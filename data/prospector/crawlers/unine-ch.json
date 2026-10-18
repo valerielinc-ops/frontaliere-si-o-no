@@ -1,0 +1,21 @@
+{
+  "companyKey": "unine-ch",
+  "companyName": "unine",
+  "companyHost": "unine.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.unine.ch/carriere"
+  ],
+  "detailTemplate": "/carriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Ateliers « UniNE… et après ? »",
+    "Etudiant-e-s étranger-ères"
+  ],
+  "canton": "NE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-16T10:21:07.128Z"
+}

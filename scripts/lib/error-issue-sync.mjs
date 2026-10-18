@@ -76,6 +76,11 @@ export const ISSUE_DENY_PATTERNS = [
   // the monitor re-filing issues from residual pre-deploy events still inside
   // its trailing query window. Same anchored shape as the benign pattern.
   /^(?:Error: )?Script error\.?$/i,
+  // Microsoft Office / Outlook in-app browser postMessage bridge noise. The
+  // client and PostHog filters already drop it, but residual GA4/PostHog
+  // events must not become backlog issues after the client-side fix (issue
+  // 13628). Keep this byte-for-byte aligned with UNIVERSAL_BENIGN_PATTERNS.
+  /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
   // Bare-URL <script>/<link> load failure during the CDN propagation window
   // (#4151 CSS-only fix, generalized to JS by #4592). The inline bootstrap
   // recovery snippet catches error events on ANY /assets/*.js|.css tag

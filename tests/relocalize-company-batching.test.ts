@@ -384,8 +384,10 @@ describe('relocalize company invocation batching', () => {
     crawler.runSharedCrawlerPipeline.mockImplementation(async () => {
       const keys = (process.env.JOBS_CRAWLER_COMPANY_KEYS || '').split(',').filter(Boolean);
       crawlerCalls.push(keys.join(','));
-      if (crawlerCalls.length === 1) completeJobs('success-company', 1);
-      if (crawlerCalls.length === 2) completeJobs('large-company', 4);
+      // The main pass deliberately clears no flags. The remaining budget is
+      // available only because the sterile company was skipped; the retry
+      // must still run instead of treating totalFixed === 0 as a dead end.
+      if (crawlerCalls.length === 3) completeJobs('success-company', 1);
       return { localizationCoveredCompanyKeys: keys };
     });
 
@@ -407,9 +409,148 @@ describe('relocalize company invocation batching', () => {
     expect(crawlerCalls).toEqual([
       'success-company,short-company',
       'large-company',
-      'large-company',
+      'success-company',
     ]);
     expect(crawlerCalls.join('|')).not.toContain('skipped-company');
     expect(ledger.companies['skipped-company']).toEqual({ sterile: 0, skipUntilRun: 5 });
+  });
+
+  it('persiste nel file per-crawler un miglioramento del retry anche senza flag liberati', async () => {
+    process.env.RELOCALIZE_MAX_JOBS = '2';
+    const longDescription = (label: string) => `${label} ${'contenuto editoriale '.repeat(20)}`;
+    const makeJob = (companyKey: string, slug: string) => ({
+      company: companyKey === 'retry-company' ? 'Retry Company' : 'Skipped Company',
+      companyKey,
+      slug,
+      url: `https://example.test/jobs/${slug}/`,
+      title: 'Specialista di processo',
+      description: longDescription('Descrizione sorgente'),
+      sourceLang: 'it',
+      needsRetranslation: true,
+      titleByLocale: {
+        it: 'Specialista di processo',
+        en: 'Process specialist',
+        de: 'Prozessspezialist',
+        fr: 'Spécialiste des processus',
+      },
+      // The empty FR description keeps the job incomplete after the retry, so
+      // the changed EN text exercises the `cleared === 0` branch.
+      descriptionByLocale: {
+        it: longDescription('Descrizione italiana'),
+        en: longDescription('Vecchia descrizione inglese'),
+        de: longDescription('Deutsche Beschreibung'),
+        fr: '',
+      },
+    });
+    const targetJob = makeJob('retry-company', 'retry-job');
+    const skippedJob = makeJob('skipped-company', 'skipped-job');
+    const jobs = [targetJob, skippedJob];
+    let crawlerData = { jobs: [JSON.parse(JSON.stringify(targetJob))] };
+    const improvedEnglish = longDescription('Nuova descrizione inglese');
+    const ledger: Record<string, unknown> = {
+      run: 0,
+      companies: {
+        'skipped-company': { sterile: 0, skipUntilRun: 5 },
+      },
+    };
+    const crawlerCalls: string[] = [];
+    let tempCrawlerBytes = '';
+    let tempLedgerBytes = '';
+    const crawlerFilePath = path.join(byCrawlerPath, 'retry-company.json');
+
+    const originalExistsSync = fs.existsSync.bind(fs);
+    const originalReadFileSync = fs.readFileSync.bind(fs);
+    const originalWriteFileSync = fs.writeFileSync.bind(fs);
+    const originalRenameSync = fs.renameSync.bind(fs);
+    const originalUnlinkSync = fs.unlinkSync.bind(fs);
+    const isDataPath = (file: fs.PathLike) => {
+      const filePath = path.resolve(String(file));
+      return filePath === dataRoot || filePath.startsWith(`${dataRoot}${path.sep}`);
+    };
+
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => {
+      const filePath = String(file);
+      if (filePath === dataJobsPath) return true;
+      // Skip the direct per-crawler scan; this test targets the retry sync.
+      if (filePath === byCrawlerPath) return false;
+      if (filePath === crawlerFilePath) return true;
+      return originalExistsSync(file);
+    });
+    vi.spyOn(fs, 'readFileSync').mockImplementation((file, options) => {
+      const filePath = String(file);
+      if (filePath === dataJobsPath) return JSON.stringify(jobs) as never;
+      if (filePath === popularityPath) return '{}' as never;
+      if (filePath === companySkipStatePath) return JSON.stringify(ledger) as never;
+      if (filePath === crawlerFilePath) return JSON.stringify(crawlerData) as never;
+      return originalReadFileSync(file, options) as never;
+    });
+    vi.spyOn(fs, 'writeFileSync').mockImplementation((file, data, options) => {
+      const filePath = String(file);
+      if (filePath.startsWith(`${crawlerFilePath}.`)) {
+        tempCrawlerBytes = String(data);
+        return;
+      }
+      if (filePath.startsWith(`${companySkipStatePath}.`)) {
+        tempLedgerBytes = String(data);
+        return;
+      }
+      if (isDataPath(file)) throw new Error(`unexpected data write: ${filePath}`);
+      return originalWriteFileSync(file, data, options);
+    });
+    vi.spyOn(fs, 'renameSync').mockImplementation((from, to) => {
+      const fromPath = String(from);
+      const toPath = String(to);
+      if (fromPath.startsWith(`${crawlerFilePath}.`) && toPath === crawlerFilePath) {
+        crawlerData = JSON.parse(tempCrawlerBytes);
+        return;
+      }
+      if (fromPath.startsWith(`${companySkipStatePath}.`) && toPath === companySkipStatePath) {
+        Object.assign(ledger, JSON.parse(tempLedgerBytes));
+        return;
+      }
+      if (isDataPath(from) || isDataPath(to)) {
+        throw new Error(`unexpected data rename: ${fromPath} -> ${toPath}`);
+      }
+      return originalRenameSync(from, to);
+    });
+    vi.spyOn(fs, 'unlinkSync').mockImplementation((file) => {
+      if (String(file).startsWith(`${crawlerFilePath}.`)
+        || String(file).startsWith(`${companySkipStatePath}.`)) return;
+      if (isDataPath(file)) throw new Error(`unexpected data unlink: ${String(file)}`);
+      return originalUnlinkSync(file);
+    });
+
+    crawler.runSharedCrawlerPipeline
+      .mockImplementationOnce(async () => {
+        const keys = (process.env.JOBS_CRAWLER_COMPANY_KEYS || '').split(',').filter(Boolean);
+        crawlerCalls.push(keys.join(','));
+        return { localizationCoveredCompanyKeys: keys };
+      })
+      .mockImplementationOnce(async () => {
+        const keys = (process.env.JOBS_CRAWLER_COMPANY_KEYS || '').split(',').filter(Boolean);
+        crawlerCalls.push(keys.join(','));
+        targetJob.descriptionByLocale.en = improvedEnglish;
+        return { localizationCoveredCompanyKeys: keys };
+      });
+
+    vi.resetModules();
+    const { runRelocalization } = await import('../scripts/relocalize-pending-jobs.mjs');
+    const phase = {
+      name: 'cascade',
+      startedAtMs: null,
+      endedAtMs: null,
+      deadlineMs: 600000,
+      windowMs: null,
+      jobsCleared: 0,
+      companiesQueued: 0,
+      stopReason: 'nothing to relocalize',
+    };
+
+    await runRelocalization(phase);
+
+    expect(crawlerCalls).toEqual(['retry-company', 'retry-company']);
+    expect(targetJob.descriptionByLocale.en).toBe(improvedEnglish);
+    expect(crawlerData.jobs[0].descriptionByLocale.en).toBe(improvedEnglish);
+    expect(targetJob.needsRetranslation).toBe(true);
   });
 });

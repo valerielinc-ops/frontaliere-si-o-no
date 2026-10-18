@@ -302,8 +302,13 @@ function validateOutcomes(outcomes, {
   sourcePath,
   minimumSample,
   primaryMetric,
+  outcomeId,
   guardrails,
   candidateTtlHours,
+  assignmentMethod,
+  assignmentKey,
+  contaminationKey,
+  sourceRefs,
   declaredActiveExperiments,
 } = {}) {
   if (!object(outcomes)) {
@@ -335,6 +340,13 @@ function validateOutcomes(outcomes, {
     return validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath, declaredActiveExperiments });
   }
   const issues = [];
+  if (!integer(outcomes.activeExperiments) || outcomes.activeExperiments < 1) {
+    issues.push('outcomes.activeExperiments must be a positive integer for a measured experiment');
+  } else if (integer(declaredActiveExperiments) && outcomes.activeExperiments !== declaredActiveExperiments) {
+    issues.push(`outcomes.activeExperiments (${outcomes.activeExperiments}) does not match the ${declaredActiveExperiments} registered active experiment(s)`);
+  }
+  if (outcomes.status !== 'observed') issues.push('outcomes.status must be observed for a measured experiment');
+  if (outcomes.quality !== 'observed') issues.push('outcomes.quality must be observed for a measured experiment');
   const evidence = outcomes.evidence || outcomes.provenance;
   if (outcomes.independent !== true) {
     issues.push('outcomes.independent must be explicitly true for an independent experiment ledger');
@@ -343,14 +355,23 @@ function validateOutcomes(outcomes, {
     issues.push('outcomes.evidence is missing or not an object');
   } else {
     if (!text(evidence.source)) issues.push('outcomes.evidence.source is missing');
+    else if (/posthog/i.test(evidence.source)) issues.push('PostHog is not an approved L7 experiment evidence source');
+    if (evidence.status !== 'verified') issues.push('outcomes.evidence.status must be explicitly verified');
     if (!Array.isArray(evidence.sourceRefs) || evidence.sourceRefs.length === 0 || evidence.sourceRefs.some((sourceRef) => !text(sourceRef))) {
       issues.push('outcomes.evidence.sourceRefs must be a non-empty array of text');
+    } else if (!Array.isArray(sourceRefs)
+        || evidence.sourceRefs.length !== sourceRefs.length
+        || !sourceRefs.every((sourceRef) => evidence.sourceRefs.includes(sourceRef))) {
+      issues.push('outcomes.evidence.sourceRefs must exactly match the L7 registry');
     }
   }
   const preRegistration = outcomes.preRegistration || outcomes.preregistration;
   if (!object(preRegistration)) {
     issues.push('outcomes.preRegistration is missing or not an object');
   } else {
+    if (preRegistration.outcomeId !== outcomeId) {
+      issues.push(`outcomes.preRegistration.outcomeId must be ${outcomeId}`);
+    }
     if (preRegistration.primaryMetric !== primaryMetric) {
       issues.push(`outcomes.preRegistration.primaryMetric must be ${primaryMetric}`);
     }
@@ -369,6 +390,7 @@ function validateOutcomes(outcomes, {
     }
     const expiresAt = finiteDate(preRegistration.expiresAt);
     if (!expiresAt) issues.push('outcomes.preRegistration.expiresAt is missing or invalid');
+    else if (expiresAt.getTime() <= now.getTime()) issues.push('outcomes.preRegistration.expiresAt is expired');
     else if (expiresAt.getTime() > now.getTime() + candidateTtlHours * 3_600_000) {
       issues.push(`outcomes.preRegistration.expiresAt exceeds candidate TTL of ${candidateTtlHours} hours`);
     }
@@ -379,7 +401,9 @@ function validateOutcomes(outcomes, {
   } else {
     if (assignmentLedger.persistent !== true) issues.push('outcomes.assignmentLedger.persistent must be explicitly true');
     if (!text(assignmentLedger.method)) issues.push('outcomes.assignmentLedger.method is missing');
+    else if (assignmentLedger.method !== assignmentMethod) issues.push(`outcomes.assignmentLedger.method must be ${assignmentMethod}`);
     if (!text(assignmentLedger.key)) issues.push('outcomes.assignmentLedger.key is missing');
+    else if (assignmentLedger.key !== assignmentKey) issues.push(`outcomes.assignmentLedger.key must be ${assignmentKey}`);
   }
   const contaminationPolicy = outcomes.contaminationPolicy || outcomes.contamination;
   if (!object(contaminationPolicy)) {
@@ -387,6 +411,7 @@ function validateOutcomes(outcomes, {
   } else {
     if (contaminationPolicy.controlled !== true) issues.push('outcomes.contaminationPolicy.controlled must be explicitly true');
     if (!text(contaminationPolicy.key)) issues.push('outcomes.contaminationPolicy.key is missing');
+    else if (contaminationPolicy.key !== contaminationKey) issues.push(`outcomes.contaminationPolicy.key must be ${contaminationKey}`);
   }
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   const values = {
@@ -406,6 +431,9 @@ function validateOutcomes(outcomes, {
   if (integer(values.primaryOutcomes) && integer(values.exposures) && values.primaryOutcomes > values.exposures) issues.push('outcomes.primaryOutcomes exceeds outcomes.exposures');
   if (integer(values.guardrailBreaches) && integer(values.exposures) && values.guardrailBreaches > values.exposures) issues.push('outcomes.guardrailBreaches exceeds outcomes.exposures');
   if (integer(values.persistentAssignments) && integer(values.assignments) && values.persistentAssignments > values.assignments) issues.push('outcomes.persistentAssignments exceeds outcomes.assignments');
+  if (integer(values.persistentAssignments) && integer(values.assignments) && values.persistentAssignments !== values.assignments) {
+    issues.push('outcomes.persistentAssignments must match outcomes.assignments for a persistent assignment ledger');
+  }
   if (integer(values.contaminatedAssignments) && integer(values.assignments) && values.contaminatedAssignments > values.assignments) issues.push('outcomes.contaminatedAssignments exceeds outcomes.assignments');
   if (integer(values.guardrailBreaches) && values.guardrailBreaches > 0) issues.push('outcomes.guardrailBreaches is non-zero; the canary is not safe to continue');
   if (integer(values.contaminatedAssignments) && values.contaminatedAssignments > 0) issues.push('outcomes.contaminatedAssignments is non-zero; the assignment ledger is not clean');
@@ -502,8 +530,13 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
     sourcePath: outcomePath,
     minimumSample: effectiveMinimumSample,
     primaryMetric: loopPolicy.primaryMetric,
+    outcomeId: loopPolicy.outcome.outcomeId,
     guardrails: loopPolicy.guardrails,
     candidateTtlHours: loopPolicy.lifecycle.candidateTtlHours,
+    assignmentMethod: loopPolicy.allocationPolicy.assignmentMethod,
+    assignmentKey: loopPolicy.allocationPolicy.assignmentKey,
+    contaminationKey: loopPolicy.allocationPolicy.contaminationPolicy.key,
+    sourceRefs: loopPolicy.outcome.sourceRefs,
     declaredActiveExperiments,
   });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];

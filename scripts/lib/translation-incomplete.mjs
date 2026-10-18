@@ -17,6 +17,10 @@
  */
 import {
   SOURCE_LANG_HOLD_CONFIDENCE,
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+  sourceLocaleTextForTranslation,
   titleLooksUntranslated,
 } from './job-locale-utils.mjs';
 import { normalizeForLengthComparison } from './dedicated-crawler-common.mjs';
@@ -50,9 +54,9 @@ function containsMojibake(value) {
 export function isIncomplete(job) {
   const dbl = job.descriptionByLocale || {};
   const tbl = job.titleByLocale || {};
-  const srcLang = job.sourceLang || 'it';
-  const sourceDesc = (job.description || '').trim().toLowerCase();
+  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
   const baseDesc = (job.description || '').trim();
+  const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
   const sourceStructureDesc = hasStructuredContent(baseDesc)
     ? baseDesc
     : (dbl[srcLang] || baseDesc).trim();
@@ -158,11 +162,11 @@ export function isIncomplete(job) {
     // never how many. Genuinely-international titles that no translator can
     // improve are absorbed by the existing give-up valve
     // (MAX_RETRANSLATION_ATTEMPTS → `localeMismatchSuppressed`).
-    if (locale !== (job.sourceLang || 'it') && title) {
+    if (locale !== srcLang && title) {
       const verdict = titleLooksUntranslated({
         title,
-        sourceTitle: (tbl[job.sourceLang || 'it'] || job.title || '').trim(),
-        sourceLang: job.sourceLang || 'it',
+        sourceTitle: (tbl[srcLang] || job.title || '').trim(),
+        sourceLang: srcLang,
         targetLocale: locale,
         company: job.company || '',
         location: job.addressLocality || job.location || '',
@@ -170,23 +174,16 @@ export function isIncomplete(job) {
       if (verdict.untranslated) return true;
     }
 
-    // Description identical to source (not translated) — exact match
-    if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
+    // Description identical to source (not translated). Compare both the
+    // canonical source-locale slot and the legacy `description` field: crawlers
+    // can preserve different whitespace/HTML encoding in those two fields.
+    if (locale !== srcLang && sourceDescriptions.some((source) => isDescriptionSourceCopy(desc, source))) return true;
 
     // A source list that disappeared from a saved locale is a translation
     // defect even when the flattened text is long enough and not a byte-copy.
     // Keep this in the selector so fossil slots without needsRetranslation are
     // queued for repair instead of waiting for a crawler to touch them again.
     if (locale !== srcLang && isStructureFlattenedCopy(sourceStructureDesc, desc)) return true;
-
-    // Description near-identical to source (whitespace-normalized match) — catches
-    // crawler-seeded copies where the description got stripped of newlines but
-    // still contains the raw untranslated source text.
-    if (desc.length >= MIN_DESC_CHARS && locale !== (job.sourceLang || 'it')) {
-      const normDesc = normalizeForLengthComparison(desc).toLowerCase();
-      const normSource = normalizeForLengthComparison(baseDesc).toLowerCase();
-      if (normSource.length >= MIN_DESC_CHARS && normDesc === normSource) return true;
-    }
 
     // Cross-locale description contamination: description text detected as a
     // DIFFERENT language than the locale slot it sits in. This catches:
@@ -213,9 +210,9 @@ export function isIncomplete(job) {
     // Language-pair aware thresholds — Italian is the most verbose Romance language,
     // so IT→DE/FR translations naturally compress 40-50%. FR/DE sources also compress.
     // Only EN source uses the stricter 0.55 threshold (EN→other compression is minimal).
-    if (locale !== (job.sourceLang || 'it') && desc.length > 0) {
-      const srcLangThin = job.sourceLang || 'it';
-      const srcDesc = (dbl[srcLangThin] || job.description || '').trim();
+    if (locale !== srcLang && desc.length > 0) {
+      const srcLangThin = srcLang;
+      const srcDesc = sourceLocaleTextForTranslation(job, 'description', 120);
       if (srcDesc.length >= 500) {
         const normDesc = normalizeForLengthComparison(desc);
         const normSrc = normalizeForLengthComparison(srcDesc);

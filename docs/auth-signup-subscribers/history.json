@@ -281,6 +281,50 @@
       },
       "subscribedWithoutCreatedAt": 0,
       "findings": []
+    },
+    {
+      "date": "2026-10-15",
+      "windowHours": 24,
+      "subscribersCreated": 88,
+      "authSubscribers": 27,
+      "accountsTotal": 88,
+      "accountClasses": {
+        "subscribed": 88,
+        "stub": 0,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-16",
+      "windowHours": 24,
+      "subscribersCreated": 71,
+      "authSubscribers": 29,
+      "accountsTotal": 86,
+      "accountClasses": {
+        "subscribed": 71,
+        "stub": 15,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-17",
+      "windowHours": 24,
+      "subscribersCreated": 51,
+      "authSubscribers": 26,
+      "accountsTotal": 66,
+      "accountClasses": {
+        "subscribed": 51,
+        "stub": 15,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": [
+        "auth_accounts_without_subscription"
+      ]
     }
   ]
 }

@@ -107,7 +107,7 @@ function writeHistoricalL2Lifecycle(ledgerDir: string) {
 }
 
 describe('merge-loop-fleet-ledger', () => {
-  it('appends a validated run once and skips an identical rerun', () => {
+  it('appends a validated run to one bounded shard and skips an identical rerun', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-'));
     const inputDir = path.join(root, 'input');
     const ledgerDir = path.join(root, 'ledger');
@@ -140,12 +140,21 @@ describe('merge-loop-fleet-ledger', () => {
         sha: SHA,
         inputDir,
         ledgerDir,
+        shardId: 'run-12345',
       });
       expect(first.inputRecords).toEqual({ observation: 1, decision: 1, health: 1, lifecycle: 2 });
       expect(first.results.observation.appended).toBe(1);
       expect(first.results.decision.appended).toBe(1);
       expect(first.results.health.appended).toBe(1);
       expect(first.results.lifecycle.appended).toBe(2);
+      for (const fileName of [
+        'loop-observations-run-12345.jsonl',
+        'loop-decisions-run-12345.jsonl',
+        'loop-health-history-run-12345.jsonl',
+        'lifecycle-events-run-12345.jsonl',
+      ]) {
+        expect(fs.existsSync(path.join(ledgerDir, fileName))).toBe(true);
+      }
 
       const second = mergeLedger({
         loopId: 'L1',
@@ -153,6 +162,7 @@ describe('merge-loop-fleet-ledger', () => {
         sha: SHA,
         inputDir,
         ledgerDir,
+        shardId: 'run-12345',
       });
       expect(second.results).toMatchObject({
         observation: { appended: 0, skipped: 1 },
@@ -160,7 +170,7 @@ describe('merge-loop-fleet-ledger', () => {
         health: { appended: 0, skipped: 1 },
         lifecycle: { appended: 0, skipped: 2 },
       });
-      expect(fs.readFileSync(path.join(ledgerDir, 'loop-health-history.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
+      expect(fs.readFileSync(path.join(ledgerDir, 'loop-health-history-run-12345.jsonl'), 'utf8').trim().split('\n')).toHaveLength(1);
     } finally {
       for (const [key, value] of Object.entries(previous)) {
         if (value === undefined) delete process.env[key];

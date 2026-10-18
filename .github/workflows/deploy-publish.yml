@@ -2050,6 +2050,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           labels: automation,ci-failure
           priority: '2'
+          # Questo workflow osserva una build prodotta da un'altra run. Passare
+          # github.sha riaprirebbe la canonica su codice nuovo anche quando il
+          # dist validato precede la fix; il guard vuole lo SHA dell'artifact.
+          build-sha: ${{ github.event.workflow_run.head_sha }}
           log-from-job: validate-dist / validate-dist-postbuild
           workflow-file: .github/workflows/post-deploy-validate-dist.yml
           context: |

@@ -1,7 +1,311 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-10-14T21:14:10.347Z",
+  "assembledAt": "2026-10-17T21:17:06.761Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4383?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4383?c=groupemutuel&lang=fr-FR",
+      "title": "Consulente Previdenziale (m/f) 50%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Paradiso",
+      "canton": "TI",
+      "country": "CH",
+      "description": "La consulenza personalizzata e professionale ai nostri clienti sui temi della previdenza, della pensione, del risparmio e della protezione familiare fa parte integrante del tuo ruolo, sempre con ascolto attento delle loro esigenze Grazie alla tua competenza e a un cross-selling mirato, rafforzi la fidelizzazione dei clienti proponendo soluzioni adeguate L’acquisizione di nuovi clienti avviene tramite la tua iniziativa personale, le raccomandazioni e il tuo network attivo – e rappresenti inoltre la nostra azienda in fiere, conferenze e azioni commerciali In collaborazione con i colleghi della rete vendita, contribuisci a definire e implementare strategie volte a rafforzare la nostra presenza sul mercato e a sfruttare le sinergie esistenti Condurre colloqui di consulenza di persona con empatia, sensibilità e una chiara visione delle esigenze dei tuoi interlocutori è una delle tue forze Il follow-up amministrativo è gestito con efficienza e precisione, che si tratti della gestione del CRM, della redazione di offerte o della pianificazione degli appuntamenti",
+      "descriptionByLocale": {
+        "it": "La consulenza personalizzata e professionale ai nostri clienti sui temi della previdenza, della pensione, del risparmio e della protezione familiare fa parte integrante del tuo ruolo, sempre con ascolto attento delle loro esigenze Grazie alla tua competenza e a un cross-selling mirato, rafforzi la fidelizzazione dei clienti proponendo soluzioni adeguate L’acquisizione di nuovi clienti avviene tramite la tua iniziativa personale, le raccomandazioni e il tuo network attivo – e rappresenti inoltre la nostra azienda in fiere, conferenze e azioni commerciali In collaborazione con i colleghi della rete vendita, contribuisci a definire e implementare strategie volte a rafforzare la nostra presenza sul mercato e a sfruttare le sinergie esistenti Condurre colloqui di consulenza di persona con empatia, sensibilità e una chiara visione delle esigenze dei tuoi interlocutori è una delle tue forze Il follow-up amministrativo è gestito con efficienza e precisione, che si tratti della gestione del CRM, della redazione di offerte o della pianificazione degli appuntamenti",
+        "en": "Personalized and professional advice to our customers on the issues of pension, savings and family protection is an integral part of your role, always with attentive listening to their needs Thanks to your expertise and targeted cross-selling, strengthen customer loyalty by proposing appropriate solutions The acquisition of new customers takes place through your personal initiative, recommendations and your active network – and also represents our company in fairs, conferences and business actions",
+        "de": "Personalisierte und professionelle Beratung unserer Kunden zu den Themen Pension, Sparen und Familienschutz ist ein integraler Bestandteil Ihrer Rolle, immer mit aufmerksamem Hören auf ihre Bedürfnisse Dank Ihrer Expertise und gezieltem Cross-Selling stärken Sie die Kundenbindung, indem Sie geeignete Lösungen vorschlagen Die Gewinnung neuer Kunden erfolgt durch Ihre persönliche Initiative, Empfehlungen und Ihr aktives Netzwerk – und vertritt unser Unternehmen auch in Messen, Konferenzen und Geschäftsaktionen.",
+        "fr": "Des conseils personnalisés et professionnels à nos clients sur les questions de retraite, d'épargne et de protection de la famille font partie intégrante de votre rôle, toujours en écoutant attentivement leurs besoins Grâce à votre expertise et à vos ventes croisées ciblées, renforcez la fidélité des clients en proposant des solutions appropriées L'acquisition de nouveaux clients se fait par votre initiative personnelle, vos recommandations et votre réseau actif – et représente également notre entreprise dans les foires, conférences et actions commerciales"
+      },
+      "titleByLocale": {
+        "it": "Consulente Previdenziale (m/f) 50%",
+        "en": "(m/f) 50% social security consultant",
+        "de": "(m/w) 50% Sozialversicherungsberater",
+        "fr": "(h/f) 50% consultant en sécurité sociale"
+      },
+      "slug": "consulente-previdenziale-m-f-50-groupe-mutuel",
+      "slugByLocale": {
+        "it": "consulente-previdenziale-m-f-50-groupe-mutuel",
+        "en": "m-f-50-social-security-consultant-groupe-mutuel-paradiso",
+        "de": "m-w-50-sozialversicherungsberater-groupe-mutuel-paradiso",
+        "fr": "h-f-50-consultant-en-securite-sociale-groupe-mutuel-paradiso"
+      },
+      "category": "general",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "it",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Paradiso"
+      },
+      "jobReqId": "4383",
+      "id": "groupe-mutuel-638ef8388559",
+      "firstSeenAt": "2026-10-16T21:18:07.004Z",
+      "salaryMin": 24800,
+      "salaryMax": 37500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 24800,
+          "maxValue": 37500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900",
+      "addressLocality": "Paradiso",
+      "addressRegion": "TI"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4427?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4427?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Thun",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+      "descriptionByLocale": {
+        "it": "Si consiglia in salute, vita, ricchezza e assicurazione aziendale e offrire soluzioni su misura per le esigenze del cliente Attraverso cross-selling mirato e upselling, si costruisce relazioni di fiducia e rafforzare la fedeltà del cliente L'acquisizione di nuovi clienti – sia attraverso la propria iniziativa o raccomandazioni – fa parte della vostra vita quotidiana Si organizza e conduce consultazioni, per telefono o personalmente, con impegno e sensibilità.\n• Completi con precisione ed efficienza",
+        "en": "You advise in health, life, wealth and corporate insurance and offer tailor-made solutions for customer needs Through targeted cross-selling and upselling, you build trusting relationships and strengthen customer loyalty The acquisition of new customers – be it through own initiative or recommendations – is part of your everyday life You organize and lead consultations, by phone or personally, with commitment and sensitivity.\n• Complete tasks precisely and efficiently",
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "fr": "Vous conseillez en assurance santé, vie, patrimoine et entreprise et offrez des solutions sur mesure pour les besoins de la clientèle. L'acquisition de nouveaux clients – que ce soit par son initiative ou ses recommandations – fait partie de votre vie quotidienne.Vous organisez et dirigez des consultations, par téléphone ou personnellement, avec engagement et sensibilité.\n• Achever les tâches avec précision et efficacité"
+      },
+      "titleByLocale": {
+        "it": "Consulente assicurativo e previdenziale (m/f) 80-100%",
+        "en": "Insurance and pension advisor (m/f) 80-100 %",
+        "de": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+        "fr": "Conseiller en assurance et pension (h/f) 80-100 %"
+      },
+      "slug": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-thun",
+      "slugByLocale": {
+        "it": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-thun",
+        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-thun",
+        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-thun"
+      },
+      "category": "insurance",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
+      "datePosted": "2026-10-15",
+      "postedDate": "2026-10-15",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Thun"
+      },
+      "jobReqId": "4427",
+      "id": "groupe-mutuel-1e29951e81fa",
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-thun"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3600",
+      "addressLocality": "Thun",
+      "addressRegion": "BE"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4426?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4426?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs- und Vorsorgeberater Quereinsteiger (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Du berätst Kundinnen und Kunden in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Du erkennst individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Du baust langfristige und vertrauensvolle Kundenbeziehungen auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Du entwickelst dich Schritt für Schritt zur kompetenten Ansprechperson für deine Kundschaft",
+      "descriptionByLocale": {
+        "it": "Si consiglia ai clienti nelle aree di assicurazione sanitaria, assistenza preventiva, protezione degli asset e sicurezza finanziaria Riconosci le esigenze individuali e sviluppi soluzioni su misura Attraverso raccomandazioni, networking e auto-iniziativa ottieni nuovi clienti Costruisci relazioni a lungo termine e fiducioso dei clienti e li mantieni in modo sostenibile Si organizza e conduce consultazioni personalmente, per telefono o digitalmente Si sviluppa passo dopo passo alla persona di contatto competente per i vostri clienti",
+        "en": "You advise customers in the areas of health insurance, preventive care, asset protection and financial security You recognize individual needs and develop tailor-made solutions Through recommendations, networking and self-initiative you gain new customers You build long-term and trusting customer relationships and maintain them sustainably You organize and conduct consultations personally, by phone or digitally You develop step by step to the competent contact person for your customers",
+        "de": "Du berätst Kundinnen und Kunden in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Du erkennst individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Du baust langfristige und vertrauensvolle Kundenbeziehungen auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Du entwickelst dich Schritt für Schritt zur kompetenten Ansprechperson für deine Kundschaft",
+        "fr": "Vous conseillez les clients dans les domaines de l'assurance maladie, des soins préventifs, de la protection des actifs et de la sécurité financière Vous reconnaissez les besoins individuels et développez des solutions sur mesure Grâce aux recommandations, au réseautage et à l'initiative, vous gagnez de nouveaux clients Vous construisez des relations client à long terme et faites confiance et les maintenez durablement Vous organisez et conduisez des consultations personnellement, par téléphone ou numériquement Vous développez étape par étape à la personne de contact compétente pour vos clients"
+      },
+      "titleByLocale": {
+        "it": "Consulente assicurativo e previdenziale per chi cambia carriera (m/f) 80-100%",
+        "en": "Insurance and pension consultants (m/f) 80-100 %",
+        "de": "Versicherungs- und Vorsorgeberater Quereinsteiger (m/w) 80-100%",
+        "fr": "Conseillers en assurance et retraite (h/f) 80-100 %"
+      },
+      "slug": "consulente-assicurativo-e-previdenziale-per-chi-cambia-carriera-m-f-80-100-groupe-mutuel-bern",
+      "slugByLocale": {
+        "it": "consulente-assicurativo-e-previdenziale-per-chi-cambia-carriera-m-f-80-100-groupe-mutuel-bern",
+        "en": "insurance-and-pension-consultants-m-f-80-100-groupe-mutuel-bern",
+        "de": "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel",
+        "fr": "conseillers-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-bern"
+      },
+      "category": "insurance",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
+      "datePosted": "2026-10-15",
+      "postedDate": "2026-10-15",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "jobReqId": "4426",
+      "id": "groupe-mutuel-78a679c8ef25",
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel",
+        "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel",
+          "versicherungs-e-vorsorgeberater-candidato-a-in-riqualificazione-m-w-d-80-100-groupe-mutuel-bern"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "versicherungs-und-vorsorgeberater-quereinsteiger-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:14:35.363Z",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4411?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4411?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs- und Vorsorgeberater (m/w) 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+      "descriptionByLocale": {
+        "it": "Si consiglia in salute, vita, ricchezza e assicurazione aziendale e offrire soluzioni su misura per le esigenze del cliente Attraverso cross-selling mirato e upselling, si costruisce relazioni di fiducia e rafforzare la fedeltà del cliente L'acquisizione di nuovi clienti – sia attraverso la propria iniziativa o raccomandazioni – fa parte della vostra vita quotidiana Si organizza e conduce consultazioni, per telefono o personalmente, con impegno e sensibilità.\n• Completi con precisione ed efficienza",
+        "en": "You advise in health, life, wealth and corporate insurance and offer tailor-made solutions for customer needs Through targeted cross-selling and upselling, you build trusting relationships and strengthen customer loyalty The acquisition of new customers – be it through own initiative or recommendations – is part of your everyday life You organize and lead consultations, by phone or personally, with commitment and sensitivity.\n• Complete tasks precisely and efficiently",
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "fr": "Vous conseillez en assurance santé, vie, patrimoine et entreprise et offrez des solutions sur mesure pour les besoins de la clientèle. L'acquisition de nouveaux clients – que ce soit par son initiative ou ses recommandations – fait partie de votre vie quotidienne.Vous organisez et dirigez des consultations, par téléphone ou personnellement, avec engagement et sensibilité.\n• Achever les tâches avec précision et efficacité"
+      },
+      "titleByLocale": {
+        "it": "Consulente assicurativo e previdenziale (m/f) 100%",
+        "en": "Insurance and pension advisor (m/f) 100%",
+        "de": "Versicherungs- und Vorsorgeberater (m/w) 100%",
+        "fr": "Conseiller en assurance et pension (h/f) 100%"
+      },
+      "slug": "consulente-assicurativo-e-previdenziale-m-f-100-groupe-mutuel-luzern",
+      "slugByLocale": {
+        "it": "consulente-assicurativo-e-previdenziale-m-f-100-groupe-mutuel-luzern",
+        "en": "insurance-and-pension-advisor-m-f-100-groupe-mutuel-luzern",
+        "de": "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel",
+        "fr": "conseiller-en-assurance-et-pension-h-f-100-groupe-mutuel-luzern"
+      },
+      "category": "insurance",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
+      "datePosted": "2026-10-15",
+      "postedDate": "2026-10-15",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "LU",
+        "location": "Luzern"
+      },
+      "jobReqId": "4411",
+      "id": "groupe-mutuel-94b9641fa24a",
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel",
+        "versicherungs-e-vorsorgeberater-m-w-d-100-groupe-mutuel-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel",
+          "versicherungs-e-vorsorgeberater-m-w-d-100-groupe-mutuel-luzern"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel"
+        ],
+        "fr": [
+          "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:14:35.363Z",
+      "salaryMin": 74500,
+      "salaryMax": 123500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 123500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6003",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
@@ -13,26 +317,26 @@
       "country": "CH",
       "description": "Tu réalises des analyses et recherches macro- et micro-économiques en lien avec les actifs de l’univers d’investissement défini La gestion de portefeuille sur une ou plusieurs classes d’actifs ainsi que la mise en œuvre des investissements au travers de solutions directes et indirectes constituent un volet clé de tes compétences L’établissement de propositions d’investissement, l’interprétation et la présentation des rapports de performance et de risque font partie intégrante de tes activités Dans ton activité, tu veilles au respect et au contrôle des prescriptions légales et réglementaires Tu participes au développement et au suivi de nouvelles solutions d’investissement",
       "descriptionByLocale": {
-        "fr": "Tu réalises des analyses et recherches macro- et micro-économiques en lien avec les actifs de l’univers d’investissement défini La gestion de portefeuille sur une ou plusieurs classes d’actifs ainsi que la mise en œuvre des investissements au travers de solutions directes et indirectes constituent un volet clé de tes compétences L’établissement de propositions d’investissement, l’interprétation et la présentation des rapports de performance et de risque font partie intégrante de tes activités Dans ton activité, tu veilles au respect et au contrôle des prescriptions légales et réglementaires Tu participes au développement et au suivi de nouvelles solutions d’investissement",
         "it": "Si eseguono analisi macroeconomiche e microeconomiche e ricerche relative ai beni dell'universo di investimento definito Gestione Portfolio su una o più classi di asset e l'implementazione di investimenti attraverso soluzioni dirette e indirette sono una parte fondamentale delle vostre competenze La preparazione delle proposte di investimento, l'interpretazione e la presentazione delle performance e dei rapporti di rischio sono parte integrante delle vostre attività. Nella vostra attività, assicuratevi che i requisiti legali e normativi siano rispettati e monitorati. Sei coinvolto nello sviluppo e nel monitoraggio di nuove soluzioni di investimento",
         "en": "You perform macro- and micro-economic analyses and research related to the assets of the defined investment universe Portfolio management on one or more asset classes and the implementation of investments through direct and indirect solutions are a key part of your skills The preparation of investment proposals, interpretation and presentation of performance and risk reports are an integral part of your activities. In your activity, you ensure that legal and regulatory requirements are respected and monitored. You are involved in developing and monitoring new investment solutions",
-        "de": "Sie führen makro- und mikroökonomische Analysen und Untersuchungen zu den Vermögenswerten des definierten Anlageuniversums durch Portfoliomanagement in einer oder mehreren Anlageklassen und die Umsetzung von Investitionen durch direkte und indirekte Lösungen sind ein wesentlicher Bestandteil Ihrer Fähigkeiten Die Erstellung von Anlagevorschlägen, Interpretation und Präsentation von Performance- und Risikoberichten sind fester Bestandteil Ihrer Aktivitäten. In Ihrer Tätigkeit stellen Sie sicher, dass gesetzliche und regulatorische Anforderungen eingehalten und überwacht werden. Sie sind an der Entwicklung und Überwachung neuer Anlagelösungen beteiligt"
+        "de": "Sie führen makro- und mikroökonomische Analysen und Untersuchungen zu den Vermögenswerten des definierten Anlageuniversums durch Portfoliomanagement in einer oder mehreren Anlageklassen und die Umsetzung von Investitionen durch direkte und indirekte Lösungen sind ein wesentlicher Bestandteil Ihrer Fähigkeiten Die Erstellung von Anlagevorschlägen, Interpretation und Präsentation von Performance- und Risikoberichten sind fester Bestandteil Ihrer Aktivitäten. In Ihrer Tätigkeit stellen Sie sicher, dass gesetzliche und regulatorische\n• Anforderungen eingehalten und überwacht werden. Sie sind an der Entwicklung und Überwachung neuer Anlagelösungen beteiligt",
+        "fr": "Tu réalises des analyses et recherches macro- et micro-économiques en lien avec les actifs de l’univers d’investissement défini La gestion de portefeuille sur une ou plusieurs classes d’actifs ainsi que la mise en œuvre des investissements au travers de solutions directes et indirectes constituent un volet clé de tes compétences L’établissement de propositions d’investissement, l’interprétation et la présentation des rapports de performance et de risque font partie intégrante de tes activités Dans ton activité, tu veilles au respect et au contrôle des prescriptions légales et réglementaires Tu participes au développement et au suivi de nouvelles solutions d’investissement"
       },
       "titleByLocale": {
-        "fr": "Portfolio Manager Senior (h/f) 80-100%",
-        "en": "Portfolio Manager Senior (m/f) 80-100%",
         "it": "Portfolio Manager Senior (m/f) 80-100%",
-        "de": "Portfoliomanager Senior (m/w) 80-100%"
+        "en": "Portfolio Manager Senior (m/f) 80-100%",
+        "de": "Portfoliomanager Senior (m/w) 80-100%",
+        "fr": "Portfolio Manager Senior (h/f) 80-100%"
       },
       "slug": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
       "slugByLocale": {
-        "fr": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
-        "en": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
         "it": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
-        "de": "portfoliomanager-senior-m-w-80-100-groupe-mutuel-martigny"
+        "en": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
+        "de": "portfoliomanager-senior-m-w-80-100-groupe-mutuel-martigny",
+        "fr": "portfolio-manager-senior-h-f-80-100-groupe-mutuel"
       },
       "category": "management",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
@@ -47,6 +351,7 @@
       },
       "jobReqId": "4408",
       "id": "groupe-mutuel-be7af5ed4f7c",
+      "firstSeenAt": "2026-10-14T21:14:04.677Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -63,8 +368,7 @@
       },
       "postalCode": "1920",
       "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-10-14T21:14:04.677Z"
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4416?c=groupemutuel&lang=fr-FR",
@@ -96,7 +400,7 @@
         "fr": "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
@@ -176,7 +480,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
@@ -254,7 +558,7 @@
         "fr": "assistant-medical-temporaire-12-mois-h-f-100-groupe-mutuel-sion"
       },
       "category": "general",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
@@ -326,7 +630,7 @@
         "fr": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
@@ -398,7 +702,7 @@
         "fr": "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
       },
       "category": "administration",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -476,7 +780,7 @@
         "fr": "apprentissage-employee-de-commerce-cfc-services-et-administration-100-groupe-mutuel-sion"
       },
       "category": "claims",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -558,7 +862,7 @@
         "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -630,7 +934,7 @@
         "fr": "conseiller-de-precaution-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "general",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -702,7 +1006,7 @@
         "fr": "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -782,7 +1086,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-biel-bienne"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
       "postingDateSource": "reported",
@@ -854,7 +1158,7 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -940,7 +1244,7 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1020,7 +1324,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1097,7 +1401,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-16",
       "postedDate": "2026-09-16",
       "postingDateSource": "reported",
@@ -1174,7 +1478,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-aarau"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
       "postingDateSource": "reported",
@@ -1254,7 +1558,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-olten"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
       "postingDateSource": "reported",
@@ -1337,7 +1641,7 @@
         "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
       },
       "category": "it",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
@@ -1409,7 +1713,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
       "postingDateSource": "reported",
@@ -1481,7 +1785,7 @@
         "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-08-10",
       "postedDate": "2026-08-10",
       "postingDateSource": "reported",
@@ -1561,7 +1865,7 @@
         "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-08-10",
       "postedDate": "2026-08-10",
       "postingDateSource": "reported",
@@ -1633,7 +1937,7 @@
         "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-08-10",
       "postedDate": "2026-08-10",
       "postingDateSource": "reported",
@@ -1723,7 +2027,7 @@
         "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-08-10",
       "postedDate": "2026-08-10",
       "postingDateSource": "reported",
@@ -1800,7 +2104,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-08-06",
       "postedDate": "2026-08-06",
       "postingDateSource": "reported",
@@ -1906,7 +2210,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-winterthur"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-07-23",
       "postedDate": "2026-07-23",
       "postingDateSource": "reported",
@@ -1952,12 +2256,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-aarau",
-          "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-aarau",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-aarau",
-          "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-aarau",
-          "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-aarau",
-          "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
           "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-wil",
           "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil",
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
@@ -1971,7 +2269,13 @@
           "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-wil",
           "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-aarau",
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
-          "insurance-and-pension-advisor-m-w-80-100-groupe-mutuel-aarau"
+          "insurance-and-pension-advisor-m-w-80-100-groupe-mutuel-aarau",
+          "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-aarau",
+          "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-aarau",
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-aarau",
+          "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-aarau",
+          "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-aarau",
+          "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
@@ -2030,7 +2334,7 @@
         "fr": "conseiller-en-soins-m-f-60-100-groupe-mutuel-sargans"
       },
       "category": "general",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-07-10",
       "postedDate": "2026-07-10",
       "postingDateSource": "reported",
@@ -2102,7 +2406,7 @@
         "fr": "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-solothurn"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-06-25",
       "postedDate": "2026-06-25",
       "postingDateSource": "reported",
@@ -2180,7 +2484,7 @@
         "fr": "entraineur-commercial-specialiste-des-pensions-m-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "sales",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-06-15",
       "postedDate": "2026-06-15",
       "postingDateSource": "reported",
@@ -2252,7 +2556,7 @@
         "fr": "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-05-22",
       "postedDate": "2026-05-22",
       "postingDateSource": "reported",
@@ -2324,7 +2628,7 @@
         "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-14T21:14:04.677Z",
+      "crawledAt": "2026-10-17T21:17:02.204Z",
       "datePosted": "2026-04-16",
       "postedDate": "2026-04-16",
       "postingDateSource": "reported",
@@ -2373,225 +2677,6 @@
       "postalCode": "8001",
       "addressLocality": "Zürich",
       "addressRegion": "ZH"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4420?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4420?c=groupemutuel&lang=fr-FR",
-      "title": "Assistant administratif (h/f) 80-100% - temporaire 12 mois",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Avec rigueur et méthode, tu participes au bon déroulement des activités administratives ainsi qu’à l’amélioration des pratiques de travail En participant à la gestion des archives, tu contribues au classement et au suivi des documents Pour assurer le traitement du courrier entrant du domaine Clients Entreprise, tu effectues le tri, le scannage et l’indexation des documents Lorsque les besoins le nécessitent, tu réalises diverses autres tâches administratives",
-      "descriptionByLocale": {
-        "it": "Con rigore e metodo, si partecipa al regolare svolgimento delle attività amministrative e al miglioramento delle pratiche di lavoro. Partecipando alla gestione degli archivi, contribuisce al deposito e al monitoraggio dei documenti Per garantire il trattamento della posta in arrivo dal dominio Business Client, si seleziona, analizza e indice documenti Quando necessario, eseguire vari altri compiti amministrativi",
-        "en": "With rigour and method, you participate in the smooth running of administrative activities as well as in improving working practices. By participating in archives management, you contribute to the filing and tracking of documents To ensure the processing of incoming mail from the Business Clients domain, you sort, scan and index documents When needed, you perform various other administrative tasks",
-        "de": "Mit Strenge und Methode beteiligen Sie sich am reibungslosen Ablauf der administrativen Aktivitäten sowie an der Verbesserung der Arbeitspraktiken. Durch die Teilnahme am Archivmanagement tragen Sie zur Hinterlegung und Nachverfolgung von Dokumenten bei Um die Verarbeitung eingehender E-Mails aus der Business Clients-Domäne sicherzustellen, sortieren, scannen und indizieren Sie Dokumente Bei Bedarf führen Sie verschiedene andere administrative\n• Aufgaben aus",
-        "fr": "Avec rigueur et méthode, tu participes au bon déroulement des activités administratives ainsi qu’à l’amélioration des pratiques de travail En participant à la gestion des archives, tu contribues au classement et au suivi des documents Pour assurer le traitement du courrier entrant du domaine Clients Entreprise, tu effectues le tri, le scannage et l’indexation des documents Lorsque les besoins le nécessitent, tu réalises diverses autres tâches administratives"
-      },
-      "titleByLocale": {
-        "it": "Assistente amministrativo (m/f) 80-100% - temporaneo 12 mesi",
-        "en": "Administrative Assistant (m/f) 80-100% - temporary 12 months",
-        "de": "Assistent administratif (h/f) 80-100% - temporaire 12 mois",
-        "fr": "Assistant administratif (h/f) 80-100% - temporaire 12 mois"
-      },
-      "slug": "assistente-amministrativo-m-f-80-100-temporaneo-12-mesi-groupe-mutuel-martigny",
-      "slugByLocale": {
-        "it": "assistente-amministrativo-m-f-80-100-temporaneo-12-mesi-groupe-mutuel-martigny",
-        "en": "administrative-assistant-m-f-80-100-temporary-12-months-groupe-mutuel-martigny",
-        "de": "assistent-administratif-h-f-80-100-temporaire-12-mois-groupe-mutuel-martigny",
-        "fr": "assistant-administratif-h-f-80-100-temporaire-12-mois-groupe-mutuel"
-      },
-      "category": "administration",
-      "crawledAt": "2026-10-14T09:14:53.187Z",
-      "datePosted": "2026-10-13",
-      "postedDate": "2026-10-13",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4420",
-      "id": "groupe-mutuel-84f5b732fa9a",
-      "previousSlugs": [
-        "assistant-administratif-h-f-80-100-temporaire-12-mois-groupe-mutuel",
-        "assistant-administratif-m-w-d-80-100-temporaire-12-mois-groupe-mutuel-martigny"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-administratif-h-f-80-100-temporaire-12-mois-groupe-mutuel",
-          "assistant-administratif-m-w-d-80-100-temporaire-12-mois-groupe-mutuel-martigny"
-        ],
-        "en": [
-          "assistant-administratif-h-f-80-100-temporaire-12-mois-groupe-mutuel"
-        ],
-        "de": [
-          "assistant-administratif-h-f-80-100-temporaire-12-mois-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T21:17:37.452Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1920",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 1
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4366?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4366?c=groupemutuel&lang=fr-FR",
-      "title": "HR Spezialist (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Du betreust die Personaladministration unserer Mitarbeitenden vom Eintritt bis zum Austritt und gewährleistest eine effiziente sowie qualitativ hochwertige Abwicklung aller administrativen Prozesse Als kompetente Ansprechperson beantwortest du Fragen von Mitarbeitenden und Führungskräften zu administrativen HR-Themen Du pflegst die Personaldaten in unseren Systemen und stellst die Qualität sowie Aktualität der HR-Daten sicher Du bereitest lohnrelevante Informationen auf und unterstützt die monatlichen Lohnprozesse Gemeinsam mit den HR Business Partnern und weiteren HR-Fachbereichen stellst du eine professionelle Betreuung unserer Mitarbeitenden sicher Du wirkst bei HR-Projekten mit und trägst zur kontinuierlichen Optimierung unserer Prozesse und Dienstleistungen bei",
-      "descriptionByLocale": {
-        "it": "Si supervisiona l'amministrazione del personale dei nostri dipendenti dall'ingresso all'uscita e garantisce una gestione efficiente e di alta qualità di tutti i processi amministrativi In qualità di referente competente, risponderai alle domande dei dipendenti e dei manager sugli argomenti amministrativi delle risorse umane Mantenere i dati del personale nei nostri sistemi e garantire la qualità e l'aggiornamento dei dati HR Prepari le informazioni rilevanti sul salario e supporti i processi salariali mensili Assieme ai partner aziendali HR e ad altre aree specialistiche HR garantisci un supporto professionale per i nostri dipendenti Contribuisci ai progetti HR e contribuisci alla continua ottimizzazione dei nostri processi e servizi",
-        "en": "You supervise the personnel administration of our employees from entry to exit and ensure an efficient and high-quality handling of all administrative processes As a competent contact person, you will answer questions from employees and managers on administrative HR topics You maintain the personnel data in our systems and ensure the quality and up-to-date of HR data You prepare wage-relevant information and support the monthly salary processes Together with the HR business partners and other HR specialist areas you ensure professional support for our employees You contribute to HR projects and contribute to the continuous optimization of our processes and services",
-        "de": "Du betreust die Personaladministration unserer Mitarbeitenden vom Eintritt bis zum Austritt und gewährleistest eine effiziente sowie qualitativ hochwertige Abwicklung aller administrativen Prozesse Als kompetente Ansprechperson beantwortest du Fragen von Mitarbeitenden und Führungskräften zu administrativen HR-Themen Du pflegst die Personaldaten in unseren Systemen und stellst die Qualität sowie Aktualität der HR-Daten sicher Du bereitest lohnrelevante Informationen auf und unterstützt die monatlichen Lohnprozesse Gemeinsam mit den HR Business Partnern und weiteren HR-Fachbereichen stellst du eine professionelle Betreuung unserer Mitarbeitenden sicher Du wirkst bei HR-Projekten mit und trägst zur kontinuierlichen Optimierung unserer Prozesse und Dienstleistungen bei",
-        "fr": "Vous supervisez l'administration du personnel de nos employés de l'entrée à la sortie et assurez un traitement efficace et de haute qualité de tous les processus administratifs En tant que personne-ressource compétente, vous répondrez aux questions des employés et des gestionnaires sur les RH administratives Vous maintenez les données sur le personnel dans nos systèmes et assurez la qualité et la mise à jour des données RH Vous préparez de l'information pertinente sur les salaires et soutenez les processus salariaux mensuels En collaboration avec les partenaires d'affaires RH et d'autres secteurs spécialisés en RH, vous assurez un soutien professionnel à nos employés Vous contribuez aux projets RH et contribuez à l'optimisation continue de nos processus et services"
-      },
-      "titleByLocale": {
-        "it": "Specialista HR (m/f) 80-100%",
-        "en": "HR Spezia (m/f) 80-100%",
-        "de": "Personalwesen Spezialist (m/w) 80-100%",
-        "fr": "Ressources Humaines Spezialist (m/w) 80-100%"
-      },
-      "slug": "hr-spezialist-m-w-80-100-groupe-mutuel",
-      "slugByLocale": {
-        "it": "hr-spezialist-m-w-80-100-groupe-mutuel",
-        "en": "hr-spezia-m-f-80-100-groupe-mutuel-martigny",
-        "de": "hr-spezialist-m-w-80-100-groupe-mutuel",
-        "fr": "hr-spezialist-m-w-80-100-groupe-mutuel"
-      },
-      "category": "hr",
-      "crawledAt": "2026-10-13T21:17:37.452Z",
-      "datePosted": "2026-09-14",
-      "postedDate": "2026-09-14",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4366",
-      "id": "groupe-mutuel-9fef30c8ca3e",
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1920",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4220?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4220?c=groupemutuel&lang=fr-FR",
-      "title": "Versicherungs- und Vorsorgeberater Quereinstieg (m/w) 80–100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Du berätst Kundinnen und Kunden in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Du erkennst individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Du baust langfristige und vertrauensvolle Kundenbeziehungen auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Du entwickelst dich Schritt für Schritt zur kompetenten Ansprechperson für deine Kundschaft",
-      "descriptionByLocale": {
-        "it": "Si consiglia ai clienti nelle aree di assicurazione sanitaria, assistenza preventiva, protezione degli asset e sicurezza finanziaria Riconosci le esigenze individuali e sviluppi soluzioni su misura Attraverso raccomandazioni, networking e auto-iniziativa ottieni nuovi clienti Costruisci relazioni a lungo termine e fiducioso dei clienti e li mantieni in modo sostenibile Si organizza e conduce consultazioni personalmente, per telefono o digitalmente Si sviluppa passo dopo passo alla persona di contatto competente per i vostri clienti",
-        "en": "Description\n\nYou advise customers in the areas of health insurance, pension, financial protection and financial protection.\n\n- You recognize individual needs and develop tailored solutions. - You gain new customers through recommendations, networking and your own initiative. - You build up long-term and trusting customer relationships and work on them sustainably. - You organize and conduct consulting discussions personally, by telephone or digitally. - You develop step by step to become a competent contact person for your clientele.\n\nGroupe Mutuel is one of the leading insurance groups in Switzerland, based in Martigny (Valais). The company offers a wide range of insurance and pension products for private individuals and companies in Switzerland.",
-        "de": "Du berätst Kundinnen und Kunden in den Bereichen Krankenversicherung, Vorsorge, Vermögensschutz und finanzielle Absicherung Du erkennst individuelle Bedürfnisse und entwickelst passgenaue Lösungen Durch Empfehlungen, Networking und Eigeninitiative gewinnst du neue Kundinnen und Kunden Du baust langfristige und vertrauensvolle Kundenbeziehungen auf und pflegst diese nachhaltig Du organisierst und führst Beratungsgespräche persönlich, telefonisch oder digital durch Du entwickelst dich Schritt für Schritt zur kompetenten Ansprechperson für deine Kundschaft",
-        "fr": "Vous conseillez les clients dans les domaines de l'assurance maladie, des soins préventifs, de la protection des actifs et de la sécurité financière Vous reconnaissez les besoins individuels et développez des solutions sur mesure Grâce aux recommandations, au réseautage et à l'initiative, vous gagnez de nouveaux clients Vous construisez des relations client à long terme et faites confiance et les maintenez durablement Vous organisez et conduisez des consultations personnellement, par téléphone ou numériquement Vous développez étape par étape à la personne de contact compétente pour vos clients"
-      },
-      "titleByLocale": {
-        "it": "Consulenti assicurativi e pensioni Cross-entry (m/f) 80–100 %",
-        "en": "Insurance and Pension Advisor (m/f) 80–100%",
-        "de": "Versicherungs- und Vorsorgeberater Quereinstieg (m/w) 80–100%",
-        "fr": "Conseiller en Assurance et Prévoyance (m/f) 80–100%"
-      },
-      "slug": "versicherungs-e-vorsorgeberater-cambio-carriera-m-w-d-80-100-groupe-mutuel-bern",
-      "slugByLocale": {
-        "it": "versicherungs-e-vorsorgeberater-cambio-carriera-m-w-d-80-100-groupe-mutuel-bern",
-        "en": "insurance-and-pension-consultants-cross-entry-m-f-80-100-groupe-mutuel-bern",
-        "de": "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel",
-        "fr": "consultants-en-assurance-et-retraite-entree-croisee-m-f-80-100-groupe-mutuel-bern"
-      },
-      "category": "insurance",
-      "crawledAt": "2026-10-13T21:17:37.452Z",
-      "datePosted": "2026-07-12",
-      "postedDate": "2026-07-12",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "jobReqId": "4220",
-      "id": "groupe-mutuel-597359dba84a",
-      "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T11:31:17.691Z",
-      "salaryMin": 73000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 121500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2
     }
   ]
 }

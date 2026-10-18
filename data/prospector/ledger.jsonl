@@ -15365,3 +15365,126 @@
 {"key":"rh-expert@geneve","from":"rejected","to":"validated","at":"2026-10-14T10:37:52.793Z","reason":"rivalutata con source adapter rh-expert-ch-dedicated-v1"}
 {"key":"rh-expert@geneve","from":"validated","to":"promoted","at":"2026-10-14T10:37:52.793Z"}
 {"key":"opus-personal-zweigniederlassung-bern@herzogenbuchsee","from":"promoting","to":"production","at":"2026-10-14T10:43:20.765Z"}
+{"key":"sonic-suisse.ch","from":"new","to":"traced","at":"2026-10-15T09:38:39.854Z","reason":null}
+{"key":"stiftung-lebensart@aarwangen","from":"new","to":"traced","at":"2026-10-15T09:38:39.858Z","reason":null}
+{"key":"geras-pflegehotel@sutz","from":"new","to":"traced","at":"2026-10-15T09:38:39.858Z","reason":null}
+{"key":"archer-beck@arch","from":"new","to":"traced","at":"2026-10-15T09:38:39.858Z","reason":null}
+{"key":"spirit-market@worb","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"sibel-s-a@les-verrieres","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"faigle@gumligen","from":"new","to":"traced","at":"2026-10-15T09:38:39.859Z","reason":null}
+{"key":"stiftung-rotonda","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"epro-traffic@gumligen","from":"new","to":"traced","at":"2026-10-15T09:38:39.859Z","reason":null}
+{"key":"menvisual@biel-bienne","from":"new","to":"dead","at":"2026-10-15T09:38:39.859Z","reason":"nessuna pagina carriere"}
+{"key":"re-life@reinach-bl","from":"new","to":"dead","at":"2026-10-15T09:38:39.860Z","reason":"nessuna pagina carriere"}
+{"key":"skan@allschwil","from":"new","to":"traced","at":"2026-10-15T09:38:39.860Z","reason":null}
+{"key":"archer-beck@arch","from":"traced","to":"rejected","at":"2026-10-15T09:55:52.769Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"epro-traffic@gumligen","from":"traced","to":"rejected","at":"2026-10-15T09:55:54.353Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"faigle@gumligen","from":"traced","to":"rejected","at":"2026-10-15T09:55:55.847Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"geras-pflegehotel@sutz","from":"traced","to":"rejected","at":"2026-10-15T09:55:57.339Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"skan@allschwil","from":"traced","to":"synthesized","at":"2026-10-15T09:55:59.152Z"}
+{"key":"stiftung-lebensart@aarwangen","from":"traced","to":"rejected","at":"2026-10-15T09:56:00.518Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"sonic-suisse.ch","from":"traced","to":"rejected","at":"2026-10-15T09:56:01.914Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"skan@allschwil","from":"synthesized","to":"promoted","at":"2026-10-15T09:56:29.341Z"}
+{"key":"opus-personal@brig","from":"promoted","to":"rejected","at":"2026-10-15T09:56:53.262Z"}
+{"key":"unine.ch","from":"new","to":"traced","at":"2026-10-16T09:33:31.585Z","reason":null}
+{"key":"ullrich-enterprise@arlesheim","from":"new","to":"traced","at":"2026-10-16T09:33:31.587Z","reason":null}
+{"key":"wetrok@munchenstein","from":"new","to":"traced","at":"2026-10-16T09:33:31.587Z","reason":null}
+{"key":"stadt-liestal@liestal","from":"new","to":"dead","at":"2026-10-16T09:33:31.587Z","reason":"nessuna pagina carriere"}
+{"key":"haag-streit@ettingen","from":"new","to":"traced","at":"2026-10-16T09:33:31.587Z","reason":null}
+{"key":"asanti@dietikon","from":"new","to":"traced","at":"2026-10-16T09:33:31.588Z","reason":null}
+{"key":"konsolen@ziefen","from":"new","to":"traced","at":"2026-10-16T09:33:31.588Z","reason":null}
+{"key":"act-entertainment@basel","from":"new","to":"dead","at":"2026-10-16T09:33:31.588Z","reason":"nessuna pagina carriere"}
+{"key":"eskamed@basel","from":"new","to":"dead","at":"2026-10-16T09:33:31.589Z","reason":"nessuna pagina carriere"}
+{"key":"neovius@basel","from":"new","to":"dead","at":"2026-10-16T09:33:31.589Z","reason":"nessuna pagina carriere"}
+{"key":"rossmann@basel","from":"new","to":"dead","at":"2026-10-16T09:33:31.589Z","reason":"nessuna pagina carriere"}
+{"key":"spaini-management@basel","from":"new","to":"traced","at":"2026-10-16T09:33:31.589Z","reason":null}
+{"key":"escare@reinach-bl","from":"new","to":"traced","at":"2026-10-16T09:33:31.589Z","reason":null}
+{"key":"beauty-nails@basel","from":"new","to":"dead","at":"2026-10-16T09:33:31.589Z","reason":"nessuna pagina carriere"}
+{"key":"bon-gout-restaurant@basel","from":"new","to":"traced","at":"2026-10-16T09:33:31.590Z","reason":null}
+{"key":"pronto-clean@schlieren","from":"new","to":"dead","at":"2026-10-16T09:33:31.590Z","reason":"nessuna pagina carriere"}
+{"key":"marvinpac@chatel-st-denis","from":"new","to":"dead","at":"2026-10-16T09:33:31.590Z","reason":"nessuna pagina carriere"}
+{"key":"immoseeker@murten","from":"new","to":"traced","at":"2026-10-16T09:33:31.590Z","reason":null}
+{"key":"schweizer-armee-logistikbasis-der-armee-lba@nierlet-les-bois","from":"new","to":"traced","at":"2026-10-16T09:33:31.590Z","reason":null}
+{"key":"almis-conseils@estavayer-le-lac","from":"new","to":"dead","at":"2026-10-16T09:33:31.590Z","reason":"nessuna pagina carriere"}
+{"key":"sagerime-s-a@bulle","from":"new","to":"dead","at":"2026-10-16T09:33:31.591Z","reason":"nessuna pagina carriere"}
+{"key":"ideas-emplois@fribourg","from":"new","to":"traced","at":"2026-10-16T09:33:31.591Z","reason":null}
+{"key":"avesco-rent@farvagny-le-grand","from":"new","to":"dead","at":"2026-10-16T09:33:31.591Z","reason":"nessuna pagina carriere"}
+{"key":"corden-pharma-international@villars-sur-glane","from":"new","to":"traced","at":"2026-10-16T09:33:31.591Z","reason":null}
+{"key":"move-up@plan-les-ouates","from":"new","to":"traced","at":"2026-10-16T09:33:31.591Z","reason":null}
+{"key":"chaberton-partners@geneve","from":"new","to":"traced","at":"2026-10-16T09:33:31.591Z","reason":null}
+{"key":"global-line-services@satigny","from":"new","to":"traced","at":"2026-10-16T09:33:31.591Z","reason":null}
+{"key":"chasseur-express-transports-demenagements@meyrin","from":"new","to":"dead","at":"2026-10-16T09:33:31.592Z","reason":"nessuna pagina carriere"}
+{"key":"electra-electricite@geneve","from":"new","to":"dead","at":"2026-10-16T09:33:31.592Z","reason":"nessuna pagina carriere"}
+{"key":"oscar-plombier@meyrin","from":"new","to":"traced","at":"2026-10-16T09:33:31.592Z","reason":null}
+{"key":"rg-industrie@vernier","from":"new","to":"dead","at":"2026-10-16T09:33:31.592Z","reason":"nessuna pagina carriere"}
+{"key":"proman@carouge-ge","from":"new","to":"traced","at":"2026-10-16T09:33:31.592Z","reason":null}
+{"key":"domino-rh@grand-lancy","from":"new","to":"traced","at":"2026-10-16T09:33:31.592Z","reason":null}
+{"key":"christoffel-liegenschaften@davos-platz","from":"new","to":"dead","at":"2026-10-16T09:33:31.593Z","reason":"nessuna pagina carriere"}
+{"key":"desa-autoglass@malans-gr","from":"new","to":"traced","at":"2026-10-16T09:33:31.593Z","reason":null}
+{"key":"tobler-metallbau@haldenstein","from":"new","to":"traced","at":"2026-10-16T09:33:31.593Z","reason":null}
+{"key":"mavraj@lostallo","from":"new","to":"traced","at":"2026-10-16T09:33:31.593Z","reason":null}
+{"key":"ilanz-keramik@ilanz","from":"new","to":"traced","at":"2026-10-16T09:33:31.593Z","reason":null}
+{"key":"gartenhotel-sternen@domat-ems","from":"new","to":"dead","at":"2026-10-16T09:33:31.593Z","reason":"nessuna pagina carriere"}
+{"key":"acareerbyagl@talent-soft.com","from":"new","to":"traced","at":"2026-10-16T09:54:37.781Z"}
+{"key":"adie-career@talent-soft.com","from":"new","to":"traced","at":"2026-10-16T09:54:37.781Z"}
+{"key":"ars-la-reunion-recrute@talent-soft.com","from":"new","to":"traced","at":"2026-10-16T09:54:37.781Z"}
+{"key":"acareerbyagl@talent-soft.com","from":"traced","to":"synthesized","at":"2026-10-16T10:20:10.388Z"}
+{"key":"adie-career@talent-soft.com","from":"traced","to":"synthesized","at":"2026-10-16T10:20:11.794Z"}
+{"key":"asanti@dietikon","from":"traced","to":"rejected","at":"2026-10-16T10:20:13.382Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"bon-gout-restaurant@basel","from":"traced","to":"rejected","at":"2026-10-16T10:20:14.706Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"chaberton-partners@geneve","from":"traced","to":"rejected","at":"2026-10-16T10:20:24.470Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"corden-pharma-international@villars-sur-glane","from":"traced","to":"rejected","at":"2026-10-16T10:20:26.959Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"desa-autoglass@malans-gr","from":"traced","to":"rejected","at":"2026-10-16T10:20:28.821Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"domino-rh@grand-lancy","from":"traced","to":"synthesized","at":"2026-10-16T10:20:33.688Z"}
+{"key":"escare@reinach-bl","from":"traced","to":"rejected","at":"2026-10-16T10:20:36.282Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"global-line-services@satigny","from":"traced","to":"rejected","at":"2026-10-16T10:20:38.204Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"haag-streit@ettingen","from":"traced","to":"rejected","at":"2026-10-16T10:20:39.846Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"ideas-emplois@fribourg","from":"traced","to":"rejected","at":"2026-10-16T10:20:41.348Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"ilanz-keramik@ilanz","from":"traced","to":"rejected","at":"2026-10-16T10:20:42.724Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"immoseeker@murten","from":"traced","to":"rejected","at":"2026-10-16T10:20:44.481Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"konsolen@ziefen","from":"traced","to":"rejected","at":"2026-10-16T10:20:46.932Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"mavraj@lostallo","from":"traced","to":"rejected","at":"2026-10-16T10:20:48.701Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"move-up@plan-les-ouates","from":"traced","to":"rejected","at":"2026-10-16T10:20:52.053Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"oscar-plombier@meyrin","from":"traced","to":"rejected","at":"2026-10-16T10:20:54.289Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"proman@carouge-ge","from":"traced","to":"rejected","at":"2026-10-16T10:20:55.627Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"schweizer-armee-logistikbasis-der-armee-lba@nierlet-les-bois","from":"traced","to":"rejected","at":"2026-10-16T10:20:57.368Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"spaini-management@basel","from":"traced","to":"rejected","at":"2026-10-16T10:21:02.499Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"tobler-metallbau@haldenstein","from":"traced","to":"rejected","at":"2026-10-16T10:21:03.997Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"ullrich-enterprise@arlesheim","from":"traced","to":"rejected","at":"2026-10-16T10:21:05.229Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"unine.ch","from":"traced","to":"synthesized","at":"2026-10-16T10:21:07.128Z"}
+{"key":"wetrok@munchenstein","from":"traced","to":"rejected","at":"2026-10-16T10:21:08.723Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"ars-la-reunion-recrute@talent-soft.com","from":"traced","to":"rejected","at":"2026-10-16T10:21:10.389Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"acareerbyagl@talent-soft.com","from":"synthesized","to":"validated","at":"2026-10-16T10:21:19.838Z"}
+{"key":"adie-career@talent-soft.com","from":"synthesized","to":"promoted","at":"2026-10-16T10:21:24.981Z"}
+{"key":"unine.ch","from":"synthesized","to":"promoted","at":"2026-10-16T10:22:10.627Z"}
+{"key":"capannaalzasca.ch","from":"validated","to":"rejected","at":"2026-10-16T10:24:30.417Z"}
+{"key":"peka.com","from":"new","to":"traced","at":"2026-10-17T08:52:50.976Z","reason":null}
+{"key":"hotel-san-gian@st-moritz","from":"new","to":"dead","at":"2026-10-17T08:52:50.979Z","reason":"nessuna pagina carriere"}
+{"key":"paul-cramatte@porrentruy","from":"new","to":"traced","at":"2026-10-17T08:52:50.979Z","reason":null}
+{"key":"bigla@hochdorf","from":"new","to":"traced","at":"2026-10-17T08:52:50.980Z","reason":null}
+{"key":"agira@luzern","from":"new","to":"traced","at":"2026-10-17T08:52:50.980Z","reason":null}
+{"key":"impirio@luzern","from":"new","to":"traced","at":"2026-10-17T08:52:50.981Z","reason":null}
+{"key":"team-marketing@luzern","from":"new","to":"dead","at":"2026-10-17T08:52:50.981Z","reason":"nessuna pagina carriere"}
+{"key":"roger-renggli-personalberatung@rothenburg","from":"new","to":"traced","at":"2026-10-17T08:52:50.982Z","reason":null}
+{"key":"roland-meyer@horw","from":"new","to":"dead","at":"2026-10-17T08:52:50.982Z","reason":"nessuna pagina carriere"}
+{"key":"tempobrain@luzern","from":"new","to":"traced","at":"2026-10-17T08:52:50.982Z","reason":null}
+{"key":"vorwerk@dierikon","from":"new","to":"traced","at":"2026-10-17T08:52:50.982Z","reason":null}
+{"key":"schweizer-armee-kommando-operationen-kdo-op@emmen","from":"new","to":"traced","at":"2026-10-17T08:52:50.982Z","reason":null}
+{"key":"anicom@sursee","from":"new","to":"dead","at":"2026-10-17T08:52:50.982Z","reason":"nessuna pagina carriere"}
+{"key":"thali@hitzkirch","from":"new","to":"traced","at":"2026-10-17T08:52:50.983Z","reason":null}
+{"key":"parmag@luzern","from":"new","to":"traced","at":"2026-10-17T08:52:50.983Z","reason":null}
+{"key":"agira@luzern","from":"traced","to":"rejected","at":"2026-10-17T09:08:47.516Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"bigla@hochdorf","from":"traced","to":"rejected","at":"2026-10-17T09:08:49.440Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"impirio@luzern","from":"traced","to":"rejected","at":"2026-10-17T09:08:52.104Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"parmag@luzern","from":"traced","to":"synthesized","at":"2026-10-17T09:08:53.755Z"}
+{"key":"paul-cramatte@porrentruy","from":"traced","to":"synthesized","at":"2026-10-17T09:08:55.788Z"}
+{"key":"roger-renggli-personalberatung@rothenburg","from":"traced","to":"rejected","at":"2026-10-17T09:08:57.145Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"schweizer-armee-kommando-operationen-kdo-op@emmen","from":"traced","to":"rejected","at":"2026-10-17T09:08:58.948Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"tempobrain@luzern","from":"traced","to":"synthesized","at":"2026-10-17T09:09:02.725Z"}
+{"key":"thali@hitzkirch","from":"traced","to":"rejected","at":"2026-10-17T09:09:04.318Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"vorwerk@dierikon","from":"traced","to":"rejected","at":"2026-10-17T09:09:08.172Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"peka.com","from":"traced","to":"rejected","at":"2026-10-17T09:09:10.514Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"parmag@luzern","from":"synthesized","to":"rejected","at":"2026-10-17T09:09:43.498Z"}
+{"key":"paul-cramatte@porrentruy","from":"synthesized","to":"promoted","at":"2026-10-17T09:09:48.727Z"}
+{"key":"capannabasodino.ch","from":"validated","to":"rejected","at":"2026-10-17T09:11:23.701Z"}
+{"key":"physioswiss.ch","from":"promoted","to":"promoting","at":"2026-10-17T09:15:39.535Z"}

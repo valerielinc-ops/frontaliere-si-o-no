@@ -83,6 +83,97 @@ describe('extractArticleText', () => {
     expect(r.text).not.toContain('Cookie policy');
   });
 
+  it('preserves active noscript fallback markup when scripting is disabled', () => {
+    const html = `<main><noscript>
+      <h1>Headline from the no-script article page</h1>
+      <p>First substantive fallback paragraph with facts that identify the real article for source validation.</p>
+      <p>Second substantive fallback paragraph with the article context and details needed by the generator.</p>
+    </noscript></main>`;
+    // JSDOM parses with scripting disabled by default. The explicit option is
+    // still needed so cleanup keeps the fallback if a noscript node is present.
+    const noScriptResult = extractArticleText(html, { scriptingDisabled: true });
+    expect(noScriptResult.method).toBe('main-tag');
+    expect(noScriptResult.text).toContain('First substantive fallback paragraph');
+    expect(noScriptResult.text).toContain('Second substantive fallback paragraph');
+  });
+
+  it('normalizes nested noscript markup preserved as a text node', () => {
+    const html = `<main><noscript>&lt;div&gt;
+      &lt;p&gt;First substantive fallback paragraph with facts that identify the real article for source validation.&lt;/p&gt;
+      &lt;p&gt;Second substantive fallback paragraph with the article context and details needed by the generator.&lt;/p&gt;
+    &lt;/div&gt;</noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).toContain('First substantive fallback paragraph');
+    expect(result.text).toContain('Second substantive fallback paragraph');
+    expect(result.text).not.toContain('&lt;p&gt;');
+  });
+
+  it('filters document noise wrappers from normalized noscript markup', () => {
+    const html = '<main><noscript>&lt;div class="advert"&gt;&lt;p&gt;Sponsored offer text for the partner placement with details and pricing.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;Article paragraph one contains the actual source story and enough prose.&lt;/p&gt;&lt;p&gt;Article paragraph two continues the actual source story with more context.&lt;/p&gt;</noscript></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).not.toContain('Sponsored offer text for the partner placement with details and pricing.');
+    expect(result.text).toContain('Article paragraph one contains the actual source story and enough prose.');
+    expect(result.text).toContain('Article paragraph two continues the actual source story with more context.');
+  });
+
+  it('keeps metadata and tracking noscript blocks out of the OG fallback', () => {
+    const ogDescription = 'This description identifies the source article and provides enough verified context for the generator to use as a fallback without relying on any no-script tracking payload from the page. It also contains a second sentence so the existing long-description floor remains the deliberate gate for the OG fallback path.';
+    const trackingPayload = 'Tracking payload that is long enough to pass the paragraph floor and must never become article source text for the generator.';
+    const html = `<html><head>
+      <meta property="og:description" content="${ogDescription}">
+    </head><body>
+      <noscript><div class="tracking-pixel"><p>${trackingPayload}</p></div></noscript>
+      <noscript>&lt;meta name="description" content="metadata only"&gt;&lt;div data-nosnippet="true"&gt;&lt;p&gt;${trackingPayload}&lt;/p&gt;&lt;/div&gt;</noscript>
+    </body></html>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('og-fallback');
+    expect(result.text).toContain(ogDescription);
+    expect(result.text).not.toContain(trackingPayload);
+  });
+
+  it('filters metadata from a noscript wrapper marked as hidden', () => {
+    const html = '<main><noscript hidden><p>Hidden tracking payload that must never enter the extracted article text.</p></noscript>'
+      + '<p>Editorial paragraph one with enough content for extraction.</p>'
+      + '<p>Editorial paragraph two with enough content for extraction.</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).not.toContain('Hidden tracking payload');
+    expect(result.text).toContain('Editorial paragraph one');
+  });
+
+  it('preserves editorial noscript paragraphs with normal analytics attributes', () => {
+    const html = '<article><noscript>'
+      + '<p data-track-id="story-1">Editorial noscript paragraph one with enough content for extraction.</p>'
+      + '<p data-track-id="story-2">Editorial noscript paragraph two with enough content for extraction.</p>'
+      + '</noscript><p>Regular article paragraph one with enough content for extraction.</p>'
+      + '<p>Regular article paragraph two with enough content for extraction.</p></article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toContain('Editorial noscript paragraph one');
+    expect(result.text).toContain('Editorial noscript paragraph two');
+  });
+
+  it('filters tracked wrappers inside a mixed editorial noscript fallback', () => {
+    const html = '<article><noscript>'
+      + '<p>Editorial fallback paragraph one with enough words to survive extraction.</p>'
+      + '<p>Editorial fallback paragraph two with enough words to survive extraction.</p>'
+      + '<div data-track-id="pixel"><p>Tracking payload paragraph with enough words to survive extraction.</p></div>'
+      + '</noscript></article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).toContain('Editorial fallback paragraph one');
+    expect(result.text).toContain('Editorial fallback paragraph two');
+    expect(result.text).not.toContain('Tracking payload paragraph');
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;

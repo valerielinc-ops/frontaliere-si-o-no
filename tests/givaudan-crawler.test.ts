@@ -4,6 +4,7 @@ import {
   GIVAUDAN_COMPANY_NAME,
   isGivaudanJob,
   isTrustedDomain,
+  resolveGivaudanSourceGeography,
 } from '../scripts/lib/givaudan-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { htmlToMarkdown } from '../scripts/lib/axpo-job-parser.mjs';
@@ -33,10 +34,41 @@ describe('Givaudan crawler parser', () => {
       expect(isGivaudanJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });
 
-    it('handles null/undefined gracefully', () => {
+  it('handles null/undefined gracefully', () => {
       expect(isGivaudanJob(null)).toBe(false);
       expect(isGivaudanJob(undefined)).toBe(false);
       expect(isGivaudanJob({})).toBe(false);
+    });
+  });
+
+  describe('detail-page location outranks the listing widget', () => {
+    it('rejects a foreign canonical detail even when the widget says Vernier', () => {
+      expect(resolveGivaudanSourceGeography({
+        listingLocation: 'Vernier, Switzerland',
+        detailAddress: {
+          locality: 'Ashford',
+          postalCode: 'TN24',
+          streetAddress: '',
+          addressCountry: 'GB',
+        },
+      })).toBeNull();
+    });
+
+    it('keeps a Swiss canonical detail and its address evidence', () => {
+      expect(resolveGivaudanSourceGeography({
+        listingLocation: 'Vernier, Switzerland',
+        detailAddress: {
+          locality: 'Vernier',
+          postalCode: '1214',
+          streetAddress: 'Chemin de la Parfumerie 5',
+          addressCountry: 'CH',
+        },
+      })).toMatchObject({
+        location: 'Vernier',
+        canton: 'GE',
+        postalCode: '1214',
+        streetAddress: 'Chemin de la Parfumerie 5',
+      });
     });
   });
 

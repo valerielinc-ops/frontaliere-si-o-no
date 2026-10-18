@@ -618,6 +618,15 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignScriptError!.source);
   });
 
+  it('mirrors the Microsoft Office/Outlook bridge pattern so residual events cannot reopen app-error issues (#13628)', () => {
+    const sample = 'Object Not Found Matching Id:2, MethodName:update, ParamCount:4';
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(isIssueDenied(sample)).toBe(true);
+    expect(isIssueDenied(`Non-Error promise rejection captured with value: ${sample}`)).toBe(true);
+  });
+
   it('mirrors the AbortError pattern from services/benignErrorPatterns.ts byte-for-byte (#4147)', () => {
     const benignAbortError = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
       p.test('AbortError: The user aborted a request.'),

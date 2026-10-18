@@ -13,10 +13,12 @@ on:
       # filter prevents ledger -> L10 -> ledger recursion; pull_request below
       # still validates changes to the input contract.
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
       - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/independent-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -27,12 +29,14 @@ on:
     paths:
       - 'data/loop-fleet/loop-registry.json'
       - 'data/quota-history.jsonl'
-      - 'data/loop-fleet/ledger/loop-health-history.jsonl'
+      - 'data/loop-fleet/ledger/loop-health-history*.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/overlay-durable-loop-fleet-ledger.sh'
       - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-ledger-files.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/independent-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -68,11 +72,13 @@ jobs:
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
             /data/quota-history.jsonl
-            /data/loop-fleet/ledger/loop-health-history.jsonl
+            /data/loop-fleet/ledger/loop-health-history*.jsonl
             /scripts/ci/loop-l10-fleet-control.mjs
+            /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/collect-independent-fleet-outcome.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/independent-fleet-outcome.mjs
             /scripts/ci/loop-fleet-status.mjs
@@ -81,19 +87,11 @@ jobs:
             /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l10-fleet-control.yml
           sparse-checkout-cone-mode: false
-      - name: Overlay durable ledger branch
+      - name: Overlay bounded durable health ledger
+        id: overlay_durable_ledger
         env:
           LEDGER_BRANCH: ledger/loop-fleet
-        run: |
-          set -euo pipefail
-          if ! git ls-remote --exit-code --heads origin "refs/heads/$LEDGER_BRANCH" >/dev/null 2>&1; then
-            echo "::notice::durable ledger branch $LEDGER_BRANCH does not exist yet; using the in-tree ledger."
-            exit 0
-          fi
-          git fetch --depth 1 origin "$LEDGER_BRANCH"
-          mkdir -p data/loop-fleet/ledger
-          git checkout FETCH_HEAD -- data/loop-fleet/ledger
-          echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
+        run: bash scripts/ci/overlay-durable-loop-fleet-ledger.sh l10
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
@@ -107,6 +105,7 @@ jobs:
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
       - name: Collect independent GitHub run oracle
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -119,6 +118,7 @@ jobs:
             --repo "$GH_REPO" \
             --out "$REPORT_DIR/independent-fleet-outcome.json"
       - name: Audit loop operations
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
@@ -143,14 +143,14 @@ jobs:
           fi
       - name: Validate runner-local L10 outcome export
         id: validate_l10_outcome
-        if: always()
+        if: ${{ always() && steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
         run: |
           test -s "$REPORT_DIR/l10-outcome.json"
           jq -e '(.loopId == "L10" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .oneWriterPerArtifact == true and .boundedRetries == true and .ledgerWriteMode == "serialized-atomic" and .gateBypass == false and .supervisorL11Separate == true and .publishedDataUntouched == true)' "$REPORT_DIR/l10-outcome.json" >/dev/null
       - name: Record canonical L10 evidence
-        if: ${{ always() && steps.validate_l10_outcome.outcome == 'success' }}
+        if: ${{ always() && steps.overlay_durable_ledger.outputs.overlay_status == 'ready' && steps.validate_l10_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L10 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json

@@ -60,6 +60,15 @@ function ensureTrailingSlash(url) {
   return url.endsWith('/') ? url : `${url}/`;
 }
 
+function withDripAttribution(rawUrl, content) {
+  const url = new URL(rawUrl, BASE_URL);
+  url.searchParams.set('utm_source', 'newsletter');
+  url.searchParams.set('utm_medium', 'email');
+  url.searchParams.set('utm_campaign', 'drip');
+  url.searchParams.set('utm_content', content);
+  return url.toString();
+}
+
 // ── Content cards (per-locale) ───────────────────────────────────────
 // `path` is a canonical IT path present in newsletter-template's
 // LOCALE_PATH_MAP so localizedUrl() resolves the correct localized, trailing-
@@ -241,7 +250,11 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
   if (!cardId) throw new Error(`invalid drip step: ${step}`);
   const card = CARDS[cardId];
   const copy = card[loc] || card.it;
-  const ctaUrl = ensureTrailingSlash(localizedUrl(card.path, loc));
+  const ctaUrl = withDripAttribution(
+    ensureTrailingSlash(localizedUrl(card.path, loc)),
+    `onboarding_step_${step + 1}_cta`,
+  );
+  const footerHomeUrl = withDripAttribution(BASE_URL, 'onboarding_footer_home');
 
   const recommended = renderRecommendedBlock({
     locale: loc,
@@ -292,7 +305,7 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
         <tr><td class="section-pad" style="padding:12px 28px;"><div style="border-top:1px solid ${BORDER_COLOR};"></div></td></tr>
         ${recommended}
         <tr><td class="section-pad" style="background:${BRAND_DARK};padding:24px 28px;text-align:center;">
-          <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">Frontaliere Ticino · <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
+          <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">Frontaliere Ticino · <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(footerHomeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(unsub)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${loc === 'it' ? 'Disiscriviti' : loc === 'de' ? 'Abmelden' : loc === 'fr' ? 'Se désinscrire' : 'Unsubscribe'}</a></div>
           ${prefs ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(prefs)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${PREFS_LABEL[loc] || PREFS_LABEL.it}</a></div>` : ''}
           <div style="font-size:11px;color:#475569;margin-top:8px;">${escapeHtml(dataControllerFooterLine(loc))}</div>

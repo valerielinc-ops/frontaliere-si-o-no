@@ -96,6 +96,7 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
     expect(companyBody).toContain('canonicalUrl,');
     expect(companyBody).toContain('jobCardListBody(companyJobs, locale)');
     expect(companyBody).toContain('mapCantonJobToListItem');
+    expect(companyBody).toContain('COMPANY_CANTON_NOINDEX_BRIDGE_MARKER');
   });
 
   it('defines the TI location/type/sector below-floor bridge helpers and wires them into every floor-check site', () => {

@@ -977,6 +977,88 @@ function eventSet(rows) {
   return { byMessage, byRecipient };
 }
 
+const L4_NEWSLETTER_STOP_EVENT_TYPES = new Set([
+  'unsubscribe',
+  'unsubscribed',
+  'all_email_unsubscribed',
+  'subscription_unsubscribed',
+  'bounce',
+  'complaint',
+  'complained',
+  'suppressed',
+]);
+const L4_UNSUBSCRIBE_EVENT_TYPES = new Set([
+  'unsubscribe',
+  'unsubscribed',
+  'all_email_unsubscribed',
+  'subscription_unsubscribed',
+]);
+const L4_BOUNCE_EVENT_TYPES = new Set(['bounce']);
+const L4_COMPLAINT_EVENT_TYPES = new Set(['complaint', 'complained']);
+const L4_SUPPRESSION_EVENT_TYPES = new Set(['suppressed']);
+
+/**
+ * Keep the newsletter's append-only stop events separate from job-alert
+ * delivery evidence. Their server timestamp and provider/action occurrence
+ * time bound the interval in which a filter-time allow can become stale.
+ */
+function newsletterStopEventsBySubscriber(rows) {
+  const bySubscriber = new Map();
+  for (const row of rows) {
+    const segments = pathSegments(row?.name || '');
+    if (segments.length !== 4 || segments[0] !== 'newsletter_subscribers' || segments[2] !== 'events') continue;
+    const data = documentData(row);
+    const type = String(first(data, ['event_type', 'eventType']) || '').trim().toLowerCase();
+    if (!L4_NEWSLETTER_STOP_EVENT_TYPES.has(type)) continue;
+    const occurredAtMs = toMillis(first(data, ['occurred_at', 'occurredAt']));
+    const recordedAtMs = toMillis(first(data, ['timestamp']));
+    if (occurredAtMs == null || recordedAtMs == null) continue;
+    const email = segments[1].toLowerCase();
+    if (!bySubscriber.has(email)) bySubscriber.set(email, []);
+    // Require both times, and use the earlier one conservatively when a
+    // provider event was persisted after the event actually happened.
+    bySubscriber.get(email).push({ type, at: Math.min(occurredAtMs, recordedAtMs) });
+  }
+  return bySubscriber;
+}
+
+function currentCrossChannelStopGroups(newsletter, isOptOutBinding) {
+  const status = String(newsletter?.status || '').trim().toLowerCase();
+  const groups = [];
+  if (status === 'unsubscribed' || isOptOutBinding(newsletter)) {
+    groups.push(L4_UNSUBSCRIBE_EVENT_TYPES);
+  }
+  if (status === 'bounced') groups.push(L4_BOUNCE_EVENT_TYPES);
+  if (status === 'complained') groups.push(L4_COMPLAINT_EVENT_TYPES);
+  if (status === 'suppressed') groups.push(L4_SUPPRESSION_EVENT_TYPES);
+  return groups;
+}
+
+/**
+ * A current stop may post-date a provider-accepted delivery, but a filter
+ * proof cannot cover a stop that arrived before acceptance. Reclassify only
+ * when each currently active cross-channel stop has append-only evidence
+ * strictly after sentAt and there is no stop event from the consent check
+ * through provider acceptance. Missing, ambiguous, or other denial evidence
+ * stays fail-closed.
+ */
+function currentStopIsAfterAcceptedDelivery({
+  newsletter,
+  events,
+  checkedAtMs,
+  sentAtMs,
+  isOptOutBinding,
+}) {
+  if (checkedAtMs == null || sentAtMs == null || checkedAtMs > sentAtMs) return false;
+  const stopGroups = currentCrossChannelStopGroups(newsletter, isOptOutBinding);
+  if (stopGroups.length === 0) return false;
+  const subscriberEvents = events || [];
+  if (subscriberEvents.some((event) => event.at >= checkedAtMs && event.at <= sentAtMs)) return false;
+  return stopGroups.every((group) => subscriberEvents.some(
+    (event) => event.at > sentAtMs && group.has(event.type),
+  ));
+}
+
 /**
  * Claim, for one delivery, the earliest unconsumed event of each evidence
  * class sent to the same recipient by the same provider inside the window.
@@ -1083,6 +1165,9 @@ export function buildL4OutcomeLedger({
 } = {}) {
   const evaluateConsent = predicates.evaluateJobAlertConsent
     || (({ alert }) => ({ allowed: alert?.backfilled_from ? false : true, reason: 'fallback' }));
+  // Production L4 injects the canonical helper. Pure callers without it
+  // remain conservative for stamp-only opt-outs.
+  const isOptOutBinding = predicates.isNewsletterOptOutBinding || (() => false);
   const crossChannelStop = predicates.isCrossChannelStop || (() => false);
   const jobAlertExcluded = predicates.isJobAlertExcluded || (() => false);
   const jobs = new Map();
@@ -1120,7 +1205,11 @@ export function buildL4OutcomeLedger({
     }
     const alertKey = buildAlertKey(email, child.childId);
     knownAlertKeys.add(alertKey);
-    currentConsentByAlertKey.set(alertKey, consentState);
+    currentConsentByAlertKey.set(alertKey, {
+      state: consentState,
+      reason: consent?.reason || null,
+      newsletter,
+    });
     if (alert.active !== true) continue;
     if (!consent || consent.allowed !== true) suppressedWithoutConsent += 1;
     const eligible = alert.paused !== true
@@ -1132,6 +1221,7 @@ export function buildL4OutcomeLedger({
 
   const eligibleUsers = new Set([...eligibleAlerts.values()].map((alert) => alert.email));
   const events = eventSet(eventRows);
+  const newsletterStopEvents = newsletterStopEventsBySubscriber(eventRows);
   const delivered = new Set();
   const opened = new Set();
   const clicked = new Set();
@@ -1193,16 +1283,22 @@ export function buildL4OutcomeLedger({
     const key = buildAlertKey(email, alertId);
     let consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
     const knownAlert = knownAlertKeys.has(key);
-    // Option (b): the sender deliberately does not re-read per recipient at
-    // provider time. If the exporter now sees that the same alert's consent is
-    // denied, a previously valid filter proof is a refusal, not a delivery
-    // that can satisfy L4. Unknown evaluation failures stay `missing`.
-    if (
-      consentEvidence.status === 'valid'
-      && knownAlert
-      && currentConsentByAlertKey.get(key) === 'denied'
-    ) {
-      consentEvidence = { status: 'refused' };
+    // The sender deliberately does not re-read per recipient at provider
+    // time. A current cross-channel stop invalidates the filter proof only
+    // when its append-only event falls before provider acceptance; a stop
+    // after sentAt must not erase an already accepted, consented delivery.
+    // Other current denials and incomplete event history stay fail-closed.
+    const currentConsent = currentConsentByAlertKey.get(key);
+    if (consentEvidence.status === 'valid' && knownAlert && currentConsent?.state === 'denied') {
+      const historicalDeliveryStillValid = currentConsent.reason === 'cross-channel-stop'
+        && currentStopIsAfterAcceptedDelivery({
+          newsletter: currentConsent.newsletter,
+          events: newsletterStopEvents.get(email),
+          checkedAtMs: consentEvidence.checkedAt,
+          sentAtMs: sentAt,
+          isOptOutBinding,
+        });
+      if (!historicalDeliveryStillValid) consentEvidence = { status: 'refused' };
     }
 
     // Deduplication is a delivery-ledger invariant, independent of whether
@@ -1396,10 +1492,12 @@ export async function exportL4({
   const consent = predicates || await Promise.all([
     import('../../functions/src/jobAlertBackfillCore.js'),
     import('../../functions/src/lib/emailSuppression.js'),
-  ]).then(([core, suppression]) => ({
+    import('../../functions/src/lib/newsletterOptOut.js'),
+  ]).then(([core, suppression, newsletterOptOut]) => ({
     evaluateJobAlertConsent: core.evaluateJobAlertConsent,
     isCrossChannelStop: suppression.isCrossChannelStop,
     isJobAlertExcluded: suppression.isJobAlertExcluded,
+    isNewsletterOptOutBinding: newsletterOptOut.isNewsletterOptOutBinding,
   }));
   const snoozes = snoozesPath && fs.existsSync(path.resolve(snoozesPath))
     ? JSON.parse(fs.readFileSync(path.resolve(snoozesPath), 'utf8'))

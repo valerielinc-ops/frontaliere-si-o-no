@@ -1,6 +1,6 @@
 {
   "crawlerKey": "puk-zuerich",
-  "assembledAt": "2026-10-14T21:18:21.688Z",
+  "assembledAt": "2026-10-17T21:14:19.497Z",
   "jobs": [
     {
       "id": "puk-zuerich-9946db8a3246",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/163206/1987/pub/10/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:15.464Z",
+      "crawledAt": "2026-10-17T21:14:12.564Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,12 +137,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-          "assistenti-junior-psychiatrische-universitatsklinik-zurich-zurich",
-          "junior-assistants-psychiatrische-universitatsklinik-zurich-zurich",
-          "assistants-juniors-psychiatrische-universitatsklinik-zurich-zurich",
           "diploma-in-nursing-diploma-in-nursing-psychiatrische-universitatsklinik-zurich-zurich",
           "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
           "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich",
@@ -156,7 +150,13 @@
           "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-per-la-station-e0-f0-psychiatrische-universitatsklinik-zurich",
           "dipl-nursing-professional-dipl-nurse-hf-fh-for-station-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
           "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich",
-          "infirmiere-certifiee-en-hf-fh-pour-le-service-e0-f0-psychiatrische-universitatsklinik-zurich-zurich"
+          "infirmiere-certifiee-en-hf-fh-pour-le-service-e0-f0-psychiatrische-universitatsklinik-zurich-zurich",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+          "assistenti-junior-psychiatrische-universitatsklinik-zurich-zurich",
+          "junior-assistants-psychiatrische-universitatsklinik-zurich-zurich",
+          "assistants-juniors-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
@@ -215,7 +215,7 @@
       "url": "https://apply.refline.ch/163206/2750/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:14.026Z",
+      "crawledAt": "2026-10-17T21:14:11.671Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -297,7 +297,7 @@
       "url": "https://apply.refline.ch/163206/2779/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:13.544Z",
+      "crawledAt": "2026-10-17T21:14:11.223Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -382,7 +382,7 @@
       "url": "https://apply.refline.ch/163206/2060/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:13.067Z",
+      "crawledAt": "2026-10-17T21:14:10.772Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -469,7 +469,7 @@
       "url": "https://apply.refline.ch/163206/2785/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:12.591Z",
+      "crawledAt": "2026-10-17T21:14:10.328Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -516,6 +516,83 @@
       }
     },
     {
+      "id": "puk-zuerich-45f7083384de",
+      "slug": "projektleiterin-bau-projektleiter-bau-come-bauherrenvertretung-psychiatrische-universitatsklinik-zurich",
+      "slugByLocale": {
+        "it": "projektleiterin-bau-projektleiter-bau-come-bauherrenvertretung-psychiatrische-universitatsklinik-zurich",
+        "en": "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-puk-zuerich-zurich",
+        "fr": "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-psychiatrische-universitatsklinik-zurich-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "Projektleiterin Bau / Projektleiter Bau als Bauherrenvertretung",
+      "titleByLocale": {
+        "it": "Responsabile di progetto nel settore edile / Responsabile di progetto nel settore edile in qualità di rappresentante della committenza",
+        "en": "Project Manager Construction / Project Manager Construction as a client representative",
+        "de": "Projektleiterin Bau / Projektleiter Bau als Bauherrenvertretung",
+        "fr": "Gestionnaire de projet Construction / Gestionnaire de projet Construction en tant que représentant client"
+      },
+      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nZur Verstärkung unseres Bauprojektmanagement-Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und teamorientierte Persönlichkeit als\nIhre Aufgaben\n• Selbständige Führung, Organisation, Koordination und Überwachung von Bauprojekten durch die Phasen 31 – 53 nach SIA 112\n• Berücksichtigung der strategischen Vorgaben des Spitalrats und der Geschäftsleitung\n• Übernahme der Bauherren-Funktion gegenüber Planern, externen Unternehmen sowie weiteren Sta-keholdern\n• Erarbeiten von Entscheidungsgrundlagen für die verschiedenen internen und externen Gremien/ Projektbeteiligte\n• Sicherstellung eines transparenten Informationsflusses rechtzeitiges Herbeiführen der notwendigen Entscheide\n• Vertretung der Anforderungen seitens Bau (Bauprojekt- und Objektmanagement, Medizintechnik Zutrittskontrolle, Sicherheit, etc.), Nutzern, Betrieb und ICT\nIhr Profil\n• Abgeschlossene Ausbildung in Architektur, Bauingenieurwesen oder Bauprojektmanagement auf Hoch- / Fachhochschulniveau (ETH/FH) oder einen ähnlichen Abschluss\n• Fundiertes Wissen und praktische Erfahrung im Bau-, Prozess- und Projektmanagement\n• Erfahrung in der bauherrenseitigen Leitung von komplexen Hochbauprojekten\n• Kenntnisse der Leistungs- und Supportprozesse im Gesundheitswesen sowie dem Öffentlichen Beschaffungswesen\n• Kommunikationsstarke und teamfähige Persönlichkeit mit Engagement und Durchsetzungsvermögen\n• Vernetzt denkend und lösungsorientiert mit ausgeprägtem Qualitätsbewusstsein\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Mehr Vorteile für Sie: Vergünstigungen und Rabatte bei zahlreichen Partnerunternehmen\nKontakt:\nMaren Zinke\nLeiterin Bauprojektmanagement\n+41 58 384 20 28\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+      "descriptionByLocale": {
+        "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n100%\nAl fine di rafforzare il nostro team di gestione dei progetti di costruzione, stiamo cercando una personalità impegnata e orientata al team il prima possibile.\nI loro compiti\n• Gestione indipendente, organizzazione, coordinamento e supervisione dei progetti di costruzione attraverso le fasi 31 – 53 secondo SIA 112\n• Considerazione dei requisiti strategici del consiglio ospedaliero e della gestione\n• Assunzione della funzione client nei confronti dei pianificatori, delle società esterne e di altri stakeholder\n• Sviluppo delle basi decisionali per i vari comitati interni ed esterni / partecipanti al progetto\n• Garantire un flusso di informazioni trasparente nel tempo per le decisioni necessarie\n• Rappresentanza dei requisiti per costruzione (progetto di costruzione e gestione degli oggetti, controllo dell'accesso alla tecnologia medica, sicurezza, ecc.), utenti, funzionamento e TIC\nIl tuo profilo\n• Formazione completa in architettura, ingegneria civile o gestione di progetti di costruzione all'università / università di livello di scienze applicate (ETH/FH) o un grado simile\n• Conoscenza del suono e esperienza pratica nella gestione della costruzione, dei processi e dei progetti\n• Esperienza nella gestione clienti di complessi progetti di costruzione\n• Conoscenza dei servizi sanitari e degli appalti pubblici e dei processi di supporto\n• Comunicazione forte e squadra capace personalità con impegno e assertività\n• Collega il pensiero e la soluzione orientata con una forte consapevolezza di qualità\nLa nostra offerta\n• Conoscenza che avanza: Ampia offerta iniziale, ulteriore e ulteriore formazione\n• Spazio per idee: Alta responsabilità personale e possibilità di progettazione\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\n• Più vantaggi per voi: sconti e sconti presso numerose aziende partner\nContatto:\nMaren Zinke\nResponsabile della gestione dei progetti di costruzione\n+41 58 384 20 28\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
+        "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n100%\nIn order to strengthen our construction project management team, we are looking for a committed and team-oriented personality as soon as possible.\nTheir tasks\n• Independent management, organization, coordination and supervision of construction projects through phases 31 – 53 according to SIA 112\n• Consideration of the strategic requirements of the hospital council and the management\n• Assumption of the client function vis-à-vis planners, external companies and other stakeholders\n• Development of decision-making bases for the various internal and external committees / project participants\n• Ensuring a transparent flow of information in time for the necessary decisions\n• Representation of requirements by construction (construction project and object management, medical technology access control, security, etc.), users, operation and ICT\nYour profile\n• Completed training in architecture, civil engineering or construction project management at university / university of applied sciences level (ETH/FH) or a similar degree\n• Sound knowledge and practical experience in construction, process and project management\n• Experience in client management of complex building construction projects\n• Knowledge of healthcare and public procurement services and support processes\n• Communication strong and team capable personality with commitment and assertiveness\n• Connects thinking and solution-oriented with a strong quality awareness\nOur offer\n• Knowledge that advances: Extensive initial, further and further training offers\n• Space for ideas: High personal responsibility and design possibilities\n• Strong in the team: appreciative cooperation and mutual support\n• Future provision with added value: 60% employer contribution to the pension fund\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\n• More advantages for you: Discounts and discounts at numerous partner companies\nContact:\nMaren Zinke\nHead of Construction Project Management\n+41 58 384 20 28\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nZur Verstärkung unseres Bauprojektmanagement-Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und teamorientierte Persönlichkeit als\nIhre Aufgaben\n• Selbständige Führung, Organisation, Koordination und Überwachung von Bauprojekten durch die Phasen 31 – 53 nach SIA 112\n• Berücksichtigung der strategischen Vorgaben des Spitalrats und der Geschäftsleitung\n• Übernahme der Bauherren-Funktion gegenüber Planern, externen Unternehmen sowie weiteren Sta-keholdern\n• Erarbeiten von Entscheidungsgrundlagen für die verschiedenen internen und externen Gremien/ Projektbeteiligte\n• Sicherstellung eines transparenten Informationsflusses rechtzeitiges Herbeiführen der notwendigen Entscheide\n• Vertretung der Anforderungen seitens Bau (Bauprojekt- und Objektmanagement, Medizintechnik Zutrittskontrolle, Sicherheit, etc.), Nutzern, Betrieb und ICT\nIhr Profil\n• Abgeschlossene Ausbildung in Architektur, Bauingenieurwesen oder Bauprojektmanagement auf Hoch- / Fachhochschulniveau (ETH/FH) oder einen ähnlichen Abschluss\n• Fundiertes Wissen und praktische Erfahrung im Bau-, Prozess- und Projektmanagement\n• Erfahrung in der bauherrenseitigen Leitung von komplexen Hochbauprojekten\n• Kenntnisse der Leistungs- und Supportprozesse im Gesundheitswesen sowie dem Öffentlichen Beschaffungswesen\n• Kommunikationsstarke und teamfähige Persönlichkeit mit Engagement und Durchsetzungsvermögen\n• Vernetzt denkend und lösungsorientiert mit ausgeprägtem Qualitätsbewusstsein\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Mehr Vorteile für Sie: Vergünstigungen und Rabatte bei zahlreichen Partnerunternehmen\nKontakt:\nMaren Zinke\nLeiterin Bauprojektmanagement\n+41 58 384 20 28\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nAfin de renforcer notre équipe de gestion de projet de construction, nous recherchons dès que possible une personnalité engagée et orientée vers l'équipe.\nLeurs tâches\n• Gestion, organisation, coordination et supervision indépendantes des projets de construction au cours des phases 31 – 53 selon SIA 112\n• Examen des besoins stratégiques du conseil hospitalier et de la direction\n• Hypothèse de la fonction client vis-à-vis des planificateurs, des entreprises externes et d'autres parties prenantes\n• Développement des bases de décision pour les différents comités internes et externes / participants au projet\n• Assurer un flux d'informations transparent à temps pour les décisions nécessaires\n• Représentation des besoins par construction (gestion des projets de construction et des objets, contrôle de l'accès aux technologies médicales, sécurité, etc.), utilisateurs, exploitation et TIC\nVotre profil\n• Achevé une formation en architecture, en génie civil ou en gestion de projets de construction au niveau universitaire ou universitaire des sciences appliquées (ETH/FH) ou un diplôme similaire\n• Connaissances solides et expérience pratique en matière de construction, de processus et de gestion de projet\n• Expérience en gestion cliente de projets complexes de construction de bâtiments\n• Connaissance des services de santé et des marchés publics et des processus de soutien\n• Communication forte et une personnalité capable d'équipe avec engagement et assurance\n• Connecte la pensée et la solution à une forte sensibilisation à la qualité\nNotre offre\n• Connaissances qui progressent: offres de formation initiale, continue et continue\n• Espace d'idées : Haute responsabilité personnelle et possibilités de conception\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\n• Plus d'avantages pour vous: Réductions et rabais dans de nombreuses entreprises partenaires\nPersonne à contacter:\nMaren Zinke\nChef de la gestion des projets de construction\n+41 58 384 20 28\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2496/pub/4/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T21:14:09.882Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2025-09-26T12:42:44.032515+00:00",
+      "postedDate": "2025-09-26T12:42:44.032515+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/163206/2496/pub/4/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2496",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-puk-zuerich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiterin-bau-projektleiter-bau-als-bauherrenvertretung-puk-zuerich-zurich"
+        ]
+      },
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "puk-zuerich-165e3fc5cdf1",
       "slug": "pflegefachfrau-o-pflegefachmann-hf-fh-schwerpunkt-abhangigkeitserkrankungen-im-alter-psychiatrische-universitatsklinik-zurich",
       "slugByLocale": {
@@ -547,7 +624,7 @@
       "url": "https://apply.refline.ch/163206/2560/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:12.119Z",
+      "crawledAt": "2026-10-17T21:14:09.434Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -658,7 +735,7 @@
       "url": "https://apply.refline.ch/163206/2460/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:11.644Z",
+      "crawledAt": "2026-10-17T21:14:08.988Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -745,7 +822,7 @@
       "url": "https://apply.refline.ch/163206/2738/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:11.171Z",
+      "crawledAt": "2026-10-17T21:14:08.544Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -828,7 +905,7 @@
       "url": "https://apply.refline.ch/163206/2769/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:10.694Z",
+      "crawledAt": "2026-10-17T21:14:08.099Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -914,7 +991,7 @@
       "url": "https://apply.refline.ch/163206/2783/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:10.220Z",
+      "crawledAt": "2026-10-17T21:14:07.653Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1001,7 +1078,7 @@
       "url": "https://apply.refline.ch/163206/2720/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:09.744Z",
+      "crawledAt": "2026-10-17T21:14:07.207Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1065,6 +1142,90 @@
       }
     },
     {
+      "id": "puk-zuerich-f8ef9c11b21b",
+      "slug": "primario-psychiatrische-universitatsklinik-zurich-zurich",
+      "slugByLocale": {
+        "it": "primario-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "senior-physician-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "oberarztin-oberarzt-puk-zuerich-zurich",
+        "fr": "medecin-chef-psychiatrische-universitatsklinik-zurich-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "Oberärztin / Oberarzt, Persönlichkeits- und Traumafolgestörungen",
+      "titleByLocale": {
+        "it": "Primario",
+        "en": "Senior Physician",
+        "de": "Oberärztin / Oberarzt, Persönlichkeits- und Traumafolgestörungen",
+        "fr": "Médecin-chef"
+      },
+      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nAls führende Klinik für Erwachsenenpsychiatrie und Psychotherapie in der Schweiz übernehmen wir nicht nur den Versorgungsauftrag des Kantons Zürich, sondern agieren auch als universitäre Einrichtung mit Forschungs- und Lehrauftrag der Universität Zürich. An acht Standorten, darunter fünf klinische Einrichtungen und ein Forschungszentrum, gestalten über 1000 engagierte Mitarbeiterinnen und Mitarbeiter eine vielseitige und dynamische Arbeitsumgebung. Hier haben Sie die Möglichkeit, sich in einer bedeutenden Institution aktiv einzubringen.\nDas Zentrum für Depressionen, Angststörungen und Psychotherapie (Chefarzt und Zentrumsleiter Prof. Dr. med. Sebastian Olbrich) bietet ein umfangreiches stationäres, ambulantes und teilstationäres Therapieangebot und umfassende diagnostische Abklärungsmöglichkeiten für Menschen mit affektiven Störungen, Persönlichkeitsstörungen und Traumafolgestörungen an. Als universitäres Zentrum verwenden wir etablierte und innovative Therapieansätze, um die Behandlung stetig zu verbessern.\nFür unsere Station A2 für akute Erkrankungen mit Schwerpunkt auf Persönlichkeits- und Traumafolgestörungen suchen wir ab Frühjahr / Sommer 2027 eine/n\nIhre Aufgaben\n• Führung eines ärztlich/psychologischen Teams und Oberaufsicht über die Behandlung stationärer Patientinnen und Patienten mit psychischen Erkrankungen, einschliesslich Diagnostik, Therapie und Austrittsplanung\n• Anwendung gezielter Behandlungskonzepte im Rahmen des Schwerpunktes Persönlichkeitsstörungen und Traumafolgestörungen, insbesondere bei akuten Exazerbationen\n• Aufsicht der Behandlung durch und Supervision von Assistenzärztinnen und Assistenzärzten sowie Psychologinnen und Psychologen\n• Beteiligung an Lehre und Weiterbildung der Assistenzärztinnen und Assistenzärzte sowie Psychologinnen und Psychologen\n• Weiterentwicklung des Behandlungskonzeptes der Station in Zusammenarbeit mit dem multiprofessionellen Team und der Pflege und in Abstimmung mit anderen Einheiten mit Schwerpunkt Persönlichkeitsstörungen und Traumafolgestörungen im Zentrum\nIhr Profil\n• Approbation als Ärztin/Arzt (zwingende Voraussetzungen: Vorliegen der Schweizerischen Berufsanerkennung MEBEKO = 1. Anerkanntes Diplom (keine Registrierung) & 2. MEBEKO Deutsch-Eintrag, beide Dokumente sind einzureichen\n• Abgeschlossene Facharztausbildung oder Abschluss absehbar\n• Interesse an Führungsaufgaben\n• Interesse and Forschung und Lehre\n• Interesse und Vorerfahrung im Bereich Persönlichkeitsstörungen und Traumafolgestörungen; Kenntnis spezifischer Therapieverfahren von Vorteil\n• Interesse an innovativen Behandlungskonzepten einschliesslich interventioneller Psychiatrie (z.B. repetitive transkranielle Magnetstimulation [rTMS], Elektrokonvulsionsbehandlung [EKT], Diagnostik mittels Elektroenzephalogramm[EEG])\n• Hohe Eigenständigkeit und Selbstorganisation\n• Deutschkenntnisse in Wort und Schrift auf Niveau C2\nUnser Angebot\n• Hospitation vor einer potentiellen Anstellung\n• Selbständige Arbeit im Team mit regelmässiger Inter- und Supervision sowie Vernetzung mit anderen Angeboten\n• Handlungsspielraum, um innovative Ideen einzubringen und Prozesse und Konzepte aktiv zu gestalten\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Möglichkeiten zur Mitarbeit an Forschungsprojekten oder Entwicklung von eigenen Projekten\n• Möglichkeit der gezielten Unterstützung zur Erlangung des Fähigkeitsausweises «Interventionelle Psychiatrie»\n• Anregendes universitäres Umfeld mit guter Vernetzung\n• Anstellungsbedingungen nach dem kantonalen Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten, Beteiligung am ZVV-BonusPass/Generalabonnement, Personalrestaurant mit subventionierten Preisen oder Lunch Checks (standortabhängig), betriebseigene Kinderkrippe u.v.m.\n• Moderne Büroräumlichkeiten\nKontakt:\nWeitere Auskünfte erteilt Ihnen gerne vorab Prof. Dr. med. Golo Kronenberg (Stv. Zentrumsleitung; golo.kronenberg@pukzh.ch), Telefon +41 58 384 26 35 oder Frau Dr. med. Judith Rohde (Oberärztin Station C0, judith.rohde@pukzh.ch), Tel. +41 58 384 37 65. Wir freuen uns auf Ihre vollständige online Bewerbung. Für diese Position nehmen wir keine Bewerbungen von Personalvermittlern entgegen.\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+      "descriptionByLocale": {
+        "it": "L'Ospedale psichiatrico universitario di Zurigo (PUK) è uno degli ospedali psichiatrici più importanti della Svizzera. Con oltre 2.500 dipendenti, ci impegniamo ogni giorno nel trattamento olistico e nella cura delle persone con malattie mentali. Come clinica universitaria, combiniamo l'esperienza clinica con la ricerca e l'insegnamento, in un ambiente di lavoro caratterizzato da collaborazione interdisciplinare, fiducia e responsabilità personale.\n100%\nIn qualità di clinica leader nel campo della psichiatria e della psicoterapia degli adulti in Svizzera, non solo assumiamo il mandato di cura del Cantone di Zurigo, ma agiamo anche come istituzione universitaria con un mandato di ricerca e insegnamento dell'Università di Zurigo. In otto sedi, tra cui cinque strutture cliniche e un centro di ricerca, oltre 1.000 dipendenti impegnati creano un ambiente di lavoro diversificato e dinamico. Qui hai l'opportunità di essere coinvolto attivamente in un'importante istituzione.\nIl Centro per la depressione, i disturbi d'ansia e la psicoterapia (medico capo e direttore del centro Prof. Dr. med. Sebastian Olbrich) offre una gamma completa di terapie stazionarie, ambulatoriali e diurne e opzioni complete di valutazione diagnostica per persone con disturbi affettivi, disturbi della personalità e disturbi legati a traumi. Come centro universitario, utilizziamo approcci terapeutici consolidati e innovativi per migliorare continuamente il trattamento.\nPer il nostro reparto A2 per le malattie acute con focus sui disturbi della personalità e legati ai traumi cerchiamo una persona immediatamente o su appuntamento\nI tuoi compiti\n• Guidare un team medico/psicologico e supervisionare il trattamento dei pazienti ricoverati con malattie mentali, compresa la diagnostica, la terapia e la pianificazione delle dimissioni\n• Applicazione di concetti di trattamento mirati nel contesto dell'attenzione ai disturbi della personalità e ai disturbi legati al trauma, soprattutto nelle riacutizzazioni\n• Supervisione del trattamento e supervisione di medici e psicologi in formazione\n• Partecipazione all'insegnamento e al perfezionamento di medici e psicologi in formazione\n• Ulteriore sviluppo del concetto di trattamento del reparto in collaborazione con l'équipe multiprofessionale e infermieristica e in coordinamento con altre unità con particolare attenzione ai disturbi della personalità e ai disturbi legati ai traumi nel centro\nIl tuo profilo\n• Approvazione come medico (requisiti obbligatori: Presenza del riconoscimento professionale svizzero MEBEKO = 1. Diploma riconosciuto (nessuna registrazione) & 2. Ingresso MEBEKO tedesco, entrambi i documenti devono essere presentati\n• Formazione specialistica completata o laurea prevedibile\n• Interesse per i ruoli di leadership\n• Interesse per la ricerca e l'insegnamento\n• Interesse ed esperienza pregressa nell'area dei disturbi di personalità e dei disturbi legati al trauma; Costituisce titolo preferenziale la conoscenza di specifiche procedure terapeutiche\n• Interesse per concetti di trattamento innovativi inclusa la psichiatria interventistica (ad esempio stimolazione magnetica transcranica ripetitiva [rTMS], trattamento con elettroconvulsione [ECT], diagnostica mediante elettroencefalogramma [EEG])\n• Elevata indipendenza e auto-organizzazione\n• Conoscenza del tedesco parlato e scritto a livello C2\nla nostra gamma\n• Stage prima di un potenziale lavoro\n• Lavoro indipendente in un team con supervisione e supervisione regolari, nonché networking con altre offerte\n• Spazio di manovra per introdurre idee innovative e modellare attivamente processi e concetti\n• Opportunità di sviluppo personale e professionale\n• Opportunità di lavorare su progetti di ricerca o sviluppare i propri progetti\n• Possibilità di supporto mirato per ottenere il certificato di qualificazione “Psichiatria Interventistica”.\n• Stimolare l'ambiente universitario con un buon networking\n• Condizioni di lavoro secondo il diritto cantonale del personale\n• Prestazioni sociali interessanti (versamento del 60% dei contributi alla cassa pensione)\n• Possibilità di fare acquisti scontati, partecipazione allo ZVV-BonusPass/abbonamento generale, ristorante per il personale con prezzi agevolati o buoni pasto (a seconda della località), asilo nido interno e molto altro ancora.\n• Spazio ufficio moderno\nContatto:\nIl Prof. Dr. sarà lieto di fornirvi in ​​anticipo ulteriori informazioni. med. Golo Kronenberg (direzione centrale supplente; golo.kronenberg@pukzh.ch), telefono +41 58 384 26 35 oppure Dr. med. Judith Rohde (sala medici senior C0, judith.rohde@pukzh.ch), tel. +41 58 384 37 65. Saremo lieti di ricevere la tua candidatura online completa. Non accettiamo candidature da reclutatori per questa posizione.\nOspedale psichiatrico universitario di Zurigo\nLenggstraße 31, casella postale 363\n8032 Zurigo\nwww.pukzh.ch",
+        "en": "The Zurich University Psychiatric Hospital (PUK) is one of the leading psychiatric hospitals in Switzerland. With over 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching - in a working environment characterized by interdisciplinary collaboration, trust and personal responsibility.\n100%\nAs a leading clinic for adult psychiatry and psychotherapy in Switzerland, we not only take on the care mandate of the Canton of Zurich, but also act as a university institution with a research and teaching mandate from the University of Zurich. At eight locations, including five clinical facilities and a research center, over 1,000 committed employees create a diverse and dynamic working environment. Here you have the opportunity to get actively involved in an important institution.\nThe Center for Depression, Anxiety Disorders and Psychotherapy (Chief Physician and Center Director Prof. Dr. med. Sebastian Olbrich) offers a comprehensive range of inpatient, outpatient and day-care therapy and comprehensive diagnostic evaluation options for people with affective disorders, personality disorders and trauma-related disorders. As a university center, we use established and innovative therapeutic approaches to continually improve treatment.\nFor our ward A2 for acute illnesses with a focus on personality and trauma-related disorders, we are looking for someone immediately or by appointment\nYour tasks\n• Leading a medical/psychological team and supervising the treatment of inpatients with mental illnesses, including diagnostics, therapy and discharge planning\n• Application of targeted treatment concepts in the context of the focus on personality disorders and trauma-related disorders, especially in acute exacerbations\n• Supervision of treatment by and supervision of junior doctors and psychologists\n• Participation in the teaching and further training of junior doctors and psychologists\n• Further development of the ward's treatment concept in collaboration with the multi-professional team and nursing and in coordination with other units with a focus on personality disorders and trauma-related disorders in the center\nYour profile\n• Approval as a doctor (mandatory requirements: Presence of the Swiss professional recognition MEBEKO = 1. Recognized diploma (no registration) & 2. MEBEKO German entry, both documents must be submitted\n• Completed specialist training or degree foreseeable\n• Interest in leadership roles\n• Interest in research and teaching\n• Interest and previous experience in the area of ​​personality disorders and trauma-related disorders; Knowledge of specific therapeutic procedures is an advantage\n• Interest in innovative treatment concepts including interventional psychiatry (e.g. repetitive transcranial magnetic stimulation [rTMS], electroconvulsion treatment [ECT], diagnostics using electroencephalogram [EEG])\n• High independence and self-organization\n• Knowledge of spoken and written German at level C2\nour range\n• Internship before a potential job\n• Independent work in a team with regular supervision and supervision as well as networking with other offers\n• Room for maneuver to introduce innovative ideas and actively shape processes and concepts\n• Personal and professional development opportunities\n• Opportunities to work on research projects or develop your own projects\n• Possibility of targeted support to obtain the “Interventional Psychiatry” qualification certificate\n• Stimulating university environment with good networking\n• Conditions of employment according to the cantonal personnel law\n• Attractive social benefits (payment of 60% of pension fund contributions)\n• Discounted shopping opportunities, participation in the ZVV-BonusPass/general subscription, staff restaurant with subsidized prices or lunch checks (depending on location), in-house crèche and much more.\n• Modern office space\nContact:\nProf. Dr. will be happy to provide you with further information in advance. med. Golo Kronenberg (Deputy Center Management; golo.kronenberg@pukzh.ch), telephone +41 58 384 26 35 or Dr. med. Judith Rohde (Senior Physician Ward C0, judith.rohde@pukzh.ch), Tel. +41 58 384 37 65. We look forward to receiving your complete online application. We do not accept applications from recruiters for this position.\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nAls führende Klinik für Erwachsenenpsychiatrie und Psychotherapie in der Schweiz übernehmen wir nicht nur den Versorgungsauftrag des Kantons Zürich, sondern agieren auch als universitäre Einrichtung mit Forschungs- und Lehrauftrag der Universität Zürich. An acht Standorten, darunter fünf klinische Einrichtungen und ein Forschungszentrum, gestalten über 1000 engagierte Mitarbeiterinnen und Mitarbeiter eine vielseitige und dynamische Arbeitsumgebung. Hier haben Sie die Möglichkeit, sich in einer bedeutenden Institution aktiv einzubringen.\nDas Zentrum für Depressionen, Angststörungen und Psychotherapie (Chefarzt und Zentrumsleiter Prof. Dr. med. Sebastian Olbrich) bietet ein umfangreiches stationäres, ambulantes und teilstationäres Therapieangebot und umfassende diagnostische Abklärungsmöglichkeiten für Menschen mit affektiven Störungen, Persönlichkeitsstörungen und Traumafolgestörungen an. Als universitäres Zentrum verwenden wir etablierte und innovative Therapieansätze, um die Behandlung stetig zu verbessern.\nFür unsere Station A2 für akute Erkrankungen mit Schwerpunkt auf Persönlichkeits- und Traumafolgestörungen suchen wir ab Frühjahr / Sommer 2027 eine/n\nIhre Aufgaben\n• Führung eines ärztlich/psychologischen Teams und Oberaufsicht über die Behandlung stationärer Patientinnen und Patienten mit psychischen Erkrankungen, einschliesslich Diagnostik, Therapie und Austrittsplanung\n• Anwendung gezielter Behandlungskonzepte im Rahmen des Schwerpunktes Persönlichkeitsstörungen und Traumafolgestörungen, insbesondere bei akuten Exazerbationen\n• Aufsicht der Behandlung durch und Supervision von Assistenzärztinnen und Assistenzärzten sowie Psychologinnen und Psychologen\n• Beteiligung an Lehre und Weiterbildung der Assistenzärztinnen und Assistenzärzte sowie Psychologinnen und Psychologen\n• Weiterentwicklung des Behandlungskonzeptes der Station in Zusammenarbeit mit dem multiprofessionellen Team und der Pflege und in Abstimmung mit anderen Einheiten mit Schwerpunkt Persönlichkeitsstörungen und Traumafolgestörungen im Zentrum\nIhr Profil\n• Approbation als Ärztin/Arzt (zwingende Voraussetzungen: Vorliegen der Schweizerischen Berufsanerkennung MEBEKO = 1. Anerkanntes Diplom (keine Registrierung) & 2. MEBEKO Deutsch-Eintrag, beide Dokumente sind einzureichen\n• Abgeschlossene Facharztausbildung oder Abschluss absehbar\n• Interesse an Führungsaufgaben\n• Interesse and Forschung und Lehre\n• Interesse und Vorerfahrung im Bereich Persönlichkeitsstörungen und Traumafolgestörungen; Kenntnis spezifischer Therapieverfahren von Vorteil\n• Interesse an innovativen Behandlungskonzepten einschliesslich interventioneller Psychiatrie (z.B. repetitive transkranielle Magnetstimulation [rTMS], Elektrokonvulsionsbehandlung [EKT], Diagnostik mittels Elektroenzephalogramm[EEG])\n• Hohe Eigenständigkeit und Selbstorganisation\n• Deutschkenntnisse in Wort und Schrift auf Niveau C2\nUnser Angebot\n• Hospitation vor einer potentiellen Anstellung\n• Selbständige Arbeit im Team mit regelmässiger Inter- und Supervision sowie Vernetzung mit anderen Angeboten\n• Handlungsspielraum, um innovative Ideen einzubringen und Prozesse und Konzepte aktiv zu gestalten\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Möglichkeiten zur Mitarbeit an Forschungsprojekten oder Entwicklung von eigenen Projekten\n• Möglichkeit der gezielten Unterstützung zur Erlangung des Fähigkeitsausweises «Interventionelle Psychiatrie»\n• Anregendes universitäres Umfeld mit guter Vernetzung\n• Anstellungsbedingungen nach dem kantonalen Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten, Beteiligung am ZVV-BonusPass/Generalabonnement, Personalrestaurant mit subventionierten Preisen oder Lunch Checks (standortabhängig), betriebseigene Kinderkrippe u.v.m.\n• Moderne Büroräumlichkeiten\nKontakt:\nWeitere Auskünfte erteilt Ihnen gerne vorab Prof. Dr. med. Golo Kronenberg (Stv. Zentrumsleitung; golo.kronenberg@pukzh.ch), Telefon +41 58 384 26 35 oder Frau Dr. med. Judith Rohde (Oberärztin Station C0, judith.rohde@pukzh.ch), Tel. +41 58 384 37 65. Wir freuen uns auf Ihre vollständige online Bewerbung. Für diese Position nehmen wir keine Bewerbungen von Personalvermittlern entgegen.\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "fr": "L'Hôpital psychiatrique universitaire de Zurich (PUK) est l'un des principaux hôpitaux psychiatriques de Suisse. Avec plus de 2 500 collaborateurs, nous nous engageons chaque jour dans le traitement et les soins holistiques des personnes atteintes de maladies mentales. En tant que clinique universitaire, nous combinons l'expertise clinique avec la recherche et l'enseignement - dans un environnement de travail caractérisé par la collaboration interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nEn tant que clinique leader en psychiatrie et psychothérapie pour adultes en Suisse, nous assumons non seulement le mandat de soins du canton de Zurich, mais agissons également en tant qu'institution universitaire avec un mandat de recherche et d'enseignement de l'Université de Zurich. Sur huit sites, dont cinq installations cliniques et un centre de recherche, plus de 1 000 employés engagés créent un environnement de travail diversifié et dynamique. Ici, vous avez la possibilité de vous impliquer activement dans une institution importante.\nLe Centre de dépression, de troubles anxieux et de psychothérapie (médecin-chef et directeur du centre, Prof. Dr. med. Sebastian Olbrich) propose une gamme complète de thérapies hospitalières, ambulatoires et de jour ainsi que des options complètes d'évaluation diagnostique pour les personnes souffrant de troubles affectifs, de troubles de la personnalité et de troubles liés à un traumatisme. En tant que centre universitaire, nous utilisons des approches thérapeutiques établies et innovantes pour améliorer continuellement les traitements.\nPour notre service A2 pour maladies aiguës axées sur les troubles de la personnalité et liés à des traumatismes, nous recherchons quelqu'un immédiatement ou sur rendez-vous.\nVos tâches\n• Diriger une équipe médico-psychologique et superviser le traitement des patients hospitalisés atteints de maladies mentales, y compris le diagnostic, la thérapie et la planification de la sortie\n• Application de concepts de traitement ciblés dans le cadre de l'accent mis sur les troubles de la personnalité et les troubles liés à des traumatismes, en particulier dans les exacerbations aiguës\n• Supervision du traitement par et supervision de jeunes médecins et psychologues\n• Participation à l'enseignement et au perfectionnement des jeunes médecins et psychologues\n• Poursuite du développement du concept de traitement du service en collaboration avec l'équipe multiprofessionnelle et les infirmières et en coordination avec d'autres unités, en mettant l'accent sur les troubles de la personnalité et les troubles liés aux traumatismes du centre.\nVotre profil\n• Agrément en tant que médecin (conditions obligatoires : présence de la reconnaissance professionnelle suisse MEBEKO = 1. Diplôme reconnu (pas d'inscription) & 2. Entrée allemande MEBEKO, les deux documents doivent être présentés\n• Formation spécialisée complétée ou diplôme prévisible\n• Intérêt pour les rôles de leadership\n• Intérêt pour la recherche et l'enseignement\n• Intérêt et expérience antérieure dans le domaine des troubles de la personnalité et des troubles liés aux traumatismes ; La connaissance de procédures thérapeutiques spécifiques est un avantage\n• Intérêt pour les concepts de traitement innovants, y compris la psychiatrie interventionnelle (par exemple, stimulation magnétique transcrânienne répétitive [rTMS], traitement par électroconvulsions [ECT], diagnostic par électroencéphalogramme [EEG])\n• Grande indépendance et auto-organisation\n• Connaissance de l'allemand parlé et écrit de niveau C2\nnotre gamme\n• Stage avant un emploi potentiel\n• Travail indépendant en équipe avec encadrement et encadrement régulier ainsi que mise en réseau avec d'autres offres\n• Marge de manœuvre pour introduire des idées innovantes et façonner activement les processus et les concepts\n• Possibilités de développement personnel et professionnel\n• Possibilités de participer à des projets de recherche ou de développer vos propres projets\n• Possibilité d'accompagnement ciblé pour l'obtention du certificat de qualification « Psychiatrie Interventionnelle »\n• Environnement universitaire stimulant avec un bon réseautage\n• Conditions de travail selon le droit cantonal du personnel\n• Des prestations sociales attractives (paiement de 60% des cotisations à la caisse de pension)\n• Possibilités de shopping à prix réduits, participation au ZVV-BonusPass/abonnement général, restaurant d'entreprise à prix subventionnés ou chèques-repas (selon le lieu), crèche sur place et bien plus encore.\n• Espace de bureau moderne\nContact:\nLe Prof. Dr. se fera un plaisir de vous fournir de plus amples informations à l'avance. méd. Golo Kronenberg (Deputy Center Management; golo.kronenberg@pukzh.ch), téléphone +41 58 384 26 35 ou Dr. med. Judith Rohde (médecin-chef service C0, judith.rohde@pukzh.ch), tél. +41 58 384 37 65. Nous attendons avec impatience de recevoir votre candidature en ligne complète. Nous n'acceptons pas les candidatures des recruteurs pour ce poste.\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2658/pub/1/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T21:14:06.762Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-04-14T09:26:48.884865+00:00",
+      "postedDate": "2026-04-14T09:26:48.884865+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/163206/2658/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2658",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "oberarztin-oberarzt-puk-zuerich-zurich-9z8y3l",
+        "oberarztin-oberarzt-puk-zuerich-zurich",
+        "oberarztin-oberarzt-personlichkeits-und-traumafolgestorungen-puk-zuerich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-puk-zuerich-zurich",
+          "oberarztin-oberarzt-personlichkeits-und-traumafolgestorungen-puk-zuerich-zurich"
+        ],
+        "de": [
+          "oberarztin-oberarzt-puk-zuerich-zurich-9z8y3l"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:39:10.962Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "puk-zuerich-21a7d328f5a1",
       "slug": "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-uster",
       "slugByLocale": {
@@ -1096,7 +1257,7 @@
       "url": "https://apply.refline.ch/163206/2741/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:09.271Z",
+      "crawledAt": "2026-10-17T21:14:06.316Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1174,7 +1335,7 @@
       "url": "https://apply.refline.ch/163206/2692/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:08.795Z",
+      "crawledAt": "2026-10-17T21:14:05.870Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1227,88 +1388,6 @@
       }
     },
     {
-      "id": "puk-zuerich-f8ef9c11b21b",
-      "slug": "primario-psychiatrische-universitatsklinik-zurich-zurich",
-      "slugByLocale": {
-        "it": "primario-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "senior-physician-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "oberarztin-oberarzt-puk-zuerich-zurich",
-        "fr": "medecin-chef-psychiatrische-universitatsklinik-zurich-zurich"
-      },
-      "company": "Psychiatrische Universitätsklinik Zürich",
-      "companyKey": "puk-zuerich",
-      "companyDomain": "pukzh.ch",
-      "title": "Oberärztin / Oberarzt",
-      "titleByLocale": {
-        "it": "Primario",
-        "en": "Senior Physician",
-        "de": "Oberärztin / Oberarzt",
-        "fr": "Médecin-chef"
-      },
-      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nAls führende Klinik für Erwachsenenpsychiatrie und Psychotherapie in der Schweiz übernehmen wir nicht nur den Versorgungsauftrag des Kantons Zürich, sondern agieren auch als universitäre Einrichtung mit Forschungs- und Lehrauftrag der Universität Zürich. An acht Standorten, darunter fünf klinische Einrichtungen und ein Forschungszentrum, gestalten über 1000 engagierte Mitarbeiterinnen und Mitarbeiter eine vielseitige und dynamische Arbeitsumgebung. Hier haben Sie die Möglichkeit, sich in einer bedeutenden Institution aktiv einzubringen.\nDas Zentrum für Depressionen, Angststörungen und Psychotherapie (Chefarzt und Zentrumsleiter Prof. Dr. med. Sebastian Olbrich) bietet ein umfangreiches stationäres, ambulantes und teilstationäres Therapieangebot und umfassende diagnostische Abklärungsmöglichkeiten für Menschen mit affektiven Störungen, Persönlichkeitsstörungen und Traumafolgestörungen an. Als universitäres Zentrum verwenden wir etablierte und innovative Therapieansätze, um die Behandlung stetig zu verbessern.\nFür unsere Station A2 für akute Erkrankungen mit Schwerpunkt auf Persönlichkeits- und Traumafolgestörungen suchen wir ab sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Führung eines ärztlich/psychologischen Teams und Oberaufsicht über die Behandlung stationärer Patientinnen und Patienten mit psychischen Erkrankungen, einschliesslich Diagnostik, Therapie und Austrittsplanung\n• Anwendung gezielter Behandlungskonzepte im Rahmen des Schwerpunktes Persönlichkeitsstörungen und Traumafolgestörungen, insbesondere bei akuten Exazerbationen\n• Aufsicht der Behandlung durch und Supervision von Assistenzärztinnen und Assistenzärzten sowie Psychologinnen und Psychologen\n• Beteiligung an Lehre und Weiterbildung der Assistenzärztinnen und Assistenzärzte sowie Psychologinnen und Psychologen\n• Weiterentwicklung des Behandlungskonzeptes der Station in Zusammenarbeit mit dem multiprofessionellen Team und der Pflege und in Abstimmung mit anderen Einheiten mit Schwerpunkt Persönlichkeitsstörungen und Traumafolgestörungen im Zentrum\nIhr Profil\n• Approbation als Ärztin/Arzt (zwingende Voraussetzungen: Vorliegen der Schweizerischen Berufsanerkennung MEBEKO = 1. Anerkanntes Diplom (keine Registrierung) & 2. MEBEKO Deutsch-Eintrag, beide Dokumente sind einzureichen\n• Abgeschlossene Facharztausbildung oder Abschluss absehbar\n• Interesse an Führungsaufgaben\n• Interesse and Forschung und Lehre\n• Interesse und Vorerfahrung im Bereich Persönlichkeitsstörungen und Traumafolgestörungen; Kenntnis spezifischer Therapieverfahren von Vorteil\n• Interesse an innovativen Behandlungskonzepten einschliesslich interventioneller Psychiatrie (z.B. repetitive transkranielle Magnetstimulation [rTMS], Elektrokonvulsionsbehandlung [EKT], Diagnostik mittels Elektroenzephalogramm[EEG])\n• Hohe Eigenständigkeit und Selbstorganisation\n• Deutschkenntnisse in Wort und Schrift auf Niveau C2\nUnser Angebot\n• Hospitation vor einer potentiellen Anstellung\n• Selbständige Arbeit im Team mit regelmässiger Inter- und Supervision sowie Vernetzung mit anderen Angeboten\n• Handlungsspielraum, um innovative Ideen einzubringen und Prozesse und Konzepte aktiv zu gestalten\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Möglichkeiten zur Mitarbeit an Forschungsprojekten oder Entwicklung von eigenen Projekten\n• Möglichkeit der gezielten Unterstützung zur Erlangung des Fähigkeitsausweises «Interventionelle Psychiatrie»\n• Anregendes universitäres Umfeld mit guter Vernetzung\n• Anstellungsbedingungen nach dem kantonalen Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten, Beteiligung am ZVV-BonusPass/Generalabonnement, Personalrestaurant mit subventionierten Preisen oder Lunch Checks (standortabhängig), betriebseigene Kinderkrippe u.v.m.\n• Moderne Büroräumlichkeiten\nKontakt:\nWeitere Auskünfte erteilt Ihnen gerne vorab Prof. Dr. med. Golo Kronenberg (Stv. Zentrumsleitung; golo.kronenberg@pukzh.ch), Telefon +41 58 384 26 35 oder Frau Dr. med. Judith Rohde (Oberärztin Station C0, judith.rohde@pukzh.ch), Tel. +41 58 384 37 65. Wir freuen uns auf Ihre vollständige online Bewerbung. Für diese Position nehmen wir keine Bewerbungen von Personalvermittlern entgegen.\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-      "descriptionByLocale": {
-        "it": "L'Ospedale psichiatrico universitario di Zurigo (PUK) è uno degli ospedali psichiatrici più importanti della Svizzera. Con oltre 2.500 dipendenti, ci impegniamo ogni giorno nel trattamento olistico e nella cura delle persone con malattie mentali. Come clinica universitaria, combiniamo l'esperienza clinica con la ricerca e l'insegnamento, in un ambiente di lavoro caratterizzato da collaborazione interdisciplinare, fiducia e responsabilità personale.\n100%\nIn qualità di clinica leader nel campo della psichiatria e della psicoterapia degli adulti in Svizzera, non solo assumiamo il mandato di cura del Cantone di Zurigo, ma agiamo anche come istituzione universitaria con un mandato di ricerca e insegnamento dell'Università di Zurigo. In otto sedi, tra cui cinque strutture cliniche e un centro di ricerca, oltre 1.000 dipendenti impegnati creano un ambiente di lavoro diversificato e dinamico. Qui hai l'opportunità di essere coinvolto attivamente in un'importante istituzione.\nIl Centro per la depressione, i disturbi d'ansia e la psicoterapia (medico capo e direttore del centro Prof. Dr. med. Sebastian Olbrich) offre una gamma completa di terapie stazionarie, ambulatoriali e diurne e opzioni complete di valutazione diagnostica per persone con disturbi affettivi, disturbi della personalità e disturbi legati a traumi. Come centro universitario, utilizziamo approcci terapeutici consolidati e innovativi per migliorare continuamente il trattamento.\nPer il nostro reparto A2 per le malattie acute con focus sui disturbi della personalità e legati ai traumi cerchiamo una persona immediatamente o su appuntamento\nI tuoi compiti\n• Guidare un team medico/psicologico e supervisionare il trattamento dei pazienti ricoverati con malattie mentali, compresa la diagnostica, la terapia e la pianificazione delle dimissioni\n• Applicazione di concetti di trattamento mirati nel contesto dell'attenzione ai disturbi della personalità e ai disturbi legati al trauma, soprattutto nelle riacutizzazioni\n• Supervisione del trattamento e supervisione di medici e psicologi in formazione\n• Partecipazione all'insegnamento e al perfezionamento di medici e psicologi in formazione\n• Ulteriore sviluppo del concetto di trattamento del reparto in collaborazione con l'équipe multiprofessionale e infermieristica e in coordinamento con altre unità con particolare attenzione ai disturbi della personalità e ai disturbi legati ai traumi nel centro\nIl tuo profilo\n• Approvazione come medico (requisiti obbligatori: Presenza del riconoscimento professionale svizzero MEBEKO = 1. Diploma riconosciuto (nessuna registrazione) & 2. Ingresso MEBEKO tedesco, entrambi i documenti devono essere presentati\n• Formazione specialistica completata o laurea prevedibile\n• Interesse per i ruoli di leadership\n• Interesse per la ricerca e l'insegnamento\n• Interesse ed esperienza pregressa nell'area dei disturbi di personalità e dei disturbi legati al trauma; Costituisce titolo preferenziale la conoscenza di specifiche procedure terapeutiche\n• Interesse per concetti di trattamento innovativi inclusa la psichiatria interventistica (ad esempio stimolazione magnetica transcranica ripetitiva [rTMS], trattamento con elettroconvulsione [ECT], diagnostica mediante elettroencefalogramma [EEG])\n• Elevata indipendenza e auto-organizzazione\n• Conoscenza del tedesco parlato e scritto a livello C2\nla nostra gamma\n• Stage prima di un potenziale lavoro\n• Lavoro indipendente in un team con supervisione e supervisione regolari, nonché networking con altre offerte\n• Spazio di manovra per introdurre idee innovative e modellare attivamente processi e concetti\n• Opportunità di sviluppo personale e professionale\n• Opportunità di lavorare su progetti di ricerca o sviluppare i propri progetti\n• Possibilità di supporto mirato per ottenere il certificato di qualificazione “Psichiatria Interventistica”.\n• Stimolare l'ambiente universitario con un buon networking\n• Condizioni di lavoro secondo il diritto cantonale del personale\n• Prestazioni sociali interessanti (versamento del 60% dei contributi alla cassa pensione)\n• Possibilità di fare acquisti scontati, partecipazione allo ZVV-BonusPass/abbonamento generale, ristorante per il personale con prezzi agevolati o buoni pasto (a seconda della località), asilo nido interno e molto altro ancora.\n• Spazio ufficio moderno\nContatto:\nIl Prof. Dr. sarà lieto di fornirvi in ​​anticipo ulteriori informazioni. med. Golo Kronenberg (direzione centrale supplente; golo.kronenberg@pukzh.ch), telefono +41 58 384 26 35 oppure Dr. med. Judith Rohde (sala medici senior C0, judith.rohde@pukzh.ch), tel. +41 58 384 37 65. Saremo lieti di ricevere la tua candidatura online completa. Non accettiamo candidature da reclutatori per questa posizione.\nOspedale psichiatrico universitario di Zurigo\nLenggstraße 31, casella postale 363\n8032 Zurigo\nwww.pukzh.ch",
-        "en": "The Zurich University Psychiatric Hospital (PUK) is one of the leading psychiatric hospitals in Switzerland. With over 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching - in a working environment characterized by interdisciplinary collaboration, trust and personal responsibility.\n100%\nAs a leading clinic for adult psychiatry and psychotherapy in Switzerland, we not only take on the care mandate of the Canton of Zurich, but also act as a university institution with a research and teaching mandate from the University of Zurich. At eight locations, including five clinical facilities and a research center, over 1,000 committed employees create a diverse and dynamic working environment. Here you have the opportunity to get actively involved in an important institution.\nThe Center for Depression, Anxiety Disorders and Psychotherapy (Chief Physician and Center Director Prof. Dr. med. Sebastian Olbrich) offers a comprehensive range of inpatient, outpatient and day-care therapy and comprehensive diagnostic evaluation options for people with affective disorders, personality disorders and trauma-related disorders. As a university center, we use established and innovative therapeutic approaches to continually improve treatment.\nFor our ward A2 for acute illnesses with a focus on personality and trauma-related disorders, we are looking for someone immediately or by appointment\nYour tasks\n• Leading a medical/psychological team and supervising the treatment of inpatients with mental illnesses, including diagnostics, therapy and discharge planning\n• Application of targeted treatment concepts in the context of the focus on personality disorders and trauma-related disorders, especially in acute exacerbations\n• Supervision of treatment by and supervision of junior doctors and psychologists\n• Participation in the teaching and further training of junior doctors and psychologists\n• Further development of the ward's treatment concept in collaboration with the multi-professional team and nursing and in coordination with other units with a focus on personality disorders and trauma-related disorders in the center\nYour profile\n• Approval as a doctor (mandatory requirements: Presence of the Swiss professional recognition MEBEKO = 1. Recognized diploma (no registration) & 2. MEBEKO German entry, both documents must be submitted\n• Completed specialist training or degree foreseeable\n• Interest in leadership roles\n• Interest in research and teaching\n• Interest and previous experience in the area of ​​personality disorders and trauma-related disorders; Knowledge of specific therapeutic procedures is an advantage\n• Interest in innovative treatment concepts including interventional psychiatry (e.g. repetitive transcranial magnetic stimulation [rTMS], electroconvulsion treatment [ECT], diagnostics using electroencephalogram [EEG])\n• High independence and self-organization\n• Knowledge of spoken and written German at level C2\nour range\n• Internship before a potential job\n• Independent work in a team with regular supervision and supervision as well as networking with other offers\n• Room for maneuver to introduce innovative ideas and actively shape processes and concepts\n• Personal and professional development opportunities\n• Opportunities to work on research projects or develop your own projects\n• Possibility of targeted support to obtain the “Interventional Psychiatry” qualification certificate\n• Stimulating university environment with good networking\n• Conditions of employment according to the cantonal personnel law\n• Attractive social benefits (payment of 60% of pension fund contributions)\n• Discounted shopping opportunities, participation in the ZVV-BonusPass/general subscription, staff restaurant with subsidized prices or lunch checks (depending on location), in-house crèche and much more.\n• Modern office space\nContact:\nProf. Dr. will be happy to provide you with further information in advance. med. Golo Kronenberg (Deputy Center Management; golo.kronenberg@pukzh.ch), telephone +41 58 384 26 35 or Dr. med. Judith Rohde (Senior Physician Ward C0, judith.rohde@pukzh.ch), Tel. +41 58 384 37 65. We look forward to receiving your complete online application. We do not accept applications from recruiters for this position.\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nAls führende Klinik für Erwachsenenpsychiatrie und Psychotherapie in der Schweiz übernehmen wir nicht nur den Versorgungsauftrag des Kantons Zürich, sondern agieren auch als universitäre Einrichtung mit Forschungs- und Lehrauftrag der Universität Zürich. An acht Standorten, darunter fünf klinische Einrichtungen und ein Forschungszentrum, gestalten über 1000 engagierte Mitarbeiterinnen und Mitarbeiter eine vielseitige und dynamische Arbeitsumgebung. Hier haben Sie die Möglichkeit, sich in einer bedeutenden Institution aktiv einzubringen.\nDas Zentrum für Depressionen, Angststörungen und Psychotherapie (Chefarzt und Zentrumsleiter Prof. Dr. med. Sebastian Olbrich) bietet ein umfangreiches stationäres, ambulantes und teilstationäres Therapieangebot und umfassende diagnostische Abklärungsmöglichkeiten für Menschen mit affektiven Störungen, Persönlichkeitsstörungen und Traumafolgestörungen an. Als universitäres Zentrum verwenden wir etablierte und innovative Therapieansätze, um die Behandlung stetig zu verbessern.\nFür unsere Station A2 für akute Erkrankungen mit Schwerpunkt auf Persönlichkeits- und Traumafolgestörungen suchen wir ab sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Führung eines ärztlich/psychologischen Teams und Oberaufsicht über die Behandlung stationärer Patientinnen und Patienten mit psychischen Erkrankungen, einschliesslich Diagnostik, Therapie und Austrittsplanung\n• Anwendung gezielter Behandlungskonzepte im Rahmen des Schwerpunktes Persönlichkeitsstörungen und Traumafolgestörungen, insbesondere bei akuten Exazerbationen\n• Aufsicht der Behandlung durch und Supervision von Assistenzärztinnen und Assistenzärzten sowie Psychologinnen und Psychologen\n• Beteiligung an Lehre und Weiterbildung der Assistenzärztinnen und Assistenzärzte sowie Psychologinnen und Psychologen\n• Weiterentwicklung des Behandlungskonzeptes der Station in Zusammenarbeit mit dem multiprofessionellen Team und der Pflege und in Abstimmung mit anderen Einheiten mit Schwerpunkt Persönlichkeitsstörungen und Traumafolgestörungen im Zentrum\nIhr Profil\n• Approbation als Ärztin/Arzt (zwingende Voraussetzungen: Vorliegen der Schweizerischen Berufsanerkennung MEBEKO = 1. Anerkanntes Diplom (keine Registrierung) & 2. MEBEKO Deutsch-Eintrag, beide Dokumente sind einzureichen\n• Abgeschlossene Facharztausbildung oder Abschluss absehbar\n• Interesse an Führungsaufgaben\n• Interesse and Forschung und Lehre\n• Interesse und Vorerfahrung im Bereich Persönlichkeitsstörungen und Traumafolgestörungen; Kenntnis spezifischer Therapieverfahren von Vorteil\n• Interesse an innovativen Behandlungskonzepten einschliesslich interventioneller Psychiatrie (z.B. repetitive transkranielle Magnetstimulation [rTMS], Elektrokonvulsionsbehandlung [EKT], Diagnostik mittels Elektroenzephalogramm[EEG])\n• Hohe Eigenständigkeit und Selbstorganisation\n• Deutschkenntnisse in Wort und Schrift auf Niveau C2\nUnser Angebot\n• Hospitation vor einer potentiellen Anstellung\n• Selbständige Arbeit im Team mit regelmässiger Inter- und Supervision sowie Vernetzung mit anderen Angeboten\n• Handlungsspielraum, um innovative Ideen einzubringen und Prozesse und Konzepte aktiv zu gestalten\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Möglichkeiten zur Mitarbeit an Forschungsprojekten oder Entwicklung von eigenen Projekten\n• Möglichkeit der gezielten Unterstützung zur Erlangung des Fähigkeitsausweises «Interventionelle Psychiatrie»\n• Anregendes universitäres Umfeld mit guter Vernetzung\n• Anstellungsbedingungen nach dem kantonalen Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten, Beteiligung am ZVV-BonusPass/Generalabonnement, Personalrestaurant mit subventionierten Preisen oder Lunch Checks (standortabhängig), betriebseigene Kinderkrippe u.v.m.\n• Moderne Büroräumlichkeiten\nKontakt:\nWeitere Auskünfte erteilt Ihnen gerne vorab Prof. Dr. med. Golo Kronenberg (Stv. Zentrumsleitung; golo.kronenberg@pukzh.ch), Telefon +41 58 384 26 35 oder Frau Dr. med. Judith Rohde (Oberärztin Station C0, judith.rohde@pukzh.ch), Tel. +41 58 384 37 65. Wir freuen uns auf Ihre vollständige online Bewerbung. Für diese Position nehmen wir keine Bewerbungen von Personalvermittlern entgegen.\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-        "fr": "L'Hôpital psychiatrique universitaire de Zurich (PUK) est l'un des principaux hôpitaux psychiatriques de Suisse. Avec plus de 2 500 collaborateurs, nous nous engageons chaque jour dans le traitement et les soins holistiques des personnes atteintes de maladies mentales. En tant que clinique universitaire, nous combinons l'expertise clinique avec la recherche et l'enseignement - dans un environnement de travail caractérisé par la collaboration interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nEn tant que clinique leader en psychiatrie et psychothérapie pour adultes en Suisse, nous assumons non seulement le mandat de soins du canton de Zurich, mais agissons également en tant qu'institution universitaire avec un mandat de recherche et d'enseignement de l'Université de Zurich. Sur huit sites, dont cinq installations cliniques et un centre de recherche, plus de 1 000 employés engagés créent un environnement de travail diversifié et dynamique. Ici, vous avez la possibilité de vous impliquer activement dans une institution importante.\nLe Centre de dépression, de troubles anxieux et de psychothérapie (médecin-chef et directeur du centre, Prof. Dr. med. Sebastian Olbrich) propose une gamme complète de thérapies hospitalières, ambulatoires et de jour ainsi que des options complètes d'évaluation diagnostique pour les personnes souffrant de troubles affectifs, de troubles de la personnalité et de troubles liés à un traumatisme. En tant que centre universitaire, nous utilisons des approches thérapeutiques établies et innovantes pour améliorer continuellement les traitements.\nPour notre service A2 pour maladies aiguës axées sur les troubles de la personnalité et liés à des traumatismes, nous recherchons quelqu'un immédiatement ou sur rendez-vous.\nVos tâches\n• Diriger une équipe médico-psychologique et superviser le traitement des patients hospitalisés atteints de maladies mentales, y compris le diagnostic, la thérapie et la planification de la sortie\n• Application de concepts de traitement ciblés dans le cadre de l'accent mis sur les troubles de la personnalité et les troubles liés à des traumatismes, en particulier dans les exacerbations aiguës\n• Supervision du traitement par et supervision de jeunes médecins et psychologues\n• Participation à l'enseignement et au perfectionnement des jeunes médecins et psychologues\n• Poursuite du développement du concept de traitement du service en collaboration avec l'équipe multiprofessionnelle et les infirmières et en coordination avec d'autres unités, en mettant l'accent sur les troubles de la personnalité et les troubles liés aux traumatismes du centre.\nVotre profil\n• Agrément en tant que médecin (conditions obligatoires : présence de la reconnaissance professionnelle suisse MEBEKO = 1. Diplôme reconnu (pas d'inscription) & 2. Entrée allemande MEBEKO, les deux documents doivent être présentés\n• Formation spécialisée complétée ou diplôme prévisible\n• Intérêt pour les rôles de leadership\n• Intérêt pour la recherche et l'enseignement\n• Intérêt et expérience antérieure dans le domaine des troubles de la personnalité et des troubles liés aux traumatismes ; La connaissance de procédures thérapeutiques spécifiques est un avantage\n• Intérêt pour les concepts de traitement innovants, y compris la psychiatrie interventionnelle (par exemple, stimulation magnétique transcrânienne répétitive [rTMS], traitement par électroconvulsions [ECT], diagnostic par électroencéphalogramme [EEG])\n• Grande indépendance et auto-organisation\n• Connaissance de l'allemand parlé et écrit de niveau C2\nnotre gamme\n• Stage avant un emploi potentiel\n• Travail indépendant en équipe avec encadrement et encadrement régulier ainsi que mise en réseau avec d'autres offres\n• Marge de manœuvre pour introduire des idées innovantes et façonner activement les processus et les concepts\n• Possibilités de développement personnel et professionnel\n• Possibilités de participer à des projets de recherche ou de développer vos propres projets\n• Possibilité d'accompagnement ciblé pour l'obtention du certificat de qualification « Psychiatrie Interventionnelle »\n• Environnement universitaire stimulant avec un bon réseautage\n• Conditions de travail selon le droit cantonal du personnel\n• Des prestations sociales attractives (paiement de 60% des cotisations à la caisse de pension)\n• Possibilités de shopping à prix réduits, participation au ZVV-BonusPass/abonnement général, restaurant d'entreprise à prix subventionnés ou chèques-repas (selon le lieu), crèche sur place et bien plus encore.\n• Espace de bureau moderne\nContact:\nLe Prof. Dr. se fera un plaisir de vous fournir de plus amples informations à l'avance. méd. Golo Kronenberg (Deputy Center Management; golo.kronenberg@pukzh.ch), téléphone +41 58 384 26 35 ou Dr. med. Judith Rohde (médecin-chef service C0, judith.rohde@pukzh.ch), tél. +41 58 384 37 65. Nous attendons avec impatience de recevoir votre candidature en ligne complète. Nous n'acceptons pas les candidatures des recruteurs pour ce poste.\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/163206/2658/pub/1/index.html",
-      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:08.320Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-04-14T09:26:48.884865+00:00",
-      "postedDate": "2026-04-14T09:26:48.884865+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/163206/2658/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2658",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "oberarztin-oberarzt-puk-zuerich-zurich-9z8y3l",
-        "oberarztin-oberarzt-puk-zuerich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-puk-zuerich-zurich"
-        ],
-        "de": [
-          "oberarztin-oberarzt-puk-zuerich-zurich-9z8y3l"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:39:10.962Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "puk-zuerich-5013691af23e",
       "slug": "dottore-notturno-medico-assistito-medico-assistente-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
@@ -1339,7 +1418,7 @@
       "url": "https://apply.refline.ch/163206/2712/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:06.895Z",
+      "crawledAt": "2026-10-17T21:14:03.929Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1425,7 +1504,7 @@
       "url": "https://apply.refline.ch/163206/2516/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:06.420Z",
+      "crawledAt": "2026-10-17T21:14:03.482Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1506,7 +1585,7 @@
       "url": "https://apply.refline.ch/163206/2788/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:05.944Z",
+      "crawledAt": "2026-10-17T21:14:03.037Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1583,7 +1662,7 @@
       "url": "https://apply.refline.ch/163206/2664/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:05.467Z",
+      "crawledAt": "2026-10-17T21:14:02.588Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1669,7 +1748,7 @@
       "url": "https://apply.refline.ch/163206/2681/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:04.990Z",
+      "crawledAt": "2026-10-17T21:14:02.123Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1750,7 +1829,7 @@
       "url": "https://apply.refline.ch/163206/2791/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:04.056Z",
+      "crawledAt": "2026-10-17T21:14:01.677Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1806,6 +1885,84 @@
       }
     },
     {
+      "id": "puk-zuerich-e9c1e655507f",
+      "slug": "leitung-pflege-alterspsychiatrie-e-psychotherapie-psychiatrische-universitatsklinik-zurich",
+      "slugByLocale": {
+        "it": "leitung-pflege-alterspsychiatrie-e-psychotherapie-psychiatrische-universitatsklinik-zurich",
+        "en": "leitung-pflege-alterspsychiatrie-und-psychotherapie-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "leitung-pflege-alterspsychiatrie-und-psychotherapie-puk-zuerich-zurich",
+        "fr": "leitung-pflege-alterspsychiatrie-und-psychotherapie-psychiatrische-universitatsklinik-zurich-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "Leitung Pflege, Alterspsychiatrie und Psychotherapie",
+      "titleByLocale": {
+        "it": "Responsabile delle cure infermieristiche, psichiatria geriatrica e psicoterapia",
+        "en": "Head of Care, Old Age Psychiatry and Psychotherapy",
+        "de": "Leitung Pflege, Alterspsychiatrie und Psychotherapie",
+        "fr": "Chef des soins, psychiatrie de la vieillesse et psychothérapie"
+      },
+      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDie Direktion Pflege, Therapien und Soziale Arbeit (Direktion PTS) beschäftigt rund 1‘100 Mitarbeitende aus unterschiedlichen Berufsgruppen.\nFür die Alterspsychiatrie und Psychotherapie in Zürich suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Sicherstellung der alterspsychiatrischen Pflege nach «Best Practice»- und «Recovery»-Ansätzen\n• Führung und -entwicklung von rund 80 Mitarbeitenden und Führungspersonen in einem universitären Klinikbetrieb, verantwortlich für Personal-, Sach- und Weiterbildungskostenbudget\n• Zusammenarbeit mit einem interprofessionellen Führungsteam sowie aktive Unterstützung der Behandlungsteams\n• Verantwortung für die Umsetzung des qualitativen und quantitativen Ausbildungsauftrages in Zusammenarbeit mit dem Kompetenzzentrum Bildung der Direktion PTS\n• Weiterentwicklung der Pflege sowie Initiierung und Umsetzung von Innovationsprozessen in der Versorgung und im Personalbereich (z.B. praxisrelevante Laufbahnplanungen, Mitarbeiterkampagnen, Integration von Nurse Practitioner in die Patientenversorgung)\n• Mitarbeit in bereichs- und klinikübergreifenden Projekten sowie aktive Vernetzung mit internen und externen Partnerinnen und Partnern\nIhr Profil\n• Engagierte und belastbare Persönlichkeit mit langjähriger Führungserfahrung und Interesse an der interprofessionell Zusammenarbeit\n• Eidgenössisch anerkannte Ausbildung oder Studium in Pflege (mindestens HF) mit Weiterbildung auf Masterniveau in Führungs-, Management- und Leadership-Bereichen\n• Ausgesprochenes betriebswirtschaftliches, fachorientiertes und innovatives Denken\n• Berufserfahrung in somatischer oder alterpsychiatrischer Pflege\n• Selbstständige, effiziente und dienstleistungsorientierte Arbeitsweise\n• Sehr gute Kommunikationsfähigkeit und mündliche und schriftliche Sprachgewandtheit\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gesundheit im Fokus: Diverse Sportangebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote\nKontakt:\nDr. Fritz Frauenfelder\nDirektor Pflege, Therapien, Soziale Arbeit\n+41 58 384 25 67\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+      "descriptionByLocale": {
+        "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n100%\nLa gestione della cura, delle terapie e del lavoro sociale (Directorate PTS) impiega circa 1.100 persone provenienti da diversi gruppi professionali.\nPer la psichiatria e la psicoterapia di età a Zurigo stiamo cercando 1. Dicembre 2026 o accordo uno o più\nI loro compiti\n• Assicurare la cura psichiatrica di età in base alle migliori pratiche e approcci di recupero\n• Leadership e sviluppo di circa 80 dipendenti e manager in un ospedale universitario, responsabile del bilancio del personale, dei costi materiali e della formazione\n• Collaborazione con un team di leadership interprofessionale e supporto attivo dei team di trattamento\n• Responsabilità per l'attuazione del mandato di formazione qualitativa e quantitativa in collaborazione con il Centro di competenza Istruzione della Direzione PTS\n• Ulteriore sviluppo dell'assistenza e dell'iniziazione e dell'attuazione dei processi di innovazione nel settore della cura e del personale (ad esempio, la pianificazione della carriera, le campagne dei dipendenti, l'integrazione dell'infermiera Practitioner nella cura dei pazienti)\n• Collaborazione in progetti cross-departmentali e cross-clinici e networking attivo con partner interni ed esterni\nIl tuo profilo\n• Personalità attiva e resiliente con molti anni di esperienza di leadership e interesse nella cooperazione interprofessionale\n• Istruzione o studio riconosciuti in Svizzera in allattamento (almeno HF) con ulteriore istruzione a livello di master in settori di gestione, gestione e leadership\n• Gestione aziendale pronunciata, pensiero specializzato e innovativo\n• Esperienza professionale nella cura psichiatrica somatica o matura\n• Metodi di lavoro autonomi, efficienti e orientati al servizio\n• Molto buone capacità di comunicazione e competenze di lingua orale e scritta\nLa nostra offerta\n• Conoscenza che avanza: Ampia offerta iniziale, ulteriore e ulteriore formazione\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Focus sulla salute: Varie offerte sportive, oasi verdi e un team di assistenza in-house\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\n• Ben fornito nel lavoro quotidiano: Offerte di catering scontati\nContatto:\nDr Fritz Frauenfelder\nDirettore di Cura, Terapie, Lavoro Sociale\n+41 58 384 25 67\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
+        "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n100%\nThe Management of Care, Therapies and Social Work (Directorate PTS) employs around 1,100 people from different professional groups.\nFor age psychiatry and psychotherapy in Zurich we are looking for 1. December 2026 or by agreement one or more\nTheir tasks\n• Ensuring age psychiatric care according to best practice and recovery approaches\n• Leadership and development of around 80 employees and managers in a university hospital, responsible for personnel, material and training costs budget\n• Collaboration with an interprofessional leadership team and active support of treatment teams\n• Responsibility for the implementation of the qualitative and quantitative training mandate in cooperation with the Competence Centre Education of the Directorate PTS\n• Further development of care as well as initiation and implementation of innovation processes in the care and personnel sector (e.g. practice-relevant career planning, employee campaigns, integration of Nurse Practitioner into patient care)\n• Collaboration in cross-departmental and cross-clinic projects as well as active networking with internal and external partners\nYour profile\n• Engaged and resilient personality with many years of leadership experience and interest in interprofessional cooperation\n• Swiss-recognised education or study in nursing (at least HF) with further education at master level in management, management and leadership areas\n• Pronounced business management, specialized and innovative thinking\n• Professional experience in somatic or aged psychiatric care\n• Self-employed, efficient and service-oriented working methods\n• Very good communication skills and oral and written language skills\nOur offer\n• Knowledge that advances: Extensive initial, further and further training offers\n• Strong in the team: appreciative cooperation and mutual support\n• Focus on health: Various sports offers, green oases and an in-house care team\n• Future provision with added value: 60% employer contribution to the pension fund\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\n• Well supplied in everyday work: Discounted catering offers\nContact:\nDr Fritz Frauenfelder\nDirector of Care, Therapies, Social Work\n+41 58 384 25 67\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDie Direktion Pflege, Therapien und Soziale Arbeit (Direktion PTS) beschäftigt rund 1‘100 Mitarbeitende aus unterschiedlichen Berufsgruppen.\nFür die Alterspsychiatrie und Psychotherapie in Zürich suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Sicherstellung der alterspsychiatrischen Pflege nach «Best Practice»- und «Recovery»-Ansätzen\n• Führung und -entwicklung von rund 80 Mitarbeitenden und Führungspersonen in einem universitären Klinikbetrieb, verantwortlich für Personal-, Sach- und Weiterbildungskostenbudget\n• Zusammenarbeit mit einem interprofessionellen Führungsteam sowie aktive Unterstützung der Behandlungsteams\n• Verantwortung für die Umsetzung des qualitativen und quantitativen Ausbildungsauftrages in Zusammenarbeit mit dem Kompetenzzentrum Bildung der Direktion PTS\n• Weiterentwicklung der Pflege sowie Initiierung und Umsetzung von Innovationsprozessen in der Versorgung und im Personalbereich (z.B. praxisrelevante Laufbahnplanungen, Mitarbeiterkampagnen, Integration von Nurse Practitioner in die Patientenversorgung)\n• Mitarbeit in bereichs- und klinikübergreifenden Projekten sowie aktive Vernetzung mit internen und externen Partnerinnen und Partnern\nIhr Profil\n• Engagierte und belastbare Persönlichkeit mit langjähriger Führungserfahrung und Interesse an der interprofessionell Zusammenarbeit\n• Eidgenössisch anerkannte Ausbildung oder Studium in Pflege (mindestens HF) mit Weiterbildung auf Masterniveau in Führungs-, Management- und Leadership-Bereichen\n• Ausgesprochenes betriebswirtschaftliches, fachorientiertes und innovatives Denken\n• Berufserfahrung in somatischer oder alterpsychiatrischer Pflege\n• Selbstständige, effiziente und dienstleistungsorientierte Arbeitsweise\n• Sehr gute Kommunikationsfähigkeit und mündliche und schriftliche Sprachgewandtheit\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gesundheit im Fokus: Diverse Sportangebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote\nKontakt:\nDr. Fritz Frauenfelder\nDirektor Pflege, Therapien, Soziale Arbeit\n+41 58 384 25 67\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nLa gestion des soins, des thérapies et du travail social (direction PTS) emploie environ 1 100 personnes de différents groupes professionnels.\nPour la psychiatrie de l'âge et la psychothérapie à Zurich nous cherchons 1. Décembre 2026 ou par accord un ou plusieurs\nLeurs tâches\n• Assurer les soins psychiatriques selon les meilleures pratiques et les méthodes de rétablissement\n• Leadership et perfectionnement d'environ 80 employés et gestionnaires dans un hôpital universitaire, responsables des coûts du personnel, du matériel et de la formation\n• Collaboration avec une équipe de direction interprofessionnelle et soutien actif des équipes de traitement\n• Responsabilité de la mise en œuvre du mandat de formation qualitative et quantitative en coopération avec le Centre de compétences Éducation de la Direction PTS\n• Développement des soins ainsi que lancement et mise en oeuvre de processus d'innovation dans le secteur des soins et du personnel (p. ex. planification de carrière axée sur la pratique, campagnes auprès des employés, intégration des infirmières praticiennes dans les soins aux patients)\n• Collaboration à des projets interministérielles et intercliniques ainsi qu'à des réseaux actifs avec des partenaires internes et externes\nVotre profil\n• Personnalité engagée et résiliente avec de nombreuses années d'expérience en leadership et intérêt pour la coopération interprofessionnelle\n• Enseignement ou études en sciences infirmières (au moins HF) reconnus par la Suisse avec formation continue au niveau de maîtrise dans les domaines de la gestion, de la gestion et du leadership\n• Prononcé gestion d'entreprise, pensée spécialisée et innovante\n• Expérience professionnelle en soins psychiatriques somatiques ou âgés\n• Méthodes de travail indépendantes, efficaces et axées sur les services\n• Très bonnes compétences en communication et en langue orale et écrite\nNotre offre\n• Connaissances qui progressent: offres de formation initiale, continue et continue\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Focus sur la santé: Différentes offres sportives, oasis vertes et une équipe de soins à domicile\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\n• Bien fourni dans le travail quotidien: offres de restauration à prix réduit\nPersonne à contacter:\nDr Fritz Frauenfelder\nDirecteur des soins, Thérapies, Travail social\n+41 58 384 25 67\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2800/pub/1/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-17T21:14:01.230Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T12:33:03.222306+00:00",
+      "postedDate": "2026-10-15T12:33:03.222306+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/163206/2800/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2800",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "leitung-pflege-alterspsychiatrie-und-psychotherapie-puk-zuerich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-pflege-alterspsychiatrie-und-psychotherapie-puk-zuerich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:15:27.760Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "puk-zuerich-12055d078483",
       "slug": "cura-della-gestione-100-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
@@ -1837,7 +1994,7 @@
       "url": "https://apply.refline.ch/163206/2795/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:03.579Z",
+      "crawledAt": "2026-10-17T21:14:00.785Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1921,7 +2078,7 @@
       "url": "https://apply.refline.ch/163206/2753/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:03.104Z",
+      "crawledAt": "2026-10-17T21:14:00.340Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2005,7 +2162,7 @@
       "url": "https://apply.refline.ch/163206/2743/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:02.630Z",
+      "crawledAt": "2026-10-17T21:13:59.894Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2082,7 +2239,7 @@
       "url": "https://apply.refline.ch/163206/2742/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:02.157Z",
+      "crawledAt": "2026-10-17T21:13:59.449Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2160,7 +2317,7 @@
       "url": "https://apply.refline.ch/163206/2796/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:01.681Z",
+      "crawledAt": "2026-10-17T21:13:59.002Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2244,7 +2401,7 @@
       "url": "https://apply.refline.ch/163206/2745/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:01.203Z",
+      "crawledAt": "2026-10-17T21:13:58.540Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2322,7 +2479,7 @@
       "url": "https://apply.refline.ch/163206/2695/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:00.728Z",
+      "crawledAt": "2026-10-17T21:13:58.095Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2406,7 +2563,7 @@
       "url": "https://apply.refline.ch/163206/2694/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:18:00.253Z",
+      "crawledAt": "2026-10-17T21:13:57.650Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2473,9 +2630,9 @@
       "id": "puk-zuerich-0540baa14d04",
       "slug": "apprendistato-come-fachfrau-betreuung-fachmann-betreuung-cfc-psychiatrische-universitatsklinik-zurich",
       "slugByLocale": {
-        "de": "lehrstelle-als-fachfrau-betreuung-fachmann-betreuung-efz-puk-zuerich-zurich",
         "it": "apprendistato-come-fachfrau-betreuung-fachmann-betreuung-cfc-psychiatrische-universitatsklinik-zurich",
         "en": "apprenticeship-as-expert-supervision-expert-supervision-efz-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "lehrstelle-als-fachfrau-betreuung-fachmann-betreuung-efz-puk-zuerich-zurich",
         "fr": "apprentissage-en-tant-que-supervision-experte-supervision-experte-efz-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -2483,16 +2640,16 @@
       "companyDomain": "pukzh.ch",
       "title": "Lehrstelle als Fachfrau Betreuung / Fachmann Betreuung EFZ",
       "titleByLocale": {
-        "de": "Lehrstelle als Fachfrau Betreuung / Fachmann Betreuung EFZ",
         "it": "Posto di apprendistato come operatrice socioassistenziale / operatore socioassistenziale EFZ",
         "en": "Apprenticeship as expert supervision / expert supervision EFZ",
+        "de": "Lehrstelle als Fachfrau Betreuung / Fachmann Betreuung EFZ",
         "fr": "Apprentissage en tant que supervision experte / supervision experte EFZ"
       },
       "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDie Betriebs-Kinderkrippe Spatzennest der Psychiatrischen Universitätsklinik Zürich bietet über 20 Betreuungsplätze für die Kinder unserer Mitarbeitenden in zwei altersgemischten Gruppen an. Die Kinder im Alter von vier Monaten bis zum Kindergarteneintritt werden im Familiensystem betreut.\nIm August 2027 bieten wir im Spatzennest in Zürich eine dreijährige\nIhre Aufgaben\n• Mitbetreuung der Kinder in der zugeteilten Gruppe\n• Begleitung der Kinder im Freispiel\n• Mitgestaltung des Kinderkrippenalltages in Zusammenarbeit mit dem Team\n• Erledigung allgemeiner Hausarbeiten\n• Aktive Teilnahme an verschiedenen Krippensitzungen\n• Mithilfe bei Elternaktivitäten\nIhr Profil\n• Schulabschluss Sekundarschule Profil A oder B\n• Praktika in der Kinderbetreuung von Vorteil\n• Einfühlsame und geduldige Art sowie Freude an der Arbeit mit Kindern\n• Kreative und selbstständige Arbeitsweise\n• Gute Deutschkenntnisse\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Mehr Vorteile für Sie: Vergünstigungen und Rabatte bei zahlreichen Partnerunternehmen\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\nKontakt:\nJolanda Steiner\nLeiterin Kinderkrippe\n+41 58 384 42 01\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
       "descriptionByLocale": {
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDie Betriebs-Kinderkrippe Spatzennest der Psychiatrischen Universitätsklinik Zürich bietet über 20 Betreuungsplätze für die Kinder unserer Mitarbeitenden in zwei altersgemischten Gruppen an. Die Kinder im Alter von vier Monaten bis zum Kindergarteneintritt werden im Familiensystem betreut.\nIm August 2027 bieten wir im Spatzennest in Zürich eine dreijährige\nIhre Aufgaben\n• Mitbetreuung der Kinder in der zugeteilten Gruppe\n• Begleitung der Kinder im Freispiel\n• Mitgestaltung des Kinderkrippenalltages in Zusammenarbeit mit dem Team\n• Erledigung allgemeiner Hausarbeiten\n• Aktive Teilnahme an verschiedenen Krippensitzungen\n• Mithilfe bei Elternaktivitäten\nIhr Profil\n• Schulabschluss Sekundarschule Profil A oder B\n• Praktika in der Kinderbetreuung von Vorteil\n• Einfühlsame und geduldige Art sowie Freude an der Arbeit mit Kindern\n• Kreative und selbstständige Arbeitsweise\n• Gute Deutschkenntnisse\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Mehr Vorteile für Sie: Vergünstigungen und Rabatte bei zahlreichen Partnerunternehmen\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\nKontakt:\nJolanda Steiner\nLeiterin Kinderkrippe\n+41 58 384 42 01\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n100%\nIl vivaio dell'azienda Spatzennest del Psychiatric University Hospital di Zurigo offre più di 20 posti per l'infanzia per i bambini dei nostri dipendenti in due gruppi di età. I bambini di età compresa tra quattro mesi fino all'ingresso dell'asilo sono curati nel sistema familiare.\nNell'agosto del 2027 offriamo un bambino di tre anni\nI loro compiti\n• Cura dei bambini nel gruppo assegnato\n• Accompagnamento dei bambini in gioco gratuito\n• Co-design della giornata crèche in collaborazione con il team\n• Completamento dei compiti generali delle famiglie\n• Partecipazione attiva a varie presepi\n• Assistenza alle attività dei genitori\nIl tuo profilo\n• Scuola secondaria lasciando il profilo A o B\n• Stage per l'infanzia benefico\n• Natura sensibile e paziente e piacere nel lavorare con i bambini\n• Metodi di lavoro creativi e indipendenti\n• Buona conoscenza del tedesco\nLa nostra offerta\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\n• Più vantaggi per voi: sconti e sconti presso numerose aziende partner\n• Focus sulla salute: Varie offerte per la salute, oasi verdi e un team di assistenza in-house\nContatto:\nJolanda Steiner\nCapo della scuola materna\n+41 58 384 42 01\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
         "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n100%\nThe company nursery Spatzennest of the Psychiatric University Hospital Zurich offers more than 20 childcare places for the children of our employees in two age-mixed groups. The children aged four months until kindergarten entry are cared for in the family system.\nIn August 2027 we offer a three-year-old\nTheir tasks\n• Caring for children in the assigned group\n• Accompaniment of children in free play\n• Co-design of the crèche day in cooperation with the team\n• Completion of general household tasks\n• Active participation in various nativity sessions\n• Assistance with parental activities\nYour profile\n• Secondary school leaving profile A or B\n• Childcare internships beneficial\n• Sensitive and patient nature and pleasure in working with children\n• Creative and independent working methods\n• Good knowledge of German\nOur offer\n• Strong in the team: appreciative cooperation and mutual support\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\n• More advantages for you: Discounts and discounts at numerous partner companies\n• Focus on health: Various health-promoting offers, green oases and an in-house care team\nContact:\nJolanda Steiner\nHead of the nursery\n+41 58 384 42 01\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDie Betriebs-Kinderkrippe Spatzennest der Psychiatrischen Universitätsklinik Zürich bietet über 20 Betreuungsplätze für die Kinder unserer Mitarbeitenden in zwei altersgemischten Gruppen an. Die Kinder im Alter von vier Monaten bis zum Kindergarteneintritt werden im Familiensystem betreut.\nIm August 2027 bieten wir im Spatzennest in Zürich eine dreijährige\nIhre Aufgaben\n• Mitbetreuung der Kinder in der zugeteilten Gruppe\n• Begleitung der Kinder im Freispiel\n• Mitgestaltung des Kinderkrippenalltages in Zusammenarbeit mit dem Team\n• Erledigung allgemeiner Hausarbeiten\n• Aktive Teilnahme an verschiedenen Krippensitzungen\n• Mithilfe bei Elternaktivitäten\nIhr Profil\n• Schulabschluss Sekundarschule Profil A oder B\n• Praktika in der Kinderbetreuung von Vorteil\n• Einfühlsame und geduldige Art sowie Freude an der Arbeit mit Kindern\n• Kreative und selbstständige Arbeitsweise\n• Gute Deutschkenntnisse\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Mehr Vorteile für Sie: Vergünstigungen und Rabatte bei zahlreichen Partnerunternehmen\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\nKontakt:\nJolanda Steiner\nLeiterin Kinderkrippe\n+41 58 384 42 01\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nL'entreprise de pépinière Spatzennest de l'hôpital universitaire psychiatrique de Zurich offre plus de 20 places de garde pour les enfants de nos employés dans deux groupes mixtes d'âge. Les enfants âgés de quatre mois jusqu ' à l ' entrée dans la maternelle sont pris en charge dans le système familial.\nEn août 2027, nous offrons un enfant de trois ans\nLeurs tâches\n• Prendre soin des enfants du groupe désigné\n• Accompagnement des enfants dans le jeu libre\n• Co-conception de la journée de la crèche en collaboration avec l'équipe\n• Achèvement des tâches domestiques générales\n• Participation active à diverses séances de nativité\n• Aide aux activités parentales\nVotre profil\n• Profil de fin d'études secondaires A ou B\n• Stages de garde d'enfants bénéfiques\n• Nature sensible et patiente et plaisir à travailler avec les enfants\n• Méthodes de travail créatives et indépendantes\n• Bonne connaissance de l'allemand\nNotre offre\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\n• Plus d'avantages pour vous: Réductions et rabais dans de nombreuses entreprises partenaires\n• Focus sur la santé : diverses offres de promotion de la santé, des oasis vertes et une équipe de soins à domicile\nPersonne à contacter:\nJolanda Steiner\nChef de la crèche\n+41 58 384 42 01\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
       },
       "location": "Zürich",
@@ -2500,7 +2657,7 @@
       "url": "https://apply.refline.ch/163206/2798/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:59.779Z",
+      "crawledAt": "2026-10-17T21:13:57.205Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2518,13 +2675,14 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/163206/2798/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2798",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-betreuung-fachmann-betreuung-efz-puk-zuerich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-betreuung-fachmann-betreuung-efz-puk-zuerich-zurich"
@@ -2536,9 +2694,7 @@
           "lehrstelle-als-fachfrau-betreuung-fachmann-betreuung-efz-puk-zuerich-zurich"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-betreuung-fachmann-betreuung-efz-puk-zuerich-zurich"
-      ],
+      "firstSeenAt": "2026-10-14T21:17:59.779Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
@@ -2551,8 +2707,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-14T21:17:59.779Z"
+      }
     },
     {
       "id": "puk-zuerich-cebbd7d46d3d",
@@ -2585,7 +2740,7 @@
       "url": "https://apply.refline.ch/163206/2744/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:59.299Z",
+      "crawledAt": "2026-10-17T21:13:56.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2662,7 +2817,7 @@
       "url": "https://apply.refline.ch/163206/2797/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:58.825Z",
+      "crawledAt": "2026-10-17T21:13:56.317Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2746,7 +2901,7 @@
       "url": "https://apply.refline.ch/163206/2780/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:58.347Z",
+      "crawledAt": "2026-10-17T21:13:55.867Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2826,7 +2981,7 @@
       "url": "https://apply.refline.ch/163206/2767/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:57.873Z",
+      "crawledAt": "2026-10-17T21:13:55.423Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2912,7 +3067,7 @@
       "url": "https://apply.refline.ch/163206/2731/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:57.396Z",
+      "crawledAt": "2026-10-17T21:13:54.978Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2989,7 +3144,7 @@
       "url": "https://apply.refline.ch/163206/2772/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:56.915Z",
+      "crawledAt": "2026-10-17T21:13:53.954Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3084,7 +3239,7 @@
       "url": "https://apply.refline.ch/163206/2786/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:56.432Z",
+      "crawledAt": "2026-10-17T21:13:53.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3162,7 +3317,7 @@
       "url": "https://apply.refline.ch/163206/2519/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:55.956Z",
+      "crawledAt": "2026-10-17T21:13:53.062Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3248,7 +3403,7 @@
       "url": "https://apply.refline.ch/163206/2746/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:55.475Z",
+      "crawledAt": "2026-10-17T21:13:52.610Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3326,7 +3481,7 @@
       "url": "https://apply.refline.ch/163206/2728/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:54.994Z",
+      "crawledAt": "2026-10-17T21:13:52.166Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3416,7 +3571,7 @@
       "url": "https://apply.refline.ch/163206/2627/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:53.662Z",
+      "crawledAt": "2026-10-17T21:13:51.720Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3507,7 +3662,7 @@
       "url": "https://apply.refline.ch/163206/2581/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:53.185Z",
+      "crawledAt": "2026-10-17T21:13:51.274Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3596,7 +3751,7 @@
       "url": "https://apply.refline.ch/163206/2715/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:52.706Z",
+      "crawledAt": "2026-10-17T21:13:50.828Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3680,7 +3835,7 @@
       "url": "https://apply.refline.ch/163206/2710/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:52.227Z",
+      "crawledAt": "2026-10-17T21:13:50.383Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3764,7 +3919,7 @@
       "url": "https://apply.refline.ch/163206/2790/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:51.751Z",
+      "crawledAt": "2026-10-17T21:13:49.937Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3853,7 +4008,7 @@
       "url": "https://apply.refline.ch/163206/1832/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:51.276Z",
+      "crawledAt": "2026-10-17T21:13:49.495Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3942,7 +4097,7 @@
       "url": "https://apply.refline.ch/163206/2279/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:50.795Z",
+      "crawledAt": "2026-10-17T21:13:49.047Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4034,7 +4189,7 @@
       "url": "https://apply.refline.ch/163206/2763/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:50.314Z",
+      "crawledAt": "2026-10-17T21:13:48.601Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4124,7 +4279,7 @@
       "url": "https://apply.refline.ch/163206/2729/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:49.836Z",
+      "crawledAt": "2026-10-17T21:13:48.154Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4210,9 +4365,9 @@
       "id": "puk-zuerich-079b60635f5e",
       "slug": "dipl-pflegefachfrau-pflegefachmann-home-treatment-per-kinder-e-jugendliche-psychiatrische-universitatsklinik-zurich",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-home-treatment-fur-kinder-und-jugendliche-puk-zuerich",
         "it": "dipl-pflegefachfrau-pflegefachmann-home-treatment-per-kinder-e-jugendliche-psychiatrische-universitatsklinik-zurich",
         "en": "dipl-nursing-professional-home-treatment-for-children-and-adolescents-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "dipl-pflegefachfrau-pflegefachmann-home-treatment-fur-kinder-und-jugendliche-puk-zuerich",
         "fr": "dipl-soins-infirmiers-soins-a-domicile-pour-enfants-et-adolescents-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -4220,24 +4375,25 @@
       "companyDomain": "pukzh.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann, Home Treatment für Kinder und Jugendliche",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann, Home Treatment für Kinder und Jugendliche",
         "it": "Infermiera diplomata / Infermiere diplomato, Home Treatment per bambini e adolescenti",
         "en": "Dipl. Nursing professional, home treatment for children and adolescents",
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann, Home Treatment für Kinder und Jugendliche",
         "fr": "Dipl. Soins infirmiers, soins à domicile pour enfants et adolescents"
       },
       "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n60-80%\nFür unser Home Treatment im Kinder- und Jugendbereich suchen wir ein/e\nIhre Aufgaben\n• Gewährleistung der psychiatrisch-pflegerischen und sozialpädagogischen Versorgung von Kindern und Jugendlichen in ihrem häuslichen Umfeld unter Einbezug des familiären und sozialen Systems\n• Tätigkeit im gesamten Versorgungsgebiet, hauptsächlich mit öffentlichen Verkehrsmitteln\n• Übernahme der Bezugspersonenarbeit sowie Steuerung und Evaluation des Pflege- bzw. Betreuungsprozesses\n• Umsetzung und Wirksamkeitskontrolle diagnostischer, therapeutischer und präventiver Massnahmen\n• Interprofessionelle Zusammenarbeit und Koordination der gemeinsamen Fallführung im Kernteam sowie Gewährleistung des kontinuierlichen Informationsflusses\n• Mitwirkung an der Qualitätssicherung sowie Weiterentwicklung von Konzepten, Angeboten und Arbeitsprozessen\nIhr Profil\n• Abgeschlossene, anerkannte Berufsausbildung als Pflegefachperson (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Berufserfahrung im psychiatrischen Bereich von Vorteil, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Empathische, teamorientierte und verantwortungsbewusste Persönlichkeit\n• Klare, direkte und konstruktive Kommunikation sowie selbstständige und lösungsorientierte Arbeitsweise zeichnen Sie aus\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\nKontakt:\nAlain Perrenoud\nStationsleiter\n+41 58 384 66 68\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
       "descriptionByLocale": {
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n60-80%\nFür unser Home Treatment im Kinder- und Jugendbereich suchen wir ein/e\nIhre Aufgaben\n• Gewährleistung der psychiatrisch-pflegerischen und sozialpädagogischen Versorgung von Kindern und Jugendlichen in ihrem häuslichen Umfeld unter Einbezug des familiären und sozialen Systems\n• Tätigkeit im gesamten Versorgungsgebiet, hauptsächlich mit öffentlichen Verkehrsmitteln\n• Übernahme der Bezugspersonenarbeit sowie Steuerung und Evaluation des Pflege- bzw. Betreuungsprozesses\n• Umsetzung und Wirksamkeitskontrolle diagnostischer, therapeutischer und präventiver Massnahmen\n• Interprofessionelle Zusammenarbeit und Koordination der gemeinsamen Fallführung im Kernteam sowie Gewährleistung des kontinuierlichen Informationsflusses\n• Mitwirkung an der Qualitätssicherung sowie Weiterentwicklung von Konzepten, Angeboten und Arbeitsprozessen\nIhr Profil\n• Abgeschlossene, anerkannte Berufsausbildung als Pflegefachperson (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Berufserfahrung im psychiatrischen Bereich von Vorteil, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Empathische, teamorientierte und verantwortungsbewusste Persönlichkeit\n• Klare, direkte und konstruktive Kommunikation sowie selbstständige und lösungsorientierte Arbeitsweise zeichnen Sie aus\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\nKontakt:\nAlain Perrenoud\nStationsleiter\n+41 58 384 66 68\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n60-80%\nPer il nostro trattamento domestico nel settore dei bambini e dei giovani stiamo cercando un\nI loro compiti\n• Assicurare la cura psichiatrica e socio-educativa dei bambini e degli adolescenti nel loro ambiente domestico, tra cui la famiglia e il sistema sociale\n• Attività in tutta la zona di approvvigionamento, principalmente con i trasporti pubblici\n• Assumendo il lavoro di caregiver e il controllo e la valutazione del processo di cura e supervisione\n• Attuazione e controllo dell'efficacia delle misure diagnostiche, terapeutiche e preventive\n• Cooperazione interprofessionale e coordinamento della gestione congiunta dei casi nel team centrale e garantire il flusso continuo di informazioni\n• Partecipazione alla garanzia della qualità e ulteriore sviluppo di concetti, offerte e processi di lavoro\nIl tuo profilo\n• Formazione professionale completa e riconosciuta come infermiera (certificato di riconoscimento per diplomi stranieri)\n• Esperienza professionale nel campo psichiatrico è benefica, preferibilmente nella psichiatria infantile e adolescente\n• Empathetic, personalità orientata al team e responsabile\n• La comunicazione chiara, diretta e costruttiva e i metodi di lavoro indipendenti e orientati alla soluzione ti distinguono\nLa nostra offerta\n• Conoscenza che avanza: Ampia offerta iniziale, ulteriore e ulteriore formazione\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Spazio per idee: Alta responsabilità personale e possibilità di progettazione\n• Più tempo per il relax: almeno 25 giorni di vacanza e possibilità di congedo non pagato\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\nContatto:\nAlain Perrenoud\nDirettore della stazione\n+41 58 384 66 68\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
         "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n60-80%\nFor our home treatment in the children and youth sector we are looking for a\nTheir tasks\n• Ensuring the psychiatric nursing and socio-educational care of children and adolescents in their home environment, including the family and social system\n• Activity throughout the supply area, mainly by public transport\n• Assuming the caregiver work and controlling and evaluating the care and Supervision process\n• Implementation and efficacy control of diagnostic, therapeutic and preventive measures\n• Interprofessional cooperation and coordination of joint case management in the core team and ensuring the continuous flow of information\n• Participation in quality assurance and further development of concepts, offers and work processes\nYour profile\n• Completed, recognised vocational training as a nurse (certificate of recognition for foreign degrees)\n• Professional experience in the psychiatric field is beneficial, preferably in child and adolescent psychiatry\n• Empathetic, team-oriented and responsible personality\n• Clear, direct and constructive communication as well as independent and solution-oriented working methods distinguish you\nOur offer\n• Knowledge that advances: Extensive initial, further and further training offers\n• Strong in the team: appreciative cooperation and mutual support\n• Space for ideas: High personal responsibility and design possibilities\n• More time for relaxation: at least 25 days of holiday and possibility for unpaid leave\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\n• Future provision with added value: 60% employer contribution to the pension fund\nContact:\nAlain Perrenoud\nStation manager\n+41 58 384 66 68\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n60-80%\nFür unser Home Treatment im Kinder- und Jugendbereich suchen wir ein/e\nIhre Aufgaben\n• Gewährleistung der psychiatrisch-pflegerischen und sozialpädagogischen Versorgung von Kindern und Jugendlichen in ihrem häuslichen Umfeld unter Einbezug des familiären und sozialen Systems\n• Tätigkeit im gesamten Versorgungsgebiet, hauptsächlich mit öffentlichen Verkehrsmitteln\n• Übernahme der Bezugspersonenarbeit sowie Steuerung und Evaluation des Pflege- bzw. Betreuungsprozesses\n• Umsetzung und Wirksamkeitskontrolle diagnostischer, therapeutischer und präventiver Massnahmen\n• Interprofessionelle Zusammenarbeit und Koordination der gemeinsamen Fallführung im Kernteam sowie Gewährleistung des kontinuierlichen Informationsflusses\n• Mitwirkung an der Qualitätssicherung sowie Weiterentwicklung von Konzepten, Angeboten und Arbeitsprozessen\nIhr Profil\n• Abgeschlossene, anerkannte Berufsausbildung als Pflegefachperson (Anerkennungsnachweis bei ausländischen Abschlüssen)\n• Berufserfahrung im psychiatrischen Bereich von Vorteil, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Empathische, teamorientierte und verantwortungsbewusste Persönlichkeit\n• Klare, direkte und konstruktive Kommunikation sowie selbstständige und lösungsorientierte Arbeitsweise zeichnen Sie aus\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\nKontakt:\nAlain Perrenoud\nStationsleiter\n+41 58 384 66 68\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
         "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n60-80%\nPour notre traitement à domicile dans le secteur des enfants et des jeunes, nous sommes à la recherche d'un\nLeurs tâches\n• Assurer les soins psychiatriques et socio-éducatifs des enfants et des adolescents dans leur milieu familial, y compris dans le système familial et social\n• Activité dans toute la zone d'approvisionnement, principalement par les transports publics\n• En supposant le travail du soignant et en contrôlant et en évaluant le processus de soins et de supervision\n• Mise en œuvre et contrôle de l'efficacité des mesures diagnostiques, thérapeutiques et préventives\n• Coopération interprofessionnelle et coordination de la gestion conjointe des cas au sein de l'équipe centrale et garantie de la circulation continue de l'information\n• Participation à l'assurance de la qualité et poursuite du développement des concepts, des offres et des processus de travail\nVotre profil\n• Formation professionnelle complétée et reconnue comme infirmière (certificat de reconnaissance des diplômes étrangers)\n• Une expérience professionnelle dans le domaine psychiatrique est bénéfique, de préférence en psychiatrie des enfants et des adolescents\n• Personnalité empathique, orientée vers l'équipe et responsable\n• Une communication claire, directe et constructive ainsi que des méthodes de travail indépendantes et orientées vers la solution vous distinguent\nNotre offre\n• Connaissances qui progressent: offres de formation initiale, continue et continue\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Espace d'idées : Haute responsabilité personnelle et possibilités de conception\n• Plus de temps pour se détendre: au moins 25 jours de vacances et possibilité de congé sans solde\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\nPersonne à contacter:\nAlain Perrenoud\nGestionnaire de station\n+41 58 384 66 68\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/163206/2799/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:49.361Z",
+      "crawledAt": "2026-10-17T21:13:47.701Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4255,13 +4411,14 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/163206/2799/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2799",
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-home-treatment-fur-kinder-und-jugendliche-puk-zuerich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-home-treatment-fur-kinder-und-jugendliche-puk-zuerich"
@@ -4273,9 +4430,7 @@
           "dipl-pflegefachfrau-pflegefachmann-home-treatment-fur-kinder-und-jugendliche-puk-zuerich"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-home-treatment-fur-kinder-und-jugendliche-puk-zuerich"
-      ],
+      "firstSeenAt": "2026-10-14T21:17:49.361Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4288,8 +4443,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-14T21:17:49.361Z"
+      }
     },
     {
       "id": "puk-zuerich-e19771275ec4",
@@ -4323,7 +4477,7 @@
       "url": "https://apply.refline.ch/163206/2714/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:48.882Z",
+      "crawledAt": "2026-10-17T21:13:47.256Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4407,7 +4561,7 @@
       "url": "https://apply.refline.ch/163206/2139/pub/12/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:48.408Z",
+      "crawledAt": "2026-10-17T21:13:46.811Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4573,7 +4727,7 @@
       "url": "https://apply.refline.ch/163206/2764/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:47.933Z",
+      "crawledAt": "2026-10-17T21:13:46.363Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4653,7 +4807,7 @@
       "url": "https://apply.refline.ch/163206/2175/pub/13/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:47.451Z",
+      "crawledAt": "2026-10-17T21:13:45.920Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4748,7 +4902,7 @@
       "url": "https://apply.refline.ch/163206/2755/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:46.974Z",
+      "crawledAt": "2026-10-17T21:13:45.453Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4832,7 +4986,7 @@
       "url": "https://apply.refline.ch/163206/2776/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:46.477Z",
+      "crawledAt": "2026-10-17T21:13:43.804Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4912,7 +5066,7 @@
       "url": "https://apply.refline.ch/163206/2766/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:46.003Z",
+      "crawledAt": "2026-10-17T21:13:43.358Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4992,7 +5146,7 @@
       "url": "https://apply.refline.ch/163206/2778/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:45.500Z",
+      "crawledAt": "2026-10-17T21:13:42.887Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5047,92 +5201,6 @@
       }
     },
     {
-      "id": "puk-zuerich-52d14c87f33a",
-      "slug": "terapeuta-del-movimento-terapeuta-del-movimento-psychiatrische-universitatsklinik-zurich-winterthur",
-      "slugByLocale": {
-        "it": "terapeuta-del-movimento-terapeuta-del-movimento-psychiatrische-universitatsklinik-zurich-winterthur",
-        "en": "movement-therapist-movement-therapist-psychiatrische-universitatsklinik-zurich-winterthur",
-        "de": "bewegungstherapeutin-bewegungstherapeut-puk-zuerich-winterthur",
-        "fr": "therapeute-de-mouvement-therapeute-de-mouvement-psychiatrische-universitatsklinik-zurich-winterthur"
-      },
-      "company": "Psychiatrische Universitätsklinik Zürich",
-      "companyKey": "puk-zuerich",
-      "companyDomain": "pukzh.ch",
-      "title": "Bewegungstherapeutin / Bewegungstherapeut",
-      "titleByLocale": {
-        "it": "terapeuta del movimento / terapeuta del movimento",
-        "en": "Movement therapist / movement therapist",
-        "de": "Bewegungstherapeutin / Bewegungstherapeut",
-        "fr": "thérapeute de mouvement / thérapeute de mouvement"
-      },
-      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n20% - 40%\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur der Kinder- und Jugendpsychiatrie und Psychotherapie suchen wir per sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Durchführung von bewegungs- bzw. sporttherapeutischen Einzel und Gruppentherapien\n• Patientenbezogener interprofessioneller Austausch und aktive Beteiligung im Behandlungsteam\n• Fachlich fundierte Dokumentation der Therapieverläufe im Klinikinformationssystem\nIhr Profil\n• Bewegungstherapeutische/Sporttherapeutische Ausbildung an einer anerkannten Institution\n• Kenntnisse in Entspannungsverfahren\n• Erfahrung in der Behandlung von Jugendlichen von Vorteil\n• Hohe Kommunikationsfähigkeit, Teamfähigkeit, Flexibilität, Kritikfähigkeit, Eigeninitiative und Zuverlässigkeit\n• Verständnis und Einfühlungsvermögen\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\nKontakt:\nDr. lic. phil. Nicole Besse\nLeitende Psychologin\nKD Dr. med. Gunda Siemssen\nOberärztin\n+41 58 384 50 00\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-      "descriptionByLocale": {
-        "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n20% - 40%\nPer la nostra clinica diurna per bambini e adolescenti in Winterthur di psichiatria infantile e adolescente e psicoterapia stiamo cercando un\nI loro compiti\n• Attuazione del movimento o della terapia sportiva\n• Scambi interprofessionali correlati al paziente e partecipazione attiva al team di trattamento\n• Documentazione tecnicamente sana dei corsi di terapia nel sistema informativo clinica\nIl tuo profilo\n• Terapia di movimento/formazione sportiva presso un istituto riconosciuto\n• Conoscenza delle procedure di rilassamento\n• L'esperienza nel trattamento degli adolescenti è utile\n• Alta capacità di comunicazione, capacità di lavoro di squadra, flessibilità, capacità critica, iniziativa e affidabilità\n• Comprensione ed empatia\nLa nostra offerta\n• Insieme per le persone: cooperazione interdisciplinare per la cura psichiatrica olistica\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Conoscenza che avanza: Ampia offerta iniziale, ulteriore e ulteriore formazione\n• Lavorare in modo flessibile: modelli di tempo di lavoro che si adattano alla tua vita\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\nContatto:\nDottore, Phil. Nicole Besse\npsicologo senior\nKD Dr. Med. Gunda Siems\nMedico senior\n+41 58 384 50 00\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
-        "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n20% - 40%\nFor our day clinic for children and adolescents in Winterthur of child and adolescent psychiatry and psychotherapy we are looking for a\nTheir tasks\n• Implementation of movement or sports therapy individual and group therapies\n• Patient-related interprofessional exchange and active participation in the treatment team\n• Technically sound documentation of the therapy courses in the clinic information system\nYour profile\n• Movement therapy/sport therapy training at a recognised institution\n• Knowledge of relaxation procedures\n• Experience in the treatment of adolescents is beneficial\n• High communication ability, teamwork ability, flexibility, critical ability, initiative and reliability\n• Understanding and empathy\nOur offer\n• Together for people: Interdisciplinary cooperation for holistic psychiatric care\n• Strong in the team: appreciative cooperation and mutual support\n• Knowledge that advances: Extensive initial, further and further training offers\n• Working flexibly: working time models that fit your life\n• Future provision with added value: 60% employer contribution to the pension fund\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\nContact:\nDr lic. phil. Nicole Besse\nSenior psychologist\nKD Dr med. Gunda Siems\nSenior physician\n+41 58 384 50 00\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n20% - 40%\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur der Kinder- und Jugendpsychiatrie und Psychotherapie suchen wir per sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Durchführung von bewegungs- bzw. sporttherapeutischen Einzel und Gruppentherapien\n• Patientenbezogener interprofessioneller Austausch und aktive Beteiligung im Behandlungsteam\n• Fachlich fundierte Dokumentation der Therapieverläufe im Klinikinformationssystem\nIhr Profil\n• Bewegungstherapeutische/Sporttherapeutische Ausbildung an einer anerkannten Institution\n• Kenntnisse in Entspannungsverfahren\n• Erfahrung in der Behandlung von Jugendlichen von Vorteil\n• Hohe Kommunikationsfähigkeit, Teamfähigkeit, Flexibilität, Kritikfähigkeit, Eigeninitiative und Zuverlässigkeit\n• Verständnis und Einfühlungsvermögen\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\nKontakt:\nDr. lic. phil. Nicole Besse\nLeitende Psychologin\nKD Dr. med. Gunda Siemssen\nOberärztin\n+41 58 384 50 00\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-        "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n20% - 40%\nPour notre clinique de jour pour enfants et adolescents à Winterthur de psychiatrie et de psychothérapie des enfants et adolescents, nous sommes à la recherche d'un\nLeurs tâches\n• Mise en œuvre de thérapies de mouvement ou de sport thérapie individuelle et de groupe\n• Échange interprofessionnel lié au patient et participation active à l'équipe de traitement\n• Documentation techniquement solide des cours de thérapie dans le système d'information clinique\nVotre profil\n• Formation en thérapie de mouvement/thérapie sportive dans un établissement reconnu\n• Connaissance des procédures de relaxation\n• L'expérience du traitement des adolescents est bénéfique\n• Capacité de communication élevée, capacité de travail en équipe, souplesse, capacité critique, initiative et fiabilité\n• Compréhension et empathie\nNotre offre\n• Ensemble pour les personnes: coopération interdisciplinaire pour des soins psychiatriques holistiques\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Connaissances qui progressent: offres de formation initiale, continue et continue\n• Travailler de manière flexible : des modèles de temps de travail adaptés à votre vie\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\nPersonne à contacter:\nDr Lic. Phil. Nicole Besse\nPsychologue principal\nDocteur Med. Gunda Siems\nMédecin principal\n+41 58 384 50 00\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/163206/2787/pub/1/index.html",
-      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:44.989Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8400",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T04:46:40.928747+00:00",
-      "postedDate": "2026-10-02T04:46:40.928747+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/163206/2787/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2787",
-      "pensumMin": 20,
-      "pensumMax": 20,
-      "pensum": "20%",
-      "previousSlugs": [
-        "bewegungstherapeutin-bewegungstherapeut-psychiatrische-universitatsklinik-zurich-winterthur",
-        "bewegungstherapeutin-bewegungstherapeut-puk-zuerich-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bewegungstherapeutin-bewegungstherapeut-psychiatrische-universitatsklinik-zurich-winterthur",
-          "bewegungstherapeutin-bewegungstherapeut-puk-zuerich-winterthur"
-        ],
-        "en": [
-          "bewegungstherapeutin-bewegungstherapeut-psychiatrische-universitatsklinik-zurich-winterthur"
-        ],
-        "fr": [
-          "bewegungstherapeutin-bewegungstherapeut-psychiatrische-universitatsklinik-zurich-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:14:20.168Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "puk-zuerich-7520fabeb690",
       "slug": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
@@ -5164,7 +5232,7 @@
       "url": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:43.996Z",
+      "crawledAt": "2026-10-17T21:13:42.434Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5254,7 +5322,7 @@
       "url": "https://apply.refline.ch/163206/2784/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:43.518Z",
+      "crawledAt": "2026-10-17T21:13:41.991Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5338,7 +5406,7 @@
       "url": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:43.041Z",
+      "crawledAt": "2026-10-17T21:13:41.546Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5426,7 +5494,7 @@
       "url": "https://apply.refline.ch/163206/2548/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:42.565Z",
+      "crawledAt": "2026-10-17T21:13:41.101Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5511,7 +5579,7 @@
       "url": "https://apply.refline.ch/163206/2657/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:42.087Z",
+      "crawledAt": "2026-10-17T21:13:40.655Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5594,7 +5662,7 @@
       "url": "https://apply.refline.ch/163206/2719/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:41.126Z",
+      "crawledAt": "2026-10-17T21:13:39.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5678,7 +5746,7 @@
       "url": "https://apply.refline.ch/163206/1385/pub/14/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:40.646Z",
+      "crawledAt": "2026-10-17T21:13:39.309Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5764,7 +5832,7 @@
       "url": "https://apply.refline.ch/163206/2770/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:38.733Z",
+      "crawledAt": "2026-10-17T21:13:37.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5847,7 +5915,7 @@
       "url": "https://apply.refline.ch/163206/2794/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:38.253Z",
+      "crawledAt": "2026-10-17T21:13:37.061Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5929,7 +5997,7 @@
       "url": "https://apply.refline.ch/163206/2644/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:17:37.772Z",
+      "crawledAt": "2026-10-17T21:13:36.613Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6075,178 +6143,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "puk-zuerich-0e879e0fde17",
-      "slug": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-      "slugByLocale": {
-        "it": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
-        "fr": "ergotherapie-ergotherapeute-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
-      },
-      "company": "Psychiatrische Universitätsklinik Zürich",
-      "companyKey": "puk-zuerich",
-      "companyDomain": "pukzh.ch",
-      "title": "Ergotherapeutin / Ergotherapeuten FH 60 - 80%",
-      "titleByLocale": {
-        "it": "Terapista professionale / terapista professionale FH 60 - 80 %",
-        "en": "Occupational therapist / occupational therapist FH 60 - 80 %",
-        "de": "Ergotherapeutin / Ergotherapeuten FH 60 - 80%",
-        "fr": "Ergothérapie/ergothérapeute FH 60 - 80 %"
-      },
-      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n(Befristet bis 31. Dezember 2026)\nIn der Direktion Pflege, Therapien und Soziale Arbeit, am Standort Lenggstrasse Zürich, suchen wir für die Abteilung Ergotherapie per sofort oder nach Vereinbarung eine / einen\nIhre Aufgaben\n• Ergotherapeutische Einzel- und Gruppentherapien für Patientinnen und Patienten im Bereich Erwachsenenpsychiatrie und Psychotherapie\n• Abklärung des therapeutischen Bedarfs in Form von therapeutischen Erstgesprächen\n• Fachlich fundierte und prägnante Dokumentation im Klinikinformationssystem\n• Zusammenarbeit im Fachteam Abteilung Ergotherapie und im interprofessionellen Team der Station\nIhr Profil\n• Abgeschlossene Ausbildung in Ergotherapie FH, SRK-Anerkennung bei ausländischen Berufsabschlüssen\n• Berufserfahrung oder Praktikumserfahrung im Fachbereich Psychiatrie\n• Teamfähigkeit, Selbstständigkeit, Flexibilität und Zuverlässigkeit\n• Gute organisatorische und administrative Fähigkeiten\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt: Andrea Winkler\nLeiterin Ergotherapie\n+ 41 58 384 38 88\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-      "descriptionByLocale": {
-        "it": "•\n\nIl Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n\nNella gestione della cura, delle terapie e del lavoro sociale, che si trova a Lenggstrasse Zurigo, stiamo cercando un reparto di terapia professionale con immediato o d'accordo.\n\nTerapista professionale / terapista professionale FH 60 - 80 %\n\n(temporaneo fino al 31 dicembre 2026)\n\nI loro compiti\n\n• Terapie professionali individuali e di gruppo per i pazienti nel campo della psichiatria adulta e della psicoterapia\n• Chiarificazione della necessità terapeutica sotto forma di consultazioni terapeutiche iniziali\n• Documentazione professionale e concisa nel sistema informativo della clinica\n• Collaborazione nel reparto specializzato di terapia occupazionale e nel team interprofessionale della stazione\n• Formazione completa nella terapia professionale FH, riconoscimento SRK nelle qualifiche professionali straniere\n• Esperienza professionale o esperienza di stage in psichiatria\n• Lavoro di squadra, indipendenza, flessibilità e affidabilità\n• Buone capacità organizzative e amministrative\n• Conoscenza che avanza: Ampia offerta iniziale, ulteriore e ulteriore formazione\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Più tempo per il relax: almeno 25 giorni di vacanza e possibilità di congedo non retribuito\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\n• Ben curato nel lavoro quotidiano: offerte di cibo scontati o assegni pranzo",
-        "en": "•\n\nThe Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n\nIn the Management of Care, Therapies and Social Work, located in Lenggstrasse Zurich, we are looking for an occupational therapy department with immediate or by agreement.\n\nOccupational therapist / occupational therapist FH 60 - 80 %\n\n(temporary until 31 December 2026)\n\nTheir tasks\n\n• Occupational individual and group therapies for patients in the field of adult psychiatry and psychotherapy\n• Clarification of the therapeutic need in the form of initial therapeutic consultations\n• Professionally sound and concise documentation in the clinic information system\n• Collaboration in the specialist team department occupational therapy and in the interprofessional team of the station\n• Completed training in occupational therapy FH, SRK recognition in foreign professional qualifications\n• Professional experience or internship experience in psychiatry\n• Teamwork, independence, flexibility and reliability\n• Good organisational and administrative skills\n• Knowledge that advances: Extensive initial, further and further training offers\n• Strong in the team: appreciative cooperation and mutual support\n• More time for relaxation: at least 25 days of holiday and possibility for unpaid leave\n• Future provision with added value: 60% employer contribution to the pension fund\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\n• Well taken care of in everyday work: discounted food offers or lunch checks",
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n(Befristet bis 31. Dezember 2026)\nIn der Direktion Pflege, Therapien und Soziale Arbeit, am Standort Lenggstrasse Zürich, suchen wir für die Abteilung Ergotherapie per sofort oder nach Vereinbarung eine / einen\nIhre Aufgaben\n• Ergotherapeutische Einzel- und Gruppentherapien für Patientinnen und Patienten im Bereich Erwachsenenpsychiatrie und Psychotherapie\n• Abklärung des therapeutischen Bedarfs in Form von therapeutischen Erstgesprächen\n• Fachlich fundierte und prägnante Dokumentation im Klinikinformationssystem\n• Zusammenarbeit im Fachteam Abteilung Ergotherapie und im interprofessionellen Team der Station\nIhr Profil\n• Abgeschlossene Ausbildung in Ergotherapie FH, SRK-Anerkennung bei ausländischen Berufsabschlüssen\n• Berufserfahrung oder Praktikumserfahrung im Fachbereich Psychiatrie\n• Teamfähigkeit, Selbstständigkeit, Flexibilität und Zuverlässigkeit\n• Gute organisatorische und administrative Fähigkeiten\nUnser Angebot\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt: Andrea Winkler\nLeiterin Ergotherapie\n+ 41 58 384 38 88\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-        "fr": "•\n\nL'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n\nDans la gestion des soins, des thérapies et du travail social, situé à Lenggstrasse Zurich, nous recherchons un service d'ergothérapie avec immédiat ou par accord.\n\nErgothérapie/ergothérapeute FH 60 - 80 %\n\n(temporaire jusqu'au 31 décembre 2026)\n\nLeurs tâches\n\n• Thérapie professionnelle individuelle et de groupe pour les patients dans le domaine de la psychiatrie et de la psychothérapie pour adultes\n• Clarification des besoins thérapeutiques sous la forme de consultations thérapeutiques initiales\n• Documentation professionnelle et concise dans le système d'information clinique\n• Collaboration dans le département d'ergothérapie de l'équipe spécialisée et dans l'équipe interprofessionnelle de la station\n• Formation complète en ergothérapie FH, reconnaissance SRK en qualifications professionnelles étrangères\n• Expérience professionnelle ou stage en psychiatrie\n• Travail d'équipe, indépendance, flexibilité et fiabilité\n• Bonnes compétences organisationnelles et administratives\n• Connaissances qui progressent: offres de formation initiale, continue et continue\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Plus de temps pour se détendre : au moins 25 jours de vacances et possibilité de congé sans solde\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\n• Bien pris en charge dans le travail quotidien: offres de nourriture à prix réduit ou lunch checks"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/163206/2759/pub/1/index.html",
-      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:19:07.649Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-02T09:43:32.707849+00:00",
-      "postedDate": "2026-09-02T09:43:32.707849+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/163206/2759/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2759",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "previousSlugs": [
-        "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-        "ergotherapeute-ergotherapeute-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
-        "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
-        "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-          "ergotherapeute-ergotherapeute-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
-          "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich"
-        ],
-        "en": [
-          "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-          "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
-        ],
-        "fr": [
-          "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-02T13:34:02.082Z",
-      "salaryMin": 73200,
-      "salaryMax": 102400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73200,
-          "maxValue": 102400,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "puk-zuerich-bb883273f6ee",
-      "slug": "dipl-specialista-infermieristico-centro-di-depressione-ansia-e-psicoterapia-psychiatrische-universitatsklinik-zurich",
-      "slugByLocale": {
-        "it": "dipl-specialista-infermieristico-centro-di-depressione-ansia-e-psicoterapia-psychiatrische-universitatsklinik-zurich",
-        "en": "dipl-nursing-specialist-centre-for-depression-anxiety-and-psychotherapy-psychiatrische-universitatsklinik-zurich-rheinau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
-        "fr": "dipl-specialiste-des-soins-infirmiers-centre-de-depression-d-anxiete-et-de-psychotherapie-psychiatrische"
-      },
-      "company": "Psychiatrische Universitätsklinik Zürich",
-      "companyKey": "puk-zuerich",
-      "companyDomain": "pukzh.ch",
-      "title": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie",
-      "titleByLocale": {
-        "it": "Dipl. Specialista infermieristico, Centro di Depressione, Ansia e Psicoterapia",
-        "en": "Dipl. Nursing specialist, Centre for Depression, Anxiety and Psychotherapy",
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie",
-        "fr": "Dipl. Spécialiste des soins infirmiers, Centre de dépression, d'anxiété et de psychothérapie"
-      },
-      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n80-100%\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\nIhre Aufgaben\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\nIhr Profil\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\nUnser Angebot\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\nKontakt:\nMarkus Bobst\nLeiter Pflege Zentrum für Integrative Psychiatrie\n+41 58 384 94 84\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-      "descriptionByLocale": {
-        "it": "•\n\nIl Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n\nPer il nostro Centro di Depressione, Ansia e Psicoterapia presso il sito Rheinau, stiamo cercando 1. Novembre 2026 o per accordo, uno o più\n\nDipl. Specialista infermieristico, Centro di Depressione, Ansia e Psicoterapia\n\n80-100%\n\nI loro compiti\n\n• Manutenzione di tutte le operazioni di stazione e di turno\n• Gestione delle riunioni di stazione e dei servizi di allattamento\n• Attuazione degli interventi di cura nel contesto della terapia comportamentale dialettica\n• Attuazione delle misure nel processo di cura\n• Gestione della droga\n• Gestione e monitoraggio delle voci e delle uscite in un contesto di cura\n• Approvazione della formazione professionale nel settore della cura HF/FH\n• DBT formazione utile\n• Esperienza professionale in psichiatria\n• Volontà di impegnarsi in un ambiente di lavoro dinamico\n• Molto buone capacità sociali e capacità di comunicazione\n• Flessibilità, resilienza, orientamento al servizio\n• Sviluppo con prospettiva: Diverse percorsi di carriera in una delle più grandi cliniche psichiatriche in Svizzera\n• Conoscenza che avanza: Ampia offerta iniziale, ulteriore e ulteriore formazione\n• Insieme per le persone: cooperazione interdisciplinare per la cura psichiatrica olistica\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Lavorare in modo flessibile: modelli di tempo di lavoro che si adattano alla tua vita\n• Più tempo per il relax: almeno 25 giorni di vacanza e possibilità di congedo non retribuito",
-        "en": "•\n\nThe Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n\nFor our Center for Depression, Anxiety and Psychotherapy at the Rheinau site, we are looking for 1. November 2026 or by arrangement, one or more\n\nDipl. Nursing specialist, Centre for Depression, Anxiety and Psychotherapy\n\n80-100%\n\nTheir tasks\n\n• Maintenance of all station and shift operations\n• Management of station meetings and nursing services\n• Implementation of care interventions in the context of dialectical behavioral therapy\n• Implementation of measures within the care process\n• Drug management\n• Management and monitoring of entries and exits in a nursing context\n• Approved vocational training in the field of care HF/FH\n• DBT training beneficial\n• Professional experience in psychiatry\n• Willingness to engage in a dynamic work environment\n• Very good social skills and communication skills\n• Flexibility, resilience, service orientation\n• Development with perspective: Diverse career paths in one of the largest psychiatric clinics in Switzerland\n• Knowledge that advances: Extensive initial, further and further training offers\n• Together for people: Interdisciplinary cooperation for holistic psychiatric care\n• Strong in the team: appreciative cooperation and mutual support\n• Working flexibly: working time models that fit your life\n• More time for relaxation: at least 25 days of holiday and possibility for unpaid leave",
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n80-100%\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\nIhre Aufgaben\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\nIhr Profil\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\nUnser Angebot\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub\nKontakt:\nMarkus Bobst\nLeiter Pflege Zentrum für Integrative Psychiatrie\n+41 58 384 94 84\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-        "fr": "•\n\nL'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n\nPour notre centre de dépression, d'anxiété et de psychothérapie sur le site de Rheinau, nous cherchons 1. novembre 2026 ou par arrangement, un ou plusieurs\n\nDipl. Spécialiste des soins infirmiers, Centre de dépression, d'anxiété et de psychothérapie\n\n80-100%\n\nLeurs tâches\n\n• Entretien de tous les postes et postes\n• Gestion des réunions des postes et des services infirmiers\n• Mise en œuvre d'interventions de soins dans le contexte de la thérapie comportementale dialectique\n• Mise en œuvre des mesures dans le cadre du processus de prise en charge\n• Gestion des médicaments\n• Gestion et suivi des entrées et sorties dans un contexte de soins infirmiers\n• Formation professionnelle agréée dans le domaine des soins HF/FH\n• Formation DBT bénéfique\n• Expérience professionnelle en psychiatrie\n• Volonté de s'engager dans un environnement de travail dynamique\n• Très bonnes compétences sociales et de communication\n• Flexibilité, résilience, orientation du service\n• Développement avec perspective: Divers parcours de carrière dans l'une des plus grandes cliniques psychiatriques de Suisse\n• Connaissances qui progressent: offres de formation initiale, continue et continue\n• Ensemble pour les personnes: coopération interdisciplinaire pour des soins psychiatriques holistiques\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Travailler de manière flexible : des modèles de temps de travail adaptés à votre vie\n• Plus de temps pour se détendre : au moins 25 jours de vacances et possibilité de congé sans solde"
-      },
-      "needsRetranslation": false,
-      "location": "Rheinau",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/163206/2762/pub/1/index.html",
-      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:54.061Z",
-      "addressLocality": "Rheinau",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8462",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-03T06:59:04.540702+00:00",
-      "postedDate": "2026-09-03T06:59:04.540702+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/163206/2762/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2762",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
-        ]
-      },
-      "firstSeenAt": "2026-09-03T13:32:11.714Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

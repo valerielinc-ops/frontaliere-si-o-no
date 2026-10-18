@@ -136,6 +136,40 @@ function eventTime(ev) {
   return ev?.startTime ? ` · ${ev.startTime}` : '';
 }
 
+/**
+ * A recurring or multi-day event can start before the selected weekend while
+ * still being active inside it. The dataset's `startDate` is the beginning of
+ * the series, not the date shown by this weekend's agenda. Keep the statement
+ * factual by displaying the first day in the selected window in that case.
+ */
+function eventDateInWindow(ev, window) {
+  const start = String(ev?.startDate || '').trim();
+  const windowStart = String(window?.start || '').trim();
+  return start && windowStart && start < windowStart ? windowStart : start;
+}
+
+/** Cite the actual agenda record, not only the derived canton landing page. */
+function eventTitleWithSource(title, ev) {
+  const text = String(title || '').trim();
+  const url = String(ev?.url || '');
+  // A source URL is untrusted dataset input. Reject whitespace/control
+  // characters before parsing so URL normalization cannot silently turn a
+  // malformed Markdown destination into a different destination.
+  if (!url || /[\s\u0000-\u001F\u007F]/u.test(url)) return text;
+  let parsedUrl;
+  try {
+    parsedUrl = new URL(url);
+  } catch {
+    return text;
+  }
+  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') return text;
+  // A source URL is data from the verified public dataset. Escape label
+  // delimiters and encode parentheses so a record cannot change the Markdown
+  // link's shape while preserving the visible event title.
+  const label = text.replaceAll('\\', '\\\\').replaceAll('[', '\\[').replaceAll(']', '\\]');
+  return `[${label}](${url.replaceAll('(', '%28').replaceAll(')', '%29')})`;
+}
+
 // Title-case a URL slug ("san-gallo" → "San Gallo"). Mirrors
 // services/cantonList.ts's private `slugToLabel` — that module can't be
 // imported here: its top-level `import ... from '../data/canton-url-slugs.json'`
@@ -159,6 +193,53 @@ function cantonLabelForLocale(canton, locale) {
   const path = eventsBasePathForCanton(canton)[locale] || '';
   const slug = path.split('/').filter(Boolean).pop() || '';
   return slugToLabel(slug);
+}
+
+/** Shared by the producer and the corpus-side localized-toponym parser. */
+export const DIGEST_EVENT_MARKER_PATTERN = /<!--\s*digest-event:([^\s]+)\s*-->/u;
+
+function toWellFormedString(value) {
+  if (typeof value.toWellFormed === 'function') return value.toWellFormed();
+
+  let result = '';
+  for (let index = 0; index < value.length; index += 1) {
+    const code = value.charCodeAt(index);
+    if (code >= 0xd800 && code <= 0xdbff) {
+      const next = value.charCodeAt(index + 1);
+      if (next >= 0xdc00 && next <= 0xdfff) {
+        result += value[index] + value[index + 1];
+        index += 1;
+      } else {
+        result += '\uFFFD';
+      }
+    } else if (code >= 0xdc00 && code <= 0xdfff) {
+      result += '\uFFFD';
+    } else {
+      result += value[index];
+    }
+  }
+  return result;
+}
+
+/** Encode an event id without allowing malformed UTF-16 to abort the producer. */
+export function encodeDigestEventId(value) {
+  const id = String(value ?? '').trim();
+  if (!id) return '';
+  const wellFormedId = toWellFormedString(id);
+  return encodeURIComponent(wellFormedId).replaceAll('-', '%2D');
+}
+
+/**
+ * Keep duplicate same-time events pairable across locales. A municipality can
+ * legitimately host two different events at the same date and time, so the
+ * rendered heading + schedule is not always a unique identity. The marker is
+ * an HTML comment: it is invisible in the rendered article but survives in the
+ * source payload used by the deterministic localized-toponym repair.
+ */
+export function digestEventMarker(event) {
+  const id = String(event?.id ?? '').trim();
+  const payload = encodeDigestEventId(id);
+  return payload ? ` <!-- digest-event:${payload} -->` : '';
 }
 
 const T = {
@@ -314,7 +395,7 @@ function cantonCopy(locale, place, base) {
  * — parametrized so this renderer serves both the Ticino section and the
  * per-canton "other cantons" section below, §6, one loop, no copy-paste).
  */
-function renderComuneBlocks(byComune, locale, basePath) {
+function renderComuneBlocks(byComune, locale, basePath, window) {
   const comuni = [...byComune.entries()]
     .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
     .slice(0, MAX_COMUNI);
@@ -325,7 +406,8 @@ function renderComuneBlocks(byComune, locale, basePath) {
       .map((ev) => {
         const localizedTitle = ev?.titleByLocale?.[locale];
         const title = hasUsableContentText(localizedTitle) ? localizedTitle : ev.title;
-        return `- **${humanDay(ev.startDate, locale)}${eventTime(ev)}** — ${String(title || '').trim()}`;
+        const date = eventDateInWindow(ev, window);
+        return `- **${humanDay(date, locale)}${eventTime(ev)}** — ${eventTitleWithSource(title, ev)}${digestEventMarker(ev)}`;
       })
       .join('\n');
     return `### [${comune}](${basePath}/${slug}/)\n${lines}`;
@@ -339,7 +421,7 @@ function renderComuneBlocks(byComune, locale, basePath) {
  * base path (never Ticino's — a Zürich event must not link under /eventi/ticino/).
  * Capped at `MAX_OTHER_CANTONS`, busiest canton first.
  */
-function renderOtherCantons(otherWeekend, locale) {
+function renderOtherCantons(otherWeekend, locale, window) {
   const byCanton = new Map();
   for (const e of otherWeekend) {
     const canton = String(e?.canton || '').toUpperCase().trim();
@@ -365,7 +447,7 @@ function renderOtherCantons(otherWeekend, locale) {
   const blocks = cantons.map(([groupKey, , byComune]) => {
     const label = cantonLabelForLocale(groupKey, locale);
     const basePath = eventsBasePathForCanton(groupKey)[locale];
-    return `### ${label}\n\n${renderComuneBlocks(byComune, locale, basePath)}`;
+    return `### ${label}\n\n${renderComuneBlocks(byComune, locale, basePath, window)}`;
   });
   return blocks.join('\n\n');
 }
@@ -412,8 +494,8 @@ export function buildWeekendDigestArticle({ events, todayIso, canton }) {
     const t = T[locale];
     const range = humanRange(start, end, locale);
     const parts2 = [];
-    if (n > 0) parts2.push(`## ${t.byComuneH}\n\n${renderComuneBlocks(byComune, locale, BASE_PATH[locale])}`);
-    if (otherWeekend.length > 0) parts2.push(`## ${t.otherCantonsH}\n\n${renderOtherCantons(otherWeekend, locale)}`);
+    if (n > 0) parts2.push(`## ${t.byComuneH}\n\n${renderComuneBlocks(byComune, locale, BASE_PATH[locale], { start, end })}`);
+    if (otherWeekend.length > 0) parts2.push(`## ${t.otherCantonsH}\n\n${renderOtherCantons(otherWeekend, locale, { start, end })}`);
     const body2 = parts2.join('\n\n');
     content[locale] = {
       title: t.title(''),
@@ -458,9 +540,9 @@ function buildCantonWeekendDigestArticle({ events, todayIso, groupKey }) {
     const t = cantonCopy(locale, identity.place[locale], basePaths[locale]);
     const range = humanRange(start, end, locale);
     const parts2 = [];
-    if (byComune.size > 0) parts2.push(`## ${t.byComuneH}\n\n${renderComuneBlocks(byComune, locale, basePaths[locale])}`);
+    if (byComune.size > 0) parts2.push(`## ${t.byComuneH}\n\n${renderComuneBlocks(byComune, locale, basePaths[locale], { start, end })}`);
     if (otherWeekend.length > 0) {
-      const others = renderOtherCantons(otherWeekend, locale);
+      const others = renderOtherCantons(otherWeekend, locale, { start, end });
       if (others) parts2.push(`## ${t.otherCantonsH}\n\n${others}`);
     }
     content[locale] = {

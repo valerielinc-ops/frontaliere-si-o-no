@@ -73,7 +73,20 @@ const HTML_TEMPLATE_RAW_TEXT_ELEMENTS = new Set([
   ...HTML_INACTIVE_RAW_TEXT_ELEMENTS, 'textarea', 'title',
 ]);
 
-function isSelfClosingStartTag(html: string, nameEnd: number, end: number): boolean {
+type MalformedTag = { malformed: true };
+type ParsedTag = {
+  malformed: false;
+  closing: boolean;
+  end: number;
+  name: string;
+  selfClosing: boolean;
+};
+
+function isParsedTag(tag: ParsedTag | MalformedTag | null): tag is ParsedTag {
+  return tag !== null && tag.malformed === false;
+}
+
+function isSelfClosingStartTag(html: string, nameEnd: number, end: number): boolean | MalformedTag {
   let index = nameEnd;
   while (index < end) {
     while (index < end && isHtmlWhitespace(html[index])) index += 1;
@@ -82,6 +95,7 @@ function isSelfClosingStartTag(html: string, nameEnd: number, end: number): bool
       return index + 1 === end;
     }
 
+    const attributeNameStart = index;
     while (
       index < end &&
       !isHtmlWhitespace(html[index]) &&
@@ -89,16 +103,22 @@ function isSelfClosingStartTag(html: string, nameEnd: number, end: number): bool
       html[index] !== '/' &&
       html[index] !== '>'
     ) index += 1;
-    if (html[index] !== '=') continue;
+    if (html[index] !== '=') {
+      // findTagEnd balances quotes anywhere in a tag, while this scanner only
+      // does so after `=`. A quote in a malformed attribute name can therefore
+      // make an earlier `>` look internal here. Never retry at the same index.
+      if (index === attributeNameStart) return { malformed: true };
+      continue;
+    }
 
     index += 1;
     while (index < end && isHtmlWhitespace(html[index])) index += 1;
-    if (index >= end) return false;
+    if (index >= end) return { malformed: true };
     const quote = html[index];
     if (quote === '"' || quote === "'") {
       index += 1;
       while (index < end && html[index] !== quote) index += 1;
-      if (index >= end) return false;
+      if (index >= end) return { malformed: true };
       index += 1;
       continue;
     }
@@ -112,7 +132,7 @@ function isSelfClosingStartTag(html: string, nameEnd: number, end: number): bool
 // for every `<` made the scan quadratic on a 30 KB page.
 const TAG_NAME_RX = /[A-Za-z][A-Za-z0-9:_-]*/y;
 
-function readTag(html: string, start: number): { closing: boolean; end: number; name: string; selfClosing: boolean } | null {
+function readTag(html: string, start: number): ParsedTag | MalformedTag | null {
   if (html[start] !== '<') return null;
   const closing = html[start + 1] === '/';
   const nameStart = start + (closing ? 2 : 1);
@@ -123,14 +143,20 @@ function readTag(html: string, start: number): { closing: boolean; end: number; 
   const boundary = html[nameEnd] ?? '';
   if (boundary && !/[\s/>]/.test(boundary)) return null;
   const end = findTagEnd(html, start);
-  if (end < 0) return null;
+  if (end < 0) return { malformed: true };
   const name = nameMatch[0].toLowerCase();
+  let selfClosing = false;
+  if (!closing && HTML_VOID_ELEMENTS.has(name)) {
+    const parsedSelfClosing = isSelfClosingStartTag(html, nameEnd, end);
+    if (typeof parsedSelfClosing !== 'boolean') return parsedSelfClosing;
+    selfClosing = parsedSelfClosing;
+  }
   return {
+    malformed: false,
     closing,
     end,
     name,
-    selfClosing: !closing && HTML_VOID_ELEMENTS.has(name)
-      && isSelfClosingStartTag(html, nameEnd, end),
+    selfClosing,
   };
 }
 
@@ -165,7 +191,8 @@ function skipTemplateElement(html: string, afterOpening: number): number {
       continue;
     }
     const tag = readTag(html, start);
-    if (!tag) {
+    if (!isParsedTag(tag)) {
+      if (tag !== null) return html.length;
       cursor = start + 1;
       continue;
     }
@@ -221,7 +248,11 @@ function maskInactiveMarkup(html = '', options: { maskRcdata?: boolean } = {}) {
       continue;
     }
     const tag = readTag(source, start);
-    if (!tag) {
+    if (!isParsedTag(tag)) {
+      if (tag !== null) {
+        blank(start, source.length);
+        break;
+      }
       cursor = start + 1;
       continue;
     }

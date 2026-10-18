@@ -322,7 +322,10 @@ export async function fetchAllSikaJobs() {
       || normalizeDescriptionSpace(decodeEntities(stripHtml(descriptionHtml)));
     const decision = resolveSikaListingGeography(listing, detail);
     const geography = decision.geography;
-    if (!geography) continue;
+    if (!geography) {
+      await new Promise((r) => setTimeout(r, 200));
+      continue;
+    }
     const { location, canton } = geography;
     const evidence = decision.candidate;
 

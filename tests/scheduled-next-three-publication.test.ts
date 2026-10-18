@@ -35,15 +35,29 @@ for (const kind of ['valid', 'missing', 'creation-only', 'invalid', 'future', 'o
       const posting = { '@type': 'JobPosting', title: kind === 'other-title' ? 'Another vacancy' : title, description: body, datePosted: raw, dateCreated: kind === 'creation-only' ? `${year}-01-01` : undefined, dateModified: `${year}-06-01` };
       const html = `<h1>${title}</h1><article class="node node--type-smjob"><div class="field-description">${body}</div></article><script type="application/ld+json">${JSON.stringify(posting)}</script>`;
       browserFixture.detail = html;
-      const transport = vi.fn(async (input) => new Response(String(input).includes('/masks/')
-        ? `<div class=job_offer><a href="https://www.jobup.ch/fr/emplois/detail/fixture/" title="${title} - 1907 Saxon">${title}</a></div><div class=job_location>Clinique CIC Saxon</div><div class=job_lvlmin>Permanent 100%</div>`
-        : html, { status: 200 }));
+      const cicDate = kind === 'valid'
+        ? `${raw.slice(8, 10)}.${raw.slice(5, 7)}.${raw.slice(0, 4)}`
+        : (kind === 'other-title' ? '' : (raw || ''));
+      const cicHtml = `<h1>${posting.title}</h1><div class="text-rich-text w-richtext"><p>${body}</p></div><div class="job_details_content-right"><div>Date de publication</div><div class="text-size-small">${cicDate}</div><div>Taux d'activité</div><div class="text-size-small">100%</div><div>Type de contrat</div><div class="text-size-small">Permanent</div><div>Lieu de travail</div><div class="text-size-small">Saxon</div></div>`;
+      const listing = name === 'CIC'
+        ? `<a href="https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000001/">${title}</a>`
+        : `<div class=job_offer><a href="https://www.jobup.ch/fr/emplois/detail/fixture/" title="${title} - 1907 Saxon">${title}</a></div><div class=job_location>Clinique CIC Saxon</div><div class=job_lvlmin>Permanent 100%</div>`;
+      const transport = vi.fn(async (input) => {
+        const target = String(input);
+        const isListing = name === 'CIC' ? target.includes('/job-list/') : target.includes('/masks/');
+        return new Response(isListing ? listing : (name === 'CIC' ? cicHtml : html), { status: 200 });
+      });
       vi.stubGlobal('fetch', transport);
       const pending = name === 'Holistica' ? fetchAllClinicaHolisticaJobs() : fetchAllCicJobs();
       await vi.runAllTimersAsync();
       const jobs = await pending;
       expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject(kind === 'valid' ? { datePosted: raw, postedDate: raw, postingDateSource: 'reported' } : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+      const expectedPublication = kind === 'valid'
+        ? (name === 'CIC'
+          ? { datePosted: `${year}-06-15`, postedDate: `${year}-06-15`, postingDateSource: 'reported' }
+          : { datePosted: raw, postedDate: raw, postingDateSource: 'reported' })
+        : { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
+      expect(jobs[0]).toMatchObject(expectedPublication);
       expect(jobs[0].description).toContain('medizinischen Team');
       expect(jobs[0].crawledAt).toBeTruthy();
       if (name === 'Holistica') expect(browserFixture.visits).toBe(2);

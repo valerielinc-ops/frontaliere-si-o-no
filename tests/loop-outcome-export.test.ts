@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { isNewsletterOptOutBinding } from '../functions/src/lib/newsletterOptOut.js';
 import {
   buildL1TelemetryExport,
   buildUnavailableL1TelemetryExport,
@@ -481,12 +482,16 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
-  it('refuses a delivery whose current consent was revoked after the filter proof', () => {
+  it('attributes a valid delivery when its current stop event happened after provider acceptance', () => {
     const output = buildL4OutcomeLedger({
       now: NOW,
       alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
       jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
-      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'confirmed',
+        unsubscribed_at: '2026-09-12T09:12:00.000Z',
+        resubscribed_at: '2026-09-12T09:00:00.000Z',
+      })],
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
         sent_at: '2026-09-12T09:10:00.000Z',
@@ -497,8 +502,124 @@ describe('read-only loop outcome exporters', () => {
         outcome_contract_version: 1,
         delivered_at: '2026-09-12T09:11:00.000Z',
       })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-1', {
+        event_type: 'unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
       predicates: {
-        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'revoked-after-filter' }),
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+        isNewsletterOptOutBinding,
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 1,
+      consentViolations: 0,
+      export: {
+        consentChecked: true,
+        unattributedDeliveries: 0,
+        unattributedDeliveryReasons: { consentNotAllowed: 0 },
+      },
+    });
+  });
+
+  it('keeps a current cross-channel stop fail-closed without matching event evidence', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'unsubscribed',
+        unsubscribed_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('keeps the consent violation when the stop occurred before acceptance but its webhook was persisted later', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'unsubscribed',
+        unsubscribed_at: '2026-09-12T09:05:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:11:00.000Z',
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-1', {
+        event_type: 'unsubscribed',
+        occurred_at: '2026-09-12T09:05:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'cross-channel-stop' }),
+      },
+    });
+    expect(output).toMatchObject({
+      deliveredAlerts: 0,
+      consentViolations: 1,
+      export: {
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('keeps other current-consent denials fail-closed even when a stop event is newer than the send', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {
+        status: 'unsubscribed',
+        unsubscribed_at: '2026-09-12T09:12:00.000Z',
+      })],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:10:00.000Z',
+        consent_checked: true,
+        consent_allowed: true,
+        consent_basis: 'explicit-alert',
+        consent_checked_at: '2026-09-12T09:00:00.000Z',
+        outcome_contract_version: 1,
+      })],
+      eventRows: [row('newsletter_subscribers/user@example.test/events/stop-1', {
+        event_type: 'unsubscribed',
+        occurred_at: '2026-09-12T09:12:00.000Z',
+        timestamp: '2026-09-12T09:12:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-subscription-basis' }),
       },
     });
     expect(output).toMatchObject({

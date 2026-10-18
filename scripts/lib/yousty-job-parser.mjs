@@ -4,6 +4,9 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+const YOUSTY_PROFILE_PATH_RE = /^\/(?:[a-z]{2}-[a-z]{2}\/)?(?:lehrstellen\/profile|places-d-apprentissage\/profils|posti-di-apprendistato\/profili)\/[^/?#]+\/?$/i;
+const YOUSTY_WIDGET_ID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 // Inline markup must stay inside its sentence: the previous walker pushed
 // every child node as its own paragraph, so `<p><strong>5 Wochen Ferien</strong>,
 // mit der Möglichkeit …</p>` came out as "5 Wochen Ferien\n\n, mit der …".
@@ -82,8 +85,69 @@ export function htmlFragmentToMarkdown(html = '') {
   return htmlToTextBlock(dom.window.document.body);
 }
 
-export function parseYoustyApprenticeshipHtml(html) {
+function flattenJsonLd(value) {
+  if (Array.isArray(value)) return value.flatMap(flattenJsonLd);
+  if (!value || typeof value !== 'object') return [];
+
+  const graph = value['@graph'] ? flattenJsonLd(value['@graph']) : [];
+  return [value, ...graph];
+}
+
+function isJobPosting(value) {
+  const types = Array.isArray(value?.['@type']) ? value['@type'] : [value?.['@type']];
+  return types.some((type) => {
+    const normalized = String(type || '').trim().toLowerCase();
+    return normalized === 'jobposting' || normalized === 'https://schema.org/jobposting';
+  });
+}
+
+function extractDirectApplyUrl(html) {
+  const document = new JSDOM(String(html || '')).window.document;
+  const scripts = [...document.querySelectorAll('script[type]')]
+    .filter((script) => normalizeSpace(script.getAttribute('type')).toLowerCase() === 'application/ld+json');
+
+  for (const script of scripts) {
+    let jsonLd;
+    try {
+      jsonLd = JSON.parse(String(script.textContent || '').trim());
+    } catch {
+      continue;
+    }
+
+    const posting = flattenJsonLd(jsonLd).find((entry) => isJobPosting(entry) && entry.directApply === true);
+    if (!posting) continue;
+
+    const applyUrl = String(posting.url || '').trim();
+    if (applyUrl) return applyUrl;
+  }
+
+  return '';
+}
+
+/**
+ * The Solique profilelink sometimes carries Yousty's application widget UUID.
+ * That explicit source marker makes the profile URL an application entrypoint;
+ * a bare profile URL remains content-only and must not become an apply link.
+ */
+export function extractYoustyWidgetApplicationUrl(profileUrl = '') {
+  try {
+    const url = new URL(String(profileUrl || '').trim());
+    const hostname = url.hostname.toLowerCase();
+    if (url.protocol !== 'https:' || url.username || url.password || hostname !== 'www.yousty.ch') {
+      return '';
+    }
+    if (!YOUSTY_PROFILE_PATH_RE.test(url.pathname)) return '';
+    const widgetId = String(url.searchParams.get('widget') || '').trim();
+    if (!YOUSTY_WIDGET_ID_RE.test(widgetId)) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
+
+export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
   const rawHtml = String(html || '');
+  const applyUrl = extractDirectApplyUrl(rawHtml) || extractYoustyWidgetApplicationUrl(profileUrl);
   const noscriptMatches = [...rawHtml.matchAll(/<noscript[^>]*>([\s\S]*?)<\/noscript>/gi)];
   const noscriptHtml = (
     noscriptMatches
@@ -93,7 +157,7 @@ export function parseYoustyApprenticeshipHtml(html) {
   ).trim();
 
   if (!noscriptHtml) {
-    return { description: '', applyUrl: '' };
+    return { description: '', applyUrl };
   }
 
   const noscriptDom = new JSDOM(`<body>${noscriptHtml}</body>`);
@@ -120,6 +184,6 @@ export function parseYoustyApprenticeshipHtml(html) {
 
   return {
     description,
-    applyUrl: '',
+    applyUrl,
   };
 }

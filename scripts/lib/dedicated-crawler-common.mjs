@@ -32,7 +32,11 @@ import {
   detectJobTitleLocaleDetails,
   detectTextLocale,
   holdSourceLang,
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
   pinnedTitleSourceLang,
+  sourceLocaleTextCandidates,
+  sourceLocaleTextForTranslation,
   titleLooksUntranslated,
   titleLooksUntranslatedFromSource,
 } from './job-locale-utils.mjs';
@@ -755,6 +759,52 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
 }
 
 /**
+ * Fill missing published title slots when the source language is not one of
+ * the four site locales. The local MT lane has no Romansh model, while the
+ * title repair lane historically admitted only non-empty slots; a source-only
+ * record could therefore pass through both lanes without a writer ever seeing
+ * its empty targets.
+ *
+ * Only explicit, quality-reviewed heuristic mappings are accepted here. An
+ * unknown unsupported-source title stays empty and remains blocking rather than
+ * receiving a generic or source-language placeholder.
+ *
+ * @param {object} job mutates the passed job in place
+ * @param {string[]} [locales] published locale keys to fill
+ * @returns {{ changed: boolean, filled: number }}
+ */
+export function fillUnsupportedSourceTitleSlots(job, locales = DEFAULT_LOCALES) {
+  const sourceLang = normalizeJobLocale(job?.sourceLang);
+  if (!isUnsupportedSourceLang(sourceLang)) return { changed: false, filled: 0 };
+
+  const sourceTitle = sourceLocaleTextForTranslation(
+    { ...job, sourceLang },
+    'title',
+    MIN_TITLE_CHARS,
+  );
+  if (!hasUsableTitle(sourceTitle)) return { changed: false, filled: 0 };
+
+  const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+    ? job.titleByLocale
+    : (job.titleByLocale = {});
+  let filled = 0;
+  for (const locale of locales) {
+    if (locale === sourceLang) continue;
+    const existing = String(titleByLocale[locale] || '').trim();
+    if (hasUsableTitle(existing)) continue;
+
+    const translated = heuristicTranslateJobTitle(sourceTitle, locale);
+    if (!hasUsableTitle(translated)
+      || translated.toLowerCase() === sourceTitle.toLowerCase()
+      || isLowQualityLocalizedTitle(translated)) continue;
+
+    titleByLocale[locale] = translated;
+    filled += 1;
+  }
+  return { changed: filled > 0, filled };
+}
+
+/**
  * Detect if a description contains code/script artifacts instead of real content.
  * Returns { isCode: boolean, reason: string } if code detected.
  */
@@ -996,7 +1046,7 @@ export function dropCompanyBoilerplateFossils(job) {
     const sourceText = normalizeSpace(byLocale[sourceLang] || job.description || '');
     for (const [locale, value] of Object.entries(byLocale)) {
       if (locale === sourceLang || typeof value !== 'string') continue;
-      if (sourceText && normalizeSpace(value) === sourceText) job.needsRetranslation = true;
+      if (sourceText && isDescriptionSourceCopy(value, sourceText)) job.needsRetranslation = true;
     }
   }
   return changed;
@@ -2404,9 +2454,11 @@ export function isLocalizationAllowedForJob(job = {}, ctx = {}) {
 export function hasUntranslatedLocaleDescriptions(job = {}, ctx = {}) {
   const clean = ctx.cleanDescription || cleanDescriptionDCC;
   const LOCALES = ctx.LOCALES || DEFAULT_LOCALES;
-  const sourceDesc = clean(job?.description || '');
+  const sourceDescCandidates = sourceLocaleTextCandidates(job, 'description');
+  const sourceDescText = sourceLocaleTextForTranslation(job, 'description', 120);
+  const sourceDesc = clean(sourceDescText);
   if (!sourceDesc) return false;
-  const sourceLang = detectLanguage(sourceDesc, 'en');
+  const sourceLang = normalizeJobLocale(job?.sourceLang) || detectLanguage(sourceDesc, 'en');
   // Use the source-locale description as length reference (richer than base after harden)
   const srcLocaleDesc = normalizeForLengthComparison(
     String(job?.descriptionByLocale?.[sourceLang] || sourceDesc)
@@ -2416,7 +2468,7 @@ export function hasUntranslatedLocaleDescriptions(job = {}, ctx = {}) {
     if (locale === sourceLang) continue;
     const localized = clean(job?.descriptionByLocale?.[locale] || '');
     if (!localized) return true;
-    if (localized.toLowerCase() === sourceDesc.toLowerCase()) return true;
+    if (sourceDescCandidates.some((source) => isDescriptionSourceCopy(localized, source))) return true;
     // Thin translation check: if source is substantial and locale is <70%, needs work
     if (srcLen >= 500) {
       const normLocale = normalizeForLengthComparison(localized);
@@ -3096,13 +3148,29 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   repairJobTranslationSemanticsInPlace(out);
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
   const currentByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
+  const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
+  const flatSourceDescription = String(out.description || '').trim();
   // Publisher-authored records pin their declared source language (see
   // pinnedTitleSourceLang) — AI localization must never treat the employer's
   // own copy as a "wrong language" slot to overwrite.
   const pinnedLang = pinnedTitleSourceLang(out);
-  const sourceLang = pinnedLang || detectLanguage(out.description || '', 'en');
+  const declaredSourceLang = normalizeJobLocale(out.sourceLang);
+  const sourceLang = normalizeJobLocale(pinnedLang) || declaredSourceLang || detectLanguage(out.description || '', 'en');
+  const sourceRecord = { ...out, sourceLang };
+  let resolvedSourceDescription = sourceLocaleTextForTranslation(
+    sourceRecord,
+    'description',
+    localeDescFloor,
+  );
+  if (resolvedSourceDescription) {
+    // Keep the crawled flat field intact: the post-translation structure gate
+    // needs it to detect a localized slot that flattened away source bullets.
+    // Only fill it when the legacy field is genuinely absent.
+    if (!flatSourceDescription) out.description = resolvedSourceDescription;
+    currentByLocale[sourceLang] = resolvedSourceDescription;
+  }
   const forceLocalization = shouldForceLocalizationForJob(out, ctx);
-  const titleSourceLang = pinnedLang || detectJobTitleLang(out.title || '', sourceLang);
+  const titleSourceLang = normalizeJobLocale(pinnedLang) || detectJobTitleLang(out.title || '', sourceLang);
   const sourceTitle = nsFn(titleByLocale[titleSourceLang] || out.title || '');
   if (sourceTitle) titleByLocale[titleSourceLang] = sourceTitle;
 
@@ -3172,13 +3240,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       return sourceTitle ? titleVerdictFor(locale, localizedTitle).reason === 'source-copy' : false;
     });
 
-  const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
   // Count locale coverage: a locale is "covered" if it has an adequate description
   // that is NOT an untranslated copy of the source. Italian copies in EN/DE/FR slots
   // should NOT count as translated content. Thin translations (AI stubs) also don't count.
-  const cleanSourceDesc = cleanFn(out.description || '');
-  const sourceDescLower = cleanSourceDesc.toLowerCase();
-  const srcDescForThinCheck = nsFn(currentByLocale[sourceLang] || out.description || '');
+  const sourceDescriptionCandidates = sourceLocaleTextCandidates(out, 'description');
+  const sourceDescription = resolvedSourceDescription;
+  const cleanSourceDesc = cleanFn(sourceDescription);
+  const srcDescForThinCheck = nsFn(sourceDescription);
   const coverage = locales.filter((l) => {
     const text = nsFn(currentByLocale[l] || '');
     if (text.length < localeDescFloor) return false;
@@ -3186,7 +3254,8 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     if (l === sourceLang) return true;
     // Check if the locale description is just a copy of the source (untranslated)
     const cleanLocale = cleanFn(currentByLocale[l] || '');
-    if (cleanLocale.toLowerCase() === sourceDescLower) return false;
+    if (sourceDescriptionCandidates.some((source) =>
+      source.length >= localeDescFloor && isDescriptionSourceCopy(cleanLocale, source))) return false;
     // Thin translation check: if translation is < 45% of source length, it's likely
     // a boilerplate stub ("Company X is hiring for Y role..."), not a real translation.
     if (srcDescForThinCheck.length >= 500 && text.length < srcDescForThinCheck.length * 0.45) return false;
@@ -3202,7 +3271,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
 
   const shouldRunDescriptionLocalization =
     localizationEnabled && hasBudget && (coverage < locales.length || forceLocalization) &&
-    (out.description || '').length >= Math.max(localeDescFloor, 80) && (canUseAi || forceLocalization);
+    resolvedSourceDescription.length >= Math.max(localeDescFloor, 80) && (canUseAi || forceLocalization);
 
   const shouldRunTitleLocalization =
     localizationEnabled && sourceTitle.length >= 3 && (titleNeedsLocalization || forceLocalization);
@@ -3227,7 +3296,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     out.descriptionByLocale = currentByLocale;
     if (shouldMarkSkipAiRetranslation(out, {
       crawlerKey: crawlerConfig?.crawlerKey || crawlerConfig?.companyKey || out.companyKey,
-      sourceLang: out.sourceLang || sourceLang,
+      sourceLang,
       minDescriptionChars: localeDescFloor,
     })) {
       out.needsRetranslation = true;
@@ -3249,11 +3318,11 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       nsFn(out.title || ''), nsFn(out.company || ''), nsFn(out.location || ''),
       sourceLang || 'en', targetLocales.join(','),
       JSON.stringify((out.requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
-      cleanFn(out.description || ''),
+      cleanFn(resolvedSourceDescription),
     ]);
     delCache(mainKey);
     // Bust per-locale description + title caches
-    const cleanDesc = cleanFn(out.description || '');
+    const cleanDesc = cleanFn(resolvedSourceDescription);
     const cleanTitle = nsFn(out.title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
     for (const locale of targetLocales) {
       delCache(bck('translate-desc-v2', [cleanDesc, locale, sourceLang]));
@@ -3262,35 +3331,38 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   }
 
   // Structure flat descriptions before AI localization
-  const rawDesc = out.description || '';
+  const rawDesc = resolvedSourceDescription;
   const hasMarkdownStructure = /^## /m.test(rawDesc) && ((rawDesc.match(/\n/g) || []).length >= 3);
   if (shouldRunDescriptionLocalization && rawDesc.length >= 100 && !hasMarkdownStructure) {
     const hasHtml = hasHtmlTags(rawDesc);
     if (hasHtml) {
       const structuredFromHtml = h2stFn(rawDesc);
       if (structuredFromHtml && structuredFromHtml.length >= 120) {
-        out.description = structuredFromHtml;
+        resolvedSourceDescription = structuredFromHtml;
+        out.description = resolvedSourceDescription;
         currentByLocale[sourceLang] = structuredFromHtml;
       }
     } else if (strDesc) {
       const structured = await strDesc(rawDesc, sourceLang);
       if (structured !== rawDesc) {
-        out.description = structured;
+        resolvedSourceDescription = structured;
+        out.description = resolvedSourceDescription;
         currentByLocale[sourceLang] = structured;
       }
     }
   }
 
   // Centralized thin-description enrichment
-  const currentDesc = nsFn(out.description || '');
+  const currentDesc = nsFn(resolvedSourceDescription);
   const hasExtractedData =
     (Array.isArray(out._migrosResponsibilities) && out._migrosResponsibilities.length > 0) ||
     (Array.isArray(out._migrosBenefits) && out._migrosBenefits.length > 0) ||
     (Array.isArray(out.requirements) && out.requirements.length > 0);
   if (shouldRunDescriptionLocalization && currentDesc.length < 500 && hasExtractedData && canUseAi && enrichThin) {
-    const enrichedDesc = await enrichThin(out, sourceLang);
-    if (enrichedDesc && enrichedDesc !== out.description && enrichedDesc.length > currentDesc.length) {
-      out.description = enrichedDesc;
+    const enrichedDesc = await enrichThin({ ...out, description: resolvedSourceDescription }, sourceLang);
+    if (enrichedDesc && enrichedDesc !== resolvedSourceDescription && enrichedDesc.length > currentDesc.length) {
+      resolvedSourceDescription = enrichedDesc;
+      out.description = resolvedSourceDescription;
       currentByLocale[sourceLang] = enrichedDesc;
     }
   }
@@ -3298,7 +3370,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const aiLocalized = shouldRunDescriptionLocalization && canUseAi
     ? await aiLocalizeJobContentDCC({
         title: out.title, company: out.company, location: out.location,
-        description: out.description, requirements: out.requirements || [],
+        description: resolvedSourceDescription, requirements: out.requirements || [],
         sourceLang, minChars: localeDescFloor,
       }, ctx)
     : null;
@@ -3317,7 +3389,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         titleByLocale[locale] = localized.title;
       }
       if (localized.description && localized.description.length >= localeDescFloor
-          && isAcceptableTranslation(cleanSourceDesc, cleanFn(localized.description))) {
+          && isAcceptableTranslation(cleanFn(resolvedSourceDescription), cleanFn(localized.description))) {
         currentByLocale[locale] = localized.description;
       }
       const mergedReq = mrFn(reqByLocale[locale] || [], localized.requirements || []);
@@ -3362,9 +3434,18 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     }
   }
 
+  const currentSourceDescriptionCandidates = [...new Set(
+    [currentByLocale[sourceLang], ...sourceLocaleTextCandidates(out, 'description')]
+      .map((value) => String(value ?? '').trim())
+      .filter((value) => Boolean(value) && !detectAiReasoningLeak(value)),
+  )];
+  const currentSourceDescription = currentSourceDescriptionCandidates.find(
+    (value) => value.length >= localeDescFloor,
+  ) || currentSourceDescriptionCandidates[0] || '';
+
   // Strict fallback for forced companies — parallelize per-locale
   if (forceLocalization) {
-    const sourceDesc = cleanFn(currentByLocale[sourceLang] || out.description || '');
+    const sourceDesc = cleanFn(currentSourceDescription);
     const forceJobs = locales
       .filter((locale) => locale !== sourceLang)
       .map(async (locale) => {
@@ -3375,13 +3456,16 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         // locales — the existing content may be in the wrong language (e.g. Italian in EN slot).
         // Structure parity (#3721/#3836): also retranslate fossil translations that
         // flattened away the source's bulleted list (pre-fix cascade/merge output).
-        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase() || isThinStub || out.needsRetranslation ||
+        const needsDesc = !curDesc || curDesc.length < localeDescFloor
+          || currentSourceDescriptionCandidates.some((source) =>
+            source.length >= localeDescFloor && isDescriptionSourceCopy(curDesc, source))
+          || isThinStub || out.needsRetranslation ||
           isStructureFlattenedCopy(sourceDesc, curDesc);
         let desc = null;
         if (needsDesc) {
           // Use source locale description as translation input (clean text)
           desc = await aiTranslateJobDescriptionDCC({
-            description: currentByLocale[sourceLang] || out.description || '', locale, sourceLang, minChars: localeDescFloor,
+            description: currentSourceDescription, locale, sourceLang, minChars: localeDescFloor,
           }, ctx);
         }
         const currentTitle = nsFn(titleByLocale[locale] || '');
@@ -3417,7 +3501,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   // Inline truncation detection — use source LOCALE description (not raw base description)
   // because base description can contain unparsed HTML boilerplate (e.g. SuccessFactors nav)
   const TRUNCATION_RATIO = 0.40;
-  const sourceDescForTrunc = cleanFn(currentByLocale[sourceLang] || out.description || '');
+  const sourceDescForTrunc = cleanFn(currentSourceDescription);
   const sourceDescLenForTrunc = sourceDescForTrunc.length;
   if (sourceDescLenForTrunc >= 200) {
     for (const locale of locales) {
@@ -3426,7 +3510,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       if (localized.length > 0 && localized.length < sourceDescLenForTrunc * TRUNCATION_RATIO) {
         // eslint-disable-next-line no-await-in-loop
         const retranslated = await aiTranslateJobDescriptionDCC({
-          description: currentByLocale[sourceLang] || out.description || '', locale, sourceLang, minChars: localeDescFloor,
+          description: currentSourceDescription, locale, sourceLang, minChars: localeDescFloor,
         }, ctx);
         if (retranslated && cleanFn(retranslated).length > localized.length) {
           currentByLocale[locale] = retranslated;
@@ -3436,17 +3520,19 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   }
 
   // Cross-locale copy detection
-  const sourceDescNorm = cleanFn(out.description || '').toLowerCase();
+  const sourceDescNorm = cleanFn(currentSourceDescription);
   if (sourceDescNorm.length >= localeDescFloor) {
     for (const locale of locales) {
       if (locale === sourceLang) continue;
       const localizedNorm = cleanFn(currentByLocale[locale] || '').toLowerCase();
-      if (localizedNorm && localizedNorm === sourceDescNorm) {
+      if (localizedNorm && currentSourceDescriptionCandidates.some((source) =>
+        source.length >= localeDescFloor && isDescriptionSourceCopy(localizedNorm, source))) {
         // eslint-disable-next-line no-await-in-loop
         const translated = await aiTranslateJobDescriptionDCC({
-          description: out.description || '', locale, sourceLang, minChars: localeDescFloor,
+          description: currentSourceDescription, locale, sourceLang, minChars: localeDescFloor,
         }, ctx);
-        if (translated && cleanFn(translated).toLowerCase() !== sourceDescNorm) {
+        if (translated && !currentSourceDescriptionCandidates.some((source) =>
+          source.length >= localeDescFloor && isDescriptionSourceCopy(translated, source))) {
           currentByLocale[locale] = translated;
         }
       }
@@ -7376,14 +7462,22 @@ export function hasCompleteLocaleTextCoverage(job, {
   if (localeTextCoverage(titles, minTitleChars) < LOCALES.length) return false;
   if (localeTextCoverage(descriptions, minDescriptionChars) < LOCALES.length) return false;
 
-  const sourceLocale = LOCALES.includes(sourceLang) ? sourceLang : null;
+  const normalizedSourceLocale = normalizeJobLocale(sourceLang);
+  const sourceLocale = LOCALES.includes(sourceLang)
+    ? sourceLang
+    : (LOCALES.includes(normalizedSourceLocale) ? normalizedSourceLocale : null);
   if (!sourceLocale) return true;
   const sourceTitle = normalizeSpace(String(titles[sourceLocale] || job?.title || '')).toLowerCase();
-  const sourceDescription = normalizeSpace(String(descriptions[sourceLocale] || job?.description || '')).toLowerCase();
+  const sourceDescriptionCandidates = [...new Set(
+    [descriptions[sourceLocale], ...sourceLocaleTextCandidates(job, 'description')]
+      .map((value) => String(value ?? '').trim())
+      .filter(Boolean),
+  )];
   for (const locale of LOCALES) {
     if (locale === sourceLocale) continue;
     if (sourceTitle && normalizeSpace(String(titles[locale] || '')).toLowerCase() === sourceTitle) return false;
-    if (sourceDescription && normalizeSpace(String(descriptions[locale] || '')).toLowerCase() === sourceDescription) return false;
+    if (sourceDescriptionCandidates.some((source) =>
+      source.length >= minDescriptionChars && isDescriptionSourceCopy(descriptions[locale], source))) return false;
   }
   return true;
 }
@@ -9043,13 +9137,34 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // a source-language copy to overwrite a shorter real translation in another locale.
     // Language-agnostic: works for EN, IT, DE, or FR source. The source locale is naturally
     // skipped because prev's value for that locale equals the source text.
-    const sourceDescNorm = normalizeSpace(next.description || prev.description || '');
+    // Locale-map keys are canonical even when a source declares a regional
+    // language tag such as it-CH.
+    const mergeSourceLang = normalizeJobLocale(next.sourceLang)
+      || normalizeJobLocale(prev.sourceLang)
+      || null;
+    const sourceDescCandidates = [...new Set(
+      [
+        mergeSourceLang && best.descriptionByLocale?.[mergeSourceLang],
+        mergeSourceLang && next.descriptionByLocale?.[mergeSourceLang],
+        mergeSourceLang && prev.descriptionByLocale?.[mergeSourceLang],
+        best.description,
+        next.description,
+        prev.description,
+      ]
+        .map((value) => String(value ?? '').trim())
+        .filter(Boolean),
+    )];
+    const sourceDescText = sourceDescCandidates.find((value) => value.length >= 120)
+      || sourceDescCandidates[0] || '';
+    const sourceDescNorm = normalizeSpace(sourceDescText);
     if (sourceDescNorm.length >= 120) {
       for (const locale of LOCALES) {
         const mergedDesc = normalizeSpace(best.descriptionByLocale?.[locale] || '');
         const prevLocaleDesc = (prev.descriptionByLocale || {})[locale] || '';
         const prevDescNorm = normalizeSpace(prevLocaleDesc);
-        if (mergedDesc === sourceDescNorm && prevDescNorm.length >= 120 && prevDescNorm !== sourceDescNorm) {
+        if (sourceDescCandidates.some((source) => isDescriptionSourceCopy(mergedDesc, source))
+            && prevDescNorm.length >= 120
+            && !sourceDescCandidates.some((source) => isDescriptionSourceCopy(prevLocaleDesc, source))) {
           best.descriptionByLocale[locale] = prevLocaleDesc;
         }
       }

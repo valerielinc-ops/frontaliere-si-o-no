@@ -79,6 +79,8 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isAgroscopeApiRecord } from './lib/agroscope-job-parser.mjs';
+import { isVtgApiRecord } from './lib/federal-job-ownership.mjs';
 import {
   createMutableFeedPaginationTracker,
   recordMutableFeedPageWithRetry,
@@ -178,6 +180,16 @@ function isTargetJob(job = {}) {
 
 /** Company keys whose jobs we skip to avoid duplicates. */
 const COVERED_KEYS = new Set(['vtg', 'agroscope', 'agroscope-defr']);
+
+/**
+ * Exclude records owned by dedicated federal crawlers using the source API's
+ * unit facets. Group workflows use the same pinned site commit, so reading a
+ * sibling's current slice alone cannot establish ownership for a new posting.
+ */
+export function filterConfederazioneApiRecords(records) {
+  if (!Array.isArray(records)) throw new TypeError('Confederazione API records must be an array');
+  return records.filter((record) => !isVtgApiRecord(record) && !isAgroscopeApiRecord(record));
+}
 
 /**
  * Extract the UUID viewkey from a jobs.admin.ch URL.
@@ -334,7 +346,7 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
  * Fetch the unfiltered national federal listing (all 26 cantons).
  * No `f=region:` facet → the API returns every Swiss federal job.
  */
-async function fetchNationalListings() {
+export async function fetchNationalListings({ fetchJsonImpl = fetchJson } = {}) {
   console.log('\nFetching CH-wide federal jobs (national, unfiltered)...');
 
   const allItems = [];
@@ -353,7 +365,7 @@ async function fetchNationalListings() {
     const url = `${API_BASE}?lang=it&offset=${pageOffset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
-    const data = await fetchJson(url, {
+    const data = await fetchJsonImpl(url, {
       timeoutMs: TIMEOUT_MS,
       headers: {
         Origin: 'https://jobs.admin.ch',
@@ -365,7 +377,7 @@ async function fetchNationalListings() {
     if (!Array.isArray(rawItems)) {
       throw new Error(`Confederazione API pagination failed at offset ${pageOffset}: expected jobs array.`);
     }
-    return { data, items: rawItems.map(parseApiJob) };
+    return { data, items: rawItems };
   };
 
   while (true) {
@@ -379,7 +391,12 @@ async function fetchNationalListings() {
         return page.items;
       },
     });
-    const items = recorded.items;
+    const ownedItems = filterConfederazioneApiRecords(recorded.items);
+    const excludedCount = recorded.items.length - ownedItems.length;
+    if (excludedCount > 0) {
+      console.log(`  Confederazione ownership: excluded ${excludedCount} VTG/Agroscope record(s) by API facet`);
+    }
+    const items = ownedItems.map(parseApiJob);
 
     const rawTotal = page.data?.total;
     if (rawTotal !== undefined && rawTotal !== null && rawTotal !== '') {
@@ -411,7 +428,7 @@ async function fetchNationalListings() {
       }
       break;
     }
-    if (items.length === 0) {
+    if (recorded.items.length === 0) {
       if (declaredTotal !== null && progress.scannedRows < declaredTotal) {
         throw new Error(
           `Confederazione API pagination incomplete: received ${progress.scannedRows} of ${declaredTotal} declared rows (${progress.uniqueCount} unique).`,

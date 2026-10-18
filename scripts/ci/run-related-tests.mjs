@@ -466,8 +466,11 @@ const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Se
 // Vitest invocation turn missing artifacts into application regressions.
 function requireFullCheckoutForVerdict() {
   const missing = missingFullCheckoutArtifacts();
-  const localInspection = selectionOnly
-    || (process.env.VITEST_RELATED_DRY_RUN === 'true' && process.env.GITHUB_ACTIONS !== 'true');
+  // --select-only is the CI scheduling probe as well as a useful local
+  // inspection seam. In Actions it is part of the blocking verdict, so it
+  // must not turn an incomplete checkout into a successful selection.
+  const localInspection = process.env.GITHUB_ACTIONS !== 'true'
+    && (selectionOnly || process.env.VITEST_RELATED_DRY_RUN === 'true');
   if (missing.length === 0 || localInspection) return;
   console.error('BLOCKED: related-test verdict requires a full checkout; generated runtime artifacts are missing.');
   console.error(`  Artefacts mancanti: ${missing.join(', ')}`);
@@ -764,10 +767,45 @@ function loadGraph(files, assets) {
     previousAssets = cached.assets || null;
     previousRevision = cached.revision || '';
   } catch {}
-  const reusable = previousVersion === 13
-    && previousAssets === assetsDigest
-    && currentRevision !== ''
-    && previousRevision === currentRevision;
+  let changedSinceCache = null;
+  let sourceTopologyChanged = false;
+  if (previousVersion === 13 && previousAssets === assetsDigest
+    && previousRevision !== '' && currentRevision !== '') {
+    try {
+      execFileSync('git', ['merge-base', '--is-ancestor', previousRevision, currentRevision], {
+        stdio: 'ignore',
+      });
+      const output = previousRevision === currentRevision
+        ? ''
+        : execFileSync('git', [
+          'diff', '--name-status', '--no-renames', previousRevision, currentRevision,
+        ], {
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        });
+      changedSinceCache = new Set();
+      for (const line of output.split(/\r?\n/).filter(Boolean)) {
+        const [status, ...paths] = line.split('\t');
+        for (const file of paths) {
+          changedSinceCache.add(file);
+          if ((status.startsWith('A') || status.startsWith('D')) && sourceRe.test(file)) {
+            sourceTopologyChanged = true;
+          }
+        }
+      }
+    } catch {
+      // A cache from a divergent checkout is not a safe graph baseline. Keep
+      // the conservative full rebuild when ancestry or the intervening diff
+      // cannot be established from this checkout.
+    }
+  }
+  const changedPaths = new Set([...changed, ...(changedSinceCache || [])]);
+  // Source additions and deletions can change import resolution for otherwise
+  // untouched files, so rebuild when the source path set changed. Existing
+  // source files are re-indexed below; asset-path changes already invalidate
+  // the cache through assetsDigest.
+  const reusable = changedSinceCache !== null
+    && !sourceTopologyChanged;
   const fileSet = new Set([...files, ...assets]);
   const assetSet = new Set(assets);
   // Keep old entries for deleted files: a deleted module can still be a
@@ -775,23 +813,28 @@ function loadGraph(files, assets) {
   // to import it. Stale entries are harmless because only existing tests are
   // passed to Vitest below.
   const graph = { ...previous };
-  const changedFiles = new Set(changed);
+  const changedFiles = changedPaths;
+  let reusedEntries = 0;
+  let rebuiltEntries = 0;
   for (const file of files) {
     const old = previous[file];
-    // `changed-paths.txt` is the completeness boundary for this cache. On a
-    // complete diff, an unchanged tracked file cannot have changed since the
-    // previous graph snapshot, so re-hashing thousands of files on every
-    // selector subprocess is wasted work. Changed files are always re-read;
-    // an asset-set change already makes `reusable` false and rebuilds every
-    // edge that can point at it.
+    // `changed-paths.txt` is the completeness boundary for the PR diff; the
+    // cached revision diff covers commits added since that graph snapshot.
+    // Existing source edits are re-indexed and data/asset edits leave import
+    // topology unchanged; additions or deletions force the full rebuild above.
     if (reusable && !changedFiles.has(file) && old?.signature) {
       graph[file] = old;
+      reusedEntries += 1;
       continue;
     }
     const sig = signature(file);
-    graph[file] = reusable && old?.signature === sig
-      ? old
-      : { signature: sig, deps: importsOf(file, fileSet, assets, assetSet) };
+    if (reusable && old?.signature === sig) {
+      graph[file] = old;
+      reusedEntries += 1;
+    } else {
+      graph[file] = { signature: sig, deps: importsOf(file, fileSet, assets, assetSet) };
+      rebuiltEntries += 1;
+    }
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
@@ -800,6 +843,7 @@ function loadGraph(files, assets) {
     assets: assetsDigest,
     files: graph,
   }));
+  console.log(`Related graph: reused ${reusedEntries} entries, rebuilt ${rebuiltEntries}.`);
   return graph;
 }
 

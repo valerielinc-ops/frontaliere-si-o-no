@@ -108,7 +108,7 @@ import {
   registeredCorpusSitePaths,
 } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from './lib/crawler-generation-runtime-paths.mjs';
-import { memberCrawlExitFileName } from './crawler-group-generation-finalizer.mjs';
+import { memberCrawlExitFileName, memberCrawlWatchdogFileName } from './crawler-group-generation-finalizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -1311,14 +1311,14 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
   // receipts carry), not by the slug: for the step-id overrides the two differ
   // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
-  const crawlExitFileName = memberCrawlExitFileName(
-    buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE,
-  );
+  const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE;
+  const crawlExitFileName = memberCrawlExitFileName(crawlerId);
+  const watchdogFileName = memberCrawlWatchdogFileName(crawlerId) ?? `${slug}.watchdog`;
   const worker = [
     'set +e',
     `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
-    `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
-    `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
+    `worker_status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.status"`,
+    `worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.status.tmp.$$"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
     crawlExitFileName === null
       ? `unset ${MEMBER_CRAWL_EXIT_FILE_ENV}`
@@ -1327,25 +1327,59 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     ': > "$started_file"',
     'bash "$script_path"',
     'crawler_exit=$?',
-    'printf \'%s\\n\' "$crawler_exit" > "$status_tmp"',
-    'mv "$status_tmp" "$status_file"',
+    'printf \'%s\\n\' "$crawler_exit" > "$worker_status_tmp"',
+    'mv -f "$worker_status_tmp" "$worker_status_file"',
     'exit "$crawler_exit"',
   ].join('\n');
   const watchdogMinutes = crawlerWorkerWatchdogMinutes(crawler);
+  // The worker and its timeout wrapper can finish together. Keep their writes
+  // separate, then publish one terminal status with timeout taking precedence
+  // over a late worker success.
+  const terminalStatusResolver = [
+    'resolveCrawlerTerminalStatus() {',
+    '  local wrapper_exit="$1"',
+    '  local worker_status=""',
+    '  local terminal_exit="$wrapper_exit"',
+    '  local watchdog_marker=1',
+    `  if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$wrapper_exit" -eq ${WATCHDOG_KILL_EXIT} ]; }; then`,
+    '    terminal_exit="$wrapper_exit"',
+    '    if [ -s "$worker_status_file" ]; then',
+    '      worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"',
+    `      if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq ${TARGET_TIMEOUT_EXIT} ] 2>/dev/null; then watchdog_marker=0; fi`,
+    '    fi',
+    '  elif [ -s "$worker_status_file" ]; then',
+    '    worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"',
+    '    if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi',
+    '  else',
+    `    if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=${RUNNER_SHUTDOWN_EXIT}; fi`,
+    `    if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=${RUNNER_SHUTDOWN_EXIT}; fi`,
+    '  fi',
+    '  if [ "$watchdog_marker" -eq 1 ]; then',
+    ...WATCHDOG_MARK_LINES.map((line) => `    ${line}`),
+    '  fi',
+    '  if ! { printf \'%s\\n\' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then',
+    '    echo "::error::could not publish the crawler terminal status" >&2',
+    '    return 1',
+    '  fi',
+    '  printf \'%s\\n\' "$terminal_exit"',
+    '}',
+  ].join('\n');
   const launcher = [
     'set +e',
     `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
     `worker_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.sh"`,
     `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
+    `worker_status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.status"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
-    `watchdog_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.watchdog"`,
+    `watchdog_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${watchdogFileName}"`,
     `worker_watchdog_max=${CRAWLER_WORKER_WATCHDOG_MAX_MINUTES}`,
     `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-${watchdogMinutes}}"`,
     'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then',
     `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default ${watchdogMinutes})"`,
     `  worker_watchdog_minutes=${watchdogMinutes}`,
     'fi',
+    terminalStatusResolver,
     ...(dedicatedSlot
       ? ['# Private relay slot for this member only; non-relay siblings use the group slot pool.']
       : []),
@@ -1354,29 +1388,19 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
       : `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
     'if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then',
     '  echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"',
-    '  printf \'1\\n\' > "$status_tmp"',
-    '  mv "$status_tmp" "$status_file"',
-    '  exit 1',
+    '  terminal_exit="$(resolveCrawlerTerminalStatus 1)"',
+    '  exit "$terminal_exit"',
     'fi',
     'if ! command -v timeout >/dev/null 2>&1; then',
     '  echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"',
-    '  printf \'127\\n\' > "$status_tmp"',
-    '  mv "$status_tmp" "$status_file"',
-    '  exit 127',
+    '  terminal_exit="$(resolveCrawlerTerminalStatus 127)"',
+    '  exit "$terminal_exit"',
     'fi',
     'if ! command -v flock >/dev/null 2>&1; then',
     '  echo "flock is unavailable; running this crawler without the group semaphore"',
     '  timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '  flock_exit=$?',
-    '  if [ -s "$status_file" ]; then',
-    '    status="$(cat "$status_file" 2>/dev/null || true)"',
-    '    if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi',
-    '  fi',
-    '  terminal_exit="$flock_exit"',
-    '  if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi',
-    ...WATCHDOG_MARK_LINES.map((line) => `  ${line}`),
-    '  printf "%s\\n" "$terminal_exit" > "$status_tmp"',
-    '  mv "$status_tmp" "$status_file"',
+    '  terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"',
     '  exit "$terminal_exit"',
     'fi',
     'while :; do',
@@ -1387,31 +1411,24 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     '    flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '    flock_exit=$?',
     '    if [ "$flock_exit" -eq 0 ]; then',
-    '      exit 0',
+    '      terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"',
+    '      exit "$terminal_exit"',
     '    fi',
-    '    if [ -s "$status_file" ]; then',
-    '      status="$(cat "$status_file" 2>/dev/null || true)"',
-    '      if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi',
-    '      printf \'1\\n\' > "$status_tmp"',
-    '      mv "$status_tmp" "$status_file"',
-    '      exit 1',
+    '    if [ -s "$worker_status_file" ]; then',
+    '      terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"',
+    '      exit "$terminal_exit"',
     '    fi',
     '    if [ -e "$started_file" ]; then',
     '      # A worker that acquired a slot but disappeared before its atomic',
     '      # status write must not be retried or waited on for the full budget.',
     '      # Preserve the child status when available; 143 is the conventional',
     '      # fallback for a SIGTERM from the runner/host.',
-    '      terminal_exit="$flock_exit"',
-    '      if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi',
-    ...WATCHDOG_MARK_LINES.map((line) => `      ${line}`),
-    '      printf \'%s\\n\' "$terminal_exit" > "$status_tmp"',
-    '      mv "$status_tmp" "$status_file"',
+    '      terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"',
     '      exit "$terminal_exit"',
     '    fi',
     '    if [ "$flock_exit" -ne 1 ]; then',
-    '      printf \'%s\\n\' "$flock_exit" > "$status_tmp"',
-    '      mv "$status_tmp" "$status_file"',
-    '      exit "$flock_exit"',
+    '      terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"',
+    '      exit "$terminal_exit"',
     '    fi',
     '  done',
     '  sleep 1',
@@ -1428,7 +1445,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `pid_path="$state_dir/${slug}.pid"`,
     `status_path="$state_dir/${slug}.status"`,
     `started_path="$state_dir/${slug}.started"`,
-    `watchdog_path="$state_dir/${slug}.watchdog"`,
+    `watchdog_path="$state_dir/${watchdogFileName}"`,
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     // A leftover crawl-exit would be positive proof this launch never gave.
     ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
@@ -1533,12 +1550,13 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
  * the worker, 137 when it had to escalate to SIGKILL after --kill-after. The
  * member then failed with no issue at all (sbb, three generations in a row at
  * the 91 minute watchdog, never reported). The launcher leaves
- * `<slug>.watchdog` (the effective minutes) only in that case — a worker that
- * published its own status (an explicit `targetTimeoutMinutes`, whose
+ * `<crawlerId>.watchdog` (the effective minutes) only in that case — a worker
+ * that published its own status (an explicit `targetTimeoutMinutes`, whose
  * reporter runs outside the inner timeout, publishes 124 or 1) has already
- * reported — and the aggregate files the same issue the reporter would have:
- * same stable title, same `--workflow` id, so dedup, escalation and recovery
- * close treat it as one.
+ * reported. The finalizer uses this marker as proof of an incomplete crawl
+ * only when the crawl-exit signal is absent. The aggregate files the same
+ * issue the reporter would have: same stable title, same `--workflow` id, so
+ * dedup, escalation and recovery close treat it as one.
  */
 const WATCHDOG_KILL_EXIT = 137;
 const WATCHDOG_MARK_LINES = [
@@ -1553,12 +1571,12 @@ const WATCHDOG_MARK_LINES = [
  */
 const SHELL_SLUG_VAR = '$slug';
 
-function buildWatchdogKillIssueLines(slug) {
+function buildWatchdogKillIssueLines(slug, crawlerId = slug) {
   const dynamic = slug === SHELL_SLUG_VAR;
   const quoteArg = (text) => (dynamic ? `"${text}"` : shellQuote(text));
   const statusFile = `"$state_dir/${slug}.status"`;
   return [
-    `watchdog_file="$state_dir/${slug}.watchdog"`,
+    `watchdog_file="$state_dir/${crawlerId}.watchdog"`,
     `watchdog_status="$(cat ${statusFile} 2>/dev/null || true)"`,
     `if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "${TARGET_TIMEOUT_EXIT}" ] || [ "$watchdog_status" = "${WATCHDOG_KILL_EXIT}" ]; }; then`,
     '  watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"',
@@ -1617,6 +1635,7 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
   const slug = SHELL_SLUG_VAR;
   const memberBody = [
     'slug="$1"',
+    'crawler_id="$2"',
     `status_file="$state_dir/${slug}.status"`,
     'if [ ! -s "$status_file" ]; then',
     `  echo "::warning::${slug}: no terminal status was published"`,
@@ -1645,13 +1664,16 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
     '    failure_count=$((failure_count + 1))',
     '  fi',
     'fi',
-    ...buildWatchdogKillIssueLines(slug),
+    ...buildWatchdogKillIssueLines(slug, '$crawler_id'),
   ];
   lines.push(
     `${AGGREGATE_MEMBER_FUNCTION}() {`,
     ...memberBody.map((line) => `  ${line}`),
     '}',
-    ...crawlers.map((crawler) => `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)}`),
+    ...crawlers.map((crawler) => {
+      const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE || crawler.slug;
+      return `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)} ${shellQuote(crawlerId)}`;
+    }),
   );
   lines.push(
     `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"`,
@@ -1711,6 +1733,7 @@ function buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine) {
   ];
   for (const crawler of crawlers) {
     const slug = crawler.slug;
+    const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE || slug;
     const known = tolerated.get(slug);
     const failureBranch = known
       ? [
@@ -1759,7 +1782,7 @@ function buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine) {
       '    outcome=success',
       ...failureBranch,
       'fi',
-      ...buildWatchdogKillIssueLines(slug),
+      ...buildWatchdogKillIssueLines(slug, crawlerId),
       `outcomes_json="\${outcomes_json}\${outcomes_json:+,}\\"${slug}\\":\\"$outcome\\""`,
     );
   }
@@ -1868,6 +1891,9 @@ function buildQuarantineFailureGateShellBody() {
  * appears in more than one source step (`GH_TOKEN` via both
  * `secrets.GITHUB_TOKEN` and `github.token`) are safe to merge: both
  * expressions resolve to the identical runtime token value.
+ *
+ * @param {{ runStep?: { env?: Record<string, string> }, postSteps?: Array<{ env?: Record<string, string> }> }} crawler
+ * @param {string} summaryFile
  */
 function buildCrawlerStepEnv(crawler, summaryFile) {
   const merged = {
@@ -1880,9 +1906,9 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
     // capability crosses the background-process boundary. Most crawlers route
     // callLLM through dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
   };
-  Object.assign(merged, crawler.runStep.env || {});
-  for (const step of crawler.postSteps) {
-    Object.assign(merged, step.env || {});
+  Object.assign(merged, crawler.runStep?.env ?? {});
+  for (const step of crawler.postSteps ?? []) {
+    Object.assign(merged, step.env ?? {});
   }
   // CODEX_AUTH_JSON is deliberately scoped to the setup action below. The
   // crawler shell is backgrounded and may spawn arbitrary post-steps; putting
@@ -2013,6 +2039,106 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
       },
     },
   ];
+}
+
+/**
+ * Stop any detached group-23 launcher still waiting for a slot, then remove
+ * its temporary scripts, status files, and semaphore files. Only process
+ * groups whose command line points into this run's state directory are
+ * signalled; an uncertain process group leaves the files in place.
+ */
+export function cleanupCrawlerGenerationState({ phase = 'final' } = {}) {
+  if (phase !== 'startup' && phase !== 'final') {
+    throw new Error(`unsupported crawler generation cleanup phase: ${phase}`);
+  }
+  const startup = phase === 'startup';
+  return {
+    name: startup ? 'Cleanup stale crawler generation state' : 'Cleanup crawler generation state',
+    ...(startup ? {} : { if: 'always()', 'continue-on-error': true }),
+    run: [
+      'set -uo pipefail',
+      'runner_temp="${RUNNER_TEMP:-}"',
+      'runner_temp="${runner_temp%/}"',
+      'case "$runner_temp" in /*[!/]*) ;; *)',
+      '  echo "::warning::crawler generation cleanup skipped: RUNNER_TEMP is unavailable or unsafe"',
+      '  exit 0',
+      '  ;;',
+      'esac',
+      'generation_dir="$runner_temp/crawler-generation"',
+      'if [ -L "$generation_dir" ]; then',
+      '  echo "::warning::crawler generation cleanup refused a symlinked generation directory"',
+      '  exit 1',
+      'fi',
+      'state_dir="$generation_dir/group-23"',
+      'if [ ! -d "$state_dir" ]; then exit 0; fi',
+      'if [ -L "$state_dir" ]; then',
+      '  echo "::warning::crawler generation cleanup refused a symlinked state directory"',
+      '  exit 1',
+      'fi',
+      'cleanupCrawlerGenerationState() {',
+      '  local own_pgid process_listing process_groups process_states active_groups pgid active attempt',
+      '  own_pgid="$(ps -o pgid= -p "$$" 2>/dev/null | tr -d \'[:space:]\')"',
+      '  if ! [[ "$own_pgid" =~ ^[1-9][0-9]*$ ]]; then',
+      '    echo "::warning::crawler generation cleanup could not identify its own process group"',
+      '    return 1',
+      '  fi',
+      '  if ! process_listing="$(ps -ww -eo pgid=,comm=,args= 2>/dev/null)"; then',
+      '    echo "::warning::crawler generation cleanup could not inspect runner processes"',
+      '    return 1',
+      '  fi',
+      "  process_groups=\"$(printf '%s\\n' \"$process_listing\" | awk -v target=\"$state_dir/\" '$2 ~ /^(bash|timeout|flock|nohup|setsid)$/ && index($0, target) > 0 { print $1 }' | sort -nu)\"",
+      '  for pgid in $process_groups; do',
+      '    if ! [[ "$pgid" =~ ^[1-9][0-9]*$ ]] || [ "$pgid" -le 1 ] || [ "$pgid" = "$own_pgid" ]; then',
+      '      echo "::warning::crawler generation cleanup refused an unsafe process group: $pgid"',
+      '      return 1',
+      '    fi',
+      '  done',
+      '  for pgid in $process_groups; do kill -TERM -- "-$pgid" 2>/dev/null || true; done',
+      '  active=0',
+      '  for attempt in 1 2 3 4 5; do',
+      '    if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then',
+      '      echo "::warning::crawler generation cleanup could not verify terminated workers"',
+      '      return 1',
+      '    fi',
+      "    active_groups=\"$(printf '%s\\n' \"$process_states\" | awk '$2 !~ /^Z/ { print $1 }' | sort -nu)\"",
+      '    active=0',
+      '    for pgid in $process_groups; do',
+      '      case " $active_groups " in *" $pgid "*) active=1 ;; esac',
+      '    done',
+      '    [ "$active" -eq 1 ] || break',
+      '    sleep 1',
+      '  done',
+      '  if [ "$active" -eq 1 ]; then',
+      '    for pgid in $process_groups; do',
+      '      case " $active_groups " in *" $pgid "*) kill -KILL -- "-$pgid" 2>/dev/null || true ;; esac',
+      '    done',
+      '    for attempt in 1 2 3; do',
+      '      if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then',
+      '        echo "::warning::crawler generation cleanup could not verify killed workers"',
+      '        return 1',
+      '      fi',
+      "      active_groups=\"$(printf '%s\\n' \"$process_states\" | awk '$2 !~ /^Z/ { print $1 }' | sort -nu)\"",
+      '      active=0',
+      '      for pgid in $process_groups; do',
+      '        case " $active_groups " in *" $pgid "*) active=1 ;; esac',
+      '      done',
+      '      [ "$active" -eq 1 ] || break',
+      '      sleep 1',
+      '    done',
+      '  fi',
+      '  if [ "$active" -eq 1 ]; then',
+      '    echo "::warning::crawler generation cleanup left state intact because a worker is still running"',
+      '    return 1',
+      '  fi',
+      '  if ! rm -rf "$state_dir"; then',
+      '    echo "::warning::crawler generation cleanup could not remove the state directory"',
+      '    return 1',
+      '  fi',
+      '  echo "🧹 Removed crawler generation temporary files and slot locks."',
+      '}',
+      'cleanupCrawlerGenerationState',
+    ].join('\n'),
+  };
 }
 
 /**
@@ -3348,6 +3474,11 @@ export function buildStandaloneCrossRepoWorkflow({
       throw new Error(`${name}: undeclared job-level permissions`);
     }
     job.permissions = withSourceRelayJobPermissions(STANDALONE_PERMISSIONS);
+  }
+
+  if (workflowFile === 'crawler-group-23.yml') {
+    job.steps.unshift(cleanupCrawlerGenerationState({ phase: 'startup' }));
+    job.steps.push(cleanupCrawlerGenerationState());
   }
 
   const standalone = {

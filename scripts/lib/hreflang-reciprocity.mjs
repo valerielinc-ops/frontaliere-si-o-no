@@ -39,6 +39,118 @@ function isOwnHostUrl(value, baseUrl) {
 }
 
 /**
+ * Memoize target-page metadata without retaining an unbounded corpus index.
+ * Values may be promises so concurrent sources share the same in-flight read.
+ * The resolver exposes its observed high-water mark for deterministic tests.
+ */
+export function createBoundedHreflangTargetResolver(resolveTargetPage, options = {}) {
+  if (typeof resolveTargetPage !== 'function') {
+    throw new TypeError('createBoundedHreflangTargetResolver: resolver must be a function');
+  }
+
+  const baseUrl = options.baseUrl ?? DEFAULT_BASE_URL;
+  const requestedLimit = Number(options.maxEntries ?? 4096);
+  const maxEntries = Number.isInteger(requestedLimit) && requestedLimit > 0
+    ? requestedLimit
+    : 4096;
+  const cache = new Map();
+  let peakCacheSize = 0;
+
+  function trim() {
+    while (cache.size > maxEntries) {
+      cache.delete(cache.keys().next().value);
+    }
+    peakCacheSize = Math.max(peakCacheSize, cache.size);
+  }
+
+  function remember(href, page) {
+    const key = normalizeHreflangUrl(href, baseUrl);
+    if (!key || cache.has(key)) return false;
+    cache.set(key, Promise.resolve(page));
+    trim();
+    return true;
+  }
+
+  const resolve = async (href) => {
+    const key = normalizeHreflangUrl(href, baseUrl);
+    if (!key) return null;
+
+    if (cache.has(key)) {
+      const cached = cache.get(key);
+      cache.delete(key);
+      cache.set(key, cached);
+      return await cached;
+    }
+
+    const pending = Promise.resolve().then(() => resolveTargetPage(href));
+    cache.set(key, pending);
+    trim();
+
+    try {
+      const page = await pending;
+      if (cache.get(key) === pending) {
+        cache.delete(key);
+        cache.set(key, page);
+        trim();
+      }
+      return page;
+    } catch (error) {
+      if (cache.get(key) === pending) cache.delete(key);
+      throw error;
+    }
+  };
+
+  return {
+    resolve,
+    remember,
+    get cacheSize() { return cache.size; },
+    get peakCacheSize() { return peakCacheSize; },
+    maxEntries,
+  };
+}
+
+/**
+ * Check one parsed source page against its own-host targets. The caller owns
+ * the bounded target resolver, so the source page and its targets can be
+ * checked immediately without retaining a corpus-wide page index.
+ */
+export async function findHreflangReciprocityFailuresForPage(page, options = {}) {
+  const baseUrl = options.baseUrl ?? DEFAULT_BASE_URL;
+  const skipTarget = options.skipTarget ?? (() => false);
+  const resolveTargetPage = options.resolveTargetPage;
+  if (typeof resolveTargetPage !== 'function') {
+    throw new TypeError('findHreflangReciprocityFailuresForPage: resolveTargetPage must be a function');
+  }
+
+  const source = normalizeHreflangUrl(page?.url ?? page?.href, baseUrl);
+  if (!source) return [];
+
+  const checks = [...alternateEntries(page?.alternates)].map(async ([hreflang, href]) => {
+    if (hreflang === 'x-default' || !isOwnHostUrl(href, baseUrl) || skipTarget(href)) return null;
+
+    const target = normalizeHreflangUrl(href, baseUrl);
+    const targetPage = await resolveTargetPage(href);
+    // Missing/unreadable/noindex targets are handled by their own invariant
+    // or are intentionally outside the reciprocal-cluster check.
+    if (!targetPage) return null;
+
+    for (const [, targetHref] of alternateEntries(targetPage.alternates)) {
+      if (normalizeHreflangUrl(targetHref, baseUrl) === source) return null;
+    }
+
+    return {
+      source,
+      target,
+      hreflang,
+      sourcePath: page.relPath ?? options.getPagePath?.(page) ?? source,
+      targetPath: targetPage.relPath ?? options.getPagePath?.(targetPage) ?? target,
+    };
+  });
+
+  return (await Promise.all(checks)).filter(Boolean);
+}
+
+/**
  * @param {Iterable<{url?: string, href?: string, relPath?: string, alternates: Map<string,string>|Record<string,string>}>} pages
  * @param {{baseUrl?: string, skipTarget?: (href: string) => boolean, pageIndex?: Map<string, object>, getPagePath?: (page: object) => string|undefined}} options
  * @returns {Array<{source: string, target: string, hreflang: string, sourcePath: string, targetPath: string}>}

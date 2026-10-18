@@ -6,7 +6,7 @@ let exitHookRegistered = false;
 
 function emitTimingSafely(log, event) {
   try {
-    log(`[pipeline-timing] ${JSON.stringify(event)}\n`);
+    Promise.resolve(log(`[pipeline-timing] ${JSON.stringify(event)}\n`)).catch(() => {});
   } catch {
     // Timing is observational: a failing log sink must not change pipeline behavior.
   }
@@ -43,7 +43,7 @@ function finalizeOpenPhases(exitCode) {
  *
  * @param {string} pipeline
  * @param {string} phase
- * @param {{ now?: () => number, log?: (line: string) => void, summaryPath?: string }} [options]
+ * @param {{ now?: () => number, log?: (line: string) => void | PromiseLike<void>, summaryPath?: string }} [options]
  * @returns {(outcome?: 'success' | 'failure' | 'timeout' | 'cancelled' | 'interrupted' | 'skipped') => number}
  */
 export function startPipelinePhase(pipeline, phase, {

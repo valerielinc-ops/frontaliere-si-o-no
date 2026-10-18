@@ -293,6 +293,7 @@ export async function fetchAllArxadaJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  \u23ed\ufe0f  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 

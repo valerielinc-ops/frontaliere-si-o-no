@@ -688,6 +688,27 @@ describe('vacancy extraction', () => {
     });
   });
 
+  it('accepts colliding Swiss canton codes only when the locality corroborates them', () => {
+    const herisau = {
+      location: 'Herisau', addressLocality: 'Herisau', addressRegion: 'AR', postalCode: '9102',
+    };
+    expect(evaluateSourceBackedSwissGeography([herisau])).toMatchObject({
+      geography: { location: 'Herisau', canton: 'AR' },
+      explicitlyForeign: false,
+    });
+
+    const foreignArkansas = {
+      location: 'North Little Rock',
+      addressLocality: 'North Little Rock',
+      addressRegion: 'AR',
+      postalCode: '72116',
+    };
+    expect(resolveDetailOrListingSwissGeography(
+      { locationCandidates: [foreignArkansas] },
+      herisau,
+    )).toMatchObject({ geography: null, explicitlyForeign: true });
+  });
+
   it('fails closed on a tenant-flagged locationGateRejected without falling back to listing evidence', () => {
     // A tenant-specific extractor (e.g. Apleona's canton-suffix gate) can
     // verify and explicitly refuse a candidate; that refusal must not be
@@ -1536,6 +1557,21 @@ describe('promotion gate', () => {
     expect(evaluatePromotion(graded(2)).passed).toBe(true);
   });
 
+  it('requires both good days to come from the candidate source adapter', () => {
+    const mixed = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    mixed.validationHistory[1].sourceAdapterVersion = 'le-team-dedicated-v1';
+    const mixedResult = evaluatePromotion(mixed);
+    expect(mixedResult.passed).toBe(false);
+    expect(mixedResult.checks.runs).toBe(false);
+    expect(mixedResult.checks.days).toBe(false);
+
+    const dedicated = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    dedicated.validationHistory.forEach((entry) => {
+      entry.sourceAdapterVersion = 'le-team-dedicated-v1';
+    });
+    expect(evaluatePromotion(dedicated).passed).toBe(true);
+  });
+
   it('refuses a candidate proven only once, however good', () => {
     const res = evaluatePromotion(graded(1));
     expect(res.passed).toBe(false);
@@ -2035,6 +2071,12 @@ describe('promotion gate', () => {
     // Ordine deterministico: frequenza decrescente, poi nome.
     expect(Object.keys(d.failedChecks)).toEqual(['score', 'contentful', 'days', 'logo', 'runs']);
     expect(d.unattributed).toEqual([]);
+    expect(d.candidateFailures).toEqual([
+      { key: 'low-a', failedChecks: ['score'] },
+      { key: 'low-b', failedChecks: ['score', 'logo'] },
+      { key: 'mixed', failedChecks: ['runs', 'days', 'contentful'] },
+      { key: 'waiting', failedChecks: ['runs', 'days'] },
+    ]);
     // Coerente con la partizione gia' esistente.
     expect({ stabilityOnly: d.stabilityOnly, other: d.other }).toEqual(summarizePromotionBlocks(blocked));
   });
@@ -2050,6 +2092,12 @@ describe('promotion gate', () => {
     expect(d.other).toBe(3);
     expect(d.unattributed).toEqual(['no-checks', 'no-reason']);
     expect(d.stabilityOnlyKeys).toEqual(['wait']);
+    expect(d.candidateFailures).toEqual([
+      { key: 'no-checks', failedChecks: [] },
+      { key: 'no-reason', failedChecks: ['score'] },
+      { key: 'ok', failedChecks: ['score'] },
+      { key: 'wait', failedChecks: ['runs'] },
+    ]);
   });
 
   it('ships the biggest inventory first', () => {

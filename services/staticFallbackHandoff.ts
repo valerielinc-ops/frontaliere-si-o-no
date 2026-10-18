@@ -191,6 +191,19 @@ export function shouldAdoptStaticFallbackIntoRoot(
     && !shouldKeepStaticFallbackOutsideRoot(route, kind, fallbackPresent);
 }
 
+/**
+ * The current job-board hub is prerendered inside `#root`, so its static main
+ * is the useful first-paint content rather than a disposable outside fallback.
+ */
+export function shouldKeepStaticRootVisible(
+  root: HTMLElement,
+  fallback: HTMLElement | null,
+): boolean {
+  return fallback !== null
+    && root.contains(fallback)
+    && fallback.classList.contains('job-board-static-hub');
+}
+
 export interface StaticFallbackAdoption {
   /** The static sub-nav that was moved along with the fallback, if any. */
   subnav: HTMLElement | null;
@@ -245,6 +258,8 @@ export function adoptStaticFallbackIntoRoot(
  * paint: the static HTML must have painted BEFORE this mark.
  */
 export const STATIC_HANDOFF_HIDE_MARK = 'ft:static-handoff-hide';
+/** User-timing mark for a static root intentionally kept visible through render. */
+export const STATIC_HANDOFF_PRESERVE_MARK = 'ft:static-handoff-preserve';
 
 /**
  * Upper bound on how long the mount waits for the static HTML's first
@@ -341,17 +356,42 @@ export function waitForStaticFirstPaint(env: StaticFirstPaintEnv = {}): Promise<
 }
 
 /**
- * Start the static → React crossfade: reserve `#root`'s painted height as a
- * min-height floor (CLS #886/#855 — createRoot().render() empties #root for a
- * moment), mark {@link STATIC_HANDOFF_HIDE_MARK}, then fade `#root` out.
+ * Reserve `#root`'s painted height as a min-height floor (CLS #886/#855 —
+ * createRoot().render() empties #root for a moment).
+ */
+export function reserveRootHeight(root: HTMLElement): void {
+  const reservedRootHeight = root.offsetHeight;
+  if (reservedRootHeight > 0) root.style.minHeight = `${reservedRootHeight}px`;
+}
+
+/**
+ * Keep a prerendered root visible while React takes it over. The job-board
+ * hub uses this path because hiding its static main would remove the LCP
+ * candidate that was already painted.
+ * Call only after {@link waitForStaticFirstPaint}.
+ */
+export function preserveRootForPaint(
+  root: HTMLElement,
+  perf: Pick<Performance, 'mark'> | undefined = typeof performance === 'undefined' ? undefined : performance,
+): void {
+  reserveRootHeight(root);
+  try {
+    perf?.mark(STATIC_HANDOFF_PRESERVE_MARK);
+  } catch {
+    /* user timing unavailable — the mark is diagnostics only */
+  }
+}
+
+/**
+ * Start the static → React crossfade: reserve `#root`'s painted height, mark
+ * {@link STATIC_HANDOFF_HIDE_MARK}, then fade `#root` out.
  * Call only after {@link waitForStaticFirstPaint}.
  */
 export function hideRootForCrossfade(
   root: HTMLElement,
   perf: Pick<Performance, 'mark'> | undefined = typeof performance === 'undefined' ? undefined : performance,
 ): void {
-  const reservedRootHeight = root.offsetHeight;
-  if (reservedRootHeight > 0) root.style.minHeight = `${reservedRootHeight}px`;
+  reserveRootHeight(root);
   try {
     perf?.mark(STATIC_HANDOFF_HIDE_MARK);
   } catch {

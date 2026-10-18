@@ -37,9 +37,9 @@
 //      `/images/blog/<file>` refs to the CDN URL. Applied to every written
 //      file (index + bridge), matching blogImageCdnFinalizePlugin's
 //      unconditional whole-dist walk in the full build.
-//   6 / 6b / 7. renderHubsAndOffload() — the section's `/tutti/` archive +
-//      pagination, then its `/…/argomenti/<topic>/` hubs, then the CDN
-//      offload over everything written so far, in exactly that order
+//   6 / 6b / 6c / 7. renderHubsAndOffload() — the section's root landing,
+//      `/tutti/` archive + pagination, then its `/…/argomenti/<topic>/` hubs,
+//      then the CDN offload over everything written so far, in exactly that order
 //      (issue #5270). All three now live in
 //      scripts/lib/render-and-push-hubs.mjs, which is the ONLY place they are
 //      implemented and the only place their order is expressed — see that
@@ -79,8 +79,8 @@
 //   whose ARTICLE page was refused keeps its (shorter) `paths` and omits `url`
 //   — nothing new is serving there, so nothing is polled or announced for it.
 //   `paths` per shard = [article index.html, article flat bridge, ...that
-//   locale's hub-archive pages from step 6, ...that locale's topic-hub pages
-//   from step 6b].
+//   locale's root landing, hub-archive pages from step 6b, ...that locale's
+//   topic-hub pages from step 6c].
 //   `edgeFiles` = APEX artifacts, not shard ones: today just this section's
 //   `sitemap-topics-<section>.xml`, written by step 6b from the very pages it
 //   rendered. The workflow publishes it to R2 (EDGE_PUSHED_FILES) and commits
@@ -110,6 +110,10 @@ import { fileURLToPath } from 'node:url';
 
 import { pinRenderEnv, renderHubsAndOffload } from './lib/render-and-push-hubs.mjs';
 import { decideCorpusOverlayMode, prepareCorpusContentOverlay } from './lib/article-corpus-overlay.mjs';
+import {
+  checkCorpusFreshness,
+  countRenderedArticleArchiveItems,
+} from './rerender-article-hubs.mjs';
 import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
 // Output-boundary REFUSAL (see scripts/lib/control-char-publish-gate.mjs).
 // The renderer is build-plugins/ogPagesPlugin.ts, whose article half is the
@@ -156,10 +160,15 @@ async function main() {
   });
   if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
   const corpusOverlay = overlayMode.mode === 'overlay'
-    ? await prepareCorpusContentOverlay({ rootDir: ROOT_DIR })
+    ? await prepareCorpusContentOverlay({
+      rootDir: ROOT_DIR,
+      retainCheckout: true,
+      logPrefix: '[publish-article-fast]',
+    })
     : { commit: null, contentRevision: null };
-  const distDir = path.resolve(args.out);
-  fs.mkdirSync(distDir, { recursive: true });
+  try {
+    const distDir = path.resolve(args.out);
+    fs.mkdirSync(distDir, { recursive: true });
 
   // ASSET_CDN + TZ, both of which build-plugins/constants.ts and the renderers
   // read ONCE at module evaluation — so this must run BEFORE the first dynamic
@@ -200,7 +209,7 @@ async function main() {
     console.error(
       `[publish-article-fast] article id "${args.id}" not found in section "${args.section}" — check --id/--section`,
     );
-    process.exit(1);
+    throw new Error(`article id "${args.id}" was not rendered`);
   }
   const entry = entries[0];
 
@@ -262,12 +271,42 @@ async function main() {
   // section's hubs WITHOUT publishing an article. Before that split, a change
   // to the hub renderers had no way of reaching the served pages except as a
   // side effect of the editorial cadence (issue #5432).
-  const { hubResult, topicHubResult } = await renderHubsAndOffload({
+  const { landingResult, hubResult, topicHubResult } = await renderHubsAndOffload({
     rootDir: ROOT_DIR,
     distDir,
     section: args.section,
     logPrefix: '[publish-article-fast]',
   });
+
+  if (landingResult.errors.length > 0) {
+    for (const error of landingResult.errors) {
+      console.error(`[publish-article-fast] ${error}`);
+    }
+    throw new Error(
+      `root article-hub landing refresh failed for ${args.section}; refusing to publish a partial section`,
+    );
+  }
+
+  // The hub HTML and the client registry are two representations of the same
+  // corpus snapshot. The section rerender driver has this guard already, but
+  // the fast path is another hub writer and must prove the same handoff before
+  // its workflow can publish the rendered shards. Without this check a corpus
+  // commit can make the hub see a new id while the published API/chunks still
+  // serve the previous registry — exactly the hydration parity failure this
+  // publisher is meant to prevent.
+  const renderedItemCount = countRenderedArticleArchiveItems({
+    distDir,
+    archivePathsByLocale: { it: hubResult.pathsByLocale?.it ?? [] },
+  });
+  const freshness = await checkCorpusFreshness(args.section, renderedItemCount, {
+    corpusCheckoutDir: corpusOverlay.checkoutDir ?? null,
+  });
+  console.log(`[publish-article-fast] ${freshness.note}`);
+  if (!freshness.ok) {
+    throw new Error(
+      `[publish-article-fast] corpus/client handoff is not publishable: ${freshness.note}`,
+    );
+  }
 
   const registryFilename = args.section === 'svizzera' ? 'swiss-articles-data.ts' : 'blog-articles-data.ts';
   const { readArticleRegistryMetadata } = await import('../packages/articles/engine/shared/articleRegistryMetadata.ts');
@@ -297,13 +336,14 @@ async function main() {
 
   // subtree convention matches scripts/lib/section-shard-slugs.json's own
   // documented formula: it -> <slug>, en/de/fr -> <loc>/<slug>.
-  // Hub-archive relpaths for this locale are appended after the article's
+  // Root-landing and hub-archive relpaths for this locale are appended after the article's
   // own 2 paths — push-article-shard-incremental.sh takes an arbitrary list
   // of relpaths per locale/section invocation, so no separate push call or
   // workflow change is needed (.github/workflows/fast-publish-article.yml
   // already forwards every entry in `paths[]`).
   //
-  // Topic-hub relpaths (step 6b) ride the same list. They land under the SAME
+  // Root landing relpaths (step 6) and topic-hub relpaths (step 6c) ride the
+  // same list. They land under the SAME
   // shard subtree as the archive — both are `<indexSlug[locale]>/…`, and
   // `ARTICLE_SECTION_CORE.<section>.indexSlug` is what the shard slug in
   // section-shard-slugs.json mirrors — so no new shard, key or push leg is
@@ -315,6 +355,7 @@ async function main() {
       [
         publishEntry?.paths[locale],
         publishEntry?.flatPaths[locale],
+        ...(landingResult.pathsByLocale[locale] ?? []),
         ...hubResult.pathsByLocale[locale],
         ...(topicHubResult.pathsByLocale[locale] ?? []),
       ].filter(Boolean),
@@ -472,6 +513,9 @@ async function main() {
       `[publish-article-fast] control-char gate: ${refused.length} of ${screening.checked} rendered file(s) ` +
         `withheld, ${shards.length}/${locales.length} locale shard(s) still publishing`,
     );
+  }
+  } finally {
+    corpusOverlay.cleanup?.();
   }
 }
 

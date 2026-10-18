@@ -1,64 +1,23 @@
 {
   "key": "artificialy",
   "label": "Artificialy",
-  "generatedAt": "2026-10-14T21:43:25.092Z",
+  "generatedAt": "2026-10-17T21:40:18.786Z",
   "total": 7,
   "discovered": 8,
   "parsed": 7,
   "written": 7,
   "lastFetchOutcome": "ok",
   "abortKind": null,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 13250,
-  "avgDurationMs": 13250,
+  "unchangedCount": 6,
+  "durationMs": 8127,
+  "avgDurationMs": 8127,
   "durationHistory": [
-    13250
+    8127
   ],
-  "newJobs": [
-    {
-      "title": "Full Stack Software Engineer",
-      "slug": "full-stack-software-engineer-artificialy-lugano",
-      "url": "https://www.linkedin.com/jobs/view/4440030562",
-      "applyUrl": "https://www.linkedin.com/jobs/view/4440030562",
-      "company": "Artificialy",
-      "companyKey": "artificialy",
-      "companyDomain": "artificialy.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "it",
-      "sector": "Intelligenza Artificiale",
-      "source": "artificialy-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "artificialy-cc62dec90064",
-      "needsRetranslation": true,
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-10-13T21:35:23.510Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "AI Engineer",
@@ -255,6 +214,45 @@
       }
     },
     {
+      "title": "Full Stack Software Engineer",
+      "slug": "full-stack-software-engineer-artificialy-lugano",
+      "url": "https://www.linkedin.com/jobs/view/4440030562",
+      "applyUrl": "https://www.linkedin.com/jobs/view/4440030562",
+      "company": "Artificialy",
+      "companyKey": "artificialy",
+      "companyDomain": "artificialy.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "it",
+      "sector": "Intelligenza Artificiale",
+      "source": "artificialy-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "artificialy-cc62dec90064",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-10-13T21:35:23.510Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
       "title": "Marketing Specialist",
       "slug": "marketing-specialista-artificialy-lugano",
       "url": "https://www.linkedin.com/jobs/view/4465201692/",
@@ -294,5 +292,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }

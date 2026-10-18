@@ -46,6 +46,9 @@ const frenchDetailFixture = JSON.parse(
 const familyPages = Object.fromEntries(JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-detail-pages.json'), 'utf8'),
 ).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
+const interdiscountWorkplaceListings = JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'interdiscount-workplace-listing-addresses.json'), 'utf8'),
+).records;
 
 // Two Coop apprenticeship ads published at Heiden under two UUIDs (identical
 // but for the ATS tracking id), plus the Interdiscount/Jumbo pages of the
@@ -2080,6 +2083,46 @@ describe('Coop-family detail page content outside the JSON-LD description', () =
     expect(applyCoopSourceDetailToJob({ ...regionOnly, location: 'St. Gallen' }, jsonLd, page)).toMatchObject({
       location: 'Jegensdorf', postalCode: '3303',
     });
+  });
+
+  it.each(interdiscountWorkplaceListings)(
+    'keeps source-backed listing-only workplace $location instead of the Interdiscount HQ',
+    (sourceListing) => {
+      const jsonLd = jsonLdOf('interdiscount-branch-label');
+      const listing = { ...sourceListing, companyKey: 'interdiscount', description: 'listing fallback', sourceLang: 'de' };
+      expect(jsonLd.jobLocation.address.addressLocality).toBe('Jegensdorf');
+      expect(jsonLd.jobLocation.address.postalCode).toBe('3303');
+
+      // The real detail JSON-LD is the HQ; the listing snapshot is the only
+      // workplace evidence passed to this listingAddressEvidence() path.
+      const result = applyCoopSourceDetailToJob(listing, { ...jsonLd, title: listing.title });
+      expect(result).toMatchObject({
+        location: sourceListing.addressLocality,
+        addressLocality: sourceListing.addressLocality,
+        canton: sourceListing.canton,
+        addressRegion: sourceListing.canton,
+        postalCode: sourceListing.postalCode,
+        streetAddress: '',
+      });
+      expect(result).not.toMatchObject({ location: 'Jegensdorf', postalCode: '3303', streetAddress: 'Bernstrasse 90' });
+    },
+  );
+
+  it('keeps the real HQ fallback when a non-municipality listing locality is unverified', () => {
+    const jsonLd = jsonLdOf('interdiscount-branch-label');
+    const sourceListing = interdiscountWorkplaceListings[0];
+    const listing = { ...sourceListing, companyKey: 'interdiscount', description: 'listing fallback', sourceLang: 'de' };
+    const unverifiedListings = [
+      { ...listing, addressLocality: '' },
+      { ...listing, addressCountry: 'DE' },
+      { ...listing, addressLocality: 'Schweiz', location: 'Schweiz' },
+    ];
+
+    for (const unverified of unverifiedListings) {
+      expect(applyCoopSourceDetailToJob(unverified, { ...jsonLd, title: listing.title })).toMatchObject({
+        location: 'Jegensdorf', canton: 'BE', postalCode: '3303', streetAddress: 'Bernstrasse 90',
+      });
+    }
   });
 
   it('keeps the detail municipality when the branch label only qualifies it', () => {

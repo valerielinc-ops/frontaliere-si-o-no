@@ -362,6 +362,7 @@ export async function fetchAllNewYorkerJobs() {
 
     if (detail && detail.country && !isSwissCountry(detail.country)) {
       console.warn(`  ⏭️ Skipping non-Swiss posting (${detail.country}): ${row.title}`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 

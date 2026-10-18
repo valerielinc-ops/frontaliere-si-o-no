@@ -21,6 +21,10 @@ const hubDriver = readFileSync(
   resolve(__dirname, '..', 'scripts/rerender-article-hubs.mjs'),
   'utf-8',
 );
+const fastDriver = readFileSync(
+  resolve(__dirname, '..', 'scripts/publish-article-fast.mjs'),
+  'utf-8',
+);
 const articleLockWorkflows = [
   '.github/workflows/fast-publish-article.yml',
   '.github/workflows/resync-cdn-article-chunks.yml',
@@ -35,7 +39,21 @@ const articleLockWorkflows = [
  * companion first, and fails closed before an HTML shard can be pushed.
  */
 describe('fast-publish article workflow', () => {
-  const invocations = [...workflow.matchAll(/run:\s+npx -y tsx@4.23.15 scripts\/publish-article-chunks\.mjs(?<args>[^\n]*)/g)];
+  const invocations = [...workflow.matchAll(/run:\s+bash scripts\/ci\/run-pinned-tsx\.sh scripts\/publish-article-chunks\.mjs(?<args>[^\n]*)/g)];
+
+  it('proves corpus/client handoff freshness before building a publish summary', () => {
+    const renderAt = fastDriver.indexOf('await renderHubsAndOffload({');
+    const freshnessAt = fastDriver.indexOf('const freshness = await checkCorpusFreshness(');
+    const summaryAt = fastDriver.indexOf('const summary = {');
+
+    expect(renderAt).toBeGreaterThan(-1);
+    expect(freshnessAt).toBeGreaterThan(renderAt);
+    expect(freshnessAt).toBeLessThan(summaryAt);
+    expect(fastDriver).toContain('retainCheckout: true');
+    expect(fastDriver).toContain('corpusCheckoutDir: corpusOverlay.checkoutDir');
+    expect(fastDriver).toContain('countRenderedArticleArchiveItems');
+    expect(fastDriver).toContain('corpus/client handoff is not publishable');
+  });
 
   it('publishes the selected client registry before locale shards', () => {
     const publishIdx = workflow.indexOf('Publish client article chunks');
@@ -89,6 +107,10 @@ describe('rerender article hubs workflow', () => {
     expect(hubWorkflow).toContain("- 'scripts/lib/article-corpus-overlay.mjs'");
     expect(hubWorkflow).toContain("- 'scripts/lib/corpus-canton-exclusion.mjs'");
     expect(hubWorkflow).toContain("- 'scripts/lib/corpus-local-preserve.mjs'");
+  });
+
+  it('reruns the safe handoff after each publisher dispatch', () => {
+    expect(hubWorkflow).toMatch(/repository_dispatch:\s*\n\s*types:\s*\[articles-published\]/);
   });
 
   it('defers a published-ahead ID gap even when the manifest count still matches', async () => {

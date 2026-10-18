@@ -117,6 +117,20 @@ const fail = (msg) => {
   process.exit(1);
 };
 
+const failSnapshotMismatch = (msg) => {
+  const output = process.env.GITHUB_OUTPUT;
+  if (output) {
+    try {
+      // The hint is consumed by the pair wrapper. Keep remote-derived details
+      // out of the workflow command file; the diagnostic remains in stderr.
+      fs.appendFileSync(output, 'retryable-snapshot=true\n');
+    } catch {
+      // The pull still fails closed if the wrapper cannot read this hint.
+    }
+  }
+  fail(msg);
+};
+
 // ── Artifacts the generator migration adds (issue #4974 item 3) ──────
 //
 // docs/articles-generator-migration.md §3 lists two writes `create-article.mjs`
@@ -621,7 +635,7 @@ try {
   fail(`${SLUGS_ARTIFACT} unavailable: ${err.message}`);
 }
 if (Buffer.byteLength(slugsRaw, 'utf8') !== slugsBytes) {
-  fail(`${SLUGS_ARTIFACT} byte count differs from manifest — refusing`);
+  failSnapshotMismatch(`${SLUGS_ARTIFACT} byte count differs from manifest — refusing`);
 }
 
 let publishedSlugs;
@@ -630,8 +644,12 @@ try {
 } catch (err) {
   fail(`${SLUGS_ARTIFACT} is not valid JSON: ${err.message}`);
 }
-if (!publishedSlugs || publishedSlugs.commit !== manifest.commit) {
-  fail(`${SLUGS_ARTIFACT} does not match manifest commit ${manifest.commit} — refusing`);
+if (!publishedSlugs || typeof publishedSlugs !== 'object' || Array.isArray(publishedSlugs)
+  || typeof publishedSlugs.commit !== 'string') {
+  fail(`${SLUGS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (publishedSlugs.commit !== manifest.commit) {
+  failSnapshotMismatch(`${SLUGS_ARTIFACT} does not match manifest commit ${manifest.commit} — refusing`);
 }
 
 const staged = new Map();
@@ -652,7 +670,7 @@ try {
   fail(`${BLOG_CREDITS_ARTIFACT} unavailable: ${err.message}`);
 }
 if (Buffer.byteLength(creditsRaw, 'utf8') !== creditsBytes) {
-  fail(`${BLOG_CREDITS_ARTIFACT} byte count differs from manifest — refusing`);
+  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} byte count differs from manifest — refusing`);
 }
 
 let credits;
@@ -661,10 +679,18 @@ try {
 } catch (err) {
   fail(`${BLOG_CREDITS_ARTIFACT} is not valid JSON: ${err.message}`);
 }
-if (!credits || credits.schema !== 1 || credits.section !== 'blog'
-  || credits.commit !== manifest.commit
+if (!credits || typeof credits !== 'object' || Array.isArray(credits)) {
+  fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (typeof credits.commit !== 'string') {
+  fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (credits.schema !== 1 || credits.section !== 'blog'
   || !credits.generated || typeof credits.generated !== 'object' || Array.isArray(credits.generated)) {
   fail(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
+}
+if (credits.commit !== manifest.commit) {
+  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
 }
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
   const validation = validatePublishedBlogImageEvidence(imageUrl, record);

@@ -1,5 +1,421 @@
 [
   {
+    "slug": "ai-devops-ingegnere-stadler-rail-bussnang",
+    "title": "AI DevOps Engineer",
+    "titleByLocale": {
+      "it": "AI DevOps Ingegnere",
+      "en": "DevOps Engineer",
+      "de": "AI DevOps Ingenieur",
+      "fr": "AI DevOps Ingénieur"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\n•\nLaurea completa in informatica, ingegneria del software, tecnologia dell'informazione o una qualifica comparabile\n\n•\nEsperienza professionale in DevOps, Platform Engineering, sviluppo software o operazioni IT\n\n•\nConoscenza approfondita di CI/CD, automazione, monitoraggio, piattaforme cloud e operazioni IT sicure\n\n•\nEsperienza pratica con tecnologie AI generative come LLM, architetture RAG, embedded, database vettoriali e sistemi AI agente\n\n•\nEsperienza nell'integrazione e nel funzionamento di piattaforme AI e modelli proprietari e open source in ambienti produttivi\n\n•\nConoscenza dell'utilizzo di piattaforme cloud per distribuire e gestire carichi di lavoro AI, API, container e servizio modello\n\n•\nMolto buone competenze in inglese e tedesco in parola e scrittura\n\nTASKS\n\n•\nCostruire, distribuire e utilizzare applicazioni AI, piattaforme, servizi e componenti tecnici riutilizzabili per l'AI Center of Competence\n\n•\nAttuazione dei requisiti di AI Strategy & Governance e trasferimento delle specifiche di sicurezza, conformità e architettura in soluzioni tecniche stabili\n\n•\nSviluppo e sviluppo ulteriore degli standard AI DevOps, automazione, processi di distribuzione e modelli operativi per soluzioni AI\n\n•\nGarantire un funzionamento affidabile attraverso il monitoraggio, la gestione degli incidenti, la gestione del ciclo di vita e l'ottimizzazione continua\n\n•\nChiudi la collaborazione con sviluppatori, team di piattaforme, operazioni IT, sicurezza informatica, team di architettura e discipline per promuovere l'uso sicuro e scalabile dell'AI\n\n•\nConsulenza tecnica per team di progetto e campioni AI nello sviluppo standardizzato e conforme delle soluzioni AI\n\n•\nCostruire e gestire servizi e componenti della piattaforma AI riutilizzabili per l'utilizzo da parte di team di progetto interni",
+      "en": "PROFILE\n\n•\nCompleted degree in computer science, software engineering, information technology or a comparable qualification\n\n•\nProfessional experience in DevOps, Platform Engineering, Software Development or IT Operations\n\n•\nIn-depth knowledge of CI/CD, automation, monitoring, cloud platforms and secure IT operations\n\n•\nPractical experience with generative AI technologies such as LLMs, RAG architectures, embeddeds, vector databases and agent AI systems\n\n•\nExperience in the integration and operation of AI platforms and proprietary and open source models in productive environments\n\n•\nKnowledge of using cloud platforms to deploy and operate AI workloads, APIs, containers and model serving\n\n•\nVery good English and German skills in word and writing\n\nTASKS\n\n•\nBuild, deploy and operate AI applications, platforms, services and reusable technical components for the AI Center of Competence\n\n•\nImplementation of requirements from AI Strategy & Governance as well as transfer of security, compliance and architecture specifications into stable technical solutions\n\n•\nDevelopment and further development of AI DevOps standards, automation, deployment processes and operational models for AI solutions\n\n•\nEnsuring reliable operation through monitoring, incident management, lifecycle management and continuous optimization\n\n•\nClose collaboration with developers, platform teams, IT operations, cybersecurity, architecture teams and disciplines to promote secure and scalable AI use\n\n•\nTechnical advice for project teams and AI champions in the standardized and compliant development and operation of AI solutions\n\n•\nBuild and operate reusable AI platform services and components for use by internal project teams",
+      "de": "PROFIL\n\n•\nAbgeschlossenes Studium der Informatik, Software Engineering, Informationstechnologie oder eine vergleichbare Qualifikation\n\n•\nBerufserfahrung im Bereich DevOps, Platform Engineering, Softwareentwicklung oder IT Operations\n\n•\nFundierte Kenntnisse in CI/CD, Automatisierung, Monitoring, Cloud-Plattformen und sicherem IT-Betrieb\n\n•\nPraxiserfahrung mit Generative-AI-Technologien wie LLMs, RAG-Architekturen, Embeddings, Vektordatenbanken und agentischen AI-Systemen\n\n•\nErfahrung in der Integration und dem Betrieb von AI-Plattformen sowie proprietären und Open-Source-Modellen in produktiven Umgebungen\n\n•\nKenntnisse im Einsatz von Cloud-Plattformen für die Bereitstellung und den Betrieb von AI-Workloads, APIs, Containern und Model Serving\n\n•\nSehr gute Englisch- und Deutschkenntnisse in Wort und Schrift\n\nAUFGABEN\n\n•\nAufbau, Bereitstellung und Betrieb von AI-Anwendungen, Plattformen, Services und wiederverwendbaren technischen Komponenten für das AI Center of Competence\n\n•\nUmsetzung von Anforderungen aus AI Strategy & Governance sowie Überführung von Sicherheits-, Compliance- und Architekturvorgaben in stabile technische Lösungen\n\n•\nEntwicklung und Weiterentwicklung von AI-DevOps-Standards, Automatisierungen, Deployment-Prozessen und Betriebsmodellen für AI-Lösungen\n\n•\nSicherstellung eines zuverlässigen Betriebs durch Monitoring, Incident Management, Lifecycle Management und kontinuierliche Optimierung\n\n•\nEnge Zusammenarbeit mit Entwicklern, Plattformteams, IT Operations, Cybersecurity, Architekturteams und Fachbereichen zur Förderung einer sicheren und skalierbaren AI-Nutzung\n\n•\nTechnische Beratung von Projektteams und AI Champions bei der standardisierten und compliant-konformen Entwicklung und dem Betrieb von AI-Lösungen\n\n•\nAufbau und Betrieb wiederverwendbarer AI-Plattformservices und Komponenten für die Nutzung durch interne Projektteams",
+      "fr": "PROFIL\n\n•\nDiplômé en informatique, génie logiciel, technologie de l'information ou une qualification comparable\n\n•\nExpérience professionnelle en DevOps, Plateforme Ingénierie, Développement de logiciels ou Opérations IT\n\n•\nConnaissance approfondie de l'IC/CD, de l'automatisation, de la surveillance, des plateformes cloud et des opérations informatiques sécurisées\n\n•\nExpérience pratique avec les technologies génériques d'IA telles que les LLM, les architectures RAG, les embarqués, les bases de données vectorielles et les systèmes d'IA agents\n\n•\nExpérience dans l'intégration et le fonctionnement des plates-formes AI et des modèles propriétaires et open source dans les environnements productifs\n\n•\nConnaissance de l'utilisation des plates-formes cloud pour déployer et exploiter les charges de travail, les API, les conteneurs et les modèles de service\n\n•\nTrès bonnes compétences en anglais et en allemand en paroles et en écriture\n\nTÂCHES\n\n•\nConstruire, déployer et exploiter des applications, plateformes, services et composants techniques réutilisables pour le centre de compétences AI\n\n•\nMise en œuvre des exigences de la stratégie et de la gouvernance d'IA ainsi que transfert des spécifications de sécurité, de conformité et d'architecture vers des solutions techniques stables\n\n•\nDéveloppement et développement de normes AI DevOps, d'automatisation, de processus de déploiement et de modèles opérationnels pour les solutions AI\n\n•\nAssurer un fonctionnement fiable par la surveillance, la gestion des incidents, la gestion du cycle de vie et l'optimisation continue\n\n•\nCollaboration étroite avec les développeurs, les équipes de plateforme, les opérations informatiques, la cybersécurité, les équipes d'architecture et les disciplines pour promouvoir une utilisation sûre et évolutive de l'IA\n\n•\nConseils techniques pour les équipes de projet et les champions de l'IA dans le développement et le fonctionnement normalisés et conformes des solutions d'IA\n\n•\nConstruire et exploiter des services et des composants de plate-forme d'IA réutilisables à l'usage des équipes internes de projet"
+    },
+    "slugByLocale": {
+      "it": "ai-devops-ingegnere-stadler-rail-bussnang",
+      "en": "ai-devops-engineer-stadler-rail-ch",
+      "de": "ai-devops-engineer-stadler-rail-ch",
+      "fr": "ai-devops-engineer-stadler-rail-ch"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-17T10:17:33.633Z",
+    "previousSlugs": [
+      "ai-devops-engineer-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "ai-devops-engineer-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-ai-devops-engineer-tg-t-9565/1361810855",
+    "firstSeenAt": "2026-07-22T12:13:05.293Z"
+  },
+  {
+    "slug": "apprendistato-come-konstrukteur-in-cfc-2027-stadler-rail-st-margrethen",
+    "title": "Lehrstelle als Konstrukteur:in EFZ 2027",
+    "titleByLocale": {
+      "it": "Apprendistato come costruttore EFZ 2027",
+      "en": "Apprenticeship as constructor EFZ 2027",
+      "de": "Lehrstelle als Konstrukteur:in EFZ 2027",
+      "fr": "Apprentissage en tant que constructeur: en EFZ 2027"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "St. Margrethen",
+    "addressLocality": "St. Margrethen",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\n- Passione per la costruzione meccanica e del veicolo\n- Scuola secondaria tipo E con prestazioni molto buone in matematica e scienze naturali\n- Buona prestazione in tedesco, francese e inglese\n- Molto creativo e inventivo, accoppiato con buona immaginazione tecnica\n- Empatia, disponibilità a comunicare con diversi dipartimenti e fare chiarimenti\n- Il piacere del lavoro di computer\n\nTASKS\n\n- Nuovi sviluppi del materiale rotabile o dei macchinari\n- Creare concetti in collaborazione con gli ingegneri\n- Modellazione e disegno sul computer utilizzando programmi CAD\n- Creare e regolare/correggere disegni e documenti per la produzione e il montaggio\n- Sostenere clienti e fornitori\n- Cooperazione con la nostra produzione e assemblaggio nella costruzione di veicoli ferroviari",
+      "en": "PROFILE\n\n- Passion for mechanical and vehicle construction\n- Secondary school degree type E with very good performance in mathematics and natural sciences\n- Good performance in German, French and English\n- Very creative and inventive, coupled with good technical imagination\n- Empathy, willingness to communicate with different departments and make clarifications\n- The pleasure of computer work\n\nTASKS\n\n- New developments of rolling stock or machinery\n- Creating concepts in collaboration with engineers\n- Modelling and drawing on the computer using CAD programs\n- Creating and adjusting/correcting drawings and documents for production and assembly\n- Supporting customers and suppliers\n- Cooperation with our production and assembly in the construction of rail vehicles",
+      "de": "PROFIL\n\n- Leidenschaft für den Maschinen- und Fahrzeugbau\n- Sekundarschulabschluss Typ E mit sehr guten Leistungen in Mathematik und Naturwissenschaften\n- Gute Leistungen in Deutsch, Französisch und Englisch\n- Sehr kreativ und erfinderisch, gepaart mit gutem technischen Vorstellungsvermögen\n- Einfühlungsvermögen, Bereitschaft mit verschiedenen Abteilungen zu kommunizieren und Abklärungen zu machen\n- Freude an Computerarbeit\n\nAUFGABEN\n\n- Neuentwicklungen von Schienenfahrzeugen oder Maschinen\n- Erstellen von Konzepten in Zusammenarbeit mit Ingenieuren\n- Modellieren und Zeichnen am Computer Mithilfe von CAD-Programmen\n- Erstellen und anpassen / korrigieren von Zeichnungen und Dokumenten für die Fertigung und Montage\n- Betreuen von Kunden und Lieferanten\n- Zusammenarbeit mit unserer Fertigung und Montage beim Bau von Schienenfahrzeugen",
+      "fr": "PROFIL\n\n- Passion pour la construction mécanique et automobile\n- Diplôme d'études secondaires type E avec de très bonnes performances en mathématiques et en sciences naturelles\n- Bonne performance en allemand, français et anglais\n- Très créatif et inventif, associé à une bonne imagination technique\n- L'empathie, la volonté de communiquer avec les différents ministères et de clarifier\n- Le plaisir du travail informatique\n\nTÂCHES\n\n- Nouveaux développements du matériel roulant ou des machines\n- Création de concepts en collaboration avec les ingénieurs\n- Modélisation et dessin sur ordinateur à l'aide de programmes CAO\n- Création et réglage/correction de dessins et documents pour la production et le montage\n- Soutien aux clients et aux fournisseurs\n- Coopération avec notre production et notre montage dans la construction de véhicules ferroviaires"
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-konstrukteur-in-cfc-2027-stadler-rail-st-margrethen",
+      "en": "apprenticeship-as-a-constructor-in-efz-2027-stadler-rail-st-margrethen",
+      "de": "lehrstelle-als-konstrukteur-in-efz-2027-stadler-rail-ch",
+      "fr": "apprentissage-en-tant-que-constructeur-en-efz-2027-stadler-rail-st-margrethen"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-16T22:17:31.839Z",
+    "previousSlugs": [
+      "lehrstelle-als-konstrukteur-in-efz-2027-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-als-konstrukteur-in-efz-2027-stadler-rail-ch"
+      ],
+      "en": [
+        "lehrstelle-als-konstrukteur-in-efz-2027-stadler-rail-ch"
+      ],
+      "fr": [
+        "lehrstelle-als-konstrukteur-in-efz-2027-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9430",
+    "salaryMin": 48000,
+    "salaryMax": 73000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/st_-margrethen-lehrstelle-als-konstrukteurin-efz-2027-sg-s-9430/1359833155",
+    "firstSeenAt": "2026-07-08T22:25:15.881Z"
+  },
+  {
+    "slug": "capo-squadra-design-d-interni-stadler-rail-altenrhein",
+    "title": "Teamleiter:in Innenausbau",
+    "titleByLocale": {
+      "it": "Team leader: nel design d'interni",
+      "en": "Team leader interior design",
+      "de": "Teamleiter:in Innenausbau",
+      "fr": "Chef d'équipe: en décoration d'intérieur"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Altenrhein",
+    "addressLocality": "Altenrhein",
+    "descriptionByLocale": {
+      "it": "Profilo\n\n- Formazione tecnica di base completata, idealmente integrata da una formazione continua (ad esempio:\n\nMaster industriale o comparabile) - esperienza pluriennale in ambiente industriale e solida esperienza gestionale - Ampia competenza di leadership con elevata competenza sociale, empatia e capacità di ispirare e trasmettere ai dipendenti - personalità affidabile, riflessa con un aspetto sicuro e approccio orientato alla soluzione anche in situazioni impegnative - Metodi di lavoro strutturati e orientati agli obiettivi con un buon senso di qualità, efficienza e rispetto delle scadenze - forza di comunicazione, assertività e capacità di dare un orientamento chiaro e\n\nPrendere decisioni - Alta autoiniziativa e azione proattiva con un forte senso di responsabilità - Ottime competenze linguistiche tedesche in termini di parole e scrittura - Alta qualità IT-A (MS Office, SAP, ecc.)\n\nCompiti\n\n- Gestione di un team produttivo in Altenrhein con un orientamento chiaro verso obiettivi comuni (margine di gestione di circa 15 dipendenti) - Promozione e sviluppo dei dipendenti attraverso un supporto mirato - Progettazione di una cultura del team motivante, riconoscente e affidabile - Progettazione e coordinamento in previsione delle risorse del personale in stretto coordinamento con la direzione del dipartimento - Stretto coordinamento con i leader del gruppo: coordinare in modo ottimale il flusso dei materiali e i processi produttivi - Garantire la qualità e il rispetto delle scadenze attraverso una chiara\n\nPriorità, comunicazione trasparente e senso di responsabilità condiviso - Partecipazione attiva del team al miglioramento continuo dei processi e dei processi - Partecipazione attiva alle riunioni del team e discussione di feedback e sviluppo",
+      "en": "Profile\n\n- Basic technical training completed, ideally supplemented by further training (e.g.\n\nIndustry master or comparable) - multi-year experience in the industrial environment as well as sound management experience - Extensive leadership competence with high social competence, empathy and the ability to inspire and pass on employees - Reliable, reflected personality with a safe appearance and solution-oriented approach even in challenging situations - Structured and goal-oriented working methods with a good sense of quality, efficiency and adherence to deadlines - strength of communication, assertiveness and the ability to give clear orientation and\n\nMaking decisions - High self-initiative and proactive action with a strong sense of responsibility - Very good German language skills in word and writing - High IT-A quality (MS Office, SAP, etc.)\n\nTasks\n\n- Management of a production team at Altenrhein site with a clear orientation towards common objectives (management margin of about 15 employees) - Promotion and development of employees through targeted support - Design of a motivating, appreciative and trusting team culture - Forward planning and coordination of personnel resources in close coordination with department management - Close cooperation with group leaders: to optimally coordinate material flow and production processes - Ensure quality and adherence to deadlines through clear\n\nPriorities, transparent communication and shared sense of responsibility - Active involvement of the team in the continuous improvement of processes and processes - Active participation in team meetings and conducting feedback and development discussions",
+      "de": "PROFIL\n\n• Abgeschlossene technische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung (z. B. Industriemeister oder vergleichbar)\n\n• Mehrjährige Erfahrung im industriellen Umfeld sowie fundierte Führungserfahrung\n\n• Ausgeprägte Führungskompetenz mit hoher Sozialkompetenz, Empathie und der Fähigkeit, Mitarbeitende zu begeistern und weiterzubringen\n\n• Belastbare, reflektierte Persönlichkeit mit sicherem Auftreten und einem lösungsorientierten Umgang auch in anspruchsvollen Situationen\n\n• Strukturierte und zielorientierte Arbeitsweise mit einem guten Gespür für Qualität, Effizienz und Termintreue\n\n• Kommunikationsstärke, Durchsetzungsvermögen und die Fähigkeit, klare Orientierung zu geben und Entscheidungen zu treffen\n\n• Hohe Eigeninitiative sowie proaktives Handeln mit einem ausgeprägten Verantwortungsbewusstsein\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Hohe IT-Affinität (MS Office, SAP, usw.)\n\nAUFGABEN\n\n•\nFührung eines Produktionsteams am Standort Altenrhein mit klarer Orientierung an gemeinsamen Zielen (Führungsspanne circa 15 Mitarbeitende)\n\n•\nFörderung und Entwicklung der Mitarbeitenden durch gezielte Unterstützung\n\n•\nGestaltung einer motivierenden, wertschätzenden und vertrauensvollen Teamkultur\n\n•\nVorausschauende Planung und Koordination der personellen Ressourcen in enger Abstimmung mit der Abteilungsleitung\n\n•\nEnge Zusammenarbeit mit den Gruppenleiter:innen zur optimalen Abstimmung von Materialfluss und Produktionsprozessen\n\n•\nSicherstellung von Qualität und Termintreue durch klare Prioritäten, transparente Kommunikation und gemeinsames Verantwortungsbewusstsein\n\n•\nAktive Einbindung des Teams in die kontinuierliche Verbesserung von Prozessen und Abläufen\n\n•\nAktive Teilnahme an Teammeetings sowie Durchführung von Feedback- und Entwicklungsgesprächen",
+      "fr": "Profil\n\n- Formation technique de base complétée, idéalement complétée par une formation complémentaire (par exemple:\n\nMaîtrise de l'industrie ou comparable) - expérience pluriannuelle dans l'environnement industriel ainsi que l'expérience de gestion solide - Compétence de leadership étendue avec une haute compétence sociale, empathie et la capacité d'inspirer et de faire des commentaires sur les employés - Fiabilité, personnalité réfléchie avec une apparence sûre et une approche axée sur la solution même dans des situations difficiles - Méthodes de travail structurées et orientées vers les objectifs avec un bon sens de la qualité, de l'efficacité et du respect des délais - force de communication, assurance et capacité à donner une orientation claire et\n\nPrise de décisions - Haute initiative et action proactive avec un fort sens des responsabilités - Très bonne compétence en langue allemande en paroles et en écriture - Haute qualité IT-A (MS Office, SAP, etc.)\n\nTâches\n\n- Gestion d'une équipe de production sur le site Altenrhein avec une orientation claire vers des objectifs communs (marge de gestion d'environ 15 employés) - Promotion et perfectionnement des employés par un soutien ciblé - Conception d'une culture d'équipe motivante, appréciatrice et confiante - Planification et coordination futures des ressources humaines en étroite coordination avec la direction du ministère - Coopération étroite avec les chefs de groupe : coordonner de façon optimale les flux de matériel et les processus de production - Assurer la qualité et le respect des délais par des moyens clairs\n\nPriorités, communication transparente et sens commun des responsabilités - Participation active de l'équipe à l'amélioration continue des processus et des processus - Participation active aux réunions de l'équipe et à la tenue de discussions sur les réactions et le développement"
+    },
+    "slugByLocale": {
+      "it": "capo-squadra-design-d-interni-stadler-rail-altenrhein",
+      "en": "team-leader-in-interior-design-stadler-rail-altenrhein",
+      "de": "teamleiter-in-innenausbau-stadler-rail-ch",
+      "fr": "chef-d-equipe-en-decoration-d-interieur-stadler-rail-altenrhein"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-16T22:17:31.839Z",
+    "previousSlugs": [
+      "teamleiter-in-innenausbau-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "teamleiter-in-innenausbau-stadler-rail-ch"
+      ],
+      "en": [
+        "teamleiter-in-innenausbau-stadler-rail-ch"
+      ],
+      "fr": [
+        "teamleiter-in-innenausbau-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9423",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/altenrhein-teamleiterin-innenausbau-sg-s-9423/1355618955",
+    "firstSeenAt": "2026-06-16T14:34:47.274Z"
+  },
+  {
+    "slug": "collaboratore-trice-interne-transporte-stadler-rail-bussnang",
+    "title": "Mitarbeiter:in interne Transporte",
+    "titleByLocale": {
+      "it": "Collaboratore/trice interne Transporte",
+      "en": "Associate interne Transporte",
+      "de": "Mitarbeiter:in interne Transporte",
+      "fr": "Collaborateur/trice interne Transporte"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\n•\nFormazione professionale manuale o industriale completata\n\n•\nPatente di guida e carrelli elevatori vantaggiosi\n\n•\nDiversi anni di esperienza nella movimentazione di sistemi di gru e carichi pesanti fino a 60 tonnellate\n\n•\npersonalità responsabile, calma, flessibile e responsabile\n\n•\nMetodo di lavoro molto affidabile e indipendente\n\n•\nBuona conoscenza del tedesco (almeno livello A2)\n\n•\nElevata forza fisica\n\nTASKS\n\n•\nAttuazione del trasporto interno di organi di autoveicoli tra i singoli dipartimenti (blocco, verniciatura e montaggio finale)\n\n•\nMettere il materiale rotabile dal supporto sulla rotaia\n\n•\nCaricamento e sicurezza professionale dei veicoli in collaborazione con gli spedizionieri esterni\n\n•\nCoordinamento e organizzazione dei trasporti interni in stretto coordinamento con i dipendenti dei servizi partecipanti\n\n•\nGarantire un fluido flusso di materiale e veicolo all'interno del processo di produzione\n\n•\nRispetto delle norme di sicurezza, qualità e funzionamento per tutte le operazioni di trasporto e sollevamento",
+      "en": "PROFILE\n\n•\nManual or industrial vocational training completed\n\n•\nAdvantageous forklift and crane driver's licence\n\n•\nSeveral years of experience in handling crane systems and heavy loads up to 60 tonnes\n\n•\nResilient, calm, flexible and responsible personality\n\n•\nVery reliable and independent working method\n\n•\nGood knowledge of German (at least level A2)\n\n•\nHigh physical strength\n\nTASKS\n\n•\nImplementation of internal transport of car bodies between the individual departments (locksmith, paint shop and final assembly)\n\n•\nPutting the rolling stock from the stand on the rail\n\n•\nLoading and professionally securing vehicles in cooperation with external forwarders\n\n•\nCoordination and organisation of internal transport in close coordination with the employees of the participating departments\n\n•\nEnsuring a smooth material and vehicle flow within the production process\n\n•\nCompliance with safety, quality and operational rules for all transport and lifting operations",
+      "de": "PROFIL\n\n•\nAbgeschlossene handwerkliche oder industrielle Berufsausbildung\n\n•\nStaplerausweis sowie Kranführerausweis von Vorteil\n\n•\nMehrjährige Erfahrung im Umgang mit Krananlagen und schweren Lasten bis 60 Tonnen\n\n•\nBelastbare, ruhige, flexible und verantwortungsbewusste Persönlichkeit\n\n•\nSehr zuverlässige und selbstständige Arbeitsweise\n\n•\nGute Deutschkenntnisse (mindestens Niveau A2)\n\n•\nHohe körperliche Belastbarkeit\n\nAUFGABEN\n\n•\nDurchführung der internen Transporte von Rohwagenkästen zwischen den einzelnen Abteilungen (Schlosserei, Lackiererei und Endmontage)\n\n•\nAufsetzen der ausgebauten Fahrzeuge vom Standplatz auf die Schiene\n\n•\nVerladen und fachgerechtes Sichern der Fahrzeuge in Zusammenarbeit mit externen Spediteuren\n\n•\nKoordination und Organisation der internen Transporte in enger Abstimmung mit den Mitarbeitenden der beteiligten Abteilungen\n\n•\nSicherstellung eines reibungslosen Material- und Fahrzeugflusses innerhalb des Produktionsprozesses\n\n•\nEinhaltung der Sicherheits-, Qualitäts- und Betriebsvorschriften bei sämtlichen Transport- und Hebevorgängen",
+      "fr": "PROFIL\n\n•\nFormation professionnelle manuelle ou industrielle terminée\n\n•\nPermis de conduire de chariot élévateur et de grue\n\n•\nPlusieurs années d'expérience dans la manutention des systèmes de grues et des charges lourdes jusqu'à 60 tonnes\n\n•\nPersonnalité résiliente, calme, flexible et responsable\n\n•\nMéthode de travail très fiable et indépendante\n\n•\nBonne connaissance de l'allemand (au moins niveau A2)\n\n•\nHaute force physique\n\nTÂCHES\n\n•\nMise en œuvre du transport interne des carrosseries entre les différents services (sorcier, atelier de peinture et assemblage final)\n\n•\nMettre le matériel roulant sur le rail\n\n•\nChargement et sécurisation professionnelle des véhicules en coopération avec des transitaires extérieurs\n\n•\nCoordination et organisation des transports internes en étroite coordination avec les employés des départements participants\n\n•\nAssurer une fluidité des matériaux et des véhicules dans le processus de production\n\n•\nRespect des règles de sécurité, de qualité et d'exploitation pour toutes les opérations de transport et de levage"
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-interne-transporte-stadler-rail-bussnang",
+      "en": "associate-interne-transporte-stadler-rail-bussnang",
+      "de": "mitarbeiter-in-interne-transporte-stadler-rail-ch",
+      "fr": "collaborateur-trice-interne-transporte-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-16T22:17:31.839Z",
+    "previousSlugs": [
+      "mitarbeiter-in-interne-transporte-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-in-interne-transporte-stadler-rail-ch"
+      ],
+      "en": [
+        "mitarbeiter-in-interne-transporte-stadler-rail-ch"
+      ],
+      "fr": [
+        "mitarbeiter-in-interne-transporte-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-mitarbeiterin-interne-transporte-tg-t-9565/1368168855",
+    "firstSeenAt": "2026-09-17T07:40:46.950Z"
+  },
+  {
+    "slug": "ingegnere-di-sistemi-elettrico-stadler-rail-frauenfeld",
+    "title": "Systems Engineer Elektro",
+    "titleByLocale": {
+      "it": "Ingegnere di Sistemi Elettrico",
+      "en": "Systems Engineer Electrical",
+      "de": "Systems Ingenieur Elektro",
+      "fr": "Ingénieur systèmes électrique"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Frauenfeld",
+    "addressLocality": "Frauenfeld",
+    "descriptionByLocale": {
+      "it": "PROFILO\n• Studi completati (FH/Università) in ingegneria elettrica, meccatronica o automazione o qualifica comparabile.\n• Esperienza pluriennale nel settore ferroviario, preferibilmente nella tecnologia dei sistemi o dei veicoli.\n• Una buona conoscenza delle norme e delle linee guida pertinenti specifiche per il settore ferroviario (ad es. EN, STI) costituisce un vantaggio.\n• Metodo di lavoro strutturato e orientato alla soluzione con un elevato livello di consapevolezza della qualità.\n• Personalità orientata al team con forti capacità di comunicazione e senso di responsabilità.\n• Ottima conoscenza della lingua tedesca, buona conoscenza dell'inglese parlato e scritto. COMPITI In qualità di ingegnere del sistema elettrico, assumerai la responsabilità tecnica della pianificazione, progettazione e integrazione dei sistemi elettrici nell'ambito dei progetti di modernizzazione dei veicoli ferroviari. Garantite che le soluzioni tecniche siano implementate in modo funzionale, conforme alle norme ed economico.\n• Responsabilità di sistema per i componenti dei veicoli elettrici, in particolare i sistemi elettrici a bassa tensione, i sistemi di azionamento e trazione, i sistemi di illuminazione e altri sottosistemi elettrici e meccatronici.\n• Sviluppo e coordinamento di concetti tecnici, specifiche e soluzioni di integrazione in stretta collaborazione con dipartimenti interni e partner esterni.\n• Creazione e manutenzione di documenti tecnici idonei alla produzione e all'assemblaggio, come schemi elettrici, elenchi di cavi, elenchi di apparecchiature e specifiche tecniche.\n• Supporto tecnico per i fornitori, compresa la definizione dei requisiti, il chiarimento dell'interfaccia, le revisioni della progettazione e l'accettazione.\n• Accompagnamento dell'implementazione nell'assemblaggio, produzione e messa in servizio, nonché supporto tecnico per test funzionali, di tipo e di accettazione.\n• Effettuare analisi, chiarimenti e valutazioni di varianti per sviluppare soluzioni di modernizzazione robuste ed economiche.\n• Collaborazione con clienti, centri di test ed esperti, nonché supporto nelle questioni di approvazione.\n• Accompagnamento dei progetti in tutte le fasi, dalla definizione del concetto all'ingegneria e integrazione fino al test e all'approvazione.",
+      "en": "PROFILE\n• Completed studies (FH/University) in electrical engineering, mechatronics or automation or a comparable qualification.\n• Several years of experience in the railway environment, ideally in system or vehicle technology.\n• Good knowledge of relevant railway-specific standards and guidelines (e.g. EN, TSI) is an advantage.\n• Structured and solution-oriented way of working with a high level of quality awareness.\n• Team-oriented personality with strong communication skills and sense of responsibility.\n• Very good knowledge of German, good knowledge of spoken and written English. TASKS As an electrical system engineer, you will take on technical responsibility for the project planning, design and integration of electrical systems as part of rail vehicle modernization projects. You ensure that the technical solutions are implemented functionally, in accordance with standards and economically.\n• System responsibility for electrical vehicle components, in particular low-voltage electrical systems, drive and traction systems, lighting systems and other electrical and mechatronic subsystems.\n• Development and coordination of technical concepts, specifications and integration solutions in close collaboration with internal departments and external partners.\n• Creation and maintenance of engineering documents suitable for production and assembly, such as circuit diagrams, cable lists, equipment lists and technical specifications.\n• Technical support for suppliers, including requirements definition, interface clarification, design reviews and acceptance.\n• Accompanying the implementation in assembly, manufacturing and commissioning as well as technical support for functional, type and acceptance tests.\n• Carrying out analyses, clarifications and variant assessments to develop robust and economical modernization solutions.\n• Collaboration with customers, test centers and experts as well as support in approval issues.\n• Accompanying projects throughout all phases, from concept definition to engineering and integration to testing and approval.",
+      "de": "PROFIL\n\n• Abgeschlossenes Studium (FH/Universität) in Elektrotechnik, Mechatronik oder Automation oder eine vergleichbare Qualifikation.\n\n• Mehrjährige Erfahrung im Bahnumfeld, idealerweise in der System- oder Fahrzeugtechnik.\n\n• Gute Kenntnisse relevanter bahnspezifischer Normen und Richtlinien (z. B. EN, TSI) von Vorteil.\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit hohem Qualitätsbewusstsein.\n\n• Teamorientierte Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Verantwortungssinn.\n\n• Sehr gute Deutschkenntnisse, gute Englischkenntnisse in Wort und Schrift.\n\nAUFGABEN\n\nAls Systemingenieur:in Elektro übernimmst du die fachliche Verantwortung für die Projektierung, Auslegung und Integration elektrischer Systeme im Rahmen von Modernisierungsprojekten von Schienenfahrzeugen. Dabei stellst du sicher, dass die technischen Lösungen funktional, normenkonform und wirtschaftlich umgesetzt werden.\n\n• Systemverantwortung für elektrische Fahrzeugkomponenten, insbesondere Niederspannungsbordnetze, Antriebs- und Traktionssysteme, Beleuchtungsanlagen sowie weitere elektrische und mechatronische Subsysteme.\n\n• Ausarbeitung und Abstimmung von technischen Konzepten, Spezifikationen und Integrationslösungen in enger Zusammenarbeit mit internen Fachbereichen und externen Partnern.\n\n• Erstellung und Pflege von fertigungs- und montagegerechten Engineering-Unterlagen, wie Stromlaufplänen, Kabellisten, Apparatelisten und technischen Spezifikationen.\n\n• Technische Betreuung von Lieferanten, inklusive Anforderungsdefinition, Schnittstellenklärung, Design-Reviews und Abnahmen.\n\n• Begleitung der Umsetzung in Montage, Fertigung und Inbetriebnahme sowie technische Unterstützung bei Funktions-, Typen- und Abnahmetests.\n\n• Durchführung von Analysen, Abklärungen und Variantenbewertungen zur Entwicklung robuster und wirtschaftlicher Modernisierungslösungen.\n\n• Zusammenarbeit mit Kunden, Prüfstellen und Gutachtern sowie Unterstützung in Zulassungsfragen.\n\n• Begleitung der Projekte über alle Phasen, von der Konzeptdefinition über Engineering und Integration bis hin zur Erprobung und Zulassung.",
+      "fr": "PROFIL\n• Etudes complétées (FH/Université) en électrotechnique, mécatronique ou automatisme ou diplôme comparable.\n• Plusieurs années d'expérience dans le milieu ferroviaire, idéalement en technologie des systèmes ou des véhicules.\n• Une bonne connaissance des normes et directives spécifiques au secteur ferroviaire (par exemple EN, STI) est un avantage.\n• Méthode de travail structurée et orientée vers les solutions avec un haut niveau de conscience de la qualité.\n• Personnalité orientée vers l'équipe avec de solides compétences en communication et un sens des responsabilités.\n• Très bonne connaissance de l'allemand, bonne connaissance de l'anglais parlé et écrit. TÂCHES En tant qu'ingénieur en systèmes électriques, vous assumerez la responsabilité technique de la planification, de la conception et de l'intégration de systèmes électriques dans le cadre de projets de modernisation des véhicules ferroviaires. Vous veillez à ce que les solutions techniques soient mises en œuvre de manière fonctionnelle, conforme aux normes et économiquement.\n• Responsabilité système pour les composants des véhicules électriques, en particulier les systèmes électriques basse tension, les systèmes d'entraînement et de traction, les systèmes d'éclairage et autres sous-systèmes électriques et mécatroniques.\n• Développement et coordination de concepts techniques, de spécifications et de solutions d'intégration en étroite collaboration avec les services internes et les partenaires externes.\n• Création et maintenance de documents d'ingénierie adaptés à la production et à l'assemblage, tels que des schémas de circuits, des listes de câbles, des listes d'équipements et des spécifications techniques.\n• Support technique pour les fournisseurs, y compris la définition des exigences, la clarification de l'interface, les revues de conception et l'acceptation.\n• Accompagnement de la mise en œuvre en assemblage, fabrication et mise en service ainsi que support technique pour les tests fonctionnels, de type et de réception.\n• Réaliser des analyses, des clarifications et des évaluations de variantes pour développer des solutions de modernisation robustes et économiques.\n• Collaboration avec les clients, les centres de tests et les experts ainsi que support dans les questions d'approbation.\n• Accompagnement des projets tout au long de toutes les phases, de la définition du concept à l'ingénierie et à l'intégration jusqu'aux tests et approbations."
+    },
+    "slugByLocale": {
+      "it": "ingegnere-di-sistemi-elettrico-stadler-rail-frauenfeld",
+      "en": "systems-engineer-elektro-stadler-rail-ch",
+      "de": "systems-engineer-elektro-stadler-rail-ch",
+      "fr": "ingenieur-systemes-electrique-stadler-rail-frauenfeld"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-16T22:17:31.839Z",
+    "previousSlugs": [
+      "systems-engineer-elektro-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "systems-engineer-elektro-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "8500",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/frauenfeld-systems-engineer-elektro-tg-t-8500/1330990355",
+    "firstSeenAt": "2026-06-10T07:51:51.564Z"
+  },
+  {
+    "slug": "meccanica-stadler-rail-bussnang",
+    "title": "Mechaniker:in",
+    "titleByLocale": {
+      "it": "Meccanica",
+      "en": "Mechanic",
+      "de": "Mechaniker:in",
+      "fr": "Mécanique"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFILO\n• Formazione professionale EFZ completata nel settore meccanico - Preferibilmente meccanico di macchine agricole, meccanico di automobili, polimeccanico nonché tecnico del riscaldamento o installatore di impianti idraulici\n• Esperienza professionale nel settore del montaggio e buone conoscenze meccaniche\n• Conoscenze pneumatiche sono un vantaggio\n• Buona conoscenza della lingua tedesca\n• Il corso per gru e stoccatori è un vantaggio\n• Manipolazione sicura e comprensione dei disegni di montaggio COMPITI\n• Assemblaggio di componenti meccanici, pneumatici e idraulici secondo disegni e schemi, compresi collegamenti a vite e lavori di incollaggio\n• Compilazione di rapporti di prova, esecuzione di prove di tenuta, nonché pianificazione e fornitura di prove e ausili\n• Inserimento di modifiche, esecuzione di lavori di garanzia e rilavorazione, lavori di aggiornamento e messa a punto di prototipi\n• Esecuzione di lavori con gru, utilizzo di sistemi di sollevamento e rotazione e di gru, nonché gestione di veicoli aziendali, carrelli elevatori e sistemi speciali\n• Messa in servizio di gruppi e sviluppo di continui suggerimenti per il miglioramento",
+      "en": "PROFILE\n• Completed EFZ vocational training in the mechanical field - Preferably agricultural machinery mechanic, car mechanic, polymechanic as well as heating engineer or plumbing installer\n• Professional experience in the assembly area as well as good mechanical understanding\n• Pneumatic knowledge is an advantage\n• Good knowledge of German\n• Crane and pedestrian stacker course is an advantage\n• Safe handling and understanding of assembly drawings TASKS\n• Assembly of mechanical, pneumatic and hydraulic components according to drawings and diagrams, including screw connections and gluing work\n• Completing test reports, carrying out leak tests, as well as planning and providing testing and aids\n• Entering changes, carrying out warranty and rework work, refreshing work and setting up prototypes\n• Carrying out crane work, operating lifting and slewing and crane systems, as well as operating company vehicles, forklifts and special systems\n• Commissioning assemblies and developing continuous suggestions for improvement",
+      "de": "PROFIL\n\n• Abgeschlossene Berufsausbildung EFZ im mechanischen Bereich - Vorzugsweise Landmaschinenmechaniker:in, Automechaniker:in, Polymechaniker:in sowie Heizungsmonteur:in oder Sanitärinstallateur:in\n\n• Berufserfahrung im Montagebereich sowie gutes mechanisches Verständnis\n\n• Pneumatische Kenntnisse von Vorteil\n\n• Gute Deutschkenntnisse\n\n• Kran- und Deichselstaplerkurs von Vorteil\n\n• Sicherer Umgang und Verständnis von Montagezeichnungen\n\nAUFGABEN\n\n• Montage von mechanischen, pneumatischen und hydraulischen Komponenten nach Zeichnung und Schema, inklusive Schraubverbindungen und Klebearbeiten\n\n• Ausfüllen von Prüfprotokollen, Durchführung von Dichtheitsprüfungen, sowie Planung und Bereitstellung der Prüf- und Hilfsmittel\n\n• Einpflegen von Änderungen, Durchführung von Garantie- und Nacharbeitungsarbeiten, Refresh-Arbeiten und Aufbau von Prototypen\n\n• Durchführung von Kranarbeiten, Bedienung von Hebedreh- und Krananlagen, sowie Betrieb von Betriebsfahrzeugen, Staplern und Spezialanlagen\n\n• Inbetriebnahme von Baugruppen und Erarbeitung von kontinuierlichen Verbesserungsvorschlägen",
+      "fr": "PROFIL\n• Formation professionnelle EFZ complétée dans le domaine mécanique - De préférence mécanicien de machines agricoles, mécanicien automobile, polymécanicien ainsi que chauffagiste ou installateur de plomberie\n• Expérience professionnelle dans le domaine du montage ainsi qu'une bonne compréhension de la mécanique\n• Des connaissances pneumatiques sont un avantage\n• Une bonne connaissance de l'allemand\n• Cours de grue et de gerbeur à conducteur accompagnant est un avantage\n• Manipulation sûre et compréhension des dessins de montage TÂCHES\n• Assemblage de composants mécaniques, pneumatiques et hydrauliques selon les dessins et schémas, y compris les raccords à vis et les travaux de collage\n• Remplir des rapports d'essais, réaliser des fuites tests, ainsi que la planification et la mise à disposition de tests et d'aides\n• Saisie de modifications, réalisation de travaux de garantie et de retouches, mise à jour des travaux et mise en place de prototypes\n• Exécution de travaux de grue, utilisation d'installations de levage, d'orientation et de grue, ainsi que conduite de véhicules d'entreprise, de chariots élévateurs et d'installations spéciales\n• Mise en service d'ensembles et développement de suggestions d'amélioration continues"
+    },
+    "slugByLocale": {
+      "it": "meccanica-stadler-rail-bussnang",
+      "en": "mechanic-stadler-rail-bussnang",
+      "de": "mechaniker-in-stadler-rail-ch",
+      "fr": "mecanique-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-15T22:19:36.609Z",
+    "previousSlugs": [
+      "mechaniker-in-stadler-rail-ch",
+      "completamento-meccanico-stadler-rail-bussnang",
+      "mechanic-in-completion-stadler-rail-bussnang",
+      "mechaniker-in-fertigstellung-stadler-rail-ch",
+      "mecanicien-en-cours-d-achevement-stadler-rail-bussnang",
+      "rielaborazione-del-cliente-meccanico-stadler-rail-bussnang",
+      "mechanic-customer-rework-stadler-rail-bussnang",
+      "mechaniker-in-kundennacharbeiten-stadler-rail-ch",
+      "refonte-du-client-mecanicien-stadler-rail-bussnang",
+      "artista-schematico-stadler-rail-bussnang",
+      "diagram-in-stadler-rail-bussnang",
+      "schemazeichner-in-stadler-rail-ch",
+      "schema-stadler-rail-bussnang",
+      "schreiner-stadler-rail-bussnang",
+      "carpenter-stadler-rail-bussnang",
+      "schreiner-in-stadler-rail-ch",
+      "menuisier-stadler-rail-bussnang",
+      "shriners-stadler-rail-bussnang",
+      "chassis-stadler-rail-bussnang"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mechaniker-in-stadler-rail-ch",
+        "artista-schematico-stadler-rail-bussnang",
+        "diagram-in-stadler-rail-bussnang",
+        "schemazeichner-in-stadler-rail-ch",
+        "schema-stadler-rail-bussnang",
+        "schreiner-stadler-rail-bussnang",
+        "carpenter-stadler-rail-bussnang",
+        "schreiner-in-stadler-rail-ch",
+        "menuisier-stadler-rail-bussnang",
+        "shriners-stadler-rail-bussnang",
+        "chassis-stadler-rail-bussnang"
+      ],
+      "en": [
+        "diagram-in-stadler-rail-bussnang",
+        "carpenter-stadler-rail-bussnang"
+      ],
+      "de": [
+        "schemazeichner-in-stadler-rail-ch",
+        "schreiner-in-stadler-rail-ch"
+      ],
+      "fr": [
+        "schema-stadler-rail-bussnang",
+        "menuisier-stadler-rail-bussnang"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 64500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-mechanikerin-tg-t-9565/1327669255",
+    "firstSeenAt": "2026-06-10T07:51:55.613Z"
+  },
+  {
+    "slug": "ingegnere-di-sviluppo-in-ingegnere-strutturale-in-stadler-rail-frauenfeld",
+    "title": "Entwicklungsingenieur:in /Strukturingenieur:in",
+    "titleByLocale": {
+      "it": "Ingegnere di sviluppo / Ingegnere strutturale",
+      "en": "Development engineer / Structural engineer",
+      "de": "Entwicklungsingenieur:in /Strukturingenieur:in",
+      "fr": "Ingénieur de développement / Ingénieur structural"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Frauenfeld",
+    "addressLocality": "Frauenfeld",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\nRequisiti\n\n• Formazione completa (HTL, FH, Uni) verso ingegneria meccanica / meccanica\n\n• Buona conoscenza del sistema CAD attuale, preferibilmente Catia V5 nelle aree di modellazione solida (anche modellazione superficiale)\n\n• L'esperienza nel settore dei veicoli ferroviari è un vantaggio\n\n• Curiosità e motivazione per incorporare questo campo orientato al futuro\n\n• Fino al 10% di volontà di viaggiare per trovare veicoli ferroviari accidentali\n\n• Conoscenza molto buona di tedesco e inglese (B2) in parola e scrittura\n\n• Non è possibile prevedere una resilienza a breve e flessibile con il cambiamento dell'ingresso del progetto (numero e distanza degli incidenti).\n\n• Alta disponibilità operativa\n\n• Lavoro di studio anche in situazioni complesse e interdisciplinari\n\n• Si desidera mettere in pratica la teoria, in parte supervisionare l'implementazione e vedere i risultati finali live\n\nDesirable:\n\n• Formazione/formazione come ingegnere di saldatura internazionale (IWE), tecnico di saldatura internazionale (IWT) o specialista di saldatura internazionale (IWS) desiderabile/vantageous\n\nTASKS\n\n• Responsabile per la progettazione tecnica corretta, il coordinamento tecnico e lo sviluppo di sistemi meccanici, di saldatura, in parte strutturali nell'area di riparazione del corpo dell'automobile (DIN EN 15085-6).\n\n• Preparazione di studi di fattibilità di saldatura, concetti e istruzioni di riparazione.\n\n• Una stretta collaborazione con la produzione, il calcolo, l'acquisto e la gestione dei progetti\n\n• Specialista responsabile e interfaccia tra ingegneria meccanica e project management durante l'intero progetto di riparazione.\n\n• Scambio di cross-location costante con specialisti e colleghi\n\n• Sviluppo (nuove soluzioni) / Creazione (soluzioni esistenti), costruzione di soluzioni pronte alla produzione / riparazione di danni strutturali agli enti auto\n\n• Ricerca di veicoli ferroviari accidentali in patria e all'estero",
+      "en": "PROFILE\n\nRequirements\n\n• Completed training (HTL, FH, Uni) towards mechanical engineering / mechanics\n\n• Good knowledge of current CAD system, preferably Catia V5 in the areas of solid modeling (even surface modeling)\n\n• Experience in the rail vehicle industry is an advantage\n\n• Curiosity and motivation to incorporate this future-oriented field\n\n• Up to 10% willingness to travel for findings of accidental rail vehicles\n\n• Very good knowledge of German and English (B2) in word and writing\n\n• Short-term and flexible resilience with changing project input (number and distance of accidents cannot be planned).\n\n• High operational readiness\n\n• Structuring work even in complex, interdisciplinary situations\n\n• You want to put the theory into practice, partially supervise the implementation and see the final results live\n\nDesirable:\n\n• Training/training as an international welding engineer (IWE), international welding technician (IWT) or international welding specialist (IWS) desirable/advantageous\n\nTASKS\n\n• Responsible for technically correct design, technical coordination and development of mechanical, welding, partly structural assemblies in the area of car body repairs (DIN EN 15085-6).\n\n• Preparation of welding feasibility studies, concepts and repair instructions.\n\n• Close cooperation with production, calculation, purchasing and project management\n\n• Responsible specialist and interface between mechanical engineering and project management during the entire repair projects.\n\n• Constant cross-location exchange with specialists and colleagues\n\n• Developing (new solutions) / Creating (existing solutions), constructing production-ready solutions / repairing structural damage to car bodies\n\n• Findings of accidental railway vehicles at home and abroad",
+      "de": "PROFIL\n\nAnforderungen\n\n• Abgeschlossene Ausbildung (HTL, FH, Uni) Richtung Maschinenbau / Mechanik\n\n• Gute Kenntnisse in aktuellen CAD-System, vorzugsweise Catia V5 in den Bereichen Solid-modellierung (ev auch Freiflächenmodellierung)\n\n• Erfahrung in der Schienenfahrzeugbranche von Vorteil\n\n• Neugier und Motivation zur Einarbeitung dieses zukunftsorientierten Gebiets\n\n• Bis zu 10% Reisebereitschaft für Befundungen von verunfallten Schienenfahrzeugen\n\n• Sehr gute Deutsch und Englischkenntnisse (B2) in Wort und Schrift\n\n• Kurzfristige und flexible Belastbarkeit bei wechselndem Projekteingang (Anzahl und Abstand der Unfälle nicht planbar).\n\n• Hohe Einsatzbereitschaft\n\n• Strukturiere Arbeitsweise auch in komplexen, interdisziplinären Situationen\n\n• Du willst die Theorie in die Praxis umsetzten, die Umsetzung teilweise Betreuen und die Endergebnisse live sehen\n\nWünschenswert:\n\n• Ausbildung/Fortbildung zum internationalen Schweissfachingenieur (IWE), internationaler Schweisstechniker (IWT) oder internationaler Schweissfachmann (IWS) wünschenswert/von Vorteil\n\nAUFGABEN\n\n• Verantwortlich für fachlich korrekte Auslegung, technische Abstimmung und Entwicklung von mechanischen, schweisstechnischen, teils strukturellen Baugruppen im Bereich der Wagenkastenreparaturen (DIN EN 15085-6).\n\n• Erstellung von schweisstechnischen Machbarkeitsuntersuchungen, Konzepten und Reparaturanweisungen.\n\n• Enge Zusammenarbeit mit Produktion, Berechnung, Einkauf und Projektleitung\n\n• Verantwortliche Fachperson und Schnittstelle zwischen mechanischem Engineering und Projektleitung während der gesamten Reparaturprojekte.\n\n• Ständigen standortübergreifenden Austausch mit Spezialisten und Kollegen\n\n• Entwickeln (neue Lösungen) / Erstellen (vorhandene Lösungen), konstruieren von produktionsreifen Lösungen/Reparaturen von strukturellen Beschädigungen an Wagenkästen\n\n• Befundungen von verunfallten Schienenfahrzeugen im In- und Ausland",
+      "fr": "PROFIL\n\nExigences\n\n• Formation complète (HTL, FH, Uni) à l'ingénierie mécanique / mécanique\n\n• Bonne connaissance du système CAO actuel, de préférence Catia V5 dans les domaines de la modélisation solide (même modélisation de surface)\n\n• L'expérience dans le secteur des véhicules ferroviaires est un avantage\n\n• Curiosité et motivation à intégrer ce domaine orienté vers l'avenir\n\n• Jusqu'à 10 % de la volonté de voyager pour les découvertes de véhicules ferroviaires accidentels\n\n• Très bonne connaissance de l'allemand et de l'anglais (B2) en paroles et en écriture\n\n• Résilience à court terme et flexible grâce à l'évolution de l'apport du projet (le nombre et la distance des accidents ne peuvent être planifiés).\n\n• Préparation opérationnelle élevée\n\n• Structurer le travail même dans des situations complexes et interdisciplinaires\n\n• Vous voulez mettre la théorie en pratique, partiellement superviser la mise en œuvre et voir les résultats finaux en direct\n\nDésireux :\n\n• Formation/formation en tant qu'ingénieur international de soudage (IWE), technicien international de soudage (IWT) ou spécialiste international de soudage (IWS) souhaitable/avantageux\n\nTÂCHES\n\n• Responsable de la conception techniquement correcte, de la coordination technique et du développement des assemblages mécaniques, de soudage, partiellement structuraux dans le domaine des réparations de carrosseries (DIN EN 15085-6).\n\n• Préparation d'études de faisabilité de soudage, de concepts et d'instructions de réparation.\n\n• Coopération étroite avec la production, le calcul, les achats et la gestion de projet\n\n• Spécialiste responsable et interface entre l'ingénierie mécanique et la gestion de projet pendant l'ensemble des projets de réparation.\n\n• Échange constant de locaux avec des spécialistes et des collègues\n\n• Développement (nouvelles solutions) / Création (solutions existantes), construction de solutions prêtes à la production / réparation des dommages structurels aux carrosseries\n\n• Constatations concernant les véhicules ferroviaires accidentels au pays et à l'étranger"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-di-sviluppo-in-ingegnere-strutturale-in-stadler-rail-frauenfeld",
+      "en": "development-engineer-in-structural-engineer-in-stadler-rail-frauenfeld",
+      "de": "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch",
+      "fr": "ingenieur-de-developpement-in-ingenieur-structural-in-stadler-rail-frauenfeld"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-15T10:12:20.892Z",
+    "previousSlugs": [
+      "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+      ],
+      "en": [
+        "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+      ],
+      "fr": [
+        "entwicklungsingenieur-in-strukturingenieur-in-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "8500",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/frauenfeld-entwicklungsingenieurin-strukturingenieurin-tg-t-8500/1366303255",
+    "firstSeenAt": "2026-09-02T13:48:09.179Z"
+  },
+  {
+    "slug": "responsabile-del-progetto-stadler-rail-wallisellen",
+    "title": "Project Controller",
+    "titleByLocale": {
+      "de": "Projektcontroller",
+      "en": "Project Controller",
+      "it": "Controller di progetto",
+      "fr": "Contrôleur de projet"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Wallisellen",
+    "addressLocality": "Wallisellen",
+    "descriptionByLocale": {
+      "it": "PROFILO\n\n- Laurea completata in economia aziendale con specializzazione in controllo di gestione o finanza, oppure formazione commerciale con un'adeguata formazione continua nell'ambito della finanza e della contabilità / del controllo di gestione\n- Prima esperienza lavorativa nel controllo di gestione, idealmente nel controllo di gestione di progetti, investimenti o aziendale\n- Ottima conoscenza di Excel; l'esperienza con Power BI o strumenti di BI comparabili costituisce un vantaggio\n- Buona conoscenza di SAP, idealmente in S/4HANA\n- Spiccate capacità analitiche, forte propensione per i numeri e un metodo di lavoro strutturato e scrupoloso\n- Ottima conoscenza del tedesco e dell'inglese indispensabile; la conoscenza del francese costituisce un vantaggio\n\nATTIVITÀ\n\n- Responsabilità del controllo di gestione di progetto di una Business Unit, con consulenza e supporto competenti ai responsabili di progetto e ai responsabili delle attività di progetto per tutte le questioni finanziarie\n- Verifica critica della qualità dei dati per garantire una valutazione corretta delle commesse in corso (WiP) con diversi metodi (in particolare Cost-to-Cost & Units of Delivery)\n- Analisi degli scostamenti tra valori pianificati ed effettivi e definizione di raccomandazioni operative\n- Redazione di analisi ad hoc significative per la direzione di area e i responsabili finanziari\n- Partecipazione attiva alle chiusure mensili, trimestrali e annuali, nonché ai processi di previsione e budgeting\n- Collaborazione allo sviluppo continuo degli strumenti di controllo di gestione, delle soluzioni di reporting e dei processi finanziari",
+      "en": "PROFILE\n\n- Completed degree in business administration with a focus on controlling or finance, or commercial training with corresponding further education in finance and accounting / controlling\n- Initial professional experience in controlling, ideally in project, investment or business controlling\n- Very good Excel skills; experience with Power BI or comparable BI tools is an advantage\n- Good SAP skills, ideally in S/4HANA\n- Very strong analytical thinking, a high affinity for numbers and a structured, careful approach to work\n- Very good German and English skills are essential; French skills are an advantage\n\nTASKS\n\n- Responsibility for the project controlling of a business unit, providing competent advice and support to project managers and project leads on all financial matters\n- Critical review of data quality to ensure an accurate valuation of work in progress (WiP) using various methods (in particular Cost-to-Cost & Units of Delivery)\n- Analysis of plan-versus-actual comparisons and development of recommendations for action\n- Preparation of meaningful ad hoc analyses for divisional management and those responsible for finance\n- Active participation in monthly, quarterly, and annual closings as well as forecasting and budgeting processes\n- Participation in the continuous further development of management control tools, reporting solutions, and financial processes",
+      "de": "PROFIL\n\n- Abgeschlossenes betriebswirtschaftliches Studium mit Schwerpunkt Controlling oder Finanzen oder eine kaufmännische Ausbildung mit entsprechender Weiterbildung im Bereich Finanz- und Rechnungswesen / Controlling\n- Erste Berufserfahrung im Controlling, idealerweise im Projekt-, Investitions- oder Business-Controlling\n- Sehr gute Excel-Kenntnisse; Erfahrung mit Power BI oder vergleichbaren BI-Tools von Vorteil\n- Gute SAP-Kenntnisse, idealerweise in S/4HANA\n- Sehr gutes analytisches Denkvermögen, hohe Zahlenaffinität und eine strukturierte, sorgfältige Arbeitsweise\n- Sehr gute Deutsch- und Englischkenntnisse zwingend, Französischkenntnisse von Vorteil\n\nAUFGABEN\n\n- Verantwortung für das Projektcontrolling einer Business Unit mit kompetenter Beratung und Unterstützung von Projektleitern und Projektverantwortlichen in sämtlichen finanziellen Fragestellungen\n- Kritische Prüfung der Datenqualität für Sicherstellung einer sauberen Bewertung der Aufträge in Arbeit (WiP) mit verschiedenen Methoden (insbesondere Cost-to-Cost & Units of Delivery)\n- Analyse von SOLL-IST-Vergleichen und Erarbeitung von Handlungsempfehlungen\n- Erstellung von aussagekräftigen ad-hoc-Analysen für Bereichsleitung und die Finanzverantwortlichen\n- Aktive Mitarbeit bei Monats-, Quartals- und Jahresabschlüssen sowie bei Forecast- und Budgetprozessen\n- Mitwirkung bei der kontinuierlichen Weiterentwicklung von Controlling-Instrumenten, Reporting-Lösungen und Finanzprozessen",
+      "fr": "PROFESSIONNEL\n\n- Études supérieures achevées en gestion, avec une spécialisation en contrôle de gestion ou en finance, ou formation commerciale complétée par une formation continue correspondante dans le domaine de la finance et de la comptabilité / du contrôle de gestion\n- Première expérience professionnelle en contrôle de gestion, idéalement dans le contrôle de gestion de projets, des investissements ou de l’activité\n- Très bonne maîtrise d’Excel ; une expérience avec Power BI ou des outils BI comparables constitue un atout\n- Bonnes connaissances de SAP, idéalement de S/4HANA\n- Très bonnes capacités de réflexion analytique, grande affinité avec les chiffres et méthode de travail structurée et rigoureuse\n- Très bonnes connaissances de l’allemand et de l’anglais indispensables, connaissances du français appréciées\n\nTÂCHES\n\n- Responsabilité du contrôle de gestion des projets d’une Business Unit, avec conseil compétent et soutien aux chefs de projet et aux responsables de projet pour toutes les questions financières\n- Examen critique de la qualité des données pour garantir une évaluation fiable des travaux en cours (WiP) à l'aide de différentes méthodes (notamment Cost-to-Cost & Units of Delivery)\n- Analyse des comparaisons entre le prévu et le réel et élaboration de recommandations d'action\n- Élaboration d’analyses ad hoc pertinentes pour la direction des secteurs et les responsables financiers\n- Participation active aux clôtures mensuelles, trimestrielles et annuelles ainsi qu’aux processus de prévision et de budgétisation\n- Participation au développement continu des outils de contrôle de gestion, des solutions de reporting et des processus financiers"
+    },
+    "slugByLocale": {
+      "it": "responsabile-del-progetto-stadler-rail-wallisellen",
+      "en": "project-controller-stadler-rail-ch",
+      "de": "projektcontroller-stadler-rail-wallisellen",
+      "fr": "controleur-de-projet-stadler-rail-wallisellen"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-15T10:12:20.892Z",
+    "previousSlugs": [
+      "project-controller-stadler-rail-ch",
+      "project-controller-stadler-rail-wallisellen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "project-controller-stadler-rail-ch"
+      ],
+      "fr": [
+        "project-controller-stadler-rail-ch",
+        "project-controller-stadler-rail-wallisellen"
+      ],
+      "de": [
+        "project-controller-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "8304",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/wallisellen-project-controller-zh-z-8304/1370159955",
+    "firstSeenAt": "2026-10-01T09:30:20.711Z"
+  },
+  {
     "slug": "dispatcher-del-progetto-stadler-rail-frauenfeld",
     "title": "Projektdisponent:in",
     "titleByLocale": {

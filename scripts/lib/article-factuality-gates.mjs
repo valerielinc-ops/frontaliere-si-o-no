@@ -46,6 +46,7 @@
 
 import { tokenizeIt, containmentSim } from './it-text-similarity.mjs';
 import { escapeRegExpLiteral } from './escape-regexp.mjs';
+import { recognizeFirstName } from './first-name-recognition.mjs';
 import {
   LOCALE_LEXICON,
   lexiconFor,
@@ -1127,6 +1128,7 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
 
   // EU / international
   'EPO',      // European Patent Office — epo.org
+  'JRC',      // Joint Research Centre della Commissione europea — joint-research-centre.ec.europa.eu
   'ESA',      // European Space Agency — esa.int
   'EASA',     // Agenzia dell'Unione europea per la sicurezza aerea — easa.europa.eu
   'IARC',     // International Agency for Research on Cancer — iarc.who.int
@@ -1246,6 +1248,60 @@ export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
 const INSTITUTION_NOUN = String.raw`(?:Ufficio|Uffici|Istituto|Agenzia|Commissione|Osservatorio|Autorit[àa]|Dipartimento|Segreteria|Direzione|Ente|Amministrazione)`;
 const INSTITUTION_RE = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?)\(([A-Z]{2,8})\)`, 'g');
 
+// A generated sentence can move a person's appositive after the institution
+// role: `direttore del Dipartimento ... Martin Bühler (PLR)`. The regex above
+// then sees the institution noun and mistakes the person's political
+// affiliation for an institution acronym. Keep party labels out of this gate
+// only when both halves of that shape are present; an unknown acronym directly
+// attached to an institution must remain reportable.
+const POLITICAL_AFFILIATION_ACRONYMS = new Set([
+  'PLR', 'PSS', 'PS', 'UDC', 'PDC', 'PPD', 'PVL', 'PEV', 'UDF', 'PBD', 'PCS', 'MCG', 'MPS',
+  'FDP', 'SP', 'SVP', 'CVP', 'GLP', 'EVP', 'EDU', 'BDP', 'LDP',
+]);
+// A person suffix must follow at least two lowercase lexical words, not a
+// single institutional modifier. A comma is allowed only after that same
+// demonstrated boundary: a comma alone makes
+// `Dipartimento, Politiche Sociali` look like a person's name.
+const PERSON_NAME_SUFFIX_RE = /(?<!\p{L})(?:[\p{Ll}][\p{Ll}'’.-]*\s+)+(?<boundaryWord>[\p{Ll}][\p{Ll}'’.-]*)(?<comma>,)?\s+(?<firstName>[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*)\s+(?:[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*\s+){0,1}[A-ZÀ-ÖØ-Þ][\p{L}][\p{L}'’.-]*$/u;
+const PERSON_NAME_BOUNDARY_STOPWORDS = new Set([
+  'a', 'ad', 'al', 'alla', 'alle', 'agli', 'ai', 'da', 'dal', 'dalla', 'dalle', 'dagli',
+  'dei', 'del', 'dell', 'della', 'delle', 'di', 'e', 'fra', 'in', 'nel', 'nei', 'nella',
+  'nelle', 'per', 'su', 'sul', 'sulla', 'sulle', 'tra', 'con',
+]);
+const PERSON_ROLE_CUE_RE = /\b(?:direttor[ea]|president[ea]|consiglier[ae]|ministr[oa]|assessor[ea]|sindac[oa]|governator[ei]|deputat[oa]|candidat[oa]|esponent[ei]|responsabile|portavoce|segretar[ioae]|capogruppo|membro|vicepresident[ea])\b/iu;
+
+function isPoliticalAffiliationAfterPerson(text, match, acronym) {
+  if (!POLITICAL_AFFILIATION_ACRONYMS.has(acronym)) return false;
+  const personNameMatch = PERSON_NAME_SUFFIX_RE.exec(match[1]?.trim() || '');
+  if (!personNameMatch) return false;
+  const { boundaryWord, comma, firstName } = personNameMatch.groups || {};
+  const recognizedFirstName = recognizeFirstName(firstName);
+  if (boundaryWord && PERSON_NAME_BOUNDARY_STOPWORDS.has(boundaryWord)) {
+    // A role cue may connect its institution phrase to a named appositive with
+    // "e": "... dei comuni e Martin Bühler". Keep title-cased institution tails
+    // such as "... e Politiche Sociali" reportable by requiring a dataset-backed
+    // first name for this one conjunction boundary.
+    if (boundaryWord !== 'e' || !recognizedFirstName) return false;
+  }
+  // A comma is ambiguous here: it separates a real appositive in
+  // `... delle finanze, Martin Bühler`, but it also separates an institutional
+  // tail in `... delle finanze, Politiche Sociali`. Require the token after
+  // that comma to pass the repository's high-confidence first-name validator;
+  // the no-comma form keeps the existing lexical-boundary rule.
+  if (comma && !recognizedFirstName) return false;
+
+  const matchStart = typeof match.index === 'number' ? match.index : -1;
+  if (matchStart < 0) return false;
+  const before = text.slice(Math.max(0, matchStart - 180), matchStart);
+  const sentenceStart = Math.max(
+    before.lastIndexOf('.'),
+    before.lastIndexOf('!'),
+    before.lastIndexOf('?'),
+    before.lastIndexOf('\n'),
+  );
+  return PERSON_ROLE_CUE_RE.test(before.slice(sentenceStart + 1));
+}
+
 /** Below this, a source page is too thin to conclude anything from an absence. */
 const MIN_SOURCE_CHARS_FOR_SUPPORT = 400;
 
@@ -1293,6 +1349,7 @@ export function collectInstitutionAcronyms(text, opts = {}) {
   const seen = new Set();
   for (const m of text.matchAll(INSTITUTION_RE)) {
     const [, name, acronym] = m;
+    if (isPoliticalAffiliationAfterPerson(text, m, acronym)) continue;
     if (seen.has(acronym)) continue;
     seen.add(acronym);
 
@@ -1336,6 +1393,8 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
   const seen = new Set();
   for (const m of text.matchAll(INSTITUTION_RE)) {
     const [full, name, acronym] = m;
+    const denylisted = FABRICATED_INSTITUTION_ACRONYMS.has(acronym) || learnedDenylist.has(acronym);
+    if (!denylisted && isPoliticalAffiliationAfterPerson(text, m, acronym)) continue;
     // The curated allowlist wins over everything, including the learner: a
     // human checked a register, the learner counted. Belt and braces — the
     // memory refuses to promote allowlisted acronyms too (evaluateEntity).
@@ -1343,7 +1402,7 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
     if (seen.has(acronym)) continue;
     seen.add(acronym);
 
-    if (FABRICATED_INSTITUTION_ACRONYMS.has(acronym) || learnedDenylist.has(acronym)) {
+    if (denylisted) {
       const learned = !FABRICATED_INSTITUTION_ACRONYMS.has(acronym);
       issues.push(issue(
         'fabricated-institution',

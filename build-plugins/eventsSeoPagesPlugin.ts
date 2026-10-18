@@ -1055,6 +1055,61 @@ function nationalIndexPath(locale: Locale): string {
   return `${EVENTS_INDEX_PATH[locale]}/`;
 }
 
+const HISTORICAL_ARCHIVE_COPY: Record<Locale, {
+  title: string;
+  description: string;
+  intro: string;
+  pageLabel: string;
+  navLabel: string;
+}> = {
+  it: {
+    title: 'Archivio degli eventi passati',
+    description: 'Archivio degli eventi passati in Ticino e in Svizzera, con collegamenti alle schede e alle informazioni pubblicate dagli organizzatori.',
+    intro: 'Questo archivio raccoglie le schede degli eventi che si sono già svolti e ne conserva date, luoghi e informazioni utili. Consulta una scheda per i dettagli pubblicati dall’organizzatore; i programmi passati restano disponibili come riferimento e possono non essere più attuali. L’elenco è ordinato per data e diviso in pagine. Per gli appuntamenti futuri, visita l’agenda aggiornata del Ticino e degli altri cantoni.',
+    pageLabel: 'Pagina',
+    navLabel: 'Pagine dell’archivio eventi',
+  },
+  en: {
+    title: 'Past events archive',
+    description: 'Past event archive for Ticino and Switzerland, with links to event pages and information published by organizers.',
+    intro: 'This archive collects pages for events that have already taken place and keeps their dates, venues, and published details available. Open an entry to review the information supplied by its organizer; past programs remain as a reference and may no longer be current. Entries are ordered by event date and split across pages. For upcoming events, return to the updated Ticino and Swiss cantons agenda.',
+    pageLabel: 'Page',
+    navLabel: 'Past events archive pages',
+  },
+  de: {
+    title: 'Archiv vergangener Veranstaltungen',
+    description: 'Archiv vergangener Veranstaltungen im Tessin und in der Schweiz, mit Links zu Veranstaltungsseiten und Angaben der Veranstalter.',
+    intro: 'Dieses Archiv sammelt Seiten zu bereits stattgefundenen Veranstaltungen und bewahrt Datum, Ort und veröffentlichte Informationen. Öffnen Sie einen Eintrag, um die Angaben des Veranstalters nachzulesen; vergangene Programme dienen als Referenz und können inzwischen überholt sein. Die Einträge sind nach Veranstaltungsdatum sortiert und auf mehrere Seiten verteilt. Aktuelle Termine finden Sie in der laufend aktualisierten Agenda für das Tessin und die übrigen Kantone.',
+    pageLabel: 'Seite',
+    navLabel: 'Seiten des Veranstaltungsarchivs',
+  },
+  fr: {
+    title: 'Archives des événements passés',
+    description: 'Archives des événements passés au Tessin et en Suisse, avec des liens vers les fiches et les informations publiées par les organisateurs.',
+    intro: 'Ces archives rassemblent les fiches des événements qui ont déjà eu lieu et conservent leurs dates, leurs lieux et les informations publiées. Consultez une fiche pour retrouver les détails fournis par l’organisateur; les programmes passés restent disponibles comme référence et peuvent ne plus être à jour. La liste suit la date des événements et se répartit sur plusieurs pages. Pour les prochains rendez-vous, consultez l’agenda actualisé du Tessin et des autres cantons.',
+    pageLabel: 'Page',
+    navLabel: 'Pages des archives d’événements',
+  },
+};
+
+const HISTORICAL_ARCHIVE_SEGMENT: Record<Locale, string> = {
+  it: 'archivio',
+  en: 'archive',
+  de: 'archiv',
+  fr: 'archives',
+};
+
+export function historicalEventsArchivePath(locale: Locale, page = 1): string {
+  const basePath = `${pathFor(locale, 'TI')}${HISTORICAL_ARCHIVE_SEGMENT[locale]}/`;
+  return page <= 1 ? basePath : `${basePath}page-${page}/`;
+}
+
+function historicalEventsArchiveAlternates(page: number): string {
+  return LOCALES.map((locale) => `  <link rel="alternate" hreflang="${locale}" href="${BASE_URL}${historicalEventsArchivePath(locale, page)}">`)
+    .concat(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${historicalEventsArchivePath('it', page)}">`)
+    .join('\n');
+}
+
 function buildNationalAlternates(): string {
   return LOCALES.map((locale) => `  <link rel="alternate" hreflang="${locale}" href="${BASE_URL}${nationalIndexPath(locale)}">`)
     .concat(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${nationalIndexPath('it')}">`)
@@ -1715,6 +1770,7 @@ const CARD_EXCERPT_CHARS = 160;
  * event past the cap is still linked, just as a text row.
  */
 const EVENT_CARD_CAP = 80;
+const HISTORICAL_ARCHIVE_PAGE_SIZE = 100;
 
 /**
  * The same budget for the comune-less `altri-eventi` sentinel bucket, which is
@@ -1842,6 +1898,14 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
 
 /** `detailHref` maps an event to its internal detail-page URL (or null → external). */
 type DetailHref = (event: SiteEvent) => string | null;
+
+type HistoricalDetailEntry = {
+  event: SiteEvent;
+  canton: string;
+  comune: string;
+  slug: string;
+  imageUrl?: string;
+};
 
 /**
  * Aggregate pages link each `ListItem` to the event URL without embedding a
@@ -2667,6 +2731,91 @@ export function renderEventsIndexPage(params: {
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
+  return { urlPath: canonicalPath, html, wordCount };
+}
+
+export function renderHistoricalEventsArchivePage(params: {
+  locale: Locale;
+  entries: readonly HistoricalDetailEntry[];
+  page: number;
+  pageCount: number;
+  distDir: string;
+}): { urlPath: string; html: string; wordCount: number } {
+  const { locale, entries, page, pageCount, distDir } = params;
+  const copy = HISTORICAL_ARCHIVE_COPY[locale];
+  const canonicalPath = historicalEventsArchivePath(locale, page);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const pageEntries = entries.slice(
+    (page - 1) * HISTORICAL_ARCHIVE_PAGE_SIZE,
+    page * HISTORICAL_ARCHIVE_PAGE_SIZE,
+  );
+  const pageTitle = pageCount > 1 ? `${copy.title} — ${copy.pageLabel} ${page}` : copy.title;
+  const historicalEntryHref = ({ canton, comune, slug }: HistoricalDetailEntry): string =>
+    pathForEventDetail(locale, comune, slug, canton);
+  const pageNav = pageCount > 1
+    ? `<nav class="mt-6 flex flex-wrap gap-2" aria-label="${esc(copy.navLabel)}">${Array.from({ length: pageCount }, (_, index) => index + 1)
+      .map((number) => number === page
+        ? `<span aria-current="page" class="rounded-full border border-accent-border bg-accent-subtle px-3 py-1 text-xs font-semibold text-heading">${esc(copy.pageLabel)} ${number}</span>`
+        : `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading" href="${historicalEventsArchivePath(locale, number)}">${esc(copy.pageLabel)} ${number}</a>`)
+      .join('')}</nav>`
+    : '';
+  const eventLinks = pageEntries
+    .map((entry) => `<li class="border-b border-edge py-3"><a class="font-semibold text-link hover:text-link-hover" href="${historicalEntryHref(entry)}">${esc(localizedTitle(entry.event, locale))}</a> <time class="ml-2 text-sm text-muted" datetime="${esc(entry.event.startDate)}">${esc(entry.event.startDate)}</time></li>`)
+    .join('');
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="historical_archive" data-events-path="${esc(canonicalPath)}">
+    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
+      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${pathFor(locale, 'TI')}">${esc(COPY[locale].hubLabel)}</a>
+      <span class="mx-2">/</span>
+      <span>${esc(copy.title)}</span>
+    </nav>
+    <header class="rounded-lg border border-edge bg-surface p-5 shadow-stripe-sm sm:p-8">
+      <h1 class="font-display text-3xl font-bold leading-tight text-heading">${esc(pageTitle)}</h1>
+      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.intro)}</p>
+    </header>
+    ${pageNav}
+    <ol class="mt-6 divide-y divide-edge">${eventLinks}</ol>
+    ${pageNav}
+    <p class="mt-6 text-sm"><a class="font-semibold text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a></p>
+  </div>`;
+  const wordCount = countHtmlBodyWords(body);
+  const indexable = isIndexableWordCount(wordCount);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable, contentHtml: body })}`;
+  const itemListLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: copy.title,
+    numberOfItems: pageEntries.length,
+    itemListElement: pageEntries.map((entry, index) => eventListItemLd(
+      entry.event,
+      locale,
+      index + 1,
+      () => historicalEntryHref(entry),
+    )),
+  });
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: COPY[locale].hubLabel, item: `${BASE_URL}${pathFor(locale, 'TI')}` },
+      { '@type': 'ListItem', position: 3, name: copy.title, item: canonicalUrl },
+    ],
+  });
+  const html = buildSeoPageHtml({
+    locale,
+    title: pageTitle,
+    description: copy.description,
+    canonicalUrl,
+    hreflangHtml: historicalEventsArchiveAlternates(page),
+    robots: indexable ? 'index,follow' : 'noindex,follow',
+    ogLocale: LOCALE_OG[locale],
+    bodyHtml,
+    jsonLdScripts: [itemListLd, breadcrumbLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
@@ -4121,6 +4270,7 @@ export function buildSitemap(
   }>,
   dateStamp: string,
   detailEntries: Array<{ canton: string; comune: string; slug: string; imageUrl?: string }> = [],
+  historicalArchivePageCount = 0,
 ): string {
   // National index hub (issue #3645, F3) — always included: this function
   // only runs when the plugin's own `all.length === 0` early-return in
@@ -4142,11 +4292,23 @@ export function buildSitemap(
       for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
     }
   }
+  for (let page = 1; page <= historicalArchivePageCount; page += 1) {
+    entries.push(historicalEventsArchiveSitemapUrl(page));
+  }
   // Per-event detail pages, including the indexable historical archive.
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp, e.imageUrl));
   // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
   // hub <loc> twice within this one file — dedupe keep-first at assembly.
   return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries.join('\n')}\n</urlset>\n`);
+}
+
+function historicalEventsArchiveSitemapUrl(page: number): string {
+  const alternates = LOCALES.map(
+    (locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${historicalEventsArchivePath(locale, page)}" />`,
+  )
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${historicalEventsArchivePath('it', page)}" />`)
+    .join('\n');
+  return `  <url>\n    <loc>${BASE_URL}${historicalEventsArchivePath('it', page)}</loc>\n${alternates}\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`;
 }
 
 function eventDetailSitemapUrl(canton: string, comune: string, slug: string, dateStamp: string, imageUrl?: string): string {
@@ -4230,6 +4392,48 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
     return false;
   }
   fs.writeFileSync(file, html, 'utf-8');
+  return true;
+}
+
+/** Add a direct, localized entry to the historical event archive on an
+ * already reachable section hub. The archive pages then link directly to
+ * historical details, keeping those details within four BFS hops of `/`. */
+export function patchHistoricalEventsArchiveLink(
+  distDir: string,
+  relIndex: string,
+  locale: Locale,
+  archivePath: string | null,
+): boolean {
+  const file = path.join(distDir, relIndex);
+  if (!fs.existsSync(file)) return false;
+  const original = fs.readFileSync(file, 'utf-8');
+  const marker = 'data-events-history-archive-link="1"';
+  const archiveBlockRe = /<section\b[^>]*data-events-history-archive-link="1"[\s\S]*?<\/section>/g;
+  if (!archivePath) {
+    const withoutArchive = original.replace(archiveBlockRe, '');
+    if (withoutArchive === original) return false;
+    fs.writeFileSync(file, withoutArchive, 'utf-8');
+    return true;
+  }
+  const existingBlock = original.match(archiveBlockRe)?.[0];
+  if (existingBlock?.includes(`href="${archivePath}"`)) return true;
+
+  const copy = HISTORICAL_ARCHIVE_COPY[locale];
+  const block = `<section data-events-history-archive-link="1" class="my-8 rounded-md border border-edge bg-surface p-5">
+    <h2 class="text-xl font-bold text-heading">${esc(copy.title)}</h2>
+    <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.description)}</p>
+    <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${archivePath}">${esc(copy.title)} →</a>
+  </section>`;
+  const withoutOldArchive = original.replace(archiveBlockRe, '');
+  let updated: string;
+  if (withoutOldArchive.includes('</main>')) {
+    updated = withoutOldArchive.replace('</main>', `${block}</main>`);
+  } else if (withoutOldArchive.includes('</article>')) {
+    updated = withoutOldArchive.replace('</article>', `${block}</article>`);
+  } else {
+    return false;
+  }
+  fs.writeFileSync(file, updated, 'utf-8');
   return true;
 }
 
@@ -4479,6 +4683,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         log: (msg: string) => console.log(`\x1b[36m[events-pages]\x1b[0m ${msg}`),
       }) as SiteEvent[];
       const { all, pastEvents } = partitionEventsForBuild(dataset.events as SiteEvent[], ephemeralEvents, dateStamp);
+      const pastEventsByCanton = new Map<string, SiteEvent[]>();
+      for (const ev of pastEvents) {
+        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
+        const cantonEvents = pastEventsByCanton.get(canton) ?? [];
+        cantonEvents.push(ev);
+        pastEventsByCanton.set(canton, cantonEvents);
+      }
 
       if (all.length === 0 && pastEvents.length === 0) {
         console.log('\x1b[36m[events-pages]\x1b[0m no retained events in data/events.json — skipped (run scripts/crawl-tio-agenda.mjs)');
@@ -4568,7 +4779,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       let skippedLocaleRenders = 0;
       const canonicalDetailPaths = new Set<string>();
       for (const entry of detailSlugs.values()) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, entry.comune, entry.slug, entry.canton));
-      const eventById = new Map(dataset.events.map((event) => [event.id, event]));
+      const eventById = new Map<string, SiteEvent>(
+        (dataset.events as SiteEvent[]).map((event): [string, SiteEvent] => [event.id, event]),
+      );
       const emittedSlugRedirects = new Set<string>();
       const expectedSlugRedirectPaths = new Set<string>();
 
@@ -4791,22 +5004,10 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // this permanent archive pass the URL would 404 on a later rebuild.
       // These pages use their own slug namespace and comune grouping, kept
       // separate from `detailSlugs`/`cantonStats`; their routes are added to the
-      // sitemap below, while their stale Event JSON-LD remains omitted. Outbound
-      // links from the page itself (to whatever is currently live in the same
-      // comune) are still fine.
-      const historicalDetailEntries: Array<{ canton: string; comune: string; slug: string; imageUrl?: string }> = [];
-      const pastEventsByCanton = new Map<string, SiteEvent[]>();
-      for (const ev of pastEvents) {
-        // #3715: same group-key resolution as the live `byCanton` pass above
-        // — keeps this bridge-page grouping keyed identically to
-        // `byCantonComune` (used just below for `liveSameComune`), otherwise
-        // a half-canton pair's past events would fail to look up their live
-        // siblings entirely.
-        // #3739: an unresolved canton must route to the canton-neutral
-        // bucket, not silently mislabel the event as Ticino.
-        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
-        pastEventsByCanton.set(canton, [...(pastEventsByCanton.get(canton) ?? []), ev]);
-      }
+      // sitemap and historical archive index below, while their stale Event
+      // JSON-LD remains omitted. The archive index supplies the inbound links
+      // that the live listings cannot provide after these events expire.
+      const historicalDetailEntries: HistoricalDetailEntry[] = [];
       for (const [canton, events] of pastEventsByCanton) {
         const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
         const otherEvents = events.filter((event) => !event.comune);
@@ -4832,7 +5033,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const ev of list) {
             const slug = pastSlugFor.get(ev.id)!;
-            historicalDetailEntries.push({ canton, comune, slug, imageUrl: ev.imageUrl });
+            historicalDetailEntries.push({ event: ev, canton, comune, slug, imageUrl: ev.imageUrl });
             for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, comune, slug, canton));
           }
           const pastSlugMigrations = changedEventSlugMigrations(list, canton, comune, pastSlugFor, reservedBaseSlugs);
@@ -4874,8 +5075,25 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         emit(renderEventsIndexPage({ locale, cantonStats, events: all, dateStamp, weekendDays, distDir, detailHref }));
       }
 
+      const historicalArchivePageCount = Math.ceil(historicalDetailEntries.length / HISTORICAL_ARCHIVE_PAGE_SIZE);
+      for (const locale of LOCALES) {
+        if (!shouldEmitLocale(locale)) {
+          skippedLocaleRenders += historicalArchivePageCount;
+          continue;
+        }
+        for (let page = 1; page <= historicalArchivePageCount; page += 1) {
+          emit(renderHistoricalEventsArchivePage({
+            locale,
+            entries: historicalDetailEntries,
+            page,
+            pageCount: historicalArchivePageCount,
+            distDir,
+          }));
+        }
+      }
+
       const detailEntries = [...detailSlugs.values(), ...historicalDetailEntries];
-      const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries);
+      const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries, historicalArchivePageCount);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
 
@@ -4893,7 +5111,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // not only via sitemap/hreflang.
       await staticPagesFlushed;
       const reached: Locale[] = [];
+      const archiveReached: Locale[] = [];
       for (const locale of LOCALES) {
+        const archivePath = historicalArchivePageCount > 0 ? historicalEventsArchivePath(locale) : null;
+        const archiveOk = INBOUND_HUBS[locale]
+          .map((rel) => patchHistoricalEventsArchiveLink(distDir, rel, locale, archivePath))
+          .some(Boolean);
+        if (archiveOk && archivePath) archiveReached.push(locale);
         const ok = INBOUND_HUBS[locale].map((rel) => patchInboundLink(distDir, rel, locale)).some(Boolean);
         if (ok) reached.push(locale);
       }
@@ -4901,9 +5125,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       if (missing.length) {
         console.log(`\x1b[33m[events-pages]\x1b[0m WARNING: no inbound hub link injected for locale(s) ${missing.join(',')} — events hub reachable only via sitemap`);
       }
+      const missingArchive = historicalArchivePageCount > 0 ? LOCALES.filter((locale) => !archiveReached.includes(locale)) : [];
+      if (missingArchive.length) {
+        console.log(`\x1b[33m[events-pages]\x1b[0m WARNING: no historical archive link injected for locale(s) ${missingArchive.join(',')} — historical details may be unreachable`);
+      }
 
       console.log(
-        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${totalComuni} comuni × ${cantons.length} canton(s) × ${LOCALES.length} locales + hubs) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''} — inbound link locales: ${reached.join(',') || 'none'}${EMIT_ALL_LOCALES ? '' : `, ${skippedLocaleRenders} non-owned-locale renders skipped`}`,
+        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${totalComuni} comuni × ${cantons.length} canton(s) × ${LOCALES.length} locales + hubs, ${historicalArchivePageCount} historical archive page(s)) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''} — inbound link locales: ${reached.join(',') || 'none'}${historicalArchivePageCount ? `, historical archive link locales: ${archiveReached.join(',') || 'none'}` : ''}${EMIT_ALL_LOCALES ? '' : `, ${skippedLocaleRenders} non-owned-locale renders skipped`}`,
       );
     },
   };

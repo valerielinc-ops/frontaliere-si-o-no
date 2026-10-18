@@ -218,6 +218,33 @@ describe('corpus retention discipline (#5330)', () => {
     }
   });
 
+  it('releases active-only indexes before company and editorial emission', () => {
+    const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
+    const activeMarker = source.indexOf("logJobsSeoMem('after-active-pages'");
+    const companyPhase = source.indexOf('/* ── Company landing pages', activeMarker);
+    const companyEntries = source.indexOf('const companyEntries =');
+    const companyRelease = source.indexOf('companyMap.clear();', companyEntries);
+    const sitemapAssembly = source.indexOf('const sitemapJobs =', companyEntries);
+
+    expect(activeMarker, 'active-pages checkpoint disappeared').toBeGreaterThan(-1);
+    expect(companyPhase, 'company phase boundary disappeared').toBeGreaterThan(activeMarker);
+    for (const release of [
+      'relatedPoolByJob.clear();',
+      'relatedJobsByCategory.clear();',
+      'relatedJobsByLocation.clear();',
+      'canonicalCleanedCache.clear();',
+    ]) {
+      const releaseAt = source.indexOf(release);
+      expect(releaseAt, `${release} disappeared`).toBeGreaterThan(-1);
+      expect(releaseAt, `${release} moved past the active checkpoint`).toBeLessThan(activeMarker);
+      expect(releaseAt, `${release} moved into the company phase`).toBeLessThan(companyPhase);
+    }
+
+    expect(companyEntries, 'company sitemap assembly disappeared').toBeGreaterThan(-1);
+    expect(companyRelease, 'companyMap is not released').toBeGreaterThan(companyEntries);
+    expect(companyRelease, 'companyMap released after sitemap assembly').toBeLessThan(sitemapAssembly);
+  });
+
   it('keeps the retention probe opt-in and limited to one candidate', () => {
     const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
 

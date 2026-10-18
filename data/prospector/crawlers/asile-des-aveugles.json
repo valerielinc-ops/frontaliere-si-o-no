@@ -1,0 +1,33 @@
+{
+  "companyKey": "asile-des-aveugles",
+  "companyName": "Fondation Asile des aveugles",
+  "companyHost": "asiledesaveugles.ch",
+  "platform": "emploi.ophtalmique.ch",
+  "platformHost": "emploi.ophtalmique.ch",
+  "sourceType": "official-employer-careers-platform",
+  "sourceLang": "fr",
+  "mode": "template",
+  "careersUrl": "https://asiledesaveugles.ch/la-fondation/carrieres/",
+  "seedUrls": [
+    "https://emploi.ophtalmique.ch/?page=advertisement"
+  ],
+  "detailTemplate": "/?page=advertisement_display&id=*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 2,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Infirmier-ère EMS Clair-Soleil",
+    "Ergothérapeute basse-vision",
+    "Collaborateur-trice facturation",
+    "Assistant-e en soins et santé communautaire"
+  ],
+  "targetTitle": "Assistant-e en soins et santé communautaire",
+  "location": {
+    "city": "Lausanne",
+    "postalCode": "1004",
+    "streetAddress": "Avenue de France 15",
+    "canton": "VD",
+    "addressRegion": "VD"
+  },
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

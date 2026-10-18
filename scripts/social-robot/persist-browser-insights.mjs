@@ -13,12 +13,15 @@ import {
   mkdtempSync,
   readFileSync,
   mkdirSync,
+  readdirSync,
   rmSync,
+  statSync,
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { withSingleFlightLock } from '../lib/single-flight-lock.mjs';
+import { sweepStaleFetchPacks } from '../lib/stale-fetch-pack-sweep.mjs';
 
 const DATA_PATH = 'data/instagram-insights.json';
 const GIT_TIMEOUT_MS = 120_000;
@@ -49,17 +52,67 @@ function git(repo, args, { allowFailure = false, env } = {}) {
     execFileSync('git', ['-C', repo, ...args], {
       encoding: 'utf8',
       // The persistence flow only uses Git's success/failure, never stdout.
-      // Ignore it so verbose hooks/progress cannot hit execFileSync's 1 MiB
-      // default maxBuffer, but inherit stderr so diagnostics stay visible.
-      stdio: ['ignore', 'ignore', 'inherit'],
+      // Ignore stdout so verbose hooks/progress cannot hit execFileSync's
+      // 1 MiB default maxBuffer, but capture stderr so ENOSPC is classified
+      // without hiding Git's diagnostic from the launchd log.
+      stdio: ['ignore', 'ignore', 'pipe'],
       timeout: GIT_TIMEOUT_MS,
       killSignal: 'SIGTERM',
       ...(env ? { env: { ...process.env, ...env } } : {}),
     });
     return true;
   } catch (error) {
+    if (error?.stderr) process.stderr.write(String(error.stderr));
     if (allowFailure) return null;
     throw error;
+  }
+}
+
+function gitOutput(repo, args) {
+  return execFileSync('git', ['-C', repo, ...args], {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'ignore'],
+    timeout: GIT_TIMEOUT_MS,
+    killSignal: 'SIGTERM',
+  }).trim();
+}
+
+/**
+ * A failed fetch can leave a large tmp_pack_* behind. Git does not prune those
+ * files itself, so clear only entries older than the shared safety threshold
+ * before asking Git to create another Insights worktree. A live fetch keeps
+ * updating its mtime and is never selected.
+ */
+function sweepRepositoryFetchPacks(repo) {
+  try {
+    const packDir = path.resolve(repo, gitOutput(repo, ['rev-parse', '--git-path', 'objects/pack']));
+    const result = sweepStaleFetchPacks(packDir);
+    if (result.removed > 0) {
+      process.stderr.write(`🧹 removed ${result.removed} stale fetch pack(s), freeing ${result.bytes} bytes\n`);
+    }
+  } catch {
+    // Storage recovery is best-effort; the persistence operation remains the
+    // source of truth and must still fail closed if Git cannot proceed.
+  }
+}
+
+function isStorageError(error) {
+  const text = [error?.code, error?.message, error?.stderr, error?.stdout]
+    .filter(Boolean)
+    .map(String)
+    .join(' ');
+  return /\b(?:ENOSPC|No space left on device|disk full|not enough space)\b/i.test(text);
+}
+
+function removeStaleInsightWorktrees(root) {
+  try {
+    for (const name of readdirSync(root)) {
+      if (!name.startsWith('.insights-worktree-')) continue;
+      const candidate = path.join(root, name);
+      if (statSync(candidate).isDirectory()) rmSync(candidate, { recursive: true, force: true });
+    }
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
   }
 }
 
@@ -86,11 +139,18 @@ function cleanupWorktree(repo, worktree, gitFn = git) {
 
 function materialize(repo, snapshot, { dryRun = false, gitFn = git } = {}) {
   const root = path.dirname(snapshot);
+  removeStaleInsightWorktrees(root);
+  gitFn(repo, ['worktree', 'prune'], { allowFailure: true });
   const worktree = mkdtempSync(path.join(root, '.insights-worktree-'));
   try {
     gitFn(repo, ['worktree', 'add', '--detach', '--no-checkout', worktree, 'origin/main']);
     gitFn(worktree, ['sparse-checkout', 'init', '--no-cone']);
     gitFn(worktree, ['sparse-checkout', 'set', DATA_PATH]);
+    // A --no-checkout worktree starts with an empty index. sparse-checkout
+    // configures its paths but does not seed that index, so stage only after
+    // restoring the complete HEAD tree or the commit would delete every other
+    // tracked file from main.
+    gitFn(worktree, ['read-tree', '-mu', 'HEAD']);
     mkdirSync(path.join(worktree, 'data'), { recursive: true });
     const destination = path.join(worktree, DATA_PATH);
     writeFileSync(destination, `${JSON.stringify(readSnapshot(snapshot), null, 2)}\n`, 'utf8');
@@ -118,7 +178,8 @@ function refreshMain(repo, gitFn) {
       'fetch', '-q', 'origin', 'main',
     ]);
     return true;
-  } catch {
+  } catch (error) {
+    if (isStorageError(error)) throw error;
     // A valid, slightly stale origin/main is still useful: the push below can
     // succeed if nobody advanced main, and a rejected push will request a
     // refresh on the next attempt.
@@ -129,6 +190,7 @@ function refreshMain(repo, gitFn) {
 function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
   let refreshBeforeAttempt = false;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    sweepRepositoryFetchPacks(repo);
     if (refreshBeforeAttempt) {
       refreshMain(repo, gitFn);
       refreshBeforeAttempt = false;
@@ -148,11 +210,13 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
         return { status: 'pushed', attempt };
       } catch (error) {
         cleanupWorktree(repo, result.worktree, gitFn);
+        if (isStorageError(error)) throw error;
         if (attempt === attempts) throw error;
         refreshBeforeAttempt = true;
       }
     } catch (error) {
       if (result?.worktree) cleanupWorktree(repo, result.worktree, gitFn);
+      if (isStorageError(error)) throw error;
       if (attempt === attempts) throw error;
       refreshBeforeAttempt = true;
     }

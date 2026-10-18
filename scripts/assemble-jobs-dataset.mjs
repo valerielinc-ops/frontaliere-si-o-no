@@ -68,6 +68,7 @@ import { dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } fro
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
+import { reconcileDuplicateIdJobs } from './reconcile-duplicate-stable-id-jobs.mjs';
 import { repairJobMojibakeInPlace } from './lib/repair-mojibake.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
@@ -2672,6 +2673,33 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   a deliberate thin-source quarantine. Internal callers only; unproven
  *   removals remain blocked by the byte guard.
  */
+/**
+ * The description as writeJobsCrawlerSlice stores it: artifact clean-up, then
+ * line-start bullet recovery, both idempotent. One helper for the in-place
+ * normalization and for the views that judge a record before it runs.
+ */
+function writtenDescriptionText(text) {
+  return normalizeDescriptionBullets(cleanCrawlerArtifacts(text));
+}
+
+/** A copy of `job` whose descriptions read as writeJobsCrawlerSlice will store them. */
+function withWrittenDescriptions(job) {
+  if (!job || typeof job !== 'object') return job;
+  const view = { ...job };
+  if (typeof job.description === 'string' && job.description) {
+    view.description = writtenDescriptionText(job.description);
+  }
+  if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
+    view.descriptionByLocale = Object.fromEntries(
+      Object.entries(job.descriptionByLocale).map(([locale, text]) => [
+        locale,
+        typeof text === 'string' && text ? writtenDescriptionText(text) : text,
+      ]),
+    );
+  }
+  return view;
+}
+
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
     throw new TypeError('writeJobsCrawlerSlice: crawlerKey must be a non-empty string');
@@ -2777,7 +2805,15 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
         console.log(`  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} (every flag is kept)`);
       }
     } else {
-      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
+      // Completeness is judged on the record as this writer will store it:
+      // the description clean-up below runs after this point. On the raw
+      // crawl, a repeated paragraph makes the description longer than its
+      // source-locale slot and isIncomplete reads a missing translation
+      // (2026-10-15, Senevita live: 192 of 207 records incomplete raw, 0 of
+      // those 192 once cleaned; the run kept 103 flags as «incomplete»).
+      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, {
+        isIncomplete: (job) => isIncomplete(withWrittenDescriptions(job)),
+      });
       if (retrans.flagged > 0) {
         console.log(
           `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
@@ -2881,15 +2917,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // sees clean line boundaries. Both are idempotent.
   for (const job of hardened.jobs) {
     if (typeof job.description === 'string' && job.description) {
-      let normalized = cleanCrawlerArtifacts(job.description);
-      normalized = normalizeDescriptionBullets(normalized);
+      const normalized = writtenDescriptionText(job.description);
       if (normalized !== job.description) job.description = normalized;
     }
     if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
       for (const [locale, text] of Object.entries(job.descriptionByLocale)) {
         if (typeof text !== 'string' || !text) continue;
-        let normalized = cleanCrawlerArtifacts(text);
-        normalized = normalizeDescriptionBullets(normalized);
+        const normalized = writtenDescriptionText(text);
         if (normalized !== text) job.descriptionByLocale[locale] = normalized;
       }
     }
@@ -3110,6 +3144,31 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       // yields an empty ownership map upstream, which drops nothing by design.
       console.warn(`  ⚠️ Ownership guard skipped for ${crawlerKey}: ${err.message}`);
     }
+  }
+
+  // -- One id per posting within the slice --------------------------------
+  // Several parsers derive the id from data an employer can reuse for distinct
+  // postings (Emmi's reference code, a shared ostendis token on Vista, PwC):
+  // the slice then holds two postings under one id and translate-pending's
+  // scatter parity refuses to publish (`duplicateAssembledKeys`, runs
+  // 38854975768 and 38937686046, 2026-10-16). reconcile-duplicate-stable-id-
+  // jobs.mjs already repairs this, but only when recover-prev-slugs.yml runs
+  // it, after the duplicate has been published. The same function runs here,
+  // on every write: distinct postings keep one id each (the first seen keeps
+  // it, the others get a stable id derived from their own identity), true
+  // duplicates collapse with their slugs carried over. Unlike the guards
+  // above it is fatal: a slice it cannot reconcile is not written, so the last
+  // verified slice stays on disk instead of a duplicate id reaching the
+  // scatter parity (review of PR 13609).
+  try {
+    const reconciled = reconcileDuplicateIdJobs(finalJobs);
+    if (reconciled.groups > 0) {
+      finalJobs = reconciled.jobs;
+      console.log(`  🪪 Duplicate ids in ${crawlerKey}: ${reconciled.groups} group(s), ${reconciled.rekeyed} distinct posting(s) re-keyed, ${reconciled.collapsed} duplicate(s) collapsed`);
+      for (const line of reconciled.report.slice(0, 5)) console.log(`     ${line}`);
+    }
+  } catch (err) {
+    throw new Error(`Duplicate-id reconciliation failed for ${crawlerKey}; slice not written: ${err.message}`);
   }
 
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──

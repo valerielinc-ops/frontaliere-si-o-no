@@ -334,6 +334,26 @@ describe('member crawl outcomes', () => {
     expect(readMemberCrawlOutcomes(dir, ['acme'])).toEqual({ acme: 'unknown' });
   });
 
+  it('uses a valid watchdog marker only when the crawl-exit signal is absent', () => {
+    const dir = stateDir({
+      'timed-out.watchdog': '20\n',
+      'late-success.crawl-exit': '0\n',
+      'late-success.watchdog': '20\n',
+      'invalid-exit.crawl-exit': 'not-an-exit\n',
+      'invalid-exit.watchdog': '20\n',
+      'invalid-marker.watchdog': '0\n',
+    });
+    expect(readMemberCrawlOutcomes(dir, [
+      'timed-out', 'late-success', 'invalid-exit', 'invalid-marker', 'absent',
+    ])).toEqual({
+      'timed-out': 'crawl_failed',
+      'late-success': 'crawl_ok',
+      'invalid-exit': 'unknown',
+      'invalid-marker': 'unknown',
+      absent: 'unknown',
+    });
+  });
+
   it('ignores identities that are not roster crawler ids and a missing directory', () => {
     const dir = stateDir({ 'ok.crawl-exit': '1\n' });
     expect(readMemberCrawlOutcomes(dir, ['../ok', 'sub/ok', '', null as never])).toEqual({});

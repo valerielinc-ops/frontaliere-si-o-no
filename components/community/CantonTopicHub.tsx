@@ -5,6 +5,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import type { CantonArticleSection } from '@/services/articleSections';
 import {
   cantonArchiveCopy,
+  cantonLatestNewsHeading,
   cantonSectionArchivePath,
   cantonSectionLabel,
   cantonSectionLandingPath,
@@ -335,6 +336,23 @@ function CantonTopicHub({
               </ul>
             ) : <p className="cth-section-intro">{copy.noCurated}</p>}
           </section>
+
+          {data.curatedArticles.length === 0 && data.latestCantonArticles.length > 0 ? (
+            <section aria-labelledby="hub-latest-news" className="cth-section cth-latest-news">
+              <div className="cth-section-heading"><h2 id="hub-latest-news" className="s-sXAwQz cth-section-title">{cantonLatestNewsHeading(section, locale)}</h2><span className="cth-section-marker" aria-hidden="true" /></div>
+              <ul className="s-0c2lhY cth-article-list">
+                {data.latestCantonArticles.map((article, index) => (
+                  <li key={`${key}-latest-article-${index}`}>
+                    <a className="s-6gbS_B" href={article.url}>
+                      <span className="s-lkdl0F">{article.title}</span>
+                      {article.excerpt ? <span className="s-hNvHD_">{article.excerpt}</span> : null}
+                      {article.date ? <time className="cth-source-line" dateTime={article.date}>{formatDate(article.date, locale)}</time> : null}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
           {data.links.length > 0 ? (
             <section aria-labelledby="hub-tools" className="cth-section cth-tools">

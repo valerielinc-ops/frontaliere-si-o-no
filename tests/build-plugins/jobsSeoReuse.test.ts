@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -22,7 +23,13 @@ import {
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
-import { replaceActiveJobPostingDates } from '../../build-plugins/jobsSeoPagesPlugin';
+import {
+  hasActiveJobPostingJsonLd,
+  replaceActiveJobPostingDates,
+  rewriteActiveJobHtml,
+  shouldInvalidateActiveJobReuseForSafeDefault,
+} from '../../build-plugins/jobsSeoPagesPlugin';
+import type { ActiveJobReuseFragments } from '../../build-plugins/jobsSeoPagesPlugin';
 
 const FINGERPRINT_ENV_KEYS = [
   'STRIP_ACTIVE_JOB_PROSE',
@@ -143,17 +150,86 @@ describe('jobs SEO disk HTML reuse', () => {
     const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old"}</script>';
     const date = resolveReportedPostingDate({ postingDateSource, datePosted: sourceDate });
     const result = replaceActiveJobPostingDates(fragment, date, new Date(Date.now() + 86400000).toISOString());
-    if (postingDateSource !== 'reported') expect(result).toBe('');
-    else expect(result).toContain(sourceDate);
+    if (postingDateSource === 'reported') expect(result).toContain(date);
+    else expect(result).toBe('');
   });
 
-  it('removes cached JobPosting when publication provenance becomes unknown', () => {
-    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-01-01"}</script>';
+  it('removes a cached JobPosting when publication provenance becomes unknown', () => {
+    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-01-01","validThrough":"2026-12-31"}</script>';
     expect(replaceActiveJobPostingDates(fragment, null, '2026-12-31')).toBe('');
   });
 
   it('forces a fresh render when a previously unknown job gains a reported date', () => {
     expect(() => replaceActiveJobPostingDates('', '2026-01-01', '2026-12-31')).toThrow();
+  });
+
+  it('invalidates a safe-default cache entry that has no JobPosting JSON-LD', () => {
+    const missing = '<!-- jobs-seo-reuse:job-posting:start -->'
+      + '<!-- jobs-seo-reuse:job-posting:end -->';
+    const jobPosting = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"1970-01-01"}'
+      + '</script>';
+
+    expect(hasActiveJobPostingJsonLd(missing)).toBe(false);
+    expect(hasActiveJobPostingJsonLd(jobPosting)).toBe(true);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'safe-default')).toBe(true);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(jobPosting, 'safe-default')).toBe(false);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'reported')).toBe(false);
+  });
+
+  it('forces lookup to persist a fresh JobPosting after a safe-default cache miss', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/';
+    const input = { jobId: 'allowlisted-undated', locale: 'it', slug: 'allowlisted-undated' };
+    const cachedWithoutJobPosting = [
+      '<!-- jobs-seo-reuse:job-posting:start -->',
+      '<!-- jobs-seo-reuse:job-posting:end -->',
+      '<!-- jobs-seo-reuse:hero-badges:start -->old<!-- jobs-seo-reuse:hero-badges:end -->',
+      '<!-- jobs-seo-reuse:mobile-action:start -->old<!-- jobs-seo-reuse:mobile-action:end -->',
+      '<!-- jobs-seo-reuse:recent-articles:start -->old<!-- jobs-seo-reuse:recent-articles:end -->',
+    ].join('');
+    const resolved = resolveRolloutSchemaPostingDate(
+      { postingDateSource: 'unknown' },
+      new Date(),
+      'https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/',
+    );
+    const fragments: ActiveJobReuseFragments = {
+      jobPostingDatePosted: resolved?.value ?? null,
+      jobPostingDateProvenance: resolved?.provenance ?? null,
+      jobPostingValidThrough: new Date(Date.now() + 86_400_000).toISOString(),
+      heroBadges: 'fresh badges',
+      mobileAction: 'fresh action',
+      recentArticles: 'fresh articles',
+    };
+    const freshHtml = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"1970-01-01"}'
+      + '</script>';
+    try {
+      expect(resolved).toMatchObject({ value: '1970-01-01', provenance: 'safe-default' });
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, cachedWithoutJobPosting);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup(
+        'it',
+        pagePath,
+        'active-job',
+        input,
+        'active',
+        null,
+        { rewriteHtml: (html: string) => rewriteActiveJobHtml(html, fragments) },
+      );
+
+      expect(candidate).toMatchObject({ hit: false, html: null });
+      expect(reuse.summary().active.missReasons).toMatchObject({ 'html-rewrite-failed': 1 });
+      reuse.finish(candidate, freshHtml);
+      expect(hasActiveJobPostingJsonLd(freshHtml)).toBe(true);
+      expect(freshHtml).toContain('"datePosted":"1970-01-01"');
+
+      const reread = await createReuse(rootDir);
+      expect(reread.lookup('it', pagePath, 'active-job', input, 'active').html).toBe(freshHtml);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
   });
 
   it('accepts a cached JobPosting whose dates are already current', () => {

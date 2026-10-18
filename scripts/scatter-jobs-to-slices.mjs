@@ -18,6 +18,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { carryForwardMarks } from './lib/job-mark-persistence.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES, stableSlugHash, isSelfCanonicalPreviousSlug } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { localeMapsEqual } from './lib/locale-map-diff.mjs';
@@ -909,11 +910,17 @@ export function applyAssembledToSliceJob(sliceJob, assembled, {
   const mergedSlug = preserveLocationSpecificSlugs
     ? sliceJob.slugByLocale
     : mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+  // The assembled artefact can gain this queue marker after a locale-quality
+  // scan even when all locale maps are unchanged. It must still reach the
+  // committed slice, or the next assembly discards the work item.
+  const carriesRetranslationMark = assembled?.needsRetranslation === true
+    && sliceJob?.needsRetranslation !== true;
   const changed =
     !localeMapsEqual(mergedTitle, sliceJob.titleByLocale) ||
     !localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale) ||
     !localeMapsEqual(mergedSlug, sliceJob.slugByLocale) ||
-    hasMissingBridgesPreRename;
+    hasMissingBridgesPreRename ||
+    carriesRetranslationMark;
 
   if (!changed) return { job: sliceJob, changed: false };
 
@@ -937,6 +944,10 @@ export function applyAssembledToSliceJob(sliceJob, assembled, {
     descriptionByLocale: mergedDesc,
     slugByLocale: mergedSlug,
   };
+
+  // Marks are monotone: carry the assembled-side evidence onto the slice but
+  // never clear a mark already present on the committed source of truth.
+  carryForwardMarks(updatedJob, assembled);
 
   // Detect per-locale slug changes and record with locale context.
   // Route through the canonical journal-backed helper (instead of a

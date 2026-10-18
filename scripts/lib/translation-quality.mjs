@@ -86,23 +86,36 @@ function isNumberedHeading(line, marker) {
  * lines are intentionally ignored.
  */
 export function countListItems(value = '') {
-  let count = 0;
+  return scanListLines(stripHtmlForStructure(value).split('\n'))
+    .reduce((total, line) => total + line.count, 0);
+}
+
+/**
+ * The list entries of each line, as countListItems counts them: `count` per
+ * line, and the inline markers it counted with their absolute position in the
+ * line. One scanner for the gate and for preserveStructuredTranslation, so the
+ * translator splits a line exactly where the gate will look for entries.
+ */
+function scanListLines(lines) {
+  const result = [];
   let previousListLine = false;
   let continuationAfterBlank = false;
 
-  for (const line of stripHtmlForStructure(value).split('\n')) {
+  for (const line of lines) {
     if (!line.trim()) {
       continuationAfterBlank = previousListLine;
       previousListLine = false;
+      result.push({ count: 0, inlineMarkers: [] });
       continue;
     }
 
     const lineMarker = LIST_ITEM_LINE_RE.exec(line);
     const numberedHeading = lineMarker && isNumberedHeading(line, lineMarker[0]);
     const startsList = Boolean(lineMarker && !numberedHeading);
-    if (startsList) count += 1;
+    let count = startsList ? 1 : 0;
 
-    const content = lineMarker ? line.slice(lineMarker[0].length) : line;
+    const contentOffset = lineMarker ? lineMarker[0].length : 0;
+    const content = line.slice(contentOffset);
     const inlineMarkers = [...content.matchAll(INLINE_LIST_ITEM_RE)];
     const firstInlineBefore = inlineMarkers.length > 0
       ? content.slice(0, inlineMarkers[0].index).trimEnd()
@@ -110,7 +123,7 @@ export function countListItems(value = '') {
     const standaloneInlineRun = inlineMarkers.length >= 2
       && /:\s*$/u.test(firstInlineBefore);
     const listContext = startsList || previousListLine || continuationAfterBlank;
-    let inlineCount = 0;
+    const counted = [];
 
     for (const marker of inlineMarkers) {
       const before = content.slice(0, marker.index).trimEnd();
@@ -125,15 +138,22 @@ export function countListItems(value = '') {
         || repeatedListRun
         || (explicitGlyph && (listContext || standaloneInlineRun))) {
         count += 1;
-        inlineCount += 1;
+        counted.push({ index: contentOffset + marker.index, length: marker[0].length });
       }
     }
 
-    previousListLine = startsList || inlineCount > 0;
+    previousListLine = startsList || counted.length > 0;
     continuationAfterBlank = false;
+    result.push({
+      count,
+      inlineMarkers: counted,
+      // Every inline marker of the line, counted or not: whether one counts
+      // can depend on the others (`repeatedListRun` needs two).
+      allInlineMarkers: inlineMarkers.map((marker) => ({ index: contentOffset + marker.index, length: marker[0].length })),
+    });
   }
 
-  return count;
+  return result;
 }
 
 /**
@@ -160,6 +180,28 @@ const STRUCTURED_LINE_RE = /^(\s*(?:#{1,6}\s+|[-*•]\s+|\d+[.)]\s+)?)(.*)$/;
 const HAS_LETTERS_RE = /[^\W\d_]/u;
 
 /**
+ * An inline entry is counted by its shape: the capital that opens it and the
+ * sentence mark that closes the text before the next marker. A translation
+ * into Italian or French opens «Störungsanalyse» as «analisi» and may drop a
+ * closing «:», so the entry would no longer count. Carry both over from the
+ * source segment; the words stay the provider's.
+ */
+const URL_START_RE = /^(?:https?:\/\/|www\.)/i;
+const URL_END_RE = /(?:https?:\/\/|www\.)\S+$/i;
+
+function withEntryShape(source, translated) {
+  let out = translated;
+  const sourceFirst = source.match(/\p{L}/u)?.[0] || '';
+  // Only a word that opens the segment: a URL, markup or code keeps its case.
+  if (sourceFirst && sourceFirst !== sourceFirst.toLowerCase() && /^\p{Ll}/u.test(out) && !URL_START_RE.test(out)) {
+    out = out.replace(/^\p{Ll}/u, (letter) => letter.toUpperCase());
+  }
+  const sourceEnd = source.match(/[.!?:;]$/u)?.[0];
+  if (sourceEnd && !/[.!?:;]$/u.test(out) && !URL_END_RE.test(out)) out += sourceEnd;
+  return out;
+}
+
+/**
  * Translate each source line independently while retaining its structural
  * prefix and blank lines. A failed line translation keeps that source line:
  * dropping content is safer than inventing text, and the caller's normal
@@ -167,29 +209,72 @@ const HAS_LETTERS_RE = /[^\W\d_]/u;
  */
 export async function preserveStructuredTranslation(text, translateLine, { concurrent = false, shouldSkipLine = null } = {}) {
   const lines = String(text || '').replace(/\r\n/g, '\n').split('\n');
-  const translateOneLine = async (line) => {
+  // Inline entries («Tätigkeiten - Wartung - Reparatur - Prüfung» on one
+  // line) are split where countListItems counts them and each entry is
+  // translated alone: translated as one line, providers turn the « - »
+  // separators into commas and the gate refuses the result as
+  // `lost-list-items` (run 38686616395, 2026-10-15: all 357 refusals of phase
+  // 2e; 575 of 581 untranslated slots in the ten slices with most refusals
+  // carry inline entries). HTML lines keep the whole-line path: the scanner
+  // counts `<li>` on tag-stripped text, whose lines do not map onto these —
+  // only those lines: the other lines of the same text are still split.
+  const scanned = scanListLines(lines);
+  const hasMarkup = (line) => /<[a-z][^>]*>/i.test(line);
+  const translateSegment = async (segment, { keepEntryShape = false } = {}) => {
+    const content = segment.trim();
+    if (!content || !HAS_LETTERS_RE.test(content)) return segment;
+    if (typeof shouldSkipLine === 'function' && shouldSkipLine(content)) return content;
+    const translated = await translateLine(content);
+    const translatedText = String(translated || '');
+    const oneLine = (translatedText.includes('\n') ? '' : translatedText)
+      .replace(/[ \t]+/g, ' ')
+      .trim();
+    if (!oneLine) return content;
+    return keepEntryShape ? withEntryShape(content, oneLine) : oneLine;
+  };
+  const translateOneLine = async (line, lineIndex) => {
     const match = STRUCTURED_LINE_RE.exec(line);
     const prefix = match?.[1] || '';
     const content = match?.[2] || '';
     if (!content.trim() || !HAS_LETTERS_RE.test(content)) {
       return line;
     }
-    const cleanContent = content.trim();
-    if (typeof shouldSkipLine === 'function' && shouldSkipLine(cleanContent)) {
-      return `${prefix}${cleanContent}`;
+    const markers = hasMarkup(line)
+      ? []
+      // A line with counted entries is split at ALL its inline markers, kept
+      // verbatim: a counted entry can depend on an uncounted marker beside it
+      // («des 24. & 31. Dezembers»: « 31. » counts only next to « 24. »), and
+      // a provider that writes «del 24» drops the entry (run 39005358922: 52
+      // `lost-list-items` refusals, one entry each, in phase 2e).
+      : (scanned[lineIndex]?.inlineMarkers?.length
+        ? scanned[lineIndex].allInlineMarkers
+        : []).filter((marker) => marker.index >= prefix.length);
+    if (markers.length === 0) {
+      return `${prefix}${await translateSegment(content)}`;
     }
-    const translated = await translateLine(cleanContent);
-    const translatedText = String(translated || '');
-    const oneLine = (translatedText.includes('\n') ? '' : translatedText)
-      .replace(/[ \t]+/g, ' ')
-      .trim();
-    return `${prefix}${oneLine || cleanContent}`;
+    const pieces = [];
+    let cursor = prefix.length;
+    for (const marker of markers) {
+      pieces.push({ text: line.slice(cursor, marker.index) });
+      pieces.push({ marker: line.slice(marker.index, marker.index + marker.length).replace(/^\s+/, ' ') });
+      cursor = marker.index + marker.length;
+    }
+    pieces.push({ text: line.slice(cursor) });
+    const translatedPieces = [];
+    for (const piece of pieces) {
+      translatedPieces.push(piece.marker !== undefined
+        ? piece.marker
+        : await translateSegment(piece.text, { keepEntryShape: true }));
+    }
+    return `${prefix}${translatedPieces.join('').replace(/[ \t]+$/, '')}`;
   };
   const translatedLines = concurrent
-    ? await Promise.all(lines.map((line) => translateOneLine(line)))
+    ? await Promise.all(lines.map((line, index) => translateOneLine(line, index)))
     : [];
   if (!concurrent) {
-    for (const line of lines) translatedLines.push(await translateOneLine(line));
+    for (let index = 0; index < lines.length; index += 1) {
+      translatedLines.push(await translateOneLine(lines[index], index));
+    }
   }
   return translatedLines.join('\n').trim();
 }

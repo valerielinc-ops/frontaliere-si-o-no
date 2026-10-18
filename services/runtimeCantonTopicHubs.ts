@@ -74,6 +74,8 @@ export interface CantonTopicHubData {
   keyFacts: CantonHubKeyFact[];
   dataBlocks: CantonHubDataBlock[];
   curatedArticles: CantonHubArticle[];
+  /** Neutral canton news rail; absent only in pre-fallback payloads. */
+  latestCantonArticles: CantonHubArticle[];
   links: CantonHubLink[];
   updatedAt: string;
 }
@@ -112,8 +114,11 @@ function readKeyFact(value: unknown): CantonHubKeyFact | null {
   const sourceName = optionalString(value.sourceName);
   if (note) fact.note = note;
   if (sourceName) fact.sourceName = sourceName;
-  if (value.sourceUrl !== undefined && !safeHref(value.sourceUrl)) return null;
-  if (value.sourceUrl) fact.sourceUrl = value.sourceUrl;
+  const sourceUrl = value.sourceUrl;
+  if (sourceUrl !== undefined) {
+    if (!safeHref(sourceUrl)) return null;
+    fact.sourceUrl = sourceUrl;
+  }
   return fact;
 }
 
@@ -124,10 +129,16 @@ function readDataItem(value: unknown): CantonHubDataItem | null {
     const content = optionalString(value[field]);
     if (content) item[field] = content;
   }
-  if (value.date !== undefined && !validDate(value.date)) return null;
-  if (value.date) item.date = value.date;
-  if (value.url !== undefined && !safeHref(value.url)) return null;
-  if (value.url) item.url = value.url;
+  const date = value.date;
+  if (date !== undefined) {
+    if (!validDate(date)) return null;
+    item.date = date;
+  }
+  const url = value.url;
+  if (url !== undefined) {
+    if (!safeHref(url)) return null;
+    item.url = url;
+  }
   return item;
 }
 
@@ -141,10 +152,16 @@ function readDataBlock(value: unknown): CantonHubDataBlock | null {
   const sourceName = optionalString(value.sourceName);
   if (description) block.description = description;
   if (sourceName) block.sourceName = sourceName;
-  if (value.sourceUrl !== undefined && !safeHref(value.sourceUrl)) return null;
-  if (value.sourceUrl) block.sourceUrl = value.sourceUrl;
-  if (value.updatedAt !== undefined && !validDate(value.updatedAt)) return null;
-  if (value.updatedAt) block.updatedAt = value.updatedAt;
+  const sourceUrl = value.sourceUrl;
+  if (sourceUrl !== undefined) {
+    if (!safeHref(sourceUrl)) return null;
+    block.sourceUrl = sourceUrl;
+  }
+  const updatedAt = value.updatedAt;
+  if (updatedAt !== undefined) {
+    if (!validDate(updatedAt)) return null;
+    block.updatedAt = updatedAt;
+  }
   return block;
 }
 
@@ -153,8 +170,11 @@ function readCuratedArticle(value: unknown): CantonHubArticle | null {
   const article: CantonHubArticle = { title: value.title, url: value.url };
   const excerpt = optionalString(value.excerpt);
   if (excerpt) article.excerpt = excerpt;
-  if (value.date !== undefined && !validDate(value.date)) return null;
-  if (value.date) article.date = value.date;
+  const date = value.date;
+  if (date !== undefined) {
+    if (!validDate(date)) return null;
+    article.date = date;
+  }
   return article;
 }
 
@@ -176,13 +196,15 @@ function readLocale(value: unknown, section: CantonArticleSection, topic: string
     || !Array.isArray(value.keyFacts)
     || !Array.isArray(value.dataBlocks)
     || !Array.isArray(value.curatedArticles)
+    || (value.latestCantonArticles !== undefined && !Array.isArray(value.latestCantonArticles))
     || !Array.isArray(value.links)) return null;
 
   const keyFacts = value.keyFacts.map(readKeyFact);
   const dataBlocks = value.dataBlocks.map(readDataBlock);
   const curatedArticles = value.curatedArticles.map(readCuratedArticle);
+  const latestCantonArticles = (Array.isArray(value.latestCantonArticles) ? value.latestCantonArticles : []).map(readCuratedArticle);
   const links = value.links.map(readHubLink);
-  if ([...keyFacts, ...dataBlocks, ...curatedArticles, ...links].some((item) => item === null)) return null;
+  if ([...keyFacts, ...dataBlocks, ...curatedArticles, ...latestCantonArticles, ...links].some((item) => item === null)) return null;
   return {
     canton: value.canton as string,
     topic,
@@ -191,6 +213,7 @@ function readLocale(value: unknown, section: CantonArticleSection, topic: string
     keyFacts: keyFacts as CantonHubKeyFact[],
     dataBlocks: dataBlocks as CantonHubDataBlock[],
     curatedArticles: curatedArticles as CantonHubArticle[],
+    latestCantonArticles: latestCantonArticles as CantonHubArticle[],
     links: links as CantonHubLink[],
     updatedAt: value.updatedAt,
   };

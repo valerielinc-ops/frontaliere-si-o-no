@@ -457,6 +457,10 @@ export function reportMode({ dryRun }) {
   const diagFile = process.env.DIAG_FILE || '';
   const logFromJob = process.env.LOG_FROM_JOB || '';
   const closedBy = process.env.CLOSED_BY || '';
+  // Per i reporter post-deploy lo SHA del run osservatore e quello della build
+  // validata sono diversi. Solo quest'ultimo puo' provare che una ricorrenza
+  // arriva da codice precedente alla fix che aveva chiuso la issue.
+  const buildSha = (process.env.BUILD_SHA || '').trim() || null;
   const priority = intFromEnv('ISSUE_PRIORITY', 2) || 2;
   // REOPEN_WITHIN_HOURS assente/vuoto → `null` → il creator applica
   // DEFAULT_REOPEN_WITHIN_HOURS (720h). Il fallback `|| '6') || 6` che stava
@@ -565,6 +569,7 @@ export function reportMode({ dryRun }) {
     labels,
     workflow: workflowName,
     reopenWithinHours,
+    buildSha,
   });
 }
 

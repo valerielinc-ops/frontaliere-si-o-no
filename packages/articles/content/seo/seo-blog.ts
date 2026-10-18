@@ -235,16 +235,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-franco-forte-stipendio-frontalieri': {
- title: 'Franco Forte: Impatto sul Stipendio | Frontaliere Ticino',
+ title: 'Franco forte: impatto EUR/CHF sullo stipendio dei frontalieri | Frontaliere Ticino',
  description: 'Il franco svizzero si rafforza sull\'euro: scopri come il tasso di cambio CHF-EUR incide sullo stipendio netto dei frontalieri in Ticino.',
  keywords: 'franco forte, cambio CHF EUR, stipendio frontalieri, tasso cambio 2026, franco svizzero euro, frontalieri ticino stipendio, conversione franchi euro',
- ogTitle: 'Franco Forte: Come Cambia lo Stipendio dei Frontalieri',
+ ogTitle: 'Franco forte: impatto EUR/CHF sullo stipendio dei frontalieri',
  ogDescription: 'Il CHF si rafforza: effetti diretti sullo stipendio netto dei frontalieri. Calcola l\'impatto con il simulatore.',
  canonicalPath: '/articoli-frontaliere/franco-forte-effetti-stipendio-frontalieri/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Franco forte: come il cambio CHF-EUR incide sullo stipendio dei frontalieri",
+ "headline": "Franco forte: impatto EUR/CHF sullo stipendio dei frontalieri",
  "description": "Il franco svizzero continua a rafforzarsi sull'euro. Per i frontalieri che spendono in Italia, il tasso di cambio può valere centinaia di euro in più o in meno al mese.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lac-lugano.webp`, "width": 1344, "height": 756, "caption": "Veduta del lago di Lugano con le montagne, simbolo del franco forte e del lavoro frontaliero." },
  "datePublished": "2026-02-18T00:00:00+01:00",
@@ -3448,16 +3448,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-salario-minimo-ticino-accordo': {
- title: 'Salario minimo Ticino: si punta a 22 CHF l\'ora',
+ title: 'Salario minimo Ticino: proposta a 22 CHF l\'ora',
  description: 'Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.',
  keywords: 'salario minimo ticino, stipendio frontalieri, aumento salario svizzera, lavoro ticino, 22 franchi ora, contratti collettivi, busta paga svizzera',
- ogTitle: 'Salario minimo in Ticino verso i 22 CHF orari: cosa significa per la tua busta paga',
+ ogTitle: 'Salario minimo Ticino: proposta a 22 CHF l\'ora',
  ogDescription: 'Un accordo politico potrebbe portare il salario minimo ticinese a 4\'000 CHF mensili. Ecco il piano di aumento e le novità per i frontalieri.',
  canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-accordo-aumento-22-franchi/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Salario minimo in Ticino verso i 22 CHF orari: cosa significa per la tua busta paga",
+ "headline": "Salario minimo Ticino: proposta a 22 CHF l'ora",
  "description": "Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/salario-minimo-ticino-accordo.webp`,
@@ -3923,17 +3923,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-aprire-conto-bancario-frontaliere': {
- title: 'Conto bancario svizzero frontalieri: guida 2026 | Frontaliere Ticino',
- description: 'Come aprire un conto bancario svizzero da frontaliere: migliori banche in Ticino, costi, carte, online banking e documenti richiesti.',
+ title: 'Conto svizzero per frontalieri: costi e documenti | Frontaliere Ticino',
+ description: 'Conto svizzero per chi lavora in Ticino: costi pubblicati, requisiti variabili, permesso G, cambio CHF/EUR e fonti ufficiali.',
  keywords: 'conto bancario frontalieri svizzera, aprire conto bancario svizzero, compte bancaire frontaliers suisse, banche ticino, costi conto svizzero, carte debito credito svizzera',
- ogTitle: 'Conto bancario svizzero per frontalieri: guida completa',
- ogDescription: 'Quale banca scegliere in Ticino? Costi, carte, online banking e requisiti per frontalieri. Guida aggiornata 2026.',
+ ogTitle: 'Conto svizzero per frontalieri: guida aggiornata',
+ ogDescription: 'Come confrontare conto, carte, cambio CHF/EUR e documenti per chi lavora in Ticino e vive in Italia. Fonti verificate l’11 ottobre 2026.',
  canonicalPath: '/articoli-frontaliere/aprire-conto-bancario-frontalieri/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Conto bancario svizzero per frontalieri: guida completa 2026",
- "description": "Come aprire un conto bancario svizzero da frontaliere: migliori banche in Ticino, costi, carte, online banking e documenti richiesti.",
+ "headline": "Conto svizzero per frontalieri: costi e documenti 2026",
+ "description": "Conto svizzero per chi lavora in Ticino: costi pubblicati, requisiti variabili, permesso G, cambio CHF/EUR e fonti ufficiali.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/aprire-conto-bancario-frontaliere.webp`,
  "width": 1344,
@@ -3941,7 +3941,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta di Lugano con un edificio bancario e pedoni che attraversano la strada"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": "2026-02-25T00:00:00+01:00",
+ "dateModified": "2026-10-11T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aprire-conto-bancario-frontalieri/`,

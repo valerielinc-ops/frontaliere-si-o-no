@@ -4,8 +4,8 @@ name: Rerender Article Hubs
 #
 # THE GAP THIS FILLS
 # ──────────────────
-# A section's hub pages — the `/tutti/` archive + pagination and the
-# `/…/argomenti/<topic>/` topic clusters — had exactly one producer that
+# A section's hub pages — the root landing, the `/tutti/` archive + pagination
+# and the `/…/argomenti/<topic>/` topic clusters — had exactly one producer that
 # reaches the served bytes: scripts/publish-article-fast.mjs, reachable only by
 # PUBLISHING AN ARTICLE, and only for that article's section. The full build
 # emits none of them (ARTICOLI*_BUILD_EMIT_SKIP=true, and the rehydrate's
@@ -54,9 +54,18 @@ on:
     paths:
       - 'build-plugins/seoHubsPlugin.ts'
       - 'build-plugins/topicClusterHubsPlugin.ts'
+      - 'build-plugins/lib/adSlotHtml.ts'
       - 'build-plugins/topicClusterHubsData.ts'
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'
+      - 'packages/articles/engine/articlesHubCards.ts'
+      - 'packages/articles/engine/blogImageCdnFinalize.ts'
+      - 'packages/articles/engine/shared/articleReaders.ts'
+      - 'packages/articles/engine/shared/articleRegistryEntries.ts'
+      - 'packages/articles/engine/shared/articleReaderSource.mjs'
+      - 'packages/articles/engine/shared/sourceDates.ts'
+      - 'build-plugins/shared/articleSectionCore.mjs'
+      - 'services/articleSourceDates.ts'
       # Keep the checked-in content path as a trigger for preserved site-side
       # files; the corpus-main overlay sources are listed explicitly below.
       - 'packages/articles/content/**'
@@ -67,6 +76,7 @@ on:
       - 'scripts/lib/corpus-local-preserve.mjs'
       - 'scripts/rerender-article-hubs.mjs'
       - 'scripts/lib/render-and-push-hubs.mjs'
+      - 'scripts/lib/refresh-article-hub-landings.mjs'
       # Self-test on change. A push touching only this file still runs the
       # whole path (render + validate + push), which is what makes an edit
       # here verifiable rather than hopeful.
@@ -74,10 +84,13 @@ on:
 
   # 2. THE CONTENT CHANGED. Hub pages are a function of the article corpus,
   #    not only of the renderers, and new articles arrive ~15-25 times a day.
-  #    The render clones corpus `main` through the shared overlay, so this job
-  #    no longer depends on the site's lagging content copy.
-  #    The per-section concurrency group below coalesces bursts without
-  #    cancelling a live publisher.
+  #    The publisher dispatch is the prompt path; the render clones corpus
+  #    `main` through the shared overlay, so this job no longer depends on the
+  #    site's lagging content copy. The per-section concurrency group below
+  #    coalesces bursts without cancelling a live publisher.
+  repository_dispatch:
+    types: [articles-published]
+
   # 3. THE SAFETY NET. The schedule covers missed dispatches and any corpus
   #    refresh that does not change the watched renderer paths. Cheap when
   #    there is nothing to do: an unchanged tree makes
@@ -116,11 +129,11 @@ permissions:
 
 jobs:
   plan:
-    # Which sections run as separate matrix jobs. A push or a schedule means
-    # both: the renderers and the corpus they read are shared, so either kind
-    # of change affects the two sections identically. A dispatch honours the
-    # operator's choice. The overlay pins corpus `main` inside the render, so
-    # no workflow_run fan-out is needed here.
+    # Which sections run as separate matrix jobs. A push, publisher dispatch or
+    # schedule means both: the renderers and the corpus they read are shared,
+    # so either kind of change affects the two sections identically. A manual
+    # dispatch honours the operator's choice. The overlay pins corpus `main`
+    # inside the render, so no workflow_run fan-out is needed here.
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
@@ -144,8 +157,10 @@ jobs:
       matrix:
         section: ${{ fromJson(needs.plan.outputs.sections) }}
     runs-on: ubuntu-latest
-    # Minutes, not hours — the render of BOTH sections is ~3 s. This budget is
-    # for checkout, the Node setup and four shard clone/push round trips.
+    # Minutes, not hours — a hub fan-out is normally a couple of minutes per
+    # section, including four serial shard clone/push round trips. Keep enough
+    # room for slow but bounded network retries without turning this into a
+    # corpus-sized job.
     timeout-minutes: 30
     # Serialised per SECTION, never cancelled. Two runs on the same section
     # would push overlapping relpath sets to the same four shard repos, and a
@@ -169,6 +184,27 @@ jobs:
           # workflow anyway. The sitemap publisher supplies its own PAT to the
           # shared PR helper, so the checkout token must stay absent.
           persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -177,10 +213,10 @@ jobs:
 
       # DRY resolution, in one place, read by every later step.
       #
-      # A dispatch defaults to dry (see the input's own default) so a manual
-      # poke cannot publish by accident; a push or a schedule publishes,
-      # because those events mean "the served pages are out of date" and a
-      # dry run of them would repair nothing.
+      # A manual dispatch defaults to dry (see the input's own default) so a
+      # poke cannot publish by accident; a push, publisher dispatch or
+      # schedule publishes, because those events mean "the served pages are
+      # out of date" and a dry run of them would repair nothing.
       - name: Resolve mode
         id: mode
         env:
@@ -212,7 +248,7 @@ jobs:
       # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
       # fallback for a refused deploy key.
       #
-      # Deliberately NO `npm ci`: the driver runs under `npx -y tsx@4.23.15` and its
+      # Deliberately NO `npm ci`: the driver runs through the pinned tsx wrapper and its
       # whole transitive value-import closure (81 files, verified by scanning
       # it — the one `react` edge is reached through an `import type` that tsx
       # erases) touches no npm package at runtime. Same posture as
@@ -231,7 +267,7 @@ jobs:
       # Before the section lock on purpose: a failure here leaves nothing held.
       - name: Ensure the static shell scripts are on the CDN
         if: steps.mode.outputs.dry != 'true'
-        run: npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
       #
@@ -341,6 +377,12 @@ jobs:
         id: render
         if: steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success')
         env:
+          # The hub fan-out writes ~1400 paths and the four shard pushes can
+          # take nearly two minutes. The shared 120s entrypoint default can
+          # kill a completed publish while Node is still unwinding; keep the
+          # npm probe at 120s and give this side-effecting entrypoint a bounded
+          # ten-minute budget, below the 30-minute job ceiling.
+          PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS: '600'
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
@@ -369,7 +411,7 @@ jobs:
           # Pinned to the same tsx major package.json declares ("tsx":
           # "^4.21.0"), like every other un-installed path in this repo, so a
           # future tsx major cannot silently change loader behaviour here.
-          npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+          bash scripts/ci/run-pinned-tsx.sh scripts/rerender-article-hubs.mjs "${ARGS[@]}"
 
       # The driver performs the strict client publication immediately before
       # its shard fan-out. Check the watcher after that composite step as well,
@@ -491,7 +533,7 @@ jobs:
       # before the next run.
       #
       # What does get purged is the set a human or a gate actually looks at:
-      # each locale's archive landing and each topic-hub landing, apex AND
+      # each locale's root landing, archive landing and each topic-hub landing, apex AND
       # origin. The origin is the one that matters and the one that is easy to
       # forget: locale-router.js fetches the shard origin with
       # `cacheEverything`, so that entry is keyed on the ORIGIN url and an
@@ -511,8 +553,8 @@ jobs:
             exit 0
           fi
 
-          # Landings only: the archive landing, plus every topic hub's own
-          # landing.
+          # Landings only: the root landing, the archive landing, plus every
+          # topic hub's own landing.
           #
           # Matched POSITIVELY on the directory form (`…/index.html` that is
           # not `…/page-N/index.html`) rather than by excluding what looks like
@@ -564,6 +606,7 @@ jobs:
             if [ -s "$SUMMARY" ]; then
               jq -r --arg s "$INPUT_SECTION" '.sections[$s] |
                 "- archive pages: \(.archiveWritten)",
+                "- root landing pages: \(.landingWritten // 0)",
                 "- topic-hub pages: \(.topicHubWritten)",
                 "- paths pushed per locale: \(.pathsByLocale | to_entries | map("\(.key)=\(.value|length)") | join(" "))",
                 "- topic sitemap: \(.sitemapPath // "none") (\(.announcedUrlCount) URL)",

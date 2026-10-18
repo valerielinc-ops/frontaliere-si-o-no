@@ -1,18 +1,18 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-14T21:20:56.400Z",
-  "total": 10,
+  "generatedAt": "2026-10-17T21:19:18.829Z",
+  "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 7921,
-  "avgDurationMs": 7921,
+  "unchangedCount": 6,
+  "durationMs": 6677,
+  "avgDurationMs": 6677,
   "durationHistory": [
-    7921
+    6677
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -388,48 +388,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "title": "Ecommerce Merchandising Specialist",
-      "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1353588155/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-f5ab2d7c6cb7",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-05-27T22:45:37.761Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-ecommerce-merchandising-specialist/1353588155",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }

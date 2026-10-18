@@ -1,59 +1,18 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-10-14T21:22:45.212Z",
-  "total": 62,
-  "newCount": 1,
+  "generatedAt": "2026-10-17T21:25:00.612Z",
+  "total": 60,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 60,
-  "durationMs": 96891,
-  "avgDurationMs": 96891,
+  "removedCount": 0,
+  "unchangedCount": 59,
+  "durationMs": 91029,
+  "avgDurationMs": 91029,
   "durationHistory": [
-    96891
+    91029
   ],
-  "newJobs": [
-    {
-      "title": "Chef de projet en éléctricité (ingénieur / technicien) (f/m/d) 80-100% - Neuchâtel",
-      "slug": "chef-de-projet-en-electricite-ingenieur-technicien-f-m-d-80-100-neuchatel-afry-neuchatel",
-      "url": "https://afry.com/en/careers/available-jobs/REF15991N-chef-de-projet-en-electricite-ingenieur-technicien-f-m-d-80-100-neuchatel",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000155485589-chef-de-projet-en-electricite-ingenieur-technicien-f-m-d-80-100-neuchatel?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Neuchâtel",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "canton": "NE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "fr",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "2026-10-14",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-4b240620e787",
-      "needsRetranslation": true,
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "2000",
-      "firstSeenAt": "2026-10-14T21:22:30.741Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Candidatura spontanea - Svizzera",
@@ -97,39 +56,39 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Bauleiter:in Hochbau / Gesamtplanung 80-100% - Zürich",
-      "slug": "construction-manager-costruzione-pianificazione-complessiva-80-100-zurigo-afry-zurich",
-      "url": "https://afry.com/en/careers/available-jobs/REF15112T-bauleiterin-hochbau-gesamtplanung-80-100-zurich",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000136188660-bauleiter-in-hochbau-gesamtplanung-80-100-zurich?oga=true",
+      "title": "Chef de projet en éléctricité (ingénieur / technicien) (f/m/d) 80-100% - Neuchâtel",
+      "slug": "leader-del-progetto-elettrico-ingegneria-tecnico-m-f-d-80-100-neuchatel-afry-neuchatel",
+      "url": "https://afry.com/en/careers/available-jobs/REF15991N-chef-de-projet-en-electricite-ingenieur-technicien-f-m-d-80-100-neuchatel",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000155485589-chef-de-projet-en-electricite-ingenieur-technicien-f-m-d-80-100-neuchatel?oga=true",
       "company": "AFRY",
       "companyKey": "afry",
       "companyDomain": "afry.com",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
+      "location": "Neuchâtel",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
       "addressCountry": "CH",
-      "canton": "ZH",
+      "canton": "NE",
       "country": "CH",
       "category": "engineering",
       "sector": "Ingegneria & Consulenza",
       "source": "afry-dedicated-crawler",
-      "sourceLang": "de",
+      "sourceLang": "fr",
+      "datePosted": "",
       "postedDate": "",
-      "validThrough": "2026-07-07",
+      "postingDateSource": "unknown",
+      "validThrough": "2026-10-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "afry-b63c6df60fac",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
+      "id": "afry-4b240620e787",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:01:35.571Z",
-      "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref15112t-bauleiterin-hochbau-gesamtplanung-80-100-zurich",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "8001",
+      "postalCode": "2000",
+      "firstSeenAt": "2026-10-14T21:22:30.741Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -137,9 +96,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Zeichner:in / Konstrukteur:in Tragwerksplanung Hochbau 80-100% - Rapperswil",
       "slug": "disegnatore-trice-konstrukteur-in-tragwerksplanung-hochbau-80-100-rapperswil-afry-rapperswil-jona",
@@ -410,46 +367,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6500",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Umweltingenieur:in Wasserkraft (80-100%) - Zürich",
-      "slug": "energia-idroelettrica-80-100-zurigo-afry-zurich",
-      "url": "https://afry.com/en/careers/available-jobs/REF15427T-umweltingenieurin-wasserkraft-80-100-zurich",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000150661629-umweltingenieur-in-wasserkraft-80-100-zurich?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "validThrough": "2026-09-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-084de1502acc",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:01:35.571Z",
-      "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref15427t-umweltingenieurin-wasserkraft-80-100-zurich",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "8001",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1339,5 +1256,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }

@@ -510,6 +510,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
  */
 export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
   {
+    file: 'tests/git-commit-data-decontamination.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'il test crea le slice data/jobs/by-crawler solo sotto mkdtemp e passa quella root sintetica al loader; non legge le slice vive del checkout',
+  },
+  {
     file: 'tests/sync-published-blog-covers.test.ts',
     roots: ['packages/articles/content/'],
     since: '2026-10-08',
@@ -550,6 +555,15 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     file: 'tests/events-derived-dataset-reconcile.test.ts',
     roots: ['data/events-geocode-cache.json'],
     reason: 'the data path is inspected with git show only inside temporary repositories created by the test; checkout reads are limited to the reconciler source',
+  },
+  // Verified against compat-data-refresh-reconcile.test.ts: createScenario()
+  // writes every compat snapshot under fs.mkdtempSync(), and all assertions
+  // read scenario.repository. The checkout contributes only the two scripts
+  // passed to the temporary child process, so these are not live-data reads.
+  {
+    file: 'tests/compat-data-refresh-reconcile.test.ts',
+    roots: ['data/cf-hot-404s.json', 'data/seo-404-compat/'],
+    reason: 'createScenario() writes and reads these paths only inside its mkdtemp Git repository; the checkout reads are limited to reconcile-data-refresh-main.mjs and merge-compat-shard.mjs under test',
   },
   {
     file: 'tests/calculator/calculator-paywall.test.tsx',

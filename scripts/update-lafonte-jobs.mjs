@@ -53,6 +53,7 @@ import {
 import {
   htmlToMarkdown,
   extractLaFonteApplyUrlFromCardHtml,
+  resolveLaFonteApplicationHandoffUrl,
   validateLaFonteDescription,
   buildLaFonteDescription,
   scrubLaFonteLegacyFrame,
@@ -255,6 +256,7 @@ function parseListingPage(html) {
       location,
       rawDesc,
       applyUrl: extractLaFonteApplyUrlFromCardHtml(block),
+      _applicationCardHtml: block,
       _descDetail: detail,
     });
   }
@@ -342,6 +344,8 @@ async function fetchLaFonteJobs() {
     // which uses canonicalizeJobUrl (strips hashes but preserves query params);
     // the text fragment of the title takes the reader to the card.
     const jobUrl = laFonteRoleUrl(CAREERS_URL, slug, listing.title);
+    const applicationHandoffUrl =
+      listing.applyUrl || resolveLaFonteApplicationHandoffUrl(listing._applicationCardHtml, jobUrl);
 
     const job = {
       title: listing.title,
@@ -352,7 +356,7 @@ async function fetchLaFonteJobs() {
       canton: HQ.canton,
       country: 'CH',
       url: jobUrl,
-      applyUrl: listing.applyUrl || null,
+      applyUrl: applicationHandoffUrl,
       description,
       category: detectCategory(listing.title),
       sector: 'Servizi sociali / Non-profit',

@@ -108,7 +108,14 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const checks = {};
   const mark = (name, ok, why) => { checks[name] = ok; if (!ok) reasons.push(why); return ok; };
 
-  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  const validationHistory = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  // A generic runSpec grading cannot establish stability for a candidate that
+  // now uses a dedicated source adapter. Keep both the two-day proof and the
+  // latest quality measurements on that adapter's history.
+  const sourceAdapterVersion = String(candidate.sourceAdapterVersion || '').trim();
+  const history = sourceAdapterVersion
+    ? validationHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
+    : validationHistory;
   const good = history.filter((h) => h.verdict === 'good');
   const latest = history[history.length - 1] || {};
 
@@ -342,6 +349,11 @@ function failedChecksOf(item) {
     .map(([name]) => name);
 }
 
+/** @param {{ candidate?: Record<string, any> }} item */
+function promotionCandidateKey(item) {
+  return String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
+}
+
 /** I soli predicati che una run successiva puo' soddisfare da se'. */
 const STABILITY_CHECKS = new Set(['runs', 'days']);
 
@@ -390,7 +402,7 @@ export function summarizePromotionBlocks(blocked = []) {
  * l'output e' deterministico.
  *
  * @param {{ candidate?: Record<string, any>, reasons?: string[], checks?: Record<string, boolean> }[]} blocked
- * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[] }}
+ * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[], candidateFailures: { key: string, failedChecks: string[] }[] }}
  */
 export function diagnosePromotionBlocks(blocked = []) {
   const { stabilityOnly, other } = summarizePromotionBlocks(blocked);
@@ -398,9 +410,11 @@ export function diagnosePromotionBlocks(blocked = []) {
   const tally = {};
   const stabilityOnlyKeys = [];
   const unattributed = [];
+  const candidateFailures = [];
   for (const item of blocked) {
     const failed = failedChecksOf(item);
-    const key = String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
+    const key = promotionCandidateKey(item);
+    candidateFailures.push({ key, failedChecks: failed });
     if (isStabilityOnly(failed)) {
       stabilityOnlyKeys.push(key);
       continue;
@@ -412,11 +426,14 @@ export function diagnosePromotionBlocks(blocked = []) {
   const failedChecks = Object.fromEntries(
     Object.entries(tally).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
   );
+  candidateFailures.sort((a, b) => a.key.localeCompare(b.key)
+    || a.failedChecks.join(',').localeCompare(b.failedChecks.join(',')));
   return {
     stabilityOnly,
     other,
     failedChecks,
     stabilityOnlyKeys: stabilityOnlyKeys.sort(),
     unattributed: unattributed.sort(),
+    candidateFailures,
   };
 }

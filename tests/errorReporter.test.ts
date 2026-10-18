@@ -251,6 +251,15 @@ describe('reportCaughtError', () => {
       expect(Analytics.trackAppError).not.toHaveBeenCalled();
     });
 
+    it('still drops a bare transport failure when a call site identifies its API source', async () => {
+      reportCaughtError(new TypeError('Failed to fetch'), 'exchangeRate.cfFetch', {
+        apiEndpoint: 'https://example.com/exchange-rate',
+        apiMethod: 'GET',
+      });
+      await settleAnalyticsImport();
+      expect(Analytics.trackAppError).not.toHaveBeenCalled();
+    });
+
     it('still reports messages that do not match noise patterns', async () => {
       reportCaughtError(new Error('genuine bug in calculator'), 'real.bug');
       await waitForAnalyticsCalls(1);

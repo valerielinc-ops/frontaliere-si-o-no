@@ -1,4 +1,4 @@
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
@@ -10,6 +10,8 @@ import {
   crawlPartition,
   extractInternalLinks,
   folderFor,
+  isDeclaredJobBoardTarget,
+  isJobBoardDetailPath,
   normalizeUrl,
   parseSitemapDocument,
   partitionFor,
@@ -29,7 +31,11 @@ import {
   rescueTransientReports,
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
 import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-template-inventory.mjs';
+import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
+import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -214,6 +220,182 @@ describe('Bing-compatible full-tree crawler', () => {
         'canonical-drift',
       ]));
     }
+  });
+
+  it('recognizes declared editorial bridges without exempting nearby category or generic-marker drift', () => {
+    const bridgeHtml = (canonical: string, marker = JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER) => `${marker}<title>Bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge editoriale nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const declaredCases = [
+      {
+        url: `${BASE}/cerca-lavoro-appenzello/case-anziani-appenzello/`,
+        canonical: `${BASE}/cerca-lavoro-appenzello/`,
+      },
+      {
+        url: `${BASE}/en/find-jobs-appenzell/care-homes-appenzell-jobs/`,
+        canonical: `${BASE}/en/find-jobs-appenzell/`,
+      },
+      {
+        url: `${BASE}/de/jobs-in-appenzell/altersheime-appenzell-jobs/`,
+        canonical: `${BASE}/de/jobs-in-appenzell/`,
+      },
+      {
+        url: `${BASE}/fr/trouver-emploi-appenzell/maisons-retraite-appenzell/`,
+        canonical: `${BASE}/fr/trouver-emploi-appenzell/`,
+      },
+    ];
+
+    for (const { url, canonical } of declaredCases) {
+      const frontier = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: bridgeHtml(canonical) });
+      const frontierCodes = frontier.findings.map((item) => item.code);
+      expect(frontierCodes).toEqual(expect.arrayContaining([
+        BING_FRONTIER_NOINDEX_BRIDGE,
+        BING_FRONTIER_CANONICAL_EXPECTED,
+      ]));
+      expect(frontierCodes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+      const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(canonical) });
+      expect(sitemap.findings.map((item) => item.code)).toEqual(expect.arrayContaining([
+        'noindex-in-sitemap',
+        'canonical-drift',
+      ]));
+    }
+
+    const nearbyUndeclared = [
+      {
+        url: `${BASE}/cerca-lavoro-appenzello/case-anziani-appenzello/`,
+        canonical: `${BASE}/cerca-lavoro-appenzello/`,
+        html: bridgeHtml(`${BASE}/cerca-lavoro-appenzello/`, REDIRECT_STUB_MARKER),
+      },
+      {
+        url: `${BASE}/cerca-lavoro-appenzello/categoria-informatica/`,
+        canonical: `${BASE}/cerca-lavoro-ticino/categoria-informatica/`,
+        html: bridgeHtml(`${BASE}/cerca-lavoro-ticino/categoria-informatica/`),
+      },
+    ];
+    for (const item of nearbyUndeclared) {
+      const codes = classifyDocument({
+        url: item.url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: item.html,
+      }).findings.map((finding) => finding.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+    }
+  });
+
+  it('recognizes explicitly marked self-canonical company-canton bridges only in the frontier scope', () => {
+    const bridgeHtml = (canonical: string) => `${COMPANY_CANTON_NOINDEX_BRIDGE_MARKER}<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge azienda-cantone nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const cases = [
+      `${BASE}/cerca-lavoro-appenzello/azienda-activ-fitness/`,
+      `${BASE}/en/find-jobs-geneva/company-activ-fitness/`,
+      `${BASE}/de/jobs-in-zurich/unternehmen-activ-fitness/`,
+      `${BASE}/fr/trouver-emploi-geneva/entreprise-activ-fitness/`,
+    ];
+
+    for (const url of cases) {
+      const frontier = classifyDocument({
+        url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: bridgeHtml(url),
+      });
+      const codes = frontier.findings.map((item) => item.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+      const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(url) });
+      expect(sitemap.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+    }
+  });
+
+  it('recognizes only exact marked historical weekly-employers archives', () => {
+    const url = `${BASE}/en/companies-hiring/lugano/week-16-2025/`;
+    const archiveHtml = `${WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER}<title>Companies hiring in Lugano</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l’archivio weekly-employers nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const frontier = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: archiveHtml });
+    const frontierCodes = frontier.findings.map((item) => item.code);
+    expect(frontierCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(frontierCodes).not.toContain(BING_FRONTIER_NOINDEX);
+
+    const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: archiveHtml });
+    expect(sitemap.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+
+    const invalidCases = [
+      { url: `${BASE}/en/companies-hiring/lugano/current-week/`, canonical: `${BASE}/en/companies-hiring/lugano/current-week/` },
+      { url: `${BASE}/en/companies-hiring/lugano/week-16-2025/details/`, canonical: `${BASE}/en/companies-hiring/lugano/week-16-2025/details/` },
+      { url: `${BASE}/en/companies-hiring/lugano/settimana-16-2025/`, canonical: `${BASE}/en/companies-hiring/lugano/settimana-16-2025/` },
+      { url, canonical: `${BASE}/en/companies-hiring/` },
+    ];
+    for (const item of invalidCases) {
+      const codes = classifyDocument({
+        url: item.url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: `${WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER}<title>Archive</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${item.canonical}">`,
+      }).findings.map((finding) => finding.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    }
+  });
+
+  it('keeps an unmarked, nested, or drifting company route actionable', () => {
+    const url = `${BASE}/cerca-lavoro-appenzello/azienda-activ-fitness/`;
+    const marked = `${COMPANY_CANTON_NOINDEX_BRIDGE_MARKER}<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}">`;
+    const cases = [
+      { url, html: '<title>Company bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="' + url + '">' },
+      { url: `${url}details/`, html: marked.replace(`href="${url}"`, `href="${url}details/"`) },
+      { url, html: marked.replace(`href="${url}"`, `href="${BASE}/cerca-lavoro-appenzello/"`) },
+    ];
+
+    for (const item of cases) {
+      const codes = classifyDocument({
+        url: item.url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: item.html,
+      }).findings.map((finding) => finding.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    }
+  });
+
+  it('recognizes only declared single-segment job-detail targets', () => {
+    const detailUrl = `${BASE}/en/find-jobs-geneva/job-slug/`;
+    const markerHtml = `${JOB_BOARD_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`;
+
+    expect(isJobBoardDetailPath(detailUrl)).toBe(true);
+    expect(isDeclaredJobBoardTarget({ url: detailUrl, html: markerHtml })).toBe(true);
+    expect(isJobBoardDetailPath(`${BASE}/en/find-jobs-geneva/`)).toBe(false);
+    expect(isJobBoardDetailPath(`${BASE}/en/find-jobs-geneva/job-slug/details/`)).toBe(false);
+    expect(isDeclaredJobBoardTarget({ url: detailUrl, html: '<meta name="robots" content="noindex,follow">' })).toBe(false);
+  });
+
+  it('keeps an undeclared job-detail noindex target actionable', () => {
+    const url = `${BASE}/en/find-jobs-geneva/job-slug/`;
+    const result = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Job</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}">`,
+    });
+    const codes = result.findings.map((item) => item.code);
+    expect(codes).toContain(BING_FRONTIER_NOINDEX);
+    expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+  });
+
+  it('does not let a declared job target hide canonical drift', () => {
+    const url = `${BASE}/en/find-jobs-geneva/job-slug/`;
+    const result = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `${JOB_BOARD_NOINDEX_TARGET_MARKER}<title>Job</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${BASE}/articoli-frontaliere/other/">`,
+    });
+    const codes = result.findings.map((item) => item.code);
+    expect(codes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
   });
 
   it('does not infer a search bridge from a loose slug or canonical shape', () => {
@@ -557,6 +739,32 @@ describe('Bing-compatible full-tree crawler', () => {
       'https://frontaliereticino.ch/cerca-lavoro-ticino/',
       'https://frontaliereticino.ch/contattaci/',
     ]);
+  });
+
+  it('keeps /ricerca job links on canonical detail URLs, not T6→T5 redirects', () => {
+    const orphanPluginSource = readFileSync(
+      join(process.cwd(), 'build-plugins/orphanQueryLandingPlugin.ts'),
+      'utf8',
+    );
+    expect(orphanPluginSource).toContain('buildCanonicalJobDetailPath');
+    expect(orphanPluginSource).toContain('return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;');
+
+    const orphanPage = `${BASE}/ricerca/canonical-job-links/`;
+    const canonicalJob = `${BASE}/cerca-lavoro-zurigo/offerta-zurigo/`;
+    const links = extractInternalLinks(
+      `<a href="${canonicalJob}">Offerta</a>`,
+      orphanPage,
+      BASE,
+    );
+    expect(links).toEqual([canonicalJob]);
+
+    const result = classifyDocument({
+      url: canonicalJob,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Offerta</title><link rel="canonical" href="${canonicalJob}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
+    });
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
   });
 
   it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {

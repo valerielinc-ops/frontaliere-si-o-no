@@ -6,6 +6,7 @@ import {
   isThermoFisherScientificJob,
   isTrustedDomain,
   fetchAllThermoFisherScientificJobs,
+  resolveThermoFisherSourceGeography,
 } from '../scripts/lib/thermo-fisher-scientific-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -21,6 +22,18 @@ describe('Thermo Fisher Scientific (Schweiz) AG crawler parser', () => {
     expect(thermoFisherPostalCode('Reinach', 'AG')).toBe('');
     expect(thermoFisherPostalCode('Allschwil', 'BL')).toBe('');
     expect(thermoFisherPostalCode('Reinach', 'AG', '5734')).toBe('5734');
+  });
+
+  it('rejects a foreign canonical detail despite a Swiss widget location', () => {
+    expect(resolveThermoFisherSourceGeography({
+      listingLocation: 'Allschwil, Basel-Landschaft, Switzerland',
+      detailAddress: {
+        locality: 'Cambridge',
+        postalCode: 'CB1',
+        streetAddress: '',
+        addressCountry: 'GB',
+      },
+    })).toBeNull();
   });
 
   // ── isCompanyJob ──

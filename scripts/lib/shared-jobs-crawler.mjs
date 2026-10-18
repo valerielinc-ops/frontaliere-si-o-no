@@ -2161,6 +2161,18 @@ function extractRichJobDescription(html) {
   const migrosJoined = cleanDescription(migrosChunks.join('\n\n'));
   if (migrosJoined.length >= 300) return migrosJoined;
 
+  // NCore Platform detail pages keep the vacancy in `.singlePosition .pTesto`
+  // and render the application/privacy UI beside it. Read the balanced body
+  // element so the generic HTML fallback receives the employer's posting, not
+  // the page shell or GDPR modal. Dedicated NCore runners use the same source
+  // container, so this also covers adapter-provided detail seeds.
+  const ncorePosition = readClosedElement(html, 'class=[^>]*\\bsinglePosition\\b');
+  if (ncorePosition) {
+    const ncoreBody = readClosedElement(ncorePosition, 'class=[^>]*\\bpTesto\\b') || ncorePosition;
+    const ncoreText = htmlToStructuredText(ncoreBody);
+    if (ncoreText.length >= 180) return cleanDescription(ncoreText);
+  }
+
   // Rexx Systems ATS (concorsi.ti.ch) — job content in <div class="emp_nr_innerframe">
   // Contains structured sections (Compiti, Requisiti, Condizioni, Scadenza) with
   // H2 headings and UL/LI lists. Stop capture before the footer_links div to avoid

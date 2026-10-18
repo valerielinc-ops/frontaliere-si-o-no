@@ -22,6 +22,7 @@ vi.mock('@/services/runtimeCantonTopicHubs', () => ({
 
 vi.mock('@/packages/articles/engine/shared/cantonSectionCopy.mjs', () => ({
   cantonArchiveCopy: () => ({ title: 'Archivio' }),
+  cantonLatestNewsHeading: () => 'Ultime notizie dal Canton Zurigo',
   cantonSectionArchivePath: () => '/archivio/',
   cantonSectionLabel: () => 'Articoli Zurigo',
   cantonSectionLandingPath: () => '/articoli-zurigo/',
@@ -46,6 +47,7 @@ function hubData(topic: string) {
     keyFacts: [],
     dataBlocks: [],
     curatedArticles: [],
+    latestCantonArticles: [],
     links: [],
     updatedAt: '2026-10-07T09:49:20.921Z',
   };
@@ -97,5 +99,35 @@ describe('CantonTopicHub route handoff', () => {
     expect(view.container.querySelectorAll('.cth-ad')).toHaveLength(4);
     expect(view.container.querySelector('.cth-ad-inline-one')).not.toBeNull();
     expect(view.container.querySelector('.cth-ad-inline-two')).not.toBeNull();
+  });
+
+  it('renders neutral canton news in a separate localized block', async () => {
+    loadHub.mockResolvedValue({
+      ...hubData('eventi'),
+      latestCantonArticles: [{ title: 'Notizia locale', url: '/articoli-zurigo/notizia-locale/', date: '2026-10-15' }],
+    });
+
+    render(<CantonTopicHub section="canton-zh" topic="eventi" />);
+    await waitFor(() => expect(screen.getByRole('heading', { name: 'Ultime notizie dal Canton Zurigo' })).toBeInTheDocument());
+
+    const block = screen.getByRole('heading', { name: 'Ultime notizie dal Canton Zurigo' }).closest('section');
+    expect(block).not.toBeNull();
+    expect(block?.querySelector('a[href="/articoli-zurigo/notizia-locale/"]')).not.toBeNull();
+    expect(block?.className).toContain('cth-latest-news');
+    expect(screen.getByRole('heading', { name: 'Articoli consigliati' })).toBeInTheDocument();
+  });
+
+  it('does not render neutral canton news when thematic articles are present', async () => {
+    loadHub.mockResolvedValue({
+      ...hubData('eventi'),
+      curatedArticles: [{ title: 'Notizia tematica', url: '/articoli-zurigo/tema/' }],
+      latestCantonArticles: [{ title: 'Fallback cantonale', url: '/articoli-zurigo/fallback/' }],
+    });
+
+    render(<CantonTopicHub section="canton-zh" topic="eventi" />);
+    await waitFor(() => expect(screen.getByRole('heading', { name: 'Articoli consigliati' })).toBeInTheDocument());
+
+    expect(screen.queryByRole('heading', { name: 'Ultime notizie dal Canton Zurigo' })).toBeNull();
+    expect(screen.queryByText('Fallback cantonale')).toBeNull();
   });
 });

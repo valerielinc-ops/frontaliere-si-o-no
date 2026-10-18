@@ -1,4 +1,10 @@
 {
-  "run": 192,
-  "companies": {}
+  "run": 206,
+  "companies": {
+    "jysk": {
+      "sterile": 0,
+      "signature": "407adfc97e46bf11",
+      "skipUntilRun": 206
+    }
+  }
 }

@@ -402,6 +402,7 @@ export async function fetchAllClariantJobs() {
     const canton = resolveClariantCanton(realLocationText, rawLocation, cityOnly);
     if (canton === null) {
       console.warn(` ⚠️ Clariant: skipping unresolvable location "${realLocationText}" (${title})`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 

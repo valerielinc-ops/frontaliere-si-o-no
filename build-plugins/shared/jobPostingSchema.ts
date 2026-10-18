@@ -1,4 +1,4 @@
-import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Canonical `JobPosting` structured-data builder.
  *
@@ -850,8 +850,11 @@ export function buildJobPostingFacts(
   };
 }
 
-/** JobPosting eligibility requires a verified employer publication date.
- * Unknown, invalid and unmarked legacy inputs retain page/FAQ content only. */
+/**
+ * Build a JobPosting only when publication provenance is verified, except for
+ * the six exact canonical URLs tracked by issue #12937. Their mandatory
+ * datePosted uses the stable schema-only sentinel without changing provenance.
+ */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
@@ -860,8 +863,9 @@ export function buildJobPostingSchema(
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const datePosted = resolveReportedPostingDate(job, opts.now);
-  if (!datePosted) return null;
+  const resolvedDate = resolveRolloutSchemaPostingDate(job, opts.now, opts.url);
+  if (!resolvedDate) return null;
+  const { value: datePosted } = resolvedDate;
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);

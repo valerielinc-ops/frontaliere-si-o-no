@@ -61,9 +61,16 @@
     {
       "key": "reviewer-finding/fp:github-github-github-github",
       "outcome": "declined",
-      "decidedAt": "2026-10-01T11:46:17Z",
-      "ref": "#10596, #9970, #8862",
-      "reason": "Fingerprint catch-all basato sui path `.github`: gli esempi sono difetti eterogenei (heredoc shell, flag npm e contratto producer/consumer), quindi non sostengono una regola unica."
+      "decidedAt": "2026-10-16T10:02:28Z",
+      "ref": "#13449, #11631, #11108",
+      "reason": "Fingerprint catch-all basato sui path `.github`: retry con side effect, propagazione errori e duplicati di path sono difetti eterogenei, quindi non sostengono una regola preventiva unica."
+    },
+    {
+      "key": "reviewer-finding/fp:packages-packages-packages-packages",
+      "outcome": "added",
+      "decidedAt": "2026-10-16T10:02:28Z",
+      "ref": "#13452, #12351, #11274",
+      "reason": "Aggiunta in AGENTS.md una verifica source/consumer per il corpus articolo: campi plain-text completi, niente placeholder/Markdown/vuoti, date valide e immagini pertinenti in tutte le localizzazioni."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",

@@ -1,13 +1,11 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
-  buildL7ExperimentOutcome,
   buildUnavailableL7ExperimentOutcome,
   DEFAULT_ACTIVE_EXPERIMENTS_PATH,
   exportL7,
-  fetchL7ExperimentCounts,
   L7_EXPERIMENT_EVENT_CONTRACT,
   parseActiveExperiments,
   readL7ActiveExperiments,
@@ -15,42 +13,6 @@ import {
 } from '../scripts/ci/export-l7-experiment-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
-const WINDOW = {
-  start: '2026-09-04T00:00:00.000Z',
-  end: '2026-09-12T00:00:00.000Z',
-};
-const POLICY = {
-  loopId: 'L7',
-  primaryMetric: 'registered_outcome_per_eligible_cohort',
-  minimumSample: 200,
-  sourceRefs: ['experiment-assignment-exposure-outcome'],
-  outcome: { outcomeId: 'registered-experiment-outcome', sourceRefs: ['experiment-assignment-exposure-outcome'] },
-  guardrails: ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'],
-  allocationPolicy: {
-    persistent: true,
-    assignmentMethod: 'stable-sha256',
-    assignmentKey: 'experiment-session-id',
-    contaminationPolicy: {
-      controlled: true,
-      key: 'experiment-session-id',
-      rejectReassignment: true,
-      rejectCrossCandidateExposure: true,
-    },
-    trafficMutationAllowed: false,
-    priceMutationAllowed: false,
-    noAutomaticPriceChange: true,
-  },
-  lifecycle: { candidateTtlHours: 168 },
-};
-
-const RESPONSE = {
-  columns: [
-    'eligibleCohort', 'assignments', 'exposures', 'primaryOutcomes',
-    'controlSessions', 'benefitSessions', 'contaminatedAssignments',
-    'guardrailBreaches', 'persistentAssignments',
-  ],
-  results: [[240, 240, 240, 38, 120, 120, 0, 0, 240]],
-};
 
 const REGISTERED_EXPERIMENT = {
   experimentId: L7_EXPERIMENT_EVENT_CONTRACT.experimentId,
@@ -67,135 +29,69 @@ function activeExperimentsFile(directory: string, experiments: unknown[]) {
   return file;
 }
 
-describe('read-only L7 experiment outcome exporter', () => {
-  it('queries only categorical session-joined experiment events', async () => {
-    let query = '';
-    const counts = await fetchL7ExperimentCounts({
-      config: { apiKey: 'test', projectId: 'test' },
-      start: WINDOW.start,
-      end: WINDOW.end,
-      posthogRunner: async (value) => {
-        query = value;
-        return RESPONSE;
-      },
-    });
-    expect(counts).toEqual({
-      eligibleCohort: 240,
-      assignments: 240,
-      exposures: 240,
-      primaryOutcomes: 38,
-      guardrailBreaches: 0,
-      persistentAssignments: 240,
-      contaminatedAssignments: 0,
-      variants: { control: 120, benefit: 120 },
-    });
-    expect(query).toContain('GROUP BY properties.$session_id');
-    expect(query).toContain('properties.$session_id IS NOT NULL');
-    expect(query).toContain('properties.$session_id != \'\'');
-    expect(query).toContain('mismatchedOutcomeEvents');
-    expect(query).toContain("properties.variant = 'control'");
-    expect(query).toContain("properties.variant = 'benefit'");
-    expect(query).toContain("event = 'affiliate_experiment_exposure'");
-    expect(query).toContain("event = 'affiliate_click'");
-    expect(query).toContain("properties.campaign = 'g4-contextual'");
-    expect(query).not.toMatch(/email|https?:\/\//i);
-  });
-
-  it('builds a registry-derived independent outcome without mutation authority', () => {
-    const outcome = buildL7ExperimentOutcome({
-      counts: {
-        eligibleCohort: 240,
-        assignments: 240,
-        exposures: 240,
-        primaryOutcomes: 38,
-        guardrailBreaches: 0,
-        persistentAssignments: 240,
-        contaminatedAssignments: 0,
-        variants: { control: 120, benefit: 120 },
-      },
-      policy: POLICY,
-      now: NOW,
-      telemetryWindow: WINDOW,
-    });
-    expect(outcome).toMatchObject({
-      schemaVersion: 1,
-      loopId: 'L7',
-      status: 'observed',
-      quality: 'observed',
-      generatedAt: NOW.toISOString(),
-      independent: true,
-      eligibleCohort: 240,
-      primaryOutcomes: 38,
-      durationDays: 8,
-      metrics: { eligibleCohort: 240, primaryOutcomes: 38, durationDays: 8 },
-      preRegistration: {
-        outcomeId: 'registered-experiment-outcome',
-        primaryMetric: 'registered_outcome_per_eligible_cohort',
-        minimumSample: 200,
-      },
-      assignmentLedger: { persistent: true, method: 'stable-sha256', key: 'experiment-session-id' },
-      contaminationPolicy: { controlled: true, key: 'experiment-session-id' },
-      export: {
-        readOnly: true,
-        mutationsPerformed: false,
-        trafficMutationAllowed: false,
-        priceMutationAllowed: false,
-        noAutomaticPriceChange: true,
-      },
-    });
-  });
-
-  it('writes an explicit unavailable placeholder with no measurements', async () => {
+describe('fail-closed L7 experiment outcome exporter', () => {
+  it('keeps an active experiment unavailable without querying telemetry or authorizing mutation', async () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-export-test-'));
     const outputPath = path.join(directory, 'outcome.json');
     const registryPath = path.resolve('data/loop-fleet/loop-registry.json');
-    const outcome = await exportL7({
-      outputPath,
-      registryPath,
-      now: NOW,
-      config: { apiKey: 'test', projectId: 'test' },
-      posthogRunner: async () => RESPONSE,
-      activeExperimentsPath: activeExperimentsFile(directory, [REGISTERED_EXPERIMENT]),
-    });
-    expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(outcome);
-    expect(outcome.independent).toBe(true);
+    const fetchSpy = vi.spyOn(globalThis, 'fetch');
+    try {
+      const outcome = await exportL7({
+        outputPath,
+        registryPath,
+        now: NOW,
+        activeExperimentsPath: activeExperimentsFile(directory, [REGISTERED_EXPERIMENT]),
+      });
+      expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(outcome);
+      expect(outcome).toMatchObject({
+        activeExperiments: 1,
+        independent: false,
+        status: 'unmeasurable',
+        quality: 'unmeasurable',
+        eligibleCohort: null,
+        assignments: null,
+        exposures: null,
+        primaryOutcomes: null,
+        guardrailBreaches: null,
+        persistentAssignments: null,
+        contaminatedAssignments: null,
+        export: {
+          unavailable: true,
+          mutationsPerformed: false,
+          trafficMutationAllowed: false,
+          priceMutationAllowed: false,
+          noAutomaticPriceChange: true,
+        },
+      });
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
 
-    const unavailable = buildUnavailableL7ExperimentOutcome({ policy: POLICY, now: NOW });
-    expect(unavailable).toMatchObject({
+  it('builds an unavailable result with no invented measurements', () => {
+    expect(buildUnavailableL7ExperimentOutcome({ now: NOW })).toMatchObject({
       loopId: 'L7',
       status: 'unmeasurable',
       quality: 'unmeasurable',
       independent: false,
       eligibleCohort: null,
       primaryOutcomes: null,
+      evidence: { status: 'unavailable', sourceRefs: [] },
       export: { unavailable: true, mutationsPerformed: false, noAutomaticPriceChange: true },
     });
   });
 
-  it('rifiuta un registry L7 incompleto prima di interrogare PostHog', async () => {
+  it('rejects an incomplete L7 registry', async () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-invalid-registry-'));
     const outputPath = path.join(directory, 'outcome.json');
     const registryPath = path.join(directory, 'registry.json');
-    fs.writeFileSync(registryPath, JSON.stringify({ loops: [POLICY] }));
+    fs.writeFileSync(registryPath, JSON.stringify({ loops: [] }));
     await expect(exportL7({
       outputPath,
       registryPath,
       now: NOW,
-      config: { apiKey: 'test', projectId: 'test' },
-      posthogRunner: async () => RESPONSE,
     })).rejects.toThrow(/schemaVersion|states|goal missing/);
-  });
-
-  it('rejects inconsistent persistent and contaminated session counts', async () => {
-    await expect(fetchL7ExperimentCounts({
-      config: { apiKey: 'test', projectId: 'test' },
-      start: WINDOW.start,
-      end: WINDOW.end,
-      posthogRunner: async () => ({
-        ...RESPONSE,
-        results: [[240, 240, 240, 38, 120, 120, 1, 0, 240]],
-      }),
-    })).rejects.toThrow('do not reconcile');
   });
 
   it('keeps the event contract stable', () => {
@@ -211,83 +107,60 @@ describe('read-only L7 experiment outcome exporter', () => {
 });
 
 describe('L7 declared idle state', () => {
-  it('writes an idle export and queries no source when no experiment is registered', async () => {
+  it('writes an explicit idle export and makes no network request when no experiment is active', async () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-idle-'));
     const outputPath = path.join(directory, 'outcome.json');
-    let posthogCalls = 0;
-    let remoteConfigReads = 0;
-    const outcome = await exportL7({
-      outputPath,
-      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
-      now: NOW,
-      client: { remoteConfig: async () => { remoteConfigReads += 1; return {}; } },
-      posthogRunner: async () => { posthogCalls += 1; return RESPONSE; },
-      activeExperimentsPath: activeExperimentsFile(directory, []),
-    });
-    expect(posthogCalls).toBe(0);
-    expect(remoteConfigReads).toBe(0);
-    expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(outcome);
-    expect(outcome).toMatchObject({
-      loopId: 'L7',
-      activeExperiments: 0,
-      status: 'idle',
-      quality: 'zero',
-      independent: true,
-      assignments: null,
-      exposures: null,
-      export: { readOnly: true, idle: true, mutationsPerformed: false, noAutomaticPriceChange: true },
-    });
-    expect(outcome.reason).toContain('no experiment is registered as active');
-    expect(JSON.stringify(outcome)).not.toMatch(/posthog|hogql/i);
-  });
-
-  it('runs the registered reader when an experiment is declared active', async () => {
-    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-active-'));
-    let posthogCalls = 0;
-    const outcome = await exportL7({
-      outputPath: path.join(directory, 'outcome.json'),
-      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
-      now: NOW,
-      config: { apiKey: 'test', projectId: 'test' },
-      posthogRunner: async () => { posthogCalls += 1; return RESPONSE; },
-      activeExperimentsPath: activeExperimentsFile(directory, [REGISTERED_EXPERIMENT]),
-    });
-    expect(posthogCalls).toBe(1);
-    expect(outcome).toMatchObject({ activeExperiments: 1, status: 'observed', assignments: 240 });
+    const fetchSpy = vi.spyOn(globalThis, 'fetch');
+    try {
+      const outcome = await exportL7({
+        outputPath,
+        registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+        now: NOW,
+        activeExperimentsPath: activeExperimentsFile(directory, []),
+      });
+      expect(fetchSpy).not.toHaveBeenCalled();
+      expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(outcome);
+      expect(outcome).toMatchObject({
+        loopId: 'L7',
+        activeExperiments: 0,
+        status: 'idle',
+        quality: 'zero',
+        independent: true,
+        assignments: null,
+        exposures: null,
+        export: { readOnly: true, idle: true, mutationsPerformed: false, noAutomaticPriceChange: true },
+      });
+      expect(outcome.reason).toContain('no experiment is registered as active');
+      expect(JSON.stringify(outcome)).not.toMatch(/posthog|hogql/i);
+    } finally {
+      fetchSpy.mockRestore();
+    }
   });
 
   it.each([
     ['a different experiment id', { ...REGISTERED_EXPERIMENT, experimentId: 'other' }],
     ['a different exposure event', { ...REGISTERED_EXPERIMENT, exposureEvent: 'other_exposure' }],
-  ])('rejects %s before querying the hard-coded reader', async (_description, experiment) => {
+  ])('rejects %s before exporting outcomes', async (_description, experiment) => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-invalid-mapping-'));
-    let posthogCalls = 0;
     await expect(exportL7({
       outputPath: path.join(directory, 'outcome.json'),
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
       now: NOW,
-      config: { apiKey: 'test', projectId: 'test' },
-      posthogRunner: async () => { posthogCalls += 1; return RESPONSE; },
       activeExperimentsPath: activeExperimentsFile(directory, [experiment]),
     })).rejects.toThrow(/L7 reader contract/);
-    expect(posthogCalls).toBe(0);
   });
 
-  it('rejects multiple active experiments before querying the hard-coded reader', async () => {
+  it('rejects multiple active experiments because no single L7 contract covers them', async () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-multiple-mappings-'));
-    let posthogCalls = 0;
     await expect(exportL7({
       outputPath: path.join(directory, 'outcome.json'),
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
       now: NOW,
-      config: { apiKey: 'test', projectId: 'test' },
-      posthogRunner: async () => { posthogCalls += 1; return RESPONSE; },
       activeExperimentsPath: activeExperimentsFile(directory, [
         REGISTERED_EXPERIMENT,
         { ...REGISTERED_EXPERIMENT, experimentId: 'other' },
       ]),
     })).rejects.toThrow(/exactly one/);
-    expect(posthogCalls).toBe(0);
   });
 
   it('never reads a missing or malformed declaration as idle', () => {

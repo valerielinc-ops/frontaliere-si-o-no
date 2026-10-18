@@ -3,7 +3,7 @@
   "totals": {
     "R3": 23,
     "R4": 18,
-    "R5": 139
+    "R5": 137
   },
   "files": {
     "scripts/lib/a-plus-plus-job-parser.mjs": {
@@ -116,9 +116,6 @@
     },
     "scripts/lib/mcdonalds-job-parser.mjs": {
       "R3": 2,
-      "R5": 2
-    },
-    "scripts/lib/mtic-job-parser.mjs": {
       "R5": 2
     },
     "scripts/lib/new-yorker-job-parser.mjs": {

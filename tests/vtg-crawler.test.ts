@@ -8,6 +8,7 @@ import {
   ensureAdapterSeedUrls,
   fetchVtgJobUrls,
 } from '../scripts/update-vtg-jobs.mjs';
+import { VTG_VERWALTUNGSEINHEIT_FILTER } from '../scripts/lib/federal-job-ownership.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import { parseFederalJobDetailExtras } from '../scripts/lib/federal-job-detail.mjs';
 
@@ -56,12 +57,19 @@ describe('VTG authoritative regional discovery', () => {
       '1083334': [job(IDS[1]), job(IDS[2])],
       '1083319': [job(IDS[2])],
     };
+    const requestedUrls: string[] = [];
     const fetchImpl = async (input: string | URL | Request) => {
+      requestedUrls.push(String(input));
       const jobs = byRegion[regionFromUrl(input)!];
       return new Response(JSON.stringify({ total: jobs.length, jobs }), { status: 200 });
     };
 
     const result = await fetchVtgJobUrls({ fetchImpl, timeoutMs: 1000 });
+    expect(requestedUrls).toHaveLength(3);
+    for (const requested of requestedUrls) {
+      expect(new URL(requested).searchParams.getAll('f'))
+        .toContain(`verwaltungseinheit:${VTG_VERWALTUNGSEINHEIT_FILTER}`);
+    }
     expect(result).toMatchObject({ fetched: 4, duplicateIdentity: 1, droppedMalformed: 0, sourceZero: false });
     expect(result.urls).toHaveLength(3);
     expect(Object.keys(result.seedMetaByUrl)).toHaveLength(3);

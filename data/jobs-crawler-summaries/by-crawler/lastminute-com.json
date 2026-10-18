@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-14T21:25:10.270Z",
-  "total": 6,
-  "newCount": 1,
+  "generatedAt": "2026-10-17T21:26:30.721Z",
+  "total": 5,
+  "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10348,
-  "avgDurationMs": 10348,
+  "durationMs": 8077,
+  "avgDurationMs": 8077,
   "durationHistory": [
-    10348
+    8077
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Junior Accountant",
       "slug": "junior-accountant-chiasso",
@@ -50,49 +51,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 25
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "title": "Business Analyst - Payments and Fintech",
-      "slug": "business-analyst-payments-and-fintech-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000155033489&jobName=Business+Analyst+-+Payments+and+Fintech",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000155033489-business-analyst-payments-and-fintech?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-10-12T14:04:40.344Z",
-      "postedDate": "2026-10-12T14:04:40.344Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-bd2220ee6b08",
-      "needsRetranslation": true,
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-12T21:30:47.103Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 21,
         "completeness": 25
       }
@@ -261,89 +219,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Machine Learning Scientist",
-      "slug": "scienziato-di-apprendimento-della-macchina-lastminute-com-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000151334039&jobName=Machine+Learning+Scientist",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000151334039-machine-learning-scientist?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-09-23T09:27:29.812Z",
-      "postedDate": "2026-09-23T09:27:29.812Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-2e548cebe65d",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:49:43.585Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Technical Product Manager - Hotel Supply & Connectivity",
-      "slug": "responsabile-tecnico-del-prodotto-fornitura-e-connettivita-dell-hotel-lastminute-com-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000150982849&jobName=Technical+Product+Manager+-+Hotel+Supply",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000150982849-technical-product-manager-hotel-supply-connectivity?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-09-22T09:44:59.014Z",
-      "postedDate": "2026-09-22T09:44:59.014Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-7d9bd085abf1",
-      "needsRetranslation": true,
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:49:43.585Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
 }

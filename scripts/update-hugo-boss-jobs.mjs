@@ -34,7 +34,8 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, parseDetailPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -314,6 +315,44 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   return mapped;
 }
 
+/**
+ * Replace listing teasers with the canonical detail-page body when the
+ * detail exposes a complete description. Keep the national-read snapshot and
+ * the listing evidence when a detail fetch is unavailable or still thin.
+ */
+export async function enrichWithDetails(discoveredJobs, { fetchHtml = fetchPage } = {}) {
+  if (!Array.isArray(discoveredJobs) || discoveredJobs.length === 0) return discoveredJobs;
+
+  const enriched = discoveredJobs.map((job) => ({ ...job }));
+  for (const job of enriched) {
+    if (!job.url) continue;
+    let html;
+    try {
+      html = await fetchHtml(job.url, 25000);
+    } catch (error) {
+      console.warn(`⚠️ Hugo Boss detail fetch failed for ${job.url}: ${error.message}`);
+      continue;
+    }
+    if (!html) continue;
+
+    const detail = parseDetailPage(html);
+    const description = detail.body;
+    if (!meetsSourceBodyFloor(description)) continue;
+    const sourceLang = sourceLangOfBody(description, job.sourceLang || 'en');
+    job.description = description;
+    job.descriptionByLocale = { [sourceLang]: description };
+    job.sourceLang = sourceLang;
+  }
+
+  if (discoveredJobs.hugoBossSnapshot) {
+    Object.defineProperty(enriched, 'hugoBossSnapshot', {
+      value: discoveredJobs.hugoBossSnapshot,
+      enumerable: false,
+    });
+  }
+  return enriched;
+}
+
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -408,7 +447,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
 
-  const discovered = await fetchJobs();
+  const discovered = await enrichWithDetails(await fetchJobs());
   const snapshot = discovered.hugoBossSnapshot || {};
   summaryCounts.discovered = Number.isFinite(snapshot.discovered) ? snapshot.discovered : 0;
   summaryCounts.parsed = Number.isFinite(snapshot.published) ? snapshot.published : 0;

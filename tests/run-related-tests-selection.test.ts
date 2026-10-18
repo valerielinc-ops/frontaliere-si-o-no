@@ -141,6 +141,52 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).not.toContain('selection_failed=true');
   });
 
+  it('selects the source-backed AIL, JobBoard and Google News tests', () => {
+    const contracts = [
+      {
+        source: 'scripts/update-ail-jobs.mjs',
+        test: 'tests/ail-crawler.test.ts',
+      },
+      {
+        source: 'services/jobBoardSearchPipeline.ts',
+        test: 'tests/jobboard-interruptible-search-pipeline.test.ts',
+      },
+      {
+        source: 'scripts/lib/discovery/googleNewsUrlResolver.mjs',
+        test: 'tests/google-news-url-resolver.test.ts',
+      },
+    ];
+
+    for (const { source, test } of contracts) {
+      const root = fixture({}, [source, test]);
+      const result = select(root, [source]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      expect(result.stdout).toContain(test);
+    }
+  });
+
+  it('selects the AIL test from the CI full-checkout profile', () => {
+    const root = fixture({
+      // These are the same checkout sentinels required by the real selector.
+      'data/blog-articles-data.ts': 'export const articles = [];\n',
+      'data/swiss-articles-data.ts': 'export const articles = [];\n',
+      'public/.nojekyll': '',
+    }, [
+      'scripts/update-ail-jobs.mjs',
+      'tests/ail-crawler.test.ts',
+    ]);
+    const result = select(
+      root,
+      ['scripts/update-ail-jobs.mjs'],
+      'complete',
+      { GITHUB_ACTIONS: 'true', VITEST_RELATED_DRY_RUN: '' },
+    );
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/ail-crawler.test.ts');
+    expect(result.output).toContain('required=false');
+    expect(result.output).not.toContain('selection_failed=true');
+  });
+
   it('does not turn a documented asset path into a directory-wide dependency', () => {
     const root = fixture({
       '.github/workflows/full-suite-dispatch.yml': 'name: full-suite\n',
@@ -331,5 +377,89 @@ describe('run-related-tests selection contract', () => {
     const unrelated = select(root, ['scripts/unrelated.mjs']);
     expect(unrelated.status, unrelated.stderr || unrelated.stdout).toBe(0);
     expect(unrelated.stdout).not.toContain(freshness);
+  });
+
+  it('reuses an ancestor graph across data snapshots and reindexes intervening source edits', () => {
+    const reader = 'tests/live-snapshot-reader.test.ts';
+    const root = fixture({
+      'data/live-snapshot.json': '{"count":1}\n',
+      'services/first.mjs': 'export const value = 1;\n',
+      'services/second.mjs': 'export const value = 2;\n',
+      'services/reader.mjs': "import { readFileSync } from 'node:fs'; import { value } from './first.mjs'; export const snapshot = readFileSync('data/live-snapshot.json', 'utf8') + value;\n",
+      [reader]: "import { snapshot } from '../services/reader.mjs'; export const observed = snapshot;\n",
+    });
+
+    const initial = select(root, ['services/reader.mjs']);
+    expect(initial.status, initial.stderr || initial.stdout).toBe(0);
+    const initialGraph = JSON.parse(fs.readFileSync(path.join(root, 'graph.json'), 'utf8'));
+
+    fs.writeFileSync(path.join(root, 'data/live-snapshot.json'), '{"count":2}\n');
+    git(root, 'add', '--', 'data/live-snapshot.json');
+    git(root, 'commit', '-qm', 'refresh data snapshot');
+    const snapshot = select(root, ['data/live-snapshot.json']);
+    expect(snapshot.status, snapshot.stderr || snapshot.stdout).toBe(0);
+    expect(snapshot.stdout).toMatch(/Related graph: reused \d+ entries, rebuilt 0\./);
+    expect(snapshot.stdout).toContain(reader);
+    const snapshotGraph = JSON.parse(fs.readFileSync(path.join(root, 'graph.json'), 'utf8'));
+    expect(snapshotGraph.revision).not.toBe(initialGraph.revision);
+
+    fs.writeFileSync(
+      path.join(root, 'services/reader.mjs'),
+      "import { readFileSync } from 'node:fs'; import { value } from './second.mjs'; export const snapshot = readFileSync('data/live-snapshot.json', 'utf8') + value;\n",
+    );
+    git(root, 'add', '--', 'services/reader.mjs');
+    git(root, 'commit', '-qm', 'change a source import');
+    const source = select(root, ['services/reader.mjs']);
+    expect(source.status, source.stderr || source.stdout).toBe(0);
+    expect(source.stdout).toContain(reader);
+    expect(source.stdout).toMatch(/Related graph: reused [1-9]\d* entries, rebuilt [1-9]\d*\./);
+    const sourceGraph = JSON.parse(fs.readFileSync(path.join(root, 'graph.json'), 'utf8'));
+    expect(sourceGraph.files['services/reader.mjs'].deps).toContain('services/second.mjs');
+    expect(sourceGraph.files['services/reader.mjs'].deps).not.toContain('services/first.mjs');
+  });
+
+  it('rebuilds when source paths are added or deleted since the cached revision', () => {
+    const root = fixture({
+      'services/existing.mjs': 'export const value = 1;\n',
+      'tests/existing.test.ts': "import { value } from '../services/existing.mjs'; export const observed = value;\n",
+    });
+    const initial = select(root, ['services/existing.mjs']);
+    expect(initial.status, initial.stderr || initial.stdout).toBe(0);
+
+    fs.writeFileSync(path.join(root, 'services/added.mjs'), 'export const added = true;\n');
+    git(root, 'add', '--', 'services/added.mjs');
+    git(root, 'commit', '-qm', 'add a source module');
+    const added = select(root, ['services/added.mjs']);
+    expect(added.status, added.stderr || added.stdout).toBe(0);
+    expect(added.stdout).toMatch(/Related graph: reused 0 entries, rebuilt [1-9]\d*\./);
+
+    fs.rmSync(path.join(root, 'services/added.mjs'));
+    git(root, 'add', '-u', '--', 'services/added.mjs');
+    git(root, 'commit', '-qm', 'remove a source module');
+    const deleted = select(root, ['services/added.mjs']);
+    expect(deleted.status, deleted.stderr || deleted.stdout).toBe(0);
+    expect(deleted.stdout).toMatch(/Related graph: reused 0 entries, rebuilt [1-9]\d*\./);
+  });
+
+  it('rebuilds rather than reuses a graph from a divergent cached revision', () => {
+    const root = fixture({
+      'data/live-snapshot.json': '{"count":1}\n',
+      'tests/live-snapshot-reader.test.ts': "import { readFileSync } from 'node:fs'; export const snapshot = readFileSync('data/live-snapshot.json', 'utf8');\n",
+    });
+    const base = git(root, 'rev-parse', 'HEAD');
+
+    fs.writeFileSync(path.join(root, 'data/live-snapshot.json'), '{"count":2}\n');
+    git(root, 'add', '--', 'data/live-snapshot.json');
+    git(root, 'commit', '-qm', 'first snapshot update');
+    const cached = select(root, ['data/live-snapshot.json']);
+    expect(cached.status, cached.stderr || cached.stdout).toBe(0);
+
+    git(root, 'checkout', '-q', '-b', 'divergent', base);
+    fs.writeFileSync(path.join(root, 'data/live-snapshot.json'), '{"count":3}\n');
+    git(root, 'add', '--', 'data/live-snapshot.json');
+    git(root, 'commit', '-qm', 'divergent snapshot update');
+    const divergent = select(root, ['data/live-snapshot.json']);
+    expect(divergent.status, divergent.stderr || divergent.stdout).toBe(0);
+    expect(divergent.stdout).toMatch(/Related graph: reused 0 entries, rebuilt [1-9]\d*\./);
   });
 });

@@ -708,6 +708,53 @@ describe('old-history-guard', () => {
     }
   });
 
+  it('completa la prova storica col commit acquisito se la stable ref viene eliminata dopo il merge', () => {
+    const fixture = rewrittenRemoteFixture();
+    const branch = 'chore/sync-articles-sitemaps';
+    try {
+      const stableHead = git(fixture.remote, 'rev-parse', 'refs/heads/old-branch');
+      git(fixture.seed, 'push', '--quiet', fixture.remote, `${stableHead}:refs/heads/${branch}`);
+      const checkout = fixture.shallowClone('main');
+      const headRef = `refs/remotes/refresh/${branch}`;
+      git(checkout, 'fetch', '--quiet', '--no-tags', '--depth=1', 'origin', `+refs/heads/${branch}:${headRef}`);
+      expect(git(checkout, 'rev-parse', headRef)).toBe(stableHead);
+
+      // A merged PR deletes the stable branch, while GitHub still serves its
+      // captured head commit through the pull request's retained head ref.
+      git(fixture.remote, 'config', 'uploadpack.allowAnySHA1InWant', 'true');
+      git(fixture.remote, 'config', 'uploadpack.hideRefs', 'refs/pull');
+      git(fixture.remote, 'update-ref', 'refs/pull/42/head', stableHead);
+      git(fixture.remote, 'update-ref', '-d', `refs/heads/${branch}`);
+      expect(() => git(fixture.remote, 'rev-parse', `refs/heads/${branch}`)).toThrow();
+
+      const trace: TraceEntry[] = [];
+      const result = withEnvironment({ GH_TOKEN: '', GITHUB_TOKEN: '' }, () => checkOldHistory({
+        cwd: checkout,
+        markerRef: fixture.fixtureMarker,
+        headRef,
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: 'origin',
+        branch: 'main',
+        trace,
+      }));
+
+      expect(result).toMatchObject({ outcome: 'blocked' });
+      expect(steps(trace)).toEqual([
+        'remote-descends-from-base',
+        'bounded-proof',
+        'complete-shallow-history',
+        'bounded-proof',
+      ]);
+      expect(steps(trace)).not.toContain('fetch-marker');
+      expect(trace.find((entry) => entry.step === 'complete-shallow-history')?.failed).toBeUndefined();
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('false');
+      expect(git(checkout, 'rev-parse', headRef)).toBe(stableHead);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
   it('usa compare remoto per bloccare la storia riscritta senza scaricare il grafo né salvare il token', () => {
     const fixture = rewrittenRemoteFixture();
     try {

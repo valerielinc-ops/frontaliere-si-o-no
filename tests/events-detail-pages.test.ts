@@ -5,7 +5,7 @@
  * and the router recognising the 2-segment detail URL.
  */
 import { describe, it, expect, vi } from 'vitest';
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
@@ -20,6 +20,9 @@ import {
   renderDigestPage,
   renderOtherEventsPage,
   renderOverflowLadderPage,
+  renderHistoricalEventsArchivePage,
+  historicalEventsArchivePath,
+  patchHistoricalEventsArchiveLink,
   buildSitemap,
   DIGESTS,
   assignEventSlugs,
@@ -935,6 +938,125 @@ describe('buildSitemap historical detail entries', () => {
     expect(xml).toContain('hreflang="de" href="https://frontaliereticino.ch/de/veranstaltungen/tessin/lugano/evento-storico/"');
     expect(xml).toContain('hreflang="fr" href="https://frontaliereticino.ch/fr/evenements/tessin/lugano/evento-storico/"');
   });
+
+  it('includes the paginated historical archive pages and localized alternates', () => {
+    const dateStamp = new Date().toISOString().slice(0, 10);
+    const xml = buildSitemap([], dateStamp, [], 2);
+
+    expect(xml).toContain('<loc>https://frontaliereticino.ch/eventi/ticino/archivio/</loc>');
+    expect(xml).toContain('<loc>https://frontaliereticino.ch/eventi/ticino/archivio/page-2/</loc>');
+    expect(xml).toContain('hreflang="en" href="https://frontaliereticino.ch/en/events/ticino/archive/page-2/"');
+    expect(xml).toContain('hreflang="de" href="https://frontaliereticino.ch/de/veranstaltungen/tessin/archiv/page-2/"');
+    expect(xml).toContain('hreflang="fr" href="https://frontaliereticino.ch/fr/evenements/tessin/archives/page-2/"');
+  });
+});
+
+describe('historical event archive reachability', () => {
+  it('lists each historical detail from an indexable, paginated archive page', () => {
+    const entries = Array.from({ length: 101 }, (_, index) => ({
+      event: { ...EVENT, id: `historical:${index}`, title: `Evento passato ${index}` } as never,
+      canton: 'TI',
+      comune: 'Lugano',
+      slug: `evento-passato-${index}`,
+    }));
+    const first = renderHistoricalEventsArchivePage({
+      locale: 'it',
+      entries,
+      page: 1,
+      pageCount: 2,
+      distDir: '/tmp/frontaliere-historical-events-archive-test',
+    });
+    const second = renderHistoricalEventsArchivePage({
+      locale: 'it',
+      entries,
+      page: 2,
+      pageCount: 2,
+      distDir: '/tmp/frontaliere-historical-events-archive-test',
+    });
+
+    expect(first.urlPath).toBe('/eventi/ticino/archivio/');
+    expect(first.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(first.html).toContain('"@type":"BreadcrumbList"');
+    expect(first.html).toContain('href="/eventi/ticino/lugano/evento-passato-0/"');
+    expect(first.html).not.toContain('href="/eventi/ticino/lugano/evento-passato-100/"');
+    expect(first.html).toContain(`href="${historicalEventsArchivePath('it', 2)}"`);
+    expect(second.urlPath).toBe(historicalEventsArchivePath('it', 2));
+    expect(second.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(second.html).toContain('"@type":"BreadcrumbList"');
+    expect(second.html).toContain('href="/eventi/ticino/lugano/evento-passato-100/"');
+    expect(second.html).not.toContain('href="/eventi/ticino/lugano/evento-passato-0/"');
+  });
+
+  it('emits an ItemList whose event URL matches the rendered archive detail link', () => {
+    const page = renderHistoricalEventsArchivePage({
+      locale: 'it',
+      entries: [{
+        event: { ...EVENT, id: 'historical:item-list', title: 'Evento passato' } as never,
+        canton: 'TI',
+        comune: 'Lugano',
+        slug: 'evento-passato',
+      }],
+      page: 1,
+      pageCount: 1,
+      distDir: path.join(os.tmpdir(), 'frontaliere-historical-events-archive-item-list-test'),
+    });
+
+    const itemList = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]) as { '@type'?: string; itemListElement?: Array<{ item?: string }> })
+      .find((script) => script['@type'] === 'ItemList');
+
+    expect(itemList?.itemListElement).toEqual([{
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Evento passato',
+      item: 'https://frontaliereticino.ch/eventi/ticino/lugano/evento-passato/',
+    }]);
+    expect(page.html).toContain('href="/eventi/ticino/lugano/evento-passato/"');
+  });
+
+  it('keeps every localized archive page indexable and self-canonical', () => {
+    const entries = [{
+      event: { ...EVENT, id: 'historical:localized', title: 'Evento passato' } as never,
+      canton: 'TI',
+      comune: 'Lugano',
+      slug: 'evento-passato',
+    }];
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const page = renderHistoricalEventsArchivePage({
+        locale,
+        entries,
+        page: 1,
+        pageCount: 1,
+        distDir: path.join(os.tmpdir(), 'frontaliere-historical-events-archive-test'),
+      });
+      expect(page.wordCount, locale).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+      const canonicalTag = page.html.match(/<link\b[^>]*\brel=(?:"canonical"|canonical)[^>]*>/)?.[0];
+      const canonicalUrlMatch = canonicalTag?.match(/\bhref=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/);
+      const canonicalUrl = canonicalUrlMatch?.[1] ?? canonicalUrlMatch?.[2] ?? canonicalUrlMatch?.[3];
+      expect(canonicalUrl, locale).toBe(`https://frontaliereticino.ch${historicalEventsArchivePath(locale)}`);
+    }
+  });
+
+  it('patches an inbound archive link idempotently and removes it when no archive remains', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'events-history-archive-link-'));
+    try {
+      const hubPath = path.join(root, 'vivere-in-ticino', 'index.html');
+      mkdirSync(path.dirname(hubPath), { recursive: true });
+      writeFileSync(hubPath, '<html><body><main><p>Hub</p></main></body></html>');
+
+      expect(patchHistoricalEventsArchiveLink(root, 'vivere-in-ticino/index.html', 'it', '/eventi/ticino/archivio/')).toBe(true);
+      expect(patchHistoricalEventsArchiveLink(root, 'vivere-in-ticino/index.html', 'it', '/eventi/ticino/archivio/')).toBe(true);
+      const withArchive = readFileSync(hubPath, 'utf8');
+      expect(withArchive.match(/data-events-history-archive-link="1"/g)).toHaveLength(1);
+      expect(withArchive).toContain('href="/eventi/ticino/archivio/"');
+
+      expect(patchHistoricalEventsArchiveLink(root, 'vivere-in-ticino/index.html', 'it', null)).toBe(true);
+      expect(readFileSync(hubPath, 'utf8')).not.toContain('data-events-history-archive-link="1"');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('router recognises per-event detail URLs (staticOverlay)', () => {
@@ -943,6 +1065,10 @@ describe('router recognises per-event detail URLs (staticOverlay)', () => {
     '/en/events/ticino/lugano/concerto-sinfonico-al-lac-2026-07-04/',
     '/de/veranstaltungen/tessin/lugano/x-2026-07-04/',
     '/fr/evenements/tessin/lugano/x-2026-07-04/',
+    '/eventi/ticino/archivio/',
+    '/en/events/ticino/archive/page-2/',
+    '/de/veranstaltungen/tessin/archiv/page-2/',
+    '/fr/evenements/tessin/archives/page-2/',
   ]) {
     it(`maps ${url} to the vita/places static overlay`, () => {
       const parsed = parsePath(url);

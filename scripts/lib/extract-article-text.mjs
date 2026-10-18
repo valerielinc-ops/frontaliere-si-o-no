@@ -138,11 +138,121 @@ function extractFromMeta(document, selector) {
   return el ? (el.getAttribute('content') || '').trim() : '';
 }
 
-function extractParagraphs(root) {
-  if (!root) return [];
-  const paragraphs = [...root.querySelectorAll('p, h2, h3, h4, li, blockquote')]
+const PARAGRAPH_SELECTOR = 'p, h2, h3, h4, li, blockquote';
+const NOISE_SELECTORS = [
+  'script:not([type="application/ld+json"])', 'style', 'iframe', 'nav', 'footer',
+  'aside', 'form', '[class*="cookie" i]', '[id*="cookie" i]',
+  '[class*="banner" i]', '[class*="related" i]',
+  '[class*="newsletter" i]', '[class*="advert" i]',
+  '[class*="adsbygoogle" i]',
+];
+
+const NOSCRIPT_METADATA_TAGS = new Set(['base', 'link', 'meta', 'script', 'style', 'title']);
+const NOSCRIPT_TRACKING_TAGS = new Set(['embed', 'iframe', 'img', 'object', 'source', 'track']);
+const NOSCRIPT_NON_CONTENT_MARKER = /\b(?:ad(?:s|vert(?:isement)?s?)?|analytics?|beacon|consent|gtm|metadata|nosnippet|pixel|tag[-_ ]?manager|track(?:ing)?(?:[-_ ]?pixel)?)\b/i;
+
+function removeNoiseNodes(root, { includeNoscript = false } = {}) {
+  const selectors = includeNoscript ? [...NOISE_SELECTORS, 'noscript'] : NOISE_SELECTORS;
+  for (const sel of selectors) {
+    for (const el of root.querySelectorAll(sel)) el.remove();
+  }
+}
+
+function collectParagraphTexts(root, include = () => true) {
+  return [...root.querySelectorAll(PARAGRAPH_SELECTOR)]
+    .filter(p => include(p))
     .map(p => cleanText(p.textContent || ''))
     .filter(p => p && !isJunk(p));
+}
+
+function normalizeNoscriptRoot(noscript) {
+  if (noscript.querySelector(PARAGRAPH_SELECTOR)) return noscript;
+
+  const rawMarkup = noscript.textContent || '';
+  if (!/<\/?[a-z][\s\S]*>/i.test(rawMarkup)) return noscript;
+
+  const normalized = noscript.ownerDocument.createElement('div');
+  normalized.innerHTML = rawMarkup;
+  return normalized;
+}
+
+function hasNoscriptNonContentMarker(element) {
+  if (element.hasAttribute('data-nosnippet')
+    || element.hasAttribute('hidden')
+    || element.getAttribute('aria-hidden') === 'true') {
+    return true;
+  }
+  return [...element.attributes]
+    .some(({ name, value }) => NOSCRIPT_NON_CONTENT_MARKER.test(`${name} ${value}`));
+}
+
+function hasNoscriptNonContentAncestor(node, root) {
+  for (let current = node.parentElement; current; current = current.parentElement) {
+    const tag = current.tagName.toLowerCase();
+    if (NOSCRIPT_METADATA_TAGS.has(tag)
+      || NOSCRIPT_TRACKING_TAGS.has(tag)
+      || hasNoscriptNonContentMarker(current)) {
+      return true;
+    }
+    if (current === root) break;
+  }
+  return false;
+}
+
+/**
+ * Return true when a noscript block contains no unmarked article paragraphs.
+ *
+ * Noscript is also used for pixels, tag-manager fallbacks and head metadata.
+ * Those blocks can contain a paragraph-shaped payload, so checking only the
+ * element tag is not enough. Keep real fallback prose when at least one
+ * paragraph is outside a metadata/tracking wrapper.
+ */
+function isNoscriptMetadata(noscript) {
+  if (!noscript) return true;
+  if (hasNoscriptNonContentMarker(noscript)) return true;
+
+  const root = normalizeNoscriptRoot(noscript);
+  const contentNodes = [...root.querySelectorAll(PARAGRAPH_SELECTOR)];
+  if (contentNodes.length === 0) return true;
+
+  return contentNodes.every(node => hasNoscriptNonContentAncestor(node, root));
+}
+
+/**
+ * Normalize a noscript fallback whose nested markup was preserved as text.
+ *
+ * Depending on the HTML parser's scripting mode, a noscript body can be either
+ * a normal element tree or one text node containing the serialized markup.
+ * Parse the latter in a detached container so paragraph extraction has the
+ * same shape in both cases. Setting innerHTML on a detached element does not
+ * execute scripts or load the source page's resources.
+ */
+function extractNoscriptText(noscript) {
+  if (!noscript) return [];
+
+  const normalized = normalizeNoscriptRoot(noscript);
+  const isEditorialParagraph = node => !hasNoscriptNonContentAncestor(node, normalized);
+  if (normalized === noscript) return collectParagraphTexts(noscript, isEditorialParagraph);
+
+  removeNoiseNodes(normalized);
+  return collectParagraphTexts(normalized, isEditorialParagraph);
+}
+
+function extractParagraphs(root) {
+  if (!root) return [];
+  const paragraphs = [];
+  const candidates = [...root.querySelectorAll(`${PARAGRAPH_SELECTOR}, noscript`)];
+  for (const candidate of candidates) {
+    if (candidate.tagName.toLowerCase() === 'noscript') {
+      if (candidate.parentElement?.closest('noscript')) continue;
+      if (isNoscriptMetadata(candidate)) continue;
+      paragraphs.push(...extractNoscriptText(candidate));
+      continue;
+    }
+    if (candidate.closest('noscript')) continue;
+    const text = cleanText(candidate.textContent || '');
+    if (text && !isJunk(text)) paragraphs.push(text);
+  }
   // Dedup adjacent identical paragraphs (some sites repeat the lead)
   const out = [];
   for (const p of paragraphs) {
@@ -157,6 +267,7 @@ function extractParagraphs(root) {
  * @param {string} html — raw HTML page source
  * @param {object} [opts]
  * @param {number} [opts.maxChars=8000] — hard cap on output length
+ * @param {boolean} [opts.scriptingDisabled=false] — treat `<noscript>` markup as active fallback content
  * @returns {{ text: string, method: string, paragraphCount: number }}
  *          `method` is one of 'jsonld', 'article-tag', 'main-tag',
  *          'og-fallback', 'naive-fallback', 'empty'.
@@ -183,13 +294,7 @@ export function extractArticleText(html, opts = {}) {
   // Strip noise nodes up-front. NOTE: JSON-LD `<script type="application/ld+json">`
   // MUST survive this pass — the JSON-LD extractor reads it next. We only purge
   // executable/styling script tags.
-  for (const sel of ['script:not([type="application/ld+json"])', 'style', 'noscript', 'iframe', 'nav', 'footer',
-                     'aside', 'form', '[class*="cookie" i]', '[id*="cookie" i]',
-                     '[class*="banner" i]', '[class*="related" i]',
-                     '[class*="newsletter" i]', '[class*="advert" i]',
-                     '[class*="adsbygoogle" i]']) {
-    for (const el of document.querySelectorAll(sel)) el.remove();
-  }
+  removeNoiseNodes(document, { includeNoscript: opts.scriptingDisabled !== true });
 
   // 1. JSON-LD articleBody (most reliable)
   const jsonLdBody = extractFromJsonLd(document);

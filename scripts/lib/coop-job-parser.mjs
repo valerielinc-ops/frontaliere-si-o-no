@@ -905,10 +905,14 @@ export function resolveCoopJsonLdGeography(candidate) {
   // "Zürcher Unterland/Limmattal"). With an explicit Swiss country, retry
   // solely from the structured locality; unknown/foreign localities still
   // fail the shared resolver instead of falling back to an employer HQ.
-  if (/^(?:ch|che|schweiz|switzerland|suisse|svizzera|svizra)$/i.test(candidate.addressCountry)) {
+  if (isExplicitSwissCountry(candidate.addressCountry)) {
     return resolveSourceBackedSwissGeography({ ...candidate, addressRegion: '' });
   }
   return null;
+}
+
+function isExplicitSwissCountry(value = '') {
+  return /^(?:ch|che|schweiz|switzerland|suisse|svizzera|svizra)$/i.test(normalizeSpace(value));
 }
 
 /**
@@ -936,7 +940,29 @@ function listingAddressEvidence(job) {
     streetAddress: normalizeSpace(job?.streetAddress || ''),
   };
   const geography = resolveCoopJsonLdGeography(candidate);
-  return geography ? { candidate, geography } : null;
+  if (geography) return { candidate, geography };
+
+  // Some real Coop-family workplaces are source-declared branch labels rather
+  // than BFS municipalities (for example Heerbrugg and Rapperswil SG). Keep
+  // those only when the listing itself repeats the exact locality in both
+  // workplace fields and supplies explicit Swiss country + canton evidence.
+  // This is not a name lookup: preserve the source locality and never attach
+  // the JSON-LD employer address or infer a missing canton/country.
+  const listingLocation = normalizeSpace(job?.location || '');
+  const canton = normalizeSpace(job?.canton || job?.addressRegion || '').toUpperCase();
+  if (!listingLocation
+    || normalizeSwissTargetLocationText(listingLocation) !== normalizeSwissTargetLocationText(addressLocality)
+    || !isExplicitSwissCountry(candidate.addressCountry)
+    || isExplicitSwissCountry(addressLocality)
+    || isCantonOnlyLabel(addressLocality)
+    || isExplicitlyForeign(addressLocality, candidate.addressCountry)
+    || !isSwissCantonCode(canton)) return null;
+  const localityCanton = inferAnyCanton(addressLocality);
+  if (localityCanton && localityCanton !== canton) return null;
+  return {
+    candidate,
+    geography: { location: addressLocality, canton, addressCountry: candidate.addressCountry },
+  };
 }
 
 function isSwissCantonCode(value = '') {

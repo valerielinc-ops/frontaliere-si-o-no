@@ -823,9 +823,10 @@ const path = require('path');
 
 const [basePath, remotePath, localPath, outPath, keyField, label] = process.argv.slice(2);
 
-// The decontamination denylist is keyed by slice basename + slug. A stale
-// merge input must not reintroduce one of those intentionally removed routes
-// merely because the append-only archive branch sees it as a new value.
+// The historical denylist covers intentional removals known before this merge.
+// New cross-job removals are filtered by crawler-commit-ownership.mjs from the
+// complete remote ownership view before this append-only merge runs. A stale
+// merge input must not reintroduce either class of intentionally removed route.
 const restoreDenylistPath = process.env.PREV_SLUG_RESTORE_DENYLIST_PATH
   || path.resolve('data/prev-slug-restore-denylist.json');
 const restoreDenylist = new Set();
@@ -1011,12 +1012,14 @@ function countMap(items) {
 // idempotent and commutative, so no ordering of concurrent writers can
 // fabricate a removal.
 //
-// Deliberate trade-off: a genuine removal (cleanPreviousSlugsPerLocale
-// dropping an entry equal to the active slug, decontaminate-prev-slugs)
-// that races a concurrent writer survives one extra cycle before the next
-// writer drops it again. Resurrect-then-redrop is convergent and free;
-// deleting a live historical slug is permanent SEO loss. Same asymmetry the
-// `merge=union` drivers in .gitattributes are documented to accept.
+// Deliberate trade-off: an unknown genuine removal (cleanPreviousSlugsPerLocale
+// dropping an entry equal to the active slug, or a decontamination whose target
+// is not present in the complete ownership view) that races a concurrent writer
+// survives one extra cycle before the next writer drops it again. Proven
+// cross-job decontaminations are removed before this function by the ownership
+// guard, so the conservative union is retained only when no positive owner
+// proof exists. Resurrect-then-redrop is convergent; deleting an indexed
+// historical slug without proof is permanent SEO loss.
 //
 // Bounds: each writer caps its own output through capSlugArray() before this
 // runs, so the union is bounded by 2x the cap and the next write re-caps it.
@@ -2439,7 +2442,7 @@ commit_isolated_from_worktree() {
   local tmp_index merge_dir
   local f local_blob remote_blob base_blob history_blob history_status blob_to_stage key_hint mode_to_stage local_merge_path candidate_path conflict_scan_path
   local snapshot_operation snapshot_state registry_status
-  local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
+  local ownership_root ownership_base_path ownership_remote_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
   local -a effective_files
   local skipped_identical
@@ -2838,6 +2841,15 @@ commit_isolated_from_worktree() {
             return 1
           fi
         fi
+        ownership_remote_path="-"
+        if [ -n "$remote_blob" ]; then
+          ownership_remote_path="$merge_dir/ownership-remote/$f"
+          mkdir -p "$(dirname "$ownership_remote_path")"
+          if ! git cat-file blob "$remote_blob" > "$ownership_remote_path"; then
+            echo "❌ grouped-isolated: could not read remote slice for ownership guard: $f"
+            return 1
+          fi
+        fi
         ownership_output_path="$merge_dir/ownership-filtered/$f"
         mkdir -p "$(dirname "$ownership_output_path")"
         rm -f "$merge_dir/ownership-verdict"
@@ -2848,7 +2860,8 @@ commit_isolated_from_worktree() {
           "$local_merge_path" \
           "$ownership_root" \
           "$ownership_output_path" \
-          "$merge_dir/ownership-verdict")"; then
+          "$merge_dir/ownership-verdict" \
+          "$ownership_remote_path")"; then
           echo "❌ grouped-isolated: crawler ownership guard failed for $f"
           return 1
         fi
@@ -2863,7 +2876,7 @@ commit_isolated_from_worktree() {
         rm -f -- "$ownership_root/$f"
         cp "$ownership_output_path" "$ownership_root/$f"
         if [ "$ownership_result" != '{"dropped":[]}' ]; then
-          echo "⚠️ grouped-isolated: ownership guard filtered new claims from $f: $ownership_result"
+          echo "⚠️ grouped-isolated: ownership guard filtered claims from $f: $ownership_result"
         fi
       fi
 

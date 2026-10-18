@@ -1408,6 +1408,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
   const copy = {
     it: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} dell'archivio — ${archiveTitle}`,
       intro: `Questo indice raccoglie i collegamenti alle pagine ${range.start}–${range.end} dell'archivio, su ${totalPages} pagine complessive e ${totalItems.toLocaleString('it')} contenuti aggiornati. Apri una pagina per consultare le offerte, i settori o le aziende della fascia corrispondente senza scorrere un elenco unico troppo pesante.`,
       listHeading: 'Pagine incluse in questo indice',
       indexHeading: "Altri indici dell'archivio",
@@ -1417,6 +1418,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     en: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} in the archive — ${archiveTitle}`,
       intro: `This index links to archive pages ${range.start}–${range.end}, within ${totalPages} pages and ${totalItems.toLocaleString('en')} updated entries in total. Open a page to browse the matching jobs, sectors, or companies without loading one oversized list of every archive page.`,
       listHeading: 'Pages in this index',
       indexHeading: 'Other archive indexes',
@@ -1426,6 +1428,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     de: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} im Archiv — ${archiveTitle}`,
       intro: `Dieser Index verlinkt die Archivseiten ${range.start}–${range.end} innerhalb von insgesamt ${totalPages} Seiten und ${totalItems.toLocaleString('de')} aktualisierten Einträgen. Öffnen Sie eine Seite, um die passenden Stellen, Branchen oder Unternehmen zu sehen, ohne eine übergroße Gesamtliste zu laden.`,
       listHeading: 'Seiten in diesem Index',
       indexHeading: 'Weitere Archivindizes',
@@ -1435,6 +1438,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     fr: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} de l’archive — ${archiveTitle}`,
       intro: `Cet index relie les pages d’archive ${range.start}–${range.end}, parmi ${totalPages} pages et ${totalItems.toLocaleString('fr')} contenus mis à jour au total. Ouvrez une page pour consulter les offres, secteurs ou entreprises correspondants sans charger une liste unique trop lourde.`,
       listHeading: 'Pages incluses dans cet index',
       indexHeading: 'Autres index de l’archive',
@@ -1520,7 +1524,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
       <span>${esc(rangeLabel)}</span>
     </nav>
     <header class="s-S1RSUf">
-      <h1 class="s-e3gkVi">${esc(copy.title)}</h1>
+      <h1 class="s-e3gkVi">${esc(copy.h1)}</h1>
       <p class="s-OPPwy-">${esc(copy.intro)}</p>
       <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
     </header>
