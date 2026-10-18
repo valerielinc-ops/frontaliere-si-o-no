@@ -170,6 +170,49 @@ describe('hub freshness regression from the stale site copy', () => {
     expect(verdict.note).toContain('registry and live hub identities converge');
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
+
+  it('catches the client up when corpus main is ahead but the live hub already serves the new card', async () => {
+    const fetchMock = vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      if (url.endsWith('/manifest.json')) {
+        return { ok: true, json: async () => ({ counts: { articles: 2 } }) };
+      }
+      if (url.endsWith('/slugs.json')) {
+        return {
+          ok: true,
+          json: async () => ({ blog: { stable: { it: 'stable' } } }),
+        };
+      }
+      if (url === 'https://frontaliereticino.ch/articoli-frontaliere/') {
+        return {
+          ok: true,
+          text: async () => [
+            '<main class="ssg-article-grid">',
+            '<a class="ssg-art-card" href="/articoli-frontaliere/new-article/"></a>',
+            '<a class="ssg-art-card" href="/articoli-frontaliere/stable/"></a>',
+            '</main>',
+          ].join(''),
+        };
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const verdict = await checkCorpusFreshness(
+      'frontaliere',
+      2,
+      {
+        localRegistry: registryFor(['stable', 'new-article']),
+        changeAtById: { 'new-article': freshTimestamp() },
+      },
+    );
+
+    expect(verdict.ok).toBe(true);
+    expect(verdict.deferred).not.toBe(true);
+    expect(verdict.note).toContain('corpus-main-only handoff is already served');
+    expect(verdict.note).toContain('live hub and corpus-main identities converge');
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
 });
 
 describe('hub freshness quantity limits come before any history lookup', () => {
