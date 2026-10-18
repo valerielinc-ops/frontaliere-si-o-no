@@ -10,7 +10,7 @@ const SCRIPT = resolve(ROOT, 'scripts/lib/main-push-guard.mjs');
 const roots: string[] = [];
 
 function git(cwd: string, args: string[]): string {
-  return execFileSync('git', args, { cwd, encoding: 'utf8' }).trim();
+  return execFileSync('git', args, { cwd, encoding: 'utf8' });
 }
 
 function runGuard(repo: string, args: string[]) {
@@ -40,7 +40,7 @@ function setupRepository() {
   git(writer, ['remote', 'add', 'origin', origin]);
   git(writer, ['push', '-q', '-u', 'origin', 'main']);
   git(writer, ['fetch', '-q', 'origin', 'main']);
-  return { root, origin, writer, base: git(writer, ['rev-parse', 'origin/main']) };
+  return { root, origin, writer, base: git(writer, ['rev-parse', 'origin/main']).trim() };
 }
 
 afterEach(() => {
@@ -64,7 +64,7 @@ describe('main-push-guard.mjs', () => {
 
     expect(result.status).toBe(1);
     expect(result.output).toContain('candidate tree collapse');
-    expect(git(scenario.writer, ['rev-parse', 'origin/main'])).toBe(scenario.base);
+    expect(git(scenario.writer, ['rev-parse', 'origin/main']).trim()).toBe(scenario.base);
   });
 
   it('rejects a push when another writer advances main after the captured base', () => {
@@ -90,7 +90,7 @@ describe('main-push-guard.mjs', () => {
     expect(result.status).toBe(1);
     expect(result.output).toMatch(/main push rejected|stale info|fetch first|non-fast-forward/);
     expect(git(scenario.writer, ['ls-remote', 'origin', 'refs/heads/main']).split(/\s+/)[0])
-      .toBe(git(other, ['rev-parse', 'HEAD']));
+      .toBe(git(other, ['rev-parse', 'HEAD']).trim());
     expect(() => git(scenario.origin, ['show', 'main:other.txt'])).not.toThrow();
     expect(() => git(scenario.origin, ['show', 'main:writer.txt'])).toThrow();
   });

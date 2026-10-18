@@ -101,11 +101,17 @@ describe('git-push-with-retry.sh main-push auth', () => {
 
       const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
       const wrapPath = join(wrapDir, 'git');
+      // The shipped retry script also runs the old-history guard before the
+      // push. Its marker probe is unrelated to this auth assertion and the
+      // dummy GitHub origin must not turn that probe into a real network call.
       writeFileSync(
         wrapPath,
         `#!/usr/bin/env bash
 set -euo pipefail
 for arg in "$@"; do
+  if [ "$arg" = "fetch" ]; then
+    exit 0
+  fi
   if [ "$arg" = "push" ]; then
     echo "wrapped-push $*"
     exit 0
