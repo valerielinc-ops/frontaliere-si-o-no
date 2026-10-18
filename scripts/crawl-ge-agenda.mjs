@@ -97,9 +97,9 @@ const GRACE_DAYS = 3;
 /**
  * Infer a year for a bare day/month combo (no year in the source text):
  * prefer the CURRENT year unless that date would land more than
- * `GRACE_DAYS` in the past relative to `now` — geneve.ch/agenda never lists
- * past events (verified live), so a date that already happened a few days
- * ago more likely means "next year" than "we're looking at a stale event".
+ * `GRACE_DAYS` in the past relative to `now`. This is only a parsing
+ * candidate: publication below also checks the source's collection horizon
+ * before accepting a year that the date text did not actually publish.
  */
 function inferYear(day, month, now) {
   const year = now.getUTCFullYear();
@@ -114,11 +114,13 @@ function inferYear(day, month, now) {
  * for a single-day event. Returns `null` when the string can't be parsed
  * with reasonable confidence; callers MUST skip the card rather than
  * fabricate a guess.
+ * `latestInferredDate`, when supplied by the publisher, bounds unsupported
+ * next-year inference before an open-ended date is anchored to today.
  *
  * Exported for tests/crawl-ge-agenda.test.ts — pure string parsing, no live
  * network/DOM needed to cover every observed format.
  */
-export function parseGeneveDateFr(rawText, now = new Date()) {
+export function parseGeneveDateFr(rawText, now = new Date(), latestInferredDate = '') {
   if (!rawText || typeof rawText !== 'string') return null;
   let normalized = stripAccents(rawText).toLowerCase().replace(/’/g, "'");
 
@@ -187,6 +189,11 @@ export function parseGeneveDateFr(rawText, now = new Date()) {
   const first = toIso(tokens[0].day, tokens[0].month, tokens[0].year);
   const last = toIso(tokens[tokens.length - 1].day, tokens[tokens.length - 1].month, tokens[tokens.length - 1].year);
 
+  // Old yearless dates are not evidence of next year's edition. Check the
+  // source's inferred date, not an open-ended interval's synthetic "today"
+  // start, and keep explicit years, nearby rollover and current-year anchors.
+  if (!explicitYear && latestInferredDate && tokens[0].year > now.getUTCFullYear() && first > latestInferredDate) return null;
+
   if (isOpenEnded) {
     // We don't know the real start — use the crawl day as an honest lower
     // bound (we DO know the event is running as of today, per "jusqu'au").
@@ -219,6 +226,7 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
   const comuni = loadCantonComuni(SOURCE.canton);
   const events = [];
   let skippedNoDate = 0;
+  const latestInferredDate = new Date(now.getTime() + HORIZON_DAYS * 86400000).toISOString().slice(0, 10);
 
   for (const card of doc.querySelectorAll('article.event')) {
     const a = card.querySelector('a[href]');
@@ -231,7 +239,7 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
     if (!title) continue;
 
     const dateText = text(card.querySelector('.date small') || card.querySelector('.date'));
-    const parsedDate = parseGeneveDateFr(dateText, now);
+    const parsedDate = parseGeneveDateFr(dateText, now, latestInferredDate);
     if (!parsedDate) {
       skippedNoDate += 1;
       continue;
@@ -266,7 +274,7 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
   }
 
   if (skippedNoDate > 0) {
-    console.warn(`[ge-agenda] page ${page}: skipped ${skippedNoDate} card(s) with an unparseable date`);
+    console.warn(`[ge-agenda] page ${page}: skipped ${skippedNoDate} card(s) with an unparseable date or unconfirmed year`);
   }
   return events;
 }
