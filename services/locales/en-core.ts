@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ "whatsNew.v3989.title": "Pharmacy schedules preserved over time",
+ "whatsNew.v3989.pharmacyArchive.title": "Two September weeks recovered",
+ "whatsNew.v3989.pharmacyArchive.desc": "Observed assignments remain available with their original collection dates and sources. Historical archives do not indicate current duties or opening hours.",
  "whatsNew.v3988.title": "Articles with more relevant links",
  "whatsNew.v3988.contextualLinks.title": "Tools in your language",
  "whatsNew.v3988.contextualLinks.desc": "Articles link to tools relevant to the topic, in Italian, English, German and French.",

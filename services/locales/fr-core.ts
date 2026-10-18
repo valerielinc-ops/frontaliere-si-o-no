@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ "whatsNew.v3989.title": "Des plannings de pharmacie conservés dans le temps",
+ "whatsNew.v3989.pharmacyArchive.title": "Deux semaines de septembre récupérées",
+ "whatsNew.v3989.pharmacyArchive.desc": "Les affectations relevées restent consultables avec leurs dates de collecte et sources originales. Les archives historiques n’indiquent pas les gardes ou ouvertures actuelles.",
  "whatsNew.v3988.title": "Articles avec des liens plus pertinents",
  "whatsNew.v3988.contextualLinks.title": "Outils dans votre langue",
  "whatsNew.v3988.contextualLinks.desc": "Les articles renvoient aux outils pertinents en italien, anglais, allemand et français.",

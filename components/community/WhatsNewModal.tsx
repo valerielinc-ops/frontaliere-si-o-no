@@ -35,6 +35,14 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.98.9',
+    date: '2026-10-18',
+    titleKey: 'whatsNew.v3989.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v3989.pharmacyArchive.title', descKey: 'whatsNew.v3989.pharmacyArchive.desc', href: '/farmacie-di-turno/settimana/2026-09-14/' },
+    ],
+  },
+  {
     version: '3.98.8',
     date: '2026-10-14',
     titleKey: 'whatsNew.v3988.title',

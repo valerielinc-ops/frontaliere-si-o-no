@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ "whatsNew.v3989.title": "Apothekenpläne langfristig nachschlagen",
+ "whatsNew.v3989.pharmacyArchive.title": "Zwei Septemberwochen wiederhergestellt",
+ "whatsNew.v3989.pharmacyArchive.desc": "Erfasste Einteilungen bleiben mit den ursprünglichen Abrufdaten und Quellen verfügbar. Historische Archive zeigen keine aktuellen Notdienste oder Öffnungszeiten.",
  "whatsNew.v3988.title": "Artikel mit passenderen Links",
  "whatsNew.v3988.contextualLinks.title": "Werkzeuge in Ihrer Sprache",
  "whatsNew.v3988.contextualLinks.desc": "Artikel verlinken passende Werkzeuge zum Thema auf Italienisch, Englisch, Deutsch und Französisch.",

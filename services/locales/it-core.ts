@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ "whatsNew.v3989.title": "Calendari farmacia consultabili nel tempo",
+ "whatsNew.v3989.pharmacyArchive.title": "Recuperate due settimane di settembre",
+ "whatsNew.v3989.pharmacyArchive.desc": "Le assegnazioni osservate restano consultabili con le date e le fonti originali. L’archivio storico non indica turni o aperture attuali.",
  "whatsNew.v3988.title": "Articoli con collegamenti più pertinenti",
  "whatsNew.v3988.contextualLinks.title": "Strumenti nella tua lingua",
  "whatsNew.v3988.contextualLinks.desc": "Gli articoli collegano gli strumenti pertinenti al tema, con supporto per italiano, inglese, tedesco e francese.",

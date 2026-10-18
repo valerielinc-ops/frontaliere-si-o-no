@@ -17,6 +17,7 @@ import {
 } from './data';
 import { buildPharmacyPath, type PharmacyPath } from './paths';
 import { buildDutyWeekModel } from './dutyWeek';
+import { dutyWeekArchiveMetaTitle, isClosedDutyWeek } from './dutyWeekHistory';
 import { buildDutyCoverageMatrix, type DutyCoverageMatrixModel } from './dutyCoverageMatrix';
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart, type ItalyDutySourceRegistry, type ItalyDutyWeekModel } from './italyDuty';
 import { currentDutyForRegion } from './duties';
@@ -447,7 +448,9 @@ export function resolvePharmacySeoMetadata(
 ): PharmacyRuntimeSeoMetadata {
   const locale = path.locale;
   const copy = RUNTIME_PHARMACY_COPY[locale];
-  const { title, resolved, pharmacy } = pharmacyRuntimeTitle(path, locale);
+  const { title: currentTitle, resolved, pharmacy } = pharmacyRuntimeTitle(path, locale);
+  const historicalWeek = path.kind === 'duty-week' && path.country !== 'IT' && isClosedDutyWeek(path.weekStart || '', options.now);
+  const title = historicalWeek ? dutyWeekArchiveMetaTitle(path.weekStart!, locale) : currentTitle;
   const model = path.kind === 'duty-week' && path.country !== 'IT' && isIsoMonday(path.weekStart)
     ? buildDutyWeekModel(options.duties ?? RUNTIME_PHARMACY_DUTIES, path.weekStart, {
       now: options.now,
@@ -469,7 +472,7 @@ export function resolvePharmacySeoMetadata(
       pharmacyIds: options.italyCatalogue ? new Set(options.italyCatalogue.map((pharmacy) => pharmacy.id)) : undefined,
     })
     : null;
-  const indexable = resolved && path.kind !== 'duty-city' && (model
+  const indexable = !historicalWeek && resolved && path.kind !== 'duty-city' && (model
     ? model.indexable
     : italyModel
       ? italyModel.indexable
@@ -492,7 +495,7 @@ export function resolvePharmacySeoMetadata(
   const primaryStructuredData = pharmacy
     ? pharmacyDetailStructuredData(pharmacy, locale)
     : model
-      ? dutyWeekStructuredData(path, title, model)
+      ? indexable ? dutyWeekStructuredData(path, title, model) : undefined
       : italyModel
         ? italyModel.indexable && indexable
           ? italyDutyStructuredData(path, title, italyModel)
