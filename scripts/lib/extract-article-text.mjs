@@ -216,16 +216,20 @@ function hasReliableNoscriptTailBoundary(markup, tailStart) {
   const opening = NOSCRIPT_RECOVERABLE_TAIL_RE.exec(markup.slice(tailStart));
   if (!opening) return false;
 
-  const closing = new RegExp(`</${opening[1]}\\s*>`, 'i');
+  const closing = new RegExp(`^</${opening[1]}\\s*>`, 'i');
   const content = markup.slice(tailStart + opening[0].length);
   for (let index = 0; index < content.length; index += 1) {
-    if (closing.test(content.slice(index))) return true;
+    const char = content[index];
+    if (char === '<') {
+      // Only the close for the immediate opener is a source-level boundary.
+      // Any other markup could be a comparison or a lexical payload.
+      return closing.test(content.slice(index));
+    }
 
-    // Quotes, slashes, comments and nested markup make a closing tag
-    // ambiguous: it may belong to JavaScript rather than this HTML tail.
-    if (content[index] === '"' || content[index] === "'" || content[index] === '`'
-      || content[index] === '/' || content[index] === '<'
-      || content.startsWith('<!--', index)) {
+    // Quotes, JSON delimiters, slashes/comments and code punctuation make a
+    // closing tag ambiguous: it may belong to JavaScript rather than this
+    // plain HTML tail.
+    if ('"\'`{}[]();=\\/'.includes(char)) {
       return false;
     }
   }

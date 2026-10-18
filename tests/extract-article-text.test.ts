@@ -197,6 +197,20 @@ describe('extractArticleText', () => {
     expect(result.text).toBe('');
   });
 
+  it.each([
+    ['string', 'before "STRING_CLOSE_PAYLOAD</p>"'],
+    ['JSON', 'before {"html":"JSON_CLOSE_PAYLOAD</p>"}'],
+    ['comment', 'before /* COMMENT_CLOSE_PAYLOAD</p> */'],
+  ])('fails closed when an immediate HTML opener contains a lexical %s before its close', (_label, source) => {
+    const html = `<main><noscript><script><p>${source}</main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('STRING_CLOSE_PAYLOAD');
+    expect(result.text).not.toContain('JSON_CLOSE_PAYLOAD');
+    expect(result.text).not.toContain('COMMENT_CLOSE_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
   it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
     const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
     const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';
