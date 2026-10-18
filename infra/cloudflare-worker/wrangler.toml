@@ -42,6 +42,10 @@ routes = [
   # and therefore need their own wildcard route so query-string variants reach
   # the same deterministic 301/410 response in locale-router.js.
   { pattern = "frontaliereticino.ch/cookie*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/farmacie/ticino/castagnola/di-turno*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/pharmacies/ticino/castagnola/on-duty*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/apotheken/ticino/castagnola/notdienst*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/pharmacies/ticino/castagnola/de-garde*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr/articles-frontalier/naspi-disoccupazione-frontalieri*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/jobs-im-tessin*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/grenzgaenger-artikel*", zone_name = "frontaliereticino.ch" },

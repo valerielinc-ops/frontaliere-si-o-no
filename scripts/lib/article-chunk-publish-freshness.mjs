@@ -47,6 +47,7 @@ export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/publish-edge-files.mjs',
   'scripts/lib/upload-cdn-file.sh',
   'infra/cloudflare-worker/locale-router.js',
+  'scripts/lib/pharmacySections.mjs',
   'infra/cloudflare-worker/ticino-tree-bucket.js',
   'scripts/lib/weather-border-links.mjs',
   'scripts/lib/borderWaitSections.mjs',
