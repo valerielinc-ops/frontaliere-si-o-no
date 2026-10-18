@@ -122,7 +122,9 @@ export function mergeDutyWeekHistory(previous: DutyWeekHistory | undefined, inco
 /** Called at collection time, while the original atomic pair is still verifiable. */
 export function observeDutyWeeks(catalogue: PharmacyCatalogueDataset, duties: PharmacyDutiesDataset, now = new Date()): DutyWeekHistory[] {
   const evaluation = getPharmacyReleaseEvaluation(duties, now, catalogue, { validateEntries: true });
-  if (!evaluation.publishable || evaluation.state !== 'fresh') return [];
+  if (!evaluation.publishable || evaluation.state !== 'fresh') {
+    throw new Error(`Cannot archive pharmacy duty weeks: release is ${evaluation.state}, publishable=${evaluation.publishable}`);
+  }
   const pharmacies = new Map(catalogue.pharmacies.map((pharmacy) => [pharmacy.id, pharmacy]));
   const byWeek = new Map<string, DutyWeekHistoryEntry[]>();
   for (const duty of duties.duties) {

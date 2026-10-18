@@ -3,6 +3,7 @@ import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper, Trophy, Flame, 
 import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { buildPath, type AppRoute } from '@/services/router';
+import { buildPharmacyPath, parsePharmacyRoute } from '@/services/pharmacies/routePaths';
 import {
  ACHIEVEMENTS,
  LEVEL_TITLES,
@@ -2954,7 +2955,8 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  const cfg = TYPE_CONFIG[item.type];
  const Icon = cfg.icon;
  const route = item.link ? releaseLinkToRoute(item.link) : null;
- const href = item.href ? item.href : route ? buildPath(route, locale as any) : '';
+ const pharmacyPath = item.href ? parsePharmacyRoute(item.href) : null;
+ const href = pharmacyPath ? buildPharmacyPath(pharmacyPath, locale) : item.href ? item.href : route ? buildPath(route, locale as any) : '';
  const isClickable = !!item.link || !!item.href;
  const cardContent = (
  <>

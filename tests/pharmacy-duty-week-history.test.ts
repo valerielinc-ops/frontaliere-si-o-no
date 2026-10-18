@@ -3,6 +3,8 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { pathToFileURL } from 'node:url';
 import recovery from '../data/pharmacy-duty-week-recovery.json';
 import { buildAtomicPharmacySnapshots } from '../scripts/import-pharmacies-border.mjs';
 import { readDutyWeekHistoryArchive, persistDutyWeekHistory } from '../scripts/lib/pharmacy-duty-week-history';
@@ -57,16 +59,49 @@ describe('historical duty observations', () => {
     expect(source).toEqual(original);
     const tampered = structuredClone(source);
     tampered.catalogue.pharmacies[0].name = 'Unattested change';
-    expect(observeDutyWeeks(tampered.catalogue, tampered.duties, NOW)).toEqual([]);
+    expect(() => observeDutyWeeks(tampered.catalogue, tampered.duties, NOW)).toThrow();
   });
 
   it('rejects stale, future, missing, partial and unpaired releases', () => {
     const source = pair();
-    expect(observeDutyWeeks(source.catalogue, source.duties, new Date(iso(72)))).toEqual([]);
-    expect(observeDutyWeeks(source.catalogue, source.duties, new Date(iso(-1)))).toEqual([]);
+    expect(() => observeDutyWeeks(source.catalogue, source.duties, new Date(iso(72)))).toThrow();
+    expect(() => observeDutyWeeks(source.catalogue, source.duties, new Date(iso(-1)))).toThrow();
     for (const release of [undefined, { ...source.duties._release, state: 'partial' }, { ...source.duties._release, releaseId: 'pharmacy-v1-' + 'a'.repeat(64) }]) {
-      expect(observeDutyWeeks(source.catalogue, { ...source.duties, _release: release } as PharmacyDutiesDataset, NOW)).toEqual([]);
+      expect(() => observeDutyWeeks(source.catalogue, { ...source.duties, _release: release } as PharmacyDutiesDataset, NOW)).toThrow();
     }
+  });
+
+  it('fails the real CLI flow for a stale valid pair without writing or reporting a successful update', { timeout: 20000 }, () => {
+    const root = temporary();
+    const scripts = path.join(root, 'scripts'), data = path.join(root, 'data');
+    fs.mkdirSync(scripts);
+    fs.mkdirSync(data);
+    const source = pair(-72);
+    fs.writeFileSync(path.join(data, 'pharmacies-ticino-complete.json'), JSON.stringify(source.catalogue));
+    fs.writeFileSync(path.join(data, 'pharmacy-duties-ticino.json'), JSON.stringify(source.duties));
+    const entrySource = fs.readFileSync(path.resolve('scripts/archive-pharmacy-duty-weeks.mts'), 'utf8');
+    const dependency = "'./lib/pharmacy-duty-week-history'";
+    expect(entrySource.split(dependency)).toHaveLength(2);
+    // The copied CLI resolves its default root INSIDE the fixture, even before
+    // the fix. Never execute the real entry point against tracked live feeds.
+    const entry = path.join(scripts, 'archive-pharmacy-duty-weeks.mts');
+    fs.writeFileSync(entry, entrySource.replace(dependency, JSON.stringify(pathToFileURL(path.resolve('scripts/lib/pharmacy-duty-week-history.ts')).href)));
+    const result = spawnSync(process.execPath, [path.resolve('node_modules/tsx/dist/cli.mjs'), entry], { cwd: root, encoding: 'utf8', timeout: 15000 });
+    expect(result.error).toBeUndefined();
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('Cannot archive pharmacy duty weeks');
+    expect(result.stdout).not.toContain('observed weekly editions updated');
+    expect(fs.existsSync(path.join(data, 'pharmacy-duty-week-history'))).toBe(false);
+    expect(JSON.parse(fs.readFileSync(path.join(data, 'pharmacy-duties-ticino.json'), 'utf8'))).toEqual(source.duties);
+  });
+
+  it('keeps interrupted temporary writes outside the refresh PR and outside the archive reader', () => {
+    const temporaryPath = `data/pharmacy-duty-week-history/${WEEK}.json.123.tmp`;
+    expect(execFileSync('git', ['check-ignore', '--no-index', temporaryPath], { encoding: 'utf8' }).trim()).toBe(temporaryPath);
+    const root = temporary(), recoveryFile = path.join(temporary(), 'recovery.json');
+    fs.writeFileSync(recoveryFile, JSON.stringify({ version: 1, weeks: [] }));
+    fs.writeFileSync(path.join(root, `${WEEK}.json.123.tmp`), 'interrupted JSON');
+    expect(readDutyWeekHistoryArchive(root, recoveryFile, NOW)).toEqual([]);
   });
 
   it('retains early assignments when a later source drops them, without duplicating refreshes', () => {
