@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
@@ -63,8 +64,8 @@ export function isTrustedDomain(rawUrl = '') {
 
 /**
  * The RH-Expert index labels every detail link “En savoir plus”. On the
- * official detail page the H1 is the vacancy title, the .col-9 paragraphs are
- * the vacancy body, and “Lieu de travail” is the authoritative workplace.
+ * official detail page the H1 is the vacancy title, the .col-9 paragraphs or
+ * list items are the vacancy body, and “Lieu de travail” is the authoritative workplace.
  * The adjacent .col-3/office address is intentionally not used as a fallback.
  */
 export function extractRhExpertChDetailFields(html = '', pageUrl = '') {
@@ -81,23 +82,30 @@ export function extractRhExpertChDetailFields(html = '', pageUrl = '') {
     };
   }
 
-  const paragraphs = [...(container?.querySelectorAll('p') || [])]
-    .map((paragraph) => ({
-      text: normalizeSpace(paragraph.textContent),
-      small: paragraph.classList.contains('small'),
+  // RH-Expert has rendered the vacancy body as both paragraphs and list items
+  // over time. Keep the selector inside the vacancy column so the office
+  // sidebar cannot become source-backed job content or workplace evidence.
+  const contentNodes = [...(container?.querySelectorAll('p, li') || [])]
+    .filter((node) => node.tagName.toLowerCase() !== 'li' || !node.querySelector('li'));
+  const content = contentNodes
+    .map((node) => ({
+      text: normalizeSpace(node.textContent),
+      small: node.classList.contains('small'),
     }))
     .filter(({ text, small }) => text && !small
       && !/^(?:t[eé]l[eé]phone|mobile|e-?mail|contact)\s*:/i.test(text)
       && !/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i.test(text)
       && !/lieu de travail\s*:/i.test(text))
     .map(({ text }) => text)
-    .filter((text) => text.length >= 20);
-  const workplaceText = [...(container?.querySelectorAll('p') || [])]
-    .map((paragraph) => normalizeSpace(paragraph.textContent))
+    .filter((text, index, all) => text.length >= 20 && all.indexOf(text) === index);
+  const workplaceText = contentNodes
+    .map((node) => normalizeSpace(node.textContent))
     .find((text) => /lieu de travail\s*:/i.test(text)) || '';
-  const workplace = /lieu de travail\s*:\s*([^•;|.\n]+)/i.exec(workplaceText)?.[1]?.trim() || '';
+  const workplace = normalizeSpace(
+    /lieu de travail\s*:\s*([^•;|\n]+)/i.exec(workplaceText)?.[1] || '',
+  ).replace(/[.!?]+$/u, '').trim();
   const geography = workplace ? resolveSourceBackedSwissGeography(workplace) : null;
-  const description = paragraphs.join('\n');
+  const description = content.join('\n');
 
   return {
     ...base,
@@ -134,7 +142,8 @@ export async function fetchAllRhExpertChJobs(runtime = {}) {
     const geography = resolveSourceBackedSwissGeography(listing.locationCandidates?.[0]
       || listing.location
       || '');
-    if (!title || CTA_TITLE.test(title) || !description || !url || !geography || !isTrustedDomain(url)) continue;
+    if (!title || CTA_TITLE.test(title) || !description || !meetsSourceBodyFloor(description)
+      || !url || !geography || !isTrustedDomain(url)) continue;
 
     const sourceLang = detectLang(`${title} ${description}`, 'fr');
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);

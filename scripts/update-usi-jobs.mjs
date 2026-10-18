@@ -40,6 +40,8 @@ import {
 } from './lib/crawler-template.mjs';
 import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 import { WAF_IP_BLOCK_STATUS, isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
+import { launchChromium } from './lib/ensure-chromium.mjs';
+import { looksLikeAntiBotChallenge } from './lib/jina-proxy.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
@@ -93,6 +95,26 @@ const LISTING_URL_EN = 'https://www.usi.ch/en/university/work-with-us/job-opport
 
 const USI_COMPANY_NAME = 'USI – Università della Svizzera italiana';
 const USI_COMPANY_HOST = 'usi.ch';
+
+// The USI listing returns an anti-bot response to the identifiable crawler UA
+// used by the old runner. Keep the source-specific transport fingerprint
+// browser-like; the generic JOBS_CRAWLER_USER_AGENT deliberately remains the
+// default for other sources.
+const USI_BROWSER_USER_AGENT =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
+const USI_BROWSER_HEADERS = {
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'Accept-Language': 'it-CH,it;q=0.9,en-CH;q=0.8,en;q=0.7',
+  'Upgrade-Insecure-Requests': '1',
+  'Sec-Fetch-Dest': 'document',
+  'Sec-Fetch-Mode': 'navigate',
+  'Sec-Fetch-Site': 'none',
+  'Sec-Fetch-User': '?1',
+  'User-Agent': process.env.JOBS_USI_USER_AGENT || USI_BROWSER_USER_AGENT,
+};
+const USI_BROWSER_EXTRA_HEADERS = Object.fromEntries(
+  Object.entries(USI_BROWSER_HEADERS).filter(([name]) => name !== 'User-Agent'),
+);
 
 /**
  * USI campuses and their cities.
@@ -308,6 +330,75 @@ function pdfFilenameId(pdfUrl = '') {
 // HTML fetching
 // ──────────────────────────────────────────────────────────────
 
+function isUsiListingUrl(url = '') {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase();
+    const trustedHost = host === USI_COMPANY_HOST || host.endsWith(`.${USI_COMPANY_HOST}`);
+    return trustedHost && (
+      parsed.pathname === new URL(LISTING_URL_IT).pathname ||
+      parsed.pathname === new URL(LISTING_URL_EN).pathname
+    );
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * A browser rescue must prove that it received the USI document, not another
+ * 200 challenge page. The marker is present even when the listing is empty, so
+ * this check does not turn a legitimate empty source into a parser failure.
+ */
+export function looksLikeUsiListingHtml(html = '') {
+  return /concorsi e (?:le )?offerte di lavoro|Job opportunities/i.test(String(html || ''));
+}
+
+/**
+ * Last-resort fetch for a WAF response that survived the shared Jina rescue.
+ * Chromium is lazy and self-healing; normal runs pay no browser startup cost.
+ */
+async function fetchUsiPageViaBrowser(url, timeoutMs) {
+  let browser;
+  try {
+    browser = await launchChromium({ headless: true });
+    const context = await browser.newContext({
+      userAgent: USI_BROWSER_HEADERS['User-Agent'],
+      locale: 'it-CH',
+      extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
+    });
+    const page = await context.newPage();
+    const response = await page.goto(url, {
+      waitUntil: 'domcontentloaded',
+      timeout: Math.max(timeoutMs, 45000),
+    });
+    if (!response || !response.ok()) return null;
+    const html = await page.content();
+    if (looksLikeAntiBotChallenge(html) || (isUsiListingUrl(url) && !looksLikeUsiListingHtml(html))) {
+      console.warn(`⚠️ USI browser fallback returned no verified listing document for ${url}`);
+      return null;
+    }
+    return html;
+  } catch (error) {
+    console.warn(`⚠️ USI browser fallback failed for ${url}: ${error?.message || error}`);
+    return null;
+  } finally {
+    if (browser) await browser.close().catch(() => {});
+  }
+}
+
+function isUsiTransportFailure(error) {
+  const status = Number.isFinite(Number(error?.status)) ? Number(error.status) : null;
+  return isConnectionLevelFetchError(error) || (status !== null && WAF_IP_BLOCK_STATUS.has(status));
+}
+
+function usiAntiBotChallengeError(url) {
+  const error = new Error(`USI listing returned an anti-bot challenge: ${url}`);
+  // Keep the health receipt in the same explicit anti-bot bucket as a WAF 403.
+  error.status = 403;
+  error.antiBotChallenge = true;
+  return error;
+}
+
 /**
  * Fetch a single URL through the shared crawler transport.
  *
@@ -316,16 +407,40 @@ function pdfFilenameId(pdfUrl = '') {
  * `null`, which made the zero-job branch indistinguishable from a selector
  * miss and left the summary guard without a cause.
  */
-async function fetchPage(url, timeoutMs = 15000) {
-  return fetchHtml(url, {
-    timeoutMs,
-    headers: {
-      Accept: 'text/html,application/xhtml+xml',
-      'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
-      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-    },
-  });
+export async function fetchPage(url, timeoutMs = 15000, {
+  fetchHtmlImpl = fetchHtml,
+  browserFetchImpl = fetchUsiPageViaBrowser,
+} = {}) {
+  const requiresListingDocument = isUsiListingUrl(url);
+  const isVerifiedResponse = (candidate) => Boolean(candidate)
+    && (!requiresListingDocument || looksLikeUsiListingHtml(candidate));
+  const fetchVerifiedBrowserRescue = async () => {
+    const browserHtml = await browserFetchImpl(url, timeoutMs);
+    return isVerifiedResponse(browserHtml) ? browserHtml : null;
+  };
+
+  let html;
+  try {
+    html = await fetchHtmlImpl(url, {
+      timeoutMs,
+      headers: USI_BROWSER_HEADERS,
+    });
+  } catch (error) {
+    if (!isUsiTransportFailure(error)) throw error;
+    const browserHtml = await fetchVerifiedBrowserRescue();
+    if (browserHtml) return browserHtml;
+    throw error;
+  }
+
+  // fetchHtml can preserve either a known 200 challenge or an unverified 200
+  // page. Escalate both shapes for listing URLs instead of handing the parser
+  // an HTML page that looks like a selector miss.
+  if (looksLikeAntiBotChallenge(html) || !isVerifiedResponse(html)) {
+    const browserHtml = await fetchVerifiedBrowserRescue();
+    if (browserHtml) return browserHtml;
+    throw usiAntiBotChallengeError(url);
+  }
+  return html;
 }
 
 /**
