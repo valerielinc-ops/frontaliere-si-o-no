@@ -1,6 +1,10 @@
 // @vitest-environment node
 
 import { describe, expect, it } from 'vitest';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import net from 'node:net';
+import os from 'node:os';
+import path from 'node:path';
 
 import {
   extractGeminiImageData,
@@ -12,6 +16,7 @@ import {
   formatProviderHttpError,
   imageProviderSequence,
   imageVisionRejected,
+  isCompleteArticleHeroVisionVerdict,
   isPhotoCandidateRelevantToSpec,
   isPhotographicMetadata,
   isSuitableArticlePhotoCandidate,
@@ -22,17 +27,132 @@ import {
   pixabayAuthorProfileUrl,
   selectDeterministicPhotoCandidate,
   providerConfiguration,
+  verifyGeneratedImage,
   verifyWikimediaExtmetadata,
 } from '../packages/articles/engine/shared/generatedImageEngine.mjs';
+import { LICENSED_PHOTO_KIND } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 describe('generated image provider contracts', () => {
-  it('rejects unrelated synthetic heroes and incomplete vision verdicts', () => {
-    const verdict = { ok: true, contains_text: false, contains_logo: false, contains_recognizable_face: false, looks_like_specific_real_event: false, is_topic_relevant: true };
+  it('requires a complete article-hero vision verdict for both generated and licensed photos', () => {
+    const verdict = {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      is_topic_relevant: true,
+      notes: 'Complete safe generated-image verdict.',
+    };
     expect(imageVisionRejected(verdict, { scope: 'article-hero' })).toBe(false);
+    expect(isCompleteArticleHeroVisionVerdict(verdict)).toBe(true);
     expect(imageVisionRejected({ ...verdict, is_topic_relevant: false }, { scope: 'article-hero' })).toBe(true);
     expect(imageVisionRejected({ ok: true }, { scope: 'article-hero' })).toBe(true);
     expect(imageVisionRejected({ ...verdict, looks_like_specific_real_event: true }, { scope: 'article-hero' })).toBe(true);
     expect(imageVisionRejected(null, { scope: 'article-hero' })).toBe(true);
+
+    for (const field of [
+      'ok',
+      'contains_text',
+      'contains_logo',
+      'contains_recognizable_face',
+      'contains_recognizable_foreground_person',
+      'looks_like_specific_real_event',
+      'is_photograph',
+      'is_topic_relevant',
+      'notes',
+    ]) {
+      const partial = { ...verdict };
+      delete partial[field];
+      expect(isCompleteArticleHeroVisionVerdict(partial), `missing ${field}`).toBe(false);
+      expect(imageVisionRejected(partial, { scope: 'article-hero' }), `missing ${field}`).toBe(true);
+    }
+
+    const licensedPhoto = {
+      ...verdict,
+      is_photograph: true,
+      looks_like_specific_real_event: true,
+      notes: 'The image is a licensed documentary photograph of the relevant real event.',
+    };
+    expect(imageVisionRejected(licensedPhoto, {
+      kind: LICENSED_PHOTO_KIND,
+      scope: 'article-hero',
+    }), 'an authorized photo may truthfully show a specific real event').toBe(false);
+    const incompleteLicensedPhoto = { ...licensedPhoto };
+    delete incompleteLicensedPhoto.contains_text;
+    expect(imageVisionRejected(incompleteLicensedPhoto, {
+      kind: LICENSED_PHOTO_KIND,
+      scope: 'article-hero',
+    }), 'a partial photo verdict cannot bypass the text safety rule').toBe(true);
+  });
+  it('classifies a missing safety field from the verifier as retryable, not as an image rejection', async () => {
+    const tempDir = mkdtempSync(path.join(process.cwd(), '.tmp-incomplete-image-verdict-'));
+    const imagePath = path.join(tempDir, 'candidate.webp');
+    const socketPath = path.join(os.tmpdir(), `frontaliere-vision-verdict-${process.pid}-${Date.now()}.sock`);
+    const originalSocket = process.env.CODEX_AUTH_BROKER_SOCKET;
+    const partialVerdict = {
+      ok: true,
+      // Missing contains_logo is a missing safety signal, not proof that the image itself is unsafe.
+      contains_text: false,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      is_topic_relevant: true,
+      notes: 'Verifier response omitted a required safety field.',
+    };
+    const rejectedVerdict = {
+      ok: true,
+      contains_text: false,
+      contains_logo: true,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      is_topic_relevant: true,
+      notes: 'The image contains a logo.',
+    };
+    let responseVerdict = partialVerdict;
+    const server = net.createServer((socket) => {
+      socket.setEncoding('utf8');
+      socket.once('data', () => {
+        socket.end(`${JSON.stringify({ ok: true, result: JSON.stringify(responseVerdict) })}\n`);
+      });
+    });
+
+    try {
+      writeFileSync(imagePath, 'fixture image bytes');
+      await new Promise<void>((resolve, reject) => {
+        server.once('error', reject);
+        server.listen(socketPath, resolve);
+      });
+      process.env.CODEX_AUTH_BROKER_SOCKET = socketPath;
+
+      const error = await verifyGeneratedImage(imagePath, {
+        scope: 'article-hero',
+        subject: 'test article',
+      }).then(() => null, (caught: unknown) => caught as Error & { code?: string; retryable?: boolean });
+
+      expect(error?.code).toBe('IMAGE_VISION_VERDICT_INCOMPLETE');
+      expect(error?.retryable).toBe(true);
+      expect(error?.message).toContain('incomplete article-hero verdict');
+
+      responseVerdict = rejectedVerdict;
+      const rejected = await verifyGeneratedImage(imagePath, {
+        scope: 'article-hero',
+        subject: 'test article',
+      }).then(() => null, (caught: unknown) => caught as Error & { code?: string; vision?: Record<string, unknown> });
+      expect(rejected?.code).toBe('IMAGE_VISION_REJECTED');
+      expect(rejected?.vision?.contains_logo).toBe(true);
+      expect(rejected?.vision?.ok).toBeUndefined();
+      expect(rejected?.vision?.notes).toBeUndefined();
+    } finally {
+      if (originalSocket === undefined) delete process.env.CODEX_AUTH_BROKER_SOCKET;
+      else process.env.CODEX_AUTH_BROKER_SOCKET = originalSocket;
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+      rmSync(tempDir, { recursive: true, force: true });
+    }
   });
   it('reads the image block from a completed Gemini Interactions response', () => {
     const encoded = Buffer.from('fake-jpeg-bytes').toString('base64');
