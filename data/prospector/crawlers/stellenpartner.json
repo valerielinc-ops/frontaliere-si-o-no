@@ -5,7 +5,7 @@
   "platform": "",
   "mode": "template",
   "seedUrls": [
-    "https://www.stellenpartner.ch/stellen/"
+    "https://www.stellenpartner.ch/stellen/?sort=title-asc"
   ],
   "detailTemplate": "/stellen/*/",
   "pagination": {
