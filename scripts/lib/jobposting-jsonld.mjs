@@ -35,7 +35,8 @@ export function extractJobPostingNodesFromJson(value) {
       continue;
     }
     if (!node || typeof node !== 'object') continue;
-    if (Array.isArray(node['@graph'])) queue.push(...node['@graph']);
+    const graph = node['@graph'];
+    if (graph) queue.push(...(Array.isArray(graph) ? graph : [graph]));
     const type = node['@type'];
     const isJobPosting = Array.isArray(type)
       ? type.some((item) => String(item).includes('JobPosting'))

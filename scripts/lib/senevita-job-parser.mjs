@@ -42,6 +42,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -220,9 +221,8 @@ export function extractJobPostingJsonLd(html) {
     const raw = m[1].trim();
     try {
       const obj = JSON.parse(decodeJsonLdString(raw));
-      if (obj && (obj['@type'] === 'JobPosting' || (Array.isArray(obj) && obj.find((o) => o['@type'] === 'JobPosting')))) {
-        return Array.isArray(obj) ? obj.find((o) => o['@type'] === 'JobPosting') : obj;
-      }
+      const [posting] = extractJobPostingNodesFromJson(obj);
+      if (posting) return posting;
     } catch {
       // continue to next script block
     }

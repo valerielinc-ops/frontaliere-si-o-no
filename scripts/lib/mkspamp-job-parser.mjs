@@ -18,6 +18,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { detectLanguage } from './detect-language.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 const RSS_URL = 'https://careers.mkspamp.com/jobs.rss';
 
@@ -164,8 +165,9 @@ export async function fetchMksPampDetailLocation(url, timeoutMs = 15000) {
     while ((ldMatch = ldRegex.exec(html)) !== null) {
       try {
         const data = JSON.parse(ldMatch[1]);
-        if (data['@type'] === 'JobPosting' || data.title) {
-          const loc = data.jobLocation || {};
+        const [posting] = extractJobPostingNodesFromJson(data);
+        if (posting) {
+          const loc = posting.jobLocation || {};
           const addr = (typeof loc === 'object' && !Array.isArray(loc)) ? (loc.address || {}) : {};
           result.city = normalizeSpace(addr.addressLocality || result.city);
           result.country = normalizeSpace(addr.addressCountry || result.country);
@@ -173,8 +175,8 @@ export async function fetchMksPampDetailLocation(url, timeoutMs = 15000) {
           result.street = normalizeSpace(addr.streetAddress || result.street);
 
           // Extract description from JSON-LD — this is the full job description
-          if (data.description) {
-            const desc = teamtailorHtmlToMarkdown(data.description);
+          if (posting.description) {
+            const desc = teamtailorHtmlToMarkdown(posting.description);
             if (meetsSourceBodyFloor(desc)) {
               result.description = desc;
             }

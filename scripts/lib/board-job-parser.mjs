@@ -4,6 +4,7 @@ import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from 
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 // ApplyToJob/JazzHR renders this public board in pages of at most 30 rows.
 // This is a source-completeness signal only; it is not a minimum vacancy gate.
@@ -86,7 +87,8 @@ function readJsonLd(document) {
     if (!raw) continue;
     try {
       const parsed = JSON.parse(raw);
-      if (parsed && parsed['@type'] === 'JobPosting') return parsed;
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // Ignore invalid JSON-LD blocks.
     }

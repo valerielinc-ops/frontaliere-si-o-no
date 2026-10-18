@@ -20,6 +20,7 @@ import {
 } from './target-swiss-locations.mjs';
 import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
 const LINKEDIN_JOB_URL_RE = /^https?:\/\/(?:[a-z-]+\.)?linkedin\.com\/jobs\/view\/[^/?#]+(?:[/?#]|$)/i;
@@ -113,9 +114,8 @@ function extractJsonLdJobs(html) {
   while ((match = scriptPattern.exec(html)) !== null) {
     try {
       const data = JSON.parse(match[1]);
-      const postings = Array.isArray(data) ? data : data['@type'] === 'JobPosting' ? [data] : [];
+      const postings = extractJobPostingNodesFromJson(data);
       for (const p of postings) {
-        if (p['@type'] !== 'JobPosting') continue;
         const loc = p.jobLocation || {};
         const address = loc.address || {};
         items.push({
