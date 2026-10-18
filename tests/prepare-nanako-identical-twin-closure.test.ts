@@ -133,4 +133,22 @@ describe('prepare-nanako-identical-twin-closure', () => {
     expect(changeCheck).toBeGreaterThan(stageManifest);
     expect(commitFlag).toBeGreaterThan(changeCheck);
   });
+
+  it('overlays an existing nanako generator without deleting corpus-owned files', () => {
+    const workflow = fs.readFileSync(
+      path.resolve(__dirname, '../.github/workflows/transport-generator-to-nanako.yml'),
+      'utf8',
+    );
+    const stageStart = workflow.indexOf('- name: Stage into a nanako clone');
+    const reconcileStart = workflow.indexOf('- name: Reconcile identical-twin closure');
+    const stage = workflow.slice(stageStart, reconcileStart);
+    const guardStart = workflow.indexOf('- name: Guard - refuse any deletion');
+    const guard = workflow.slice(guardStart, workflow.indexOf('- name: Show staged diff', guardStart));
+
+    expect(stage).toContain('mkdir -p generator');
+    expect(stage).not.toMatch(/\brm\s+-rf\s+generator\b/);
+    expect(stage.indexOf('mkdir -p generator')).toBeLessThan(stage.indexOf('git add -A -- generator'));
+    expect(guard).toContain('git diff --cached --diff-filter=D --name-only');
+    expect(guard).toContain('exit 1');
+  });
 });

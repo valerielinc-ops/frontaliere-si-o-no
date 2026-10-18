@@ -221,13 +221,13 @@ jobs:
           # the moved code resolving correctly with zero path rewriting — this
           # step is a structural transport, not the REWIRE work (§5 step 3).
           #
-          # The directory is rebuilt from scratch every run (rm -rf then
-          # recopy) rather than overlaid, so a file dropped from the manifest
-          # disappears from nanako too on the next run instead of lingering as
-          # an orphan nobody notices. That is intentional and is exactly what
-          # the zero-deletions guard below is watching for: it should only ever
-          # fire because a human edited the manifest, never as a surprise.
-          rm -rf generator
+          # nanako's default branch can already own files under generator/.
+          # Those files include corpus-only guards and repository-specific
+          # rewires, so deleting the directory before copying the site-owned
+          # manifest would erase code that this transport does not own. Overlay
+          # the resolved files instead and leave the zero-deletions guard below
+          # fail-closed for any other staged removal.
+          mkdir -p generator
           while IFS= read -r f; do
             mkdir -p "generator/$(dirname "$f")"
             cp "$GITHUB_WORKSPACE/$f" "generator/$f"
