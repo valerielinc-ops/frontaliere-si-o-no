@@ -1,9 +1,13 @@
 /** HTTP contract for site-level aliases reported by the Bing audit. */
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { readHardcodedRedirects } from '../build-plugins/shared/articleRedirects.mjs';
 import { buildOggiPath } from '../build-plugins/borderWaitData';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
+import { legacyRedirectsPlugin } from '../build-plugins/legacyRedirectsPlugin';
+import { readAttr, readTagByAttr } from '../scripts/lib/html-attr.mjs';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
@@ -13,6 +17,52 @@ const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 
 describe('locale-router apex legacy routes', () => {
+  it('actually emits both legacy nav fallback variants without a competing refresh', async () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'legacy-nav-bridges-'));
+    try {
+      mkdirSync(path.join(root, 'dist'), { recursive: true });
+      const hook = legacyRedirectsPlugin(root).closeBundle;
+      if (!hook || typeof hook !== 'object' || typeof hook.handler !== 'function') throw new Error('Expected the ordered native producer hook');
+      await hook.handler.call({} as never);
+      const table = SLUG_TABLES.it;
+      for (const [action, target] of [
+        ['health', `/${table.confronti}/${table.health}/`], ['pension', `/${table.fisco}/${table.pension}/`],
+      ]) for (const suffix of ['/index.html', '.html']) {
+        const html = readFileSync(path.join(root, 'dist', `nav:${action}${suffix}`), 'utf8');
+        expect(readAttr(readTagByAttr(html, 'rel', 'canonical'), ['href'])).toBe(`${APEX}${target}`);
+        expect(readAttr(readTagByAttr(html, 'name', 'robots'), ['content'])?.replace(/\s/g, '')).toBe('noindex,follow');
+        expect(readTagByAttr(html, 'http-equiv', 'refresh')).toBeFalsy();
+        expect((html.match(/<a\b[^>]*>/g) || []).some(tag => {
+          const href = readAttr(tag, ['href']);
+          return href && new URL(href, APEX).href === `${APEX}${target}`;
+        })).toBe(true);
+      }
+    } finally { rmSync(root, { recursive: true, force: true }); }
+  });
+
+  it.each(['health', 'pension'] as const)('keeps the attested legacy nav:%s alias aligned with its native tool and static fallback', async (action) => {
+    const table = SLUG_TABLES.it;
+    const target = action === 'health' ? `/${table.confronti}/${table.health}/` : `/${table.fisco}/${table.pension}/`;
+    const from = `/nav:${action}/`;
+    const root = path.resolve(__dirname, '..');
+    expect(readHardcodedRedirects(root)[from]).toBe(target);
+    const source = readFileSync(path.join(root, 'build-plugins/legacyRedirectsPlugin.ts'), 'utf8');
+    const edgePaths = source.match(/const EDGE_HTTP_REDIRECT_PATHS = new Set\(\[([\s\S]*?)\]\)/)?.[1] || '';
+    expect(edgePaths).toContain(`'${from}'`);
+    for (const suffix of ['', '/', '/index.html']) for (const method of ['GET', 'HEAD']) {
+      const response = await worker.fetch(new Request(`${APEX}/nav:${action}${suffix}?utm_source=gsc`, { method }), {}, ctx);
+      expect(response.status).toBe(301);
+      expect(response.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
+    }
+    expect(apexLegacyResponse(new URL(`${APEX}${target}`))).toBeNull();
+  });
+
+  it('does not reinterpret unknown or nested pseudo-navigation paths', () => {
+    for (const pathname of ['/nav:unknown/', '/nav:health-extra/', '/nav:health/extra/', '/en/nav:health/', '/nav:healthier/']) {
+      expect(apexLegacyResponse(new URL(`${APEX}${pathname}`)), pathname).toBeNull();
+    }
+  });
+
   it('does not redirect un-emitted weather crossing aliases or neighbouring dates', () => {
     for (const base of ['/en/border-traffic', '/de/grenze-verkehr', '/fr/trafic-frontalier']) {
       for (const tail of ['unknown/oggi/', 'chiasso-centro/oggi/', 'ponte-tresa/2026-04/', 'ponte-tresa/oggi/unknown/', 'ponte-tresa/oggix/']) {
@@ -129,7 +179,7 @@ describe('locale-router apex legacy routes', () => {
 
   it('does not hijack an unrelated apex path and keeps Wrangler routes explicit', () => {
     expect(apexLegacyResponse(new URL(`${APEX}/contattaci/`))).toBeNull();
-    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(46);
+    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(47);
     expect(Object.keys(EDGE_LEGACY_GONE_PATHS)).toEqual(['/calcolatore-5x1000/']);
     const wrangler = readFileSync(path.resolve(__dirname, '..', 'infra/cloudflare-worker/wrangler.toml'), 'utf8');
     for (const pathname of [...Object.keys(EDGE_LEGACY_REDIRECTS), ...Object.keys(EDGE_LEGACY_GONE_PATHS)]) {

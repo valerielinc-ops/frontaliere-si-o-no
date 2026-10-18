@@ -1752,6 +1752,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/grenzgaenger-artikel/': '/de/grenzgaenger-artikel/',
   '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/', // cathedral-allow: legacy SEO redirect
   '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
+  // Observed malformed internal marker; NAV_ACTION_ROUTES.health owns this tool.
+  '/nav:health/': '/compara-servizi/confronta-casse-malati/',
   // These two legacy SPA bridges were 200/noindex pages. Keep the same
   // destinations as legacyRedirectsPlugin, but expose the migration as a
   // real HTTP redirect so crawlers do not retain a noindex warning URL.
