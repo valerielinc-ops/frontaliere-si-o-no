@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-10-17T21:19:40.238Z",
+  "generatedAt": "2026-10-18T09:18:23.556Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8808,
-  "avgDurationMs": 8808,
+  "durationMs": 9159,
+  "avgDurationMs": 9159,
   "durationHistory": [
-    8808
+    9159
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
         "location": "Zurich"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-17T21:19:23.665Z",
+      "crawledAt": "2026-10-18T09:18:04.746Z",
       "id": "ermenegildo-zegna-logistica-c5d21ec58740",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -89,7 +89,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-17T21:19:21.858Z",
+      "crawledAt": "2026-10-18T09:18:03.429Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "f4155caa411401dccf742319a8abeaccaf3562b3"
+  "codeCommit": "4fb485c38679497db659c32fbf0901db115550b8"
 }
