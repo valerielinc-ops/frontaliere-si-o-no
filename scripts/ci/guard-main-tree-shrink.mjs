@@ -185,8 +185,9 @@ async function fetchMissingBaseCommit(revision, remote, cwd) {
         timeoutMs: MISSING_BASE_FETCH_TIMEOUT_MS,
       });
       if (fetchResult.status !== 0) throw new Error('git fetch failed');
-    } catch {
+    } catch (error) {
       deleteTemporaryRef(temporaryRef, cwd);
+      if (error?.code === 'GUARD_INTERRUPTED') throw error;
       throw new Error('Unable to fetch the advertised main commit for tree-shrink verification.');
     }
     let fetchedRevision;
@@ -292,6 +293,10 @@ function interruptedError() {
   const error = new Error(`Guarded main push interrupted by ${receivedSignal}`);
   error.code = 'GUARD_INTERRUPTED';
   return error;
+}
+
+function interruptedExitCode(signal) {
+  return ({ SIGINT: 130, SIGTERM: 143, SIGHUP: 129 })[signal] ?? 1;
 }
 
 function runGit(args, {
@@ -649,17 +654,29 @@ async function main(args) {
   const removeSignalForwarding = installSignalForwarding();
   try {
     temporaryRef = fetchMissingFrom ? await fetchMissingBaseCommit(args[1], fetchMissingFrom, process.cwd()) : null;
-    const before = resolveCommitRevision(temporaryRef || args[1]);
-    const after = resolveCommitRevision(args[3]);
-    const result = guardTreeShrink(before, after);
+    const timeoutMs = DEFAULT_GUARDED_PUSH_TIMEOUT_MS;
+    const before = await resolveCommitRevisionForPush(temporaryRef || args[1], process.cwd(), timeoutMs);
+    const after = await resolveCommitRevisionForPush(args[3], process.cwd(), timeoutMs);
+    const result = await guardTreeShrinkForPush(before, after, process.cwd(), timeoutMs);
     const summary = `main tree paths: ${result.before} → ${result.after} (removed ${result.removed})`;
     if (result.suspicious) {
       console.error(`::error::Possible catastrophic main tree shrink: ${summary}; threshold leaves at most ${result.remainingLimit} paths.`);
       return 1;
     }
     console.log(`tree-shrink guard: ${summary}`);
+    await new Promise((resolve) => setImmediate(resolve));
+    if (receivedSignal) {
+      console.error(`::error::Tree-shrink verification interrupted by ${receivedSignal}`);
+      return interruptedExitCode(receivedSignal);
+    }
     return 0;
   } catch (error) {
+    // A synchronous Git helper may have delayed delivery of a pending signal.
+    await new Promise((resolve) => setImmediate(resolve));
+    if (receivedSignal || error?.code === 'GUARD_INTERRUPTED') {
+      console.error(`::error::Tree-shrink verification interrupted by ${receivedSignal || 'signal'}`);
+      return interruptedExitCode(receivedSignal);
+    }
     console.error(`::error::Unable to verify main tree size: ${error instanceof Error ? error.message : String(error)}`);
     return 1;
   } finally {
