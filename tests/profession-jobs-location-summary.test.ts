@@ -1,8 +1,21 @@
 import { describe, expect, it } from 'vitest';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
   renderProfessionJobsLocationSummary,
   type ProfessionLocationJob,
 } from '../build-plugins/shared/professionJobsLocationSummary';
+import {
+  emitProfessionLandingPages,
+} from '../build-plugins/professionLandingsPlugin';
+import {
+  _resetProfessionJobsAggregateCache,
+} from '../build-plugins/professionJobsAggregate';
+import {
+  buildProfessionLandingPath,
+  PROFESSION_LOCALES,
+} from '../build-plugins/professionLandingsData';
 import { buildProfessionLandingFaqs } from '../build-plugins/professionLandingsCopy';
 import { fingerprintPage, scoreCohorts } from '../scripts/lib/informationGain.mjs';
 
@@ -77,6 +90,52 @@ describe('riepilogo annunci per località', () => {
       expect(html).toContain(expected[locale][1]);
       expect(html).toContain('Azienda Alfa');
       expect(html).toContain('data-profession-location-summary');
+    }
+  });
+
+  it('porta il riepilogo dalla landing emessa a tutti i quattro locali', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'profession-location-summary-'));
+    const now = Date.now();
+    const jobs = Array.from({ length: 7 }, (_, index) => ({
+      id: `infermiere-${index + 1}`,
+      slug: `infermiere-${index + 1}`,
+      title: `Infermiere SSS ${index + 1}`,
+      company: `Clinica ${index + 1}`,
+      canton: 'TI',
+      location: 'Lugano',
+      addressLocality: 'Lugano',
+      postedDate: new Date(now - index * 86_400_000).toISOString(),
+    }));
+    const expectedSentence = {
+      it: 'A Lugano risultano 7 annunci attivi',
+      en: 'In Lugano, 7 active openings are listed',
+      de: 'In Lugano sind 7 aktive Stellen gelistet',
+      fr: 'À Lugano, 7 offres actives sont répertoriées',
+    } as const;
+
+    mkdirSync(join(root, 'data'), { recursive: true });
+    mkdirSync(join(root, 'dist'), { recursive: true });
+    writeFileSync(join(root, 'data', 'jobs.json'), JSON.stringify(jobs));
+    writeFileSync(join(root, 'data', 'expired-jobs.json'), '[]');
+
+    try {
+      _resetProfessionJobsAggregateCache();
+      const result = await emitProfessionLandingPages({
+        rootDir: root,
+        distDir: join(root, 'dist'),
+        now,
+      });
+
+      expect(result.professionsBelowFloor).not.toContain('infermiere');
+      for (const locale of PROFESSION_LOCALES) {
+        const path = join(root, 'dist', buildProfessionLandingPath(locale, 'infermiere'), 'index.html');
+        const html = readFileSync(path, 'utf-8');
+        expect(html).toContain('data-profession-location-summary="1"');
+        expect(html).toContain(expectedSentence[locale]);
+      }
+    } finally {
+      _resetProfessionJobsAggregateCache();
+      rmSync(root, { recursive: true, force: true });
     }
   });
 
