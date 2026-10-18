@@ -4,7 +4,7 @@
  * trimmed real markup captured from https://www.geneve.ch/agenda?page=0
  * (2026-07-06) so the DOM selectors are exercised against the real shape.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { parseGeneveDateFr, parseGeneveAgendaHtml, extractGeneveEventPrice, enrichGeneveEvent } from '../scripts/crawl-ge-agenda.mjs';
 import { parseEventPriceText } from '../scripts/lib/event-metadata.mjs';
 
@@ -237,13 +237,43 @@ describe('parseGeneveAgendaHtml', () => {
     expect(events[0].startDate).toBe(`${year + 1}-01-05`);
   });
 
-  it('preserves nearby year rollover and an interval anchored in the current year', () => {
+  it('preserves nearby year rollover for both individual dates and intervals', () => {
     const year = new Date().getUTCFullYear();
     const near = parseGeneveAgendaHtml(cardHtml({ date: '5 janvier' }), 0, new Date(Date.UTC(year, 11, 27, 12)));
     expect(near[0].startDate).toBe(`${year + 1}-01-05`);
-    const interval = parseGeneveAgendaHtml(cardHtml({ date: '31 décembre et 1 janvier' }), 0, new Date(Date.UTC(year, 9, 18, 12)));
+    const interval = parseGeneveAgendaHtml(cardHtml({ date: '31 décembre et 1 janvier' }), 0, new Date(Date.UTC(year, 11, 27, 12)));
     expect(interval[0].startDate).toBe(`${year}-12-31`);
     expect(interval[0].endDate).toBe(`${year + 1}-01-01`);
+  });
+
+  it('rejects a distant inferred next-year range end even when its start is in the current year', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    expect(parseGeneveAgendaHtml(cardHtml({ date: '31 décembre et 1 janvier' }), 0, now)).toEqual([]);
+    const explicit = parseGeneveAgendaHtml(cardHtml({ date: `31 décembre ${year} et 1 janvier` }), 0, now);
+    expect(explicit[0].startDate).toBe(`${year}-12-31`);
+    expect(explicit[0].endDate).toBe(`${year + 1}-01-01`);
+  });
+
+  it('keeps identical event output and rejection warnings without changing the parser process status', () => {
+    const year = new Date().getUTCFullYear();
+    const now = new Date(Date.UTC(year, 9, 18, 12));
+    const html = cardHtml({ href: '/agenda/stale-edition', date: '4 et 11 juillet' })
+      + cardHtml({ href: '/agenda/current-edition', date: '20 octobre' });
+    const exitCode = process.exitCode;
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const first = parseGeneveAgendaHtml(html, 0, now);
+      const second = parseGeneveAgendaHtml(html, 0, now);
+      expect(second).toEqual(first);
+      expect(first.map(event => event.id)).toEqual(['ge-agenda:current-edition']);
+      expect(warn).toHaveBeenCalledTimes(2);
+      expect(warn.mock.calls[0]).toEqual(warn.mock.calls[1]);
+      expect(warn.mock.calls[0][0]).toContain('unconfirmed year');
+      expect(process.exitCode).toBe(exitCode);
+    } finally {
+      warn.mockRestore();
+    }
   });
 
   it('does not impose the paging horizon on a supported current-year future date', () => {

@@ -191,8 +191,9 @@ export function parseGeneveDateFr(rawText, now = new Date(), latestInferredDate 
 
   // Old yearless dates are not evidence of next year's edition. Check the
   // source's inferred date, not an open-ended interval's synthetic "today"
-  // start, and keep explicit years, nearby rollover and current-year anchors.
-  if (!explicitYear && latestInferredDate && tokens[0].year > now.getUTCFullYear() && first > latestInferredDate) return null;
+  // start. Include a range's inferred end year even when its start is in the
+  // current year; keep explicit years, nearby rollover and wholly current-year dates.
+  if (!explicitYear && latestInferredDate && tokens[lastIdx].year > now.getUTCFullYear() && last > latestInferredDate) return null;
 
   if (isOpenEnded) {
     // We don't know the real start — use the crawl day as an honest lower
