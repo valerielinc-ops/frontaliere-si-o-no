@@ -91,6 +91,10 @@ describe('rerender article hubs workflow', () => {
     expect(hubWorkflow).toContain("- 'scripts/lib/corpus-local-preserve.mjs'");
   });
 
+  it('reruns the safe handoff after each publisher dispatch', () => {
+    expect(hubWorkflow).toMatch(/repository_dispatch:\s*\n\s*types:\s*\[articles-published\]/);
+  });
+
   it('defers a published-ahead ID gap even when the manifest count still matches', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
