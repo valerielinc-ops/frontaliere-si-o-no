@@ -189,7 +189,6 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
 
 const NOSCRIPT_RAW_TEXT_OPEN_RE = /<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
 const NOSCRIPT_RECOVERABLE_TAIL_RE = /^<(p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
-const NOSCRIPT_RECOVERABLE_TAIL_OPEN_RE = /<(?:p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
 
 function findUnclosedNoscriptRawTextElement(markup) {
   const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_OPEN_RE.source, 'gi');
@@ -219,83 +218,28 @@ function hasReliableNoscriptTailBoundary(markup, tailStart) {
 
   const closing = new RegExp(`</${opening[1]}\\s*>`, 'i');
   const content = markup.slice(tailStart + opening[0].length);
-  const closingMatch = closing.exec(content);
-  if (!closingMatch) return false;
+  for (let index = 0; index < content.length; index += 1) {
+    if (closing.test(content.slice(index))) return true;
 
-  // A second block opening before the matching close means the first token
-  // may be JavaScript comparison syntax (`a<p>b`), not an HTML boundary.
-  return !NOSCRIPT_RECOVERABLE_TAIL_OPEN_RE.test(content.slice(0, closingMatch.index));
+    // Quotes, slashes, comments and nested markup make a closing tag
+    // ambiguous: it may belong to JavaScript rather than this HTML tail.
+    if (content[index] === '"' || content[index] === "'" || content[index] === '`'
+      || content[index] === '/' || content[index] === '<'
+      || content.startsWith('<!--', index)) {
+      return false;
+    }
+  }
+  return false;
 }
 
 function findRecoverableNoscriptTail(markup, contentStart, rawTextTag) {
   if (rawTextTag !== 'script') return -1;
+  const leadingWhitespace = markup.slice(contentStart).match(/^\s*/u)?.[0].length || 0;
+  const tailStart = contentStart + leadingWhitespace;
 
-  let state = 'code';
-  for (let index = contentStart; index < markup.length; index += 1) {
-    const char = markup[index];
-    const next = markup[index + 1];
-
-    if (state === 'single-quote' || state === 'double-quote' || state === 'template') {
-      if (char === '\\') {
-        index += 1;
-      } else if ((state === 'single-quote' && char === "'")
-        || (state === 'double-quote' && char === '"')
-        || (state === 'template' && char === '`')) {
-        state = 'code';
-      }
-      continue;
-    }
-
-    if (state === 'line-comment') {
-      if (char === '\n' || char === '\r') state = 'code';
-      continue;
-    }
-
-    if (state === 'block-comment') {
-      if (char === '*' && next === '/') {
-        state = 'code';
-        index += 1;
-      }
-      continue;
-    }
-
-    if (state === 'html-comment') {
-      if (markup.startsWith('-->', index)) {
-        state = 'code';
-        index += 2;
-      }
-      continue;
-    }
-
-    if (char === "'") {
-      state = 'single-quote';
-    } else if (char === '"') {
-      state = 'double-quote';
-    } else if (char === '`') {
-      state = 'template';
-    } else if (char === '/' && next === '/') {
-      state = 'line-comment';
-      index += 1;
-    } else if (char === '/' && next === '*') {
-      state = 'block-comment';
-      index += 1;
-    } else if (char === '/') {
-      // A non-comment slash is ambiguous between division and a regex
-      // literal. Without a JavaScript tokenizer, fail closed instead of
-      // allowing a later paragraph-shaped token to become a tail delimiter.
-      return -1;
-    } else if (markup.startsWith('<!--', index)) {
-      state = 'html-comment';
-      index += 3;
-    } else if (char === '<' && NOSCRIPT_RECOVERABLE_TAIL_RE.test(markup.slice(index))) {
-      // An opening tag without a paired source-level close is ambiguous and
-      // poisons the rest of the raw-text block. Do not skip it and search for
-      // another candidate later in the same JavaScript source.
-      return hasReliableNoscriptTailBoundary(markup, index) ? index : -1;
-    }
-  }
-
-  return -1;
+  // A code prefix such as `a<p>b` is valid JavaScript comparison syntax. Do
+  // not scan past it looking for a later paragraph-shaped token.
+  return hasReliableNoscriptTailBoundary(markup, tailStart) ? tailStart : -1;
 }
 
 /**

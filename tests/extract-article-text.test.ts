@@ -140,17 +140,16 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('unterminated');
   });
 
-  it('preserves a recoverable source tail after noscript and raw-text tags remain unclosed', () => {
+  it('preserves an unambiguously paired source tail after an unclosed raw-text tag', () => {
     const rejected = 'Paragraph before the unclosed raw-text element belongs to the rejected fallback.';
     const recovered = 'Paragraph after the malformed raw-text prefix remains recoverable source prose.';
     const html = '<main><noscript>'
       + `<p>${rejected}</p>`
-      + `<script>RAW_SCRIPT_GARBAGE<p>${recovered}</p></main>`;
+      + `<script>\n<p>${recovered}</p></main>`;
     const result = extractArticleText(html, { scriptingDisabled: true });
 
     expect(result.text).toContain(recovered);
     expect(result.text).not.toContain(rejected);
-    expect(result.text).not.toContain('RAW_SCRIPT_GARBAGE');
   });
 
   it.each([
@@ -182,6 +181,19 @@ describe('extractArticleText', () => {
     const result = extractArticleText(html, { scriptingDisabled: true });
 
     expect(result.text).not.toContain('COMPARISON_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
+  it.each([
+    ['JavaScript string', 'const template = "</p>";'],
+    ['JavaScript comment', '/* </p> */'],
+    ['JSON string', '{"html":"</p>"}'],
+  ])('fails closed on comparison plus a lexical %s before a paragraph tail', (_label, lexicalSource) => {
+    const html = `<main><noscript><script>const comparison=a<p>b; ${lexicalSource} `
+      + '<p>MIXED_COMPARISON_PAYLOAD</p></main>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain('MIXED_COMPARISON_PAYLOAD');
     expect(result.text).toBe('');
   });
 
