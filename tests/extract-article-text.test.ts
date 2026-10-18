@@ -140,6 +140,16 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('unterminated');
   });
 
+  it('preserves outer prose after a source-level noscript end tag', () => {
+    const outerParagraph = 'Reliable outer content after a source-level noscript close remains available.';
+    const html = '<main><noscript><script type="application/ld+json">'
+      + '{"articleBody":"unterminated"}</noscript>'
+      + `<p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+  });
+
   it('preserves an unambiguously paired source tail after an unclosed raw-text tag', () => {
     const rejected = 'Paragraph before the unclosed raw-text element belongs to the rejected fallback.';
     const recovered = 'Paragraph after the malformed raw-text prefix remains recoverable source prose.';
@@ -208,6 +218,20 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('STRING_CLOSE_PAYLOAD');
     expect(result.text).not.toContain('JSON_CLOSE_PAYLOAD');
     expect(result.text).not.toContain('COMMENT_CLOSE_PAYLOAD');
+    expect(result.text).toBe('');
+  });
+
+  it.each([
+    ['string', 'const value = "</noscript>";'],
+    ['JSON', '{"html":"</noscript>"}'],
+    ['comment', '/* </noscript> */'],
+    ['regex', String.raw`const value = /<\/noscript>/;`],
+  ])('does not treat a lexical %s noscript end tag as an outer boundary', (_label, source) => {
+    const outerParagraph = 'False noscript close must not expose outer content after a lexical payload.';
+    const html = `<main><noscript><script>${source}</main><p>${outerParagraph}</p>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).not.toContain(outerParagraph);
     expect(result.text).toBe('');
   });
 
