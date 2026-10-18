@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { readHardcodedRedirects } from '../build-plugins/shared/articleRedirects.mjs';
+import { buildOggiPath } from '../build-plugins/borderWaitData';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
@@ -12,6 +13,28 @@ const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 
 describe('locale-router apex legacy routes', () => {
+  it('does not redirect un-emitted weather crossing aliases or neighbouring dates', () => {
+    for (const base of ['/en/border-traffic', '/de/grenze-verkehr', '/fr/trafic-frontalier']) {
+      for (const tail of ['unknown/oggi/', 'chiasso-centro/oggi/', 'ponte-tresa/2026-04/', 'ponte-tresa/oggi/unknown/', 'ponte-tresa/oggix/']) {
+        expect(apexLegacyResponse(new URL(`${APEX}${base}/${tail}`))).toBeNull();
+      }
+    }
+  });
+
+  it.each((['en', 'de', 'fr'] as const).flatMap(locale =>
+    (['chiasso-brogeda', 'oria-gandria', 'rodero-stabio', 'gaggiolo', 'ponte-tresa'] as const).map(crossing => ({locale, crossing})),
+  ))('HTTP GET/HEAD recover the weather alias $locale/$crossing', async ({locale, crossing}) => {
+    const base = { en: '/en/border-traffic', de: '/de/grenze-verkehr', fr: '/fr/trafic-frontalier' }[locale];
+    const from = `${APEX}${base}/${crossing}/oggi/?utm_source=gsc`;
+    const expected = `${buildOggiPath(locale, crossing)}?utm_source=gsc`;
+    expect(apexLegacyResponse(new URL(from))?.headers.get('Location')).toBe(expected);
+    for (const method of ['GET', 'HEAD']) {
+      const response = await worker.fetch(new Request(from, {method}), {}, ctx);
+      expect(response.status).toBe(301);
+      expect(response.headers.get('Location')).toBe(expected);
+    }
+  });
+
   it.each([
     ['/cookie/', '/privacy/'],
     ['/fr/articles-frontalier/naspi-disoccupazione-frontalieri/', '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/'],
@@ -106,7 +129,7 @@ describe('locale-router apex legacy routes', () => {
 
   it('does not hijack an unrelated apex path and keeps Wrangler routes explicit', () => {
     expect(apexLegacyResponse(new URL(`${APEX}/contattaci/`))).toBeNull();
-    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(32);
+    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(46);
     expect(Object.keys(EDGE_LEGACY_GONE_PATHS)).toEqual(['/calcolatore-5x1000/']);
     const wrangler = readFileSync(path.resolve(__dirname, '..', 'infra/cloudflare-worker/wrangler.toml'), 'utf8');
     for (const pathname of [...Object.keys(EDGE_LEGACY_REDIRECTS), ...Object.keys(EDGE_LEGACY_GONE_PATHS)]) {

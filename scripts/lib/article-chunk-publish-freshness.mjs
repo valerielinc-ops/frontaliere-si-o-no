@@ -48,6 +48,8 @@ export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/lib/upload-cdn-file.sh',
   'infra/cloudflare-worker/locale-router.js',
   'infra/cloudflare-worker/ticino-tree-bucket.js',
+  'scripts/lib/weather-border-links.mjs',
+  'scripts/lib/borderWaitSections.mjs',
   // Not a writer: the CDN origin of the URLs the chunk publisher evicts after
   // an upload. A checkout from before a change to it would upload the new
   // chunks and purge another host, leaving the old ones at the edge.

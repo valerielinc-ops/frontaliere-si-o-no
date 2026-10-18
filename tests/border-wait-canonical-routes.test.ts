@@ -5,8 +5,45 @@ import {
   canonicalizeBorderWaitLinks,
 } from '@/build-plugins/shared/borderWaitLegacyRedirects';
 import { BORDER_WAIT_CROSSINGS, buildOggiPath, buildRootHubPath } from '@/build-plugins/borderWaitData';
+import { buildBorderWaitTodayPath } from '../scripts/lib/borderWaitSections.mjs';
+import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../scripts/lib/weather-border-links.mjs';
 
 describe('border-wait canonical route migration', () => {
+  it('shares the unchanged canonical builder for every known crossing and locale', () => {
+    expect(buildOggiPath('it', 'ponte-tresa')).toBe('/traffico-dogane/ponte-tresa/oggi/');
+    expect(buildOggiPath('en', 'ponte-tresa')).toBe('/en/border-wait/ponte-tresa/today/');
+    expect(buildOggiPath('de', 'ponte-tresa')).toBe('/de/wartezeit-grenze/ponte-tresa/heute/');
+    expect(buildOggiPath('fr', 'ponte-tresa')).toBe('/fr/temps-attente-douane/ponte-tresa/aujourd-hui/');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      for (const crossing of BORDER_WAIT_CROSSINGS) {
+        expect(buildBorderWaitTodayPath(locale, crossing)).toBe(buildOggiPath(locale, crossing));
+      }
+    }
+    expect(Object.keys(WEATHER_BORDER_LEGACY_REDIRECTS)).toHaveLength(15);
+  });
+
+  it('leaves unknown weather crossings, archives and deeper neighbours unchanged', () => {
+    for (const base of ['/en/border-traffic', '/de/grenze-verkehr', '/fr/trafic-frontalier']) {
+      for (const tail of ['unknown/oggi/', 'chiasso-centro/oggi/', 'ponte-tresa/2026-04/', 'ponte-tresa/oggi/unknown/', 'ponte-tresa/oggix/']) {
+        const from = `${base}/${tail}`;
+        expect(BORDER_WAIT_LEGACY_REDIRECTS.has(from)).toBe(false);
+        const html = `<a href="${from}">Keep</a>`;
+        expect(canonicalizeBorderWaitLinks(html)).toBe(html);
+      }
+    }
+  });
+
+  it.each((['en', 'de', 'fr'] as const).flatMap(locale =>
+    (['chiasso-brogeda', 'oria-gandria', 'rodero-stabio', 'gaggiolo', 'ponte-tresa'] as const).map(crossing => ({ locale, crossing })),
+  ))('recovers the weather producer alias $locale/$crossing without a chain', ({ locale, crossing }) => {
+    const base = { en: '/en/border-traffic', de: '/de/grenze-verkehr', fr: '/fr/trafic-frontalier' }[locale];
+    const from = `${base}/${crossing}/oggi/`;
+    const target = buildOggiPath(locale, crossing);
+    expect(BORDER_WAIT_LEGACY_REDIRECTS.get(from)).toBe(target);
+    expect(BORDER_WAIT_LEGACY_REDIRECTS.has(target)).toBe(false);
+    expect(canonicalizeBorderWaitLinks(`<a href="${from}?source=weather">Crossing</a>`)).toBe(`<a href="${target}?source=weather">Crossing</a>`);
+  });
+
   it('bridges every sitemap-backed guide route to the current live vertical', () => {
     for (const [locale, base] of Object.entries(BORDER_WAIT_PRIMARY_LEGACY_BASES)) {
       expect(BORDER_WAIT_LEGACY_REDIRECTS.get(`${base}/`)).toBe(buildRootHubPath(locale as 'it' | 'en' | 'de' | 'fr'));
