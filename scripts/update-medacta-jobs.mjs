@@ -51,6 +51,7 @@ import {
   MEDACTA_DETAIL_SOURCE,
 } from './lib/medacta-job-enrichment.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
@@ -740,8 +741,8 @@ function extractAlliboEmbeddedData(html = '') {
   let match;
   while ((match = jsonLdRe.exec(html)) !== null) {
     try {
-      const ld = JSON.parse(match[1]);
-      if (ld['@type'] === 'JobPosting') {
+      const postings = extractJobPostingNodesFromJson(JSON.parse(match[1]));
+      for (const ld of postings) {
         jobs.push({
           title: ld.title || '',
           location: ld.jobLocation?.address?.addressLocality || '',

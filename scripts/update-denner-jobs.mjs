@@ -56,6 +56,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
+import { extractJobPostingNodes } from './lib/jobposting-jsonld.mjs';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
@@ -404,9 +405,7 @@ async function fetchAndParseDetailPages(urls) {
 export function parseDennerDetailJob(url, html, { now = new Date() } = {}) {
   const migrosData = extractMigrosStructuredData(html);
 
-  let jsonLd = null;
-  const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (jsonLdMatch) { try { jsonLd = JSON.parse(jsonLdMatch[1]); } catch {} }
+  const [jsonLd] = extractJobPostingNodes(html);
 
   const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const rawTitle = jsonLd?.title || (h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : '');
