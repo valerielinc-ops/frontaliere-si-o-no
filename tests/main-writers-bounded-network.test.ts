@@ -25,11 +25,6 @@ const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const bashSupportsAssociativeArrays = spawnSync(BASH_BIN, ['-c', 'declare -A probe=()']).status === 0;
 const NETWORK_TEST_TIMEOUT_SECONDS = '1';
-// git-commit-data now charges the main-push guard inspection to the same
-// end-to-end deadline as the push. One second is enough for the old push-only
-// contract but can expire during a cold Node guard startup on CI; keep the
-// synthetic push bounded while leaving room for both phases and the retry.
-const GIT_COMMIT_DATA_NETWORK_TEST_TIMEOUT_SECONDS = '5';
 // The shim below stalls a push for 30 seconds. The script under test must
 // finish well inside that: a run that waited for the stall is cut here and
 // reports no exit status, so the assertions on `status` are the proof of the
@@ -422,7 +417,7 @@ function runCommitData(scenario: Scenario) {
     ['--extra-only', 'bounded network test', 'generated/payload.txt'],
     {
       DATA_PIPELINE_LEASE: '0',
-      GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS: GIT_COMMIT_DATA_NETWORK_TEST_TIMEOUT_SECONDS,
+      GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS: NETWORK_TEST_TIMEOUT_SECONDS,
       GITHUB_OUTPUT: '',
       GITHUB_REPOSITORY: '',
       GITHUB_RUN_ID: '',
@@ -571,7 +566,7 @@ describe('main writer network bounds', () => {
       expect(result.status, result.output).toBe(1);
       expect(pushAttempts(scenario)).toBe(2);
       expect(result.output).toMatch(
-        /git push --no-thin origin <commit>:refs\/heads\/main timed out after 5 seconds|main push deadline exceeded/u,
+        /git push --no-thin origin <commit>:refs\/heads\/main timed out after 1 second|main push deadline exceeded/u,
       );
       expect(result.output).toContain('Push failed after 2 attempts and the LAST failure is NOT a ref rejection/race');
     } finally {
