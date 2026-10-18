@@ -4000,12 +4000,17 @@
           "impressions": 1
         },
         {
+          "query": "بله مایلم",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "بلی",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 7,
+      "totalImpressions": 8,
       "totalClicks": 1,
       "topQuery": "a fribourg",
       "title": "Apprenticeships",
@@ -10381,6 +10386,11 @@
           "impressions": 1
         },
         {
+          "query": "delvitech",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "dietician jobs near me",
           "clicks": 0,
           "impressions": 1
@@ -10394,14 +10404,9 @@
           "query": "jobs bellinzona",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "jobs hiring near me no experience",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 250,
+      "totalImpressions": 252,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -10530,12 +10535,12 @@
           "impressions": 16
         },
         {
-          "query": "cerco lavoro a bellinzona",
+          "query": "offerte di lavoro a bellinzona",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
-          "query": "offerte di lavoro a bellinzona",
+          "query": "cerco lavoro a bellinzona",
           "clicks": 0,
           "impressions": 9
         },
@@ -10605,7 +10610,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 208,
+      "totalImpressions": 209,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -25032,6 +25037,63 @@
       ]
     },
     {
+      "slug": "ebnat-kappel",
+      "locale": "en",
+      "path": "/en/find-jobs-st-gallen/ebnat-kappel/",
+      "observedPaths": {
+        "en": "/en/find-jobs-st-gallen/ebnat-kappel/"
+      },
+      "queries": [
+        {
+          "query": "ebnat ag jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "ebnat ag jobs",
+      "title": "Ebnat kappel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ebnat-kappel",
+        "en": "ebnat-kappel",
+        "de": "ebnat-kappel",
+        "fr": "ebnat-kappel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/ebnat-kappel",
+        "en": "/en/find-jobs-st-gallen/ebnat-kappel",
+        "de": "/de/jobs-im-st-gallen/ebnat-kappel",
+        "fr": "/fr/trouver-emploi-saint-gall/ebnat-kappel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "educateurs-schwytz",
       "locale": "it",
       "path": "/fr/trouver-emploi-schwytz/educateurs-schwytz",
@@ -34754,6 +34816,64 @@
       ]
     },
     {
+      "slug": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+      "locale": "en",
+      "path": "/en/find-jobs-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn/",
+      "observedPaths": {
+        "en": "/en/find-jobs-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn/"
+      },
+      "queries": [
+        {
+          "query": "praktikum solothurn",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "praktikum solothurn",
+      "title": "Internship global product management ref297536h",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "location": "Solothurn",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "en": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "de": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "fr": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-soletta/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "en": "/en/find-jobs-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "de": "/de/jobs-im-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "fr": "/fr/trouver-emploi-soleure/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "internship-in-allocazione-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
       "locale": "en",
       "path": "/en/find-jobs-ticino/internship-in-allocazione-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
@@ -41303,7 +41423,7 @@
         {
           "query": "mendrisio jobs",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 10
         },
         {
           "query": "versicherungsagentur mendrisio",
@@ -41321,7 +41441,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 27,
+      "totalImpressions": 29,
       "totalClicks": 0,
       "topQuery": "lehrstellen mendrisio",
       "title": "mendrisio",
@@ -41577,12 +41697,12 @@
         {
           "query": "lavoro mendrisio",
           "clicks": 0,
-          "impressions": 43
+          "impressions": 47
         },
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 37
+          "impressions": 42
         },
         {
           "query": "offerte di lavoro mendrisio",
@@ -41675,7 +41795,7 @@
           "impressions": 3
         }
       ],
-      "totalImpressions": 262,
+      "totalImpressions": 275,
       "totalClicks": 5,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
@@ -59400,6 +59520,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+      "locale": "de",
+      "path": "/de/jobs-in-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil/",
+      "observedPaths": {
+        "de": "/de/jobs-in-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil/"
+      },
+      "queries": [
+        {
+          "query": "idorsia allschwil",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "idorsia allschwil",
+      "title": "Senior global medical direktor idorsia pharmaceuticals allsch",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "en": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "de": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "fr": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "en": "/en/find-jobs-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "de": "/de/jobs-im-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "fr": "/fr/trouver-emploi-bale/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {

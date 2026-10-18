@@ -15454,9 +15454,14 @@
           "query": "je veux au tessin un job de chauffeur poids lourd avec permis valide et tournées régionales du lundi au vendredi",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "je suis chauffeur poids lourd",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 12,
+      "totalImpressions": 13,
       "totalClicks": 0,
       "topQuery": "suisse emploi frontalier",
       "title": "Chauffeurs",
@@ -19625,9 +19630,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "kundenberater-in-100-basel-concordia-basel",
         "it": "consulente-clienti-100-basilea-concordia-basel",
         "en": "customer-consultant-100-basel-concordia-basel",
-        "de": "kundenberater-in-100-basel-concordia-basel",
         "fr": "consultant-client-100-bale-concordia-basel"
       },
       "localePaths": {
@@ -28192,10 +28197,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "employee-rim-center-a-galliker-transport-ag-altishofen",
+        "it": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
         "en": "employee-rim-center-a-galliker-transport-ag-altishofen",
-        "de": "employee-rim-center-a-galliker-transport-ag-altishofen",
-        "fr": "employee-rim-center-a-galliker-transport-ag-altishofen"
+        "de": "mitarbeiter-felgencenter-a-galliker-altishofen",
+        "fr": "centre-rim-des-employes-a-galliker-transport-ag-altishofen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/employee-rim-center-a-galliker-transport-ag-altishofen",
@@ -28203,12 +28208,13 @@
         "de": "/de/jobs-im-tessin/employee-rim-center-a-galliker-transport-ag-altishofen",
         "fr": "/fr/trouver-emploi-tessin/employee-rim-center-a-galliker-transport-ag-altishofen"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.refline.ch/878019/0475/pub/1/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -29049,6 +29055,69 @@
         "en": "/en/find-jobs-ticino/esperto-di-dominio-r-d-transformer-service-operations-f-m-d-hitachi-energy-remote-zurich-switzerland",
         "de": "/de/jobs-im-tessin/esperto-di-dominio-r-d-transformer-service-operations-f-m-d-hitachi-energy-remote-zurich-switzerland",
         "fr": "/fr/trouver-emploi-tessin/esperto-di-dominio-r-d-transformer-service-operations-f-m-d-hitachi-energy-remote-zurich-switzerland"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "estetista-bernaqua-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/estetista-bernaqua-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/estetista-bernaqua-bern/"
+      },
+      "queries": [
+        {
+          "query": "bernaqua jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stellenmarkt kanton bern",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "bernaqua jobs",
+      "title": "Estetista bernaqua",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "estetista-bernaqua-bern",
+        "en": "estetista-bernaqua-bern",
+        "de": "estetista-bernaqua-bern",
+        "fr": "estetista-bernaqua-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/estetista-bernaqua-bern",
+        "en": "/en/find-jobs-bern/estetista-bernaqua-bern",
+        "de": "/de/jobs-im-bern/estetista-bernaqua-bern",
+        "fr": "/fr/trouver-emploi-berne/estetista-bernaqua-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -58711,6 +58780,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "risk-and-control-officer-18-24-months-union-bancaire-privee-geneve",
+      "locale": "en",
+      "path": "/en/find-jobs-geneva/risk-and-control-officer-18-24-months-union-bancaire-privee-geneve/",
+      "observedPaths": {
+        "en": "/en/find-jobs-geneva/risk-and-control-officer-18-24-months-union-bancaire-privee-geneve/"
+      },
+      "queries": [
+        {
+          "query": "belimo",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "belimo",
+      "title": "Risk and control officer 18 24 months union bancaire privee geneve",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "risk-and-control-officer-18-24-months-union-bancaire-privee-geneve",
+        "en": "risk-and-control-officer-18-24-months-union-bancaire-privee-geneve",
+        "de": "risk-and-control-officer-18-24-months-union-bancaire-privee-geneve",
+        "fr": "risk-and-control-officer-18-24-months-union-bancaire-privee-geneve"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/risk-and-control-officer-18-24-months-union-bancaire-privee-geneve",
+        "en": "/en/find-jobs-geneva/risk-and-control-officer-18-24-months-union-bancaire-privee-geneve",
+        "de": "/de/jobs-im-genf/risk-and-control-officer-18-24-months-union-bancaire-privee-geneve",
+        "fr": "/fr/trouver-emploi-geneve/risk-and-control-officer-18-24-months-union-bancaire-privee-geneve"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

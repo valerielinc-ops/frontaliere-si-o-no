@@ -6,11 +6,16 @@ import {
   fetchEcariCantonAuctions,
   parseEcariCantonAuctions,
 } from "./ecari.mjs";
+import {
+  fetchWithPublicApiRelay,
+  PLATE_AUCTION_PUBLIC_API_RELAY_URL,
+} from "./api-relay.mjs";
 
 export const SG_CANTON = "San Gallo";
 export const SG_PLATE_CODE = "SG";
 export const SG_AUCTION_URL =
   "https://egov.stva.sg.ch/ecari-auction/ui/app/init";
+export const SG_PUBLIC_API_RELAY_URL = PLATE_AUCTION_PUBLIC_API_RELAY_URL;
 
 export function parseSgAuctionRows(
   html,
@@ -24,11 +29,18 @@ export function parseSgAuctionRows(
   });
 }
 
-export async function fetchSgPlateAuctions() {
-  return fetchEcariCantonAuctions({
-    canton: SG_CANTON,
+export async function fetchSgPlateAuctions({ fetcher = fetchEcariCantonAuctions, now = new Date() } = {}) {
+  return fetchWithPublicApiRelay({
+    sourceKey: "sg",
     plateCode: SG_PLATE_CODE,
     officialAuctionUrl: SG_AUCTION_URL,
+    now,
+    logLabel: "fetchSgPlateAuctions",
+    direct: () => fetcher({
+      canton: SG_CANTON,
+      plateCode: SG_PLATE_CODE,
+      officialAuctionUrl: SG_AUCTION_URL,
+    }),
   });
 }
 

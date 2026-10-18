@@ -7,7 +7,7 @@
 // Test plan: valerielinc-main-eng-review-test-plan-20260507-090000.md
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -25,11 +25,19 @@ const {
   persistExperimentalCounter,
   shouldUseExperimentalTier,
   loadEvergreenRejectedTracker,
+  EVERGREEN_REJECTED_SCHEMA_VERSION,
+  EVERGREEN_POOL_NAME,
+  EVERGREEN_STRIKE_TTL_MS,
+  computeEvergreenPoolEpoch,
+  migrateEvergreenRejectedTracker,
+  isEvergreenBanned,
+  isEvergreenStruck,
+  evergreenRejectionKind,
   isEvergreenRejected,
   appendEvergreenRejected,
   strikeEvergreenKeyword,
   EVERGREEN_STRIKE_LIMIT,
-  persistEvergreenRejectedTracker,
+  persistEvergreenRejectedTrackerAtomically,
   RANKER_MIN_SCORE,
   EXPERIMENTAL_RATIO_DEFAULT,
 } = selectorMod as any;
@@ -410,88 +418,66 @@ describe('experimental counter', () => {
   });
 });
 
-describe('evergreen-rejected tracker (#3138)', () => {
-  it('returns {keywords:[]} when missing', () => {
-    expect(loadEvergreenRejectedTracker({ path: join(workDir, 'missing.json') })).toEqual({ keywords: [], strikes: {} });
+describe('evergreen-rejected tracker (#3138, schema v2)', () => {
+  const context = {
+    section: 'frontaliere',
+    pool: EVERGREEN_POOL_NAME,
+    poolEpoch: computeEvergreenPoolEpoch(['kw-ban', 'kw-flaky'], 'frontaliere'),
+  };
+
+  it('returns a v2 empty ledger when missing', () => {
+    expect(loadEvergreenRejectedTracker({ path: join(workDir, 'missing.json') })).toEqual({
+      schemaVersion: EVERGREEN_REJECTED_SCHEMA_VERSION,
+      bans: [],
+      strikes: [],
+      legacy: [],
+      topicGateUrls: {},
+    });
   });
 
-  it('isEvergreenRejected is false for an unseen keyword', () => {
-    expect(isEvergreenRejected({ keywords: ['frontaliere a'] }, 'frontaliere b')).toBe(false);
+  it('migrates the legacy shape into explicit preflight quarantine', () => {
+    const migrated = migrateEvergreenRejectedTracker({
+      keywords: ['kw-banned'],
+      strikes: { 'kw-flaky': EVERGREEN_STRIKE_LIMIT },
+    }, { now: Date.now() });
+    expect(migrated.ok).toBe(true);
+    expect(migrated.report).toMatchObject({ bans: 0, strikes: 0, legacy: 2 });
+    expect(migrated.tracker.legacy).toEqual(expect.arrayContaining([
+      expect.objectContaining({ kind: 'ban', keyword: 'kw-banned', validityRule: 'preflight-required' }),
+      expect.objectContaining({ kind: 'strike', keyword: 'kw-flaky', count: EVERGREEN_STRIKE_LIMIT }),
+    ]));
+    expect(isEvergreenRejected(migrated.tracker, 'kw-banned')).toBe(true);
+    expect(isEvergreenRejected(migrated.tracker, 'kw-banned', context)).toBe(false);
   });
 
-  it('isEvergreenRejected is true once appended', () => {
-    const tracker = appendEvergreenRejected({ keywords: [] }, 'frontaliere scelta comune residenza italia svizzera 2026 entro 20 km');
-    expect(isEvergreenRejected(tracker, 'frontaliere scelta comune residenza italia svizzera 2026 entro 20 km')).toBe(true);
-  });
-
-  it('append dedupes the same keyword', () => {
-    let tracker = { keywords: [] };
-    tracker = appendEvergreenRejected(tracker, 'kw-a');
-    tracker = appendEvergreenRejected(tracker, 'kw-a');
-    expect(tracker.keywords).toEqual(['kw-a']);
-  });
-
-  it('append FIFO-caps at maxIds, evicting oldest first', () => {
-    let tracker = { keywords: [] };
-    for (let i = 0; i < 5; i++) tracker = appendEvergreenRejected(tracker, `kw-${i}`, { maxIds: 3 });
-    expect(tracker.keywords).toEqual(['kw-2', 'kw-3', 'kw-4']);
-  });
-
-  it('persists + reloads', () => {
-    const p = join(workDir, 'rejected.json');
-    const tracker = appendEvergreenRejected({ keywords: [] }, 'kw-x');
-    persistEvergreenRejectedTracker(tracker, { path: p });
-    expect(loadEvergreenRejectedTracker({ path: p })).toEqual({ keywords: ['kw-x'], strikes: {} });
-  });
-
-  // ── Strike-limited backoff (2026-08-03) ─────────────────────────
-  //
-  // Quality rejects were deliberately never recorded here, on the grounds that
-  // LLM variance makes them transient. True for one draft, wrong as a policy:
-  // a keyword whose gates never converge is not a duplicate and not a
-  // topic-gate abort, so nothing retired it, and it was re-picked on every
-  // cron slot — burning the whole 40-minute run each time. Article output went
-  // from ~16/day to zero between 2026-07-30 and 2026-08-03 that way.
-  it('strikes do not retire a keyword before the limit', () => {
-    let tracker = { keywords: [], strikes: {} };
-    for (let i = 1; i < EVERGREEN_STRIKE_LIMIT; i++) {
-      tracker = strikeEvergreenKeyword(tracker, 'kw-flaky');
-      expect(isEvergreenRejected(tracker, 'kw-flaky')).toBe(false);
+  it('records ban provenance and expiring quality strikes per pool epoch', () => {
+    const now = Date.now();
+    let tracker = loadEvergreenRejectedTracker({ path: join(workDir, 'memory.json') });
+    tracker = appendEvergreenRejected(tracker, 'kw-ban', { ...context, now });
+    for (let i = 0; i < EVERGREEN_STRIKE_LIMIT; i += 1) {
+      tracker = strikeEvergreenKeyword(tracker, 'kw-flaky', { ...context, now: now + i });
     }
-    tracker = strikeEvergreenKeyword(tracker, 'kw-flaky');
-    expect(isEvergreenRejected(tracker, 'kw-flaky')).toBe(true);
+    expect(tracker.bans[0]).toMatchObject({ keyword: 'kw-ban', ...context, validityRule: 'confirmed-duplicate' });
+    expect(tracker.strikes[0]).toMatchObject({ keyword: 'kw-flaky', ...context, count: EVERGREEN_STRIKE_LIMIT });
+    expect(evergreenRejectionKind(tracker, 'kw-ban', context)).toBe('ban');
+    expect(evergreenRejectionKind(tracker, 'kw-flaky', context)).toBe('strike');
+    expect(isEvergreenBanned(tracker, 'kw-ban', { ...context, poolEpoch: 'changed' })).toBe(false);
+    expect(isEvergreenStruck(tracker, 'kw-flaky', { ...context, now: now + EVERGREEN_STRIKE_TTL_MS + 10 })).toBe(false);
   });
 
-  it('strikes are per-keyword and survive a persist/reload round trip', () => {
-    const p = join(workDir, 'strikes.json');
-    let tracker = { keywords: [], strikes: {} };
-    for (let i = 0; i < EVERGREEN_STRIKE_LIMIT; i++) tracker = strikeEvergreenKeyword(tracker, 'kw-doomed');
-    tracker = strikeEvergreenKeyword(tracker, 'kw-unlucky');
-    persistEvergreenRejectedTracker(tracker, { path: p });
-    const reloaded = loadEvergreenRejectedTracker({ path: p });
-    expect(isEvergreenRejected(reloaded, 'kw-doomed')).toBe(true);
-    expect(isEvergreenRejected(reloaded, 'kw-unlucky')).toBe(false);
-  });
+  it('persists the latest update under an atomic lock and recovers a stale owner', () => {
+    const p = join(workDir, 'rejected.json');
+    const lock = `${p}.lock`;
+    mkdirSync(lock, { recursive: true });
+    writeFileSync(join(lock, 'owner.json'), JSON.stringify({ pid: 999999, token: 'dead-owner' }), 'utf8');
 
-  it('reads a pre-strikes file written by an older build', () => {
-    const p = join(workDir, 'legacy.json');
-    writeFileSync(p, JSON.stringify({ keywords: ['kw-banned'] }), 'utf-8');
-    const t = loadEvergreenRejectedTracker({ path: p });
-    expect(t).toEqual({ keywords: ['kw-banned'], strikes: {} });
-    expect(isEvergreenRejected(t, 'kw-banned')).toBe(true);
-  });
-
-  it('banning a keyword keeps the strike counts of the others', () => {
-    let tracker = strikeEvergreenKeyword({ keywords: [], strikes: {} }, 'kw-flaky');
-    tracker = appendEvergreenRejected(tracker, 'kw-dup');
-    expect(tracker.keywords).toEqual(['kw-dup']);
-    expect(tracker.strikes['kw-flaky']).toBe(1);
-  });
-
-  it('does not mutate the input tracker (pure)', () => {
-    const original = { keywords: ['kw-a'] };
-    const next = appendEvergreenRejected(original, 'kw-b');
-    expect(original.keywords).toEqual(['kw-a']);
-    expect(next.keywords).toEqual(['kw-a', 'kw-b']);
+    const tracker = persistEvergreenRejectedTrackerAtomically(
+      (current: any) => appendEvergreenRejected(current, 'kw-atomic', { ...context, now: Date.now() }),
+      { path: p, _syncDirectoryForTest: () => {} },
+    );
+    expect(tracker.bans[0]).toMatchObject({ keyword: 'kw-atomic', ...context });
+    expect(loadEvergreenRejectedTracker({ path: p }).bans).toHaveLength(1);
+    expect(JSON.parse(readFileSync(p, 'utf8')).schemaVersion).toBe(EVERGREEN_REJECTED_SCHEMA_VERSION);
+    expect(existsSync(lock)).toBe(false);
   });
 });

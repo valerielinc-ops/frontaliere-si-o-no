@@ -1646,21 +1646,35 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // back to job.description for some locales) hits the cache.
  // `localizeFallbackCanonical()` is called fresh per-locale — only swaps the
  // 4 extra section headings and recomputes the (cheap) readingMinutes.
- // Cap raised from 8000 to 30000 after the worker pre-pass landed: the
- // pre-pass populates the cache with EVERY unique (description, requirements)
- // tuple before the main loop runs, and worst case (no cross-locale sharing,
- // 5834 jobs × 4 locales) is ~23k entries. Eviction during the main loop
- // would force inline recomputation, defeating the pre-pass.
+ // The pre-pass still populates every fallback tuple before the main loop so
+ // the worker result is reused across locales. Entries are now reference-counted
+ // by the active readers and evicted at their last use; without that boundary
+ // the ~21k cleaned descriptions stayed live until the end of all active pages
+ // and added roughly 2.4 GB to the peak heap (run 36088944074). The size cap
+ // remains a safety net for an unexpected/untracked access pattern.
  const CANONICAL_CLEANED_CACHE_MAX = 30000;
  const canonicalCleanedCache = new Map<string, CleanedFallbackContent>();
  jobsSeoMemContext.canonicalCleanedCache = canonicalCleanedCache;
+ const canonicalFallbackUsesRemaining = new Map<string, number>();
  let _canonicalCleanedHits = 0;
  let _canonicalCleanedMisses = 0;
  let _canonicalCleanedEvictions = 0;
+ let _canonicalCleanedLastUseReleases = 0;
+ let _canonicalCleanedCachePeakEntries = 0;
  // Captured at the moment we clear the cache (right after the active-job
  // emit completes) so the end-of-build diagnostic log keeps reporting the
  // true peak size, not the post-clear `0`.
  let _canonicalCleanedCacheSizeAtEnd = 0;
+ const releaseCanonicalCleanedAfterUse = (key: string): void => {
+   const remaining = canonicalFallbackUsesRemaining.get(key);
+   if (remaining === undefined) return;
+   if (remaining <= 1) {
+     canonicalFallbackUsesRemaining.delete(key);
+     if (canonicalCleanedCache.delete(key)) _canonicalCleanedLastUseReleases++;
+     return;
+   }
+   canonicalFallbackUsesRemaining.set(key, remaining - 1);
+ };
  const memoCanonicalCleaned = (
    description: string,
    requirements: string[],
@@ -1671,6 +1685,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    const cached = canonicalCleanedCache.get(key);
    if (cached !== undefined) {
      _canonicalCleanedHits += 1;
+     releaseCanonicalCleanedAfterUse(key);
      return cached;
    }
    _canonicalCleanedMisses += 1;
@@ -1683,6 +1698,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
      }
    }
    canonicalCleanedCache.set(key, result);
+   _canonicalCleanedCachePeakEntries = Math.max(
+     _canonicalCleanedCachePeakEntries,
+     canonicalCleanedCache.size,
+   );
+   releaseCanonicalCleanedAfterUse(key);
    return result;
  };
  const memoBuildFallbackCanonicalContent = (
@@ -2385,6 +2405,40 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const byLocale = job?.canonicalContent?.byLocale || {};
  return byLocale?.[locale] || null;
  };
+ const canonicalLocaleHasSignal = (canonicalLocaleRaw: any): boolean => !!canonicalLocaleRaw && (
+  cleanItems(canonicalLocaleRaw?.summary, 4).length > 0
+  || cleanItems(canonicalLocaleRaw?.responsibilities, 10).length > 0
+  || cleanItems(canonicalLocaleRaw?.requirements, 12).length > 0
+  || cleanItems(canonicalLocaleRaw?.benefits, 10).length > 0
+  || cleanItems(canonicalLocaleRaw?.process, 8).length > 0
+  || parseCanonicalSections(canonicalLocaleRaw?.sections, 8).length > 0
+ );
+ const fallbackCanonicalInput = (
+  job: any,
+  locale: 'it' | 'en' | 'de' | 'fr',
+ ): { description: string; requirements: string[] } => ({
+  description: stripLeadingSectionLabel(String(job?.descriptionByLocale?.[locale] || job.description || '')),
+  requirements: Array.isArray(job?.requirementsByLocale?.[locale])
+   ? (job.requirementsByLocale[locale] as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
+   : Array.isArray(job?.requirements)
+   ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
+   : [],
+ });
+ const canonicalFallbackKeyForJobLocale = (
+  job: any,
+  locale: 'it' | 'en' | 'de' | 'fr',
+ ): string | null => {
+  if (canonicalLocaleHasSignal(readCanonicalByLocale(job, locale))) return null;
+  const input = fallbackCanonicalInput(job, locale);
+  return canonicalCleanedKey(input.description, input.requirements);
+ };
+ const consumeCanonicalFallbackUse = (
+  job: any,
+  locale: 'it' | 'en' | 'de' | 'fr',
+ ): void => {
+  const key = canonicalFallbackKeyForJobLocale(job, locale);
+  if (key !== null) releaseCanonicalCleanedAfterUse(key);
+ };
  const toIsoDateTime = (raw: string, now?: Date) => {
  if (!raw) return (now || new Date()).toISOString();
  const parsed = new Date(raw);
@@ -3052,6 +3106,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const claimedJobPaths = new Set<string>();
  jobsSeoMemContext.emittedActiveJobPaths = emittedActiveJobPaths;
 
+ // Count the exact active readers before the worker pre-pass. The cache key is
+ // locale-invariant, so one count covers all locale pages and duplicate jobs
+ // that share the same fallback input. `memoCanonicalCleaned` consumes one
+ // count per read and drops the value at zero; this keeps the pre-pass speedup
+ // without retaining every cleaned description through the whole active phase.
+ for (const job of validJobs) {
+  for (const locale of localeList) {
+   if (!shouldEmitLocale(locale)) continue;
+   const key = canonicalFallbackKeyForJobLocale(job, locale);
+   if (key === null) continue;
+   canonicalFallbackUsesRemaining.set(
+    key,
+    (canonicalFallbackUsesRemaining.get(key) || 0) + 1,
+   );
+  }
+ }
+
  // ── Canonical-fallback worker pre-pass ─────────────────────────────
  //
  // `canonicalizeFallbackCleaned` is pure (regex + string passes, no I/O)
@@ -3088,13 +3159,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // locales. So only enumerate tuples for the emitted locale → the worker
  // pool processes ~1/4 the tuples. No-op in the default all-locale build.
  if (!shouldEmitLocale(locale)) continue;
- const description = String(job?.descriptionByLocale?.[locale] || job.description || '');
+ const canonicalLocaleRaw = readCanonicalByLocale(job, locale);
+ if (canonicalLocaleHasSignal(canonicalLocaleRaw)) continue;
+ const { description, requirements } = fallbackCanonicalInput(job, locale);
  if (!description) continue;
- const requirements: string[] = Array.isArray(job?.requirementsByLocale?.[locale])
- ? (job.requirementsByLocale[locale] as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
- : Array.isArray(job?.requirements)
- ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
- : [];
  // Stessa chiave di `memoCanonicalCleaned` — e DEVE restare la stessa
  // funzione, non una copia: se le due espressioni divergono il pre-pass
  // popola chiavi che il ciclo principale non trova mai, e la cache passa
@@ -3103,6 +3171,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // shared/canonicalCleanedKey.ts, che e' anche dove sta la ragione per cui
  // non e' piu' la concatenazione del testo.
  const key = canonicalCleanedKey(description, requirements);
+ if ((canonicalFallbackUsesRemaining.get(key) || 0) === 0) continue;
  if (seen.has(key) || canonicalCleanedCache.has(key)) continue;
  seen.add(key);
  tuples.push({ key, description, requirements });
@@ -3143,6 +3212,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const t of tuples) {
  const cleaned = canonicalizeFallbackCleaned(t.description, t.requirements);
  canonicalCleanedCache.set(t.key, cleaned);
+ _canonicalCleanedCachePeakEntries = Math.max(
+  _canonicalCleanedCachePeakEntries,
+  canonicalCleanedCache.size,
+ );
  }
  jobsSeoMemContext.canonical.chunks = 1;
  jobsSeoMemContext.canonical.results = 1;
@@ -3197,6 +3270,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const entry of r.entries) {
  canonicalResultEntries++;
  canonicalCleanedCache.set(entry.key, entry.cleaned);
+ _canonicalCleanedCachePeakEntries = Math.max(
+  _canonicalCleanedCachePeakEntries,
+  canonicalCleanedCache.size,
+ );
  }
  }
  const mergeMs = Date.now() - tStartMerge;
@@ -3400,6 +3477,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // bytes on disk (Map last-add-wins inside the WriteCollector).
  const __activeJobKey = `${jobCanton}:${locale}:${perLocaleSlug[locale]}`;
  if (emittedActiveJobPaths.has(__activeJobKey)) {
+ consumeCanonicalFallbackUse(job, locale);
  recordEmit('active-job', __tActiveJob);
  continue;
  }
@@ -3632,24 +3710,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const __tPh_canonical = phaseTimer();
  const __tPh_cf_read = phaseTimer();
  const canonicalLocaleRaw = readCanonicalByLocale(job, locale);
- const hasCanonicalSignal = !!canonicalLocaleRaw && (
- cleanItems(canonicalLocaleRaw?.summary, 4).length > 0
- || cleanItems(canonicalLocaleRaw?.responsibilities, 10).length > 0
- || cleanItems(canonicalLocaleRaw?.requirements, 12).length > 0
- || cleanItems(canonicalLocaleRaw?.benefits, 10).length > 0
- || cleanItems(canonicalLocaleRaw?.process, 8).length > 0
- || parseCanonicalSections(canonicalLocaleRaw?.sections, 8).length > 0
- );
- const fallbackRequirements: string[] = Array.isArray(job?.requirementsByLocale?.[locale])
- ? (job.requirementsByLocale[locale] as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
- : Array.isArray(job?.requirements)
- ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
- : [];
+ const hasCanonicalSignal = canonicalLocaleHasSignal(canonicalLocaleRaw);
+ const fallbackInput = fallbackCanonicalInput(job, locale);
  recordPhase('cf:read-probe', __tPh_cf_read);
  const __tPh_cf_fb = phaseTimer();
  const canonicalLocale = hasCanonicalSignal
  ? canonicalLocaleRaw
- : memoBuildFallbackCanonicalContent(localizedDescriptionRaw, fallbackRequirements, locale);
+ : memoBuildFallbackCanonicalContent(fallbackInput.description, fallbackInput.requirements, locale);
  recordPhase('cf:fallback-call', __tPh_cf_fb);
  const __tPh_cf_clean = phaseTimer();
  const canonicalSummary = cleanItems(canonicalLocale?.summary, 4);
@@ -4360,6 +4427,7 @@ ${staticAnalyticsHtml}
 </html>`;
  recordPhase('template-render', __tPh_template);
  } else {
+  consumeCanonicalFallbackUse(job, locale);
   html = jobsSeoReuse.reusedHtml(activeReuse, STATIC_PAGE_BUILD_ID) || activeReuse.html;
  }
  html = markJobBoardNoindexTargetHtml(html);
@@ -4542,12 +4610,14 @@ ${staticAnalyticsHtml}
  relatedJobsByCategory.clear();
  relatedJobsByLocation.clear();
 
- // `memoCanonicalCleaned` is called only by the active-job renderer. Capture
- // its peak cardinality for the end-of-build profile, then drop the large
- // cleaned-content values before company/editorial pages allocate more data.
- _canonicalCleanedCacheSizeAtEnd = canonicalCleanedCache.size;
- const releasedCanonicalCacheEntries = _canonicalCleanedCacheSizeAtEnd;
+ // `memoCanonicalCleaned` is called only by the active-job renderer. Every
+ // tracked key has already been removed at its last reader; clear any
+ // untracked safety-net entries before company/editorial pages allocate more
+ // data, while retaining the high-water mark for the end-of-build profile.
+ _canonicalCleanedCacheSizeAtEnd = _canonicalCleanedCachePeakEntries;
+ const releasedCanonicalCacheEntries = _canonicalCleanedLastUseReleases + canonicalCleanedCache.size;
  canonicalCleanedCache.clear();
+ canonicalFallbackUsesRemaining.clear();
  logJobsSeoMem('after-active-pages', {
   activeHtmlSource: 'disk',
   releasedActiveHtmlEntries,
@@ -4558,6 +4628,7 @@ ${staticAnalyticsHtml}
   releasedRelatedCategoryBuckets,
   releasedRelatedLocationBuckets,
   releasedCanonicalCacheEntries,
+  canonicalCachePeakEntries: _canonicalCleanedCachePeakEntries,
  });
  logJobsSeoMem('after-canonical-clear');
 
