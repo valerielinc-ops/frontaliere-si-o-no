@@ -256,9 +256,13 @@ export function geographyFieldsForDecision(decision = {}, options = {}) {
  * Exported so offline analyses reach the same pages through the same robots,
  * redirect and DNS checks the promoted crawler goes through.
  *
- * @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime
+ * @param {string} url
+ * @param {any} urlPolicy
+ * @param {Record<string, any>} runtime
+ * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
+ *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean }} [request]
  */
-export async function fetchRuntimePage(url, urlPolicy, runtime) {
+export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   const notifyPageFetched = (page) => {
     // This is an observational, synchronous hook: its return value is
     // deliberately ignored so it cannot change the fetch result or delay the
@@ -275,7 +279,11 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     retryBaseMs: runtime.retryBaseMs,
     timeoutMs: runtime.timeoutMs,
     hostDelayMs: runtime.hostDelayMs,
-    headers: runtime.headers,
+    method: request.method,
+    body: request.body,
+    contentType: request.contentType,
+    accept: request.accept,
+    headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
   });
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
@@ -305,7 +313,8 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // a transport failure so the standard pipeline preserves the prior slice.
   if (!result.policyBlocked && !result.blockedByRobots
     && (connectionLevelFailure || antiBotResponse)
-    && runtime.disableWafProxy !== true) {
+    && runtime.disableWafProxy !== true
+    && request.allowJinaProxy !== false) {
     const proxiedBody = await fetchHtmlViaJinaWithRetry(url, {
       timeoutMs: runtime.timeoutMs,
       retries: runtime.jinaRetries,
@@ -338,7 +347,8 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // browser callback gets one last chance after the proxy, while the default
   // runtime remains unchanged for the rest of the prospector fleet.
   if (!result.policyBlocked && !result.blockedByRobots
-    && (connectionLevelFailure || antiBotResponse)) {
+    && (connectionLevelFailure || antiBotResponse)
+    && request.allowJinaProxy !== false) {
     const browserBody = await tryBrowserRescue(url, runtime);
     if (browserBody) {
       return notifyPageFetched({
@@ -726,6 +736,81 @@ const DEFAULT_PAGINATION_MAX_PAGES = 50;
 const DEFAULT_PAGINATION_MIN_COVERAGE = 0.95;
 
 /**
+ * A small number of promoted sources render their WP Job Manager listings
+ * through the source's own JSON AJAX endpoint. Keep that transport explicit in
+ * the spec: falling back to a guessed URL or scraping arbitrary script text
+ * would make a source mutation look like a valid empty board.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {{ url: string, method: 'GET', params: Record<string, string>, pageParam: string, maxPages: number }|null}
+ */
+function configuredListingEndpoint(spec) {
+  if (spec?.listingEndpoint == null) return null;
+  const raw = typeof spec.listingEndpoint === 'string'
+    ? { url: spec.listingEndpoint }
+    : spec.listingEndpoint;
+  if (!raw || typeof raw !== 'object' || typeof raw.url !== 'string' || !raw.url.trim()) {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint must declare a URL`);
+  }
+  const method = String(raw.method || 'GET').toUpperCase();
+  if (method !== 'GET') {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint supports GET only`);
+  }
+  const params = {};
+  if (raw.params && typeof raw.params === 'object' && !Array.isArray(raw.params)) {
+    for (const [key, value] of Object.entries(raw.params)) {
+      if (value == null || Array.isArray(value) || typeof value === 'object') continue;
+      params[String(key)] = String(value);
+    }
+  }
+  const pageParam = String(raw.pageParam || 'page').trim() || 'page';
+  const maxPages = Number(raw.maxPages);
+  return {
+    url: raw.url,
+    method: 'GET',
+    params,
+    pageParam,
+    maxPages: Number.isInteger(maxPages) && maxPages > 0 ? maxPages : DEFAULT_PAGINATION_MAX_PAGES,
+  };
+}
+
+/**
+ * @param {{ url: string, params: Record<string, string>, pageParam: string }} endpoint
+ * @param {number} page
+ * @returns {string}
+ */
+function listingEndpointUrl(endpoint, page) {
+  const url = new URL(endpoint.url);
+  for (const [key, value] of Object.entries(endpoint.params)) url.searchParams.set(key, value);
+  url.searchParams.set(endpoint.pageParam, String(page));
+  return url.href;
+}
+
+/**
+ * @param {string} body
+ * @param {string} companyKey
+ * @returns {{ html: string, maxNumPages: number }}
+ */
+function parseListingEndpointResponse(body, companyKey) {
+  let payload;
+  try {
+    payload = JSON.parse(body);
+  } catch (error) {
+    throw new Error(
+      `[prospector:${companyKey}] listingEndpoint returned non-JSON content: ${error?.message || error}`,
+    );
+  }
+  const maxNumPages = Number(payload?.max_num_pages);
+  if (!payload || typeof payload.html !== 'string'
+    || !Number.isInteger(maxNumPages) || maxNumPages < 0) {
+    throw new Error(
+      `[prospector:${companyKey}] listingEndpoint response is missing html/max_num_pages`,
+    );
+  }
+  return { html: payload.html, maxNumPages: Math.max(1, maxNumPages) };
+}
+
+/**
  * Resolve the optional `spec.pagination` block.
  *
  * `maxPages` bounds the walk; reaching it with a next link still present is a
@@ -1072,6 +1157,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     ? configuredEmptyListingOutcome(spec)
     : null;
   const emptyDetails = [];
+  const listingEndpoint = configuredListingEndpoint(spec);
+  let endpointConsumed = false;
 
   /**
    * Add one page of listing candidates to the de-duplicated row set.
@@ -1132,6 +1219,67 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   };
 
   for (const seed of spec.seedUrls || []) {
+    if (listingEndpoint) {
+      if (endpointConsumed) continue;
+      endpointConsumed = true;
+      const endpointSeed = seed || listingEndpoint.url;
+      const fetchEndpointPage = async (pageNumber) => {
+        const endpointUrl = listingEndpointUrl(listingEndpoint, pageNumber);
+        let response;
+        try {
+          response = await fetchRuntimePage(endpointUrl, validateUrl, runtime, {
+            method: listingEndpoint.method,
+            accept: 'application/json',
+            headers: {
+              Referer: endpointSeed,
+              'X-Requested-With': 'XMLHttpRequest',
+            },
+            // Jina is an HTML rescue and must never be allowed to turn a JSON
+            // endpoint failure into parseable-looking source evidence.
+            allowJinaProxy: false,
+          });
+        } catch (error) {
+          throw markSpecListingFailure(error, bySlug.size);
+        }
+        try {
+          return {
+            endpointUrl,
+            response: parseListingEndpointResponse(response.body, spec.companyKey),
+          };
+        } catch (error) {
+          throw markSpecListingFailure(error, bySlug.size);
+        }
+      };
+      const first = await fetchEndpointPage(1);
+      if (first.response.maxNumPages > listingEndpoint.maxPages) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listingEndpoint pagination exceeds `
+          + `maxPages=${listingEndpoint.maxPages} (${first.response.maxNumPages} pages announced)`,
+        ), bySlug.size);
+      }
+      const consumeEndpointPage = async ({ endpointUrl, response }) => {
+        const extracted = extractListingCandidates(response.html, endpointUrl, templateRx, spec);
+        const candidates = filterListingCandidates(spec, extracted.candidates);
+        const listingEvidence = spec.platform === 'umantis.com'
+          ? extractUmantisListingEvidence(response.html, endpointUrl, {
+            cantonOverrides: spec.umantisListingCantonOverrides,
+          })
+          : new Map();
+        await addListingCandidates(candidates, listingEvidence);
+      };
+      await consumeEndpointPage(first);
+      for (let pageNumber = 2; pageNumber <= first.response.maxNumPages; pageNumber++) {
+        const next = await fetchEndpointPage(pageNumber);
+        if (next.response.maxNumPages > listingEndpoint.maxPages) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listingEndpoint pagination exceeds `
+            + `maxPages=${listingEndpoint.maxPages} (${next.response.maxNumPages} pages announced)`,
+          ), bySlug.size);
+        }
+        await consumeEndpointPage(next);
+      }
+      continue;
+    }
     let page;
     try {
       page = await fetchRuntimePage(seed, validateUrl, runtime);
@@ -1378,6 +1526,17 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     }
   }
   const rows = [...bySlug.values()];
+  if (listingEndpoint && endpointConsumed) {
+    copySpecFetchMetadata(rows, {
+      discoveredCount: rows.length,
+      ...(rows.length === 0
+        ? {
+          fetchOutcome: 'selector_miss',
+          fetchDetail: 'listingEndpoint returned no detail-template candidates',
+        }
+        : {}),
+    });
+  }
   // A configured outcome is evidence about an UNVERIFIED zero only. Never
   // attach it after a seed yielded accepted vacancies: a partial source result
   // must continue through the normal detail/geography gates instead of being

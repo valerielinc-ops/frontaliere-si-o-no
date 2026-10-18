@@ -9,6 +9,17 @@
   "seedUrls": [
     "https://sympajobs.ch/jobs/"
   ],
+  "listingEndpoint": {
+    "url": "https://sympajobs.ch/jm-ajax/get_listings/",
+    "method": "GET",
+    "params": {
+      "per_page": "100",
+      "orderby": "date",
+      "order": "DESC",
+      "show_pagination": "true"
+    },
+    "maxPages": 50
+  },
   "detailTemplate": "/job/*",
   "detailEnrichment": true,
   "detailFetchWorkers": 2,

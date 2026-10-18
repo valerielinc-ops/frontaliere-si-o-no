@@ -11,6 +11,7 @@ import {
 
 const DETAIL_URL = 'https://sympajobs.ch/job/reinigungsmitarbeiter-in-20-100/';
 const LISTING_URL = 'https://sympajobs.ch/jobs/';
+const LISTING_ENDPOINT_URL = 'https://sympajobs.ch/jm-ajax/get_listings/';
 
 const DESCRIPTION = `Sympajobs AG sucht eine zuverlässige Reinigungskraft für Einsätze in Reinach und der Region Basel. Sie reinigen Büros, Wohnungen und gewerbliche Räume sorgfältig und selbstständig. Erfahrung in der Reinigung ist von Vorteil, gute Deutschkenntnisse werden erwartet. Wir bieten eine gründliche Einführung, faire Arbeitsbedingungen, persönliche Betreuung und langfristige Einsatzmöglichkeiten in einem engagierten Team.`;
 
@@ -77,6 +78,11 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
   it('uses the learned official detail template and rejects unrelated domains', () => {
     const spec = loadSpec(SYMPAJOBS_REINACH_BL_KEY);
     expect(spec.candidateKey).toBe('sympajobs@reinach-bl');
+    expect(spec.listingEndpoint).toMatchObject({
+      url: LISTING_ENDPOINT_URL,
+      method: 'GET',
+      params: expect.objectContaining({ per_page: '100' }),
+    });
     expect(templateToRegex(spec.detailTemplate).test(new URL(DETAIL_URL).pathname)).toBe(true);
     expect(isTrustedDomain(DETAIL_URL)).toBe(true);
     expect(isTrustedDomain('https://www.jobup.ch/fr/')).toBe(false);
@@ -85,12 +91,21 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
   });
 
   it('publishes only the source-backed BL detail with a canonical URL', async () => {
-    const listingHtml = `<a href="/job/reinigungsmitarbeiter-in-20-100/"><h3>Reinigungsmitarbeiter/-in 20-100%</h3></a>`;
-    const fetchImpl = vi.fn(async (url: string) => htmlResponse(
-      url,
-      url.endsWith('/robots.txt') ? 'User-agent: *\nAllow: /'
-        : url === LISTING_URL ? listingHtml : DETAIL_HTML,
-    ));
+    const listingHtml = `<li class="job_listing"><a href="/job/reinigungsmitarbeiter-in-20-100/"><h3>Reinigungsmitarbeiter/-in 20-100%</h3></a></li>`;
+    const requests: string[] = [];
+    const fetchImpl = vi.fn(async (url: string) => {
+      requests.push(url);
+      if (url.endsWith('/robots.txt')) return htmlResponse(url, 'User-agent: *\nAllow: /');
+      if (url.startsWith(LISTING_ENDPOINT_URL)) {
+        return htmlResponse(url, JSON.stringify({
+          found_jobs: 1,
+          max_num_pages: 1,
+          html: listingHtml,
+        }));
+      }
+      expect(url).not.toBe(LISTING_URL);
+      return htmlResponse(url, DETAIL_HTML);
+    });
     const runtime = {
       fetchImpl,
       lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
@@ -120,5 +135,10 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
       description: DESCRIPTION,
       datePosted: '2026-08-11',
     })]);
+    const endpointRequest = requests.find((url) => url.startsWith(LISTING_ENDPOINT_URL));
+    expect(endpointRequest).toBeTruthy();
+    const endpointQuery = new URL(endpointRequest!).searchParams;
+    expect(endpointQuery.get('page')).toBe('1');
+    expect(endpointQuery.get('per_page')).toBe('100');
   });
 });
