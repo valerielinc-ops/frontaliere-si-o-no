@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eoc-ente-ospedaliero-cantonale",
-  "assembledAt": "2026-10-17T21:29:39.481Z",
+  "assembledAt": "2026-10-18T09:24:39.572Z",
   "jobs": [
     {
       "id": "company-fefozu",
@@ -81,6 +81,7 @@
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-fefozu",
           "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-ospedaliero",
           "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale",
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-9d1c87d2a5",
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedali"
         ],
         "en": [
@@ -94,6 +95,7 @@
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-fefozu",
         "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-ospedaliero",
         "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-9d1c87d2a5",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedali"
       ],
       "datePosted": "",
@@ -123,7 +125,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-bc6df4ea33",
         "en": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
-        "de": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -143,16 +145,18 @@
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4333hx",
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-bc6df4ea33",
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
+          "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4333hx",
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-        "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-bc6df4ea33",
+        "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -172,7 +176,8 @@
       "employmentType": "FULL_TIME",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezql",
@@ -198,7 +203,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-5ee78ec257",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -220,18 +225,20 @@
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-feezql",
           "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
           "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-5ee78ec257",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-feezql",
         "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-5ee78ec257",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -252,7 +259,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezsa",
@@ -298,11 +306,13 @@
       "previousSlugsByLocale": {
         "it": [
           "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-feezsa",
+          "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-e2f3ea29ec",
           "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-feezsa",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-e2f3ea29ec",
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
@@ -323,7 +333,8 @@
       "employmentType": "FULL_TIME",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hr",
@@ -386,13 +397,16 @@
       "postingDateSource": "unknown",
       "postalCode": "6986",
       "previousSlugs": [
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-cbe9ee9ca1",
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-cbe9ee9ca1",
           "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4333gz",
@@ -418,7 +432,7 @@
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-9e0bc6aab7",
         "en": "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "beschaftigte-im-gesundheitswesen-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -438,16 +452,18 @@
       "previousSlugsByLocale": {
         "it": [
           "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-4333gz",
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-9e0bc6aab7",
           "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "beschaftigte-im-gesundheitswesen-eoc-ente-ospedaliero-cantonale-novaggio"
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-4333gz",
-        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "beschaftigte-im-gesundheitswesen-eoc-ente-ospedaliero-cantonale-novaggio"
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-9e0bc6aab7",
+        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -493,8 +509,8 @@
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-6b3d19474a",
         "en": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
-        "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+        "de": "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Assistente di cura",
@@ -513,21 +529,23 @@
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-4333gx",
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-6b3d19474a",
           "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-4333gx",
-          "karriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-4333gx",
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
-        "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-6b3d19474a",
+        "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -593,11 +611,13 @@
       "previousSlugsByLocale": {
         "it": [
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-4333g5",
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-5e452b8077",
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-4333g5",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-5e452b8077",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 63000,
@@ -692,13 +712,16 @@
       "postingDateSource": "unknown",
       "postalCode": "6986",
       "previousSlugs": [
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-12780063ec",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-12780063ec",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-feexlz",
@@ -725,7 +748,7 @@
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -747,13 +770,13 @@
           "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano-3784656247"
         ],
         "fr": [
-          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-lugano"
+          "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano-feexlz",
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano-3784656247",
-        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-lugano"
+        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -773,7 +796,8 @@
       "employmentType": "FULL_TIME",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-feexez",
@@ -799,8 +823,8 @@
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-80b99502d8",
         "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
-        "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "de": "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -819,21 +843,23 @@
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-feexez",
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-80b99502d8",
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-feexez",
-          "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano"
+          "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
-          "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-feexez",
-        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-        "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-80b99502d8",
+        "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -853,7 +879,8 @@
       "employmentType": "FULL_TIME",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef0d3",
@@ -957,7 +984,7 @@
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-feezre",
         "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona-1ff671",
         "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-1ff671",
-        "fr": "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -989,12 +1016,12 @@
         ],
         "fr": [
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 63000,
       "salaryMax": 87500,
@@ -1057,7 +1084,7 @@
       "slugByLocale": {
         "it": "psicoterapeuta-20-eoc-ente-ospedaliero-cantonale-bellinzona-fefpsi",
         "en": "psychotherapist-20-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "psychotherapeut-20-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "psicoterapeuta-20-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "psychotherapie-20-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "requirementsByLocale": {
@@ -1077,13 +1104,12 @@
           "psychotherapeut-20-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "psicoterapeuta-20-eoc-ente-ospedaliero-cantonale-lugano"
+          "psychotherapeut-20-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
         "psicoterapeuta-20-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "psychotherapeut-20-eoc-ente-ospedaliero-cantonale-lugano",
-        "psicoterapeuta-20-eoc-ente-ospedaliero-cantonale-lugano"
+        "psychotherapeut-20-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "salaryMin": 14100,
       "salaryMax": 19700,
@@ -1336,7 +1362,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsg",
@@ -1511,7 +1538,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2793/description/4",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsa",
@@ -1603,7 +1631,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2791/description/4",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-feeyzw",
@@ -1794,7 +1823,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2778/description/4",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpqj",
@@ -1937,7 +1967,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2773/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2773/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppq",
@@ -2126,8 +2157,8 @@
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-mendrisio-uikzkn",
-        "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "assistante-soignante-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "de": "karriere-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "fr": "carriere-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente di cura",
@@ -2188,8 +2219,8 @@
         "career-eoc-ente-ospedaliero-cantonale-novaggio",
         "pflegeassistent-in-eoc-ente-ospedaliero-cantonale-novaggio",
         "career-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "karriere-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "carriere-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "pflegeassistent-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "assistante-soignante-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -2216,10 +2247,10 @@
           "career-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "de": [
-          "karriere-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "pflegeassistent-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
-          "carriere-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "assistante-soignante-eoc-ente-ospedaliero-cantonale-mendrisio"
         ]
       },
       "salarySource": "estimated",
@@ -2251,7 +2282,7 @@
       "slugByLocale": {
         "it": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano-uikz1l",
-        "de": "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -2295,7 +2326,7 @@
         "assistant-e-socio-sanitaire-et-ou-assistant-e-de-soins-50-100-eoc-ente-ospedaliero-cantonale-lugano",
         "assistente-di-cura-o-mitarbeiter-in-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
         "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano",
-        "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-lugano"
+        "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2310,7 +2341,7 @@
           "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-lugano"
+          "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-lugano"
@@ -2346,8 +2377,8 @@
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
-        "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno"
+        "de": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-locarno",
+        "fr": "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -2402,8 +2433,8 @@
         "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
         "medical-study-assistant-eoc-ente-ospedaliero-cantonale-locarno",
-        "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-locarno",
-        "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-locarno"
+        "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -2432,17 +2463,18 @@
           "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0"
         ],
         "de": [
-          "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-locarno"
+          "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "fr": [
-          "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-locarno"
+          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1152/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1152/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzkk",
@@ -2546,7 +2578,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1103/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1103/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1va",
@@ -2571,8 +2604,8 @@
       "slugByLocale": {
         "it": "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-novaggio-uil1va",
-        "de": "kuchenassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "aide-cuisinier-eoc-ente-ospedaliero-cantonale-novaggio"
+        "de": "zusatz-oder-kuche-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "auxiliaires-cuisine-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Ausiliaria/o di cucina",
@@ -2610,8 +2643,8 @@
       "previousSlugs": [
         "auxiliary-or-kitchen-eoc-ente-ospedaliero-cantonale-novaggio",
         "ausiliaria-o-di-cucina-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "zusatz-oder-kuche-eoc-ente-ospedaliero-cantonale-novaggio",
-        "auxiliaires-cuisine-eoc-ente-ospedaliero-cantonale-novaggio"
+        "kuchenassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "aide-cuisinier-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2621,10 +2654,10 @@
           "auxiliary-or-kitchen-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "zusatz-oder-kuche-eoc-ente-ospedaliero-cantonale-novaggio"
+          "kuchenassistent-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "auxiliaires-cuisine-eoc-ente-ospedaliero-cantonale-novaggio"
+          "aide-cuisinier-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "salarySource": "estimated",
@@ -2658,8 +2691,8 @@
       "slugByLocale": {
         "it": "collaboratore-trice-di-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "collaboratore-trice-di-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona-uil175",
-        "de": "kuchenmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "collaborateur-de-restauration-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice di ristorazione",
@@ -2722,7 +2755,8 @@
         "collaborateur-des-services-de-technologie-medicale-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "collaboratore-trice-servizio-di-tecnologia-medica-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-al-uilr3q",
         "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kuchenmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-de-restauration-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -2754,12 +2788,12 @@
         ],
         "de": [
           "medical-technology-service-mitarbeiter-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "kuchenmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "collaborateur-trice-de-restauration-eoc-ente-ospedaliero-cantonale-bellinzona",
           "collaborateur-des-services-de-technologie-medicale-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "collaborateur-de-restauration-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
@@ -2791,7 +2825,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-manutenzione-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "collaboratore-trice-manutenzione-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona-uil3cr",
-        "de": "wartungsmitarbeiter-elektriker-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "wartungsarbeiter-maschine-elektrisch-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "collaborateur-de-maintenance-electricien-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -2818,7 +2852,7 @@
           "maintenance-worker-machine-electricist-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "wartungsarbeiter-maschine-elektrisch-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "wartungsmitarbeiter-elektriker-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "mainteneur-machine-electricien-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -2831,7 +2865,7 @@
         "collaboratore-trice-wartung-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona",
         "collaboratore-trice-wartung-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona-uil3cr",
         "maintenance-worker-machine-electricist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "wartungsarbeiter-maschine-elektrisch-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "wartungsmitarbeiter-elektriker-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -2884,9 +2918,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "cuoca-o-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "cook-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "koch-kochin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "cuisinier-cuisiniere-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "cooking-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "kochen-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "cuisson-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Cuoca/o",
@@ -2936,9 +2970,9 @@
         "cook-and-or-diet-cook-eoc-ente-ospedaliero-cantonale-bellinzona",
         "cook-and-or-dietetic-cook-eoc-ente-ospedaliero-cantonale-bellinzona",
         "cuisinier-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "cooking-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kochen-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "cuisson-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "cook-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "koch-kochin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "cuisinier-cuisiniere-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2950,13 +2984,13 @@
           "koch-kochin-und-oder-diatkoch-diatkochin-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "en": [
-          "cooking-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "cook-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "kochen-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "koch-kochin-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "cuisson-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "cuisinier-cuisiniere-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
@@ -3044,7 +3078,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2079/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2079/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2qc",
@@ -3071,8 +3106,8 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -3137,11 +3172,11 @@
         ],
         "en": [
           "administrative-staff-eoc-ente-ospedaliero-cantonale-lugano",
-          "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano"
+          "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
           "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
-          "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-lugano"
+          "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "personnel-administratif-eoc-ente-ospedaliero-cantonale-lugano",
@@ -3170,15 +3205,16 @@
         "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
         "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
         "administrative-staff-eoc-ente-ospedaliero-cantonale-lugano",
-        "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
-        "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-lugano"
+        "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
+        "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1587/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1587/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2ji",
@@ -3203,7 +3239,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-for-the-central-accounting-and-invoicing-service-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-fur-den-zentralen-buchhaltungs-und-rechnungsdienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "mitarbeiter-verwaltung-fur-zentralbuchhaltung-und-rechnungswesen-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-du-service-central-de-comptabilite-et-facturation-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -3227,7 +3263,7 @@
           "angestellte-r-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-ente-ospedaliero-cantonale-bel"
         ],
         "de": [
-          "mitarbeiter-verwaltung-fur-zentralbuchhaltung-und-rechnungswesen-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-fur-den-zentralen-buchhaltungs-und-rechnungsdienst-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "employe-administratif-pour-le-service-central-de-comptabilite-et-facturation-permette-di-c"
@@ -3256,7 +3292,7 @@
         "impiegato-a-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-uil2ji",
         "employe-administratif-pour-le-service-central-de-comptabilite-et-facturation-permette-di-c",
         "angestellte-r-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-ente-ospedaliero-cantonale-bel",
-        "mitarbeiter-verwaltung-fur-zentralbuchhaltung-und-rechnungswesen-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "verwaltungsmitarbeiter-fur-den-zentralen-buchhaltungs-und-rechnungsdienst-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1509/Description/4",
@@ -3457,7 +3493,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1108/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1108/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzko",
@@ -3485,7 +3522,7 @@
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-mendrisio",
         "de": "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -3530,7 +3567,7 @@
       "previousSlugs": [
         "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-mendrisio",
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-mendrisio-3",
-        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3540,14 +3577,15 @@
           "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
-          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-mendrisio"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1107/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1107/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n9b",
@@ -3630,7 +3668,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/990/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/990/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n8p",
@@ -3721,7 +3760,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/989/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/989/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1r",
@@ -3748,8 +3788,8 @@
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-lugano-uikz1r",
-        "de": "fachkrankenschwester-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "infirmiere-specialisee-eoc-ente-ospedaliero-cantonale-lugano"
+        "de": "fachkrankenpfleger-in-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "infirmier-ere-specialise-e-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a",
@@ -3805,8 +3845,8 @@
         "nursery-responsible-for-nursing-50-eoc-ente-ospedaliero-cantonale-lugano",
         "pepiniere-responsable-des-soins-infirmiers-50-eoc-ente-ospedaliero-cantonale-lugano",
         "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-bellinzona-lugano",
-        "fachkrankenpfleger-in-eoc-ente-ospedaliero-cantonale-lugano",
-        "infirmier-ere-specialise-e-eoc-ente-ospedaliero-cantonale-lugano"
+        "fachkrankenschwester-eoc-ente-ospedaliero-cantonale-lugano",
+        "infirmiere-specialisee-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3828,21 +3868,22 @@
         "de": [
           "krankenschwestern-100-eoc-ente-ospedaliero-cantonale-lugano",
           "spezialisierte-krankenschwestern-eoc-ente-ospedaliero-cantonale-lugano",
-          "fachkrankenpfleger-in-eoc-ente-ospedaliero-cantonale-lugano"
+          "fachkrankenschwester-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "infirmieres-100-eoc-ente-ospedaliero-cantonale-lugano",
           "infermiere-a-responsable-della-ricerca-infermieristica-50-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantend-uilr0e",
           "pepiniere-responsable-des-soins-infirmiers-50-eoc-ente-ospedaliero-cantonale-lugano",
           "infirmieres-specialisees-eoc-ente-ospedaliero-cantonale-lugano",
-          "infirmier-ere-specialise-e-eoc-ente-ospedaliero-cantonale-lugano"
+          "infirmiere-specialisee-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1098/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1098/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil19q",
@@ -3867,8 +3908,8 @@
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-in-anestesia-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "specialized-nurse-in-anesthesia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "fachkrankenpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "spezialisierte-krankenschwestern-inflation-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "infirmieres-specialisees-inflation-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a in anestesia",
@@ -3911,8 +3952,8 @@
         "infermiere-a-specializzato-a-in-anestesia-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona",
         "infermiere-a-specializzato-a-in-anestesia-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-2",
         "infermiere-a-specializzato-a-in-anestesia-eoc-ente-ospedaliero-cantonale-bellinzona-uil19q",
-        "spezialisierte-krankenschwestern-inflation-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "infirmieres-specialisees-inflation-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fachkrankenpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3927,10 +3968,10 @@
           "specialized-nurses-inflation-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "spezialisierte-krankenschwestern-inflation-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "fachkrankenpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "infirmieres-specialisees-inflation-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
@@ -3965,8 +4006,8 @@
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-in-anestesia-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "nurse-specialized-in-anesthesia-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "de": "krankenschwester-mit-spezialisierung-auf-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "de": "spezialisierte-krankenschwestern-inflation-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "fr": "infirmieres-specialisees-inflation-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a in anestesia",
@@ -4011,18 +4052,18 @@
       "country": "CH",
       "previousSlugs": [
         "specialized-nurses-inflation-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "spezialisierte-krankenschwestern-inflation-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "infirmieres-specialisees-inflation-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "krankenschwester-mit-spezialisierung-auf-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "previousSlugsByLocale": {
         "en": [
           "specialized-nurses-inflation-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "de": [
-          "spezialisierte-krankenschwestern-inflation-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "krankenschwester-mit-spezialisierung-auf-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
-          "infirmieres-specialisees-inflation-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ]
       },
       "salarySource": "estimated",
@@ -4057,7 +4098,7 @@
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-in-cure-intense-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "intensive-care-specialist-nurse-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "de": "fachpflegekraft-fur-intensivmedizin-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "de": "krankenschwestern-spezialisiert-in-intensiver-pflege-eoc-ente-ospedaliero-cantonale-mendrisio",
         "fr": "infirmier-specialise-en-soins-intensifs-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
@@ -4105,7 +4146,7 @@
         "nurses-specialized-in-intensive-care-eoc-ente-ospedaliero-cantonale-mendrisio",
         "infirmieres-specialisees-dans-les-soins-intensifs-eoc-ente-ospedaliero-cantonale-mendrisio",
         "infermiere-a-specializzato-a-in-cure-intense-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "krankenschwestern-spezialisiert-in-intensiver-pflege-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "fachpflegekraft-fur-intensivmedizin-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4115,7 +4156,7 @@
           "nurses-specialized-in-intensive-care-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "de": [
-          "krankenschwestern-spezialisiert-in-intensiver-pflege-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "fachpflegekraft-fur-intensivmedizin-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
           "infirmieres-specialisees-dans-les-soins-intensifs-eoc-ente-ospedaliero-cantonale-mendrisio"
@@ -4153,7 +4194,7 @@
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-in-cure-urgenti-e-pronto-soccorso-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "nurse-specialized-in-urgent-care-and-emergency-room-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "de": "krankenschwester-spezialisiert-auf-notfallversorgung-und-notaufnahme-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "de": "krankenschwestern-besonders-in-dringender-betreuung-und-erste-hilfe-eoc-ente-ospedaliero-cantonale-mendrisio",
         "fr": "infirmiere-specialisee-en-soins-d-urgence-et-en-salle-d-urgence-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
@@ -4201,7 +4242,7 @@
         "nurses-specialized-in-urgent-care-and-first-aid-eoc-ente-ospedaliero-cantonale-mendrisio",
         "infirmieres-specialisees-dans-les-soins-urgents-et-les-premiers-soins-eoc-ente-ospedaliero-cantonale-mendrisio",
         "infermiere-a-specializzato-a-in-cure-urgenti-e-pronto-soccorso-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "krankenschwestern-besonders-in-dringender-betreuung-und-erste-hilfe-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "krankenschwester-spezialisiert-auf-notfallversorgung-und-notaufnahme-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4211,7 +4252,7 @@
           "nurses-specialized-in-urgent-care-and-first-aid-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "de": [
-          "krankenschwestern-besonders-in-dringender-betreuung-und-erste-hilfe-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "krankenschwester-spezialisiert-auf-notfallversorgung-und-notaufnahme-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
           "infirmieres-specialisees-dans-les-soins-urgents-et-les-premiers-soins-eoc-ente-ospedaliero-cantonale-mendrisio"
@@ -4409,7 +4450,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2096/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2096/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm13",
@@ -4490,7 +4532,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2091/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2091/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk6",
@@ -4517,7 +4560,7 @@
       "slugByLocale": {
         "it": "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano-uilmk6",
-        "de": "assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "medizinischer-assistent-geriatrics-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-assistant-en-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -4564,7 +4607,7 @@
         "medical-assistant-geriatrics-eoc-ente-ospedaliero-cantonale-lugano",
         "assistant-medical-en-geriatrie-eoc-ente-ospedaliero-cantonale-lugano",
         "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "medizinischer-assistent-geriatrics-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4575,14 +4618,15 @@
           "medical-assistant-geriatrics-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "medizinischer-assistent-geriatrics-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2106/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2106/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk0",
@@ -4684,7 +4728,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2100/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2100/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil4vw",
@@ -4781,7 +4826,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1859/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1859/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilozx",
@@ -4863,7 +4909,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2493/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2493/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmrr",
@@ -4959,7 +5006,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2190/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2190/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil0c5",
@@ -5047,7 +5095,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1214/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1214/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk2",
@@ -5124,7 +5173,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2102/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2102/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillxv",
@@ -5152,7 +5202,7 @@
       "slugByLocale": {
         "it": "medico-assistente-urologia-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "medico-assistente-urologia-eoc-ente-ospedaliero-cantonale-lugano-uillxv",
-        "de": "assistenz-urologe-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "medizinischer-assistent-urologie-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-assistant-en-urologie-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -5199,7 +5249,7 @@
       "previousSlugs": [
         "medical-assistant-urology-eoc-ente-ospedaliero-cantonale-lugano",
         "medico-assistente-urologia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "medizinischer-assistent-urologie-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistenz-urologe-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5209,14 +5259,15 @@
           "medical-assistant-urology-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "medizinischer-assistent-urologie-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistenz-urologe-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2059/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2059/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm14",
@@ -5301,7 +5352,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2092/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2092/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk7",
@@ -5327,8 +5379,8 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "medico-capoclinica-geriatria-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "head-of-geriatrics-clinic-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "leiter-geriatrie-klinik-eoc-ente-ospedaliero-cantonale-lugano",
+        "en": "geriatric-masterpiece-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "geriatric-masterpiece-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "chef-de-clinique-de-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -5374,17 +5426,18 @@
       "previousSlugs": [
         "chef-d-uvre-geriatrique-eoc-ente-ospedaliero-cantonale-lugano",
         "medico-capoclinica-geriatria-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "geriatric-masterpiece-eoc-ente-ospedaliero-cantonale-lugano"
+        "head-of-geriatrics-clinic-eoc-ente-ospedaliero-cantonale-lugano",
+        "leiter-geriatrie-klinik-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medico-capoclinica-geriatria-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "en": [
-          "geriatric-masterpiece-eoc-ente-ospedaliero-cantonale-lugano"
+          "head-of-geriatrics-clinic-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "geriatric-masterpiece-eoc-ente-ospedaliero-cantonale-lugano"
+          "leiter-geriatrie-klinik-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "chef-d-uvre-geriatrique-eoc-ente-ospedaliero-cantonale-lugano"
@@ -5421,7 +5474,7 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "medico-capoclinica-ginecologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "head-clinician-gynecology-and-obstetrics-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "gynaecology-and-obstetrician-doctor-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-chef-gynecologie-et-obstetrique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -5469,11 +5522,11 @@
       "previousSlugs": [
         "gynakologie-und-geburtsarzt-eoc-ente-ospedaliero-cantonale-bellinzona",
         "gynecologie-et-medecin-obstetricien-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "gynaecology-and-obstetrician-doctor-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "head-clinician-gynecology-and-obstetrics-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "gynaecology-and-obstetrician-doctor-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "head-clinician-gynecology-and-obstetrics-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
           "gynakologie-und-geburtsarzt-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -5605,9 +5658,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "operatore-trice-sociosanitario-a-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "en": "social-health-worker-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "en": "operator-sociosanitary-a-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "de": "betreiber-sociosanitary-a-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "fr": "operateur-societe-a-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Operatore/trice sociosanitario/a",
@@ -5658,9 +5711,9 @@
         "mediatore-trice-interculturale-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-of-uilqhb",
         "mediatore-trice-interculturale-60-eoc-ente-ospedaliero-cantonale-bellinzona",
         "operatore-trice-sociosanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "operator-sociosanitary-a-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "betreiber-sociosanitary-a-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "operateur-societe-a-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "social-health-worker-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -5675,20 +5728,21 @@
           "intercultural-mediator-60-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "en": [
-          "operator-sociosanitary-a-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "social-health-worker-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "de": [
-          "betreiber-sociosanitary-a-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
-          "operateur-societe-a-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-mendrisio"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1544/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1544/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n3h",
@@ -5876,7 +5930,7 @@
         "it": "praticante-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-practitioner-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "krankenpfleger-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "infirmiere-praticienne-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Praticante infermieristico",
@@ -5919,18 +5973,19 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "infirmiere-praticienne-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "infirmiere-praticienne-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1115/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1115/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillzk",
@@ -6211,7 +6266,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1117/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1117/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlf",
@@ -6239,7 +6295,7 @@
       "slugByLocale": {
         "it": "servizio-civile-svizzero-ausiliario-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "servizio-civile-svizzero-ausiliario-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona-uikzlf",
-        "de": "zivildienst-schweiz-pflegehelfer-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "swiss-civil-service-pflegehilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "service-civil-suisse-assistant-en-soins-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -6286,14 +6342,14 @@
       "previousSlugs": [
         "swiss-civil-service-care-auxiliary-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fonction-publique-suisse-soins-auxiliaires-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "swiss-civil-service-pflegehilfe-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "zivildienst-schweiz-pflegehelfer-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
           "swiss-civil-service-care-auxiliary-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "swiss-civil-service-pflegehilfe-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "zivildienst-schweiz-pflegehelfer-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "fonction-publique-suisse-soins-auxiliaires-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -6303,7 +6359,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1113/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1113/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikznx",
@@ -6384,7 +6441,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1140/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1140/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1s",
@@ -6411,7 +6469,7 @@
       "slugByLocale": {
         "it": "servizio-civile-svizzero-diversi-mansionari-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "swiss-civil-service-various-job-descriptions-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "schweizerischer-staatsdienst-verschiedene-stellenbeschreibungen-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "offentlicher-dienst-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "fonction-publique-suisse-diverses-descriptions-de-poste-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -6455,18 +6513,19 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "offentlicher-dienst-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "schweizerischer-staatsdienst-verschiedene-stellenbeschreibungen-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "offentlicher-dienst-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "schweizerischer-staatsdienst-verschiedene-stellenbeschreibungen-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1099/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1099/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzli",
@@ -6494,7 +6553,7 @@
       "slugByLocale": {
         "it": "stage-di-pratica-in-cure-studente-medicina-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "internship-in-medical-care-medical-student-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "praktikum-in-der-medizinischen-versorgung-medizinstudent-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "praxispraktikum-medizinischer-student-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "stage-de-pratique-en-soins-etudiant-en-medecine-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -6539,19 +6598,20 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "stage-en-soins-etudiant-en-medecine-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "praxispraktikum-medizinischer-student-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "praktikum-in-der-medizinischen-versorgung-medizinstudent-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
         "de": [
-          "praxispraktikum-medizinischer-student-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "praktikum-in-der-medizinischen-versorgung-medizinstudent-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1116/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1116/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlg",
@@ -6799,7 +6859,7 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "pflegedienstpraktikum-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -6846,7 +6906,7 @@
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n2m",
         "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-lugano",
         "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-lugano",
-        "pflegedienstpraktikum-eoc-ente-ospedaliero-cantonale-lugano"
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6854,7 +6914,7 @@
         ],
         "de": [
           "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-lugano",
-          "pflegedienstpraktikum-eoc-ente-ospedaliero-cantonale-lugano"
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-lugano"
@@ -6891,7 +6951,7 @@
       "slugByLocale": {
         "it": "tecnico-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medical-radiology-technician-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "medizinisch-technischer-radiologe-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "medizinische-radiologie-techniker-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "technicien-en-radiologie-medicale-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -6945,7 +7005,7 @@
         ],
         "de": [
           "techniker-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "medizinische-radiologie-techniker-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "medizinisch-technischer-radiologe-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "technicien-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -6959,7 +7019,7 @@
         "tecnico-a-di-radiologia-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "techniker-a-di-radiologia-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "technicien-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "medizinische-radiologie-techniker-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "medizinisch-technischer-radiologe-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "salarySource": "estimated",
@@ -7289,8 +7349,8 @@
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-gineologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medico-assistente-in-formazione-gineologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-bellinzona-uilo2b",
-        "de": "assistenzarztin-in-ausbildung-gynakologie-und-geburtshilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "medecin-assistante-en-formation-gynecologie-et-obstetrique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "teamleitung-sozialpadagoge-sozialpadagogin-fh-hfs-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "gestion-d-equipe-educateur-social-pedagogue-social-fh-hfs-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Medico assistente in formazione - Gineologia e ostetricia",
@@ -7337,8 +7397,8 @@
         "medical-assistant-in-training-gineology-and-obstetrics-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medizinischer-assistent-in-der-ausbildung-gineologie-und-geburtshilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
         "assistant-medical-en-formation-gineologie-et-obstetrique-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "teamleitung-sozialpadagoge-sozialpadagogin-fh-hfs-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "gestion-d-equipe-educateur-social-pedagogue-social-fh-hfs-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "assistenzarztin-in-ausbildung-gynakologie-und-geburtshilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medecin-assistante-en-formation-gynecologie-et-obstetrique-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -7346,11 +7406,11 @@
         ],
         "de": [
           "medizinischer-assistent-in-der-ausbildung-gineologie-und-geburtshilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "teamleitung-sozialpadagoge-sozialpadagogin-fh-hfs-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "assistenzarztin-in-ausbildung-gynakologie-und-geburtshilfe-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "assistant-medical-en-formation-gineologie-et-obstetrique-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "gestion-d-equipe-educateur-social-pedagogue-social-fh-hfs-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "medecin-assistante-en-formation-gynecologie-et-obstetrique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
@@ -7382,8 +7442,8 @@
       "slugByLocale": {
         "it": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno-uikzn3",
-        "de": "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno"
+        "de": "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-locarno",
+        "fr": "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Assistente di cura o addetto/a alle cure sociosanitarie",
@@ -7421,8 +7481,8 @@
         "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-locarno",
         "assistente-di-cura-o-mitarbeiter-in-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno",
         "assistente-di-cura-o-prepose-e-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno",
-        "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-locarno",
-        "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-locarno"
+        "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno",
+        "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7433,10 +7493,10 @@
           "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "de": [
-          "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-locarno"
+          "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "fr": [
-          "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-locarno"
+          "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno"
         ]
       },
       "country": "CH",
@@ -7471,7 +7531,7 @@
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
-        "de": "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno",
+        "de": "fachpflegefachperson-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
@@ -7521,7 +7581,7 @@
         "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-bellinzona-locarno-2",
         "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-bellinzona-locarno-3",
         "infirmieres-specialisees-eoc-ente-ospedaliero-cantonale-locarno",
-        "fachpflegefachperson-eoc-ente-ospedaliero-cantonale-locarno"
+        "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7534,7 +7594,7 @@
         ],
         "de": [
           "spezialisierte-krankenschwestern-eoc-ente-ospedaliero-cantonale-locarno",
-          "fachpflegefachperson-eoc-ente-ospedaliero-cantonale-locarno"
+          "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "fr": [
           "infirmieres-specialisees-eoc-ente-ospedaliero-cantonale-locarno"
@@ -7544,7 +7604,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1129/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1129/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzn4",
@@ -7680,7 +7741,7 @@
       "slugByLocale": {
         "it": "medico-assistente-otorinolaringoiatria-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medico-assistente-otorinolaringoiatria-eoc-ente-ospedaliero-cantonale-bellinzona-uilm15",
-        "de": "facharzt-assistenz-hno-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "medizinischer-assistent-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-assistant-orl-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -7728,14 +7789,14 @@
       "previousSlugs": [
         "medical-assistant-otolaryngology-eoc-ente-ospedaliero-cantonale-bellinzona",
         "assistant-medical-otolaryngologie-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "medizinischer-assistent-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "facharzt-assistenz-hno-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
           "medical-assistant-otolaryngology-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "medizinischer-assistent-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "facharzt-assistenz-hno-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "assistant-medical-otolaryngologie-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -7745,7 +7806,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2093/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2093/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillyk",
@@ -7772,7 +7834,7 @@
       "slugByLocale": {
         "it": "medico-capoclinica-anestesia-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "chief-anesthesia-physician-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "leitender-anasthesiearzt-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "kopfarzt-anasthesie-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-chef-de-la-clinique-d-anesthesie-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -7827,7 +7889,7 @@
         "infermieri-specializzati-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola-uilr19",
         "infermieri-specializzati-in-cure-intense-80-100-eoc-ente-ospedaliero-cantonale-lugano",
         "infermieri-specializzati-in-cure-intense-80-100-eoc-ente-ospedaliero-cantonale-lugano-uilqeu",
-        "kopfarzt-anasthesie-eoc-ente-ospedaliero-cantonale-lugano"
+        "leitender-anasthesiearzt-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7848,7 +7910,7 @@
         ],
         "de": [
           "anasthesie-spezialschwestern-80-100-eoc-ente-ospedaliero-cantonale-lugano",
-          "kopfarzt-anasthesie-eoc-ente-ospedaliero-cantonale-lugano"
+          "leitender-anasthesiearzt-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "infermieri-specializzati-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano"
@@ -7858,7 +7920,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2063/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2063/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillxs",
@@ -7885,7 +7948,7 @@
       "slugByLocale": {
         "it": "medico-capoclinica-medicina-intensiva-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "head-clinician-intensive-care-medicine-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "leitender-kliniker-intensivmedizin-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "intensiver-arzt-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-chef-medecine-intensive-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -7932,7 +7995,7 @@
         "intensive-medical-doctor-eoc-ente-ospedaliero-cantonale-lugano",
         "medecin-intensif-eoc-ente-ospedaliero-cantonale-lugano",
         "medico-capoclinica-medicina-intensiva-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "intensiver-arzt-eoc-ente-ospedaliero-cantonale-lugano"
+        "leitender-kliniker-intensivmedizin-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7942,7 +8005,7 @@
           "intensive-medical-doctor-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "intensiver-arzt-eoc-ente-ospedaliero-cantonale-lugano"
+          "leitender-kliniker-intensivmedizin-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "medecin-intensif-eoc-ente-ospedaliero-cantonale-lugano"
@@ -8037,7 +8100,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2252/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2252/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilngr",
@@ -8065,7 +8129,7 @@
         "it": "infermiere-a-di-ricerca-clinica-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "clinical-research-nurse-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "klinische-forschungskrankenschwester-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "infirmiere-de-recherche-clinique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "soins-infirmiers-cliniques-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Infermiere/a di ricerca clinica",
@@ -8119,7 +8183,7 @@
         "clinical-research-fellowship-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "clinical-nursing-eoc-ente-ospedaliero-cantonale-bellinzona",
         "klinische-krankenpflege-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "soins-infirmiers-cliniques-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "infirmiere-de-recherche-clinique-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -8143,7 +8207,7 @@
           "borsa-di-ricerca-clinica-100-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "soins-infirmiers-cliniques-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "infirmiere-de-recherche-clinique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
@@ -8410,7 +8474,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1487/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1487/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzm8",
@@ -8577,7 +8642,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1125/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1125/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2r4",
@@ -8674,7 +8740,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1594/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1594/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmkv",
@@ -8856,7 +8923,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2591/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2591/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yo",
@@ -8942,7 +9010,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1473/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1473/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yp",
@@ -9157,7 +9226,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-dell-economia-domestica-a-ore-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "collaboratore-trice-dell-economia-domestica-a-ore-eoc-ente-ospedaliero-cantonale-mendrisio-uil4vo",
-        "de": "mitarbeiter-in-haushaltswirtschaft-stundenweise-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "de": "beitrag-terrasse-der-heimischen-wirtschaft-in-stunden-eoc-ente-ospedaliero-cantonale-mendrisio",
         "fr": "assistant-e-economie-domestique-horaire-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
@@ -9216,7 +9285,7 @@
         "collaborateur-pour-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio",
         "collaboratore-trice-per-l-economia-domestica-a-ore-su-chiamata-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-gara-uilr0b",
         "contributor-trice-of-the-domestic-economy-at-hours-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "beitrag-terrasse-der-heimischen-wirtschaft-in-stunden-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "mitarbeiter-in-haushaltswirtschaft-stundenweise-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -9240,7 +9309,7 @@
         ],
         "de": [
           "mitarbeiter-fur-die-heimische-wirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
-          "beitrag-terrasse-der-heimischen-wirtschaft-in-stunden-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "mitarbeiter-in-haushaltswirtschaft-stundenweise-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
           "contributrice-trice-de-l-economie-nationale-en-heures-eoc-ente-ospedaliero-cantonale-mendrisio",
@@ -9251,7 +9320,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1851/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1851/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1ys",
@@ -9277,9 +9347,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "en": "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "de": "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "en": "phd-anestesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "de": "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "fr": "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Medico Capoclinica – Anestesiologia",
@@ -9324,9 +9394,9 @@
         "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio-uil1ys",
         "candidat-medical-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "phd-anestesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -9336,13 +9406,13 @@
           "candidat-medical-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "en": [
-          "phd-anestesiology-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "de": [
-          "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
-          "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ]
       },
       "salarySource": "estimated",
@@ -9373,9 +9443,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "candidato-medico-chirurgia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medical-candidate-surgery-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "medizinischer-kandidat-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "candidat-medical-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "internship-in-cultural-education-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "praktikant-in-kulturvermittlung-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "stages-dans-l-education-culturelle-80-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Candidato medico - Chirurgia",
@@ -9412,19 +9482,19 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "internship-in-cultural-education-80-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "medical-candidate-surgery-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "praktikant-in-kulturvermittlung-80-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "medizinischer-kandidat-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "stages-dans-l-education-culturelle-80-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "candidat-medical-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "internship-in-cultural-education-80-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "praktikant-in-kulturvermittlung-80-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stages-dans-l-education-culturelle-80-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "medical-candidate-surgery-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medizinischer-kandidat-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "candidat-medical-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2594/Description/4",
@@ -9556,8 +9626,8 @@
       "slugByLocale": {
         "it": "medico-assistente-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "medico-assistente-eoc-ente-ospedaliero-cantonale-lugano-uilm0d",
-        "de": "assistenzarzt-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano"
+        "de": "medizinischer-assistent-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistant-medical-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Medico assistente",
@@ -9605,8 +9675,8 @@
         "medical-assistant-eoc-ente-ospedaliero-cantonale-lugano",
         "arzthelfer-in-eoc-ente-ospedaliero-cantonale-lugano",
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-lugano",
-        "medizinischer-assistent-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistant-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistenzarzt-eoc-ente-ospedaliero-cantonale-lugano",
+        "medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9618,17 +9688,18 @@
           "medical-assistant-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "medizinischer-assistent-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistenzarzt-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
-          "assistant-medical-eoc-ente-ospedaliero-cantonale-lugano"
+          "medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2086/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2086/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2ol",
@@ -9656,8 +9727,8 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -9732,8 +9803,8 @@
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-3",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
-        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -9769,17 +9840,18 @@
           "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1566/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1566/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil5mc",
@@ -9912,7 +9984,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1950/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1950/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmrt",
@@ -10008,7 +10081,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2192/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2192/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilnas",
@@ -10101,7 +10175,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2203/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2203/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilo8e",
@@ -10206,7 +10281,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2384/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2384/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillxu",
@@ -10232,8 +10308,8 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "medico-capoclinica-del-pronto-soccorso-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "head-clinician-of-the-emergency-department-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "oberkliniker-der-notfallstation-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "er-chief-medical-officer-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "er-chief-medical-officer-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-chef-du-service-des-urgences-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -10277,21 +10353,23 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "er-chief-medical-officer-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "head-clinician-of-the-emergency-department-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "oberkliniker-der-notfallstation-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "er-chief-medical-officer-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "head-clinician-of-the-emergency-department-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "er-chief-medical-officer-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "oberkliniker-der-notfallstation-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2058/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2058/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmru",
@@ -10442,7 +10520,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2329/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2329/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1ug",
@@ -10626,7 +10705,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2273/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2273/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilngs",
@@ -10718,7 +10798,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2272/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2272/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmlv",
@@ -10746,7 +10827,7 @@
       "slugByLocale": {
         "it": "psicoterapeuta-in-formazione-40-o-60-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "psychotherapist-in-training-40-or-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "psychotherapeut-in-ausbildung-40-oder-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "psychotherapeutin-im-training-40-oder-60-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "psychotherapeute-en-formation-40-ou-60-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -10791,12 +10872,12 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "psicoterapeuta-in-formazione-40-o-60-eoc-ente-ospedaliero-cantonale-bellinzona-uilmlv",
-        "psychotherapeutin-im-training-40-oder-60-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "psychotherapeut-in-ausbildung-40-oder-60-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
         "de": [
-          "psychotherapeutin-im-training-40-oder-60-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "psychotherapeut-in-ausbildung-40-oder-60-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
@@ -10830,8 +10911,8 @@
       "slugByLocale": {
         "it": "medico-radiologo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medico-radiologo-eoc-ente-ospedaliero-cantonale-bellinzona-uil4ya",
-        "de": "radiologe-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "radiologue-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "berufsbildnerin-in-der-akutgeriatrie-80-100-m-w-d-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "aide-soignante-hf-formatrice-akutgeriatrie-80-100-m-w-d-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Medico radiologo",
@@ -10876,8 +10957,8 @@
         "radiologist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medical-radiologist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medizinische-radiologie-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "berufsbildnerin-in-der-akutgeriatrie-80-100-m-w-d-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "aide-soignante-hf-formatrice-akutgeriatrie-80-100-m-w-d-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "radiologe-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "radiologue-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -10886,17 +10967,18 @@
         ],
         "de": [
           "medizinische-radiologie-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "berufsbildnerin-in-der-akutgeriatrie-80-100-m-w-d-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "radiologe-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "aide-soignante-hf-formatrice-akutgeriatrie-80-100-m-w-d-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "radiologue-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1882/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1882/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilnbm",
@@ -11092,7 +11174,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2090/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2090/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqb9",
@@ -11243,7 +11326,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqbe",
@@ -11403,7 +11487,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqbc",
@@ -11484,7 +11569,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikytv",
@@ -11508,9 +11594,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "informatico-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "computer-scientist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "informatiker-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "informaticien-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "information-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "informationen-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "informations-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Informatico/a",
@@ -11556,9 +11642,9 @@
         "verantwortlichkeiten-und-kompetenzen-eoc-ente-ospedaliero-cantonale-bellinzona",
         "responsabilita-e-competenze-eoc-2026-riapertura-consultazioni-specialistiche-di-allergologia-per-pazienti-adulti-rkf7dn",
         "responsabilita-della-concorrenza-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "information-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "informationen-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "informations-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "computer-scientist-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "informatiker-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "informaticien-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -11576,13 +11662,13 @@
           "lehrlingsstelle-informatiker-in-100-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "en": [
-          "information-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "computer-scientist-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "informationen-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "informatiker-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "informations-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "informaticien-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
@@ -11618,7 +11704,7 @@
       "slugByLocale": {
         "it": "ausiliario-a-di-cucina-a-ore-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "ausiliario-a-di-cucina-a-ore-eoc-ente-ospedaliero-cantonale-mendrisio-uil4vn",
-        "de": "kuchenhilfe-stundenweise-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "de": "kuche-ausiliary-in-stunden-eoc-ente-ospedaliero-cantonale-mendrisio",
         "fr": "assistant-de-cuisine-horaire-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
@@ -11667,7 +11753,7 @@
         "kitchen-ausiliary-at-hours-eoc-ente-ospedaliero-cantonale-mendrisio",
         "ausiliaire-de-cuisine-en-heures-eoc-ente-ospedaliero-cantonale-mendrisio",
         "ausiliario-a-di-cucina-a-ore-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kuche-ausiliary-in-stunden-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "kuchenhilfe-stundenweise-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11677,7 +11763,7 @@
           "kitchen-ausiliary-at-hours-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "de": [
-          "kuche-ausiliary-in-stunden-eoc-ente-ospedaliero-cantonale-mendrisio"
+          "kuchenhilfe-stundenweise-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
           "ausiliaire-de-cuisine-en-heures-eoc-ente-ospedaliero-cantonale-mendrisio"
@@ -11715,7 +11801,7 @@
       "slugByLocale": {
         "it": "medico-capoclinica-otorinolaringoiatria-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "head-of-ent-clinic-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "leiter-der-hno-klinik-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "kopfarzt-otolaryngologie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "chef-de-clinique-orl-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -11762,14 +11848,14 @@
       "previousSlugs": [
         "head-doctor-otolaryngology-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medecin-chef-otolaryngologie-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kopfarzt-otolaryngologie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "leiter-der-hno-klinik-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
           "head-doctor-otolaryngology-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "kopfarzt-otolaryngologie-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "leiter-der-hno-klinik-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "medecin-chef-otolaryngologie-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -12123,7 +12209,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-uiloyb",
@@ -12211,7 +12298,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2477/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2477/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2ns",
@@ -12293,7 +12381,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1558/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1558/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc4",
@@ -12382,7 +12471,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil16d",
@@ -12407,8 +12497,8 @@
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona-uil16d",
-        "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -12451,8 +12541,8 @@
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-3",
         "medico-assistente-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medical-study-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -12469,17 +12559,18 @@
           "medical-study-assistant-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1357/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1357/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillyj",
@@ -12579,7 +12670,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2062/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2062/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc3",
@@ -12658,7 +12750,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc5",
@@ -12827,7 +12920,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk5",
@@ -12990,7 +13084,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2060/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2060/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc7",
@@ -13328,7 +13423,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hw",
@@ -13355,8 +13451,8 @@
       "firstSeenAt": "2026-05-26T22:48:33.043Z",
       "slugByLocale": {
         "it": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4578898863",
-        "en": "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -13375,19 +13471,21 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4578898863",
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "en": [
-          "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio"
+          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
+          "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-        "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio",
-        "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4578898863",
+        "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13405,7 +13503,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hz",
@@ -13435,8 +13534,8 @@
       "slugByLocale": {
         "it": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-ed92dbe4bf",
         "en": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46",
-        "de": "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
+        "de": "mitarbeiter-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "collaborateur-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice della ristorazione",
@@ -13462,21 +13561,23 @@
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz",
+          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-ed92dbe4bf",
           "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz",
-          "mitarbeiter-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
+          "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "collaborateur-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz",
-        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
-        "mitarbeiter-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
-        "collaborateur-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-ed92dbe4bf",
+        "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13527,8 +13628,8 @@
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-6ee461308f",
         "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
-        "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "de": "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -13556,19 +13657,21 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-6ee461308f",
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
-          "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano"
+          "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
-          "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
-        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-        "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-6ee461308f",
+        "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13586,7 +13689,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezsb",
@@ -13649,13 +13753,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6986",
       "previousSlugs": [
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-bbdf540096",
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-bbdf540096",
           "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hs",
@@ -13686,7 +13793,7 @@
       "slugByLocale": {
         "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-940be4999f",
         "en": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
-        "de": "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -13714,17 +13821,19 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-4333hs",
+          "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-940be4999f",
           "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-4333hs",
-          "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-4333hs",
-        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio"
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-940be4999f",
+        "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13742,7 +13851,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hq",
@@ -13770,7 +13880,7 @@
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-826d4c6539",
         "en": "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "beschaftigte-im-gesundheitswesen-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -13790,16 +13900,18 @@
       "previousSlugsByLocale": {
         "it": [
           "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-4333hq",
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-826d4c6539",
           "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "beschaftigte-im-gesundheitswesen-eoc-ente-ospedaliero-cantonale-novaggio"
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-4333hq",
-        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "beschaftigte-im-gesundheitswesen-eoc-ente-ospedaliero-cantonale-novaggio"
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-826d4c6539",
+        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13924,7 +14036,7 @@
       "firstSeenAt": "2026-05-25T12:37:29.985Z",
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-231b85a723",
-        "en": "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "career-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -13944,15 +14056,17 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-231b85a723",
           "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "en": [
-          "career-eoc-ente-ospedaliero-cantonale-novaggio"
+          "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "career-eoc-ente-ospedaliero-cantonale-novaggio"
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-231b85a723",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13998,7 +14112,7 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-b09aeb4079",
         "en": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -14017,15 +14131,17 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-b09aeb4079",
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio"
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-        "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-b09aeb4079",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 63000,
       "salaryMax": 87500,
@@ -14102,11 +14218,13 @@
       "previousSlugsByLocale": {
         "it": [
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-209754acdc",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-209754acdc",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
@@ -14125,7 +14243,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333g0",
@@ -14210,7 +14329,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fe",
@@ -14295,7 +14415,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fd",
@@ -14390,7 +14511,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fc",
@@ -14419,8 +14541,8 @@
       "firstSeenAt": "2026-05-25T12:37:29.985Z",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-0adfe545c3",
-        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -14447,20 +14569,22 @@
       "previousSlugsByLocale": {
         "it": [
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333fc",
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-0adfe545c3",
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "en": [
-          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333fc",
-        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-0adfe545c3",
+        "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -14478,7 +14602,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fb",
@@ -14535,11 +14660,13 @@
       "previousSlugsByLocale": {
         "it": [
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333fb",
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-6b886917c1",
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333fb",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-6b886917c1",
         "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
@@ -14558,7 +14685,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333f9",
@@ -14641,7 +14769,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333f8",
@@ -14738,7 +14867,8 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6986"
+      "postalCode": "6986",
+      "needsRetranslation": true
     },
     {
       "id": "company-feexed",
@@ -14766,7 +14896,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-bc282ea95e",
         "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
-        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -14786,17 +14916,19 @@
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-feexed",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-bc282ea95e",
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-feexed",
-          "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-feexed",
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-bc282ea95e",
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -14815,7 +14947,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-feey97",
@@ -14843,7 +14976,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-dcc79c18a7",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -14865,18 +14998,20 @@
           "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97",
           "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-dcc79c18a7",
           "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97",
         "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-dcc79c18a7",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -14976,11 +15111,13 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-fefp1q",
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-867099acb2",
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedali"
         ]
       },
       "previousSlugs": [
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-fefp1q",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-867099acb2",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedali"
       ]
     },
@@ -15010,7 +15147,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-9c3e1bbaff",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -15030,16 +15167,18 @@
       "previousSlugsByLocale": {
         "it": [
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-fef1x1",
+          "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-9c3e1bbaff",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-fef1x1",
-        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-9c3e1bbaff",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -15058,7 +15197,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezrd",
@@ -15086,8 +15226,8 @@
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-80b812d57f",
         "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
-        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice economia domestica",
@@ -15105,21 +15245,23 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-80b812d57f",
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-80b812d57f",
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -15138,7 +15280,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezrj",
@@ -15194,6 +15337,7 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-4341b7efb5",
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "en": [
@@ -15204,6 +15348,7 @@
         ]
       },
       "previousSlugs": [
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-4341b7efb5",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 63000,
@@ -15254,7 +15399,7 @@
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-f5699a847d",
         "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "stage-dans-le-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -15279,11 +15424,12 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-f5699a847d",
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "stage-dans-le-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "en": [
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -15293,8 +15439,9 @@
         ]
       },
       "previousSlugs": [
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-dans-le-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-f5699a847d",
+        "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 63000,
       "salaryMax": 87500,
@@ -15341,7 +15488,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-8802e10c91",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -15360,15 +15507,17 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-8802e10c91",
           "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-8802e10c91",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -15460,7 +15609,8 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n9c",
@@ -15541,7 +15691,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/991/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/991/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpql",
@@ -15942,8 +16093,8 @@
       "slugByLocale": {
         "it": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-f5776693b0",
         "en": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46",
-        "de": "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
+        "de": "mitarbeiter-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "collaborateur-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice della ristorazione",
@@ -15969,20 +16120,22 @@
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hy",
+          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-f5776693b0",
           "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "mitarbeiter-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
+          "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "collaborateur-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hy",
-        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
-        "mitarbeiter-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
-        "collaborateur-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-f5776693b0",
+        "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -16096,7 +16249,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1423/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1423/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1tg",
@@ -16121,8 +16275,8 @@
       "slugByLocale": {
         "it": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona-uil1tg",
-        "de": "pflegeassistent-in-oder-sozialpflegekraft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "aide-soignant-e-ou-personnel-de-soins-sociaux-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Assistente di cura o addetto/a alle cure sociosanitarie",
@@ -16161,8 +16315,8 @@
         "assistente-di-cura-o-prepose-e-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
         "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-canton-uil1tg",
-        "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "pflegeassistent-in-oder-sozialpflegekraft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "aide-soignant-e-ou-personnel-de-soins-sociaux-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16174,10 +16328,10 @@
           "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "karriere-oder-gesundheitsassistent-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "pflegeassistent-in-oder-sozialpflegekraft-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "aide-soignant-e-ou-personnel-de-soins-sociaux-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "country": "CH",
@@ -16211,7 +16365,7 @@
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-locarno"
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -16249,7 +16403,7 @@
       "previousSlugs": [
         "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-locarno",
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-locarno-2",
-        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-locarno"
+        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16259,14 +16413,15 @@
           "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "fr": [
-          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-locarno"
+          "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-locarno"
         ]
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1128/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1128/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqb7",
@@ -16434,7 +16589,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpse",
@@ -16521,7 +16677,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2795/description/4",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsb",
@@ -16678,7 +16835,8 @@
         "biologo-a-responsabile-del-servizio-di-chimica-clinica-80-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsd",
@@ -16832,7 +16990,8 @@
         "assistente-alla-direzione-dell-area-infermieristica-e-medico-tecnica-eoc-80-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefprl",
@@ -17077,7 +17236,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2786/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2786/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppo",
@@ -17394,7 +17554,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2741/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2741/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefprg",
@@ -18111,7 +18272,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -18166,7 +18327,7 @@
         "de": [
           "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
           "dipl-ernahrungsberater-in-40-eoc-ente-ospedaliero-cantonale-novaggio",
-          "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-novaggio"
+          "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "personnel-administratif-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -18189,14 +18350,15 @@
         "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio",
         "administrative-staff-eoc-ente-ospedaliero-cantonale-novaggio",
-        "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-novaggio"
+        "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/955/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/955/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpqn",
@@ -18280,7 +18442,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2774/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2774/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpqk",
@@ -18386,7 +18549,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2771/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2771/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppv",
@@ -18484,7 +18648,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2767/Description/4",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2767/description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpps",
@@ -18659,7 +18824,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2769/description/4",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2769/Description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppt",
@@ -18872,7 +19038,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2759/description/4",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2759/Description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk8",
@@ -18945,7 +19112,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2108/description/4",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2108/Description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppw",
@@ -19149,7 +19317,8 @@
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2743/description/4",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2743/Description/4",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppr",
@@ -19246,7 +19415,8 @@
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2763/Description/4",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilr4j",
@@ -19347,111 +19517,6 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2752/description/4",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2752/Description/4",
-      "datePosted": "",
-      "postingDateSource": "unknown"
-    },
-    {
-      "id": "company-uil41l",
-      "slug": "addetto-a-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "title": "Addetto/a ai trasporti",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "health",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "Addetto/a ai trasporti - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Addetto/a ai trasporti Profilo La/Il futura/o collaboratrice/ore agisce in un contesto multidisciplinare. Esegue nel rispetto di procedure di lavoro definite (tempi, modalità) tutte le attività operative del settore, atte a garantire il trasporto interno dei pazienti tra i reparti della clinica. In possesso di competenze relazionali e organizzative, riesce a gestire autonomamente carichi di lavoro importanti coordinando con grande spirito di collaborazione le attività con i vari servizi della clinica ai bisogni dei pazienti. Persona discreta, flessibile, si dimostra disponibile, precisa e puntuale Requisiti necessari\n• buone capacità organizzative\n• ottime competenze relazionali-comunicative\n• disponibilità al lavoro a turni\n• orientamento al cambiamento e all’auto sviluppo\n• ottima conoscenza della lingua italiana\n• conoscenza dei consueti strumenti informatici Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - il nostro ospedale Interessato/a?",
-      "requirements": [
-        "Persona discreta, flessibile, si dimostra disponibile, precisa e puntuale Requisiti necessari",
-        "ottima conoscenza della lingua italiana"
-      ],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://recruitingapp-2761.umantis.com/Vacancies/1713/Description/4",
-      "source": "Company Careers Crawler",
-      "companyKey": "eoc-ente-ospedaliero-cantonale",
-      "companyDomain": "eoc.ch",
-      "crawledAt": "2026-08-18T21:56:30.850Z",
-      "firstSeenAt": "2026-05-21T11:53:54.295Z",
-      "slugByLocale": {
-        "it": "addetto-a-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "transport-officer-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "transportmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "responsable-des-transports-eoc-ente-ospedaliero-cantonale-bellinzona"
-      },
-      "titleByLocale": {
-        "it": "Addetto/a ai trasporti",
-        "en": "Associate ai trasporti",
-        "de": "Mitarbeiter/in ai trasporti",
-        "fr": "Fixation au transport"
-      },
-      "descriptionByLocale": {
-        "it": "Addetto/a ai trasporti - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Addetto/a ai trasporti Profilo La/Il futura/o collaboratrice/ore agisce in un contesto multidisciplinare. Esegue nel rispetto di procedure di lavoro definite (tempi, modalità) tutte le attività operative del settore, atte a garantire il trasporto interno dei pazienti tra i reparti della clinica. In possesso di competenze relazionali e organizzative, riesce a gestire autonomamente carichi di lavoro importanti coordinando con grande spirito di collaborazione le attività con i vari servizi della clinica ai bisogni dei pazienti. Persona discreta, flessibile, si dimostra disponibile, precisa e puntuale Requisiti necessari\n• buone capacità organizzative\n• ottime competenze relazionali-comunicative\n• disponibilità al lavoro a turni\n• orientamento al cambiamento e all’auto sviluppo\n• ottima conoscenza della lingua italiana\n• conoscenza dei consueti strumenti informatici Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - il nostro ospedale Interessato/a?",
-        "en": "Addetto/a ai trasporti - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the entire cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality health care to 380,000 patients per year. The following position is addressed to candidates wishing to submit a spontaneous application such as Attachment to Transport Profile La/The future/cooperative/hour acts in a multidisciplinary context. It performs in compliance with defined working procedures (tamps, modes) all operational activities in the field, to ensure the internal transport of patients between the departments of the clinic. In possession of relational and organizational skills, he manages to independently manage important workloads by coordinating with great spirit of collaboration the activities with the various services of the clinic to the needs of patients. Discreet, flexible person, proves available, precise and punctual Requirements\n• good organizational skills\n• excellent relation-communicative skills\n• availability at shiftwork\n• guidance on change and self-development\n• excellent knowledge of the Italian language\n• knowledge of the usual IT tools Comments --> Applications of those who do not have the above requirements will not be taken into account in any case and consequently will be deleted from our database. Applications will be assessed only in case of service requirements. As a position for spontaneous applications, telephone information is not released. EOC - our hospital Interested?",
-        "de": "Addetto/a ai trasporti - Ausschreibung L’EOC ist das Multisite Krankenhaus von Ticino mit seinen Instituten auf dem gesamten Kantongebiet für insgesamt 1’000 Betten. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtsicht effektiv zu kombinieren, um der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit auf die menschliche Beziehung bietet EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Position richtet sich an Kandidaten, die eine spontane Anwendung wie Attachment to Transport Profile La/The future/cooperative/hour Acts in einem multidisziplinären Kontext einreichen möchten. Es erfüllt in Übereinstimmung mit definierten Arbeitsverfahren (Tamps, Modi) alle operativen Tätigkeiten im Bereich, um den internen Transport von Patienten zwischen den Abteilungen der Klinik zu gewährleisten. Im Besitz von relationalen und organisatorischen Fähigkeiten gelingt es ihm, wichtige Workloads unabhängig zu verwalten, indem er mit großem Geist der Zusammenarbeit die Aktivitäten mit den verschiedenen Dienstleistungen der Klinik an die Bedürfnisse der Patienten koordiniert. diskrete, flexible Person, erweist sich als verfügbar, präzise und pünktliche Anforderungen\n• gute organisatorische Fähigkeiten\n• ausgezeichnete relationale Fähigkeiten\n• Verfügbarkeit bei Schichtarbeit\n• Leitlinien für Veränderungen und Selbstentwicklung\n• ausgezeichnete Kenntnisse der italienischen Sprache\n• Kenntnis der üblichen IT-Tools Kommentare --> Anwendungen von denen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und werden daher aus unserer Datenbank gelöscht. Die Bewerbungen werden nur im Falle der Leistungsanforderungen bewertet. Als Position für spontane Anwendungen werden keine Telefoninformationen freigegeben. EOC - unser Krankenhaus interessiert?",
-        "fr": "Addetto/a ai trasporti - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, le COE fournit des soins de santé de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats et candidates qui désirent présenter une demande spontanée, comme l'annexe au profil de transport La/L'avenir/la coopération/l'heure agit dans un contexte multidisciplinaire. Il effectue en conformité avec les procédures de travail définies (tampes, modes) toutes les activités opérationnelles sur le terrain, pour assurer le transport interne des patients entre les départements de la clinique. En possession de compétences relationnelles et organisationnelles, il parvient à gérer de façon indépendante des charges de travail importantes en coordonnant avec un grand esprit de collaboration les activités avec les différents services de la clinique aux besoins des patients. Discret, personne flexible, s'avère disponible, précise et ponctuelle\n• bonnes compétences organisationnelles\n• excellentes compétences relation-communicative\n• disponibilité au travail posté\n• Orientations sur le changement et l'autodéveloppement\n• excellente connaissance de la langue italienne\n• connaissance des outils informatiques habituels Commentaires --> Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc supprimées de notre base de données. Les demandes ne seront évaluées qu'en cas d'exigences de service. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. EOC - notre hôpital Intéressé?"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Persona discreta, flessibile, si dimostra disponibile, precisa e puntuale Requisiti necessari",
-          "ottima conoscenza della lingua italiana"
-        ],
-        "en": [],
-        "de": [],
-        "fr": []
-      },
-      "sourceLang": "it",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Viale Officina 3",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "prepose-e-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona-uil41l",
-          "mitarbeiter-in-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona-uil41l"
-        ],
-        "en": [
-          "attachment-to-transport-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "associate-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona"
-        ],
-        "de": [
-          "anlage-zum-transport-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "mitarbeiter-in-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona-uil41l",
-          "mitarbeiter-in-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona"
-        ],
-        "fr": [
-          "prepose-e-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "fixation-au-transport-eoc-ente-ospedaliero-cantonale-bellinzona"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona-uil41l",
-        "prepose-e-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "prepose-e-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona-uil41l",
-        "attachment-to-transport-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "anlage-zum-transport-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "associate-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "mitarbeiter-in-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fixation-au-transport-eoc-ente-ospedaliero-cantonale-bellinzona"
-      ],
-      "country": "CH",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1713/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1713/Description/4",
       "datePosted": "",
       "postingDateSource": "unknown"
     }

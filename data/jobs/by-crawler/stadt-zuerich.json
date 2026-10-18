@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-zuerich",
-  "assembledAt": "2026-10-17T21:45:56.858Z",
+  "assembledAt": "2026-10-18T09:26:10.741Z",
   "jobs": [
     {
       "id": "stadt-zuerich-8f02b2cb798e",
@@ -582,7 +582,8 @@
           "maxValue": 151500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-682f929dfdaf",
@@ -1586,7 +1587,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-80462e0a9a3c",
@@ -1844,7 +1846,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-98e603af1eec",
@@ -1931,7 +1934,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0d558285aebc",
@@ -2445,7 +2449,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f8333d2ae244",
@@ -2618,7 +2623,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-af5a7d365f13",
@@ -3615,7 +3621,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-705ac0a0f9e5",
@@ -3865,7 +3872,8 @@
           "maxValue": 175500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b56cb06ec565",
@@ -4201,7 +4209,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-43ca001eb247",
@@ -4622,13 +4631,14 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"
@@ -4679,11 +4689,15 @@
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51056",
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
@@ -4699,7 +4713,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-eeccc142ea6f",
@@ -5188,7 +5203,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d87226ddad9a",
@@ -5431,7 +5447,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-df32afdc5059",
@@ -5593,7 +5610,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-406fdfef970b",
@@ -6500,7 +6518,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-2aaa828a4a95",
@@ -6577,7 +6596,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-690738f6cef5",
@@ -6824,7 +6844,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-cd3e6b6ea98f",
@@ -6901,7 +6922,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ac3fdab0287f",
@@ -6980,7 +7002,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3af1085c6ba3",
@@ -7059,7 +7082,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-cd8057ac0550",
@@ -7138,7 +7162,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-46feb067c099",
@@ -7312,13 +7337,14 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-424168fc48ff",
       "slug": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "it": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-15ad59",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-15ad59"
@@ -7372,14 +7398,18 @@
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
-        "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d"
+        "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
+        "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
-          "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d"
+          "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
+          "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -7398,13 +7428,14 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bf97b1cf4fd8",
       "slug": "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-dfd0132793",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "it": "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-dfd0132793",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -7457,13 +7488,17 @@
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-        "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-077f501933"
+        "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-077f501933",
+        "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-dfd0132793",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-          "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-077f501933"
+          "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-077f501933",
+          "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-dfd0132793",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -7479,7 +7514,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c9ee943891a3",
@@ -7563,13 +7599,14 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7fbfffba9e11",
       "slug": "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-2d09de618a",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "it": "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-2d09de618a",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10"
@@ -7622,13 +7659,17 @@
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-        "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-7029bd6e38"
+        "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-7029bd6e38",
+        "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-2d09de618a",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-          "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-7029bd6e38"
+          "operatore-socioassistenziale-afc-indirizzo-assistenza-all-infanzia-stadt-zurich-zurich-7029bd6e38",
+          "operatore-trice-socioassistenziale-afc-indirizzo-infanzia-stadt-zurich-zurich-2d09de618a",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -7644,7 +7685,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ebe0e147c966",
@@ -7836,7 +7878,8 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e9e38224a2be",
@@ -8132,7 +8175,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b397c8dc8359",
@@ -8572,7 +8616,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-98cecf3f53ad",
@@ -8737,7 +8782,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b6a8e61f208b",
@@ -8903,7 +8949,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-118c21dce00e",
@@ -9406,7 +9453,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d1b1fc033842",
@@ -9584,7 +9632,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-fda74a2abf96",
@@ -10413,7 +10462,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1fbe6444fa3a",
@@ -10497,7 +10547,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c02c071a2b43",
@@ -10580,13 +10631,14 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-04358cd59fd3",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
@@ -10641,7 +10693,9 @@
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ],
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
         ],
         "en": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich"
@@ -10652,7 +10706,9 @@
       },
       "previousSlugs": [
         "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
       ],
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
       "salaryMin": 53500,
@@ -10667,7 +10723,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a369fd03e303",
@@ -10807,7 +10864,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7aadf973320c",
@@ -10907,7 +10965,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e25b917ad8e9",
@@ -11006,7 +11065,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-acb5576b08d6",
@@ -11259,7 +11319,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3f81c02555c9",
@@ -11596,9 +11657,9 @@
       "slug": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
-        "en": "removal-and-cleaning-power-stadt-zurich-zurich",
+        "en": "relief-worker-and-cleaner-stadt-zurich",
         "de": "abloser-in-und-reinigungskraft-stadt-zuerich-zurigo-51435",
-        "fr": "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
+        "fr": "remplacant-e-et-agent-e-d-entretien-stadt-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11651,8 +11712,8 @@
         "abloser-in-e-reinigungskraft-stadt-zurich",
         "detachment-and-cleaner-stadt-zurich",
         "abloser-in-und-reinigungskraft-stadt-zurich",
-        "relief-worker-and-cleaner-stadt-zurich",
-        "remplacant-e-et-agent-e-d-entretien-stadt-zurich"
+        "removal-and-cleaning-power-stadt-zurich-zurich",
+        "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11663,11 +11724,11 @@
         ],
         "en": [
           "abloser-in-und-reinigungskraft-stadt-zurich",
-          "relief-worker-and-cleaner-stadt-zurich"
+          "removal-and-cleaning-power-stadt-zurich-zurich"
         ],
         "fr": [
           "abloser-in-und-reinigungskraft-stadt-zurich",
-          "remplacant-e-et-agent-e-d-entretien-stadt-zurich"
+          "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T14:26:21.615Z",
@@ -11768,7 +11829,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-4d14e0e913d5",
@@ -11892,7 +11954,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-8a306e5aa232",
@@ -12052,7 +12115,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-15fcb8cc818c",
@@ -12482,7 +12546,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-672f8640b677",
@@ -12569,7 +12634,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-738bca364331",
@@ -12690,7 +12756,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a8630678b187",
@@ -12825,7 +12892,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-959c44808e18",
@@ -12912,7 +12980,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-299207b9eef3",
@@ -13182,7 +13251,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e7f5ebc7c209",
@@ -13914,7 +13984,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-87311ee50a2f",
@@ -13998,7 +14069,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-5e63bd4ddd32",
@@ -14163,7 +14235,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-efb24abbb4b7",
@@ -14489,7 +14562,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-fffa6d446439",
@@ -14572,7 +14646,7 @@
       "id": "stadt-zuerich-18d96bb91c32",
       "slug": "formatore-formatrice-per-corsi-zl-applicativo-interno-stadt-zurich",
       "slugByLocale": {
-        "it": "formazione-per-istruttore-zl-in-propria-applicazione-stadt-zurich-zurich",
+        "it": "formatore-formatrice-per-corsi-zl-applicativo-interno-stadt-zurich",
         "en": "instructor-zl-training-in-own-application-stadt-zurich-zurich",
         "de": "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852",
         "fr": "formation-d-instructeur-zl-dans-la-propre-application-stadt-zurich-zurich"
@@ -14625,13 +14699,15 @@
       "previousSlugs": [
         "ausbilder-in-applikationsschulung-stadt-zuerich-zurigo-51852",
         "ausbilder-in-applikationsschulung-stadt-zurich-zurich",
-        "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852"
+        "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852",
+        "formazione-per-istruttore-zl-in-propria-applicazione-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbilder-in-applikationsschulung-stadt-zuerich-zurigo-51852",
           "ausbilder-in-applikationsschulung-stadt-zurich-zurich",
-          "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852"
+          "ausbilder-in-zl-schulungen-in-eigener-applikation-stadt-zuerich-zurigo-51852",
+          "formazione-per-istruttore-zl-in-propria-applicazione-stadt-zurich-zurich"
         ],
         "en": [
           "ausbilder-in-applikationsschulung-stadt-zurich-zurich",
@@ -14658,7 +14734,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bd8c02aa73de",
@@ -14988,7 +15065,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-9c1ed5e40372",
@@ -16416,7 +16494,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d42cd8110853",
@@ -16493,7 +16572,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c0f663ddf0d7",
@@ -16570,7 +16650,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-82f9f169f016",
@@ -16940,7 +17021,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e9172bd0e353",
@@ -17017,7 +17099,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-499ffd8cab29",
@@ -17338,7 +17421,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-73eda6d1ffd9",
@@ -17907,7 +17991,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-22fd00e72ee2",
@@ -17984,7 +18069,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d39f47ab944d",
@@ -18296,7 +18382,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0eea3230019c",
@@ -18462,7 +18549,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-df0dd583628b",
@@ -18885,7 +18973,7 @@
       "id": "stadt-zuerich-538bb2f40006",
       "slug": "giardiniere-ra-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-a8402fbc13",
       "slugByLocale": {
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "it": "giardiniere-ra-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-a8402fbc13",
         "en": "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
         "fr": "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
@@ -18938,12 +19026,16 @@
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
         "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
+        "giardiniere-ra-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-a8402fbc13",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3"
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
+          "giardiniere-ra-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-a8402fbc13",
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
         ],
         "en": [
           "gartner-in-garten-und-landschaftsbau-stadt-zurich"
@@ -19372,7 +19464,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "pilote-tram-stadt-zurich-zurich"
+        "fr": "trampilot-in-stadt-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -19422,7 +19514,7 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "trampilot-in-stadt-zurich"
+        "pilote-tram-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19430,7 +19522,7 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "trampilot-in-stadt-zurich"
+          "pilote-tram-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.172Z",
@@ -19454,7 +19546,7 @@
       "slugByLocale": {
         "it": "responsabile-del-team-gestione-di-immobili-commerciali-strutture-di-parcheggio-stadt-zurich-zurich",
         "en": "team-leader-management-of-commercial-parking-structures-stadt-zurich-zurich",
-        "de": "teamleiter-in-bewirtschaftung-gewerbe-parkierungsbauten-stadt-zuerich-zurigo-51859",
+        "de": "teamleiter-in-bewirtschaftung-gewerbe-parkierungsbauten-stadt-zurich-zurich",
         "fr": "responsable-d-equipe-gestion-des-batiments-commerciaux-des-ouvrages-de-stationnement-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19516,6 +19608,9 @@
         ],
         "fr": [
           "teamleiter-in-bewirtschaftung-gewerbe-parkierungsbauten-stadt-zurich-zurich"
+        ],
+        "de": [
+          "teamleiter-in-bewirtschaftung-gewerbe-parkierungsbauten-stadt-zuerich-zurigo-51859"
         ]
       },
       "firstSeenAt": "2026-10-16T09:45:30.991Z",
@@ -19537,7 +19632,7 @@
       "id": "stadt-zuerich-4c1268109a4a",
       "slug": "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-3a20c00f02",
       "slugByLocale": {
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "it": "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-3a20c00f02",
         "en": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
         "fr": "gartner-in-garten-e-landschaftsbau-stadt-zurich"
@@ -19588,11 +19683,15 @@
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51868",
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868"
+        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
+        "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-3a20c00f02",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868"
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
+          "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-3a20c00f02",
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.869Z",
@@ -19774,7 +19873,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1bd8df25834c",
@@ -19860,7 +19960,7 @@
         "it": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich",
         "en": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich",
         "de": "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "fr": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+        "fr": "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -19909,14 +20009,14 @@
       "referenceNumber": "51803",
       "previousSlugs": [
         "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
+        "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803"
         ],
         "fr": [
-          "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
+          "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
@@ -20061,10 +20161,10 @@
       "id": "stadt-zuerich-a8ec3b1d4c21",
       "slug": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
       "slugByLocale": {
-        "it": "allenamento-in-giardino-urbano-stadt-zurich-zurich",
-        "en": "trainee-in-urban-gardening-stadt-zurich-zurich",
+        "it": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
+        "en": "municipal-horticulture-intern-stadt-zurich",
         "de": "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-        "fr": "stage-en-jardinage-urbain-stadt-zurich-zurich"
+        "fr": "stagiaire-en-horticulture-urbaine-stadt-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -20114,19 +20214,21 @@
       "previousSlugs": [
         "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
         "praktikant-in-stadtgartnerei-stadt-zurich",
-        "municipal-horticulture-intern-stadt-zurich",
-        "stagiaire-en-horticulture-urbaine-stadt-zurich"
+        "allenamento-in-giardino-urbano-stadt-zurich-zurich",
+        "trainee-in-urban-gardening-stadt-zurich-zurich",
+        "stage-en-jardinage-urbain-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-          "praktikant-in-stadtgartnerei-stadt-zurich"
+          "praktikant-in-stadtgartnerei-stadt-zurich",
+          "allenamento-in-giardino-urbano-stadt-zurich-zurich"
         ],
         "en": [
-          "municipal-horticulture-intern-stadt-zurich"
+          "trainee-in-urban-gardening-stadt-zurich-zurich"
         ],
         "fr": [
-          "stagiaire-en-horticulture-urbaine-stadt-zurich"
+          "stage-en-jardinage-urbain-stadt-zurich-zurich"
         ]
       },
       "salaryMin": 57500,
@@ -20226,7 +20328,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a947fdb4e9c2",
@@ -21642,7 +21745,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1e8f77f7dbee",
@@ -21721,7 +21825,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1d0f5a03960f",
@@ -21802,7 +21907,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7831012b0a02",
@@ -21892,7 +21998,7 @@
       "slug": "kontraktmanager-in-con-schwerpunkt-flucht-e-migration-stadt-zurich",
       "slugByLocale": {
         "it": "kontraktmanager-in-con-schwerpunkt-flucht-e-migration-stadt-zurich",
-        "en": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich",
+        "en": "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich",
         "de": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879",
         "fr": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
       },
@@ -21943,14 +22049,14 @@
       "referenceNumber": "51879",
       "previousSlugs": [
         "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879",
-        "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich"
+        "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879"
         ],
         "en": [
-          "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich"
+          "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -22127,7 +22233,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0a929cbf7c05",
@@ -22212,7 +22319,7 @@
       "slugByLocale": {
         "it": "servizio-del-museum-cafe-stadt-zurich-zurich",
         "en": "service-of-the-museum-cafe-stadt-zurich-zurich",
-        "de": "serviceleitung-museumscafe-stadt-zuerich-zurigo-51906",
+        "de": "serviceleitung-museumscafe-stadt-zurich-zurich",
         "fr": "service-du-cafe-du-musee-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -22271,6 +22378,9 @@
           "serviceleitung-museumscafe-stadt-zuerich-zurigo-51906"
         ],
         "fr": [
+          "serviceleitung-museumscafe-stadt-zuerich-zurigo-51906"
+        ],
+        "de": [
           "serviceleitung-museumscafe-stadt-zuerich-zurigo-51906"
         ]
       },
@@ -23200,7 +23310,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-27bbb876c2dd",
@@ -23608,7 +23719,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c96311261391",
@@ -25745,7 +25857,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-20ed34b07c1e",
@@ -25999,7 +26112,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c993a6081127",
@@ -26746,7 +26860,8 @@
           "maxValue": 46600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-018aad6967c6",
@@ -26908,7 +27023,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-622f0f454701",
@@ -26987,7 +27103,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-586b20379d7c",
@@ -27311,7 +27428,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-71ab1b7c51e6",
@@ -27394,7 +27512,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f10b9bc5e251",
@@ -27402,7 +27521,7 @@
       "slugByLocale": {
         "it": "responsabile-del-gruppo-officina-della-nettezza-urbana-stadt-zurich-zurich",
         "en": "head-of-the-street-cleaning-workshop-group-stadt-zurich-zurich",
-        "de": "leiter-in-gruppe-werkstatt-stadtreinigung-stadt-zuerich-zurigo-51940",
+        "de": "leiter-in-gruppe-werkstatt-stadtreinigung-stadt-zurich-zurich",
         "fr": "responsable-du-groupe-atelier-du-nettoyage-urbain-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27463,6 +27582,9 @@
           "leiter-in-gruppe-werkstatt-stadtreinigung-stadt-zuerich-zurigo-51940"
         ],
         "fr": [
+          "leiter-in-gruppe-werkstatt-stadtreinigung-stadt-zuerich-zurigo-51940"
+        ],
+        "de": [
           "leiter-in-gruppe-werkstatt-stadtreinigung-stadt-zuerich-zurigo-51940"
         ]
       },
@@ -27647,7 +27769,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-77be16f94ca5",
@@ -27733,7 +27856,8 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-da7628e37d72",
@@ -28472,7 +28596,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f557a1701597",
@@ -28798,7 +28923,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-059638d2fe58",
@@ -29133,7 +29259,8 @@
           "maxValue": 151500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-642a67a61cbd",
@@ -29364,16 +29491,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-2cbf050ac05f",
       "slug": "tirocinante-universitario-a-nello-sviluppo-software-12-mesi-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich",
+        "it": "tirocinante-universitario-a-nello-sviluppo-software-12-mesi-stadt-zurich-zurich",
         "en": "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zuerich-zurigo-51977",
-        "fr": "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
+        "fr": "stagiaire-universitaire-en-developpement-logiciel-12-mois-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29422,14 +29550,15 @@
       "referenceNumber": "51977",
       "previousSlugs": [
         "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zuerich-zurigo-51977",
-        "stagiaire-universitaire-en-developpement-logiciel-12-mois-stadt-zurich-zurich"
+        "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zuerich-zurigo-51977"
+          "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zuerich-zurigo-51977",
+          "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
         ],
         "fr": [
-          "stagiaire-universitaire-en-developpement-logiciel-12-mois-stadt-zurich-zurich"
+          "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-15T21:51:23.656Z",
@@ -29780,7 +29909,7 @@
       "slugByLocale": {
         "it": "specialista-nella-gestione-delle-informazioni-stadt-zurich-zurich",
         "en": "information-management-specialist-stadt-zurich-zurich",
-        "de": "fachbearbeiter-in-informationsmanagement-stadt-zuerich-zurigo-51969",
+        "de": "fachbearbeiter-in-informationsmanagement-stadt-zurich-zurich",
         "fr": "collaborateur-trice-specialise-e-en-gestion-de-l-information-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29846,7 +29975,8 @@
           "fachbearbeiter-in-informationsmanagement-stadt-zurich"
         ],
         "de": [
-          "informationsspezialist-in-stadt-zuerich-zurigo-51969"
+          "informationsspezialist-in-stadt-zuerich-zurigo-51969",
+          "fachbearbeiter-in-informationsmanagement-stadt-zuerich-zurigo-51969"
         ],
         "fr": [
           "informationsspezialist-in-stadt-zurich-zurich",
@@ -29874,7 +30004,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-giuridico-a-presso-l-ufficio-dell-ombudsman-a-tempo-determinato-stadt-zurich-zurich",
         "en": "legal-staff-member-at-the-ombuds-office-fixed-term-stadt-zurich-zurich",
-        "de": "juristische-r-mitarbeiter-in-bei-der-ombudsstelle-befristet-stadt-zuerich-zurigo-51982",
+        "de": "juristische-r-mitarbeiter-in-bei-der-ombudsstelle-befristet-stadt-zurich-zurich",
         "fr": "collaborateur-rice-juridique-aupres-du-service-de-mediation-a-duree-determinee-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29937,6 +30067,9 @@
         ],
         "fr": [
           "juristische-r-mitarbeiter-in-bei-der-ombudsstelle-befristet-stadt-zurich-zurich"
+        ],
+        "de": [
+          "juristische-r-mitarbeiter-in-bei-der-ombudsstelle-befristet-stadt-zuerich-zurigo-51982"
         ]
       },
       "firstSeenAt": "2026-10-16T09:45:30.982Z",
@@ -29960,7 +30093,7 @@
       "slugByLocale": {
         "it": "housekeeper-stadt-zurich-zurich",
         "en": "housekeeper-stadt-zurich-zurich",
-        "de": "hauswart-in-stadt-zuerich-zurigo-51984",
+        "de": "hauswart-in-stadt-zurich-zurich",
         "fr": "femme-de-menage-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -30020,6 +30153,9 @@
         ],
         "fr": [
           "hauswart-in-stadt-zuerich-zurigo-51984"
+        ],
+        "de": [
+          "hauswart-in-stadt-zuerich-zurigo-51984"
         ]
       },
       "firstSeenAt": "2026-10-16T09:45:30.983Z",
@@ -30043,7 +30179,7 @@
       "slugByLocale": {
         "it": "tirocinante-in-ambito-giuridico-presso-l-ufficio-dell-ombudsman-a-tempo-determinato-stadt-zurich-zurich",
         "en": "legal-intern-at-the-ombuds-office-fixed-term-stadt-zurich-zurich",
-        "de": "juristische-r-praktikant-in-bei-der-ombudsstelle-befristet-stadt-zuerich-zurigo-51986",
+        "de": "juristische-r-praktikant-in-bei-der-ombudsstelle-befristet-stadt-zurich-zurich",
         "fr": "stagiaire-juridique-aupres-du-service-de-mediation-a-duree-determinee-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -30105,6 +30241,9 @@
         ],
         "fr": [
           "juristische-r-praktikant-in-bei-der-ombudsstelle-befristet-stadt-zuerich-zurigo-51986"
+        ],
+        "de": [
+          "juristische-r-praktikant-in-bei-der-ombudsstelle-befristet-stadt-zuerich-zurigo-51986"
         ]
       },
       "firstSeenAt": "2026-10-16T09:45:30.983Z",
@@ -30128,7 +30267,7 @@
       "slugByLocale": {
         "it": "gestione-del-programma-pianificazione-finanziaria-strategica-stadt-zurich-zurich",
         "en": "programme-management-strategic-financial-planning-stadt-zurich-zurich",
-        "de": "programmleitung-strategische-finanzplanung-stadt-zuerich-zurigo-51993",
+        "de": "programmleitung-strategische-finanzplanung-stadt-zurich-zurich",
         "fr": "gestion-du-programme-planification-financiere-strategique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -30190,6 +30329,9 @@
         ],
         "fr": [
           "programmleitung-strategische-finanzplanung-stadt-zurich-zurich"
+        ],
+        "de": [
+          "programmleitung-strategische-finanzplanung-stadt-zuerich-zurigo-51993"
         ]
       },
       "firstSeenAt": "2026-10-16T21:58:13.554Z",
@@ -30213,7 +30355,7 @@
       "slugByLocale": {
         "it": "insegnante-specializzato-in-due-classi-primarie-incl-francese-scuola-booksale-stadt-zurich-zurich",
         "en": "specialist-teacher-at-two-5th-primary-classes-incl-french-school-booksale-stadt-zurich-zurich",
-        "de": "fachlehrperson-an-zwei-5-primarklassen-inkl-franzosisch-schule-buchwiesen-stadt-zuerich",
+        "de": "fachlehrperson-an-zwei-5-primarklassen-inkl-franzosisch-schule-buchwiesen-stadt-zurich-zurich",
         "fr": "professeur-specialise-dans-deux-cinquiemes-classes-primaires-y-compris-francais-school-booksale-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -30272,6 +30414,9 @@
           "fachlehrperson-an-zwei-5-primarklassen-inkl-franzosisch-schule-buchwiesen-stadt-zuerich"
         ],
         "fr": [
+          "fachlehrperson-an-zwei-5-primarklassen-inkl-franzosisch-schule-buchwiesen-stadt-zuerich"
+        ],
+        "de": [
           "fachlehrperson-an-zwei-5-primarklassen-inkl-franzosisch-schule-buchwiesen-stadt-zuerich"
         ]
       },
@@ -30528,7 +30673,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0520b53e9f36",
@@ -30856,7 +31002,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-cff3bb2c8853",
@@ -31280,7 +31427,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-817eab40c0fc",
@@ -31357,14 +31505,15 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-6afbb8ea368a",
       "slug": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
-        "en": "university-intern-computer-science-12-months-stadt-zurich-zurich",
+        "en": "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "fr": "stagiaire-universitaire-en-informatique-12-mois-stadt-zurich-zurich"
       },
@@ -31416,7 +31565,8 @@
       "previousSlugs": [
         "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
-        "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
+        "hochschulpraktikant-in-informatik-12-monate-stadt-zurich",
+        "university-intern-computer-science-12-months-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -31424,8 +31574,8 @@
           "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich"
         ],
         "en": [
-          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
-          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
+          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich",
+          "university-intern-computer-science-12-months-stadt-zurich-zurich"
         ],
         "fr": [
           "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich"
@@ -31523,7 +31673,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-46022fcaa10b",
@@ -31600,7 +31751,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3c2d5897965a",
@@ -31679,7 +31831,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0f8b3f9082ad",
@@ -31924,7 +32077,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-79115d2f3c18",
@@ -34109,7 +34263,7 @@
       "slug": "istruzione-sociale-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "istruzione-sociale-stadt-zurich-zurich",
-        "en": "social-education-stadt-zurich-zurich",
+        "en": "socialworker-stadt-zurich",
         "de": "sozialpadagog-in-stadt-zuerich-zurigo-51327",
         "fr": "education-sociale-stadt-zurich-zurich"
       },
@@ -34161,7 +34315,7 @@
       "previousSlugs": [
         "sozialpadagog-in-stadt-zuerich-zurigo-51327",
         "sozialpadagog-in-stadt-zurich",
-        "socialworker-stadt-zurich"
+        "social-education-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -34169,7 +34323,7 @@
         ],
         "en": [
           "sozialpadagog-in-stadt-zurich",
-          "socialworker-stadt-zurich"
+          "social-education-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:09.896Z",

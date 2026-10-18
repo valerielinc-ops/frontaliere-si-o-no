@@ -1,6 +1,6 @@
 {
   "crawlerKey": "posta-svizzera-centro-regionale",
-  "assembledAt": "2026-10-17T21:47:06.528Z",
+  "assembledAt": "2026-10-18T09:25:42.655Z",
   "jobs": [
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Vaud/74046-fr_FR",
@@ -762,7 +762,8 @@
       ],
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "2000"
+      "postalCode": "2000",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Neuch%C3%A2tel/74008-fr_FR",
@@ -789,7 +790,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
+        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -813,12 +814,11 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
-        "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
       ],
       "id": "posta-svizzera-centro-regionale-b6979983514b",
       "salaryMin": 60500,
@@ -840,7 +840,8 @@
       "firstSeenAt": "2026-09-08T13:47:51.005Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "2000"
+      "postalCode": "2000",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Valais-%28francophone%29/74009-fr_FR",
@@ -914,7 +915,8 @@
       "salarySource": "reported",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "1920"
+      "postalCode": "1920",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Gen%C3%A8ve/74005-fr_FR",
@@ -988,7 +990,8 @@
       "firstSeenAt": "2026-09-12T13:06:41.825Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-d'agenteagent-relation-client-CFC%E2%80%AF-Berne-%28francophone%29/74003-fr_FR",
@@ -1062,7 +1065,8 @@
       "firstSeenAt": "2026-09-26T14:31:20.157Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9eemploy%C3%A9-de-commerce-CFC-way-up-Services-et-administration%E2%80%AF-%E2%80%AFVaud/73909-fr_FR",
@@ -1527,7 +1531,8 @@
       "salarySource": "estimated",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "1306"
+      "postalCode": "1306",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC-Distribution-Centre-de-tri%E2%80%AF-%E2%80%AFVaud/73821-fr_FR",
@@ -1847,7 +1852,8 @@
       "addressLocality": "télétravail, Renens VD",
       "addressRegion": "VD",
       "postalCode": "1003",
-      "firstSeenAt": "2026-10-07T22:01:54.357Z"
+      "firstSeenAt": "2026-10-07T22:01:54.357Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73994-de_DE",
@@ -2095,7 +2101,7 @@
       },
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-f829260b0e",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-f829260b0e",
         "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-buchs-ag",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
         "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-paquets-dans-efz-distribution-die-schweizerische-post"
@@ -2119,11 +2125,15 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-f829260b0e",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-f829260b0e",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische"
       ],
       "id": "posta-svizzera-centro-regionale-5fe62367bba2",
       "salaryMin": 52000,
@@ -2217,7 +2227,8 @@
       "firstSeenAt": "2026-09-03T23:23:55.714Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Praxisintegriertes-Bachelorstudium-in-Informatik/73888-de_DE",
@@ -2244,7 +2255,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
+        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -2268,7 +2279,7 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
+          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
         ],
         "fr": [
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
@@ -2276,7 +2287,8 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -2446,7 +2458,8 @@
       "firstSeenAt": "2026-09-01T23:20:24.540Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "9442"
+      "postalCode": "9442",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73980-de_DE",
@@ -2524,7 +2537,8 @@
       "salarySource": "estimated",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "6010"
+      "postalCode": "6010",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/74030-de_DE",
@@ -2698,7 +2712,7 @@
       },
       "slug": "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die",
+        "it": "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
         "en": "apprenticeship-as-a-logistics-specialist-in-eba-sorting-centre-or-in-house-in-a-distribution-area-die-schweizerische",
         "de": "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-logistique-en-eba-centre-de-tri-ou-en-interne-dans-une-zone-de-distribution"
@@ -2722,11 +2736,15 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post"
+          "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
+          "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
+          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post"
+        "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
+        "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
+        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
       ],
       "id": "posta-svizzera-centro-regionale-4eed4f5e5528",
       "salaryMin": 48000,
@@ -2746,7 +2764,8 @@
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
-      "postalCode": "8500"
+      "postalCode": "8500",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Sortierzentrum/74018-de_DE",
@@ -2968,7 +2987,8 @@
       "firstSeenAt": "2026-09-23T13:57:56.331Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8570"
+      "postalCode": "8570",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/74014-de_DE",
@@ -3046,7 +3066,8 @@
       "firstSeenAt": "2026-09-23T13:57:56.331Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/74015-de_DE",
@@ -3120,7 +3141,8 @@
       "firstSeenAt": "2026-09-23T13:57:56.331Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8590"
+      "postalCode": "8590",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/74012-de_DE",
@@ -3297,7 +3319,7 @@
       },
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-07d8b5272a",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-07d8b5272a",
         "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-solothurn",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
         "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-4e738e"
@@ -3321,11 +3343,15 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-07d8b5272a",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-07d8b5272a",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische"
       ],
       "id": "posta-svizzera-centro-regionale-a580e7f121f8",
       "salaryMin": 57500,
@@ -3499,7 +3525,8 @@
       "firstSeenAt": "2026-09-01T18:01:33.293Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4624"
+      "postalCode": "4624",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73990-de_DE",
@@ -3581,7 +3608,8 @@
       "firstSeenAt": "2026-09-02T23:18:12.098Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "6060"
+      "postalCode": "6060",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73988-de_DE",
@@ -3661,7 +3689,8 @@
       ],
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "6130"
+      "postalCode": "6130",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Way-up-Dienstleistung-und-Administration/73989-de_DE",
@@ -3735,7 +3764,8 @@
       "firstSeenAt": "2026-09-11T23:19:01.011Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Way-up-Dienstleistung-und-Administration/73986-de_DE",
@@ -3809,7 +3839,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "firstSeenAt": "2026-09-11T23:19:01.011Z"
+      "firstSeenAt": "2026-09-11T23:19:01.011Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Way-up-Dienstleistung-und-Administration/73984-de_DE",
@@ -3885,7 +3916,8 @@
       "firstSeenAt": "2026-09-11T23:19:01.011Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Way-up-Dienstleistung-und-Administration/73985-de_DE",
@@ -3959,7 +3991,8 @@
       "firstSeenAt": "2026-09-11T23:19:01.011Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73978-de_DE",
@@ -4113,7 +4146,8 @@
       "firstSeenAt": "2026-09-02T23:18:12.098Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4624"
+      "postalCode": "4624",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73974-de_DE",
@@ -4187,7 +4221,8 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "6280"
+      "postalCode": "6280",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73975-de_DE",
@@ -4335,7 +4370,8 @@
       "firstSeenAt": "2026-09-23T13:57:56.331Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "1700"
+      "postalCode": "1700",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EBA-%28Sortierzentrum-oder-Inhouse-in-einem-Distributionsgebiet%29/73970-de_DE",
@@ -4483,7 +4519,8 @@
       "firstSeenAt": "2026-09-23T13:57:56.331Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8370"
+      "postalCode": "8370",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EBA-%28Sortierzentrum-oder-Inhouse-in-einem-Distributionsgebiet%29/73961-de_DE",
@@ -4509,7 +4546,7 @@
       },
       "slug": "apprendistato-come-logistico-a-eba-centro-di-smistamento-o-inhouse-in-un-area-di-distribuzione-die-schweizerische-post-untervaz-2594e2d313",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die",
+        "it": "apprendistato-come-logistico-a-eba-centro-di-smistamento-o-inhouse-in-un-area-di-distribuzione-die-schweizerische-post-untervaz-2594e2d313",
         "en": "apprenticeship-as-a-logistics-specialist-in-eba-sorting-centre-or-in-house-in-a-distribution-area-die-schweizerische",
         "de": "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-logistique-en-eba-centre-de-tri-ou-en-interne-dans-une-zone-de-distribution"
@@ -4534,12 +4571,16 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283"
+          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283",
+          "apprendistato-come-logistico-a-eba-centro-di-smistamento-o-inhouse-in-un-area-di-distribuzione-die-schweizerische-post-untervaz-2594e2d313",
+          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283"
+        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283",
+        "apprendistato-come-logistico-a-eba-centro-di-smistamento-o-inhouse-in-un-area-di-distribuzione-die-schweizerische-post-untervaz-2594e2d313",
+        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
       ],
       "id": "posta-svizzera-centro-regionale-5a937b9790ca",
       "salaryMin": 48000,
@@ -4633,7 +4674,8 @@
       "firstSeenAt": "2026-09-02T23:18:12.098Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "7503"
+      "postalCode": "7503",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/73954-de_DE",
@@ -4707,7 +4749,8 @@
       "firstSeenAt": "2026-09-02T23:18:12.098Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73953-de_DE",
@@ -4855,7 +4898,8 @@
       "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3072"
+      "postalCode": "3072",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73947-de_DE",
@@ -5077,7 +5121,8 @@
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73943-de_DE",
@@ -5313,7 +5358,8 @@
       "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8867"
+      "postalCode": "8867",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73937-de_DE",
@@ -5387,7 +5433,8 @@
       "firstSeenAt": "2026-09-13T14:02:37.296Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3800"
+      "postalCode": "3800",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73934-de_DE",
@@ -5461,7 +5508,8 @@
       "firstSeenAt": "2026-09-13T14:02:37.296Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3400"
+      "postalCode": "3400",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73932-de_DE",
@@ -5683,7 +5731,8 @@
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "postalCode": "2502",
-      "firstSeenAt": "2026-09-01T23:20:24.540Z"
+      "firstSeenAt": "2026-09-01T23:20:24.540Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73927-de_DE",
@@ -5835,7 +5884,8 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8820"
+      "postalCode": "8820",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Betriebsunterhalt-EFZ/73918-de_DE",
@@ -5909,7 +5959,8 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73919-de_DE",
@@ -5983,7 +6034,8 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73917-de_DE",
@@ -6216,7 +6268,8 @@
       "firstSeenAt": "2026-09-03T23:23:55.714Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73911-de_DE",
@@ -6290,7 +6343,8 @@
       "firstSeenAt": "2026-09-03T23:23:55.714Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73908-de_DE",
@@ -6370,7 +6424,8 @@
       ],
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8606"
+      "postalCode": "8606",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/73907-de_DE",
@@ -6444,7 +6499,8 @@
       "firstSeenAt": "2026-09-01T18:01:33.293Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4410"
+      "postalCode": "4410",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73902-de_DE",
@@ -6518,7 +6574,8 @@
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8340"
+      "postalCode": "8340",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Kundendialog-EFZ/73900-de_DE",
@@ -6666,7 +6723,8 @@
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4133"
+      "postalCode": "4133",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Kundendialog-EFZ/73895-de_DE",
@@ -6740,7 +6798,8 @@
       "addressLocality": "Niederurnen",
       "addressRegion": "GL",
       "postalCode": "8867",
-      "firstSeenAt": "2026-09-24T00:13:31.805Z"
+      "firstSeenAt": "2026-09-24T00:13:31.805Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73889-de_DE",
@@ -6818,7 +6877,8 @@
       "firstSeenAt": "2026-09-03T23:23:55.714Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8180"
+      "postalCode": "8180",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73886-de_DE",
@@ -7044,7 +7104,8 @@
       "firstSeenAt": "2026-09-02T23:18:12.098Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4800"
+      "postalCode": "4800",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73880-de_DE",
@@ -7266,7 +7327,8 @@
       "firstSeenAt": "2026-09-13T14:02:37.296Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8222"
+      "postalCode": "8222",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73877-de_DE",
@@ -7340,7 +7402,8 @@
       "firstSeenAt": "2026-09-13T14:02:37.296Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "5600"
+      "postalCode": "5600",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73875-de_DE",
@@ -7414,7 +7477,8 @@
       "firstSeenAt": "2026-09-01T23:20:24.540Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8500"
+      "postalCode": "8500",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73873-de_DE",
@@ -7562,7 +7626,8 @@
       "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "5070"
+      "postalCode": "5070",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73864-de_DE",
@@ -7642,7 +7707,8 @@
       ],
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73858-de_DE",
@@ -7864,7 +7930,8 @@
       "firstSeenAt": "2026-09-03T13:42:44.898Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Automatikerin-EFZ/73851-de_DE",
@@ -8012,7 +8079,8 @@
       "firstSeenAt": "2026-08-31T17:19:19.415Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4133"
+      "postalCode": "4133",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73845-de_DE",
@@ -8234,7 +8302,8 @@
       "firstSeenAt": "2026-09-03T13:42:44.898Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73956-de_DE",
@@ -8312,7 +8381,8 @@
       "salarySource": "estimated",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3600"
+      "postalCode": "3600",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73969-de_DE",
@@ -8386,7 +8456,8 @@
       "salarySource": "estimated",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "6430"
+      "postalCode": "6430",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Kundendialog-EFZ/73882-de_DE",
@@ -8460,7 +8531,8 @@
       "salarySource": "reported",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3930"
+      "postalCode": "3930",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/74304-de_DE",
@@ -8534,7 +8606,8 @@
       "salarySource": "estimated",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8953"
+      "postalCode": "8953",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/73896-de_DE",
@@ -8622,7 +8695,8 @@
       "salarySource": "reported",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8902"
+      "postalCode": "8902",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73924-de_DE",
@@ -8700,7 +8774,8 @@
       "salarySource": "estimated",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/74482-de_DE",
@@ -8858,7 +8933,8 @@
       "salarySource": "estimated",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "6043"
+      "postalCode": "6043",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Dienstleistung-und-Administration/73890-de_DE",
@@ -8932,7 +9008,8 @@
       "firstSeenAt": "2026-08-31T17:19:19.415Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "4600"
+      "postalCode": "4600",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmannfrau-EFZ/74809-de_DE",
@@ -9929,7 +10006,8 @@
       ],
       "postedDate": "2026-09-28",
       "postingDateSource": "reported",
-      "postalCode": "6010"
+      "postalCode": "6010",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74885-de_DE",
@@ -10259,7 +10337,8 @@
       ],
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
-      "postalCode": "6010"
+      "postalCode": "6010",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Consent-Privacy-Managerin/74861-de_DE",
@@ -10897,7 +10976,8 @@
       "firstSeenAt": "2026-10-03T09:38:16.077Z",
       "postedDate": "2026-10-01",
       "postingDateSource": "reported",
-      "postalCode": "3937"
+      "postalCode": "3937",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74666-de_DE",
@@ -11160,7 +11240,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
-        "en": "delivery-in-letters-and-packages-die-schweizerische-post-kublis",
+        "en": "courierletters-and-parcels-die-schweizerische-post-kublis",
         "de": "zusteller-in-briefe-und-pakete-post-apujwm",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-kublis"
       },
@@ -11190,7 +11270,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-          "courierletters-and-parcels-die-schweizerische-post-kublis"
+          "delivery-in-letters-and-packages-die-schweizerische-post-kublis"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis"
@@ -11199,7 +11279,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-        "courierletters-and-parcels-die-schweizerische-post-kublis"
+        "delivery-in-letters-and-packages-die-schweizerische-post-kublis"
       ],
       "id": "posta-svizzera-centro-regionale-d5882d13279d",
       "salaryMin": 57500,
@@ -11219,7 +11299,8 @@
       "addressLocality": "Küblis",
       "addressRegion": "GR",
       "firstSeenAt": "2026-09-07T23:38:38.608Z",
-      "postalCode": "7240"
+      "postalCode": "7240",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74665-de_DE",
@@ -11300,7 +11381,8 @@
       "addressLocality": "Soletta",
       "addressRegion": "SO",
       "firstSeenAt": "2026-09-07T23:38:38.608Z",
-      "postalCode": "4500"
+      "postalCode": "4500",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74928-de_DE",
@@ -11380,7 +11462,8 @@
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "firstSeenAt": "2026-09-07T23:38:38.608Z",
-      "postalCode": "3322"
+      "postalCode": "3322",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74929-de_DE",
@@ -11460,7 +11543,8 @@
       "addressLocality": "Gümmenen",
       "addressRegion": "BE",
       "firstSeenAt": "2026-09-07T23:38:38.608Z",
-      "postalCode": "3205"
+      "postalCode": "3205",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Information-Security-Officer/74556-de_DE",
@@ -11617,7 +11701,8 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "postalCode": "6003",
-      "firstSeenAt": "2026-09-07T23:38:38.608Z"
+      "firstSeenAt": "2026-09-07T23:38:38.608Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Stv_-Teamleaderin-Sortierung/74881-de_DE",
@@ -11886,7 +11971,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
-        "en": "delivery-in-letters-and-packages-die-schweizerische-post-munsingen",
+        "en": "courierletters-and-parcels-die-schweizerische-post-munsingen",
         "de": "zusteller-in-briefe-und-pakete-post-onda5b",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-munsingen"
       },
@@ -11916,7 +12001,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-          "courierletters-and-parcels-die-schweizerische-post-munsingen"
+          "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen"
@@ -11925,7 +12010,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-        "courierletters-and-parcels-die-schweizerische-post-munsingen"
+        "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
       ],
       "id": "posta-svizzera-centro-regionale-e284265aa262",
       "salaryMin": 68500,
@@ -12052,7 +12137,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
-        "en": "delivery-in-letters-and-packages-die-schweizerische-post-solothurn",
+        "en": "courierletters-and-parcels-die-schweizerische-post-solothurn",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-solothurn"
       },
@@ -12079,7 +12164,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn",
-          "courierletters-and-parcels-die-schweizerische-post-solothurn"
+          "delivery-in-letters-and-packages-die-schweizerische-post-solothurn"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn"
@@ -12088,7 +12173,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn",
-        "courierletters-and-parcels-die-schweizerische-post-solothurn"
+        "delivery-in-letters-and-packages-die-schweizerische-post-solothurn"
       ],
       "id": "posta-svizzera-centro-regionale-32f37d392976",
       "salaryMin": 68500,
@@ -12349,7 +12434,8 @@
       },
       "previousSlugs": [
         "teamleader-in-frankieren-post-post"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74768-de_DE",
@@ -12513,7 +12599,8 @@
       },
       "previousSlugs": [
         "technischer-bauprojektleiter-elektro-post"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://job.post.ch/default/job/Sachbearbeiterin-F%C3%BChrungsunterst%C3%BCtzung/74948-de_DE",
@@ -14037,7 +14124,8 @@
       "addressLocality": "Fiesch",
       "addressRegion": "VS",
       "postalCode": "3984",
-      "firstSeenAt": "2026-10-16T21:41:11.198Z"
+      "firstSeenAt": "2026-10-16T21:41:11.198Z",
+      "needsRetranslation": true
     }
   ]
 }

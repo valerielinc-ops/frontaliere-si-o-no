@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-10-18T09:19:27.550Z",
+  "assembledAt": "2026-10-18T09:25:54.241Z",
   "jobs": [
     {
       "id": "schindler-76c469d8faf2",
@@ -257,7 +257,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e4d6518fad20",
@@ -338,7 +339,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-3ce25210b285",
@@ -424,7 +426,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-38747dab18f0",
@@ -585,7 +588,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1156ef7552dd",
@@ -749,7 +753,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1085922c4581",
@@ -832,7 +837,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0eaeefd5874a",
@@ -909,7 +915,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1228"
+      "postalCode": "1228",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6585fefe51c3",
@@ -1310,7 +1317,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-8ba87e043de5",
@@ -1715,7 +1723,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1030"
+      "postalCode": "1030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-94ab073e092b",
@@ -2049,7 +2058,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8907"
+      "postalCode": "8907",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-2bfed4e32e3e",
@@ -2293,7 +2303,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8907"
+      "postalCode": "8907",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b3e33745ba1a",
@@ -2381,7 +2392,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6600"
+      "postalCode": "6600",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-14a3908e8fdb",
@@ -4376,7 +4388,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-81fc438808d0",
@@ -5013,9 +5026,9 @@
     },
     {
       "id": "schindler-6986bd02e3dc",
-      "slug": "capo-montatore-trice-boltshauser-regione-di-berna-m-f-d-80-100-schindler-bern",
+      "slug": "leadmonteur-in-boltshauser-region-bern-m-w-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "capo-montatore-trice-boltshauser-regione-di-berna-m-f-d-80-100-schindler-bern",
+        "it": "leadmonteur-in-boltshauser-region-bern-m-w-d-80-100-schindler-bern",
         "en": "lead-installer-boltshauser-region-basel-bern-m-w-d-80-100-schindler-bern",
         "de": "leadmonteur-in-boltshauser-region-bern-m-w-d-80-100-schindler-bern",
         "fr": "chef-d-installation-region-boltshauser-bale-berne-m-w-d-80-100-schindler-bern"
@@ -5062,11 +5075,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leadmonteur-in-boltshauser-region-bern-m-w-d-80-100-schindler-bern"
+        "capo-montatore-trice-boltshauser-regione-di-berna-m-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leadmonteur-in-boltshauser-region-bern-m-w-d-80-100-schindler-bern"
+          "capo-montatore-trice-boltshauser-regione-di-berna-m-f-d-80-100-schindler-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
@@ -5245,7 +5258,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5af066704755",
@@ -6085,7 +6099,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6515abb2e0ce",
@@ -6246,7 +6261,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-fea1e8710cea",
@@ -6952,7 +6968,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1052"
+      "postalCode": "1052",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b82c81022d46",
@@ -7028,7 +7045,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-86b7b701f51c",
@@ -7112,7 +7130,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e4356c2b5ab8",
@@ -7192,7 +7211,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1f7eaecff099",
@@ -7272,7 +7292,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a82d244bb274",
@@ -7442,7 +7463,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",
@@ -7618,7 +7640,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-43239c3e6fdb",
@@ -7701,7 +7724,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ac50fb4b31b2",
@@ -7792,7 +7816,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7807a9a8ea51",
@@ -7959,7 +7984,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-77e328639f49",
@@ -8035,7 +8061,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-11c03dae919d",
@@ -8119,7 +8146,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-f2450ccabb86",
@@ -8200,7 +8228,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0bd40b237b5b",
@@ -8285,7 +8314,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-8f68c9fc6d74",
@@ -8371,7 +8401,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-89bbe2dfc3da",
@@ -8455,7 +8486,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c6f765471b8d",
@@ -8529,7 +8561,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d6eff07d967b",
@@ -8616,7 +8649,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-163870e9dc4c",
@@ -8698,7 +8732,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-237ee2a0669c",
@@ -8921,7 +8956,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     }
   ]
 }

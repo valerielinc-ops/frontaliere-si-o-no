@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-10-17T21:50:38.084Z",
+  "assembledAt": "2026-10-18T09:26:28.881Z",
   "jobs": [
     {
       "id": "company-cjrxj9",
@@ -45,9 +45,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-riazzino",
-        "en": "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-riazzino",
+        "en": "head-of-finance-qsm-care-swiss-armed-forces-vtg-riazzino",
         "de": "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9",
-        "fr": "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-riazzino"
+        "fr": "responsable-des-finances-qsm-care-swiss-armed-forces-vtg-riazzino"
       },
       "sourceLang": "de",
       "postalCode": "6595",
@@ -64,8 +64,7 @@
           "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9",
           "chef-in-finanzen-qsm-care-confederazione-flugplatzkommando-locarno",
           "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-riazzino-cjrxj9",
-          "head-of-finance-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9",
-          "head-of-finance-qsm-care-swiss-armed-forces-vtg-riazzino"
+          "head-of-finance-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9"
         ],
         "de": [
           "chef-in-finanzen-qsm-care-confederazione-flugplatzkommando-locarno"
@@ -74,8 +73,7 @@
           "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9",
           "chef-in-finanzen-qsm-care-confederazione-flugplatzkommando-locarno",
           "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-riazzino-cjrxj9",
-          "responsable-des-finances-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9",
-          "responsable-des-finances-qsm-care-swiss-armed-forces-vtg-riazzino"
+          "responsable-des-finances-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9"
         ]
       },
       "previousSlugs": [
@@ -84,9 +82,7 @@
         "chef-in-finanzen-qsm-care-confederazione-flugplatzkommando-locarno",
         "chef-in-finanzen-qsm-care-swiss-armed-forces-vtg-riazzino-cjrxj9",
         "head-of-finance-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9",
-        "responsable-des-finances-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9",
-        "head-of-finance-qsm-care-swiss-armed-forces-vtg-riazzino",
-        "responsable-des-finances-qsm-care-swiss-armed-forces-vtg-riazzino"
+        "responsable-des-finances-qsm-care-swiss-armed-forces-vtg-flugplatzkommando-locarno-cjrxj9"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -648,7 +644,8 @@
       },
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5qt7mv",
@@ -1131,7 +1128,8 @@
       },
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-a0wlr7",
@@ -1327,7 +1325,8 @@
       },
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-2nps4e",
@@ -1516,7 +1515,8 @@
       },
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mdmvrn",
@@ -4850,7 +4850,8 @@
       "datePosted": "2026-09-28T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-i71i4k",
@@ -5525,7 +5526,8 @@
       "datePosted": "2026-09-25",
       "postingDateSource": "reported",
       "salaryMin": 105500,
-      "salaryMax": 160000
+      "salaryMax": 160000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dx2bgf",
@@ -5834,7 +5836,7 @@
       "crawledAt": "2026-10-17T21:47:39.246Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
-        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
+        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-romont-a8886201fe",
         "en": "logistician-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7",
         "fr": "logistique-swiss-armed-forces-vtg-bern-5b4b58"
@@ -5872,7 +5874,17 @@
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "previousSlugsByLocale": {
+        "it": [
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-romont-a8886201fe",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
+        ]
+      },
+      "previousSlugs": [
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-romont-a8886201fe",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
+      ]
     },
     {
       "id": "company-nbcw41",
@@ -6033,7 +6045,8 @@
       "datePosted": "2026-09-23",
       "postingDateSource": "reported",
       "salaryMin": 73500,
-      "salaryMax": 129000
+      "salaryMax": 129000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8fs94s",
@@ -6110,7 +6123,8 @@
       "datePosted": "2026-09-23",
       "postingDateSource": "reported",
       "salaryMin": 105500,
-      "salaryMax": 185000
+      "salaryMax": 185000,
+      "needsRetranslation": true
     },
     {
       "id": "company-s9c3d5",
@@ -6206,7 +6220,8 @@
       "datePosted": "2026-09-23",
       "postingDateSource": "reported",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-it7ev",
@@ -7470,7 +7485,7 @@
       "crawledAt": "2026-10-17T21:47:39.246Z",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "slugByLocale": {
-        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
+        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-grolley-841ed4ea95",
         "en": "logistics-swiss-armed-forces-vtg-bern-b9e29f",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-1bmlp0",
         "fr": "logistique-swiss-armed-forces-vtg-bern-b9e29f"
@@ -7506,7 +7521,17 @@
       },
       "employmentType": "FULL_TIME",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "previousSlugsByLocale": {
+        "it": [
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-grolley-841ed4ea95",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
+        ]
+      },
+      "previousSlugs": [
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-grolley-841ed4ea95",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
+      ]
     },
     {
       "id": "company-1y4r45",
@@ -7610,7 +7635,8 @@
       "datePosted": "2026-09-16T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-ta4zc3",
@@ -7738,7 +7764,7 @@
         "it": "gestione-del-magazzino-specializzata-di-processo-swiss-armed-forces-vtg-bern",
         "en": "process-specialist-warehouse-management-swiss-armed-forces-vtg-bern",
         "de": "prozessspezialist-in-lagermanagement-swiss-armed-forces-vtg-bern-mz8u27",
-        "fr": "gestion-des-entrepots-specialises-swiss-armed-forces-vtg-bern"
+        "fr": "prozessspezialist-in-lagermanagement-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -7751,12 +7777,13 @@
         ],
         "fr": [
           "prozessspezialist-in-lagermanagement-swiss-armed-forces-vtg-bern-mz8u27",
-          "prozessspezialist-in-lagermanagement-swiss-armed-forces-vtg-bern"
+          "gestion-des-entrepots-specialises-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
         "prozessspezialist-in-lagermanagement-swiss-armed-forces-vtg-bern",
-        "prozessspezialist-in-lagermanagement-swiss-armed-forces-vtg-bern-mz8u27"
+        "prozessspezialist-in-lagermanagement-swiss-armed-forces-vtg-bern-mz8u27",
+        "gestion-des-entrepots-specialises-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -8207,7 +8234,8 @@
       "datePosted": "2026-09-14",
       "postingDateSource": "reported",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-eidk7g",
@@ -8532,7 +8560,8 @@
       "datePosted": "2026-09-13T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "needsRetranslation": true
     },
     {
       "id": "company-a7jln5",
@@ -8599,7 +8628,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-u0mtba",
@@ -8684,7 +8714,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-j9ms0y",
@@ -8763,7 +8794,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-btli50",
@@ -8972,7 +9004,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 51100,
-      "salaryMax": 77500
+      "salaryMax": 77500,
+      "needsRetranslation": true
     },
     {
       "id": "company-8c6eax",
@@ -9130,7 +9163,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 52000,
-      "salaryMax": 78500
+      "salaryMax": 78500,
+      "needsRetranslation": true
     },
     {
       "id": "company-n5fvuz",
@@ -9209,7 +9243,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5wza8v",
@@ -9276,7 +9311,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 51000,
-      "salaryMax": 77500
+      "salaryMax": 77500,
+      "needsRetranslation": true
     },
     {
       "id": "company-80n2e",
@@ -9355,7 +9391,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-pz8ybp",
@@ -9422,7 +9459,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-714i40",
@@ -9507,7 +9545,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57000,
-      "salaryMax": 97000
+      "salaryMax": 97000,
+      "needsRetranslation": true
     },
     {
       "id": "company-qwk6r5",
@@ -9594,7 +9633,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 73500,
-      "salaryMax": 129000
+      "salaryMax": 129000,
+      "needsRetranslation": true
     },
     {
       "id": "company-kkjror",
@@ -9661,7 +9701,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6bo5b4",
@@ -9736,7 +9777,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ipnabv",
@@ -9937,7 +9979,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8op31x",
@@ -10004,7 +10047,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-e1gggi",
@@ -10148,7 +10192,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5ikj4z",
@@ -10282,7 +10327,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 51000,
-      "salaryMax": 77500
+      "salaryMax": 77500,
+      "needsRetranslation": true
     },
     {
       "id": "company-amcdbu",
@@ -10493,7 +10539,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jo0e5a",
@@ -10703,7 +10750,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-b1yojb",
@@ -10914,7 +10962,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 58500,
-      "salaryMax": 89000
+      "salaryMax": 89000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gqysvi",
@@ -10989,7 +11038,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-63pew",
@@ -11133,7 +11183,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 58500,
-      "salaryMax": 89000
+      "salaryMax": 89000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xjg8t9",
@@ -11267,7 +11318,8 @@
       "datePosted": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-tofvru",
@@ -11477,7 +11529,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "capo-medico-swiss-armed-forces-vtg-bern",
+        "it": "chief-medical-officer-swiss-armed-forces-vtg-bern",
         "en": "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
         "de": "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
         "fr": "directeur-medical-swiss-armed-forces-vtg-bern"
@@ -11487,7 +11539,8 @@
         "it": [
           "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
           "capo-ufficio-vice-capo-servizio-swiss-armed-forces-vtg-bern",
-          "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern"
+          "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern",
+          "capo-medico-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
           "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp"
@@ -11496,7 +11549,8 @@
       "previousSlugs": [
         "chief-medical-officer-swiss-armed-forces-vtg-bern-r2ylxp",
         "capo-ufficio-vice-capo-servizio-swiss-armed-forces-vtg-bern",
-        "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern"
+        "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern",
+        "capo-medico-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -12165,7 +12219,7 @@
         "it": "valutazione-dell-ufficiale-del-personale-valutazione-dell-so-swiss-armed-forces-vtg-bern",
         "en": "staff-officers-5-5-so-5-swiss-armed-forces-vtg-bern",
         "de": "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern-k7or6f",
-        "fr": "evaluation-des-fonctionnaires-swiss-armed-forces-vtg-bern"
+        "fr": "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -12178,12 +12232,13 @@
         ],
         "fr": [
           "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern-k7or6f",
-          "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern"
+          "evaluation-des-fonctionnaires-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
         "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern",
-        "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern-k7or6f"
+        "staff-officer-assessment-so-assessment-swiss-armed-forces-vtg-bern-k7or6f",
+        "evaluation-des-fonctionnaires-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -12383,7 +12438,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
+        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -12391,7 +12446,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
+          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -12401,7 +12457,8 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
+        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -13780,7 +13837,8 @@
       "datePosted": "2017-09-25T22:01:32Z",
       "postingDateSource": "reported",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xrrlua",
@@ -14437,7 +14495,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-40bljb",

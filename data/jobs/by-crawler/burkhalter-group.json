@@ -1,6 +1,6 @@
 {
   "crawlerKey": "burkhalter-group",
-  "assembledAt": "2026-10-17T21:28:36.286Z",
+  "assembledAt": "2026-10-18T09:24:18.269Z",
   "jobs": [
     {
       "title": "Spengler/in (80 - 100%)",
@@ -243,7 +243,8 @@
       "postalCode": "8001",
       "streetAddress": "Zürichbergstrasse 80",
       "datePosted": "2026-09-21",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Elektroinstallateur/in (100%)",
@@ -821,7 +822,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-efz-1273",
       "datePosted": "2026-08-21",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Heizungsinstallateur/in EFZ (100%)",
@@ -906,7 +908,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-efz-1265",
       "datePosted": "2026-08-21",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in EFZ (100%)",
@@ -985,7 +988,8 @@
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-efz-1261",
       "streetAddress": "Buchenhölzlistrasse 4b",
       "datePosted": "2026-08-21",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
@@ -1188,7 +1192,7 @@
         "fr": "Elektro Hunziker AG, avec une centaine d'employés, est l'un des principaux fournisseurs d'installations électriques, d'informatique et de télématique (TIC), d'automatisation, de photovoltaïque, de technologie du bâtiment ainsi que de services et d'entretien dans la région de Thun, Spiez et Kandersteg.\n\nPour renforcer notre équipe, nous sommes à la recherche d'un chef d'équipe dès maintenant ou après accord.\n\n## Leurs tâches :\n\n- Exécution indépendante des commandes photovoltaïques avec votre équipe\n- Préparation et résiliation de nouveaux contrats de VP\n- Extension et conversion des systèmes de distribution électrique existants\n- Configuration et mise en service des onduleurs, des systèmes de gestion de l'énergie et des ZEV Connexion à Internet\n- Instruction et soutien des clients\n- Analyse et règlement des incidents\n- Aide à la formation des apprenants\n- Possibilité de participer aux rapports, à la planification et à l'élaboration des plans\n\n## Voici ce que vous apportez avec vous :\n\n- Apprentissage terminé dans l'industrie électrique\n- Profitez de travailler avec des appareils et des applications numériques\n- Motivé à travailler sur le toit\n- Compréhension technique et compétences organisationnelles\n- Personnalité indépendante, sociable et orientée vers le client\n- Permis de conduire de catégorie B\n\nNous vous offrons un environnement attrayant avec des défis passionnants. En plus des conditions d'emploi intéressantes, vous pouvez vous attendre à une équipe bien établie et à de vastes possibilités de perfectionnement.\n\nNous sommes impatients de recevoir vos documents de candidature par courriel à l'adresse suivante : info@elektrohunziker.ch"
       },
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz",
+        "it": "responsabile-del-team-fotovoltaico-100-elektro-hunziker-ag-gwatt-bf4ff538d5",
         "en": "electrical-installer-mit-flair-fur-it-und-telematics-100-triulzi-ag-st-moritz",
         "de": "elektroinstallateur-in-mit-flair-fur-it-und-telematik-100-triulzi-ag-st-moritz",
         "fr": "installateur-trice-electricien-ne-mit-flair-fur-it-und-telematique-100-triulzi-ag-st-moritz"
@@ -1202,12 +1206,16 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-fotovoltaik-100-elektro-hunziker-ag-gwatt-201838a1d9",
-          "teamleiter-in-fotovoltaik-100-elektro-hunziker-ag-gwatt"
+          "teamleiter-in-fotovoltaik-100-elektro-hunziker-ag-gwatt",
+          "responsabile-del-team-fotovoltaico-100-elektro-hunziker-ag-gwatt-bf4ff538d5",
+          "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz"
         ]
       },
       "previousSlugs": [
         "teamleiter-in-fotovoltaik-100-elektro-hunziker-ag-gwatt-201838a1d9",
-        "teamleiter-in-fotovoltaik-100-elektro-hunziker-ag-gwatt"
+        "teamleiter-in-fotovoltaik-100-elektro-hunziker-ag-gwatt",
+        "responsabile-del-team-fotovoltaico-100-elektro-hunziker-ag-gwatt-bf4ff538d5",
+        "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -1223,7 +1231,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T03:38:03.399Z"
+      "firstSeenAt": "2026-09-28T03:38:03.399Z",
+      "needsRetranslation": true
     },
     {
       "title": "Chef/fe de chantier (100%)",
@@ -1399,7 +1408,8 @@
       },
       "previousSlugs": [
         "projektleiter-in-gebaudeautomation-saia-80-100-burkhalter-technics-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Techniker/in Gebäudeautomation/MSRL (100%)",
@@ -1639,7 +1649,8 @@
       },
       "previousSlugs": [
         "projektleiter-heizung-80-100-kreis-wasser-ag-st-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
@@ -1838,7 +1849,7 @@
         "fr": "Triulzi AG est un fournisseur établi d'installations électriques, de télématiques et de technologies de construction dans le Haut Engadin et l'Albulatal – une région où d'autres partent en vacances. Pour renforcer notre équipe à notre siège social à St. Moritz, nous recherchons une personnalité engagée et motivée en tant qu'installateur électrique avec un style informatique et télématique (100%).\n\n## Vos tâches :\n\n- Installations électriques autonomes dans des bâtiments neufs ou modifiés et dans des bâtiments résidentiels, commerciaux et industriels\n- Mise en œuvre du service, maintenance, perturbation et petites commandes en contact direct avec le client (à Oberengadin)\n- Essai, mesure et documentation des installations électriques conformément aux normes et règlements applicables\n- Collaboration à des projets passionnants dans le domaine de l'électricité, de l'informatique et de la télématique\n- Coordination des contrats de service et de projet avec les clients, les fournisseurs et les entreprises partenaires\n- Configuration, mise en œuvre et support des systèmes téléphoniques et des solutions de communication dans une équipe\n- Réalisation d'essais fonctionnels et d'essais de laboratoire à la suite de mises à jour logicielles des systèmes téléphoniques\n- Soutien à l'installation et à la mise en service des infrastructures réseau, WLAN et IT\n\n## Votre profil:\n\n- formation d'installateur électrique terminée; Avantage avec formation continue ou intérêt pour la télématique/ TIC\n- Flair technique et intérêt pour les solutions informatiques, de réseau et de communication\n- Méthode de travail indépendante, fiable et structurée\n- Orientation client élevée et apparence amicale\n- Travail d'équipe et jouissance d'activités variées\n- Bonne connaissance utilisateur dans Microsoft 365 (Outlook, Word, Excel, OneDrive, Teams, etc.)\n- Volonté d'apprendre de nouvelles choses et de se développer professionnellement\n- Langues Allemand, Anglais, Italien d'avantage\n- Permis de conduire de catégorie B\n\n## Voici ce que nous offrons :\n\n- Projets passionnants et variés dans les domaines de l'électricité, de l'informatique et de la télématique\n- Possibilité de poursuivre des études et promotion ciblée de votre développement professionnel\n- Un lieu de travail moderne avec des outils de haute qualité et une infrastructure contemporaine\n- Une équipe motivée avec une ambiance de travail familiale et des pistes de décision courtes\n- Conditions d'emploi attrayantes et rémunération équitable\n- Durée du travail flexible et travail indépendant\n- Perspectives à long terme dans une entreprise régionale à Oberengadin"
       },
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz",
+        "it": "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz-ebe23e3693",
         "en": "electrical-installer-mit-flair-fur-it-und-telematics-100-triulzi-ag-st-moritz",
         "de": "elektroinstallateur-in-mit-flair-fur-it-und-telematik-100-triulzi-ag-st-moritz",
         "fr": "installateur-trice-electricien-ne-mit-flair-fur-it-und-telematique-100-triulzi-ag-st-moritz"
@@ -1871,7 +1882,9 @@
       "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-mit-flair-fur-it-und-telematik-100-triulzi-ag-st-moritz"
+          "elektroinstallateur-in-mit-flair-fur-it-und-telematik-100-triulzi-ag-st-moritz",
+          "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz-ebe23e3693",
+          "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz"
         ],
         "en": [
           "elektroinstallateur-in-mit-flair-fur-it-und-telematik-100-triulzi-ag-st-moritz"
@@ -1881,7 +1894,9 @@
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-flair-fur-it-und-telematik-100-triulzi-ag-st-moritz"
+        "elektroinstallateur-in-mit-flair-fur-it-und-telematik-100-triulzi-ag-st-moritz",
+        "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz-ebe23e3693",
+        "installatore-trice-elettrico-a-in-con-predisposizione-per-it-e-telematica-100-triulzi-ag-st-moritz"
       ]
     },
     {
@@ -2210,7 +2225,8 @@
       },
       "previousSlugs": [
         "projektleiter-sanitar-80-100-kreis-wasser-ag-st-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Elektro-Servicemonteur/in (100%)",
@@ -2461,7 +2477,8 @@
       ],
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
       "datePosted": "2026-05-01",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Installateur-électricien CFC / polyvalent - Installatrice-électricienne / polyvalente (100%)",
@@ -2634,7 +2651,8 @@
       ],
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1661",
       "datePosted": "2026-05-01",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Servicemonteur/in Heizung und Sanitär (100%)",
@@ -2810,7 +2828,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-863",
       "datePosted": "2026-04-22",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Heizungsinstallateur/in (100%)",
@@ -2936,9 +2955,9 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-100-m-kunz-ag-klosters-klosters-dorf",
-        "en": "sanitary-fitter-100-m-kunz-ag-klosters-klosters-dorf",
+        "en": "sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf",
         "de": "sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf",
-        "fr": "installateur-trice-sanitaire-100-m-kunz-ag-klosters-klosters-dorf"
+        "fr": "sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf"
       },
       "crawledAt": "2026-10-17T21:28:20.608Z",
       "coordinates": [
@@ -2963,7 +2982,9 @@
       "previousSlugs": [
         "idraulico-100-m-kunz-ag-klosters-klosters-dorf",
         "installateur-sanitaire-100-m-kunz-ag-klosters-klosters-dorf",
-        "sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf"
+        "sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf",
+        "sanitary-fitter-100-m-kunz-ag-klosters-klosters-dorf",
+        "installateur-trice-sanitaire-100-m-kunz-ag-klosters-klosters-dorf"
       ],
       "id": "burkhalter-group-35838c541521",
       "previousSlugsByLocale": {
@@ -2973,14 +2994,14 @@
         ],
         "en": [
           "idraulico-100-m-kunz-ag-klosters-klosters-dorf",
-          "sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf"
+          "sanitary-fitter-100-m-kunz-ag-klosters-klosters-dorf"
         ],
         "de": [
           "idraulico-100-m-kunz-ag-klosters-klosters-dorf"
         ],
         "fr": [
           "idraulico-100-m-kunz-ag-klosters-klosters-dorf",
-          "sanitarinstallateur-in-100-m-kunz-ag-klosters-klosters-dorf"
+          "installateur-trice-sanitaire-100-m-kunz-ag-klosters-klosters-dorf"
         ]
       },
       "firstSeenAt": "2026-04-13T10:09:28.520Z",
@@ -3075,7 +3096,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-866",
       "datePosted": "2026-04-22",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
@@ -3156,7 +3178,8 @@
       },
       "previousSlugs": [
         "bauleitende-r-sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Heizungsinstallateur/in (100%)",
@@ -3280,9 +3303,9 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-100-m-kunz-ag-davos-davos-platz",
-        "en": "sanitary-fitter-100-m-kunz-ag-davos-davos-platz",
+        "en": "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz",
         "de": "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz",
-        "fr": "installateur-trice-sanitaire-100-m-kunz-ag-davos-davos-platz"
+        "fr": "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
       },
       "crawledAt": "2026-10-17T21:28:20.610Z",
       "coordinates": [
@@ -3307,7 +3330,9 @@
       "id": "burkhalter-group-310a3e18471e",
       "previousSlugs": [
         "installateur-sanitaire-100-m-kunz-ag-davos-davos-platz",
-        "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
+        "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz",
+        "sanitary-fitter-100-m-kunz-ag-davos-davos-platz",
+        "installateur-trice-sanitaire-100-m-kunz-ag-davos-davos-platz"
       ],
       "firstSeenAt": "2026-04-13T10:09:28.518Z",
       "salarySource": "reported",
@@ -3319,10 +3344,10 @@
           "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
         ],
         "en": [
-          "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
+          "sanitary-fitter-100-m-kunz-ag-davos-davos-platz"
         ],
         "fr": [
-          "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
+          "installateur-trice-sanitaire-100-m-kunz-ag-davos-davos-platz"
         ]
       }
     },
@@ -3405,7 +3430,8 @@
       },
       "previousSlugs": [
         "bauleitende-r-heizungsinstallateur-in-100-m-kunz-ag-davos-davos-platz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Solarservicetechniker/in (100%)",
@@ -3996,7 +4022,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaer-und-oder-heizungsinstallateur-in-1559",
       "datePosted": "2026-02-26",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Installatore di impianti idraulici e/o di riscaldamento (100%)",
@@ -4075,7 +4102,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installatore-di-impianti-idraulici-e-o-di-riscaldamento-1594",
       "datePosted": "2026-02-26",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -4161,7 +4189,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-in-efz-1585",
       "datePosted": "2026-02-23",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Montage-Elektriker/in EFZ (80 - 100%)",
@@ -4249,7 +4278,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-efz-273",
       "datePosted": "2026-02-02",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -4333,7 +4363,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-in-efz-1585-1",
       "datePosted": "2026-01-30",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Elektroinstallateur/in (100%)",
@@ -5677,9 +5708,9 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-80-100-sprecher-ag-davos-glaris",
-        "en": "sanitary-fitter-80-100-sprecher-ag-davos-frauenkirch",
+        "en": "sanitarinstallateur-in-80-100-sprecher-ag-davos-glaris",
         "de": "sanitarinstallateur-in-80-100-sprecher-ag-davos-glaris",
-        "fr": "installateur-trice-sanitaire-80-100-sprecher-ag-davos-frauenkirch"
+        "fr": "sanitarinstallateur-in-80-100-sprecher-ag-davos-glaris"
       },
       "crawledAt": "2026-10-17T21:28:20.635Z",
       "coordinates": [
@@ -5705,11 +5736,11 @@
       "previousSlugsByLocale": {
         "en": [
           "sanitary-fitter-80-100-sprecher-ag-davos-glaris",
-          "sanitarinstallateur-in-80-100-sprecher-ag-davos-glaris"
+          "sanitary-fitter-80-100-sprecher-ag-davos-frauenkirch"
         ],
         "fr": [
           "installateur-trice-sanitaire-80-100-sprecher-ag-davos-glaris",
-          "sanitarinstallateur-in-80-100-sprecher-ag-davos-glaris"
+          "installateur-trice-sanitaire-80-100-sprecher-ag-davos-frauenkirch"
         ],
         "it": [
           "sanitarinstallateur-in-80-100-sprecher-ag-davos-glaris",
@@ -5721,7 +5752,9 @@
         "sanitary-fitter-80-100-sprecher-ag-davos-glaris",
         "installateur-trice-sanitaire-80-100-sprecher-ag-davos-glaris",
         "sanitarinstallateur-in-80-100-sprecher-ag-davos-glaris",
-        "sanitarinstallateur-in-80-100-sprecher-ag-davos-frauenkirch"
+        "sanitarinstallateur-in-80-100-sprecher-ag-davos-frauenkirch",
+        "sanitary-fitter-80-100-sprecher-ag-davos-frauenkirch",
+        "installateur-trice-sanitaire-80-100-sprecher-ag-davos-frauenkirch"
       ],
       "firstSeenAt": "2026-04-13T10:09:28.526Z",
       "salarySource": "reported",
@@ -6255,8 +6288,8 @@
       },
       "slugByLocale": {
         "it": "installatori-elettricisti-installatrici-elettriciste-afc-100-grichting-valterio-electro-sa-martigny",
-        "en": "electrical-fitter-cfc-100-grichting-valterio-electro-sa-martigny",
-        "de": "elektroinstallateure-elektroinstallateurinnen-efz-100-grichting-valterio-electro-sa-martigny",
+        "en": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny",
+        "de": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny",
         "fr": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny"
       },
       "crawledAt": "2026-10-17T21:28:20.642Z",
@@ -6290,14 +6323,16 @@
           "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny"
         ],
         "en": [
-          "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny"
+          "electrical-fitter-cfc-100-grichting-valterio-electro-sa-martigny"
         ],
         "de": [
-          "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny"
+          "elektroinstallateure-elektroinstallateurinnen-efz-100-grichting-valterio-electro-sa-martigny"
         ]
       },
       "previousSlugs": [
-        "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny"
+        "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-martigny",
+        "electrical-fitter-cfc-100-grichting-valterio-electro-sa-martigny",
+        "elektroinstallateure-elektroinstallateurinnen-efz-100-grichting-valterio-electro-sa-martigny"
       ]
     },
     {
@@ -6577,9 +6612,9 @@
       },
       "slugByLocale": {
         "it": "installatore-installatrice-sanitario-a-80-100-ulrich-huber-ag-malans",
-        "en": "sanitary-fitter-80-100-ulrich-huber-ag-malans",
+        "en": "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans",
         "de": "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans",
-        "fr": "installateur-trice-sanitaire-80-100-ulrich-huber-ag-malans"
+        "fr": "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans"
       },
       "crawledAt": "2026-10-17T21:28:20.645Z",
       "coordinates": [
@@ -6604,7 +6639,9 @@
       "id": "burkhalter-group-e8709e179c21",
       "previousSlugs": [
         "installateur-sanitaire-80-100-ulrich-huber-ag-malans",
-        "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans"
+        "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans",
+        "sanitary-fitter-80-100-ulrich-huber-ag-malans",
+        "installateur-trice-sanitaire-80-100-ulrich-huber-ag-malans"
       ],
       "firstSeenAt": "2026-04-13T10:09:28.528Z",
       "salarySource": "reported",
@@ -6616,10 +6653,10 @@
           "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans"
         ],
         "en": [
-          "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans"
+          "sanitary-fitter-80-100-ulrich-huber-ag-malans"
         ],
         "fr": [
-          "sanitarinstallateur-in-80-100-ulrich-huber-ag-malans"
+          "installateur-trice-sanitaire-80-100-ulrich-huber-ag-malans"
         ]
       }
     },
@@ -7574,7 +7611,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-in-efz-1335-1",
       "datePosted": "2024-11-07",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (80 - 100%)",
@@ -7657,7 +7695,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-in-1333",
       "datePosted": "2024-11-07",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -7742,7 +7781,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-in-1329",
       "datePosted": "2024-10-25",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Installateur/in (100%)",
@@ -8745,7 +8785,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-1270",
       "datePosted": "2024-06-25",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Multimediatechniker/in (100%)",
@@ -9273,7 +9314,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-efz-1226",
       "datePosted": "2024-04-04",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Montage-Elektriker/in EFZ (80 - 100%)",
@@ -9361,7 +9403,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-efz-1226-1",
       "datePosted": "2024-04-04",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektro-Servicemonteur/in (80 - 100%)",
@@ -10215,7 +10258,8 @@
       },
       "previousSlugs": [
         "elektroinstallateur-in-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Elektroinstallateur/in (100%)",
@@ -10296,7 +10340,8 @@
       },
       "previousSlugs": [
         "bauleitende-r-elektroinstallateur-in-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Lüftungs- & Klimatechnik (100%)",
@@ -11284,7 +11329,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-1036",
       "datePosted": "2023-05-09",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (80 - 100%)",
@@ -11363,7 +11409,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-1035",
       "datePosted": "2023-05-09",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Heizungsinstallateur/in (100%)",
@@ -11610,7 +11657,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-fliri-und-conrad-electro",
       "datePosted": "2023-05-05",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektro-Servicetechniker/in (100%)",
@@ -11650,7 +11698,7 @@
         "it": "tecnico-a-di-servizio-elettrico-100-electra-buin-sa-scuol",
         "en": "elektro-service-technician-100-electra-buin-sa-scuol",
         "de": "elektro-servicetechniker-in-100-electra-buin-sa-scuol",
-        "fr": "technicien-ne-de-service-en-electricite-100-electra-buin-sa-scuol"
+        "fr": "elektro-servicetechniker-in-100-electra-buin-sa-scuol"
       },
       "crawledAt": "2026-10-17T21:28:20.679Z",
       "coordinates": [
@@ -11662,7 +11710,8 @@
         "technicien-ne-de-service-electrique-100-electra-buin-sa-scuol",
         "technicien-des-services-electriques-100-electra-buin-sa-scuol",
         "technicien-en-electricite-100-electra-buin-sa-scuol",
-        "elektro-servicetechniker-in-100-electra-buin-sa-scuol"
+        "elektro-servicetechniker-in-100-electra-buin-sa-scuol",
+        "technicien-ne-de-service-en-electricite-100-electra-buin-sa-scuol"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -11689,7 +11738,7 @@
           "technicien-ne-de-service-electrique-100-electra-buin-sa-scuol",
           "technicien-des-services-electriques-100-electra-buin-sa-scuol",
           "technicien-en-electricite-100-electra-buin-sa-scuol",
-          "elektro-servicetechniker-in-100-electra-buin-sa-scuol"
+          "technicien-ne-de-service-en-electricite-100-electra-buin-sa-scuol"
         ]
       },
       "firstSeenAt": "2026-04-13T21:18:02.670Z",
@@ -11784,7 +11833,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-electra-buin-sa",
       "datePosted": "2023-05-05",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Heizungsinstallateur/in (100%)",
@@ -11956,7 +12006,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag",
       "datePosted": "2023-04-06",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Servicetechniker/in (100%)",
@@ -12123,7 +12174,8 @@
       },
       "previousSlugs": [
         "bauleitende-r-elektroinstallateur-in-100-elektro-hunziker-ag-gwatt"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Gebäudetechnikplaner/in Fachrichtung Sanitär (80 - 100%)",
@@ -13934,7 +13986,8 @@
         "fr": [
           "bauleitende-r-sanitarinstallateur-in-100-ulrich-huber-ag-malans"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
@@ -14022,7 +14075,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-753",
       "datePosted": "2023-02-06",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in (100%)",
@@ -14426,7 +14480,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-626",
       "datePosted": "2022-10-04",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in (100%)",
@@ -14604,7 +14659,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-590-schoenholzer-ag",
       "datePosted": "2022-08-15",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Servicemonteur/in (100%)",
@@ -14689,7 +14745,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-467",
       "datePosted": "2022-07-25",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in (100%)",
@@ -14851,7 +14908,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-455",
       "datePosted": "2022-05-16",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -14930,7 +14988,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-454",
       "datePosted": "2022-05-16",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Montage-Elektriker/in EFZ (100%)",
@@ -15007,7 +15066,8 @@
       },
       "previousSlugs": [
         "montage-elektriker-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -15087,7 +15147,8 @@
       },
       "previousSlugs": [
         "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "motivierte Elektroinstallateure / Hilfsmonteure (100%)",
@@ -15192,8 +15253,8 @@
       },
       "slugByLocale": {
         "it": "elettricisti-installatori-elettriciste-installatrici-orientamento-industriale-100-grichting-valterio-electro-sa-collombe",
-        "en": "installers-electricians-industry-oriented-100-grichting-valterio-electro-sa-collombey",
-        "de": "elektroinstallateure-in-industrieorientiert-100-grichting-valterio-electro-sa-collombey",
+        "en": "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey",
+        "de": "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey",
         "fr": "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey"
       },
       "crawledAt": "2026-10-17T21:28:20.705Z",
@@ -15221,7 +15282,9 @@
         "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey-yjn044",
         "elettricisti-installatori-elettriciste-installatrici-orientamento-industriale-100-grichtin",
         "electrician-installers-industry-oriented-100-grichting-valterio-electro-sa-collombey",
-        "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey"
+        "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey",
+        "installers-electricians-industry-oriented-100-grichting-valterio-electro-sa-collombey",
+        "elektroinstallateure-in-industrieorientiert-100-grichting-valterio-electro-sa-collombey"
       ],
       "firstSeenAt": "2026-04-13T10:09:28.538Z",
       "salarySource": "reported",
@@ -15233,10 +15296,10 @@
           "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey"
         ],
         "en": [
-          "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey"
+          "installers-electricians-industry-oriented-100-grichting-valterio-electro-sa-collombey"
         ],
         "de": [
-          "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-valterio-electro-sa-collombey"
+          "elektroinstallateure-in-industrieorientiert-100-grichting-valterio-electro-sa-collombey"
         ]
       }
     },
@@ -15277,7 +15340,7 @@
       "slugByLocale": {
         "it": "capo-cantiere-100-grichting-valterio-electro-sa-sion",
         "en": "site-supervisor-100-grichting-valterio-electro-sa-sion",
-        "de": "bauleiter-in-100-grichting-valterio-electro-sa-sion",
+        "de": "chef-fe-de-chantier-100-grichting-valterio-electro-sa-sion",
         "fr": "chef-fe-de-chantier-100-grichting-valterio-electro-sa-sion"
       },
       "crawledAt": "2026-10-17T21:28:20.705Z",
@@ -15319,7 +15382,7 @@
         ],
         "de": [
           "bauleiter-100-grichting-valterio-electro-sa-sion",
-          "chef-fe-de-chantier-100-grichting-valterio-electro-sa-sion"
+          "bauleiter-in-100-grichting-valterio-electro-sa-sion"
         ],
         "fr": [
           "bauleiter-in-100-grichting-valterio-electro-sa-sion",
@@ -15368,8 +15431,8 @@
       },
       "slugByLocale": {
         "it": "elettricisti-installatori-elettriciste-installatrici-afc-100-grichting-valterio-electro-sa-sion",
-        "en": "electrician-installers-cfc-grichting-valterio-electro-sa-sion",
-        "de": "elektroinstallateure-cfc-grichting-valterio-electro-sa-sion",
+        "en": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-sion",
+        "de": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-sion",
         "fr": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-sion"
       },
       "crawledAt": "2026-10-17T21:28:20.706Z",
@@ -15399,7 +15462,9 @@
         "installatori-elettrici-installatori-elettricisti-cfc-100-grichting-valterio-electro-sa-sio",
         "electrical-installers-electrician-installers-cfc-100-grichting-valterio-electro-sa-sion",
         "installatori-elettricisti-cfc-grichting-valterio-electro-sa-sion",
-        "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-sion"
+        "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-sion",
+        "electrician-installers-cfc-grichting-valterio-electro-sa-sion",
+        "elektroinstallateure-cfc-grichting-valterio-electro-sa-sion"
       ],
       "id": "burkhalter-group-3e2b91cca4b4",
       "previousSlugsByLocale": {
@@ -15415,14 +15480,14 @@
           "elektroinstallateur-in-efz-100-grichting-valterio-electro-sa-sion",
           "installatori-elettrici-installatori-elettricisti-cfc-100-grichting-valterio-electro-sa-sion",
           "installatori-elettrici-installatori-elettricisti-cfc-100-grichting-valterio-electro-sa-sio",
-          "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-sion"
+          "electrician-installers-cfc-grichting-valterio-electro-sa-sion"
         ],
         "de": [
           "cfc-electrical-installers-100-grichting-valterio-electro-sa-sion",
           "elektroinstallateur-in-efz-100-grichting-valterio-electro-sa-sion",
           "installatori-elettrici-installatori-elettricisti-cfc-100-grichting-valterio-electro-sa-sion",
           "installatori-elettrici-installatori-elettricisti-cfc-100-grichting-valterio-electro-sa-sio",
-          "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-sion"
+          "elektroinstallateure-cfc-grichting-valterio-electro-sa-sion"
         ],
         "fr": [
           "cfc-electrical-installers-100-grichting-valterio-electro-sa-sion",
@@ -15473,8 +15538,8 @@
       },
       "slugByLocale": {
         "it": "elettricisti-installatori-elettriciste-installatrici-afc-100-grichting-valterio-electro-sa-collombey",
-        "en": "electrician-installers-electrician-installer-cfc-100-grichting-valterio-electro-sa-collombey",
-        "de": "elektroinstallateure-elektroinstallateurinnen-cfc-100-grichting-valterio-electro-sa-collombey",
+        "en": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-collombey",
+        "de": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-collombey",
         "fr": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-collombey"
       },
       "crawledAt": "2026-10-17T21:28:20.706Z",
@@ -15503,7 +15568,9 @@
         "electrician-installers-electrician-installer-cfc-100-grichting-valterio-electro-sa-collomb",
         "cfc-electrician-installers-100-grichting-valterio-electro-sa-collombey",
         "installatori-elettricisti-installatrici-elettriciste-cfc-100-grichting-valterio-electro-sa-collombey",
-        "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-collombey"
+        "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-collombey",
+        "electrician-installers-electrician-installer-cfc-100-grichting-valterio-electro-sa-collombey",
+        "elektroinstallateure-elektroinstallateurinnen-cfc-100-grichting-valterio-electro-sa-collombey"
       ],
       "id": "burkhalter-group-a1d6475181ae",
       "previousSlugsByLocale": {
@@ -15517,13 +15584,13 @@
           "cfc-installer-electricians-100-grichting-valterio-electro-sa-collombey",
           "elektroinstallateure-elektroinstallateurinnen-efz-100-grichting-valterio-electro-sa-collombey",
           "electrician-installers-electrician-installer-cfc-100-grichting-valterio-electro-sa-collomb",
-          "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-collombey"
+          "electrician-installers-electrician-installer-cfc-100-grichting-valterio-electro-sa-collombey"
         ],
         "de": [
           "cfc-installer-electricians-100-grichting-valterio-electro-sa-collombey",
           "elektroinstallateure-elektroinstallateurinnen-efz-100-grichting-valterio-electro-sa-collombey",
           "electrician-installers-electrician-installer-cfc-100-grichting-valterio-electro-sa-collomb",
-          "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electro-sa-collombey"
+          "elektroinstallateure-elektroinstallateurinnen-cfc-100-grichting-valterio-electro-sa-collombey"
         ],
         "fr": [
           "cfc-installer-electricians-100-grichting-valterio-electro-sa-collombey",
@@ -15784,7 +15851,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-418",
       "datePosted": "2022-02-04",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Kundendienst-Elektroinstallateur/in (100%)",
@@ -16196,7 +16264,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-406",
       "datePosted": "2021-12-20",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Conseiller/Conceillère en sécurité électrique avec Brevet Fédéral (100%)",
@@ -16686,7 +16755,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-elektroinstallateur-efz-80",
       "datePosted": "2021-09-24",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektro-Servicetechniker/in (100%)",
@@ -16858,7 +16928,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-368",
       "datePosted": "2021-06-28",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Elektroinstallateur/in (100%)",
@@ -17087,7 +17158,8 @@
       },
       "previousSlugs": [
         "elektroinstallateur-in-efz-100-schild-elektro-ag-grindelwald"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Montage-Elektriker/in EFZ (100%)",
@@ -17164,7 +17236,8 @@
       },
       "previousSlugs": [
         "montage-elektriker-in-efz-100-schild-elektro-ag-grindelwald"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Elektroplaner oder Elektroinstallateur in Zusatzlehre als Elektroplaner / Elektroinstallateur EFZ mit planerischer Erfahrung (100%)",
@@ -17880,7 +17953,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-oder-montage-elektriker-efz-329",
       "datePosted": "2021-02-11",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "électricien/ne de montage qualifié (100%)",
@@ -18333,7 +18407,7 @@
         "it": "tecnico-a-di-servizio-elettrico-100-tz-stromag-brig-glis",
         "en": "elektro-service-technician-100-tz-stromag-brig-glis",
         "de": "elektro-servicetechniker-in-100-tz-stromag-brig-glis",
-        "fr": "technicien-ne-de-service-en-electricite-100-tz-stromag-brig-glis"
+        "fr": "elektro-servicetechniker-in-100-tz-stromag-brig-glis"
       },
       "crawledAt": "2026-10-17T21:28:20.728Z",
       "coordinates": [
@@ -18348,7 +18422,8 @@
         "technicien-des-services-electriques-100-tz-stromag-brig-glis",
         "technicien-en-electricite-100-tz-stromag-brig-glis",
         "tecnico-di-servizio-elettrico-tz-stromag-brig-glis",
-        "elektro-servicetechniker-in-100-tz-stromag-brig-glis"
+        "elektro-servicetechniker-in-100-tz-stromag-brig-glis",
+        "technicien-ne-de-service-en-electricite-100-tz-stromag-brig-glis"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -18383,7 +18458,7 @@
           "technicien-ne-de-service-electrique-100-tz-stromag-brig-glis",
           "technicien-des-services-electriques-100-tz-stromag-brig-glis",
           "technicien-en-electricite-100-tz-stromag-brig-glis",
-          "elektro-servicetechniker-in-100-tz-stromag-brig-glis"
+          "technicien-ne-de-service-en-electricite-100-tz-stromag-brig-glis"
         ]
       },
       "firstSeenAt": "2026-04-13T21:18:02.670Z",
@@ -18585,7 +18660,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-265",
       "datePosted": "2020-09-04",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -18667,7 +18743,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-265-1",
       "datePosted": "2020-09-04",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektro-Servicemonteur/in (100%)",
@@ -19024,7 +19101,8 @@
       },
       "previousSlugs": [
         "elektroinstallateur-in-efz-als-servicemonteur-in-100-elektro-stampfl-st-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Servicetechniker/in (100%)",
@@ -19273,7 +19351,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-141",
       "datePosted": "2019-05-02",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -19354,7 +19433,8 @@
       },
       "previousSlugs": [
         "elektroinstallateur-in-efz-100-baumann-electro-ag-st-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Elektroinstallateur/in (100%)",
@@ -19538,7 +19618,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-120",
       "datePosted": "2019-04-25",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Elektroinstallateur/in (100%)",
@@ -19695,7 +19776,8 @@
         "it": [
           "elektroinstallateur-in-efz-80-100-schonholzer-ag-chur"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Elektroinstallateur/in (80 - 100%)",
@@ -20152,7 +20234,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-mit-flair-fuer-telematik-12",
       "datePosted": "2019-04-02",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",
@@ -20248,7 +20331,8 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-in-efz-1420",
       "datePosted": "1970-01-01",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Montage-Elektriker/in EFZ (100%)",
