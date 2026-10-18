@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 // @ts-expect-error — standalone JavaScript Worker.
-import worker, { articleAliasTarget } from '../infra/cloudflare-worker/locale-router.js';
+import worker, { articleAliasTarget, __resetCorpusRegistryForTests, corpusSectionCdnKey, CDN_BASE } from '../infra/cloudflare-worker/locale-router.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
@@ -12,9 +12,10 @@ const registry = {
 };
 
 beforeEach(() => {
+  __resetCorpusRegistryForTests();
   vi.stubGlobal('caches', { default: { match: async () => undefined, put: async () => {} } });
 });
-afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+afterEach(() => { __resetCorpusRegistryForTests(); vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 function mockOrigin({ current = 404, target = 200, api = 200, payload = JSON.stringify(registry) } = {}) {
   return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
@@ -139,5 +140,138 @@ describe('article aliases from the public corpus registry', () => {
     const response = await worker.fetch(new Request(`${APEX}/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/`), {}, ctx);
     expect(response.status).toBe(410);
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+});
+
+const cantonRegistry = {
+  cantons: {
+    'canton-basilea': {
+      'basilea-larvicida-quattro-settimane': {
+        it: 'basilea-larvicida-quattro-settimane', en: 'basel-tiger-mosquito-four-weeks',
+        de: 'basel-tigermuecke-vier-wochen', fr: 'bale-moustique-tigre-quatre-semaines',
+      },
+    },
+    'canton-ju': {
+      'casse-pensioni-migliorano-terzo-trimestre': {
+        it: 'casse-pensioni-migliorano-terzo-trimestre', en: 'swiss-pension-funds-improve-q3-2026',
+        de: 'schweizer-pensionskassen-verbessern-q3-2026', fr: 'les-caisses-de-pension-suisses-ameliorent-q3-2026',
+      },
+    },
+  },
+};
+const cantonFrom = '/de/basel-artikel/basilea-larvicida-quattro-settimane/';
+const cantonTarget = '/de/basel-artikel/basel-tigermuecke-vier-wochen/';
+
+function mockCanton({ current = 404, target = 200 as number | 'network' | 'timeout',
+  api = 200, payload = JSON.stringify(cantonRegistry), status = 'live',
+  redirects = {} as Record<string, string>, gone = [] as string[] } = {}) {
+  return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+    const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+    if (url.href === `${CDN_BASE}/edge/sections/registry.json`) return Response.json({
+      schema: 1, commit: 'a'.repeat(40), sections: {
+        'canton-basilea': { status, redirects, gone }, 'canton-ju': { status: 'live' },
+      },
+    });
+    if (url.pathname.endsWith('/slugs.json')) return new Response(payload, { status: api });
+    if (url.origin === CDN_BASE && url.pathname === corpusSectionCdnKey(cantonTarget)) {
+      if (target === 'network') throw new TypeError('Network unavailable');
+      if (target === 'timeout') return new Promise<Response>((_resolve, reject) => {
+        init?.signal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')), { once: true });
+      });
+      return new Response('translated article', { status: target });
+    }
+    return new Response('original', { status: current });
+  });
+}
+
+describe('canton article aliases after a definitive R2 miss', () => {
+  it.each([
+    [cantonFrom, cantonTarget],
+    ['/en/jura-articles/casse-pensioni-migliorano-terzo-trimestre/', '/en/jura-articles/swiss-pension-funds-improve-q3-2026/'],
+    ['/articoli-basilea/basel-tigermuecke-vier-wochen/', '/articoli-basilea/basilea-larvicida-quattro-settimane/'],
+    ['/en/basel-articles/bale-moustique-tigre-quatre-semaines/', '/en/basel-articles/basel-tiger-mosquito-four-weeks/'],
+    ['/fr/articles-bale/basel-tiger-mosquito-four-weeks/', '/fr/articles-bale/bale-moustique-tigre-quatre-semaines/'],
+  ])('resolves the exact same canton article in the requested language: %s', (from, target) => {
+    expect(articleAliasTarget(from, cantonRegistry)).toBe(target);
+  });
+
+  it.each([cantonTarget, '/de/basel-artikel/unknown/', '/de/basel-artikel/',
+    '/de/basel-artikel/basilea-larvicida-quattro-settimane/extra/',
+    '/de/jura-artikel/basilea-larvicida-quattro-settimane/', '/de/unknown-artikel/basilea-larvicida-quattro-settimane/'])
+  ('does not invent an identity or cross canton boundaries: %s', (from) => {
+    expect(articleAliasTarget(from, cantonRegistry)).toBeNull();
+  });
+
+  it('rejects collisions with another id or translation and missing or unsafe targets', () => {
+    const rows = cantonRegistry.cantons['canton-basilea'];
+    for (const duplicate of [{ it: 'basilea-larvicida-quattro-settimane', de: 'other' },
+      { en: 'basilea-larvicida-quattro-settimane', de: 'other' }]) {
+      expect(articleAliasTarget(cantonFrom, { cantons: { 'canton-basilea': { ...rows, other: duplicate } } })).toBeNull();
+    }
+    for (const de of [undefined, '', '../outside', 'wrong?query', '%2foutside', 'wrong.html', 'wrong slug']) {
+      expect(articleAliasTarget(cantonFrom, { cantons: { 'canton-basilea': {
+        'basilea-larvicida-quattro-settimane': { de },
+      } } })).toBeNull();
+    }
+  });
+
+  it.each([404, 410])('returns 301 only after original R2 %s and positive destination R2 GET', async (current) => {
+    const fetchMock = mockCanton({ current });
+    const response = await worker.fetch(new Request(`${APEX}${cantonFrom}?utm_source=gsc`), {}, ctx);
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe(`${cantonTarget}?utm_source=gsc`);
+    const urls = fetchMock.mock.calls.map(([input]) => String(input));
+    expect(urls.indexOf(`${CDN_BASE}${corpusSectionCdnKey(cantonFrom)}`))
+      .toBeLessThan(urls.findIndex((url) => url.endsWith('/slugs.json')));
+    expect(urls).toContain(`${CDN_BASE}${corpusSectionCdnKey(cantonTarget)}`);
+    expect(urls).not.toContain(`${APEX}${cantonTarget}`);
+  });
+
+  it.each([404, 410])('keeps missing targets as 404: %s', async (target) => {
+    mockCanton({ target });
+    expect((await worker.fetch(new Request(`${APEX}${cantonFrom}`), {}, ctx)).status).toBe(404);
+  });
+
+  it.each([{ target: 503 }, { target: 429 }, { target: 302 }, { target: 'network' as const },
+    { api: 503 }, { payload: '{' }, { payload: '{}' }, { payload: '{"cantons":{"canton-basilea":[]}}' }])
+  ('keeps unavailable verification temporary: %j', async (options) => {
+    mockCanton(options);
+    const response = await worker.fetch(new Request(`${APEX}${cantonFrom}`), {}, ctx);
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(response.headers.get('Retry-After')).toBe('60');
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+  });
+
+  it('keeps a target-probe timeout temporary', async () => {
+    vi.useFakeTimers();
+    mockCanton({ target: 'timeout' });
+    const pending = worker.fetch(new Request(`${APEX}${cantonFrom}`), {}, ctx);
+    await vi.advanceTimersByTimeAsync(2500);
+    expect((await pending).status).toBe(503);
+  });
+
+  it.each([
+    { current: 200, expected: 200 }, { status: 'draft', expected: 404 },
+    { status: 'retired', expected: 410 }, { gone: [cantonFrom], expected: 410 },
+    { redirects: { [cantonFrom]: '/de/basel-artikel/' }, expected: 301 },
+    { current: 503, expected: 503 },
+  ])('preserves existing section ownership and responses: %j', async ({ expected, ...options }) => {
+    const fetchMock = mockCanton(options);
+    expect((await worker.fetch(new Request(`${APEX}${cantonFrom}`), {}, ctx)).status).toBe(expected);
+    expect(fetchMock.mock.calls.some(([input]) => String(input).endsWith('/slugs.json'))).toBe(false);
+  });
+
+  it.each([{ gone: [cantonTarget] }, { redirects: { [cantonTarget]: '/de/basel-artikel/' } }])
+  ('does not redirect to an explicitly withdrawn or moved destination: %j', async (options) => {
+    const fetchMock = mockCanton(options);
+    expect((await worker.fetch(new Request(`${APEX}${cantonFrom}`), {}, ctx)).status).toBe(404);
+    expect(fetchMock.mock.calls.map(([input]) => String(input)))
+      .not.toContain(`${CDN_BASE}${corpusSectionCdnKey(cantonTarget)}`);
+  });
+
+  it('keeps a healthy registry miss as 404', async () => {
+    mockCanton();
+    expect((await worker.fetch(new Request(`${APEX}/de/basel-artikel/unknown/`), {}, ctx)).status).toBe(404);
   });
 });

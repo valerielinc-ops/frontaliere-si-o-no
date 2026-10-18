@@ -831,40 +831,53 @@ const ARTICLE_SLUG_REGISTRY_URL = 'https://nanakokyobashi-rgb.github.io/frontali
 function articleAliasRows(route, registry) {
   const group = route?.section === 'articolifrontaliere' ? 'blog'
     : route?.section === 'articolisvizzera' ? 'swiss' : null;
-  if (!group) return null;
-  const rows = registry?.[group];
+  const rows = group ? registry?.[group]
+    : Object.prototype.hasOwnProperty.call(CORPUS_CANTON_SECTION_SLUGS, route?.section)
+      ? registry?.cantons?.[route.section] : null;
   return isPlainObject(rows) ? rows : null;
 }
 
 export function articleAliasTarget(pathname, registry) {
-  const route = matchSection(pathname);
+  const route = matchSection(pathname) || matchCorpusSection(pathname);
   const rows = articleAliasRows(route, registry);
   if (!rows) return null;
   const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
   if (!leaf) return null;
   const slug = lowerSegment(leaf[1]);
-  const group = route.section === 'articolifrontaliere' ? 'blog' : 'swiss';
+  const group = route.section === 'articolifrontaliere' ? 'blog'
+    : route.section === 'articolisvizzera' ? 'swiss' : null;
   const own = (obj, key) => obj && Object.prototype.hasOwnProperty.call(obj, key);
   const ids = new Set();
   if (own(rows, slug)) ids.add(slug);
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    const reverse = registry?.[`${group}Reverse`]?.[locale];
-    if (own(reverse, slug) && typeof reverse[slug] === 'string') ids.add(reverse[slug]);
+  if (group) {
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const reverse = registry?.[`${group}Reverse`]?.[locale];
+      if (own(reverse, slug) && typeof reverse[slug] === 'string') ids.add(reverse[slug]);
+    }
+  } else {
+    // Canton registries have no reverse map; keep identity lookup inside the
+    // requested section and reject collisions instead of taking the first row.
+    for (const [id, slugs] of Object.entries(rows)) {
+      if (['it', 'en', 'de', 'fr'].some((locale) => slugs?.[locale] === slug)) ids.add(id);
+    }
   }
   if (ids.size !== 1) return null;
   const id = [...ids][0];
   const canonicalSlug = own(rows, id) && rows[id]?.[route.locale];
   if (typeof canonicalSlug !== 'string' || !canonicalSlug || /[\s/\\?#%]/u.test(canonicalSlug)) return null;
   const target = `${route.prefix}/${canonicalSlug}/`;
+  if (!group && corpusSectionCanonicalDir(target, route) !== target) return null;
   if (normaliseRetiredPath(target) === normaliseRetiredPath(pathname.replace(/\/+$/, '') + '/')) return null;
   // A withdrawn canonical must not become a new target through a stale API.
   if (lookupRetired(target) !== undefined) return null;
   return target;
 }
 
-async function recoverArticleAlias(url, origin) {
-  const route = matchSection(url.pathname);
-  if (!['articolifrontaliere', 'articolisvizzera'].includes(route?.section)) return null;
+async function recoverArticleAlias(url, origin, corpusEntry = null) {
+  const route = corpusEntry ? matchCorpusSection(url.pathname) : matchSection(url.pathname);
+  if (corpusEntry ? corpusEntry.status !== 'live'
+    : !['articolifrontaliere', 'articolisvizzera'].includes(route?.section)) return null;
+  if (!route) return null;
   if (!/^\/[^/]+\/?$/.test(url.pathname.slice(route.prefix.length))) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 5000);
@@ -885,7 +898,8 @@ async function recoverArticleAlias(url, origin) {
     clearTimeout(timer);
   }
   if (!target) return null;
-  const availability = await redirectTargetAvailability(target, origin);
+  if (corpusEntry && (corpusEntry.gone.has(target) || corpusEntry.redirects.has(target))) return null;
+  const availability = await redirectTargetAvailability(corpusEntry ? corpusSectionCdnKey(target) : target, origin);
   if (availability === 'unavailable') return aliasVerificationUnavailable();
   if (availability !== 'live') return null;
   return new Response(null, {
@@ -2219,7 +2233,8 @@ function corpusMoved(url, target) {
  *
  * live    → registry redirect (301) / gone (410) first, then the canonical
  *           directory form (301 from `/x`, `/x.html`, `/x/index.html`), then
- *           the R2 object: 200, or a real 404 + noindex with a short TTL.
+ *           the R2 object: 200, a verified same-article alias (301), or a real
+ *           404 + noindex with a short TTL.
  * retired → registry redirect if one is declared, 410 Gone otherwise.
  */
 export async function serveCorpusSection(request, url, ctx) {
@@ -2268,7 +2283,10 @@ export async function serveCorpusSection(request, url, ctx) {
       headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' },
     });
   }
-  if (!resp.ok) return corpusNotFound(request, route);
+  if (!resp.ok) {
+    const alias = await recoverArticleAlias(url, new URL(CDN_BASE).hostname, entry);
+    return alias || corpusNotFound(request, route);
+  }
 
   const body = await resp.arrayBuffer();
   const headers = {
