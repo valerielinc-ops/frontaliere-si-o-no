@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
   parsePostings,
   mergeCulturePostings,
+  assessCultureCoverage,
   BUCHERER_CULTURES,
 } from '../scripts/lib/bucherer-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -452,6 +453,42 @@ describe('Bucherer crawler parser', () => {
 
     it('returns an empty list when every culture is empty (fail-closed stays upstream)', () => {
       expect(mergeCulturePostings(BUCHERER_CULTURES.map((c) => ({ cultureCode: c, body: empty })))).toEqual([]);
+    });
+
+    it('requires an observed response for every culture before publishing the union', () => {
+      const coverage = assessCultureCoverage([
+        { cultureCode: 'de-DE', body: deBody },
+        { cultureCode: 'fr-FR', body: frBody },
+        { cultureCode: 'en-GB', body: empty },
+      ]);
+      expect(coverage.complete).toBe(false);
+      expect(coverage.missingCultures).toEqual(['it-IT']);
+      expect(coverage.incompleteCultures).toEqual([]);
+    });
+
+    it('rejects a culture response whose declared total exceeds the captured page', () => {
+      const coverage = assessCultureCoverage([
+        { cultureCode: 'de-DE', body: { ...deBody, maxCount: 3 } },
+        { cultureCode: 'fr-FR', body: frBody },
+        { cultureCode: 'it-IT', body: empty },
+        { cultureCode: 'en-GB', body: empty },
+      ]);
+      expect(coverage.complete).toBe(false);
+      expect(coverage.missingCultures).toEqual([]);
+      expect(coverage.incompleteCultures).toEqual(['de-DE']);
+    });
+
+    it('accepts a complete all-empty source snapshot only when every culture declares zero', () => {
+      const coverage = assessCultureCoverage(
+        BUCHERER_CULTURES.map((cultureCode) => ({ cultureCode, body: empty })),
+      );
+      expect(coverage).toMatchObject({
+        complete: true,
+        allEmpty: true,
+        missingCultures: [],
+        incompleteCultures: [],
+        observedPostings: 0,
+      });
     });
 
     it("links each job to its own culture's detail page (the other cultures 404)", () => {
