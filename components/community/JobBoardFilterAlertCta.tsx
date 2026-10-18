@@ -87,26 +87,32 @@ export default function JobBoardFilterAlertCta({
 
   const handleAnonymousOpen = useCallback(() => {
     if (!keywordLabel) return;
-    onAnonymousOpen?.();
     // This CTA is the anonymous equivalent of the authenticated one-tap path:
     // park the exact criteria before entering the existing auth screen, so the
     // JobAlertForm can create the alert automatically after the auth round-trip.
     // If storage is unavailable, keep the old form hand-off instead of sending
     // the visitor through auth with no replayable intent.
-    const config: JobAlertConfig = {
-      keywords: [stripKeywordEmoji(keywordLabel)],
-      locations: [...(filters?.locations ?? [])],
-      contractTypes: [...(filters?.contractTypes ?? [])],
-      sectors: [...(filters?.sectors ?? [])],
-      cantonFilter: cantonCode ? [cantonCode] : null,
-      frequency: 'weekly',
-      locale,
-    };
-    const saved = savePendingJobAlert(config, formOrigin ?? 'inline_card');
-    if (saved.ok && onAnonymousAuthRequired) return onAnonymousAuthRequired();
+    const keyword = stripKeywordEmoji(keywordLabel);
+    if (onAnonymousAuthRequired && keyword) {
+      const config: JobAlertConfig = {
+        keywords: [keyword],
+        locations: [...(filters?.locations ?? [])],
+        contractTypes: [...(filters?.contractTypes ?? [])],
+        sectors: [...(filters?.sectors ?? [])],
+        cantonFilter: cantonCode ? [cantonCode] : null,
+        frequency: 'weekly',
+        locale,
+      };
+      const saved = savePendingJobAlert(config, formOrigin ?? 'inline_card');
+      if (saved.ok) {
+        onAnonymousOpen?.();
+        return onAnonymousAuthRequired();
+      }
+    }
 
     // Notify an already-mounted form and retain the queued request for a lazy
     // mount (for example when the CTA was clicked on a detail route).
+    onAnonymousOpen?.();
     openJobAlertForm(keywordLabel, formOrigin);
   }, [cantonCode, filters, formOrigin, keywordLabel, locale, onAnonymousAuthRequired, onAnonymousOpen]);
 

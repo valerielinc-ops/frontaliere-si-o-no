@@ -205,6 +205,7 @@ describe('JobBoardFilterAlertCta', () => {
     expect(subscribe).not.toHaveBeenCalled();
     expect(onAccepted).not.toHaveBeenCalled();
     expect(consumeJobAlertOpen()).toEqual({ keyword: 'Tecnologia' });
+    expect(consumePendingJobAlert()).toBeNull();
     expect(dispatchSpy.mock.calls.some(([event]) => {
       return event.type === 'openJobAlert'
         && (event as CustomEvent<{ keyword?: string }>).detail?.keyword === 'Tecnologia';
