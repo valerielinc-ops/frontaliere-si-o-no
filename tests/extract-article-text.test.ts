@@ -195,6 +195,18 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('Tracking payload paragraph');
   });
 
+  it('caps very long noscript paragraphs before collecting later siblings', () => {
+    const oversized = 'Editorial fallback source '.repeat(500);
+    const trailing = 'Trailing paragraph that must not be collected after the source cap is exhausted.';
+    const html = `<main><noscript><p>${oversized}</p><p>${trailing}</p></noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true, maxChars: 8000 });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).toHaveLength(8000);
+    expect(result.paragraphCount).toBe(1);
+    expect(result.text).not.toContain('Trailing paragraph');
+  });
+
   it('respects maxChars cap', () => {
     const longText = 'X'.repeat(20000);
     const html = `<html><body><article><p>${longText}</p></article></body></html>`;

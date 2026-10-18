@@ -56,6 +56,25 @@ function cleanText(s) {
   return s.replace(/\s+/g, ' ').trim();
 }
 
+function normalizeTextCap(maxChars) {
+  const numeric = Number(maxChars);
+  if (numeric === Number.POSITIVE_INFINITY) return numeric;
+  if (!Number.isFinite(numeric)) return MAX_DEFAULT_LEN;
+  return Math.max(0, Math.floor(numeric));
+}
+
+/**
+ * Apply the extractor's hard character cap in one place.
+ *
+ * Keeping this separate from the route-specific joins is important for
+ * `<noscript>`: a fallback paragraph can be much larger than the caller's
+ * final source budget, so the collector must be able to cap it before it
+ * accumulates more sibling paragraphs.
+ */
+export function capExtractedText(text, maxChars = MAX_DEFAULT_LEN) {
+  return String(text ?? '').slice(0, normalizeTextCap(maxChars));
+}
+
 /**
  * Try to pull articleBody / description / headline from any JSON-LD blocks.
  * Returns the longest articleBody-shaped string found, or null.
@@ -158,11 +177,28 @@ function removeNoiseNodes(root, { includeNoscript = false } = {}) {
   }
 }
 
-function collectParagraphTexts(root, include = () => true) {
-  return [...root.querySelectorAll(PARAGRAPH_SELECTOR)]
-    .filter(p => include(p))
-    .map(p => cleanText(p.textContent || ''))
-    .filter(p => p && !isJunk(p));
+function collectParagraphTexts(root, include = () => true, maxChars = Number.POSITIVE_INFINITY) {
+  const cap = normalizeTextCap(maxChars);
+  const paragraphs = [];
+  let usedChars = 0;
+
+  for (const node of root.querySelectorAll(PARAGRAPH_SELECTOR)) {
+    if (!include(node)) continue;
+    const text = cleanText(node.textContent || '');
+    if (!text || isJunk(text)) continue;
+
+    const separatorLength = paragraphs.length > 0 ? 2 : 0;
+    const remaining = cap - usedChars - separatorLength;
+    if (remaining <= 0) break;
+
+    const capped = capExtractedText(text, remaining);
+    if (!capped) break;
+    paragraphs.push(capped);
+    usedChars += separatorLength + capped.length;
+    if (capped.length < text.length) break;
+  }
+
+  return paragraphs;
 }
 
 function normalizeNoscriptRoot(noscript) {
@@ -233,38 +269,56 @@ function isNoscriptMetadata(noscript) {
  * same shape in both cases. Setting innerHTML on a detached element does not
  * execute scripts or load the source page's resources.
  */
-function extractNoscriptText(noscript) {
+function extractNoscriptText(noscript, maxChars = Number.POSITIVE_INFINITY) {
   if (!noscript) return [];
 
   const normalized = normalizeNoscriptRoot(noscript);
   const isEditorialParagraph = node => !hasNoscriptNonContentAncestor(node, normalized);
-  if (normalized === noscript) return collectParagraphTexts(noscript, isEditorialParagraph);
+  if (normalized === noscript) {
+    return collectParagraphTexts(noscript, isEditorialParagraph, maxChars);
+  }
 
   removeNoiseNodes(normalized);
-  return collectParagraphTexts(normalized, isEditorialParagraph);
+  return collectParagraphTexts(normalized, isEditorialParagraph, maxChars);
 }
 
-function extractParagraphs(root) {
+function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY) {
   if (!root) return [];
   const paragraphs = [];
+  const cap = normalizeTextCap(maxChars);
+  let usedChars = 0;
   const candidates = [...root.querySelectorAll(`${PARAGRAPH_SELECTOR}, noscript`)];
+
+  const appendParagraph = (text) => {
+    if (!text || paragraphs.at(-1) === text) return true;
+    const separatorLength = paragraphs.length > 0 ? 2 : 0;
+    const remaining = cap - usedChars - separatorLength;
+    if (remaining <= 0) return false;
+
+    const capped = capExtractedText(text, remaining);
+    if (!capped) return false;
+    if (paragraphs.at(-1) === capped) return true;
+
+    paragraphs.push(capped);
+    usedChars += separatorLength + capped.length;
+    return capped.length === text.length;
+  };
+
   for (const candidate of candidates) {
     if (candidate.tagName.toLowerCase() === 'noscript') {
       if (candidate.parentElement?.closest('noscript')) continue;
       if (isNoscriptMetadata(candidate)) continue;
-      paragraphs.push(...extractNoscriptText(candidate));
+      const remaining = cap - usedChars;
+      for (const paragraph of extractNoscriptText(candidate, remaining)) {
+        if (!appendParagraph(paragraph)) return paragraphs;
+      }
       continue;
     }
     if (candidate.closest('noscript')) continue;
     const text = cleanText(candidate.textContent || '');
-    if (text && !isJunk(text)) paragraphs.push(text);
+    if (text && !isJunk(text) && !appendParagraph(text)) return paragraphs;
   }
-  // Dedup adjacent identical paragraphs (some sites repeat the lead)
-  const out = [];
-  for (const p of paragraphs) {
-    if (out.length === 0 || out[out.length - 1] !== p) out.push(p);
-  }
-  return out;
+  return paragraphs;
 }
 
 /**
@@ -305,21 +359,21 @@ export function extractArticleText(html, opts = {}) {
   // 1. JSON-LD articleBody (most reliable)
   const jsonLdBody = extractFromJsonLd(document);
   if (jsonLdBody && jsonLdBody.length > 200) {
-    const text = cleanText(jsonLdBody).slice(0, maxChars);
+    const text = capExtractedText(cleanText(jsonLdBody), maxChars);
     return { text, method: 'jsonld', paragraphCount: text.split(/[.!?]\s+/).length, publishedAt };
   }
 
   // 2/3. Article-tag with paragraph extraction
-  const articleParagraphs = extractParagraphs(document.querySelector('article'));
+  const articleParagraphs = extractParagraphs(document.querySelector('article'), maxChars);
   if (articleParagraphs.length >= 2) {
-    const text = articleParagraphs.join('\n\n').slice(0, maxChars);
+    const text = capExtractedText(articleParagraphs.join('\n\n'), maxChars);
     return { text, method: 'article-tag', paragraphCount: articleParagraphs.length, publishedAt };
   }
 
   // 4. Main-tag with paragraph extraction
-  const mainParagraphs = extractParagraphs(document.querySelector('main'));
+  const mainParagraphs = extractParagraphs(document.querySelector('main'), maxChars);
   if (mainParagraphs.length >= 2) {
-    const text = mainParagraphs.join('\n\n').slice(0, maxChars);
+    const text = capExtractedText(mainParagraphs.join('\n\n'), maxChars);
     return { text, method: 'main-tag', paragraphCount: mainParagraphs.length, publishedAt };
   }
 
@@ -328,14 +382,14 @@ export function extractArticleText(html, opts = {}) {
     || extractFromMeta(document, 'meta[name="title"]');
   const ogDesc = extractFromMeta(document, 'meta[property="og:description"]')
     || extractFromMeta(document, 'meta[name="description"]');
-  const bodyParagraphs = extractParagraphs(document.body);
+  const bodyParagraphs = extractParagraphs(document.body, maxChars);
   if (ogDesc || bodyParagraphs.length >= 1) {
     const parts = [];
     if (ogTitle) parts.push(ogTitle);
     if (ogDesc) parts.push(ogDesc);
     parts.push(...bodyParagraphs.slice(0, 12));
     if (parts.join(' ').length >= 200) {
-      const text = parts.join('\n\n').slice(0, maxChars);
+      const text = capExtractedText(parts.join('\n\n'), maxChars);
       return { text, method: 'og-fallback', paragraphCount: parts.length, publishedAt };
     }
   }
@@ -345,12 +399,11 @@ export function extractArticleText(html, opts = {}) {
 }
 
 function naiveFallback(html, maxChars) {
-  const text = html
+  const text = capExtractedText(html
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/<style[\s\S]*?<\/style>/gi, '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, maxChars);
+    .trim(), maxChars);
   return { text, method: 'naive-fallback', paragraphCount: 0 };
 }
