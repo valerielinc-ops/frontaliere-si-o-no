@@ -84,10 +84,13 @@ on:
 
   # 2. THE CONTENT CHANGED. Hub pages are a function of the article corpus,
   #    not only of the renderers, and new articles arrive ~15-25 times a day.
-  #    The render clones corpus `main` through the shared overlay, so this job
-  #    no longer depends on the site's lagging content copy.
-  #    The per-section concurrency group below coalesces bursts without
-  #    cancelling a live publisher.
+  #    The publisher dispatch is the prompt path; the render clones corpus
+  #    `main` through the shared overlay, so this job no longer depends on the
+  #    site's lagging content copy. The per-section concurrency group below
+  #    coalesces bursts without cancelling a live publisher.
+  repository_dispatch:
+    types: [articles-published]
+
   # 3. THE SAFETY NET. The schedule covers missed dispatches and any corpus
   #    refresh that does not change the watched renderer paths. Cheap when
   #    there is nothing to do: an unchanged tree makes
@@ -126,11 +129,11 @@ permissions:
 
 jobs:
   plan:
-    # Which sections run as separate matrix jobs. A push or a schedule means
-    # both: the renderers and the corpus they read are shared, so either kind
-    # of change affects the two sections identically. A dispatch honours the
-    # operator's choice. The overlay pins corpus `main` inside the render, so
-    # no workflow_run fan-out is needed here.
+    # Which sections run as separate matrix jobs. A push, publisher dispatch or
+    # schedule means both: the renderers and the corpus they read are shared,
+    # so either kind of change affects the two sections identically. A manual
+    # dispatch honours the operator's choice. The overlay pins corpus `main`
+    # inside the render, so no workflow_run fan-out is needed here.
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
@@ -210,10 +213,10 @@ jobs:
 
       # DRY resolution, in one place, read by every later step.
       #
-      # A dispatch defaults to dry (see the input's own default) so a manual
-      # poke cannot publish by accident; a push or a schedule publishes,
-      # because those events mean "the served pages are out of date" and a
-      # dry run of them would repair nothing.
+      # A manual dispatch defaults to dry (see the input's own default) so a
+      # poke cannot publish by accident; a push, publisher dispatch or
+      # schedule publishes, because those events mean "the served pages are
+      # out of date" and a dry run of them would repair nothing.
       - name: Resolve mode
         id: mode
         env:
