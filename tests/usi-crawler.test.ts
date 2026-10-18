@@ -149,6 +149,17 @@ describe('USI listing transport rescue', () => {
     expect(browserFetchImpl).not.toHaveBeenCalled();
   });
 
+  it('rescues an unverified 200 listing response and fails closed when rescue is unverified', async () => {
+    const browserFetchImpl = vi.fn(async () => null);
+    const unverified = '<html><title>not found</title></html>';
+
+    await expect(fetchPage(listingUrl, 1000, {
+      fetchHtmlImpl: async () => unverified,
+      browserFetchImpl,
+    })).rejects.toMatchObject({ status: 403, antiBotChallenge: true });
+    expect(browserFetchImpl).toHaveBeenCalledTimes(1);
+  });
+
   it('recognizes a legitimate empty listing document without requiring a PDF', () => {
     expect(looksLikeUsiListingHtml(listingHtml)).toBe(true);
     expect(looksLikeUsiListingHtml('<html><body>Just a moment...</body></html>')).toBe(false);

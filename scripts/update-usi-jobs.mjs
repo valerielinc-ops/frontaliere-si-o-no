@@ -411,6 +411,14 @@ export async function fetchPage(url, timeoutMs = 15000, {
   fetchHtmlImpl = fetchHtml,
   browserFetchImpl = fetchUsiPageViaBrowser,
 } = {}) {
+  const requiresListingDocument = isUsiListingUrl(url);
+  const isVerifiedResponse = (candidate) => Boolean(candidate)
+    && (!requiresListingDocument || looksLikeUsiListingHtml(candidate));
+  const fetchVerifiedBrowserRescue = async () => {
+    const browserHtml = await browserFetchImpl(url, timeoutMs);
+    return isVerifiedResponse(browserHtml) ? browserHtml : null;
+  };
+
   let html;
   try {
     html = await fetchHtmlImpl(url, {
@@ -419,16 +427,16 @@ export async function fetchPage(url, timeoutMs = 15000, {
     });
   } catch (error) {
     if (!isUsiTransportFailure(error)) throw error;
-    const browserHtml = await browserFetchImpl(url, timeoutMs);
+    const browserHtml = await fetchVerifiedBrowserRescue();
     if (browserHtml) return browserHtml;
     throw error;
   }
 
-  // fetchHtml preserves a 200 challenge when both Jina and the direct path
-  // fail. Escalate that known WAF shape to Chromium instead of handing the
-  // parser an HTML page that looks like a selector miss.
-  if (looksLikeAntiBotChallenge(html)) {
-    const browserHtml = await browserFetchImpl(url, timeoutMs);
+  // fetchHtml can preserve either a known 200 challenge or an unverified 200
+  // page. Escalate both shapes for listing URLs instead of handing the parser
+  // an HTML page that looks like a selector miss.
+  if (looksLikeAntiBotChallenge(html) || !isVerifiedResponse(html)) {
+    const browserHtml = await fetchVerifiedBrowserRescue();
     if (browserHtml) return browserHtml;
     throw usiAntiBotChallengeError(url);
   }
