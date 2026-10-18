@@ -10,6 +10,7 @@ import {
 } from '../scripts/lib/sympajobs-reinach-bl-job-parser.mjs';
 
 const DETAIL_URL = 'https://sympajobs.ch/job/reinigungsmitarbeiter-in-20-100/';
+const BASEL_DETAIL_URL = 'https://sympajobs.ch/job/dachdecker-basel/';
 const LISTING_URL = 'https://sympajobs.ch/jobs/';
 const LISTING_ENDPOINT_URL = 'https://sympajobs.ch/jm-ajax/get_listings/';
 
@@ -24,6 +25,14 @@ const DETAIL_HTML = `<html lang="de"><body><main><article class="single_job_list
   </ul>
   <div class="job_description"><p>${DESCRIPTION}</p></div>
 </article></main></body></html>`;
+
+const REGION_DETAIL_HTML = DETAIL_HTML.replace(
+  'Hauptstrasse 32, 4153 Reinach BL',
+  'Baselland',
+);
+const BASEL_DETAIL_HTML = DETAIL_HTML
+  .replace('Reinigungsmitarbeiter/-in 20-100%', 'Dachdecker Basel')
+  .replace('Hauptstrasse 32, 4153 Reinach BL', 'Basel');
 
 function htmlResponse(url: string, body: string) {
   return {
@@ -75,6 +84,25 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
     expect(detail.locationCandidates).toEqual([]);
   });
 
+  it('distinguishes the source canton label Baselland from Basel-Stadt', () => {
+    const baselland = extractSympajobsDetailFields(REGION_DETAIL_HTML, DETAIL_URL);
+    const basel = extractSympajobsDetailFields(BASEL_DETAIL_HTML, BASEL_DETAIL_URL);
+
+    expect(baselland).toMatchObject({
+      location: 'Baselland',
+      canton: 'BL',
+      addressLocality: '',
+      addressRegion: 'BL',
+      addressCountry: 'CH',
+    });
+    expect(basel).toMatchObject({
+      location: 'Basel',
+      canton: 'BS',
+      addressLocality: 'Basel',
+      addressRegion: 'BS',
+    });
+  });
+
   it('uses the learned official detail template and rejects unrelated domains', () => {
     const spec = loadSpec(SYMPAJOBS_REINACH_BL_KEY);
     expect(spec.candidateKey).toBe('sympajobs@reinach-bl');
@@ -91,20 +119,22 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
   });
 
   it('publishes only the source-backed BL detail with a canonical URL', async () => {
-    const listingHtml = `<li class="job_listing"><a href="/job/reinigungsmitarbeiter-in-20-100/"><h3>Reinigungsmitarbeiter/-in 20-100%</h3></a></li>`;
+    const listingHtml = `
+      <li class="job_listing"><a href="/job/reinigungsmitarbeiter-in-20-100/"><h3>Reinigungsmitarbeiter/-in 20-100%</h3></a></li>
+      <li class="job_listing"><a href="/job/dachdecker-basel/"><h3>Dachdecker Basel</h3></a></li>`;
     const requests: string[] = [];
     const fetchImpl = vi.fn(async (url: string) => {
       requests.push(url);
       if (url.endsWith('/robots.txt')) return htmlResponse(url, 'User-agent: *\nAllow: /');
       if (url.startsWith(LISTING_ENDPOINT_URL)) {
         return htmlResponse(url, JSON.stringify({
-          found_jobs: 1,
+          found_jobs: 2,
           max_num_pages: 1,
           html: listingHtml,
         }));
       }
       expect(url).not.toBe(LISTING_URL);
-      return htmlResponse(url, DETAIL_HTML);
+      return htmlResponse(url, url === BASEL_DETAIL_URL ? BASEL_DETAIL_HTML : REGION_DETAIL_HTML);
     });
     const runtime = {
       fetchImpl,
@@ -120,18 +150,24 @@ describe('Sympajobs Reinach BL source-backed crawler', () => {
     });
     const jobs = await fetchAllSympajobsReinachBlJobs(runtime);
 
-    expect(rows).toEqual([expect.objectContaining({
+    expect(rows).toHaveLength(2);
+    expect(rows).toEqual(expect.arrayContaining([expect.objectContaining({
       url: DETAIL_URL,
-      location: 'Hauptstrasse 32, 4153 Reinach BL',
+      location: 'Baselland',
       canton: 'BL',
       postingDateSource: 'reported',
-    })]);
+    }), expect.objectContaining({
+      url: BASEL_DETAIL_URL,
+      location: 'Basel',
+      canton: 'BS',
+    })]));
     expect(jobs).toEqual([expect.objectContaining({
       url: DETAIL_URL,
       applyUrl: DETAIL_URL,
       companyKey: SYMPAJOBS_REINACH_BL_KEY,
       title: 'Reinigungsmitarbeiter/-in 20-100%',
       canton: 'BL',
+      location: 'Baselland',
       description: DESCRIPTION,
       datePosted: '2026-08-11',
     })]);

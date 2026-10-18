@@ -18,7 +18,8 @@ export const SYMPAJOBS_REINACH_BL_COMPANY_DOMAIN = 'sympajobs.ch';
 export const SYMPAJOBS_REINACH_BL_CAREER_URL = 'https://sympajobs.ch/jobs/';
 
 const SYMPAJOBS_HOSTS = new Set(['sympajobs.ch', 'www.sympajobs.ch']);
-const BL_LOCATION_RE = /\b(?:BL|Basel[\s-]?Landschaft)\b/i;
+const BL_LOCATION_RE = /\b(?:BL|Basel[\s-]?Landschaft|Baselland)\b/i;
+const BL_REGION_ONLY_RE = /^(?:BL|Basel[\s-]?Landschaft|Baselland)$/i;
 const SWISS_COUNTRY_RE = /\b(?:CH|Schweiz|Suisse|Svizzera|Switzerland)\b/i;
 
 function normalizeSpace(value = '') {
@@ -112,15 +113,19 @@ function locationFrom(root, base = {}) {
   const postalMatch = /\b(?:CH[-\s]?)?(\d{4})\b/.exec(value);
   const postalCode = postalMatch?.[1] || '';
   const addressRegion = BL_LOCATION_RE.test(value) ? 'BL' : '';
-  const addressCountry = SWISS_COUNTRY_RE.test(value) ? 'CH' : normalizeSpace(base.addressCountry || '');
+  const addressCountry = SWISS_COUNTRY_RE.test(value) || addressRegion
+    ? 'CH'
+    : normalizeSpace(base.addressCountry || '');
   const localitySource = postalMatch
     ? value.slice((postalMatch.index ?? 0) + postalMatch[0].length)
     : value;
-  const addressLocality = normalizeSpace(
-    localitySource
-      .replace(/\b(?:Basel[\s-]?Landschaft|BL|Schweiz|Suisse|Svizzera|Switzerland)\b/gi, '')
-      .replace(/[(),]/g, ' '),
-  );
+  const addressLocality = BL_REGION_ONLY_RE.test(value)
+    ? ''
+    : normalizeSpace(
+      localitySource
+        .replace(/\b(?:Basel[\s-]?Landschaft|Baselland|BL|Schweiz|Suisse|Svizzera|Switzerland)\b/gi, '')
+        .replace(/[(),]/g, ' '),
+    );
   const streetAddress = postalCode
     ? normalizeSpace(value.match(/^([^,\d][^,]{2,80}),\s*(?:CH[-\s]?)?\d{4}/)?.[1] || '')
     : '';
@@ -133,8 +138,11 @@ function locationFrom(root, base = {}) {
     streetAddress,
   };
   const geography = resolveSourceBackedSwissGeography(evidence);
-  if (!geography || geography.canton !== 'BL') return null;
-  return sourceBackedSwissGeographyFields(evidence, geography);
+  if (!geography) return null;
+  const fields = sourceBackedSwissGeographyFields(evidence, geography);
+  return fields && BL_REGION_ONLY_RE.test(value)
+    ? { ...fields, addressLocality: '' }
+    : fields;
 }
 
 function descriptionFrom(root, base = '') {
@@ -248,9 +256,10 @@ export async function fetchAllSympajobsReinachBlJobs(runtime = {}) {
     const title = normalizeSpace(listing.title || '');
     const description = stripHtml(listing.description || '');
     const url = canonicalUrl(listing.url || listing.sourceUrl || '');
-    const geography = resolveSourceBackedSwissGeography(
-      listing.locationCandidates?.[0] || listing,
-    );
+    const listingEvidence = BL_REGION_ONLY_RE.test(normalizeSpace(listing.location || ''))
+      ? { ...listing, addressLocality: '' }
+      : listing.locationCandidates?.[0] || listing;
+    const geography = resolveSourceBackedSwissGeography(listingEvidence);
     if (title.length < 3 || !description || !url || !isTrustedDomain(url) || !geography || geography.canton !== 'BL') continue;
 
     const sourceLang = detectLang(`${title} ${description}`, 'de');
@@ -260,7 +269,7 @@ export async function fetchAllSympajobsReinachBlJobs(runtime = {}) {
       urlHash.slice(0, 8),
     );
     const geographyFields = sourceBackedSwissGeographyFields(
-      listing.locationCandidates?.[0] || listing,
+      listingEvidence,
       geography,
     );
     jobs.push({
