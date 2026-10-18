@@ -900,10 +900,10 @@
       "id": "sbb-8cb1166e3eb7",
       "slug": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
       "slugByLocale": {
-        "it": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
-        "en": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
+        "it": "ufficiale-ffs-officine-ferrovie-federali-st-gallen",
+        "en": "officer-ffs-officine-ferrovie-federali-st-gallen",
         "de": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
-        "fr": "offizier-in-ffs-officine-ferrovie-federali-st-gallen"
+        "fr": "officier-ere-ffs-officine-ferrovie-federali-st-gallen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -979,7 +979,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/offizier-in/039daf6b-c02c-4fbf-bc0b-df2b2e459fc4",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:25.514Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1390,7 +1389,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-330cd8604fe7",
@@ -1662,9 +1662,9 @@
       "slug": "gleisbau-polier-in-o-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
       "slugByLocale": {
         "it": "gleisbau-polier-in-o-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
-        "en": "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
+        "en": "track-construction-foreman-or-site-supervisor-ffs-officine-ferrovie-federali-lenzburg",
         "de": "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
-        "fr": "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg"
+        "fr": "contremaitre-esse-ou-chef-fe-d-equipe-en-construction-de-voies-ffs-officine-ferrovie-federali-lenzburg"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1735,9 +1735,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gleisbau-polier-in-oder-vorarbeiter-in/ed5e99e4-c873-4a4d-9105-250a49ceb835",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:04.993Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "en": [
+          "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "fr": [
           "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg"
         ]
       },
@@ -4358,10 +4363,10 @@
       "id": "sbb-8470a5556c0d",
       "slug": "gesamtprojektleiter-in-betriebsobjekte-immobilien-development-ffs-officine-ferrovie-federali-bern-oder-zurich",
       "slugByLocale": {
-        "it": "gesamtprojektleiter-in-betriebsobjekte-immobilien-development-ffs-officine-ferrovie-federali-bern-oder-zurich",
+        "it": "responsabile-generale-di-progetto-per-gli-immobili-operativi-sviluppo-immobiliare-ffs-officine-ferrovie-federali-bern",
         "en": "overall-project-manager-operational-properties-real-estate-development-ffs-officine-ferrovie-federali-bern-oder-zurich",
         "de": "gesamtprojektleiter-in-betriebsobjekte-immobilien-development-ffs-officine-ferrovie-federali-bern-oder-zurich",
-        "fr": "gesamtprojektleiter-in-betriebsobjekte-immobilien-development-ffs-officine-ferrovie-federali-bern-oder-zurich"
+        "fr": "responsable-general-e-de-projet-objets-d-exploitation-developpement-immobilier-ffs-officine-ferrovie-federali-bern-oder"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4432,7 +4437,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gesamtprojektleiter-in-betriebsobjekte-immobilien-development/8825adcf-0f34-4db4-9cfd-dc798d136ba7",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:03.476Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -4456,10 +4460,10 @@
       "id": "sbb-b6ad41941a0b",
       "slug": "hochschulpraktikant-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit",
       "slugByLocale": {
-        "it": "hochschulpraktikant-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit",
-        "en": "hochschulpraktikant-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit",
+        "it": "tirocinante-universitario-a-in-diversi-ambiti-ffs-officine-ferrovie-federali-schweizweit",
+        "en": "university-intern-in-various-areas-ffs-officine-ferrovie-federali-schweizweit",
         "de": "hochschulpraktikant-in-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit",
-        "fr": "hochschulpraktikant-in-diversen-bereichen-ffs-officine-ferrovie-federali-schweizweit"
+        "fr": "stagiaire-universitaire-dans-divers-domaines-ffs-officine-ferrovie-federali-schweizweit"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4557,7 +4561,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/hochschulpraktikant-in-in-diversen-bereichen/81c80080-07c9-4751-b65a-65ab4d40158a",
-      "firstSeenAt": "2026-10-17T21:28:09.987Z"
+      "firstSeenAt": "2026-10-17T21:28:09.987Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "sbb-5c9e16b07ce4",
@@ -5377,7 +5382,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/7ed8b6dc-5d17-4f56-b568-183a8448d9d1",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:42.475Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
@@ -6453,7 +6457,7 @@
       "slug": "ingegnere-della-sicurezza-ferroviaria-ffs-officine-ferrovie-federali-geneve",
       "slugByLocale": {
         "it": "ingegnere-della-sicurezza-ferroviaria-ffs-officine-ferrovie-federali-geneve",
-        "en": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
+        "en": "railway-safety-engineer-ffs-officine-ferrovie-federali-geneve",
         "de": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
         "fr": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
       },
@@ -6529,6 +6533,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
+        ],
+        "en": [
+          "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
         ]
       },
       "previousSlugs": [
@@ -6558,9 +6565,9 @@
       "slug": "polimeccanica-meccanica-di-produzione-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "polimeccanica-meccanica-di-produzione-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "polymechaniker-in-produktionsmechaniker-in-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "polymechanic-production-mechanic-ffs-officine-ferrovie-federali-hagendorf",
         "de": "polymechaniker-in-produktionsmechaniker-in-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "polymechaniker-in-produktionsmechaniker-in-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "polymecanique-mecanique-de-production-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -6636,9 +6643,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polymechaniker-in-produktionsmechaniker-in/0bf38028-3db2-402a-af03-0caa5c2c5662",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:40.480Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-produktionsmechaniker-in-ffs-officine-ferrovie-federali-hagendorf"
+        ],
+        "en": [
+          "polymechaniker-in-produktionsmechaniker-in-ffs-officine-ferrovie-federali-hagendorf"
+        ],
+        "fr": [
           "polymechaniker-in-produktionsmechaniker-in-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
@@ -6757,9 +6769,9 @@
       "slug": "diagnostico-per-veicoli-ferroviari-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
         "it": "diagnostico-per-veicoli-ferroviari-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "vehicle-diagnostician-for-rail-vehicles-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
-        "fr": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
+        "fr": "diagnosticien-de-vehicules-pour-vehicules-ferroviaires-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -6830,9 +6842,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/1e5e09b5-0264-4067-8b9c-6410626c25c0",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:00.970Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "fr": [
           "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
@@ -7887,9 +7904,9 @@
       "slug": "costruttore-di-binari-costruttore-di-percorsi-di-traffico-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "costruttore-di-binari-costruttore-di-percorsi-di-traffico-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "gleisbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "track-builder-traffic-route-builder-ffs-officine-ferrovie-federali-hagendorf",
         "de": "gleisbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "gleisbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "constructeur-de-voies-constructeur-d-itineraires-de-circulation-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -7960,9 +7977,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-verkehrswegbauer-in/80a1c063-6da1-4974-b98f-e0da4ac9313e",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:07.484Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gleisbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-hagendorf"
+        ],
+        "en": [
+          "gleisbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-hagendorf"
+        ],
+        "fr": [
           "gleisbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
@@ -7993,9 +8015,9 @@
       "slug": "operatore-di-macchine-e-impianti-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "operatore-di-macchine-e-impianti-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "maschinen-und-anlagenbediener-in-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "machine-and-plant-operator-ffs-officine-ferrovie-federali-hagendorf",
         "de": "maschinen-und-anlagenbediener-in-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "maschinen-und-anlagenbediener-in-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "operateur-de-machines-et-d-installations-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -8071,9 +8093,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/maschinen-und-anlagenbediener-in/f299ec37-4b4b-4501-bff7-d8eb9b5205b2",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:20.477Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "maschinen-und-anlagenbediener-in-ffs-officine-ferrovie-federali-hagendorf"
+        ],
+        "en": [
+          "maschinen-und-anlagenbediener-in-ffs-officine-ferrovie-federali-hagendorf"
+        ],
+        "fr": [
           "maschinen-und-anlagenbediener-in-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
@@ -8352,7 +8379,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/badd1a6a-e5b1-4941-b760-43a14bd3251f",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:47.972Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-olten"
@@ -8685,9 +8711,9 @@
       "slug": "capo-gruppo-centro-di-controllo-delle-operazioni-della-polizia-dei-trasporti-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "capo-gruppo-centro-di-controllo-delle-operazioni-della-polizia-dei-trasporti-ffs-officine-ferrovie-federali-bern",
-        "en": "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern",
+        "en": "group-leader-transport-police-operations-control-centre-ffs-officine-ferrovie-federali-bern",
         "de": "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern",
-        "fr": "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern"
+        "fr": "centre-de-controle-des-operations-de-la-police-de-transport-chef-de-groupe-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -8758,9 +8784,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gruppenchef-in-einsatzleitzentrale-transportpolizei/10db6974-06d6-42d5-a6cb-3cca0f1c4d18",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:07.983Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
           "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern"
         ]
       },
@@ -9477,7 +9508,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/ba21b12a-e597-4f3d-8f0d-692817ed85dd",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:47.477Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-rapperswil-sg"
@@ -9678,7 +9708,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitungszugmaschine-fzm/0afed118-c50d-4613-ae0d-a0e0f2a20798",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:24.965Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
@@ -9888,7 +9917,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/93b0aee8-2094-4a8c-bc27-6b819c420837",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:45.476Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-bern"
@@ -10526,7 +10554,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/181b575a-0f66-4ee6-a4c0-f78ee17305db",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:50.475Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-zurich"
@@ -11544,9 +11571,9 @@
       "slug": "poliziotto-in-polizia-dei-trasporti-ffs-officine-ferrovie-federali-basel",
       "slugByLocale": {
         "it": "poliziotto-in-polizia-dei-trasporti-ffs-officine-ferrovie-federali-basel",
-        "en": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-basel",
+        "en": "transport-police-officer-ffs-officine-ferrovie-federali-basel",
         "de": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-basel",
-        "fr": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-basel"
+        "fr": "police-dans-la-police-des-transports-ffs-officine-ferrovie-federali-basel"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11617,9 +11644,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/6c7f6e35-c7cd-48d4-89fe-153b56d40827",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:37.471Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-basel"
+        ],
+        "en": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-basel"
+        ],
+        "fr": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-basel"
         ]
       },
@@ -11733,7 +11765,7 @@
           "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -11751,7 +11783,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -11831,7 +11864,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenberater-in-im-contact-center/79c05fea-7983-439e-be67-c54fa18f9313",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:49.979Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenberater-in-im-contact-center-ffs-officine-ferrovie-federali-brig"
@@ -12374,7 +12406,7 @@
       "slug": "ingresso-laterale-come-macchinista-su-un-treno-da-costruzione-con-esperienza-manuale-ffs-officine-ferrovie-federali-erstfeld",
       "slugByLocale": {
         "it": "ingresso-laterale-come-macchinista-su-un-treno-da-costruzione-con-esperienza-manuale-ffs-officine-ferrovie-federali-erstfeld",
-        "en": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-erstfeld",
+        "en": "lateral-entry-as-a-train-driver-in-a-construction-train-with-manual-experience-ffs-officine-ferrovie-federali-erstfeld",
         "de": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-erstfeld",
         "fr": "entree-laterale-en-tant-que-conducteur-de-train-dans-un-train-de-chantier-avec-experience-manuelle-ffs-officine-ferrovie-federali-erstfeld"
       },
@@ -12452,12 +12484,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/564c40cb-78f9-4d81-9a54-d73b2137d3f7",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:50.975Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-erstfeld"
         ],
         "fr": [
+          "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-erstfeld"
+        ],
+        "en": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-erstfeld"
         ]
       },
@@ -12934,7 +12968,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-in-die-welt-der-mechanisch-handwerklichen-berufe/ee3d5e25-8635-4a78-812d-5975c8baaa3f",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:45.093Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-in-die-welt-der-mechanisch-handwerklichen-berufe-ffs-officine-ferrovie-federali-deutschschweiz"
@@ -12973,9 +13006,9 @@
       "slug": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
         "it": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-zurich",
-        "en": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-zurich",
+        "en": "transport-police-officer-ffs-officine-ferrovie-federali-zurich",
         "de": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-zurich",
-        "fr": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-zurich"
+        "fr": "agent-de-police-des-transports-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13046,9 +13079,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/fe67b68e-9147-4ed6-bb72-e6b2998db7de",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:39.989Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-zurich"
         ]
       },
@@ -13547,9 +13585,9 @@
       "slug": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-st-gallen",
       "slugByLocale": {
         "it": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-st-gallen",
-        "en": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-st-gallen",
+        "en": "transport-police-officer-ffs-officine-ferrovie-federali-st-gallen",
         "de": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-st-gallen",
-        "fr": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
+        "fr": "agent-de-police-des-transports-ffs-officine-ferrovie-federali-st-gallen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13620,9 +13658,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/38b5218d-91c9-474d-bb67-28570e713b56",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:34.975Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
+        ],
+        "en": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
+        ],
+        "fr": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
         ]
       },
@@ -13653,9 +13696,9 @@
       "slug": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-winterthur",
       "slugByLocale": {
         "it": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-winterthur",
-        "en": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-winterthur",
+        "en": "transport-police-officer-ffs-officine-ferrovie-federali-winterthur",
         "de": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-winterthur",
-        "fr": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-winterthur"
+        "fr": "agent-de-police-des-transports-ffs-officine-ferrovie-federali-winterthur"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13726,9 +13769,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/46d533b8-f18f-45aa-8620-dbabe24bd9c5",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:35.473Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-winterthur"
+        ],
+        "en": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-winterthur"
+        ],
+        "fr": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-winterthur"
         ]
       },
@@ -13857,9 +13905,9 @@
       "slug": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "agente-di-polizia-dei-trasporti-ffs-officine-ferrovie-federali-olten",
-        "en": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-olten",
+        "en": "transport-police-officer-ffs-officine-ferrovie-federali-olten",
         "de": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-olten",
-        "fr": "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-olten"
+        "fr": "agent-de-police-des-transports-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13930,9 +13978,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/a2ef93f0-4915-44c1-81df-7359d62d676e",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-17T21:28:37.975Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-olten"
         ]
       },

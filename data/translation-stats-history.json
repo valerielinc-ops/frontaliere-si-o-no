@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-09-26T10:20:58.656Z",
-    "label": "after",
-    "total": 26331,
-    "needsRetranslation": 2067,
-    "suppressed": 258,
-    "incomplete": 2446,
-    "complete": 23885,
-    "slotsPresent": 23885,
-    "flaggedAmongSlotsPresent": 18,
-    "verifiedTranslated": 23867,
-    "sourceCopyExcused": 572,
-    "slotsPresentByLength": 26206,
-    "languageVerified": 24278,
-    "missingByLocale": {
-      "it": 36,
-      "en": 34,
-      "de": 76,
-      "fr": 71
-    },
-    "queueAge": {
-      "count": 2067,
-      "withTimestamp": 2067,
-      "oldestAgeDays": 501.4,
-      "p50AgeDays": 16.8,
-      "p90AgeDays": 84.5,
-      "buckets": {
-        "0-1d": 283,
-        "1-2d": 105,
-        "2-7d": 500,
-        "0-7d": 888,
-        "7-30d": 513,
-        "30-90d": 486,
-        "90-180d": 179,
-        "180d+": 1
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 33,
-      "withTimestamp": 33,
-      "oldestAgeDays": 129.2,
-      "p50AgeDays": 6.5,
-      "p90AgeDays": 58.9,
-      "buckets": {
-        "0-1d": 7,
-        "1-2d": 3,
-        "2-7d": 9,
-        "0-7d": 19,
-        "7-30d": 5,
-        "30-90d": 8,
-        "90-180d": 1,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 657,
-      "sampled": 120,
-      "processed": 1,
-      "residual": 0,
-      "residualRate": 0
-    },
-    "topPending": [
-      {
-        "company": "PEMSA",
-        "pending": 257
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 109
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 77
-      },
-      {
-        "company": "Fresh Food & Beverage Group",
-        "pending": 74
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 73
-      },
-      {
-        "company": "Roche",
-        "pending": 71
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 64
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 56
-      },
-      {
-        "company": "Swiss Life",
-        "pending": 50
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-26T13:39:11.663Z",
     "label": "before",
     "total": 23530,
@@ -25967,5 +25855,112 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-18T05:27:13.905Z",
+    "label": "before",
+    "total": 32568,
+    "needsRetranslation": 2313,
+    "suppressed": 136,
+    "incomplete": 2813,
+    "complete": 29755,
+    "slotsPresent": 29755,
+    "flaggedAmongSlotsPresent": 50,
+    "verifiedTranslated": 29705,
+    "sourceCopyExcused": 302,
+    "slotsPresentByLength": 32530,
+    "languageVerified": 31707,
+    "missingByLocale": {
+      "it": 123,
+      "en": 105,
+      "de": 45,
+      "fr": 108
+    },
+    "queueAge": {
+      "count": 2313,
+      "withTimestamp": 2313,
+      "oldestAgeDays": 187.8,
+      "p50AgeDays": 37.2,
+      "p90AgeDays": 109.2,
+      "buckets": {
+        "0-1d": 54,
+        "1-2d": 28,
+        "2-7d": 109,
+        "0-7d": 191,
+        "7-30d": 913,
+        "30-90d": 788,
+        "90-180d": 409,
+        "180d+": 12
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 799,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 2,
+      "byCrawler": {
+        "fachkraft": 1,
+        "sta": 1
+      }
+    },
+    "predicateVersion": "8246ac3311cc4c90",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 628,
+      "complete": 597
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 561
+      },
+      {
+        "company": "LANDI Pilatus AG",
+        "pending": 137
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 136
+      },
+      {
+        "company": "Medbase",
+        "pending": 113
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 110
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 106
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 106
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 77
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 63
+      },
+      {
+        "company": "Fielmann Group",
+        "pending": 55
+      }
+    ]
   }
 ]
