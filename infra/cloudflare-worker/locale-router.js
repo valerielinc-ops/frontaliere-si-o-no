@@ -63,6 +63,7 @@
  */
 
 import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
+import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
 // Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
@@ -1765,8 +1766,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
   '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
   '/statistiche/traffico-dogane/': '/traffico-dogane/',
-  // Exact mixed-language URL observed in GSC; same crossing and live-day page.
-  '/en/border-traffic/gaggiolo/oggi/': '/en/border-wait/gaggiolo/today/',
+  // All exact legacy URLs emitted by the weather producer; same crossing/day.
+  ...WEATHER_BORDER_LEGACY_REDIRECTS,
   // Same attested event ID: its former TI fallback is now explicitly GR.
   '/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
   '/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
