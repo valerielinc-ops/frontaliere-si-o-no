@@ -23,7 +23,10 @@ import {
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isPublishedDeterministicCardRecord } from '../lib/published-blog-image-evidence.mjs';
 import { readPublishedBlogCoverBytes } from '../lib/published-blog-cover-bytes.mjs';
-import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
+import {
+  PUBLISHED_CANTON_ARTICLES_PATH,
+  readPublishedCantonArticlesArtifact,
+} from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const LEDGER_PATH = path.join(ROOT, 'data/blog-cover-ledger.json');
@@ -458,9 +461,12 @@ function main() {
 
   const byKey = new Map();
   const registryArticles = new Map(REGISTRIES.map((registry) => [registry.file, parseRegistry(registry)]));
+  const publishedCantonArtifact = readPublishedCantonArticlesArtifact(ROOT, {
+    expectedCommit: sourceCommit || publishedEvidence.commit,
+  });
   const publishedArticles = [
     ...registryArticles.values(),
-    readPublishedCantonArticles(ROOT, { expectedCommit: sourceCommit || publishedEvidence.commit }),
+    publishedCantonArtifact.articles,
   ].flat();
   for (const article of publishedArticles) {
     const key = coverKey(article.image);
@@ -609,6 +615,19 @@ function main() {
   const beforeBaseline = JSON.stringify(baseline);
   if (sourceCommit) baseline.sourceCommit = sourceCommit;
   baseline.generatedAt = TODAY;
+  if (baseline.publishedArtifacts !== undefined
+    && (!baseline.publishedArtifacts
+      || typeof baseline.publishedArtifacts !== 'object'
+      || Array.isArray(baseline.publishedArtifacts))) {
+    throw new Error('Corpus baseline publishedArtifacts must be an object');
+  }
+  baseline.publishedArtifacts ||= {};
+  baseline.publishedArtifacts.cantonArticles = {
+    path: PUBLISHED_CANTON_ARTICLES_PATH,
+    present: true,
+    sha256: crypto.createHash('sha256').update(publishedCantonArtifact.raw).digest('hex'),
+    articleCount: publishedCantonArtifact.articleCount,
+  };
   for (const { file } of REGISTRIES) {
     const articles = registryArticles.get(file);
     const entry = baseline.registries[file];

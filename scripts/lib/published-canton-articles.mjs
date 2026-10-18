@@ -62,10 +62,22 @@ export function parsePublishedCantonArticles(
 }
 
 export function readPublishedCantonArticles(root, { optional = false, ...options } = {}) {
+  const artifact = readPublishedCantonArticlesArtifact(root, { optional, ...options });
+  return artifact?.articles || [];
+}
+
+export function readPublishedCantonArticlesArtifact(root, { optional = false, ...options } = {}) {
   const file = path.join(root, PUBLISHED_CANTON_ARTICLES_PATH);
   if (!fs.existsSync(file)) {
-    if (optional) return [];
+    if (optional) return null;
     throw new Error(`${file} is required`);
   }
-  return parsePublishedCantonArticles(fs.readFileSync(file, 'utf8'), { label: file, ...options });
+  const raw = fs.readFileSync(file, 'utf8');
+  const articles = parsePublishedCantonArticles(raw, { label: file, ...options });
+  const payload = JSON.parse(raw);
+  return {
+    raw,
+    articleCount: payload.length,
+    articles,
+  };
 }

@@ -13,6 +13,7 @@ const roots: string[] = [];
 const SOURCE_COMMIT = 'a'.repeat(40);
 const IMAGE = '/images/blog/new-cover.webp';
 const IMAGE_BYTES = Buffer.from('cover-bytes');
+const CANTON_ARTICLES_PATH = 'public/canton-articles.json';
 const REAL_KEY = 'bollettino-frontaliere-2026-08-10';
 const REAL_IMAGE = `/images/blog/${REAL_KEY}.webp`;
 
@@ -309,6 +310,24 @@ function clearPublishedArticleCovers(root: string) {
   fs.writeFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), 'export const ARTICLES = [];\n');
 }
 
+function declareCantonArtifact(
+  root: string,
+  { sha = sha256(fs.readFileSync(path.join(root, CANTON_ARTICLES_PATH))), articleCount = 0 } = {},
+) {
+  const baselinePath = path.join(root, 'data/blog-cover-corpus-baseline.json');
+  const baseline = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
+  baseline.publishedArtifacts = {
+    ...(baseline.publishedArtifacts || {}),
+    cantonArticles: {
+      path: CANTON_ARTICLES_PATH,
+      present: true,
+      sha256: sha,
+      articleCount,
+    },
+  };
+  fs.writeFileSync(baselinePath, `${JSON.stringify(baseline, null, 2)}\n`);
+}
+
 function git(root: string, args: string[]) {
   return execFileSync('git', args, {
     cwd: root,
@@ -335,9 +354,10 @@ afterEach(() => {
 });
 
 describe('sync-published-blog-covers', () => {
-  it('fails closed in sync and verification when the published canton registry is absent', () => {
+  it('keeps sync fail-closed but allows verifier pre-bootstrap when the canton registry is absent', () => {
     const root = fixture();
-    const cantonArticlesPath = path.join(root, 'public/canton-articles.json');
+    clearPublishedArticleCovers(root);
+    const cantonArticlesPath = path.join(root, CANTON_ARTICLES_PATH);
     fs.rmSync(cantonArticlesPath);
     fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
     fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
@@ -356,8 +376,59 @@ describe('sync-published-blog-covers', () => {
 
     expect(sync.status).toBe(1);
     expect(`${sync.stdout}\n${sync.stderr}`).toContain(cantonArticlesPath);
-    expect(verify.status).toBe(1);
-    expect(`${verify.stdout}\n${verify.stderr}`).toContain(cantonArticlesPath);
+    expect(verify.status).toBe(0);
+    expect(verify.stdout).toContain('canton-articles.json: not yet declared by the baseline (pre-bootstrap)');
+    expect(verify.stdout).toContain('"errors": 0');
+  });
+
+  it('rejects a declared canton registry when the file is missing', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    declareCantonArtifact(root);
+    fs.rmSync(path.join(root, CANTON_ARTICLES_PATH));
+
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(result.status).toBe(1);
+    expect(`${result.stdout}\n${result.stderr}`).toContain(
+      'public/canton-articles.json: baseline declares the artifact, but the file is missing',
+    );
+  });
+
+  it('rejects a declared canton registry when its sha256 differs', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    declareCantonArtifact(root, { sha: 'f'.repeat(64) });
+
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(result.status).toBe(1);
+    expect(`${result.stdout}\n${result.stderr}`).toContain(
+      'public/canton-articles.json: sha256 differs from the baseline',
+    );
+  });
+
+  it('rejects removal of a canton declaration already present on origin/main', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    declareCantonArtifact(root);
+    commitFixture(root);
+    git(root, ['update-ref', 'refs/remotes/origin/main', 'HEAD']);
+
+    const baselinePath = path.join(root, 'data/blog-cover-corpus-baseline.json');
+    const baseline = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
+    delete baseline.publishedArtifacts.cantonArticles;
+    fs.writeFileSync(baselinePath, `${JSON.stringify(baseline, null, 2)}\n`);
+
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(result.status).toBe(1);
+    expect(`${result.stdout}\n${result.stderr}`).toContain(
+      'declaration for public/canton-articles.json cannot be removed',
+    );
   });
 
   it.each([
@@ -435,6 +506,14 @@ describe('sync-published-blog-covers', () => {
     expect(index.covers['new-cover']).toMatchObject({ evidence: 'inferred', provider: null, status: 'no-credit' });
     expect(baseline).toMatchObject({
       sourceCommit: 'a'.repeat(40),
+      publishedArtifacts: {
+        cantonArticles: {
+          path: CANTON_ARTICLES_PATH,
+          present: true,
+          sha256: sha256(Buffer.from('[]\n')),
+          articleCount: 0,
+        },
+      },
       registries: {
         'packages/articles/content/blog-articles-data.ts': { articles: 1, distinctImages: 1 },
         'packages/articles/content/swiss-articles-data.ts': { articles: 0, distinctImages: 0 },

@@ -7,6 +7,7 @@
  */
 
 import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
@@ -17,7 +18,11 @@ import {
   isPublishedDeterministicCardRecord,
   validatePublishedBlogImageEvidence,
 } from '../lib/published-blog-image-evidence.mjs';
-import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
+import {
+  PUBLISHED_CANTON_ARTICLES_ARTIFACT,
+  PUBLISHED_CANTON_ARTICLES_PATH,
+  readPublishedCantonArticlesArtifact,
+} from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const REGISTRIES = [
@@ -27,6 +32,7 @@ const REGISTRIES = [
 const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog');
 const IMAGE_CREDITS_INDEX = path.join(ROOT, 'data/image-credits-blog.json');
 const GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
+const BASELINE_RELATIVE_PATH = 'data/blog-cover-corpus-baseline.json';
 
 function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; }
@@ -50,6 +56,46 @@ function recordForKey(key) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return null; }
 }
 
+function readOriginMainBaseline() {
+  try {
+    const raw = execFileSync(
+      'git',
+      ['show', `origin/main:${BASELINE_RELATIVE_PATH}`],
+      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function readCantonArtifactDeclaration(baseline) {
+  const publishedArtifacts = baseline?.publishedArtifacts;
+  if (publishedArtifacts === undefined) return { declared: false, value: null, error: null };
+  if (!publishedArtifacts || typeof publishedArtifacts !== 'object' || Array.isArray(publishedArtifacts)) {
+    return {
+      declared: true,
+      value: null,
+      error: 'blog-cover-corpus-baseline.json: publishedArtifacts must be an object',
+    };
+  }
+  if (!Object.hasOwn(publishedArtifacts, 'cantonArticles')) {
+    return { declared: false, value: null, error: null };
+  }
+  return { declared: true, value: publishedArtifacts.cantonArticles, error: null };
+}
+
+function isValidCantonArtifactDeclaration(declaration) {
+  return declaration
+    && typeof declaration === 'object'
+    && !Array.isArray(declaration)
+    && declaration.path === PUBLISHED_CANTON_ARTICLES_PATH
+    && declaration.present === true
+    && /^[0-9a-f]{64}$/.test(String(declaration.sha256 || ''))
+    && Number.isSafeInteger(declaration.articleCount)
+    && declaration.articleCount >= 0;
+}
+
 function main() {
   const inventory = readJson(path.join(ROOT, 'data/blog-cover-ledger.json'));
   const replacements = readJson(path.join(ROOT, 'data/blog-cover-replacements.json'));
@@ -62,19 +108,67 @@ function main() {
     throw new Error('blog-cover-ledger.json, blog-cover-replacements.json and image-credits-blog.json are required');
   }
 
+  const errors = [];
+  const cantonDeclaration = readCantonArtifactDeclaration(corpusBaseline);
+  const originMainDeclaration = readCantonArtifactDeclaration(readOriginMainBaseline());
+  if (cantonDeclaration.error) errors.push(cantonDeclaration.error);
+  if (originMainDeclaration.declared && !cantonDeclaration.declared) {
+    errors.push(
+      `${BASELINE_RELATIVE_PATH}: declaration for ${PUBLISHED_CANTON_ARTICLES_PATH} cannot be removed; `
+      + 'origin/main already declares the artifact',
+    );
+  }
+
+  let cantonArtifact = null;
+  try {
+    cantonArtifact = readPublishedCantonArticlesArtifact(ROOT, {
+      optional: true,
+      expectedCommit: corpusBaseline?.sourceCommit || generatedEvidence?.commit || null,
+    });
+  } catch (error) {
+    errors.push(`${PUBLISHED_CANTON_ARTICLES_PATH}: ${error.message}`);
+  }
+  if (cantonDeclaration.declared) {
+    if (!isValidCantonArtifactDeclaration(cantonDeclaration.value)) {
+      errors.push(
+        `${BASELINE_RELATIVE_PATH}: publishedArtifacts.cantonArticles must contain `
+        + `path=${PUBLISHED_CANTON_ARTICLES_PATH}, present=true, a 64-character sha256 and a non-negative articleCount`,
+      );
+    } else if (!cantonArtifact) {
+      errors.push(
+        `${PUBLISHED_CANTON_ARTICLES_PATH}: baseline declares the artifact, but the file is missing`,
+      );
+    } else {
+      const actualSha256 = crypto.createHash('sha256').update(cantonArtifact.raw).digest('hex');
+      if (actualSha256 !== cantonDeclaration.value.sha256) {
+        errors.push(
+          `${PUBLISHED_CANTON_ARTICLES_PATH}: sha256 differs from the baseline `
+          + `(expected ${cantonDeclaration.value.sha256}, received ${actualSha256})`,
+        );
+      }
+      if (cantonArtifact.articleCount !== cantonDeclaration.value.articleCount) {
+        errors.push(
+          `${PUBLISHED_CANTON_ARTICLES_PATH}: article count differs from the baseline `
+          + `(expected ${cantonDeclaration.value.articleCount}, received ${cantonArtifact.articleCount})`,
+        );
+      }
+    }
+  } else if (!originMainDeclaration.declared && !cantonArtifact) {
+    console.log(
+      `${PUBLISHED_CANTON_ARTICLES_ARTIFACT}: not yet declared by the baseline (pre-bootstrap)`,
+    );
+  }
+
   const generatedValidation = generatedRegistry
     ? validateGeneratedImageRegistry(generatedRegistry, { scope: 'article-hero' })
     : { valid: true, errors: [] };
   if (!generatedValidation.valid) throw new Error(`generated registry invalid: ${generatedValidation.errors.join('; ')}`);
   const generatedByUrl = new Map((generatedRegistry?.assets || []).map((record) => [record.imageUrl, record]));
-  const errors = [];
   const currentCoverImages = new Map();
   for (const file of REGISTRIES) {
     for (const [key, image] of parseCoverImages(file)) currentCoverImages.set(key, image);
   }
-  for (const article of readPublishedCantonArticles(ROOT, {
-    expectedCommit: corpusBaseline?.sourceCommit || generatedEvidence?.commit || null,
-  })) {
+  for (const article of cantonArtifact?.articles || []) {
     const key = coverKey(article.image);
     if (key) currentCoverImages.set(key, article.image);
   }
