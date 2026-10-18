@@ -116,11 +116,20 @@ function round(value, digits = 3) {
   return Math.round(value * factor) / factor;
 }
 
-function extractEcbRate(xml) {
+export function extractEcbRate(xml) {
+  const rateDateMatch = String(xml).match(/<Cube\b[^>]*\btime=['"](\d{4}-\d{2}-\d{2})['"][^>]*>/i);
+  if (!rateDateMatch) throw new Error('ECB reference date not found in XML');
+  const rateDate = rateDateMatch[1];
+  const parsedRateDate = new Date(`${rateDate}T00:00:00.000Z`);
+  if (!Number.isFinite(parsedRateDate.getTime()) || parsedRateDate.toISOString().slice(0, 10) !== rateDate) {
+    throw new Error('Invalid ECB reference date in XML');
+  }
   const match = String(xml).match(/currency=['"]CHF['"]\s+rate=['"]([\d.]+)['"]/i);
   if (!match) throw new Error('CHF rate not found in ECB XML');
   const chfPerEur = Number(match[1]);
+  if (!Number.isFinite(chfPerEur) || chfPerEur <= 0) throw new Error('Invalid ECB CHF rate in XML');
   return {
+    rateDate,
     chfPerEur,
     eurPerChf: 1 / chfPerEur,
   };
@@ -481,6 +490,7 @@ export function buildDataset({
       exchangeRate: {
         provider: 'ECB',
         sourceUrl: ECB_DAILY_URL,
+        rateDate: exchangeRate.rateDate ?? null,
         chfPerEur: round(exchangeRate.chfPerEur, 6),
         eurPerChf: round(exchangeRate.eurPerChf, 6),
       },

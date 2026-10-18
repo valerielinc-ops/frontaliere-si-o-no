@@ -602,6 +602,74 @@ describe('fuel-daily page generation — observation date', () => {
   });
 });
 
+describe('fuel-daily page generation — dated EUR equivalent', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+  const ecbSourceUrl = 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html';
+  const dataset = {
+    ...DATASET,
+    sources: {
+      exchangeRate: {
+        provider: 'ECB',
+        sourceUrl: ecbSourceUrl,
+        rateDate: '2026-04-17',
+        chfPerEur: 0.95,
+        eurPerChf: 1 / 0.95,
+      },
+    },
+  };
+  const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-eur-test', dataset, history: [], today });
+
+  it('shows the CHF-to-EUR equivalent with the dated ECB source on existing URLs in every locale', () => {
+    for (const [locale, path, rate] of [
+      ['it', '/prezzi-benzina/oggi/', '0,9500'],
+      ['en', '/en/gasoline-price-switzerland/today/', '0.9500'],
+      ['de', '/de/benzinpreis-schweiz/heute/', '0.9500'],
+      ['fr', '/fr/prix-essence-suisse/aujourd-hui/', '0,9500'],
+    ]) {
+      const html = pages[path];
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroContext'));
+      expect(html, locale).toContain('17.04.2026');
+      expect(html, locale).toContain(ecbSourceUrl);
+      expect(html, locale).toContain(rate);
+      const descriptionTag = (html.match(/<meta\b[^>]*>/gi) ?? [])
+        .find(tag => /\sname=(?:"description"|'description'|description)(?=[\s>])/i.test(tag));
+      expect(descriptionTag, locale).toBeDefined();
+      const descriptionContent = descriptionTag?.match(/\scontent=(?:"([^"]*)"|'([^']*)'|([^\s>]+))(?=[\s>])/i);
+      expect(descriptionContent?.slice(1).find(value => value !== undefined), locale).toMatch(/EUR\/l/i);
+    }
+
+    // The regional SP95 fixture averages CHF 1.835/l; at 1 EUR = CHF 0.95,
+    // the reciprocal conversion rounds to EUR 1.932/l.
+    expect(pages['/prezzi-benzina/oggi/']).toContain('≈ 1,932 EUR/l');
+  });
+
+  it('hides the conversion when the ECB observation date is invalid', () => {
+    const invalidDataset = {
+      ...dataset,
+      sources: { exchangeRate: { ...dataset.sources.exchangeRate, rateDate: '2026-02-30' } },
+    };
+    const invalidPages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-eur-invalid-date-test', dataset: invalidDataset, history: [], today });
+    const html = invalidPages['/prezzi-benzina/oggi/'];
+
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
+  });
+
+  it('keeps the existing CHF-only output when exchange-rate metadata is absent', () => {
+    const withoutRatePages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-eur-no-rate-test',
+      dataset: DATASET,
+      history: [],
+      today,
+    });
+    const html = withoutRatePages['/prezzi-diesel/oggi/'];
+
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
+  });
+});
+
 describe('fuel-daily archive generation', () => {
   it('links every emitted archive month from its matching daily page', () => {
     const today = new Date('2026-10-14T06:00:00.000Z');

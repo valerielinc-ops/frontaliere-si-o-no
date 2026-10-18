@@ -320,6 +320,15 @@ interface MunicipalityRow {
 
 interface FuelPricesDataset {
   generatedAt?: string;
+  sources?: {
+    exchangeRate?: {
+      provider?: string;
+      sourceUrl?: string;
+      rateDate?: string | null;
+      chfPerEur?: number;
+      eurPerChf?: number;
+    };
+  };
   municipalities?: MunicipalityRow[];
 }
 
@@ -638,6 +647,8 @@ interface FuelCopy {
   archiveLabel: string;
   breadcrumbHome: string;
   currencyLabel: string;
+  euroEquivalent: (price: string, date: string) => string;
+  euroRateNote: (chfPerEur: string, date: string) => string;
   /** Inline note shown when yesterday/7-day delta cannot be computed. */
   dataUnavailableNote: string;
   /** Anchor copy for the link to the border-fuel-prices stats page. */
@@ -678,6 +689,9 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Archivio mensile',
     breadcrumbHome: 'Home',
     currencyLabel: 'CHF/litro',
+    euroEquivalent: (price, date) => `≈ ${price} EUR/l · cambio BCE ${date}`,
+    euroRateNote: (rate, date) =>
+      `Controvalore indicativo calcolato sulla media in CHF con il tasso di riferimento BCE (1 EUR = ${rate} CHF) del ${date}. Il tasso BCE è informativo: il cambio applicato al pagamento e gli eventuali costi possono differire.`,
     dataUnavailableNote: 'Base dati in costruzione: il confronto richiede almeno due snapshot giornalieri. ',
     dataUnavailableLinkLabel: 'Consulta lo storico completo dei prezzi al confine',
     periodAvgUnavailableNote: 'Media dei 7 giorni non ancora disponibile: lo storico si popola giorno per giorno.',
@@ -724,6 +738,9 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Monthly archive',
     breadcrumbHome: 'Home',
     currencyLabel: 'CHF/litre',
+    euroEquivalent: (price, date) => `≈ EUR ${price}/L · ECB rate ${date}`,
+    euroRateNote: (rate, date) =>
+      `Indicative euro equivalent calculated from the CHF average using the ECB reference rate (EUR 1 = CHF ${rate}) dated ${date}. ECB rates are for information; your payment rate and any fees may differ.`,
     dataUnavailableNote: 'Baseline data still being collected: the comparison needs at least two daily snapshots. ',
     dataUnavailableLinkLabel: 'See the full cross-border fuel price history',
     periodAvgUnavailableNote: 'Seven-day average not available yet: the history fills in day by day.',
@@ -770,6 +787,9 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Monatsarchiv',
     breadcrumbHome: 'Startseite',
     currencyLabel: 'CHF/Liter',
+    euroEquivalent: (price, date) => `≈ ${price} EUR/L · EZB-Kurs ${date}`,
+    euroRateNote: (rate, date) =>
+      `Ungefährer Euro-Gegenwert aus dem CHF-Durchschnitt mit dem EZB-Referenzkurs (1 EUR = CHF ${rate}) vom ${date}. Der EZB-Kurs dient nur der Information; der Zahlungskurs und allfällige Kosten können abweichen.`,
     dataUnavailableNote: 'Basis-Datensatz wird aufgebaut: der Vergleich benötigt mindestens zwei Tagesschnappschüsse. ',
     dataUnavailableLinkLabel: 'Vollständige Treibstoffpreis-Historie an der Grenze ansehen',
     periodAvgUnavailableNote: '7-Tage-Durchschnitt noch nicht verfügbar: die Historie baut sich Tag für Tag auf.',
@@ -816,6 +836,9 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     archiveLabel: 'Archive mensuelle',
     breadcrumbHome: 'Accueil',
     currencyLabel: 'CHF/litre',
+    euroEquivalent: (price, date) => `≈ ${price} EUR/l · taux BCE ${date}`,
+    euroRateNote: (rate, date) =>
+      `Contre-valeur indicative calculée depuis la moyenne CHF avec le taux de référence BCE (1 EUR = ${rate} CHF) du ${date}. Le taux BCE est informatif ; le taux appliqué au paiement et les éventuels frais peuvent différer.`,
     dataUnavailableNote: "Base de données en construction : la comparaison nécessite au moins deux clichés quotidiens. ",
     dataUnavailableLinkLabel: "Voir l'historique complet des prix aux frontières",
     periodAvgUnavailableNote: "Moyenne 7 jours pas encore disponible : l'historique se remplit jour après jour.",
@@ -1560,11 +1583,48 @@ function renderPage(inp: PageInputs): string {
     : ({ it: 'orario non disponibile', en: 'time unavailable', de: 'Zeit unbekannt', fr: 'heure indisponible' })[locale];
   const range = `${formatPrice(observation.min, locale)}–${formatPrice(observation.max, locale)}`;
   const shortArea = zone ? zoneLabel : 'Ticino';
+  const exchangeRate = dataset.sources?.exchangeRate;
+  const rawRateDate = exchangeRate?.rateDate;
+  const parsedRateDate = typeof rawRateDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(rawRateDate)
+    ? new Date(`${rawRateDate}T00:00:00.000Z`)
+    : null;
+  const rateDate = parsedRateDate && Number.isFinite(parsedRateDate.getTime())
+    && parsedRateDate.toISOString().slice(0, 10) === rawRateDate
+    ? rawRateDate
+    : null;
+  const eurPerChf = exchangeRate?.eurPerChf;
+  const chfPerEur = exchangeRate?.chfPerEur;
+  const exchangeRateSourceUrl = exchangeRate?.sourceUrl;
+  const hasDatedEcbRate = exchangeRate?.provider === 'ECB'
+    && rateDate !== null
+    && typeof eurPerChf === 'number' && Number.isFinite(eurPerChf) && eurPerChf > 0
+    && typeof chfPerEur === 'number' && Number.isFinite(chfPerEur) && chfPerEur > 0
+    && typeof exchangeRateSourceUrl === 'string'
+    && exchangeRateSourceUrl.startsWith('https://www.ecb.europa.eu/');
+  const datedEurPerChf = typeof eurPerChf === 'number' && hasDatedEcbRate ? eurPerChf : null;
+  const datedChfPerEur = typeof chfPerEur === 'number' && hasDatedEcbRate ? chfPerEur : null;
+  const datedEcbSourceUrl = typeof exchangeRateSourceUrl === 'string' && hasDatedEcbRate ? exchangeRateSourceUrl : null;
+  const rateDateStamp = hasDatedEcbRate
+    ? formatFuelDateDisplay(new Date(`${rateDate}T12:00:00.000Z`))
+    : null;
+  const eurEquivalent = avg !== null && datedEurPerChf !== null ? Number((avg * datedEurPerChf).toFixed(3)) : null;
+  const eurEquivalentFmt = eurEquivalent === null ? null : formatPrice(eurEquivalent, locale);
+  const rateFmt = datedChfPerEur !== null
+    ? datedChfPerEur.toFixed(4).replace('.', locale === 'it' || locale === 'fr' ? ',' : '.')
+    : null;
   const intro = ({
-    it: `${fuelLabel} ${shortArea}: media ${priceFmt} CHF/l, range ${range}. Fonte TCS, dati acquisiti ${observationStamp}.`,
-    en: `${fuelLabel} ${shortArea}: average ${priceFmt} CHF/l, range ${range}. TCS source, collected ${observationStamp}.`,
-    de: `${fuelLabel} ${shortArea}: Mittel ${priceFmt} CHF/l, Spanne ${range}. Quelle TCS, abgerufen ${observationStamp}.`,
-    fr: `${fuelLabel} ${shortArea} : moyenne ${priceFmt} CHF/l, plage ${range}. Source TCS, relevé acquis ${observationStamp}.`,
+    it: eurEquivalentFmt !== null && rateDateStamp
+      ? `${fuelLabel} ${shortArea}: media ${priceFmt} CHF/l, circa ${eurEquivalentFmt} EUR/l al cambio BCE ${rateDateStamp}. Fonte TCS, campione acquisito ${observationStamp}.`
+      : `${fuelLabel} ${shortArea}: media ${priceFmt} CHF/l, range ${range}. Fonte TCS, dati acquisiti ${observationStamp}.`,
+    en: eurEquivalentFmt !== null && rateDateStamp
+      ? `${fuelLabel} ${shortArea}: average ${priceFmt} CHF/l (about ${eurEquivalentFmt} EUR/l at ECB rate ${rateDateStamp}). TCS sample collected ${observationStamp}.`
+      : `${fuelLabel} ${shortArea}: average ${priceFmt} CHF/l, range ${range}. TCS source, collected ${observationStamp}.`,
+    de: eurEquivalentFmt !== null && rateDateStamp
+      ? `${fuelLabel} ${shortArea}: Mittel ${priceFmt} CHF/l (rund ${eurEquivalentFmt} EUR/l zum EZB-Kurs ${rateDateStamp}). TCS-Stichprobe abgerufen ${observationStamp}.`
+      : `${fuelLabel} ${shortArea}: Mittel ${priceFmt} CHF/l, Spanne ${range}. Quelle TCS, abgerufen ${observationStamp}.`,
+    fr: eurEquivalentFmt !== null && rateDateStamp
+      ? `${fuelLabel} ${shortArea} : moyenne ${priceFmt} CHF/l (environ ${eurEquivalentFmt} EUR/l au taux BCE du ${rateDateStamp}). Échantillon TCS acquis ${observationStamp}.`
+      : `${fuelLabel} ${shortArea} : moyenne ${priceFmt} CHF/l, plage ${range}. Source TCS, relevé acquis ${observationStamp}.`,
   })[locale];
   const introTagline = ({
     it: `Media ${priceFmt} CHF/l · ${range} CHF/l · ${observation.count} stazioni campionate in ${shortArea}.`,
@@ -1578,6 +1638,9 @@ function renderPage(inp: PageInputs): string {
     de: `Daten abgerufen: ${observationStamp}. Die Quelle nennt keinen Zeitpunkt der Preisänderung an der Zapfsäule. Seite erstellt: ${today.toISOString()}.`,
     fr: `Données acquises : ${observationStamp}. La source ne fournit pas l’heure de modification du prix à la pompe. Page générée : ${today.toISOString()}.`,
   })[locale];
+  const euroRateNoteHtml = eurEquivalentFmt !== null && rateDateStamp && rateFmt && datedEcbSourceUrl
+    ? `<p id="fuelEuroContext" class="text-sm text-muted">${esc(copy.euroRateNote(rateFmt, rateDateStamp))} <a href="${esc(datedEcbSourceUrl)}" rel="noopener noreferrer" target="_blank">${locale === 'de' ? 'EZB' : locale === 'fr' || locale === 'it' ? 'BCE' : 'ECB'}</a></p>`
+    : '';
   const stale = !observationDate || today.getTime() - observationDate.getTime() > 48 * 60 * 60 * 1000;
   const staleNote = stale ? ({
     it: 'Dato non recente: verifica il prezzo alla pompa prima del rifornimento.',
@@ -1790,6 +1853,7 @@ function renderPage(inp: PageInputs): string {
       <div class="s-tlbl">${esc(copy.avgLabel)}</div>
       <div class="s-tval" style="font-size:32px">${priceFmt}</div>
       <div class="s-iydat0">${esc(copy.currencyLabel)}</div>
+      ${eurEquivalentFmt !== null && rateDateStamp ? `<div id="fuelEuroEquivalent" class="s-iydat0" style="margin-top:4px">${esc(copy.euroEquivalent(eurEquivalentFmt, rateDateStamp))}</div>` : ''}
     </div>
     <div style="${deltaYest === null ? STAT_TILE_BASE : deltaYest < 0 ? STAT_TILE_SUCCESS : deltaYest > 0 ? STAT_TILE_WARNING : STAT_TILE_BASE}">
       <div class="s-tlbl">${esc(comparisonLabel(1))}</div>
@@ -1800,6 +1864,7 @@ function renderPage(inp: PageInputs): string {
       <div class="s-tval" style="font-size:22px">${esc(delta7Fmt)}</div>
     </div>
   </section>
+  ${euroRateNoteHtml}
   ${unavailableNoteHtml}
   ${renderAboveFoldJobCta(locale)}
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="fuelReview">
