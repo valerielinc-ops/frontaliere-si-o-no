@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-18T09:46:06.774Z",
+  "updatedAt": "2026-10-18T09:47:40.331Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -662394,7 +662394,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-10-17T09:15:11.528Z",
+      "updatedAt": "2026-10-18T09:47:39.747Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -680501,13 +680501,13 @@
     },
     "physioswiss.ch": {
       "key": "physioswiss.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.307Z",
-      "updatedAt": "2026-10-17T09:15:39.535Z",
+      "updatedAt": "2026-10-18T09:47:40.302Z",
       "name": "Physio swiss",
       "domain": "physioswiss.ch",
       "city": "Minusio",
@@ -680658,7 +680658,8 @@
       ],
       "detailEnrichment": false,
       "promotionPr": "13650",
-      "promotionBranch": "prospector/promote-2026-10-17"
+      "promotionBranch": "prospector/promote-2026-10-17",
+      "promotedAt": "2026-10-18T09:47:40.302Z"
     },
     "physioswiss@bern": {
       "key": "physioswiss@bern",
