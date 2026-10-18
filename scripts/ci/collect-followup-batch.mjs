@@ -71,6 +71,11 @@ import { dailyBucketInfo, dailyKeyZurich } from './followup-resolution-match.mjs
 
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
+// A correction is a secondary note, not a new idempotency marker. Keeping it
+// in the marker stream can hide the canonical summary immediately before it;
+// the correction's prose then fails the structural claim parser and makes the
+// verifier report a false missing-bucket failure.
+const TRIAGE_CORRECTION_HEADING_RE = /^\s*##\s+Post-merge follow-up triage\s*(?:[-—:]\s*)(?:correction|rettifica)\b/i;
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
 // Tetto duro della finestra di raccolta. Non è un'ottimizzazione: è ciò che
 // impedisce al watermark «ultima run di SUCCESSO» di diventare un ratchet
@@ -216,6 +221,20 @@ const ELIGIBLE_AUTHORS = new Set(
     .filter(Boolean),
 );
 
+/**
+ * True for a primary triage marker, excluding a correction/retification note
+ * that repeats the marker prefix without being the marker itself.
+ *
+ * @param {unknown} body
+ * @param {string} prefix
+ * @returns {boolean}
+ */
+function isPrimaryTriageMarker(body, prefix = TRIAGE_COMMENT_PREFIX) {
+  const text = typeof body === 'string' ? body : '';
+  const trimmed = text.trimStart();
+  return trimmed.startsWith(prefix) && !TRIAGE_CORRECTION_HEADING_RE.test(trimmed);
+}
+
 /** Strip the `app/` prefix (gh GraphQL bot form) and `[bot]` suffix (REST form). */
 export function canonicalLogin(login) {
   return String(login || '').trim().replace(/^app\//, '').replace(/\[bot\]$/, '');
@@ -347,7 +366,7 @@ export function hasTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
     return false;
   }
   const comments = Array.isArray(data) ? data : data && Array.isArray(data.comments) ? data.comments : [];
-  return comments.some((c) => typeof c?.body === 'string' && c.body.trimStart().startsWith(prefix));
+  return comments.some((c) => isPrimaryTriageMarker(c?.body, prefix));
 }
 
 /** Return the latest follow-up marker body, or null when comments are unreadable. */
@@ -364,7 +383,7 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
   if (!comments) return null;
   const bodies = comments
     .map((comment) => typeof comment?.body === 'string' ? comment.body : '')
-    .filter((body) => body.trimStart().startsWith(prefix));
+    .filter((body) => isPrimaryTriageMarker(body, prefix));
   return bodies.length ? bodies[bodies.length - 1] : null;
 }
 
@@ -394,7 +413,7 @@ export function latestTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX
     : data && Array.isArray(data.comments) ? data.comments : null;
   if (!comments) return null;
   const markers = comments
-    .filter((comment) => typeof comment?.body === 'string' && comment.body.trimStart().startsWith(prefix));
+    .filter((comment) => isPrimaryTriageMarker(comment?.body, prefix));
   if (!markers.length) return null;
   const latest = markers[markers.length - 1];
   return { body: latest.body, at: commentInstant(latest.createdAt) };
