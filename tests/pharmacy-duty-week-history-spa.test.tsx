@@ -22,7 +22,7 @@ describe('historical pharmacy week SPA handoff', () => {
     const { container } = render(<PharmacyDutyWeek page={{ kind: 'duty-week', locale, weekStart: '2026-09-14' }} />);
     expect(container.querySelector('[data-pharmacy-duty-archive]')).toHaveAttribute('data-pharmacy-duty-archive', '2026-09-14');
     expect(screen.getByRole('note')).toBeInTheDocument();
-    expect(container.querySelectorAll('[data-duty-id]')).toHaveLength(12);
+    expect(container.querySelectorAll('[data-duty-id]')).toHaveLength(recovery.weeks[0].observations[0].entries.length);
     for (const entry of recovery.weeks[0].observations[0].entries) expect(container.textContent).toContain(entry.pharmacy.name);
     expect(container.querySelector('time[datetime="2026-09-15T09:40:29.571Z"]')).toBeInTheDocument();
     expect(fetch).not.toHaveBeenCalled();
@@ -51,7 +51,7 @@ describe('historical pharmacy week SPA handoff', () => {
     expect(container.querySelector('[data-pharmacy-duty-archive]')).toBeNull();
     expect(screen.getByRole('status')).toHaveTextContent('Non usare questa pagina');
     fireEvent.click(screen.getByRole('button', { name: 'Riprova a caricare l’archivio' }));
-    await waitFor(() => expect(container.querySelectorAll('[data-duty-id]')).toHaveLength(12));
+    await waitFor(() => expect(container.querySelectorAll('[data-duty-id]')).toHaveLength(recovery.weeks[1].observations[0].entries.length));
   });
 
   it('cancels an obsolete request and does not let a late response replace the current week', async () => {
