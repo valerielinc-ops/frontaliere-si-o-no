@@ -188,21 +188,28 @@ function collectParagraphTexts(root, include = () => true, maxChars = Number.POS
 }
 
 const NOSCRIPT_RAW_TEXT_OPEN_RE = /<(script|style|textarea|title|xmp|iframe|noembed|noframes|plaintext)\b[^>]*>/gi;
+const NOSCRIPT_RECOVERABLE_TAIL_RE = /<(?:p|h2|h3|h4|li|blockquote)\b[^>]*>/gi;
 
-function hasClosedNoscriptRawTextElements(markup) {
+function findUnclosedNoscriptRawTextElement(markup) {
   const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_OPEN_RE.source, 'gi');
   let opening;
   while ((opening = rawTextOpening.exec(markup))) {
     const tag = opening[1].toLowerCase();
-    if (tag === 'plaintext') return false;
+    if (tag === 'plaintext') {
+      return { contentStart: rawTextOpening.lastIndex, tag };
+    }
 
     const closing = new RegExp(`</${tag}\\s*>`, 'gi');
     closing.lastIndex = rawTextOpening.lastIndex;
     const match = closing.exec(markup);
-    if (!match) return false;
+    if (!match) return { contentStart: rawTextOpening.lastIndex, tag };
     rawTextOpening.lastIndex = closing.lastIndex;
   }
-  return true;
+  return null;
+}
+
+function hasClosedNoscriptRawTextElements(markup) {
+  return findUnclosedNoscriptRawTextElement(markup) === null;
 }
 
 /**
@@ -392,7 +399,25 @@ function prepareNoscriptSource(html) {
       if (typeof markup === 'string' && hasClosedNoscriptRawTextElements(markup)) {
         sourceMarkup.push(markup);
       } else if (location) {
-        rejectedRanges.push([location.startOffset, location.endOffset]);
+        let rejectedEnd = location.endOffset;
+        if (!location.endTag && location.startTag) {
+          const unterminatedMarkup = html.slice(location.startTag.endOffset);
+          const rawText = findUnclosedNoscriptRawTextElement(unterminatedMarkup);
+          if (rawText) {
+            // parse5 reports a zero-width noscript when both raw-text and
+            // noscript stay open. Drop the poisoned prefix, but retain the
+            // first paragraph-shaped source tail after the raw-text opener.
+            const recoverableTail = new RegExp(NOSCRIPT_RECOVERABLE_TAIL_RE.source, 'gi');
+            recoverableTail.lastIndex = rawText.contentStart;
+            const tailMatch = recoverableTail.exec(unterminatedMarkup);
+            rejectedEnd = tailMatch
+              ? location.startTag.endOffset + tailMatch.index
+              : html.length;
+          } else {
+            rejectedEnd = html.length;
+          }
+        }
+        rejectedRanges.push([location.startOffset, rejectedEnd]);
       }
     }
   } finally {

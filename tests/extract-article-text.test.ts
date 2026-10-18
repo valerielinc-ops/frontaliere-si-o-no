@@ -140,6 +140,19 @@ describe('extractArticleText', () => {
     expect(result.text).not.toContain('unterminated');
   });
 
+  it('preserves a recoverable source tail after noscript and raw-text tags remain unclosed', () => {
+    const rejected = 'Paragraph before the unclosed raw-text element belongs to the rejected fallback.';
+    const recovered = 'Paragraph after the malformed raw-text prefix remains recoverable source prose.';
+    const html = '<main><noscript>'
+      + `<p>${rejected}</p>`
+      + `<script>RAW_SCRIPT_GARBAGE<p>${recovered}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(recovered);
+    expect(result.text).not.toContain(rejected);
+    expect(result.text).not.toContain('RAW_SCRIPT_GARBAGE');
+  });
+
   it('keeps adjacent tracking noscript blocks out of the fallback path', () => {
     const editorial = 'Editorial fallback paragraph with enough substantive source context for extraction.';
     const tracking = 'Tracking payload that is long enough to pass the paragraph floor and must never enter source text.';
