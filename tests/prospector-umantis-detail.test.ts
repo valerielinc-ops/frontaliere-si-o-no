@@ -141,7 +141,12 @@ describe('Prospector Umantis detail boundary', () => {
       <li><h3><a href="/Vacancies/560/Description/1" aria-label="${title}">${title}</a></h3></li>
       <li class="form_content_paragraph"><span class="column-value">Switch</span></li>
     </ul></td></tr></tbody></table>`;
-    const detail = `<html><body><h1>${title}</h1><div class="customdatablock"><p>
+    const detail = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title,
+      description: 'The generic structured employer address must not veto the title workplaces.'.repeat(12),
+      jobLocation: { address: { addressLocality: 'Lugano', addressCountry: 'CH' } },
+    })}</script></head><body><h1>${title}</h1><div class="customdatablock"><p>
       Du entwickelst und betreibst die Compute-Plattform der Schweizer Hochschulen. Dazu gehören
       Planung, Umsetzung und Betrieb skalierbarer Cloud-Services, Zusammenarbeit im Engineering-Team,
       Automatisierung mit Python sowie die Analyse und Behebung komplexer technischer Störungen.
