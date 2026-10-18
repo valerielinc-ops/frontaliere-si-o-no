@@ -4750,16 +4750,18 @@ export async function runDedicatedBaseCrawler({
 
 /**
  * The jobs of a slice file as committed by the previous run, for the
- * retranslation baseline. A missing or unreadable slice has no baseline: the
- * crawler's flags on those records are then kept as they are.
+ * retranslation baseline. A missing slice is a valid empty baseline; an
+ * unreadable or wrong-shaped slice has no baseline, so the crawler's flags
+ * on those records are then kept as they are.
  */
 function readSliceJobsForBaseline(slicePath) {
   try {
     if (!fs.existsSync(slicePath)) return [];
     const data = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
-    return Array.isArray(data?.jobs) ? data.jobs : (Array.isArray(data) ? data : []);
+    if (Array.isArray(data)) return data;
+    return Array.isArray(data?.jobs) ? data.jobs : null;
   } catch {
-    return [];
+    return null;
   }
 }
 
@@ -4797,7 +4799,10 @@ export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
       // translation baseline first (crawler-retranslation-baseline.mjs), or
       // every source change of this run would compare against itself.
       if (!getRetranslationBaseline(key)) {
-        recordRetranslationBaseline(key, readSliceJobsForBaseline(slicePath));
+        const baselineJobs = readSliceJobsForBaseline(slicePath);
+        if (Array.isArray(baselineJobs)) {
+          recordRetranslationBaseline(key, baselineJobs);
+        }
       }
       // Same for the checks that compare this run with the previous one: the
       // admission threshold and the summary partition (crawler-previous-run-slice.mjs).

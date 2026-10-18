@@ -1127,12 +1127,20 @@ export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   recordPreviousRunSlice(slicePath);
   if (fs.existsSync(slicePath)) {
     const data = readJson(slicePath);
-    const jobs = data?.jobs || (Array.isArray(data) ? data : []);
-    // First read of the run = the previous run's committed slice: the
-    // baseline writeJobsCrawlerSlice judges this run's new flags against
-    // (lib/crawler-retranslation-baseline.mjs). Later reads never replace it.
-    recordRetranslationBaseline(crawlerKey, jobs);
-    if (jobs.length > 0) return jobs;
+    // Do not turn an unreadable or wrong-shaped slice into an empty baseline:
+    // that would misclassify every retained flag as a new record. The
+    // previous-run registry has the same fail-closed distinction, and the
+    // writer will report the missing baseline explicitly below.
+    const jobs = Array.isArray(data)
+      ? data
+      : (Array.isArray(data?.jobs) ? data.jobs : null);
+    if (jobs) {
+      // First read of the run = the previous run's committed slice: the
+      // baseline writeJobsCrawlerSlice judges this run's new flags against
+      // (lib/crawler-retranslation-baseline.mjs). Later reads never replace it.
+      recordRetranslationBaseline(crawlerKey, jobs);
+      if (jobs.length > 0) return jobs;
+    }
   }
   // Fallback: data/jobs.json (gitignored, only available locally)
   if (dataJobsPath && fs.existsSync(dataJobsPath)) {
@@ -2708,6 +2716,14 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     throw new TypeError('writeJobsCrawlerSlice: jobs must be an array');
   }
 
+  // The writer is the final common funnel for dedicated and legacy callers.
+  // Capture the previous slice here as a safety net for callers that did not
+  // pass through readExistingCrawlerJobs/seedCrawlerSlicesFromDataJobs. The
+  // raw previous-run registry is first-write-wins, so this never reads the
+  // current run's seeded or written slice as a baseline.
+  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  recordPreviousRunSlice(slicePath);
+
   // ── Upstream normalization (write-time) ───────────────────────────────
   // Harden location + backfill safe metadata defaults BEFORE any downstream
   // gate so corrupted location strings never reach the assemble-time Swiss
@@ -2798,11 +2814,24 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     // The line is printed whenever this slice carries flags, not only when some
     // are dropped: on 2026-10-14 Senevita kept 91 flags on unchanged, complete
     // records and the log said nothing, so the rule that kept them was unknown.
-    const baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
+    let baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
+    if (!baseline) {
+      // A missing slice is a valid empty previous snapshot: every incoming
+      // record is new and its flag remains kept. An invalid slice is null and
+      // must stay unknown/fail-closed instead of being guessed as new.
+      const previousJobs = previousRunSliceJobs(slicePath);
+      if (Array.isArray(previousJobs)) {
+        recordRetranslationBaseline(crawlerKey, previousJobs);
+        baseline = getRetranslationBaseline(crawlerKey);
+      }
+    }
     if (!baseline) {
       const flagged = jobs.filter((job) => job?.needsRetranslation === true).length;
       if (flagged > 0) {
-        console.log(`  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} (every flag is kept)`);
+        console.log(
+          `  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} `
+            + `(classification: baseline-unavailable=${flagged}; source changed/incomplete/already flagged/new=unknown)`,
+        );
       }
     } else {
       // Completeness is judged on the record as this writer will store it:
@@ -2818,7 +2847,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
         console.log(
           `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
             + `(kept: ${retrans.keptSourceChanged} source changed, ${retrans.keptIncomplete} incomplete, `
-            + `${retrans.keptAlreadyFlagged} already flagged, ${retrans.keptNoBaseline} new)`,
+            + `${retrans.keptAlreadyFlagged} already flagged, ${retrans.keptNoBaseline} new, `
+            + `${retrans.keptUnattributed} unknown identity)`,
         );
       }
     }
@@ -2933,7 +2963,6 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // Carry forward firstSeenAt from existing slice; fall back to crawledAt
   // (the original discovery time) for genuinely new jobs.
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
-  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
   // The slice the previous run committed. In the dedicated-runner path the
   // seed (seedCrawlerSlicesFromDataJobs) has already replaced the file on disk
