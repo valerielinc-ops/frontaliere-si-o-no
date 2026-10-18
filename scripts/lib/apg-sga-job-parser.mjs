@@ -27,12 +27,12 @@
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -179,37 +179,22 @@ async function resolveOjpVersion(token) {
  */
 export function parseJobPostingJsonLd(html = '') {
   if (!html) return null;
-  const { document } = new JSDOM(html).window;
-  const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-  for (const script of scripts) {
-    try {
-      const parsed = JSON.parse(script.textContent || '');
-      const nodes = Array.isArray(parsed) ? parsed : [parsed];
-      for (const node of nodes) {
-        if (!node || typeof node !== 'object') continue;
-        const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
-        if (!types.includes('JobPosting')) continue;
+  const node = extractJobPostingNodes(html)[0];
+  if (!node) return null;
+  const jobLocation = Array.isArray(node.jobLocation) ? node.jobLocation[0] : node.jobLocation;
+  const address = jobLocation?.address || {};
+  const employmentTypes = (Array.isArray(node.employmentType) ? node.employmentType : [node.employmentType])
+    .filter(Boolean)
+    .map((v) => String(v).toUpperCase());
 
-        const jobLocation = Array.isArray(node.jobLocation) ? node.jobLocation[0] : node.jobLocation;
-        const address = jobLocation?.address || {};
-        const employmentTypes = (Array.isArray(node.employmentType) ? node.employmentType : [node.employmentType])
-          .filter(Boolean)
-          .map((v) => String(v).toUpperCase());
-
-        return {
-          title: normalizeSpace(String(node.title || '')),
-          descriptionHtml: String(node.description || ''),
-          datePosted: node.datePosted || null,
-          employmentTypes,
-          addressLocality: normalizeSpace(String(address.addressLocality || '')),
-          postalCode: normalizeSpace(String(address.postalCode || '')),
-        };
-      }
-    } catch {
-      /* malformed JSON-LD — ignore */
-    }
-  }
-  return null;
+  return {
+    title: normalizeSpace(String(node.title || '')),
+    descriptionHtml: String(node.description || ''),
+    datePosted: node.datePosted || null,
+    employmentTypes,
+    addressLocality: normalizeSpace(String(address.addressLocality || '')),
+    postalCode: normalizeSpace(String(address.postalCode || '')),
+  };
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */

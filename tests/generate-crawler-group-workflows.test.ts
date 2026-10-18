@@ -49,12 +49,19 @@ function crawlerResultSteps(steps: any[]) {
     && !step.id.startsWith('crawler-generation-'));
 }
 
+function decodeFixtureScript(script: string): string {
+  // `String.raw` keeps escaped newlines as two bytes. Decode them before the
+  // fixture is written as an executable script so its command boundaries are
+  // the same as the source template's intended shell script.
+  return script.replace(/\\n/g, '\n');
+}
+
 function runTranslateQueueGuardFixture(guardRun: string, ghScript: string, runId = '400') {
   const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-queue-guard-fixture-'));
   const binDir = path.join(scratch, 'bin');
   fs.mkdirSync(binDir);
   const outputPath = path.join(scratch, 'github-output');
-  fs.writeFileSync(path.join(binDir, 'gh'), ghScript, { mode: 0o755 });
+  fs.writeFileSync(path.join(binDir, 'gh'), decodeFixtureScript(ghScript), { mode: 0o755 });
   const fixtureRun = `PATH=${binDir}:$PATH\n${guardRun}`;
 
   try {
@@ -2842,7 +2849,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(translate).toMatch(/retries the atomic ref push after contention/);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
-  it('non applica il lease globale ai crawler e conserva il guard lease per gruppo', () => {
+  it('abilita il lease globale al confine di pubblicazione e conserva il guard lease per gruppo', () => {
     const groupResults = generate({
       outDir: workflowsDir,
       assignmentsPath,
@@ -2854,6 +2861,10 @@ describe('cross-repo crawler execution artifacts', () => {
       const workflow = YAML.parse(result.content);
       const job = Object.values(workflow.jobs)[0] as any;
       expect(job.env?.DATA_PIPELINE_LEASE).toBeUndefined();
+      const firebaseStep = job.steps.find(
+        (step: any) => step.name === 'Prepare Firebase credentials (optional)',
+      );
+      expect(firebaseStep?.run).toContain('echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"');
     }
     expect(groupResults[0].content).toContain('node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml');
   }, CROSS_REPO_GENERATION_TIMEOUT);

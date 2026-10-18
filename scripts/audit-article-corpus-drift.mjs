@@ -380,7 +380,9 @@ async function main() {
     const results = [];
     for (const id of sample) {
       const checkScript = path.join(ROOT_DIR, 'scripts', 'check-article-byte-identity.mjs');
-      const result = spawnSync('npx', ['-y', 'tsx', checkScript, '--id', id, '--section', section.name], {
+      const result = spawnSync('npx', [
+        '-y', 'tsx', checkScript, '--id', id, '--section', section.name, '--read-only-audit',
+      ], {
         cwd: ROOT_DIR,
         encoding: 'utf-8',
       });

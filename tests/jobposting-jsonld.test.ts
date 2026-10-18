@@ -27,6 +27,13 @@ describe('extractJobPostingDescription (JSON-LD)', () => {
     expect(extractJobPostingDescription(html)).toBe('G3');
   });
 
+  it('finds JobPosting inside an object-valued @graph wrapper', () => {
+    const html = `<script type="application/ld+json">
+      {"@graph":{"@type":"JobPosting","description":"G4"}}
+    </script>`;
+    expect(extractJobPostingDescription(html)).toBe('G4');
+  });
+
   it('matches when @type is an array containing JobPosting', () => {
     const html = `<script type="application/ld+json">
       {"@type":["JobPosting","Thing"],"description":"AT"}

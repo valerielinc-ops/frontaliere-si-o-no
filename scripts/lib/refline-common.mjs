@@ -53,6 +53,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
@@ -331,25 +332,10 @@ export function reflineJsonLdDescriptionText(posting) {
  */
 export function parseReflineJobPostingJsonLd(html = '') {
   if (!html) return null;
-  // Scan EVERY ld+json block: a tenant may ship breadcrumb/Organization
-  // blocks ahead of the JobPosting one — first-block-only would miss it.
-  // First JobPosting in document order wins: the main posting precedes any
-  // hypothetical related-jobs widget (live tenant pages checked 2026-07 emit
-  // at most one), and the heading fallback still covers a total mismatch.
-  const blockRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let match;
-  while ((match = blockRe.exec(html)) !== null) {
-    try {
-      const data = JSON.parse(match[1]);
-      const candidates = Array.isArray(data) ? data : [data];
-      for (const entry of candidates) {
-        if (entry && entry['@type'] === 'JobPosting') return entry;
-      }
-    } catch {
-      // malformed block — keep scanning the remaining ones
-    }
-  }
-  return null;
+  // Scan every JSON-LD block: a tenant may ship breadcrumb/Organization
+  // blocks ahead of the JobPosting one. The shared traversal also handles
+  // graph-wrapped and multi-type records without tenant-specific drift.
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**

@@ -202,6 +202,51 @@ describe('dropSpuriousRetranslationFlags', () => {
     expect(report.keptNoBaseline).toBe(1);
   });
 
+  it('reports the four retained causes as disjoint classes', () => {
+    const changed = pair('source-changed');
+    const incomplete = pair('source-unchanged');
+    const alreadyFlagged = pair('source-unchanged');
+    const newRecord = pair('source-unchanged');
+
+    incomplete.after.descriptionByLocale.en = '';
+    alreadyFlagged.before.id = 'fixture-already-flagged';
+    alreadyFlagged.after.id = 'fixture-already-flagged';
+    alreadyFlagged.before.needsRetranslation = true;
+    newRecord.after.id = 'fixture-new-record';
+    newRecord.after.url = 'https://example.test/jobs/fixture-new-record/';
+
+    const jobs = [changed.after, incomplete.after, alreadyFlagged.after, newRecord.after];
+    const report = dropSpuriousRetranslationFlags(
+      jobs,
+      [changed.before, incomplete.before, alreadyFlagged.before],
+      { isIncomplete },
+    );
+
+    expect(report).toMatchObject({
+      flagged: 4,
+      dropped: 0,
+      keptSourceChanged: 1,
+      keptIncomplete: 1,
+      keptAlreadyFlagged: 1,
+      keptNoBaseline: 1,
+      keptUnattributed: 0,
+    });
+  });
+
+  it('does not misclassify an identity-less flag as a new record', () => {
+    const report = dropSpuriousRetranslationFlags(
+      [{ needsRetranslation: true, title: 'Unidentifiable posting' }],
+      [],
+      { isIncomplete },
+    );
+
+    expect(report).toMatchObject({
+      flagged: 1,
+      keptNoBaseline: 0,
+      keptUnattributed: 1,
+    });
+  });
+
   it('matches by url when the stable id is absent', () => {
     const { before, after } = pair('source-unchanged');
     delete after.id;
@@ -339,6 +384,19 @@ describe('baseline = the slice the previous run committed', () => {
     dropSpuriousRetranslationFlags([flagged], getRetranslationBaseline('acme'), { isIncomplete });
     expect(flagged.needsRetranslation).toBe(true);
   });
+
+  it('does not turn a malformed seeded slice into an empty baseline', () => {
+    const key = 'acme-malformed';
+    const sliceDir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(sliceDir, { recursive: true });
+    fs.writeFileSync(path.join(sliceDir, `${key}.json`), '{"jobs": "not-an-array"}');
+    const dataJobsPath = path.join(root, 'scratch-malformed.json');
+    fs.writeFileSync(dataJobsPath, JSON.stringify([{ ...pair('source-unchanged').after, companyKey: key }]));
+
+    seedCrawlerSlicesFromDataJobs(root, [key], dataJobsPath);
+
+    expect(getRetranslationBaseline(key)).toBeNull();
+  });
 });
 
 describe('wiring in the crawler slice writer', () => {
@@ -364,6 +422,14 @@ describe('wiring in the crawler slice writer', () => {
     expect(drop).toBeGreaterThan(gate);
     expect(persist).toBeGreaterThan(drop);
     expect(body).toMatch(/options\.retranslationBaseline \?\? getRetranslationBaseline\(crawlerKey\)/);
+  });
+
+  it('writer captures the pre-run slice before classifying flags', () => {
+    const body = fnBody(read('scripts/assemble-jobs-dataset.mjs'), 'export function writeJobsCrawlerSlice(');
+    expect(body).toMatch(/const slicePath = path\.join\(JOBS_SLICES_DIR, `\$\{crawlerKey\}\.json`\);/);
+    expect(body).toMatch(/recordPreviousRunSlice\(slicePath\);/);
+    expect(body).toMatch(/const previousJobs = previousRunSliceJobs\(slicePath\);/);
+    expect(body).toContain('classification: baseline-unavailable=');
   });
 
   it('writer scans stale claimant slices when the stable URL owner arrives later', () => {

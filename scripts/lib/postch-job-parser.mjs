@@ -33,6 +33,7 @@ import { readMetaContent } from './html-attr.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { parseJsonLdText } from './json-ld-text.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -79,8 +80,7 @@ function extractJsonLd(html = '') {
   while ((match = re.exec(html)) !== null) {
     try {
       const parsed = parseJsonLdText(match[1]);
-      if (Array.isArray(parsed)) blocks.push(...parsed);
-      else blocks.push(parsed);
+      blocks.push(...extractJobPostingNodesFromJson(parsed));
     } catch { /* skip malformed JSON-LD */ }
   }
   return blocks;

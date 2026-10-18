@@ -6,6 +6,7 @@
  * so every JSON-LD board maps the same fields the same way.
  */
 import { decodeEntities, normalizeSpace } from './hospital-custom-html-helpers.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /** Collect JobPosting objects across all JSON-LD blocks in `html`. */
 export function extractJobPostingsLd(html) {
@@ -21,11 +22,7 @@ export function extractJobPostingsLd(html) {
     } catch {
       continue;
     }
-    const items = Array.isArray(data) ? data : (Array.isArray(data?.['@graph']) ? data['@graph'] : [data]);
-    for (const it of items) {
-      const t = it?.['@type'];
-      if (t === 'JobPosting' || (Array.isArray(t) && t.includes('JobPosting'))) postings.push(it);
-    }
+    postings.push(...extractJobPostingNodesFromJson(data));
   }
   return postings;
 }

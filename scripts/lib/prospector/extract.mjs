@@ -1526,6 +1526,22 @@ export function renderedWorkplaceLabelValues(html = '', title = '') {
     opening.index >= range.start && opening.index < range.end
   ));
   const isDocumentRoot = (opening) => ['html', 'head', 'body'].includes(opening.name);
+
+  // SuccessFactors/CSB exposes the per-vacancy workplace as a dedicated
+  // `city` property. It is stronger than the generic employer/location block
+  // that can carry the publishing office, and is the same field consumed by
+  // the SuccessFactors crawler parser. Preserve it as page evidence so the
+  // source-detail audit can distinguish an internal source contradiction from
+  // a published-location mismatch.
+  for (const opening of index.openings) {
+    if (isDocumentRoot(opening) || inChrome(opening)) continue;
+    if (readAttr(opening.raw, 'data-careersite-propertyid').toLowerCase() !== 'city') continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    structuredLabelFound = true;
+    add(source.slice(opening.end, bounds.contentEnd));
+  }
+
   for (const opening of index.openings) {
     if (isDocumentRoot(opening) || inChrome(opening)) continue;
     const bounds = index.boundsByStart.get(opening.index);

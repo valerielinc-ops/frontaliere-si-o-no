@@ -36,6 +36,7 @@ import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './ta
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
 export const COMPANY_NAME = "McDonald's Switzerland";
@@ -483,17 +484,7 @@ export async function discoverMcdoJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 
 /* ── Detail page parsing ──────────────────────────────────────── */
 
 function extractJsonLdBlocks(html = '') {
-  const blocks = [];
-  const regex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = regex.exec(html)) !== null) {
-    try {
-      blocks.push(JSON.parse(m[1]));
-    } catch {
-      // skip malformed block
-    }
-  }
-  return blocks;
+  return extractJobPostingNodes(html);
 }
 
 /**

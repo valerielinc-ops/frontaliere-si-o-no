@@ -74,8 +74,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-2e4d1927b6d2",
@@ -227,8 +226,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-e09afde2c588",
@@ -419,8 +417,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-4399dbcb3732",
@@ -667,8 +664,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -715,8 +712,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -724,10 +721,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -743,8 +740,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-fb634e7efd14",
@@ -2025,8 +2021,7 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-8b5043dd649b",
@@ -2507,8 +2502,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-0642db47b25d",
@@ -2762,8 +2756,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-1844a42ac2ab",
@@ -2845,8 +2838,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-fd01be79d304",
@@ -2927,8 +2919,7 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-684e9c13d9e9",
@@ -3013,8 +3004,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-f5cab6e90c2a",
@@ -3088,8 +3078,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-aacbfae5bfd4",
@@ -3163,8 +3152,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-de2565e35203",
@@ -3238,8 +3226,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9aa1a3d40934",
@@ -3315,8 +3302,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-5b1cd7051958",
@@ -3472,8 +3458,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-548671e395ba",
@@ -3665,8 +3650,7 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-dc4c90171ea7",
@@ -3911,8 +3895,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-145e93cd4f01",
@@ -3988,14 +3971,13 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -4043,15 +4025,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleiter-in-elektro-alle-bkw-ch",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-ch"
@@ -4172,8 +4150,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9d4dbb1e4022",
@@ -4247,8 +4224,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-be32a5733db3",
@@ -4324,8 +4300,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-b944841fb96a",
@@ -4432,8 +4407,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-80b03b2ed169",
@@ -4532,8 +4506,7 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-562ceee819bd",
@@ -4737,8 +4710,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-f79deacb3e5d",
@@ -4812,8 +4784,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-3f53bae3f9fe",
@@ -4912,8 +4883,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-8f6471498a1e",
@@ -4992,8 +4962,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-578f65ac17f6",
@@ -5081,8 +5050,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-c9a9fa37d3cc",
@@ -5181,8 +5149,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-61292cf989da",
@@ -5281,8 +5248,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-7c597fda9943",
@@ -5358,14 +5324,13 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -5414,15 +5379,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-zuchwil"
@@ -5518,8 +5479,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-a13e22e52a19",
@@ -5616,8 +5576,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-1d72a27ccd07",
@@ -5714,14 +5673,13 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-dd2ab293c23a",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
         "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-zuchwil",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-zuchwil"
@@ -5769,15 +5727,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil"
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ],
         "en": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
@@ -5799,8 +5753,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-cffc4ceba447",
@@ -5899,8 +5852,7 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-e334240c5748",
@@ -5976,8 +5928,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-1659398349ff",
@@ -6074,8 +6025,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-2d7514fd4cc0",
@@ -6175,8 +6125,7 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-3b9e0eca3554",
@@ -6273,8 +6222,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-991352bb94c9",
@@ -6372,8 +6320,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-23776e87240b",
@@ -6466,8 +6413,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-e3a1e2e65b73",
@@ -6566,14 +6512,13 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-dd0a792638b8",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
         "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3"
@@ -6621,15 +6566,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil"
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T23:20:54.564Z",
@@ -6645,8 +6586,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d3775677a5b9",
@@ -7193,8 +7133,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-4a41ce437a2e",
@@ -7537,8 +7476,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-81bcc4a2a344",
@@ -8298,8 +8236,7 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-b8c5b352e590",
@@ -8398,8 +8335,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-88c62352a465",
@@ -8478,8 +8414,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-c230c4422e58",
@@ -8553,8 +8488,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d46d5102bdaf",
@@ -8637,8 +8571,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-c2a157b752c6",
@@ -8727,8 +8660,7 @@
           "maxValue": 70500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-f6ce9c178244",
@@ -8889,8 +8821,7 @@
           "maxValue": 70500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9a660c483321",
@@ -8969,8 +8900,7 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-b975634d70a8",
@@ -9050,7 +8980,7 @@
           "installateur-solaire-tous-bkw-solothurn"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:34:05.633Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -9064,7 +8994,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "bkw-12ce6a0d8331",
@@ -9149,8 +9080,7 @@
           "maxValue": 82000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-35a97c9ce37f",
@@ -9233,8 +9163,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-e30e21d9c632",
@@ -9313,8 +9242,7 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-0ba0c9ac4c68",
@@ -9401,8 +9329,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-ce0a053f07fd",
@@ -9555,8 +9482,7 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-6bedd914faf8",
@@ -9748,8 +9674,7 @@
           "maxValue": 82000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-6de29a620ba9",
@@ -10007,8 +9932,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-35b2fb810512",
@@ -10089,8 +10013,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-0692a347edaf",
@@ -10177,8 +10100,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-51c1122df1d9",
@@ -10342,8 +10264,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-53e573bbc876",
@@ -10633,8 +10554,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-239c132e19fe",
@@ -10782,8 +10702,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-6a90ff3ebfcb",
@@ -11189,8 +11108,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-a9e0e733224c",
@@ -11340,15 +11258,14 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-875656ea5699",
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -11397,8 +11314,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11407,7 +11323,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -11699,8 +11615,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-621654f9436c",
@@ -11856,8 +11771,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-6d997be4e422",
@@ -11933,8 +11847,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-0223827e8516",
@@ -12101,7 +12014,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -12150,7 +12063,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12158,7 +12071,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -12341,8 +12254,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-ecdc4df72eb5",
@@ -13139,8 +13051,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-000db362003b",
@@ -13558,8 +13469,7 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-bbf4750d2f17",
@@ -13803,8 +13713,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-6194e508000f",
@@ -13962,8 +13871,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-bb3d56873e62",
@@ -14312,8 +14220,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d15649bccab7",
@@ -14482,8 +14389,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d05fbf49af14",
@@ -14642,8 +14548,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-57cefedc1201",
@@ -15173,8 +15078,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-91239ec4a97f",
@@ -15479,8 +15383,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-aa7eed9f36d0",
@@ -15554,8 +15457,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-a3a341a5c158",
@@ -15707,8 +15609,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-f2a9a1a90b35",
@@ -15936,8 +15837,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-416db80b5cc5",
@@ -16015,8 +15915,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-bba599c18cd2",
@@ -16168,8 +16067,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d41dbb522321",
@@ -16247,8 +16145,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-576bb6d48f3c",
@@ -16322,8 +16219,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-88dbab16e76c",
@@ -16397,8 +16293,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-ebd06445ca24",
@@ -16476,8 +16371,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-2b19d53f9641",
@@ -16555,8 +16449,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-c8830cd3432f",
@@ -16708,8 +16601,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-4cac1eb4b42f",
@@ -16787,8 +16679,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-509430f2e19c",
@@ -16864,8 +16755,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-10f8796785a1",
@@ -16939,8 +16829,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-267d7e8c264e",
@@ -17026,8 +16915,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-47e55f214641",
@@ -17103,8 +16991,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-0166a2111ede",
@@ -17182,8 +17069,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-f532c49a53b5",
@@ -17512,8 +17398,7 @@
           "maxValue": 70500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-1022e395f284",
@@ -17737,8 +17622,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9a30dd3a3af5",
@@ -18037,8 +17921,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-2ac1bebeec49",
@@ -18468,8 +18351,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-800c1599dad9",
@@ -18632,8 +18514,7 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-71fbd7bebd18",
@@ -19327,8 +19208,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-8fb9d63123ce",
@@ -19404,8 +19284,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-2b2a605bedd7",
@@ -19788,8 +19667,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-474dd8005af9",
@@ -19865,8 +19743,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d15588d38eea",
@@ -20043,8 +19920,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-711395de2756",
@@ -20342,8 +20218,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-133379cd7d99",
@@ -20567,8 +20442,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-ce610aae2f48",
@@ -20952,8 +20826,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9be4467c4d65",
@@ -21185,8 +21058,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9220d37db26b",
@@ -21420,8 +21292,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-7755a38efc3e",
@@ -21499,8 +21370,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-9c9ecd746a6f",
@@ -21576,8 +21446,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-cc01afa16279",
@@ -21659,8 +21528,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d53266ae5d6b",
@@ -21738,8 +21606,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-74ee19e12b47",
@@ -21817,8 +21684,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-8ce2a52341d9",
@@ -21978,8 +21844,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-d4bc6a4b3c25",
@@ -22143,8 +22008,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-786f27c89f8b",
@@ -22230,8 +22094,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-1147ef9e0bd5",
@@ -22311,8 +22174,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-0505180cbb21",
@@ -22400,8 +22262,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-190bc9658906",
@@ -22481,8 +22342,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-6d4d2eac4207",
@@ -22638,8 +22498,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-7cf1bd5c3c50",
@@ -22721,8 +22580,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-468c1e345c3d",
@@ -22802,8 +22660,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-ad8773bb8091",
@@ -22881,8 +22738,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-2ed4ff1f45c3",
@@ -22966,8 +22822,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-921ede8705f6",
@@ -23043,8 +22898,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-0c9fe7c5df64",
@@ -23053,7 +22907,7 @@
         "it": "apprendista-business-development-strategy-alle-bkw-bern",
         "en": "trainee-business-development-strategy-all-bkw-bern",
         "de": "trainee-business-development-strategy-alle-bkw-ch",
-        "fr": "trainee-business-development-strategy-alle-bkw-bern"
+        "fr": "developpement-des-entreprises-et-strategie-des-stagiaires-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23099,7 +22953,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trainee-business-development-strategy-alle-bkw-ch",
-        "developpement-des-entreprises-et-strategie-des-stagiaires-tous-bkw-bern"
+        "trainee-business-development-strategy-alle-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23109,7 +22963,7 @@
           "trainee-business-development-strategy-alle-bkw-ch"
         ],
         "fr": [
-          "developpement-des-entreprises-et-strategie-des-stagiaires-tous-bkw-bern"
+          "trainee-business-development-strategy-alle-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-10-15T09:16:30.055Z",
@@ -23205,8 +23059,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-79a99ca83634",
@@ -23282,8 +23135,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-84e3bfbf57c9",
@@ -23363,8 +23215,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-bd9fcb956f7f",
@@ -23440,8 +23291,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-b260f5b1c217",
@@ -23521,8 +23371,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-49c412edbf87",
@@ -23758,8 +23607,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-920d9f7ac0af",
@@ -23843,8 +23691,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-4774ece677c7",
@@ -24316,8 +24163,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-1996d06b3469",
@@ -24539,8 +24385,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-e746d394dac8",
@@ -24622,8 +24467,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-117999c5420a",
@@ -25190,8 +25034,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-7a0dff916502",
@@ -25351,8 +25194,7 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-52e172eddb44",
@@ -25428,8 +25270,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-bb0d88cd26de",
@@ -25505,8 +25346,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bkw-55bbf4ea24f9",

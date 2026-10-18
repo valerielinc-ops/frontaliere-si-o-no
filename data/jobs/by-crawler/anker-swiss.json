@@ -247,12 +247,12 @@
     },
     {
       "id": "anker-swiss-cd923fc2f525",
-      "slug": "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+      "slug": "pittura-100-anker-swiss-ticino-ag-luzern-cd923fc2",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-        "it": "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-        "en": "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-        "fr": "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+        "it": "pittura-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+        "en": "painter-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+        "fr": "peintre-100-anker-swiss-ticino-ag-luzern-cd923fc2"
       },
       "slugDisambiguator": "cd923fc2",
       "company": "Anker Swiss Ticino AG",
@@ -300,32 +300,30 @@
         "de": []
       },
       "previousSlugs": [
-        "pittura-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-        "painter-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-        "peintre-100-anker-swiss-ticino-ag-luzern-cd923fc2",
         "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
         "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
         "painter-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
+        "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+        "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pittura-100-anker-swiss-ticino-ag-luzern-cd923fc2",
           "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-          "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
+          "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+          "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
         ],
         "en": [
-          "painter-100-anker-swiss-ticino-ag-luzern-cd923fc2",
           "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-          "painter-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
+          "painter-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+          "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
         ],
         "fr": [
-          "peintre-100-anker-swiss-ticino-ag-luzern-cd923fc2",
           "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-          "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
+          "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+          "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
         ]
       },
       "salaryMin": 69500,
@@ -6890,12 +6888,12 @@
     },
     {
       "id": "anker-swiss-aa466ab51a1a",
-      "slug": "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-lyss-aa466ab5",
       "slugByLocale": {
         "de": "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
-        "it": "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
-        "en": "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
-        "fr": "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+        "it": "lattoniere-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+        "en": "tinsmith-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+        "fr": "ferblantier-ere-100-anker-swiss-ticino-ag-lyss-aa466ab5"
       },
       "slugDisambiguator": "aa466ab5",
       "company": "Anker Swiss Ticino AG",
@@ -6942,28 +6940,31 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
         "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
         "tinsmith-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899"
+        "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899",
+        "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-          "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899"
+          "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
+          "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
         ],
         "en": [
           "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-          "tinsmith-100-anker-swiss-ticino-ag-lyss-b34c5899"
+          "tinsmith-100-anker-swiss-ticino-ag-lyss-b34c5899",
+          "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
         ],
         "de": [
           "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
         ],
         "fr": [
           "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-          "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899"
+          "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899",
+          "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
         ]
       },
       "salaryMin": 68500,

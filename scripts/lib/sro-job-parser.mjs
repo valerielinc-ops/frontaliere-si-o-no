@@ -37,6 +37,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { dropRepostedListings, selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -202,10 +203,7 @@ export function extractProspectiveJsonLd(html = '') {
   if (!m) return null;
   try {
     const obj = JSON.parse(m[1]);
-    if (obj && (obj['@type'] === 'JobPosting' || obj['@type'] === 'http://schema.org/JobPosting')) {
-      return obj;
-    }
-    return obj;
+    return extractJobPostingNodesFromJson(obj)[0] || obj;
   } catch {
     return null;
   }

@@ -402,8 +402,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-6ed428a1513d",
@@ -653,8 +652,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-0f2d1493a5c6",
@@ -831,8 +829,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-675230c4266f",
@@ -1094,9 +1091,9 @@
     },
     {
       "id": "ksw-265156035163",
-      "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+      "slug": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+        "it": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
         "en": "nurse-nurse-professional-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "infirmiere-infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur"
@@ -1145,16 +1142,14 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
-        "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
-          "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-ksw-ch"
@@ -1182,7 +1177,7 @@
       "id": "ksw-fce9482fcf5c",
       "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
+        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur-ca7442",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur-ca7442"
@@ -1230,15 +1225,11 @@
       "requirementsByLocale": {},
       "department": "Klinik für med. Onkologie und Hämatologie",
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-ksw-ch",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-ksw-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-ksw-ch"
@@ -1510,8 +1501,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-21dfa7cba784",
@@ -1662,8 +1652,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-75b2c267abf9",
@@ -2139,7 +2128,7 @@
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2206,7 +2195,7 @@
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
@@ -2552,7 +2541,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
         "en": "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur",
         "de": "neuropsychologin-neuropsychologe-ksw-ch",
-        "fr": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "neuropsychologue-neuropsychologue-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2598,14 +2587,14 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-ksw-ch",
-        "neuropsychologue-neuropsychologue-kantonsspital-winterthur-ksw-winterthur"
+        "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "neuropsychologin-neuropsychologe-ksw-ch"
         ],
         "fr": [
-          "neuropsychologue-neuropsychologue-kantonsspital-winterthur-ksw-winterthur"
+          "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-17T21:54:07.164Z",
@@ -2891,8 +2880,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-e01810862ae1",
@@ -2972,8 +2960,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-b7578c69464b",
@@ -3069,8 +3056,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-f1e52d8e72a1",
@@ -3436,8 +3422,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-a5db4673f4a3",
@@ -3521,9 +3506,9 @@
     },
     {
       "id": "ksw-fe846988631d",
-      "slug": "mitarbeiterin-collaboratore-trice-reinigungsdienst-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "addetta-addetto-alle-pulizie-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-reinigungsdienst-kantonsspital-winterthur-ksw-winterthur",
+        "it": "addetta-addetto-alle-pulizie-kantonsspital-winterthur-ksw-winterthur",
         "en": "employee-employee-cleaning-service-kantonsspital-winterthur-ksw-winterthur",
         "de": "mitarbeiterin-mitarbeiter-reinigungsdienst-ksw-ch",
         "fr": "service-de-nettoyage-des-employes-kantonsspital-winterthur-ksw-winterthur"
@@ -3533,7 +3518,7 @@
       "companyDomain": "ksw.ch",
       "title": "Mitarbeiterin / Mitarbeiter Reinigungsdienst",
       "titleByLocale": {
-        "it": "Mitarbeiterin / Collaboratore/trice Reinigungsdienst",
+        "it": "Addetta / Addetto alle pulizie",
         "en": "Employee / Employee cleaning service",
         "de": "Mitarbeiterin / Mitarbeiter Reinigungsdienst",
         "fr": "Service de nettoyage des employés"
@@ -3571,11 +3556,13 @@
       "requirementsByLocale": {},
       "department": "Betrieb",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-reinigungsdienst-ksw-ch"
+        "mitarbeiterin-mitarbeiter-reinigungsdienst-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-reinigungsdienst-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-reinigungsdienst-ksw-ch"
+          "mitarbeiterin-mitarbeiter-reinigungsdienst-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-reinigungsdienst-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-reinigungsdienst-ksw-ch"
@@ -4239,8 +4226,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-05f50a9508fa",
@@ -4320,8 +4306,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-5be35619da61",
@@ -4398,8 +4383,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-d02108d0ab23",
@@ -4479,8 +4463,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-fd12d8e6209b",
@@ -4560,8 +4543,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-020628cf3bcc",
@@ -5333,8 +5315,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-e5e0751aeaf2",
@@ -5416,8 +5397,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-ec58a38cc6d2",
@@ -5655,8 +5635,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-33023d02777c",

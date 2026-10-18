@@ -63,6 +63,7 @@ import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-templat
 import { decodeEntities, htmlToText } from './hospital-custom-html-helpers.mjs';
 import { parseRexxListing } from './rexx-systems-job-parser-common.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -174,8 +175,7 @@ export function extractJobPostingJsonLd(html = '') {
   while ((m = re.exec(html)) !== null) {
     try {
       const data = JSON.parse(m[1].trim());
-      const items = Array.isArray(data) ? data : (data && data['@graph']) || [data];
-      const posting = items.find((item) => item && item['@type'] === 'JobPosting');
+      const [posting] = extractJobPostingNodesFromJson(data);
       if (posting) return posting;
     } catch {
       // malformed block — try next <script> tag

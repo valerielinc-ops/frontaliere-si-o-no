@@ -641,6 +641,34 @@ describe('source-detail fidelity checks', () => {
     expect(report.avaloq.issues).toHaveLength(0);
   });
 
+  it('uses a SuccessFactors CSB city field to explain a conflicting location block', async () => {
+    const description = 'Eine ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const url = 'https://karriere.zurzachcare.ch/job/Braunwald/1368019833/';
+    const html = `<main><h1>Vacancy Braunwald</h1>
+      <span data-careersite-propertyid="city">Braunwald</span>
+      <div class="job-detail-location">Basel</div>
+      <div class="job-description">${description}</div></main>`;
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'zurzach-care',
+      url,
+      job: {
+        url,
+        title: 'Vacancy Braunwald',
+        addressLocality: 'Braunwald',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true, status: 200, url: pageUrl, body: html, host: 'karriere.zurzachcare.ch',
+      }),
+    });
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
+    expect(result.locationChecked).toBe(false);
+    expect(result.locationAuthority).toBe('source-internal-conflict');
+  });
+
   it('matches a structured source locality through the vacancy postal code', () => {
     const result = compareSourceDetail(
       {

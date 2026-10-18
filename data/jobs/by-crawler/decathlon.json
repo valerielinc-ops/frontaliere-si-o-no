@@ -2099,7 +2099,7 @@
           "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:28:15.887Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -2113,7 +2113,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "decathlon-0fc06527f37f",

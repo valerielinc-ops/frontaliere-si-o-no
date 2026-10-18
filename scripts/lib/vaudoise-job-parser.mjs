@@ -20,7 +20,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { extractJobPostingField, extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -354,26 +354,10 @@ const DETAIL_FETCH_TIMEOUT_MS = 15_000;
  */
 export function parseVaudoiseDetailHtml(html = '') {
   if (!html || typeof html !== 'string') return '';
-  const ldMatch = html.match(
-    /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i,
-  );
-  if (!ldMatch) return '';
-  try {
-    const ld = JSON.parse(ldMatch[1]);
-    const candidates = Array.isArray(ld) ? ld : [ld];
-    for (const entry of candidates) {
-      if (!entry || typeof entry !== 'object') continue;
-      const type = entry['@type'];
-      const isJobPosting =
-        type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
-      if (isJobPosting && entry.description) {
-        return normalizeSpace(stripHtml(String(entry.description)));
-      }
-    }
-  } catch {
-    /* ignore parse errors — fall through to '' */
-  }
-  return '';
+  const posting = extractJobPostingNodes(html)[0];
+  return posting?.description
+    ? normalizeSpace(stripHtml(String(posting.description)))
+    : '';
 }
 
 /**

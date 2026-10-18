@@ -35,6 +35,7 @@ import { createHash } from 'node:crypto';
 import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -122,26 +123,8 @@ function parseListingHtml(html = '') {
 
 /* ── JSON-LD JobPosting parse ──────────────────────────────── */
 
-const LD_JSON_RE = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-
 function extractJobPostingLd(html = '') {
-  for (const m of html.matchAll(LD_JSON_RE)) {
-    const raw = (m[1] || '').trim();
-    if (!raw) continue;
-    let parsed;
-    try {
-      parsed = JSON.parse(raw);
-    } catch {
-      continue;
-    }
-    const candidates = Array.isArray(parsed) ? parsed : [parsed];
-    for (const node of candidates) {
-      if (node && (node['@type'] === 'JobPosting' || (Array.isArray(node['@type']) && node['@type'].includes('JobPosting')))) {
-        return node;
-      }
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 function buildDescriptionFromLd(ld = {}) {

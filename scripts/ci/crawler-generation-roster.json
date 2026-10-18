@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 644,
+  "crawlerCount": 646,
   "groups": {
     "10": [
       "atec-personal",
@@ -367,6 +367,7 @@
       "logitech",
       "lombard-odier",
       "marriott",
+      "medimeo-ch",
       "michaelpage",
       "omega",
       "orell-fuessli-thalia",
@@ -528,6 +529,7 @@
       "jsafrasarasin",
       "kanton-basel-landschaft",
       "klinik-im-hasel",
+      "medimeo",
       "nant",
       "parmag",
       "pemsa",
@@ -1077,6 +1079,8 @@
     "medbase": "data/jobs/by-crawler/medbase.json",
     "mediamarkt": "data/jobs/by-crawler/mediamarkt.json",
     "medics-labor": "data/jobs/by-crawler/medics-labor.json",
+    "medimeo": "data/jobs/by-crawler/medimeo.json",
+    "medimeo-ch": "data/jobs/by-crawler/medimeo-ch.json",
     "medtronic": "data/jobs/by-crawler/medtronic.json",
     "merian-iselin": "data/jobs/by-crawler/merian-iselin.json",
     "michaelpage": "data/jobs/by-crawler/michaelpage.json",
@@ -1342,5 +1346,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:ae039a070180a0d08219d14e2a5e4737f4a6287d4c933363348e6fd8c0f70b0f"
+  "digest": "sha256:813f571abd8a9d0f856046595f867ee1b01ab301d3c211e7c67ad3157a0456fc"
 }

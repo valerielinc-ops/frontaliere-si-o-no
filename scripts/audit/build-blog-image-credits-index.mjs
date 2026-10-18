@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
+import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog');
@@ -85,7 +86,12 @@ function licensedPhotoFile(record) {
 }
 
 function main() {
-  const keys = new Set(REGISTRIES.flatMap((file) => [...parseRegistry(file)]));
+  const keys = new Set([
+    ...REGISTRIES.flatMap((file) => [...parseRegistry(file)]),
+    // This offline historical rebuild may run without the pull-generated API
+    // artifact; in-tree article registries remain the complete input there.
+    ...readPublishedCantonArticles(ROOT, { optional: true }).map(({ image }) => coverKey(image)).filter(Boolean),
+  ]);
   const ledger = readJson(LEDGER);
   const files = {};
   const covers = {};

@@ -35,6 +35,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 export const KISPI_KEY = 'kispi';
 export const KISPI_COMPANY_NAME = 'Universitäts-Kinderspital Zürich';
@@ -104,18 +105,15 @@ function extractJobPostingLd(html) {
   for (const raw of blocks) {
     try {
       const parsed = JSON.parse(raw);
-      const candidates = Array.isArray(parsed) ? parsed : [parsed];
-      for (const c of candidates) {
-        if (c && (c['@type'] === 'JobPosting' || (Array.isArray(c['@type']) && c['@type'].includes('JobPosting')))) {
-          return c;
-        }
-      }
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // Try a permissive cleanup pass: strip trailing commas
       try {
         const cleaned = raw.replace(/,\s*([}\]])/g, '$1');
         const parsed = JSON.parse(cleaned);
-        if (parsed && parsed['@type'] === 'JobPosting') return parsed;
+        const [posting] = extractJobPostingNodesFromJson(parsed);
+        if (posting) return posting;
       } catch {
         // give up on this block
       }

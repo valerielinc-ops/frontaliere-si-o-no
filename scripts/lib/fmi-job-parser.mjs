@@ -26,6 +26,7 @@ import { createHash } from 'node:crypto';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify } from './crawler-template.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import {
   USER_AGENT,
   decodeEntities,
@@ -152,20 +153,7 @@ export function parseFmiListing(html) {
 }
 
 function extractJsonLd(html) {
-  // Find the JobPosting JSON-LD block. fmi pages embed it as a single
-  // <script type="application/ld+json"> tag with one JSON object.
-  const rx = /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
-    const raw = m[1].trim();
-    if (!/"@type"\s*:\s*"JobPosting"/i.test(raw)) continue;
-    try {
-      return JSON.parse(raw);
-    } catch {
-      // ignore malformed; keep scanning
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 function mapSiteLocation(siteLabel = '') {

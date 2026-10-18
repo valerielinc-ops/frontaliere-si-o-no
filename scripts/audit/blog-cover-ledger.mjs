@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import sharp from 'sharp';
+import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const HERO_PREFIX = 'public/images/blog/';
@@ -101,12 +102,18 @@ function parseRegistry(source, section) {
 }
 
 function readRegistryArticles({ fromGit = false } = {}) {
-  return REGISTRIES.flatMap(({ section, file }) => {
+  const articles = REGISTRIES.flatMap(({ section, file }) => {
     const source = fromGit
       ? requireGitSync(['show', `HEAD:${file}`])
       : fs.readFileSync(path.join(ROOT, file), 'utf8');
     return parseRegistry(source, section);
   });
+  if (!fromGit) {
+    // The scheduled historical audit can run before the HTTP pull, so the
+    // generated canton registry is unavailable by construction in that path.
+    articles.push(...readPublishedCantonArticles(ROOT, { optional: true }));
+  }
+  return articles;
 }
 
 function listHeroPaths() {

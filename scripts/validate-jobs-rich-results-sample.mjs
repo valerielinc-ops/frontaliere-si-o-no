@@ -2,6 +2,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { resolveRolloutSchemaPostingDate } from './lib/job-posting-date-rollout.mjs';
+import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const ROOT = process.cwd();
@@ -116,11 +117,8 @@ function extractJsonLdBlocks(html) {
 function getJobPosting(ldBlocks) {
   for (const block of ldBlocks) {
     if (block?.__parseError) continue;
-    if (block?.['@type'] === 'JobPosting') return block;
-    if (Array.isArray(block?.['@graph'])) {
-      const found = block['@graph'].find((x) => x?.['@type'] === 'JobPosting');
-      if (found) return found;
-    }
+    const posting = extractJobPostingNodesFromJson(block)[0];
+    if (posting) return posting;
   }
   return null;
 }

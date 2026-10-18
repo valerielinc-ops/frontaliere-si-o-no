@@ -147,6 +147,27 @@ describe('extractArticleText', () => {
     expect(result.text).toContain('Editorial paragraph one');
   });
 
+  it.each([
+    ['hidden', '<p hidden>'],
+    ['aria-hidden', '<p aria-hidden="true">'],
+    ['data-nosnippet', '<p data-nosnippet="true">'],
+    ['tracking class', '<p class="tracking-pixel">'],
+    ['tracking pixel attribute', '<p data-track-pixel="1">'],
+    ['tracking analytics attribute', '<p data-track-analytics="1">'],
+  ])('filters a non-content marker on the candidate paragraph: %s', (_label, openingTag) => {
+    const payload = 'Candidate-level tracking payload that must never enter the extracted article text.';
+    const html = `<article><noscript>${openingTag}${payload}</p>`
+      + '<p>Editorial paragraph one with enough content for extraction.</p>'
+      + '<p>Editorial paragraph two with enough content for extraction.</p>'
+      + '</noscript></article>';
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('article-tag');
+    expect(result.text).not.toContain(payload);
+    expect(result.text).toContain('Editorial paragraph one');
+    expect(result.text).toContain('Editorial paragraph two');
+  });
+
   it('preserves editorial noscript paragraphs with normal analytics attributes', () => {
     const html = '<article><noscript>'
       + '<p data-track-id="story-1">Editorial noscript paragraph one with enough content for extraction.</p>'
@@ -172,6 +193,18 @@ describe('extractArticleText', () => {
     expect(result.text).toContain('Editorial fallback paragraph one');
     expect(result.text).toContain('Editorial fallback paragraph two');
     expect(result.text).not.toContain('Tracking payload paragraph');
+  });
+
+  it('caps very long noscript paragraphs before the final source join', () => {
+    const oversized = 'Editorial fallback source '.repeat(500);
+    const trailing = 'Trailing paragraph that must not be collected after the source cap is exhausted.';
+    const html = `<main><noscript><p>${oversized}</p><p>${trailing}</p></noscript></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true, maxChars: 8000 });
+
+    expect(result.method).toBe('main-tag');
+    expect(result.text).toHaveLength(8000);
+    expect(result.paragraphCount).toBe(2);
+    expect(result.text).not.toContain('Trailing paragraph');
   });
 
   it('respects maxChars cap', () => {

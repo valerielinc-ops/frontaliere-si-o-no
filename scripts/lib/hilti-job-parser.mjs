@@ -28,6 +28,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   resolveDetailOrListingSwissGeography,
   schemaJobLocationCandidates,
@@ -188,12 +189,7 @@ function pickJobPosting(ldBlocks = []) {
   for (const raw of ldBlocks) {
     let parsed;
     try { parsed = JSON.parse(raw); } catch { continue; }
-    const candidates = Array.isArray(parsed)
-      ? parsed
-      : Array.isArray(parsed?.['@graph'])
-        ? parsed['@graph']
-        : [parsed];
-    const jp = candidates.find((o) => o && o['@type'] === 'JobPosting');
+    const [jp] = extractJobPostingNodesFromJson(parsed);
     if (jp) return jp;
   }
   return null;

@@ -59,6 +59,11 @@ import { dropRetiredSitemapUrlBlocks, isRetiredLoc } from './lib/sitemap-retired
 import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
 import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
 import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
+import {
+  parsePublishedCantonArticles,
+  PUBLISHED_CANTON_ARTICLES_ARTIFACT,
+  PUBLISHED_CANTON_ARTICLES_PATH,
+} from './lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -653,6 +658,39 @@ if (publishedSlugs.commit !== manifest.commit) {
 }
 
 const staged = new Map();
+
+// Canton article registries are published as a JSON artifact because their
+// source stays in the corpus/R2 boundary rather than in this checkout. Keep
+// the manifest commit and byte count as the transport contract before the
+// cover-ledger sync consumes the article/image pairs.
+const cantonArticleCount = manifest.counts?.cantonArticles;
+const cantonArticlesBytes = manifest.files?.[PUBLISHED_CANTON_ARTICLES_ARTIFACT];
+if (!Number.isSafeInteger(cantonArticleCount) || cantonArticleCount < 0) {
+  fail(`manifest is missing a valid canton article count for ${PUBLISHED_CANTON_ARTICLES_ARTIFACT} — refusing`);
+}
+if (!Number.isSafeInteger(cantonArticlesBytes) || cantonArticlesBytes <= 0) {
+  fail(`manifest is missing a valid byte count for ${PUBLISHED_CANTON_ARTICLES_ARTIFACT} — refusing`);
+}
+let cantonArticlesRaw;
+try {
+  cantonArticlesRaw = await get(PUBLISHED_CANTON_ARTICLES_ARTIFACT);
+} catch (err) {
+  fail(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT} unavailable: ${err.message}`);
+}
+if (Buffer.byteLength(cantonArticlesRaw, 'utf8') !== cantonArticlesBytes) {
+  failSnapshotMismatch(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT} byte count differs from manifest — refusing`);
+}
+try {
+  parsePublishedCantonArticles(cantonArticlesRaw, {
+    label: PUBLISHED_CANTON_ARTICLES_ARTIFACT,
+    expectedCommit: manifest.commit,
+    expectedCount: cantonArticleCount,
+  });
+} catch (err) {
+  fail(`${err.message}`);
+}
+staged.set(path.join(ROOT, PUBLISHED_CANTON_ARTICLES_PATH), cantonArticlesRaw);
+log(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT}: validated ${cantonArticleCount} articles`);
 
 // The public blog index carries the generated-image registry alongside the
 // reader-facing credit records. Keep that evidence pinned to the same manifest

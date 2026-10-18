@@ -10,7 +10,7 @@
 // fast path and the full build apart.
 //
 // CLI:
-//   npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath>
+//   npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath> [--read-only-audit]
 //
 // Pipeline (mirrors postWalkCoordinatorPlugin.ts's real per-file order —
 // see build-plugins/postWalkWorker.mjs for the production analogue):
@@ -128,7 +128,7 @@ import { keepPublishable, screenShardPaths } from './lib/control-char-publish-ga
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 function parseArgs(argv) {
-  const out = {};
+  const out = { readOnlyAudit: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--id') out.id = argv[++i];
@@ -136,11 +136,12 @@ function parseArgs(argv) {
     else if (a === '--out') out.out = argv[++i];
     else if (a === '--summary') out.summary = argv[++i];
     else if (a === '--allow-content-overlay') out.allowContentOverlay = true;
+    else if (a === '--read-only-audit') out.readOnlyAudit = true;
   }
   const missing = ['id', 'section', 'out', 'summary'].filter((k) => !out[k]);
   if (missing.length > 0) {
     console.error(`[publish-article-fast] missing required flag(s): ${missing.map((k) => `--${k}`).join(', ')}`);
-    console.error('Usage: npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath>');
+    console.error('Usage: npx -y tsx scripts/publish-article-fast.mjs --id <articleId> --section <frontaliere|svizzera> --out <scratchDistDir> --summary <summaryJsonPath> [--read-only-audit]');
     process.exit(1);
   }
   if (out.section !== 'frontaliere' && out.section !== 'svizzera') {
@@ -294,18 +295,22 @@ async function main() {
   // commit can make the hub see a new id while the published API/chunks still
   // serve the previous registry — exactly the hydration parity failure this
   // publisher is meant to prevent.
-  const renderedItemCount = countRenderedArticleArchiveItems({
-    distDir,
-    archivePathsByLocale: { it: hubResult.pathsByLocale?.it ?? [] },
-  });
-  const freshness = await checkCorpusFreshness(args.section, renderedItemCount, {
-    corpusCheckoutDir: corpusOverlay.checkoutDir ?? null,
-  });
-  console.log(`[publish-article-fast] ${freshness.note}`);
-  if (!freshness.ok) {
-    throw new Error(
-      `[publish-article-fast] corpus/client handoff is not publishable: ${freshness.note}`,
-    );
+  if (!args.readOnlyAudit) {
+    const renderedItemCount = countRenderedArticleArchiveItems({
+      distDir,
+      archivePathsByLocale: { it: hubResult.pathsByLocale?.it ?? [] },
+    });
+    const freshness = await checkCorpusFreshness(args.section, renderedItemCount, {
+      corpusCheckoutDir: corpusOverlay.checkoutDir ?? null,
+    });
+    console.log(`[publish-article-fast] ${freshness.note}`);
+    if (!freshness.ok) {
+      throw new Error(
+        `[publish-article-fast] corpus/client handoff is not publishable: ${freshness.note}`,
+      );
+    }
+  } else {
+    console.log('[publish-article-fast] read-only audit mode — skipped corpus/client handoff freshness guard');
   }
 
   const registryFilename = args.section === 'svizzera' ? 'swiss-articles-data.ts' : 'blog-articles-data.ts';

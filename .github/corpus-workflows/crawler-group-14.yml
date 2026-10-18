@@ -201,6 +201,7 @@ jobs:
             exit 0
           fi
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)

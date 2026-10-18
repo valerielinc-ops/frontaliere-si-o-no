@@ -21,6 +21,7 @@ import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markRetryExhaustedError } from './transient-fetch.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const PAGE_SIZE = 20;
 
@@ -283,15 +284,8 @@ export function parseHitachiEnergyDetailPage(html = '') {
 
   // 3. Fallback: JSON-LD JobPosting description
   if (!description) {
-    const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-    if (jsonLdMatch) {
-      try {
-        const data = JSON.parse(jsonLdMatch[1]);
-        if (data?.['@type'] === 'JobPosting' && data.description) {
-          description = stripHtml(data.description);
-        }
-      } catch { /* ignore */ }
-    }
+    const posting = extractJobPostingNodes(html)[0];
+    if (posting?.description) description = stripHtml(posting.description);
   }
 
   // 4. Fallback: meta description

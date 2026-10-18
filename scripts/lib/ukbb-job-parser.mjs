@@ -121,25 +121,7 @@ export function parseSitemapIndexLocs(xml = '') {
  * Returns the parsed JSON object or `null`.
  */
 export function extractJobPostingLd(html = '') {
-  // Portal now adds extra attributes (data-nuxt-schema-org, data-hid) after
-  // the type before the closing `>` — `[^>]*` tolerates those.
-  const rx = /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
-    const raw = m[1].trim();
-    if (!raw) continue;
-    try {
-      const obj = JSON.parse(raw);
-      // The portal sometimes emits a @graph array
-      const candidates = Array.isArray(obj?.['@graph']) ? obj['@graph'] : [obj];
-      for (const c of candidates) {
-        if (c?.['@type'] === 'JobPosting') return c;
-      }
-    } catch {
-      // ignore non-JSON or partial JSON-LD blocks
-    }
-  }
-  return null;
+  return extractJobPostingsLd(html)[0] || null;
 }
 
 /** Application instructions and phone numbers, not the vacancy. */

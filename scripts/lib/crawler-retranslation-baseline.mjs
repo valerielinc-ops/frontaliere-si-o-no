@@ -185,6 +185,7 @@ export function dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete } 
     flagged: 0,
     dropped: 0,
     keptNoBaseline: 0,
+    keptUnattributed: 0,
     keptAlreadyFlagged: 0,
     keptSourceChanged: 0,
     keptIncomplete: 0,
@@ -192,7 +193,9 @@ export function dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete } 
   for (const job of Array.isArray(jobs) ? jobs : []) {
     if (!job || job.needsRetranslation !== true) continue;
     report.flagged += 1;
-    const previous = identityKeys(job).map((key) => snapshot.get(key)).find(Boolean);
+    const keys = identityKeys(job);
+    if (keys.length === 0) { report.keptUnattributed += 1; continue; }
+    const previous = keys.map((key) => snapshot.get(key)).find(Boolean);
     if (!previous) { report.keptNoBaseline += 1; continue; }
     if (previous.flagged) { report.keptAlreadyFlagged += 1; continue; }
     if (previous.hash !== retranslationSourceHash(job)) { report.keptSourceChanged += 1; continue; }

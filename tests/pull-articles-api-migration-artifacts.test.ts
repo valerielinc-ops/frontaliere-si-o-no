@@ -114,6 +114,16 @@ const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-a
 const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
 const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
 const SLUGS_PATH = 'slugs.json';
+const CANTON_ARTICLES_PATH = 'canton-articles.json';
+const CANTON_ARTICLES = JSON.stringify([{
+  id: 'disoccupazione-berna-settembre-2026-stabile',
+  category: 'pratico',
+  date: '2026-10-07T19:58:52.255Z',
+  image: '/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp',
+  authorSlug: 'redazione',
+  commit: API_COMMIT,
+  section: 'canton-be',
+}]);
 const GENERATED_SNAPSHOT_PATH = 'data/published-blog-generated-image-evidence.json';
 const publishedSlugs = (blog: Record<string, Record<string, string>>, swiss = {}) => JSON.stringify({
   commit: API_COMMIT,
@@ -302,14 +312,16 @@ function baseRoutes(slugs = PUBLISHED_SLUGS): Routes {
     // (issue #5298, scripts/lib/articles-sync-pin.mjs).
     'manifest.json': JSON.stringify({
       commit: API_COMMIT,
-      counts: { articles: 500 },
+      counts: { articles: 500, cantonArticles: 1 },
       files: {
         [BLOG_CREDITS_PATH]: Buffer.byteLength(credits),
         [SLUGS_PATH]: Buffer.byteLength(slugs),
+        [CANTON_ARTICLES_PATH]: Buffer.byteLength(CANTON_ARTICLES),
       },
     }),
     [BLOG_CREDITS_PATH]: credits,
     [SLUGS_PATH]: slugs,
+    [CANTON_ARTICLES_PATH]: CANTON_ARTICLES,
     'news-ticker-live.json': ticker,
   };
   for (const s of SITEMAPS) {
@@ -487,7 +499,7 @@ describe('pull-articles-api: sitemap/slug-map source parity', () => {
 });
 
 describe('pull-articles-api: hero-image manifest', () => {
-  it('skips both artifacts when nanako does not publish them yet, and still pulls the rest', async () => {
+  it('skips optional image and news artifacts when nanako does not publish them yet', async () => {
     routes = baseRoutes();
     const dir = makeCheckout();
 
@@ -498,6 +510,59 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(out).toContain('sitemap-news-candidates.xml: not published yet');
     // The pre-existing pulls are untouched by the new code.
     expect(out).toContain('rss.xml: 12 items');
+  });
+
+  it('refuses a manifest without the canton article count', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    delete manifest.counts.cantonArticles;
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).not.toBe(0);
+    expect(out).toContain('canton-articles.json');
+    expect(out).toContain('canton article count');
+  });
+
+  it('refuses a manifest without the canton article byte count', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    delete manifest.files[CANTON_ARTICLES_PATH];
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).not.toBe(0);
+    expect(out).toContain('canton-articles.json');
+    expect(out).toContain('byte count');
+  });
+
+  it('pulls the manifest-pinned canton article registry into public', async () => {
+    const cantonArticles = JSON.stringify([{
+      id: 'disoccupazione-berna-settembre-2026-stabile',
+      category: 'pratico',
+      date: '2026-10-07T19:58:52.255Z',
+      image: '/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp',
+      authorSlug: 'redazione',
+      commit: API_COMMIT,
+      section: 'canton-be',
+    }]);
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    manifest.counts.cantonArticles = 1;
+    manifest.files[CANTON_ARTICLES_PATH] = Buffer.byteLength(cantonArticles);
+    routes['manifest.json'] = JSON.stringify(manifest);
+    routes[CANTON_ARTICLES_PATH] = cantonArticles;
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('canton-articles.json: validated 1 articles');
+    expect(readPub(dir, CANTON_ARTICLES_PATH)).toBe(cantonArticles);
   });
 
   // The two artifacts have OPPOSITE absence semantics under --require-new, and

@@ -42,6 +42,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { htmlToTextLines } from './html-to-text-lines.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 export const SOH_KEY = 'soh-solothurner-spitaeler';
 export const SOH_COMPANY_NAME = 'Solothurner Spitäler AG (soH)';
@@ -200,29 +201,7 @@ function insertBeforeContact(text, benefits) {
  */
 export function parseSohDetail(html) {
   if (!html || typeof html !== 'string') return null;
-  // Find all JSON-LD blocks — the page may have multiple (WebSite + JobPosting).
-  const blocks = [];
-  const rx = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = rx.exec(html))) blocks.push(m[1].trim());
-  let jp = null;
-  for (const raw of blocks) {
-    try {
-      const obj = JSON.parse(raw);
-      // Could be an array or a single object
-      const candidates = Array.isArray(obj) ? obj : [obj];
-      for (const c of candidates) {
-        const type = c?.['@type'];
-        if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) {
-          jp = c;
-          break;
-        }
-      }
-      if (jp) break;
-    } catch {
-      // skip malformed block
-    }
-  }
+  const jp = extractJobPostingNodes(html)[0] || null;
   if (!jp) return null;
 
   const title = String(jp.title || '').trim();
