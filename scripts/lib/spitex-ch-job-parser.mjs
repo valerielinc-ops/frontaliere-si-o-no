@@ -49,6 +49,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 export const SPITEX_CH_KEY = 'spitex-ch';
 export const SPITEX_CH_COMPANY_NAME = 'Spitex Schweiz';
@@ -81,20 +82,7 @@ export function parseSpitexListing(html = '') {
 
 export function extractJobPostingJsonLd(html = '') {
   if (!html) return null;
-  const re = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const raw = m[1].trim();
-    try {
-      const obj = JSON.parse(raw);
-      if (obj && (obj['@type'] === 'JobPosting' || (Array.isArray(obj) && obj.find((o) => o && o['@type'] === 'JobPosting')))) {
-        return Array.isArray(obj) ? obj.find((o) => o && o['@type'] === 'JobPosting') : obj;
-      }
-    } catch {
-      // try next
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 const COUNTRY_TO_CC = { Schweiz: 'CH', Switzerland: 'CH', Suisse: 'CH', Svizzera: 'CH' };

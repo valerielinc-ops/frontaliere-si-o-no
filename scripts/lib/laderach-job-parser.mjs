@@ -10,6 +10,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
@@ -206,15 +207,8 @@ export function parseLaderachDetailHtml(html) {
 
   // Extract description from JSON-LD JobPosting
   let description = '';
-  const ldMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (ldMatch) {
-    try {
-      const ld = JSON.parse(ldMatch[1]);
-      if (ld['@type'] === 'JobPosting' && ld.description) {
-        description = stripHtml(ld.description);
-      }
-    } catch { /* ignore parse errors */ }
-  }
+  const ld = extractJobPostingNodes(html)[0];
+  if (ld?.description) description = stripHtml(ld.description);
 
   // Fallback: extract from HTML body
   if (!description || description.length < 30) {

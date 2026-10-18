@@ -23,6 +23,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -403,15 +404,7 @@ function parseListingHtml(html = '') {
  * Extract the JobPosting JSON-LD from a detail page's HTML.
  */
 function extractJsonLd(html = '') {
-  const pattern = /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let match;
-  while ((match = pattern.exec(html)) !== null) {
-    try {
-      const payload = JSON.parse(match[1]);
-      if (payload && payload['@type'] === 'JobPosting') return payload;
-    } catch { /* skip malformed JSON-LD */ }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
