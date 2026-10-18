@@ -9,6 +9,9 @@ import { exportL4 } from '../scripts/ci/export-loop-outcomes.mjs';
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const ROOT = 'projects/test/databases/(default)/documents';
 const WORKFLOW_PATH = path.resolve('.github/workflows/loop-l4-alert-return.yml');
+const FILE_ONLY_L4_INPUTS = new Map([
+  ['data/alert-snoozes.json', 'repository-only deferredAlerts input; the same-day schedule measures the updated value'],
+]);
 
 function row(documentPath: string, data: Record<string, unknown>) {
   return { name: `${ROOT}/${documentPath}`, data };
@@ -266,16 +269,16 @@ describe('L4: query Firestore', () => {
 });
 
 describe('L4: perimetro del workflow', () => {
-  it('mantiene in un unico elenco il perimetro dell\'export e la sua chiusura locale', () => {
+  it('mantiene il perimetro dell\'export e dichiara gli input da file esclusi', () => {
     const { workflow, scope } = workflowSteps();
     const perimeter = exportPerimeter(scope);
     const exporter = 'scripts/ci/export-loop-outcomes.mjs';
     const closure = relativeImportClosure(exporter);
+    const sparse = workflow.jobs.audit.steps.find((step: Record<string, any>) => step.name === 'Checkout alert inputs')?.with?.['sparse-checkout'] ?? '';
     const expected = new Set([
       ...closure,
       '.github/workflows/loop-l4-alert-return.yml',
       'data/alert-config.json',
-      'data/alert-snoozes.json',
     ]);
 
     expect(perimeter).toEqual(expected);
@@ -283,8 +286,13 @@ describe('L4: perimetro del workflow', () => {
     for (const file of perimeter) {
       expect(workflow.on.push.paths, `push path ${file}`).toContain(file);
       expect(workflow.on.pull_request.paths, `pull_request path ${file}`).toContain(file);
-      const sparse = workflow.jobs.audit.steps.find((step: Record<string, any>) => step.name === 'Checkout alert inputs')?.with?.['sparse-checkout'] ?? '';
       expect(sparse, `sparse path ${file}`).toContain(`/${file}`);
+    }
+    for (const [file, reason] of FILE_ONLY_L4_INPUTS) {
+      expect(perimeter.has(file), reason).toBe(false);
+      expect(workflow.on.push.paths, reason).not.toContain(file);
+      expect(workflow.on.pull_request.paths, reason).toContain(file);
+      expect(sparse, reason).toContain(`/${file}`);
     }
     expect(scope?.run).toContain('L4_EXPORT_PERIMETER');
     expect(scope?.run).not.toContain("grep -F -x -e 'scripts/ci/export-loop-outcomes.mjs'");
@@ -309,6 +317,21 @@ describe('L4: perimetro del workflow', () => {
     expect(audit?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(evidence?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(upload?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
+  });
+
+  it('salta l\'export per il solo aggiornamento degli snooze, ma lo esegue con un path del perimetro', () => {
+    expect(runScopeStep({
+      changedPaths: ['data/alert-snoozes.json', 'data/quality-alerts-history.jsonl'],
+    }).outputs).toMatchObject({
+      run_export: 'false',
+      run_audit: 'false',
+    });
+    expect(runScopeStep({
+      changedPaths: ['data/alert-snoozes.json', 'scripts/ci/export-loop-outcomes.mjs'],
+    }).outputs).toMatchObject({
+      run_export: 'true',
+      run_audit: 'true',
+    });
   });
 
   it('limita i comandi Git e sceglie il percorso live prudente quando scadono', () => {
