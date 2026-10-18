@@ -1,16 +1,24 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-17T08:38:33.293Z",
+  "lastRunAt": "2026-10-18T08:55:18.278Z",
   "findings": {
-    "sitemap-noindex|https://frontaliereticino.ch/fr/articles-frontalier/miazzina-tessin-frontalier/": {
+    "canonical-mismatch|https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/": {
+      "code": "canonical-mismatch",
+      "url": "https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-18T08:55:18.278Z",
+      "lastSeenAt": "2026-10-18T08:55:18.278Z",
+      "detail": "https://frontaliereticino.ch/de/jobs-in-schweiz/"
+    },
+    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/": {
       "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/articles-frontalier/miazzina-tessin-frontalier/",
-      "consecutiveRuns": 10,
-      "firstSeenAt": "2026-10-08T11:31:27.015Z",
-      "lastSeenAt": "2026-10-17T08:38:33.293Z",
+      "url": "https://frontaliereticino.ch/de/jobs-in-schweiz/suche-niveau-lausanne/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-18T08:55:18.278Z",
+      "lastSeenAt": "2026-10-18T08:55:18.278Z",
       "detail": null
     }
   },
   "cleanRuns": 0,
-  "lastActionable": true
+  "lastActionable": false
 }
