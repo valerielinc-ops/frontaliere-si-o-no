@@ -33,6 +33,7 @@ const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog
 const IMAGE_CREDITS_INDEX = path.join(ROOT, 'data/image-credits-blog.json');
 const GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 const BASELINE_RELATIVE_PATH = 'data/blog-cover-corpus-baseline.json';
+const BASELINE_REF_ENV = 'BLOG_COVER_LEDGER_BASE_REF';
 
 function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; }
@@ -56,17 +57,26 @@ function recordForKey(key) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return null; }
 }
 
-function readOriginMainBaseline() {
+function readBaselineAtRef(ref) {
   try {
     const raw = execFileSync(
       'git',
-      ['show', `origin/main:${BASELINE_RELATIVE_PATH}`],
+      ['show', `${ref}:${BASELINE_RELATIVE_PATH}`],
       { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
     );
     return JSON.parse(raw);
   } catch {
     return null;
   }
+}
+
+function comparisonBaselineRef() {
+  // `origin/main` is a moving ref. On a push to main, a concurrent commit can
+  // advance it while this run is still checking the older event SHA, turning a
+  // valid pre-bootstrap baseline into a false "removal". Callers that know
+  // their immutable event/base ref provide it explicitly; local invocations
+  // retain the historical origin/main fallback.
+  return String(process.env[BASELINE_REF_ENV] || '').trim() || 'origin/main';
 }
 
 function readCantonArtifactDeclaration(baseline) {
@@ -110,12 +120,13 @@ function main() {
 
   const errors = [];
   const cantonDeclaration = readCantonArtifactDeclaration(corpusBaseline);
-  const originMainDeclaration = readCantonArtifactDeclaration(readOriginMainBaseline());
+  const comparisonRef = comparisonBaselineRef();
+  const comparisonDeclaration = readCantonArtifactDeclaration(readBaselineAtRef(comparisonRef));
   if (cantonDeclaration.error) errors.push(cantonDeclaration.error);
-  if (originMainDeclaration.declared && !cantonDeclaration.declared) {
+  if (comparisonDeclaration.declared && !cantonDeclaration.declared) {
     errors.push(
       `${BASELINE_RELATIVE_PATH}: declaration for ${PUBLISHED_CANTON_ARTICLES_PATH} cannot be removed; `
-      + 'origin/main already declares the artifact',
+      + `comparison baseline ${comparisonRef} already declares the artifact`,
     );
   }
 

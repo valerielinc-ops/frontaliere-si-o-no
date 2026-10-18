@@ -431,6 +431,31 @@ describe('sync-published-blog-covers', () => {
     );
   });
 
+  it('uses the immutable comparison ref when origin/main advances during a run', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    commitFixture(root);
+    const preBootstrapSha = git(root, ['rev-parse', 'HEAD']).trim();
+
+    declareCantonArtifact(root);
+    git(root, ['add', '--', 'data/blog-cover-corpus-baseline.json']);
+    git(root, ['commit', '--quiet', '-m', 'future artifact declaration']);
+    const advancedMainSha = git(root, ['rev-parse', 'HEAD']).trim();
+    git(root, ['update-ref', 'refs/remotes/origin/main', advancedMainSha]);
+    git(root, ['reset', '--hard', '--quiet', preBootstrapSha]);
+
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, BLOG_COVER_LEDGER_BASE_REF: preBootstrapSha },
+    });
+
+    expect(result.status).toBe(0);
+    expect(JSON.parse(result.stdout)).toMatchObject({ errors: 0 });
+    expect(result.stderr).not.toContain('declaration for public/canton-articles.json cannot be removed');
+  });
+
   it.each([
     ['private-grant', validPrivateGrantEvidence],
     ['licensed Pexels photo', validPexelsEvidence],

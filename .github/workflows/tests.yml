@@ -2549,6 +2549,15 @@ jobs:
 
       - name: Verify published blog cover ledger
         if: ${{ steps.body_contract.outcome != 'failure' }}
+        env:
+          # The remote main ref can advance while a push run is still in
+          # flight. Compare against the immutable event/base commit instead
+          # of letting a later declaration manufacture a removal failure.
+          BLOG_COVER_LEDGER_BASE_REF: >-
+            ${{ github.event_name == 'push' && github.event.before
+                || github.event.pull_request.base.sha
+                || github.event.merge_group.base_sha
+                || 'origin/main' }}
         run: node scripts/ci/verify-blog-cover-ledger.mjs
 
       - name: vitest related (PR diff)
