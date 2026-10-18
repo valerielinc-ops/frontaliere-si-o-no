@@ -22,6 +22,7 @@ import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { withSingleFlightLock } from '../lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from '../lib/stale-fetch-pack-sweep.mjs';
+import { guardTreeShrink } from '../ci/guard-main-tree-shrink.mjs';
 
 const DATA_PATH = 'data/instagram-insights.json';
 const GIT_TIMEOUT_MS = 120_000;
@@ -102,6 +103,25 @@ function isStorageError(error) {
     .map(String)
     .join(' ');
   return /\b(?:ENOSPC|No space left on device|disk full|not enough space)\b/i.test(text);
+}
+
+class MainTreeShrinkError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'MainTreeShrinkError';
+    this.code = 'ERR_MAIN_TREE_SHRINK';
+  }
+}
+
+function assertMainTreeIntegrity(worktree) {
+  const before = gitOutput(worktree, ['rev-parse', '--verify', 'origin/main^{commit}']);
+  const after = gitOutput(worktree, ['rev-parse', '--verify', 'HEAD^{commit}']);
+  const result = guardTreeShrink(before, after, worktree);
+  if (result.suspicious) {
+    throw new MainTreeShrinkError(
+      `Possible catastrophic main tree shrink: ${result.before} → ${result.after} paths (removed ${result.removed}; threshold leaves at most ${result.remainingLimit}).`,
+    );
+  }
 }
 
 function removeStaleInsightWorktrees(root) {
@@ -187,7 +207,7 @@ function refreshMain(repo, gitFn) {
   }
 }
 
-function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
+function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn, treeGuardFn }) {
   let refreshBeforeAttempt = false;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     sweepRepositoryFetchPacks(repo);
@@ -202,6 +222,7 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
         cleanupWorktree(repo, result.worktree, gitFn);
         return { status: result.status, attempt };
       }
+      treeGuardFn(result.worktree);
       try {
         gitFn(result.worktree, ['push', 'origin', 'HEAD:main'], {
           env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
@@ -210,12 +231,14 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
         return { status: 'pushed', attempt };
       } catch (error) {
         cleanupWorktree(repo, result.worktree, gitFn);
+        if (error instanceof MainTreeShrinkError) throw error;
         if (isStorageError(error)) throw error;
         if (attempt === attempts) throw error;
         refreshBeforeAttempt = true;
       }
     } catch (error) {
       if (result?.worktree) cleanupWorktree(repo, result.worktree, gitFn);
+      if (error instanceof MainTreeShrinkError) throw error;
       if (isStorageError(error)) throw error;
       if (attempt === attempts) throw error;
       refreshBeforeAttempt = true;
@@ -224,10 +247,24 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
   return { status: 'not-pushed' };
 }
 
-export function persistBrowserInsights({ repo, snapshot, dryRun = false, attempts = 3, gitFn = git } = {}) {
+export function persistBrowserInsights({
+  repo,
+  snapshot,
+  dryRun = false,
+  attempts = 3,
+  gitFn = git,
+  treeGuardFn = assertMainTreeIntegrity,
+} = {}) {
   readSnapshot(snapshot);
   const lockPath = path.join(path.dirname(snapshot), '.insights-persist.lock');
-  const run = withSingleFlightLock(lockPath, () => persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }));
+  const run = withSingleFlightLock(lockPath, () => persistUnlocked({
+    repo,
+    snapshot,
+    dryRun,
+    attempts,
+    gitFn,
+    treeGuardFn,
+  }));
   return run.acquired ? run.value : { status: 'busy' };
 }
 

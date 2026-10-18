@@ -34,9 +34,10 @@ function runHook({
   const marker = join(stubDir, 'gate-ran');
   const argsFile = join(stubDir, 'gate-args');
   const oldHistoryMarker = join(stubDir, 'old-history-ran');
+  const treeShrinkMarker = join(stubDir, 'tree-shrink-ran');
   writeFileSync(
     join(stubDir, 'node'),
-    `#!/usr/bin/env bash\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then echo ran > "${oldHistoryMarker}"; exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
+    `#!/usr/bin/env bash\nif [[ "\${1:-}" == *guard-main-tree-shrink.mjs ]]; then echo ran > "${treeShrinkMarker}"; exit 0; fi\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then echo ran > "${oldHistoryMarker}"; exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
   );
   chmodSync(join(stubDir, 'node'), 0o755);
   try {
@@ -60,6 +61,7 @@ function runHook({
     }
     let gateRan = false;
     let oldHistoryRan = false;
+    let treeShrinkRan = false;
     let args: string[] = [];
     try {
       gateRan = readFileSync(marker, 'utf8').includes('ran');
@@ -72,11 +74,16 @@ function runHook({
       oldHistoryRan = false;
     }
     try {
+      treeShrinkRan = readFileSync(treeShrinkMarker, 'utf8').includes('ran');
+    } catch {
+      treeShrinkRan = false;
+    }
+    try {
       args = readFileSync(argsFile, 'utf8').split('\n').filter(Boolean);
     } catch {
       args = [];
     }
-    return { code, stdout, gateRan, oldHistoryRan, args };
+    return { code, stdout, gateRan, oldHistoryRan, treeShrinkRan, args };
   } finally {
     rmSync(stubDir, { recursive: true, force: true });
   }
@@ -190,40 +197,48 @@ function runHistoryGuard(
 
 const MAIN_REF =
   'refs/heads/main 1111111111111111111111111111111111111111 refs/heads/main 2222222222222222222222222222222222222222\n';
+const NEW_SHA256_MAIN_REF =
+  `refs/heads/main ${'1'.repeat(64)} refs/heads/main ${'0'.repeat(64)}\n`;
+const DELETE_MAIN_REF =
+  `refs/heads/main ${'0'.repeat(40)} refs/heads/main ${'2'.repeat(40)}\n`;
 const BRANCH_REF =
   'refs/heads/claude/fix-x 1111111111111111111111111111111111111111 refs/heads/claude/fix-x 2222222222222222222222222222222222222222\n';
 
 describe('.githooks/pre-push CI automation guard', () => {
   it('skips the sibling gate for a GitHub Actions push to main (data-refresh/article path)', () => {
-    const { code, stdout, gateRan, oldHistoryRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF });
+    const { code, stdout, gateRan, oldHistoryRan, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF });
     expect(code).toBe(0);
     expect(stdout).toMatch(/skipped/);
     expect(gateRan).toBe(false);
     expect(oldHistoryRan).toBe(true);
+    expect(treeShrinkRan).toBe(true);
   });
 
   it('still runs the gate for a GitHub Actions push to a claude/* branch (issue-fix agents)', () => {
-    const { code, gateRan, args } = runHook({ githubActions: 'true', stdinRefs: BRANCH_REF });
+    const { code, gateRan, treeShrinkRan, args } = runHook({ githubActions: 'true', stdinRefs: BRANCH_REF });
     expect(gateRan).toBe(true);
+    expect(treeShrinkRan).toBe(false);
     expect(code).toBe(42);
     expect(args).toContain('--head');
     expect(args).toContain('1111111111111111111111111111111111111111');
   });
 
   it('still runs the gate for a mixed push (main + branch) under GitHub Actions', () => {
-    const { gateRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF + BRANCH_REF });
+    const { gateRan, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF + BRANCH_REF });
     expect(gateRan).toBe(true);
+    expect(treeShrinkRan).toBe(true);
   });
 
   it('still runs the gate for a local dev push to main (GITHUB_ACTIONS unset)', () => {
-    const { code, gateRan, oldHistoryRan } = runHook({ stdinRefs: MAIN_REF });
+    const { code, gateRan, oldHistoryRan, treeShrinkRan } = runHook({ stdinRefs: MAIN_REF });
     expect(gateRan).toBe(true);
     expect(oldHistoryRan).toBe(true);
+    expect(treeShrinkRan).toBe(true);
     expect(code).toBe(42);
   });
 
   it('skips only the sibling gate for a named automated data push to main', () => {
-    const { code, stdout, gateRan, oldHistoryRan } = runHook({
+    const { code, stdout, gateRan, oldHistoryRan, treeShrinkRan } = runHook({
       automatedDataPush: 'social-robot-insights',
       stdinRefs: MAIN_REF,
     });
@@ -231,21 +246,37 @@ describe('.githooks/pre-push CI automation guard', () => {
     expect(stdout).toContain('sibling-gate: skipped (automated data push to main: social-robot-insights)');
     expect(gateRan).toBe(false);
     expect(oldHistoryRan).toBe(true);
+    expect(treeShrinkRan).toBe(true);
+  });
+
+  it('skips tree comparison when creating main with a 64-character null SHA', () => {
+    const { code, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: NEW_SHA256_MAIN_REF });
+    expect(code).toBe(0);
+    expect(treeShrinkRan).toBe(false);
+  });
+
+  it('refuses to delete main before running any other push gate', () => {
+    const { code, stdout, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: DELETE_MAIN_REF });
+    expect(code).toBe(1);
+    expect(stdout).toContain('Refusing to delete refs/heads/main');
+    expect(treeShrinkRan).toBe(false);
   });
 
   it('runs the sibling gate for a named automated data push to a non-main branch', () => {
-    const { code, gateRan, oldHistoryRan } = runHook({
+    const { code, gateRan, oldHistoryRan, treeShrinkRan } = runHook({
       automatedDataPush: 'social-robot-insights',
       stdinRefs: BRANCH_REF,
     });
     expect(code).toBe(42);
     expect(gateRan).toBe(true);
     expect(oldHistoryRan).toBe(true);
+    expect(treeShrinkRan).toBe(false);
   });
 
   it('still runs the gate when stdin lists no refs (nothing to classify — fail closed)', () => {
-    const { gateRan } = runHook({ githubActions: 'true', stdinRefs: '' });
+    const { gateRan, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: '' });
     expect(gateRan).toBe(true);
+    expect(treeShrinkRan).toBe(false);
   });
 });
 

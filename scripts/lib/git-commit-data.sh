@@ -3047,6 +3047,13 @@ commit_isolated_from_worktree() {
       return 1
     fi
 
+    if ! node "$(dirname "$0")/../ci/guard-main-tree-shrink.mjs" \
+      --before "$remote_sha" --after "$new_commit"; then
+      emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
+      echo "❌ grouped-isolated: refusing to push a collapsed main tree"
+      return 1
+    fi
+
     ensure_git_auth
     # `push` is the network round trip alone: building the commit object and
     # refreshing the credentials are charged to their own phase.
@@ -3358,6 +3365,16 @@ fi
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))
 ensure_git_auth
+main_push_base="$(git rev-parse --verify 'origin/main^{commit}')" || {
+  echo "❌ Cannot resolve origin/main for the main-tree integrity check"
+  exit 1
+}
+main_push_head="$(git rev-parse --verify 'HEAD^{commit}')" || {
+  echo "❌ Cannot resolve HEAD for the main-tree integrity check"
+  exit 1
+}
+node "$(dirname "$0")/../ci/guard-main-tree-shrink.mjs" \
+  --before "$main_push_base" --after "$main_push_head"
 # Capture the push output (echoed below either way, so the step log stays
 # complete) so exhaustion can be classified on the LAST attempt: only a
 # genuine rejection/race may become exit 42.
