@@ -1,7 +1,19 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 // @ts-expect-error — .mjs module without type declarations
 import { fetchBriefClicks } from '@/scripts/send-daily-brief.mjs';
+
+const firestoreIndexes = JSON.parse(
+  readFileSync(path.resolve(__dirname, '..', 'firestore.indexes.json'), 'utf8'),
+) as {
+  indexes: Array<{
+    collectionGroup: string;
+    queryScope: string;
+    fields: Array<{ fieldPath: string; order: string }>;
+  }>;
+};
 
 function fakeDb(docs: Array<{ data: () => Record<string, unknown> }>) {
   const whereCalls: Array<[string, string, unknown]> = [];
@@ -27,6 +39,19 @@ function fakeDb(docs: Array<{ data: () => Record<string, unknown> }>) {
 }
 
 describe('daily brief click attribution query', () => {
+  it('declares the collection-group composite in the range-filter order', () => {
+    // Firestore multiple-range queries require the composite fields in the order
+    // requested by FAILED_PRECONDITION: campaign_id first, then clicked_at.
+    expect(firestoreIndexes.indexes).toContainEqual({
+      collectionGroup: 'campaign_deliveries',
+      queryScope: 'COLLECTION_GROUP',
+      fields: [
+        { fieldPath: 'campaign_id', order: 'ASCENDING' },
+        { fieldPath: 'clicked_at', order: 'ASCENDING' },
+      ],
+    });
+  });
+
   it('narrows the server query to daily-brief campaigns without changing attribution', async () => {
     const sinceMs = Date.parse('2026-10-01T00:00:00.000Z');
     const fake = fakeDb([
