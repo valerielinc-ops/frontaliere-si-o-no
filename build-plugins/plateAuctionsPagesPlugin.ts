@@ -19,7 +19,7 @@ import { cleanNamespaces } from './shared/distNamespaceCleanup';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
 import { readPlateAuctionArchive, publicArchivedPlateAuction } from '../scripts/lib/plate-auction-archive.mjs';
-import { PLATE_AUCTION_DETAIL_SEED_ID } from '../scripts/lib/plateAuctionSections.mjs';
+import { isRecoveredPlateObservation, recoveredPlateObservationNotice, PLATE_AUCTION_DETAIL_SEED_ID } from '../scripts/lib/plateAuctionSections.mjs';
 import { validatePlateAuctionSourcesRegistry } from '../services/plateAuctions/types';
 import type {
   PlateAuctionSourceStatus,
@@ -427,10 +427,12 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   // buildSeoPageHtml owns the single outer <main> in outside-root mode. Keep
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
-  const historicalSeed = view === 'detail' && detailRow && ['closed', 'sold', 'unsold'].includes(detailRow.auctionStatus)
+  const historicalSeed = view === 'detail' && detailRow && (['closed', 'sold', 'unsold'].includes(detailRow.auctionStatus) || isRecoveredPlateObservation(detailRow))
     ? `<script type="application/json" id="${PLATE_AUCTION_DETAIL_SEED_ID}">${inlineScriptJson({ schema: 1, path: new URL(canonicalUrl).pathname, row: publicArchivedPlateAuction(detailRow) })}</script>`
     : '';
-  const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '') + historicalSeed;
+  const observationNotice = view === 'detail' && detailRow ? recoveredPlateObservationNotice(detailRow, locale) : '';
+  const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '')
+    .replace('</h1>', `</h1>${observationNotice ? `<p class="text-base leading-relaxed text-body" data-plate-observation-notice>${esc(observationNotice)}</p>` : ''}`) + historicalSeed;
   const itemListRows = view === 'directory' ? directoryPageRows : rows;
   const itemList = itemListRows.map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
   const itemListTotal = view === 'directory' ? directoryRows.length : rows.length;
