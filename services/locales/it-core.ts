@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ "whatsNew.v39810.title": "Eventi passati consultabili per comune",
+ "whatsNew.v39810.municipalArchives.title": "Archivi comunali conservati",
+ "whatsNew.v39810.municipalArchives.desc": "Le pagine dei comuni con eventi pubblici passati conservano titoli, date e collegamenti alle schede, anche senza appuntamenti futuri.",
  "whatsNew.v3988.title": "Articoli con collegamenti più pertinenti",
  "whatsNew.v3988.contextualLinks.title": "Strumenti nella tua lingua",
  "whatsNew.v3988.contextualLinks.desc": "Gli articoli collegano gli strumenti pertinenti al tema, con supporto per italiano, inglese, tedesco e francese.",
